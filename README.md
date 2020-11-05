@@ -30,4 +30,4 @@
 
 
 #### 更多示例参见
-src/test/java/com/bytedanceapi/example
+src/main/java/com/bytedanceapi/example

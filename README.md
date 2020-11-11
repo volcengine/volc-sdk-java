@@ -3,7 +3,7 @@
 ### - Maven依赖
 ```
 <dependency>
-    <groupId>com.bytedanceapi</groupId>
+    <groupId>com.volcengine</groupId>
     <artifactId>volc-sdk-java</artifactId>
     <version>0.0.6</version>
 </dependency>
@@ -24,13 +24,10 @@
   - ap-singapore-1
   - us-east-1
   ```
-- 默认为cn-north-1，如果需要调用其它地域服务，请在初始化函数getInstance中传入指定地域region，例如：
-  ```
-  IVodService vodService = VodServiceImpl.getInstance('us-east-1');
-  ```
+  
 - 注意：IAM模块目前只开放cn-north-1区域
 
 
 
 #### 更多示例参见
-src/test/java/com/bytedanceapi/example
+src/main/java/com/bytedanceapi/example

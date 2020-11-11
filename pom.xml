@@ -6,7 +6,7 @@
 
     <groupId>com.volcengine</groupId>
     <artifactId>volc-sdk-java</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>volc-sdk-java</name>

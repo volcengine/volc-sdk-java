@@ -414,7 +414,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         sts2.setCurrentTime(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX").format(now));
         sts2.setExpiredTime(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX").format(expireTime));
 
-        InnerToken innerToken = Sts2Utils.createInnerToken(serviceInfo.getCredentials(),sts2,inlinePolicy,expireTime.getTime());
+        InnerToken innerToken = Sts2Utils.createInnerToken(serviceInfo.getCredentials(),sts2,inlinePolicy,expireTime.getTime() / 1000);
         String sessionToken = "STS2" + Base64.getEncoder().encodeToString(JSON.toJSONString(innerToken).getBytes());
         sts2.setSessionToken(sessionToken);
         return sts2;

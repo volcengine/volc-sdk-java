@@ -71,11 +71,11 @@ public class Sts2Utils {
         return Base64.getEncoder().encodeToString(encrypted);//此处使用BASE64做转码功能，同时能起到2次加密的作用。
     }
 
-    public static InnerToken createInnerToken(Credentials credentials, SecurityToken2 sts2, Policy inlinePolicy, long t) throws Exception {
+    public static InnerToken createInnerToken(Credentials credentials, SecurityToken2 sts2, Policy inlinePolicy, long seconds) throws Exception {
         InnerToken innerToken = new InnerToken();
         innerToken.setLtAccessKeyId(credentials.getAccessKeyID());
         innerToken.setAccessKeyId(sts2.getAccessKeyId());
-        innerToken.setExpiredTime(t);
+        innerToken.setExpiredTime(seconds);
 
         byte[] key = genMD5Checksum(credentials.getSecretAccessKey().getBytes());
         innerToken.setSignedSecretAccessKey(aesEncryptCBC(sts2.getSecretAccessKey(), key));

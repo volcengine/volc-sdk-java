@@ -3,7 +3,7 @@
 ### - Maven依赖
 ```
 <dependency>
-    <groupId>com.bytedanceapi</groupId>
+    <groupId>com.volcengine</groupId>
     <artifactId>volc-sdk-java</artifactId>
     <version>0.0.6</version>
 </dependency>

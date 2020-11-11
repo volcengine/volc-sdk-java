@@ -35,6 +35,7 @@ import org.apache.http.util.EntityUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -234,7 +235,12 @@ public abstract class BaseServiceImpl implements IBaseService {
             response = client.execute(request);
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode >= 300) {
-                return new RawResponse(null, SdkError.EHTTP.getNumber(), new Exception(SdkError.getErrorDesc(SdkError.EHTTP)));
+                String msg = SdkError.getErrorDesc(SdkError.EHTTP);
+                byte[] bytes = EntityUtils.toByteArray(response.getEntity());
+                if (bytes != null && bytes.length > 0) {
+                    msg = new String(bytes, StandardCharsets.UTF_8);
+                }
+                return new RawResponse(null, SdkError.EHTTP.getNumber(), new Exception(msg));
             }
             byte[] bytes = EntityUtils.toByteArray(response.getEntity());
             return new RawResponse(bytes, SdkError.SUCCESS.getNumber(), null);

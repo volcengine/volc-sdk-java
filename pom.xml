@@ -10,7 +10,7 @@
     <packaging>jar</packaging>
 
     <name>volc-sdk-java</name>
-    <url>https://open.bytedance.com/</url>
+    <url>https://open.volcengineapi.com</url>
     <description>
         The VOLC Engine SDK for Java
     </description>

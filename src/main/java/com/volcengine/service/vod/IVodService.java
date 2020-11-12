@@ -5,6 +5,9 @@
 
 package com.volcengine.service.vod;
 
+import com.volcengine.model.vod.request.VodUploadMediaRequest;
+import com.volcengine.model.vod.response.VodCommitUploadInfoResponse;
+
 /**
  * The interface Vod service.
  */
@@ -73,7 +76,16 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.model.vod.response.VodCommitUploadInfoResponse commitUploadInfo(com.volcengine.model.vod.request.VodCommitUploadInfoRequest input) throws Exception;
-	
+
+	/**
+	 * uploadMedia
+	 *
+	 * @param vodUploadMediaRequest
+	 * @return
+	 * @throws Exception
+	 */
+	VodCommitUploadInfoResponse uploadMedia(VodUploadMediaRequest vodUploadMediaRequest) throws Exception;
+
 	/**
      * updateVideoInfo.
      *

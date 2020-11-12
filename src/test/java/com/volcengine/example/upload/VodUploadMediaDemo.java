@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.beans.Functions;
 import com.volcengine.model.vod.request.VodUploadMediaRequest;
 import com.volcengine.model.vod.response.VodCommitUploadInfoResponse;
+import com.volcengine.service.vod.IVodService;
 import com.volcengine.service.vod.impl.VodUploadServiceImpl;
 
 import java.util.ArrayList;
@@ -12,14 +13,14 @@ import java.util.List;
 public class VodUploadMediaDemo {
 
     public static void main(String[] args) {
-        VodUploadServiceImpl vodService = VodUploadServiceImpl.getInstance();
+        IVodService vodService = VodUploadServiceImpl.getInstance();
 
         // call below method if you dont set ak and sk in ～/.vcloud/config
         vodService.setAccessKey("your ak");
         vodService.setSecretKey("your sk");
 
         String space = "your space name";
-        String filePath = "file path";
+        String filePath = "your file path";
 
         List<Functions> functionsList = new ArrayList<>();
         Functions getMetaFunc = Functions.GetMetaFunction();

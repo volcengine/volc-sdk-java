@@ -38,7 +38,6 @@ public class VodConfig {
                             put(Const.Header, new ArrayList<Header>() {
                                 {
                                     add(new BasicHeader("Accept", "application/json"));
-                                    add(new BasicHeader("X-TT-ENV", "boe_husky_feature"));
                                 }
                             });
                             put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "vod"));

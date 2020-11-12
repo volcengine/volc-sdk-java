@@ -19,15 +19,6 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      */
     String getPlayAuthToken(java.util.Map<String, String> params) throws Exception;
 
-	/**
-     * Gets upload auth token.
-     *
-     * @param params the params
-     * @return the upload auth token
-     * @throws Exception the exception
-     */
-    String getUploadAuthToken(java.util.Map<String, String> params) throws Exception;
-
 
 	/**
      * getPlayInfo.

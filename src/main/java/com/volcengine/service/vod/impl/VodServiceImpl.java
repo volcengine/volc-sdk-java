@@ -5,18 +5,14 @@
 
 package com.volcengine.service.vod.impl;
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.google.protobuf.StringValue;
 import com.google.protobuf.util.JsonFormat;
-import org.apache.http.NameValuePair;
 import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.InputStreamReader;
 import java.util.*;
 
 public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl implements com.volcengine.service.vod.IVodService {
 	
-	private VodServiceImpl() {
+	protected VodServiceImpl() {
         super(com.volcengine.service.vod.VodConfig.ServiceInfoMap.get(com.volcengine.helper.Const.REGION_CN_NORTH_1), com.volcengine.service.vod.VodConfig.apiInfoList);
     }
 
@@ -67,84 +63,12 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         return getVideoPlayAuthWithExpiredTime(vidList, streamTypeList, watermarkList, com.volcengine.util.Time.Hour);
     }
 
-
-    private com.volcengine.model.beans.UploadCompleteInfo upload(String spaceName, String filePath, String fileType) throws Exception {
-        File file = new File(filePath);
-        if (!(file.isFile() && file.exists())) {
-            throw new Exception(com.volcengine.error.SdkError.getErrorDesc(com.volcengine.error.SdkError.ENOFILE));
-        }
-        long crc32 = com.volcengine.helper.Utils.crc32(filePath);
-        if (crc32 == -1) {
-            throw new Exception("file crc32 error");
-        }
-        String checkSum = String.format("%x", crc32);
-
-        com.volcengine.model.vod.request.VodApplyUploadInfoRequest.Builder applyUploadRequest = com.volcengine.model.vod.request.VodApplyUploadInfoRequest.newBuilder();
-        applyUploadRequest.setSpaceName(spaceName);
-
-        // apply upload
-        com.volcengine.model.vod.response.VodApplyUploadInfoResponse applyUploadResponse = applyUploadInfo(applyUploadRequest.build());
-        if (applyUploadResponse.getResponseMetadata().getError() != null) {
-            throw new Exception(applyUploadResponse.getResponseMetadata().getError().getMessage());
-        }
-        if (applyUploadResponse.getResult() == null || applyUploadResponse.getResult().getData().getUploadAddress().getStoreInfosList() == null) {
-            throw new Exception("apply upload result is null");
-        }
-
-        String oid = applyUploadResponse.getResult().getData().getUploadAddress().getStoreInfos(0).getStoreUri();
-        String sessionKey = applyUploadResponse.getResult().getData().getUploadAddress().getSessionKey();
-        String auth = applyUploadResponse.getResult().getData().getUploadAddress().getStoreInfos(0).getAuth();
-        String host = applyUploadResponse.getResult().getData().getUploadAddress().getUploadHosts(0);
-        String url = String.format("http://%s/%s", host, oid);
-
-        Map<String, String> headers = new HashMap<>();
-        headers.put("Content-CRC32", checkSum);
-        headers.put("Authorization", auth);
-
-        long startTime = System.currentTimeMillis();
-        boolean uploadStatus = false;
-        for (int i = 0; i < 3; i++) {
-            uploadStatus = put(url, filePath, headers);
-            if (uploadStatus) {
-                break;
-            }
-        }
-        if (!uploadStatus) {
-            throw new Exception(com.volcengine.error.SdkError.getErrorDesc(com.volcengine.error.SdkError.EUPLOAD));
-        }
-        long endTime = System.currentTimeMillis();
-        long cost = endTime - startTime;
-        float avgSpeed = (float) file.length() / (float) cost;
-        System.out.println(String.format("upload {%s} cost {%d} ms, avgSpeed: {%f} KB/s", filePath, cost, avgSpeed));
-
-        com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = new com.volcengine.model.beans.UploadCompleteInfo(oid, sessionKey);
-        return uploadCompleteInfo;
-    }
-
-
 	@Override
     public String getPlayAuthToken(Map<String, String> params) throws Exception {
         Map<String, String> ret = new HashMap<>();
         ret.put("Version", "v1");
         String getPlayInfoToken = getSignUrl(com.volcengine.helper.Const.GetPlayInfo, com.volcengine.helper.Utils.mapToPairList(params));
         ret.put("GetPlayInfoToken", getPlayInfoToken);
-
-        String retStr = JSON.toJSONString(ret);
-        Base64.Encoder encoder = Base64.getEncoder();
-        return encoder.encodeToString(retStr.getBytes());
-    }
-
-    @Override
-    public String getUploadAuthToken(Map<String, String> params) throws Exception {
-        Map<String, String> ret = new HashMap<String, String>();
-        ret.put("Version", "v1");
-        List<NameValuePair> pairs = com.volcengine.helper.Utils.mapToPairList(params);
-
-        String applyUploadToken = getSignUrl(com.volcengine.helper.Const.ApplyUploadInfo, pairs);
-        ret.put("ApplyUploadToken", applyUploadToken);
-
-        String commitUploadToken = getSignUrl(com.volcengine.helper.Const.CommitUploadInfo, pairs);
-        ret.put("CommitUploadToken", commitUploadToken);
 
         String retStr = JSON.toJSONString(ret);
         Base64.Encoder encoder = Base64.getEncoder();

@@ -3,6 +3,9 @@ package com.volcengine.helper;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageOrBuilder;
+import com.google.protobuf.util.JsonFormat;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -174,5 +177,29 @@ public class Utils {
             }
         }
         return pairs;
+    }
+
+    // 对于List类型entry，逗号连接生成string value
+    public static Map<String, String> protoBufferToMap(MessageOrBuilder obj) throws InvalidProtocolBufferException {
+        Map<String, Object> map = JSONObject.toJavaObject(JSONObject.parseObject(JsonFormat.printer().includingDefaultValueFields().print(obj)), Map.class);
+        Map<String, String> params = new HashMap<>();
+        for (Map.Entry<String, Object> entry: map.entrySet()) {
+            if (entry.getValue().getClass() == Integer.class) {
+                params.put(entry.getKey(), ((Integer) entry.getValue()).toString());
+            } else if (entry.getValue().getClass() == String.class) {
+                params.put(entry.getKey(), (String) entry.getValue());
+            } else if (entry.getValue().getClass() == Boolean.class) {
+                params.put(entry.getKey(), ((Boolean) entry.getValue()).toString());
+            } else if (entry.getValue().getClass() == Float.class) {
+                params.put(entry.getKey(), ((Float) entry.getValue()).toString());
+            } else if (entry.getValue().getClass() == Double.class) {
+                params.put(entry.getKey(), ((Double) entry.getValue()).toString());
+            } else if (entry.getValue().getClass() == Byte.class) {
+                params.put(entry.getKey(), ((Byte) entry.getValue()).toString());
+            } else {
+                params.put(entry.getKey(), JSONObject.toJSONString(entry.getValue()));
+            }
+        }
+        return params;
     }
 }

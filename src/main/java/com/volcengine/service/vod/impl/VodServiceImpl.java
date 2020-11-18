@@ -160,57 +160,57 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 	
 	
 	/**
-     * updateVideoInfo.
+     * updateMediaInfo.
      *
-     * @param input com.volcengine.model.vod.request.VodUpdateVideoInfoRequest
-     * @return com.volcengine.model.vod.response.VodUpdateVideoInfoResponse
+     * @param input com.volcengine.model.vod.request.VodUpdateMediaInfoRequest
+     * @return com.volcengine.model.vod.response.VodUpdateMediaInfoResponse
      * @throws Exception the exception
      */
 	@Override
-	public com.volcengine.model.vod.response.VodUpdateVideoInfoResponse updateVideoInfo(com.volcengine.model.vod.request.VodUpdateVideoInfoRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.UpdateVideoInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input)));
+	public com.volcengine.model.vod.response.VodUpdateMediaInfoResponse updateMediaInfo(com.volcengine.model.vod.request.VodUpdateMediaInfoRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.UpdateMediaInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        com.volcengine.model.vod.response.VodUpdateVideoInfoResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodUpdateVideoInfoResponse.newBuilder();
+        com.volcengine.model.vod.response.VodUpdateMediaInfoResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodUpdateMediaInfoResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}
 	
 	
 	/**
-     * updateVideoPublishStatus.
+     * updateMediaPublishStatus.
      *
-     * @param input com.volcengine.model.vod.request.VodUpdateVideoPublishStatusRequest
-     * @return com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse
+     * @param input com.volcengine.model.vod.request.VodUpdateMediaPublishStatusRequest
+     * @return com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse
      * @throws Exception the exception
      */
 	@Override
-	public com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse updateVideoPublishStatus(com.volcengine.model.vod.request.VodUpdateVideoPublishStatusRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.UpdateVideoPublishStatus, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input)));
+	public com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse updateMediaPublishStatus(com.volcengine.model.vod.request.VodUpdateMediaPublishStatusRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.UpdateMediaPublishStatus, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse.newBuilder();
+        com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}
 	
 	
 	/**
-     * getVideoInfos.
+     * getMediaInfos.
      *
-     * @param input com.volcengine.model.vod.request.VodGetVideoInfosRequest
-     * @return com.volcengine.model.vod.response.VodGetVideoInfosResponse
+     * @param input com.volcengine.model.vod.request.VodGetMediaInfosRequest
+     * @return com.volcengine.model.vod.response.VodGetMediaInfosResponse
      * @throws Exception the exception
      */
 	@Override
-	public com.volcengine.model.vod.response.VodGetVideoInfosResponse getVideoInfos(com.volcengine.model.vod.request.VodGetVideoInfosRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetVideoInfos, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input)));
+	public com.volcengine.model.vod.response.VodGetMediaInfosResponse getMediaInfos(com.volcengine.model.vod.request.VodGetMediaInfosRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetMediaInfos, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        com.volcengine.model.vod.response.VodGetVideoInfosResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodGetVideoInfosResponse.newBuilder();
+        com.volcengine.model.vod.response.VodGetMediaInfosResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodGetMediaInfosResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}

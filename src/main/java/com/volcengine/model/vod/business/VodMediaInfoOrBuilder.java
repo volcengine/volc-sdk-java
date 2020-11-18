@@ -3,8 +3,8 @@
 
 package com.volcengine.model.vod.business;
 
-public interface VodVideoInfoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:Volcengine.Models.Vod.Business.VodVideoInfo)
+public interface VodMediaInfoOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:Volcengine.Models.Vod.Business.VodMediaInfo)
     com.google.protobuf.MessageOrBuilder {
 
   /**

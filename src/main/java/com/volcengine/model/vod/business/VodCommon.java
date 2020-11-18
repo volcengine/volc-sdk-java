@@ -88,12 +88,12 @@ public final class VodCommon {
       "Step\030\021 \001(\003\022\026\n\016PreloadMaxStep\030\022 \001(\003\022\027\n\017Pr" +
       "eloadInterval\030\023 \001(\003\022\024\n\014P2pVerifyUrl\030\024 \001(" +
       "\t\022\020\n\010PlayAuth\030\025 \001(\t\022\022\n\nPlayAuthId\030\026 \001(\t\022" +
-      "\020\n\010LogoType\030\027 \001(\t\022\017\n\007Quality\030\030 \001(\tB\265\001\n!c" +
+      "\020\n\010LogoType\030\027 \001(\t\022\017\n\007Quality\030\030 \001(\tB\251\001\n!c" +
       "om.volcengine.model.vod.businessB\tVodCom" +
       "monP\001Z9github.com/volcengine/volc-sdk-go" +
-      "lang/models/vod/business\240\001\001\330\001\001\302\002\000\312\002\036Volc" +
-      "engine\\Models\\Vod\\Business\342\002\035Volcengine\\" +
-      "Models\\GPBMetadatab\006proto3"
+      "lang/models/vod/business\240\001\001\330\001\001\302\002\000\312\002\030Volc" +
+      "\\Models\\Vod\\Business\342\002\027Volc\\Models\\GPBMe" +
+      "tadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

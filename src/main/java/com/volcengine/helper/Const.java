@@ -55,9 +55,9 @@ public class Const {
     public static final String CommitUploadInfo = "CommitUploadInfo";
     public static final String QueryUploadTaskInfo = "QueryUploadTaskInfo";
     public static final String GetOriginalPlayInfo = "GetOriginalPlayInfo";
-    public static final String UpdateVideoPublishStatus = "UpdateVideoPublishStatus";
-    public static final String UpdateVideoInfo = "UpdateVideoInfo";
-    public static final String GetVideoInfos = "GetVideoInfos";
+    public static final String UpdateMediaPublishStatus = "UpdateMediaPublishStatus";
+    public static final String UpdateMediaInfo = "UpdateMediaInfo";
+    public static final String GetMediaInfos = "GetMediaInfos";
     public static final String GetRecommendedPoster = "GetRecommendedPoster";
 
     // iam

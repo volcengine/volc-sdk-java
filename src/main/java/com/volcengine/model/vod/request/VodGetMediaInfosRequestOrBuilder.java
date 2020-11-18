@@ -3,8 +3,8 @@
 
 package com.volcengine.model.vod.request;
 
-public interface VodGetVideoInfosRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:Volcengine.Models.Vod.Request.VodGetVideoInfosRequest)
+public interface VodGetMediaInfosRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:Volcengine.Models.Vod.Request.VodGetMediaInfosRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

@@ -4,25 +4,25 @@
 package com.volcengine.model.vod.response;
 
 /**
- * Protobuf type {@code Volcengine.Models.Vod.Response.VodUpdateVideoPublishStatusResponse}
+ * Protobuf type {@code Volcengine.Models.Vod.Response.VodUpdateMediaPublishStatusResponse}
  */
-public final class VodUpdateVideoPublishStatusResponse extends
+public final class VodUpdateMediaPublishStatusResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Volcengine.Models.Vod.Response.VodUpdateVideoPublishStatusResponse)
-    VodUpdateVideoPublishStatusResponseOrBuilder {
+    // @@protoc_insertion_point(message_implements:Volcengine.Models.Vod.Response.VodUpdateMediaPublishStatusResponse)
+    VodUpdateMediaPublishStatusResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use VodUpdateVideoPublishStatusResponse.newBuilder() to construct.
-  private VodUpdateVideoPublishStatusResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use VodUpdateMediaPublishStatusResponse.newBuilder() to construct.
+  private VodUpdateMediaPublishStatusResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private VodUpdateVideoPublishStatusResponse() {
+  private VodUpdateMediaPublishStatusResponse() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new VodUpdateVideoPublishStatusResponse();
+    return new VodUpdateMediaPublishStatusResponse();
   }
 
   @java.lang.Override
@@ -30,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VodUpdateVideoPublishStatusResponse(
+  private VodUpdateMediaPublishStatusResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -82,15 +82,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.volcengine.model.vod.response.VodResponse.internal_static_Volcengine_Models_Vod_Response_VodUpdateVideoPublishStatusResponse_descriptor;
+    return com.volcengine.model.vod.response.VodResponse.internal_static_Volcengine_Models_Vod_Response_VodUpdateMediaPublishStatusResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.volcengine.model.vod.response.VodResponse.internal_static_Volcengine_Models_Vod_Response_VodUpdateVideoPublishStatusResponse_fieldAccessorTable
+    return com.volcengine.model.vod.response.VodResponse.internal_static_Volcengine_Models_Vod_Response_VodUpdateMediaPublishStatusResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse.class, com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse.Builder.class);
+            com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse.class, com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse.Builder.class);
   }
 
   public static final int RESPONSEMETADATA_FIELD_NUMBER = 1;
@@ -159,10 +159,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse)) {
+    if (!(obj instanceof com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse)) {
       return super.equals(obj);
     }
-    com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse other = (com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse) obj;
+    com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse other = (com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse) obj;
 
     if (hasResponseMetadata() != other.hasResponseMetadata()) return false;
     if (hasResponseMetadata()) {
@@ -189,69 +189,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse parseFrom(
+  public static com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse parseFrom(
+  public static com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse parseFrom(
+  public static com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse parseFrom(
+  public static com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse parseFrom(byte[] data)
+  public static com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse parseFrom(
+  public static com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse parseFrom(java.io.InputStream input)
+  public static com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse parseFrom(
+  public static com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse parseDelimitedFrom(
+  public static com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse parseFrom(
+  public static com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse parseFrom(
+  public static com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -264,7 +264,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse prototype) {
+  public static Builder newBuilder(com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -280,26 +280,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code Volcengine.Models.Vod.Response.VodUpdateVideoPublishStatusResponse}
+   * Protobuf type {@code Volcengine.Models.Vod.Response.VodUpdateMediaPublishStatusResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Volcengine.Models.Vod.Response.VodUpdateVideoPublishStatusResponse)
-      com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:Volcengine.Models.Vod.Response.VodUpdateMediaPublishStatusResponse)
+      com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.volcengine.model.vod.response.VodResponse.internal_static_Volcengine_Models_Vod_Response_VodUpdateVideoPublishStatusResponse_descriptor;
+      return com.volcengine.model.vod.response.VodResponse.internal_static_Volcengine_Models_Vod_Response_VodUpdateMediaPublishStatusResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.volcengine.model.vod.response.VodResponse.internal_static_Volcengine_Models_Vod_Response_VodUpdateVideoPublishStatusResponse_fieldAccessorTable
+      return com.volcengine.model.vod.response.VodResponse.internal_static_Volcengine_Models_Vod_Response_VodUpdateMediaPublishStatusResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse.class, com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse.Builder.class);
+              com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse.class, com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse.Builder.class);
     }
 
-    // Construct using com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse.newBuilder()
+    // Construct using com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -329,17 +329,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.volcengine.model.vod.response.VodResponse.internal_static_Volcengine_Models_Vod_Response_VodUpdateVideoPublishStatusResponse_descriptor;
+      return com.volcengine.model.vod.response.VodResponse.internal_static_Volcengine_Models_Vod_Response_VodUpdateMediaPublishStatusResponse_descriptor;
     }
 
     @java.lang.Override
-    public com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse getDefaultInstanceForType() {
-      return com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse.getDefaultInstance();
+    public com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse getDefaultInstanceForType() {
+      return com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse build() {
-      com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse result = buildPartial();
+    public com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse build() {
+      com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -347,8 +347,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse buildPartial() {
-      com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse result = new com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse(this);
+    public com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse buildPartial() {
+      com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse result = new com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse(this);
       if (responseMetadataBuilder_ == null) {
         result.responseMetadata_ = responseMetadata_;
       } else {
@@ -392,16 +392,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse) {
-        return mergeFrom((com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse)other);
+      if (other instanceof com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse) {
+        return mergeFrom((com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse other) {
-      if (other == com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse other) {
+      if (other == com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse.getDefaultInstance()) return this;
       if (other.hasResponseMetadata()) {
         mergeResponseMetadata(other.getResponseMetadata());
       }
@@ -420,11 +420,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse parsedMessage = null;
+      com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -565,41 +565,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:Volcengine.Models.Vod.Response.VodUpdateVideoPublishStatusResponse)
+    // @@protoc_insertion_point(builder_scope:Volcengine.Models.Vod.Response.VodUpdateMediaPublishStatusResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:Volcengine.Models.Vod.Response.VodUpdateVideoPublishStatusResponse)
-  private static final com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:Volcengine.Models.Vod.Response.VodUpdateMediaPublishStatusResponse)
+  private static final com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse();
+    DEFAULT_INSTANCE = new com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse();
   }
 
-  public static com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse getDefaultInstance() {
+  public static com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<VodUpdateVideoPublishStatusResponse>
-      PARSER = new com.google.protobuf.AbstractParser<VodUpdateVideoPublishStatusResponse>() {
+  private static final com.google.protobuf.Parser<VodUpdateMediaPublishStatusResponse>
+      PARSER = new com.google.protobuf.AbstractParser<VodUpdateMediaPublishStatusResponse>() {
     @java.lang.Override
-    public VodUpdateVideoPublishStatusResponse parsePartialFrom(
+    public VodUpdateMediaPublishStatusResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VodUpdateVideoPublishStatusResponse(input, extensionRegistry);
+      return new VodUpdateMediaPublishStatusResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<VodUpdateVideoPublishStatusResponse> parser() {
+  public static com.google.protobuf.Parser<VodUpdateMediaPublishStatusResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<VodUpdateVideoPublishStatusResponse> getParserForType() {
+  public com.google.protobuf.Parser<VodUpdateMediaPublishStatusResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse getDefaultInstanceForType() {
+  public com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -60,20 +60,20 @@ public final class VodRequest {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Models_Vod_Request_VodGetRecommendedPosterRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Volcengine_Models_Vod_Request_VodUpdateVideoPublishStatusRequest_descriptor;
+    internal_static_Volcengine_Models_Vod_Request_VodUpdateMediaPublishStatusRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Volcengine_Models_Vod_Request_VodUpdateVideoPublishStatusRequest_fieldAccessorTable;
+      internal_static_Volcengine_Models_Vod_Request_VodUpdateMediaPublishStatusRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Volcengine_Models_Vod_Request_VodUpdateVideoInfoRequest_descriptor;
+    internal_static_Volcengine_Models_Vod_Request_VodUpdateMediaInfoRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Volcengine_Models_Vod_Request_VodUpdateVideoInfoRequest_fieldAccessorTable;
+      internal_static_Volcengine_Models_Vod_Request_VodUpdateMediaInfoRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Volcengine_Models_Vod_Request_VodGetVideoInfosRequest_descriptor;
+    internal_static_Volcengine_Models_Vod_Request_VodGetMediaInfosRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Volcengine_Models_Vod_Request_VodGetVideoInfosRequest_fieldAccessorTable;
+      internal_static_Volcengine_Models_Vod_Request_VodGetMediaInfosRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Models_Vod_Request_VodStartWorkflowRequest_descriptor;
   static final 
@@ -112,24 +112,23 @@ public final class VodRequest {
       "s\030\004 \001(\t\"=\n\027VodUrlUploadJsonRequest\022\021\n\tSp" +
       "aceName\030\001 \001(\t\022\017\n\007URLSets\030\002 \001(\t\".\n\036VodGet" +
       "RecommendedPosterRequest\022\014\n\004Vids\030\001 \001(\t\"A" +
-      "\n\"VodUpdateVideoPublishStatusRequest\022\013\n\003" +
-      "Vid\030\001 \001(\t\022\016\n\006Status\030\002 \001(\t\"\345\001\n\031VodUpdateV" +
-      "ideoInfoRequest\022\013\n\003Vid\030\001 \001(\t\022/\n\tPosterUr" +
+      "\n\"VodUpdateMediaPublishStatusRequest\022\013\n\003" +
+      "Vid\030\001 \001(\t\022\016\n\006Status\030\002 \001(\t\"\345\001\n\031VodUpdateM" +
+      "ediaInfoRequest\022\013\n\003Vid\030\001 \001(\t\022/\n\tPosterUr" +
       "i\030\002 \001(\0132\034.google.protobuf.StringValue\022+\n" +
       "\005Title\030\003 \001(\0132\034.google.protobuf.StringVal" +
       "ue\0221\n\013Description\030\004 \001(\0132\034.google.protobu" +
       "f.StringValue\022*\n\004Tags\030\005 \001(\0132\034.google.pro" +
-      "tobuf.StringValue\"\'\n\027VodGetVideoInfosReq" +
+      "tobuf.StringValue\"\'\n\027VodGetMediaInfosReq" +
       "uest\022\014\n\004Vids\030\001 \001(\t\"\241\001\n\027VodStartWorkflowR" +
       "equest\022\013\n\003Vid\030\001 \001(\t\022\022\n\nTemplateId\030\002 \001(\t\022" +
       "=\n\005Input\030\003 \001(\0132..Volcengine.Models.Vod.B" +
       "usiness.WorkflowParams\022\020\n\010Priority\030\004 \001(\005" +
-      "\022\024\n\014CallbackArgs\030\005 \001(\tB\260\001\n com.volcengin" +
+      "\022\024\n\014CallbackArgs\030\005 \001(\tB\244\001\n com.volcengin" +
       "e.model.vod.requestB\nVodRequestP\001Z8githu" +
       "b.com/volcengine/volc-sdk-golang/models/" +
-      "vod/request\240\001\001\330\001\001\312\002\035Volcengine\\Models\\Vo" +
-      "d\\Request\342\002\035Volcengine\\Models\\GPBMetadat" +
-      "ab\006proto3"
+      "vod/request\240\001\001\330\001\001\312\002\027Volc\\Models\\Vod\\Requ" +
+      "est\342\002\027Volc\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -192,23 +191,23 @@ public final class VodRequest {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Models_Vod_Request_VodGetRecommendedPosterRequest_descriptor,
         new java.lang.String[] { "Vids", });
-    internal_static_Volcengine_Models_Vod_Request_VodUpdateVideoPublishStatusRequest_descriptor =
+    internal_static_Volcengine_Models_Vod_Request_VodUpdateMediaPublishStatusRequest_descriptor =
       getDescriptor().getMessageTypes().get(9);
-    internal_static_Volcengine_Models_Vod_Request_VodUpdateVideoPublishStatusRequest_fieldAccessorTable = new
+    internal_static_Volcengine_Models_Vod_Request_VodUpdateMediaPublishStatusRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Volcengine_Models_Vod_Request_VodUpdateVideoPublishStatusRequest_descriptor,
+        internal_static_Volcengine_Models_Vod_Request_VodUpdateMediaPublishStatusRequest_descriptor,
         new java.lang.String[] { "Vid", "Status", });
-    internal_static_Volcengine_Models_Vod_Request_VodUpdateVideoInfoRequest_descriptor =
+    internal_static_Volcengine_Models_Vod_Request_VodUpdateMediaInfoRequest_descriptor =
       getDescriptor().getMessageTypes().get(10);
-    internal_static_Volcengine_Models_Vod_Request_VodUpdateVideoInfoRequest_fieldAccessorTable = new
+    internal_static_Volcengine_Models_Vod_Request_VodUpdateMediaInfoRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Volcengine_Models_Vod_Request_VodUpdateVideoInfoRequest_descriptor,
+        internal_static_Volcengine_Models_Vod_Request_VodUpdateMediaInfoRequest_descriptor,
         new java.lang.String[] { "Vid", "PosterUri", "Title", "Description", "Tags", });
-    internal_static_Volcengine_Models_Vod_Request_VodGetVideoInfosRequest_descriptor =
+    internal_static_Volcengine_Models_Vod_Request_VodGetMediaInfosRequest_descriptor =
       getDescriptor().getMessageTypes().get(11);
-    internal_static_Volcengine_Models_Vod_Request_VodGetVideoInfosRequest_fieldAccessorTable = new
+    internal_static_Volcengine_Models_Vod_Request_VodGetMediaInfosRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Volcengine_Models_Vod_Request_VodGetVideoInfosRequest_descriptor,
+        internal_static_Volcengine_Models_Vod_Request_VodGetMediaInfosRequest_descriptor,
         new java.lang.String[] { "Vids", });
     internal_static_Volcengine_Models_Vod_Request_VodStartWorkflowRequest_descriptor =
       getDescriptor().getMessageTypes().get(12);

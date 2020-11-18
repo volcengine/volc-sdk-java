@@ -3,8 +3,8 @@
 
 package com.volcengine.model.vod.response;
 
-public interface VodGetVideoInfosResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:Volcengine.Models.Vod.Response.VodGetVideoInfosResponse)
+public interface VodUpdateMediaPublishStatusResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:Volcengine.Models.Vod.Response.VodUpdateMediaPublishStatusResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -21,19 +21,4 @@ public interface VodGetVideoInfosResponseOrBuilder extends
    * <code>.Volcengine.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    */
   com.volcengine.model.base.ResponseMetadataOrBuilder getResponseMetadataOrBuilder();
-
-  /**
-   * <code>.Volcengine.Models.Vod.Business.VodGetVideoInfosData Result = 2;</code>
-   * @return Whether the result field is set.
-   */
-  boolean hasResult();
-  /**
-   * <code>.Volcengine.Models.Vod.Business.VodGetVideoInfosData Result = 2;</code>
-   * @return The result.
-   */
-  com.volcengine.model.vod.business.VodGetVideoInfosData getResult();
-  /**
-   * <code>.Volcengine.Models.Vod.Business.VodGetVideoInfosData Result = 2;</code>
-   */
-  com.volcengine.model.vod.business.VodGetVideoInfosDataOrBuilder getResultOrBuilder();
 }

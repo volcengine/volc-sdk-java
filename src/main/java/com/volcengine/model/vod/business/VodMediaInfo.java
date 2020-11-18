@@ -4,18 +4,18 @@
 package com.volcengine.model.vod.business;
 
 /**
- * Protobuf type {@code Volcengine.Models.Vod.Business.VodVideoInfo}
+ * Protobuf type {@code Volcengine.Models.Vod.Business.VodMediaInfo}
  */
-public final class VodVideoInfo extends
+public final class VodMediaInfo extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Volcengine.Models.Vod.Business.VodVideoInfo)
-    VodVideoInfoOrBuilder {
+    // @@protoc_insertion_point(message_implements:Volcengine.Models.Vod.Business.VodMediaInfo)
+    VodMediaInfoOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use VodVideoInfo.newBuilder() to construct.
-  private VodVideoInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use VodMediaInfo.newBuilder() to construct.
+  private VodMediaInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private VodVideoInfo() {
+  private VodMediaInfo() {
     transcodeInfos_ = java.util.Collections.emptyList();
   }
 
@@ -23,7 +23,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new VodVideoInfo();
+    return new VodMediaInfo();
   }
 
   @java.lang.Override
@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VodVideoInfo(
+  private VodMediaInfo(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -109,15 +109,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.volcengine.model.vod.business.VodMedia.internal_static_Volcengine_Models_Vod_Business_VodVideoInfo_descriptor;
+    return com.volcengine.model.vod.business.VodMedia.internal_static_Volcengine_Models_Vod_Business_VodMediaInfo_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.volcengine.model.vod.business.VodMedia.internal_static_Volcengine_Models_Vod_Business_VodVideoInfo_fieldAccessorTable
+    return com.volcengine.model.vod.business.VodMedia.internal_static_Volcengine_Models_Vod_Business_VodMediaInfo_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.volcengine.model.vod.business.VodVideoInfo.class, com.volcengine.model.vod.business.VodVideoInfo.Builder.class);
+            com.volcengine.model.vod.business.VodMediaInfo.class, com.volcengine.model.vod.business.VodMediaInfo.Builder.class);
   }
 
   public static final int BASICINFO_FIELD_NUMBER = 1;
@@ -310,10 +310,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.volcengine.model.vod.business.VodVideoInfo)) {
+    if (!(obj instanceof com.volcengine.model.vod.business.VodMediaInfo)) {
       return super.equals(obj);
     }
-    com.volcengine.model.vod.business.VodVideoInfo other = (com.volcengine.model.vod.business.VodVideoInfo) obj;
+    com.volcengine.model.vod.business.VodMediaInfo other = (com.volcengine.model.vod.business.VodMediaInfo) obj;
 
     if (hasBasicInfo() != other.hasBasicInfo()) return false;
     if (hasBasicInfo()) {
@@ -355,69 +355,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.volcengine.model.vod.business.VodVideoInfo parseFrom(
+  public static com.volcengine.model.vod.business.VodMediaInfo parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.model.vod.business.VodVideoInfo parseFrom(
+  public static com.volcengine.model.vod.business.VodMediaInfo parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.model.vod.business.VodVideoInfo parseFrom(
+  public static com.volcengine.model.vod.business.VodMediaInfo parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.model.vod.business.VodVideoInfo parseFrom(
+  public static com.volcengine.model.vod.business.VodMediaInfo parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.model.vod.business.VodVideoInfo parseFrom(byte[] data)
+  public static com.volcengine.model.vod.business.VodMediaInfo parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.model.vod.business.VodVideoInfo parseFrom(
+  public static com.volcengine.model.vod.business.VodMediaInfo parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.model.vod.business.VodVideoInfo parseFrom(java.io.InputStream input)
+  public static com.volcengine.model.vod.business.VodMediaInfo parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.model.vod.business.VodVideoInfo parseFrom(
+  public static com.volcengine.model.vod.business.VodMediaInfo parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.model.vod.business.VodVideoInfo parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.model.vod.business.VodMediaInfo parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.volcengine.model.vod.business.VodVideoInfo parseDelimitedFrom(
+  public static com.volcengine.model.vod.business.VodMediaInfo parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.model.vod.business.VodVideoInfo parseFrom(
+  public static com.volcengine.model.vod.business.VodMediaInfo parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.model.vod.business.VodVideoInfo parseFrom(
+  public static com.volcengine.model.vod.business.VodMediaInfo parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -430,7 +430,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.volcengine.model.vod.business.VodVideoInfo prototype) {
+  public static Builder newBuilder(com.volcengine.model.vod.business.VodMediaInfo prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -446,26 +446,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code Volcengine.Models.Vod.Business.VodVideoInfo}
+   * Protobuf type {@code Volcengine.Models.Vod.Business.VodMediaInfo}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Volcengine.Models.Vod.Business.VodVideoInfo)
-      com.volcengine.model.vod.business.VodVideoInfoOrBuilder {
+      // @@protoc_insertion_point(builder_implements:Volcengine.Models.Vod.Business.VodMediaInfo)
+      com.volcengine.model.vod.business.VodMediaInfoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.volcengine.model.vod.business.VodMedia.internal_static_Volcengine_Models_Vod_Business_VodVideoInfo_descriptor;
+      return com.volcengine.model.vod.business.VodMedia.internal_static_Volcengine_Models_Vod_Business_VodMediaInfo_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.volcengine.model.vod.business.VodMedia.internal_static_Volcengine_Models_Vod_Business_VodVideoInfo_fieldAccessorTable
+      return com.volcengine.model.vod.business.VodMedia.internal_static_Volcengine_Models_Vod_Business_VodMediaInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.volcengine.model.vod.business.VodVideoInfo.class, com.volcengine.model.vod.business.VodVideoInfo.Builder.class);
+              com.volcengine.model.vod.business.VodMediaInfo.class, com.volcengine.model.vod.business.VodMediaInfo.Builder.class);
     }
 
-    // Construct using com.volcengine.model.vod.business.VodVideoInfo.newBuilder()
+    // Construct using com.volcengine.model.vod.business.VodMediaInfo.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -508,17 +508,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.volcengine.model.vod.business.VodMedia.internal_static_Volcengine_Models_Vod_Business_VodVideoInfo_descriptor;
+      return com.volcengine.model.vod.business.VodMedia.internal_static_Volcengine_Models_Vod_Business_VodMediaInfo_descriptor;
     }
 
     @java.lang.Override
-    public com.volcengine.model.vod.business.VodVideoInfo getDefaultInstanceForType() {
-      return com.volcengine.model.vod.business.VodVideoInfo.getDefaultInstance();
+    public com.volcengine.model.vod.business.VodMediaInfo getDefaultInstanceForType() {
+      return com.volcengine.model.vod.business.VodMediaInfo.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.volcengine.model.vod.business.VodVideoInfo build() {
-      com.volcengine.model.vod.business.VodVideoInfo result = buildPartial();
+    public com.volcengine.model.vod.business.VodMediaInfo build() {
+      com.volcengine.model.vod.business.VodMediaInfo result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -526,8 +526,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.volcengine.model.vod.business.VodVideoInfo buildPartial() {
-      com.volcengine.model.vod.business.VodVideoInfo result = new com.volcengine.model.vod.business.VodVideoInfo(this);
+    public com.volcengine.model.vod.business.VodMediaInfo buildPartial() {
+      com.volcengine.model.vod.business.VodMediaInfo result = new com.volcengine.model.vod.business.VodMediaInfo(this);
       int from_bitField0_ = bitField0_;
       if (basicInfoBuilder_ == null) {
         result.basicInfo_ = basicInfo_;
@@ -586,16 +586,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.volcengine.model.vod.business.VodVideoInfo) {
-        return mergeFrom((com.volcengine.model.vod.business.VodVideoInfo)other);
+      if (other instanceof com.volcengine.model.vod.business.VodMediaInfo) {
+        return mergeFrom((com.volcengine.model.vod.business.VodMediaInfo)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.volcengine.model.vod.business.VodVideoInfo other) {
-      if (other == com.volcengine.model.vod.business.VodVideoInfo.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.volcengine.model.vod.business.VodMediaInfo other) {
+      if (other == com.volcengine.model.vod.business.VodMediaInfo.getDefaultInstance()) return this;
       if (other.hasBasicInfo()) {
         mergeBasicInfo(other.getBasicInfo());
       }
@@ -643,11 +643,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.volcengine.model.vod.business.VodVideoInfo parsedMessage = null;
+      com.volcengine.model.vod.business.VodMediaInfo parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.volcengine.model.vod.business.VodVideoInfo) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.model.vod.business.VodMediaInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -1292,41 +1292,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:Volcengine.Models.Vod.Business.VodVideoInfo)
+    // @@protoc_insertion_point(builder_scope:Volcengine.Models.Vod.Business.VodMediaInfo)
   }
 
-  // @@protoc_insertion_point(class_scope:Volcengine.Models.Vod.Business.VodVideoInfo)
-  private static final com.volcengine.model.vod.business.VodVideoInfo DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:Volcengine.Models.Vod.Business.VodMediaInfo)
+  private static final com.volcengine.model.vod.business.VodMediaInfo DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.volcengine.model.vod.business.VodVideoInfo();
+    DEFAULT_INSTANCE = new com.volcengine.model.vod.business.VodMediaInfo();
   }
 
-  public static com.volcengine.model.vod.business.VodVideoInfo getDefaultInstance() {
+  public static com.volcengine.model.vod.business.VodMediaInfo getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<VodVideoInfo>
-      PARSER = new com.google.protobuf.AbstractParser<VodVideoInfo>() {
+  private static final com.google.protobuf.Parser<VodMediaInfo>
+      PARSER = new com.google.protobuf.AbstractParser<VodMediaInfo>() {
     @java.lang.Override
-    public VodVideoInfo parsePartialFrom(
+    public VodMediaInfo parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VodVideoInfo(input, extensionRegistry);
+      return new VodMediaInfo(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<VodVideoInfo> parser() {
+  public static com.google.protobuf.Parser<VodMediaInfo> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<VodVideoInfo> getParserForType() {
+  public com.google.protobuf.Parser<VodMediaInfo> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.volcengine.model.vod.business.VodVideoInfo getDefaultInstanceForType() {
+  public com.volcengine.model.vod.business.VodMediaInfo getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

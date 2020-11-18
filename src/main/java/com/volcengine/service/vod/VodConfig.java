@@ -180,42 +180,42 @@ public class VodConfig {
                     }
             ));
 
-            put(Const.UpdateVideoPublishStatus, new ApiInfo(
+            put(Const.UpdateMediaPublishStatus, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateVideoPublishStatus));
+                                    add(new BasicNameValuePair("Action", Const.UpdateMediaPublishStatus));
                                     add(new BasicNameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.UpdateVideoInfo, new ApiInfo(
+            put(Const.UpdateMediaInfo, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateVideoInfo));
+                                    add(new BasicNameValuePair("Action", Const.UpdateMediaInfo));
                                     add(new BasicNameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.GetVideoInfos, new ApiInfo(
+            put(Const.GetMediaInfos, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetVideoInfos));
+                                    add(new BasicNameValuePair("Action", Const.GetMediaInfos));
                                     add(new BasicNameValuePair("Version", "2020-08-01"));
                                 }
                             });

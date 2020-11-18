@@ -5,9 +5,6 @@
 
 package com.volcengine.service.vod;
 
-import com.volcengine.model.vod.request.VodUploadMediaRequest;
-import com.volcengine.model.vod.response.VodCommitUploadInfoResponse;
-
 /**
  * The interface Vod service.
  */
@@ -76,42 +73,33 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.model.vod.response.VodCommitUploadInfoResponse commitUploadInfo(com.volcengine.model.vod.request.VodCommitUploadInfoRequest input) throws Exception;
-
-	/**
-	 * uploadMedia
-	 *
-	 * @param vodUploadMediaRequest
-	 * @return
-	 * @throws Exception
-	 */
-	VodCommitUploadInfoResponse uploadMedia(VodUploadMediaRequest vodUploadMediaRequest) throws Exception;
-
-	/**
-     * updateVideoInfo.
-     *
-     * @param input com.volcengine.model.vod.request.VodUpdateVideoInfoRequest
-     * @return com.volcengine.model.vod.response.VodUpdateVideoInfoResponse
-     * @throws Exception the exception
-     */
-	com.volcengine.model.vod.response.VodUpdateVideoInfoResponse updateVideoInfo(com.volcengine.model.vod.request.VodUpdateVideoInfoRequest input) throws Exception;
 	
 	/**
-     * updateVideoPublishStatus.
+     * updateMediaInfo.
      *
-     * @param input com.volcengine.model.vod.request.VodUpdateVideoPublishStatusRequest
-     * @return com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse
+     * @param input com.volcengine.model.vod.request.VodUpdateMediaInfoRequest
+     * @return com.volcengine.model.vod.response.VodUpdateMediaInfoResponse
      * @throws Exception the exception
      */
-	com.volcengine.model.vod.response.VodUpdateVideoPublishStatusResponse updateVideoPublishStatus(com.volcengine.model.vod.request.VodUpdateVideoPublishStatusRequest input) throws Exception;
+	com.volcengine.model.vod.response.VodUpdateMediaInfoResponse updateMediaInfo(com.volcengine.model.vod.request.VodUpdateMediaInfoRequest input) throws Exception;
 	
 	/**
-     * getVideoInfos.
+     * updateMediaPublishStatus.
      *
-     * @param input com.volcengine.model.vod.request.VodGetVideoInfosRequest
-     * @return com.volcengine.model.vod.response.VodGetVideoInfosResponse
+     * @param input com.volcengine.model.vod.request.VodUpdateMediaPublishStatusRequest
+     * @return com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse
      * @throws Exception the exception
      */
-	com.volcengine.model.vod.response.VodGetVideoInfosResponse getVideoInfos(com.volcengine.model.vod.request.VodGetVideoInfosRequest input) throws Exception;
+	com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse updateMediaPublishStatus(com.volcengine.model.vod.request.VodUpdateMediaPublishStatusRequest input) throws Exception;
+	
+	/**
+     * getMediaInfos.
+     *
+     * @param input com.volcengine.model.vod.request.VodGetMediaInfosRequest
+     * @return com.volcengine.model.vod.response.VodGetMediaInfosResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.model.vod.response.VodGetMediaInfosResponse getMediaInfos(com.volcengine.model.vod.request.VodGetMediaInfosRequest input) throws Exception;
 	
 	/**
      * getRecommendedPoster.

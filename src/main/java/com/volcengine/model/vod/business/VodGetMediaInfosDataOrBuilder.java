@@ -3,8 +3,8 @@
 
 package com.volcengine.model.vod.business;
 
-public interface VodGetVideoInfosDataOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:Volcengine.Models.Vod.Business.VodGetVideoInfosData)
+public interface VodGetMediaInfosDataOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:Volcengine.Models.Vod.Business.VodGetMediaInfosData)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -12,43 +12,43 @@ public interface VodGetVideoInfosDataOrBuilder extends
    *视频信息列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Models.Vod.Business.VodVideoInfo VideoInfoList = 1;</code>
+   * <code>repeated .Volcengine.Models.Vod.Business.VodMediaInfo MediaInfoList = 1;</code>
    */
-  java.util.List<com.volcengine.model.vod.business.VodVideoInfo> 
-      getVideoInfoListList();
+  java.util.List<com.volcengine.model.vod.business.VodMediaInfo> 
+      getMediaInfoListList();
   /**
    * <pre>
    *视频信息列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Models.Vod.Business.VodVideoInfo VideoInfoList = 1;</code>
+   * <code>repeated .Volcengine.Models.Vod.Business.VodMediaInfo MediaInfoList = 1;</code>
    */
-  com.volcengine.model.vod.business.VodVideoInfo getVideoInfoList(int index);
+  com.volcengine.model.vod.business.VodMediaInfo getMediaInfoList(int index);
   /**
    * <pre>
    *视频信息列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Models.Vod.Business.VodVideoInfo VideoInfoList = 1;</code>
+   * <code>repeated .Volcengine.Models.Vod.Business.VodMediaInfo MediaInfoList = 1;</code>
    */
-  int getVideoInfoListCount();
+  int getMediaInfoListCount();
   /**
    * <pre>
    *视频信息列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Models.Vod.Business.VodVideoInfo VideoInfoList = 1;</code>
+   * <code>repeated .Volcengine.Models.Vod.Business.VodMediaInfo MediaInfoList = 1;</code>
    */
-  java.util.List<? extends com.volcengine.model.vod.business.VodVideoInfoOrBuilder> 
-      getVideoInfoListOrBuilderList();
+  java.util.List<? extends com.volcengine.model.vod.business.VodMediaInfoOrBuilder> 
+      getMediaInfoListOrBuilderList();
   /**
    * <pre>
    *视频信息列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Models.Vod.Business.VodVideoInfo VideoInfoList = 1;</code>
+   * <code>repeated .Volcengine.Models.Vod.Business.VodMediaInfo MediaInfoList = 1;</code>
    */
-  com.volcengine.model.vod.business.VodVideoInfoOrBuilder getVideoInfoListOrBuilder(
+  com.volcengine.model.vod.business.VodMediaInfoOrBuilder getMediaInfoListOrBuilder(
       int index);
 
   /**

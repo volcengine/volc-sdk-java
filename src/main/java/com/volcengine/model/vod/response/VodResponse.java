@@ -50,25 +50,25 @@ public final class VodResponse {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Models_Vod_Response_VodCommitUploadInfoResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Volcengine_Models_Vod_Response_VodGetVideoInfosResponse_descriptor;
+    internal_static_Volcengine_Models_Vod_Response_VodGetMediaInfosResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Volcengine_Models_Vod_Response_VodGetVideoInfosResponse_fieldAccessorTable;
+      internal_static_Volcengine_Models_Vod_Response_VodGetMediaInfosResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Volcengine_Models_Vod_Response_VodUpdateVideoInfoResponse_descriptor;
+    internal_static_Volcengine_Models_Vod_Response_VodUpdateMediaInfoResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Volcengine_Models_Vod_Response_VodUpdateVideoInfoResponse_fieldAccessorTable;
+      internal_static_Volcengine_Models_Vod_Response_VodUpdateMediaInfoResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Models_Vod_Response_VodGetRecommendedPosterResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Models_Vod_Response_VodGetRecommendedPosterResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Volcengine_Models_Vod_Response_VodUpdateVideoPublishStatusResponse_descriptor;
+    internal_static_Volcengine_Models_Vod_Response_VodUpdateMediaPublishStatusResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Volcengine_Models_Vod_Response_VodUpdateVideoPublishStatusResponse_fieldAccessorTable;
+      internal_static_Volcengine_Models_Vod_Response_VodUpdateMediaPublishStatusResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Models_Vod_Response_VodStartWorkflowResponse_descriptor;
   static final 
@@ -117,30 +117,29 @@ public final class VodResponse {
       "\022B\n\020ResponseMetadata\030\001 \001(\0132(.Volcengine." +
       "Models.Base.ResponseMetadata\022I\n\006Result\030\002" +
       " \001(\01329.Volcengine.Models.Vod.Business.Vo" +
-      "dCommitUploadInfoResult\"\244\001\n\030VodGetVideoI" +
+      "dCommitUploadInfoResult\"\244\001\n\030VodGetMediaI" +
       "nfosResponse\022B\n\020ResponseMetadata\030\001 \001(\0132(" +
       ".Volcengine.Models.Base.ResponseMetadata" +
       "\022D\n\006Result\030\002 \001(\01324.Volcengine.Models.Vod" +
-      ".Business.VodGetVideoInfosData\"`\n\032VodUpd" +
-      "ateVideoInfoResponse\022B\n\020ResponseMetadata" +
+      ".Business.VodGetMediaInfosData\"`\n\032VodUpd" +
+      "ateMediaInfoResponse\022B\n\020ResponseMetadata" +
       "\030\001 \001(\0132(.Volcengine.Models.Base.Response" +
       "Metadata\"\252\001\n\037VodGetRecommendedPosterResp" +
       "onse\022B\n\020ResponseMetadata\030\001 \001(\0132(.Volceng" +
       "ine.Models.Base.ResponseMetadata\022C\n\006Resu" +
       "lt\030\002 \001(\01323.Volcengine.Models.Vod.Busines" +
-      "s.VodGetRecPosterData\"i\n#VodUpdateVideoP" +
+      "s.VodGetRecPosterData\"i\n#VodUpdateMediaP" +
       "ublishStatusResponse\022B\n\020ResponseMetadata" +
       "\030\001 \001(\0132(.Volcengine.Models.Base.Response" +
       "Metadata\"\246\001\n\030VodStartWorkflowResponse\022B\n" +
       "\020ResponseMetadata\030\001 \001(\0132(.Volcengine.Mod" +
       "els.Base.ResponseMetadata\022F\n\006Result\030\002 \001(" +
       "\01326.Volcengine.Models.Vod.Business.VodSt" +
-      "artWorkflowResultB\264\001\n!com.volcengine.mod" +
+      "artWorkflowResultB\250\001\n!com.volcengine.mod" +
       "el.vod.responseB\013VodResponseP\001Z9github.c" +
       "om/volcengine/volc-sdk-golang/models/vod" +
-      "/response\240\001\001\330\001\001\312\002\036Volcengine\\Models\\Vod\\" +
-      "Response\342\002\035Volcengine\\Models\\GPBMetadata" +
-      "b\006proto3"
+      "/response\240\001\001\330\001\001\312\002\030Volc\\Models\\Vod\\Respon" +
+      "se\342\002\027Volc\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -193,17 +192,17 @@ public final class VodResponse {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Models_Vod_Response_VodCommitUploadInfoResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
-    internal_static_Volcengine_Models_Vod_Response_VodGetVideoInfosResponse_descriptor =
+    internal_static_Volcengine_Models_Vod_Response_VodGetMediaInfosResponse_descriptor =
       getDescriptor().getMessageTypes().get(7);
-    internal_static_Volcengine_Models_Vod_Response_VodGetVideoInfosResponse_fieldAccessorTable = new
+    internal_static_Volcengine_Models_Vod_Response_VodGetMediaInfosResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Volcengine_Models_Vod_Response_VodGetVideoInfosResponse_descriptor,
+        internal_static_Volcengine_Models_Vod_Response_VodGetMediaInfosResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
-    internal_static_Volcengine_Models_Vod_Response_VodUpdateVideoInfoResponse_descriptor =
+    internal_static_Volcengine_Models_Vod_Response_VodUpdateMediaInfoResponse_descriptor =
       getDescriptor().getMessageTypes().get(8);
-    internal_static_Volcengine_Models_Vod_Response_VodUpdateVideoInfoResponse_fieldAccessorTable = new
+    internal_static_Volcengine_Models_Vod_Response_VodUpdateMediaInfoResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Volcengine_Models_Vod_Response_VodUpdateVideoInfoResponse_descriptor,
+        internal_static_Volcengine_Models_Vod_Response_VodUpdateMediaInfoResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", });
     internal_static_Volcengine_Models_Vod_Response_VodGetRecommendedPosterResponse_descriptor =
       getDescriptor().getMessageTypes().get(9);
@@ -211,11 +210,11 @@ public final class VodResponse {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Models_Vod_Response_VodGetRecommendedPosterResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
-    internal_static_Volcengine_Models_Vod_Response_VodUpdateVideoPublishStatusResponse_descriptor =
+    internal_static_Volcengine_Models_Vod_Response_VodUpdateMediaPublishStatusResponse_descriptor =
       getDescriptor().getMessageTypes().get(10);
-    internal_static_Volcengine_Models_Vod_Response_VodUpdateVideoPublishStatusResponse_fieldAccessorTable = new
+    internal_static_Volcengine_Models_Vod_Response_VodUpdateMediaPublishStatusResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Volcengine_Models_Vod_Response_VodUpdateVideoPublishStatusResponse_descriptor,
+        internal_static_Volcengine_Models_Vod_Response_VodUpdateMediaPublishStatusResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", });
     internal_static_Volcengine_Models_Vod_Response_VodStartWorkflowResponse_descriptor =
       getDescriptor().getMessageTypes().get(11);

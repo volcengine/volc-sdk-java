@@ -50,29 +50,28 @@ public final class VodMedia {
     java.lang.String[] descriptorData = {
       "\n\034vod/business/vod_media.proto\022\036Volcengi" +
       "ne.Models.Vod.Business\032\035vod/business/vod" +
-      "_common.proto\"\270\001\n\021VodMediaBasicInfo\022\021\n\tS" +
+      "_common.proto\"\243\001\n\021VodMediaBasicInfo\022\021\n\tS" +
       "paceName\030\001 \001(\t\022\013\n\003Vid\030\002 \001(\t\022\r\n\005Title\030\003 \001" +
       "(\t\022\023\n\013Description\030\004 \001(\t\022\021\n\tPosterUri\030\005 \001" +
-      "(\t\022\025\n\rPublishStatus\030\006 \001(\t\022\023\n\013AuditStatus" +
-      "\030\007 \001(\003\022\014\n\004Tags\030\010 \003(\t\022\022\n\nCreateTime\030\t \001(\t" +
-      "\"\341\001\n\014VodMediaInfo\022D\n\tBasicInfo\030\001 \001(\01321.V" +
-      "olcengine.Models.Vod.Business.VodMediaBa" +
-      "sicInfo\022A\n\nSourceInfo\030\002 \001(\0132-.Volcengine" +
-      ".Models.Vod.Business.VodSourceInfo\022H\n\016Tr" +
-      "anscodeInfos\030\003 \003(\01320.Volcengine.Models.V" +
-      "od.Business.VodTranscodeInfo\"q\n\024VodGetMe" +
-      "diaInfosData\022C\n\rMediaInfoList\030\001 \003(\0132,.Vo" +
-      "lcengine.Models.Vod.Business.VodMediaInf" +
-      "o\022\024\n\014NotExistVids\030\002 \003(\t\"2\n\020VodStoreUriGr" +
-      "oup\022\013\n\003Vid\030\001 \001(\t\022\021\n\tStoreUris\030\002 \003(\t\"u\n\023V" +
-      "odGetRecPosterData\022H\n\016StoreUriGroups\030\001 \003" +
-      "(\01320.Volcengine.Models.Vod.Business.VodS" +
-      "toreUriGroup\022\024\n\014NotExistVids\030\002 \003(\tB\250\001\n!c" +
-      "om.volcengine.model.vod.businessB\010VodMed" +
-      "iaP\001Z9github.com/volcengine/volc-sdk-gol" +
-      "ang/models/vod/business\240\001\001\330\001\001\302\002\000\312\002\030Volc\\" +
-      "Models\\Vod\\Business\342\002\027Volc\\Models\\GPBMet" +
-      "adatab\006proto3"
+      "(\t\022\025\n\rPublishStatus\030\006 \001(\t\022\014\n\004Tags\030\007 \003(\t\022" +
+      "\022\n\nCreateTime\030\010 \001(\t\"\341\001\n\014VodMediaInfo\022D\n\t" +
+      "BasicInfo\030\001 \001(\01321.Volcengine.Models.Vod." +
+      "Business.VodMediaBasicInfo\022A\n\nSourceInfo" +
+      "\030\002 \001(\0132-.Volcengine.Models.Vod.Business." +
+      "VodSourceInfo\022H\n\016TranscodeInfos\030\003 \003(\01320." +
+      "Volcengine.Models.Vod.Business.VodTransc" +
+      "odeInfo\"q\n\024VodGetMediaInfosData\022C\n\rMedia" +
+      "InfoList\030\001 \003(\0132,.Volcengine.Models.Vod.B" +
+      "usiness.VodMediaInfo\022\024\n\014NotExistVids\030\002 \003" +
+      "(\t\"2\n\020VodStoreUriGroup\022\013\n\003Vid\030\001 \001(\t\022\021\n\tS" +
+      "toreUris\030\002 \003(\t\"u\n\023VodGetRecPosterData\022H\n" +
+      "\016StoreUriGroups\030\001 \003(\01320.Volcengine.Model" +
+      "s.Vod.Business.VodStoreUriGroup\022\024\n\014NotEx" +
+      "istVids\030\002 \003(\tB\250\001\n!com.volcengine.model.v" +
+      "od.businessB\010VodMediaP\001Z9github.com/volc" +
+      "engine/volc-sdk-golang/models/vod/busine" +
+      "ss\240\001\001\330\001\001\302\002\000\312\002\030Volc\\Models\\Vod\\Business\342\002" +
+      "\027Volc\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -84,7 +83,7 @@ public final class VodMedia {
     internal_static_Volcengine_Models_Vod_Business_VodMediaBasicInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Models_Vod_Business_VodMediaBasicInfo_descriptor,
-        new java.lang.String[] { "SpaceName", "Vid", "Title", "Description", "PosterUri", "PublishStatus", "AuditStatus", "Tags", "CreateTime", });
+        new java.lang.String[] { "SpaceName", "Vid", "Title", "Description", "PosterUri", "PublishStatus", "Tags", "CreateTime", });
     internal_static_Volcengine_Models_Vod_Business_VodMediaInfo_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Volcengine_Models_Vod_Business_VodMediaInfo_fieldAccessorTable = new

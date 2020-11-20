@@ -129,20 +129,10 @@ public interface VodMediaBasicInfoOrBuilder extends
 
   /**
    * <pre>
-   *审核状态
-   * </pre>
-   *
-   * <code>int64 AuditStatus = 7;</code>
-   * @return The auditStatus.
-   */
-  long getAuditStatus();
-
-  /**
-   * <pre>
    *标签列表
    * </pre>
    *
-   * <code>repeated string Tags = 8;</code>
+   * <code>repeated string Tags = 7;</code>
    * @return A list containing the tags.
    */
   java.util.List<java.lang.String>
@@ -152,7 +142,7 @@ public interface VodMediaBasicInfoOrBuilder extends
    *标签列表
    * </pre>
    *
-   * <code>repeated string Tags = 8;</code>
+   * <code>repeated string Tags = 7;</code>
    * @return The count of tags.
    */
   int getTagsCount();
@@ -161,7 +151,7 @@ public interface VodMediaBasicInfoOrBuilder extends
    *标签列表
    * </pre>
    *
-   * <code>repeated string Tags = 8;</code>
+   * <code>repeated string Tags = 7;</code>
    * @param index The index of the element to return.
    * @return The tags at the given index.
    */
@@ -171,7 +161,7 @@ public interface VodMediaBasicInfoOrBuilder extends
    *标签列表
    * </pre>
    *
-   * <code>repeated string Tags = 8;</code>
+   * <code>repeated string Tags = 7;</code>
    * @param index The index of the value to return.
    * @return The bytes of the tags at the given index.
    */
@@ -183,7 +173,7 @@ public interface VodMediaBasicInfoOrBuilder extends
    *创建时间
    * </pre>
    *
-   * <code>string CreateTime = 9;</code>
+   * <code>string CreateTime = 8;</code>
    * @return The createTime.
    */
   java.lang.String getCreateTime();
@@ -192,7 +182,7 @@ public interface VodMediaBasicInfoOrBuilder extends
    *创建时间
    * </pre>
    *
-   * <code>string CreateTime = 9;</code>
+   * <code>string CreateTime = 8;</code>
    * @return The bytes for createTime.
    */
   com.google.protobuf.ByteString

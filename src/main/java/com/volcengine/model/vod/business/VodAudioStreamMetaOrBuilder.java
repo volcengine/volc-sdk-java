@@ -42,18 +42,18 @@ public interface VodAudioStreamMetaOrBuilder extends
    *音频采样率
    * </pre>
    *
-   * <code>int64 SampleRate = 3;</code>
+   * <code>int32 SampleRate = 3;</code>
    * @return The sampleRate.
    */
-  long getSampleRate();
+  int getSampleRate();
 
   /**
    * <pre>
    *音频码率(Kbps)
    * </pre>
    *
-   * <code>int64 Bitrate = 4;</code>
+   * <code>int32 Bitrate = 4;</code>
    * @return The bitrate.
    */
-  long getBitrate();
+  int getBitrate();
 }

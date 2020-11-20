@@ -103,7 +103,7 @@ public final class VodRequest {
       ".VodUrlUploadURLSet\"/\n\035VodQueryUploadTas" +
       "kInfoRequest\022\016\n\006JobIds\030\001 \001(\t\"T\n\031VodApply" +
       "UploadInfoRequest\022\021\n\tSpaceName\030\001 \001(\t\022\022\n\n" +
-      "SessionKey\030\002 \001(\t\022\020\n\010FileSize\030\003 \001(\005\"e\n\025Vo" +
+      "SessionKey\030\002 \001(\t\022\020\n\010FileSize\030\003 \001(\001\"e\n\025Vo" +
       "dUploadMediaRequest\022\021\n\tSpaceName\030\001 \001(\t\022\020" +
       "\n\010FilePath\030\002 \001(\t\022\024\n\014CallbackArgs\030\003 \001(\t\022\021" +
       "\n\tFunctions\030\004 \001(\t\"l\n\032VodCommitUploadInfo" +

@@ -61,7 +61,7 @@ private static final long serialVersionUID = 0L;
           }
           case 16: {
 
-            status_ = input.readInt64();
+            status_ = input.readInt32();
             break;
           }
           case 26: {
@@ -88,7 +88,7 @@ private static final long serialVersionUID = 0L;
           }
           case 56: {
 
-            totalCount_ = input.readInt64();
+            totalCount_ = input.readInt32();
             break;
           }
           case 66: {
@@ -195,17 +195,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATUS_FIELD_NUMBER = 2;
-  private long status_;
+  private int status_;
   /**
    * <pre>
    *状态
    * </pre>
    *
-   * <code>int64 Status = 2;</code>
+   * <code>int32 Status = 2;</code>
    * @return The status.
    */
   @java.lang.Override
-  public long getStatus() {
+  public int getStatus() {
     return status_;
   }
 
@@ -332,17 +332,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOTALCOUNT_FIELD_NUMBER = 7;
-  private long totalCount_;
+  private int totalCount_;
   /**
    * <pre>
    *播放列表数量
    * </pre>
    *
-   * <code>int64 TotalCount = 7;</code>
+   * <code>int32 TotalCount = 7;</code>
    * @return The totalCount.
    */
   @java.lang.Override
-  public long getTotalCount() {
+  public int getTotalCount() {
     return totalCount_;
   }
 
@@ -461,8 +461,8 @@ private static final long serialVersionUID = 0L;
     if (!getVidBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vid_);
     }
-    if (status_ != 0L) {
-      output.writeInt64(2, status_);
+    if (status_ != 0) {
+      output.writeInt32(2, status_);
     }
     if (!getPosterUrlBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, posterUrl_);
@@ -476,8 +476,8 @@ private static final long serialVersionUID = 0L;
     if (enableAdaptive_ != false) {
       output.writeBool(6, enableAdaptive_);
     }
-    if (totalCount_ != 0L) {
-      output.writeInt64(7, totalCount_);
+    if (totalCount_ != 0) {
+      output.writeInt32(7, totalCount_);
     }
     if (adaptiveInfo_ != null) {
       output.writeMessage(8, getAdaptiveInfo());
@@ -497,9 +497,9 @@ private static final long serialVersionUID = 0L;
     if (!getVidBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vid_);
     }
-    if (status_ != 0L) {
+    if (status_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, status_);
+        .computeInt32Size(2, status_);
     }
     if (!getPosterUrlBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, posterUrl_);
@@ -515,9 +515,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(6, enableAdaptive_);
     }
-    if (totalCount_ != 0L) {
+    if (totalCount_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(7, totalCount_);
+        .computeInt32Size(7, totalCount_);
     }
     if (adaptiveInfo_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -578,8 +578,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + VID_FIELD_NUMBER;
     hash = (53 * hash) + getVid().hashCode();
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getStatus());
+    hash = (53 * hash) + getStatus();
     hash = (37 * hash) + POSTERURL_FIELD_NUMBER;
     hash = (53 * hash) + getPosterUrl().hashCode();
     hash = (37 * hash) + DURATION_FIELD_NUMBER;
@@ -591,8 +590,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getEnableAdaptive());
     hash = (37 * hash) + TOTALCOUNT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getTotalCount());
+    hash = (53 * hash) + getTotalCount();
     if (hasAdaptiveInfo()) {
       hash = (37 * hash) + ADAPTIVEINFO_FIELD_NUMBER;
       hash = (53 * hash) + getAdaptiveInfo().hashCode();
@@ -737,7 +735,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       vid_ = "";
 
-      status_ = 0L;
+      status_ = 0;
 
       posterUrl_ = "";
 
@@ -747,7 +745,7 @@ private static final long serialVersionUID = 0L;
 
       enableAdaptive_ = false;
 
-      totalCount_ = 0L;
+      totalCount_ = 0;
 
       if (adaptiveInfoBuilder_ == null) {
         adaptiveInfo_ = null;
@@ -861,7 +859,7 @@ private static final long serialVersionUID = 0L;
         vid_ = other.vid_;
         onChanged();
       }
-      if (other.getStatus() != 0L) {
+      if (other.getStatus() != 0) {
         setStatus(other.getStatus());
       }
       if (!other.getPosterUrl().isEmpty()) {
@@ -878,7 +876,7 @@ private static final long serialVersionUID = 0L;
       if (other.getEnableAdaptive() != false) {
         setEnableAdaptive(other.getEnableAdaptive());
       }
-      if (other.getTotalCount() != 0L) {
+      if (other.getTotalCount() != 0) {
         setTotalCount(other.getTotalCount());
       }
       if (other.hasAdaptiveInfo()) {
@@ -1036,17 +1034,17 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long status_ ;
+    private int status_ ;
     /**
      * <pre>
      *状态
      * </pre>
      *
-     * <code>int64 Status = 2;</code>
+     * <code>int32 Status = 2;</code>
      * @return The status.
      */
     @java.lang.Override
-    public long getStatus() {
+    public int getStatus() {
       return status_;
     }
     /**
@@ -1054,11 +1052,11 @@ private static final long serialVersionUID = 0L;
      *状态
      * </pre>
      *
-     * <code>int64 Status = 2;</code>
+     * <code>int32 Status = 2;</code>
      * @param value The status to set.
      * @return This builder for chaining.
      */
-    public Builder setStatus(long value) {
+    public Builder setStatus(int value) {
       
       status_ = value;
       onChanged();
@@ -1069,12 +1067,12 @@ private static final long serialVersionUID = 0L;
      *状态
      * </pre>
      *
-     * <code>int64 Status = 2;</code>
+     * <code>int32 Status = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
       
-      status_ = 0L;
+      status_ = 0;
       onChanged();
       return this;
     }
@@ -1357,17 +1355,17 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long totalCount_ ;
+    private int totalCount_ ;
     /**
      * <pre>
      *播放列表数量
      * </pre>
      *
-     * <code>int64 TotalCount = 7;</code>
+     * <code>int32 TotalCount = 7;</code>
      * @return The totalCount.
      */
     @java.lang.Override
-    public long getTotalCount() {
+    public int getTotalCount() {
       return totalCount_;
     }
     /**
@@ -1375,11 +1373,11 @@ private static final long serialVersionUID = 0L;
      *播放列表数量
      * </pre>
      *
-     * <code>int64 TotalCount = 7;</code>
+     * <code>int32 TotalCount = 7;</code>
      * @param value The totalCount to set.
      * @return This builder for chaining.
      */
-    public Builder setTotalCount(long value) {
+    public Builder setTotalCount(int value) {
       
       totalCount_ = value;
       onChanged();
@@ -1390,12 +1388,12 @@ private static final long serialVersionUID = 0L;
      *播放列表数量
      * </pre>
      *
-     * <code>int64 TotalCount = 7;</code>
+     * <code>int32 TotalCount = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearTotalCount() {
       
-      totalCount_ = 0L;
+      totalCount_ = 0;
       onChanged();
       return this;
     }

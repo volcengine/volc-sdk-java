@@ -62,9 +62,9 @@ private static final long serialVersionUID = 0L;
             sessionKey_ = s;
             break;
           }
-          case 24: {
+          case 25: {
 
-            fileSize_ = input.readInt32();
+            fileSize_ = input.readDouble();
             break;
           }
           default: {
@@ -176,13 +176,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILESIZE_FIELD_NUMBER = 3;
-  private int fileSize_;
+  private double fileSize_;
   /**
-   * <code>int32 FileSize = 3;</code>
+   * <code>double FileSize = 3;</code>
    * @return The fileSize.
    */
   @java.lang.Override
-  public int getFileSize() {
+  public double getFileSize() {
     return fileSize_;
   }
 
@@ -206,8 +206,8 @@ private static final long serialVersionUID = 0L;
     if (!getSessionKeyBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, sessionKey_);
     }
-    if (fileSize_ != 0) {
-      output.writeInt32(3, fileSize_);
+    if (fileSize_ != 0D) {
+      output.writeDouble(3, fileSize_);
     }
     unknownFields.writeTo(output);
   }
@@ -224,9 +224,9 @@ private static final long serialVersionUID = 0L;
     if (!getSessionKeyBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, sessionKey_);
     }
-    if (fileSize_ != 0) {
+    if (fileSize_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(3, fileSize_);
+        .computeDoubleSize(3, fileSize_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -247,8 +247,9 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSpaceName())) return false;
     if (!getSessionKey()
         .equals(other.getSessionKey())) return false;
-    if (getFileSize()
-        != other.getFileSize()) return false;
+    if (java.lang.Double.doubleToLongBits(getFileSize())
+        != java.lang.Double.doubleToLongBits(
+            other.getFileSize())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -265,7 +266,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SESSIONKEY_FIELD_NUMBER;
     hash = (53 * hash) + getSessionKey().hashCode();
     hash = (37 * hash) + FILESIZE_FIELD_NUMBER;
-    hash = (53 * hash) + getFileSize();
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getFileSize()));
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -403,7 +405,7 @@ private static final long serialVersionUID = 0L;
 
       sessionKey_ = "";
 
-      fileSize_ = 0;
+      fileSize_ = 0D;
 
       return this;
     }
@@ -490,7 +492,7 @@ private static final long serialVersionUID = 0L;
         sessionKey_ = other.sessionKey_;
         onChanged();
       }
-      if (other.getFileSize() != 0) {
+      if (other.getFileSize() != 0D) {
         setFileSize(other.getFileSize());
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -674,33 +676,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int fileSize_ ;
+    private double fileSize_ ;
     /**
-     * <code>int32 FileSize = 3;</code>
+     * <code>double FileSize = 3;</code>
      * @return The fileSize.
      */
     @java.lang.Override
-    public int getFileSize() {
+    public double getFileSize() {
       return fileSize_;
     }
     /**
-     * <code>int32 FileSize = 3;</code>
+     * <code>double FileSize = 3;</code>
      * @param value The fileSize to set.
      * @return This builder for chaining.
      */
-    public Builder setFileSize(int value) {
+    public Builder setFileSize(double value) {
       
       fileSize_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 FileSize = 3;</code>
+     * <code>double FileSize = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearFileSize() {
       
-      fileSize_ = 0;
+      fileSize_ = 0D;
       onChanged();
       return this;
     }

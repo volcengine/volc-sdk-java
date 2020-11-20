@@ -32,8 +32,8 @@ public interface VodApplyUploadInfoRequestOrBuilder extends
       getSessionKeyBytes();
 
   /**
-   * <code>int32 FileSize = 3;</code>
+   * <code>double FileSize = 3;</code>
    * @return The fileSize.
    */
-  int getFileSize();
+  double getFileSize();
 }

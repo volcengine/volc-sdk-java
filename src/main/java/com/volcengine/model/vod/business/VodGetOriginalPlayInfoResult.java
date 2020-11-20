@@ -65,19 +65,19 @@ private static final long serialVersionUID = 0L;
             duration_ = input.readFloat();
             break;
           }
-          case 24: {
+          case 25: {
 
-            size_ = input.readInt64();
+            size_ = input.readDouble();
             break;
           }
           case 32: {
 
-            height_ = input.readInt64();
+            height_ = input.readInt32();
             break;
           }
           case 40: {
 
-            width_ = input.readInt64();
+            width_ = input.readInt32();
             break;
           }
           case 50: {
@@ -92,9 +92,9 @@ private static final long serialVersionUID = 0L;
             codec_ = s;
             break;
           }
-          case 69: {
+          case 64: {
 
-            bitrate_ = input.readFloat();
+            bitrate_ = input.readInt32();
             break;
           }
           case 74: {
@@ -209,47 +209,47 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SIZE_FIELD_NUMBER = 3;
-  private long size_;
+  private double size_;
   /**
    * <pre>
    *视频文件大小
    * </pre>
    *
-   * <code>int64 Size = 3;</code>
+   * <code>double Size = 3;</code>
    * @return The size.
    */
   @java.lang.Override
-  public long getSize() {
+  public double getSize() {
     return size_;
   }
 
   public static final int HEIGHT_FIELD_NUMBER = 4;
-  private long height_;
+  private int height_;
   /**
    * <pre>
    *视频高度
    * </pre>
    *
-   * <code>int64 Height = 4;</code>
+   * <code>int32 Height = 4;</code>
    * @return The height.
    */
   @java.lang.Override
-  public long getHeight() {
+  public int getHeight() {
     return height_;
   }
 
   public static final int WIDTH_FIELD_NUMBER = 5;
-  private long width_;
+  private int width_;
   /**
    * <pre>
    *视频宽度
    * </pre>
    *
-   * <code>int64 Width = 5;</code>
+   * <code>int32 Width = 5;</code>
    * @return The width.
    */
   @java.lang.Override
-  public long getWidth() {
+  public int getWidth() {
     return width_;
   }
 
@@ -346,17 +346,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BITRATE_FIELD_NUMBER = 8;
-  private float bitrate_;
+  private int bitrate_;
   /**
    * <pre>
    *码率(Kbps)
    * </pre>
    *
-   * <code>float Bitrate = 8;</code>
+   * <code>int32 Bitrate = 8;</code>
    * @return The bitrate.
    */
   @java.lang.Override
-  public float getBitrate() {
+  public int getBitrate() {
     return bitrate_;
   }
 
@@ -518,14 +518,14 @@ private static final long serialVersionUID = 0L;
     if (duration_ != 0F) {
       output.writeFloat(2, duration_);
     }
-    if (size_ != 0L) {
-      output.writeInt64(3, size_);
+    if (size_ != 0D) {
+      output.writeDouble(3, size_);
     }
-    if (height_ != 0L) {
-      output.writeInt64(4, height_);
+    if (height_ != 0) {
+      output.writeInt32(4, height_);
     }
-    if (width_ != 0L) {
-      output.writeInt64(5, width_);
+    if (width_ != 0) {
+      output.writeInt32(5, width_);
     }
     if (!getFormatBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, format_);
@@ -533,8 +533,8 @@ private static final long serialVersionUID = 0L;
     if (!getCodecBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, codec_);
     }
-    if (bitrate_ != 0F) {
-      output.writeFloat(8, bitrate_);
+    if (bitrate_ != 0) {
+      output.writeInt32(8, bitrate_);
     }
     if (!getMd5Bytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, md5_);
@@ -561,17 +561,17 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(2, duration_);
     }
-    if (size_ != 0L) {
+    if (size_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, size_);
+        .computeDoubleSize(3, size_);
     }
-    if (height_ != 0L) {
+    if (height_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(4, height_);
+        .computeInt32Size(4, height_);
     }
-    if (width_ != 0L) {
+    if (width_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(5, width_);
+        .computeInt32Size(5, width_);
     }
     if (!getFormatBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, format_);
@@ -579,9 +579,9 @@ private static final long serialVersionUID = 0L;
     if (!getCodecBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, codec_);
     }
-    if (bitrate_ != 0F) {
+    if (bitrate_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeFloatSize(8, bitrate_);
+        .computeInt32Size(8, bitrate_);
     }
     if (!getMd5Bytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, md5_);
@@ -612,8 +612,9 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Float.floatToIntBits(getDuration())
         != java.lang.Float.floatToIntBits(
             other.getDuration())) return false;
-    if (getSize()
-        != other.getSize()) return false;
+    if (java.lang.Double.doubleToLongBits(getSize())
+        != java.lang.Double.doubleToLongBits(
+            other.getSize())) return false;
     if (getHeight()
         != other.getHeight()) return false;
     if (getWidth()
@@ -622,9 +623,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFormat())) return false;
     if (!getCodec()
         .equals(other.getCodec())) return false;
-    if (java.lang.Float.floatToIntBits(getBitrate())
-        != java.lang.Float.floatToIntBits(
-            other.getBitrate())) return false;
+    if (getBitrate()
+        != other.getBitrate()) return false;
     if (!getMd5()
         .equals(other.getMd5())) return false;
     if (!getMainPlayUrl()
@@ -649,20 +649,17 @@ private static final long serialVersionUID = 0L;
         getDuration());
     hash = (37 * hash) + SIZE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getSize());
+        java.lang.Double.doubleToLongBits(getSize()));
     hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getHeight());
+    hash = (53 * hash) + getHeight();
     hash = (37 * hash) + WIDTH_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getWidth());
+    hash = (53 * hash) + getWidth();
     hash = (37 * hash) + FORMAT_FIELD_NUMBER;
     hash = (53 * hash) + getFormat().hashCode();
     hash = (37 * hash) + CODEC_FIELD_NUMBER;
     hash = (53 * hash) + getCodec().hashCode();
     hash = (37 * hash) + BITRATE_FIELD_NUMBER;
-    hash = (53 * hash) + java.lang.Float.floatToIntBits(
-        getBitrate());
+    hash = (53 * hash) + getBitrate();
     hash = (37 * hash) + MD5_FIELD_NUMBER;
     hash = (53 * hash) + getMd5().hashCode();
     hash = (37 * hash) + MAINPLAYURL_FIELD_NUMBER;
@@ -806,17 +803,17 @@ private static final long serialVersionUID = 0L;
 
       duration_ = 0F;
 
-      size_ = 0L;
+      size_ = 0D;
 
-      height_ = 0L;
+      height_ = 0;
 
-      width_ = 0L;
+      width_ = 0;
 
       format_ = "";
 
       codec_ = "";
 
-      bitrate_ = 0F;
+      bitrate_ = 0;
 
       md5_ = "";
 
@@ -916,13 +913,13 @@ private static final long serialVersionUID = 0L;
       if (other.getDuration() != 0F) {
         setDuration(other.getDuration());
       }
-      if (other.getSize() != 0L) {
+      if (other.getSize() != 0D) {
         setSize(other.getSize());
       }
-      if (other.getHeight() != 0L) {
+      if (other.getHeight() != 0) {
         setHeight(other.getHeight());
       }
-      if (other.getWidth() != 0L) {
+      if (other.getWidth() != 0) {
         setWidth(other.getWidth());
       }
       if (!other.getFormat().isEmpty()) {
@@ -933,7 +930,7 @@ private static final long serialVersionUID = 0L;
         codec_ = other.codec_;
         onChanged();
       }
-      if (other.getBitrate() != 0F) {
+      if (other.getBitrate() != 0) {
         setBitrate(other.getBitrate());
       }
       if (!other.getMd5().isEmpty()) {
@@ -1116,17 +1113,17 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long size_ ;
+    private double size_ ;
     /**
      * <pre>
      *视频文件大小
      * </pre>
      *
-     * <code>int64 Size = 3;</code>
+     * <code>double Size = 3;</code>
      * @return The size.
      */
     @java.lang.Override
-    public long getSize() {
+    public double getSize() {
       return size_;
     }
     /**
@@ -1134,11 +1131,11 @@ private static final long serialVersionUID = 0L;
      *视频文件大小
      * </pre>
      *
-     * <code>int64 Size = 3;</code>
+     * <code>double Size = 3;</code>
      * @param value The size to set.
      * @return This builder for chaining.
      */
-    public Builder setSize(long value) {
+    public Builder setSize(double value) {
       
       size_ = value;
       onChanged();
@@ -1149,27 +1146,27 @@ private static final long serialVersionUID = 0L;
      *视频文件大小
      * </pre>
      *
-     * <code>int64 Size = 3;</code>
+     * <code>double Size = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearSize() {
       
-      size_ = 0L;
+      size_ = 0D;
       onChanged();
       return this;
     }
 
-    private long height_ ;
+    private int height_ ;
     /**
      * <pre>
      *视频高度
      * </pre>
      *
-     * <code>int64 Height = 4;</code>
+     * <code>int32 Height = 4;</code>
      * @return The height.
      */
     @java.lang.Override
-    public long getHeight() {
+    public int getHeight() {
       return height_;
     }
     /**
@@ -1177,11 +1174,11 @@ private static final long serialVersionUID = 0L;
      *视频高度
      * </pre>
      *
-     * <code>int64 Height = 4;</code>
+     * <code>int32 Height = 4;</code>
      * @param value The height to set.
      * @return This builder for chaining.
      */
-    public Builder setHeight(long value) {
+    public Builder setHeight(int value) {
       
       height_ = value;
       onChanged();
@@ -1192,27 +1189,27 @@ private static final long serialVersionUID = 0L;
      *视频高度
      * </pre>
      *
-     * <code>int64 Height = 4;</code>
+     * <code>int32 Height = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearHeight() {
       
-      height_ = 0L;
+      height_ = 0;
       onChanged();
       return this;
     }
 
-    private long width_ ;
+    private int width_ ;
     /**
      * <pre>
      *视频宽度
      * </pre>
      *
-     * <code>int64 Width = 5;</code>
+     * <code>int32 Width = 5;</code>
      * @return The width.
      */
     @java.lang.Override
-    public long getWidth() {
+    public int getWidth() {
       return width_;
     }
     /**
@@ -1220,11 +1217,11 @@ private static final long serialVersionUID = 0L;
      *视频宽度
      * </pre>
      *
-     * <code>int64 Width = 5;</code>
+     * <code>int32 Width = 5;</code>
      * @param value The width to set.
      * @return This builder for chaining.
      */
-    public Builder setWidth(long value) {
+    public Builder setWidth(int value) {
       
       width_ = value;
       onChanged();
@@ -1235,12 +1232,12 @@ private static final long serialVersionUID = 0L;
      *视频宽度
      * </pre>
      *
-     * <code>int64 Width = 5;</code>
+     * <code>int32 Width = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearWidth() {
       
-      width_ = 0L;
+      width_ = 0;
       onChanged();
       return this;
     }
@@ -1437,17 +1434,17 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float bitrate_ ;
+    private int bitrate_ ;
     /**
      * <pre>
      *码率(Kbps)
      * </pre>
      *
-     * <code>float Bitrate = 8;</code>
+     * <code>int32 Bitrate = 8;</code>
      * @return The bitrate.
      */
     @java.lang.Override
-    public float getBitrate() {
+    public int getBitrate() {
       return bitrate_;
     }
     /**
@@ -1455,11 +1452,11 @@ private static final long serialVersionUID = 0L;
      *码率(Kbps)
      * </pre>
      *
-     * <code>float Bitrate = 8;</code>
+     * <code>int32 Bitrate = 8;</code>
      * @param value The bitrate to set.
      * @return This builder for chaining.
      */
-    public Builder setBitrate(float value) {
+    public Builder setBitrate(int value) {
       
       bitrate_ = value;
       onChanged();
@@ -1470,12 +1467,12 @@ private static final long serialVersionUID = 0L;
      *码率(Kbps)
      * </pre>
      *
-     * <code>float Bitrate = 8;</code>
+     * <code>int32 Bitrate = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearBitrate() {
       
-      bitrate_ = 0F;
+      bitrate_ = 0;
       onChanged();
       return this;
     }

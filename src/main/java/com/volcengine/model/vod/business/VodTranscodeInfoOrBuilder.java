@@ -132,10 +132,10 @@ public interface VodTranscodeInfoOrBuilder extends
    *文件大小
    * </pre>
    *
-   * <code>int64 Size = 8;</code>
+   * <code>double Size = 8;</code>
    * @return The size.
    */
-  long getSize();
+  double getSize();
 
   /**
    * <pre>

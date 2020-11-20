@@ -95,9 +95,9 @@ private static final long serialVersionUID = 0L;
             duration_ = input.readFloat();
             break;
           }
-          case 64: {
+          case 65: {
 
-            size_ = input.readInt64();
+            size_ = input.readDouble();
             break;
           }
           case 74: {
@@ -431,17 +431,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SIZE_FIELD_NUMBER = 8;
-  private long size_;
+  private double size_;
   /**
    * <pre>
    *文件大小
    * </pre>
    *
-   * <code>int64 Size = 8;</code>
+   * <code>double Size = 8;</code>
    * @return The size.
    */
   @java.lang.Override
-  public long getSize() {
+  public double getSize() {
     return size_;
   }
 
@@ -648,8 +648,8 @@ private static final long serialVersionUID = 0L;
     if (duration_ != 0F) {
       output.writeFloat(7, duration_);
     }
-    if (size_ != 0L) {
-      output.writeInt64(8, size_);
+    if (size_ != 0D) {
+      output.writeDouble(8, size_);
     }
     if (!getStoreUriBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, storeUri_);
@@ -695,9 +695,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(7, duration_);
     }
-    if (size_ != 0L) {
+    if (size_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(8, size_);
+        .computeDoubleSize(8, size_);
     }
     if (!getStoreUriBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, storeUri_);
@@ -743,8 +743,9 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Float.floatToIntBits(getDuration())
         != java.lang.Float.floatToIntBits(
             other.getDuration())) return false;
-    if (getSize()
-        != other.getSize()) return false;
+    if (java.lang.Double.doubleToLongBits(getSize())
+        != java.lang.Double.doubleToLongBits(
+            other.getSize())) return false;
     if (!getStoreUri()
         .equals(other.getStoreUri())) return false;
     if (hasVideoStreamMeta() != other.hasVideoStreamMeta()) return false;
@@ -788,7 +789,7 @@ private static final long serialVersionUID = 0L;
         getDuration());
     hash = (37 * hash) + SIZE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getSize());
+        java.lang.Double.doubleToLongBits(getSize()));
     hash = (37 * hash) + STOREURI_FIELD_NUMBER;
     hash = (53 * hash) + getStoreUri().hashCode();
     if (hasVideoStreamMeta()) {
@@ -948,7 +949,7 @@ private static final long serialVersionUID = 0L;
 
       duration_ = 0F;
 
-      size_ = 0L;
+      size_ = 0D;
 
       storeUri_ = "";
 
@@ -1086,7 +1087,7 @@ private static final long serialVersionUID = 0L;
       if (other.getDuration() != 0F) {
         setDuration(other.getDuration());
       }
-      if (other.getSize() != 0L) {
+      if (other.getSize() != 0D) {
         setSize(other.getSize());
       }
       if (!other.getStoreUri().isEmpty()) {
@@ -1698,17 +1699,17 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long size_ ;
+    private double size_ ;
     /**
      * <pre>
      *文件大小
      * </pre>
      *
-     * <code>int64 Size = 8;</code>
+     * <code>double Size = 8;</code>
      * @return The size.
      */
     @java.lang.Override
-    public long getSize() {
+    public double getSize() {
       return size_;
     }
     /**
@@ -1716,11 +1717,11 @@ private static final long serialVersionUID = 0L;
      *文件大小
      * </pre>
      *
-     * <code>int64 Size = 8;</code>
+     * <code>double Size = 8;</code>
      * @param value The size to set.
      * @return This builder for chaining.
      */
-    public Builder setSize(long value) {
+    public Builder setSize(double value) {
       
       size_ = value;
       onChanged();
@@ -1731,12 +1732,12 @@ private static final long serialVersionUID = 0L;
      *文件大小
      * </pre>
      *
-     * <code>int64 Size = 8;</code>
+     * <code>double Size = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearSize() {
       
-      size_ = 0L;
+      size_ = 0D;
       onChanged();
       return this;
     }

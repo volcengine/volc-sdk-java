@@ -92,20 +92,20 @@ public interface VodSourceInfoOrBuilder extends
    *视频高度
    * </pre>
    *
-   * <code>int64 Height = 5;</code>
+   * <code>int32 Height = 5;</code>
    * @return The height.
    */
-  long getHeight();
+  int getHeight();
 
   /**
    * <pre>
    *视频宽度
    * </pre>
    *
-   * <code>int64 Width = 6;</code>
+   * <code>int32 Width = 6;</code>
    * @return The width.
    */
-  long getWidth();
+  int getWidth();
 
   /**
    * <pre>
@@ -142,10 +142,10 @@ public interface VodSourceInfoOrBuilder extends
    *文件大小
    * </pre>
    *
-   * <code>int64 Size = 9;</code>
+   * <code>double Size = 9;</code>
    * @return The size.
    */
-  long getSize();
+  double getSize();
 
   /**
    * <pre>
@@ -192,10 +192,10 @@ public interface VodSourceInfoOrBuilder extends
    *码率(Kbps)
    * </pre>
    *
-   * <code>int64 Bitrate = 12;</code>
+   * <code>int32 Bitrate = 12;</code>
    * @return The bitrate.
    */
-  long getBitrate();
+  int getBitrate();
 
   /**
    * <pre>

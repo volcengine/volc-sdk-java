@@ -62,12 +62,12 @@ private static final long serialVersionUID = 0L;
           }
           case 24: {
 
-            sampleRate_ = input.readInt64();
+            sampleRate_ = input.readInt32();
             break;
           }
           case 32: {
 
-            bitrate_ = input.readInt64();
+            bitrate_ = input.readInt32();
             break;
           }
           default: {
@@ -164,32 +164,32 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SAMPLERATE_FIELD_NUMBER = 3;
-  private long sampleRate_;
+  private int sampleRate_;
   /**
    * <pre>
    *音频采样率
    * </pre>
    *
-   * <code>int64 SampleRate = 3;</code>
+   * <code>int32 SampleRate = 3;</code>
    * @return The sampleRate.
    */
   @java.lang.Override
-  public long getSampleRate() {
+  public int getSampleRate() {
     return sampleRate_;
   }
 
   public static final int BITRATE_FIELD_NUMBER = 4;
-  private long bitrate_;
+  private int bitrate_;
   /**
    * <pre>
    *音频码率(Kbps)
    * </pre>
    *
-   * <code>int64 Bitrate = 4;</code>
+   * <code>int32 Bitrate = 4;</code>
    * @return The bitrate.
    */
   @java.lang.Override
-  public long getBitrate() {
+  public int getBitrate() {
     return bitrate_;
   }
 
@@ -213,11 +213,11 @@ private static final long serialVersionUID = 0L;
     if (duration_ != 0F) {
       output.writeFloat(2, duration_);
     }
-    if (sampleRate_ != 0L) {
-      output.writeInt64(3, sampleRate_);
+    if (sampleRate_ != 0) {
+      output.writeInt32(3, sampleRate_);
     }
-    if (bitrate_ != 0L) {
-      output.writeInt64(4, bitrate_);
+    if (bitrate_ != 0) {
+      output.writeInt32(4, bitrate_);
     }
     unknownFields.writeTo(output);
   }
@@ -235,13 +235,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(2, duration_);
     }
-    if (sampleRate_ != 0L) {
+    if (sampleRate_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, sampleRate_);
+        .computeInt32Size(3, sampleRate_);
     }
-    if (bitrate_ != 0L) {
+    if (bitrate_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(4, bitrate_);
+        .computeInt32Size(4, bitrate_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -284,11 +284,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + java.lang.Float.floatToIntBits(
         getDuration());
     hash = (37 * hash) + SAMPLERATE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getSampleRate());
+    hash = (53 * hash) + getSampleRate();
     hash = (37 * hash) + BITRATE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getBitrate());
+    hash = (53 * hash) + getBitrate();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -426,9 +424,9 @@ private static final long serialVersionUID = 0L;
 
       duration_ = 0F;
 
-      sampleRate_ = 0L;
+      sampleRate_ = 0;
 
-      bitrate_ = 0L;
+      bitrate_ = 0;
 
       return this;
     }
@@ -515,10 +513,10 @@ private static final long serialVersionUID = 0L;
       if (other.getDuration() != 0F) {
         setDuration(other.getDuration());
       }
-      if (other.getSampleRate() != 0L) {
+      if (other.getSampleRate() != 0) {
         setSampleRate(other.getSampleRate());
       }
-      if (other.getBitrate() != 0L) {
+      if (other.getBitrate() != 0) {
         setBitrate(other.getBitrate());
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -689,17 +687,17 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long sampleRate_ ;
+    private int sampleRate_ ;
     /**
      * <pre>
      *音频采样率
      * </pre>
      *
-     * <code>int64 SampleRate = 3;</code>
+     * <code>int32 SampleRate = 3;</code>
      * @return The sampleRate.
      */
     @java.lang.Override
-    public long getSampleRate() {
+    public int getSampleRate() {
       return sampleRate_;
     }
     /**
@@ -707,11 +705,11 @@ private static final long serialVersionUID = 0L;
      *音频采样率
      * </pre>
      *
-     * <code>int64 SampleRate = 3;</code>
+     * <code>int32 SampleRate = 3;</code>
      * @param value The sampleRate to set.
      * @return This builder for chaining.
      */
-    public Builder setSampleRate(long value) {
+    public Builder setSampleRate(int value) {
       
       sampleRate_ = value;
       onChanged();
@@ -722,27 +720,27 @@ private static final long serialVersionUID = 0L;
      *音频采样率
      * </pre>
      *
-     * <code>int64 SampleRate = 3;</code>
+     * <code>int32 SampleRate = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearSampleRate() {
       
-      sampleRate_ = 0L;
+      sampleRate_ = 0;
       onChanged();
       return this;
     }
 
-    private long bitrate_ ;
+    private int bitrate_ ;
     /**
      * <pre>
      *音频码率(Kbps)
      * </pre>
      *
-     * <code>int64 Bitrate = 4;</code>
+     * <code>int32 Bitrate = 4;</code>
      * @return The bitrate.
      */
     @java.lang.Override
-    public long getBitrate() {
+    public int getBitrate() {
       return bitrate_;
     }
     /**
@@ -750,11 +748,11 @@ private static final long serialVersionUID = 0L;
      *音频码率(Kbps)
      * </pre>
      *
-     * <code>int64 Bitrate = 4;</code>
+     * <code>int32 Bitrate = 4;</code>
      * @param value The bitrate to set.
      * @return This builder for chaining.
      */
-    public Builder setBitrate(long value) {
+    public Builder setBitrate(int value) {
       
       bitrate_ = value;
       onChanged();
@@ -765,12 +763,12 @@ private static final long serialVersionUID = 0L;
      *音频码率(Kbps)
      * </pre>
      *
-     * <code>int64 Bitrate = 4;</code>
+     * <code>int32 Bitrate = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearBitrate() {
       
-      bitrate_ = 0L;
+      bitrate_ = 0;
       onChanged();
       return this;
     }

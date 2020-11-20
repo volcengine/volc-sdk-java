@@ -172,40 +172,40 @@ public interface VodPlayInfoOrBuilder extends
    *码率(Kbps)
    * </pre>
    *
-   * <code>float Bitrate = 9;</code>
+   * <code>int32 Bitrate = 9;</code>
    * @return The bitrate.
    */
-  float getBitrate();
+  int getBitrate();
 
   /**
    * <pre>
    *视频高度
    * </pre>
    *
-   * <code>int64 Width = 10;</code>
+   * <code>int32 Width = 10;</code>
    * @return The width.
    */
-  long getWidth();
+  int getWidth();
 
   /**
    * <pre>
    *视频宽度
    * </pre>
    *
-   * <code>int64 Height = 11;</code>
+   * <code>int32 Height = 11;</code>
    * @return The height.
    */
-  long getHeight();
+  int getHeight();
 
   /**
    * <pre>
    *文件大小
    * </pre>
    *
-   * <code>int64 Size = 12;</code>
+   * <code>double Size = 12;</code>
    * @return The size.
    */
-  long getSize();
+  double getSize();
 
   /**
    * <pre>
@@ -269,70 +269,10 @@ public interface VodPlayInfoOrBuilder extends
 
   /**
    * <pre>
-   *预加载大小
-   * </pre>
-   *
-   * <code>int64 PreloadSize = 16;</code>
-   * @return The preloadSize.
-   */
-  long getPreloadSize();
-
-  /**
-   * <pre>
-   *最小步长
-   * </pre>
-   *
-   * <code>int64 PreloadMinStep = 17;</code>
-   * @return The preloadMinStep.
-   */
-  long getPreloadMinStep();
-
-  /**
-   * <pre>
-   *最大步长
-   * </pre>
-   *
-   * <code>int64 PreloadMaxStep = 18;</code>
-   * @return The preloadMaxStep.
-   */
-  long getPreloadMaxStep();
-
-  /**
-   * <pre>
-   *间隔,提前加载时长
-   * </pre>
-   *
-   * <code>int64 PreloadInterval = 19;</code>
-   * @return The preloadInterval.
-   */
-  long getPreloadInterval();
-
-  /**
-   * <pre>
-   * p2p点播时，校验文件地址
-   * </pre>
-   *
-   * <code>string P2pVerifyUrl = 20;</code>
-   * @return The p2pVerifyUrl.
-   */
-  java.lang.String getP2PVerifyUrl();
-  /**
-   * <pre>
-   * p2p点播时，校验文件地址
-   * </pre>
-   *
-   * <code>string P2pVerifyUrl = 20;</code>
-   * @return The bytes for p2pVerifyUrl.
-   */
-  com.google.protobuf.ByteString
-      getP2PVerifyUrlBytes();
-
-  /**
-   * <pre>
    *加密过的秘钥
    * </pre>
    *
-   * <code>string PlayAuth = 21;</code>
+   * <code>string PlayAuth = 16;</code>
    * @return The playAuth.
    */
   java.lang.String getPlayAuth();
@@ -341,7 +281,7 @@ public interface VodPlayInfoOrBuilder extends
    *加密过的秘钥
    * </pre>
    *
-   * <code>string PlayAuth = 21;</code>
+   * <code>string PlayAuth = 16;</code>
    * @return The bytes for playAuth.
    */
   com.google.protobuf.ByteString
@@ -352,7 +292,7 @@ public interface VodPlayInfoOrBuilder extends
    *密钥keyID
    * </pre>
    *
-   * <code>string PlayAuthId = 22;</code>
+   * <code>string PlayAuthId = 17;</code>
    * @return The playAuthId.
    */
   java.lang.String getPlayAuthId();
@@ -361,7 +301,7 @@ public interface VodPlayInfoOrBuilder extends
    *密钥keyID
    * </pre>
    *
-   * <code>string PlayAuthId = 22;</code>
+   * <code>string PlayAuthId = 17;</code>
    * @return The bytes for playAuthId.
    */
   com.google.protobuf.ByteString
@@ -372,7 +312,7 @@ public interface VodPlayInfoOrBuilder extends
    *水印类型
    * </pre>
    *
-   * <code>string LogoType = 23;</code>
+   * <code>string LogoType = 18;</code>
    * @return The logoType.
    */
   java.lang.String getLogoType();
@@ -381,7 +321,7 @@ public interface VodPlayInfoOrBuilder extends
    *水印类型
    * </pre>
    *
-   * <code>string LogoType = 23;</code>
+   * <code>string LogoType = 18;</code>
    * @return The bytes for logoType.
    */
   com.google.protobuf.ByteString
@@ -392,7 +332,7 @@ public interface VodPlayInfoOrBuilder extends
    *音频质量
    * </pre>
    *
-   * <code>string Quality = 24;</code>
+   * <code>string Quality = 19;</code>
    * @return The quality.
    */
   java.lang.String getQuality();
@@ -401,7 +341,7 @@ public interface VodPlayInfoOrBuilder extends
    *音频质量
    * </pre>
    *
-   * <code>string Quality = 24;</code>
+   * <code>string Quality = 19;</code>
    * @return The bytes for quality.
    */
   com.google.protobuf.ByteString

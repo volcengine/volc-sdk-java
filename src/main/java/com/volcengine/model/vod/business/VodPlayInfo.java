@@ -27,7 +27,6 @@ private static final long serialVersionUID = 0L;
     checkInfo_ = "";
     indexRange_ = "";
     initRange_ = "";
-    p2PVerifyUrl_ = "";
     playAuth_ = "";
     playAuthId_ = "";
     logoType_ = "";
@@ -112,24 +111,24 @@ private static final long serialVersionUID = 0L;
             backupPlayUrl_ = s;
             break;
           }
-          case 77: {
+          case 72: {
 
-            bitrate_ = input.readFloat();
+            bitrate_ = input.readInt32();
             break;
           }
           case 80: {
 
-            width_ = input.readInt64();
+            width_ = input.readInt32();
             break;
           }
           case 88: {
 
-            height_ = input.readInt64();
+            height_ = input.readInt32();
             break;
           }
-          case 96: {
+          case 97: {
 
-            size_ = input.readInt64();
+            size_ = input.readDouble();
             break;
           }
           case 106: {
@@ -150,51 +149,25 @@ private static final long serialVersionUID = 0L;
             initRange_ = s;
             break;
           }
-          case 128: {
-
-            preloadSize_ = input.readInt64();
-            break;
-          }
-          case 136: {
-
-            preloadMinStep_ = input.readInt64();
-            break;
-          }
-          case 144: {
-
-            preloadMaxStep_ = input.readInt64();
-            break;
-          }
-          case 152: {
-
-            preloadInterval_ = input.readInt64();
-            break;
-          }
-          case 162: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            p2PVerifyUrl_ = s;
-            break;
-          }
-          case 170: {
+          case 130: {
             java.lang.String s = input.readStringRequireUtf8();
 
             playAuth_ = s;
             break;
           }
-          case 178: {
+          case 138: {
             java.lang.String s = input.readStringRequireUtf8();
 
             playAuthId_ = s;
             break;
           }
-          case 186: {
+          case 146: {
             java.lang.String s = input.readStringRequireUtf8();
 
             logoType_ = s;
             break;
           }
-          case 194: {
+          case 154: {
             java.lang.String s = input.readStringRequireUtf8();
 
             quality_ = s;
@@ -601,62 +574,62 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BITRATE_FIELD_NUMBER = 9;
-  private float bitrate_;
+  private int bitrate_;
   /**
    * <pre>
    *码率(Kbps)
    * </pre>
    *
-   * <code>float Bitrate = 9;</code>
+   * <code>int32 Bitrate = 9;</code>
    * @return The bitrate.
    */
   @java.lang.Override
-  public float getBitrate() {
+  public int getBitrate() {
     return bitrate_;
   }
 
   public static final int WIDTH_FIELD_NUMBER = 10;
-  private long width_;
+  private int width_;
   /**
    * <pre>
    *视频高度
    * </pre>
    *
-   * <code>int64 Width = 10;</code>
+   * <code>int32 Width = 10;</code>
    * @return The width.
    */
   @java.lang.Override
-  public long getWidth() {
+  public int getWidth() {
     return width_;
   }
 
   public static final int HEIGHT_FIELD_NUMBER = 11;
-  private long height_;
+  private int height_;
   /**
    * <pre>
    *视频宽度
    * </pre>
    *
-   * <code>int64 Height = 11;</code>
+   * <code>int32 Height = 11;</code>
    * @return The height.
    */
   @java.lang.Override
-  public long getHeight() {
+  public int getHeight() {
     return height_;
   }
 
   public static final int SIZE_FIELD_NUMBER = 12;
-  private long size_;
+  private double size_;
   /**
    * <pre>
    *文件大小
    * </pre>
    *
-   * <code>int64 Size = 12;</code>
+   * <code>double Size = 12;</code>
    * @return The size.
    */
   @java.lang.Override
-  public long getSize() {
+  public double getSize() {
     return size_;
   }
 
@@ -798,120 +771,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int PRELOADSIZE_FIELD_NUMBER = 16;
-  private long preloadSize_;
-  /**
-   * <pre>
-   *预加载大小
-   * </pre>
-   *
-   * <code>int64 PreloadSize = 16;</code>
-   * @return The preloadSize.
-   */
-  @java.lang.Override
-  public long getPreloadSize() {
-    return preloadSize_;
-  }
-
-  public static final int PRELOADMINSTEP_FIELD_NUMBER = 17;
-  private long preloadMinStep_;
-  /**
-   * <pre>
-   *最小步长
-   * </pre>
-   *
-   * <code>int64 PreloadMinStep = 17;</code>
-   * @return The preloadMinStep.
-   */
-  @java.lang.Override
-  public long getPreloadMinStep() {
-    return preloadMinStep_;
-  }
-
-  public static final int PRELOADMAXSTEP_FIELD_NUMBER = 18;
-  private long preloadMaxStep_;
-  /**
-   * <pre>
-   *最大步长
-   * </pre>
-   *
-   * <code>int64 PreloadMaxStep = 18;</code>
-   * @return The preloadMaxStep.
-   */
-  @java.lang.Override
-  public long getPreloadMaxStep() {
-    return preloadMaxStep_;
-  }
-
-  public static final int PRELOADINTERVAL_FIELD_NUMBER = 19;
-  private long preloadInterval_;
-  /**
-   * <pre>
-   *间隔,提前加载时长
-   * </pre>
-   *
-   * <code>int64 PreloadInterval = 19;</code>
-   * @return The preloadInterval.
-   */
-  @java.lang.Override
-  public long getPreloadInterval() {
-    return preloadInterval_;
-  }
-
-  public static final int P2PVERIFYURL_FIELD_NUMBER = 20;
-  private volatile java.lang.Object p2PVerifyUrl_;
-  /**
-   * <pre>
-   * p2p点播时，校验文件地址
-   * </pre>
-   *
-   * <code>string P2pVerifyUrl = 20;</code>
-   * @return The p2pVerifyUrl.
-   */
-  @java.lang.Override
-  public java.lang.String getP2PVerifyUrl() {
-    java.lang.Object ref = p2PVerifyUrl_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      p2PVerifyUrl_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * p2p点播时，校验文件地址
-   * </pre>
-   *
-   * <code>string P2pVerifyUrl = 20;</code>
-   * @return The bytes for p2pVerifyUrl.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getP2PVerifyUrlBytes() {
-    java.lang.Object ref = p2PVerifyUrl_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      p2PVerifyUrl_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int PLAYAUTH_FIELD_NUMBER = 21;
+  public static final int PLAYAUTH_FIELD_NUMBER = 16;
   private volatile java.lang.Object playAuth_;
   /**
    * <pre>
    *加密过的秘钥
    * </pre>
    *
-   * <code>string PlayAuth = 21;</code>
+   * <code>string PlayAuth = 16;</code>
    * @return The playAuth.
    */
   @java.lang.Override
@@ -932,7 +799,7 @@ private static final long serialVersionUID = 0L;
    *加密过的秘钥
    * </pre>
    *
-   * <code>string PlayAuth = 21;</code>
+   * <code>string PlayAuth = 16;</code>
    * @return The bytes for playAuth.
    */
   @java.lang.Override
@@ -950,14 +817,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int PLAYAUTHID_FIELD_NUMBER = 22;
+  public static final int PLAYAUTHID_FIELD_NUMBER = 17;
   private volatile java.lang.Object playAuthId_;
   /**
    * <pre>
    *密钥keyID
    * </pre>
    *
-   * <code>string PlayAuthId = 22;</code>
+   * <code>string PlayAuthId = 17;</code>
    * @return The playAuthId.
    */
   @java.lang.Override
@@ -978,7 +845,7 @@ private static final long serialVersionUID = 0L;
    *密钥keyID
    * </pre>
    *
-   * <code>string PlayAuthId = 22;</code>
+   * <code>string PlayAuthId = 17;</code>
    * @return The bytes for playAuthId.
    */
   @java.lang.Override
@@ -996,14 +863,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int LOGOTYPE_FIELD_NUMBER = 23;
+  public static final int LOGOTYPE_FIELD_NUMBER = 18;
   private volatile java.lang.Object logoType_;
   /**
    * <pre>
    *水印类型
    * </pre>
    *
-   * <code>string LogoType = 23;</code>
+   * <code>string LogoType = 18;</code>
    * @return The logoType.
    */
   @java.lang.Override
@@ -1024,7 +891,7 @@ private static final long serialVersionUID = 0L;
    *水印类型
    * </pre>
    *
-   * <code>string LogoType = 23;</code>
+   * <code>string LogoType = 18;</code>
    * @return The bytes for logoType.
    */
   @java.lang.Override
@@ -1042,14 +909,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int QUALITY_FIELD_NUMBER = 24;
+  public static final int QUALITY_FIELD_NUMBER = 19;
   private volatile java.lang.Object quality_;
   /**
    * <pre>
    *音频质量
    * </pre>
    *
-   * <code>string Quality = 24;</code>
+   * <code>string Quality = 19;</code>
    * @return The quality.
    */
   @java.lang.Override
@@ -1070,7 +937,7 @@ private static final long serialVersionUID = 0L;
    *音频质量
    * </pre>
    *
-   * <code>string Quality = 24;</code>
+   * <code>string Quality = 19;</code>
    * @return The bytes for quality.
    */
   @java.lang.Override
@@ -1126,17 +993,17 @@ private static final long serialVersionUID = 0L;
     if (!getBackupPlayUrlBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, backupPlayUrl_);
     }
-    if (bitrate_ != 0F) {
-      output.writeFloat(9, bitrate_);
+    if (bitrate_ != 0) {
+      output.writeInt32(9, bitrate_);
     }
-    if (width_ != 0L) {
-      output.writeInt64(10, width_);
+    if (width_ != 0) {
+      output.writeInt32(10, width_);
     }
-    if (height_ != 0L) {
-      output.writeInt64(11, height_);
+    if (height_ != 0) {
+      output.writeInt32(11, height_);
     }
-    if (size_ != 0L) {
-      output.writeInt64(12, size_);
+    if (size_ != 0D) {
+      output.writeDouble(12, size_);
     }
     if (!getCheckInfoBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 13, checkInfo_);
@@ -1147,32 +1014,17 @@ private static final long serialVersionUID = 0L;
     if (!getInitRangeBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 15, initRange_);
     }
-    if (preloadSize_ != 0L) {
-      output.writeInt64(16, preloadSize_);
-    }
-    if (preloadMinStep_ != 0L) {
-      output.writeInt64(17, preloadMinStep_);
-    }
-    if (preloadMaxStep_ != 0L) {
-      output.writeInt64(18, preloadMaxStep_);
-    }
-    if (preloadInterval_ != 0L) {
-      output.writeInt64(19, preloadInterval_);
-    }
-    if (!getP2PVerifyUrlBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 20, p2PVerifyUrl_);
-    }
     if (!getPlayAuthBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 21, playAuth_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 16, playAuth_);
     }
     if (!getPlayAuthIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 22, playAuthId_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 17, playAuthId_);
     }
     if (!getLogoTypeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 23, logoType_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 18, logoType_);
     }
     if (!getQualityBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 24, quality_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 19, quality_);
     }
     unknownFields.writeTo(output);
   }
@@ -1207,21 +1059,21 @@ private static final long serialVersionUID = 0L;
     if (!getBackupPlayUrlBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, backupPlayUrl_);
     }
-    if (bitrate_ != 0F) {
+    if (bitrate_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeFloatSize(9, bitrate_);
+        .computeInt32Size(9, bitrate_);
     }
-    if (width_ != 0L) {
+    if (width_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(10, width_);
+        .computeInt32Size(10, width_);
     }
-    if (height_ != 0L) {
+    if (height_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(11, height_);
+        .computeInt32Size(11, height_);
     }
-    if (size_ != 0L) {
+    if (size_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(12, size_);
+        .computeDoubleSize(12, size_);
     }
     if (!getCheckInfoBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, checkInfo_);
@@ -1232,36 +1084,17 @@ private static final long serialVersionUID = 0L;
     if (!getInitRangeBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, initRange_);
     }
-    if (preloadSize_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(16, preloadSize_);
-    }
-    if (preloadMinStep_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(17, preloadMinStep_);
-    }
-    if (preloadMaxStep_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(18, preloadMaxStep_);
-    }
-    if (preloadInterval_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(19, preloadInterval_);
-    }
-    if (!getP2PVerifyUrlBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, p2PVerifyUrl_);
-    }
     if (!getPlayAuthBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(21, playAuth_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, playAuth_);
     }
     if (!getPlayAuthIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(22, playAuthId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, playAuthId_);
     }
     if (!getLogoTypeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(23, logoType_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(18, logoType_);
     }
     if (!getQualityBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(24, quality_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(19, quality_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -1294,31 +1127,21 @@ private static final long serialVersionUID = 0L;
         .equals(other.getMainPlayUrl())) return false;
     if (!getBackupPlayUrl()
         .equals(other.getBackupPlayUrl())) return false;
-    if (java.lang.Float.floatToIntBits(getBitrate())
-        != java.lang.Float.floatToIntBits(
-            other.getBitrate())) return false;
+    if (getBitrate()
+        != other.getBitrate()) return false;
     if (getWidth()
         != other.getWidth()) return false;
     if (getHeight()
         != other.getHeight()) return false;
-    if (getSize()
-        != other.getSize()) return false;
+    if (java.lang.Double.doubleToLongBits(getSize())
+        != java.lang.Double.doubleToLongBits(
+            other.getSize())) return false;
     if (!getCheckInfo()
         .equals(other.getCheckInfo())) return false;
     if (!getIndexRange()
         .equals(other.getIndexRange())) return false;
     if (!getInitRange()
         .equals(other.getInitRange())) return false;
-    if (getPreloadSize()
-        != other.getPreloadSize()) return false;
-    if (getPreloadMinStep()
-        != other.getPreloadMinStep()) return false;
-    if (getPreloadMaxStep()
-        != other.getPreloadMaxStep()) return false;
-    if (getPreloadInterval()
-        != other.getPreloadInterval()) return false;
-    if (!getP2PVerifyUrl()
-        .equals(other.getP2PVerifyUrl())) return false;
     if (!getPlayAuth()
         .equals(other.getPlayAuth())) return false;
     if (!getPlayAuthId()
@@ -1355,37 +1178,20 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + BACKUPPLAYURL_FIELD_NUMBER;
     hash = (53 * hash) + getBackupPlayUrl().hashCode();
     hash = (37 * hash) + BITRATE_FIELD_NUMBER;
-    hash = (53 * hash) + java.lang.Float.floatToIntBits(
-        getBitrate());
+    hash = (53 * hash) + getBitrate();
     hash = (37 * hash) + WIDTH_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getWidth());
+    hash = (53 * hash) + getWidth();
     hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getHeight());
+    hash = (53 * hash) + getHeight();
     hash = (37 * hash) + SIZE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getSize());
+        java.lang.Double.doubleToLongBits(getSize()));
     hash = (37 * hash) + CHECKINFO_FIELD_NUMBER;
     hash = (53 * hash) + getCheckInfo().hashCode();
     hash = (37 * hash) + INDEXRANGE_FIELD_NUMBER;
     hash = (53 * hash) + getIndexRange().hashCode();
     hash = (37 * hash) + INITRANGE_FIELD_NUMBER;
     hash = (53 * hash) + getInitRange().hashCode();
-    hash = (37 * hash) + PRELOADSIZE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getPreloadSize());
-    hash = (37 * hash) + PRELOADMINSTEP_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getPreloadMinStep());
-    hash = (37 * hash) + PRELOADMAXSTEP_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getPreloadMaxStep());
-    hash = (37 * hash) + PRELOADINTERVAL_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getPreloadInterval());
-    hash = (37 * hash) + P2PVERIFYURL_FIELD_NUMBER;
-    hash = (53 * hash) + getP2PVerifyUrl().hashCode();
     hash = (37 * hash) + PLAYAUTH_FIELD_NUMBER;
     hash = (53 * hash) + getPlayAuth().hashCode();
     hash = (37 * hash) + PLAYAUTHID_FIELD_NUMBER;
@@ -1543,29 +1349,19 @@ private static final long serialVersionUID = 0L;
 
       backupPlayUrl_ = "";
 
-      bitrate_ = 0F;
+      bitrate_ = 0;
 
-      width_ = 0L;
+      width_ = 0;
 
-      height_ = 0L;
+      height_ = 0;
 
-      size_ = 0L;
+      size_ = 0D;
 
       checkInfo_ = "";
 
       indexRange_ = "";
 
       initRange_ = "";
-
-      preloadSize_ = 0L;
-
-      preloadMinStep_ = 0L;
-
-      preloadMaxStep_ = 0L;
-
-      preloadInterval_ = 0L;
-
-      p2PVerifyUrl_ = "";
 
       playAuth_ = "";
 
@@ -1616,11 +1412,6 @@ private static final long serialVersionUID = 0L;
       result.checkInfo_ = checkInfo_;
       result.indexRange_ = indexRange_;
       result.initRange_ = initRange_;
-      result.preloadSize_ = preloadSize_;
-      result.preloadMinStep_ = preloadMinStep_;
-      result.preloadMaxStep_ = preloadMaxStep_;
-      result.preloadInterval_ = preloadInterval_;
-      result.p2PVerifyUrl_ = p2PVerifyUrl_;
       result.playAuth_ = playAuth_;
       result.playAuthId_ = playAuthId_;
       result.logoType_ = logoType_;
@@ -1705,16 +1496,16 @@ private static final long serialVersionUID = 0L;
         backupPlayUrl_ = other.backupPlayUrl_;
         onChanged();
       }
-      if (other.getBitrate() != 0F) {
+      if (other.getBitrate() != 0) {
         setBitrate(other.getBitrate());
       }
-      if (other.getWidth() != 0L) {
+      if (other.getWidth() != 0) {
         setWidth(other.getWidth());
       }
-      if (other.getHeight() != 0L) {
+      if (other.getHeight() != 0) {
         setHeight(other.getHeight());
       }
-      if (other.getSize() != 0L) {
+      if (other.getSize() != 0D) {
         setSize(other.getSize());
       }
       if (!other.getCheckInfo().isEmpty()) {
@@ -1727,22 +1518,6 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getInitRange().isEmpty()) {
         initRange_ = other.initRange_;
-        onChanged();
-      }
-      if (other.getPreloadSize() != 0L) {
-        setPreloadSize(other.getPreloadSize());
-      }
-      if (other.getPreloadMinStep() != 0L) {
-        setPreloadMinStep(other.getPreloadMinStep());
-      }
-      if (other.getPreloadMaxStep() != 0L) {
-        setPreloadMaxStep(other.getPreloadMaxStep());
-      }
-      if (other.getPreloadInterval() != 0L) {
-        setPreloadInterval(other.getPreloadInterval());
-      }
-      if (!other.getP2PVerifyUrl().isEmpty()) {
-        p2PVerifyUrl_ = other.p2PVerifyUrl_;
         onChanged();
       }
       if (!other.getPlayAuth().isEmpty()) {
@@ -2558,17 +2333,17 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float bitrate_ ;
+    private int bitrate_ ;
     /**
      * <pre>
      *码率(Kbps)
      * </pre>
      *
-     * <code>float Bitrate = 9;</code>
+     * <code>int32 Bitrate = 9;</code>
      * @return The bitrate.
      */
     @java.lang.Override
-    public float getBitrate() {
+    public int getBitrate() {
       return bitrate_;
     }
     /**
@@ -2576,11 +2351,11 @@ private static final long serialVersionUID = 0L;
      *码率(Kbps)
      * </pre>
      *
-     * <code>float Bitrate = 9;</code>
+     * <code>int32 Bitrate = 9;</code>
      * @param value The bitrate to set.
      * @return This builder for chaining.
      */
-    public Builder setBitrate(float value) {
+    public Builder setBitrate(int value) {
       
       bitrate_ = value;
       onChanged();
@@ -2591,27 +2366,27 @@ private static final long serialVersionUID = 0L;
      *码率(Kbps)
      * </pre>
      *
-     * <code>float Bitrate = 9;</code>
+     * <code>int32 Bitrate = 9;</code>
      * @return This builder for chaining.
      */
     public Builder clearBitrate() {
       
-      bitrate_ = 0F;
+      bitrate_ = 0;
       onChanged();
       return this;
     }
 
-    private long width_ ;
+    private int width_ ;
     /**
      * <pre>
      *视频高度
      * </pre>
      *
-     * <code>int64 Width = 10;</code>
+     * <code>int32 Width = 10;</code>
      * @return The width.
      */
     @java.lang.Override
-    public long getWidth() {
+    public int getWidth() {
       return width_;
     }
     /**
@@ -2619,11 +2394,11 @@ private static final long serialVersionUID = 0L;
      *视频高度
      * </pre>
      *
-     * <code>int64 Width = 10;</code>
+     * <code>int32 Width = 10;</code>
      * @param value The width to set.
      * @return This builder for chaining.
      */
-    public Builder setWidth(long value) {
+    public Builder setWidth(int value) {
       
       width_ = value;
       onChanged();
@@ -2634,27 +2409,27 @@ private static final long serialVersionUID = 0L;
      *视频高度
      * </pre>
      *
-     * <code>int64 Width = 10;</code>
+     * <code>int32 Width = 10;</code>
      * @return This builder for chaining.
      */
     public Builder clearWidth() {
       
-      width_ = 0L;
+      width_ = 0;
       onChanged();
       return this;
     }
 
-    private long height_ ;
+    private int height_ ;
     /**
      * <pre>
      *视频宽度
      * </pre>
      *
-     * <code>int64 Height = 11;</code>
+     * <code>int32 Height = 11;</code>
      * @return The height.
      */
     @java.lang.Override
-    public long getHeight() {
+    public int getHeight() {
       return height_;
     }
     /**
@@ -2662,11 +2437,11 @@ private static final long serialVersionUID = 0L;
      *视频宽度
      * </pre>
      *
-     * <code>int64 Height = 11;</code>
+     * <code>int32 Height = 11;</code>
      * @param value The height to set.
      * @return This builder for chaining.
      */
-    public Builder setHeight(long value) {
+    public Builder setHeight(int value) {
       
       height_ = value;
       onChanged();
@@ -2677,27 +2452,27 @@ private static final long serialVersionUID = 0L;
      *视频宽度
      * </pre>
      *
-     * <code>int64 Height = 11;</code>
+     * <code>int32 Height = 11;</code>
      * @return This builder for chaining.
      */
     public Builder clearHeight() {
       
-      height_ = 0L;
+      height_ = 0;
       onChanged();
       return this;
     }
 
-    private long size_ ;
+    private double size_ ;
     /**
      * <pre>
      *文件大小
      * </pre>
      *
-     * <code>int64 Size = 12;</code>
+     * <code>double Size = 12;</code>
      * @return The size.
      */
     @java.lang.Override
-    public long getSize() {
+    public double getSize() {
       return size_;
     }
     /**
@@ -2705,11 +2480,11 @@ private static final long serialVersionUID = 0L;
      *文件大小
      * </pre>
      *
-     * <code>int64 Size = 12;</code>
+     * <code>double Size = 12;</code>
      * @param value The size to set.
      * @return This builder for chaining.
      */
-    public Builder setSize(long value) {
+    public Builder setSize(double value) {
       
       size_ = value;
       onChanged();
@@ -2720,12 +2495,12 @@ private static final long serialVersionUID = 0L;
      *文件大小
      * </pre>
      *
-     * <code>int64 Size = 12;</code>
+     * <code>double Size = 12;</code>
      * @return This builder for chaining.
      */
     public Builder clearSize() {
       
-      size_ = 0L;
+      size_ = 0D;
       onChanged();
       return this;
     }
@@ -3018,281 +2793,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long preloadSize_ ;
-    /**
-     * <pre>
-     *预加载大小
-     * </pre>
-     *
-     * <code>int64 PreloadSize = 16;</code>
-     * @return The preloadSize.
-     */
-    @java.lang.Override
-    public long getPreloadSize() {
-      return preloadSize_;
-    }
-    /**
-     * <pre>
-     *预加载大小
-     * </pre>
-     *
-     * <code>int64 PreloadSize = 16;</code>
-     * @param value The preloadSize to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPreloadSize(long value) {
-      
-      preloadSize_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *预加载大小
-     * </pre>
-     *
-     * <code>int64 PreloadSize = 16;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPreloadSize() {
-      
-      preloadSize_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private long preloadMinStep_ ;
-    /**
-     * <pre>
-     *最小步长
-     * </pre>
-     *
-     * <code>int64 PreloadMinStep = 17;</code>
-     * @return The preloadMinStep.
-     */
-    @java.lang.Override
-    public long getPreloadMinStep() {
-      return preloadMinStep_;
-    }
-    /**
-     * <pre>
-     *最小步长
-     * </pre>
-     *
-     * <code>int64 PreloadMinStep = 17;</code>
-     * @param value The preloadMinStep to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPreloadMinStep(long value) {
-      
-      preloadMinStep_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *最小步长
-     * </pre>
-     *
-     * <code>int64 PreloadMinStep = 17;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPreloadMinStep() {
-      
-      preloadMinStep_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private long preloadMaxStep_ ;
-    /**
-     * <pre>
-     *最大步长
-     * </pre>
-     *
-     * <code>int64 PreloadMaxStep = 18;</code>
-     * @return The preloadMaxStep.
-     */
-    @java.lang.Override
-    public long getPreloadMaxStep() {
-      return preloadMaxStep_;
-    }
-    /**
-     * <pre>
-     *最大步长
-     * </pre>
-     *
-     * <code>int64 PreloadMaxStep = 18;</code>
-     * @param value The preloadMaxStep to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPreloadMaxStep(long value) {
-      
-      preloadMaxStep_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *最大步长
-     * </pre>
-     *
-     * <code>int64 PreloadMaxStep = 18;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPreloadMaxStep() {
-      
-      preloadMaxStep_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private long preloadInterval_ ;
-    /**
-     * <pre>
-     *间隔,提前加载时长
-     * </pre>
-     *
-     * <code>int64 PreloadInterval = 19;</code>
-     * @return The preloadInterval.
-     */
-    @java.lang.Override
-    public long getPreloadInterval() {
-      return preloadInterval_;
-    }
-    /**
-     * <pre>
-     *间隔,提前加载时长
-     * </pre>
-     *
-     * <code>int64 PreloadInterval = 19;</code>
-     * @param value The preloadInterval to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPreloadInterval(long value) {
-      
-      preloadInterval_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *间隔,提前加载时长
-     * </pre>
-     *
-     * <code>int64 PreloadInterval = 19;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPreloadInterval() {
-      
-      preloadInterval_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object p2PVerifyUrl_ = "";
-    /**
-     * <pre>
-     * p2p点播时，校验文件地址
-     * </pre>
-     *
-     * <code>string P2pVerifyUrl = 20;</code>
-     * @return The p2pVerifyUrl.
-     */
-    public java.lang.String getP2PVerifyUrl() {
-      java.lang.Object ref = p2PVerifyUrl_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        p2PVerifyUrl_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * p2p点播时，校验文件地址
-     * </pre>
-     *
-     * <code>string P2pVerifyUrl = 20;</code>
-     * @return The bytes for p2pVerifyUrl.
-     */
-    public com.google.protobuf.ByteString
-        getP2PVerifyUrlBytes() {
-      java.lang.Object ref = p2PVerifyUrl_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        p2PVerifyUrl_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * p2p点播时，校验文件地址
-     * </pre>
-     *
-     * <code>string P2pVerifyUrl = 20;</code>
-     * @param value The p2pVerifyUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setP2PVerifyUrl(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      p2PVerifyUrl_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * p2p点播时，校验文件地址
-     * </pre>
-     *
-     * <code>string P2pVerifyUrl = 20;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearP2PVerifyUrl() {
-      
-      p2PVerifyUrl_ = getDefaultInstance().getP2PVerifyUrl();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * p2p点播时，校验文件地址
-     * </pre>
-     *
-     * <code>string P2pVerifyUrl = 20;</code>
-     * @param value The bytes for p2pVerifyUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setP2PVerifyUrlBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      p2PVerifyUrl_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object playAuth_ = "";
     /**
      * <pre>
      *加密过的秘钥
      * </pre>
      *
-     * <code>string PlayAuth = 21;</code>
+     * <code>string PlayAuth = 16;</code>
      * @return The playAuth.
      */
     public java.lang.String getPlayAuth() {
@@ -3312,7 +2819,7 @@ private static final long serialVersionUID = 0L;
      *加密过的秘钥
      * </pre>
      *
-     * <code>string PlayAuth = 21;</code>
+     * <code>string PlayAuth = 16;</code>
      * @return The bytes for playAuth.
      */
     public com.google.protobuf.ByteString
@@ -3333,7 +2840,7 @@ private static final long serialVersionUID = 0L;
      *加密过的秘钥
      * </pre>
      *
-     * <code>string PlayAuth = 21;</code>
+     * <code>string PlayAuth = 16;</code>
      * @param value The playAuth to set.
      * @return This builder for chaining.
      */
@@ -3352,7 +2859,7 @@ private static final long serialVersionUID = 0L;
      *加密过的秘钥
      * </pre>
      *
-     * <code>string PlayAuth = 21;</code>
+     * <code>string PlayAuth = 16;</code>
      * @return This builder for chaining.
      */
     public Builder clearPlayAuth() {
@@ -3366,7 +2873,7 @@ private static final long serialVersionUID = 0L;
      *加密过的秘钥
      * </pre>
      *
-     * <code>string PlayAuth = 21;</code>
+     * <code>string PlayAuth = 16;</code>
      * @param value The bytes for playAuth to set.
      * @return This builder for chaining.
      */
@@ -3388,7 +2895,7 @@ private static final long serialVersionUID = 0L;
      *密钥keyID
      * </pre>
      *
-     * <code>string PlayAuthId = 22;</code>
+     * <code>string PlayAuthId = 17;</code>
      * @return The playAuthId.
      */
     public java.lang.String getPlayAuthId() {
@@ -3408,7 +2915,7 @@ private static final long serialVersionUID = 0L;
      *密钥keyID
      * </pre>
      *
-     * <code>string PlayAuthId = 22;</code>
+     * <code>string PlayAuthId = 17;</code>
      * @return The bytes for playAuthId.
      */
     public com.google.protobuf.ByteString
@@ -3429,7 +2936,7 @@ private static final long serialVersionUID = 0L;
      *密钥keyID
      * </pre>
      *
-     * <code>string PlayAuthId = 22;</code>
+     * <code>string PlayAuthId = 17;</code>
      * @param value The playAuthId to set.
      * @return This builder for chaining.
      */
@@ -3448,7 +2955,7 @@ private static final long serialVersionUID = 0L;
      *密钥keyID
      * </pre>
      *
-     * <code>string PlayAuthId = 22;</code>
+     * <code>string PlayAuthId = 17;</code>
      * @return This builder for chaining.
      */
     public Builder clearPlayAuthId() {
@@ -3462,7 +2969,7 @@ private static final long serialVersionUID = 0L;
      *密钥keyID
      * </pre>
      *
-     * <code>string PlayAuthId = 22;</code>
+     * <code>string PlayAuthId = 17;</code>
      * @param value The bytes for playAuthId to set.
      * @return This builder for chaining.
      */
@@ -3484,7 +2991,7 @@ private static final long serialVersionUID = 0L;
      *水印类型
      * </pre>
      *
-     * <code>string LogoType = 23;</code>
+     * <code>string LogoType = 18;</code>
      * @return The logoType.
      */
     public java.lang.String getLogoType() {
@@ -3504,7 +3011,7 @@ private static final long serialVersionUID = 0L;
      *水印类型
      * </pre>
      *
-     * <code>string LogoType = 23;</code>
+     * <code>string LogoType = 18;</code>
      * @return The bytes for logoType.
      */
     public com.google.protobuf.ByteString
@@ -3525,7 +3032,7 @@ private static final long serialVersionUID = 0L;
      *水印类型
      * </pre>
      *
-     * <code>string LogoType = 23;</code>
+     * <code>string LogoType = 18;</code>
      * @param value The logoType to set.
      * @return This builder for chaining.
      */
@@ -3544,7 +3051,7 @@ private static final long serialVersionUID = 0L;
      *水印类型
      * </pre>
      *
-     * <code>string LogoType = 23;</code>
+     * <code>string LogoType = 18;</code>
      * @return This builder for chaining.
      */
     public Builder clearLogoType() {
@@ -3558,7 +3065,7 @@ private static final long serialVersionUID = 0L;
      *水印类型
      * </pre>
      *
-     * <code>string LogoType = 23;</code>
+     * <code>string LogoType = 18;</code>
      * @param value The bytes for logoType to set.
      * @return This builder for chaining.
      */
@@ -3580,7 +3087,7 @@ private static final long serialVersionUID = 0L;
      *音频质量
      * </pre>
      *
-     * <code>string Quality = 24;</code>
+     * <code>string Quality = 19;</code>
      * @return The quality.
      */
     public java.lang.String getQuality() {
@@ -3600,7 +3107,7 @@ private static final long serialVersionUID = 0L;
      *音频质量
      * </pre>
      *
-     * <code>string Quality = 24;</code>
+     * <code>string Quality = 19;</code>
      * @return The bytes for quality.
      */
     public com.google.protobuf.ByteString
@@ -3621,7 +3128,7 @@ private static final long serialVersionUID = 0L;
      *音频质量
      * </pre>
      *
-     * <code>string Quality = 24;</code>
+     * <code>string Quality = 19;</code>
      * @param value The quality to set.
      * @return This builder for chaining.
      */
@@ -3640,7 +3147,7 @@ private static final long serialVersionUID = 0L;
      *音频质量
      * </pre>
      *
-     * <code>string Quality = 24;</code>
+     * <code>string Quality = 19;</code>
      * @return This builder for chaining.
      */
     public Builder clearQuality() {
@@ -3654,7 +3161,7 @@ private static final long serialVersionUID = 0L;
      *音频质量
      * </pre>
      *
-     * <code>string Quality = 24;</code>
+     * <code>string Quality = 19;</code>
      * @param value The bytes for quality to set.
      * @return This builder for chaining.
      */

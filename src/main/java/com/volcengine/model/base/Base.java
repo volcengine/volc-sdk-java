@@ -53,11 +53,11 @@ public final class Base {
       "olcengine.Models.Base.ResponseError\".\n\rR" +
       "esponseError\022\014\n\004Code\030\001 \001(\t\022\017\n\007Message\030\002 " +
       "\001(\t:6\n\014product_type\022\034.google.protobuf.Fi" +
-      "leOptions\030\220N \001(\t\210\001\001B\230\001\n\031com.volcengine.m" +
+      "leOptions\030\220N \001(\t\210\001\001B\214\001\n\031com.volcengine.m" +
       "odel.baseB\004BaseP\001Z1github.com/volcengine" +
-      "/volc-sdk-golang/models/base\240\001\001\330\001\001\302\002\000\312\002\026" +
-      "Volcengine\\Models\\Base\342\002\035Volcengine\\Mode" +
-      "ls\\GPBMetadatab\006proto3"
+      "/volc-sdk-golang/models/base\240\001\001\330\001\001\302\002\000\312\002\020" +
+      "Volc\\Models\\Base\342\002\027Volc\\Models\\GPBMetada" +
+      "tab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

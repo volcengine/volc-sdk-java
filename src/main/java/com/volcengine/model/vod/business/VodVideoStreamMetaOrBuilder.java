@@ -32,20 +32,20 @@ public interface VodVideoStreamMetaOrBuilder extends
    *视频高度
    * </pre>
    *
-   * <code>int64 Height = 2;</code>
+   * <code>int32 Height = 2;</code>
    * @return The height.
    */
-  long getHeight();
+  int getHeight();
 
   /**
    * <pre>
    *视频宽度
    * </pre>
    *
-   * <code>int64 Width = 3;</code>
+   * <code>int32 Width = 3;</code>
    * @return The width.
    */
-  long getWidth();
+  int getWidth();
 
   /**
    * <pre>
@@ -82,10 +82,10 @@ public interface VodVideoStreamMetaOrBuilder extends
    *视频码率(Kbps)
    * </pre>
    *
-   * <code>int64 Bitrate = 6;</code>
+   * <code>int32 Bitrate = 6;</code>
    * @return The bitrate.
    */
-  long getBitrate();
+  int getBitrate();
 
   /**
    * <pre>

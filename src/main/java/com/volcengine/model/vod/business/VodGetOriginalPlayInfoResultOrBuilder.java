@@ -42,30 +42,30 @@ public interface VodGetOriginalPlayInfoResultOrBuilder extends
    *视频文件大小
    * </pre>
    *
-   * <code>int64 Size = 3;</code>
+   * <code>double Size = 3;</code>
    * @return The size.
    */
-  long getSize();
+  double getSize();
 
   /**
    * <pre>
    *视频高度
    * </pre>
    *
-   * <code>int64 Height = 4;</code>
+   * <code>int32 Height = 4;</code>
    * @return The height.
    */
-  long getHeight();
+  int getHeight();
 
   /**
    * <pre>
    *视频宽度
    * </pre>
    *
-   * <code>int64 Width = 5;</code>
+   * <code>int32 Width = 5;</code>
    * @return The width.
    */
-  long getWidth();
+  int getWidth();
 
   /**
    * <pre>
@@ -112,10 +112,10 @@ public interface VodGetOriginalPlayInfoResultOrBuilder extends
    *码率(Kbps)
    * </pre>
    *
-   * <code>float Bitrate = 8;</code>
+   * <code>int32 Bitrate = 8;</code>
    * @return The bitrate.
    */
-  float getBitrate();
+  int getBitrate();
 
   /**
    * <pre>

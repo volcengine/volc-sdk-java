@@ -32,10 +32,10 @@ public interface VodGetPlayInfoResultOrBuilder extends
    *状态
    * </pre>
    *
-   * <code>int64 Status = 2;</code>
+   * <code>int32 Status = 2;</code>
    * @return The status.
    */
-  long getStatus();
+  int getStatus();
 
   /**
    * <pre>
@@ -102,10 +102,10 @@ public interface VodGetPlayInfoResultOrBuilder extends
    *播放列表数量
    * </pre>
    *
-   * <code>int64 TotalCount = 7;</code>
+   * <code>int32 TotalCount = 7;</code>
    * @return The totalCount.
    */
-  long getTotalCount();
+  int getTotalCount();
 
   /**
    * <pre>

@@ -36,17 +36,17 @@ public final class VodPlay {
       "\n\033vod/business/vod_play.proto\022\036Volcengin" +
       "e.Models.Vod.Business\032\035vod/business/vod_" +
       "common.proto\"\240\002\n\024VodGetPlayInfoResult\022\013\n" +
-      "\003Vid\030\001 \001(\t\022\016\n\006Status\030\002 \001(\003\022\021\n\tPosterUrl\030" +
+      "\003Vid\030\001 \001(\t\022\016\n\006Status\030\002 \001(\005\022\021\n\tPosterUrl\030" +
       "\003 \001(\t\022\020\n\010Duration\030\004 \001(\002\022\020\n\010FileType\030\005 \001(" +
       "\t\022\026\n\016EnableAdaptive\030\006 \001(\010\022\022\n\nTotalCount\030" +
-      "\007 \001(\003\022E\n\014AdaptiveInfo\030\010 \001(\0132/.Volcengine" +
+      "\007 \001(\005\022E\n\014AdaptiveInfo\030\010 \001(\0132/.Volcengine" +
       ".Models.Vod.Business.VodAdaptiveInfo\022A\n\014" +
       "PlayInfoList\030\t \003(\0132+.Volcengine.Models.V" +
       "od.Business.VodPlayInfo\"\330\001\n\034VodGetOrigin" +
       "alPlayInfoResult\022\020\n\010FileType\030\001 \001(\t\022\020\n\010Du" +
-      "ration\030\002 \001(\002\022\014\n\004Size\030\003 \001(\003\022\016\n\006Height\030\004 \001" +
-      "(\003\022\r\n\005Width\030\005 \001(\003\022\016\n\006Format\030\006 \001(\t\022\r\n\005Cod" +
-      "ec\030\007 \001(\t\022\017\n\007Bitrate\030\010 \001(\002\022\013\n\003Md5\030\t \001(\t\022\023" +
+      "ration\030\002 \001(\002\022\014\n\004Size\030\003 \001(\001\022\016\n\006Height\030\004 \001" +
+      "(\005\022\r\n\005Width\030\005 \001(\005\022\016\n\006Format\030\006 \001(\t\022\r\n\005Cod" +
+      "ec\030\007 \001(\t\022\017\n\007Bitrate\030\010 \001(\005\022\013\n\003Md5\030\t \001(\t\022\023" +
       "\n\013MainPlayUrl\030\n \001(\t\022\025\n\rBackupPlayUrl\030\013 \001" +
       "(\tB\247\001\n!com.volcengine.model.vod.business" +
       "B\007VodPlayP\001Z9github.com/volcengine/volc-" +

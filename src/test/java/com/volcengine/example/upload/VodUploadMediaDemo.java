@@ -5,7 +5,7 @@ import com.volcengine.model.beans.Functions;
 import com.volcengine.model.vod.request.VodUploadMediaRequest;
 import com.volcengine.model.vod.response.VodCommitUploadInfoResponse;
 import com.volcengine.service.vod.IVodService;
-import com.volcengine.service.vod.impl.VodUploadServiceImpl;
+import com.volcengine.service.vod.impl.VodServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
 public class VodUploadMediaDemo {
 
     public static void main(String[] args) {
-        IVodService vodService = VodUploadServiceImpl.getInstance();
+        IVodService vodService = VodServiceImpl.getInstance();
 
         // call below method if you dont set ak and sk in ～/.vcloud/config
         vodService.setAccessKey("your ak");

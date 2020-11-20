@@ -19,6 +19,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      */
     String getPlayAuthToken(java.util.Map<String, String> params) throws Exception;
 
+	/**
+	 * uploadMedia
+	 *
+	 * @param vodUploadMediaRequest
+	 * @return
+	 * @throws Exception
+	 */
+	com.volcengine.model.vod.response.VodCommitUploadInfoResponse uploadMedia(com.volcengine.model.vod.request.VodUploadMediaRequest vodUploadMediaRequest) throws Exception;
+
 
 	/**
      * getPlayInfo.

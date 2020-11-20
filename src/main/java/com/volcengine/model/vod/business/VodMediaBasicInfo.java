@@ -93,12 +93,7 @@ private static final long serialVersionUID = 0L;
             publishStatus_ = s;
             break;
           }
-          case 56: {
-
-            auditStatus_ = input.readInt64();
-            break;
-          }
-          case 66: {
+          case 58: {
             java.lang.String s = input.readStringRequireUtf8();
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               tags_ = new com.google.protobuf.LazyStringArrayList();
@@ -107,7 +102,7 @@ private static final long serialVersionUID = 0L;
             tags_.add(s);
             break;
           }
-          case 74: {
+          case 66: {
             java.lang.String s = input.readStringRequireUtf8();
 
             createTime_ = s;
@@ -424,29 +419,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int AUDITSTATUS_FIELD_NUMBER = 7;
-  private long auditStatus_;
-  /**
-   * <pre>
-   *审核状态
-   * </pre>
-   *
-   * <code>int64 AuditStatus = 7;</code>
-   * @return The auditStatus.
-   */
-  @java.lang.Override
-  public long getAuditStatus() {
-    return auditStatus_;
-  }
-
-  public static final int TAGS_FIELD_NUMBER = 8;
+  public static final int TAGS_FIELD_NUMBER = 7;
   private com.google.protobuf.LazyStringList tags_;
   /**
    * <pre>
    *标签列表
    * </pre>
    *
-   * <code>repeated string Tags = 8;</code>
+   * <code>repeated string Tags = 7;</code>
    * @return A list containing the tags.
    */
   public com.google.protobuf.ProtocolStringList
@@ -458,7 +438,7 @@ private static final long serialVersionUID = 0L;
    *标签列表
    * </pre>
    *
-   * <code>repeated string Tags = 8;</code>
+   * <code>repeated string Tags = 7;</code>
    * @return The count of tags.
    */
   public int getTagsCount() {
@@ -469,7 +449,7 @@ private static final long serialVersionUID = 0L;
    *标签列表
    * </pre>
    *
-   * <code>repeated string Tags = 8;</code>
+   * <code>repeated string Tags = 7;</code>
    * @param index The index of the element to return.
    * @return The tags at the given index.
    */
@@ -481,7 +461,7 @@ private static final long serialVersionUID = 0L;
    *标签列表
    * </pre>
    *
-   * <code>repeated string Tags = 8;</code>
+   * <code>repeated string Tags = 7;</code>
    * @param index The index of the value to return.
    * @return The bytes of the tags at the given index.
    */
@@ -490,14 +470,14 @@ private static final long serialVersionUID = 0L;
     return tags_.getByteString(index);
   }
 
-  public static final int CREATETIME_FIELD_NUMBER = 9;
+  public static final int CREATETIME_FIELD_NUMBER = 8;
   private volatile java.lang.Object createTime_;
   /**
    * <pre>
    *创建时间
    * </pre>
    *
-   * <code>string CreateTime = 9;</code>
+   * <code>string CreateTime = 8;</code>
    * @return The createTime.
    */
   @java.lang.Override
@@ -518,7 +498,7 @@ private static final long serialVersionUID = 0L;
    *创建时间
    * </pre>
    *
-   * <code>string CreateTime = 9;</code>
+   * <code>string CreateTime = 8;</code>
    * @return The bytes for createTime.
    */
   @java.lang.Override
@@ -568,14 +548,11 @@ private static final long serialVersionUID = 0L;
     if (!getPublishStatusBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, publishStatus_);
     }
-    if (auditStatus_ != 0L) {
-      output.writeInt64(7, auditStatus_);
-    }
     for (int i = 0; i < tags_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, tags_.getRaw(i));
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, tags_.getRaw(i));
     }
     if (!getCreateTimeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, createTime_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, createTime_);
     }
     unknownFields.writeTo(output);
   }
@@ -604,10 +581,6 @@ private static final long serialVersionUID = 0L;
     if (!getPublishStatusBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, publishStatus_);
     }
-    if (auditStatus_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(7, auditStatus_);
-    }
     {
       int dataSize = 0;
       for (int i = 0; i < tags_.size(); i++) {
@@ -617,7 +590,7 @@ private static final long serialVersionUID = 0L;
       size += 1 * getTagsList().size();
     }
     if (!getCreateTimeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, createTime_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, createTime_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -646,8 +619,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPosterUri())) return false;
     if (!getPublishStatus()
         .equals(other.getPublishStatus())) return false;
-    if (getAuditStatus()
-        != other.getAuditStatus()) return false;
     if (!getTagsList()
         .equals(other.getTagsList())) return false;
     if (!getCreateTime()
@@ -675,9 +646,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPosterUri().hashCode();
     hash = (37 * hash) + PUBLISHSTATUS_FIELD_NUMBER;
     hash = (53 * hash) + getPublishStatus().hashCode();
-    hash = (37 * hash) + AUDITSTATUS_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getAuditStatus());
     if (getTagsCount() > 0) {
       hash = (37 * hash) + TAGS_FIELD_NUMBER;
       hash = (53 * hash) + getTagsList().hashCode();
@@ -829,8 +797,6 @@ private static final long serialVersionUID = 0L;
 
       publishStatus_ = "";
 
-      auditStatus_ = 0L;
-
       tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       createTime_ = "";
@@ -868,7 +834,6 @@ private static final long serialVersionUID = 0L;
       result.description_ = description_;
       result.posterUri_ = posterUri_;
       result.publishStatus_ = publishStatus_;
-      result.auditStatus_ = auditStatus_;
       if (((bitField0_ & 0x00000001) != 0)) {
         tags_ = tags_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -946,9 +911,6 @@ private static final long serialVersionUID = 0L;
       if (!other.getPublishStatus().isEmpty()) {
         publishStatus_ = other.publishStatus_;
         onChanged();
-      }
-      if (other.getAuditStatus() != 0L) {
-        setAuditStatus(other.getAuditStatus());
       }
       if (!other.tags_.isEmpty()) {
         if (tags_.isEmpty()) {
@@ -1570,49 +1532,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long auditStatus_ ;
-    /**
-     * <pre>
-     *审核状态
-     * </pre>
-     *
-     * <code>int64 AuditStatus = 7;</code>
-     * @return The auditStatus.
-     */
-    @java.lang.Override
-    public long getAuditStatus() {
-      return auditStatus_;
-    }
-    /**
-     * <pre>
-     *审核状态
-     * </pre>
-     *
-     * <code>int64 AuditStatus = 7;</code>
-     * @param value The auditStatus to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAuditStatus(long value) {
-      
-      auditStatus_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *审核状态
-     * </pre>
-     *
-     * <code>int64 AuditStatus = 7;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearAuditStatus() {
-      
-      auditStatus_ = 0L;
-      onChanged();
-      return this;
-    }
-
     private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureTagsIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
@@ -1625,7 +1544,7 @@ private static final long serialVersionUID = 0L;
      *标签列表
      * </pre>
      *
-     * <code>repeated string Tags = 8;</code>
+     * <code>repeated string Tags = 7;</code>
      * @return A list containing the tags.
      */
     public com.google.protobuf.ProtocolStringList
@@ -1637,7 +1556,7 @@ private static final long serialVersionUID = 0L;
      *标签列表
      * </pre>
      *
-     * <code>repeated string Tags = 8;</code>
+     * <code>repeated string Tags = 7;</code>
      * @return The count of tags.
      */
     public int getTagsCount() {
@@ -1648,7 +1567,7 @@ private static final long serialVersionUID = 0L;
      *标签列表
      * </pre>
      *
-     * <code>repeated string Tags = 8;</code>
+     * <code>repeated string Tags = 7;</code>
      * @param index The index of the element to return.
      * @return The tags at the given index.
      */
@@ -1660,7 +1579,7 @@ private static final long serialVersionUID = 0L;
      *标签列表
      * </pre>
      *
-     * <code>repeated string Tags = 8;</code>
+     * <code>repeated string Tags = 7;</code>
      * @param index The index of the value to return.
      * @return The bytes of the tags at the given index.
      */
@@ -1673,7 +1592,7 @@ private static final long serialVersionUID = 0L;
      *标签列表
      * </pre>
      *
-     * <code>repeated string Tags = 8;</code>
+     * <code>repeated string Tags = 7;</code>
      * @param index The index to set the value at.
      * @param value The tags to set.
      * @return This builder for chaining.
@@ -1693,7 +1612,7 @@ private static final long serialVersionUID = 0L;
      *标签列表
      * </pre>
      *
-     * <code>repeated string Tags = 8;</code>
+     * <code>repeated string Tags = 7;</code>
      * @param value The tags to add.
      * @return This builder for chaining.
      */
@@ -1712,7 +1631,7 @@ private static final long serialVersionUID = 0L;
      *标签列表
      * </pre>
      *
-     * <code>repeated string Tags = 8;</code>
+     * <code>repeated string Tags = 7;</code>
      * @param values The tags to add.
      * @return This builder for chaining.
      */
@@ -1729,7 +1648,7 @@ private static final long serialVersionUID = 0L;
      *标签列表
      * </pre>
      *
-     * <code>repeated string Tags = 8;</code>
+     * <code>repeated string Tags = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearTags() {
@@ -1743,7 +1662,7 @@ private static final long serialVersionUID = 0L;
      *标签列表
      * </pre>
      *
-     * <code>repeated string Tags = 8;</code>
+     * <code>repeated string Tags = 7;</code>
      * @param value The bytes of the tags to add.
      * @return This builder for chaining.
      */
@@ -1765,7 +1684,7 @@ private static final long serialVersionUID = 0L;
      *创建时间
      * </pre>
      *
-     * <code>string CreateTime = 9;</code>
+     * <code>string CreateTime = 8;</code>
      * @return The createTime.
      */
     public java.lang.String getCreateTime() {
@@ -1785,7 +1704,7 @@ private static final long serialVersionUID = 0L;
      *创建时间
      * </pre>
      *
-     * <code>string CreateTime = 9;</code>
+     * <code>string CreateTime = 8;</code>
      * @return The bytes for createTime.
      */
     public com.google.protobuf.ByteString
@@ -1806,7 +1725,7 @@ private static final long serialVersionUID = 0L;
      *创建时间
      * </pre>
      *
-     * <code>string CreateTime = 9;</code>
+     * <code>string CreateTime = 8;</code>
      * @param value The createTime to set.
      * @return This builder for chaining.
      */
@@ -1825,7 +1744,7 @@ private static final long serialVersionUID = 0L;
      *创建时间
      * </pre>
      *
-     * <code>string CreateTime = 9;</code>
+     * <code>string CreateTime = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearCreateTime() {
@@ -1839,7 +1758,7 @@ private static final long serialVersionUID = 0L;
      *创建时间
      * </pre>
      *
-     * <code>string CreateTime = 9;</code>
+     * <code>string CreateTime = 8;</code>
      * @param value The bytes for createTime to set.
      * @return This builder for chaining.
      */

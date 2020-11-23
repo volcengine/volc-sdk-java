@@ -34,11 +34,10 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 
 	@Override
     public String getPlayAuthToken(Map<String, String> params) throws Exception {
-        Map<String, String> ret = new HashMap<>();
-        ret.put("Version", "v1");
         String getPlayInfoToken = getSignUrl(com.volcengine.helper.Const.GetPlayInfo, com.volcengine.helper.Utils.mapToPairList(params));
-        ret.put("GetPlayInfoToken", getPlayInfoToken);
-
+        Map<String, String> ret = new HashMap<>(); 
+		ret.put("GetPlayInfoToken", getPlayInfoToken);
+		ret.put("TokenVersion", "V2");
         String retStr = JSON.toJSONString(ret);
         Base64.Encoder encoder = Base64.getEncoder();
         return encoder.encodeToString(retStr.getBytes());

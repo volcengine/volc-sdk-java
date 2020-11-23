@@ -29,7 +29,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *封装格式，支持mp4,dash,hls，默认mp4 Format
+   *封装格式，支持mp4,dash,hls，默认mp4Format
    * </pre>
    *
    * <code>string Format = 2;</code>
@@ -38,7 +38,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getFormat();
   /**
    * <pre>
-   *封装格式，支持mp4,dash,hls，默认mp4 Format
+   *封装格式，支持mp4,dash,hls，默认mp4Format
    * </pre>
    *
    * <code>string Format = 2;</code>
@@ -49,7 +49,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264,h265等 Codec
+   *编码类型，默认h264，可选值为h264,bytevc1等Codec
    * </pre>
    *
    * <code>string Codec = 3;</code>
@@ -58,7 +58,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getCodec();
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264,h265等 Codec
+   *编码类型，默认h264，可选值为h264,bytevc1等Codec
    * </pre>
    *
    * <code>string Codec = 3;</code>

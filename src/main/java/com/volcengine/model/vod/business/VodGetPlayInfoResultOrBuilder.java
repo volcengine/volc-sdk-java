@@ -9,6 +9,25 @@ public interface VodGetPlayInfoResultOrBuilder extends
 
   /**
    * <pre>
+   *数据版本
+   * </pre>
+   *
+   * <code>.Volcengine.Models.Vod.Business.VodVideoModelVersion Version = 10;</code>
+   * @return The enum numeric value on the wire for version.
+   */
+  int getVersionValue();
+  /**
+   * <pre>
+   *数据版本
+   * </pre>
+   *
+   * <code>.Volcengine.Models.Vod.Business.VodVideoModelVersion Version = 10;</code>
+   * @return The version.
+   */
+  com.volcengine.model.vod.business.VodVideoModelVersion getVersion();
+
+  /**
+   * <pre>
    * 唯一ID
    * </pre>
    *

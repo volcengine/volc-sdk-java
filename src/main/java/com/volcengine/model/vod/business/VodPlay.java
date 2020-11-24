@@ -35,24 +35,31 @@ public final class VodPlay {
     java.lang.String[] descriptorData = {
       "\n\033vod/business/vod_play.proto\022\036Volcengin" +
       "e.Models.Vod.Business\032\035vod/business/vod_" +
-      "common.proto\"\240\002\n\024VodGetPlayInfoResult\022\013\n" +
-      "\003Vid\030\001 \001(\t\022\016\n\006Status\030\002 \001(\005\022\021\n\tPosterUrl\030" +
-      "\003 \001(\t\022\020\n\010Duration\030\004 \001(\002\022\020\n\010FileType\030\005 \001(" +
-      "\t\022\026\n\016EnableAdaptive\030\006 \001(\010\022\022\n\nTotalCount\030" +
-      "\007 \001(\005\022E\n\014AdaptiveInfo\030\010 \001(\0132/.Volcengine" +
-      ".Models.Vod.Business.VodAdaptiveInfo\022A\n\014" +
-      "PlayInfoList\030\t \003(\0132+.Volcengine.Models.V" +
-      "od.Business.VodPlayInfo\"\330\001\n\034VodGetOrigin" +
-      "alPlayInfoResult\022\020\n\010FileType\030\001 \001(\t\022\020\n\010Du" +
-      "ration\030\002 \001(\002\022\014\n\004Size\030\003 \001(\001\022\016\n\006Height\030\004 \001" +
-      "(\005\022\r\n\005Width\030\005 \001(\005\022\016\n\006Format\030\006 \001(\t\022\r\n\005Cod" +
-      "ec\030\007 \001(\t\022\017\n\007Bitrate\030\010 \001(\005\022\013\n\003Md5\030\t \001(\t\022\023" +
-      "\n\013MainPlayUrl\030\n \001(\t\022\025\n\rBackupPlayUrl\030\013 \001" +
-      "(\tB\247\001\n!com.volcengine.model.vod.business" +
-      "B\007VodPlayP\001Z9github.com/volcengine/volc-" +
-      "sdk-golang/models/vod/business\240\001\001\330\001\001\302\002\000\312" +
-      "\002\030Volc\\Models\\Vod\\Business\342\002\027Volc\\Models" +
-      "\\GPBMetadatab\006proto3"
+      "common.proto\"\347\002\n\024VodGetPlayInfoResult\022E\n" +
+      "\007Version\030\n \001(\01624.Volcengine.Models.Vod.B" +
+      "usiness.VodVideoModelVersion\022\013\n\003Vid\030\001 \001(" +
+      "\t\022\016\n\006Status\030\002 \001(\005\022\021\n\tPosterUrl\030\003 \001(\t\022\020\n\010" +
+      "Duration\030\004 \001(\002\022\020\n\010FileType\030\005 \001(\t\022\026\n\016Enab" +
+      "leAdaptive\030\006 \001(\010\022\022\n\nTotalCount\030\007 \001(\005\022E\n\014" +
+      "AdaptiveInfo\030\010 \001(\0132/.Volcengine.Models.V" +
+      "od.Business.VodAdaptiveInfo\022A\n\014PlayInfoL" +
+      "ist\030\t \003(\0132+.Volcengine.Models.Vod.Busine" +
+      "ss.VodPlayInfo\"\330\001\n\034VodGetOriginalPlayInf" +
+      "oResult\022\020\n\010FileType\030\001 \001(\t\022\020\n\010Duration\030\002 " +
+      "\001(\002\022\014\n\004Size\030\003 \001(\001\022\016\n\006Height\030\004 \001(\005\022\r\n\005Wid" +
+      "th\030\005 \001(\005\022\016\n\006Format\030\006 \001(\t\022\r\n\005Codec\030\007 \001(\t\022" +
+      "\017\n\007Bitrate\030\010 \001(\005\022\013\n\003Md5\030\t \001(\t\022\023\n\013MainPla" +
+      "yUrl\030\n \001(\t\022\025\n\rBackupPlayUrl\030\013 \001(\t*\304\001\n\024Vo" +
+      "dVideoModelVersion\022!\n\035UndefinedVodVideoM" +
+      "odelVersion\020\000\022\"\n\036InternalV1VodVideoModel" +
+      "Version\020\001\022\"\n\036InternalV2VodVideoModelVers" +
+      "ion\020\002\022\"\n\036InternalV3VodVideoModelVersion\020" +
+      "\003\022\035\n\031ToBV1VodVideoModelVersion\020\004B\247\001\n!com" +
+      ".volcengine.model.vod.businessB\007VodPlayP" +
+      "\001Z9github.com/volcengine/volc-sdk-golang" +
+      "/models/vod/business\240\001\001\330\001\001\302\002\000\312\002\030Volc\\Mod" +
+      "els\\Vod\\Business\342\002\027Volc\\Models\\GPBMetada" +
+      "tab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -64,7 +71,7 @@ public final class VodPlay {
     internal_static_Volcengine_Models_Vod_Business_VodGetPlayInfoResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Models_Vod_Business_VodGetPlayInfoResult_descriptor,
-        new java.lang.String[] { "Vid", "Status", "PosterUrl", "Duration", "FileType", "EnableAdaptive", "TotalCount", "AdaptiveInfo", "PlayInfoList", });
+        new java.lang.String[] { "Version", "Vid", "Status", "PosterUrl", "Duration", "FileType", "EnableAdaptive", "TotalCount", "AdaptiveInfo", "PlayInfoList", });
     internal_static_Volcengine_Models_Vod_Business_VodGetOriginalPlayInfoResult_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Volcengine_Models_Vod_Business_VodGetOriginalPlayInfoResult_fieldAccessorTable = new

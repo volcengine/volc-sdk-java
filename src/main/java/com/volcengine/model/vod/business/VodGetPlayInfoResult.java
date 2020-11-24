@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private VodGetPlayInfoResult() {
+    version_ = 0;
     vid_ = "";
     posterUrl_ = "";
     fileType_ = "";
@@ -113,6 +114,12 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(com.volcengine.model.vod.business.VodPlayInfo.parser(), extensionRegistry));
             break;
           }
+          case 80: {
+            int rawValue = input.readEnum();
+
+            version_ = rawValue;
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -146,6 +153,33 @@ private static final long serialVersionUID = 0L;
     return com.volcengine.model.vod.business.VodPlay.internal_static_Volcengine_Models_Vod_Business_VodGetPlayInfoResult_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.volcengine.model.vod.business.VodGetPlayInfoResult.class, com.volcengine.model.vod.business.VodGetPlayInfoResult.Builder.class);
+  }
+
+  public static final int VERSION_FIELD_NUMBER = 10;
+  private int version_;
+  /**
+   * <pre>
+   *数据版本
+   * </pre>
+   *
+   * <code>.Volcengine.Models.Vod.Business.VodVideoModelVersion Version = 10;</code>
+   * @return The enum numeric value on the wire for version.
+   */
+  @java.lang.Override public int getVersionValue() {
+    return version_;
+  }
+  /**
+   * <pre>
+   *数据版本
+   * </pre>
+   *
+   * <code>.Volcengine.Models.Vod.Business.VodVideoModelVersion Version = 10;</code>
+   * @return The version.
+   */
+  @java.lang.Override public com.volcengine.model.vod.business.VodVideoModelVersion getVersion() {
+    @SuppressWarnings("deprecation")
+    com.volcengine.model.vod.business.VodVideoModelVersion result = com.volcengine.model.vod.business.VodVideoModelVersion.valueOf(version_);
+    return result == null ? com.volcengine.model.vod.business.VodVideoModelVersion.UNRECOGNIZED : result;
   }
 
   public static final int VID_FIELD_NUMBER = 1;
@@ -485,6 +519,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < playInfoList_.size(); i++) {
       output.writeMessage(9, playInfoList_.get(i));
     }
+    if (version_ != com.volcengine.model.vod.business.VodVideoModelVersion.UndefinedVodVideoModelVersion.getNumber()) {
+      output.writeEnum(10, version_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -527,6 +564,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, playInfoList_.get(i));
     }
+    if (version_ != com.volcengine.model.vod.business.VodVideoModelVersion.UndefinedVodVideoModelVersion.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(10, version_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -542,6 +583,7 @@ private static final long serialVersionUID = 0L;
     }
     com.volcengine.model.vod.business.VodGetPlayInfoResult other = (com.volcengine.model.vod.business.VodGetPlayInfoResult) obj;
 
+    if (version_ != other.version_) return false;
     if (!getVid()
         .equals(other.getVid())) return false;
     if (getStatus()
@@ -575,6 +617,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + VERSION_FIELD_NUMBER;
+    hash = (53 * hash) + version_;
     hash = (37 * hash) + VID_FIELD_NUMBER;
     hash = (53 * hash) + getVid().hashCode();
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
@@ -733,6 +777,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      version_ = 0;
+
       vid_ = "";
 
       status_ = 0;
@@ -786,6 +832,7 @@ private static final long serialVersionUID = 0L;
     public com.volcengine.model.vod.business.VodGetPlayInfoResult buildPartial() {
       com.volcengine.model.vod.business.VodGetPlayInfoResult result = new com.volcengine.model.vod.business.VodGetPlayInfoResult(this);
       int from_bitField0_ = bitField0_;
+      result.version_ = version_;
       result.vid_ = vid_;
       result.status_ = status_;
       result.posterUrl_ = posterUrl_;
@@ -855,6 +902,9 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.volcengine.model.vod.business.VodGetPlayInfoResult other) {
       if (other == com.volcengine.model.vod.business.VodGetPlayInfoResult.getDefaultInstance()) return this;
+      if (other.version_ != 0) {
+        setVersionValue(other.getVersionValue());
+      }
       if (!other.getVid().isEmpty()) {
         vid_ = other.vid_;
         onChanged();
@@ -937,6 +987,80 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     private int bitField0_;
+
+    private int version_ = 0;
+    /**
+     * <pre>
+     *数据版本
+     * </pre>
+     *
+     * <code>.Volcengine.Models.Vod.Business.VodVideoModelVersion Version = 10;</code>
+     * @return The enum numeric value on the wire for version.
+     */
+    @java.lang.Override public int getVersionValue() {
+      return version_;
+    }
+    /**
+     * <pre>
+     *数据版本
+     * </pre>
+     *
+     * <code>.Volcengine.Models.Vod.Business.VodVideoModelVersion Version = 10;</code>
+     * @param value The enum numeric value on the wire for version to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVersionValue(int value) {
+      
+      version_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *数据版本
+     * </pre>
+     *
+     * <code>.Volcengine.Models.Vod.Business.VodVideoModelVersion Version = 10;</code>
+     * @return The version.
+     */
+    @java.lang.Override
+    public com.volcengine.model.vod.business.VodVideoModelVersion getVersion() {
+      @SuppressWarnings("deprecation")
+      com.volcengine.model.vod.business.VodVideoModelVersion result = com.volcengine.model.vod.business.VodVideoModelVersion.valueOf(version_);
+      return result == null ? com.volcengine.model.vod.business.VodVideoModelVersion.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     *数据版本
+     * </pre>
+     *
+     * <code>.Volcengine.Models.Vod.Business.VodVideoModelVersion Version = 10;</code>
+     * @param value The version to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVersion(com.volcengine.model.vod.business.VodVideoModelVersion value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      version_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *数据版本
+     * </pre>
+     *
+     * <code>.Volcengine.Models.Vod.Business.VodVideoModelVersion Version = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVersion() {
+      
+      version_ = 0;
+      onChanged();
+      return this;
+    }
 
     private java.lang.Object vid_ = "";
     /**

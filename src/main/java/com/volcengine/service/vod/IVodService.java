@@ -13,11 +13,11 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	/**
      * Gets play auth token.
      *
-     * @param params the params
+     * @param input the params
      * @return the play auth token
      * @throws Exception the exception
      */
-    String getPlayAuthToken(java.util.Map<String, String> params) throws Exception;
+    String getPlayAuthToken(com.volcengine.model.vod.request.VodGetPlayInfoRequest input) throws Exception;
 
     /**
      * Get Upload Sts2 token.

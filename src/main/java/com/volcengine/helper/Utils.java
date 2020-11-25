@@ -180,8 +180,12 @@ public class Utils {
     }
 
     // 对于List类型entry，逗号连接生成string value
-    public static Map<String, String> protoBufferToMap(MessageOrBuilder obj) throws InvalidProtocolBufferException {
-        Map<String, Object> map = JSONObject.toJavaObject(JSONObject.parseObject(JsonFormat.printer().includingDefaultValueFields().print(obj)), Map.class);
+    public static Map<String, String> protoBufferToMap(MessageOrBuilder obj, boolean needDefaultValueFields) throws InvalidProtocolBufferException {
+        JsonFormat.Printer printer = JsonFormat.printer();
+        if (needDefaultValueFields) {
+            printer = printer.includingDefaultValueFields();
+        }
+        Map<String, Object> map = JSONObject.toJavaObject(JSONObject.parseObject(printer.print(obj)), Map.class);
         Map<String, String> params = new HashMap<>();
         for (Map.Entry<String, Object> entry: map.entrySet()) {
             if (entry.getValue().getClass() == Integer.class) {

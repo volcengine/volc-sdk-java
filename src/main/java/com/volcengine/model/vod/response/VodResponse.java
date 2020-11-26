@@ -25,10 +25,10 @@ public final class VodResponse {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Models_Vod_Response_VodGetOriginalPlayInfoResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Volcengine_Models_Vod_Response_VodUploadVideoResponse_descriptor;
+    internal_static_Volcengine_Models_Vod_Response_VodUploadMediaResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Volcengine_Models_Vod_Response_VodUploadVideoResponse_fieldAccessorTable;
+      internal_static_Volcengine_Models_Vod_Response_VodUploadMediaResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Models_Vod_Response_VodQueryUploadTaskInfoResponse_descriptor;
   static final 
@@ -97,7 +97,7 @@ public final class VodResponse {
       "gine.Models.Base.ResponseMetadata\022L\n\006Res" +
       "ult\030\002 \001(\0132<.Volcengine.Models.Vod.Busine" +
       "ss.VodGetOriginalPlayInfoResult\"\233\001\n\026VodU" +
-      "ploadVideoResponse\022B\n\020ResponseMetadata\030\001" +
+      "ploadMediaResponse\022B\n\020ResponseMetadata\030\001" +
       " \001(\0132(.Volcengine.Models.Base.ResponseMe" +
       "tadata\022=\n\006Result\030\002 \001(\0132-.Volcengine.Mode" +
       "ls.Vod.Business.VodCommitData\"\242\001\n\036VodQue" +
@@ -162,11 +162,11 @@ public final class VodResponse {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Models_Vod_Response_VodGetOriginalPlayInfoResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
-    internal_static_Volcengine_Models_Vod_Response_VodUploadVideoResponse_descriptor =
+    internal_static_Volcengine_Models_Vod_Response_VodUploadMediaResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_Volcengine_Models_Vod_Response_VodUploadVideoResponse_fieldAccessorTable = new
+    internal_static_Volcengine_Models_Vod_Response_VodUploadMediaResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Volcengine_Models_Vod_Response_VodUploadVideoResponse_descriptor,
+        internal_static_Volcengine_Models_Vod_Response_VodUploadMediaResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Models_Vod_Response_VodQueryUploadTaskInfoResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);

@@ -3,8 +3,8 @@
 
 package com.volcengine.model.vod.response;
 
-public interface VodUploadVideoResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:Volcengine.Models.Vod.Response.VodUploadVideoResponse)
+public interface VodUploadMediaResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:Volcengine.Models.Vod.Response.VodUploadMediaResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**

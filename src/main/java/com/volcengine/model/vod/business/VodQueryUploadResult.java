@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private VodQueryUploadResult() {
-    videoInfoList_ = java.util.Collections.emptyList();
+    mediaInfoList_ = java.util.Collections.emptyList();
     notExistJobIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
@@ -53,10 +53,10 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              videoInfoList_ = new java.util.ArrayList<com.volcengine.model.vod.business.VodURLSet>();
+              mediaInfoList_ = new java.util.ArrayList<com.volcengine.model.vod.business.VodURLSet>();
               mutable_bitField0_ |= 0x00000001;
             }
-            videoInfoList_.add(
+            mediaInfoList_.add(
                 input.readMessage(com.volcengine.model.vod.business.VodURLSet.parser(), extensionRegistry));
             break;
           }
@@ -85,7 +85,7 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        videoInfoList_ = java.util.Collections.unmodifiableList(videoInfoList_);
+        mediaInfoList_ = java.util.Collections.unmodifiableList(mediaInfoList_);
       }
       if (((mutable_bitField0_ & 0x00000002) != 0)) {
         notExistJobIds_ = notExistJobIds_.getUnmodifiableView();
@@ -107,44 +107,44 @@ private static final long serialVersionUID = 0L;
             com.volcengine.model.vod.business.VodQueryUploadResult.class, com.volcengine.model.vod.business.VodQueryUploadResult.Builder.class);
   }
 
-  public static final int VIDEOINFOLIST_FIELD_NUMBER = 1;
-  private java.util.List<com.volcengine.model.vod.business.VodURLSet> videoInfoList_;
+  public static final int MEDIAINFOLIST_FIELD_NUMBER = 1;
+  private java.util.List<com.volcengine.model.vod.business.VodURLSet> mediaInfoList_;
   /**
-   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
    */
   @java.lang.Override
-  public java.util.List<com.volcengine.model.vod.business.VodURLSet> getVideoInfoListList() {
-    return videoInfoList_;
+  public java.util.List<com.volcengine.model.vod.business.VodURLSet> getMediaInfoListList() {
+    return mediaInfoList_;
   }
   /**
-   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.volcengine.model.vod.business.VodURLSetOrBuilder> 
-      getVideoInfoListOrBuilderList() {
-    return videoInfoList_;
+      getMediaInfoListOrBuilderList() {
+    return mediaInfoList_;
   }
   /**
-   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
    */
   @java.lang.Override
-  public int getVideoInfoListCount() {
-    return videoInfoList_.size();
+  public int getMediaInfoListCount() {
+    return mediaInfoList_.size();
   }
   /**
-   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
    */
   @java.lang.Override
-  public com.volcengine.model.vod.business.VodURLSet getVideoInfoList(int index) {
-    return videoInfoList_.get(index);
+  public com.volcengine.model.vod.business.VodURLSet getMediaInfoList(int index) {
+    return mediaInfoList_.get(index);
   }
   /**
-   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
    */
   @java.lang.Override
-  public com.volcengine.model.vod.business.VodURLSetOrBuilder getVideoInfoListOrBuilder(
+  public com.volcengine.model.vod.business.VodURLSetOrBuilder getMediaInfoListOrBuilder(
       int index) {
-    return videoInfoList_.get(index);
+    return mediaInfoList_.get(index);
   }
 
   public static final int NOTEXISTJOBIDS_FIELD_NUMBER = 2;
@@ -196,8 +196,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < videoInfoList_.size(); i++) {
-      output.writeMessage(1, videoInfoList_.get(i));
+    for (int i = 0; i < mediaInfoList_.size(); i++) {
+      output.writeMessage(1, mediaInfoList_.get(i));
     }
     for (int i = 0; i < notExistJobIds_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, notExistJobIds_.getRaw(i));
@@ -211,9 +211,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    for (int i = 0; i < videoInfoList_.size(); i++) {
+    for (int i = 0; i < mediaInfoList_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, videoInfoList_.get(i));
+        .computeMessageSize(1, mediaInfoList_.get(i));
     }
     {
       int dataSize = 0;
@@ -238,8 +238,8 @@ private static final long serialVersionUID = 0L;
     }
     com.volcengine.model.vod.business.VodQueryUploadResult other = (com.volcengine.model.vod.business.VodQueryUploadResult) obj;
 
-    if (!getVideoInfoListList()
-        .equals(other.getVideoInfoListList())) return false;
+    if (!getMediaInfoListList()
+        .equals(other.getMediaInfoListList())) return false;
     if (!getNotExistJobIdsList()
         .equals(other.getNotExistJobIdsList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -253,9 +253,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getVideoInfoListCount() > 0) {
-      hash = (37 * hash) + VIDEOINFOLIST_FIELD_NUMBER;
-      hash = (53 * hash) + getVideoInfoListList().hashCode();
+    if (getMediaInfoListCount() > 0) {
+      hash = (37 * hash) + MEDIAINFOLIST_FIELD_NUMBER;
+      hash = (53 * hash) + getMediaInfoListList().hashCode();
     }
     if (getNotExistJobIdsCount() > 0) {
       hash = (37 * hash) + NOTEXISTJOBIDS_FIELD_NUMBER;
@@ -389,17 +389,17 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getVideoInfoListFieldBuilder();
+        getMediaInfoListFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (videoInfoListBuilder_ == null) {
-        videoInfoList_ = java.util.Collections.emptyList();
+      if (mediaInfoListBuilder_ == null) {
+        mediaInfoList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
       } else {
-        videoInfoListBuilder_.clear();
+        mediaInfoListBuilder_.clear();
       }
       notExistJobIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
@@ -430,14 +430,14 @@ private static final long serialVersionUID = 0L;
     public com.volcengine.model.vod.business.VodQueryUploadResult buildPartial() {
       com.volcengine.model.vod.business.VodQueryUploadResult result = new com.volcengine.model.vod.business.VodQueryUploadResult(this);
       int from_bitField0_ = bitField0_;
-      if (videoInfoListBuilder_ == null) {
+      if (mediaInfoListBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
-          videoInfoList_ = java.util.Collections.unmodifiableList(videoInfoList_);
+          mediaInfoList_ = java.util.Collections.unmodifiableList(mediaInfoList_);
           bitField0_ = (bitField0_ & ~0x00000001);
         }
-        result.videoInfoList_ = videoInfoList_;
+        result.mediaInfoList_ = mediaInfoList_;
       } else {
-        result.videoInfoList_ = videoInfoListBuilder_.build();
+        result.mediaInfoList_ = mediaInfoListBuilder_.build();
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         notExistJobIds_ = notExistJobIds_.getUnmodifiableView();
@@ -492,29 +492,29 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.volcengine.model.vod.business.VodQueryUploadResult other) {
       if (other == com.volcengine.model.vod.business.VodQueryUploadResult.getDefaultInstance()) return this;
-      if (videoInfoListBuilder_ == null) {
-        if (!other.videoInfoList_.isEmpty()) {
-          if (videoInfoList_.isEmpty()) {
-            videoInfoList_ = other.videoInfoList_;
+      if (mediaInfoListBuilder_ == null) {
+        if (!other.mediaInfoList_.isEmpty()) {
+          if (mediaInfoList_.isEmpty()) {
+            mediaInfoList_ = other.mediaInfoList_;
             bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            ensureVideoInfoListIsMutable();
-            videoInfoList_.addAll(other.videoInfoList_);
+            ensureMediaInfoListIsMutable();
+            mediaInfoList_.addAll(other.mediaInfoList_);
           }
           onChanged();
         }
       } else {
-        if (!other.videoInfoList_.isEmpty()) {
-          if (videoInfoListBuilder_.isEmpty()) {
-            videoInfoListBuilder_.dispose();
-            videoInfoListBuilder_ = null;
-            videoInfoList_ = other.videoInfoList_;
+        if (!other.mediaInfoList_.isEmpty()) {
+          if (mediaInfoListBuilder_.isEmpty()) {
+            mediaInfoListBuilder_.dispose();
+            mediaInfoListBuilder_ = null;
+            mediaInfoList_ = other.mediaInfoList_;
             bitField0_ = (bitField0_ & ~0x00000001);
-            videoInfoListBuilder_ = 
+            mediaInfoListBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getVideoInfoListFieldBuilder() : null;
+                 getMediaInfoListFieldBuilder() : null;
           } else {
-            videoInfoListBuilder_.addAllMessages(other.videoInfoList_);
+            mediaInfoListBuilder_.addAllMessages(other.mediaInfoList_);
           }
         }
       }
@@ -558,244 +558,244 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.util.List<com.volcengine.model.vod.business.VodURLSet> videoInfoList_ =
+    private java.util.List<com.volcengine.model.vod.business.VodURLSet> mediaInfoList_ =
       java.util.Collections.emptyList();
-    private void ensureVideoInfoListIsMutable() {
+    private void ensureMediaInfoListIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        videoInfoList_ = new java.util.ArrayList<com.volcengine.model.vod.business.VodURLSet>(videoInfoList_);
+        mediaInfoList_ = new java.util.ArrayList<com.volcengine.model.vod.business.VodURLSet>(mediaInfoList_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.volcengine.model.vod.business.VodURLSet, com.volcengine.model.vod.business.VodURLSet.Builder, com.volcengine.model.vod.business.VodURLSetOrBuilder> videoInfoListBuilder_;
+        com.volcengine.model.vod.business.VodURLSet, com.volcengine.model.vod.business.VodURLSet.Builder, com.volcengine.model.vod.business.VodURLSetOrBuilder> mediaInfoListBuilder_;
 
     /**
-     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
      */
-    public java.util.List<com.volcengine.model.vod.business.VodURLSet> getVideoInfoListList() {
-      if (videoInfoListBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(videoInfoList_);
+    public java.util.List<com.volcengine.model.vod.business.VodURLSet> getMediaInfoListList() {
+      if (mediaInfoListBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(mediaInfoList_);
       } else {
-        return videoInfoListBuilder_.getMessageList();
+        return mediaInfoListBuilder_.getMessageList();
       }
     }
     /**
-     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
      */
-    public int getVideoInfoListCount() {
-      if (videoInfoListBuilder_ == null) {
-        return videoInfoList_.size();
+    public int getMediaInfoListCount() {
+      if (mediaInfoListBuilder_ == null) {
+        return mediaInfoList_.size();
       } else {
-        return videoInfoListBuilder_.getCount();
+        return mediaInfoListBuilder_.getCount();
       }
     }
     /**
-     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
      */
-    public com.volcengine.model.vod.business.VodURLSet getVideoInfoList(int index) {
-      if (videoInfoListBuilder_ == null) {
-        return videoInfoList_.get(index);
+    public com.volcengine.model.vod.business.VodURLSet getMediaInfoList(int index) {
+      if (mediaInfoListBuilder_ == null) {
+        return mediaInfoList_.get(index);
       } else {
-        return videoInfoListBuilder_.getMessage(index);
+        return mediaInfoListBuilder_.getMessage(index);
       }
     }
     /**
-     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
      */
-    public Builder setVideoInfoList(
+    public Builder setMediaInfoList(
         int index, com.volcengine.model.vod.business.VodURLSet value) {
-      if (videoInfoListBuilder_ == null) {
+      if (mediaInfoListBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureVideoInfoListIsMutable();
-        videoInfoList_.set(index, value);
+        ensureMediaInfoListIsMutable();
+        mediaInfoList_.set(index, value);
         onChanged();
       } else {
-        videoInfoListBuilder_.setMessage(index, value);
+        mediaInfoListBuilder_.setMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
      */
-    public Builder setVideoInfoList(
+    public Builder setMediaInfoList(
         int index, com.volcengine.model.vod.business.VodURLSet.Builder builderForValue) {
-      if (videoInfoListBuilder_ == null) {
-        ensureVideoInfoListIsMutable();
-        videoInfoList_.set(index, builderForValue.build());
+      if (mediaInfoListBuilder_ == null) {
+        ensureMediaInfoListIsMutable();
+        mediaInfoList_.set(index, builderForValue.build());
         onChanged();
       } else {
-        videoInfoListBuilder_.setMessage(index, builderForValue.build());
+        mediaInfoListBuilder_.setMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
      */
-    public Builder addVideoInfoList(com.volcengine.model.vod.business.VodURLSet value) {
-      if (videoInfoListBuilder_ == null) {
+    public Builder addMediaInfoList(com.volcengine.model.vod.business.VodURLSet value) {
+      if (mediaInfoListBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureVideoInfoListIsMutable();
-        videoInfoList_.add(value);
+        ensureMediaInfoListIsMutable();
+        mediaInfoList_.add(value);
         onChanged();
       } else {
-        videoInfoListBuilder_.addMessage(value);
+        mediaInfoListBuilder_.addMessage(value);
       }
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
      */
-    public Builder addVideoInfoList(
+    public Builder addMediaInfoList(
         int index, com.volcengine.model.vod.business.VodURLSet value) {
-      if (videoInfoListBuilder_ == null) {
+      if (mediaInfoListBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureVideoInfoListIsMutable();
-        videoInfoList_.add(index, value);
+        ensureMediaInfoListIsMutable();
+        mediaInfoList_.add(index, value);
         onChanged();
       } else {
-        videoInfoListBuilder_.addMessage(index, value);
+        mediaInfoListBuilder_.addMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
      */
-    public Builder addVideoInfoList(
+    public Builder addMediaInfoList(
         com.volcengine.model.vod.business.VodURLSet.Builder builderForValue) {
-      if (videoInfoListBuilder_ == null) {
-        ensureVideoInfoListIsMutable();
-        videoInfoList_.add(builderForValue.build());
+      if (mediaInfoListBuilder_ == null) {
+        ensureMediaInfoListIsMutable();
+        mediaInfoList_.add(builderForValue.build());
         onChanged();
       } else {
-        videoInfoListBuilder_.addMessage(builderForValue.build());
+        mediaInfoListBuilder_.addMessage(builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
      */
-    public Builder addVideoInfoList(
+    public Builder addMediaInfoList(
         int index, com.volcengine.model.vod.business.VodURLSet.Builder builderForValue) {
-      if (videoInfoListBuilder_ == null) {
-        ensureVideoInfoListIsMutable();
-        videoInfoList_.add(index, builderForValue.build());
+      if (mediaInfoListBuilder_ == null) {
+        ensureMediaInfoListIsMutable();
+        mediaInfoList_.add(index, builderForValue.build());
         onChanged();
       } else {
-        videoInfoListBuilder_.addMessage(index, builderForValue.build());
+        mediaInfoListBuilder_.addMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
      */
-    public Builder addAllVideoInfoList(
+    public Builder addAllMediaInfoList(
         java.lang.Iterable<? extends com.volcengine.model.vod.business.VodURLSet> values) {
-      if (videoInfoListBuilder_ == null) {
-        ensureVideoInfoListIsMutable();
+      if (mediaInfoListBuilder_ == null) {
+        ensureMediaInfoListIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, videoInfoList_);
+            values, mediaInfoList_);
         onChanged();
       } else {
-        videoInfoListBuilder_.addAllMessages(values);
+        mediaInfoListBuilder_.addAllMessages(values);
       }
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
      */
-    public Builder clearVideoInfoList() {
-      if (videoInfoListBuilder_ == null) {
-        videoInfoList_ = java.util.Collections.emptyList();
+    public Builder clearMediaInfoList() {
+      if (mediaInfoListBuilder_ == null) {
+        mediaInfoList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
-        videoInfoListBuilder_.clear();
+        mediaInfoListBuilder_.clear();
       }
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
      */
-    public Builder removeVideoInfoList(int index) {
-      if (videoInfoListBuilder_ == null) {
-        ensureVideoInfoListIsMutable();
-        videoInfoList_.remove(index);
+    public Builder removeMediaInfoList(int index) {
+      if (mediaInfoListBuilder_ == null) {
+        ensureMediaInfoListIsMutable();
+        mediaInfoList_.remove(index);
         onChanged();
       } else {
-        videoInfoListBuilder_.remove(index);
+        mediaInfoListBuilder_.remove(index);
       }
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
      */
-    public com.volcengine.model.vod.business.VodURLSet.Builder getVideoInfoListBuilder(
+    public com.volcengine.model.vod.business.VodURLSet.Builder getMediaInfoListBuilder(
         int index) {
-      return getVideoInfoListFieldBuilder().getBuilder(index);
+      return getMediaInfoListFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
      */
-    public com.volcengine.model.vod.business.VodURLSetOrBuilder getVideoInfoListOrBuilder(
+    public com.volcengine.model.vod.business.VodURLSetOrBuilder getMediaInfoListOrBuilder(
         int index) {
-      if (videoInfoListBuilder_ == null) {
-        return videoInfoList_.get(index);  } else {
-        return videoInfoListBuilder_.getMessageOrBuilder(index);
+      if (mediaInfoListBuilder_ == null) {
+        return mediaInfoList_.get(index);  } else {
+        return mediaInfoListBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public java.util.List<? extends com.volcengine.model.vod.business.VodURLSetOrBuilder> 
-         getVideoInfoListOrBuilderList() {
-      if (videoInfoListBuilder_ != null) {
-        return videoInfoListBuilder_.getMessageOrBuilderList();
+         getMediaInfoListOrBuilderList() {
+      if (mediaInfoListBuilder_ != null) {
+        return mediaInfoListBuilder_.getMessageOrBuilderList();
       } else {
-        return java.util.Collections.unmodifiableList(videoInfoList_);
+        return java.util.Collections.unmodifiableList(mediaInfoList_);
       }
     }
     /**
-     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
      */
-    public com.volcengine.model.vod.business.VodURLSet.Builder addVideoInfoListBuilder() {
-      return getVideoInfoListFieldBuilder().addBuilder(
+    public com.volcengine.model.vod.business.VodURLSet.Builder addMediaInfoListBuilder() {
+      return getMediaInfoListFieldBuilder().addBuilder(
           com.volcengine.model.vod.business.VodURLSet.getDefaultInstance());
     }
     /**
-     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
      */
-    public com.volcengine.model.vod.business.VodURLSet.Builder addVideoInfoListBuilder(
+    public com.volcengine.model.vod.business.VodURLSet.Builder addMediaInfoListBuilder(
         int index) {
-      return getVideoInfoListFieldBuilder().addBuilder(
+      return getMediaInfoListFieldBuilder().addBuilder(
           index, com.volcengine.model.vod.business.VodURLSet.getDefaultInstance());
     }
     /**
-     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+     * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public java.util.List<com.volcengine.model.vod.business.VodURLSet.Builder> 
-         getVideoInfoListBuilderList() {
-      return getVideoInfoListFieldBuilder().getBuilderList();
+         getMediaInfoListBuilderList() {
+      return getMediaInfoListFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
         com.volcengine.model.vod.business.VodURLSet, com.volcengine.model.vod.business.VodURLSet.Builder, com.volcengine.model.vod.business.VodURLSetOrBuilder> 
-        getVideoInfoListFieldBuilder() {
-      if (videoInfoListBuilder_ == null) {
-        videoInfoListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+        getMediaInfoListFieldBuilder() {
+      if (mediaInfoListBuilder_ == null) {
+        mediaInfoListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.volcengine.model.vod.business.VodURLSet, com.volcengine.model.vod.business.VodURLSet.Builder, com.volcengine.model.vod.business.VodURLSetOrBuilder>(
-                videoInfoList_,
+                mediaInfoList_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
-        videoInfoList_ = null;
+        mediaInfoList_ = null;
       }
-      return videoInfoListBuilder_;
+      return mediaInfoListBuilder_;
     }
 
     private com.google.protobuf.LazyStringList notExistJobIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;

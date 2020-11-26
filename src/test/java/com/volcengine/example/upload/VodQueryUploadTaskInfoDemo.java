@@ -31,7 +31,7 @@ public class VodQueryUploadTaskInfoDemo {
                 System.exit(-1);
             }
             System.out.println(vodQueryUploadTaskInfoResponse.toString());
-            System.out.println(vodQueryUploadTaskInfoResponse.getResult().getData().getVideoInfoList(0).getState());
+            System.out.println(vodQueryUploadTaskInfoResponse.getResult().getData().getMediaInfoList(0).getState());
             System.out.println(vodQueryUploadTaskInfoResponse.getResponseMetadata().getRequestId());
         } catch (Exception e) {
             e.printStackTrace();

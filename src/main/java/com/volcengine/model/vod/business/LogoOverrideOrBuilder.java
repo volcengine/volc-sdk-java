@@ -12,41 +12,20 @@ public interface LogoOverrideOrBuilder extends
    * 被覆盖的水印模板Id, 支持ALL
    * </pre>
    *
-   * <code>repeated string TemplateId = 1;</code>
-   * @return A list containing the templateId.
+   * <code>string TemplateId = 1;</code>
+   * @return The templateId.
    */
-  java.util.List<java.lang.String>
-      getTemplateIdList();
+  java.lang.String getTemplateId();
   /**
    * <pre>
    * 被覆盖的水印模板Id, 支持ALL
    * </pre>
    *
-   * <code>repeated string TemplateId = 1;</code>
-   * @return The count of templateId.
-   */
-  int getTemplateIdCount();
-  /**
-   * <pre>
-   * 被覆盖的水印模板Id, 支持ALL
-   * </pre>
-   *
-   * <code>repeated string TemplateId = 1;</code>
-   * @param index The index of the element to return.
-   * @return The templateId at the given index.
-   */
-  java.lang.String getTemplateId(int index);
-  /**
-   * <pre>
-   * 被覆盖的水印模板Id, 支持ALL
-   * </pre>
-   *
-   * <code>repeated string TemplateId = 1;</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the templateId at the given index.
+   * <code>string TemplateId = 1;</code>
+   * @return The bytes for templateId.
    */
   com.google.protobuf.ByteString
-      getTemplateIdBytes(int index);
+      getTemplateIdBytes();
 
   /**
    * <pre>

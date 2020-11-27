@@ -89,7 +89,7 @@ public final class VodWorkflow {
       "ngine.Models.Vod.Business.TranscodeAudio" +
       "Override\022B\n\010Snapshot\030\004 \003(\01320.Volcengine." +
       "Models.Vod.Business.SnapshotOverride\"\225\001\n" +
-      "\014LogoOverride\022\022\n\nTemplateId\030\001 \003(\t\022D\n\004Var" +
+      "\014LogoOverride\022\022\n\nTemplateId\030\001 \001(\t\022D\n\004Var" +
       "s\030\002 \003(\01326.Volcengine.Models.Vod.Business" +
       ".LogoOverride.VarsEntry\032+\n\tVarsEntry\022\013\n\003" +
       "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"`\n\026Transcod" +

@@ -8,27 +8,27 @@ public interface VodQueryUploadResultOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
    */
   java.util.List<com.volcengine.model.vod.business.VodURLSet> 
-      getVideoInfoListList();
+      getMediaInfoListList();
   /**
-   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
    */
-  com.volcengine.model.vod.business.VodURLSet getVideoInfoList(int index);
+  com.volcengine.model.vod.business.VodURLSet getMediaInfoList(int index);
   /**
-   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
    */
-  int getVideoInfoListCount();
+  int getMediaInfoListCount();
   /**
-   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
    */
   java.util.List<? extends com.volcengine.model.vod.business.VodURLSetOrBuilder> 
-      getVideoInfoListOrBuilderList();
+      getMediaInfoListOrBuilderList();
   /**
-   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet VideoInfoList = 1;</code>
+   * <code>repeated .Volcengine.Models.Vod.Business.VodURLSet MediaInfoList = 1;</code>
    */
-  com.volcengine.model.vod.business.VodURLSetOrBuilder getVideoInfoListOrBuilder(
+  com.volcengine.model.vod.business.VodURLSetOrBuilder getMediaInfoListOrBuilder(
       int index);
 
   /**

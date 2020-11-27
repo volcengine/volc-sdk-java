@@ -110,7 +110,7 @@ public final class VodUpload {
       "\030\001 \001(\t\022\021\n\tSourceUrl\030\002 \001(\t\"R\n\014VodQueryDat" +
       "a\022B\n\004Data\030\001 \001(\01324.Volcengine.Models.Vod." +
       "Business.VodQueryUploadResult\"p\n\024VodQuer" +
-      "yUploadResult\022@\n\rVideoInfoList\030\001 \003(\0132).V" +
+      "yUploadResult\022@\n\rMediaInfoList\030\001 \003(\0132).V" +
       "olcengine.Models.Vod.Business.VodURLSet\022" +
       "\026\n\016NotExistJobIds\030\002 \003(\t\"^\n\rVodCommitData" +
       "\022M\n\004Data\030\001 \001(\0132?.Volcengine.Models.Vod.B" +
@@ -182,7 +182,7 @@ public final class VodUpload {
     internal_static_Volcengine_Models_Vod_Business_VodQueryUploadResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Models_Vod_Business_VodQueryUploadResult_descriptor,
-        new java.lang.String[] { "VideoInfoList", "NotExistJobIds", });
+        new java.lang.String[] { "MediaInfoList", "NotExistJobIds", });
     internal_static_Volcengine_Models_Vod_Business_VodCommitData_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_Volcengine_Models_Vod_Business_VodCommitData_fieldAccessorTable = new

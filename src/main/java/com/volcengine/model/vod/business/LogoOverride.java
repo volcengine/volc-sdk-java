@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private LogoOverride() {
-    templateId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    templateId_ = "";
   }
 
   @java.lang.Override
@@ -52,18 +52,15 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              templateId_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            templateId_.add(s);
+
+            templateId_ = s;
             break;
           }
           case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               vars_ = com.google.protobuf.MapField.newMapField(
                   VarsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
+              mutable_bitField0_ |= 0x00000001;
             }
             com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
             vars__ = input.readMessage(
@@ -87,9 +84,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        templateId_ = templateId_.getUnmodifiableView();
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -120,54 +114,49 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TEMPLATEID_FIELD_NUMBER = 1;
-  private com.google.protobuf.LazyStringList templateId_;
+  private volatile java.lang.Object templateId_;
   /**
    * <pre>
    * 被覆盖的水印模板Id, 支持ALL
    * </pre>
    *
-   * <code>repeated string TemplateId = 1;</code>
-   * @return A list containing the templateId.
+   * <code>string TemplateId = 1;</code>
+   * @return The templateId.
    */
-  public com.google.protobuf.ProtocolStringList
-      getTemplateIdList() {
-    return templateId_;
+  @java.lang.Override
+  public java.lang.String getTemplateId() {
+    java.lang.Object ref = templateId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      templateId_ = s;
+      return s;
+    }
   }
   /**
    * <pre>
    * 被覆盖的水印模板Id, 支持ALL
    * </pre>
    *
-   * <code>repeated string TemplateId = 1;</code>
-   * @return The count of templateId.
+   * <code>string TemplateId = 1;</code>
+   * @return The bytes for templateId.
    */
-  public int getTemplateIdCount() {
-    return templateId_.size();
-  }
-  /**
-   * <pre>
-   * 被覆盖的水印模板Id, 支持ALL
-   * </pre>
-   *
-   * <code>repeated string TemplateId = 1;</code>
-   * @param index The index of the element to return.
-   * @return The templateId at the given index.
-   */
-  public java.lang.String getTemplateId(int index) {
-    return templateId_.get(index);
-  }
-  /**
-   * <pre>
-   * 被覆盖的水印模板Id, 支持ALL
-   * </pre>
-   *
-   * <code>repeated string TemplateId = 1;</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the templateId at the given index.
-   */
+  @java.lang.Override
   public com.google.protobuf.ByteString
-      getTemplateIdBytes(int index) {
-    return templateId_.getByteString(index);
+      getTemplateIdBytes() {
+    java.lang.Object ref = templateId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      templateId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   public static final int VARS_FIELD_NUMBER = 2;
@@ -281,8 +270,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < templateId_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, templateId_.getRaw(i));
+    if (!getTemplateIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, templateId_);
     }
     com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
@@ -299,13 +288,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    {
-      int dataSize = 0;
-      for (int i = 0; i < templateId_.size(); i++) {
-        dataSize += computeStringSizeNoTag(templateId_.getRaw(i));
-      }
-      size += dataSize;
-      size += 1 * getTemplateIdList().size();
+    if (!getTemplateIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, templateId_);
     }
     for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
          : internalGetVars().getMap().entrySet()) {
@@ -332,8 +316,8 @@ private static final long serialVersionUID = 0L;
     }
     com.volcengine.model.vod.business.LogoOverride other = (com.volcengine.model.vod.business.LogoOverride) obj;
 
-    if (!getTemplateIdList()
-        .equals(other.getTemplateIdList())) return false;
+    if (!getTemplateId()
+        .equals(other.getTemplateId())) return false;
     if (!internalGetVars().equals(
         other.internalGetVars())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -347,10 +331,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getTemplateIdCount() > 0) {
-      hash = (37 * hash) + TEMPLATEID_FIELD_NUMBER;
-      hash = (53 * hash) + getTemplateIdList().hashCode();
-    }
+    hash = (37 * hash) + TEMPLATEID_FIELD_NUMBER;
+    hash = (53 * hash) + getTemplateId().hashCode();
     if (!internalGetVars().getMap().isEmpty()) {
       hash = (37 * hash) + VARS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetVars().hashCode();
@@ -510,8 +492,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      templateId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      templateId_ = "";
+
       internalGetMutableVars().clear();
       return this;
     }
@@ -540,10 +522,6 @@ private static final long serialVersionUID = 0L;
     public com.volcengine.model.vod.business.LogoOverride buildPartial() {
       com.volcengine.model.vod.business.LogoOverride result = new com.volcengine.model.vod.business.LogoOverride(this);
       int from_bitField0_ = bitField0_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        templateId_ = templateId_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
       result.templateId_ = templateId_;
       result.vars_ = internalGetVars();
       result.vars_.makeImmutable();
@@ -595,14 +573,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.volcengine.model.vod.business.LogoOverride other) {
       if (other == com.volcengine.model.vod.business.LogoOverride.getDefaultInstance()) return this;
-      if (!other.templateId_.isEmpty()) {
-        if (templateId_.isEmpty()) {
-          templateId_ = other.templateId_;
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          ensureTemplateIdIsMutable();
-          templateId_.addAll(other.templateId_);
-        }
+      if (!other.getTemplateId().isEmpty()) {
+        templateId_ = other.templateId_;
         onChanged();
       }
       internalGetMutableVars().mergeFrom(
@@ -637,97 +609,64 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.LazyStringList templateId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    private void ensureTemplateIdIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        templateId_ = new com.google.protobuf.LazyStringArrayList(templateId_);
-        bitField0_ |= 0x00000001;
-       }
-    }
+    private java.lang.Object templateId_ = "";
     /**
      * <pre>
      * 被覆盖的水印模板Id, 支持ALL
      * </pre>
      *
-     * <code>repeated string TemplateId = 1;</code>
-     * @return A list containing the templateId.
+     * <code>string TemplateId = 1;</code>
+     * @return The templateId.
      */
-    public com.google.protobuf.ProtocolStringList
-        getTemplateIdList() {
-      return templateId_.getUnmodifiableView();
+    public java.lang.String getTemplateId() {
+      java.lang.Object ref = templateId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        templateId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
      * <pre>
      * 被覆盖的水印模板Id, 支持ALL
      * </pre>
      *
-     * <code>repeated string TemplateId = 1;</code>
-     * @return The count of templateId.
-     */
-    public int getTemplateIdCount() {
-      return templateId_.size();
-    }
-    /**
-     * <pre>
-     * 被覆盖的水印模板Id, 支持ALL
-     * </pre>
-     *
-     * <code>repeated string TemplateId = 1;</code>
-     * @param index The index of the element to return.
-     * @return The templateId at the given index.
-     */
-    public java.lang.String getTemplateId(int index) {
-      return templateId_.get(index);
-    }
-    /**
-     * <pre>
-     * 被覆盖的水印模板Id, 支持ALL
-     * </pre>
-     *
-     * <code>repeated string TemplateId = 1;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the templateId at the given index.
+     * <code>string TemplateId = 1;</code>
+     * @return The bytes for templateId.
      */
     public com.google.protobuf.ByteString
-        getTemplateIdBytes(int index) {
-      return templateId_.getByteString(index);
+        getTemplateIdBytes() {
+      java.lang.Object ref = templateId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        templateId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
     /**
      * <pre>
      * 被覆盖的水印模板Id, 支持ALL
      * </pre>
      *
-     * <code>repeated string TemplateId = 1;</code>
-     * @param index The index to set the value at.
+     * <code>string TemplateId = 1;</code>
      * @param value The templateId to set.
      * @return This builder for chaining.
      */
     public Builder setTemplateId(
-        int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTemplateIdIsMutable();
-      templateId_.set(index, value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 被覆盖的水印模板Id, 支持ALL
-     * </pre>
-     *
-     * <code>repeated string TemplateId = 1;</code>
-     * @param value The templateId to add.
-     * @return This builder for chaining.
-     */
-    public Builder addTemplateId(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
-  ensureTemplateIdIsMutable();
-      templateId_.add(value);
+  
+      templateId_ = value;
       onChanged();
       return this;
     }
@@ -736,29 +675,12 @@ private static final long serialVersionUID = 0L;
      * 被覆盖的水印模板Id, 支持ALL
      * </pre>
      *
-     * <code>repeated string TemplateId = 1;</code>
-     * @param values The templateId to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllTemplateId(
-        java.lang.Iterable<java.lang.String> values) {
-      ensureTemplateIdIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, templateId_);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 被覆盖的水印模板Id, 支持ALL
-     * </pre>
-     *
-     * <code>repeated string TemplateId = 1;</code>
+     * <code>string TemplateId = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearTemplateId() {
-      templateId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      
+      templateId_ = getDefaultInstance().getTemplateId();
       onChanged();
       return this;
     }
@@ -767,18 +689,18 @@ private static final long serialVersionUID = 0L;
      * 被覆盖的水印模板Id, 支持ALL
      * </pre>
      *
-     * <code>repeated string TemplateId = 1;</code>
-     * @param value The bytes of the templateId to add.
+     * <code>string TemplateId = 1;</code>
+     * @param value The bytes for templateId to set.
      * @return This builder for chaining.
      */
-    public Builder addTemplateIdBytes(
+    public Builder setTemplateIdBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      ensureTemplateIdIsMutable();
-      templateId_.add(value);
+      
+      templateId_ = value;
       onChanged();
       return this;
     }

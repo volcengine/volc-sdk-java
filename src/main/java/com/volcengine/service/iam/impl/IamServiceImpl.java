@@ -29,8 +29,6 @@ public class IamServiceImpl extends BaseServiceImpl implements IIamService {
             throw response.getException();
         }
 
-        ListUsersResponse listUsersResponse = JSON.parseObject(response.getData(), ListUsersResponse.class);
-        listUsersResponse.getResponseMetadata().setService("vod");
-        return listUsersResponse;
+        return JSON.parseObject(response.getData(), ListUsersResponse.class);
     }
 }

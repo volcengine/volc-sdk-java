@@ -62,11 +62,11 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            com.volcengine.model.vod.business.VodGetPlayInfoResult.Builder subBuilder = null;
+            com.volcengine.model.vod.business.VodPlayInfoModel.Builder subBuilder = null;
             if (result_ != null) {
               subBuilder = result_.toBuilder();
             }
-            result_ = input.readMessage(com.volcengine.model.vod.business.VodGetPlayInfoResult.parser(), extensionRegistry);
+            result_ = input.readMessage(com.volcengine.model.vod.business.VodPlayInfoModel.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(result_);
               result_ = subBuilder.buildPartial();
@@ -145,13 +145,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESULT_FIELD_NUMBER = 2;
-  private com.volcengine.model.vod.business.VodGetPlayInfoResult result_;
+  private com.volcengine.model.vod.business.VodPlayInfoModel result_;
   /**
    * <pre>
    * 响应结果
    * </pre>
    *
-   * <code>.Volcengine.Models.Vod.Business.VodGetPlayInfoResult Result = 2;</code>
+   * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModel Result = 2;</code>
    * @return Whether the result field is set.
    */
   @java.lang.Override
@@ -163,22 +163,22 @@ private static final long serialVersionUID = 0L;
    * 响应结果
    * </pre>
    *
-   * <code>.Volcengine.Models.Vod.Business.VodGetPlayInfoResult Result = 2;</code>
+   * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModel Result = 2;</code>
    * @return The result.
    */
   @java.lang.Override
-  public com.volcengine.model.vod.business.VodGetPlayInfoResult getResult() {
-    return result_ == null ? com.volcengine.model.vod.business.VodGetPlayInfoResult.getDefaultInstance() : result_;
+  public com.volcengine.model.vod.business.VodPlayInfoModel getResult() {
+    return result_ == null ? com.volcengine.model.vod.business.VodPlayInfoModel.getDefaultInstance() : result_;
   }
   /**
    * <pre>
    * 响应结果
    * </pre>
    *
-   * <code>.Volcengine.Models.Vod.Business.VodGetPlayInfoResult Result = 2;</code>
+   * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModel Result = 2;</code>
    */
   @java.lang.Override
-  public com.volcengine.model.vod.business.VodGetPlayInfoResultOrBuilder getResultOrBuilder() {
+  public com.volcengine.model.vod.business.VodPlayInfoModelOrBuilder getResultOrBuilder() {
     return getResult();
   }
 
@@ -682,15 +682,15 @@ private static final long serialVersionUID = 0L;
       return responseMetadataBuilder_;
     }
 
-    private com.volcengine.model.vod.business.VodGetPlayInfoResult result_;
+    private com.volcengine.model.vod.business.VodPlayInfoModel result_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.volcengine.model.vod.business.VodGetPlayInfoResult, com.volcengine.model.vod.business.VodGetPlayInfoResult.Builder, com.volcengine.model.vod.business.VodGetPlayInfoResultOrBuilder> resultBuilder_;
+        com.volcengine.model.vod.business.VodPlayInfoModel, com.volcengine.model.vod.business.VodPlayInfoModel.Builder, com.volcengine.model.vod.business.VodPlayInfoModelOrBuilder> resultBuilder_;
     /**
      * <pre>
      * 响应结果
      * </pre>
      *
-     * <code>.Volcengine.Models.Vod.Business.VodGetPlayInfoResult Result = 2;</code>
+     * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModel Result = 2;</code>
      * @return Whether the result field is set.
      */
     public boolean hasResult() {
@@ -701,12 +701,12 @@ private static final long serialVersionUID = 0L;
      * 响应结果
      * </pre>
      *
-     * <code>.Volcengine.Models.Vod.Business.VodGetPlayInfoResult Result = 2;</code>
+     * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModel Result = 2;</code>
      * @return The result.
      */
-    public com.volcengine.model.vod.business.VodGetPlayInfoResult getResult() {
+    public com.volcengine.model.vod.business.VodPlayInfoModel getResult() {
       if (resultBuilder_ == null) {
-        return result_ == null ? com.volcengine.model.vod.business.VodGetPlayInfoResult.getDefaultInstance() : result_;
+        return result_ == null ? com.volcengine.model.vod.business.VodPlayInfoModel.getDefaultInstance() : result_;
       } else {
         return resultBuilder_.getMessage();
       }
@@ -716,9 +716,9 @@ private static final long serialVersionUID = 0L;
      * 响应结果
      * </pre>
      *
-     * <code>.Volcengine.Models.Vod.Business.VodGetPlayInfoResult Result = 2;</code>
+     * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModel Result = 2;</code>
      */
-    public Builder setResult(com.volcengine.model.vod.business.VodGetPlayInfoResult value) {
+    public Builder setResult(com.volcengine.model.vod.business.VodPlayInfoModel value) {
       if (resultBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -736,10 +736,10 @@ private static final long serialVersionUID = 0L;
      * 响应结果
      * </pre>
      *
-     * <code>.Volcengine.Models.Vod.Business.VodGetPlayInfoResult Result = 2;</code>
+     * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModel Result = 2;</code>
      */
     public Builder setResult(
-        com.volcengine.model.vod.business.VodGetPlayInfoResult.Builder builderForValue) {
+        com.volcengine.model.vod.business.VodPlayInfoModel.Builder builderForValue) {
       if (resultBuilder_ == null) {
         result_ = builderForValue.build();
         onChanged();
@@ -754,13 +754,13 @@ private static final long serialVersionUID = 0L;
      * 响应结果
      * </pre>
      *
-     * <code>.Volcengine.Models.Vod.Business.VodGetPlayInfoResult Result = 2;</code>
+     * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModel Result = 2;</code>
      */
-    public Builder mergeResult(com.volcengine.model.vod.business.VodGetPlayInfoResult value) {
+    public Builder mergeResult(com.volcengine.model.vod.business.VodPlayInfoModel value) {
       if (resultBuilder_ == null) {
         if (result_ != null) {
           result_ =
-            com.volcengine.model.vod.business.VodGetPlayInfoResult.newBuilder(result_).mergeFrom(value).buildPartial();
+            com.volcengine.model.vod.business.VodPlayInfoModel.newBuilder(result_).mergeFrom(value).buildPartial();
         } else {
           result_ = value;
         }
@@ -776,7 +776,7 @@ private static final long serialVersionUID = 0L;
      * 响应结果
      * </pre>
      *
-     * <code>.Volcengine.Models.Vod.Business.VodGetPlayInfoResult Result = 2;</code>
+     * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModel Result = 2;</code>
      */
     public Builder clearResult() {
       if (resultBuilder_ == null) {
@@ -794,9 +794,9 @@ private static final long serialVersionUID = 0L;
      * 响应结果
      * </pre>
      *
-     * <code>.Volcengine.Models.Vod.Business.VodGetPlayInfoResult Result = 2;</code>
+     * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModel Result = 2;</code>
      */
-    public com.volcengine.model.vod.business.VodGetPlayInfoResult.Builder getResultBuilder() {
+    public com.volcengine.model.vod.business.VodPlayInfoModel.Builder getResultBuilder() {
       
       onChanged();
       return getResultFieldBuilder().getBuilder();
@@ -806,14 +806,14 @@ private static final long serialVersionUID = 0L;
      * 响应结果
      * </pre>
      *
-     * <code>.Volcengine.Models.Vod.Business.VodGetPlayInfoResult Result = 2;</code>
+     * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModel Result = 2;</code>
      */
-    public com.volcengine.model.vod.business.VodGetPlayInfoResultOrBuilder getResultOrBuilder() {
+    public com.volcengine.model.vod.business.VodPlayInfoModelOrBuilder getResultOrBuilder() {
       if (resultBuilder_ != null) {
         return resultBuilder_.getMessageOrBuilder();
       } else {
         return result_ == null ?
-            com.volcengine.model.vod.business.VodGetPlayInfoResult.getDefaultInstance() : result_;
+            com.volcengine.model.vod.business.VodPlayInfoModel.getDefaultInstance() : result_;
       }
     }
     /**
@@ -821,14 +821,14 @@ private static final long serialVersionUID = 0L;
      * 响应结果
      * </pre>
      *
-     * <code>.Volcengine.Models.Vod.Business.VodGetPlayInfoResult Result = 2;</code>
+     * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModel Result = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.volcengine.model.vod.business.VodGetPlayInfoResult, com.volcengine.model.vod.business.VodGetPlayInfoResult.Builder, com.volcengine.model.vod.business.VodGetPlayInfoResultOrBuilder> 
+        com.volcengine.model.vod.business.VodPlayInfoModel, com.volcengine.model.vod.business.VodPlayInfoModel.Builder, com.volcengine.model.vod.business.VodPlayInfoModelOrBuilder> 
         getResultFieldBuilder() {
       if (resultBuilder_ == null) {
         resultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.volcengine.model.vod.business.VodGetPlayInfoResult, com.volcengine.model.vod.business.VodGetPlayInfoResult.Builder, com.volcengine.model.vod.business.VodGetPlayInfoResultOrBuilder>(
+            com.volcengine.model.vod.business.VodPlayInfoModel, com.volcengine.model.vod.business.VodPlayInfoModel.Builder, com.volcengine.model.vod.business.VodPlayInfoModelOrBuilder>(
                 getResult(),
                 getParentForChildren(),
                 isClean());

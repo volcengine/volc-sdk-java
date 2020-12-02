@@ -39,7 +39,7 @@ public interface VodGetPlayInfoResponseOrBuilder extends
    * 响应结果
    * </pre>
    *
-   * <code>.Volcengine.Models.Vod.Business.VodGetPlayInfoResult Result = 2;</code>
+   * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModel Result = 2;</code>
    * @return Whether the result field is set.
    */
   boolean hasResult();
@@ -48,16 +48,16 @@ public interface VodGetPlayInfoResponseOrBuilder extends
    * 响应结果
    * </pre>
    *
-   * <code>.Volcengine.Models.Vod.Business.VodGetPlayInfoResult Result = 2;</code>
+   * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModel Result = 2;</code>
    * @return The result.
    */
-  com.volcengine.model.vod.business.VodGetPlayInfoResult getResult();
+  com.volcengine.model.vod.business.VodPlayInfoModel getResult();
   /**
    * <pre>
    * 响应结果
    * </pre>
    *
-   * <code>.Volcengine.Models.Vod.Business.VodGetPlayInfoResult Result = 2;</code>
+   * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModel Result = 2;</code>
    */
-  com.volcengine.model.vod.business.VodGetPlayInfoResultOrBuilder getResultOrBuilder();
+  com.volcengine.model.vod.business.VodPlayInfoModelOrBuilder getResultOrBuilder();
 }

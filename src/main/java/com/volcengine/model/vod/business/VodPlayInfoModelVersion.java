@@ -4,38 +4,38 @@
 package com.volcengine.model.vod.business;
 
 /**
- * Protobuf enum {@code Volcengine.Models.Vod.Business.VodVideoModelVersion}
+ * Protobuf enum {@code Volcengine.Models.Vod.Business.VodPlayInfoModelVersion}
  */
-public enum VodVideoModelVersion
+public enum VodPlayInfoModelVersion
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
    * <pre>
    * 未定义的数据版本
    * </pre>
    *
-   * <code>UndefinedVodVideoModelVersion = 0;</code>
+   * <code>UndefinedVodPlayInfoModelVersion = 0;</code>
    */
-  UndefinedVodVideoModelVersion(0),
+  UndefinedVodPlayInfoModelVersion(0),
   /**
-   * <code>InternalV1VodVideoModelVersion = 1;</code>
+   * <code>InternalV1VodPlayInfoModelVersion = 1;</code>
    */
-  InternalV1VodVideoModelVersion(1),
+  InternalV1VodPlayInfoModelVersion(1),
   /**
-   * <code>InternalV2VodVideoModelVersion = 2;</code>
+   * <code>InternalV2VodPlayInfoModelVersion = 2;</code>
    */
-  InternalV2VodVideoModelVersion(2),
+  InternalV2VodPlayInfoModelVersion(2),
   /**
-   * <code>InternalV3VodVideoModelVersion = 3;</code>
+   * <code>InternalV3VodPlayInfoModelVersion = 3;</code>
    */
-  InternalV3VodVideoModelVersion(3),
+  InternalV3VodPlayInfoModelVersion(3),
   /**
    * <pre>
    * ToB第一版
    * </pre>
    *
-   * <code>ToBV1VodVideoModelVersion = 4;</code>
+   * <code>ToBV1VodPlayInfoModelVersion = 4;</code>
    */
-  ToBV1VodVideoModelVersion(4),
+  ToBV1VodPlayInfoModelVersion(4),
   UNRECOGNIZED(-1),
   ;
 
@@ -44,29 +44,29 @@ public enum VodVideoModelVersion
    * 未定义的数据版本
    * </pre>
    *
-   * <code>UndefinedVodVideoModelVersion = 0;</code>
+   * <code>UndefinedVodPlayInfoModelVersion = 0;</code>
    */
-  public static final int UndefinedVodVideoModelVersion_VALUE = 0;
+  public static final int UndefinedVodPlayInfoModelVersion_VALUE = 0;
   /**
-   * <code>InternalV1VodVideoModelVersion = 1;</code>
+   * <code>InternalV1VodPlayInfoModelVersion = 1;</code>
    */
-  public static final int InternalV1VodVideoModelVersion_VALUE = 1;
+  public static final int InternalV1VodPlayInfoModelVersion_VALUE = 1;
   /**
-   * <code>InternalV2VodVideoModelVersion = 2;</code>
+   * <code>InternalV2VodPlayInfoModelVersion = 2;</code>
    */
-  public static final int InternalV2VodVideoModelVersion_VALUE = 2;
+  public static final int InternalV2VodPlayInfoModelVersion_VALUE = 2;
   /**
-   * <code>InternalV3VodVideoModelVersion = 3;</code>
+   * <code>InternalV3VodPlayInfoModelVersion = 3;</code>
    */
-  public static final int InternalV3VodVideoModelVersion_VALUE = 3;
+  public static final int InternalV3VodPlayInfoModelVersion_VALUE = 3;
   /**
    * <pre>
    * ToB第一版
    * </pre>
    *
-   * <code>ToBV1VodVideoModelVersion = 4;</code>
+   * <code>ToBV1VodPlayInfoModelVersion = 4;</code>
    */
-  public static final int ToBV1VodVideoModelVersion_VALUE = 4;
+  public static final int ToBV1VodPlayInfoModelVersion_VALUE = 4;
 
 
   public final int getNumber() {
@@ -83,7 +83,7 @@ public enum VodVideoModelVersion
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static VodVideoModelVersion valueOf(int value) {
+  public static VodPlayInfoModelVersion valueOf(int value) {
     return forNumber(value);
   }
 
@@ -91,26 +91,26 @@ public enum VodVideoModelVersion
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static VodVideoModelVersion forNumber(int value) {
+  public static VodPlayInfoModelVersion forNumber(int value) {
     switch (value) {
-      case 0: return UndefinedVodVideoModelVersion;
-      case 1: return InternalV1VodVideoModelVersion;
-      case 2: return InternalV2VodVideoModelVersion;
-      case 3: return InternalV3VodVideoModelVersion;
-      case 4: return ToBV1VodVideoModelVersion;
+      case 0: return UndefinedVodPlayInfoModelVersion;
+      case 1: return InternalV1VodPlayInfoModelVersion;
+      case 2: return InternalV2VodPlayInfoModelVersion;
+      case 3: return InternalV3VodPlayInfoModelVersion;
+      case 4: return ToBV1VodPlayInfoModelVersion;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<VodVideoModelVersion>
+  public static com.google.protobuf.Internal.EnumLiteMap<VodPlayInfoModelVersion>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      VodVideoModelVersion> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<VodVideoModelVersion>() {
-          public VodVideoModelVersion findValueByNumber(int number) {
-            return VodVideoModelVersion.forNumber(number);
+      VodPlayInfoModelVersion> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<VodPlayInfoModelVersion>() {
+          public VodPlayInfoModelVersion findValueByNumber(int number) {
+            return VodPlayInfoModelVersion.forNumber(number);
           }
         };
 
@@ -131,9 +131,9 @@ public enum VodVideoModelVersion
     return com.volcengine.model.vod.business.VodPlay.getDescriptor().getEnumTypes().get(0);
   }
 
-  private static final VodVideoModelVersion[] VALUES = values();
+  private static final VodPlayInfoModelVersion[] VALUES = values();
 
-  public static VodVideoModelVersion valueOf(
+  public static VodPlayInfoModelVersion valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -147,10 +147,10 @@ public enum VodVideoModelVersion
 
   private final int value;
 
-  private VodVideoModelVersion(int value) {
+  private VodPlayInfoModelVersion(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:Volcengine.Models.Vod.Business.VodVideoModelVersion)
+  // @@protoc_insertion_point(enum_scope:Volcengine.Models.Vod.Business.VodPlayInfoModelVersion)
 }
 

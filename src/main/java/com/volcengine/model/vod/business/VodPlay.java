@@ -35,31 +35,31 @@ public final class VodPlay {
     java.lang.String[] descriptorData = {
       "\n\033vod/business/vod_play.proto\022\036Volcengin" +
       "e.Models.Vod.Business\032\035vod/business/vod_" +
-      "common.proto\"\343\002\n\020VodPlayInfoModel\022E\n\007Ver" +
-      "sion\030\n \001(\01624.Volcengine.Models.Vod.Busin" +
-      "ess.VodVideoModelVersion\022\013\n\003Vid\030\001 \001(\t\022\016\n" +
-      "\006Status\030\002 \001(\005\022\021\n\tPosterUrl\030\003 \001(\t\022\020\n\010Dura" +
-      "tion\030\004 \001(\002\022\020\n\010FileType\030\005 \001(\t\022\026\n\016EnableAd" +
-      "aptive\030\006 \001(\010\022\022\n\nTotalCount\030\007 \001(\005\022E\n\014Adap" +
-      "tiveInfo\030\010 \001(\0132/.Volcengine.Models.Vod.B" +
-      "usiness.VodAdaptiveInfo\022A\n\014PlayInfoList\030" +
-      "\t \003(\0132+.Volcengine.Models.Vod.Business.V" +
-      "odPlayInfo\"\330\001\n\034VodGetOriginalPlayInfoRes" +
-      "ult\022\020\n\010FileType\030\001 \001(\t\022\020\n\010Duration\030\002 \001(\002\022" +
-      "\014\n\004Size\030\003 \001(\001\022\016\n\006Height\030\004 \001(\005\022\r\n\005Width\030\005" +
-      " \001(\005\022\016\n\006Format\030\006 \001(\t\022\r\n\005Codec\030\007 \001(\t\022\017\n\007B" +
-      "itrate\030\010 \001(\005\022\013\n\003Md5\030\t \001(\t\022\023\n\013MainPlayUrl" +
-      "\030\n \001(\t\022\025\n\rBackupPlayUrl\030\013 \001(\t*\304\001\n\024VodVid" +
-      "eoModelVersion\022!\n\035UndefinedVodVideoModel" +
-      "Version\020\000\022\"\n\036InternalV1VodVideoModelVers" +
-      "ion\020\001\022\"\n\036InternalV2VodVideoModelVersion\020" +
-      "\002\022\"\n\036InternalV3VodVideoModelVersion\020\003\022\035\n" +
-      "\031ToBV1VodVideoModelVersion\020\004B\247\001\n!com.vol" +
-      "cengine.model.vod.businessB\007VodPlayP\001Z9g" +
-      "ithub.com/volcengine/volc-sdk-golang/mod" +
-      "els/vod/business\240\001\001\330\001\001\302\002\000\312\002\030Volc\\Models\\" +
-      "Vod\\Business\342\002\027Volc\\Models\\GPBMetadatab\006" +
-      "proto3"
+      "common.proto\"\346\002\n\020VodPlayInfoModel\022H\n\007Ver" +
+      "sion\030\n \001(\01627.Volcengine.Models.Vod.Busin" +
+      "ess.VodPlayInfoModelVersion\022\013\n\003Vid\030\001 \001(\t" +
+      "\022\016\n\006Status\030\002 \001(\005\022\021\n\tPosterUrl\030\003 \001(\t\022\020\n\010D" +
+      "uration\030\004 \001(\002\022\020\n\010FileType\030\005 \001(\t\022\026\n\016Enabl" +
+      "eAdaptive\030\006 \001(\010\022\022\n\nTotalCount\030\007 \001(\005\022E\n\014A" +
+      "daptiveInfo\030\010 \001(\0132/.Volcengine.Models.Vo" +
+      "d.Business.VodAdaptiveInfo\022A\n\014PlayInfoLi" +
+      "st\030\t \003(\0132+.Volcengine.Models.Vod.Busines" +
+      "s.VodPlayInfo\"\330\001\n\034VodGetOriginalPlayInfo" +
+      "Result\022\020\n\010FileType\030\001 \001(\t\022\020\n\010Duration\030\002 \001" +
+      "(\002\022\014\n\004Size\030\003 \001(\001\022\016\n\006Height\030\004 \001(\005\022\r\n\005Widt" +
+      "h\030\005 \001(\005\022\016\n\006Format\030\006 \001(\t\022\r\n\005Codec\030\007 \001(\t\022\017" +
+      "\n\007Bitrate\030\010 \001(\005\022\013\n\003Md5\030\t \001(\t\022\023\n\013MainPlay" +
+      "Url\030\n \001(\t\022\025\n\rBackupPlayUrl\030\013 \001(\t*\326\001\n\027Vod" +
+      "PlayInfoModelVersion\022$\n UndefinedVodPlay" +
+      "InfoModelVersion\020\000\022%\n!InternalV1VodPlayI" +
+      "nfoModelVersion\020\001\022%\n!InternalV2VodPlayIn" +
+      "foModelVersion\020\002\022%\n!InternalV3VodPlayInf" +
+      "oModelVersion\020\003\022 \n\034ToBV1VodPlayInfoModel" +
+      "Version\020\004B\247\001\n!com.volcengine.model.vod.b" +
+      "usinessB\007VodPlayP\001Z9github.com/volcengin" +
+      "e/volc-sdk-golang/models/vod/business\240\001\001" +
+      "\330\001\001\302\002\000\312\002\030Volc\\Models\\Vod\\Business\342\002\027Volc" +
+      "\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

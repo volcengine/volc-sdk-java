@@ -12,7 +12,7 @@ public interface VodPlayInfoModelOrBuilder extends
    *数据版本
    * </pre>
    *
-   * <code>.Volcengine.Models.Vod.Business.VodVideoModelVersion Version = 10;</code>
+   * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModelVersion Version = 10;</code>
    * @return The enum numeric value on the wire for version.
    */
   int getVersionValue();
@@ -21,10 +21,10 @@ public interface VodPlayInfoModelOrBuilder extends
    *数据版本
    * </pre>
    *
-   * <code>.Volcengine.Models.Vod.Business.VodVideoModelVersion Version = 10;</code>
+   * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModelVersion Version = 10;</code>
    * @return The version.
    */
-  com.volcengine.model.vod.business.VodVideoModelVersion getVersion();
+  com.volcengine.model.vod.business.VodPlayInfoModelVersion getVersion();
 
   /**
    * <pre>

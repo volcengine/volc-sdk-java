@@ -1,7 +1,7 @@
 package com.volcengine.auth.impl;
 
 import com.volcengine.auth.ISignerV4;
-import com.volcengine.auth.MedaData;
+import com.volcengine.auth.MetaData;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
 import com.volcengine.model.Credentials;
@@ -48,7 +48,7 @@ public class SignerV4Impl implements ISignerV4 {
         String formatDate = getCurrentFormatDate();
         String date = formatDate.substring(0, 8);
 
-        MedaData meta = new MedaData();
+        MetaData meta = new MetaData();
         meta.setDate(date);
         meta.setService(credentials.getService());
         meta.setRegion(credentials.getRegion());
@@ -99,7 +99,7 @@ public class SignerV4Impl implements ISignerV4 {
         String formatDate = getCurrentFormatDate();
         request.setHeader("X-Date", formatDate);
 
-        MedaData meta = new MedaData();
+        MetaData meta = new MetaData();
         meta.setAlgorithm("HMAC-SHA256");
         meta.setService(credentials.getService());
         meta.setRegion(credentials.getRegion());
@@ -118,7 +118,7 @@ public class SignerV4Impl implements ISignerV4 {
         request.setHeader("Authorization", buildAuthHeaderV4(signature, meta, credentials));
     }
 
-    private String hashedSimpleCanonicalRequestV4(SignableRequest request, MedaData meta) throws Exception {
+    private String hashedSimpleCanonicalRequestV4(SignableRequest request, MetaData meta) throws Exception {
         String payloadHash = Utils.hashSHA256(new byte[0]);
 
         URIBuilder builder = request.getUriBuilder();
@@ -132,7 +132,7 @@ public class SignerV4Impl implements ISignerV4 {
         return Utils.hashSHA256(canonicalRequest.getBytes());
     }
 
-    private String hashedCanonicalRequestV4(SignableRequest request, MedaData meta) throws Exception {
+    private String hashedCanonicalRequestV4(SignableRequest request, MetaData meta) throws Exception {
         byte[] body;
         HttpEntity entity = request.getEntity();
         if (entity == null) {
@@ -186,7 +186,7 @@ public class SignerV4Impl implements ISignerV4 {
         return Utils.hmacSHA256(kService, "request");
     }
 
-    private String buildAuthHeaderV4(String signature, MedaData meta, Credentials credentials) {
+    private String buildAuthHeaderV4(String signature, MetaData meta, Credentials credentials) {
         String credential = credentials.getAccessKeyID() + "/" + meta.getCredentialScope();
 
         return meta.getAlgorithm() +

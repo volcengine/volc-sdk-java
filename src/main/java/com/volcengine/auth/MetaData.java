@@ -3,7 +3,7 @@ package com.volcengine.auth;
 import lombok.Data;
 
 @Data
-public class MedaData {
+public class MetaData {
     private String algorithm;
     private String credentialScope;
     private String signedHeaders;

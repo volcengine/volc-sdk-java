@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
@@ -155,7 +156,7 @@ public class Utils {
             } else if (entry.getValue().getClass() == JSONArray.class) {
                 List<String> list = (List<String>) entry.getValue();
                 try {
-                    params.put(entry.getKey(), URLEncoder.encode(String.join(",", list), "UTF-8"));
+                    params.put(entry.getKey(), URLEncoder.encode(StringUtils.join(",", list), "UTF-8"));
                 } catch (UnsupportedEncodingException e) {
                     params.put(entry.getKey(), "");
                 }
@@ -175,7 +176,9 @@ public class Utils {
                 pairs.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
             } else if (entry.getValue().getClass() == JSONArray.class) {
                 List<String> list = (List<String>) entry.getValue();
-                list.forEach(value -> pairs.add(new BasicNameValuePair(entry.getKey(), value)));
+                for (String item:list) {
+                    pairs.add(new BasicNameValuePair(entry.getKey(), item));
+                }
             }
         }
         return pairs;

@@ -14,7 +14,9 @@ import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.sts2.InnerToken;
 import com.volcengine.model.sts2.Policy;
 import com.volcengine.model.sts2.SecurityToken2;
+import com.volcengine.util.NameValueComparator;
 import com.volcengine.util.Sts2Utils;
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.http.Header;
@@ -38,8 +40,8 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashSet;
@@ -210,7 +212,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         List<NameValuePair> mergedForm = mergeQuery(form, apiInfo.getForm());
 
         try {
-            mergedForm.sort(Comparator.comparing(NameValuePair::getName));
+            Collections.sort(mergedForm, NameValueComparator.INSTANCE);
             request.setEntity(new UrlEncodedFormEntity(mergedForm));
         } catch (Exception e) {
             return new RawResponse(null, SdkError.EENCODING.getNumber(), e);
@@ -421,7 +423,8 @@ public abstract class BaseServiceImpl implements IBaseService {
         sts2.setExpiredTime(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX").format(expireTime));
 
         InnerToken innerToken = Sts2Utils.createInnerToken(serviceInfo.getCredentials(),sts2,inlinePolicy,expireTime.getTime() / 1000);
-        String sessionToken = "STS2" + Base64.getEncoder().encodeToString(JSON.toJSONString(innerToken).getBytes());
+
+        String sessionToken = "STS2" + Base64.encodeBase64String(JSON.toJSONString(innerToken).getBytes());
         sts2.setSessionToken(sessionToken);
         return sts2;
     }

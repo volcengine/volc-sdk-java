@@ -14,18 +14,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class VodConfig {
-    // ResourceSpaceFormat space的资源结构
-    public static final String RESOURCE_SPACE_FORMAT = "trn:vod:%s:*:space/%s";
-    // ResourceVideoFormat vid的视频结构r
-    public static final String RESOURCE_VIDEO_FORMAT = "trn:vod::*:video_id/%s";
-    // ResourceStreamTypeFormat  stream type理论和账号无关
-    public static final String RESOURCE_STREAM_TYPE_FORMAT = "trn:vod:::stream_type/%s";
-    // ResourceWatermarkFormat 水印信息与账号有关,与region无关
-    public static final String RESOURCE_WATERMARK_FORMAT = "trn:vod::*:watermark/%s";
-
-    public static final String ACTION_GET_PLAY_INFO = "vod:GetPlayInfo";
-
-    public static final String STAR = "*";
 
     public static Map<String, ServiceInfo> ServiceInfoMap = new HashMap<String, ServiceInfo>() {
         {

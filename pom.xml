@@ -5,15 +5,38 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.volcengine</groupId>
-    <artifactId>sdk</artifactId>
-    <version>${revision}</version>
-    <modules>
-        <module>example</module>
-        <module>volc-sdk-java</module>
-    </modules>
-    <packaging>pom</packaging>
+    <artifactId>volc-sdk-java</artifactId>
+    <version>1.0.5</version>
+    <packaging>jar</packaging>
+
+    <name>volc-sdk-java</name>
+    <url>https://open.volcengineapi.com</url>
+    <description>
+        The VOLC Engine SDK for Java
+    </description>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/volcengine/volc-sdk-java</url>
+        <connection>scm:git:https://github.com/volcengine/volc-sdk-java.git</connection>
+        <developerConnection>scm:git:https://github.com/volcengine/volc-sdk-java.git</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>volcproducts</id>
+            <name>VOLC SDK</name>
+        </developer>
+    </developers>
+
     <properties>
-        <revision>1.0.1</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jre.version>1.8</jre.version>
         <skipTests>true</skipTests>

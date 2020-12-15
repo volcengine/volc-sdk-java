@@ -1,11 +1,11 @@
-## VOLCloud Engine SDK for Java
+## Volcengine SDK for Java
 
 ### - Maven依赖
 ```
 <dependency>
     <groupId>com.volcengine</groupId>
     <artifactId>volc-sdk-java</artifactId>
-    <version>0.0.6</version>
+    <version>1.0.5</version>
 </dependency>
 ```
 ### AK/SK设置
@@ -30,4 +30,4 @@
 
 
 #### 更多示例参见
-src/main/java/com/bytedanceapi/example
+src/main/java/com/example

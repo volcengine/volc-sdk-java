@@ -6,7 +6,9 @@ import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
 import com.volcengine.model.Credentials;
 import com.volcengine.service.SignableRequest;
+import com.volcengine.util.NameValueComparator;
 import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Consts;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
@@ -19,6 +21,7 @@ import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashSet;
@@ -54,7 +57,7 @@ public class SignerV4Impl implements ISignerV4 {
         meta.setRegion(credentials.getRegion());
         meta.setSignedHeaders("");
         meta.setAlgorithm("HMAC-SHA256");
-        meta.setCredentialScope(String.join("/", meta.getDate(), meta.getRegion(), meta.getService(), "request"));
+        meta.setCredentialScope(StringUtils.join("/", meta.getDate(), meta.getRegion(), meta.getService(), "request"));
 
         URIBuilder builder = request.getUriBuilder();
         builder.setParameter("X-Date", formatDate);
@@ -67,15 +70,15 @@ public class SignerV4Impl implements ISignerV4 {
         for (NameValuePair pair : builder.getQueryParams()) {
             keys.add(pair.getName());
         }
-        keys.sort(Comparator.naturalOrder());
+        Collections.sort(keys);
 
-        builder.setParameter("X-SignedQueries", String.join(";", keys));
+        builder.setParameter("X-SignedQueries", StringUtils.join(";", keys));
 
         // step 1
         String hashedCanonReq = hashedSimpleCanonicalRequestV4(request, meta);
 
         // step 2
-        String stringToSign = String.join("\n", meta.getAlgorithm(), formatDate, meta.getCredentialScope(), hashedCanonReq);
+        String stringToSign = StringUtils.join("\n", meta.getAlgorithm(), formatDate, meta.getCredentialScope(), hashedCanonReq);
 
         // step 3
         byte[] signingKey = genSigningSecretKeyV4(credentials.getSecretAccessKey(), meta.getDate(), meta.getRegion(), meta.getService());
@@ -108,9 +111,9 @@ public class SignerV4Impl implements ISignerV4 {
         // step 1
         String hashedCanonReq = hashedCanonicalRequestV4(request, meta);
 
-        meta.setCredentialScope(String.join("/", meta.getDate(), meta.getRegion(), meta.getService(), "request"));
+        meta.setCredentialScope(StringUtils.join("/", meta.getDate(), meta.getRegion(), meta.getService(), "request"));
         // step 2
-        String stringToSign = String.join("\n", meta.getAlgorithm(), formatDate, meta.getCredentialScope(), hashedCanonReq);
+        String stringToSign = StringUtils.join("\n", meta.getAlgorithm(), formatDate, meta.getCredentialScope(), hashedCanonReq);
 
         // step 3
         byte[] signingKey = genSigningSecretKeyV4(credentials.getSecretAccessKey(), meta.getDate(), meta.getRegion(), meta.getService());
@@ -126,7 +129,7 @@ public class SignerV4Impl implements ISignerV4 {
             builder.setPath("/");
         }
 
-        String canonicalRequest = String.join("\n", request.getMethod(), normUri(builder.getPath()),
+        String canonicalRequest = StringUtils.join("\n", request.getMethod(), normUri(builder.getPath()),
                 normQuery(builder.getQueryParams()), "\n", meta.getSignedHeaders(), payloadHash);
 
         return Utils.hashSHA256(canonicalRequest.getBytes());
@@ -150,7 +153,7 @@ public class SignerV4Impl implements ISignerV4 {
                 signedHeaders.add(headerName.toLowerCase());
             }
         }
-        signedHeaders.sort(Comparator.naturalOrder());
+        Collections.sort(signedHeaders);
         StringBuilder signedHeadersToSignStr = new StringBuilder();
         for (String h : signedHeaders) {
             String value = request.getFirstHeader(h).getValue().trim();
@@ -166,9 +169,9 @@ public class SignerV4Impl implements ISignerV4 {
             signedHeadersToSignStr.append(h).append(":").append(value).append("\n");
         }
 
-        meta.setSignedHeaders(String.join(";", signedHeaders));
+        meta.setSignedHeaders(StringUtils.join(";", signedHeaders));
 
-        String canonicalRequest = String.join("\n", request.getMethod(), normUri(request.getUriBuilder().getPath()),
+        String canonicalRequest = StringUtils.join("\n", request.getMethod(), normUri(request.getUriBuilder().getPath()),
                 normQuery(request.getUriBuilder().getQueryParams()), signedHeadersToSignStr.toString(),
                 meta.getSignedHeaders(), bodyHash);
 
@@ -210,7 +213,7 @@ public class SignerV4Impl implements ISignerV4 {
     }
 
     private String normQuery(List<NameValuePair> params) {
-        params.sort(Comparator.comparing(NameValuePair::getName));
+        Collections.sort(params, NameValueComparator.INSTANCE);
         String query = URLEncodedUtils.format(params, Consts.UTF_8);
         return query.replace("+", "%20");
     }

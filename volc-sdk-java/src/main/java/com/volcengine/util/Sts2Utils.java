@@ -7,6 +7,7 @@ import com.volcengine.model.sts2.Policy;
 import com.volcengine.model.sts2.SecurityToken2;
 import com.volcengine.model.sts2.Statement;
 import org.apache.commons.codec.CharEncoding;
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -18,14 +19,13 @@ import java.nio.charset.Charset;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
 import java.util.List;
 import java.util.UUID;
 
 public class Sts2Utils {
     public static String generateAccessKeyId(String prefix) {
         String uuid = UUID.randomUUID().toString().replace("-", "");
-        String uidBase64 = Base64.getEncoder().encodeToString(uuid.getBytes());
+        String uidBase64 = Base64.encodeBase64String(uuid.getBytes());
         return prefix + uidBase64.replace("=", "")
                 .replace("/", "")
                 .replace("+", "")
@@ -68,7 +68,7 @@ public class Sts2Utils {
             throw new RuntimeException("Key长度不是16位");
         }
         byte[] encrypted = encrypt(sSrc, new String(sKey, CharEncoding.ISO_8859_1));
-        return Base64.getEncoder().encodeToString(encrypted);//此处使用BASE64做转码功能，同时能起到2次加密的作用。
+        return Base64.encodeBase64String(encrypted);//此处使用BASE64做转码功能，同时能起到2次加密的作用。
     }
 
     public static InnerToken createInnerToken(Credentials credentials, SecurityToken2 sts2, Policy inlinePolicy, long seconds) throws Exception {

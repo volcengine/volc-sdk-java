@@ -13,7 +13,7 @@
     </modules>
     <packaging>pom</packaging>
     <properties>
-        <revision>1.0.1</revision>
+        <revision>1.0.6</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jre.version>1.8</jre.version>
         <skipTests>true</skipTests>

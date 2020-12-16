@@ -1,0 +1,12 @@
+Change log
+
+2020-12-16 Bumped to version v1.0.6
+- Update .gitignore
+
+2020-12-15 Bumped to version v1.0.5
+- Update README.md.
+
+2020-12-11 Bumped to version v1.0.4
+- Add iam sdk.
+- Add visual sdk.
+

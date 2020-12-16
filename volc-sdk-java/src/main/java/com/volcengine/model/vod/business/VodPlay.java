@@ -55,11 +55,11 @@ public final class VodPlay {
       "nfoModelVersion\020\001\022%\n!InternalV2VodPlayIn" +
       "foModelVersion\020\002\022%\n!InternalV3VodPlayInf" +
       "oModelVersion\020\003\022 \n\034ToBV1VodPlayInfoModel" +
-      "Version\020\004B\247\001\n!com.volcengine.model.vod.b" +
-      "usinessB\007VodPlayP\001Z9github.com/volcengin" +
-      "e/volc-sdk-golang/models/vod/business\240\001\001" +
-      "\330\001\001\302\002\000\312\002\030Volc\\Models\\Vod\\Business\342\002\027Volc" +
-      "\\Models\\GPBMetadatab\006proto3"
+      "Version\020\004B\260\001\n!com.volcengine.model.vod.b" +
+      "usinessB\007VodPlayP\001ZBgithub.com/volcengin" +
+      "e/volc-sdk-golang/models/vod/business;bu" +
+      "siness\240\001\001\330\001\001\302\002\000\312\002\030Volc\\Models\\Vod\\Busine" +
+      "ss\342\002\027Volc\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

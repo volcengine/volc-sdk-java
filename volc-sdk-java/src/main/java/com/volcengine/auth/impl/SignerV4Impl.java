@@ -57,7 +57,7 @@ public class SignerV4Impl implements ISignerV4 {
         meta.setRegion(credentials.getRegion());
         meta.setSignedHeaders("");
         meta.setAlgorithm("HMAC-SHA256");
-        meta.setCredentialScope(StringUtils.join("/", meta.getDate(), meta.getRegion(), meta.getService(), "request"));
+        meta.setCredentialScope(StringUtils.join(new String[]{meta.getDate(), meta.getRegion(), meta.getService(), "request"}, "/"));
 
         URIBuilder builder = request.getUriBuilder();
         builder.setParameter("X-Date", formatDate);
@@ -72,13 +72,13 @@ public class SignerV4Impl implements ISignerV4 {
         }
         Collections.sort(keys);
 
-        builder.setParameter("X-SignedQueries", StringUtils.join(";", keys));
+        builder.setParameter("X-SignedQueries", StringUtils.join(keys, ";"));
 
         // step 1
         String hashedCanonReq = hashedSimpleCanonicalRequestV4(request, meta);
 
         // step 2
-        String stringToSign = StringUtils.join("\n", meta.getAlgorithm(), formatDate, meta.getCredentialScope(), hashedCanonReq);
+        String stringToSign = StringUtils.join(new String[]{meta.getAlgorithm(), formatDate, meta.getCredentialScope(), hashedCanonReq}, "\n");
 
         // step 3
         byte[] signingKey = genSigningSecretKeyV4(credentials.getSecretAccessKey(), meta.getDate(), meta.getRegion(), meta.getService());
@@ -111,9 +111,10 @@ public class SignerV4Impl implements ISignerV4 {
         // step 1
         String hashedCanonReq = hashedCanonicalRequestV4(request, meta);
 
-        meta.setCredentialScope(StringUtils.join("/", meta.getDate(), meta.getRegion(), meta.getService(), "request"));
+
+        meta.setCredentialScope(StringUtils.join(new String[]{meta.getDate(), meta.getRegion(), meta.getService(), "request"}, "/"));
         // step 2
-        String stringToSign = StringUtils.join("\n", meta.getAlgorithm(), formatDate, meta.getCredentialScope(), hashedCanonReq);
+        String stringToSign = StringUtils.join(new String[]{meta.getAlgorithm(), formatDate, meta.getCredentialScope(), hashedCanonReq}, "\n");
 
         // step 3
         byte[] signingKey = genSigningSecretKeyV4(credentials.getSecretAccessKey(), meta.getDate(), meta.getRegion(), meta.getService());
@@ -129,8 +130,8 @@ public class SignerV4Impl implements ISignerV4 {
             builder.setPath("/");
         }
 
-        String canonicalRequest = StringUtils.join("\n", request.getMethod(), normUri(builder.getPath()),
-                normQuery(builder.getQueryParams()), "\n", meta.getSignedHeaders(), payloadHash);
+        String canonicalRequest = StringUtils.join(new String[]{request.getMethod(), normUri(builder.getPath()),
+                normQuery(builder.getQueryParams()), "\n", meta.getSignedHeaders(), payloadHash}, "\n");
 
         return Utils.hashSHA256(canonicalRequest.getBytes());
     }
@@ -169,11 +170,11 @@ public class SignerV4Impl implements ISignerV4 {
             signedHeadersToSignStr.append(h).append(":").append(value).append("\n");
         }
 
-        meta.setSignedHeaders(StringUtils.join(";", signedHeaders));
+        meta.setSignedHeaders(StringUtils.join(signedHeaders, ";"));
 
-        String canonicalRequest = StringUtils.join("\n", request.getMethod(), normUri(request.getUriBuilder().getPath()),
+        String canonicalRequest = StringUtils.join(new String[]{ request.getMethod(), normUri(request.getUriBuilder().getPath()),
                 normQuery(request.getUriBuilder().getQueryParams()), signedHeadersToSignStr.toString(),
-                meta.getSignedHeaders(), bodyHash);
+                meta.getSignedHeaders(), bodyHash}, "\n");
 
         return Utils.hashSHA256(canonicalRequest.getBytes());
     }

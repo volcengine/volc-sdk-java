@@ -156,7 +156,7 @@ public class Utils {
             } else if (entry.getValue().getClass() == JSONArray.class) {
                 List<String> list = (List<String>) entry.getValue();
                 try {
-                    params.put(entry.getKey(), URLEncoder.encode(StringUtils.join(",", list), "UTF-8"));
+                    params.put(entry.getKey(), URLEncoder.encode(StringUtils.join(list, ","), "UTF-8"));
                 } catch (UnsupportedEncodingException e) {
                     params.put(entry.getKey(), "");
                 }

@@ -12,7 +12,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    * 视频ID
    * </pre>
    *
-   * <code>string Vid = 1 [(.validators.field) = { ... }</code>
+   * <code>string Vid = 1;</code>
    * @return The vid.
    */
   java.lang.String getVid();
@@ -21,7 +21,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    * 视频ID
    * </pre>
    *
-   * <code>string Vid = 1 [(.validators.field) = { ... }</code>
+   * <code>string Vid = 1;</code>
    * @return The bytes for vid.
    */
   com.google.protobuf.ByteString

@@ -143,7 +143,7 @@ private static final long serialVersionUID = 0L;
    * 视频ID
    * </pre>
    *
-   * <code>string Vid = 1 [(.validators.field) = { ... }</code>
+   * <code>string Vid = 1;</code>
    * @return The vid.
    */
   @java.lang.Override
@@ -164,7 +164,7 @@ private static final long serialVersionUID = 0L;
    * 视频ID
    * </pre>
    *
-   * <code>string Vid = 1 [(.validators.field) = { ... }</code>
+   * <code>string Vid = 1;</code>
    * @return The bytes for vid.
    */
   @java.lang.Override
@@ -931,7 +931,7 @@ private static final long serialVersionUID = 0L;
      * 视频ID
      * </pre>
      *
-     * <code>string Vid = 1 [(.validators.field) = { ... }</code>
+     * <code>string Vid = 1;</code>
      * @return The vid.
      */
     public java.lang.String getVid() {
@@ -951,7 +951,7 @@ private static final long serialVersionUID = 0L;
      * 视频ID
      * </pre>
      *
-     * <code>string Vid = 1 [(.validators.field) = { ... }</code>
+     * <code>string Vid = 1;</code>
      * @return The bytes for vid.
      */
     public com.google.protobuf.ByteString
@@ -972,7 +972,7 @@ private static final long serialVersionUID = 0L;
      * 视频ID
      * </pre>
      *
-     * <code>string Vid = 1 [(.validators.field) = { ... }</code>
+     * <code>string Vid = 1;</code>
      * @param value The vid to set.
      * @return This builder for chaining.
      */
@@ -991,7 +991,7 @@ private static final long serialVersionUID = 0L;
      * 视频ID
      * </pre>
      *
-     * <code>string Vid = 1 [(.validators.field) = { ... }</code>
+     * <code>string Vid = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearVid() {
@@ -1005,7 +1005,7 @@ private static final long serialVersionUID = 0L;
      * 视频ID
      * </pre>
      *
-     * <code>string Vid = 1 [(.validators.field) = { ... }</code>
+     * <code>string Vid = 1;</code>
      * @param value The bytes for vid to set.
      * @return This builder for chaining.
      */

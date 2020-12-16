@@ -12,7 +12,7 @@ public class VodGetPlayInfoDemo {
     public static void main(String[] args) throws Exception {
         IVodService vodService = VodServiceImpl.getInstance();
 
-        String vid = "v0c2c369007abu04ru8riko30uo9n73g";
+        String vid = "v02c70ba0000bv6524d4mkgqqb51jegg";
 
         // call below method if you dont set ak and sk in ～/.vcloud/config
         // vodService.setAccessKey("");

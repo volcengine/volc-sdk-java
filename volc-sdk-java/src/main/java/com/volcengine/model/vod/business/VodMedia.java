@@ -67,11 +67,11 @@ public final class VodMedia {
       "toreUris\030\002 \003(\t\"u\n\023VodGetRecPosterData\022H\n" +
       "\016StoreUriGroups\030\001 \003(\01320.Volcengine.Model" +
       "s.Vod.Business.VodStoreUriGroup\022\024\n\014NotEx" +
-      "istVids\030\002 \003(\tB\250\001\n!com.volcengine.model.v" +
+      "istVids\030\002 \003(\tB\254\001\n!com.volcengine.model.v" +
       "od.businessB\010VodMediaP\001Z9github.com/volc" +
       "engine/volc-sdk-golang/models/vod/busine" +
       "ss\240\001\001\330\001\001\302\002\000\312\002\030Volc\\Models\\Vod\\Business\342\002" +
-      "\027Volc\\Models\\GPBMetadatab\006proto3"
+      "\033Volc\\Models\\Vod\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

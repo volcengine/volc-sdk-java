@@ -135,11 +135,11 @@ public final class VodResponse {
       "ponseMetadata\030\001 \001(\0132(.Volcengine.Models." +
       "Base.ResponseMetadata\022F\n\006Result\030\002 \001(\01326." +
       "Volcengine.Models.Vod.Business.VodStartW" +
-      "orkflowResultB\250\001\n!com.volcengine.model.v" +
+      "orkflowResultB\254\001\n!com.volcengine.model.v" +
       "od.responseB\013VodResponseP\001Z9github.com/v" +
       "olcengine/volc-sdk-golang/models/vod/res" +
       "ponse\240\001\001\330\001\001\312\002\030Volc\\Models\\Vod\\Response\342\002" +
-      "\027Volc\\Models\\GPBMetadatab\006proto3"
+      "\033Volc\\Models\\Vod\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

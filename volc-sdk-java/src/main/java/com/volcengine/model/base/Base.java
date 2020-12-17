@@ -7,7 +7,6 @@ public final class Base {
   private Base() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
-    registry.add(com.volcengine.model.base.Base.productType);
   }
 
   public static void registerAllExtensions(
@@ -15,17 +14,6 @@ public final class Base {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public static final int PRODUCT_TYPE_FIELD_NUMBER = 10000;
-  /**
-   * <code>extend .google.protobuf.FileOptions { ... }</code>
-   */
-  public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-      com.google.protobuf.DescriptorProtos.FileOptions,
-      java.lang.String> productType = com.google.protobuf.GeneratedMessage
-          .newFileScopedGeneratedExtension(
-        java.lang.String.class,
-        null);
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Models_Base_ResponseMetadata_descriptor;
   static final 
@@ -52,12 +40,10 @@ public final class Base {
       "\004 \001(\t\022\016\n\006Region\030\005 \001(\t\0224\n\005Error\030\006 \001(\0132%.V" +
       "olcengine.Models.Base.ResponseError\".\n\rR" +
       "esponseError\022\014\n\004Code\030\001 \001(\t\022\017\n\007Message\030\002 " +
-      "\001(\t:6\n\014product_type\022\034.google.protobuf.Fi" +
-      "leOptions\030\220N \001(\t\210\001\001B\214\001\n\031com.volcengine.m" +
-      "odel.baseB\004BaseP\001Z1github.com/volcengine" +
-      "/volc-sdk-golang/models/base\240\001\001\330\001\001\302\002\000\312\002\020" +
-      "Volc\\Models\\Base\342\002\027Volc\\Models\\GPBMetada" +
-      "tab\006proto3"
+      "\001(\tB\221\001\n\031com.volcengine.model.baseB\004BaseP" +
+      "\001Z1github.com/volcengine/volc-sdk-golang" +
+      "/models/base\240\001\001\330\001\001\302\002\000\312\002\020Volc\\Models\\Base" +
+      "\342\002\034Volc\\Models\\Base\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -76,7 +62,6 @@ public final class Base {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Models_Base_ResponseError_descriptor,
         new java.lang.String[] { "Code", "Message", });
-    productType.internalInit(descriptor.getExtensions().get(0));
     com.google.protobuf.DescriptorProtos.getDescriptor();
   }
 

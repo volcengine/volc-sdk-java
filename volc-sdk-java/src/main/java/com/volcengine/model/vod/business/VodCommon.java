@@ -85,12 +85,12 @@ public final class VodCommon {
       "\006Height\030\013 \001(\005\022\014\n\004Size\030\014 \001(\001\022\021\n\tCheckInfo" +
       "\030\r \001(\t\022\022\n\nIndexRange\030\016 \001(\t\022\021\n\tInitRange\030" +
       "\017 \001(\t\022\020\n\010PlayAuth\030\020 \001(\t\022\022\n\nPlayAuthId\030\021 " +
-      "\001(\t\022\020\n\010LogoType\030\022 \001(\t\022\017\n\007Quality\030\023 \001(\tB\251" +
+      "\001(\t\022\020\n\010LogoType\030\022 \001(\t\022\017\n\007Quality\030\023 \001(\tB\255" +
       "\001\n!com.volcengine.model.vod.businessB\tVo" +
       "dCommonP\001Z9github.com/volcengine/volc-sd" +
       "k-golang/models/vod/business\240\001\001\330\001\001\302\002\000\312\002\030" +
-      "Volc\\Models\\Vod\\Business\342\002\027Volc\\Models\\G" +
-      "PBMetadatab\006proto3"
+      "Volc\\Models\\Vod\\Business\342\002\033Volc\\Models\\V" +
+      "od\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -124,11 +124,12 @@ public final class VodRequest {
       "equest\022\013\n\003Vid\030\001 \001(\t\022\022\n\nTemplateId\030\002 \001(\t\022" +
       "=\n\005Input\030\003 \001(\0132..Volcengine.Models.Vod.B" +
       "usiness.WorkflowParams\022\020\n\010Priority\030\004 \001(\005" +
-      "\022\024\n\014CallbackArgs\030\005 \001(\tB\244\001\n com.volcengin" +
+      "\022\024\n\014CallbackArgs\030\005 \001(\tB\250\001\n com.volcengin" +
       "e.model.vod.requestB\nVodRequestP\001Z8githu" +
       "b.com/volcengine/volc-sdk-golang/models/" +
       "vod/request\240\001\001\330\001\001\312\002\027Volc\\Models\\Vod\\Requ" +
-      "est\342\002\027Volc\\Models\\GPBMetadatab\006proto3"
+      "est\342\002\033Volc\\Models\\Vod\\GPBMetadatab\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

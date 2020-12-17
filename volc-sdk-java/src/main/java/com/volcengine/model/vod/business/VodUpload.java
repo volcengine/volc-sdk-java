@@ -141,12 +141,12 @@ public final class VodUpload {
       "VodCommitUploadInfoData\"|\n\027VodCommitUplo" +
       "adInfoData\022\013\n\003Vid\030\001 \001(\t\022\021\n\tPosterUri\030\002 \001" +
       "(\t\022A\n\nSourceInfo\030\003 \001(\0132-.Volcengine.Mode" +
-      "ls.Vod.Business.VodSourceInfoB\251\001\n!com.vo" +
+      "ls.Vod.Business.VodSourceInfoB\255\001\n!com.vo" +
       "lcengine.model.vod.businessB\tVodUploadP\001" +
       "Z9github.com/volcengine/volc-sdk-golang/" +
       "models/vod/business\240\001\001\330\001\001\302\002\000\312\002\030Volc\\Mode" +
-      "ls\\Vod\\Business\342\002\027Volc\\Models\\GPBMetadat" +
-      "ab\006proto3"
+      "ls\\Vod\\Business\342\002\033Volc\\Models\\Vod\\GPBMet" +
+      "adatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

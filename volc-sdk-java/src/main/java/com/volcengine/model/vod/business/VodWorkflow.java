@@ -100,12 +100,12 @@ public final class VodWorkflow {
       "TemplateId\030\001 \003(\t\0222\n\004Clip\030\002 \001(\0132$.Volceng" +
       "ine.Models.Vod.Business.Clip\"R\n\020Snapshot" +
       "Override\022\022\n\nTemplateId\030\001 \003(\t\022\022\n\nOffsetTi" +
-      "me\030\002 \001(\005\022\026\n\016OffsetTimeList\030\003 \003(\005B\250\001\n!com" +
+      "me\030\002 \001(\005\022\026\n\016OffsetTimeList\030\003 \003(\005B\254\001\n!com" +
       ".volcengine.model.vod.businessB\013VodWorkf" +
       "lowP\001Z9github.com/volcengine/volc-sdk-go" +
       "lang/models/vod/business\240\001\001\330\001\001\312\002\030Volc\\Mo" +
-      "dels\\Vod\\Business\342\002\027Volc\\Models\\GPBMetad" +
-      "atab\006proto3"
+      "dels\\Vod\\Business\342\002\033Volc\\Models\\Vod\\GPBM" +
+      "etadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

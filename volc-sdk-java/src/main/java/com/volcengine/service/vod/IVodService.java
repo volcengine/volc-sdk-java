@@ -56,15 +56,6 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.model.vod.response.VodGetPlayInfoResponse getPlayInfo(com.volcengine.model.vod.request.VodGetPlayInfoRequest input) throws Exception;
 	
 	/**
-     * getOriginalPlayInfo.
-     *
-     * @param input com.volcengine.model.vod.request.VodGetOriginalPlayInfoRequest
-     * @return com.volcengine.model.vod.response.VodGetOriginalPlayInfoResponse
-     * @throws Exception the exception
-     */
-	com.volcengine.model.vod.response.VodGetOriginalPlayInfoResponse getOriginalPlayInfo(com.volcengine.model.vod.request.VodGetOriginalPlayInfoRequest input) throws Exception;
-	
-	/**
      * uploadMediaByUrl.
      *
      * @param input com.volcengine.model.vod.request.VodUrlUploadRequest

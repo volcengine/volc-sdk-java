@@ -47,6 +47,19 @@ public class Const {
 
     public static final String SpaceName = "SpaceName";
 
+    // vod
+    public static final String GetPlayInfo = "GetPlayInfo";
+    public static final String StartWorkflow = "StartWorkflow";
+    public static final String UploadMediaByUrl = "UploadMediaByUrl";
+    public static final String ApplyUploadInfo = "ApplyUploadInfo";
+    public static final String CommitUploadInfo = "CommitUploadInfo";
+    public static final String QueryUploadTaskInfo = "QueryUploadTaskInfo";
+    public static final String GetOriginalPlayInfo = "GetOriginalPlayInfo";
+    public static final String UpdateMediaPublishStatus = "UpdateMediaPublishStatus";
+    public static final String UpdateMediaInfo = "UpdateMediaInfo";
+    public static final String GetMediaInfos = "GetMediaInfos";
+    public static final String GetRecommendedPoster = "GetRecommendedPoster";
+
     // iam
     public static final String CreateUser = "CreateUser";
     public static final String ListUsers = "ListUsers";

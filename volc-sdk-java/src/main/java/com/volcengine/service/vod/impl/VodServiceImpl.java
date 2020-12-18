@@ -149,25 +149,6 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 	
 	
 	/**
-     * getOriginalPlayInfo.
-     *
-     * @param input com.volcengine.model.vod.request.VodGetOriginalPlayInfoRequest
-     * @return com.volcengine.model.vod.response.VodGetOriginalPlayInfoResponse
-     * @throws Exception the exception
-     */
-	@Override
-	public com.volcengine.model.vod.response.VodGetOriginalPlayInfoResponse getOriginalPlayInfo(com.volcengine.model.vod.request.VodGetOriginalPlayInfoRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetOriginalPlayInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
-        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-        com.volcengine.model.vod.response.VodGetOriginalPlayInfoResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodGetOriginalPlayInfoResponse.newBuilder();
-        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
-        return responseBuilder.build();
-	}
-	
-	
-	/**
      * uploadMediaByUrl.
      *
      * @param input com.volcengine.model.vod.request.VodUrlUploadRequest

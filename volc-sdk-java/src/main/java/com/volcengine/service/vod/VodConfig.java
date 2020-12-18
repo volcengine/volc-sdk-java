@@ -152,22 +152,6 @@ public class VodConfig {
                     }
             ));
 
-
-            put(Const.GetOriginalPlayInfo, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.GetOriginalPlayInfo));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
-
             put(Const.UpdateMediaPublishStatus, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

@@ -10,7 +10,7 @@ public class DeleteImageResp {
     @JSONField(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
-    com.volcengine.model.response.DeleteImageResp.DeleteImageResultBean result;
+    DeleteImageResultBean result;
 
     @Data
     public static class DeleteImageResultBean {

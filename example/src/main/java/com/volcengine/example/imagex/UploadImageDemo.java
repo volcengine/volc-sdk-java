@@ -30,7 +30,6 @@ public class UploadImageDemo {
             CommitImageUploadResponse response = service.uploadImages(request, datas);
             System.out.println(response);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }

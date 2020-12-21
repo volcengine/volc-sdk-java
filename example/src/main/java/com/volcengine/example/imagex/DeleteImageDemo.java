@@ -28,7 +28,6 @@ public class DeleteImageDemo {
             DeleteImageResp resp = service.deleteImages(req);
             System.out.println(resp);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }

@@ -88,7 +88,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
             throw new Exception("image data crc32 error");
         }
         String checkSum = String.format("%x", crc.getValue());
-        String url = String.format("http://%s/%s", host, storeInfo.getStoreUri());
+        String url = String.format("https://%s/%s", host, storeInfo.getStoreUri());
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-CRC32", checkSum);
         headers.put("Authorization", storeInfo.getAuth());
@@ -102,7 +102,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
             }
         }
         if (!uploadStatus) {
-            throw new Exception(SdkError.getErrorDesc(SdkError.EUPLOAD));
+            throw new Exception(String.format("upload image %s msg %s", url, SdkError.getErrorDesc(SdkError.EUPLOAD)));
         }
         long endTime = System.currentTimeMillis();
         long cost = endTime - startTime;

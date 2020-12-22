@@ -5,7 +5,7 @@
 <dependency>
     <groupId>com.volcengine</groupId>
     <artifactId>volc-sdk-java</artifactId>
-    <version>1.0.5</version>
+    <version>最新版本</version>
 </dependency>
 ```
 ### AK/SK设置

@@ -15,4 +15,12 @@ public class ImageInfo {
     int height;
     @JSONField(name = "ImageMd5")
     String md5;
+    @JSONField(name = "ImageFormat")
+    String format;
+    @JSONField(name = "ImageSize")
+    int size;
+    @JSONField(name = "FrameCnt")
+    int frameCnt;
+    @JSONField(name = "Duration")
+    int duration;
 }

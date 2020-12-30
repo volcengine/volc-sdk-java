@@ -64,7 +64,8 @@ public abstract class BaseServiceImpl implements IBaseService {
     private int connectionTimeout;
 
 
-    private BaseServiceImpl() {}
+    private BaseServiceImpl() {
+    }
 
     public BaseServiceImpl(ServiceInfo info, Map<String, ApiInfo> apiInfoList) {
         this.serviceInfo = info;
@@ -155,6 +156,34 @@ public abstract class BaseServiceImpl implements IBaseService {
     public boolean putData(String url, byte[] data, Map<String, String> headers) {
         HttpEntity httpEntity = new ByteArrayEntity(data);
         return doPut(url, httpEntity, headers);
+    }
+
+    public HttpResponse putDataWithResponse(String url, byte[] data, Map<String, String> headers) {
+        HttpPut httpPut = new HttpPut(url);
+        HttpEntity httpEntity = new ByteArrayEntity(data);
+        if (headers != null && headers.size() > 0) {
+            for (Map.Entry<String, String> entry : headers.entrySet()) {
+                httpPut.setHeader(entry.getKey(), entry.getValue());
+            }
+        }
+        httpPut.setEntity(httpEntity);
+        HttpResponse response = null;
+        try {
+            HttpClient client;
+            if (getHttpClient() != null) {
+                client = getHttpClient();
+            } else {
+                client = HttpClients.createDefault();
+            }
+            return client.execute(httpPut);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (response != null) {
+                EntityUtils.consumeQuietly(response.getEntity());
+            }
+        }
+        return null;
     }
 
     private boolean doPut(String url, HttpEntity entity, Map<String, String> headers) {
@@ -422,7 +451,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         sts2.setCurrentTime(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX").format(now));
         sts2.setExpiredTime(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX").format(expireTime));
 
-        InnerToken innerToken = Sts2Utils.createInnerToken(serviceInfo.getCredentials(),sts2,inlinePolicy,expireTime.getTime() / 1000);
+        InnerToken innerToken = Sts2Utils.createInnerToken(serviceInfo.getCredentials(), sts2, inlinePolicy, expireTime.getTime() / 1000);
 
         String sessionToken = "STS2" + Base64.encodeBase64String(JSON.toJSONString(innerToken).getBytes());
         sts2.setSessionToken(sessionToken);

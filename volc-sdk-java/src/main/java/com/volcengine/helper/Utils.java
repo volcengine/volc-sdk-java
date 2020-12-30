@@ -129,22 +129,10 @@ public class Utils {
         return stringBuilder.toString();
     }
 
-    public static long crc32(String filePath) throws Exception {
-        try {
-            InputStream inputStream = new BufferedInputStream(new FileInputStream(filePath));
-            CRC32 crc = new CRC32();
-            byte[] bytes = new byte[1024];
-            int cnt;
-            while ((cnt = inputStream.read(bytes)) != -1) {
-                crc.update(bytes, 0, cnt);
-            }
-            inputStream.close();
-            return crc.getValue();
-        } catch (Exception e) {
-            throw new Exception(
-                    "Unable to calculate crc32: "
-                            + e.getMessage(), e);
-        }
+    public static long crc32(byte[] bytes) throws Exception {
+        CRC32 crc = new CRC32();
+        crc.update(bytes, 0, bytes.length);
+        return crc.getValue();
     }
 
     // 对于List类型entry，逗号连接生成string value
@@ -179,7 +167,7 @@ public class Utils {
                 pairs.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
             } else if (entry.getValue().getClass() == JSONArray.class) {
                 List<String> list = (List<String>) entry.getValue();
-                for (String item:list) {
+                for (String item : list) {
                     pairs.add(new BasicNameValuePair(entry.getKey(), item));
                 }
             }
@@ -195,7 +183,7 @@ public class Utils {
         }
         Map<String, Object> map = JSONObject.toJavaObject(JSONObject.parseObject(printer.print(obj)), Map.class);
         Map<String, String> params = new HashMap<>();
-        for (Map.Entry<String, Object> entry: map.entrySet()) {
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
             if (entry.getValue().getClass() == Integer.class) {
                 params.put(entry.getKey(), ((Integer) entry.getValue()).toString());
             } else if (entry.getValue().getClass() == String.class) {

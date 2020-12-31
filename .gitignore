@@ -3,4 +3,4 @@ target
 .DS_Store
 *.iml
 scripts/build.out
-.swp
+*.swp

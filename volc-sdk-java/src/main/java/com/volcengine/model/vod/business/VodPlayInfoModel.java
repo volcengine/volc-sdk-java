@@ -21,6 +21,7 @@ private static final long serialVersionUID = 0L;
     posterUrl_ = "";
     fileType_ = "";
     playInfoList_ = java.util.Collections.emptyList();
+    thumbInfoList_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -120,6 +121,15 @@ private static final long serialVersionUID = 0L;
             version_ = rawValue;
             break;
           }
+          case 90: {
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              thumbInfoList_ = new java.util.ArrayList<com.volcengine.model.vod.business.VodThumbInfo>();
+              mutable_bitField0_ |= 0x00000002;
+            }
+            thumbInfoList_.add(
+                input.readMessage(com.volcengine.model.vod.business.VodThumbInfo.parser(), extensionRegistry));
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -137,6 +147,9 @@ private static final long serialVersionUID = 0L;
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
         playInfoList_ = java.util.Collections.unmodifiableList(playInfoList_);
+      }
+      if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        thumbInfoList_ = java.util.Collections.unmodifiableList(thumbInfoList_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -478,6 +491,66 @@ private static final long serialVersionUID = 0L;
     return playInfoList_.get(index);
   }
 
+  public static final int THUMBINFOLIST_FIELD_NUMBER = 11;
+  private java.util.List<com.volcengine.model.vod.business.VodThumbInfo> thumbInfoList_;
+  /**
+   * <pre>
+   * 雪碧图列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.volcengine.model.vod.business.VodThumbInfo> getThumbInfoListList() {
+    return thumbInfoList_;
+  }
+  /**
+   * <pre>
+   * 雪碧图列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.volcengine.model.vod.business.VodThumbInfoOrBuilder> 
+      getThumbInfoListOrBuilderList() {
+    return thumbInfoList_;
+  }
+  /**
+   * <pre>
+   * 雪碧图列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+   */
+  @java.lang.Override
+  public int getThumbInfoListCount() {
+    return thumbInfoList_.size();
+  }
+  /**
+   * <pre>
+   * 雪碧图列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.model.vod.business.VodThumbInfo getThumbInfoList(int index) {
+    return thumbInfoList_.get(index);
+  }
+  /**
+   * <pre>
+   * 雪碧图列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.model.vod.business.VodThumbInfoOrBuilder getThumbInfoListOrBuilder(
+      int index) {
+    return thumbInfoList_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -521,6 +594,9 @@ private static final long serialVersionUID = 0L;
     }
     if (version_ != com.volcengine.model.vod.business.VodPlayInfoModelVersion.UndefinedVodPlayInfoModelVersion.getNumber()) {
       output.writeEnum(10, version_);
+    }
+    for (int i = 0; i < thumbInfoList_.size(); i++) {
+      output.writeMessage(11, thumbInfoList_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -568,6 +644,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(10, version_);
     }
+    for (int i = 0; i < thumbInfoList_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(11, thumbInfoList_.get(i));
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -606,6 +686,8 @@ private static final long serialVersionUID = 0L;
     }
     if (!getPlayInfoListList()
         .equals(other.getPlayInfoListList())) return false;
+    if (!getThumbInfoListList()
+        .equals(other.getThumbInfoListList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -642,6 +724,10 @@ private static final long serialVersionUID = 0L;
     if (getPlayInfoListCount() > 0) {
       hash = (37 * hash) + PLAYINFOLIST_FIELD_NUMBER;
       hash = (53 * hash) + getPlayInfoListList().hashCode();
+    }
+    if (getThumbInfoListCount() > 0) {
+      hash = (37 * hash) + THUMBINFOLIST_FIELD_NUMBER;
+      hash = (53 * hash) + getThumbInfoListList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -772,6 +858,7 @@ private static final long serialVersionUID = 0L;
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
         getPlayInfoListFieldBuilder();
+        getThumbInfoListFieldBuilder();
       }
     }
     @java.lang.Override
@@ -804,6 +891,12 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
       } else {
         playInfoListBuilder_.clear();
+      }
+      if (thumbInfoListBuilder_ == null) {
+        thumbInfoList_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      } else {
+        thumbInfoListBuilder_.clear();
       }
       return this;
     }
@@ -853,6 +946,15 @@ private static final long serialVersionUID = 0L;
         result.playInfoList_ = playInfoList_;
       } else {
         result.playInfoList_ = playInfoListBuilder_.build();
+      }
+      if (thumbInfoListBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          thumbInfoList_ = java.util.Collections.unmodifiableList(thumbInfoList_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.thumbInfoList_ = thumbInfoList_;
+      } else {
+        result.thumbInfoList_ = thumbInfoListBuilder_.build();
       }
       onBuilt();
       return result;
@@ -955,6 +1057,32 @@ private static final long serialVersionUID = 0L;
                  getPlayInfoListFieldBuilder() : null;
           } else {
             playInfoListBuilder_.addAllMessages(other.playInfoList_);
+          }
+        }
+      }
+      if (thumbInfoListBuilder_ == null) {
+        if (!other.thumbInfoList_.isEmpty()) {
+          if (thumbInfoList_.isEmpty()) {
+            thumbInfoList_ = other.thumbInfoList_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureThumbInfoListIsMutable();
+            thumbInfoList_.addAll(other.thumbInfoList_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.thumbInfoList_.isEmpty()) {
+          if (thumbInfoListBuilder_.isEmpty()) {
+            thumbInfoListBuilder_.dispose();
+            thumbInfoListBuilder_ = null;
+            thumbInfoList_ = other.thumbInfoList_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+            thumbInfoListBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getThumbInfoListFieldBuilder() : null;
+          } else {
+            thumbInfoListBuilder_.addAllMessages(other.thumbInfoList_);
           }
         }
       }
@@ -1987,6 +2115,318 @@ private static final long serialVersionUID = 0L;
         playInfoList_ = null;
       }
       return playInfoListBuilder_;
+    }
+
+    private java.util.List<com.volcengine.model.vod.business.VodThumbInfo> thumbInfoList_ =
+      java.util.Collections.emptyList();
+    private void ensureThumbInfoListIsMutable() {
+      if (!((bitField0_ & 0x00000002) != 0)) {
+        thumbInfoList_ = new java.util.ArrayList<com.volcengine.model.vod.business.VodThumbInfo>(thumbInfoList_);
+        bitField0_ |= 0x00000002;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.model.vod.business.VodThumbInfo, com.volcengine.model.vod.business.VodThumbInfo.Builder, com.volcengine.model.vod.business.VodThumbInfoOrBuilder> thumbInfoListBuilder_;
+
+    /**
+     * <pre>
+     * 雪碧图列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     */
+    public java.util.List<com.volcengine.model.vod.business.VodThumbInfo> getThumbInfoListList() {
+      if (thumbInfoListBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(thumbInfoList_);
+      } else {
+        return thumbInfoListBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * 雪碧图列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     */
+    public int getThumbInfoListCount() {
+      if (thumbInfoListBuilder_ == null) {
+        return thumbInfoList_.size();
+      } else {
+        return thumbInfoListBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * 雪碧图列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     */
+    public com.volcengine.model.vod.business.VodThumbInfo getThumbInfoList(int index) {
+      if (thumbInfoListBuilder_ == null) {
+        return thumbInfoList_.get(index);
+      } else {
+        return thumbInfoListBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * 雪碧图列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     */
+    public Builder setThumbInfoList(
+        int index, com.volcengine.model.vod.business.VodThumbInfo value) {
+      if (thumbInfoListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureThumbInfoListIsMutable();
+        thumbInfoList_.set(index, value);
+        onChanged();
+      } else {
+        thumbInfoListBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 雪碧图列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     */
+    public Builder setThumbInfoList(
+        int index, com.volcengine.model.vod.business.VodThumbInfo.Builder builderForValue) {
+      if (thumbInfoListBuilder_ == null) {
+        ensureThumbInfoListIsMutable();
+        thumbInfoList_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        thumbInfoListBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 雪碧图列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     */
+    public Builder addThumbInfoList(com.volcengine.model.vod.business.VodThumbInfo value) {
+      if (thumbInfoListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureThumbInfoListIsMutable();
+        thumbInfoList_.add(value);
+        onChanged();
+      } else {
+        thumbInfoListBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 雪碧图列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     */
+    public Builder addThumbInfoList(
+        int index, com.volcengine.model.vod.business.VodThumbInfo value) {
+      if (thumbInfoListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureThumbInfoListIsMutable();
+        thumbInfoList_.add(index, value);
+        onChanged();
+      } else {
+        thumbInfoListBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 雪碧图列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     */
+    public Builder addThumbInfoList(
+        com.volcengine.model.vod.business.VodThumbInfo.Builder builderForValue) {
+      if (thumbInfoListBuilder_ == null) {
+        ensureThumbInfoListIsMutable();
+        thumbInfoList_.add(builderForValue.build());
+        onChanged();
+      } else {
+        thumbInfoListBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 雪碧图列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     */
+    public Builder addThumbInfoList(
+        int index, com.volcengine.model.vod.business.VodThumbInfo.Builder builderForValue) {
+      if (thumbInfoListBuilder_ == null) {
+        ensureThumbInfoListIsMutable();
+        thumbInfoList_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        thumbInfoListBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 雪碧图列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     */
+    public Builder addAllThumbInfoList(
+        java.lang.Iterable<? extends com.volcengine.model.vod.business.VodThumbInfo> values) {
+      if (thumbInfoListBuilder_ == null) {
+        ensureThumbInfoListIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, thumbInfoList_);
+        onChanged();
+      } else {
+        thumbInfoListBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 雪碧图列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     */
+    public Builder clearThumbInfoList() {
+      if (thumbInfoListBuilder_ == null) {
+        thumbInfoList_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+      } else {
+        thumbInfoListBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 雪碧图列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     */
+    public Builder removeThumbInfoList(int index) {
+      if (thumbInfoListBuilder_ == null) {
+        ensureThumbInfoListIsMutable();
+        thumbInfoList_.remove(index);
+        onChanged();
+      } else {
+        thumbInfoListBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 雪碧图列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     */
+    public com.volcengine.model.vod.business.VodThumbInfo.Builder getThumbInfoListBuilder(
+        int index) {
+      return getThumbInfoListFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * 雪碧图列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     */
+    public com.volcengine.model.vod.business.VodThumbInfoOrBuilder getThumbInfoListOrBuilder(
+        int index) {
+      if (thumbInfoListBuilder_ == null) {
+        return thumbInfoList_.get(index);  } else {
+        return thumbInfoListBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * 雪碧图列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     */
+    public java.util.List<? extends com.volcengine.model.vod.business.VodThumbInfoOrBuilder> 
+         getThumbInfoListOrBuilderList() {
+      if (thumbInfoListBuilder_ != null) {
+        return thumbInfoListBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(thumbInfoList_);
+      }
+    }
+    /**
+     * <pre>
+     * 雪碧图列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     */
+    public com.volcengine.model.vod.business.VodThumbInfo.Builder addThumbInfoListBuilder() {
+      return getThumbInfoListFieldBuilder().addBuilder(
+          com.volcengine.model.vod.business.VodThumbInfo.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * 雪碧图列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     */
+    public com.volcengine.model.vod.business.VodThumbInfo.Builder addThumbInfoListBuilder(
+        int index) {
+      return getThumbInfoListFieldBuilder().addBuilder(
+          index, com.volcengine.model.vod.business.VodThumbInfo.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * 雪碧图列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     */
+    public java.util.List<com.volcengine.model.vod.business.VodThumbInfo.Builder> 
+         getThumbInfoListBuilderList() {
+      return getThumbInfoListFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.model.vod.business.VodThumbInfo, com.volcengine.model.vod.business.VodThumbInfo.Builder, com.volcengine.model.vod.business.VodThumbInfoOrBuilder> 
+        getThumbInfoListFieldBuilder() {
+      if (thumbInfoListBuilder_ == null) {
+        thumbInfoListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.model.vod.business.VodThumbInfo, com.volcengine.model.vod.business.VodThumbInfo.Builder, com.volcengine.model.vod.business.VodThumbInfoOrBuilder>(
+                thumbInfoList_,
+                ((bitField0_ & 0x00000002) != 0),
+                getParentForChildren(),
+                isClean());
+        thumbInfoList_ = null;
+      }
+      return thumbInfoListBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

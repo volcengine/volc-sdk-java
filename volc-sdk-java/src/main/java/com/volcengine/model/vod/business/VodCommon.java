@@ -44,6 +44,11 @@ public final class VodCommon {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Models_Vod_Business_VodPlayInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Models_Vod_Business_VodThumbInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Models_Vod_Business_VodThumbInfo_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -85,12 +90,16 @@ public final class VodCommon {
       "\006Height\030\013 \001(\005\022\014\n\004Size\030\014 \001(\001\022\021\n\tCheckInfo" +
       "\030\r \001(\t\022\022\n\nIndexRange\030\016 \001(\t\022\021\n\tInitRange\030" +
       "\017 \001(\t\022\020\n\010PlayAuth\030\020 \001(\t\022\022\n\nPlayAuthId\030\021 " +
-      "\001(\t\022\020\n\010LogoType\030\022 \001(\t\022\017\n\007Quality\030\023 \001(\tB\255" +
-      "\001\n!com.volcengine.model.vod.businessB\tVo" +
-      "dCommonP\001Z9github.com/volcengine/volc-sd" +
-      "k-golang/models/vod/business\240\001\001\330\001\001\302\002\000\312\002\030" +
-      "Volc\\Models\\Vod\\Business\342\002\033Volc\\Models\\V" +
-      "od\\GPBMetadatab\006proto3"
+      "\001(\t\022\020\n\010LogoType\030\022 \001(\t\022\017\n\007Quality\030\023 \001(\t\"\240" +
+      "\001\n\014VodThumbInfo\022\022\n\nCaptureNum\030\001 \001(\005\022\021\n\tS" +
+      "toreUrls\030\002 \003(\t\022\021\n\tCellWidth\030\003 \001(\005\022\022\n\nCel" +
+      "lHeight\030\004 \001(\005\022\017\n\007ImgXLen\030\005 \001(\005\022\017\n\007ImgYLe" +
+      "n\030\006 \001(\005\022\020\n\010Interval\030\007 \001(\001\022\016\n\006Format\030\010 \001(" +
+      "\tB\255\001\n!com.volcengine.model.vod.businessB" +
+      "\tVodCommonP\001Z9github.com/volcengine/volc" +
+      "-sdk-golang/models/vod/business\240\001\001\330\001\001\302\002\000" +
+      "\312\002\030Volc\\Models\\Vod\\Business\342\002\033Volc\\Model" +
+      "s\\Vod\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -132,6 +141,12 @@ public final class VodCommon {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Models_Vod_Business_VodPlayInfo_descriptor,
         new java.lang.String[] { "FileId", "Md5", "FileType", "Format", "Codec", "Definition", "MainPlayUrl", "BackupPlayUrl", "Bitrate", "Width", "Height", "Size", "CheckInfo", "IndexRange", "InitRange", "PlayAuth", "PlayAuthId", "LogoType", "Quality", });
+    internal_static_Volcengine_Models_Vod_Business_VodThumbInfo_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_Volcengine_Models_Vod_Business_VodThumbInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Models_Vod_Business_VodThumbInfo_descriptor,
+        new java.lang.String[] { "CaptureNum", "StoreUrls", "CellWidth", "CellHeight", "ImgXLen", "ImgYLen", "Interval", "Format", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

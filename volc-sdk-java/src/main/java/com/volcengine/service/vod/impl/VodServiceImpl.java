@@ -7,11 +7,8 @@ package com.volcengine.service.vod.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.github.rholder.retry.*;
-import com.google.common.base.Predicates;
 import com.google.protobuf.util.JsonFormat;
-import com.volcengine.helper.Const;
-import com.volcengine.helper.Utils;
+import com.google.common.base.Predicates;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 
@@ -22,6 +19,9 @@ import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import com.github.rholder.retry.*;
+import com.volcengine.helper.*;
 
 public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl implements com.volcengine.service.vod.IVodService {
 

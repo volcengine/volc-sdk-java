@@ -10,7 +10,7 @@ public class VodGetPlayAuthTokenDemo {
     public static void main(String[] args) throws Exception {
         IVodService vodService = VodServiceImpl.getInstance();
 
-        String vid = "v0c2c369007abu04ru8riko30uo9n73g";
+        String vid = "your vid";
 
         // call below method if you dont set ak and sk in ～/.vcloud/config
         // vodService.setAccessKey("");

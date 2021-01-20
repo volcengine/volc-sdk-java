@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class SecurityToken2 {
-    @JSONField(name = "AccessKeyId",ordinal = 1)
+    @JSONField(name = "AccessKeyID",ordinal = 1)
     private String accessKeyId;
     @JSONField(name = "SecretAccessKey",ordinal = 2)
     private String secretAccessKey;

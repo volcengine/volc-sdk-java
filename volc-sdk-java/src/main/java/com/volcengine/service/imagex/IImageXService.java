@@ -5,6 +5,7 @@ import com.volcengine.model.request.CommitImageUploadRequest;
 import com.volcengine.model.request.DeleteImageReq;
 import com.volcengine.model.response.ApplyImageUploadResponse;
 import com.volcengine.model.response.CommitImageUploadResponse;
+import com.volcengine.model.response.CommonResponse;
 import com.volcengine.model.response.DeleteImageResp;
 import com.volcengine.model.sts2.SecurityToken2;
 import com.volcengine.service.IBaseService;
@@ -81,4 +82,23 @@ public interface IImageXService extends IBaseService {
      * @throws Exception the exception
      */
     DeleteImageResp deleteImages(DeleteImageReq req) throws Exception;
+
+    /**
+     * Request ImageX api with method GET.
+     * @param action api action name
+     * @param param api query param
+     * @return api response
+     * @throws Exception the exception
+     */
+    CommonResponse getImageX(String action, Map<String, String> param) throws Exception;
+
+    /**
+     * Request ImageX api with method POST.
+     * @param action api action name
+     * @param param api query param
+     * @param req api json param
+     * @return api response
+     * @throws Exception the exception
+     */
+    CommonResponse postImageX(String action, Map<String, String> param, Object req) throws Exception;
 }

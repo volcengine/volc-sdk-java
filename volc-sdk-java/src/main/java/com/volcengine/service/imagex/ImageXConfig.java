@@ -71,6 +71,78 @@ public class ImageXConfig {
 
     public static Map<String, ApiInfo> apiInfoList = new HashMap<String, ApiInfo>() {
         {
+            // 模板管理
+            put("CreateImageTemplate", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "CreateImageTemplate"));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("DeleteImageTemplate", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DeleteImageTemplate"));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("PreviewImageTemplate", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "PreviewImageTemplate"));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("GetImageTemplate", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetImageTemplate"));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("GetAllImageTemplates", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetAllImageTemplates"));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            // 资源管理相关
             put("ApplyImageUpload", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -107,6 +179,76 @@ public class ImageXConfig {
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", "DeleteImageUploadFiles"));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("UpdateImageUploadFiles", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "UpdateImageUploadFiles"));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("GetImageUploadFile", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetImageUploadFile"));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("GetImageUploadFiles", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetImageUploadFiles"));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("PreviewImageUploadFile", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "PreviewImageUploadFile"));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("GetImageUpdateFiles", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetImageUpdateFiles"));
                                     add(new BasicNameValuePair("Version", "2018-08-01"));
                                 }
                             });

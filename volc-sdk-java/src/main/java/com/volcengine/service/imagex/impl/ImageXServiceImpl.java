@@ -143,7 +143,6 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         commitRequest.setServiceId(request.getServiceId());
         commitRequest.setSessionKey(sessionKey);
         if (request.getCommitParam() != null) {
-            commitRequest.setSkipMeta(request.getCommitParam().getSkipMeta());
             commitRequest.setFunctions(request.getCommitParam().getFunctions());
             commitRequest.setOptionInfos(request.getCommitParam().getOptionInfos());
         }
@@ -202,6 +201,31 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
             throw response.getException();
         }
         DeleteImageResp res = JSON.parseObject(response.getData(), DeleteImageResp.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("ImageX");
+        return res;
+    }
+
+    @Override
+    public CommonResponse getImageX(String action, Map<String, String> param) throws Exception {
+        RawResponse response = query(action, Utils.mapToPairList(param));
+        return parseRawRes(response);
+    }
+
+    @Override
+    public CommonResponse postImageX(String action, Map<String, String> param, Object req) throws Exception {
+        RawResponse response = json(action, Utils.mapToPairList(param), JSON.toJSONString(req));
+        return parseRawRes(response);
+    }
+
+    private CommonResponse parseRawRes(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CommonResponse res = JSON.parseObject(response.getData(), CommonResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());

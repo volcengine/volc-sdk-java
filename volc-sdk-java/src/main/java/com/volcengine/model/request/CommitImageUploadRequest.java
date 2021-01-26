@@ -11,8 +11,6 @@ import java.util.List;
 public class CommitImageUploadRequest {
     @JSONField(name = "ServiceId")
     String serviceId;
-    @JSONField(name = "SkipMeta")
-    Boolean skipMeta;
     @JSONField(name = "SessionKey")
     String sessionKey;
     @JSONField(name = "Functions")

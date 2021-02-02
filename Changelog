@@ -1,5 +1,10 @@
 Change log
 
+2021-02-02 Bumped to version v1.0.9
+- Update fastjson to latest
+- Added imagex common api
+- More vod api
+
 2020-12-22 Bumped to version v1.0.8
 - Fixed maven download problem
 

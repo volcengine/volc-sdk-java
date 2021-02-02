@@ -134,6 +134,8 @@ public class VodConfig {
                                     add(new BasicNameValuePair("Version", "2020-08-01"));
                                 }
                             });
+                            put(Const.CONNECTION_TIMEOUT, 8000);
+                            put(Const.SOCKET_TIMEOUT, 8000);
                         }
                     }
             ));

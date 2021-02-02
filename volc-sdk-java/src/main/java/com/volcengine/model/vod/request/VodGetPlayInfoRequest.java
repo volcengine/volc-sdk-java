@@ -24,6 +24,7 @@ private static final long serialVersionUID = 0L;
     logoType_ = "";
     base64_ = "";
     ssl_ = "";
+    needThumbs_ = "";
   }
 
   @java.lang.Override
@@ -102,6 +103,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             ssl_ = s;
+            break;
+          }
+          case 74: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            needThumbs_ = s;
             break;
           }
           default: {
@@ -504,6 +511,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int NEEDTHUMBS_FIELD_NUMBER = 9;
+  private volatile java.lang.Object needThumbs_;
+  /**
+   * <pre>
+   * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+   * </pre>
+   *
+   * <code>string NeedThumbs = 9;</code>
+   * @return The needThumbs.
+   */
+  @java.lang.Override
+  public java.lang.String getNeedThumbs() {
+    java.lang.Object ref = needThumbs_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      needThumbs_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+   * </pre>
+   *
+   * <code>string NeedThumbs = 9;</code>
+   * @return The bytes for needThumbs.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getNeedThumbsBytes() {
+    java.lang.Object ref = needThumbs_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      needThumbs_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -542,6 +595,9 @@ private static final long serialVersionUID = 0L;
     if (!getSslBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, ssl_);
     }
+    if (!getNeedThumbsBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, needThumbs_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -575,6 +631,9 @@ private static final long serialVersionUID = 0L;
     if (!getSslBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, ssl_);
     }
+    if (!getNeedThumbsBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, needThumbs_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -606,6 +665,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getBase64())) return false;
     if (!getSsl()
         .equals(other.getSsl())) return false;
+    if (!getNeedThumbs()
+        .equals(other.getNeedThumbs())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -633,6 +694,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getBase64().hashCode();
     hash = (37 * hash) + SSL_FIELD_NUMBER;
     hash = (53 * hash) + getSsl().hashCode();
+    hash = (37 * hash) + NEEDTHUMBS_FIELD_NUMBER;
+    hash = (53 * hash) + getNeedThumbs().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -782,6 +845,8 @@ private static final long serialVersionUID = 0L;
 
       ssl_ = "";
 
+      needThumbs_ = "";
+
       return this;
     }
 
@@ -816,6 +881,7 @@ private static final long serialVersionUID = 0L;
       result.logoType_ = logoType_;
       result.base64_ = base64_;
       result.ssl_ = ssl_;
+      result.needThumbs_ = needThumbs_;
       onBuilt();
       return result;
     }
@@ -894,6 +960,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSsl().isEmpty()) {
         ssl_ = other.ssl_;
+        onChanged();
+      }
+      if (!other.getNeedThumbs().isEmpty()) {
+        needThumbs_ = other.needThumbs_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1689,6 +1759,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       ssl_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object needThumbs_ = "";
+    /**
+     * <pre>
+     * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+     * </pre>
+     *
+     * <code>string NeedThumbs = 9;</code>
+     * @return The needThumbs.
+     */
+    public java.lang.String getNeedThumbs() {
+      java.lang.Object ref = needThumbs_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        needThumbs_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+     * </pre>
+     *
+     * <code>string NeedThumbs = 9;</code>
+     * @return The bytes for needThumbs.
+     */
+    public com.google.protobuf.ByteString
+        getNeedThumbsBytes() {
+      java.lang.Object ref = needThumbs_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        needThumbs_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+     * </pre>
+     *
+     * <code>string NeedThumbs = 9;</code>
+     * @param value The needThumbs to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNeedThumbs(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      needThumbs_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+     * </pre>
+     *
+     * <code>string NeedThumbs = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNeedThumbs() {
+      
+      needThumbs_ = getDefaultInstance().getNeedThumbs();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+     * </pre>
+     *
+     * <code>string NeedThumbs = 9;</code>
+     * @param value The bytes for needThumbs to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNeedThumbsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      needThumbs_ = value;
       onChanged();
       return this;
     }

@@ -196,4 +196,48 @@ public interface VodPlayInfoModelOrBuilder extends
    */
   com.volcengine.model.vod.business.VodPlayInfoOrBuilder getPlayInfoListOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * 雪碧图列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+   */
+  java.util.List<com.volcengine.model.vod.business.VodThumbInfo> 
+      getThumbInfoListList();
+  /**
+   * <pre>
+   * 雪碧图列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+   */
+  com.volcengine.model.vod.business.VodThumbInfo getThumbInfoList(int index);
+  /**
+   * <pre>
+   * 雪碧图列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+   */
+  int getThumbInfoListCount();
+  /**
+   * <pre>
+   * 雪碧图列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+   */
+  java.util.List<? extends com.volcengine.model.vod.business.VodThumbInfoOrBuilder> 
+      getThumbInfoListOrBuilderList();
+  /**
+   * <pre>
+   * 雪碧图列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Models.Vod.Business.VodThumbInfo ThumbInfoList = 11;</code>
+   */
+  com.volcengine.model.vod.business.VodThumbInfoOrBuilder getThumbInfoListOrBuilder(
+      int index);
 }

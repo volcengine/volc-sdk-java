@@ -166,4 +166,24 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getSslBytes();
+
+  /**
+   * <pre>
+   * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+   * </pre>
+   *
+   * <code>string NeedThumbs = 9;</code>
+   * @return The needThumbs.
+   */
+  java.lang.String getNeedThumbs();
+  /**
+   * <pre>
+   * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+   * </pre>
+   *
+   * <code>string NeedThumbs = 9;</code>
+   * @return The bytes for needThumbs.
+   */
+  com.google.protobuf.ByteString
+      getNeedThumbsBytes();
 }

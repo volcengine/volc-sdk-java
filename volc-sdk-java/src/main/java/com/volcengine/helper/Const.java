@@ -59,6 +59,8 @@ public class Const {
     public static final String UpdateMediaInfo = "UpdateMediaInfo";
     public static final String GetMediaInfos = "GetMediaInfos";
     public static final String GetRecommendedPoster = "GetRecommendedPoster";
+    public static final int MinChunkSize = 1024 * 1024 * 20;
+    public static final int LargeFileSize = 1024 * 1024 * 50;
 
     // iam
     public static final String CreateUser = "CreateUser";

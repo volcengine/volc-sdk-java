@@ -1,12 +1,13 @@
 Change log
 
 2021-02-02 Bumped to version v1.0.9
-- Update fastjson to latest
-- Added imagex common api
-- More vod api
+- Update fastjson to latest.
+- Add imagex common api.
+- Add cloud-edit sdk.
+- More vod api.
 
 2020-12-22 Bumped to version v1.0.8
-- Fixed maven download problem
+- Fixed maven download problem.
 
 2020-12-22 Bumped to version v1.0.7
 - Add vod sdk.

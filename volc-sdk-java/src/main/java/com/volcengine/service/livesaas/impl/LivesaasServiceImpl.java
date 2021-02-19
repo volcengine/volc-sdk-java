@@ -55,7 +55,7 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
 
     @Override
     public GetActivityAPIResponse getActivityAPI(CommonAPIRequest getActivityAPIRequest) throws Exception {
-        RawResponse response = query(Const.GetActivityAPI, Utils.mapToPairList(Utils.paramsToMap(getActivityAPIRequest)));
+        RawResponse response = query(Const.GetActivityAPI, Utils.paramsToPair(getActivityAPIRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -70,7 +70,7 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
 
     @Override
     public GetStreamsAPIResponse getStreamsAPI(CommonAPIRequest getStreamsAPIRequest) throws Exception {
-        RawResponse response = query(Const.GetStreamsAPI, Utils.mapToPairList(Utils.paramsToMap(getStreamsAPIRequest)));
+        RawResponse response = query(Const.GetStreamsAPI,  Utils.paramsToPair(getStreamsAPIRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -85,7 +85,7 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
 
     @Override
     public GetAdvertisementDataAPIResponse getAdvertisementDataAPI(GetAdvertisementDataAPIRequest getAdvertisementDataAPIRequest) throws Exception {
-        RawResponse response = query(Const.GetAdvertisementDataAPI, Utils.mapToPairList(Utils.paramsToMap(getAdvertisementDataAPIRequest)));
+        RawResponse response = query(Const.GetAdvertisementDataAPI,  Utils.paramsToPair(getAdvertisementDataAPIRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -100,7 +100,7 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
 
     @Override
     public GetRealTimeOnlineNumberAPIResponse getRealTimeOnlineNumberAPI(CommonAPIRequest getRealTimeOnlineNumberAPIRequest) throws Exception {
-        RawResponse response = query(Const.GetRealTimeOnlineNumberAPI, Utils.mapToPairList(Utils.paramsToMap(getRealTimeOnlineNumberAPIRequest)));
+        RawResponse response = query(Const.GetRealTimeOnlineNumberAPI,  Utils.paramsToPair(getRealTimeOnlineNumberAPIRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }

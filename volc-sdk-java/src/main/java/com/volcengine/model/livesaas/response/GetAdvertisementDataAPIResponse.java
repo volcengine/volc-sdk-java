@@ -4,6 +4,8 @@ import com.alibaba.fastjson.annotation.JSONField;
 import com.volcengine.model.response.ResponseMetadata;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class GetAdvertisementDataAPIResponse {
     @JSONField(name = "ResponseMetadata")
@@ -20,7 +22,7 @@ public class GetAdvertisementDataAPIResponse {
         @JSONField(name = "AdvertisingClicks")
         ClicksData advertisingClicks;
         @JSONField(name = "AdInfo")
-        AdInfo adInfo;
+        List<AdInfo> adInfo;
     }
 
     @Data

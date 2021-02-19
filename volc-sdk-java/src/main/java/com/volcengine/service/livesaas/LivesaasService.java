@@ -1,42 +1,59 @@
 package com.volcengine.service.livesaas;
 
-import com.volcengine.model.request.GetDirectEditResultRequest;
-import com.volcengine.model.request.SubmitDirectEditTaskRequest;
-import com.volcengine.model.request.SubmitTemplateTaskRequest;
-import com.volcengine.model.response.GetDirectEditResultResponse;
-import com.volcengine.model.response.SubmitDirectEditTaskAsyncResponse;
-import com.volcengine.model.response.SubmitTemplateTaskAsyncResponse;
+import com.volcengine.model.livesaas.request.CommonAPIRequest;
+import com.volcengine.model.livesaas.request.CreateActivityAPIRequest;
+import com.volcengine.model.livesaas.request.GetAdvertisementDataAPIRequest;
+import com.volcengine.model.livesaas.response.*;
 import com.volcengine.service.IBaseService;
 
 /**
  * The interface Vedit service.
  */
-public interface IVEditService extends IBaseService {
+public interface LivesaasService extends IBaseService {
 
     /**
-     * Submit DirectEditTask Async
+     * createActivityAPI
      *
-     * @param submitDirectEditTaskRequest submit DirectEditTask request
-     * @return the submit response
+     * @param createActivityAPIRequest CreateActivityAPIRequest
+     * @return CreateActivityAPIResponse
      * @throws Exception the exception
      */
-    SubmitDirectEditTaskAsyncResponse submitDirectEditTaskAsync(SubmitDirectEditTaskRequest submitDirectEditTaskRequest) throws Exception;
+    CreateActivityAPIResponse createActivityAPI(CreateActivityAPIRequest createActivityAPIRequest) throws Exception;
 
     /**
-     * Submit TemplateTask Async
+     * getActivityAPI
      *
-     * @param submitTemplateTaskRequest submit TemplateTask request
-     * @return the submit response
+     * @param getActivityAPIRequest CommonAPIRequest
+     * @return GetActivityAPIResponse
      * @throws Exception the exception
      */
-    SubmitTemplateTaskAsyncResponse submitTemplateTaskAsync(SubmitTemplateTaskRequest submitTemplateTaskRequest) throws Exception;
+    GetActivityAPIResponse getActivityAPI(CommonAPIRequest getActivityAPIRequest) throws Exception;
 
     /**
-     * Get EditResult
+     * getStreamsAPI
      *
-     * @param getDirectEditResultRequest get EditResult request
-     * @return the result response
+     * @param getStreamsAPIRequest CommonAPIRequest
+     * @return GetStreamsAPIResponse
      * @throws Exception the exception
      */
-    GetDirectEditResultResponse getDirectEditResult(GetDirectEditResultRequest getDirectEditResultRequest) throws Exception;
+    GetStreamsAPIResponse getStreamsAPI(CommonAPIRequest getStreamsAPIRequest) throws Exception;
+
+    /**
+     * getAdvertisementDataAPI
+     *
+     * @param getAdvertisementDataAPIRequest GetAdvertisementDataAPIRequest
+     * @return GetAdvertisementDataAPIResponse
+     * @throws Exception the exception
+     */
+    GetAdvertisementDataAPIResponse getAdvertisementDataAPI(GetAdvertisementDataAPIRequest getAdvertisementDataAPIRequest) throws Exception;
+
+    /**
+     * getRealTimeOnlineNumberAPI
+     *
+     * @param getRealTimeOnlineNumberAPIRequest GetRealTimeOnlineNumberAPIRequest
+     * @return GetRealTimeOnlineNumberAPIResponse
+     * @throws Exception the exception
+     */
+    GetRealTimeOnlineNumberAPIResponse getRealTimeOnlineNumberAPI(CommonAPIRequest getRealTimeOnlineNumberAPIRequest) throws Exception;
+
 }

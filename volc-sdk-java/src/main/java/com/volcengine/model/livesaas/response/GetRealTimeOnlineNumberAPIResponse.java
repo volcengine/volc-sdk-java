@@ -1,23 +1,21 @@
 package com.volcengine.model.livesaas.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.volcengine.model.beans.ImageInfo;
-import com.volcengine.model.response.CommitImageUploadResponse;
 import com.volcengine.model.response.ResponseMetadata;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
-public class CreateActivityAPIResponse {
+public class GetRealTimeOnlineNumberAPIResponse {
     @JSONField(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
-    CreateActivityAPIResultBean result;
+    GetRealTimeOnlineNumberAPIResultBean result;
 
     @Data
-    public static class CreateActivityAPIResultBean {
-        @JSONField(name = "ActivityId")
-        Long activityId;
+    public static class GetRealTimeOnlineNumberAPIResultBean {
+        @JSONField(name = "RealPopularity")
+        Long realPopularity;
+        @JSONField(name = "FakePopularity")
+        Long fakePopularity;
     }
 }

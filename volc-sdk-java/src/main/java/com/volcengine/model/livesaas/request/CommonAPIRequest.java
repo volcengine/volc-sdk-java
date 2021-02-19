@@ -4,7 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 @Data
-public class GetActivityAPIRequest {
+public class CommonAPIRequest {
     @JSONField(name = "ActivityId")
     Long activityId;
 }

@@ -5,27 +5,43 @@ import com.volcengine.model.response.ResponseMetadata;
 import lombok.Data;
 
 @Data
-public class GetActivityAPIResponse {
+public class GetAdvertisementDataAPIResponse {
     @JSONField(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
-    GetActivityAPIResultBean result;
+    GetAdvertisementDataAPIResultBean result;
 
     @Data
-    public static class GetActivityAPIResultBean {
-        @JSONField(name = "Id")
-        Long id;
-        @JSONField(name = "Name")
-        String name;
-        @JSONField(name = "LiveTime")
-        Long liveTime;
-        @JSONField(name = "Status")
-        Integer status;
-        @JSONField(name = "ViewUrl")
-        String viewUrl;
-        @JSONField(name = "IsPageViewEnable")
-        Integer isPageViewEnable;
-        @JSONField(name = "IsLockPreview")
-        Integer isLockPreview;
+    public static class GetAdvertisementDataAPIResultBean {
+        @JSONField(name = "ActivityId")
+        Long activityId;
+        @JSONField(name = "AccountClicks")
+        ClicksData accountClicks;
+        @JSONField(name = "AdvertisingClicks")
+        ClicksData advertisingClicks;
+        @JSONField(name = "AdInfo")
+        AdInfo adInfo;
+    }
+
+    @Data
+    public static class ClicksData {
+        @JSONField(name = "PV")
+        Long pv;
+        @JSONField(name = "UV")
+        Long uv;
+    }
+
+    @Data
+    public static class AdInfo {
+        @JSONField(name = "AdType")
+        Integer adType;
+        @JSONField(name = "Content")
+        String content;
+        @JSONField(name = "Link")
+        String link;
+        @JSONField(name = "PV")
+        Long pv;
+        @JSONField(name = "UV")
+        Long uv;
     }
 }

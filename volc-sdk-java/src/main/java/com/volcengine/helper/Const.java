@@ -73,4 +73,11 @@ public class Const {
     // upload by url format type
     public static final String UPLOAD_FORMAT_MP4 = "mp4";
     public static final String UPLOAD_FORMAT_M3U8 = "m3u8";
+
+    // livesaas
+    public static final String CreateActivityAPI = "CreateActivityAPI";
+    public static final String GetActivityAPI = "GetActivityAPI";
+    public static final String GetStreamsAPI = "GetStreamsAPI";
+    public static final String GetAdvertisementDataAPI = "GetAdvertisementDataAPI";
+    public static final String GetRealTimeOnlineNumberAPI = "GetRealTimeOnlineNumberAPI";
 }

@@ -3,10 +3,12 @@ package com.volcengine.service.livesaas.impl;
 import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
+import com.volcengine.helper.Utils;
 import com.volcengine.model.ServiceInfo;
-import com.volcengine.model.request.GetDirectEditResultRequest;
-import com.volcengine.model.request.SubmitDirectEditTaskRequest;
-import com.volcengine.model.request.SubmitTemplateTaskRequest;
+import com.volcengine.model.livesaas.request.CommonAPIRequest;
+import com.volcengine.model.livesaas.request.CreateActivityAPIRequest;
+import com.volcengine.model.livesaas.request.GetAdvertisementDataAPIRequest;
+import com.volcengine.model.livesaas.response.*;
 import com.volcengine.model.response.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.livesaas.LivesaasService;
@@ -14,70 +16,101 @@ import com.volcengine.service.livesaas.LivesaasConfig;
 
 import java.util.ArrayList;
 
-public class VEditServiceImpl extends BaseServiceImpl implements LivesaasService {
+public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasService {
 
-    private VEditServiceImpl() {
+    private LivesaasServiceImpl() {
         super(LivesaasConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), LivesaasConfig.apiInfoList);
     }
 
-    private VEditServiceImpl(ServiceInfo serviceInfo) {
+    private LivesaasServiceImpl(ServiceInfo serviceInfo) {
         super(serviceInfo, LivesaasConfig.apiInfoList);
     }
 
     public static LivesaasService getInstance() {
-        return new VEditServiceImpl();
+        return new LivesaasServiceImpl();
     }
 
     public static LivesaasService getInstance(String region) throws Exception {
         ServiceInfo serviceInfo = LivesaasConfig.serviceInfoMap.get(region);
         if (serviceInfo == null) {
-            throw new Exception("Edit not support region " + region);
+            throw new Exception("Livesaas not support region " + region);
         }
-        return new VEditServiceImpl(serviceInfo);
+        return new LivesaasServiceImpl(serviceInfo);
     }
 
     @Override
-    public SubmitDirectEditTaskAsyncResponse submitDirectEditTaskAsync(SubmitDirectEditTaskRequest submitDirectEditTaskRequest) throws Exception {
-        RawResponse response = json("SubmitDirectEditTaskAsync", new ArrayList<>(), JSON.toJSONString(submitDirectEditTaskRequest));
+    public CreateActivityAPIResponse createActivityAPI(CreateActivityAPIRequest createActivityAPIRequest) throws Exception {
+        RawResponse response = json(Const.CreateActivityAPI, new ArrayList<>(), JSON.toJSONString(createActivityAPIRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        SubmitDirectEditTaskAsyncResponse res = JSON.parseObject(response.getData(), SubmitDirectEditTaskAsyncResponse.class);
+        CreateActivityAPIResponse res = JSON.parseObject(response.getData(), CreateActivityAPIResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
         }
-        res.getResponseMetadata().setService("edit");
+        res.getResponseMetadata().setService("livesaas");
         return res;
     }
 
     @Override
-    public SubmitTemplateTaskAsyncResponse submitTemplateTaskAsync(SubmitTemplateTaskRequest submitTemplateTaskRequest) throws Exception {
-        RawResponse response = json("SubmitTemplateTaskAsync", new ArrayList<>(), JSON.toJSONString(submitTemplateTaskRequest));
+    public GetActivityAPIResponse getActivityAPI(CommonAPIRequest getActivityAPIRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityAPI, Utils.mapToPairList(Utils.paramsToMap(getActivityAPIRequest)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        SubmitTemplateTaskAsyncResponse res = JSON.parseObject(response.getData(), SubmitTemplateTaskAsyncResponse.class);
+        GetActivityAPIResponse res = JSON.parseObject(response.getData(), GetActivityAPIResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
         }
-        res.getResponseMetadata().setService("edit");
+        res.getResponseMetadata().setService("livesaas");
         return res;
     }
 
     @Override
-    public GetDirectEditResultResponse getDirectEditResult(GetDirectEditResultRequest getDirectEditResultRequest) throws Exception {
-        RawResponse response = json("GetDirectEditResult", new ArrayList<>(), JSON.toJSONString(getDirectEditResultRequest));
+    public GetStreamsAPIResponse getStreamsAPI(CommonAPIRequest getStreamsAPIRequest) throws Exception {
+        RawResponse response = query(Const.GetStreamsAPI, Utils.mapToPairList(Utils.paramsToMap(getStreamsAPIRequest)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        GetDirectEditResultResponse res = JSON.parseObject(response.getData(), GetDirectEditResultResponse.class);
+        GetStreamsAPIResponse res = JSON.parseObject(response.getData(), GetStreamsAPIResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
         }
-        res.getResponseMetadata().setService("edit");
+        res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public GetAdvertisementDataAPIResponse getAdvertisementDataAPI(GetAdvertisementDataAPIRequest getAdvertisementDataAPIRequest) throws Exception {
+        RawResponse response = query(Const.GetAdvertisementDataAPI, Utils.mapToPairList(Utils.paramsToMap(getAdvertisementDataAPIRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetAdvertisementDataAPIResponse res = JSON.parseObject(response.getData(), GetAdvertisementDataAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetRealTimeOnlineNumberAPIResponse getRealTimeOnlineNumberAPI(CommonAPIRequest getRealTimeOnlineNumberAPIRequest) throws Exception {
+        RawResponse response = query(Const.GetRealTimeOnlineNumberAPI, Utils.mapToPairList(Utils.paramsToMap(getRealTimeOnlineNumberAPIRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetRealTimeOnlineNumberAPIResponse res = JSON.parseObject(response.getData(), GetRealTimeOnlineNumberAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
 }

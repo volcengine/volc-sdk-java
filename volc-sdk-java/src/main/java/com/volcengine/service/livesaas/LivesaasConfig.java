@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class VEditConfig {
+public class LivesaasConfig {
     public static Map<String, ServiceInfo> serviceInfoMap = new HashMap<String, ServiceInfo>() {
         {
             put(Const.REGION_CN_NORTH_1, new ServiceInfo(
@@ -28,7 +28,7 @@ public class VEditConfig {
                                     add(new BasicHeader("Accept", "application/json"));
                                 }
                             });
-                            put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "edit"));
+                            put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "livesaas"));
                         }
                     }
             ));
@@ -37,43 +37,71 @@ public class VEditConfig {
 
     public static Map<String, ApiInfo> apiInfoList = new HashMap<String, ApiInfo>() {
         {
-            put("SubmitDirectEditTaskAsync", new ApiInfo(
+            put(Const.CreateActivityAPI, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "SubmitDirectEditTaskAsync"));
-                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                    add(new BasicNameValuePair("Action", Const.CreateActivityAPI));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
                     }
             ));
-            put("GetDirectEditResult", new ApiInfo(
+            put(Const.GetActivityAPI, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
-                            put(Const.Method, "POST");
+                            put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "GetDirectEditResult"));
-                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                    add(new BasicNameValuePair("Action", Const.GetActivityAPI));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
                     }
             ));
-            put("SubmitTemplateTaskAsync", new ApiInfo(
+            put(Const.GetStreamsAPI, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
-                            put(Const.Method, "POST");
+                            put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "SubmitTemplateTaskAsync"));
-                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                    add(new BasicNameValuePair("Action", Const.GetStreamsAPI));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetAdvertisementDataAPI, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetAdvertisementDataAPI));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetRealTimeOnlineNumberAPI, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetRealTimeOnlineNumberAPI));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }

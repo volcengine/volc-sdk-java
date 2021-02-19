@@ -1,31 +1,54 @@
 package com.volcengine.model.livesaas.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.beans.ImageInfo;
 import com.volcengine.model.response.ResponseMetadata;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
-public class GetActivityAPIResponse {
+public class GetStreamsAPIResponse {
     @JSONField(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
-    GetActivityAPIResultBean result;
+    GetStreamsAPIResultBean result;
 
     @Data
-    public static class GetActivityAPIResultBean {
-        @JSONField(name = "Id")
-        Long id;
-        @JSONField(name = "Name")
-        String name;
-        @JSONField(name = "LiveTime")
-        Long liveTime;
-        @JSONField(name = "Status")
-        Integer status;
-        @JSONField(name = "ViewUrl")
-        String viewUrl;
-        @JSONField(name = "IsPageViewEnable")
-        Integer isPageViewEnable;
-        @JSONField(name = "IsLockPreview")
-        Integer isLockPreview;
+    public static class GetStreamsAPIResultBean {
+        @JSONField(name = "LineDetails")
+        List<LineDetail> lineDetails;
+    }
+
+    @Data
+    public static class LineDetail {
+        @JSONField(name = "LineId")
+        Long lineId;
+        @JSONField(name = "LineName")
+        String lineName;
+        @JSONField(name = "MainPushInfo")
+        MainPushInfo mainPushInfo;
+        @JSONField(name = "ForwardInfo")
+        ForwardInfo forwardInfo;
+        @JSONField(name = "ExpireTime")
+        Long ExpireTime;
+    }
+
+    @Data
+    public static class MainPushInfo {
+        @JSONField(name = "PushPath")
+        String pushPath;
+        @JSONField(name = "StreamingCode")
+        String streamingCode;
+    }
+
+    @Data
+    public static class ForwardInfo {
+        @JSONField(name = "PullStreamUrl")
+        String pullStreamUrl;
+        @JSONField(name = "PullStreamStatus")
+        Integer pullStreamStatus;
+        @JSONField(name = "PullStreamCheckStatus")
+        Integer pullStreamCheckStatus;
     }
 }

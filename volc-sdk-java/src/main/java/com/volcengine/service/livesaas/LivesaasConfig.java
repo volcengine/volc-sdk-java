@@ -22,7 +22,7 @@ public class LivesaasConfig {
                             put(Const.CONNECTION_TIMEOUT, 5000);
                             put(Const.SOCKET_TIMEOUT, 5000);
                             put(Const.Scheme, "https");
-                            put(Const.Host, "vedit.volcengineapi.com");
+                            put(Const.Host, "livesaas.volcengineapi.com");
                             put(Const.Header, new ArrayList<Header>() {
                                 {
                                     add(new BasicHeader("Accept", "application/json"));

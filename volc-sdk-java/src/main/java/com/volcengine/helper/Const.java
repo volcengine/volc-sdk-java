@@ -79,4 +79,10 @@ public class Const {
     public static final String AsyncRiskDetection = "AsyncRiskDetectionResponse";
     public static final String RiskResult = "RiskResult";
 
+    // livesaas
+    public static final String CreateActivityAPI = "CreateActivityAPI";
+    public static final String GetActivityAPI = "GetActivityAPI";
+    public static final String GetStreamsAPI = "GetStreamsAPI";
+    public static final String GetAdvertisementDataAPI = "GetAdvertisementDataAPI";
+    public static final String GetRealTimeOnlineNumberAPI = "GetRealTimeOnlineNumberAPI";
 }

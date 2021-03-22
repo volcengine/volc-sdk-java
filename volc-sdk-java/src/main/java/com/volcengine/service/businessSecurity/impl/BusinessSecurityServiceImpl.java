@@ -30,6 +30,7 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
             throw response.getException();
         }
 
+
         return JSON.parseObject(response.getData(), RiskResultResponse.class);
     }
 

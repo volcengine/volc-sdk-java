@@ -22,6 +22,12 @@ public class RiskResultResponse {
         private String message;
         @JSONField(name = "Data")
         private List<Map<String, Object>> data;
+        @JSONField(name = "Page")
+        private Page page;
+    }
+
+    @Data
+    public static class Page {
         @JSONField(name = "PageNum")
         Integer pageNum;
         @JSONField(name = "PageSize")

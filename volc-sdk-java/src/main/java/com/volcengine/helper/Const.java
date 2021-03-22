@@ -76,7 +76,7 @@ public class Const {
 
     // business security
     public static final String RiskDetection = "RiskDetection";
-    public static final String AsyncRiskDetection = "AsyncRiskDetectionResponse";
+    public static final String AsyncRiskDetection = "AsyncRiskDetection";
     public static final String RiskResult = "RiskResult";
 
     // livesaas

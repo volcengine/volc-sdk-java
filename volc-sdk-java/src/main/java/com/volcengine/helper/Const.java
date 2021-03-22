@@ -73,4 +73,10 @@ public class Const {
     // upload by url format type
     public static final String UPLOAD_FORMAT_MP4 = "mp4";
     public static final String UPLOAD_FORMAT_M3U8 = "m3u8";
+
+    // business security
+    public static final String RiskDetection = "RiskDetection";
+    public static final String AsyncRiskDetection = "AsyncRiskDetectionResponse";
+    public static final String RiskResult = "RiskResult";
+
 }

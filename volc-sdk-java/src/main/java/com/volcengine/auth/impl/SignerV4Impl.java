@@ -6,9 +6,6 @@ import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
 import com.volcengine.model.Credentials;
 import com.volcengine.service.SignableRequest;
-import com.volcengine.service.businessSecurity.BusinessSecurityConfig;
-import com.volcengine.service.businessSecurity.BusinessSecurityService;
-import com.volcengine.service.businessSecurity.impl.BusinessSecurityServiceImpl;
 import com.volcengine.util.NameValueComparator;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringUtils;
@@ -42,7 +39,7 @@ public class SignerV4Impl implements ISignerV4 {
         H_INCLUDE.add("Content-Md5");
         H_INCLUDE.add("Host");
 
-
+    }
 
     @Override
     public void sign(SignableRequest request, Credentials credentials) throws Exception {

@@ -76,6 +76,11 @@ public class Const {
     public static final String UPLOAD_FORMAT_MP4 = "mp4";
     public static final String UPLOAD_FORMAT_M3U8 = "m3u8";
 
+    // business security
+    public static final String RiskDetection = "RiskDetection";
+    public static final String AsyncRiskDetection = "AsyncRiskDetection";
+    public static final String RiskResult = "RiskResult";
+
     // livesaas
     public static final String CreateActivityAPI = "CreateActivityAPI";
     public static final String GetActivityAPI = "GetActivityAPI";

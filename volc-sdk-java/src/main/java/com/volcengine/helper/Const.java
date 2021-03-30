@@ -82,4 +82,8 @@ public class Const {
     public static final String GetStreamsAPI = "GetStreamsAPI";
     public static final String GetAdvertisementDataAPI = "GetAdvertisementDataAPI";
     public static final String GetRealTimeOnlineNumberAPI = "GetRealTimeOnlineNumberAPI";
+
+    // translate
+    public static final String LangDetect = "LangDetect";
+    public static final String TranslateText = "TranslateText";
 }

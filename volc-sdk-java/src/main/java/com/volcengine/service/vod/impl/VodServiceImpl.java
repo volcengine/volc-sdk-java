@@ -13,12 +13,15 @@ import com.volcengine.model.vod.request.VodDeleteMediaRequest;
 import com.volcengine.model.vod.request.VodDeleteTranscodesRequest;
 import com.volcengine.model.vod.response.VodDeleteMediaResponse;
 import com.volcengine.model.vod.response.VodDeleteTranscodesResponse;
+import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
@@ -48,6 +51,58 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         }
         return new VodServiceImpl(serviceInfo);
     }
+
+    @Override
+    public String createSha1HlsDrmAuthToken(long expireSeconds) throws Exception {
+        return createHlsDrmAuthToken(com.volcengine.helper.Const.DSAHmacSha1, expireSeconds);
+    }
+
+    @Override
+    public String createSha256HlsDrmAuthToken(long expireSeconds) throws Exception {
+        return createHlsDrmAuthToken(com.volcengine.helper.Const.DSAHmacSha256, expireSeconds);
+    }
+
+    public String createHlsDrmAuthToken(String dsa, long expireSeconds) throws Exception {
+        if (expireSeconds == 0) {
+            throw new Exception("Invalid Expire");
+        }
+        String token = createAuth(dsa, expireSeconds);
+
+        Map<String, String> params = new HashMap<>();
+        params.put("token", token);
+        return getSignUrl(Const.GetHlsDecryptionKey, com.volcengine.helper.Utils.mapToPairList(params));
+    }
+
+    private String createAuth(String dsa, long expireSeconds) throws Exception {
+        if (StringUtils.isBlank(getAccessKey())) {
+            throw new Exception("Invalid Ak");
+        }
+        if (StringUtils.isBlank(getSecretKey())) {
+            throw new Exception("Invalid Sk");
+        }
+
+        long deadline = System.currentTimeMillis() / 1000 + expireSeconds;
+        String deadlineDate = new SimpleDateFormat("yyyyMMdd").format(new Date(deadline * 1000));
+        String timestamp = String.valueOf(deadline);
+        byte[] key1 = com.volcengine.helper.Utils.hmacSHA256(getSecretKey().getBytes(), deadlineDate);
+        byte[] key2 = com.volcengine.helper.Utils.hmacSHA256(key1, "vod");
+        String key = Hex.encodeHexString(key2);
+        String signDataString = StringUtils.join(dsa, "&", "1.0", "&", timestamp);
+        String sign = "";
+        switch (dsa) {
+            case com.volcengine.helper.Const.DSAHmacSha1:
+                sign = org.apache.commons.codec.binary.Base64.encodeBase64String(com.volcengine.helper.Utils.hmacSHA1(key.getBytes(), signDataString));
+                break;
+            case com.volcengine.helper.Const.DSAHmacSha256:
+                sign = org.apache.commons.codec.binary.Base64.encodeBase64String(com.volcengine.helper.Utils.hmacSHA256(key.getBytes(), signDataString));
+                break;
+            default:
+                sign = org.apache.commons.codec.binary.Base64.encodeBase64String("".getBytes());
+                break;
+        }
+        return StringUtils.join(dsa, ":", "1.0", ":", timestamp, ":", getAccessKey(), ":", sign);
+    }
+
 
     @Override
     public String getPlayAuthToken(com.volcengine.model.vod.request.VodGetPlayInfoRequest input) throws Exception {

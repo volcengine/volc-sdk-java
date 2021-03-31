@@ -169,4 +169,5 @@ public interface IBaseService {
      * @throws Exception    the exception
      */
     SecurityToken2 signSts2(Policy inlinePolicy, long expire) throws Exception;
+
 }

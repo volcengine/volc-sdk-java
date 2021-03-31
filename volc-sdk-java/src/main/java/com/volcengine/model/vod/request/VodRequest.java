@@ -85,6 +85,11 @@ public final class VodRequest {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Models_Vod_Request_VodDeleteTranscodesRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Models_Vod_Request_VodGetMediaListRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Models_Vod_Request_VodGetMediaListRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Models_Vod_Request_VodStartWorkflowRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -134,16 +139,20 @@ public final class VodRequest {
       "\n\025VodDeleteMediaRequest\022\014\n\004Vids\030\001 \001(\t\022\024\n" +
       "\014CallbackArgs\030\002 \001(\t\"P\n\032VodDeleteTranscod" +
       "esRequest\022\013\n\003Vid\030\001 \001(\t\022\017\n\007FileIds\030\002 \001(\t\022" +
-      "\024\n\014CallbackArgs\030\003 \001(\t\"\241\001\n\027VodStartWorkfl" +
-      "owRequest\022\013\n\003Vid\030\001 \001(\t\022\022\n\nTemplateId\030\002 \001" +
-      "(\t\022=\n\005Input\030\003 \001(\0132..Volcengine.Models.Vo" +
-      "d.Business.WorkflowParams\022\020\n\010Priority\030\004 " +
-      "\001(\005\022\024\n\014CallbackArgs\030\005 \001(\tB\250\001\n com.volcen" +
-      "gine.model.vod.requestB\nVodRequestP\001Z8gi" +
-      "thub.com/volcengine/volc-sdk-golang/mode" +
-      "ls/vod/request\240\001\001\330\001\001\312\002\027Volc\\Models\\Vod\\R" +
-      "equest\342\002\033Volc\\Models\\Vod\\GPBMetadatab\006pr" +
-      "oto3"
+      "\024\n\014CallbackArgs\030\003 \001(\t\"\253\001\n\026VodGetMediaLis" +
+      "tRequest\022\021\n\tSpaceName\030\001 \001(\t\022\013\n\003Vid\030\002 \001(\t" +
+      "\022\016\n\006Status\030\003 \001(\t\022\r\n\005Order\030\004 \001(\t\022\014\n\004Tags\030" +
+      "\005 \001(\t\022\021\n\tStartTime\030\006 \001(\t\022\017\n\007EndTime\030\007 \001(" +
+      "\t\022\016\n\006Offset\030\010 \001(\t\022\020\n\010PageSize\030\t \001(\t\"\241\001\n\027" +
+      "VodStartWorkflowRequest\022\013\n\003Vid\030\001 \001(\t\022\022\n\n" +
+      "TemplateId\030\002 \001(\t\022=\n\005Input\030\003 \001(\0132..Volcen" +
+      "gine.Models.Vod.Business.WorkflowParams\022" +
+      "\020\n\010Priority\030\004 \001(\005\022\024\n\014CallbackArgs\030\005 \001(\tB" +
+      "\250\001\n com.volcengine.model.vod.requestB\nVo" +
+      "dRequestP\001Z8github.com/volcengine/volc-s" +
+      "dk-golang/models/vod/request\240\001\001\330\001\001\312\002\027Vol" +
+      "c\\Models\\Vod\\Request\342\002\033Volc\\Models\\Vod\\G" +
+      "PBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -236,8 +245,14 @@ public final class VodRequest {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Models_Vod_Request_VodDeleteTranscodesRequest_descriptor,
         new java.lang.String[] { "Vid", "FileIds", "CallbackArgs", });
-    internal_static_Volcengine_Models_Vod_Request_VodStartWorkflowRequest_descriptor =
+    internal_static_Volcengine_Models_Vod_Request_VodGetMediaListRequest_descriptor =
       getDescriptor().getMessageTypes().get(14);
+    internal_static_Volcengine_Models_Vod_Request_VodGetMediaListRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Models_Vod_Request_VodGetMediaListRequest_descriptor,
+        new java.lang.String[] { "SpaceName", "Vid", "Status", "Order", "Tags", "StartTime", "EndTime", "Offset", "PageSize", });
+    internal_static_Volcengine_Models_Vod_Request_VodStartWorkflowRequest_descriptor =
+      getDescriptor().getMessageTypes().get(15);
     internal_static_Volcengine_Models_Vod_Request_VodStartWorkflowRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Models_Vod_Request_VodStartWorkflowRequest_descriptor,

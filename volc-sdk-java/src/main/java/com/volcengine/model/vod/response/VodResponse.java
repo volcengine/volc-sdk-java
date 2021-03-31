@@ -80,6 +80,11 @@ public final class VodResponse {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Models_Vod_Response_VodDeleteTranscodesResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Models_Vod_Response_VodGetMediaListResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Models_Vod_Response_VodGetMediaListResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Models_Vod_Response_VodStartWorkflowResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -149,16 +154,20 @@ public final class VodResponse {
       "B\n\020ResponseMetadata\030\001 \001(\0132(.Volcengine.M" +
       "odels.Base.ResponseMetadata\022G\n\006Result\030\002 " +
       "\001(\01327.Volcengine.Models.Vod.Business.Vod" +
-      "DeleteTranscodesData\"\246\001\n\030VodStartWorkflo" +
-      "wResponse\022B\n\020ResponseMetadata\030\001 \001(\0132(.Vo" +
-      "lcengine.Models.Base.ResponseMetadata\022F\n" +
-      "\006Result\030\002 \001(\01326.Volcengine.Models.Vod.Bu" +
-      "siness.VodStartWorkflowResultB\254\001\n!com.vo" +
-      "lcengine.model.vod.responseB\013VodResponse" +
-      "P\001Z9github.com/volcengine/volc-sdk-golan" +
-      "g/models/vod/response\240\001\001\330\001\001\312\002\030Volc\\Model" +
-      "s\\Vod\\Response\342\002\033Volc\\Models\\Vod\\GPBMeta" +
-      "datab\006proto3"
+      "DeleteTranscodesData\"\242\001\n\027VodGetMediaList" +
+      "Response\022B\n\020ResponseMetadata\030\001 \001(\0132(.Vol" +
+      "cengine.Models.Base.ResponseMetadata\022C\n\006" +
+      "Result\030\002 \001(\01323.Volcengine.Models.Vod.Bus" +
+      "iness.VodGetMediaListData\"\246\001\n\030VodStartWo" +
+      "rkflowResponse\022B\n\020ResponseMetadata\030\001 \001(\013" +
+      "2(.Volcengine.Models.Base.ResponseMetada" +
+      "ta\022F\n\006Result\030\002 \001(\01326.Volcengine.Models.V" +
+      "od.Business.VodStartWorkflowResultB\254\001\n!c" +
+      "om.volcengine.model.vod.responseB\013VodRes" +
+      "ponseP\001Z9github.com/volcengine/volc-sdk-" +
+      "golang/models/vod/response\240\001\001\330\001\001\312\002\030Volc\\" +
+      "Models\\Vod\\Response\342\002\033Volc\\Models\\Vod\\GP" +
+      "BMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -247,8 +256,14 @@ public final class VodResponse {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Models_Vod_Response_VodDeleteTranscodesResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
-    internal_static_Volcengine_Models_Vod_Response_VodStartWorkflowResponse_descriptor =
+    internal_static_Volcengine_Models_Vod_Response_VodGetMediaListResponse_descriptor =
       getDescriptor().getMessageTypes().get(13);
+    internal_static_Volcengine_Models_Vod_Response_VodGetMediaListResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Models_Vod_Response_VodGetMediaListResponse_descriptor,
+        new java.lang.String[] { "ResponseMetadata", "Result", });
+    internal_static_Volcengine_Models_Vod_Response_VodStartWorkflowResponse_descriptor =
+      getDescriptor().getMessageTypes().get(14);
     internal_static_Volcengine_Models_Vod_Response_VodStartWorkflowResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Models_Vod_Response_VodStartWorkflowResponse_descriptor,

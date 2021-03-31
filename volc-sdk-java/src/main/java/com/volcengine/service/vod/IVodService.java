@@ -11,6 +11,24 @@ package com.volcengine.service.vod;
 public interface IVodService extends com.volcengine.service.IBaseService {
 
 	/**
+	 * Gets hls auth token.
+	 *
+	 * @param expireSeconds the params
+	 * @return the hls auth token
+	 * @throws Exception the exception
+	 */
+	String createSha1HlsDrmAuthToken(long expireSeconds) throws Exception;
+
+	/**
+	 * Gets hls auth token.
+	 *
+	 * @param expireSeconds the params
+	 * @return the hls auth token
+	 * @throws Exception the exception
+	 */
+	String createSha256HlsDrmAuthToken(long expireSeconds) throws Exception;
+
+	/**
      * Gets play auth token.
      *
      * @param input the params

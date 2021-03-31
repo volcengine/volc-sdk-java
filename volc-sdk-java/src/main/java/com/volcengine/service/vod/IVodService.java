@@ -144,25 +144,25 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.model.vod.response.VodGetRecommendedPosterResponse getRecommendedPoster(com.volcengine.model.vod.request.VodGetRecommendedPosterRequest input) throws Exception;
-
-     /**
-      * deleteMedia.
-      *
-      * @param input com.volcengine.model.vod.request.VodDeleteMediaRequest
-      * @return com.volcengine.model.vod.response.VodDeleteMediaResponse
-      * @throws Exception the exception
-      */
+	
+	/**
+     * deleteMedia.
+     *
+     * @param input com.volcengine.model.vod.request.VodDeleteMediaRequest
+     * @return com.volcengine.model.vod.response.VodDeleteMediaResponse
+     * @throws Exception the exception
+     */
 	com.volcengine.model.vod.response.VodDeleteMediaResponse deleteMedia(com.volcengine.model.vod.request.VodDeleteMediaRequest input) throws Exception;
-
-     /**
-      * deleteTranscodes.
-      *
-      * @param input com.volcengine.model.vod.request.VodDeleteTranscodesRequest
-      * @return com.volcengine.model.vod.response.VodDeleteTranscodesResponse
-      * @throws Exception the exception
-      */
+	
+	/**
+     * deleteTranscodes.
+     *
+     * @param input com.volcengine.model.vod.request.VodDeleteTranscodesRequest
+     * @return com.volcengine.model.vod.response.VodDeleteTranscodesResponse
+     * @throws Exception the exception
+     */
 	com.volcengine.model.vod.response.VodDeleteTranscodesResponse deleteTranscodes(com.volcengine.model.vod.request.VodDeleteTranscodesRequest input) throws Exception;
-
+	
 	/**
      * StartWorkflow.
      *

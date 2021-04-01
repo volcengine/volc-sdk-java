@@ -74,6 +74,8 @@ public class Const {
     public static final String UPLOAD_FORMAT_MP4 = "mp4";
     public static final String UPLOAD_FORMAT_M3U8 = "m3u8";
 
+    // ad blocker
+    public static final String AdBlock = "AdBlock";
     // business security
     public static final String RiskDetection = "RiskDetection";
     public static final String AsyncRiskDetection = "AsyncRiskDetection";

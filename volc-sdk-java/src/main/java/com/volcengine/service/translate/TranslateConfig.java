@@ -1,4 +1,4 @@
-package com.volcengine.service.businessSecurity;
+package com.volcengine.service.translate;
 
 import com.volcengine.helper.Const;
 import com.volcengine.model.ApiInfo;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BusinessSecurityConfig {
+public class TranslateConfig {
     public static ServiceInfo serviceInfo = new ServiceInfo(
             new HashMap<String, Object>() {
                 {
@@ -25,49 +25,35 @@ public class BusinessSecurityConfig {
                             add(new BasicHeader("Accept", "application/json"));
                         }
                     });
-                    put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "iam"));
+                    put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "translate"));
                 }
             }
     );
     public static Map<String, ApiInfo> apiInfoList = new HashMap<String, ApiInfo>() {
         {
-            put(Const.RiskDetection, new ApiInfo(
+            put(Const.LangDetect, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.RiskDetection));
-                                    add(new BasicNameValuePair("Version", "2021-02-02"));
+                                    add(new BasicNameValuePair("Action", Const.LangDetect));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.AsyncRiskDetection, new ApiInfo(
+            put(Const.TranslateText, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.AsyncRiskDetection));
-                                    add(new BasicNameValuePair("Version", "2021-02-25"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.RiskResult, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.RiskResult));
-                                    add(new BasicNameValuePair("Version", "2021-03-10"));
+                                    add(new BasicNameValuePair("Action", Const.TranslateText));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }

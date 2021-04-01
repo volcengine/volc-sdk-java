@@ -5,14 +5,14 @@ import com.volcengine.model.response.AdBlockerResponse;
 import com.volcengine.service.IBaseService;
 
 /**
- * The interface business security service.
+ * The interface ad blocker service.
  */
 public interface AdBlockerService extends IBaseService {
     /**
-     * Risk Detection.
+     * Ad Blocker.
      *
-     * @param adBlockerRequest risk detection request
-     * @return risk detection response
+     * @param adBlockerRequest ad block request
+     * @return ad block response
      * @throws Exception the exception
      */
     AdBlockerResponse AdBlock(AdBlockerRequest adBlockerRequest) throws Exception;

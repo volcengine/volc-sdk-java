@@ -39,6 +39,16 @@ public final class VodMedia {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Models_Vod_Business_VodGetRecPosterData_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Models_Vod_Business_VodDeleteMediaData_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Models_Vod_Business_VodDeleteMediaData_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Models_Vod_Business_VodDeleteTranscodesData_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Models_Vod_Business_VodDeleteTranscodesData_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -67,11 +77,14 @@ public final class VodMedia {
       "toreUris\030\002 \003(\t\"u\n\023VodGetRecPosterData\022H\n" +
       "\016StoreUriGroups\030\001 \003(\01320.Volcengine.Model" +
       "s.Vod.Business.VodStoreUriGroup\022\024\n\014NotEx" +
-      "istVids\030\002 \003(\tB\254\001\n!com.volcengine.model.v" +
-      "od.businessB\010VodMediaP\001Z9github.com/volc" +
-      "engine/volc-sdk-golang/models/vod/busine" +
-      "ss\240\001\001\330\001\001\302\002\000\312\002\030Volc\\Models\\Vod\\Business\342\002" +
-      "\033Volc\\Models\\Vod\\GPBMetadatab\006proto3"
+      "istVids\030\002 \003(\t\"*\n\022VodDeleteMediaData\022\024\n\014N" +
+      "otExistVids\030\001 \003(\t\"2\n\027VodDeleteTranscodes" +
+      "Data\022\027\n\017NotExistFileIds\030\001 \003(\tB\254\001\n!com.vo" +
+      "lcengine.model.vod.businessB\010VodMediaP\001Z" +
+      "9github.com/volcengine/volc-sdk-golang/m" +
+      "odels/vod/business\240\001\001\330\001\001\302\002\000\312\002\030Volc\\Model" +
+      "s\\Vod\\Business\342\002\033Volc\\Models\\Vod\\GPBMeta" +
+      "datab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -108,6 +121,18 @@ public final class VodMedia {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Models_Vod_Business_VodGetRecPosterData_descriptor,
         new java.lang.String[] { "StoreUriGroups", "NotExistVids", });
+    internal_static_Volcengine_Models_Vod_Business_VodDeleteMediaData_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_Volcengine_Models_Vod_Business_VodDeleteMediaData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Models_Vod_Business_VodDeleteMediaData_descriptor,
+        new java.lang.String[] { "NotExistVids", });
+    internal_static_Volcengine_Models_Vod_Business_VodDeleteTranscodesData_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_Volcengine_Models_Vod_Business_VodDeleteTranscodesData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Models_Vod_Business_VodDeleteTranscodesData_descriptor,
+        new java.lang.String[] { "NotExistFileIds", });
     com.volcengine.model.vod.business.VodCommon.getDescriptor();
   }
 

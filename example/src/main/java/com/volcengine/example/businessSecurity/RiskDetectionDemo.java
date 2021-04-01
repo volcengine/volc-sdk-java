@@ -7,7 +7,6 @@ import com.volcengine.service.businessSecurity.BusinessSecurityServiceImpl;
 import com.volcengine.service.businessSecurity;
 
 public class RiskDetectionDemo {
-
     public static void main(String[] args) {
         BusinessSecurityService businessSecurityService = BusinessSecurityServiceImpl.getInstance();
         // call below method if you dont set ak and sk in ～/.volc/config

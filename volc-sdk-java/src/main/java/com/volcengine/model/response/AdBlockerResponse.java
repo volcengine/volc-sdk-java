@@ -10,7 +10,7 @@ public class AdBlockerResponse {
     @JSONField(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
-    ApplyImageUploadResponse.UploadImageResult result;
+    RiskDetectionResult result;
 
     @Data
     public static class RiskDetectionResult {

@@ -1,5 +1,11 @@
 Change log
 
+2021-03-30 Bumped to version v1.0.12
+- Add media add api.
+- Add business security risk
+- Add translate service
+- Add sms sdk
+
 2021-02-20 Bumped to version v1.0.10
 - Add livesaas sdk.
 

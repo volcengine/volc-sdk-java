@@ -59,6 +59,8 @@ public class Const {
     public static final String UpdateMediaInfo = "UpdateMediaInfo";
     public static final String GetMediaInfos = "GetMediaInfos";
     public static final String GetRecommendedPoster = "GetRecommendedPoster";
+    public static final String DeleteMedia = "DeleteMedia";
+    public static final String DeleteTranscodes = "DeleteTranscodes";
     public static final int MinChunkSize = 1024 * 1024 * 20;
     public static final int LargeFileSize = 1024 * 1024 * 50;
 
@@ -87,4 +89,8 @@ public class Const {
     public static final String GetStreamsAPI = "GetStreamsAPI";
     public static final String GetAdvertisementDataAPI = "GetAdvertisementDataAPI";
     public static final String GetRealTimeOnlineNumberAPI = "GetRealTimeOnlineNumberAPI";
+
+    // translate
+    public static final String LangDetect = "LangDetect";
+    public static final String TranslateText = "TranslateText";
 }

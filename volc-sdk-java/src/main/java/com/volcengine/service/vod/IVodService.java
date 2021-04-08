@@ -17,7 +17,7 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	 * @return the hls auth token
 	 * @throws Exception the exception
 	 */
-	String createSha1HlsDrmAuthToken(long expireSeconds) throws Exception;
+	String createSha1HlsDrmAuthToken(Long expireSeconds) throws Exception;
 
 	/**
 	 * Gets hls auth token.
@@ -26,7 +26,7 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	 * @return the hls auth token
 	 * @throws Exception the exception
 	 */
-	String createSha256HlsDrmAuthToken(long expireSeconds) throws Exception;
+	String createSha256HlsDrmAuthToken(Long expireSeconds) throws Exception;
 
 	/**
      * Gets play auth token.
@@ -35,7 +35,7 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @return the play auth token
      * @throws Exception the exception
      */
-    String getPlayAuthToken(com.volcengine.model.vod.request.VodGetPlayInfoRequest input) throws Exception;
+    String getPlayAuthToken(com.volcengine.model.vod.request.VodGetPlayInfoRequest input, Long expireSeconds) throws Exception;
 
     /**
      * Get Upload Sts2 token.

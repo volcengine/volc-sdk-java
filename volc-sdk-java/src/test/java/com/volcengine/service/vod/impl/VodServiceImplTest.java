@@ -15,7 +15,7 @@ public class VodServiceImplTest extends TestCase {
          vodService.setSecretKey("UwJMdogtsC7LLaEg2SdorLX8aADQKbxBcqbFmQZISwIePF4HVjUf7veDRv2ovp08");
 
         try {
-            String resp = vodService.createSha1HlsDrmAuthToken(360000);
+            String resp = vodService.createSha1HlsDrmAuthToken(360000L);
             System.out.println(resp);
         } catch (Exception e) {
             e.printStackTrace();

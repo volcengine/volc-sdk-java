@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.sts2.SecurityToken2;
 import com.volcengine.service.imagex.IImageXService;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
+import com.volcengine.util.Time;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,7 @@ public class GetUploadSts2Demo {
 
         try {
             // default sts2 expire time is 1 hour, call service.getUploadSts2WithExpire to set custom expire time in ms
+            // default keyptn is empty, call service.getUploadSts2WithKeyPtn to set custom key pattern
             SecurityToken2 sts2 = service.getUploadSts2(serviceIds);
             System.out.println(JSON.toJSONString(sts2));
         } catch (Exception e) {

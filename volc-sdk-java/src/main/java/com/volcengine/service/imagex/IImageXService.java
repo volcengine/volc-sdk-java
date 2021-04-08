@@ -75,6 +75,17 @@ public interface IImageXService extends IBaseService {
     SecurityToken2 getUploadSts2WithExpire(List<String> serviceIds, long expire) throws Exception;
 
     /**
+     * Get image upload sts2 auth.
+     *
+     * @param serviceIds service id list allowed to upload image to
+     * @param expire expire time in milliseconds
+     * @param keyPtn upload store key pattern, * for no restriction. default to empty.
+     * @return the upload sts2 auth
+     * @throws Exception the exception
+     */
+    SecurityToken2 getUploadSts2WithKeyPtn(List<String> serviceIds, long expire, String keyPtn) throws Exception;
+
+    /**
      * Delete images.
      *
      * @param req delete image req

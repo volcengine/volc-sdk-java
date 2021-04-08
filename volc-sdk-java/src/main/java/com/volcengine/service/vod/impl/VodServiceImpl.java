@@ -45,22 +45,23 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
     }
 
     @Override
-    public String createSha1HlsDrmAuthToken(long expireSeconds) throws Exception {
+    public String createSha1HlsDrmAuthToken(Long expireSeconds) throws Exception {
         return createHlsDrmAuthToken(com.volcengine.helper.Const.DSAHmacSha1, expireSeconds);
     }
 
     @Override
-    public String createSha256HlsDrmAuthToken(long expireSeconds) throws Exception {
+    public String createSha256HlsDrmAuthToken(Long expireSeconds) throws Exception {
         return createHlsDrmAuthToken(com.volcengine.helper.Const.DSAHmacSha256, expireSeconds);
     }
 
-    public String createHlsDrmAuthToken(String dsa, long expireSeconds) throws Exception {
-        if (expireSeconds == 0) {
+    public String createHlsDrmAuthToken(String dsa, Long expireSeconds) throws Exception {
+        if (expireSeconds == null || expireSeconds == 0) {
             throw new Exception("Invalid Expire");
         }
         String token = createAuth(dsa, expireSeconds);
 
         Map<String, String> params = new HashMap<>();
+        params.put("token", token);
         params.put("token", token);
         return getSignUrl(com.volcengine.helper.Const.GetHlsDecryptionKey, com.volcengine.helper.Utils.mapToPairList(params));
     }
@@ -96,8 +97,12 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
     }
 
 	@Override
-    public String getPlayAuthToken(com.volcengine.model.vod.request.VodGetPlayInfoRequest input) throws Exception {
-        String getPlayInfoToken = getSignUrl(com.volcengine.helper.Const.GetPlayInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, false)));
+    public String getPlayAuthToken(com.volcengine.model.vod.request.VodGetPlayInfoRequest input, Long expireSeconds) throws Exception {
+        Map<String, String> params = com.volcengine.helper.Utils.protoBufferToMap(input, false);
+        if (expireSeconds != null && expireSeconds > 0) {
+            params.put("X-Expires", expireSeconds.toString());
+        }
+        String getPlayInfoToken = getSignUrl(com.volcengine.helper.Const.GetPlayInfo, com.volcengine.helper.Utils.mapToPairList(params));
         Map<String, String> ret = new HashMap<>();
         ret.put("GetPlayInfoToken", getPlayInfoToken);
         ret.put("TokenVersion", "V2");

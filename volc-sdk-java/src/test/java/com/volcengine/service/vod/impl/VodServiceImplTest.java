@@ -15,7 +15,7 @@ public class VodServiceImplTest extends TestCase {
          vodService.setSecretKey("***REMOVED***");
 
         try {
-            String resp = vodService.createSha1HlsDrmAuthToken(360000);
+            String resp = vodService.createSha1HlsDrmAuthToken(360000L);
             System.out.println(resp);
         } catch (Exception e) {
             e.printStackTrace();

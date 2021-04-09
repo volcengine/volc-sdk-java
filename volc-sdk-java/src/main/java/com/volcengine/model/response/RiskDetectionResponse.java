@@ -1,19 +1,16 @@
-package com.volcengine.model.request;
+package com.volcengine.model.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.volcengine.model.response.ApplyImageUploadResponse;
-import com.volcengine.model.response.ResponseMetadata;
-import com.volcengine.model.response.RiskDetectionResponse;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class AdBlockerRequest {
+public class RiskDetectionResponse {
     @JSONField(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
-    RiskResultRequest result;
+    RiskDetectionResult result;
 
     @Data
     public static class RiskDetectionResult {
@@ -30,8 +27,8 @@ public class AdBlockerRequest {
 
     @Data
     public static class DecisionData {
-        @JSONField(name = "Decision")
-        private Integer decision;
+        @JSONField(name = "Score")
+        private Integer score;
         @JSONField(name = "Tags")
         private List<Integer> tags;
         @JSONField(name = "Detail")

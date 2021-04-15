@@ -80,7 +80,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         byte[] key1 = com.volcengine.helper.Utils.hmacSHA256(getSecretKey().getBytes(), deadlineDate);
         byte[] key2 = com.volcengine.helper.Utils.hmacSHA256(key1, "vod");
         String key = Hex.encodeHexString(key2);
-        String signDataString = StringUtils.join(dsa, "&", "1.0", "&", timestamp);
+        String signDataString = StringUtils.join(dsa, "&", "2.0", "&", timestamp);
         String sign = "";
         switch (dsa) {
             case com.volcengine.helper.Const.DSAHmacSha1:

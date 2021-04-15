@@ -22,6 +22,7 @@ import com.github.rholder.retry.*;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringUtils;
 import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 
 
 public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl implements com.volcengine.service.vod.IVodService {
@@ -71,7 +72,10 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         }
 
         long deadline = System.currentTimeMillis() / 1000 + expireSeconds;
-        String deadlineDate = new SimpleDateFormat("yyyyMMdd").format(new Date(deadline * 1000));
+        TimeZone tz = TimeZone.getTimeZone("UTC");
+        DateFormat df = new SimpleDateFormat("yyyyMMdd'T'HHmmss'Z'");
+        df.setTimeZone(tz);
+        String deadlineDate = df.format(new Date(deadline * 1000));
         String timestamp = String.valueOf(deadline);
         byte[] key1 = com.volcengine.helper.Utils.hmacSHA256(getSecretKey().getBytes(), deadlineDate);
         byte[] key2 = com.volcengine.helper.Utils.hmacSHA256(key1, "vod");
@@ -89,7 +93,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
                 sign = org.apache.commons.codec.binary.Base64.encodeBase64String("".getBytes());
                 break;
         }
-        return StringUtils.join(dsa, ":", "1.0", ":", timestamp, ":", getAccessKey(), ":", sign);
+        return StringUtils.join(dsa, ":", "2.0", ":", timestamp, ":", getAccessKey(), ":", sign);
     }
 
     @Override

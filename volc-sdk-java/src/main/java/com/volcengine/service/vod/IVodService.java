@@ -20,15 +20,6 @@ public interface IVodService extends com.volcengine.service.IBaseService {
     String createSha1HlsDrmAuthToken(Long expireSeconds) throws Exception;
 
     /**
-     * Gets hls auth token.
-     *
-     * @param expireSeconds the params
-     * @return the hls auth token
-     * @throws Exception the exception
-     */
-    String createSha256HlsDrmAuthToken(Long expireSeconds) throws Exception;
-
-    /**
      * Gets play auth token.
      *
      * @param input the params

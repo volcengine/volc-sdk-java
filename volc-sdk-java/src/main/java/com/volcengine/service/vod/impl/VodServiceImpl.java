@@ -22,6 +22,7 @@ import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringUtils;
 import java.text.SimpleDateFormat;
 
+
 public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl implements com.volcengine.service.vod.IVodService {
 	
 	protected VodServiceImpl() {
@@ -61,7 +62,6 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         String token = createAuth(dsa, expireSeconds);
 
         Map<String, String> params = new HashMap<>();
-        params.put("token", token);
         params.put("token", token);
         return getSignUrl(com.volcengine.helper.Const.GetHlsDecryptionKey, com.volcengine.helper.Utils.mapToPairList(params));
     }
@@ -435,10 +435,17 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         com.volcengine.model.vod.response.VodGetRecommendedPosterResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodGetRecommendedPosterResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
+<<<<<<< HEAD
 	}
 	
 	
 	/**
+=======
+    }
+
+
+    /**
+>>>>>>> vod
      * deleteMedia.
      *
      * @param input com.volcengine.model.vod.request.VodDeleteMediaRequest

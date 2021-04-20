@@ -167,27 +167,34 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
 
     @Override
     public SecurityToken2 getUploadSts2(List<String> serviceIds) throws Exception {
-        return getUploadSts2WithExpire(serviceIds, Time.Hour);
+        return getUploadSts2WithKeyPtn(serviceIds, Time.Hour, "");
     }
 
     @Override
     public SecurityToken2 getUploadSts2WithExpire(List<String> serviceIds, long expire) throws Exception {
-        Policy inlinePolicy = new Policy();
-        List<String> actions = new ArrayList<>();
-        actions.add("ImageX:ApplyImageUpload");
-        actions.add("ImageX:CommitImageUpload");
+        return getUploadSts2WithKeyPtn(serviceIds, expire, "");
+    }
 
-        List<String> resources = new ArrayList<>();
+    @Override
+    public SecurityToken2 getUploadSts2WithKeyPtn(List<String> serviceIds, long expire, String keyPtn) throws Exception {
+        List<String> applyRes = new ArrayList<>();
+        List<String> commitRes = new ArrayList<>();
         if (serviceIds.size() == 0) {
-            resources.add(String.format(ImageXConfig.RESOURCE_SERVICE_ID_FORMAT, "*"));
+            applyRes.add(String.format(ImageXConfig.RESOURCE_SERVICE_ID_FORMAT, "*"));
+            commitRes.add(String.format(ImageXConfig.RESOURCE_SERVICE_ID_FORMAT, "*"));
         } else {
             for (String serviceId : serviceIds) {
-                resources.add(String.format(ImageXConfig.RESOURCE_SERVICE_ID_FORMAT, serviceId));
+                applyRes.add(String.format(ImageXConfig.RESOURCE_SERVICE_ID_FORMAT, serviceId));
+                commitRes.add(String.format(ImageXConfig.RESOURCE_SERVICE_ID_FORMAT, serviceId));
             }
         }
+        applyRes.add(String.format(ImageXConfig.RESOURCE_STORE_KEY_FORMAT, keyPtn));
 
-        Statement statement = Sts2Utils.newAllowStatement(actions, resources);
-        inlinePolicy.addStatement(statement);
+        Policy inlinePolicy = new Policy();
+        Statement applyStatement = Sts2Utils.newAllowStatement(Arrays.asList("ImageX:ApplyImageUpload"), applyRes);
+        Statement commitStatement = Sts2Utils.newAllowStatement(Arrays.asList("ImageX:CommitImageUpload"), commitRes);
+        inlinePolicy.addStatement(applyStatement);
+        inlinePolicy.addStatement(commitStatement);
         return signSts2(inlinePolicy, expire);
     }
 

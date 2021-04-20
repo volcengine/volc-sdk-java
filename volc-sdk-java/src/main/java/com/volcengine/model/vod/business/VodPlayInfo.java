@@ -31,6 +31,7 @@ private static final long serialVersionUID = 0L;
     playAuthId_ = "";
     logoType_ = "";
     quality_ = "";
+    barrageMaskOffset_ = "";
   }
 
   @java.lang.Override
@@ -171,6 +172,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             quality_ = s;
+            break;
+          }
+          case 162: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            barrageMaskOffset_ = s;
             break;
           }
           default: {
@@ -955,6 +962,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int BARRAGEMASKOFFSET_FIELD_NUMBER = 20;
+  private volatile java.lang.Object barrageMaskOffset_;
+  /**
+   * <pre>
+   * 弹幕蒙版偏移量
+   * </pre>
+   *
+   * <code>string BarrageMaskOffset = 20;</code>
+   * @return The barrageMaskOffset.
+   */
+  @java.lang.Override
+  public java.lang.String getBarrageMaskOffset() {
+    java.lang.Object ref = barrageMaskOffset_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      barrageMaskOffset_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 弹幕蒙版偏移量
+   * </pre>
+   *
+   * <code>string BarrageMaskOffset = 20;</code>
+   * @return The bytes for barrageMaskOffset.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getBarrageMaskOffsetBytes() {
+    java.lang.Object ref = barrageMaskOffset_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      barrageMaskOffset_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1026,6 +1079,9 @@ private static final long serialVersionUID = 0L;
     if (!getQualityBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 19, quality_);
     }
+    if (!getBarrageMaskOffsetBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 20, barrageMaskOffset_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -1096,6 +1152,9 @@ private static final long serialVersionUID = 0L;
     if (!getQualityBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(19, quality_);
     }
+    if (!getBarrageMaskOffsetBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, barrageMaskOffset_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1150,6 +1209,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getLogoType())) return false;
     if (!getQuality()
         .equals(other.getQuality())) return false;
+    if (!getBarrageMaskOffset()
+        .equals(other.getBarrageMaskOffset())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1200,6 +1261,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getLogoType().hashCode();
     hash = (37 * hash) + QUALITY_FIELD_NUMBER;
     hash = (53 * hash) + getQuality().hashCode();
+    hash = (37 * hash) + BARRAGEMASKOFFSET_FIELD_NUMBER;
+    hash = (53 * hash) + getBarrageMaskOffset().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1371,6 +1434,8 @@ private static final long serialVersionUID = 0L;
 
       quality_ = "";
 
+      barrageMaskOffset_ = "";
+
       return this;
     }
 
@@ -1416,6 +1481,7 @@ private static final long serialVersionUID = 0L;
       result.playAuthId_ = playAuthId_;
       result.logoType_ = logoType_;
       result.quality_ = quality_;
+      result.barrageMaskOffset_ = barrageMaskOffset_;
       onBuilt();
       return result;
     }
@@ -1534,6 +1600,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getQuality().isEmpty()) {
         quality_ = other.quality_;
+        onChanged();
+      }
+      if (!other.getBarrageMaskOffset().isEmpty()) {
+        barrageMaskOffset_ = other.barrageMaskOffset_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -3173,6 +3243,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       quality_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object barrageMaskOffset_ = "";
+    /**
+     * <pre>
+     * 弹幕蒙版偏移量
+     * </pre>
+     *
+     * <code>string BarrageMaskOffset = 20;</code>
+     * @return The barrageMaskOffset.
+     */
+    public java.lang.String getBarrageMaskOffset() {
+      java.lang.Object ref = barrageMaskOffset_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        barrageMaskOffset_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 弹幕蒙版偏移量
+     * </pre>
+     *
+     * <code>string BarrageMaskOffset = 20;</code>
+     * @return The bytes for barrageMaskOffset.
+     */
+    public com.google.protobuf.ByteString
+        getBarrageMaskOffsetBytes() {
+      java.lang.Object ref = barrageMaskOffset_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        barrageMaskOffset_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 弹幕蒙版偏移量
+     * </pre>
+     *
+     * <code>string BarrageMaskOffset = 20;</code>
+     * @param value The barrageMaskOffset to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBarrageMaskOffset(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      barrageMaskOffset_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 弹幕蒙版偏移量
+     * </pre>
+     *
+     * <code>string BarrageMaskOffset = 20;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBarrageMaskOffset() {
+      
+      barrageMaskOffset_ = getDefaultInstance().getBarrageMaskOffset();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 弹幕蒙版偏移量
+     * </pre>
+     *
+     * <code>string BarrageMaskOffset = 20;</code>
+     * @param value The bytes for barrageMaskOffset to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBarrageMaskOffsetBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      barrageMaskOffset_ = value;
       onChanged();
       return this;
     }

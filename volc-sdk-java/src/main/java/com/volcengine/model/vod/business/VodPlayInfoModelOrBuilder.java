@@ -9,7 +9,7 @@ public interface VodPlayInfoModelOrBuilder extends
 
   /**
    * <pre>
-   *数据版本
+   * 数据版本
    * </pre>
    *
    * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModelVersion Version = 10;</code>
@@ -18,7 +18,7 @@ public interface VodPlayInfoModelOrBuilder extends
   int getVersionValue();
   /**
    * <pre>
-   *数据版本
+   * 数据版本
    * </pre>
    *
    * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModelVersion Version = 10;</code>
@@ -48,7 +48,7 @@ public interface VodPlayInfoModelOrBuilder extends
 
   /**
    * <pre>
-   *状态
+   * 状态
    * </pre>
    *
    * <code>int32 Status = 2;</code>
@@ -58,7 +58,7 @@ public interface VodPlayInfoModelOrBuilder extends
 
   /**
    * <pre>
-   *封面地址
+   * 封面地址
    * </pre>
    *
    * <code>string PosterUrl = 3;</code>
@@ -67,7 +67,7 @@ public interface VodPlayInfoModelOrBuilder extends
   java.lang.String getPosterUrl();
   /**
    * <pre>
-   *封面地址
+   * 封面地址
    * </pre>
    *
    * <code>string PosterUrl = 3;</code>
@@ -78,7 +78,7 @@ public interface VodPlayInfoModelOrBuilder extends
 
   /**
    * <pre>
-   *播放时长(单位：s)
+   * 播放时长(单位：s)
    * </pre>
    *
    * <code>float Duration = 4;</code>
@@ -108,7 +108,7 @@ public interface VodPlayInfoModelOrBuilder extends
 
   /**
    * <pre>
-   *是否关键针对齐
+   * 是否关键针对齐
    * </pre>
    *
    * <code>bool EnableAdaptive = 6;</code>
@@ -118,7 +118,7 @@ public interface VodPlayInfoModelOrBuilder extends
 
   /**
    * <pre>
-   *播放列表数量
+   * 播放列表数量
    * </pre>
    *
    * <code>int32 TotalCount = 7;</code>
@@ -155,7 +155,7 @@ public interface VodPlayInfoModelOrBuilder extends
 
   /**
    * <pre>
-   *播放列表
+   * 播放列表
    * </pre>
    *
    * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -164,7 +164,7 @@ public interface VodPlayInfoModelOrBuilder extends
       getPlayInfoListList();
   /**
    * <pre>
-   *播放列表
+   * 播放列表
    * </pre>
    *
    * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -172,7 +172,7 @@ public interface VodPlayInfoModelOrBuilder extends
   com.volcengine.model.vod.business.VodPlayInfo getPlayInfoList(int index);
   /**
    * <pre>
-   *播放列表
+   * 播放列表
    * </pre>
    *
    * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -180,7 +180,7 @@ public interface VodPlayInfoModelOrBuilder extends
   int getPlayInfoListCount();
   /**
    * <pre>
-   *播放列表
+   * 播放列表
    * </pre>
    *
    * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -189,7 +189,7 @@ public interface VodPlayInfoModelOrBuilder extends
       getPlayInfoListOrBuilderList();
   /**
    * <pre>
-   *播放列表
+   * 播放列表
    * </pre>
    *
    * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -240,4 +240,24 @@ public interface VodPlayInfoModelOrBuilder extends
    */
   com.volcengine.model.vod.business.VodThumbInfoOrBuilder getThumbInfoListOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * 弹幕蒙版url
+   * </pre>
+   *
+   * <code>string BarrageMaskUrl = 12;</code>
+   * @return The barrageMaskUrl.
+   */
+  java.lang.String getBarrageMaskUrl();
+  /**
+   * <pre>
+   * 弹幕蒙版url
+   * </pre>
+   *
+   * <code>string BarrageMaskUrl = 12;</code>
+   * @return The bytes for barrageMaskUrl.
+   */
+  com.google.protobuf.ByteString
+      getBarrageMaskUrlBytes();
 }

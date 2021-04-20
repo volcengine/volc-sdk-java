@@ -186,4 +186,44 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getNeedThumbsBytes();
+
+  /**
+   * <pre>
+   * 是否需要蒙版弹幕，默认否，1-是；0-否
+   * </pre>
+   *
+   * <code>string NeedBarrageMask = 10;</code>
+   * @return The needBarrageMask.
+   */
+  java.lang.String getNeedBarrageMask();
+  /**
+   * <pre>
+   * 是否需要蒙版弹幕，默认否，1-是；0-否
+   * </pre>
+   *
+   * <code>string NeedBarrageMask = 10;</code>
+   * @return The bytes for needBarrageMask.
+   */
+  com.google.protobuf.ByteString
+      getNeedBarrageMaskBytes();
+
+  /**
+   * <pre>
+   * 指定CDN类型
+   * </pre>
+   *
+   * <code>string CdnType = 11;</code>
+   * @return The cdnType.
+   */
+  java.lang.String getCdnType();
+  /**
+   * <pre>
+   * 指定CDN类型
+   * </pre>
+   *
+   * <code>string CdnType = 11;</code>
+   * @return The bytes for cdnType.
+   */
+  com.google.protobuf.ByteString
+      getCdnTypeBytes();
 }

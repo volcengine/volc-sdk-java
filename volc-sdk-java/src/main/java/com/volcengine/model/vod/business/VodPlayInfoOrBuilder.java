@@ -346,4 +346,24 @@ public interface VodPlayInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getQualityBytes();
+
+  /**
+   * <pre>
+   * 弹幕蒙版偏移量
+   * </pre>
+   *
+   * <code>string BarrageMaskOffset = 20;</code>
+   * @return The barrageMaskOffset.
+   */
+  java.lang.String getBarrageMaskOffset();
+  /**
+   * <pre>
+   * 弹幕蒙版偏移量
+   * </pre>
+   *
+   * <code>string BarrageMaskOffset = 20;</code>
+   * @return The bytes for barrageMaskOffset.
+   */
+  com.google.protobuf.ByteString
+      getBarrageMaskOffsetBytes();
 }

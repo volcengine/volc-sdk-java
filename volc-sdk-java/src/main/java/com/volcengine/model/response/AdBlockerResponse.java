@@ -21,7 +21,7 @@ public class AdBlockerResponse {
         @JSONField(name = "Message")
         private String message;
         @JSONField(name = "Data")
-        private RiskDetectionResponse.DecisionData data;
+        private DecisionData data;
 
     }
 

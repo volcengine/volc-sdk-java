@@ -38,6 +38,7 @@ public class SignerV4Impl implements ISignerV4 {
         H_INCLUDE.add("Content-Type");
         H_INCLUDE.add("Content-Md5");
         H_INCLUDE.add("Host");
+
     }
 
     @Override

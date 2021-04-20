@@ -9,6 +9,10 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.google.protobuf.util.JsonFormat;
 import com.google.common.base.Predicates;
+import com.volcengine.model.vod.request.VodDeleteMediaRequest;
+import com.volcengine.model.vod.request.VodDeleteTranscodesRequest;
+import com.volcengine.model.vod.response.VodDeleteMediaResponse;
+import com.volcengine.model.vod.response.VodDeleteTranscodesResponse;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 
@@ -378,6 +382,43 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
             throw response.getException();
         }
         com.volcengine.model.vod.response.VodGetRecommendedPosterResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodGetRecommendedPosterResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+    /**
+     * deleteMedia.
+     *
+     * @param input com.volcengine.model.vod.request.VodDeleteMediaRequest
+     * @return com.volcengine.model.vod.response.VodDeleteMediaResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.model.vod.response.VodDeleteMediaResponse deleteMedia(com.volcengine.model.vod.request.VodDeleteMediaRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.DeleteMedia, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.model.vod.response.VodDeleteMediaResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodDeleteMediaResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * deleteTranscodes.
+     *
+     * @param input com.volcengine.model.vod.request.VodDeleteTranscodesRequest
+     * @return com.volcengine.model.vod.response.VodDeleteTranscodesResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.model.vod.response.VodDeleteTranscodesResponse deleteTranscodes(com.volcengine.model.vod.request.VodDeleteTranscodesRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.DeleteTranscodes, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.model.vod.response.VodDeleteTranscodesResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodDeleteTranscodesResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
     }

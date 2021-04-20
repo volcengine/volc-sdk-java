@@ -6,14 +6,15 @@ import lombok.Data;
 import java.util.List;
 import java.util.Map;
 
+@Data
 public class RiskResultResponse {
     @JSONField(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
-    ApplyImageUploadResponse.UploadImageResult result;
+    RiskResult result;
 
     @Data
-    public static class RiskDetectionResult {
+    public static class RiskResult {
         @JSONField(name = "RequestId")
         private String requestId;
         @JSONField(name = "Code")
@@ -22,6 +23,12 @@ public class RiskResultResponse {
         private String message;
         @JSONField(name = "Data")
         private List<Map<String, Object>> data;
+        @JSONField(name = "Page")
+        private Page page;
+    }
+
+    @Data
+    public static class Page {
         @JSONField(name = "PageNum")
         Integer pageNum;
         @JSONField(name = "PageSize")

@@ -25,7 +25,7 @@ public class BusinessSecurityConfig {
                             add(new BasicHeader("Accept", "application/json"));
                         }
                     });
-                    put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "iam"));
+                    put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "BusinessSecurity"));
                 }
             }
     );
@@ -36,7 +36,7 @@ public class BusinessSecurityConfig {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
-                            put(Const., new ArrayList<NameValuePair>() {
+                            put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.RiskDetection));
                                     add(new BasicNameValuePair("Version", "2021-02-02"));

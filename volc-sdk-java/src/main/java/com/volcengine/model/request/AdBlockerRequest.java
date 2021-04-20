@@ -10,31 +10,10 @@ import java.util.List;
 
 @Data
 public class AdBlockerRequest {
-    @JSONField(name = "ResponseMetadata")
-    ResponseMetadata responseMetadata;
-    @JSONField(name = "Result")
-    RiskResultRequest result;
-
-    @Data
-    public static class RiskDetectionResult {
-        @JSONField(name = "RequestId")
-        private String requestId;
-        @JSONField(name = "Code")
-        private Integer code;
-        @JSONField(name = "Message")
-        private String message;
-        @JSONField(name = "Data")
-        private DecisionData data;
-
-    }
-
-    @Data
-    public static class DecisionData {
-        @JSONField(name = "Decision")
-        private Integer decision;
-        @JSONField(name = "Tags")
-        private List<Integer> tags;
-        @JSONField(name = "Detail")
-        private String detail;
-    }
+    @JSONField(name = "AppId")
+    Integer appId;
+    @JSONField(name = "Service")
+    String service;
+    @JSONField(name = "Parameters")
+    String patameters;
 }

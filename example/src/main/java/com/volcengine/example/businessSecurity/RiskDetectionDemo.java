@@ -1,10 +1,15 @@
-package com.volcengine.example.iam;
+package com.volcengine.example.businessSecurity;
 
 import com.alibaba.fastjson.JSON;
+import com.volcengine.model.request.AsyncRiskDetectionRequest;
 import com.volcengine.model.request.RiskDetectionRequest;
-import com.volcengine.model.response.RiskDetectioResponse;
-import com.volcengine.service.businessSecurity.BusinessSecurityServiceImpl;
-import com.volcengine.service.businessSecurity;
+import com.volcengine.model.request.RiskResultRequest;
+import com.volcengine.model.response.AsyncRiskDetectionResponse;
+import com.volcengine.model.response.RiskDetectionResponse;
+import com.volcengine.model.response.RiskResultResponse;
+import com.volcengine.service.businessSecurity.BusinessSecurityService;
+
+import com.volcengine.service.businessSecurity.impl.BusinessSecurityServiceImpl;
 
 public class RiskDetectionDemo {
     public static void main(String[] args) {
@@ -16,10 +21,41 @@ public class RiskDetectionDemo {
         // risk detection
         try {
             RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
-            riskDetectionRequest.setLimit(3);
+            riskDetectionRequest.setAppId(216455);
+            riskDetectionRequest.setService("register");
+            riskDetectionRequest.setPatameters("{\"operate_time\": 1617960951}");
 
             RiskDetectionResponse riskDetectionResponse = businessSecurityService.RiskDetection(riskDetectionRequest);
             System.out.println(JSON.toJSONString(riskDetectionResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // async risk detection
+        try {
+            AsyncRiskDetectionRequest asyncRiskDetectionRequest = new AsyncRiskDetectionRequest();
+            asyncRiskDetectionRequest.setAppId(216455);
+            asyncRiskDetectionRequest.setService("register");
+            asyncRiskDetectionRequest.setPatameters("{\"operate_time\": 1617960951}");
+
+            AsyncRiskDetectionResponse asyncRiskDetectionResponse = businessSecurityService.AsyncRiskDetection(asyncRiskDetectionRequest);
+            System.out.println(JSON.toJSONString(asyncRiskDetectionResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // risk result
+        try {
+            RiskResultRequest riskResultRequest = new RiskResultRequest();
+            riskResultRequest.setAppId(216455);
+            riskResultRequest.setService("register");
+            riskResultRequest.setStartTime(1618848000);
+            riskResultRequest.setEndTime(1618921103);
+            riskResultRequest.setPageNum(1);
+            riskResultRequest.setPageSize(10);
+
+            RiskResultResponse riskResultResponse = businessSecurityService.RiskResult(riskResultRequest);
+            System.out.println(JSON.toJSONString(riskResultResponse));
         } catch (Exception e) {
             e.printStackTrace();
         }

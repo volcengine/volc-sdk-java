@@ -31,7 +31,7 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
         }
 
 
-        return JSON.parseObject(response.getData(), RiskResultResponse.class);
+        return JSON.parseObject(response.getData(), RiskDetectionResponse.class);
     }
 
     @Override

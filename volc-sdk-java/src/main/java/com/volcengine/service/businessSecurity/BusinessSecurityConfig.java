@@ -25,7 +25,7 @@ public class BusinessSecurityConfig {
                             add(new BasicHeader("Accept", "application/json"));
                         }
                     });
-                    put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "iam"));
+                    put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "BusinessSecurity"));
                 }
             }
     );

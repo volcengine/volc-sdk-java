@@ -65,6 +65,24 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.model.vod.response.VodGetPlayInfoResponse getPlayInfo(com.volcengine.model.vod.request.VodGetPlayInfoRequest input) throws Exception;
 	
 	/**
+     * getPrivateDrmPlayAuth.
+     *
+     * @param input com.volcengine.model.vod.request.VodGetPrivateDrmPlayAuthRequest
+     * @return com.volcengine.model.vod.response.VodGetPrivateDrmPlayAuthResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.model.vod.response.VodGetPrivateDrmPlayAuthResponse getPrivateDrmPlayAuth(com.volcengine.model.vod.request.VodGetPrivateDrmPlayAuthRequest input) throws Exception;
+	
+	/**
+     * getHlsDrmSecretKey.
+     *
+     * @param input com.volcengine.model.vod.request.VodGetHlsDrmSecretKeyRequest
+     * @return com.volcengine.model.vod.response.VodGetHlsDrmSecretKeyResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.model.vod.response.VodGetHlsDrmSecretKeyResponse getHlsDrmSecretKey(com.volcengine.model.vod.request.VodGetHlsDrmSecretKeyRequest input) throws Exception;
+	
+	/**
      * uploadMediaByUrl.
      *
      * @param input com.volcengine.model.vod.request.VodUrlUploadRequest

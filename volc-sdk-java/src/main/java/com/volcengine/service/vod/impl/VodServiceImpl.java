@@ -59,7 +59,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         String token = createAuth(dsa, expireSeconds);
 
         Map<String, String> params = new HashMap<>();
-        params.put("Token", token);
+        params.put("DrmAuthToken", token);
         return getSignUrl(com.volcengine.helper.Const.GetHlsDecryptionKey, com.volcengine.helper.Utils.mapToPairList(params));
     }
 
@@ -281,6 +281,44 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
             throw response.getException();
         }
         com.volcengine.model.vod.response.VodGetPlayInfoResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodGetPlayInfoResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * getPrivateDrmPlayAuth.
+     *
+     * @param input com.volcengine.model.vod.request.VodGetPrivateDrmPlayAuthRequest
+     * @return com.volcengine.model.vod.response.VodGetPrivateDrmPlayAuthResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.model.vod.response.VodGetPrivateDrmPlayAuthResponse getPrivateDrmPlayAuth(com.volcengine.model.vod.request.VodGetPrivateDrmPlayAuthRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetPrivateDrmPlayAuth, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.model.vod.response.VodGetPrivateDrmPlayAuthResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodGetPrivateDrmPlayAuthResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * getHlsDrmSecretKey.
+     *
+     * @param input com.volcengine.model.vod.request.VodGetHlsDrmSecretKeyRequest
+     * @return com.volcengine.model.vod.response.VodGetHlsDrmSecretKeyResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.model.vod.response.VodGetHlsDrmSecretKeyResponse getHlsDrmSecretKey(com.volcengine.model.vod.request.VodGetHlsDrmSecretKeyRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetHlsDrmSecretKey, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.model.vod.response.VodGetHlsDrmSecretKeyResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodGetHlsDrmSecretKeyResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}

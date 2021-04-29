@@ -4,6 +4,7 @@
 // DO NOT EDIT!
 
 package com.volcengine.service.vod.impl;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.google.protobuf.util.JsonFormat;
@@ -18,7 +19,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import com.github.rholder.retry.*;
-import com.volcengine.helper.*;
 
 public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl implements com.volcengine.service.vod.IVodService {
 	
@@ -117,11 +117,11 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
                 .withStopStrategy(StopStrategies.stopAfterAttempt(3))
                 .build();
 
-        if (file.length() < Const.MinChunkSize) {
+        if (file.length() < com.volcengine.helper.Const.MinChunkSize) {
             directUpload(host, oid, auth, file, retryer);
         } else {
             boolean isLargeFile = false;
-            if (file.length() > Const.LargeFileSize) {
+            if (file.length() > com.volcengine.helper.Const.LargeFileSize) {
                 isLargeFile = true;
             }
             chunkUpload(host, oid, auth, file, isLargeFile, retryer);
@@ -134,7 +134,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
     private void directUpload(String host, String oid, String auth, File file, Retryer retryer) throws Exception {
         String url = String.format("https://%s/%s", host, oid);
         byte[] bytes = Files.readAllBytes(Paths.get(file.getPath()));
-        long crc32 = Utils.crc32(bytes);
+        long crc32 = com.volcengine.helper.Utils.crc32(bytes);
         String checkSum = String.format("%08x", crc32);
         Map<String, String> headers = new HashMap<>();
         headers.put("Authorization", auth);
@@ -144,16 +144,16 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 
     private void chunkUpload(String host, String oid, String auth, File file, boolean isLargeFile, Retryer retryer) throws Exception {
         String uploadID = initUploadPart(host, oid, auth, isLargeFile, retryer);
-        byte[] data = new byte[Const.MinChunkSize];
+        byte[] data = new byte[com.volcengine.helper.Const.MinChunkSize];
         List<String> parts = new ArrayList<>();
-        long num = file.length() / Const.MinChunkSize;
+        long num = file.length() / com.volcengine.helper.Const.MinChunkSize;
         long lastNum = num - 1;
         try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file))) {
             for (long i = 0; i < lastNum; i++) {
                 bis.read(data);
                 parts.add(uploadPart(host, oid, auth, uploadID, i, data, isLargeFile, retryer));
             }
-            long readCount = (long) Const.MinChunkSize * lastNum;
+            long readCount = (long) com.volcengine.helper.Const.MinChunkSize * lastNum;
             int len = (int) (file.length() - readCount);
             byte[] lastPart = new byte[len];
             bis.read(lastPart);
@@ -187,7 +187,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         String url = String.format("http://%s/%s?partNumber=%d&uploadID=%s", host, oid, partNumber, uploadID);
         Map<String, String> headers = new HashMap<>();
         headers.put("Authorization", auth);
-        long crc32 = Utils.crc32(data);
+        long crc32 = com.volcengine.helper.Utils.crc32(data);
         String checkSum = String.format("%08x", crc32);
         headers.put("Content-CRC32", checkSum);
         if (isLargeFile) {
@@ -432,6 +432,63 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
             throw response.getException();
         }
         com.volcengine.model.vod.response.VodGetMediaListResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodGetMediaListResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * getSubtitleInfoList.
+     *
+     * @param input com.volcengine.model.vod.request.VodGetSubtitleInfoListRequest
+     * @return com.volcengine.model.vod.response.VodGetSubtitleInfoListResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.model.vod.response.VodGetSubtitleInfoListResponse getSubtitleInfoList(com.volcengine.model.vod.request.VodGetSubtitleInfoListRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetSubtitleInfoList, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.model.vod.response.VodGetSubtitleInfoListResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodGetSubtitleInfoListResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * updateSubtitleStatus.
+     *
+     * @param input com.volcengine.model.vod.request.VodUpdateSubtitleStatusRequest
+     * @return com.volcengine.model.vod.response.VodUpdateSubtitleStatusResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.model.vod.response.VodUpdateSubtitleStatusResponse updateSubtitleStatus(com.volcengine.model.vod.request.VodUpdateSubtitleStatusRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.UpdateSubtitleStatus, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.model.vod.response.VodUpdateSubtitleStatusResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodUpdateSubtitleStatusResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * updateSubtitleInfo.
+     *
+     * @param input com.volcengine.model.vod.request.VodUpdateSubtitleInfoRequest
+     * @return com.volcengine.model.vod.response.VodUpdateSubtitleInfoResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.model.vod.response.VodUpdateSubtitleInfoResponse updateSubtitleInfo(com.volcengine.model.vod.request.VodUpdateSubtitleInfoRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.UpdateSubtitleInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.model.vod.response.VodUpdateSubtitleInfoResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodUpdateSubtitleInfoResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}

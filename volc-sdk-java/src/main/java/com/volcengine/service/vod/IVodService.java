@@ -155,6 +155,33 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.model.vod.response.VodGetMediaListResponse getMediaList(com.volcengine.model.vod.request.VodGetMediaListRequest input) throws Exception;
 	
 	/**
+     * getSubtitleInfoList.
+     *
+     * @param input com.volcengine.model.vod.request.VodGetSubtitleInfoListRequest
+     * @return com.volcengine.model.vod.response.VodGetSubtitleInfoListResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.model.vod.response.VodGetSubtitleInfoListResponse getSubtitleInfoList(com.volcengine.model.vod.request.VodGetSubtitleInfoListRequest input) throws Exception;
+	
+	/**
+     * updateSubtitleStatus.
+     *
+     * @param input com.volcengine.model.vod.request.VodUpdateSubtitleStatusRequest
+     * @return com.volcengine.model.vod.response.VodUpdateSubtitleStatusResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.model.vod.response.VodUpdateSubtitleStatusResponse updateSubtitleStatus(com.volcengine.model.vod.request.VodUpdateSubtitleStatusRequest input) throws Exception;
+	
+	/**
+     * updateSubtitleInfo.
+     *
+     * @param input com.volcengine.model.vod.request.VodUpdateSubtitleInfoRequest
+     * @return com.volcengine.model.vod.response.VodUpdateSubtitleInfoResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.model.vod.response.VodUpdateSubtitleInfoResponse updateSubtitleInfo(com.volcengine.model.vod.request.VodUpdateSubtitleInfoRequest input) throws Exception;
+	
+	/**
      * StartWorkflow.
      *
      * @param input com.volcengine.model.vod.request.VodStartWorkflowRequest

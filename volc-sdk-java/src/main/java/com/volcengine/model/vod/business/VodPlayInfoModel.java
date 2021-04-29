@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
     fileType_ = "";
     playInfoList_ = java.util.Collections.emptyList();
     thumbInfoList_ = java.util.Collections.emptyList();
+    barrageMaskUrl_ = "";
   }
 
   @java.lang.Override
@@ -130,6 +131,12 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(com.volcengine.model.vod.business.VodThumbInfo.parser(), extensionRegistry));
             break;
           }
+          case 98: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            barrageMaskUrl_ = s;
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -172,7 +179,7 @@ private static final long serialVersionUID = 0L;
   private int version_;
   /**
    * <pre>
-   *数据版本
+   * 数据版本
    * </pre>
    *
    * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModelVersion Version = 10;</code>
@@ -183,7 +190,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *数据版本
+   * 数据版本
    * </pre>
    *
    * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModelVersion Version = 10;</code>
@@ -245,7 +252,7 @@ private static final long serialVersionUID = 0L;
   private int status_;
   /**
    * <pre>
-   *状态
+   * 状态
    * </pre>
    *
    * <code>int32 Status = 2;</code>
@@ -260,7 +267,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object posterUrl_;
   /**
    * <pre>
-   *封面地址
+   * 封面地址
    * </pre>
    *
    * <code>string PosterUrl = 3;</code>
@@ -281,7 +288,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *封面地址
+   * 封面地址
    * </pre>
    *
    * <code>string PosterUrl = 3;</code>
@@ -306,7 +313,7 @@ private static final long serialVersionUID = 0L;
   private float duration_;
   /**
    * <pre>
-   *播放时长(单位：s)
+   * 播放时长(单位：s)
    * </pre>
    *
    * <code>float Duration = 4;</code>
@@ -367,7 +374,7 @@ private static final long serialVersionUID = 0L;
   private boolean enableAdaptive_;
   /**
    * <pre>
-   *是否关键针对齐
+   * 是否关键针对齐
    * </pre>
    *
    * <code>bool EnableAdaptive = 6;</code>
@@ -382,7 +389,7 @@ private static final long serialVersionUID = 0L;
   private int totalCount_;
   /**
    * <pre>
-   *播放列表数量
+   * 播放列表数量
    * </pre>
    *
    * <code>int32 TotalCount = 7;</code>
@@ -435,7 +442,7 @@ private static final long serialVersionUID = 0L;
   private java.util.List<com.volcengine.model.vod.business.VodPlayInfo> playInfoList_;
   /**
    * <pre>
-   *播放列表
+   * 播放列表
    * </pre>
    *
    * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -446,7 +453,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *播放列表
+   * 播放列表
    * </pre>
    *
    * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -458,7 +465,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *播放列表
+   * 播放列表
    * </pre>
    *
    * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -469,7 +476,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *播放列表
+   * 播放列表
    * </pre>
    *
    * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -480,7 +487,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *播放列表
+   * 播放列表
    * </pre>
    *
    * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -551,6 +558,52 @@ private static final long serialVersionUID = 0L;
     return thumbInfoList_.get(index);
   }
 
+  public static final int BARRAGEMASKURL_FIELD_NUMBER = 12;
+  private volatile java.lang.Object barrageMaskUrl_;
+  /**
+   * <pre>
+   * 弹幕蒙版url
+   * </pre>
+   *
+   * <code>string BarrageMaskUrl = 12;</code>
+   * @return The barrageMaskUrl.
+   */
+  @java.lang.Override
+  public java.lang.String getBarrageMaskUrl() {
+    java.lang.Object ref = barrageMaskUrl_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      barrageMaskUrl_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 弹幕蒙版url
+   * </pre>
+   *
+   * <code>string BarrageMaskUrl = 12;</code>
+   * @return The bytes for barrageMaskUrl.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getBarrageMaskUrlBytes() {
+    java.lang.Object ref = barrageMaskUrl_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      barrageMaskUrl_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -597,6 +650,9 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < thumbInfoList_.size(); i++) {
       output.writeMessage(11, thumbInfoList_.get(i));
+    }
+    if (!getBarrageMaskUrlBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, barrageMaskUrl_);
     }
     unknownFields.writeTo(output);
   }
@@ -648,6 +704,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, thumbInfoList_.get(i));
     }
+    if (!getBarrageMaskUrlBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, barrageMaskUrl_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -688,6 +747,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPlayInfoListList())) return false;
     if (!getThumbInfoListList()
         .equals(other.getThumbInfoListList())) return false;
+    if (!getBarrageMaskUrl()
+        .equals(other.getBarrageMaskUrl())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -729,6 +790,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + THUMBINFOLIST_FIELD_NUMBER;
       hash = (53 * hash) + getThumbInfoListList().hashCode();
     }
+    hash = (37 * hash) + BARRAGEMASKURL_FIELD_NUMBER;
+    hash = (53 * hash) + getBarrageMaskUrl().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -898,6 +961,8 @@ private static final long serialVersionUID = 0L;
       } else {
         thumbInfoListBuilder_.clear();
       }
+      barrageMaskUrl_ = "";
+
       return this;
     }
 
@@ -956,6 +1021,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.thumbInfoList_ = thumbInfoListBuilder_.build();
       }
+      result.barrageMaskUrl_ = barrageMaskUrl_;
       onBuilt();
       return result;
     }
@@ -1086,6 +1152,10 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
+      if (!other.getBarrageMaskUrl().isEmpty()) {
+        barrageMaskUrl_ = other.barrageMaskUrl_;
+        onChanged();
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -1119,7 +1189,7 @@ private static final long serialVersionUID = 0L;
     private int version_ = 0;
     /**
      * <pre>
-     *数据版本
+     * 数据版本
      * </pre>
      *
      * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModelVersion Version = 10;</code>
@@ -1130,7 +1200,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *数据版本
+     * 数据版本
      * </pre>
      *
      * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModelVersion Version = 10;</code>
@@ -1145,7 +1215,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *数据版本
+     * 数据版本
      * </pre>
      *
      * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModelVersion Version = 10;</code>
@@ -1159,7 +1229,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *数据版本
+     * 数据版本
      * </pre>
      *
      * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModelVersion Version = 10;</code>
@@ -1177,7 +1247,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *数据版本
+     * 数据版本
      * </pre>
      *
      * <code>.Volcengine.Models.Vod.Business.VodPlayInfoModelVersion Version = 10;</code>
@@ -1289,7 +1359,7 @@ private static final long serialVersionUID = 0L;
     private int status_ ;
     /**
      * <pre>
-     *状态
+     * 状态
      * </pre>
      *
      * <code>int32 Status = 2;</code>
@@ -1301,7 +1371,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *状态
+     * 状态
      * </pre>
      *
      * <code>int32 Status = 2;</code>
@@ -1316,7 +1386,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *状态
+     * 状态
      * </pre>
      *
      * <code>int32 Status = 2;</code>
@@ -1332,7 +1402,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object posterUrl_ = "";
     /**
      * <pre>
-     *封面地址
+     * 封面地址
      * </pre>
      *
      * <code>string PosterUrl = 3;</code>
@@ -1352,7 +1422,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *封面地址
+     * 封面地址
      * </pre>
      *
      * <code>string PosterUrl = 3;</code>
@@ -1373,7 +1443,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *封面地址
+     * 封面地址
      * </pre>
      *
      * <code>string PosterUrl = 3;</code>
@@ -1392,7 +1462,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *封面地址
+     * 封面地址
      * </pre>
      *
      * <code>string PosterUrl = 3;</code>
@@ -1406,7 +1476,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *封面地址
+     * 封面地址
      * </pre>
      *
      * <code>string PosterUrl = 3;</code>
@@ -1428,7 +1498,7 @@ private static final long serialVersionUID = 0L;
     private float duration_ ;
     /**
      * <pre>
-     *播放时长(单位：s)
+     * 播放时长(单位：s)
      * </pre>
      *
      * <code>float Duration = 4;</code>
@@ -1440,7 +1510,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放时长(单位：s)
+     * 播放时长(单位：s)
      * </pre>
      *
      * <code>float Duration = 4;</code>
@@ -1455,7 +1525,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放时长(单位：s)
+     * 播放时长(单位：s)
      * </pre>
      *
      * <code>float Duration = 4;</code>
@@ -1567,7 +1637,7 @@ private static final long serialVersionUID = 0L;
     private boolean enableAdaptive_ ;
     /**
      * <pre>
-     *是否关键针对齐
+     * 是否关键针对齐
      * </pre>
      *
      * <code>bool EnableAdaptive = 6;</code>
@@ -1579,7 +1649,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *是否关键针对齐
+     * 是否关键针对齐
      * </pre>
      *
      * <code>bool EnableAdaptive = 6;</code>
@@ -1594,7 +1664,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *是否关键针对齐
+     * 是否关键针对齐
      * </pre>
      *
      * <code>bool EnableAdaptive = 6;</code>
@@ -1610,7 +1680,7 @@ private static final long serialVersionUID = 0L;
     private int totalCount_ ;
     /**
      * <pre>
-     *播放列表数量
+     * 播放列表数量
      * </pre>
      *
      * <code>int32 TotalCount = 7;</code>
@@ -1622,7 +1692,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表数量
+     * 播放列表数量
      * </pre>
      *
      * <code>int32 TotalCount = 7;</code>
@@ -1637,7 +1707,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表数量
+     * 播放列表数量
      * </pre>
      *
      * <code>int32 TotalCount = 7;</code>
@@ -1819,7 +1889,7 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     *播放列表
+     * 播放列表
      * </pre>
      *
      * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -1833,7 +1903,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表
+     * 播放列表
      * </pre>
      *
      * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -1847,7 +1917,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表
+     * 播放列表
      * </pre>
      *
      * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -1861,7 +1931,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表
+     * 播放列表
      * </pre>
      *
      * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -1882,7 +1952,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表
+     * 播放列表
      * </pre>
      *
      * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -1900,7 +1970,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表
+     * 播放列表
      * </pre>
      *
      * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -1920,7 +1990,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表
+     * 播放列表
      * </pre>
      *
      * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -1941,7 +2011,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表
+     * 播放列表
      * </pre>
      *
      * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -1959,7 +2029,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表
+     * 播放列表
      * </pre>
      *
      * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -1977,7 +2047,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表
+     * 播放列表
      * </pre>
      *
      * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -1996,7 +2066,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表
+     * 播放列表
      * </pre>
      *
      * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -2013,7 +2083,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表
+     * 播放列表
      * </pre>
      *
      * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -2030,7 +2100,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表
+     * 播放列表
      * </pre>
      *
      * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -2041,7 +2111,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表
+     * 播放列表
      * </pre>
      *
      * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -2055,7 +2125,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表
+     * 播放列表
      * </pre>
      *
      * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -2070,7 +2140,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表
+     * 播放列表
      * </pre>
      *
      * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -2081,7 +2151,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表
+     * 播放列表
      * </pre>
      *
      * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -2093,7 +2163,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放列表
+     * 播放列表
      * </pre>
      *
      * <code>repeated .Volcengine.Models.Vod.Business.VodPlayInfo PlayInfoList = 9;</code>
@@ -2427,6 +2497,102 @@ private static final long serialVersionUID = 0L;
         thumbInfoList_ = null;
       }
       return thumbInfoListBuilder_;
+    }
+
+    private java.lang.Object barrageMaskUrl_ = "";
+    /**
+     * <pre>
+     * 弹幕蒙版url
+     * </pre>
+     *
+     * <code>string BarrageMaskUrl = 12;</code>
+     * @return The barrageMaskUrl.
+     */
+    public java.lang.String getBarrageMaskUrl() {
+      java.lang.Object ref = barrageMaskUrl_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        barrageMaskUrl_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 弹幕蒙版url
+     * </pre>
+     *
+     * <code>string BarrageMaskUrl = 12;</code>
+     * @return The bytes for barrageMaskUrl.
+     */
+    public com.google.protobuf.ByteString
+        getBarrageMaskUrlBytes() {
+      java.lang.Object ref = barrageMaskUrl_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        barrageMaskUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 弹幕蒙版url
+     * </pre>
+     *
+     * <code>string BarrageMaskUrl = 12;</code>
+     * @param value The barrageMaskUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBarrageMaskUrl(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      barrageMaskUrl_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 弹幕蒙版url
+     * </pre>
+     *
+     * <code>string BarrageMaskUrl = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBarrageMaskUrl() {
+      
+      barrageMaskUrl_ = getDefaultInstance().getBarrageMaskUrl();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 弹幕蒙版url
+     * </pre>
+     *
+     * <code>string BarrageMaskUrl = 12;</code>
+     * @param value The bytes for barrageMaskUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBarrageMaskUrlBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      barrageMaskUrl_ = value;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

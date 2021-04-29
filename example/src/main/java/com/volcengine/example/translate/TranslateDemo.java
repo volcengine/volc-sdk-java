@@ -32,6 +32,7 @@ public class TranslateDemo {
         // translate text
         try {
             TranslateTextRequest translateTextRequest = new TranslateTextRequest();
+            // translateTextRequest.setSourceLanguage("en"); // 不设置表示自动检测
             translateTextRequest.setTargetLanguage("zh");
             translateTextRequest.setTextList(Arrays.asList("hello world", "how are you"));
 

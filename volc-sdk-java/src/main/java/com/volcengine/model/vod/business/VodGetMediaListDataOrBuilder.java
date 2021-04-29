@@ -93,7 +93,7 @@ public interface VodGetMediaListDataOrBuilder extends
 
   /**
    * <pre>
-   *分页大小 
+   *分页大小
    * </pre>
    *
    * <code>int32 PageSize = 5;</code>

@@ -45,4 +45,16 @@ public interface VodCommitUploadInfoDataOrBuilder extends
    * <code>.Volcengine.Models.Vod.Business.VodSourceInfo SourceInfo = 3;</code>
    */
   com.volcengine.model.vod.business.VodSourceInfoOrBuilder getSourceInfoOrBuilder();
+
+  /**
+   * <code>string Mid = 4;</code>
+   * @return The mid.
+   */
+  java.lang.String getMid();
+  /**
+   * <code>string Mid = 4;</code>
+   * @return The bytes for mid.
+   */
+  com.google.protobuf.ByteString
+      getMidBytes();
 }

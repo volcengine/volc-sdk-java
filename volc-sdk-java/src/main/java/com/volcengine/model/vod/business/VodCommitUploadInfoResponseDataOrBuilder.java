@@ -57,4 +57,16 @@ public interface VodCommitUploadInfoResponseDataOrBuilder extends
    */
   com.google.protobuf.ByteString
       getCallbackArgsBytes();
+
+  /**
+   * <code>string Mid = 5;</code>
+   * @return The mid.
+   */
+  java.lang.String getMid();
+  /**
+   * <code>string Mid = 5;</code>
+   * @return The bytes for mid.
+   */
+  com.google.protobuf.ByteString
+      getMidBytes();
 }

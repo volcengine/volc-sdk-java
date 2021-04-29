@@ -36,4 +36,16 @@ public interface VodApplyUploadInfoRequestOrBuilder extends
    * @return The fileSize.
    */
   double getFileSize();
+
+  /**
+   * <code>string FileType = 4;</code>
+   * @return The fileType.
+   */
+  java.lang.String getFileType();
+  /**
+   * <code>string FileType = 4;</code>
+   * @return The bytes for fileType.
+   */
+  com.google.protobuf.ByteString
+      getFileTypeBytes();
 }

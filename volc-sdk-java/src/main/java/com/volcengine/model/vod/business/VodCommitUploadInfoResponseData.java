@@ -19,6 +19,7 @@ private static final long serialVersionUID = 0L;
     vid_ = "";
     posterUri_ = "";
     callbackArgs_ = "";
+    mid_ = "";
   }
 
   @java.lang.Override
@@ -80,6 +81,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             callbackArgs_ = s;
+            break;
+          }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            mid_ = s;
             break;
           }
           default: {
@@ -254,6 +261,44 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int MID_FIELD_NUMBER = 5;
+  private volatile java.lang.Object mid_;
+  /**
+   * <code>string Mid = 5;</code>
+   * @return The mid.
+   */
+  @java.lang.Override
+  public java.lang.String getMid() {
+    java.lang.Object ref = mid_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      mid_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string Mid = 5;</code>
+   * @return The bytes for mid.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getMidBytes() {
+    java.lang.Object ref = mid_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      mid_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -280,6 +325,9 @@ private static final long serialVersionUID = 0L;
     if (!getCallbackArgsBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, callbackArgs_);
     }
+    if (!getMidBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, mid_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -301,6 +349,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!getCallbackArgsBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, callbackArgs_);
+    }
+    if (!getMidBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, mid_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -328,6 +379,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPosterUri())) return false;
     if (!getCallbackArgs()
         .equals(other.getCallbackArgs())) return false;
+    if (!getMid()
+        .equals(other.getMid())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -349,6 +402,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPosterUri().hashCode();
     hash = (37 * hash) + CALLBACKARGS_FIELD_NUMBER;
     hash = (53 * hash) + getCallbackArgs().hashCode();
+    hash = (37 * hash) + MID_FIELD_NUMBER;
+    hash = (53 * hash) + getMid().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -494,6 +549,8 @@ private static final long serialVersionUID = 0L;
 
       callbackArgs_ = "";
 
+      mid_ = "";
+
       return this;
     }
 
@@ -528,6 +585,7 @@ private static final long serialVersionUID = 0L;
       }
       result.posterUri_ = posterUri_;
       result.callbackArgs_ = callbackArgs_;
+      result.mid_ = mid_;
       onBuilt();
       return result;
     }
@@ -589,6 +647,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCallbackArgs().isEmpty()) {
         callbackArgs_ = other.callbackArgs_;
+        onChanged();
+      }
+      if (!other.getMid().isEmpty()) {
+        mid_ = other.mid_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -963,6 +1025,82 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       callbackArgs_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object mid_ = "";
+    /**
+     * <code>string Mid = 5;</code>
+     * @return The mid.
+     */
+    public java.lang.String getMid() {
+      java.lang.Object ref = mid_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        mid_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string Mid = 5;</code>
+     * @return The bytes for mid.
+     */
+    public com.google.protobuf.ByteString
+        getMidBytes() {
+      java.lang.Object ref = mid_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        mid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string Mid = 5;</code>
+     * @param value The mid to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMid(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      mid_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string Mid = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMid() {
+      
+      mid_ = getDefaultInstance().getMid();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string Mid = 5;</code>
+     * @param value The bytes for mid to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMidBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      mid_ = value;
       onChanged();
       return this;
     }

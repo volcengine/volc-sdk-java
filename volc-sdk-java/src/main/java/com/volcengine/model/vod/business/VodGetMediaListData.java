@@ -256,7 +256,7 @@ private static final long serialVersionUID = 0L;
   private int pageSize_;
   /**
    * <pre>
-   *分页大小 
+   *分页大小
    * </pre>
    *
    * <code>int32 PageSize = 5;</code>
@@ -1174,7 +1174,7 @@ private static final long serialVersionUID = 0L;
     private int pageSize_ ;
     /**
      * <pre>
-     *分页大小 
+     *分页大小
      * </pre>
      *
      * <code>int32 PageSize = 5;</code>
@@ -1186,7 +1186,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *分页大小 
+     *分页大小
      * </pre>
      *
      * <code>int32 PageSize = 5;</code>
@@ -1201,7 +1201,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *分页大小 
+     *分页大小
      * </pre>
      *
      * <code>int32 PageSize = 5;</code>

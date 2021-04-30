@@ -30,10 +30,10 @@ public final class VodRequest {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Models_Vod_Request_VodGetPrivateDrmPlayAuthRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Volcengine_Models_Vod_Request_VodGetHlsDrmSecretKeyRequest_descriptor;
+    internal_static_Volcengine_Models_Vod_Request_VodGetHlsDecryptionKeyRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Volcengine_Models_Vod_Request_VodGetHlsDrmSecretKeyRequest_fieldAccessorTable;
+      internal_static_Volcengine_Models_Vod_Request_VodGetHlsDecryptionKeyRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Models_Vod_Request_VodUrlUploadRequest_descriptor;
   static final 
@@ -121,44 +121,44 @@ public final class VodRequest {
       "oRequest\022\013\n\003Vid\030\001 \001(\t\022\016\n\006Base64\030\002 \001(\t\022\013\n" +
       "\003Ssl\030\003 \001(\t\"T\n\037VodGetPrivateDrmPlayAuthRe" +
       "quest\022\017\n\007DrmType\030\001 \001(\t\022\013\n\003Vid\030\002 \001(\t\022\023\n\013P" +
-      "layAuthIds\030\003 \001(\t\"P\n\034VodGetHlsDrmSecretKe" +
-      "yRequest\022\024\n\014DrmAuthToken\030\001 \001(\t\022\n\n\002Ak\030\002 \001" +
-      "(\t\022\016\n\006Source\030\003 \001(\t\"m\n\023VodUrlUploadReques" +
-      "t\022\021\n\tSpaceName\030\001 \001(\t\022C\n\007URLSets\030\002 \003(\01322." +
-      "Volcengine.Models.Vod.Business.VodUrlUpl" +
-      "oadURLSet\"/\n\035VodQueryUploadTaskInfoReque" +
-      "st\022\016\n\006JobIds\030\001 \001(\t\"T\n\031VodApplyUploadInfo" +
-      "Request\022\021\n\tSpaceName\030\001 \001(\t\022\022\n\nSessionKey" +
-      "\030\002 \001(\t\022\020\n\010FileSize\030\003 \001(\001\"e\n\025VodUploadMed" +
-      "iaRequest\022\021\n\tSpaceName\030\001 \001(\t\022\020\n\010FilePath" +
-      "\030\002 \001(\t\022\024\n\014CallbackArgs\030\003 \001(\t\022\021\n\tFunction" +
-      "s\030\004 \001(\t\"l\n\032VodCommitUploadInfoRequest\022\021\n" +
-      "\tSpaceName\030\001 \001(\t\022\022\n\nSessionKey\030\002 \001(\t\022\024\n\014" +
-      "CallbackArgs\030\003 \001(\t\022\021\n\tFunctions\030\004 \001(\t\"=\n" +
-      "\027VodUrlUploadJsonRequest\022\021\n\tSpaceName\030\001 " +
-      "\001(\t\022\017\n\007URLSets\030\002 \001(\t\".\n\036VodGetRecommende" +
-      "dPosterRequest\022\014\n\004Vids\030\001 \001(\t\"A\n\"VodUpdat" +
-      "eMediaPublishStatusRequest\022\013\n\003Vid\030\001 \001(\t\022" +
-      "\016\n\006Status\030\002 \001(\t\"\345\001\n\031VodUpdateMediaInfoRe" +
-      "quest\022\013\n\003Vid\030\001 \001(\t\022/\n\tPosterUri\030\002 \001(\0132\034." +
-      "google.protobuf.StringValue\022+\n\005Title\030\003 \001" +
-      "(\0132\034.google.protobuf.StringValue\0221\n\013Desc" +
-      "ription\030\004 \001(\0132\034.google.protobuf.StringVa" +
-      "lue\022*\n\004Tags\030\005 \001(\0132\034.google.protobuf.Stri" +
-      "ngValue\"\'\n\027VodGetMediaInfosRequest\022\014\n\004Vi" +
-      "ds\030\001 \001(\t\";\n\025VodDeleteMediaRequest\022\014\n\004Vid" +
-      "s\030\001 \001(\t\022\024\n\014CallbackArgs\030\002 \001(\t\"P\n\032VodDele" +
-      "teTranscodesRequest\022\013\n\003Vid\030\001 \001(\t\022\017\n\007File" +
-      "Ids\030\002 \001(\t\022\024\n\014CallbackArgs\030\003 \001(\t\"\241\001\n\027VodS" +
-      "tartWorkflowRequest\022\013\n\003Vid\030\001 \001(\t\022\022\n\nTemp" +
-      "lateId\030\002 \001(\t\022=\n\005Input\030\003 \001(\0132..Volcengine" +
-      ".Models.Vod.Business.WorkflowParams\022\020\n\010P" +
-      "riority\030\004 \001(\005\022\024\n\014CallbackArgs\030\005 \001(\tB\250\001\n " +
-      "com.volcengine.model.vod.requestB\nVodReq" +
-      "uestP\001Z8github.com/volcengine/volc-sdk-g" +
-      "olang/models/vod/request\240\001\001\330\001\001\312\002\027Volc\\Mo" +
-      "dels\\Vod\\Request\342\002\033Volc\\Models\\Vod\\GPBMe" +
-      "tadatab\006proto3"
+      "layAuthIds\030\003 \001(\t\"Q\n\035VodGetHlsDecryptionK" +
+      "eyRequest\022\024\n\014DrmAuthToken\030\001 \001(\t\022\n\n\002Ak\030\002 " +
+      "\001(\t\022\016\n\006Source\030\003 \001(\t\"m\n\023VodUrlUploadReque" +
+      "st\022\021\n\tSpaceName\030\001 \001(\t\022C\n\007URLSets\030\002 \003(\01322" +
+      ".Volcengine.Models.Vod.Business.VodUrlUp" +
+      "loadURLSet\"/\n\035VodQueryUploadTaskInfoRequ" +
+      "est\022\016\n\006JobIds\030\001 \001(\t\"T\n\031VodApplyUploadInf" +
+      "oRequest\022\021\n\tSpaceName\030\001 \001(\t\022\022\n\nSessionKe" +
+      "y\030\002 \001(\t\022\020\n\010FileSize\030\003 \001(\001\"e\n\025VodUploadMe" +
+      "diaRequest\022\021\n\tSpaceName\030\001 \001(\t\022\020\n\010FilePat" +
+      "h\030\002 \001(\t\022\024\n\014CallbackArgs\030\003 \001(\t\022\021\n\tFunctio" +
+      "ns\030\004 \001(\t\"l\n\032VodCommitUploadInfoRequest\022\021" +
+      "\n\tSpaceName\030\001 \001(\t\022\022\n\nSessionKey\030\002 \001(\t\022\024\n" +
+      "\014CallbackArgs\030\003 \001(\t\022\021\n\tFunctions\030\004 \001(\t\"=" +
+      "\n\027VodUrlUploadJsonRequest\022\021\n\tSpaceName\030\001" +
+      " \001(\t\022\017\n\007URLSets\030\002 \001(\t\".\n\036VodGetRecommend" +
+      "edPosterRequest\022\014\n\004Vids\030\001 \001(\t\"A\n\"VodUpda" +
+      "teMediaPublishStatusRequest\022\013\n\003Vid\030\001 \001(\t" +
+      "\022\016\n\006Status\030\002 \001(\t\"\345\001\n\031VodUpdateMediaInfoR" +
+      "equest\022\013\n\003Vid\030\001 \001(\t\022/\n\tPosterUri\030\002 \001(\0132\034" +
+      ".google.protobuf.StringValue\022+\n\005Title\030\003 " +
+      "\001(\0132\034.google.protobuf.StringValue\0221\n\013Des" +
+      "cription\030\004 \001(\0132\034.google.protobuf.StringV" +
+      "alue\022*\n\004Tags\030\005 \001(\0132\034.google.protobuf.Str" +
+      "ingValue\"\'\n\027VodGetMediaInfosRequest\022\014\n\004V" +
+      "ids\030\001 \001(\t\";\n\025VodDeleteMediaRequest\022\014\n\004Vi" +
+      "ds\030\001 \001(\t\022\024\n\014CallbackArgs\030\002 \001(\t\"P\n\032VodDel" +
+      "eteTranscodesRequest\022\013\n\003Vid\030\001 \001(\t\022\017\n\007Fil" +
+      "eIds\030\002 \001(\t\022\024\n\014CallbackArgs\030\003 \001(\t\"\241\001\n\027Vod" +
+      "StartWorkflowRequest\022\013\n\003Vid\030\001 \001(\t\022\022\n\nTem" +
+      "plateId\030\002 \001(\t\022=\n\005Input\030\003 \001(\0132..Volcengin" +
+      "e.Models.Vod.Business.WorkflowParams\022\020\n\010" +
+      "Priority\030\004 \001(\005\022\024\n\014CallbackArgs\030\005 \001(\tB\250\001\n" +
+      " com.volcengine.model.vod.requestB\nVodRe" +
+      "questP\001Z8github.com/volcengine/volc-sdk-" +
+      "golang/models/vod/request\240\001\001\330\001\001\312\002\027Volc\\M" +
+      "odels\\Vod\\Request\342\002\033Volc\\Models\\Vod\\GPBM" +
+      "etadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -185,11 +185,11 @@ public final class VodRequest {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Models_Vod_Request_VodGetPrivateDrmPlayAuthRequest_descriptor,
         new java.lang.String[] { "DrmType", "Vid", "PlayAuthIds", });
-    internal_static_Volcengine_Models_Vod_Request_VodGetHlsDrmSecretKeyRequest_descriptor =
+    internal_static_Volcengine_Models_Vod_Request_VodGetHlsDecryptionKeyRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_Volcengine_Models_Vod_Request_VodGetHlsDrmSecretKeyRequest_fieldAccessorTable = new
+    internal_static_Volcengine_Models_Vod_Request_VodGetHlsDecryptionKeyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Volcengine_Models_Vod_Request_VodGetHlsDrmSecretKeyRequest_descriptor,
+        internal_static_Volcengine_Models_Vod_Request_VodGetHlsDecryptionKeyRequest_descriptor,
         new java.lang.String[] { "DrmAuthToken", "Ak", "Source", });
     internal_static_Volcengine_Models_Vod_Request_VodUrlUploadRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);

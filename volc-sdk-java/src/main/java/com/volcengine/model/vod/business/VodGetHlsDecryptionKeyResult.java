@@ -4,18 +4,18 @@
 package com.volcengine.model.vod.business;
 
 /**
- * Protobuf type {@code Volcengine.Models.Vod.Business.VodGetHlsDrmSecretKeyResult}
+ * Protobuf type {@code Volcengine.Models.Vod.Business.VodGetHlsDecryptionKeyResult}
  */
-public final class VodGetHlsDrmSecretKeyResult extends
+public final class VodGetHlsDecryptionKeyResult extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Volcengine.Models.Vod.Business.VodGetHlsDrmSecretKeyResult)
-    VodGetHlsDrmSecretKeyResultOrBuilder {
+    // @@protoc_insertion_point(message_implements:Volcengine.Models.Vod.Business.VodGetHlsDecryptionKeyResult)
+    VodGetHlsDecryptionKeyResultOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use VodGetHlsDrmSecretKeyResult.newBuilder() to construct.
-  private VodGetHlsDrmSecretKeyResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use VodGetHlsDecryptionKeyResult.newBuilder() to construct.
+  private VodGetHlsDecryptionKeyResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private VodGetHlsDrmSecretKeyResult() {
+  private VodGetHlsDecryptionKeyResult() {
     secretKey_ = "";
   }
 
@@ -23,7 +23,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new VodGetHlsDrmSecretKeyResult();
+    return new VodGetHlsDecryptionKeyResult();
   }
 
   @java.lang.Override
@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VodGetHlsDrmSecretKeyResult(
+  private VodGetHlsDecryptionKeyResult(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -76,15 +76,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.volcengine.model.vod.business.VodPlay.internal_static_Volcengine_Models_Vod_Business_VodGetHlsDrmSecretKeyResult_descriptor;
+    return com.volcengine.model.vod.business.VodPlay.internal_static_Volcengine_Models_Vod_Business_VodGetHlsDecryptionKeyResult_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.volcengine.model.vod.business.VodPlay.internal_static_Volcengine_Models_Vod_Business_VodGetHlsDrmSecretKeyResult_fieldAccessorTable
+    return com.volcengine.model.vod.business.VodPlay.internal_static_Volcengine_Models_Vod_Business_VodGetHlsDecryptionKeyResult_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult.class, com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult.Builder.class);
+            com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult.class, com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult.Builder.class);
   }
 
   public static final int SECRETKEY_FIELD_NUMBER = 1;
@@ -172,10 +172,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult)) {
+    if (!(obj instanceof com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult)) {
       return super.equals(obj);
     }
-    com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult other = (com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult) obj;
+    com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult other = (com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult) obj;
 
     if (!getSecretKey()
         .equals(other.getSecretKey())) return false;
@@ -197,69 +197,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult parseFrom(
+  public static com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult parseFrom(
+  public static com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult parseFrom(
+  public static com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult parseFrom(
+  public static com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult parseFrom(byte[] data)
+  public static com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult parseFrom(
+  public static com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult parseFrom(java.io.InputStream input)
+  public static com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult parseFrom(
+  public static com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult parseDelimitedFrom(
+  public static com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult parseFrom(
+  public static com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult parseFrom(
+  public static com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -272,7 +272,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult prototype) {
+  public static Builder newBuilder(com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -288,26 +288,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code Volcengine.Models.Vod.Business.VodGetHlsDrmSecretKeyResult}
+   * Protobuf type {@code Volcengine.Models.Vod.Business.VodGetHlsDecryptionKeyResult}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Volcengine.Models.Vod.Business.VodGetHlsDrmSecretKeyResult)
-      com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResultOrBuilder {
+      // @@protoc_insertion_point(builder_implements:Volcengine.Models.Vod.Business.VodGetHlsDecryptionKeyResult)
+      com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResultOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.volcengine.model.vod.business.VodPlay.internal_static_Volcengine_Models_Vod_Business_VodGetHlsDrmSecretKeyResult_descriptor;
+      return com.volcengine.model.vod.business.VodPlay.internal_static_Volcengine_Models_Vod_Business_VodGetHlsDecryptionKeyResult_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.volcengine.model.vod.business.VodPlay.internal_static_Volcengine_Models_Vod_Business_VodGetHlsDrmSecretKeyResult_fieldAccessorTable
+      return com.volcengine.model.vod.business.VodPlay.internal_static_Volcengine_Models_Vod_Business_VodGetHlsDecryptionKeyResult_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult.class, com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult.Builder.class);
+              com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult.class, com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult.Builder.class);
     }
 
-    // Construct using com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult.newBuilder()
+    // Construct using com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -333,17 +333,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.volcengine.model.vod.business.VodPlay.internal_static_Volcengine_Models_Vod_Business_VodGetHlsDrmSecretKeyResult_descriptor;
+      return com.volcengine.model.vod.business.VodPlay.internal_static_Volcengine_Models_Vod_Business_VodGetHlsDecryptionKeyResult_descriptor;
     }
 
     @java.lang.Override
-    public com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult getDefaultInstanceForType() {
-      return com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult.getDefaultInstance();
+    public com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult getDefaultInstanceForType() {
+      return com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult build() {
-      com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult result = buildPartial();
+    public com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult build() {
+      com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -351,8 +351,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult buildPartial() {
-      com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult result = new com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult(this);
+    public com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult buildPartial() {
+      com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult result = new com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult(this);
       result.secretKey_ = secretKey_;
       onBuilt();
       return result;
@@ -392,16 +392,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult) {
-        return mergeFrom((com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult)other);
+      if (other instanceof com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult) {
+        return mergeFrom((com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult other) {
-      if (other == com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult other) {
+      if (other == com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult.getDefaultInstance()) return this;
       if (!other.getSecretKey().isEmpty()) {
         secretKey_ = other.secretKey_;
         onChanged();
@@ -421,11 +421,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult parsedMessage = null;
+      com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -543,41 +543,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:Volcengine.Models.Vod.Business.VodGetHlsDrmSecretKeyResult)
+    // @@protoc_insertion_point(builder_scope:Volcengine.Models.Vod.Business.VodGetHlsDecryptionKeyResult)
   }
 
-  // @@protoc_insertion_point(class_scope:Volcengine.Models.Vod.Business.VodGetHlsDrmSecretKeyResult)
-  private static final com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:Volcengine.Models.Vod.Business.VodGetHlsDecryptionKeyResult)
+  private static final com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult();
+    DEFAULT_INSTANCE = new com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult();
   }
 
-  public static com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult getDefaultInstance() {
+  public static com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<VodGetHlsDrmSecretKeyResult>
-      PARSER = new com.google.protobuf.AbstractParser<VodGetHlsDrmSecretKeyResult>() {
+  private static final com.google.protobuf.Parser<VodGetHlsDecryptionKeyResult>
+      PARSER = new com.google.protobuf.AbstractParser<VodGetHlsDecryptionKeyResult>() {
     @java.lang.Override
-    public VodGetHlsDrmSecretKeyResult parsePartialFrom(
+    public VodGetHlsDecryptionKeyResult parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VodGetHlsDrmSecretKeyResult(input, extensionRegistry);
+      return new VodGetHlsDecryptionKeyResult(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<VodGetHlsDrmSecretKeyResult> parser() {
+  public static com.google.protobuf.Parser<VodGetHlsDecryptionKeyResult> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<VodGetHlsDrmSecretKeyResult> getParserForType() {
+  public com.google.protobuf.Parser<VodGetHlsDecryptionKeyResult> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult getDefaultInstanceForType() {
+  public com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

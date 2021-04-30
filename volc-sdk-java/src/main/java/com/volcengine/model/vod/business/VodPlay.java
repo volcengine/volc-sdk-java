@@ -35,10 +35,10 @@ public final class VodPlay {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Models_Vod_Business_VodGetPrivateDrmPlayAuthResult_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Volcengine_Models_Vod_Business_VodGetHlsDrmSecretKeyResult_descriptor;
+    internal_static_Volcengine_Models_Vod_Business_VodGetHlsDecryptionKeyResult_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Volcengine_Models_Vod_Business_VodGetHlsDrmSecretKeyResult_fieldAccessorTable;
+      internal_static_Volcengine_Models_Vod_Business_VodGetHlsDecryptionKeyResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -71,19 +71,19 @@ public final class VodPlay {
       "ayAuthId\030\001 \001(\t\022\027\n\017PlayAuthContent\030\002 \001(\t\"" +
       "u\n\036VodGetPrivateDrmPlayAuthResult\022S\n\020Pla" +
       "yAuthInfoList\030\001 \003(\01329.Volcengine.Models." +
-      "Vod.Business.VodPrivateDrmPlayAuthInfo\"0" +
-      "\n\033VodGetHlsDrmSecretKeyResult\022\021\n\tSecretK" +
-      "ey\030\001 \001(\t*\326\001\n\027VodPlayInfoModelVersion\022$\n " +
-      "UndefinedVodPlayInfoModelVersion\020\000\022%\n!In" +
-      "ternalV1VodPlayInfoModelVersion\020\001\022%\n!Int" +
-      "ernalV2VodPlayInfoModelVersion\020\002\022%\n!Inte" +
-      "rnalV3VodPlayInfoModelVersion\020\003\022 \n\034ToBV1" +
-      "VodPlayInfoModelVersion\020\004B\253\001\n!com.volcen" +
-      "gine.model.vod.businessB\007VodPlayP\001Z9gith" +
-      "ub.com/volcengine/volc-sdk-golang/models" +
-      "/vod/business\240\001\001\330\001\001\302\002\000\312\002\030Volc\\Models\\Vod" +
-      "\\Business\342\002\033Volc\\Models\\Vod\\GPBMetadatab" +
-      "\006proto3"
+      "Vod.Business.VodPrivateDrmPlayAuthInfo\"1" +
+      "\n\034VodGetHlsDecryptionKeyResult\022\021\n\tSecret" +
+      "Key\030\001 \001(\t*\326\001\n\027VodPlayInfoModelVersion\022$\n" +
+      " UndefinedVodPlayInfoModelVersion\020\000\022%\n!I" +
+      "nternalV1VodPlayInfoModelVersion\020\001\022%\n!In" +
+      "ternalV2VodPlayInfoModelVersion\020\002\022%\n!Int" +
+      "ernalV3VodPlayInfoModelVersion\020\003\022 \n\034ToBV" +
+      "1VodPlayInfoModelVersion\020\004B\253\001\n!com.volce" +
+      "ngine.model.vod.businessB\007VodPlayP\001Z9git" +
+      "hub.com/volcengine/volc-sdk-golang/model" +
+      "s/vod/business\240\001\001\330\001\001\302\002\000\312\002\030Volc\\Models\\Vo" +
+      "d\\Business\342\002\033Volc\\Models\\Vod\\GPBMetadata" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -114,11 +114,11 @@ public final class VodPlay {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Models_Vod_Business_VodGetPrivateDrmPlayAuthResult_descriptor,
         new java.lang.String[] { "PlayAuthInfoList", });
-    internal_static_Volcengine_Models_Vod_Business_VodGetHlsDrmSecretKeyResult_descriptor =
+    internal_static_Volcengine_Models_Vod_Business_VodGetHlsDecryptionKeyResult_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_Volcengine_Models_Vod_Business_VodGetHlsDrmSecretKeyResult_fieldAccessorTable = new
+    internal_static_Volcengine_Models_Vod_Business_VodGetHlsDecryptionKeyResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Volcengine_Models_Vod_Business_VodGetHlsDrmSecretKeyResult_descriptor,
+        internal_static_Volcengine_Models_Vod_Business_VodGetHlsDecryptionKeyResult_descriptor,
         new java.lang.String[] { "SecretKey", });
     com.volcengine.model.vod.business.VodCommon.getDescriptor();
   }

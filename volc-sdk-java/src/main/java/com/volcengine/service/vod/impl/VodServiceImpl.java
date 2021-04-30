@@ -308,19 +308,19 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 	
 	
 	/**
-     * getHlsDrmSecretKey.
+     * getHlsDecryptionKey.
      *
-     * @param input com.volcengine.model.vod.request.VodGetHlsDrmSecretKeyRequest
-     * @return com.volcengine.model.vod.response.VodGetHlsDrmSecretKeyResponse
+     * @param input com.volcengine.model.vod.request.VodGetHlsDecryptionKeyRequest
+     * @return com.volcengine.model.vod.response.VodGetHlsDecryptionKeyResponse
      * @throws Exception the exception
      */
 	@Override
-	public com.volcengine.model.vod.response.VodGetHlsDrmSecretKeyResponse getHlsDrmSecretKey(com.volcengine.model.vod.request.VodGetHlsDrmSecretKeyRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetHlsDrmSecretKey, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+	public com.volcengine.model.vod.response.VodGetHlsDecryptionKeyResponse getHlsDecryptionKey(com.volcengine.model.vod.request.VodGetHlsDecryptionKeyRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetHlsDecryptionKey, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        com.volcengine.model.vod.response.VodGetHlsDrmSecretKeyResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodGetHlsDrmSecretKeyResponse.newBuilder();
+        com.volcengine.model.vod.response.VodGetHlsDecryptionKeyResponse.Builder responseBuilder = com.volcengine.model.vod.response.VodGetHlsDecryptionKeyResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}

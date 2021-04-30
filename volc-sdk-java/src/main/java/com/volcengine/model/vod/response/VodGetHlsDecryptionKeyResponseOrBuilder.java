@@ -3,8 +3,8 @@
 
 package com.volcengine.model.vod.response;
 
-public interface VodGetHlsDrmSecretKeyResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:Volcengine.Models.Vod.Response.VodGetHlsDrmSecretKeyResponse)
+public interface VodGetHlsDecryptionKeyResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:Volcengine.Models.Vod.Response.VodGetHlsDecryptionKeyResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -39,7 +39,7 @@ public interface VodGetHlsDrmSecretKeyResponseOrBuilder extends
    * 响应结果
    * </pre>
    *
-   * <code>.Volcengine.Models.Vod.Business.VodGetHlsDrmSecretKeyResult Result = 2;</code>
+   * <code>.Volcengine.Models.Vod.Business.VodGetHlsDecryptionKeyResult Result = 2;</code>
    * @return Whether the result field is set.
    */
   boolean hasResult();
@@ -48,16 +48,16 @@ public interface VodGetHlsDrmSecretKeyResponseOrBuilder extends
    * 响应结果
    * </pre>
    *
-   * <code>.Volcengine.Models.Vod.Business.VodGetHlsDrmSecretKeyResult Result = 2;</code>
+   * <code>.Volcengine.Models.Vod.Business.VodGetHlsDecryptionKeyResult Result = 2;</code>
    * @return The result.
    */
-  com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResult getResult();
+  com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResult getResult();
   /**
    * <pre>
    * 响应结果
    * </pre>
    *
-   * <code>.Volcengine.Models.Vod.Business.VodGetHlsDrmSecretKeyResult Result = 2;</code>
+   * <code>.Volcengine.Models.Vod.Business.VodGetHlsDecryptionKeyResult Result = 2;</code>
    */
-  com.volcengine.model.vod.business.VodGetHlsDrmSecretKeyResultOrBuilder getResultOrBuilder();
+  com.volcengine.model.vod.business.VodGetHlsDecryptionKeyResultOrBuilder getResultOrBuilder();
 }

@@ -3,8 +3,8 @@
 
 package com.volcengine.model.vod.business;
 
-public interface VodGetHlsDrmSecretKeyResultOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:Volcengine.Models.Vod.Business.VodGetHlsDrmSecretKeyResult)
+public interface VodGetHlsDecryptionKeyResultOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:Volcengine.Models.Vod.Business.VodGetHlsDecryptionKeyResult)
     com.google.protobuf.MessageOrBuilder {
 
   /**

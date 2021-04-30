@@ -55,6 +55,13 @@ public interface IBaseService {
     void setRegion(String region);
 
     /**
+     * Gets region.
+     *
+     * @return the region
+     */
+    String getRegion();
+
+    /**
      * Sets host.
      *
      * @param host the host

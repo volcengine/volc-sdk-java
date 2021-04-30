@@ -77,9 +77,11 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         df.setTimeZone(tz);
         String deadlineDate = df.format(new Date(deadline * 1000));
         String timestamp = String.valueOf(deadline);
-        byte[] key1 = com.volcengine.helper.Utils.hmacSHA256(getSecretKey().getBytes(), deadlineDate);
-        byte[] key2 = com.volcengine.helper.Utils.hmacSHA256(key1, "vod");
-        String key = Hex.encodeHexString(key2);
+        byte[] kDate = com.volcengine.helper.Utils.hmacSHA256(getSecretKey().getBytes(), deadlineDate);
+        byte[] kRegion = com.volcengine.helper.Utils.hmacSHA256(kDate, getRegion());
+        byte[] kService = com.volcengine.helper.Utils.hmacSHA256(kRegion, "vod");
+        byte[] kCredentials = com.volcengine.helper.Utils.hmacSHA256(kService, "request");
+        String key = Hex.encodeHexString(kCredentials);
         String signDataString = StringUtils.join(dsa, "&", "2.0", "&", timestamp);
         String sign = "";
         switch (dsa) {

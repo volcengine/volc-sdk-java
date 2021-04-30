@@ -385,6 +385,12 @@ public abstract class BaseServiceImpl implements IBaseService {
         serviceInfo.getCredentials().setRegion(region);
     }
 
+
+    @Override
+    public String getRegion() {
+        return serviceInfo.getCredentials().getRegion();
+    }
+
     @Override
     public void setHost(String host) {
         serviceInfo.setHost(host);

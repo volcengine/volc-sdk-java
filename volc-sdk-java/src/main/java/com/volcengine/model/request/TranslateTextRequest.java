@@ -7,8 +7,12 @@ import java.util.List;
 
 @Data
 public class TranslateTextRequest {
+    @JSONField(name = "SourceLanguage")
+    String sourceLanguage;
+
     @JSONField(name = "TargetLanguage")
-    String TargetLanguage;
+    String targetLanguage;
+
     @JSONField(name = "TextList")
     List<String> textList;
 }

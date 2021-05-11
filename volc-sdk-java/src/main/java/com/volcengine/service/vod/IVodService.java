@@ -26,7 +26,7 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @return the play auth token
      * @throws Exception the exception
      */
-    String getPlayAuthToken(com.volcengine.model.vod.request.VodGetPlayInfoRequest input, Long expireSeconds) throws Exception;
+    String getPlayAuthToken(com.volcengine.service.vod.model.request.VodGetPlayInfoRequest input, Long expireSeconds) throws Exception;
 
     /**
      * Get Upload Sts2 token.
@@ -48,137 +48,137 @@ public interface IVodService extends com.volcengine.service.IBaseService {
     /**
      * uploadMedia
      *
-     * @param vodUploadMediaRequest com.volcengine.model.vod.request.VodUploadMediaRequest
-     * @return com.volcengine.model.vod.response.VodCommitUploadInfoResponse
+     * @param vodUploadMediaRequest com.volcengine.service.vod.model.request.VodUploadMediaRequest
+     * @return com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse
      * @throws Exception the exception
      */
-    com.volcengine.model.vod.response.VodCommitUploadInfoResponse uploadMedia(com.volcengine.model.vod.request.VodUploadMediaRequest vodUploadMediaRequest) throws Exception;
+    com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadMedia(com.volcengine.service.vod.model.request.VodUploadMediaRequest vodUploadMediaRequest) throws Exception;
 
 
 	/**
      * getPlayInfo.
      *
-     * @param input com.volcengine.model.vod.request.VodGetPlayInfoRequest
-     * @return com.volcengine.model.vod.response.VodGetPlayInfoResponse
+     * @param input com.volcengine.service.vod.model.request.VodGetPlayInfoRequest
+     * @return com.volcengine.service.vod.model.response.VodGetPlayInfoResponse
      * @throws Exception the exception
      */
-	com.volcengine.model.vod.response.VodGetPlayInfoResponse getPlayInfo(com.volcengine.model.vod.request.VodGetPlayInfoRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodGetPlayInfoResponse getPlayInfo(com.volcengine.service.vod.model.request.VodGetPlayInfoRequest input) throws Exception;
 	
 	/**
      * getPrivateDrmPlayAuth.
      *
-     * @param input com.volcengine.model.vod.request.VodGetPrivateDrmPlayAuthRequest
-     * @return com.volcengine.model.vod.response.VodGetPrivateDrmPlayAuthResponse
+     * @param input com.volcengine.service.vod.model.request.VodGetPrivateDrmPlayAuthRequest
+     * @return com.volcengine.service.vod.model.response.VodGetPrivateDrmPlayAuthResponse
      * @throws Exception the exception
      */
-	com.volcengine.model.vod.response.VodGetPrivateDrmPlayAuthResponse getPrivateDrmPlayAuth(com.volcengine.model.vod.request.VodGetPrivateDrmPlayAuthRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodGetPrivateDrmPlayAuthResponse getPrivateDrmPlayAuth(com.volcengine.service.vod.model.request.VodGetPrivateDrmPlayAuthRequest input) throws Exception;
 	
 	/**
      * getHlsDecryptionKey.
      *
-     * @param input com.volcengine.model.vod.request.VodGetHlsDecryptionKeyRequest
-     * @return com.volcengine.model.vod.response.VodGetHlsDecryptionKeyResponse
+     * @param input com.volcengine.service.vod.model.request.VodGetHlsDecryptionKeyRequest
+     * @return com.volcengine.service.vod.model.response.VodGetHlsDecryptionKeyResponse
      * @throws Exception the exception
      */
-	com.volcengine.model.vod.response.VodGetHlsDecryptionKeyResponse getHlsDecryptionKey(com.volcengine.model.vod.request.VodGetHlsDecryptionKeyRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodGetHlsDecryptionKeyResponse getHlsDecryptionKey(com.volcengine.service.vod.model.request.VodGetHlsDecryptionKeyRequest input) throws Exception;
 	
 	/**
      * uploadMediaByUrl.
      *
-     * @param input com.volcengine.model.vod.request.VodUrlUploadRequest
-     * @return com.volcengine.model.vod.response.VodUrlUploadResponse
+     * @param input com.volcengine.service.vod.model.request.VodUrlUploadRequest
+     * @return com.volcengine.service.vod.model.response.VodUrlUploadResponse
      * @throws Exception the exception
      */
-	com.volcengine.model.vod.response.VodUrlUploadResponse uploadMediaByUrl(com.volcengine.model.vod.request.VodUrlUploadRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodUrlUploadResponse uploadMediaByUrl(com.volcengine.service.vod.model.request.VodUrlUploadRequest input) throws Exception;
 	
 	/**
      * queryUploadTaskInfo.
      *
-     * @param input com.volcengine.model.vod.request.VodQueryUploadTaskInfoRequest
-     * @return com.volcengine.model.vod.response.VodQueryUploadTaskInfoResponse
+     * @param input com.volcengine.service.vod.model.request.VodQueryUploadTaskInfoRequest
+     * @return com.volcengine.service.vod.model.response.VodQueryUploadTaskInfoResponse
      * @throws Exception the exception
      */
-	com.volcengine.model.vod.response.VodQueryUploadTaskInfoResponse queryUploadTaskInfo(com.volcengine.model.vod.request.VodQueryUploadTaskInfoRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodQueryUploadTaskInfoResponse queryUploadTaskInfo(com.volcengine.service.vod.model.request.VodQueryUploadTaskInfoRequest input) throws Exception;
 	
 	/**
      * applyUploadInfo.
      *
-     * @param input com.volcengine.model.vod.request.VodApplyUploadInfoRequest
-     * @return com.volcengine.model.vod.response.VodApplyUploadInfoResponse
+     * @param input com.volcengine.service.vod.model.request.VodApplyUploadInfoRequest
+     * @return com.volcengine.service.vod.model.response.VodApplyUploadInfoResponse
      * @throws Exception the exception
      */
-	com.volcengine.model.vod.response.VodApplyUploadInfoResponse applyUploadInfo(com.volcengine.model.vod.request.VodApplyUploadInfoRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodApplyUploadInfoResponse applyUploadInfo(com.volcengine.service.vod.model.request.VodApplyUploadInfoRequest input) throws Exception;
 	
 	/**
      * commitUploadInfo.
      *
-     * @param input com.volcengine.model.vod.request.VodCommitUploadInfoRequest
-     * @return com.volcengine.model.vod.response.VodCommitUploadInfoResponse
+     * @param input com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest
+     * @return com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse
      * @throws Exception the exception
      */
-	com.volcengine.model.vod.response.VodCommitUploadInfoResponse commitUploadInfo(com.volcengine.model.vod.request.VodCommitUploadInfoRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse commitUploadInfo(com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest input) throws Exception;
 	
 	/**
      * updateMediaInfo.
      *
-     * @param input com.volcengine.model.vod.request.VodUpdateMediaInfoRequest
-     * @return com.volcengine.model.vod.response.VodUpdateMediaInfoResponse
+     * @param input com.volcengine.service.vod.model.request.VodUpdateMediaInfoRequest
+     * @return com.volcengine.service.vod.model.response.VodUpdateMediaInfoResponse
      * @throws Exception the exception
      */
-	com.volcengine.model.vod.response.VodUpdateMediaInfoResponse updateMediaInfo(com.volcengine.model.vod.request.VodUpdateMediaInfoRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodUpdateMediaInfoResponse updateMediaInfo(com.volcengine.service.vod.model.request.VodUpdateMediaInfoRequest input) throws Exception;
 	
 	/**
      * updateMediaPublishStatus.
      *
-     * @param input com.volcengine.model.vod.request.VodUpdateMediaPublishStatusRequest
-     * @return com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse
+     * @param input com.volcengine.service.vod.model.request.VodUpdateMediaPublishStatusRequest
+     * @return com.volcengine.service.vod.model.response.VodUpdateMediaPublishStatusResponse
      * @throws Exception the exception
      */
-	com.volcengine.model.vod.response.VodUpdateMediaPublishStatusResponse updateMediaPublishStatus(com.volcengine.model.vod.request.VodUpdateMediaPublishStatusRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodUpdateMediaPublishStatusResponse updateMediaPublishStatus(com.volcengine.service.vod.model.request.VodUpdateMediaPublishStatusRequest input) throws Exception;
 	
 	/**
      * getMediaInfos.
      *
-     * @param input com.volcengine.model.vod.request.VodGetMediaInfosRequest
-     * @return com.volcengine.model.vod.response.VodGetMediaInfosResponse
+     * @param input com.volcengine.service.vod.model.request.VodGetMediaInfosRequest
+     * @return com.volcengine.service.vod.model.response.VodGetMediaInfosResponse
      * @throws Exception the exception
      */
-	com.volcengine.model.vod.response.VodGetMediaInfosResponse getMediaInfos(com.volcengine.model.vod.request.VodGetMediaInfosRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodGetMediaInfosResponse getMediaInfos(com.volcengine.service.vod.model.request.VodGetMediaInfosRequest input) throws Exception;
 	
 	/**
      * getRecommendedPoster.
      *
-     * @param input com.volcengine.model.vod.request.VodGetRecommendedPosterRequest
-     * @return com.volcengine.model.vod.response.VodGetRecommendedPosterResponse
+     * @param input com.volcengine.service.vod.model.request.VodGetRecommendedPosterRequest
+     * @return com.volcengine.service.vod.model.response.VodGetRecommendedPosterResponse
      * @throws Exception the exception
      */
-	com.volcengine.model.vod.response.VodGetRecommendedPosterResponse getRecommendedPoster(com.volcengine.model.vod.request.VodGetRecommendedPosterRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodGetRecommendedPosterResponse getRecommendedPoster(com.volcengine.service.vod.model.request.VodGetRecommendedPosterRequest input) throws Exception;
 	
 	/**
      * deleteMedia.
      *
-     * @param input com.volcengine.model.vod.request.VodDeleteMediaRequest
-     * @return com.volcengine.model.vod.response.VodDeleteMediaResponse
+     * @param input com.volcengine.service.vod.model.request.VodDeleteMediaRequest
+     * @return com.volcengine.service.vod.model.response.VodDeleteMediaResponse
      * @throws Exception the exception
      */
-	com.volcengine.model.vod.response.VodDeleteMediaResponse deleteMedia(com.volcengine.model.vod.request.VodDeleteMediaRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodDeleteMediaResponse deleteMedia(com.volcengine.service.vod.model.request.VodDeleteMediaRequest input) throws Exception;
 	
 	/**
      * deleteTranscodes.
      *
-     * @param input com.volcengine.model.vod.request.VodDeleteTranscodesRequest
-     * @return com.volcengine.model.vod.response.VodDeleteTranscodesResponse
+     * @param input com.volcengine.service.vod.model.request.VodDeleteTranscodesRequest
+     * @return com.volcengine.service.vod.model.response.VodDeleteTranscodesResponse
      * @throws Exception the exception
      */
-	com.volcengine.model.vod.response.VodDeleteTranscodesResponse deleteTranscodes(com.volcengine.model.vod.request.VodDeleteTranscodesRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodDeleteTranscodesResponse deleteTranscodes(com.volcengine.service.vod.model.request.VodDeleteTranscodesRequest input) throws Exception;
 	
 	/**
      * StartWorkflow.
      *
-     * @param input com.volcengine.model.vod.request.VodStartWorkflowRequest
-     * @return com.volcengine.model.vod.response.VodStartWorkflowResponse
+     * @param input com.volcengine.service.vod.model.request.VodStartWorkflowRequest
+     * @return com.volcengine.service.vod.model.response.VodStartWorkflowResponse
      * @throws Exception the exception
      */
-	com.volcengine.model.vod.response.VodStartWorkflowResponse StartWorkflow(com.volcengine.model.vod.request.VodStartWorkflowRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodStartWorkflowResponse StartWorkflow(com.volcengine.service.vod.model.request.VodStartWorkflowRequest input) throws Exception;
 	
 }  // end of service interface

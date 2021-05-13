@@ -17,4 +17,8 @@ public class FunctionsOptionInfo {
     String description;
     @JSONField(name = "Category")
     String category;
+    @JSONField(name = "RecordType")
+    int recordType;
+    @JSONField(name = "Format")
+    String format;
 }

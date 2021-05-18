@@ -65,6 +65,15 @@ public class Const {
 
     public static final int MinChunkSize = 1024 * 1024 * 20;
     public static final int LargeFileSize = 1024 * 1024 * 50;
+    public static final String FileTypeMedia = "media";
+    public static final String FileTypeImage = "image";
+    public static final String FileTypeObject = "object";
+    public static final String CategoryVideo = "video";
+    public static final String CategoryAudio = "audio";
+    public static final String CategoryImage = "image";
+    public static final String CategoryDynamicImg = "dynamic_img";
+    public static final String CategorySubtitle = "subtitle";
+    public static final String CategoryFont = "font";
 
     public static final String DSAHmacSha1 = "HMAC-SHA1";
     public static final String DSAHmacSha256 = "HMAC-SHA256";

@@ -55,6 +55,13 @@ public interface IBaseService {
     void setRegion(String region);
 
     /**
+     * Gets region.
+     *
+     * @return the region
+     */
+    String getRegion();
+
+    /**
      * Sets host.
      *
      * @param host the host
@@ -169,4 +176,5 @@ public interface IBaseService {
      * @throws Exception    the exception
      */
     SecurityToken2 signSts2(Policy inlinePolicy, long expire) throws Exception;
+
 }

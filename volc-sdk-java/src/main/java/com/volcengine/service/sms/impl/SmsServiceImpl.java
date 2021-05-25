@@ -47,12 +47,18 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     @Override
     public SmsSendResponse send(SmsSendRequest smsSendRequest) throws Exception {
         RawResponse response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
+        if(response.getCode() == SdkError.EHTTP.getNumber()){
+            response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
+        }
         return getSmsSendResponse(response);
     }
 
     @Override
     public SmsSendResponse batchSend(SmsBatchSendRequest smsBatchSendRequest) throws Exception {
         RawResponse response = json("SendBatchSms", new ArrayList<>(), JSON.toJSONString(smsBatchSendRequest));
+        if(response.getCode() == SdkError.EHTTP.getNumber()){
+            response = json("SendBatchSms", new ArrayList<>(), JSON.toJSONString(smsBatchSendRequest));
+        }
         return getSmsSendResponse(response);
     }
 

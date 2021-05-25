@@ -238,6 +238,7 @@ public class VodConfig {
                         }
                     }
             ));
+
             put(Const.GetMediaList, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -246,6 +247,21 @@ public class VodConfig {
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.GetMediaList));
+                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put(Const.GetHlsDecryptionKey, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetHlsDecryptionKey));
                                     add(new BasicNameValuePair("Version", "2020-08-01"));
                                 }
                             });

@@ -36,15 +36,29 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         return new SmsServiceImpl(serviceInfo);
     }
 
+    // low-level，需要用户自己定义serviceInfo
+    public static SmsService newSmsService(ServiceInfo serviceInfo) throws Exception {
+        if (serviceInfo == null) {
+            throw new Exception("ServiceInfo is null");
+        }
+        return new SmsServiceImpl(serviceInfo);
+    }
+
     @Override
     public SmsSendResponse send(SmsSendRequest smsSendRequest) throws Exception {
         RawResponse response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
+        if(response.getCode() == SdkError.EHTTP.getNumber()){
+            response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
+        }
         return getSmsSendResponse(response);
     }
 
     @Override
     public SmsSendResponse batchSend(SmsBatchSendRequest smsBatchSendRequest) throws Exception {
         RawResponse response = json("SendBatchSms", new ArrayList<>(), JSON.toJSONString(smsBatchSendRequest));
+        if(response.getCode() == SdkError.EHTTP.getNumber()){
+            response = json("SendBatchSms", new ArrayList<>(), JSON.toJSONString(smsBatchSendRequest));
+        }
         return getSmsSendResponse(response);
     }
 

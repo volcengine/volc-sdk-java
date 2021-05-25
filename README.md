@@ -1,6 +1,7 @@
 ## Volcengine SDK for Java
 
 ### - Maven依赖
+[![maven](https://img.shields.io/maven-central/v/com.volcengine/volc-sdk-java)](https://search.maven.org/artifact/com.volcengine/volc-sdk-java)
 ```
 <dependency>
     <groupId>com.volcengine</groupId>

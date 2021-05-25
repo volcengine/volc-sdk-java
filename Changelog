@@ -1,5 +1,17 @@
 Change log
 
+2021-05-19 Bumped to version v1.0.14
+- Add hls drm utils for vod
+- Support material upload
+- Add retry after http error
+
+2021-04-26 Bumped to version v1.0.13
+- Add business security risk detection & ad bdbloker.
+- Add source language.
+- Add image store key res
+- Add independent domain
+- Add sms sdk
+
 2021-03-30 Bumped to version v1.0.12
 - Add media add api.
 - Add business security risk

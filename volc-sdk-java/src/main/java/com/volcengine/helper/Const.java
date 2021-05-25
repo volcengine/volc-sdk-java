@@ -54,7 +54,6 @@ public class Const {
     public static final String ApplyUploadInfo = "ApplyUploadInfo";
     public static final String CommitUploadInfo = "CommitUploadInfo";
     public static final String QueryUploadTaskInfo = "QueryUploadTaskInfo";
-    public static final String GetOriginalPlayInfo = "GetOriginalPlayInfo";
     public static final String UpdateMediaPublishStatus = "UpdateMediaPublishStatus";
     public static final String UpdateMediaInfo = "UpdateMediaInfo";
     public static final String GetMediaInfos = "GetMediaInfos";
@@ -65,8 +64,13 @@ public class Const {
     public static final String GetSubtitleInfoList = "GetSubtitleInfoList";
     public static final String UpdateSubtitleStatus = "UpdateSubtitleStatus";
     public static final String UpdateSubtitleInfo = "UpdateSubtitleInfo";
+    public static final String GetHlsDecryptionKey = "GetHlsDecryptionKey";
+    public static final String GetPrivateDrmPlayAuth = "GetPrivateDrmPlayAuth";
     public static final int MinChunkSize = 1024 * 1024 * 20;
     public static final int LargeFileSize = 1024 * 1024 * 50;
+
+    public static final String DSAHmacSha1 = "HMAC-SHA1";
+    public static final String DSAHmacSha256 = "HMAC-SHA256";
 
     // iam
     public static final String CreateUser = "CreateUser";

@@ -83,6 +83,8 @@ public class Const {
 
     // ad blocker
     public static final String AdBlock = "AdBlock";
+    // game protect
+    public static final String GameProtect = "GameProtect";
     // business security
     public static final String RiskDetection = "RiskDetection";
     public static final String AsyncRiskDetection = "AsyncRiskDetection";

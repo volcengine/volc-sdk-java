@@ -5,10 +5,7 @@ import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
 import com.volcengine.model.ServiceInfo;
-import com.volcengine.model.request.ApplyImageUploadRequest;
-import com.volcengine.model.request.CommitImageUploadRequest;
-import com.volcengine.model.request.CommitImageUploadRequestBody;
-import com.volcengine.model.request.DeleteImageReq;
+import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
 import com.volcengine.model.sts2.Policy;
 import com.volcengine.model.sts2.SecurityToken2;
@@ -208,6 +205,24 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
             throw response.getException();
         }
         DeleteImageResp res = JSON.parseObject(response.getData(), DeleteImageResp.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("ImageX");
+        return res;
+    }
+
+    @Override
+    public UpdateImageFilesResponse updateImageUrls(UpdateImageFilesRequest req) throws Exception {
+        Map<String, String> params = new HashMap<>();
+        params.put("ServiceId", req.getServiceId());
+
+        RawResponse response = json("UpdateImageUploadFiles", Utils.mapToPairList(params), JSON.toJSONString(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateImageFilesResponse res = JSON.parseObject(response.getData(), UpdateImageFilesResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());

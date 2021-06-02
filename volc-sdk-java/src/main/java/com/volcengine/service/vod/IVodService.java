@@ -182,6 +182,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodDeleteTranscodesResponse deleteTranscodes(com.volcengine.service.vod.model.request.VodDeleteTranscodesRequest input) throws Exception;
 	
 	/**
+     * getMediaList.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetMediaListRequest
+     * @return com.volcengine.service.vod.model.response.VodGetMediaListResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodGetMediaListResponse getMediaList(com.volcengine.service.vod.model.request.VodGetMediaListRequest input) throws Exception;
+	
+	/**
      * StartWorkflow.
      *
      * @param input com.volcengine.service.vod.model.request.VodStartWorkflowRequest

@@ -18,6 +18,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
     String createSha1HlsDrmAuthToken(Long expireSeconds) throws Exception;
+
+    /**
+     * Gets subtitle auth token.
+     *
+     * @param input the params
+     * @return the play auth token
+     * @throws Exception the exception
+     */
+    String getSubtitleAuthToken(com.volcengine.service.vod.model.request.VodGetSubtitleInfoListRequest input, Long expireSeconds) throws Exception;
 	
     /**
      * Gets play auth token.
@@ -28,16 +37,7 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      */
     String getPlayAuthToken(com.volcengine.service.vod.model.request.VodGetPlayInfoRequest input, Long expireSeconds) throws Exception;
 
-	/**
-	 * Gets subtitle auth token.
-	 *
-	 * @param input the params
-	 * @return the play auth token
-	 * @throws Exception the exception
-	 */
-	String getSubtitleAuthToken(com.volcengine.service.vod.model.request.VodGetSubtitleInfoListRequest input, Long expireSeconds) throws Exception;
-
-	/**
+    /**
      * Get Upload Sts2 token.
      *
      * @return com.volcengine.model.sts2.SecurityToken2
@@ -62,6 +62,16 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
     com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadMedia(com.volcengine.service.vod.model.request.VodUploadMediaRequest vodUploadMediaRequest) throws Exception;
+
+    /**
+	 * uploadMaterial
+	 *
+	 * @param vodUploadMaterialRequest
+	 * @return
+	 * @throws Exception
+	 */
+	com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadMaterial(com.volcengine.service.vod.model.request.VodUploadMaterialRequest vodUploadMaterialRequest) throws Exception;
+
 
 
 	/**

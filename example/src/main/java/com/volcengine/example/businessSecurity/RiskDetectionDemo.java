@@ -23,7 +23,7 @@ public class RiskDetectionDemo {
             RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
             riskDetectionRequest.setAppId(216455);
             riskDetectionRequest.setService("register");
-            riskDetectionRequest.setPatameters("{\"operate_time\": 1617960951}");
+            riskDetectionRequest.setParameters("{\"operate_time\": 1617960951}");
 
             RiskDetectionResponse riskDetectionResponse = businessSecurityService.RiskDetection(riskDetectionRequest);
             System.out.println(JSON.toJSONString(riskDetectionResponse));

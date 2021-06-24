@@ -1,5 +1,13 @@
 Change log
 
+2021-06-06 Bumped to version v1.0.16
+- Add Edit submitTemplateTaskAsync request params
+
+2021-06-02 Bumped to version v1.0.15
+- Updated get media list
+- Support upload material upload
+- More security support for game protect
+
 2021-05-19 Bumped to version v1.0.14
 - Add hls drm utils for vod
 - Support material upload

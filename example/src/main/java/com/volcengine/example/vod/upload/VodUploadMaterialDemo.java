@@ -30,7 +30,7 @@ public class VodUploadMaterialDemo {
         Functions snapShotFunc = Functions.SnapShotFunction(2.3);
         functionsList.add(snapShotFunc);
 
-        Functions addOptionInfo = Functions.AddOptionInfoFunction("素材测试视频", "test", "素材测试，视频文件", Const.CategoryAudio, "mp4");
+        Functions addOptionInfo = Functions.AddOptionInfoFunction("素材测试视频", "test", "素材测试，视频文件", Const.CategoryVideo, "mp4");
         functionsList.add(addOptionInfo);
 
         VodUploadMaterialRequest vodUploadMaterialRequest = VodUploadMaterialRequest.newBuilder()
@@ -54,6 +54,7 @@ public class VodUploadMaterialDemo {
         }
     }
 
+//    图片素材上传
 //    public static void main(String[] args) {
 //        IVodService vodService = VodServiceImpl.getInstance();
 //
@@ -95,6 +96,7 @@ public class VodUploadMaterialDemo {
 //        }
 //    }
 
+//    字幕素材上传
 //    public static void main(String[] args) {
 //        IVodService vodService = VodServiceImpl.getInstance();
 //
@@ -112,7 +114,7 @@ public class VodUploadMaterialDemo {
 //        Functions snapShotFunc = Functions.SnapShotFunction(2.3);
 //        functionsList.add(snapShotFunc);
 //
-//        Functions addOptionInfo = Functions.AddOptionInfoFunction("素材测试视频", "test", "素材测试，字幕文件", Const.CategorySubtitle, "vtt");
+//        Functions addOptionInfo = Functions.AddOptionInfoFunction("素材测试字幕", "test", "素材测试，字幕文件", Const.CategorySubtitle, "vtt");
 //        functionsList.add(addOptionInfo);
 //
 //        VodUploadMaterialRequest vodUploadMaterialRequest = VodUploadMaterialRequest.newBuilder()

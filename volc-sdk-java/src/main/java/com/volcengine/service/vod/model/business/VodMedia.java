@@ -49,6 +49,26 @@ public final class VodMedia {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodDeleteTranscodesData_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodGetMediaListData_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodGetMediaListData_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodUpdateSubtitleStatusData_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodUpdateSubtitleStatusData_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodFileSubtitleInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodFileSubtitleInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodGetSubtitleInfoListData_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodGetSubtitleInfoListData_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -79,13 +99,26 @@ public final class VodMedia {
       "odels.Business.VodStoreUriGroup\022\024\n\014NotEx" +
       "istVids\030\002 \003(\t\"*\n\022VodDeleteMediaData\022\024\n\014N" +
       "otExistVids\030\001 \003(\t\"2\n\027VodDeleteTranscodes" +
-      "Data\022\027\n\017NotExistFileIds\030\001 \003(\tB\314\001\n)com.vo" +
-      "lcengine.service.vod.model.businessB\010Vod" +
-      "MediaP\001ZAgithub.com/volcengine/volc-sdk-" +
-      "golang/service/vod/models/business\240\001\001\330\001\001" +
-      "\302\002\000\312\002 Volc\\Service\\Vod\\Models\\Business\342\002" +
-      "#Volc\\Service\\Vod\\Models\\GPBMetadatab\006pr" +
-      "oto3"
+      "Data\022\027\n\017NotExistFileIds\030\001 \003(\t\"\243\001\n\023VodGet" +
+      "MediaListData\022\021\n\tSpaceName\030\001 \001(\t\022C\n\rMedi" +
+      "aInfoList\030\002 \003(\0132,.Volcengine.Vod.Models." +
+      "Business.VodMediaInfo\022\022\n\nTotalCount\030\003 \001(" +
+      "\005\022\016\n\006Offset\030\004 \001(\005\022\020\n\010PageSize\030\005 \001(\005\"6\n\033V" +
+      "odUpdateSubtitleStatusData\022\027\n\017NotExistFi" +
+      "leIds\030\001 \003(\t\"p\n\023VodFileSubtitleInfo\022\016\n\006Fi" +
+      "leId\030\001 \001(\t\022I\n\020SubtitleInfoList\030\002 \003(\0132/.V" +
+      "olcengine.Vod.Models.Business.VodSubtitl" +
+      "eInfo\"\313\001\n\032VodGetSubtitleInfoListData\022\013\n\003" +
+      "Vid\030\001 \001(\t\022Q\n\024FileSubtitleInfoList\030\002 \003(\0132" +
+      "3.Volcengine.Vod.Models.Business.VodFile" +
+      "SubtitleInfo\022\027\n\017NotExistFileIds\030\003 \003(\t\022\022\n" +
+      "\nTotalCount\030\004 \001(\005\022\016\n\006Offset\030\005 \001(\005\022\020\n\010Pag" +
+      "eSize\030\006 \001(\005B\314\001\n)com.volcengine.service.v" +
+      "od.model.businessB\010VodMediaP\001ZAgithub.co" +
+      "m/volcengine/volc-sdk-golang/service/vod" +
+      "/models/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service" +
+      "\\Vod\\Models\\Business\342\002#Volc\\Service\\Vod\\" +
+      "Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -134,6 +167,30 @@ public final class VodMedia {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDeleteTranscodesData_descriptor,
         new java.lang.String[] { "NotExistFileIds", });
+    internal_static_Volcengine_Vod_Models_Business_VodGetMediaListData_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_Volcengine_Vod_Models_Business_VodGetMediaListData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodGetMediaListData_descriptor,
+        new java.lang.String[] { "SpaceName", "MediaInfoList", "TotalCount", "Offset", "PageSize", });
+    internal_static_Volcengine_Vod_Models_Business_VodUpdateSubtitleStatusData_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_Volcengine_Vod_Models_Business_VodUpdateSubtitleStatusData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodUpdateSubtitleStatusData_descriptor,
+        new java.lang.String[] { "NotExistFileIds", });
+    internal_static_Volcengine_Vod_Models_Business_VodFileSubtitleInfo_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_Volcengine_Vod_Models_Business_VodFileSubtitleInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodFileSubtitleInfo_descriptor,
+        new java.lang.String[] { "FileId", "SubtitleInfoList", });
+    internal_static_Volcengine_Vod_Models_Business_VodGetSubtitleInfoListData_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_Volcengine_Vod_Models_Business_VodGetSubtitleInfoListData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodGetSubtitleInfoListData_descriptor,
+        new java.lang.String[] { "Vid", "FileSubtitleInfoList", "NotExistFileIds", "TotalCount", "Offset", "PageSize", });
     com.volcengine.service.vod.model.business.VodCommon.getDescriptor();
   }
 

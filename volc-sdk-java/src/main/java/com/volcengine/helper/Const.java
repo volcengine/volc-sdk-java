@@ -60,9 +60,12 @@ public class Const {
     public static final String GetRecommendedPoster = "GetRecommendedPoster";
     public static final String DeleteMedia = "DeleteMedia";
     public static final String DeleteTranscodes = "DeleteTranscodes";
+    public static final String GetMediaList = "GetMediaList";
+    public static final String GetSubtitleInfoList = "GetSubtitleInfoList";
+    public static final String UpdateSubtitleStatus = "UpdateSubtitleStatus";
+    public static final String UpdateSubtitleInfo = "UpdateSubtitleInfo";
     public static final String GetHlsDecryptionKey = "GetHlsDecryptionKey";
     public static final String GetPrivateDrmPlayAuth = "GetPrivateDrmPlayAuth";
-
     public static final int MinChunkSize = 1024 * 1024 * 20;
     public static final int LargeFileSize = 1024 * 1024 * 50;
     public static final String FileTypeMedia = "media";
@@ -92,6 +95,8 @@ public class Const {
 
     // ad blocker
     public static final String AdBlock = "AdBlock";
+    // game protect
+    public static final String GameProtect = "GameProtect";
     // business security
     public static final String RiskDetection = "RiskDetection";
     public static final String AsyncRiskDetection = "AsyncRiskDetection";

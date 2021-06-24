@@ -10,5 +10,5 @@ public class RiskDetectionRequest {
     @JSONField(name = "Service")
     String service;
     @JSONField(name = "Parameters")
-    String patameters;
+    String parameters;
 }

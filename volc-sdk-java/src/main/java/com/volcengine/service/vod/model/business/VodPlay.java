@@ -50,7 +50,7 @@ public final class VodPlay {
     java.lang.String[] descriptorData = {
       "\n\033vod/business/vod_play.proto\022\036Volcengin" +
       "e.Vod.Models.Business\032\035vod/business/vod_" +
-      "common.proto\"\303\003\n\020VodPlayInfoModel\022H\n\007Ver" +
+      "common.proto\"\216\004\n\020VodPlayInfoModel\022H\n\007Ver" +
       "sion\030\n \001(\01627.Volcengine.Vod.Models.Busin" +
       "ess.VodPlayInfoModelVersion\022\013\n\003Vid\030\001 \001(\t" +
       "\022\016\n\006Status\030\002 \001(\005\022\021\n\tPosterUrl\030\003 \001(\t\022\020\n\010D" +
@@ -61,29 +61,31 @@ public final class VodPlay {
       "st\030\t \003(\0132+.Volcengine.Vod.Models.Busines" +
       "s.VodPlayInfo\022C\n\rThumbInfoList\030\013 \003(\0132,.V" +
       "olcengine.Vod.Models.Business.VodThumbIn" +
-      "fo\022\026\n\016BarrageMaskUrl\030\014 \001(\t\"\330\001\n\034VodGetOri" +
-      "ginalPlayInfoResult\022\020\n\010FileType\030\001 \001(\t\022\020\n" +
-      "\010Duration\030\002 \001(\002\022\014\n\004Size\030\003 \001(\001\022\016\n\006Height\030" +
-      "\004 \001(\005\022\r\n\005Width\030\005 \001(\005\022\016\n\006Format\030\006 \001(\t\022\r\n\005" +
-      "Codec\030\007 \001(\t\022\017\n\007Bitrate\030\010 \001(\005\022\013\n\003Md5\030\t \001(" +
-      "\t\022\023\n\013MainPlayUrl\030\n \001(\t\022\025\n\rBackupPlayUrl\030" +
-      "\013 \001(\t\"H\n\031VodPrivateDrmPlayAuthInfo\022\022\n\nPl" +
-      "ayAuthId\030\001 \001(\t\022\027\n\017PlayAuthContent\030\002 \001(\t\"" +
-      "u\n\036VodGetPrivateDrmPlayAuthResult\022S\n\020Pla" +
-      "yAuthInfoList\030\001 \003(\01329.Volcengine.Vod.Mod" +
-      "els.Business.VodPrivateDrmPlayAuthInfo\"1" +
-      "\n\034VodGetHlsDecryptionKeyResult\022\021\n\tSecret" +
-      "Key\030\001 \001(\t*\326\001\n\027VodPlayInfoModelVersion\022$\n" +
-      " UndefinedVodPlayInfoModelVersion\020\000\022%\n!I" +
-      "nternalV1VodPlayInfoModelVersion\020\001\022%\n!In" +
-      "ternalV2VodPlayInfoModelVersion\020\002\022%\n!Int" +
-      "ernalV3VodPlayInfoModelVersion\020\003\022 \n\034ToBV" +
-      "1VodPlayInfoModelVersion\020\004B\313\001\n)com.volce" +
-      "ngine.service.vod.model.businessB\007VodPla" +
-      "yP\001ZAgithub.com/volcengine/volc-sdk-gola" +
-      "ng/service/vod/models/business\240\001\001\330\001\001\302\002\000\312" +
-      "\002 Volc\\Service\\Vod\\Models\\Business\342\002#Vol" +
-      "c\\Service\\Vod\\Models\\GPBMetadatab\006proto3"
+      "fo\022\026\n\016BarrageMaskUrl\030\014 \001(\t\022I\n\020SubtitleIn" +
+      "foList\030\r \003(\0132/.Volcengine.Vod.Models.Bus" +
+      "iness.VodSubtitleInfo\"\330\001\n\034VodGetOriginal" +
+      "PlayInfoResult\022\020\n\010FileType\030\001 \001(\t\022\020\n\010Dura" +
+      "tion\030\002 \001(\002\022\014\n\004Size\030\003 \001(\001\022\016\n\006Height\030\004 \001(\005" +
+      "\022\r\n\005Width\030\005 \001(\005\022\016\n\006Format\030\006 \001(\t\022\r\n\005Codec" +
+      "\030\007 \001(\t\022\017\n\007Bitrate\030\010 \001(\005\022\013\n\003Md5\030\t \001(\t\022\023\n\013" +
+      "MainPlayUrl\030\n \001(\t\022\025\n\rBackupPlayUrl\030\013 \001(\t" +
+      "\"H\n\031VodPrivateDrmPlayAuthInfo\022\022\n\nPlayAut" +
+      "hId\030\001 \001(\t\022\027\n\017PlayAuthContent\030\002 \001(\t\"u\n\036Vo" +
+      "dGetPrivateDrmPlayAuthResult\022S\n\020PlayAuth" +
+      "InfoList\030\001 \003(\01329.Volcengine.Vod.Models.B" +
+      "usiness.VodPrivateDrmPlayAuthInfo\"1\n\034Vod" +
+      "GetHlsDecryptionKeyResult\022\021\n\tSecretKey\030\001" +
+      " \001(\t*\326\001\n\027VodPlayInfoModelVersion\022$\n Unde" +
+      "finedVodPlayInfoModelVersion\020\000\022%\n!Intern" +
+      "alV1VodPlayInfoModelVersion\020\001\022%\n!Interna" +
+      "lV2VodPlayInfoModelVersion\020\002\022%\n!Internal" +
+      "V3VodPlayInfoModelVersion\020\003\022 \n\034ToBV1VodP" +
+      "layInfoModelVersion\020\004B\313\001\n)com.volcengine" +
+      ".service.vod.model.businessB\007VodPlayP\001ZA" +
+      "github.com/volcengine/volc-sdk-golang/se" +
+      "rvice/vod/models/business\240\001\001\330\001\001\302\002\000\312\002 Vol" +
+      "c\\Service\\Vod\\Models\\Business\342\002#Volc\\Ser" +
+      "vice\\Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -95,7 +97,7 @@ public final class VodPlay {
     internal_static_Volcengine_Vod_Models_Business_VodPlayInfoModel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodPlayInfoModel_descriptor,
-        new java.lang.String[] { "Version", "Vid", "Status", "PosterUrl", "Duration", "FileType", "EnableAdaptive", "TotalCount", "AdaptiveInfo", "PlayInfoList", "ThumbInfoList", "BarrageMaskUrl", });
+        new java.lang.String[] { "Version", "Vid", "Status", "PosterUrl", "Duration", "FileType", "EnableAdaptive", "TotalCount", "AdaptiveInfo", "PlayInfoList", "ThumbInfoList", "BarrageMaskUrl", "SubtitleInfoList", });
     internal_static_Volcengine_Vod_Models_Business_VodGetOriginalPlayInfoResult_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Volcengine_Vod_Models_Business_VodGetOriginalPlayInfoResult_fieldAccessorTable = new

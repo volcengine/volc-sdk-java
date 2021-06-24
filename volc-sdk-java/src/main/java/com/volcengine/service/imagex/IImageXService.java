@@ -3,10 +3,12 @@ package com.volcengine.service.imagex;
 import com.volcengine.model.request.ApplyImageUploadRequest;
 import com.volcengine.model.request.CommitImageUploadRequest;
 import com.volcengine.model.request.DeleteImageReq;
+import com.volcengine.model.request.UpdateImageFilesRequest;
 import com.volcengine.model.response.ApplyImageUploadResponse;
 import com.volcengine.model.response.CommitImageUploadResponse;
 import com.volcengine.model.response.CommonResponse;
 import com.volcengine.model.response.DeleteImageResp;
+import com.volcengine.model.response.UpdateImageFilesResponse;
 import com.volcengine.model.sts2.SecurityToken2;
 import com.volcengine.service.IBaseService;
 
@@ -93,6 +95,15 @@ public interface IImageXService extends IBaseService {
      * @throws Exception the exception
      */
     DeleteImageResp deleteImages(DeleteImageReq req) throws Exception;
+
+    /**
+     * Update image urls.
+     *
+     * @param req update image urls req
+     * @return udpate image urls resp
+     * @throws Exception the exception
+     */
+    UpdateImageFilesResponse updateImageUrls(UpdateImageFilesRequest req) throws Exception;
 
     /**
      * Request ImageX api with method GET.

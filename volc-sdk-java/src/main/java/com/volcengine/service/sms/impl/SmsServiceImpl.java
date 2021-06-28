@@ -5,9 +5,12 @@ import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.request.SmsBatchSendRequest;
+import com.volcengine.model.request.SmsCheckVerifyCodeRequest;
 import com.volcengine.model.request.SmsSendRequest;
+import com.volcengine.model.request.SmsSendVerifyCodeRequest;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.response.ResponseMetadata;
+import com.volcengine.model.response.SmsCheckVerifyCodeResponse;
 import com.volcengine.model.response.SmsSendResponse;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.sms.SmsConfig;
@@ -61,6 +64,17 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         }
         return getSmsSendResponse(response);
     }
+    @Override
+    public SmsSendResponse sendVerifyCode(SmsSendVerifyCodeRequest smsSendVerifyCodeRequest) throws Exception {
+        RawResponse response = json("SendSmsVerifyCode", new ArrayList<>(), JSON.toJSONString(smsSendVerifyCodeRequest));
+        return getSmsSendResponse(response);
+    }
+
+    @Override
+    public SmsCheckVerifyCodeResponse checkVerifyCode(SmsCheckVerifyCodeRequest smsCheckVerifyCodeRequest) throws Exception {
+        RawResponse response = json("CheckSmsVerifyCode", new ArrayList<>(), JSON.toJSONString(smsCheckVerifyCodeRequest));
+        return getSmsCheckResponse(response);
+    }
 
     private SmsSendResponse getSmsSendResponse(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -70,6 +84,18 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+    private SmsCheckVerifyCodeResponse getSmsCheckResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        SmsCheckVerifyCodeResponse res = JSON.parseObject(response.getData(), SmsCheckVerifyCodeResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
         }
         res.getResponseMetadata().setService("volcSMS");
         return res;

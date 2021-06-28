@@ -65,6 +65,34 @@ public class SmsConfig {
                         }
                     }
             ));
+            put("SendSmsVerifyCode", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "SendSmsVerifyCode"));
+                                    add(new BasicNameValuePair("Version", "2020-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("CheckSmsVerifyCode", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "CheckSmsVerifyCode"));
+                                    add(new BasicNameValuePair("Version", "2020-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

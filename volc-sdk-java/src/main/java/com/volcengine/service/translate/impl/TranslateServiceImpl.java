@@ -4,9 +4,11 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.model.request.LangDetectRequest;
+import com.volcengine.model.request.TranslateImageRequest;
 import com.volcengine.model.request.TranslateTextRequest;
 import com.volcengine.model.response.LangDetectResponse;
 import com.volcengine.model.response.RawResponse;
+import com.volcengine.model.response.TranslateImageResponse;
 import com.volcengine.model.response.TranslateTextResponse;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.translate.ITranslateService;
@@ -50,5 +52,19 @@ public class TranslateServiceImpl extends BaseServiceImpl implements ITranslateS
             throw response.getException();
         }
         return JSON.parseObject(response.getData(), TranslateTextResponse.class);
+    }
+
+    /**
+     * @param translateImageRequest translateImageRequest
+     * @return TranslateImageResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public TranslateImageResponse translateImage(TranslateImageRequest translateImageRequest) throws Exception {
+        RawResponse response = json(Const.TranslateImage, null, JSON.toJSONString(translateImageRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), TranslateImageResponse.class);
     }
 }

@@ -59,6 +59,20 @@ public class TranslateConfig {
                         }
                     }
             ));
+            put(Const.TranslateImage, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.TranslateImage));
+                                    add(new BasicNameValuePair("Version", "2020-07-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

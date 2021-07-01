@@ -61,6 +61,9 @@ public class Const {
     public static final String DeleteMedia = "DeleteMedia";
     public static final String DeleteTranscodes = "DeleteTranscodes";
     public static final String GetMediaList = "GetMediaList";
+    public static final String GetSubtitleInfoList = "GetSubtitleInfoList";
+    public static final String UpdateSubtitleStatus = "UpdateSubtitleStatus";
+    public static final String UpdateSubtitleInfo = "UpdateSubtitleInfo";
     public static final String GetHlsDecryptionKey = "GetHlsDecryptionKey";
     public static final String GetPrivateDrmPlayAuth = "GetPrivateDrmPlayAuth";
     public static final int MinChunkSize = 1024 * 1024 * 20;

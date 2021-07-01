@@ -18,6 +18,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
     String createSha1HlsDrmAuthToken(Long expireSeconds) throws Exception;
+
+    /**
+     * Gets subtitle auth token.
+     *
+     * @param input the params
+     * @return the play auth token
+     * @throws Exception the exception
+     */
+    String getSubtitleAuthToken(com.volcengine.service.vod.model.request.VodGetSubtitleInfoListRequest input, Long expireSeconds) throws Exception;
 	
     /**
      * Gets play auth token.
@@ -54,7 +63,7 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      */
     com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadMedia(com.volcengine.service.vod.model.request.VodUploadMediaRequest vodUploadMediaRequest) throws Exception;
 
-	/**
+    /**
 	 * uploadMaterial
 	 *
 	 * @param vodUploadMaterialRequest
@@ -62,6 +71,7 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	 * @throws Exception
 	 */
 	com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadMaterial(com.volcengine.service.vod.model.request.VodUploadMaterialRequest vodUploadMaterialRequest) throws Exception;
+
 
 
 	/**
@@ -189,6 +199,33 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodGetMediaListResponse getMediaList(com.volcengine.service.vod.model.request.VodGetMediaListRequest input) throws Exception;
+	
+	/**
+     * getSubtitleInfoList.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetSubtitleInfoListRequest
+     * @return com.volcengine.service.vod.model.response.VodGetSubtitleInfoListResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodGetSubtitleInfoListResponse getSubtitleInfoList(com.volcengine.service.vod.model.request.VodGetSubtitleInfoListRequest input) throws Exception;
+	
+	/**
+     * updateSubtitleStatus.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodUpdateSubtitleStatusRequest
+     * @return com.volcengine.service.vod.model.response.VodUpdateSubtitleStatusResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodUpdateSubtitleStatusResponse updateSubtitleStatus(com.volcengine.service.vod.model.request.VodUpdateSubtitleStatusRequest input) throws Exception;
+	
+	/**
+     * updateSubtitleInfo.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodUpdateSubtitleInfoRequest
+     * @return com.volcengine.service.vod.model.response.VodUpdateSubtitleInfoResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodUpdateSubtitleInfoResponse updateSubtitleInfo(com.volcengine.service.vod.model.request.VodUpdateSubtitleInfoRequest input) throws Exception;
 	
 	/**
      * StartWorkflow.

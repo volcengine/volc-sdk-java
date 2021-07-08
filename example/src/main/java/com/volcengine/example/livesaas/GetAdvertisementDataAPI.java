@@ -17,7 +17,7 @@ public class GetAdvertisementDataAPI {
         // list users
         try {
             GetAdvertisementDataAPIRequest getAdvertisementDataAPIRequest = new GetAdvertisementDataAPIRequest();
-            getAdvertisementDataAPIRequest.setActivityId(1691034607911981L);
+            getAdvertisementDataAPIRequest.setActivityId(123456L);
 
             GetAdvertisementDataAPIResponse getAdvertisementDataAPIResponse = livesaasService.getAdvertisementDataAPI(getAdvertisementDataAPIRequest);
             System.out.println(JSON.toJSONString(getAdvertisementDataAPIResponse));

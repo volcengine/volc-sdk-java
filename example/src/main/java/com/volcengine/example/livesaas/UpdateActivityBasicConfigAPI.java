@@ -2,12 +2,13 @@ package com.volcengine.example.livesaas;
 
 import com.alibaba.fastjson.JSON;
 import com.volcengine.model.livesaas.request.CreateActivityAPIRequest;
+import com.volcengine.model.livesaas.request.UpdateActivityBasicConfigAPIRequest;
 import com.volcengine.model.livesaas.response.CreateActivityAPIResponse;
+import com.volcengine.model.livesaas.response.UpdateActivityBasicConfigAPIResponse;
 import com.volcengine.service.livesaas.LivesaasService;
 import com.volcengine.service.livesaas.impl.LivesaasServiceImpl;
 
-public class CreateActivityAPI {
-
+public class UpdateActivityBasicConfigAPI {
     public static void main(String[] args) {
         LivesaasService livesaasService = LivesaasServiceImpl.getInstance();
         // call below method if you dont set ak and sk in ～/.volc/config
@@ -16,13 +17,11 @@ public class CreateActivityAPI {
         livesaasService.setSecretKey("");
         // list users
         try {
-            CreateActivityAPIRequest createActivityAPIRequest = new CreateActivityAPIRequest();
-            createActivityAPIRequest.setLiveTime(System.currentTimeMillis()/1000L);
-            createActivityAPIRequest.setName("JAVA SDK");
+            UpdateActivityBasicConfigAPIRequest updateActivityBasicConfigAPIRequest=new UpdateActivityBasicConfigAPIRequest() ;
+            updateActivityBasicConfigAPIRequest.setName("测试JavaSDK");
 
-
-            CreateActivityAPIResponse createActivityAPIResponse = livesaasService.createActivityAPI(createActivityAPIRequest);
-            System.out.println(JSON.toJSONString(createActivityAPIResponse));
+            UpdateActivityBasicConfigAPIResponse  updateActivityBasicConfigAPIResponse = livesaasService.updateActivityBasicConfigAPI(updateActivityBasicConfigAPIRequest);
+            System.out.println(JSON.toJSONString(updateActivityBasicConfigAPIResponse));
         } catch (Exception e) {
             e.printStackTrace();
         }

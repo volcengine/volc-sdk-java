@@ -103,11 +103,33 @@ public class Const {
     public static final String RiskResult = "RiskResult";
 
     // livesaas
+
+    //创建直播间
     public static final String CreateActivityAPI = "CreateActivityAPI";
+    //查询直播间
     public static final String GetActivityAPI = "GetActivityAPI";
+    //获取直播流
     public static final String GetStreamsAPI = "GetStreamsAPI";
+    //获取广告数据
     public static final String GetAdvertisementDataAPI = "GetAdvertisementDataAPI";
+    //获取真实在线人数
     public static final String GetRealTimeOnlineNumberAPI = "GetRealTimeOnlineNumberAPI";
+    //删除直播间
+    public static final String DeleteActivityAPI = "DeleteActivityAPI";
+    //获取直播间基本信息与配置
+    public static final String UpdateActivityBasicConfigAPI = "UpdateActivityBasicConfigAPI";
+    //更新直播间基本信息与配置
+    public static final String GetActivityBasicConfigAPI = "GetActivityBasicConfigAPI";
+    //图片视频上传
+    public static final String UploadLibAPI = "UploadLibAPI";
+    //获取菜单栏
+    public static final String GetActivityMenuAPI = "GetActivityMenuAPI";
+    //更新菜单栏
+    public static final String UpdateActivityMenuAPI = "UpdateActivityMenuAPI";
+    //获取菜单栏商品
+    public static final String GetActivityProductAPI = "GetActivityProductAPI";
+    //更新菜单栏商品
+    public static final String UpdateActivityProductAPI = "UpdateActivityProductAPI";
 
     // translate
     public static final String LangDetect = "LangDetect";

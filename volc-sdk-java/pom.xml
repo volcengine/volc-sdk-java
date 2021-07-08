@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.volcengine</groupId>
-    <version>1.0.17</version>
+    <version>1.0.18</version>
     <artifactId>volc-sdk-java</artifactId>
 
     <name>volc-sdk-java</name>
@@ -44,6 +44,8 @@
         <lombok.version>1.18.20</lombok.version>
         <commons-lang3.version>3.10</commons-lang3.version>
         <protobuf.version>3.12.4</protobuf.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -97,6 +99,12 @@
             <groupId>com.github.rholder</groupId>
             <artifactId>guava-retrying</artifactId>
             <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.1</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

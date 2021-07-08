@@ -1,13 +1,14 @@
 package com.volcengine.example.livesaas;
 
 import com.alibaba.fastjson.JSON;
-import com.volcengine.model.livesaas.request.CommonAPIRequest;
-import com.volcengine.model.livesaas.response.GetActivityAPIResponse;
+import com.volcengine.model.livesaas.request.UpdateActivityMenuAPIRequest;
+import com.volcengine.model.livesaas.response.UpdateActivityMenuAPIResponse;
 import com.volcengine.service.livesaas.LivesaasService;
 import com.volcengine.service.livesaas.impl.LivesaasServiceImpl;
+import lombok.Data;
 
-public class GetActivityAPI {
-
+@Data
+public class UpdateActivityMenuAPI {
     public static void main(String[] args) {
         LivesaasService livesaasService = LivesaasServiceImpl.getInstance();
         // call below method if you dont set ak and sk in ～/.volc/config
@@ -16,11 +17,10 @@ public class GetActivityAPI {
         livesaasService.setSecretKey("");
         // list users
         try {
-            CommonAPIRequest commonAPIRequest = new CommonAPIRequest();
-            commonAPIRequest.setActivityId(123456L);
+            UpdateActivityMenuAPIRequest updateActivityMenuAPIRequest =new UpdateActivityMenuAPIRequest();
 
-            GetActivityAPIResponse getActivityAPIResponse = livesaasService.getActivityAPI(commonAPIRequest);
-            System.out.println(JSON.toJSONString(getActivityAPIResponse));
+            UpdateActivityMenuAPIResponse updateActivityMenuAPIResponseResponse = livesaasService.updateActivityMenuAPI(updateActivityMenuAPIRequest);
+            System.out.println(JSON.toJSONString(updateActivityMenuAPIResponseResponse));
         } catch (Exception e) {
             e.printStackTrace();
         }

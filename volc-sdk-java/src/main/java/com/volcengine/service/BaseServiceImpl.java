@@ -246,6 +246,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         } catch (Exception e) {
             return new RawResponse(null, SdkError.ESIGN.getNumber(), e);
         }
+
         HttpClient client;
         HttpResponse response = null;
         try {

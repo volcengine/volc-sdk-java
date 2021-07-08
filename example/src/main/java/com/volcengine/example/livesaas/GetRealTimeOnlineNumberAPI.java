@@ -17,7 +17,7 @@ public class GetRealTimeOnlineNumberAPI {
         // list users
         try {
             CommonAPIRequest commonAPIRequest = new CommonAPIRequest();
-            commonAPIRequest.setActivityId(1691034607911981L);
+            commonAPIRequest.setActivityId(123456L);
 
             GetRealTimeOnlineNumberAPIResponse getRealTimeOnlineNumberAPIResponse = livesaasService.getRealTimeOnlineNumberAPI(commonAPIRequest);
             System.out.println(JSON.toJSONString(getRealTimeOnlineNumberAPIResponse));

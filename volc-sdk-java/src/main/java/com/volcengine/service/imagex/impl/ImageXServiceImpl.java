@@ -79,12 +79,8 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     private void doUpload(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, byte[] imageData) throws Exception {
-        CRC32 crc = new CRC32();
-        crc.update(imageData);
-        if (crc.getValue() == -1) {
-            throw new Exception("image data crc32 error");
-        }
-        String checkSum = String.format("%x", crc.getValue());
+        long crc32 = com.volcengine.helper.Utils.crc32(imageData);
+        String checkSum = String.format("%08x", crc32);
         String url = String.format("https://%s/%s", host, storeInfo.getStoreUri());
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-CRC32", checkSum);

@@ -32,6 +32,22 @@ public class SmsConfig {
                         }
                     }
             ));
+            put(Const.REGION_AP_SINGAPORE_1, new ServiceInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.CONNECTION_TIMEOUT, 5000);
+                            put(Const.SOCKET_TIMEOUT, 5000);
+                            put(Const.Scheme, "https");
+                            put(Const.Host, "sms.byteplusapi.com");
+                            put(Const.Header, new ArrayList<Header>() {
+                                {
+                                    add(new BasicHeader("Accept", "application/json"));
+                                }
+                            });
+                            put(Const.Credentials, new Credentials(Const.REGION_AP_SINGAPORE_1, "volcSMS"));
+                        }
+                    }
+            ));
         }
     };
 

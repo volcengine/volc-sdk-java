@@ -251,4 +251,18 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         res.getResponseMetadata().setService("ImageX");
         return res;
     }
+
+    @Override
+    public GetImageOCRResponse getImageOCR(Map<String, String> param) throws Exception {
+        RawResponse response = query("GetImageOCR", Utils.mapToPairList(param));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImageOCRResponse res = JSON.parseObject(response.getData(), GetImageOCRResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
 }

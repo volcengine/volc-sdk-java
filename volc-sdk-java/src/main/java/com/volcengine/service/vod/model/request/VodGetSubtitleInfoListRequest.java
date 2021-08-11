@@ -582,7 +582,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object offset_;
   /**
    * <pre>
-   *file的偏移量
+   * file的偏移量
    * </pre>
    *
    * <code>string Offset = 10;</code>
@@ -603,7 +603,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *file的偏移量
+   * file的偏移量
    * </pre>
    *
    * <code>string Offset = 10;</code>
@@ -2072,7 +2072,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object offset_ = "";
     /**
      * <pre>
-     *file的偏移量
+     * file的偏移量
      * </pre>
      *
      * <code>string Offset = 10;</code>
@@ -2092,7 +2092,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *file的偏移量
+     * file的偏移量
      * </pre>
      *
      * <code>string Offset = 10;</code>
@@ -2113,7 +2113,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *file的偏移量
+     * file的偏移量
      * </pre>
      *
      * <code>string Offset = 10;</code>
@@ -2132,7 +2132,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *file的偏移量
+     * file的偏移量
      * </pre>
      *
      * <code>string Offset = 10;</code>
@@ -2146,7 +2146,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *file的偏移量
+     * file的偏移量
      * </pre>
      *
      * <code>string Offset = 10;</code>

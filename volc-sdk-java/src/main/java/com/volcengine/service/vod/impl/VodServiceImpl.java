@@ -9,7 +9,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.google.protobuf.util.JsonFormat;
 import com.google.common.base.Predicates;
-import com.volcengine.helper.Const;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 import java.io.*;
@@ -48,16 +47,15 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         return new VodServiceImpl(serviceInfo);
     }
 
-
     @Override
     public String getPrivateDrmAuthToken(com.volcengine.service.vod.model.request.VodGetPrivateDrmPlayAuthRequest input, Long expireSeconds) throws Exception {
         Map<String, String> params = com.volcengine.helper.Utils.protoBufferToMap(input, false);
         if (expireSeconds != null && expireSeconds > 0) {
             params.put("X-Expires", expireSeconds.toString());
         }
-        return getSignUrl(Const.GetPrivateDrmPlayAuth, com.volcengine.helper.Utils.mapToPairList(params));
+        return getSignUrl(com.volcengine.helper.Const.GetPrivateDrmPlayAuth, com.volcengine.helper.Utils.mapToPairList(params));
     }
-
+    
     @Override
     public String createSha1HlsDrmAuthToken(Long expireSeconds) throws Exception {
         return createHlsDrmAuthToken(com.volcengine.helper.Const.DSAHmacSha1, expireSeconds);

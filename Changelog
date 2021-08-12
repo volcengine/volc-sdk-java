@@ -1,9 +1,11 @@
 Change log
 
+2021-08-12 Bumped to version v1.0.21
+- Support proxy setup for http
+
 2021-08-05 Bumped to version v1.0.20
 - Added ocr sdk
 - Added sms sdk
-
 
 2021-07-22 Bumped to version v1.0.19
 - Added cr32

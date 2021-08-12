@@ -1,11 +1,6 @@
 package com.volcengine.http;
 
-import org.apache.http.HeaderElement;
-import org.apache.http.HeaderElementIterator;
-import org.apache.http.HttpEntityEnclosingRequest;
-import org.apache.http.HttpRequest;
-import org.apache.http.HttpResponse;
-import org.apache.http.NoHttpResponseException;
+import org.apache.http.*;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.HttpRequestRetryHandler;
 import org.apache.http.client.config.RequestConfig;
@@ -52,7 +47,7 @@ public class HttpClientFactory {
     };
     private static ConnectionKeepAliveStrategy connectionKeepAliveStrategy;
 
-    public static HttpClient create(ClientConfiguration configuration) {
+    public static HttpClient create(ClientConfiguration configuration, HttpHost proxy) {
         PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
         int maxCon = configuration.getMaxConnections();
         int maxConPerRoute = configuration.getMaxConPerRoute();
@@ -72,6 +67,7 @@ public class HttpClientFactory {
                 .setKeepAliveStrategy(strategy)
                 .setRetryHandler(httpRequestRetryHandler)
                 .setDefaultRequestConfig(RequestConfig.custom().setStaleConnectionCheckEnabled(true).build())
+                .setProxy(proxy)
                 .build();
 
         Thread deamonThread = new Thread(new IdleConnectionMonitorThread(connectionManager));

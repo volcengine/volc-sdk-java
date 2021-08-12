@@ -19,10 +19,7 @@ import com.volcengine.util.Sts2Utils;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.http.Header;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
+import org.apache.http.*;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -58,13 +55,28 @@ public abstract class BaseServiceImpl implements IBaseService {
     private BaseServiceImpl() {
     }
 
+    public BaseServiceImpl(ServiceInfo info, HttpHost proxy, Map<String, ApiInfo> apiInfoList) {
+        this.serviceInfo = info;
+        this.apiInfoList = apiInfoList;
+        this.ISigner = new SignerV4Impl();
+
+        this.httpClient = HttpClientFactory.create(new ClientConfiguration(), proxy);
+
+        init(info);
+    }
+
     public BaseServiceImpl(ServiceInfo info, Map<String, ApiInfo> apiInfoList) {
         this.serviceInfo = info;
         this.apiInfoList = apiInfoList;
         this.ISigner = new SignerV4Impl();
 
-        this.httpClient = HttpClientFactory.create(new ClientConfiguration());
+        this.httpClient = HttpClientFactory.create(new ClientConfiguration(), null);
 
+        init(info);
+    }
+
+
+    private void init(ServiceInfo info) {
         String accessKey = System.getenv(Const.ACCESS_KEY);
         String secretKey = System.getenv(Const.SECRET_KEY);
 

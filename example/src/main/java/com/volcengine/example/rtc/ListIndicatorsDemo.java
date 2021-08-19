@@ -20,7 +20,7 @@ public class ListIndicatorsDemo {
             listIndicatorsRequest.setStartTime("2021-08-01T00:00:00+08:00");
             listIndicatorsRequest.setEndTime("2021-08-20T00:00:00+08:00");
             listIndicatorsRequest.setIndicator("NetworkTransDelay");
-            listIndicatorsRequest.setOS("android");
+            //listIndicatorsRequest.setOS("android");
             //listIndicatorsRequest.setNetwork("wifi");
             ListIndicatorsResponse listIndicatorsResponse = rtcService.listIndicators(listIndicatorsRequest);
             System.out.println(JSON.toJSONString(listIndicatorsResponse));

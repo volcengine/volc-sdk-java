@@ -15,7 +15,7 @@ public class ListIndicatorsRequest {
     @JSONField(name = "Indicator")
     String indicator;  
     @JSONField(name = "OS")
-    String oS;  
+    String OS;
     @JSONField(name = "Network")
     String network; 
 }

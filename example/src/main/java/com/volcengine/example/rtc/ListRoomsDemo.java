@@ -10,13 +10,13 @@ public class ListRoomsDemo {
     public static void main(String[] args) {
         RtcService rtcService = RtcServiceImpl.getInstance();
 
-        rtcService.setAccessKey("AKLTZGNlZDA5NmIwNGZkNGNkZWJlYzc4MjI5YjVmZWI5ODI");
-        rtcService.setSecretKey("TnpZNU16VmhaRGxsTnpFeU5EZzNNemhsTnpVeU0yRTJaR05sTURrMk16SQ==");
+        rtcService.setAccessKey("ak");
+        rtcService.setSecretKey("sk");
 
         try {
             ListRoomsRequest listRoomsRequest = new ListRoomsRequest();
 
-            listRoomsRequest.setAppId("6110e5394f69bb00ca885806");
+            listRoomsRequest.setAppId("123");
             //listRoomsRequest.setRoomId("xukunhao-0816");
             //listRoomsRequest.setReverse(3);
             //listRoomsRequest.setOffset(3);

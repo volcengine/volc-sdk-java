@@ -10,13 +10,13 @@ public class ListIndicatorsDemo {
     public static void main(String[] args) {
         RtcService rtcService = RtcServiceImpl.getInstance();
 
-        rtcService.setAccessKey("AKLTZGNlZDA5NmIwNGZkNGNkZWJlYzc4MjI5YjVmZWI5ODI");
-        rtcService.setSecretKey("TnpZNU16VmhaRGxsTnpFeU5EZzNNemhsTnpVeU0yRTJaR05sTURrMk16SQ==");
+        rtcService.setAccessKey("ak");
+        rtcService.setSecretKey("sk==");
 
         try {
             ListIndicatorsRequest listIndicatorsRequest = new ListIndicatorsRequest();
              
-            listIndicatorsRequest.setAppId("6110e5394f69bb00ca885806");
+            listIndicatorsRequest.setAppId("123");
             listIndicatorsRequest.setStartTime("2021-08-01T00:00:00+08:00");
             listIndicatorsRequest.setEndTime("2021-08-20T00:00:00+08:00");
             listIndicatorsRequest.setIndicator("NetworkTransDelay");

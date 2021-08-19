@@ -17,7 +17,7 @@ public class ListRoomsDemo {
             ListRoomsRequest listRoomsRequest = new ListRoomsRequest();
 
             listRoomsRequest.setAppId("123");
-            //listRoomsRequest.setRoomId("xukunhao-0816");
+            //listRoomsRequest.setRoomId("123");
             //listRoomsRequest.setReverse(3);
             //listRoomsRequest.setOffset(3);
             //listRoomsRequest.setLimit(3);

@@ -126,4 +126,11 @@ public interface LivesaasService extends IBaseService {
      */
     UpdateActivityProductAPIResponse updateActivityProductAPI(UpdateActivityProductAPIRequest updateActivityProductAPIRequest) throws Exception;
 
+    /**
+     *
+     * @param listActivityDetailStatusAPIRequest ListActivityDetailStatusAPIRequest
+     * @return ListActivityDetailStatusAPIResponse
+     * @throws Exception the exception
+     */
+    ListActivityDetailStatusAPIResponse listActivityDetailStatusAPI(ListActivityDetailStatusAPIRequest listActivityDetailStatusAPIRequest) throws Exception;
 }

@@ -23,6 +23,7 @@ private static final long serialVersionUID = 0L;
     playInfoList_ = java.util.Collections.emptyList();
     thumbInfoList_ = java.util.Collections.emptyList();
     barrageMaskUrl_ = "";
+    subtitleInfoList_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -137,6 +138,15 @@ private static final long serialVersionUID = 0L;
             barrageMaskUrl_ = s;
             break;
           }
+          case 106: {
+            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+              subtitleInfoList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodSubtitleInfo>();
+              mutable_bitField0_ |= 0x00000004;
+            }
+            subtitleInfoList_.add(
+                input.readMessage(com.volcengine.service.vod.model.business.VodSubtitleInfo.parser(), extensionRegistry));
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -157,6 +167,9 @@ private static final long serialVersionUID = 0L;
       }
       if (((mutable_bitField0_ & 0x00000002) != 0)) {
         thumbInfoList_ = java.util.Collections.unmodifiableList(thumbInfoList_);
+      }
+      if (((mutable_bitField0_ & 0x00000004) != 0)) {
+        subtitleInfoList_ = java.util.Collections.unmodifiableList(subtitleInfoList_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -604,6 +617,66 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int SUBTITLEINFOLIST_FIELD_NUMBER = 13;
+  private java.util.List<com.volcengine.service.vod.model.business.VodSubtitleInfo> subtitleInfoList_;
+  /**
+   * <pre>
+   * 字幕信息列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.volcengine.service.vod.model.business.VodSubtitleInfo> getSubtitleInfoListList() {
+    return subtitleInfoList_;
+  }
+  /**
+   * <pre>
+   * 字幕信息列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.volcengine.service.vod.model.business.VodSubtitleInfoOrBuilder> 
+      getSubtitleInfoListOrBuilderList() {
+    return subtitleInfoList_;
+  }
+  /**
+   * <pre>
+   * 字幕信息列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+   */
+  @java.lang.Override
+  public int getSubtitleInfoListCount() {
+    return subtitleInfoList_.size();
+  }
+  /**
+   * <pre>
+   * 字幕信息列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodSubtitleInfo getSubtitleInfoList(int index) {
+    return subtitleInfoList_.get(index);
+  }
+  /**
+   * <pre>
+   * 字幕信息列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodSubtitleInfoOrBuilder getSubtitleInfoListOrBuilder(
+      int index) {
+    return subtitleInfoList_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -653,6 +726,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!getBarrageMaskUrlBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, barrageMaskUrl_);
+    }
+    for (int i = 0; i < subtitleInfoList_.size(); i++) {
+      output.writeMessage(13, subtitleInfoList_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -707,6 +783,10 @@ private static final long serialVersionUID = 0L;
     if (!getBarrageMaskUrlBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, barrageMaskUrl_);
     }
+    for (int i = 0; i < subtitleInfoList_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(13, subtitleInfoList_.get(i));
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -749,6 +829,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getThumbInfoListList())) return false;
     if (!getBarrageMaskUrl()
         .equals(other.getBarrageMaskUrl())) return false;
+    if (!getSubtitleInfoListList()
+        .equals(other.getSubtitleInfoListList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -792,6 +874,10 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + BARRAGEMASKURL_FIELD_NUMBER;
     hash = (53 * hash) + getBarrageMaskUrl().hashCode();
+    if (getSubtitleInfoListCount() > 0) {
+      hash = (37 * hash) + SUBTITLEINFOLIST_FIELD_NUMBER;
+      hash = (53 * hash) + getSubtitleInfoListList().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -922,6 +1008,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
         getPlayInfoListFieldBuilder();
         getThumbInfoListFieldBuilder();
+        getSubtitleInfoListFieldBuilder();
       }
     }
     @java.lang.Override
@@ -963,6 +1050,12 @@ private static final long serialVersionUID = 0L;
       }
       barrageMaskUrl_ = "";
 
+      if (subtitleInfoListBuilder_ == null) {
+        subtitleInfoList_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      } else {
+        subtitleInfoListBuilder_.clear();
+      }
       return this;
     }
 
@@ -1022,6 +1115,15 @@ private static final long serialVersionUID = 0L;
         result.thumbInfoList_ = thumbInfoListBuilder_.build();
       }
       result.barrageMaskUrl_ = barrageMaskUrl_;
+      if (subtitleInfoListBuilder_ == null) {
+        if (((bitField0_ & 0x00000004) != 0)) {
+          subtitleInfoList_ = java.util.Collections.unmodifiableList(subtitleInfoList_);
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.subtitleInfoList_ = subtitleInfoList_;
+      } else {
+        result.subtitleInfoList_ = subtitleInfoListBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -1155,6 +1257,32 @@ private static final long serialVersionUID = 0L;
       if (!other.getBarrageMaskUrl().isEmpty()) {
         barrageMaskUrl_ = other.barrageMaskUrl_;
         onChanged();
+      }
+      if (subtitleInfoListBuilder_ == null) {
+        if (!other.subtitleInfoList_.isEmpty()) {
+          if (subtitleInfoList_.isEmpty()) {
+            subtitleInfoList_ = other.subtitleInfoList_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureSubtitleInfoListIsMutable();
+            subtitleInfoList_.addAll(other.subtitleInfoList_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.subtitleInfoList_.isEmpty()) {
+          if (subtitleInfoListBuilder_.isEmpty()) {
+            subtitleInfoListBuilder_.dispose();
+            subtitleInfoListBuilder_ = null;
+            subtitleInfoList_ = other.subtitleInfoList_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+            subtitleInfoListBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getSubtitleInfoListFieldBuilder() : null;
+          } else {
+            subtitleInfoListBuilder_.addAllMessages(other.subtitleInfoList_);
+          }
+        }
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2593,6 +2721,318 @@ private static final long serialVersionUID = 0L;
       barrageMaskUrl_ = value;
       onChanged();
       return this;
+    }
+
+    private java.util.List<com.volcengine.service.vod.model.business.VodSubtitleInfo> subtitleInfoList_ =
+      java.util.Collections.emptyList();
+    private void ensureSubtitleInfoListIsMutable() {
+      if (!((bitField0_ & 0x00000004) != 0)) {
+        subtitleInfoList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodSubtitleInfo>(subtitleInfoList_);
+        bitField0_ |= 0x00000004;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodSubtitleInfo, com.volcengine.service.vod.model.business.VodSubtitleInfo.Builder, com.volcengine.service.vod.model.business.VodSubtitleInfoOrBuilder> subtitleInfoListBuilder_;
+
+    /**
+     * <pre>
+     * 字幕信息列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.VodSubtitleInfo> getSubtitleInfoListList() {
+      if (subtitleInfoListBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(subtitleInfoList_);
+      } else {
+        return subtitleInfoListBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * 字幕信息列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     */
+    public int getSubtitleInfoListCount() {
+      if (subtitleInfoListBuilder_ == null) {
+        return subtitleInfoList_.size();
+      } else {
+        return subtitleInfoListBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * 字幕信息列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodSubtitleInfo getSubtitleInfoList(int index) {
+      if (subtitleInfoListBuilder_ == null) {
+        return subtitleInfoList_.get(index);
+      } else {
+        return subtitleInfoListBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * 字幕信息列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     */
+    public Builder setSubtitleInfoList(
+        int index, com.volcengine.service.vod.model.business.VodSubtitleInfo value) {
+      if (subtitleInfoListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSubtitleInfoListIsMutable();
+        subtitleInfoList_.set(index, value);
+        onChanged();
+      } else {
+        subtitleInfoListBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 字幕信息列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     */
+    public Builder setSubtitleInfoList(
+        int index, com.volcengine.service.vod.model.business.VodSubtitleInfo.Builder builderForValue) {
+      if (subtitleInfoListBuilder_ == null) {
+        ensureSubtitleInfoListIsMutable();
+        subtitleInfoList_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        subtitleInfoListBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 字幕信息列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     */
+    public Builder addSubtitleInfoList(com.volcengine.service.vod.model.business.VodSubtitleInfo value) {
+      if (subtitleInfoListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSubtitleInfoListIsMutable();
+        subtitleInfoList_.add(value);
+        onChanged();
+      } else {
+        subtitleInfoListBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 字幕信息列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     */
+    public Builder addSubtitleInfoList(
+        int index, com.volcengine.service.vod.model.business.VodSubtitleInfo value) {
+      if (subtitleInfoListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSubtitleInfoListIsMutable();
+        subtitleInfoList_.add(index, value);
+        onChanged();
+      } else {
+        subtitleInfoListBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 字幕信息列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     */
+    public Builder addSubtitleInfoList(
+        com.volcengine.service.vod.model.business.VodSubtitleInfo.Builder builderForValue) {
+      if (subtitleInfoListBuilder_ == null) {
+        ensureSubtitleInfoListIsMutable();
+        subtitleInfoList_.add(builderForValue.build());
+        onChanged();
+      } else {
+        subtitleInfoListBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 字幕信息列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     */
+    public Builder addSubtitleInfoList(
+        int index, com.volcengine.service.vod.model.business.VodSubtitleInfo.Builder builderForValue) {
+      if (subtitleInfoListBuilder_ == null) {
+        ensureSubtitleInfoListIsMutable();
+        subtitleInfoList_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        subtitleInfoListBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 字幕信息列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     */
+    public Builder addAllSubtitleInfoList(
+        java.lang.Iterable<? extends com.volcengine.service.vod.model.business.VodSubtitleInfo> values) {
+      if (subtitleInfoListBuilder_ == null) {
+        ensureSubtitleInfoListIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, subtitleInfoList_);
+        onChanged();
+      } else {
+        subtitleInfoListBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 字幕信息列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     */
+    public Builder clearSubtitleInfoList() {
+      if (subtitleInfoListBuilder_ == null) {
+        subtitleInfoList_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+      } else {
+        subtitleInfoListBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 字幕信息列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     */
+    public Builder removeSubtitleInfoList(int index) {
+      if (subtitleInfoListBuilder_ == null) {
+        ensureSubtitleInfoListIsMutable();
+        subtitleInfoList_.remove(index);
+        onChanged();
+      } else {
+        subtitleInfoListBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 字幕信息列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodSubtitleInfo.Builder getSubtitleInfoListBuilder(
+        int index) {
+      return getSubtitleInfoListFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * 字幕信息列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodSubtitleInfoOrBuilder getSubtitleInfoListOrBuilder(
+        int index) {
+      if (subtitleInfoListBuilder_ == null) {
+        return subtitleInfoList_.get(index);  } else {
+        return subtitleInfoListBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * 字幕信息列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     */
+    public java.util.List<? extends com.volcengine.service.vod.model.business.VodSubtitleInfoOrBuilder> 
+         getSubtitleInfoListOrBuilderList() {
+      if (subtitleInfoListBuilder_ != null) {
+        return subtitleInfoListBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(subtitleInfoList_);
+      }
+    }
+    /**
+     * <pre>
+     * 字幕信息列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodSubtitleInfo.Builder addSubtitleInfoListBuilder() {
+      return getSubtitleInfoListFieldBuilder().addBuilder(
+          com.volcengine.service.vod.model.business.VodSubtitleInfo.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * 字幕信息列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodSubtitleInfo.Builder addSubtitleInfoListBuilder(
+        int index) {
+      return getSubtitleInfoListFieldBuilder().addBuilder(
+          index, com.volcengine.service.vod.model.business.VodSubtitleInfo.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * 字幕信息列表
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.VodSubtitleInfo.Builder> 
+         getSubtitleInfoListBuilderList() {
+      return getSubtitleInfoListFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodSubtitleInfo, com.volcengine.service.vod.model.business.VodSubtitleInfo.Builder, com.volcengine.service.vod.model.business.VodSubtitleInfoOrBuilder> 
+        getSubtitleInfoListFieldBuilder() {
+      if (subtitleInfoListBuilder_ == null) {
+        subtitleInfoListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.service.vod.model.business.VodSubtitleInfo, com.volcengine.service.vod.model.business.VodSubtitleInfo.Builder, com.volcengine.service.vod.model.business.VodSubtitleInfoOrBuilder>(
+                subtitleInfoList_,
+                ((bitField0_ & 0x00000004) != 0),
+                getParentForChildren(),
+                isClean());
+        subtitleInfoList_ = null;
+      }
+      return subtitleInfoListBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

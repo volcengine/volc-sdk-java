@@ -5,10 +5,7 @@ import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
 import com.volcengine.model.ServiceInfo;
-import com.volcengine.model.request.ApplyImageUploadRequest;
-import com.volcengine.model.request.CommitImageUploadRequest;
-import com.volcengine.model.request.CommitImageUploadRequestBody;
-import com.volcengine.model.request.DeleteImageReq;
+import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
 import com.volcengine.model.sts2.Policy;
 import com.volcengine.model.sts2.SecurityToken2;
@@ -82,12 +79,8 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     private void doUpload(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, byte[] imageData) throws Exception {
-        CRC32 crc = new CRC32();
-        crc.update(imageData);
-        if (crc.getValue() == -1) {
-            throw new Exception("image data crc32 error");
-        }
-        String checkSum = String.format("%x", crc.getValue());
+        long crc32 = com.volcengine.helper.Utils.crc32(imageData);
+        String checkSum = String.format("%08x", crc32);
         String url = String.format("https://%s/%s", host, storeInfo.getStoreUri());
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-CRC32", checkSum);
@@ -217,6 +210,24 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     @Override
+    public UpdateImageFilesResponse updateImageUrls(UpdateImageFilesRequest req) throws Exception {
+        Map<String, String> params = new HashMap<>();
+        params.put("ServiceId", req.getServiceId());
+
+        RawResponse response = json("UpdateImageUploadFiles", Utils.mapToPairList(params), JSON.toJSONString(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateImageFilesResponse res = JSON.parseObject(response.getData(), UpdateImageFilesResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("ImageX");
+        return res;
+    }
+
+    @Override
     public CommonResponse getImageX(String action, Map<String, String> param) throws Exception {
         RawResponse response = query(action, Utils.mapToPairList(param));
         return parseRawRes(response);
@@ -238,6 +249,20 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
         }
         res.getResponseMetadata().setService("ImageX");
+        return res;
+    }
+
+    @Override
+    public GetImageOCRResponse getImageOCR(Map<String, String> param) throws Exception {
+        RawResponse response = query("GetImageOCR", Utils.mapToPairList(param));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImageOCRResponse res = JSON.parseObject(response.getData(), GetImageOCRResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
         return res;
     }
 }

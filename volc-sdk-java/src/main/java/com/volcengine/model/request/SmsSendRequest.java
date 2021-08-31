@@ -17,4 +17,6 @@ public class SmsSendRequest {
     String phoneNumbers;
     @JSONField(name = "Tag")
     String tag;
+    @JSONField(name = "UserExtCode")
+    String userExtCode;
 }

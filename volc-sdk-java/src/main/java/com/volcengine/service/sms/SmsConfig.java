@@ -32,6 +32,22 @@ public class SmsConfig {
                         }
                     }
             ));
+            put(Const.REGION_AP_SINGAPORE_1, new ServiceInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.CONNECTION_TIMEOUT, 5000);
+                            put(Const.SOCKET_TIMEOUT, 5000);
+                            put(Const.Scheme, "https");
+                            put(Const.Host, "sms.byteplusapi.com");
+                            put(Const.Header, new ArrayList<Header>() {
+                                {
+                                    add(new BasicHeader("Accept", "application/json"));
+                                }
+                            });
+                            put(Const.Credentials, new Credentials(Const.REGION_AP_SINGAPORE_1, "volcSMS"));
+                        }
+                    }
+            ));
         }
     };
 
@@ -60,6 +76,34 @@ public class SmsConfig {
                                 {
                                     add(new BasicNameValuePair("Action", "SendBatchSms"));
                                     add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("SendSmsVerifyCode", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "SendSmsVerifyCode"));
+                                    add(new BasicNameValuePair("Version", "2020-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("CheckSmsVerifyCode", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "CheckSmsVerifyCode"));
+                                    add(new BasicNameValuePair("Version", "2020-01-01"));
                                 }
                             });
                         }

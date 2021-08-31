@@ -260,4 +260,48 @@ public interface VodPlayInfoModelOrBuilder extends
    */
   com.google.protobuf.ByteString
       getBarrageMaskUrlBytes();
+
+  /**
+   * <pre>
+   * 字幕信息列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+   */
+  java.util.List<com.volcengine.service.vod.model.business.VodSubtitleInfo> 
+      getSubtitleInfoListList();
+  /**
+   * <pre>
+   * 字幕信息列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+   */
+  com.volcengine.service.vod.model.business.VodSubtitleInfo getSubtitleInfoList(int index);
+  /**
+   * <pre>
+   * 字幕信息列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+   */
+  int getSubtitleInfoListCount();
+  /**
+   * <pre>
+   * 字幕信息列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+   */
+  java.util.List<? extends com.volcengine.service.vod.model.business.VodSubtitleInfoOrBuilder> 
+      getSubtitleInfoListOrBuilderList();
+  /**
+   * <pre>
+   * 字幕信息列表
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+   */
+  com.volcengine.service.vod.model.business.VodSubtitleInfoOrBuilder getSubtitleInfoListOrBuilder(
+      int index);
 }

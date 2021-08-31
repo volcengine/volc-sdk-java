@@ -18,8 +18,8 @@ public class CreateActivityAPI {
         try {
             CreateActivityAPIRequest createActivityAPIRequest = new CreateActivityAPIRequest();
             createActivityAPIRequest.setLiveTime(System.currentTimeMillis()/1000L);
-            createActivityAPIRequest.setName("example");
-            System.out.println(JSON.toJSONString(createActivityAPIRequest));
+            createActivityAPIRequest.setName("JAVA SDK");
+
 
             CreateActivityAPIResponse createActivityAPIResponse = livesaasService.createActivityAPI(createActivityAPIRequest);
             System.out.println(JSON.toJSONString(createActivityAPIResponse));

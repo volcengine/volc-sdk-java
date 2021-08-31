@@ -107,6 +107,118 @@ public class LivesaasConfig {
                         }
                     }
             ));
+            put(Const.DeleteActivityAPI, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DeleteActivityAPI));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateActivityBasicConfigAPI, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateActivityBasicConfigAPI));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetActivityBasicConfigAPI, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetActivityBasicConfigAPI));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UploadLibAPI, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UploadLibAPI));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetActivityMenuAPI, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetActivityMenuAPI));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateActivityMenuAPI, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateActivityMenuAPI));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetActivityProductAPI, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetActivityProductAPI));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateActivityProductAPI, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateActivityProductAPI));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

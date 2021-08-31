@@ -1,8 +1,8 @@
 package com.volcengine.util;
-
+import java.util.Comparator;
 import org.apache.http.NameValuePair;
 
-import java.util.Comparator;
+
 
 
 public enum  NameValueComparator implements Comparator<NameValuePair> {

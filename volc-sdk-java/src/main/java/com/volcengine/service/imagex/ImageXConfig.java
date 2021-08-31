@@ -16,6 +16,11 @@ import java.util.Map;
 public class ImageXConfig {
     public static final String RESOURCE_SERVICE_ID_FORMAT = "trn:ImageX:*:*:ServiceId/%s";
     public static final String RESOURCE_STORE_KEY_FORMAT = "trn:ImageX:*:*:StoreKeys/%s";
+    public static final Integer ACTION_REFRESH = 0;
+    public static final Integer ACTION_DISABLE = 1;
+    public static final Integer ACTION_ENABLE = 2;
+    public static final Integer ACTION_PRELOAD = 4;
+    public static final Integer ACTION_REFRESH_DIR = 5;
 
     public static Map<String, ServiceInfo> serviceInfoMap = new HashMap<String, ServiceInfo>() {
         {
@@ -250,6 +255,20 @@ public class ImageXConfig {
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", "GetImageUpdateFiles"));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("GetImageOCR", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetImageOCR"));
                                     add(new BasicNameValuePair("Version", "2018-08-01"));
                                 }
                             });

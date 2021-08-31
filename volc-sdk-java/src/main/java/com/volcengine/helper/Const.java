@@ -60,11 +60,23 @@ public class Const {
     public static final String GetRecommendedPoster = "GetRecommendedPoster";
     public static final String DeleteMedia = "DeleteMedia";
     public static final String DeleteTranscodes = "DeleteTranscodes";
+    public static final String GetMediaList = "GetMediaList";
+    public static final String GetSubtitleInfoList = "GetSubtitleInfoList";
+    public static final String UpdateSubtitleStatus = "UpdateSubtitleStatus";
+    public static final String UpdateSubtitleInfo = "UpdateSubtitleInfo";
     public static final String GetHlsDecryptionKey = "GetHlsDecryptionKey";
     public static final String GetPrivateDrmPlayAuth = "GetPrivateDrmPlayAuth";
-
     public static final int MinChunkSize = 1024 * 1024 * 20;
     public static final int LargeFileSize = 1024 * 1024 * 50;
+    public static final String FileTypeMedia = "media";
+    public static final String FileTypeImage = "image";
+    public static final String FileTypeObject = "object";
+    public static final String CategoryVideo = "video";
+    public static final String CategoryAudio = "audio";
+    public static final String CategoryImage = "image";
+    public static final String CategoryDynamicImg = "dynamic_img";
+    public static final String CategorySubtitle = "subtitle";
+    public static final String CategoryFont = "font";
 
     public static final String DSAHmacSha1 = "HMAC-SHA1";
     public static final String DSAHmacSha256 = "HMAC-SHA256";
@@ -92,13 +104,36 @@ public class Const {
     public static final String DataReport = "DataReport";
 
     // livesaas
+
+    //创建直播间
     public static final String CreateActivityAPI = "CreateActivityAPI";
+    //查询直播间
     public static final String GetActivityAPI = "GetActivityAPI";
+    //获取直播流
     public static final String GetStreamsAPI = "GetStreamsAPI";
+    //获取广告数据
     public static final String GetAdvertisementDataAPI = "GetAdvertisementDataAPI";
+    //获取真实在线人数
     public static final String GetRealTimeOnlineNumberAPI = "GetRealTimeOnlineNumberAPI";
+    //删除直播间
+    public static final String DeleteActivityAPI = "DeleteActivityAPI";
+    //获取直播间基本信息与配置
+    public static final String UpdateActivityBasicConfigAPI = "UpdateActivityBasicConfigAPI";
+    //更新直播间基本信息与配置
+    public static final String GetActivityBasicConfigAPI = "GetActivityBasicConfigAPI";
+    //图片视频上传
+    public static final String UploadLibAPI = "UploadLibAPI";
+    //获取菜单栏
+    public static final String GetActivityMenuAPI = "GetActivityMenuAPI";
+    //更新菜单栏
+    public static final String UpdateActivityMenuAPI = "UpdateActivityMenuAPI";
+    //获取菜单栏商品
+    public static final String GetActivityProductAPI = "GetActivityProductAPI";
+    //更新菜单栏商品
+    public static final String UpdateActivityProductAPI = "UpdateActivityProductAPI";
 
     // translate
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";
+    public static final String TranslateImage = "TranslateImage";
 }

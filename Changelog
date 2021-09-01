@@ -1,5 +1,9 @@
 Change log
 
+2021-09-01 Bumped to version v1.0.22
+- Add function data report to collect users' data
+- Added livesaas ListActivityDetailStatusAPI
+
 2021-08-12 Bumped to version v1.0.21
 - Support proxy setup for http
 

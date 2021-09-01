@@ -1,10 +1,12 @@
 package com.volcengine.service.businessSecurity;
 
+import com.volcengine.model.request.DataReportRequest;
 import com.volcengine.model.request.RiskDetectionRequest;
 import com.volcengine.model.request.AsyncRiskDetectionRequest;
 
 import com.volcengine.model.request.RiskResultRequest;
 
+import com.volcengine.model.response.DataReportResponse;
 import com.volcengine.model.response.RiskDetectionResponse;
 import com.volcengine.model.response.AsyncRiskDetectionResponse;
 import com.volcengine.model.response.RiskResultResponse;
@@ -41,4 +43,13 @@ public interface BusinessSecurityService extends IBaseService {
      * @throws Exception the exception
      */
     RiskResultResponse RiskResult(RiskResultRequest riskResultRequest) throws Exception;
+
+    /**
+     * Data Report.
+     *
+     * @param  dataReportRequest data report request
+     * @return data report response
+     * @throws Exception the exception
+     */
+    DataReportResponse DataReport(DataReportRequest dataReportRequest) throws Exception;
 }

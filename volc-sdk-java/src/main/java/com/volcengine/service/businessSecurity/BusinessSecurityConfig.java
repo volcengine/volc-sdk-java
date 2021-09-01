@@ -73,6 +73,20 @@ public class BusinessSecurityConfig {
                         }
                     }
             ));
+            put(Const.DataReport, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DataReport));
+                                    add(new BasicNameValuePair("Version", "2021-08-31"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

@@ -5,6 +5,7 @@ import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
 import com.volcengine.model.request.AsyncRiskDetectionRequest;
+import com.volcengine.model.request.DataReportRequest;
 import com.volcengine.model.request.RiskDetectionRequest;
 import com.volcengine.model.request.RiskResultRequest;
 import com.volcengine.model.response.*;
@@ -52,5 +53,15 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
         }
 
         return JSON.parseObject(response.getData(), RiskResultResponse.class);
+    }
+
+    @Override
+    public DataReportResponse DataReport(DataReportRequest dataReportRequest) throws Exception {
+        RawResponse response = json(Const.DataReport, new ArrayList<>(), JSON.toJSONString(dataReportRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), DataReportResponse.class);
     }
 }

@@ -130,6 +130,8 @@ public class Const {
     public static final String GetActivityProductAPI = "GetActivityProductAPI";
     //更新菜单栏商品
     public static final String UpdateActivityProductAPI = "UpdateActivityProductAPI";
+    //获取直播间列表的详细状态信息
+    public static final String ListActivityDetailStatusAPI = "ListActivityDetailStatusAPI";
 
     // translate
     public static final String LangDetect = "LangDetect";

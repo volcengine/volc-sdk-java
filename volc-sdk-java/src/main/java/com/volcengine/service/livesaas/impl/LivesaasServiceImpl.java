@@ -241,4 +241,19 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         return res;
     }
 
+    @Override
+    public ListActivityDetailStatusAPIResponse listActivityDetailStatusAPI(ListActivityDetailStatusAPIRequest listActivityDetailStatusAPIRequest) throws Exception {
+        RawResponse response = json(Const.ListActivityDetailStatusAPI, new ArrayList<>(), JSON.toJSONString(listActivityDetailStatusAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListActivityDetailStatusAPIResponse res = JSON.parseObject(response.getData(), ListActivityDetailStatusAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
 }

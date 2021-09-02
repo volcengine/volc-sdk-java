@@ -8,6 +8,7 @@ import com.volcengine.model.Credentials;
 import com.volcengine.service.SignableRequest;
 import com.volcengine.util.NameValueComparator;
 import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.lang3.CharSet;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Consts;
 import org.apache.http.Header;
@@ -18,26 +19,38 @@ import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.util.EntityUtils;
 
 import java.net.URLEncoder;
+import java.nio.ByteBuffer;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.TimeZone;
+import java.util.*;
 
 
 public class SignerV4Impl implements ISignerV4 {
     private static final TimeZone tz = TimeZone.getTimeZone("UTC");
     private static final Set<String> H_INCLUDE = new HashSet<String>();
+    private static final BitSet URLENCODER = new BitSet(256);
+    private static final String CONST_ENCODE = "0123456789ABCDEF";
 
     static {
         H_INCLUDE.add("Content-Type");
         H_INCLUDE.add("Content-Md5");
         H_INCLUDE.add("Host");
+        int i;
+        for (i = 97; i <= 122; ++i) {
+            URLENCODER.set(i);
+        }
+
+        for (i = 65; i <= 90; ++i) {
+            URLENCODER.set(i);
+        }
+
+        for (i = 48; i <= 57; ++i) {
+            URLENCODER.set(i);
+        }
+        URLENCODER.set('-');
+        URLENCODER.set('_');
+        URLENCODER.set('.');
+        URLENCODER.set('~');
     }
 
     @Override
@@ -172,7 +185,7 @@ public class SignerV4Impl implements ISignerV4 {
 
         meta.setSignedHeaders(StringUtils.join(signedHeaders, ";"));
 
-        String canonicalRequest = StringUtils.join(new String[]{ request.getMethod(), normUri(request.getUriBuilder().getPath()),
+        String canonicalRequest = StringUtils.join(new String[]{request.getMethod(), normUri(request.getUriBuilder().getPath()),
                 normQuery(request.getUriBuilder().getQueryParams()), signedHeadersToSignStr.toString(),
                 meta.getSignedHeaders(), bodyHash}, "\n");
 
@@ -213,10 +226,64 @@ public class SignerV4Impl implements ISignerV4 {
         return URLEncoder.encode(path).replace("%2F", "/").replace("+", "%20");
     }
 
+    /**
+     * 与golang的标准对齐
+     * @param params query kv pair
+     * @return query
+     */
     private String normQuery(List<NameValuePair> params) {
-        Collections.sort(params, NameValueComparator.INSTANCE);
-        String query = URLEncodedUtils.format(params, Consts.UTF_8);
-        return query.replace("+", "%20");
+        params.sort(NameValueComparator.INSTANCE);
+        return signQueryEncoder(params);
     }
 
+    /**
+     * 与golang的标准对齐，
+     * @param params kv pair
+     * @return query string
+     */
+    private String signQueryEncoder(List<NameValuePair> params) {
+        StringBuilder result = new StringBuilder();
+        for (NameValuePair pair : params) {
+            String encodedName = signStringEncoder(pair.getName());
+            String encodedValue = signStringEncoder(pair.getValue());
+            if (result.length() > 0) {
+                result.append("&");
+            }
+            result.append(encodedName);
+            if (encodedValue != null) {
+                result.append("=");
+                result.append(encodedValue);
+            }
+        }
+        return result.toString();
+    }
+
+    /**
+     * 与golang的标准对齐，URLENCODER中的字符不转换，空格转换为%20(仅签名使用)
+     * @param source 原文
+     * @return 转换后的编码字符串
+     */
+    private String signStringEncoder(String source) {
+        if (source == null) {
+            return null;
+        }
+        StringBuilder buf = new StringBuilder(source.length());
+        ByteBuffer bb = Consts.UTF_8.encode(source);
+        while (bb.hasRemaining()) {
+            int b = bb.get() & 255;
+            if (URLENCODER.get(b)) {
+                buf.append((char) b);
+            } else if (b == 32) {
+                buf.append("%20");
+            } else {
+                buf.append("%");
+                char hex1 = CONST_ENCODE.charAt(b >> 4);
+                char hex2 = CONST_ENCODE.charAt(b & 15);
+                buf.append(hex1);
+                buf.append(hex2);
+            }
+        }
+
+        return buf.toString();
+    }
 }

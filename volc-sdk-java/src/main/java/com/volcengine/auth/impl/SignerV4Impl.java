@@ -223,7 +223,11 @@ public class SignerV4Impl implements ISignerV4 {
     }
 
     private String normUri(String path) {
-        return URLEncoder.encode(path).replace("%2F", "/").replace("+", "%20");
+        String[] parts = path.split("/",-1);
+        for (int i = 0; i < parts.length; i++) {
+            parts[i] = signStringEncoder(parts[i]);
+        }
+        return StringUtils.join(parts, "/");
     }
 
     /**

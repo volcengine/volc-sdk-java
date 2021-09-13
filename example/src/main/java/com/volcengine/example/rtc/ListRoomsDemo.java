@@ -18,9 +18,9 @@ public class ListRoomsDemo {
 
             listRoomsRequest.setAppId("123");
             //listRoomsRequest.setRoomId("123");
-            //listRoomsRequest.setReverse(3);
-            //listRoomsRequest.setOffset(3);
-            //listRoomsRequest.setLimit(3);
+            //listRoomsRequest.setReverse(0);
+            //listRoomsRequest.setOffset(0);
+            //listRoomsRequest.setLimit(10);
             ListRoomsResponse listRoomsResponse = rtcService.listRooms(listRoomsRequest);
             System.out.println(JSON.toJSONString(listRoomsResponse));
         } catch (Exception e) {

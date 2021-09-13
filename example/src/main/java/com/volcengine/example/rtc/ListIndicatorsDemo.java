@@ -11,7 +11,7 @@ public class ListIndicatorsDemo {
         RtcService rtcService = RtcServiceImpl.getInstance();
 
         rtcService.setAccessKey("ak");
-        rtcService.setSecretKey("sk==");
+        rtcService.setSecretKey("sk");
 
         try {
             ListIndicatorsRequest listIndicatorsRequest = new ListIndicatorsRequest();

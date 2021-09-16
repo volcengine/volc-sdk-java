@@ -226,4 +226,24 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getCdnTypeBytes();
+
+  /**
+   * <pre>
+   * 唯一性标识信息
+   * </pre>
+   *
+   * <code>string UnionInfo = 12;</code>
+   * @return The unionInfo.
+   */
+  java.lang.String getUnionInfo();
+  /**
+   * <pre>
+   * 唯一性标识信息
+   * </pre>
+   *
+   * <code>string UnionInfo = 12;</code>
+   * @return The bytes for unionInfo.
+   */
+  com.google.protobuf.ByteString
+      getUnionInfoBytes();
 }

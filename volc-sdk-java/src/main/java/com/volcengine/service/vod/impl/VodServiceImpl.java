@@ -48,6 +48,15 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
     }
 
     @Override
+    public String getPrivateDrmAuthToken(com.volcengine.service.vod.model.request.VodGetPrivateDrmPlayAuthRequest input, Long expireSeconds) throws Exception {
+        Map<String, String> params = com.volcengine.helper.Utils.protoBufferToMap(input, false);
+        if (expireSeconds != null && expireSeconds > 0) {
+            params.put("X-Expires", expireSeconds.toString());
+        }
+        return getSignUrl(com.volcengine.helper.Const.GetPrivateDrmPlayAuth, com.volcengine.helper.Utils.mapToPairList(params));
+    }
+    
+    @Override
     public String createSha1HlsDrmAuthToken(Long expireSeconds) throws Exception {
         return createHlsDrmAuthToken(com.volcengine.helper.Const.DSAHmacSha1, expireSeconds);
     }

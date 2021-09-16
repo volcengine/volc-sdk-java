@@ -138,4 +138,7 @@ public class Const {
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";
     public static final String TranslateImage = "TranslateImage";
+
+    public static final String ListRooms = "ListRooms";
+    public static final String ListIndicators = "ListIndicators";
 }

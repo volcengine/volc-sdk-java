@@ -189,7 +189,7 @@ public interface VodGetSubtitleInfoListRequestOrBuilder extends
 
   /**
    * <pre>
-   *file的偏移量
+   * file的偏移量
    * </pre>
    *
    * <code>string Offset = 10;</code>
@@ -198,7 +198,7 @@ public interface VodGetSubtitleInfoListRequestOrBuilder extends
   java.lang.String getOffset();
   /**
    * <pre>
-   *file的偏移量
+   * file的偏移量
    * </pre>
    *
    * <code>string Offset = 10;</code>

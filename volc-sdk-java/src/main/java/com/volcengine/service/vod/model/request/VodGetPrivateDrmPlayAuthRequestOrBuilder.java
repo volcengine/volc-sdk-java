@@ -9,7 +9,7 @@ public interface VodGetPrivateDrmPlayAuthRequestOrBuilder extends
 
   /**
    * <pre>
-   * drm类型
+   * drm类型（不区分大小写，支持web,app;默认web）
    * </pre>
    *
    * <code>string DrmType = 1;</code>
@@ -18,7 +18,7 @@ public interface VodGetPrivateDrmPlayAuthRequestOrBuilder extends
   java.lang.String getDrmType();
   /**
    * <pre>
-   * drm类型
+   * drm类型（不区分大小写，支持web,app;默认web）
    * </pre>
    *
    * <code>string DrmType = 1;</code>
@@ -66,4 +66,24 @@ public interface VodGetPrivateDrmPlayAuthRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getPlayAuthIdsBytes();
+
+  /**
+   * <pre>
+   * 加密唯一信息
+   * </pre>
+   *
+   * <code>string UnionInfo = 4;</code>
+   * @return The unionInfo.
+   */
+  java.lang.String getUnionInfo();
+  /**
+   * <pre>
+   * 加密唯一信息
+   * </pre>
+   *
+   * <code>string UnionInfo = 4;</code>
+   * @return The bytes for unionInfo.
+   */
+  com.google.protobuf.ByteString
+      getUnionInfoBytes();
 }

@@ -11,6 +11,16 @@ package com.volcengine.service.vod;
 public interface IVodService extends com.volcengine.service.IBaseService {
      
     /**
+	 * Gets private drm auth token.
+	 *
+	 * @param input the params
+	 * @param expireSeconds the params
+	 * @return the private drm auth token
+	 * @throws Exception the exception
+	 */
+	String getPrivateDrmAuthToken(com.volcengine.service.vod.model.request.VodGetPrivateDrmPlayAuthRequest input, Long expireSeconds) throws Exception;
+    
+    /**
      * Gets hls auth token.
      *
      * @param expireSeconds the params

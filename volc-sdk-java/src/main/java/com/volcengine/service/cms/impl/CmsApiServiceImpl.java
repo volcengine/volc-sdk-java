@@ -1,0 +1,55 @@
+package com.volcengine.service.cms.impl;
+
+import com.alibaba.fastjson.JSON;
+import com.volcengine.error.SdkError;
+import com.volcengine.helper.Const;
+import com.volcengine.model.ServiceInfo;
+import com.volcengine.model.request.ArticleFeedRequest;
+import com.volcengine.model.response.ArticleFeedResponse;
+import com.volcengine.model.response.RawResponse;
+import com.volcengine.service.BaseServiceImpl;
+import com.volcengine.service.cms.CmsApiService;
+import com.volcengine.service.cms.CmsConfig;
+
+import java.util.ArrayList;
+
+public class CmsApiServiceImpl extends BaseServiceImpl implements CmsApiService {
+
+    private CmsApiServiceImpl() {
+        super(CmsConfig.apiServiceInfoMap.get(Const.REGION_CN_NORTH_1), CmsConfig.apiApiInfoMap);
+    }
+
+    private CmsApiServiceImpl(ServiceInfo serviceInfo) {
+        super(serviceInfo, CmsConfig.apiApiInfoMap);
+    }
+
+    public static CmsApiService getInstance() {
+        return new CmsApiServiceImpl();
+    }
+
+    public static CmsApiService getInstance(String region) throws Exception {
+        ServiceInfo serviceInfo = CmsConfig.apiServiceInfoMap.get(region);
+        if (serviceInfo == null) {
+            throw new Exception("Edit not support region " + region);
+        }
+        return new CmsApiServiceImpl(serviceInfo);
+    }
+
+    @Override
+    public ArticleFeedResponse feed(ArticleFeedRequest articleFeedRequest) throws Exception {
+        RawResponse response = json("Feed", new ArrayList<>(), JSON.toJSONString(articleFeedRequest));
+        return getFeedResult(response);
+    }
+
+    private ArticleFeedResponse getFeedResult(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ArticleFeedResponse res = JSON.parseObject(response.getData(), ArticleFeedResponse.class);
+        if (res.getBaseResp().getStatusCode() != 1000) {
+            ArticleFeedResponse.BaseResp base = res.getBaseResp();
+            throw new Exception(res.getData() != null ? res.getData().getRequestId() : null + " error: " + base.getStatusMessage());
+        }
+        return res;
+    }
+}

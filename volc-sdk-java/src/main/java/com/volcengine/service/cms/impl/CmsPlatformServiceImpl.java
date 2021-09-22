@@ -5,7 +5,9 @@ import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.request.ArticleCreateRequest;
+import com.volcengine.model.request.ArticleUploadDetailRequest;
 import com.volcengine.model.response.ArticleCreateResponse;
+import com.volcengine.model.response.ArticleUploadDetailResponse;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.response.ResponseMetadata;
 import com.volcengine.service.BaseServiceImpl;
@@ -43,6 +45,12 @@ public class CmsPlatformServiceImpl extends BaseServiceImpl implements CmsPlatfo
         return getBatchCreateSourceArticle(rawResponse);
     }
 
+    @Override
+    public ArticleUploadDetailResponse getArticleBatchUploadDetail(ArticleUploadDetailRequest articleUploadDetailRequest) throws Exception {
+        RawResponse rawResponse = json("GetArticleBatchUploadDetail", new ArrayList<>(), JSON.toJSONString(articleUploadDetailRequest));
+        return getUploadDetail(rawResponse);
+    }
+
     private ArticleCreateResponse getBatchCreateSourceArticle(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -52,7 +60,18 @@ public class CmsPlatformServiceImpl extends BaseServiceImpl implements CmsPlatfo
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
-        res.getResponseMetadata().setService("volc_content_platform");
+        return res;
+    }
+
+    private ArticleUploadDetailResponse getUploadDetail(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ArticleUploadDetailResponse res = JSON.parseObject(response.getData(), ArticleUploadDetailResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
+        }
         return res;
     }
 }

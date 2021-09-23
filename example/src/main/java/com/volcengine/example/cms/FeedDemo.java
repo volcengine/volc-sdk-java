@@ -11,11 +11,12 @@ public class FeedDemo {
         CmsApiService apiService = CmsApiServiceImpl.getInstance();
 
         // call below method if you dont set ak and sk in ～/.vcloud/config
-        apiService.setAccessKey("");
-        apiService.setSecretKey("");
+        apiService.setAccessKey("ak");
+        apiService.setSecretKey("sk");
 
         ArticleFeedRequest request = new ArticleFeedRequest();
         request.setUniqUserId("");
+        // set category here
         request.setCategory("");
         request.setPersonalRec(1);
 

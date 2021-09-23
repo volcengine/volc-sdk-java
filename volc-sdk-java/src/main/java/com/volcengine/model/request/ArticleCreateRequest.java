@@ -39,7 +39,7 @@ public class ArticleCreateRequest {
         @JSONField(name = "Link")
         String link;
         @JSONField(name = "ContentCntw")
-        int contentCntw;
+        Integer contentCntw;
         @JSONField(name = "CoverImages")
         List<ArticleImageModel> coverImages;
         @JSONField(name = "GroupImages")
@@ -61,9 +61,9 @@ public class ArticleCreateRequest {
     @Data
     public static class ArticleImageModel {
         @JSONField(name = "Height")
-        int height;
+        Integer height;
         @JSONField(name = "Width")
-        int width;
+        Integer width;
         @JSONField(name = "Url")
         String url;
     }
@@ -73,9 +73,9 @@ public class ArticleCreateRequest {
         @JSONField(name = "Id")
         String id;
         @JSONField(name = "VideoSize")
-        long videoSize;
+        Long videoSize;
         @JSONField(name = "Duration")
-        double duration;
+        Double duration;
         @JSONField(name = "Url")
         String url;
         @JSONField(name = "CoverImage")

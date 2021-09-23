@@ -5,11 +5,10 @@ import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.request.ArticleCreateRequest;
+import com.volcengine.model.request.ArticleDeleteByOpenidRequest;
+import com.volcengine.model.request.ArticleDeleteRequest;
 import com.volcengine.model.request.ArticleUploadDetailRequest;
-import com.volcengine.model.response.ArticleCreateResponse;
-import com.volcengine.model.response.ArticleUploadDetailResponse;
-import com.volcengine.model.response.RawResponse;
-import com.volcengine.model.response.ResponseMetadata;
+import com.volcengine.model.response.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.cms.CmsConfig;
 import com.volcengine.service.cms.CmsPlatformService;
@@ -51,6 +50,18 @@ public class CmsPlatformServiceImpl extends BaseServiceImpl implements CmsPlatfo
         return getUploadDetail(rawResponse);
     }
 
+    @Override
+    public ArticleDeleteResponse deleteSourceArticle(ArticleDeleteRequest articleDeleteRequest) throws Exception {
+        RawResponse rawResponse = json("DeleteSourceArticle", new ArrayList<>(), JSON.toJSONString(articleDeleteRequest));
+        return getDeleteArticle(rawResponse);
+    }
+
+    @Override
+    public ArticleDeleteByOpenidResponse deleteSourceArticleByOpenid(ArticleDeleteByOpenidRequest articleDeleteByOpenidRequest) throws Exception {
+        RawResponse rawResponse = json("DeleteSourceArticleByOpenid", new ArrayList<>(), JSON.toJSONString(articleDeleteByOpenidRequest));
+        return getDeleteArticleByOpenid(rawResponse);
+    }
+
     private ArticleCreateResponse getBatchCreateSourceArticle(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -68,6 +79,30 @@ public class CmsPlatformServiceImpl extends BaseServiceImpl implements CmsPlatfo
             throw response.getException();
         }
         ArticleUploadDetailResponse res = JSON.parseObject(response.getData(), ArticleUploadDetailResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    private ArticleDeleteResponse getDeleteArticle(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ArticleDeleteResponse res = JSON.parseObject(response.getData(), ArticleDeleteResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    private ArticleDeleteByOpenidResponse getDeleteArticleByOpenid(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ArticleDeleteByOpenidResponse res = JSON.parseObject(response.getData(), ArticleDeleteByOpenidResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());

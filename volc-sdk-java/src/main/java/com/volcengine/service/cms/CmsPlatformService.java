@@ -1,13 +1,7 @@
 package com.volcengine.service.cms;
 
-import com.volcengine.model.request.ArticleCreateRequest;
-import com.volcengine.model.request.ArticleDeleteByOpenidRequest;
-import com.volcengine.model.request.ArticleDeleteRequest;
-import com.volcengine.model.request.ArticleUploadDetailRequest;
-import com.volcengine.model.response.ArticleCreateResponse;
-import com.volcengine.model.response.ArticleDeleteByOpenidResponse;
-import com.volcengine.model.response.ArticleDeleteResponse;
-import com.volcengine.model.response.ArticleUploadDetailResponse;
+import com.volcengine.model.request.*;
+import com.volcengine.model.response.*;
 import com.volcengine.service.IBaseService;
 
 public interface CmsPlatformService extends IBaseService {
@@ -45,4 +39,12 @@ public interface CmsPlatformService extends IBaseService {
      * @throws Exception the exception
      */
     ArticleDeleteByOpenidResponse deleteSourceArticleByOpenid(ArticleDeleteByOpenidRequest articleDeleteByOpenidRequest) throws Exception;
+
+    /**
+     * ArticleArticleEventNotify
+     * @param articleEventNotifyRequest - the articleEventNotify request
+     * @return the articleEventNotify response
+     * @throws Exception the exception
+     */
+    ArticleEventNotifyResponse articleEventNotify(ArticleEventNotifyRequest articleEventNotifyRequest) throws Exception;
 }

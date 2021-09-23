@@ -10,8 +10,8 @@ public class DeleteArticleByOpenidDemo {
     public static void main(String[] args) {
         CmsPlatformService service = CmsPlatformServiceImpl.getInstance();
         // call below method if you dont set ak and sk in ～/.vcloud/config
-        service.setAccessKey("");
-        service.setSecretKey("");
+        service.setAccessKey("ak");
+        service.setSecretKey("sk");
 
         ArticleDeleteByOpenidRequest request = new ArticleDeleteByOpenidRequest();
         // set openid here

@@ -62,9 +62,9 @@ public class ArticleFeedResponse {
         @JSONField(name = "DisplayTag")
         Map<String, String> displayTag;
         @JSONField(name = "DiggCount")
-        long diggCount;
+        Long diggCount;
         @JSONField(name = "CommentCount")
-        long commentCount;
+        Long commentCount;
         @JSONField(name = "CommentUrl")
         String commentUrl;
     }
@@ -84,7 +84,7 @@ public class ArticleFeedResponse {
         @JSONField(name = "HomePage")
         String homePage;
         @JSONField(name = "FollowerCount")
-        long followerCount;
+        Long followerCount;
         @JSONField(name = "AuthorBizId")
         String authorBizId;
     }
@@ -94,9 +94,9 @@ public class ArticleFeedResponse {
         @JSONField(name = "Url")
         String url;
         @JSONField(name = "Height")
-        int height;
+        Integer height;
         @JSONField(name = "Width")
-        int width;
+        Integer width;
     }
 
     @Data
@@ -106,9 +106,9 @@ public class ArticleFeedResponse {
         @JSONField(name = "Vid")
         String vid;
         @JSONField(name = "VideoSize")
-        long videoSize;
+        Long videoSize;
         @JSONField(name = "VideoDuration")
-        double videoDuration;
+        Double videoDuration;
         @JSONField(name = "CoverImages")
         Image coverImage;
     }

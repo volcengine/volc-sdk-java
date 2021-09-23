@@ -12,7 +12,7 @@ public class ArticleFeedRequest {
     @JSONField(name = "Context")
     Context context;
     @JSONField(name = "PersonalRec")
-    int personalRec;
+    Integer personalRec;
 
     @Data
     public static class Context {

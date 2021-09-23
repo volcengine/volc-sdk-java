@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.model.ServiceInfo;
-import com.volcengine.model.request.ArticleCreateRequest;
-import com.volcengine.model.request.ArticleDeleteByOpenidRequest;
-import com.volcengine.model.request.ArticleDeleteRequest;
-import com.volcengine.model.request.ArticleUploadDetailRequest;
+import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.cms.CmsConfig;
@@ -62,6 +59,12 @@ public class CmsPlatformServiceImpl extends BaseServiceImpl implements CmsPlatfo
         return getDeleteArticleByOpenid(rawResponse);
     }
 
+    @Override
+    public ArticleEventNotifyResponse articleEventNotify(ArticleEventNotifyRequest articleEventNotifyRequest) throws Exception {
+        RawResponse rawResponse = json("ArticleEventNotify", new ArrayList<>(), JSON.toJSONString(articleEventNotifyRequest));
+        return getArticleEventNotify(rawResponse);
+    }
+
     private ArticleCreateResponse getBatchCreateSourceArticle(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -103,6 +106,18 @@ public class CmsPlatformServiceImpl extends BaseServiceImpl implements CmsPlatfo
             throw response.getException();
         }
         ArticleDeleteByOpenidResponse res = JSON.parseObject(response.getData(), ArticleDeleteByOpenidResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    private ArticleEventNotifyResponse getArticleEventNotify(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ArticleEventNotifyResponse res = JSON.parseObject(response.getData(), ArticleEventNotifyResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());

@@ -67,7 +67,7 @@ public class Const {
     public static final String GetHlsDecryptionKey = "GetHlsDecryptionKey";
     public static final String GetPrivateDrmPlayAuth = "GetPrivateDrmPlayAuth";
     public static final int MinChunkSize = 1024 * 1024 * 20;
-    public static final int LargeFileSize = 1024 * 1024 * 50;
+    public static final int LargeFileSize = 1024 * 1024 * 1024;
     public static final String FileTypeMedia = "media";
     public static final String FileTypeImage = "image";
     public static final String FileTypeObject = "object";

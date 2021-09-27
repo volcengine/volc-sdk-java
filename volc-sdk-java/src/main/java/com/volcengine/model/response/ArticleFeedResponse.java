@@ -8,6 +8,8 @@ import java.util.Map;
 
 @Data
 public class ArticleFeedResponse {
+    @JSONField(name = "ResponseMetadata")
+    ResponseMetadata responseMetadata;
     @JSONField(name = "BaseResp")
     BaseResp baseResp;
     @JSONField(name = "Data")

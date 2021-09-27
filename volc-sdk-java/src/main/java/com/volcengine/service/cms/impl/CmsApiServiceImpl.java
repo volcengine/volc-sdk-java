@@ -7,6 +7,7 @@ import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.request.ArticleFeedRequest;
 import com.volcengine.model.response.ArticleFeedResponse;
 import com.volcengine.model.response.RawResponse;
+import com.volcengine.model.response.ResponseMetadata;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.cms.CmsApiService;
 import com.volcengine.service.cms.CmsConfig;
@@ -46,9 +47,13 @@ public class CmsApiServiceImpl extends BaseServiceImpl implements CmsApiService 
             throw response.getException();
         }
         ArticleFeedResponse res = JSON.parseObject(response.getData(), ArticleFeedResponse.class);
-        if (res.getBaseResp().getStatusCode() != 1000) {
-            ArticleFeedResponse.BaseResp base = res.getBaseResp();
-            throw new Exception(res.getData() != null ? res.getData().getRequestId() : null + " error: " + base.getStatusMessage());
+        if (res.getResponseMetadata() != null && res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
+        }
+        if (res.getBaseResp() != null && res.getBaseResp().getStatusCode() != 1000) {
+            ArticleFeedResponse.BaseResp baseResp = res.getBaseResp();
+            throw new Exception("error: " + baseResp.getStatusMessage());
         }
         return res;
     }

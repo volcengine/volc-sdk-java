@@ -15,7 +15,7 @@ public class ArticleEventNotifyResponse {
     @Data
     public static class ArticleEventNotifyResult {
         @JSONField(name = "CursorTime")
-        Integer cursorTime;
+        Long cursorTime;
         @JSONField(name = "Items")
         List<ArticleEvent> items;
     }
@@ -27,7 +27,7 @@ public class ArticleEventNotifyResponse {
         @JSONField(name = "SubEventType")
         String subEventType;
         @JSONField(name = "EventTime")
-        Integer eventTime;
+        Long eventTime;
         @JSONField(name = "ArticleId")
         Long articleId;
         @JSONField(name = "EventDetail")

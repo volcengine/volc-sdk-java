@@ -148,6 +148,20 @@ public class CmsConfig {
                         }
                     }
             ));
+            put("GetVideoByVid", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetVideoByVid"));
+                                    add(new BasicNameValuePair("Version", "2021-08-18"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

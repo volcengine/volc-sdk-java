@@ -10,5 +10,5 @@ public class ArticleEventNotifyRequest {
     @JSONField(name = "SubEventType")
     String subEventType;
     @JSONField(name = "CursorTime")
-    Integer cursorTime;
+    Long cursorTime;
 }

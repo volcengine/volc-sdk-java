@@ -5,7 +5,9 @@ import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.request.ArticleFeedRequest;
+import com.volcengine.model.request.ArticleVideoRequest;
 import com.volcengine.model.response.ArticleFeedResponse;
+import com.volcengine.model.response.ArticleVideoResponse;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.response.ResponseMetadata;
 import com.volcengine.service.BaseServiceImpl;
@@ -38,8 +40,14 @@ public class CmsApiServiceImpl extends BaseServiceImpl implements CmsApiService 
 
     @Override
     public ArticleFeedResponse feed(ArticleFeedRequest articleFeedRequest) throws Exception {
-        RawResponse response = json("Feed", new ArrayList<>(), JSON.toJSONString(articleFeedRequest));
+        RawResponse response = json(Const.Feed, new ArrayList<>(), JSON.toJSONString(articleFeedRequest));
         return getFeedResult(response);
+    }
+
+    @Override
+    public ArticleVideoResponse getVideoByVid(ArticleVideoRequest articleVideoRequest) throws Exception {
+        RawResponse response = json(Const.GetVideoByVid, new ArrayList<>(), JSON.toJSONString(articleVideoRequest));
+        return getVideoResult(response);
     }
 
     private ArticleFeedResponse getFeedResult(RawResponse response) throws Exception {
@@ -53,6 +61,22 @@ public class CmsApiServiceImpl extends BaseServiceImpl implements CmsApiService 
         }
         if (res.getBaseResp() != null && res.getBaseResp().getStatusCode() != 1000) {
             ArticleFeedResponse.BaseResp baseResp = res.getBaseResp();
+            throw new Exception("error: " + baseResp.getStatusMessage());
+        }
+        return res;
+    }
+
+    private ArticleVideoResponse getVideoResult(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ArticleVideoResponse res = JSON.parseObject(response.getData(), ArticleVideoResponse.class);
+        if (res.getResponseMetadata() != null && res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
+        }
+        if (res.getBaseResp() != null && res.getBaseResp().getStatusCode() != 1000) {
+            ArticleVideoResponse.BaseResp baseResp = res.getBaseResp();
             throw new Exception("error: " + baseResp.getStatusMessage());
         }
         return res;

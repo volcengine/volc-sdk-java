@@ -9,8 +9,18 @@ import java.util.List;
 public class ArticleVideoResponse {
     @JSONField(name = "ResponseMetaData")
     ResponseMetadata responseMetadata;
+    @JSONField(name = "BaseResp")
+    BaseResp baseResp;
     @JSONField(name = "Data")
     VideoData data;
+
+    @Data
+    public static class BaseResp {
+        @JSONField(name = "StatusMessage")
+        String statusMessage;
+        @JSONField(name = "StatusCode")
+        int statusCode;
+    }
 
     @Data
     public static class VideoData {

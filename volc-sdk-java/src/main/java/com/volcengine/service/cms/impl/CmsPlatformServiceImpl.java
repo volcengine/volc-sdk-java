@@ -37,31 +37,31 @@ public class CmsPlatformServiceImpl extends BaseServiceImpl implements CmsPlatfo
 
     @Override
     public ArticleCreateResponse batchCreateSourceArticle(ArticleCreateRequest articleCreateRequest) throws Exception {
-        RawResponse rawResponse = json("BatchCreateSourceArticle", new ArrayList<>(), JSON.toJSONString(articleCreateRequest));
+        RawResponse rawResponse = json(Const.BatchCreateSourceArticle, new ArrayList<>(), JSON.toJSONString(articleCreateRequest));
         return getBatchCreateSourceArticle(rawResponse);
     }
 
     @Override
     public ArticleUploadDetailResponse getArticleBatchUploadDetail(ArticleUploadDetailRequest articleUploadDetailRequest) throws Exception {
-        RawResponse rawResponse = json("GetArticleBatchUploadDetail", new ArrayList<>(), JSON.toJSONString(articleUploadDetailRequest));
+        RawResponse rawResponse = json(Const.GetArticleBatchUploadDetail, new ArrayList<>(), JSON.toJSONString(articleUploadDetailRequest));
         return getUploadDetail(rawResponse);
     }
 
     @Override
     public ArticleDeleteResponse deleteSourceArticle(ArticleDeleteRequest articleDeleteRequest) throws Exception {
-        RawResponse rawResponse = json("DeleteSourceArticle", new ArrayList<>(), JSON.toJSONString(articleDeleteRequest));
+        RawResponse rawResponse = json(Const.DeleteSourceArticle, new ArrayList<>(), JSON.toJSONString(articleDeleteRequest));
         return getDeleteArticle(rawResponse);
     }
 
     @Override
     public ArticleDeleteByOpenidResponse deleteSourceArticleByOpenid(ArticleDeleteByOpenidRequest articleDeleteByOpenidRequest) throws Exception {
-        RawResponse rawResponse = json("DeleteSourceArticleByOpenid", new ArrayList<>(), JSON.toJSONString(articleDeleteByOpenidRequest));
+        RawResponse rawResponse = json(Const.DeleteSourceArticleByOpenid, new ArrayList<>(), JSON.toJSONString(articleDeleteByOpenidRequest));
         return getDeleteArticleByOpenid(rawResponse);
     }
 
     @Override
     public ArticleEventNotifyResponse articleEventNotify(ArticleEventNotifyRequest articleEventNotifyRequest) throws Exception {
-        RawResponse rawResponse = json("ArticleEventNotify", new ArrayList<>(), JSON.toJSONString(articleEventNotifyRequest));
+        RawResponse rawResponse = json(Const.ArticleEventNotify, new ArrayList<>(), JSON.toJSONString(articleEventNotifyRequest));
         return getArticleEventNotify(rawResponse);
     }
 

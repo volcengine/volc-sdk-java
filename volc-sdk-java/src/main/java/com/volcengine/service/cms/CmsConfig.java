@@ -15,6 +15,9 @@ import java.util.Map;
 
 public class CmsConfig {
 
+    public static final String PlatformService = "volc_content_platform";
+    public static final String ApiService = "volc_content_api";
+
     public static final Map<String, ServiceInfo> platformServiceInfoMap = new HashMap<String, ServiceInfo>() {
         {
             put(Const.REGION_CN_NORTH_1, new ServiceInfo(
@@ -29,7 +32,7 @@ public class CmsConfig {
                                     add(new BasicHeader("Accept", "application/json"));
                                 }
                             });
-                            put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "volc_content_platform"));
+                            put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, PlatformService));
                         }
                     }
             ));
@@ -38,70 +41,70 @@ public class CmsConfig {
 
     public static final Map<String, ApiInfo> platformApiInfoMap = new HashMap<String, ApiInfo>() {
         {
-            put("BatchCreateSourceArticle", new ApiInfo(
+            put(Const.BatchCreateSourceArticle, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "BatchCreateSourceArticle"));
+                                    add(new BasicNameValuePair("Action", Const.BatchCreateSourceArticle));
                                     add(new BasicNameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
                     }
             ));
-            put("GetArticleBatchUploadDetail", new ApiInfo(
+            put(Const.GetArticleBatchUploadDetail, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "GetArticleBatchUploadDetail"));
+                                    add(new BasicNameValuePair("Action", Const.GetArticleBatchUploadDetail));
                                     add(new BasicNameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
                     }
             ));
-            put("DeleteSourceArticle", new ApiInfo(
+            put(Const.DeleteSourceArticle, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DeleteSourceArticle"));
+                                    add(new BasicNameValuePair("Action", Const.DeleteSourceArticle));
                                     add(new BasicNameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
                     }
             ));
-            put("DeleteSourceArticleByOpenid", new ApiInfo(
+            put(Const.DeleteSourceArticleByOpenid, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DeleteSourceArticleByOpenid"));
+                                    add(new BasicNameValuePair("Action", Const.DeleteSourceArticleByOpenid));
                                     add(new BasicNameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
                     }
             ));
-            put("ArticleEventNotify", new ApiInfo(
+            put(Const.ArticleEventNotify, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "ArticleEventNotify"));
+                                    add(new BasicNameValuePair("Action", Const.ArticleEventNotify));
                                     add(new BasicNameValuePair("Version", "2021-01-01"));
                                 }
                             });
@@ -125,7 +128,7 @@ public class CmsConfig {
                                     add(new BasicHeader("Accept", "application/json"));
                                 }
                             });
-                            put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "volc_content_api"));
+                            put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, ApiService));
                         }
                     }
             ));
@@ -134,28 +137,28 @@ public class CmsConfig {
 
     public static final Map<String, ApiInfo> apiApiInfoMap = new HashMap<String, ApiInfo>() {
         {
-            put("Feed", new ApiInfo(
+            put(Const.Feed, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "Feed"));
+                                    add(new BasicNameValuePair("Action", Const.Feed));
                                     add(new BasicNameValuePair("Version", "2021-06-17"));
                                 }
                             });
                         }
                     }
             ));
-            put("GetVideoByVid", new ApiInfo(
+            put(Const.GetVideoByVid, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "GetVideoByVid"));
+                                    add(new BasicNameValuePair("Action", Const.GetVideoByVid));
                                     add(new BasicNameValuePair("Version", "2021-08-18"));
                                 }
                             });

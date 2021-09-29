@@ -141,4 +141,14 @@ public class Const {
 
     public static final String ListRooms = "ListRooms";
     public static final String ListIndicators = "ListIndicators";
+
+    // cms
+    public static final String BatchCreateSourceArticle = "BatchCreateSourceArticle";
+    public static final String GetArticleBatchUploadDetail = "GetArticleBatchUploadDetail";
+    public static final String DeleteSourceArticle = "DeleteSourceArticle";
+    public static final String DeleteSourceArticleByOpenid = "DeleteSourceArticleByOpenid";
+    public static final String ArticleEventNotify = "ArticleEventNotify";
+    public static final String Feed = "Feed";
+    public static final String GetVideoByVid = "GetVideoByVid";
+    public static final String MGetVideoByVids = "MGetVideoByVids";
 }

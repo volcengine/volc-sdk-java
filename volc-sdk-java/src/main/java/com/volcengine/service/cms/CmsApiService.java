@@ -1,9 +1,11 @@
 package com.volcengine.service.cms;
 
 import com.volcengine.model.request.ArticleFeedRequest;
-import com.volcengine.model.request.ArticleVideoRequest;
+import com.volcengine.model.request.ArticleGetVideoRequest;
+import com.volcengine.model.request.ArticleMGetVideoRequest;
 import com.volcengine.model.response.ArticleFeedResponse;
-import com.volcengine.model.response.ArticleVideoResponse;
+import com.volcengine.model.response.ArticleGetVideoResponse;
+import com.volcengine.model.response.ArticleMGetVideoResponse;
 import com.volcengine.service.IBaseService;
 
 public interface CmsApiService extends IBaseService {
@@ -19,9 +21,17 @@ public interface CmsApiService extends IBaseService {
 
     /**
      * ArticleGetVideoByVid
-     * @param articleVideoRequest - the getVideoByVid request
+     * @param articleGetVideoRequest - the getVideoByVid request
      * @return the getVideoByVid response
      * @throws Exception the exception
      */
-    ArticleVideoResponse getVideoByVid(ArticleVideoRequest articleVideoRequest) throws Exception;
+    ArticleGetVideoResponse getVideoByVid(ArticleGetVideoRequest articleGetVideoRequest) throws Exception;
+
+    /**
+     * ArticleMGetVideoByVids
+     * @param mGetVideoRequest - the mGetVideoByVids request
+     * @return the mGetVideoByVids response
+     * @throws Exception the exception
+     */
+    ArticleMGetVideoResponse mGetVideoByVids(ArticleMGetVideoRequest mGetVideoRequest) throws Exception;
 }

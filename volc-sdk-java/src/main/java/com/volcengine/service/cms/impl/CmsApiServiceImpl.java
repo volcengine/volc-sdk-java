@@ -5,11 +5,9 @@ import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.request.ArticleFeedRequest;
-import com.volcengine.model.request.ArticleVideoRequest;
-import com.volcengine.model.response.ArticleFeedResponse;
-import com.volcengine.model.response.ArticleVideoResponse;
-import com.volcengine.model.response.RawResponse;
-import com.volcengine.model.response.ResponseMetadata;
+import com.volcengine.model.request.ArticleGetVideoRequest;
+import com.volcengine.model.request.ArticleMGetVideoRequest;
+import com.volcengine.model.response.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.cms.CmsApiService;
 import com.volcengine.service.cms.CmsConfig;
@@ -45,9 +43,15 @@ public class CmsApiServiceImpl extends BaseServiceImpl implements CmsApiService 
     }
 
     @Override
-    public ArticleVideoResponse getVideoByVid(ArticleVideoRequest articleVideoRequest) throws Exception {
-        RawResponse response = json(Const.GetVideoByVid, new ArrayList<>(), JSON.toJSONString(articleVideoRequest));
+    public ArticleGetVideoResponse getVideoByVid(ArticleGetVideoRequest articleGetVideoRequest) throws Exception {
+        RawResponse response = json(Const.GetVideoByVid, new ArrayList<>(), JSON.toJSONString(articleGetVideoRequest));
         return getVideoResult(response);
+    }
+
+    @Override
+    public ArticleMGetVideoResponse mGetVideoByVids(ArticleMGetVideoRequest mGetVideoRequest) throws Exception {
+        RawResponse response = json(Const.MGetVideoByVids, new ArrayList<>(), JSON.toJSONString(mGetVideoRequest));
+        return mGetVideoResult(response);
     }
 
     private ArticleFeedResponse getFeedResult(RawResponse response) throws Exception {
@@ -66,17 +70,33 @@ public class CmsApiServiceImpl extends BaseServiceImpl implements CmsApiService 
         return res;
     }
 
-    private ArticleVideoResponse getVideoResult(RawResponse response) throws Exception {
+    private ArticleGetVideoResponse getVideoResult(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        ArticleVideoResponse res = JSON.parseObject(response.getData(), ArticleVideoResponse.class);
+        ArticleGetVideoResponse res = JSON.parseObject(response.getData(), ArticleGetVideoResponse.class);
         if (res.getResponseMetadata() != null && res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         if (res.getBaseResp() != null && res.getBaseResp().getStatusCode() != 1000) {
-            ArticleVideoResponse.BaseResp baseResp = res.getBaseResp();
+            ArticleGetVideoResponse.BaseResp baseResp = res.getBaseResp();
+            throw new Exception("error: " + baseResp.getStatusMessage());
+        }
+        return res;
+    }
+
+    private ArticleMGetVideoResponse mGetVideoResult(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ArticleMGetVideoResponse res = JSON.parseObject(response.getData(), ArticleMGetVideoResponse.class);
+        if (res.getResponseMetadata() != null && res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
+        }
+        if (res.getBaseResp() != null && res.getBaseResp().getStatusCode() != 1000) {
+            ArticleMGetVideoResponse.BaseResp baseResp = res.getBaseResp();
             throw new Exception("error: " + baseResp.getStatusMessage());
         }
         return res;

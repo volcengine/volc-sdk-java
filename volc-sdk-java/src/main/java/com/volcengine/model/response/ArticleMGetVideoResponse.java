@@ -6,13 +6,13 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class ArticleVideoResponse {
+public class ArticleMGetVideoResponse {
     @JSONField(name = "ResponseMetaData")
     ResponseMetadata responseMetadata;
     @JSONField(name = "BaseResp")
     BaseResp baseResp;
     @JSONField(name = "Data")
-    VideoData data;
+    List<VideoData> videoDataList;
 
     @Data
     public static class BaseResp {
@@ -33,7 +33,7 @@ public class ArticleVideoResponse {
         @JSONField(name = "VideoDuration")
         Double videoDuration;
         @JSONField(name = "VideoList")
-        List<VideoInfo> videoList;
+        List<ArticleGetVideoResponse.VideoInfo> videoList;
         @JSONField(name = "VideoStatus")
         String videoStatus;
     }
@@ -51,4 +51,5 @@ public class ArticleVideoResponse {
         @JSONField(name = "Width")
         Integer width;
     }
+
 }

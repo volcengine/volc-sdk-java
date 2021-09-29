@@ -150,4 +150,5 @@ public class Const {
     public static final String ArticleEventNotify = "ArticleEventNotify";
     public static final String Feed = "Feed";
     public static final String GetVideoByVid = "GetVideoByVid";
+    public static final String MGetVideoByVids = "MGetVideoByVids";
 }

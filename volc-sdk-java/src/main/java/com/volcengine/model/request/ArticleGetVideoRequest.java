@@ -4,7 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 @Data
-public class ArticleVideoRequest {
+public class ArticleGetVideoRequest {
     @JSONField(name = "GroupId")
     Long groupId;
     @JSONField(name = "Vid")

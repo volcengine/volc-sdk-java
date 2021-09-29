@@ -13,7 +13,7 @@ public class CreateArticleDemo {
     public static void main(String[] args) {
         CmsPlatformService articleService = CmsPlatformServiceImpl.getInstance();
 
-        // call below method if you dont set ak and sk in ～/.vcloud/config
+        // call below method if you dont set ak and sk in ～/.volc/config
         articleService.setAccessKey("ak");
         articleService.setSecretKey("sk");
 

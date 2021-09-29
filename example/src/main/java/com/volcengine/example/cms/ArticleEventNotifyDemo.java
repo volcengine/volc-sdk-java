@@ -9,7 +9,7 @@ import com.volcengine.service.cms.impl.CmsPlatformServiceImpl;
 public class ArticleEventNotifyDemo {
     public static void main(String[] args) {
         CmsPlatformService service = CmsPlatformServiceImpl.getInstance();
-        // call below method if you dont set ak and sk in ～/.vcloud/config
+        // call below method if you dont set ak and sk in ～/.volc/config
         service.setAccessKey("");
         service.setSecretKey("");
 

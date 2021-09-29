@@ -10,7 +10,7 @@ public class GetVideoDemo {
     public static void main(String[] args) {
         CmsApiService apiService = CmsApiServiceImpl.getInstance();
 
-        // call below method if you dont set ak and sk in ～/.vcloud/config
+        // call below method if you dont set ak and sk in ～/.volc/config
         apiService.setAccessKey("ak");
         apiService.setSecretKey("sk");
 

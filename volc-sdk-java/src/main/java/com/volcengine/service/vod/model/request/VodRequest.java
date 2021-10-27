@@ -136,77 +136,77 @@ public final class VodRequest {
       "\n\035vod/request/request_vod.proto\022\035Volceng" +
       "ine.Vod.Models.Request\032\036google/protobuf/" +
       "wrappers.proto\032\037vod/business/vod_workflo" +
-      "w.proto\032\035vod/business/vod_upload.proto\"\351" +
-      "\001\n\025VodGetPlayInfoRequest\022\013\n\003Vid\030\001 \001(\t\022\016\n" +
+      "w.proto\032\035vod/business/vod_upload.proto\"\200" +
+      "\002\n\025VodGetPlayInfoRequest\022\013\n\003Vid\030\001 \001(\t\022\016\n" +
       "\006Format\030\002 \001(\t\022\r\n\005Codec\030\003 \001(\t\022\022\n\nDefiniti" +
       "on\030\004 \001(\t\022\020\n\010FileType\030\005 \001(\t\022\020\n\010LogoType\030\006" +
       " \001(\t\022\016\n\006Base64\030\007 \001(\t\022\013\n\003Ssl\030\010 \001(\t\022\022\n\nNee" +
       "dThumbs\030\t \001(\t\022\027\n\017NeedBarrageMask\030\n \001(\t\022\017" +
-      "\n\007CdnType\030\013 \001(\t\022\021\n\tUnionInfo\030\014 \001(\t\"I\n\035Vo" +
-      "dGetOriginalPlayInfoRequest\022\013\n\003Vid\030\001 \001(\t" +
-      "\022\016\n\006Base64\030\002 \001(\t\022\013\n\003Ssl\030\003 \001(\t\"g\n\037VodGetP" +
-      "rivateDrmPlayAuthRequest\022\017\n\007DrmType\030\001 \001(" +
-      "\t\022\013\n\003Vid\030\002 \001(\t\022\023\n\013PlayAuthIds\030\003 \001(\t\022\021\n\tU" +
-      "nionInfo\030\004 \001(\t\"Q\n\035VodGetHlsDecryptionKey" +
-      "Request\022\024\n\014DrmAuthToken\030\001 \001(\t\022\n\n\002Ak\030\002 \001(" +
-      "\t\022\016\n\006Source\030\003 \001(\t\"m\n\023VodUrlUploadRequest" +
-      "\022\021\n\tSpaceName\030\001 \001(\t\022C\n\007URLSets\030\002 \003(\01322.V" +
-      "olcengine.Vod.Models.Business.VodUrlUplo" +
-      "adURLSet\"/\n\035VodQueryUploadTaskInfoReques" +
-      "t\022\016\n\006JobIds\030\001 \001(\t\"f\n\031VodApplyUploadInfoR" +
-      "equest\022\021\n\tSpaceName\030\001 \001(\t\022\022\n\nSessionKey\030" +
-      "\002 \001(\t\022\020\n\010FileSize\030\003 \001(\001\022\020\n\010FileType\030\004 \001(" +
-      "\t\"e\n\025VodUploadMediaRequest\022\021\n\tSpaceName\030" +
-      "\001 \001(\t\022\020\n\010FilePath\030\002 \001(\t\022\024\n\014CallbackArgs\030" +
-      "\003 \001(\t\022\021\n\tFunctions\030\004 \001(\t\"z\n\030VodUploadMat" +
-      "erialRequest\022\021\n\tSpaceName\030\001 \001(\t\022\020\n\010FileP" +
-      "ath\030\002 \001(\t\022\024\n\014CallbackArgs\030\003 \001(\t\022\021\n\tFunct" +
-      "ions\030\004 \001(\t\022\020\n\010FileType\030\005 \001(\t\"l\n\032VodCommi" +
-      "tUploadInfoRequest\022\021\n\tSpaceName\030\001 \001(\t\022\022\n" +
-      "\nSessionKey\030\002 \001(\t\022\024\n\014CallbackArgs\030\003 \001(\t\022" +
-      "\021\n\tFunctions\030\004 \001(\t\"=\n\027VodUrlUploadJsonRe" +
-      "quest\022\021\n\tSpaceName\030\001 \001(\t\022\017\n\007URLSets\030\002 \001(" +
-      "\t\".\n\036VodGetRecommendedPosterRequest\022\014\n\004V" +
-      "ids\030\001 \001(\t\"A\n\"VodUpdateMediaPublishStatus" +
-      "Request\022\013\n\003Vid\030\001 \001(\t\022\016\n\006Status\030\002 \001(\t\"\345\001\n" +
-      "\031VodUpdateMediaInfoRequest\022\013\n\003Vid\030\001 \001(\t\022" +
-      "/\n\tPosterUri\030\002 \001(\0132\034.google.protobuf.Str" +
-      "ingValue\022+\n\005Title\030\003 \001(\0132\034.google.protobu" +
-      "f.StringValue\0221\n\013Description\030\004 \001(\0132\034.goo" +
-      "gle.protobuf.StringValue\022*\n\004Tags\030\005 \001(\0132\034" +
-      ".google.protobuf.StringValue\"\'\n\027VodGetMe" +
-      "diaInfosRequest\022\014\n\004Vids\030\001 \001(\t\";\n\025VodDele" +
-      "teMediaRequest\022\014\n\004Vids\030\001 \001(\t\022\024\n\014Callback" +
-      "Args\030\002 \001(\t\"P\n\032VodDeleteTranscodesRequest" +
-      "\022\013\n\003Vid\030\001 \001(\t\022\017\n\007FileIds\030\002 \001(\t\022\024\n\014Callba" +
-      "ckArgs\030\003 \001(\t\"\253\001\n\026VodGetMediaListRequest\022" +
-      "\021\n\tSpaceName\030\001 \001(\t\022\013\n\003Vid\030\002 \001(\t\022\016\n\006Statu" +
-      "s\030\003 \001(\t\022\r\n\005Order\030\004 \001(\t\022\014\n\004Tags\030\005 \001(\t\022\021\n\t" +
-      "StartTime\030\006 \001(\t\022\017\n\007EndTime\030\007 \001(\t\022\016\n\006Offs" +
-      "et\030\010 \001(\t\022\020\n\010PageSize\030\t \001(\t\"\346\001\n\035VodGetSub" +
-      "titleInfoListRequest\022\013\n\003Vid\030\001 \001(\t\022\017\n\007Fil" +
-      "eIds\030\002 \001(\t\022\021\n\tLanguages\030\003 \001(\t\022\017\n\007Formats" +
-      "\030\004 \001(\t\022\023\n\013LanguageIds\030\005 \001(\t\022\023\n\013SubtitleI" +
-      "ds\030\006 \001(\t\022\016\n\006Status\030\007 \001(\t\022\r\n\005Title\030\010 \001(\t\022" +
-      "\013\n\003Tag\030\t \001(\t\022\016\n\006Offset\030\n \001(\t\022\020\n\010PageSize" +
-      "\030\013 \001(\t\022\013\n\003Ssl\030\014 \001(\t\"r\n\036VodUpdateSubtitle" +
-      "StatusRequest\022\013\n\003Vid\030\001 \001(\t\022\017\n\007FileIds\030\002 " +
-      "\001(\t\022\021\n\tLanguages\030\003 \001(\t\022\017\n\007Formats\030\004 \001(\t\022" +
-      "\016\n\006Status\030\005 \001(\t\"\265\001\n\034VodUpdateSubtitleInf" +
-      "oRequest\022\013\n\003Vid\030\001 \001(\t\022\016\n\006FileId\030\002 \001(\t\022\020\n" +
-      "\010Language\030\003 \001(\t\022\016\n\006Format\030\004 \001(\t\022+\n\005Title" +
-      "\030\006 \001(\0132\034.google.protobuf.StringValue\022)\n\003" +
-      "Tag\030\007 \001(\0132\034.google.protobuf.StringValue\"" +
-      "\241\001\n\027VodStartWorkflowRequest\022\013\n\003Vid\030\001 \001(\t" +
-      "\022\022\n\nTemplateId\030\002 \001(\t\022=\n\005Input\030\003 \001(\0132..Vo" +
-      "lcengine.Vod.Models.Business.WorkflowPar" +
-      "ams\022\020\n\010Priority\030\004 \001(\005\022\024\n\014CallbackArgs\030\005 " +
-      "\001(\tB\310\001\n(com.volcengine.service.vod.model" +
-      ".requestB\nVodRequestP\001Z@github.com/volce" +
-      "ngine/volc-sdk-golang/service/vod/models" +
-      "/request\240\001\001\330\001\001\312\002\037Volc\\Service\\Vod\\Models" +
-      "\\Request\342\002#Volc\\Service\\Vod\\Models\\GPBMe" +
-      "tadatab\006proto3"
+      "\n\007CdnType\030\013 \001(\t\022\021\n\tUnionInfo\030\014 \001(\t\022\025\n\rHD" +
+      "RDefinition\030\r \001(\t\"I\n\035VodGetOriginalPlayI" +
+      "nfoRequest\022\013\n\003Vid\030\001 \001(\t\022\016\n\006Base64\030\002 \001(\t\022" +
+      "\013\n\003Ssl\030\003 \001(\t\"g\n\037VodGetPrivateDrmPlayAuth" +
+      "Request\022\017\n\007DrmType\030\001 \001(\t\022\013\n\003Vid\030\002 \001(\t\022\023\n" +
+      "\013PlayAuthIds\030\003 \001(\t\022\021\n\tUnionInfo\030\004 \001(\t\"Q\n" +
+      "\035VodGetHlsDecryptionKeyRequest\022\024\n\014DrmAut" +
+      "hToken\030\001 \001(\t\022\n\n\002Ak\030\002 \001(\t\022\016\n\006Source\030\003 \001(\t" +
+      "\"m\n\023VodUrlUploadRequest\022\021\n\tSpaceName\030\001 \001" +
+      "(\t\022C\n\007URLSets\030\002 \003(\01322.Volcengine.Vod.Mod" +
+      "els.Business.VodUrlUploadURLSet\"/\n\035VodQu" +
+      "eryUploadTaskInfoRequest\022\016\n\006JobIds\030\001 \001(\t" +
+      "\"f\n\031VodApplyUploadInfoRequest\022\021\n\tSpaceNa" +
+      "me\030\001 \001(\t\022\022\n\nSessionKey\030\002 \001(\t\022\020\n\010FileSize" +
+      "\030\003 \001(\001\022\020\n\010FileType\030\004 \001(\t\"e\n\025VodUploadMed" +
+      "iaRequest\022\021\n\tSpaceName\030\001 \001(\t\022\020\n\010FilePath" +
+      "\030\002 \001(\t\022\024\n\014CallbackArgs\030\003 \001(\t\022\021\n\tFunction" +
+      "s\030\004 \001(\t\"z\n\030VodUploadMaterialRequest\022\021\n\tS" +
+      "paceName\030\001 \001(\t\022\020\n\010FilePath\030\002 \001(\t\022\024\n\014Call" +
+      "backArgs\030\003 \001(\t\022\021\n\tFunctions\030\004 \001(\t\022\020\n\010Fil" +
+      "eType\030\005 \001(\t\"l\n\032VodCommitUploadInfoReques" +
+      "t\022\021\n\tSpaceName\030\001 \001(\t\022\022\n\nSessionKey\030\002 \001(\t" +
+      "\022\024\n\014CallbackArgs\030\003 \001(\t\022\021\n\tFunctions\030\004 \001(" +
+      "\t\"=\n\027VodUrlUploadJsonRequest\022\021\n\tSpaceNam" +
+      "e\030\001 \001(\t\022\017\n\007URLSets\030\002 \001(\t\".\n\036VodGetRecomm" +
+      "endedPosterRequest\022\014\n\004Vids\030\001 \001(\t\"A\n\"VodU" +
+      "pdateMediaPublishStatusRequest\022\013\n\003Vid\030\001 " +
+      "\001(\t\022\016\n\006Status\030\002 \001(\t\"\345\001\n\031VodUpdateMediaIn" +
+      "foRequest\022\013\n\003Vid\030\001 \001(\t\022/\n\tPosterUri\030\002 \001(" +
+      "\0132\034.google.protobuf.StringValue\022+\n\005Title" +
+      "\030\003 \001(\0132\034.google.protobuf.StringValue\0221\n\013" +
+      "Description\030\004 \001(\0132\034.google.protobuf.Stri" +
+      "ngValue\022*\n\004Tags\030\005 \001(\0132\034.google.protobuf." +
+      "StringValue\"\'\n\027VodGetMediaInfosRequest\022\014" +
+      "\n\004Vids\030\001 \001(\t\";\n\025VodDeleteMediaRequest\022\014\n" +
+      "\004Vids\030\001 \001(\t\022\024\n\014CallbackArgs\030\002 \001(\t\"P\n\032Vod" +
+      "DeleteTranscodesRequest\022\013\n\003Vid\030\001 \001(\t\022\017\n\007" +
+      "FileIds\030\002 \001(\t\022\024\n\014CallbackArgs\030\003 \001(\t\"\253\001\n\026" +
+      "VodGetMediaListRequest\022\021\n\tSpaceName\030\001 \001(" +
+      "\t\022\013\n\003Vid\030\002 \001(\t\022\016\n\006Status\030\003 \001(\t\022\r\n\005Order\030" +
+      "\004 \001(\t\022\014\n\004Tags\030\005 \001(\t\022\021\n\tStartTime\030\006 \001(\t\022\017" +
+      "\n\007EndTime\030\007 \001(\t\022\016\n\006Offset\030\010 \001(\t\022\020\n\010PageS" +
+      "ize\030\t \001(\t\"\346\001\n\035VodGetSubtitleInfoListRequ" +
+      "est\022\013\n\003Vid\030\001 \001(\t\022\017\n\007FileIds\030\002 \001(\t\022\021\n\tLan" +
+      "guages\030\003 \001(\t\022\017\n\007Formats\030\004 \001(\t\022\023\n\013Languag" +
+      "eIds\030\005 \001(\t\022\023\n\013SubtitleIds\030\006 \001(\t\022\016\n\006Statu" +
+      "s\030\007 \001(\t\022\r\n\005Title\030\010 \001(\t\022\013\n\003Tag\030\t \001(\t\022\016\n\006O" +
+      "ffset\030\n \001(\t\022\020\n\010PageSize\030\013 \001(\t\022\013\n\003Ssl\030\014 \001" +
+      "(\t\"r\n\036VodUpdateSubtitleStatusRequest\022\013\n\003" +
+      "Vid\030\001 \001(\t\022\017\n\007FileIds\030\002 \001(\t\022\021\n\tLanguages\030" +
+      "\003 \001(\t\022\017\n\007Formats\030\004 \001(\t\022\016\n\006Status\030\005 \001(\t\"\265" +
+      "\001\n\034VodUpdateSubtitleInfoRequest\022\013\n\003Vid\030\001" +
+      " \001(\t\022\016\n\006FileId\030\002 \001(\t\022\020\n\010Language\030\003 \001(\t\022\016" +
+      "\n\006Format\030\004 \001(\t\022+\n\005Title\030\006 \001(\0132\034.google.p" +
+      "rotobuf.StringValue\022)\n\003Tag\030\007 \001(\0132\034.googl" +
+      "e.protobuf.StringValue\"\241\001\n\027VodStartWorkf" +
+      "lowRequest\022\013\n\003Vid\030\001 \001(\t\022\022\n\nTemplateId\030\002 " +
+      "\001(\t\022=\n\005Input\030\003 \001(\0132..Volcengine.Vod.Mode" +
+      "ls.Business.WorkflowParams\022\020\n\010Priority\030\004" +
+      " \001(\005\022\024\n\014CallbackArgs\030\005 \001(\tB\310\001\n(com.volce" +
+      "ngine.service.vod.model.requestB\nVodRequ" +
+      "estP\001Z@github.com/volcengine/volc-sdk-go" +
+      "lang/service/vod/models/request\240\001\001\330\001\001\312\002\037" +
+      "Volc\\Service\\Vod\\Models\\Request\342\002#Volc\\S" +
+      "ervice\\Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -220,7 +220,7 @@ public final class VodRequest {
     internal_static_Volcengine_Vod_Models_Request_VodGetPlayInfoRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Request_VodGetPlayInfoRequest_descriptor,
-        new java.lang.String[] { "Vid", "Format", "Codec", "Definition", "FileType", "LogoType", "Base64", "Ssl", "NeedThumbs", "NeedBarrageMask", "CdnType", "UnionInfo", });
+        new java.lang.String[] { "Vid", "Format", "Codec", "Definition", "FileType", "LogoType", "Base64", "Ssl", "NeedThumbs", "NeedBarrageMask", "CdnType", "UnionInfo", "HDRDefinition", });
     internal_static_Volcengine_Vod_Models_Request_VodGetOriginalPlayInfoRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Volcengine_Vod_Models_Request_VodGetOriginalPlayInfoRequest_fieldAccessorTable = new

@@ -15,7 +15,7 @@ public class ExtractImageHmResponse {
         @JSONField(name = "Info")
         String info;
         @JSONField(name = "StatusCode")
-        String statusCode;
+        int statusCode;
     }
 }
 

@@ -1,29 +1,25 @@
 package com.volcengine.example.imagex;
 
-import com.volcengine.model.response.GetImageOCRResponse;
 import com.volcengine.service.imagex.IImageXService;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class GetImageOCRDemo {
+public class ExtractImageHm {
     public static void main(String[] args) {
-        System.out.println("==");
+        // default region cn-north-1, for other region, call ImageXServiceImpl.getInstance(region)
         IImageXService service = ImageXServiceImpl.getInstance();
 
         // call below method if you dont set ak and sk in ～/.volc/config
         service.setAccessKey("ak");
         service.setSecretKey("sk");
 
+        ExtractImageHmRequest request = new ExtractImageHmRequest();
+        request.setServiceId("xx");
+        request.setStoreUri("uri");
+        request.setStrength(30); // 和添加时保持一致
 
         try {
-            Map<String, String> params = new HashMap<>();
-            params.put("ServiceId", "xx");
-            params.put("Scene", "license");
-            params.put("StoreUri", "xx");
-            GetImageOCRResponse response = service.getImageOCR(params);
-            System.out.println(response);
+            ExtractImageHmResponse resp = service.extractImageHm(request);
+            System.out.println(resp);
         } catch (Exception e) {
             e.printStackTrace();
         }

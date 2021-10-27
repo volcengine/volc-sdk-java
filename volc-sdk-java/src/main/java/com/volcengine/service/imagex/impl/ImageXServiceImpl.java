@@ -285,6 +285,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         Map<String, String> params = new HashMap<>();
         params.put("ServiceId", req.getServiceId());
         params.put("StoreUri", req.getStoreUri());
+        params.put("Strength", Integer.toString(req.getStrength()));
         RawResponse response = query("CreateImageHmExtract", Utils.mapToPairList(params));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();

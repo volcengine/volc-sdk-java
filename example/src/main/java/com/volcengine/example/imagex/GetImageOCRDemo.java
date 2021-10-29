@@ -1,4 +1,4 @@
-package com.volcengine;
+package com.volcengine.example.imagex;
 
 import com.volcengine.model.response.GetImageOCRResponse;
 import com.volcengine.service.imagex.IImageXService;

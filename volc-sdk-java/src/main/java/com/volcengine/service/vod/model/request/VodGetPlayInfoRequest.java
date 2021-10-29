@@ -27,6 +27,8 @@ private static final long serialVersionUID = 0L;
     needThumbs_ = "";
     needBarrageMask_ = "";
     cdnType_ = "";
+    unionInfo_ = "";
+    hDRDefinition_ = "";
   }
 
   @java.lang.Override
@@ -123,6 +125,18 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             cdnType_ = s;
+            break;
+          }
+          case 98: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            unionInfo_ = s;
+            break;
+          }
+          case 106: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            hDRDefinition_ = s;
             break;
           }
           default: {
@@ -299,7 +313,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object definition_;
   /**
    * <pre>
-   *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p
+   *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
    * </pre>
    *
    * <code>string Definition = 4;</code>
@@ -320,7 +334,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p
+   *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
    * </pre>
    *
    * <code>string Definition = 4;</code>
@@ -345,7 +359,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object fileType_;
   /**
    * <pre>
-   *流文件类型，默认video，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio
+   * 2k, 4k
    * </pre>
    *
    * <code>string FileType = 5;</code>
@@ -366,7 +380,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *流文件类型，默认video，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio
+   * 2k, 4k
    * </pre>
    *
    * <code>string FileType = 5;</code>
@@ -663,6 +677,98 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int UNIONINFO_FIELD_NUMBER = 12;
+  private volatile java.lang.Object unionInfo_;
+  /**
+   * <pre>
+   * 唯一性标识信息
+   * </pre>
+   *
+   * <code>string UnionInfo = 12;</code>
+   * @return The unionInfo.
+   */
+  @java.lang.Override
+  public java.lang.String getUnionInfo() {
+    java.lang.Object ref = unionInfo_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      unionInfo_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 唯一性标识信息
+   * </pre>
+   *
+   * <code>string UnionInfo = 12;</code>
+   * @return The bytes for unionInfo.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUnionInfoBytes() {
+    java.lang.Object ref = unionInfo_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      unionInfo_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int HDRDEFINITION_FIELD_NUMBER = 13;
+  private volatile java.lang.Object hDRDefinition_;
+  /**
+   * <pre>
+   * HDR清晰度，默认不查询，支持：all,
+   * </pre>
+   *
+   * <code>string HDRDefinition = 13;</code>
+   * @return The hDRDefinition.
+   */
+  @java.lang.Override
+  public java.lang.String getHDRDefinition() {
+    java.lang.Object ref = hDRDefinition_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      hDRDefinition_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * HDR清晰度，默认不查询，支持：all,
+   * </pre>
+   *
+   * <code>string HDRDefinition = 13;</code>
+   * @return The bytes for hDRDefinition.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getHDRDefinitionBytes() {
+    java.lang.Object ref = hDRDefinition_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      hDRDefinition_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -710,6 +816,12 @@ private static final long serialVersionUID = 0L;
     if (!getCdnTypeBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 11, cdnType_);
     }
+    if (!getUnionInfoBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, unionInfo_);
+    }
+    if (!getHDRDefinitionBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, hDRDefinition_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -752,6 +864,12 @@ private static final long serialVersionUID = 0L;
     if (!getCdnTypeBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, cdnType_);
     }
+    if (!getUnionInfoBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, unionInfo_);
+    }
+    if (!getHDRDefinitionBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, hDRDefinition_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -789,6 +907,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getNeedBarrageMask())) return false;
     if (!getCdnType()
         .equals(other.getCdnType())) return false;
+    if (!getUnionInfo()
+        .equals(other.getUnionInfo())) return false;
+    if (!getHDRDefinition()
+        .equals(other.getHDRDefinition())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -822,6 +944,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getNeedBarrageMask().hashCode();
     hash = (37 * hash) + CDNTYPE_FIELD_NUMBER;
     hash = (53 * hash) + getCdnType().hashCode();
+    hash = (37 * hash) + UNIONINFO_FIELD_NUMBER;
+    hash = (53 * hash) + getUnionInfo().hashCode();
+    hash = (37 * hash) + HDRDEFINITION_FIELD_NUMBER;
+    hash = (53 * hash) + getHDRDefinition().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -977,6 +1103,10 @@ private static final long serialVersionUID = 0L;
 
       cdnType_ = "";
 
+      unionInfo_ = "";
+
+      hDRDefinition_ = "";
+
       return this;
     }
 
@@ -1014,6 +1144,8 @@ private static final long serialVersionUID = 0L;
       result.needThumbs_ = needThumbs_;
       result.needBarrageMask_ = needBarrageMask_;
       result.cdnType_ = cdnType_;
+      result.unionInfo_ = unionInfo_;
+      result.hDRDefinition_ = hDRDefinition_;
       onBuilt();
       return result;
     }
@@ -1104,6 +1236,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCdnType().isEmpty()) {
         cdnType_ = other.cdnType_;
+        onChanged();
+      }
+      if (!other.getUnionInfo().isEmpty()) {
+        unionInfo_ = other.unionInfo_;
+        onChanged();
+      }
+      if (!other.getHDRDefinition().isEmpty()) {
+        hDRDefinition_ = other.hDRDefinition_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1426,7 +1566,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object definition_ = "";
     /**
      * <pre>
-     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p
+     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -1446,7 +1586,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p
+     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -1467,7 +1607,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p
+     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -1486,7 +1626,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p
+     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -1500,7 +1640,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p
+     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -1522,7 +1662,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object fileType_ = "";
     /**
      * <pre>
-     *流文件类型，默认video，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio
+     * 2k, 4k
      * </pre>
      *
      * <code>string FileType = 5;</code>
@@ -1542,7 +1682,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *流文件类型，默认video，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio
+     * 2k, 4k
      * </pre>
      *
      * <code>string FileType = 5;</code>
@@ -1563,7 +1703,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *流文件类型，默认video，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio
+     * 2k, 4k
      * </pre>
      *
      * <code>string FileType = 5;</code>
@@ -1582,7 +1722,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *流文件类型，默认video，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio
+     * 2k, 4k
      * </pre>
      *
      * <code>string FileType = 5;</code>
@@ -1596,7 +1736,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *流文件类型，默认video，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio
+     * 2k, 4k
      * </pre>
      *
      * <code>string FileType = 5;</code>
@@ -2187,6 +2327,198 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       cdnType_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object unionInfo_ = "";
+    /**
+     * <pre>
+     * 唯一性标识信息
+     * </pre>
+     *
+     * <code>string UnionInfo = 12;</code>
+     * @return The unionInfo.
+     */
+    public java.lang.String getUnionInfo() {
+      java.lang.Object ref = unionInfo_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        unionInfo_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 唯一性标识信息
+     * </pre>
+     *
+     * <code>string UnionInfo = 12;</code>
+     * @return The bytes for unionInfo.
+     */
+    public com.google.protobuf.ByteString
+        getUnionInfoBytes() {
+      java.lang.Object ref = unionInfo_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        unionInfo_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 唯一性标识信息
+     * </pre>
+     *
+     * <code>string UnionInfo = 12;</code>
+     * @param value The unionInfo to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUnionInfo(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      unionInfo_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 唯一性标识信息
+     * </pre>
+     *
+     * <code>string UnionInfo = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUnionInfo() {
+      
+      unionInfo_ = getDefaultInstance().getUnionInfo();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 唯一性标识信息
+     * </pre>
+     *
+     * <code>string UnionInfo = 12;</code>
+     * @param value The bytes for unionInfo to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUnionInfoBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      unionInfo_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object hDRDefinition_ = "";
+    /**
+     * <pre>
+     * HDR清晰度，默认不查询，支持：all,
+     * </pre>
+     *
+     * <code>string HDRDefinition = 13;</code>
+     * @return The hDRDefinition.
+     */
+    public java.lang.String getHDRDefinition() {
+      java.lang.Object ref = hDRDefinition_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        hDRDefinition_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * HDR清晰度，默认不查询，支持：all,
+     * </pre>
+     *
+     * <code>string HDRDefinition = 13;</code>
+     * @return The bytes for hDRDefinition.
+     */
+    public com.google.protobuf.ByteString
+        getHDRDefinitionBytes() {
+      java.lang.Object ref = hDRDefinition_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        hDRDefinition_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * HDR清晰度，默认不查询，支持：all,
+     * </pre>
+     *
+     * <code>string HDRDefinition = 13;</code>
+     * @param value The hDRDefinition to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHDRDefinition(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      hDRDefinition_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * HDR清晰度，默认不查询，支持：all,
+     * </pre>
+     *
+     * <code>string HDRDefinition = 13;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHDRDefinition() {
+      
+      hDRDefinition_ = getDefaultInstance().getHDRDefinition();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * HDR清晰度，默认不查询，支持：all,
+     * </pre>
+     *
+     * <code>string HDRDefinition = 13;</code>
+     * @param value The bytes for hDRDefinition to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHDRDefinitionBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      hDRDefinition_ = value;
       onChanged();
       return this;
     }

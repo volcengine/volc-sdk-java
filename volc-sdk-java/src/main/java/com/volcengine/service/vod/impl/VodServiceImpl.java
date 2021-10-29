@@ -26,8 +26,8 @@ import java.text.DateFormat;
 
 
 public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl implements com.volcengine.service.vod.IVodService {
-	
-	protected VodServiceImpl() {
+
+    protected VodServiceImpl() {
         super(com.volcengine.service.vod.VodConfig.ServiceInfoMap.get(com.volcengine.helper.Const.REGION_CN_NORTH_1), com.volcengine.service.vod.VodConfig.apiInfoList);
     }
 
@@ -45,6 +45,15 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
             throw new Exception("Cant find the region, please check it carefully");
         }
         return new VodServiceImpl(serviceInfo);
+    }
+
+    @Override
+    public String getPrivateDrmAuthToken(com.volcengine.service.vod.model.request.VodGetPrivateDrmPlayAuthRequest input, Long expireSeconds) throws Exception {
+        Map<String, String> params = com.volcengine.helper.Utils.protoBufferToMap(input, false);
+        if (expireSeconds != null && expireSeconds > 0) {
+            params.put("X-Expires", expireSeconds.toString());
+        }
+        return getSignUrl(com.volcengine.helper.Const.GetPrivateDrmPlayAuth, com.volcengine.helper.Utils.mapToPairList(params));
     }
 
     @Override
@@ -106,7 +115,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         Map<String, String> params = new HashMap<>();
         params.put("Vid", input.getVid());
         params.put("Status", "Published");
-	    if (expireSeconds != null && expireSeconds > 0) {
+        if (expireSeconds != null && expireSeconds > 0) {
             params.put("X-Expires", expireSeconds.toString());
         }
         String getSubtitleAuthToken = getSignUrl(com.volcengine.helper.Const.GetSubtitleInfoList, com.volcengine.helper.Utils.mapToPairList(params));
@@ -117,7 +126,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         return encoder.encodeToString(retStr.getBytes());
     }
 
-	@Override
+    @Override
     public String getPlayAuthToken(com.volcengine.service.vod.model.request.VodGetPlayInfoRequest input, Long expireSeconds) throws Exception {
         Map<String, String> params = com.volcengine.helper.Utils.protoBufferToMap(input, false);
         if (expireSeconds != null && expireSeconds > 0) {
@@ -227,16 +236,19 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         List<String> parts = new ArrayList<>();
         long num = file.length() / com.volcengine.helper.Const.MinChunkSize;
         long lastNum = num - 1;
+        long partNumber;
         try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file))) {
             for (long i = 0; i < lastNum; i++) {
                 bis.read(data);
-                parts.add(uploadPart(host, oid, auth, uploadID, i, data, isLargeFile, retryer));
+                partNumber = isLargeFile ? i + 1 : i;
+                parts.add(uploadPart(host, oid, auth, uploadID, partNumber, data, isLargeFile, retryer));
             }
             long readCount = (long) com.volcengine.helper.Const.MinChunkSize * lastNum;
             int len = (int) (file.length() - readCount);
             byte[] lastPart = new byte[len];
             bis.read(lastPart);
-            parts.add(uploadPart(host, oid, auth, uploadID, lastNum, lastPart, isLargeFile, retryer));
+            partNumber = isLargeFile ? lastNum + 1 : lastNum;
+            parts.add(uploadPart(host, oid, auth, uploadID, partNumber, lastPart, isLargeFile, retryer));
         } catch (Exception e) {
             throw e;
         }
@@ -304,346 +316,346 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 
 
 
-	/**
+    /**
      * getPlayInfo.
      *
      * @param input com.volcengine.service.vod.model.request.VodGetPlayInfoRequest
      * @return com.volcengine.service.vod.model.response.VodGetPlayInfoResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodGetPlayInfoResponse getPlayInfo(com.volcengine.service.vod.model.request.VodGetPlayInfoRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetPlayInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodGetPlayInfoResponse getPlayInfo(com.volcengine.service.vod.model.request.VodGetPlayInfoRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetPlayInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodGetPlayInfoResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetPlayInfoResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
-	
-	
-	/**
+    }
+
+
+    /**
      * getPrivateDrmPlayAuth.
      *
      * @param input com.volcengine.service.vod.model.request.VodGetPrivateDrmPlayAuthRequest
      * @return com.volcengine.service.vod.model.response.VodGetPrivateDrmPlayAuthResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodGetPrivateDrmPlayAuthResponse getPrivateDrmPlayAuth(com.volcengine.service.vod.model.request.VodGetPrivateDrmPlayAuthRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetPrivateDrmPlayAuth, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodGetPrivateDrmPlayAuthResponse getPrivateDrmPlayAuth(com.volcengine.service.vod.model.request.VodGetPrivateDrmPlayAuthRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetPrivateDrmPlayAuth, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodGetPrivateDrmPlayAuthResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetPrivateDrmPlayAuthResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
-	
-	
-	/**
+    }
+
+
+    /**
      * getHlsDecryptionKey.
      *
      * @param input com.volcengine.service.vod.model.request.VodGetHlsDecryptionKeyRequest
      * @return com.volcengine.service.vod.model.response.VodGetHlsDecryptionKeyResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodGetHlsDecryptionKeyResponse getHlsDecryptionKey(com.volcengine.service.vod.model.request.VodGetHlsDecryptionKeyRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetHlsDecryptionKey, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodGetHlsDecryptionKeyResponse getHlsDecryptionKey(com.volcengine.service.vod.model.request.VodGetHlsDecryptionKeyRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetHlsDecryptionKey, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodGetHlsDecryptionKeyResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetHlsDecryptionKeyResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
-	
-	
-	/**
+    }
+
+
+    /**
      * uploadMediaByUrl.
      *
      * @param input com.volcengine.service.vod.model.request.VodUrlUploadRequest
      * @return com.volcengine.service.vod.model.response.VodUrlUploadResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodUrlUploadResponse uploadMediaByUrl(com.volcengine.service.vod.model.request.VodUrlUploadRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.UploadMediaByUrl, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodUrlUploadResponse uploadMediaByUrl(com.volcengine.service.vod.model.request.VodUrlUploadRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.UploadMediaByUrl, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodUrlUploadResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodUrlUploadResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
-	
-	
-	/**
+    }
+
+
+    /**
      * queryUploadTaskInfo.
      *
      * @param input com.volcengine.service.vod.model.request.VodQueryUploadTaskInfoRequest
      * @return com.volcengine.service.vod.model.response.VodQueryUploadTaskInfoResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodQueryUploadTaskInfoResponse queryUploadTaskInfo(com.volcengine.service.vod.model.request.VodQueryUploadTaskInfoRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.QueryUploadTaskInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodQueryUploadTaskInfoResponse queryUploadTaskInfo(com.volcengine.service.vod.model.request.VodQueryUploadTaskInfoRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.QueryUploadTaskInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodQueryUploadTaskInfoResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodQueryUploadTaskInfoResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
-	
-	
-	/**
+    }
+
+
+    /**
      * applyUploadInfo.
      *
      * @param input com.volcengine.service.vod.model.request.VodApplyUploadInfoRequest
      * @return com.volcengine.service.vod.model.response.VodApplyUploadInfoResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodApplyUploadInfoResponse applyUploadInfo(com.volcengine.service.vod.model.request.VodApplyUploadInfoRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.ApplyUploadInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodApplyUploadInfoResponse applyUploadInfo(com.volcengine.service.vod.model.request.VodApplyUploadInfoRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.ApplyUploadInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodApplyUploadInfoResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodApplyUploadInfoResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
-	
-	
-	/**
+    }
+
+
+    /**
      * commitUploadInfo.
      *
      * @param input com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest
      * @return com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse commitUploadInfo(com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.CommitUploadInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse commitUploadInfo(com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.CommitUploadInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
-	
-	
-	/**
+    }
+
+
+    /**
      * updateMediaInfo.
      *
      * @param input com.volcengine.service.vod.model.request.VodUpdateMediaInfoRequest
      * @return com.volcengine.service.vod.model.response.VodUpdateMediaInfoResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodUpdateMediaInfoResponse updateMediaInfo(com.volcengine.service.vod.model.request.VodUpdateMediaInfoRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.UpdateMediaInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodUpdateMediaInfoResponse updateMediaInfo(com.volcengine.service.vod.model.request.VodUpdateMediaInfoRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.UpdateMediaInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodUpdateMediaInfoResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodUpdateMediaInfoResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
-	
-	
-	/**
+    }
+
+
+    /**
      * updateMediaPublishStatus.
      *
      * @param input com.volcengine.service.vod.model.request.VodUpdateMediaPublishStatusRequest
      * @return com.volcengine.service.vod.model.response.VodUpdateMediaPublishStatusResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodUpdateMediaPublishStatusResponse updateMediaPublishStatus(com.volcengine.service.vod.model.request.VodUpdateMediaPublishStatusRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.UpdateMediaPublishStatus, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodUpdateMediaPublishStatusResponse updateMediaPublishStatus(com.volcengine.service.vod.model.request.VodUpdateMediaPublishStatusRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.UpdateMediaPublishStatus, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodUpdateMediaPublishStatusResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodUpdateMediaPublishStatusResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
-	
-	
-	/**
+    }
+
+
+    /**
      * getMediaInfos.
      *
      * @param input com.volcengine.service.vod.model.request.VodGetMediaInfosRequest
      * @return com.volcengine.service.vod.model.response.VodGetMediaInfosResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodGetMediaInfosResponse getMediaInfos(com.volcengine.service.vod.model.request.VodGetMediaInfosRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetMediaInfos, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodGetMediaInfosResponse getMediaInfos(com.volcengine.service.vod.model.request.VodGetMediaInfosRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetMediaInfos, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodGetMediaInfosResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetMediaInfosResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
-	
-	
-	/**
+    }
+
+
+    /**
      * getRecommendedPoster.
      *
      * @param input com.volcengine.service.vod.model.request.VodGetRecommendedPosterRequest
      * @return com.volcengine.service.vod.model.response.VodGetRecommendedPosterResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodGetRecommendedPosterResponse getRecommendedPoster(com.volcengine.service.vod.model.request.VodGetRecommendedPosterRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetRecommendedPoster, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodGetRecommendedPosterResponse getRecommendedPoster(com.volcengine.service.vod.model.request.VodGetRecommendedPosterRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetRecommendedPoster, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodGetRecommendedPosterResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetRecommendedPosterResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
-	
-	
-	/**
+    }
+
+
+    /**
      * deleteMedia.
      *
      * @param input com.volcengine.service.vod.model.request.VodDeleteMediaRequest
      * @return com.volcengine.service.vod.model.response.VodDeleteMediaResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodDeleteMediaResponse deleteMedia(com.volcengine.service.vod.model.request.VodDeleteMediaRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.DeleteMedia, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodDeleteMediaResponse deleteMedia(com.volcengine.service.vod.model.request.VodDeleteMediaRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.DeleteMedia, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodDeleteMediaResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodDeleteMediaResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
-	
-	
-	/**
+    }
+
+
+    /**
      * deleteTranscodes.
      *
      * @param input com.volcengine.service.vod.model.request.VodDeleteTranscodesRequest
      * @return com.volcengine.service.vod.model.response.VodDeleteTranscodesResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodDeleteTranscodesResponse deleteTranscodes(com.volcengine.service.vod.model.request.VodDeleteTranscodesRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.DeleteTranscodes, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodDeleteTranscodesResponse deleteTranscodes(com.volcengine.service.vod.model.request.VodDeleteTranscodesRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.DeleteTranscodes, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodDeleteTranscodesResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodDeleteTranscodesResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
-	
-	
-	/**
+    }
+
+
+    /**
      * getMediaList.
      *
      * @param input com.volcengine.service.vod.model.request.VodGetMediaListRequest
      * @return com.volcengine.service.vod.model.response.VodGetMediaListResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodGetMediaListResponse getMediaList(com.volcengine.service.vod.model.request.VodGetMediaListRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetMediaList, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodGetMediaListResponse getMediaList(com.volcengine.service.vod.model.request.VodGetMediaListRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetMediaList, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodGetMediaListResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetMediaListResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
-	
-	
-	/**
+    }
+
+
+    /**
      * getSubtitleInfoList.
      *
      * @param input com.volcengine.service.vod.model.request.VodGetSubtitleInfoListRequest
      * @return com.volcengine.service.vod.model.response.VodGetSubtitleInfoListResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodGetSubtitleInfoListResponse getSubtitleInfoList(com.volcengine.service.vod.model.request.VodGetSubtitleInfoListRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetSubtitleInfoList, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodGetSubtitleInfoListResponse getSubtitleInfoList(com.volcengine.service.vod.model.request.VodGetSubtitleInfoListRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.GetSubtitleInfoList, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodGetSubtitleInfoListResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetSubtitleInfoListResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
-	
-	
-	/**
+    }
+
+
+    /**
      * updateSubtitleStatus.
      *
      * @param input com.volcengine.service.vod.model.request.VodUpdateSubtitleStatusRequest
      * @return com.volcengine.service.vod.model.response.VodUpdateSubtitleStatusResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodUpdateSubtitleStatusResponse updateSubtitleStatus(com.volcengine.service.vod.model.request.VodUpdateSubtitleStatusRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.UpdateSubtitleStatus, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodUpdateSubtitleStatusResponse updateSubtitleStatus(com.volcengine.service.vod.model.request.VodUpdateSubtitleStatusRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.UpdateSubtitleStatus, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodUpdateSubtitleStatusResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodUpdateSubtitleStatusResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
-	
-	
-	/**
+    }
+
+
+    /**
      * updateSubtitleInfo.
      *
      * @param input com.volcengine.service.vod.model.request.VodUpdateSubtitleInfoRequest
      * @return com.volcengine.service.vod.model.response.VodUpdateSubtitleInfoResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodUpdateSubtitleInfoResponse updateSubtitleInfo(com.volcengine.service.vod.model.request.VodUpdateSubtitleInfoRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.UpdateSubtitleInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodUpdateSubtitleInfoResponse updateSubtitleInfo(com.volcengine.service.vod.model.request.VodUpdateSubtitleInfoRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.UpdateSubtitleInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodUpdateSubtitleInfoResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodUpdateSubtitleInfoResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
-	
-	
-	/**
+    }
+
+
+    /**
      * StartWorkflow.
      *
      * @param input com.volcengine.service.vod.model.request.VodStartWorkflowRequest
      * @return com.volcengine.service.vod.model.response.VodStartWorkflowResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodStartWorkflowResponse StartWorkflow(com.volcengine.service.vod.model.request.VodStartWorkflowRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.StartWorkflow, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodStartWorkflowResponse StartWorkflow(com.volcengine.service.vod.model.request.VodStartWorkflowRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.helper.Const.StartWorkflow, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodStartWorkflowResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodStartWorkflowResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
-	
-	
+    }
+
+
 }  // end of service interface

@@ -1,5 +1,18 @@
 Change log
 
+2021-09-29 Bumped to version v1.0.24
+- Bigfile upload minor fix
+- More CMS apis
+
+2021-09-16 Bumped to version v1.0.23
+- Fixed url encoder
+- Added ListRooms, ListIndicators
+- Added release private drm for vod
+
+2021-09-01 Bumped to version v1.0.22
+- Add function data report to collect users' data
+- Added livesaas ListActivityDetailStatusAPI
+
 2021-08-12 Bumped to version v1.0.21
 - Support proxy setup for http
 

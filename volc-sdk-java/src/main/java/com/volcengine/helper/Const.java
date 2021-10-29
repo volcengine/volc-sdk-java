@@ -67,7 +67,7 @@ public class Const {
     public static final String GetHlsDecryptionKey = "GetHlsDecryptionKey";
     public static final String GetPrivateDrmPlayAuth = "GetPrivateDrmPlayAuth";
     public static final int MinChunkSize = 1024 * 1024 * 20;
-    public static final int LargeFileSize = 1024 * 1024 * 50;
+    public static final int LargeFileSize = 1024 * 1024 * 1024;
     public static final String FileTypeMedia = "media";
     public static final String FileTypeImage = "image";
     public static final String FileTypeObject = "object";
@@ -133,9 +133,24 @@ public class Const {
     public static final String GetActivityProductAPI = "GetActivityProductAPI";
     //更新菜单栏商品
     public static final String UpdateActivityProductAPI = "UpdateActivityProductAPI";
+    //获取直播间列表的详细状态信息
+    public static final String ListActivityDetailStatusAPI = "ListActivityDetailStatusAPI";
 
     // translate
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";
     public static final String TranslateImage = "TranslateImage";
+
+    public static final String ListRooms = "ListRooms";
+    public static final String ListIndicators = "ListIndicators";
+
+    // cms
+    public static final String BatchCreateSourceArticle = "BatchCreateSourceArticle";
+    public static final String GetArticleBatchUploadDetail = "GetArticleBatchUploadDetail";
+    public static final String DeleteSourceArticle = "DeleteSourceArticle";
+    public static final String DeleteSourceArticleByOpenid = "DeleteSourceArticleByOpenid";
+    public static final String ArticleEventNotify = "ArticleEventNotify";
+    public static final String Feed = "Feed";
+    public static final String GetVideoByVid = "GetVideoByVid";
+    public static final String MGetVideoByVids = "MGetVideoByVids";
 }

@@ -19,6 +19,7 @@ private static final long serialVersionUID = 0L;
     drmType_ = "";
     vid_ = "";
     playAuthIds_ = "";
+    unionInfo_ = "";
   }
 
   @java.lang.Override
@@ -69,6 +70,12 @@ private static final long serialVersionUID = 0L;
             playAuthIds_ = s;
             break;
           }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            unionInfo_ = s;
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -105,7 +112,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object drmType_;
   /**
    * <pre>
-   * drm类型
+   * drm类型（不区分大小写，支持web,app;默认web）
    * </pre>
    *
    * <code>string DrmType = 1;</code>
@@ -126,7 +133,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * drm类型
+   * drm类型（不区分大小写，支持web,app;默认web）
    * </pre>
    *
    * <code>string DrmType = 1;</code>
@@ -239,6 +246,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int UNIONINFO_FIELD_NUMBER = 4;
+  private volatile java.lang.Object unionInfo_;
+  /**
+   * <pre>
+   * 加密唯一信息
+   * </pre>
+   *
+   * <code>string UnionInfo = 4;</code>
+   * @return The unionInfo.
+   */
+  @java.lang.Override
+  public java.lang.String getUnionInfo() {
+    java.lang.Object ref = unionInfo_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      unionInfo_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 加密唯一信息
+   * </pre>
+   *
+   * <code>string UnionInfo = 4;</code>
+   * @return The bytes for unionInfo.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUnionInfoBytes() {
+    java.lang.Object ref = unionInfo_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      unionInfo_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -262,6 +315,9 @@ private static final long serialVersionUID = 0L;
     if (!getPlayAuthIdsBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, playAuthIds_);
     }
+    if (!getUnionInfoBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, unionInfo_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -279,6 +335,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!getPlayAuthIdsBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, playAuthIds_);
+    }
+    if (!getUnionInfoBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, unionInfo_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -301,6 +360,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getVid())) return false;
     if (!getPlayAuthIds()
         .equals(other.getPlayAuthIds())) return false;
+    if (!getUnionInfo()
+        .equals(other.getUnionInfo())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -318,6 +379,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getVid().hashCode();
     hash = (37 * hash) + PLAYAUTHIDS_FIELD_NUMBER;
     hash = (53 * hash) + getPlayAuthIds().hashCode();
+    hash = (37 * hash) + UNIONINFO_FIELD_NUMBER;
+    hash = (53 * hash) + getUnionInfo().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -457,6 +520,8 @@ private static final long serialVersionUID = 0L;
 
       playAuthIds_ = "";
 
+      unionInfo_ = "";
+
       return this;
     }
 
@@ -486,6 +551,7 @@ private static final long serialVersionUID = 0L;
       result.drmType_ = drmType_;
       result.vid_ = vid_;
       result.playAuthIds_ = playAuthIds_;
+      result.unionInfo_ = unionInfo_;
       onBuilt();
       return result;
     }
@@ -546,6 +612,10 @@ private static final long serialVersionUID = 0L;
         playAuthIds_ = other.playAuthIds_;
         onChanged();
       }
+      if (!other.getUnionInfo().isEmpty()) {
+        unionInfo_ = other.unionInfo_;
+        onChanged();
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -578,7 +648,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object drmType_ = "";
     /**
      * <pre>
-     * drm类型
+     * drm类型（不区分大小写，支持web,app;默认web）
      * </pre>
      *
      * <code>string DrmType = 1;</code>
@@ -598,7 +668,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * drm类型
+     * drm类型（不区分大小写，支持web,app;默认web）
      * </pre>
      *
      * <code>string DrmType = 1;</code>
@@ -619,7 +689,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * drm类型
+     * drm类型（不区分大小写，支持web,app;默认web）
      * </pre>
      *
      * <code>string DrmType = 1;</code>
@@ -638,7 +708,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * drm类型
+     * drm类型（不区分大小写，支持web,app;默认web）
      * </pre>
      *
      * <code>string DrmType = 1;</code>
@@ -652,7 +722,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * drm类型
+     * drm类型（不区分大小写，支持web,app;默认web）
      * </pre>
      *
      * <code>string DrmType = 1;</code>
@@ -859,6 +929,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       playAuthIds_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object unionInfo_ = "";
+    /**
+     * <pre>
+     * 加密唯一信息
+     * </pre>
+     *
+     * <code>string UnionInfo = 4;</code>
+     * @return The unionInfo.
+     */
+    public java.lang.String getUnionInfo() {
+      java.lang.Object ref = unionInfo_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        unionInfo_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 加密唯一信息
+     * </pre>
+     *
+     * <code>string UnionInfo = 4;</code>
+     * @return The bytes for unionInfo.
+     */
+    public com.google.protobuf.ByteString
+        getUnionInfoBytes() {
+      java.lang.Object ref = unionInfo_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        unionInfo_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 加密唯一信息
+     * </pre>
+     *
+     * <code>string UnionInfo = 4;</code>
+     * @param value The unionInfo to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUnionInfo(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      unionInfo_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 加密唯一信息
+     * </pre>
+     *
+     * <code>string UnionInfo = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUnionInfo() {
+      
+      unionInfo_ = getDefaultInstance().getUnionInfo();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 加密唯一信息
+     * </pre>
+     *
+     * <code>string UnionInfo = 4;</code>
+     * @param value The bytes for unionInfo to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUnionInfoBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      unionInfo_ = value;
       onChanged();
       return this;
     }

@@ -6,14 +6,14 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class AdBlockerResponse {
+public class MobileStatusResponse {
     @JSONField(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
-    RiskDetectionResult result;
+    MobileStatusResult result;
 
     @Data
-    public static class RiskDetectionResult {
+    public static class MobileStatusResult {
         @JSONField(name = "RequestId")
         private String requestId;
         @JSONField(name = "Code")
@@ -21,15 +21,15 @@ public class AdBlockerResponse {
         @JSONField(name = "Message")
         private String message;
         @JSONField(name = "Data")
-        private DecisionData data;
+        private MobileStatusData data;
     }
 
     @Data
-    public static class DecisionData {
-        @JSONField(name = "Decision")
-        private String decision;
-        @JSONField(name = "Tags")
-        private List<Integer> tags;
+    public static class MobileStatusData {
+        @JSONField(name = "Status")
+        private Integer status;
+        @JSONField(name = "Mobile")
+        private String mobile;
         @JSONField(name = "Detail")
         private String detail;
     }

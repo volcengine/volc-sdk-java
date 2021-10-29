@@ -5,6 +5,7 @@ import com.volcengine.model.request.AsyncRiskDetectionRequest;
 import com.volcengine.model.request.RiskDetectionRequest;
 import com.volcengine.model.request.RiskResultRequest;
 import com.volcengine.model.response.AsyncRiskDetectionResponse;
+import com.volcengine.model.response.MobileStatusResponse;
 import com.volcengine.model.response.RiskDetectionResponse;
 import com.volcengine.model.response.RiskResultResponse;
 import com.volcengine.service.businessSecurity.BusinessSecurityService;
@@ -56,6 +57,30 @@ public class RiskDetectionDemo {
 
             RiskResultResponse riskResultResponse = businessSecurityService.RiskResult(riskResultRequest);
             System.out.println(JSON.toJSONString(riskResultResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // account risk
+        try {
+            RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
+            riskDetectionRequest.setAppId(5461);
+            riskDetectionRequest.setService("account_risk");
+            riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"mobile_sha1\": \"\"}");
+            RiskDetectionResponse riskDetectionResponse = businessSecurityService.AccountRisk(riskDetectionRequest);
+            System.out.println(JSON.toJSONString(riskDetectionResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // mobile status
+        try {
+            RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
+            riskDetectionRequest.setAppId(5461);
+            riskDetectionRequest.setService("mobile_status");
+            riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"mobile\": \"\"}");
+            MobileStatusResponse mobileStatusResponse = businessSecurityService.MobileStatus(riskDetectionRequest);
+            System.out.println(JSON.toJSONString(mobileStatusResponse));
         } catch (Exception e) {
             e.printStackTrace();
         }

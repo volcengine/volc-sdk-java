@@ -64,4 +64,24 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
 
         return JSON.parseObject(response.getData(), DataReportResponse.class);
     }
+
+    @Override
+    public RiskDetectionResponse AccountRisk(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.AccountRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), RiskDetectionResponse.class);
+    }
+
+    @Override
+    public MobileStatusResponse MobileStatus(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.MobileStatus, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), MobileStatusResponse.class);
+    }
 }

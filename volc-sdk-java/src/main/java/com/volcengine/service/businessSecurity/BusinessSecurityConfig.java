@@ -87,6 +87,34 @@ public class BusinessSecurityConfig {
                         }
                     }
             ));
+            put(Const.AccountRisk, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AccountRisk));
+                                    add(new BasicNameValuePair("Version", "2020-12-25"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.MobileStatus, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.MobileStatus));
+                                    add(new BasicNameValuePair("Version", "2020-12-25"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

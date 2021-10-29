@@ -69,7 +69,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p
+   *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
    * </pre>
    *
    * <code>string Definition = 4;</code>
@@ -78,7 +78,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getDefinition();
   /**
    * <pre>
-   *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p
+   *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
    * </pre>
    *
    * <code>string Definition = 4;</code>
@@ -89,7 +89,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *流文件类型，默认video，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio
+   * 2k, 4k
    * </pre>
    *
    * <code>string FileType = 5;</code>
@@ -98,7 +98,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getFileType();
   /**
    * <pre>
-   *流文件类型，默认video，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio
+   * 2k, 4k
    * </pre>
    *
    * <code>string FileType = 5;</code>
@@ -226,4 +226,44 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getCdnTypeBytes();
+
+  /**
+   * <pre>
+   * 唯一性标识信息
+   * </pre>
+   *
+   * <code>string UnionInfo = 12;</code>
+   * @return The unionInfo.
+   */
+  java.lang.String getUnionInfo();
+  /**
+   * <pre>
+   * 唯一性标识信息
+   * </pre>
+   *
+   * <code>string UnionInfo = 12;</code>
+   * @return The bytes for unionInfo.
+   */
+  com.google.protobuf.ByteString
+      getUnionInfoBytes();
+
+  /**
+   * <pre>
+   * HDR清晰度，默认不查询，支持：all,
+   * </pre>
+   *
+   * <code>string HDRDefinition = 13;</code>
+   * @return The hDRDefinition.
+   */
+  java.lang.String getHDRDefinition();
+  /**
+   * <pre>
+   * HDR清晰度，默认不查询，支持：all,
+   * </pre>
+   *
+   * <code>string HDRDefinition = 13;</code>
+   * @return The bytes for hDRDefinition.
+   */
+  com.google.protobuf.ByteString
+      getHDRDefinitionBytes();
 }

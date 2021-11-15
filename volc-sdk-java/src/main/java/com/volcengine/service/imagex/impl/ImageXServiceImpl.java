@@ -18,7 +18,7 @@ import com.volcengine.util.Time;
 import org.apache.http.NameValuePair;
 
 import java.util.*;
-import java.util.zip.CRC32;
+
 
 public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService {
 
@@ -259,6 +259,38 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
             throw response.getException();
         }
         GetImageOCRResponse res = JSON.parseObject(response.getData(), GetImageOCRResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
+    public EmbedImageHmResponse embedImageHm(EmbedImageHmRequest req) throws Exception {
+        RawResponse response = json("CreateImageHmEmbed",null, JSON.toJSONString(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        EmbedImageHmResponse res = JSON.parseObject(response.getData(), EmbedImageHmResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
+    public ExtractImageHmResponse extractImageHm(ExtractImageHmRequest req) throws Exception {
+        Map<String, String> params = new HashMap<>();
+        params.put("ServiceId", req.getServiceId());
+        params.put("StoreUri", req.getStoreUri());
+        params.put("Strength", Integer.toString(req.getStrength()));
+        RawResponse response = query("CreateImageHmExtract", Utils.mapToPairList(params));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ExtractImageHmResponse res = JSON.parseObject(response.getData(), ExtractImageHmResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());

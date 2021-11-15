@@ -247,6 +247,7 @@ public abstract class BaseServiceImpl implements IBaseService {
             Collections.sort(mergedForm, NameValueComparator.INSTANCE);
             request.setEntity(new UrlEncodedFormEntity(mergedForm));
         } catch (Exception e) {
+            e.printStackTrace();
             return new RawResponse(null, SdkError.EENCODING.getNumber(), e);
         }
         return makeRequest(api, request);
@@ -256,6 +257,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         try {
             ISigner.sign(request, serviceInfo.getCredentials());
         } catch (Exception e) {
+            e.printStackTrace();
             return new RawResponse(null, SdkError.ESIGN.getNumber(), e);
         }
 
@@ -280,6 +282,7 @@ public abstract class BaseServiceImpl implements IBaseService {
             byte[] bytes = EntityUtils.toByteArray(response.getEntity());
             return new RawResponse(bytes, SdkError.SUCCESS.getNumber(), null);
         } catch (Exception e) {
+            e.printStackTrace();
             if (response != null) {
                 EntityUtils.consumeQuietly(response.getEntity());
             }

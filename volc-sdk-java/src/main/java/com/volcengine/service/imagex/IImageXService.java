@@ -1,9 +1,6 @@
 package com.volcengine.service.imagex;
 
-import com.volcengine.model.request.ApplyImageUploadRequest;
-import com.volcengine.model.request.CommitImageUploadRequest;
-import com.volcengine.model.request.DeleteImageReq;
-import com.volcengine.model.request.UpdateImageFilesRequest;
+import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
 import com.volcengine.model.sts2.SecurityToken2;
 import com.volcengine.service.IBaseService;
@@ -127,4 +124,20 @@ public interface IImageXService extends IBaseService {
      * @throws Exception the exception
      */
     GetImageOCRResponse getImageOCR(Map<String, String> param) throws Exception;
+
+    /**
+     * Request ImageX api with method POST.
+     * @param req embed image hm request
+     * @return image store uri
+     * @throws Exception the exception
+     */
+    EmbedImageHmResponse embedImageHm(EmbedImageHmRequest req) throws Exception;
+
+    /**
+     * Request ImageX api with method POST.
+     * @param req extract hidden mark from image
+     * @return embedded info
+     * @throws Exception the exception
+     */
+    ExtractImageHmResponse extractImageHm(ExtractImageHmRequest req) throws Exception;
 }

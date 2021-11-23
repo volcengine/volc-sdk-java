@@ -166,4 +166,24 @@ public interface VodUrlUploadURLSetOrBuilder extends
    */
   com.google.protobuf.ByteString
       getCategoryBytes();
+
+  /**
+   * <pre>
+   * 设置文件名
+   * </pre>
+   *
+   * <code>string FileName = 9;</code>
+   * @return The fileName.
+   */
+  java.lang.String getFileName();
+  /**
+   * <pre>
+   * 设置文件名
+   * </pre>
+   *
+   * <code>string FileName = 9;</code>
+   * @return The bytes for fileName.
+   */
+  com.google.protobuf.ByteString
+      getFileNameBytes();
 }

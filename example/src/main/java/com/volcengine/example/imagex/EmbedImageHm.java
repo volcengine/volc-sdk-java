@@ -1,5 +1,7 @@
 package com.volcengine.example.imagex;
 
+import com.volcengine.model.request.EmbedImageHmRequest;
+import com.volcengine.model.response.EmbedImageHmResponse;
 import com.volcengine.service.imagex.IImageXService;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 

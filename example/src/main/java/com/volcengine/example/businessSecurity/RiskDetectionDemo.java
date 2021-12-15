@@ -78,7 +78,7 @@ public class RiskDetectionDemo {
             RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
             riskDetectionRequest.setAppId(5461);
             riskDetectionRequest.setService("mobile_status");
-            riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"mobile\": \"12324182652\"}");
+            riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"mobile\": \"\"}");
             MobileStatusResponse mobileStatusResponse = businessSecurityService.MobileStatus(riskDetectionRequest);
             System.out.println(JSON.toJSONString(mobileStatusResponse));
         } catch (Exception e) {

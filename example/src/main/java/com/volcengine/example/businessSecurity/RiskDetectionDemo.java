@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.request.AsyncRiskDetectionRequest;
 import com.volcengine.model.request.RiskDetectionRequest;
 import com.volcengine.model.request.RiskResultRequest;
-import com.volcengine.model.response.AsyncRiskDetectionResponse;
-import com.volcengine.model.response.MobileStatusResponse;
-import com.volcengine.model.response.RiskDetectionResponse;
-import com.volcengine.model.response.RiskResultResponse;
+import com.volcengine.model.response.*;
 import com.volcengine.service.businessSecurity.BusinessSecurityService;
 
 import com.volcengine.service.businessSecurity.impl.BusinessSecurityServiceImpl;
@@ -81,6 +78,18 @@ public class RiskDetectionDemo {
             riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"mobile\": \"\"}");
             MobileStatusResponse mobileStatusResponse = businessSecurityService.MobileStatus(riskDetectionRequest);
             System.out.println(JSON.toJSONString(mobileStatusResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // element verify
+        try {
+            RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
+            riskDetectionRequest.setAppId(5461);
+            riskDetectionRequest.setService("idcard_two_element_verify");
+            riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"idcard_no\": \"\", \"idcard_name\":\"\"}");
+            ElementVerifyResponse elementVerifyResponse = businessSecurityService.ElementVerify(riskDetectionRequest);
+            System.out.println(JSON.toJSONString(elementVerifyResponse));
         } catch (Exception e) {
             e.printStackTrace();
         }

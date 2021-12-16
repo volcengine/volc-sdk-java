@@ -20,8 +20,10 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
         super(BusinessSecurityConfig.serviceInfo, BusinessSecurityConfig.apiInfoList);
     }
 
+    private static final BusinessSecurityServiceImpl businessSecurityInstance = new BusinessSecurityServiceImpl();
+
     public static BusinessSecurityService getInstance() {
-        return new BusinessSecurityServiceImpl();
+        return businessSecurityInstance;
     }
 
     @Override

@@ -17,8 +17,8 @@ public class RiskDetectionDemo {
         BusinessSecurityService businessSecurityService = BusinessSecurityServiceImpl.getInstance();
         // call below method if you dont set ak and sk in ～/.volc/config
 
-        businessSecurityService.setAccessKey("ak");
-        businessSecurityService.setSecretKey("sk");
+        businessSecurityService.setAccessKey("AK");
+        businessSecurityService.setSecretKey("SK");
         // risk detection
         try {
             RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
@@ -66,7 +66,7 @@ public class RiskDetectionDemo {
             RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
             riskDetectionRequest.setAppId(5461);
             riskDetectionRequest.setService("account_risk");
-            riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"mobile_sha1\": \"\"}");
+            riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"mobile_sha1\": \"fee831dd2756c863b052de0725719d4246a387dc\", \"ip\": \"218.6.209.45\"}");
             RiskDetectionResponse riskDetectionResponse = businessSecurityService.AccountRisk(riskDetectionRequest);
             System.out.println(JSON.toJSONString(riskDetectionResponse));
         } catch (Exception e) {

@@ -104,6 +104,7 @@ public class Const {
     public static final String DataReport = "DataReport";
     public static final String AccountRisk = "AccountRisk";
     public static final String MobileStatus = "MobileStatus";
+    public static final String ElementVerify = "ElementVerify";
 
     // livesaas
 

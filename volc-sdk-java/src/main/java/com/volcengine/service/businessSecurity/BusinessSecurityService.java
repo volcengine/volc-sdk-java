@@ -67,4 +67,13 @@ public interface BusinessSecurityService extends IBaseService {
      * @throws Exception the exception
      */
     MobileStatusResponse MobileStatus(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+    /**
+     * Element Verify.
+     *
+     * @param  riskDetectionRequest element verify request
+     * @return element verify response
+     * @throws Exception the exception
+     */
+    ElementVerifyResponse ElementVerify(RiskDetectionRequest riskDetectionRequest) throws Exception;
 }

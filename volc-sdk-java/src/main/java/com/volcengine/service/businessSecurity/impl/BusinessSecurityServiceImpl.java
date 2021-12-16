@@ -86,4 +86,14 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
 
         return JSON.parseObject(response.getData(), MobileStatusResponse.class);
     }
+
+    @Override
+    public ElementVerifyResponse ElementVerify(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.ElementVerify, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ElementVerifyResponse.class);
+    }
 }

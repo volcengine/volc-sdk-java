@@ -142,6 +142,22 @@ public class Const {
     public static final String TranslateText = "TranslateText";
     public static final String TranslateImage = "TranslateImage";
 
+    //sign
+    public static final String XDate = "X-Date";
+    public static final String XNotSignBody = "X-NotSignBody";
+    public static final String XCredential = "X-Credential";
+    public static final String XAlgorithm = "X-Algorithm";
+    public static final String XSignedHeaders = "X-SignedHeaders";
+    public static final String XSignedQueries = "X-SignedQueries";
+    public static final String XSignature = "X-Signature";
+
+    public static final String ContentType = "Content-Type";
+    public static final String ContentTypeValue = "application/x-www-form-urlencoded; charset=utf-8";
+    public static final String XContentSha256 = "X-Content-Sha256";
+    public static final String Authorization = "Authorization";
+
+    public static final String ContentMd5 = "Content-Md5";
+
     public static final String ListRooms = "ListRooms";
     public static final String ListIndicators = "ListIndicators";
 

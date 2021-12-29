@@ -5,20 +5,19 @@ import com.volcengine.auth.MetaData;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
 import com.volcengine.model.Credentials;
+import com.volcengine.model.RequestParam;
+import com.volcengine.model.SignRequest;
 import com.volcengine.service.SignableRequest;
 import com.volcengine.util.NameValueComparator;
 import org.apache.commons.codec.binary.Hex;
-import org.apache.commons.lang3.CharSet;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Consts;
 import org.apache.http.Header;
-import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.client.utils.URLEncodedUtils;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
-import java.net.URLEncoder;
 import java.nio.ByteBuffer;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -32,9 +31,9 @@ public class SignerV4Impl implements ISignerV4 {
     private static final String CONST_ENCODE = "0123456789ABCDEF";
 
     static {
-        H_INCLUDE.add("Content-Type");
-        H_INCLUDE.add("Content-Md5");
-        H_INCLUDE.add("Host");
+        H_INCLUDE.add(Const.ContentType);
+        H_INCLUDE.add(Const.ContentMd5);
+        H_INCLUDE.add(Const.Host);
         int i;
         for (i = 97; i <= 122; ++i) {
             URLENCODER.set(i);
@@ -55,122 +54,171 @@ public class SignerV4Impl implements ISignerV4 {
 
     @Override
     public void sign(SignableRequest request, Credentials credentials) throws Exception {
-        signV4(request, credentials);
+        URIBuilder builder = request.getUriBuilder();
+        if (StringUtils.isEmpty(builder.getPath())) {
+            builder.setPath(builder.getPath() + "/");
+        }
+
+        RequestParam requestParam = RequestParam.builder().isSignUrl(false)
+                .body(request.getEntity() == null ? new byte[0] : EntityUtils.toByteArray(request.getEntity()))
+                .host(request.getUriBuilder().getHost())
+                .path(builder.getPath()).method(request.getMethod()).date(new Date())
+                .queryList(request.getUriBuilder().getQueryParams())
+                .headers(request.getAllHeaders())
+                .build();
+
+        SignRequest signRequest = getSignRequest(requestParam, credentials);
+
+        request.setHeader(Const.Host, signRequest.getHost());
+        request.setHeader(Const.ContentType, signRequest.getContentType());
+        request.setHeader(Const.XDate, signRequest.getXDate());
+        request.setHeader(Const.XContentSha256, signRequest.getXContentSha256());
+        request.setHeader(Const.Authorization, signRequest.getAuthorization());
         request.setURI(request.getUriBuilder().build());
     }
 
     @Override
     public String signUrl(SignableRequest request, Credentials credentials) throws Exception {
-        String formatDate = getCurrentFormatDate();
-        String date = formatDate.substring(0, 8);
+        URIBuilder uriBuilder = request.getUriBuilder();
+        RequestParam requestParam = RequestParam.builder().isSignUrl(true)
+                .body(request.getEntity() == null ? new byte[0] : EntityUtils.toByteArray(request.getEntity()))
+                .host(uriBuilder.getHost())
+                .path(uriBuilder.getPath()).method(request.getMethod()).date(new Date())
+                .queryList(request.getUriBuilder().getQueryParams())
+                .build();
 
+        SignRequest signRequest = getSignRequest(requestParam, credentials);
+        uriBuilder.setParameter(Const.XDate, signRequest.getXDate());
+        uriBuilder.setParameter(Const.XNotSignBody, signRequest.getXNotSignBody());
+        uriBuilder.setParameter(Const.XCredential, signRequest.getXCredential());
+        uriBuilder.setParameter(Const.XAlgorithm, signRequest.getXAlgorithm());
+        uriBuilder.setParameter(Const.XSignedHeaders, signRequest.getXSignedHeaders());
+        uriBuilder.setParameter(Const.XSignedQueries, signRequest.getXSignedQueries());
+        uriBuilder.setParameter(Const.XSignature, signRequest.getXSignature());
+        return uriBuilder.build().toURL().getQuery();
+    }
+
+    @Override
+    public SignRequest getSignRequest(RequestParam requestParam, Credentials credentials) throws Exception {
+        if (requestParam == null || credentials == null) {
+            throw new Exception("requestParam and credentials is null");
+        }
+        if (requestParam.getIsSignUrl() == null || requestParam.getDate() == null || requestParam.getQueryList() == null) {
+            throw new Exception("requestParam's isSignUrl or date or queryList is null");
+        }
+        String formatDate = getAppointFormatDate(requestParam.getDate());
+        MetaData meta = getMetaDate(credentials, toDate(formatDate));
+
+        Map<String, String> requestSignMap = new HashMap<>();
+        String bodyHash;
+        SignRequest signRequest = SignRequest.builder().xDate(formatDate).build();
+        if (requestParam.getIsSignUrl()) {
+            requestParam.getQueryList().forEach(nv -> requestSignMap.put(nv.getName(), nv.getValue()));
+
+            requestSignMap.put(Const.XDate, formatDate);
+            requestSignMap.put(Const.XNotSignBody, "");
+            requestSignMap.put(Const.XCredential, credentials.getAccessKeyID() + "/" + meta.getCredentialScope());
+            requestSignMap.put(Const.XAlgorithm, meta.getAlgorithm());
+            requestSignMap.put(Const.XSignedHeaders, meta.getSignedHeaders());
+            requestSignMap.put(Const.XSignedQueries, "");
+
+            List<String> keys = new ArrayList<>(requestSignMap.keySet());
+            Collections.sort(keys);
+            requestSignMap.put(Const.XSignedQueries, StringUtils.join(keys, ";"));
+
+            signRequest.setXNotSignBody("");
+            signRequest.setXCredential(credentials.getAccessKeyID() + "/" + meta.getCredentialScope());
+            signRequest.setXAlgorithm(meta.getAlgorithm());
+            signRequest.setXSignedHeaders(meta.getSignedHeaders());
+            signRequest.setXSignedQueries(StringUtils.join(keys, ";"));
+
+            bodyHash = Utils.hashSHA256(new byte[0]);
+        } else {
+            for (Header header : requestParam.getHeaders()) {
+                requestSignMap.put(header.getName(), header.getValue());
+            }
+            if (requestSignMap.get(Const.ContentType) == null) {
+                signRequest.setContentType(Const.ContentTypeValue);
+            } else {
+                signRequest.setContentType(requestSignMap.get(Const.ContentType));
+            }
+
+            requestSignMap.put(Const.XDate, formatDate);
+            requestSignMap.put(Const.Host, requestParam.getHost());
+            requestSignMap.putIfAbsent(Const.ContentType, Const.ContentTypeValue);
+            bodyHash = Utils.hashSHA256(requestParam.getBody() == null ? new byte[0] : requestParam.getBody());
+            requestSignMap.put(Const.XContentSha256, bodyHash);
+
+            signRequest.setHost(requestParam.getHost());
+            signRequest.setXContentSha256(bodyHash);
+        }
+
+        String signature = getSignatureStr(requestParam, meta, credentials.getSecretAccessKey(),
+                formatDate, requestSignMap, bodyHash);
+        if (requestParam.getIsSignUrl()) {
+            signRequest.setXSignature(signature);
+        } else {
+            signRequest.setAuthorization(buildAuthHeaderV4(signature, meta, credentials));
+        }
+        return signRequest;
+    }
+
+    private String getSignatureStr(RequestParam requestParam, MetaData meta, String secreteAccessKey,
+                                   String formatDate, Map<String, String> requestSignMap, String bodyHash) throws Exception {
+        //step1
+        String hashedCanonReq = hashedCanonicalRequestV4(requestParam, meta, requestSignMap, bodyHash);
+
+        // step 2
+        String stringToSign = StringUtils.join(new String[]{meta.getAlgorithm(), formatDate, meta.getCredentialScope(), hashedCanonReq}, "\n");
+
+        // step 3
+        byte[] signingKey = genSigningSecretKeyV4(secreteAccessKey, meta.getDate(), meta.getRegion(), meta.getService());
+        return signatureV4(signingKey, stringToSign);
+    }
+
+    private MetaData getMetaDate(Credentials credentials, String date) {
         MetaData meta = new MetaData();
         meta.setDate(date);
         meta.setService(credentials.getService());
         meta.setRegion(credentials.getRegion());
+        meta.setAlgorithm("HMAC-SHA256");
         meta.setSignedHeaders("");
-        meta.setAlgorithm("HMAC-SHA256");
         meta.setCredentialScope(StringUtils.join(new String[]{meta.getDate(), meta.getRegion(), meta.getService(), "request"}, "/"));
-
-        URIBuilder builder = request.getUriBuilder();
-        builder.setParameter("X-Date", formatDate);
-        builder.setParameter("X-NotSignBody", "");
-        builder.setParameter("X-Credential", credentials.getAccessKeyID() + "/" + meta.getCredentialScope());
-        builder.setParameter("X-Algorithm", meta.getAlgorithm());
-        builder.setParameter("X-SignedHeaders", meta.getSignedHeaders());
-        builder.setParameter("X-SignedQueries", "");
-        List<String> keys = new ArrayList<>();
-        for (NameValuePair pair : builder.getQueryParams()) {
-            keys.add(pair.getName());
-        }
-        Collections.sort(keys);
-
-        builder.setParameter("X-SignedQueries", StringUtils.join(keys, ";"));
-
-        // step 1
-        String hashedCanonReq = hashedSimpleCanonicalRequestV4(request, meta);
-
-        // step 2
-        String stringToSign = StringUtils.join(new String[]{meta.getAlgorithm(), formatDate, meta.getCredentialScope(), hashedCanonReq}, "\n");
-
-        // step 3
-        byte[] signingKey = genSigningSecretKeyV4(credentials.getSecretAccessKey(), meta.getDate(), meta.getRegion(), meta.getService());
-        String signature = signatureV4(signingKey, stringToSign);
-
-        builder.setParameter("X-Signature", signature);
-        return builder.build().toURL().getQuery();
+        return meta;
     }
 
-    private void signV4(SignableRequest request, Credentials credentials) throws Exception {
-        URIBuilder builder = request.getUriBuilder();
-        if (builder.getPath().equals("")) {
-            builder.setPath(builder.getPath() + "/");
+    private String hashedCanonicalRequestV4(RequestParam requestParam, MetaData meta,
+                                            Map<String, String> requestSignMap, String bodyHash) throws Exception {
+        List<NameValuePair> queryList = new ArrayList<>();
+        String canonicalRequest;
+        if (requestParam.getIsSignUrl()) {
+            for (String key : requestSignMap.keySet()) {
+                queryList.add(new BasicNameValuePair(key, requestSignMap.get(key)));
+            }
+            canonicalRequest = StringUtils.join(new String[]{requestParam.getMethod(), this.normUri(requestParam.getPath()),
+                    this.normQuery(queryList), "\n", meta.getSignedHeaders(), bodyHash}, "\n");
+        } else {
+            String canonicalHeaders = getCanonicalHeaders(requestParam, meta, requestSignMap);
+
+            canonicalRequest = StringUtils.join(new String[]{requestParam.getMethod(), normUri(requestParam.getPath()),
+                    normQuery(requestParam.getQueryList()), canonicalHeaders, meta.getSignedHeaders(), bodyHash}, "\n");
         }
-
-        // common headers
-        request.setHeader("Host", request.getUriBuilder().getHost());
-        if (request.getHeaders("Content-Type") == null) {
-            request.setHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
-        }
-        String formatDate = getCurrentFormatDate();
-        request.setHeader("X-Date", formatDate);
-
-        MetaData meta = new MetaData();
-        meta.setAlgorithm("HMAC-SHA256");
-        meta.setService(credentials.getService());
-        meta.setRegion(credentials.getRegion());
-        meta.setDate(toDate(formatDate));
-
-        // step 1
-        String hashedCanonReq = hashedCanonicalRequestV4(request, meta);
-
-
-        meta.setCredentialScope(StringUtils.join(new String[]{meta.getDate(), meta.getRegion(), meta.getService(), "request"}, "/"));
-        // step 2
-        String stringToSign = StringUtils.join(new String[]{meta.getAlgorithm(), formatDate, meta.getCredentialScope(), hashedCanonReq}, "\n");
-
-        // step 3
-        byte[] signingKey = genSigningSecretKeyV4(credentials.getSecretAccessKey(), meta.getDate(), meta.getRegion(), meta.getService());
-        String signature = Hex.encodeHexString(Utils.hmacSHA256(signingKey, stringToSign));
-        request.setHeader("Authorization", buildAuthHeaderV4(signature, meta, credentials));
-    }
-
-    private String hashedSimpleCanonicalRequestV4(SignableRequest request, MetaData meta) throws Exception {
-        String payloadHash = Utils.hashSHA256(new byte[0]);
-
-        URIBuilder builder = request.getUriBuilder();
-        if (builder.getPath().equals("")) {
-            builder.setPath("/");
-        }
-
-        String canonicalRequest = StringUtils.join(new String[]{request.getMethod(), normUri(builder.getPath()),
-                normQuery(builder.getQueryParams()), "\n", meta.getSignedHeaders(), payloadHash}, "\n");
-
         return Utils.hashSHA256(canonicalRequest.getBytes());
     }
 
-    private String hashedCanonicalRequestV4(SignableRequest request, MetaData meta) throws Exception {
-        byte[] body;
-        HttpEntity entity = request.getEntity();
-        if (entity == null) {
-            body = new byte[0];
-        } else {
-            body = EntityUtils.toByteArray(entity);
+    private String getCanonicalHeaders(RequestParam requestParam, MetaData meta, Map<String, String> requestSignMap) {
+        Map<String, String> signMap = new HashMap<>();
+        List<String> signedHeaders = sortHeaders(requestSignMap, signMap);
+        if (!requestParam.getIsSignUrl()) {
+            meta.setSignedHeaders(StringUtils.join(signedHeaders, ";"));
         }
-        String bodyHash = Utils.hashSHA256(body);
-        request.setHeader("X-Content-Sha256", bodyHash);
+        if (StringUtils.isEmpty(requestParam.getPath())) {
+            requestParam.setPath("/");
+        }
 
-        List<String> signedHeaders = new ArrayList<>();
-        for (Header header : request.getAllHeaders()) {
-            String headerName = header.getName();
-            if (H_INCLUDE.contains(headerName) || headerName.startsWith("X-")) {
-                signedHeaders.add(headerName.toLowerCase());
-            }
-        }
-        Collections.sort(signedHeaders);
         StringBuilder signedHeadersToSignStr = new StringBuilder();
         for (String h : signedHeaders) {
-            String value = request.getFirstHeader(h).getValue().trim();
+            String value = signMap.get(h).trim();
             if (h.equals("host")) {
                 if (value.contains(":")) {
                     String[] split = value.split(":");
@@ -182,14 +230,19 @@ public class SignerV4Impl implements ISignerV4 {
             }
             signedHeadersToSignStr.append(h).append(":").append(value).append("\n");
         }
+        return signedHeadersToSignStr.toString();
+    }
 
-        meta.setSignedHeaders(StringUtils.join(signedHeaders, ";"));
-
-        String canonicalRequest = StringUtils.join(new String[]{request.getMethod(), normUri(request.getUriBuilder().getPath()),
-                normQuery(request.getUriBuilder().getQueryParams()), signedHeadersToSignStr.toString(),
-                meta.getSignedHeaders(), bodyHash}, "\n");
-
-        return Utils.hashSHA256(canonicalRequest.getBytes());
+    private List<String> sortHeaders(Map<String, String> requestSignMap, Map<String, String> signMap) {
+        List<String> signedHeaders = new ArrayList<>();
+        for (Map.Entry<String, String> entry : requestSignMap.entrySet()) {
+            signMap.put(entry.getKey().toLowerCase(), entry.getValue());
+            if (H_INCLUDE.contains(entry.getKey()) || entry.getKey().startsWith("X-")) {
+                signedHeaders.add(entry.getKey().toLowerCase());
+            }
+        }
+        Collections.sort(signedHeaders);
+        return signedHeaders;
     }
 
     private String signatureV4(byte[] signingKey, String stringToSign) throws Exception {
@@ -218,12 +271,18 @@ public class SignerV4Impl implements ISignerV4 {
         return df.format(new Date());
     }
 
+    private String getAppointFormatDate(Date date) {
+        DateFormat df = new SimpleDateFormat(Const.TIME_FORMAT_V4);
+        df.setTimeZone(tz);
+        return df.format(date);
+    }
+
     private String toDate(String timestamp) {
         return timestamp.substring(0, 8);
     }
 
     private String normUri(String path) {
-        String[] parts = path.split("/",-1);
+        String[] parts = path.split("/", -1);
         for (int i = 0; i < parts.length; i++) {
             parts[i] = signStringEncoder(parts[i]);
         }
@@ -232,6 +291,7 @@ public class SignerV4Impl implements ISignerV4 {
 
     /**
      * 与golang的标准对齐
+     *
      * @param params query kv pair
      * @return query
      */
@@ -242,6 +302,7 @@ public class SignerV4Impl implements ISignerV4 {
 
     /**
      * 与golang的标准对齐，
+     *
      * @param params kv pair
      * @return query string
      */
@@ -264,6 +325,7 @@ public class SignerV4Impl implements ISignerV4 {
 
     /**
      * 与golang的标准对齐，URLENCODER中的字符不转换，空格转换为%20(仅签名使用)
+     *
      * @param source 原文
      * @return 转换后的编码字符串
      */

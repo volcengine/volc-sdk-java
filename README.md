@@ -1,6 +1,15 @@
-## Volcengine SDK for Java
+<h1 align="center">火山引擎SDK for Java</h1> 
+欢迎使用火山引擎SDK for Java，本文档为您介绍如何获取及调用SDK。
 
-### - Maven依赖
+## 前置准备
+### 服务开通
+请确保您已开通了您需要访问的服务。您可前往[火山引擎控制台](https://console.volcengine.com/ )，在左侧菜单中选择或在顶部搜索栏中搜索您需要使用的服务，进入服务控制台内完成开通流程。
+### 获取安全凭证
+Access Key（访问密钥）是访问火山引擎服务的安全凭证，包含Access Key ID（简称为AK）和Secret Access Key（简称为SK）两部分。您可登录[火山引擎控制台](https://console.volcengine.com/ )，前往“[访问控制](https://console.volcengine.com/iam )”的“[访问密钥](https://console.volcengine.com/iam/keymanage/ )”中创建及管理您的Access Key。更多信息可参考[访问密钥帮助文档](https://www.volcengine.com/docs/6291/65568 )。
+
+## 获取与安装
+推荐通过Maven依赖使用火山引擎SDK for Java
+
 [![maven](https://img.shields.io/maven-central/v/com.volcengine/volc-sdk-java)](https://search.maven.org/artifact/com.volcengine/volc-sdk-java)
 ```
 <dependency>
@@ -9,26 +18,33 @@
     <version>最新版本</version>
 </dependency>
 ```
-### AK/SK设置
-- 在代码里显示调用VodService的方法setAccessKey/setSecretKey
 
-- 在当前环境变量中分别设置 VOLC_ACCESSKEY="your ak"  VOLC_SECRETKEY = "your sk"
+## 相关配置
+### 安全凭证配置
+火山引擎SDK for Java支持以下几种方式进行凭证管理：
 
-- json格式放在～/.volc/config中，格式为：{"ak":"your ak","sk":"your sk"}
+*注意：代码中Your AK及Your SK需要分别替换为您的AK及SK。*
 
-以上优先级依次降低，建议在代码里显示设置，以便问题排查
+**方式一**：在Client中显式指定AK/SK **（推荐）**
+```java
+iamService.setAccessKey("Your AK");
+iamService.setSecretKey("Your SK");
+```
 
-### 地域Region设置
-- 目前已开放三个地域设置，分别为
+**方式二**：从环境变量加载AK/SK
+  ```bash
+  VOLC_ACCESSKEY="Your AK"  
+  VOLC_SECRETKEY="Your SK"
   ```
-  - cn-north-1 (默认)
-  - ap-singapore-1
-  - us-east-1
+**方式三**：从HOME文件加载AK/SK
+
+在本地的~/.volc/config中添加如下内容：
+  ```json
+    {
+      "ak": "Your AK",
+      "sk": "Your SK"
+    }
   ```
-  
-- 注意：IAM模块目前只开放cn-north-1区域
 
-
-
-#### 更多示例参见
-src/main/java/com/example
+##其它资源
+示例参见[example](./example)

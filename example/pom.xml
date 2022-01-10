@@ -28,6 +28,12 @@
             <artifactId>volc-sdk-java</artifactId>
             <version>1.0.26</version>
         </dependency>
+        <dependency>
+            <groupId>com.volcengine</groupId>
+            <artifactId>volc-sdk-java</artifactId>
+            <version>1.0.29</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>

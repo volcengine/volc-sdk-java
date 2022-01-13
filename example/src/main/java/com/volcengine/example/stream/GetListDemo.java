@@ -22,8 +22,8 @@ public class GetListDemo {
         GetListRequest req = new GetListRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setAccessToken("accessToken");
-        req.setCategory("xib001_default_content_feed_2_8");
-        req.setPartner("xib001_default_content");
+        req.setCategory("server_sdk_demo_default_content_feed_1_3");
+        req.setPartner("server_sdk_demo_default_content");
 
         try {
             GetListResponse response = streamService.getList(req);

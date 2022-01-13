@@ -21,7 +21,7 @@ public class FavouriteLogDemo {
         //初始化一个request
         FavouriteLogRequest req = new FavouriteLogRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
-        req.setAccessToken("4016360944571705153676044295679a");
+        req.setAccessToken("accessToken");
         req.setPartner("server_sdk_demo_default_content");
         req.setGroupId("6938426748178530823");
         req.setCategory("__ALL__");

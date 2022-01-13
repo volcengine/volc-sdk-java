@@ -9,7 +9,8 @@ import java.util.List;
 @Data
 public class GetListResponse {
     @JSONField(name = "ResponseMetadata")
-    ResponseMetadata responseMetadata;
+    CommonPo.ResponseMetadata responseMetadata;
+//    ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
     List<Result> result;
 
@@ -77,6 +78,8 @@ public class GetListResponse {
         int cellType;
         @JSONField(name = "ImageList")
         List<CommonPo.Image> imageList;
+        @JSONField(name = "VideoDetail")
+        GetArticleResponse.VideoDetail videoDetail;
     }
 
     @Data

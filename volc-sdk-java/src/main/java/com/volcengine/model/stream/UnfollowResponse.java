@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class UnfollowResponse {
     @JSONField(name = "ResponseMetadata")
-    ResponseMetadata responseMetadata;
+    CommonPo.ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
     Result result;
 

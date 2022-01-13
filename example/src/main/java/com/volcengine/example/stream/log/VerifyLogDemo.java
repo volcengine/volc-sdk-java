@@ -21,7 +21,7 @@ public class VerifyLogDemo {
         //初始化一个request
         VerifyLogRequest req = new VerifyLogRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
-        req.setAccessToken("ARQuwiQ4mftpwSMLBDVxrBGt9DNzjsGAaa2b7nrw9s9PCXH2xz7Cjocmp1q49pPawPnV8tae8");
+        req.setAccessToken("accessToken");
         req.setPartner("server_sdk_demo_default_content");
         try {
             LogResponse response = logService.verifyLog(req);

@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 public class RecommendCategoryUserResponse {
     @JSONField(name = "ResponseMetadata")
-    ResponseMetadata responseMetadata;
+    CommonPo.ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
     Result result;
 

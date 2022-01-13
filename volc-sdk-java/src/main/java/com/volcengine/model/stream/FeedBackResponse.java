@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class FeedBackResponse {
     @JSONField(name = "ResponseMetadata")
-    ResponseMetadata responseMetadata;
+    CommonPo.ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
     String result;
 }

@@ -6,7 +6,6 @@ import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
 import com.volcengine.model.response.RawResponse;
-import com.volcengine.model.response.ResponseMetadata;
 import com.volcengine.model.stream.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.stream.StreamConfig;
@@ -18,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 public class StreamServiceImpl extends BaseServiceImpl implements StreamService {
+
     private StreamServiceImpl() {
         super(StreamConfig.serviceInfo, StreamConfig.apiInfoList);
     }
@@ -116,7 +116,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         List<GetArticleResponse.Result> articleList = new ArrayList<>();
         JSONObject result1 = jsonObject.getJSONObject("Result");
         JSONObject responseMetadataJson = jsonObject.getJSONObject("ResponseMetadata");
-        ResponseMetadata responseMetadata = JSONObject.toJavaObject(responseMetadataJson, ResponseMetadata.class);
+        CommonPo.ResponseMetadata responseMetadata = JSONObject.toJavaObject(responseMetadataJson, CommonPo.ResponseMetadata.class);
         getArticlesResponse.setResponseMetadata(responseMetadata);
         if (result1 == null) {
             return getArticlesResponse;
@@ -263,7 +263,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         GetVideoUrlResponse getVideoUrlResponse = new GetVideoUrlResponse();
         JSONObject result1 = jsonObject.getJSONObject("Result");
         JSONObject responseMetadataJson = jsonObject.getJSONObject("ResponseMetadata");
-        ResponseMetadata responseMetadata = JSONObject.toJavaObject(responseMetadataJson, ResponseMetadata.class);
+        CommonPo.ResponseMetadata responseMetadata = JSONObject.toJavaObject(responseMetadataJson, CommonPo.ResponseMetadata.class);
         getVideoUrlResponse.setResponseMetadata(responseMetadata);
         if (result1 == null) {
             return getVideoUrlResponse;

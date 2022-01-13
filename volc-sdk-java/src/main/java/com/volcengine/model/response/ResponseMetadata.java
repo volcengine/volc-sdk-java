@@ -22,7 +22,7 @@ public class ResponseMetadata {
     @Data
     public static class Error {
         @JSONField(name = "CodeN")
-        private long codeN;
+        private int codeN;
         @JSONField(name = "Code")
         private String code;
         @JSONField(name = "Message")

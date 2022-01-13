@@ -21,11 +21,9 @@ public class GetListDemo {
         //初始化一个request
         GetListRequest req = new GetListRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
-//        req.setTimestamp(1634117313);
-        req.setAccessToken("3116396576811695657888415752ef58");
-//        req.setSignature("3116401554681695657863648359c206");
-        req.setCategory("server_sdk_demo_default_content_feed_1_3");
-        req.setPartner("server_sdk_demo_default_content");
+        req.setAccessToken("accessToken");
+        req.setCategory("xib001_default_content_feed_2_8");
+        req.setPartner("xib001_default_content");
 
         try {
             GetListResponse response = streamService.getList(req);

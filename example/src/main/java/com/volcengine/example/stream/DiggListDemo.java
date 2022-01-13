@@ -21,7 +21,7 @@ public class DiggListDemo {
         //初始化一个request
         GetDiggListRequest req = new GetDiggListRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
-        req.setAccessToken("4016360944571705153676044295679a");
+        req.setAccessToken("accessToken");
         try {
             GetDiggListResponse response = streamService.getDiggList(req);
             System.out.println(JSON.toJSONString(response));

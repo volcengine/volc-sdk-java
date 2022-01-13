@@ -21,7 +21,7 @@ public class CheckRelationDemo {
         //初始化一个request
         CheckRelationRequest req = new CheckRelationRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
-        req.setAccessToken("4016360944571705153676044295679a");
+        req.setAccessToken("accessToken");
         req.setPartner("server_sdk_demo_default_content");
         req.setUserId("104792520555");
         try {

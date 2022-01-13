@@ -23,21 +23,21 @@ public class FollowLogDemo {
         //初始化一个request
         FollowLogRequest req = new FollowLogRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
-        req.setAccessToken("4016360944571705153676044295679a");
+        req.setAccessToken("accessToken");
         req.setPartner("server_sdk_demo_default_content");
         List<FollowLogRequest.Body> bodyList = new ArrayList<>();
 
         FollowLogRequest.Body body = new FollowLogRequest.Body();
         body.setGroupId("7008339270066766349");
         body.setToUserId("104792520555");
-        body.setCategoryName("fhh_app_default_content");
+        body.setCategoryName("__ALL__");
         body.setSource("article_detail");
         bodyList.add(body);
 
         FollowLogRequest.Body body1 = new FollowLogRequest.Body();
         body1.setGroupId("7008339270066766349");
         body1.setToUserId("104792520555");
-        body1.setCategoryName("fhh_app_default_content");
+        body1.setCategoryName("__ALL__");
         body1.setSource("article_detail");
         bodyList.add(body1);
 

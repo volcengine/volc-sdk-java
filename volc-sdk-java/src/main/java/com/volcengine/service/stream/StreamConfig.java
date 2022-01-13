@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StreamConfig {
+
     public static ServiceInfo serviceInfo = new ServiceInfo(
             new HashMap<String, Object>() {
                 {

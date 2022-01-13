@@ -21,7 +21,7 @@ public class GetUnionProductDemo {
         //初始化一个request
         GetUnionProductRequest req = new GetUnionProductRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
-        req.setAccessToken("3116473269571695657910354951ed5c");
+        req.setAccessToken("accessToken");
         req.setPartner("server_sdk_demo_default_content");
         req.setGroupId("7019183513169691143");
 

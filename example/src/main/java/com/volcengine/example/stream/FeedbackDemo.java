@@ -21,7 +21,7 @@ public class FeedbackDemo {
         //初始化一个request
         FeedBackRequest req = new FeedBackRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
-        req.setAccessToken("4016360944571705153676044295679a");
+        req.setAccessToken("accessToken");
         req.setPartner("server_sdk_demo_default_content");
         req.setGroupId("7008339270066766349");
         req.setContentType("article");

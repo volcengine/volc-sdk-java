@@ -1,15 +1,15 @@
 package com.volcengine.model.stream;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.volcengine.model.response.ResponseMetadata;
 import lombok.Data;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Data
 public class GetArticleResponse {
     @JSONField(name = "ResponseMetadata")
-    ResponseMetadata responseMetadata;
+    CommonPo.ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
     Result result;
 
@@ -70,10 +70,30 @@ public class GetArticleResponse {
         @JSONField(name = "MiddleImage")
         List<CommonPo.Image> middleImage;
         @JSONField(name = "NewVersionVideoPage")
-        boolean NewVersionVideoPage;
+        boolean newVersionVideoPage;
         @JSONField(name = "Author")
         String author;
         @JSONField(name = "HomePage")
         String homePage;
+        @JSONField(name = "ArticleReadCount")
+        String articleReadCount;
+        @JSONField(name = "VideoDetail")
+        VideoDetail videoDetail;
+    }
+
+    @Data
+    public static class VideoDetail {
+        @JSONField(name = "Status")
+        int status;
+        @JSONField(name = "VideoDuration")
+        int videoDuration;
+        @JSONField(name = "PosterUrl")
+        String posterUrl;
+        @JSONField(name = "VideoId")
+        String videoId;
+        @JSONField(name = "VideoList")
+        List<GetVideoUrlResponse.VideoList> videoList;
+        @JSONField(name = "ArticleClass")
+        String articleClass;
     }
 }

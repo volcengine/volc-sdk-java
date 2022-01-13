@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class DiggResponse {
     @JSONField(name = "ResponseMetadata")
-    ResponseMetadata responseMetadata;
+    CommonPo.ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
     Result result;
 

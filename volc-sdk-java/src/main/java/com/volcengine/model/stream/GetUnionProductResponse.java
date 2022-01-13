@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 public class GetUnionProductResponse {
     @JSONField(name = "ResponseMetadata")
-    ResponseMetadata responseMetadata;
+    CommonPo.ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
     List<Result> result;
 

@@ -21,7 +21,7 @@ public class GetVideoUrlDemo {
         //初始化一个request
         GetVideoUrlRequest req = new GetVideoUrlRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
-        req.setAccessToken("3016420494751676625350562829b71f");
+        req.setAccessToken("accessToken");
         req.setPartner("server_sdk_demo_default_content");
         req.setVideoId("v02004g10000c5h9rhbc77u5t3n7pdt0_7017353858951316006_2_20");
 

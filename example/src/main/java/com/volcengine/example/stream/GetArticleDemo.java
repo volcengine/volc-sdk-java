@@ -21,7 +21,7 @@ public class GetArticleDemo {
         //初始化一个request
         GetArticleRequest req = new GetArticleRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
-        req.setAccessToken("3116396576811695657888415752ef58");
+        req.setAccessToken("accessToken");
         req.setPartner("server_sdk_demo_default_content");
         req.setGroupId("7008338242986623518");
 

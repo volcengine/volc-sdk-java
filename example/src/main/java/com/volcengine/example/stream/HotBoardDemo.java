@@ -21,7 +21,7 @@ public class HotBoardDemo {
         //初始化一个request
         HotBoardRequest req = new HotBoardRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
-        req.setAccessToken("3116473269571695657910354951ed5c");
+        req.setAccessToken("accessToken");
         req.setPartner("server_sdk_demo_default_content");
 
         try {

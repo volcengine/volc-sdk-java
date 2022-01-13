@@ -21,7 +21,7 @@ public class VideoOverLogDemo {
         //初始化一个request
         VideoOverLogRequest req = new VideoOverLogRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
-        req.setAccessToken("4016360944571705153676044295679a");
+        req.setAccessToken("accessToken");
         req.setPartner("server_sdk_demo_default_content");
         req.setGroupId("6938426748178530823");
         req.setPosition("list");

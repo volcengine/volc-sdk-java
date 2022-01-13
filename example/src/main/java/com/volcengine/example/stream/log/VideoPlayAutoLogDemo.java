@@ -21,7 +21,7 @@ public class VideoPlayAutoLogDemo {
         //初始化一个request
         VideoPlayAutoLogRequest req = new VideoPlayAutoLogRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
-        req.setAccessToken("3116473335561695657865197591c1b3");
+        req.setAccessToken("accessToken");
         req.setPartner("server_sdk_demo_default_content");
         req.setGroupId("6938426748178530823");
         req.setCategory("server_sdk_demo_default_content_feed_1_3");

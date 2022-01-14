@@ -40,8 +40,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        WapRegisterResponse wapRegisterResponse = JSON.parseObject(response.getData(), WapRegisterResponse.class);
-        return wapRegisterResponse;
+        return JSON.parseObject(response.getData(), WapRegisterResponse.class);
     }
 
     @Override
@@ -50,8 +49,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        GetListResponse getListResponse = JSON.parseObject(response.getData(), GetListResponse.class);
-        return getListResponse;
+        return JSON.parseObject(response.getData(), GetListResponse.class);
     }
 
     @Override
@@ -60,8 +58,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        DiggResponse diggResponse = JSON.parseObject(response.getData(), DiggResponse.class);
-        return diggResponse;
+        return JSON.parseObject(response.getData(), DiggResponse.class);
     }
 
     @Override
@@ -70,8 +67,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        DiggResponse diggResponse = JSON.parseObject(response.getData(), DiggResponse.class);
-        return diggResponse;
+        return JSON.parseObject(response.getData(), DiggResponse.class);
     }
 
     @Override
@@ -80,8 +76,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        DiggResponse diggResponse = JSON.parseObject(response.getData(), DiggResponse.class);
-        return diggResponse;
+        return JSON.parseObject(response.getData(), DiggResponse.class);
     }
 
     @Override
@@ -90,8 +85,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        DiggResponse diggResponse = JSON.parseObject(response.getData(), DiggResponse.class);
-        return diggResponse;
+        return JSON.parseObject(response.getData(), DiggResponse.class);
     }
 
     @Override
@@ -100,8 +94,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        GetArticleResponse getArticleResponse = JSON.parseObject(response.getData(), GetArticleResponse.class);
-        return getArticleResponse;
+        return JSON.parseObject(response.getData(), GetArticleResponse.class);
     }
 
     @Override
@@ -138,8 +131,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        FeedBackResponse feedBackResponse = JSON.parseObject(response.getData(), FeedBackResponse.class);
-        return feedBackResponse;
+        return JSON.parseObject(response.getData(), FeedBackResponse.class);
     }
 
     @Override
@@ -148,8 +140,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        FollowResponse followResponse = JSON.parseObject(response.getData(), FollowResponse.class);
-        return followResponse;
+        return JSON.parseObject(response.getData(), FollowResponse.class);
     }
 
     @Override
@@ -158,8 +149,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        UnfollowResponse unfollowResponse = JSON.parseObject(response.getData(), UnfollowResponse.class);
-        return unfollowResponse;
+        return JSON.parseObject(response.getData(), UnfollowResponse.class);
     }
 
     @Override
@@ -168,8 +158,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        CheckRelationResponse checkRelationResponse = JSON.parseObject(response.getData(), CheckRelationResponse.class);
-        return checkRelationResponse;
+        return JSON.parseObject(response.getData(), CheckRelationResponse.class);
     }
 
     @Override
@@ -178,8 +167,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        GetFollowingListResponse getFollowingListResponse = JSON.parseObject(response.getData(), GetFollowingListResponse.class);
-        return getFollowingListResponse;
+        return JSON.parseObject(response.getData(), GetFollowingListResponse.class);
     }
 
     @Override
@@ -188,8 +176,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        RefreshTipsResponse refreshTipsResponse = JSON.parseObject(response.getData(), RefreshTipsResponse.class);
-        return refreshTipsResponse;
+        return JSON.parseObject(response.getData(), RefreshTipsResponse.class);
     }
 
     @Override
@@ -198,8 +185,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        FollowArticlesResponse followArticlesResponse = JSON.parseObject(response.getData(), FollowArticlesResponse.class);
-        return followArticlesResponse;
+        return JSON.parseObject(response.getData(), FollowArticlesResponse.class);
     }
 
     @Override
@@ -208,8 +194,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        RecommendRelatedUserResponse recommendRelatedUserResponse = JSON.parseObject(response.getData(), RecommendRelatedUserResponse.class);
-        return recommendRelatedUserResponse;
+        return JSON.parseObject(response.getData(), RecommendRelatedUserResponse.class);
     }
 
     @Override
@@ -218,8 +203,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        RecommendCategoryUserResponse recommendCategoryUserResponse = JSON.parseObject(response.getData(), RecommendCategoryUserResponse.class);
-        return recommendCategoryUserResponse;
+        return JSON.parseObject(response.getData(), RecommendCategoryUserResponse.class);
     }
 
     @Override
@@ -228,8 +212,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        RecommendCategoryInfoResponse recommendCategoryInfoResponse = JSON.parseObject(response.getData(), RecommendCategoryInfoResponse.class);
-        return recommendCategoryInfoResponse;
+        return JSON.parseObject(response.getData(), RecommendCategoryInfoResponse.class);
     }
 
     @Override
@@ -238,8 +221,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        RelatedArticleResponse relatedArticleResponse = JSON.parseObject(response.getData(), RelatedArticleResponse.class);
-        return relatedArticleResponse;
+        return JSON.parseObject(response.getData(), RelatedArticleResponse.class);
     }
 
     @Override
@@ -248,8 +230,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        GetDiggListResponse getDiggListResponse = JSON.parseObject(response.getData(), GetDiggListResponse.class);
-        return getDiggListResponse;
+        return JSON.parseObject(response.getData(), GetDiggListResponse.class);
     }
 
     @Override
@@ -280,8 +261,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        GetUnionProductResponse getUnionProductResponse = JSON.parseObject(response.getData(), GetUnionProductResponse.class);
-        return getUnionProductResponse;
+        return JSON.parseObject(response.getData(), GetUnionProductResponse.class);
     }
 
     @Override
@@ -290,7 +270,6 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        HotBoardResponse hotBoardResponse = JSON.parseObject(response.getData(), HotBoardResponse.class);
-        return hotBoardResponse;
+        return JSON.parseObject(response.getData(), HotBoardResponse.class);
     }
 }

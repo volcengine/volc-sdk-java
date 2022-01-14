@@ -1,5 +1,8 @@
 Change log
 
+2022-01-14 Bumped to version v1.0.30
+- added 内容定制接口接入java SDK
+
 2021-12-30 Bumped to version v1.0.29
 - Refactored the signing method
 

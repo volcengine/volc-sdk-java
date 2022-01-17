@@ -17,8 +17,8 @@ public class ProductClickLogRequest {
     String productId;
     @JSONField(name = "Category")
     String category;
-    @JSONField(name = "EntranceFrom")
-    String entranceFrom;
+    @JSONField(name = "EntranceForm")
+    String entranceForm;
     @JSONField(name = "EventTime")
     long eventTime;
     @JSONField(name = "Dt")

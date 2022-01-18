@@ -6,6 +6,8 @@ import com.volcengine.model.response.ArticleEventNotifyResponse;
 import com.volcengine.service.cms.CmsPlatformService;
 import com.volcengine.service.cms.impl.CmsPlatformServiceImpl;
 
+import java.util.Arrays;
+
 public class ArticleEventNotifyDemo {
     public static void main(String[] args) {
         CmsPlatformService service = CmsPlatformServiceImpl.getInstance();
@@ -23,7 +25,7 @@ public class ArticleEventNotifyDemo {
     public static void articleStatusUpdateEvent(CmsPlatformService service) {
         ArticleEventNotifyRequest request = new ArticleEventNotifyRequest();
         request.setEventType("ArticleStatusUpdate");
-        request.setSubEventType("SetOnline");
+        request.setSubEventTypeList(Arrays.asList("SetOnline", "AuditWait"));
         try {
             ArticleEventNotifyResponse response = service.articleEventNotify(request);
             System.out.println(JSON.toJSONString(response));

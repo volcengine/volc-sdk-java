@@ -13,7 +13,7 @@ import org.apache.http.HttpHost;
 import org.apache.http.NameValuePair;
 
 import java.net.URLDecoder;
-import java.util.List;
+import java.util.*;
 
 
 public class LogServiceImpl extends BaseServiceImpl implements LogService {
@@ -33,9 +33,12 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         return new LogServiceImpl(proxy);
     }
 
+
     @Override
     public LogResponse clickLog(ClickLogRequest clickLogRequest) throws Exception {
-        RawResponse response = query(Const.ClickLog, Utils.mapToPairList(Utils.paramsToMap(clickLogRequest)));
+        Map<String, String> requestMap = Utils.paramsToMap(clickLogRequest);
+        Map<String, String> paramsMap = paramsFilter(requestMap);
+        RawResponse response = post(Const.ClickLog, Utils.mapToPairList(requestMap), Utils.mapToPairList(paramsMap));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -45,7 +48,9 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
 
     @Override
     public LogResponse stayLog(StayLogRequest stayLogRequest) throws Exception {
-        RawResponse response = query(Const.StayLog, Utils.mapToPairList(Utils.paramsToMap(stayLogRequest)));
+        Map<String, String> requestMap = Utils.paramsToMap(stayLogRequest);
+        Map<String, String> paramsMap = paramsFilter(requestMap);
+        RawResponse response = post(Const.StayLog, Utils.mapToPairList(requestMap), Utils.mapToPairList(paramsMap));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -55,7 +60,9 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
 
     @Override
     public LogResponse videoPlayLog(VideoPlayLogRequest videoPlayLogRequest) throws Exception {
-        RawResponse response = query(Const.VideoPlayLog, Utils.mapToPairList(Utils.paramsToMap(videoPlayLogRequest)));
+        Map<String, String> requestMap = Utils.paramsToMap(videoPlayLogRequest);
+        Map<String, String> paramsMap = paramsFilter(requestMap);
+        RawResponse response = post(Const.VideoPlayLog, Utils.mapToPairList(requestMap), Utils.mapToPairList(paramsMap));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -65,7 +72,9 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
 
     @Override
     public LogResponse videoOverLog(VideoOverLogRequest videoOverLogRequest) throws Exception {
-        RawResponse response = query(Const.VideoOverLog, Utils.mapToPairList(Utils.paramsToMap(videoOverLogRequest)));
+        Map<String, String> requestMap = Utils.paramsToMap(videoOverLogRequest);
+        Map<String, String> paramsMap = paramsFilter(requestMap);
+        RawResponse response = post(Const.VideoOverLog, Utils.mapToPairList(requestMap), Utils.mapToPairList(paramsMap));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -75,7 +84,9 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
 
     @Override
     public LogResponse singleShowLog(SingleShowLogRequest singleShowLogRequest) throws Exception {
-        RawResponse response = query(Const.SingleShowLog, Utils.mapToPairList(Utils.paramsToMap(singleShowLogRequest)));
+        Map<String, String> requestMap = Utils.paramsToMap(singleShowLogRequest);
+        Map<String, String> paramsMap = paramsFilter(requestMap);
+        RawResponse response = post(Const.SingleShowLog, Utils.mapToPairList(requestMap), Utils.mapToPairList(paramsMap));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -105,7 +116,9 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
 
     @Override
     public LogResponse shareLog(ShareLogRequest shareLogRequest) throws Exception {
-        RawResponse response = query(Const.ShareLog, Utils.mapToPairList(Utils.paramsToMap(shareLogRequest)));
+        Map<String, String> requestMap = Utils.paramsToMap(shareLogRequest);
+        Map<String, String> paramsMap = paramsFilter(requestMap);
+        RawResponse response = post(Const.ShareLog, Utils.mapToPairList(requestMap), Utils.mapToPairList(paramsMap));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -115,7 +128,9 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
 
     @Override
     public LogResponse favouriteLog(FavouriteLogRequest favouriteLogRequest) throws Exception {
-        RawResponse response = query(Const.FavouriteLog, Utils.mapToPairList(Utils.paramsToMap(favouriteLogRequest)));
+        Map<String, String> requestMap = Utils.paramsToMap(favouriteLogRequest);
+        Map<String, String> paramsMap = paramsFilter(requestMap);
+        RawResponse response = post(Const.FavouriteLog, Utils.mapToPairList(requestMap), Utils.mapToPairList(paramsMap));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -125,7 +140,9 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
 
     @Override
     public LogResponse verifyLog(VerifyLogRequest verifyLogRequest) throws Exception {
-        RawResponse response = query(Const.VerifyLog, Utils.mapToPairList(Utils.paramsToMap(verifyLogRequest)));
+        Map<String, String> requestMap = Utils.paramsToMap(verifyLogRequest);
+        Map<String, String> paramsMap = paramsFilter(requestMap);
+        RawResponse response = post(Const.VerifyLog, Utils.mapToPairList(requestMap), Utils.mapToPairList(paramsMap));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -143,7 +160,6 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
                 break;
             }
         }
-//        jsonBody = "{" + URLDecoder.decode(jsonBody, "UTF-8") + "}";
         nameValuePairList.removeIf(n -> n.getName().equals("Body"));
         RawResponse response = json(Const.FollowLog, nameValuePairList, jsonBody);
 
@@ -215,7 +231,9 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
 
     @Override
     public LogResponse videoPlayDrawLog(VideoPlayDrawLogRequest videoPlayDrawLogRequest) throws Exception {
-        RawResponse response = query(Const.VideoPlayDrawLog, Utils.mapToPairList(Utils.paramsToMap(videoPlayDrawLogRequest)));
+        Map<String, String> requestMap = Utils.paramsToMap(videoPlayDrawLogRequest);
+        Map<String, String> paramsMap = paramsFilter(requestMap);
+        RawResponse response = post(Const.VideoPlayDrawLog, Utils.mapToPairList(requestMap), Utils.mapToPairList(paramsMap));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -225,7 +243,9 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
 
     @Override
     public LogResponse videoOverDrawLog(VideoOverDrawLogRequest videoOverDrawLogRequest) throws Exception {
-        RawResponse response = query(Const.VideoOverDrawLog, Utils.mapToPairList(Utils.paramsToMap(videoOverDrawLogRequest)));
+        Map<String, String> requestMap = Utils.paramsToMap(videoOverDrawLogRequest);
+        Map<String, String> paramsMap = paramsFilter(requestMap);
+        RawResponse response = post(Const.VideoOverDrawLog, Utils.mapToPairList(requestMap), Utils.mapToPairList(paramsMap));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -235,7 +255,9 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
 
     @Override
     public LogResponse productShowLog(ProductShowLogRequest productShowLogRequest) throws Exception {
-        RawResponse response = query(Const.ProductShowLog, Utils.mapToPairList(Utils.paramsToMap(productShowLogRequest)));
+        Map<String, String> requestMap = Utils.paramsToMap(productShowLogRequest);
+        Map<String, String> paramsMap = paramsFilter(requestMap);
+        RawResponse response = post(Const.ProductShowLog, Utils.mapToPairList(requestMap), Utils.mapToPairList(paramsMap));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -245,7 +267,9 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
 
     @Override
     public LogResponse pushLog(PushLogRequest pushLogRequest) throws Exception {
-        RawResponse response = query(Const.PushLog, Utils.mapToPairList(Utils.paramsToMap(pushLogRequest)));
+        Map<String, String> requestMap = Utils.paramsToMap(pushLogRequest);
+        Map<String, String> paramsMap = paramsFilter(requestMap);
+        RawResponse response = post(Const.PushLog, Utils.mapToPairList(requestMap), Utils.mapToPairList(paramsMap));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -255,7 +279,9 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
 
     @Override
     public LogResponse productClickLog(ProductClickLogRequest productClickLogRequest) throws Exception {
-        RawResponse response = query(Const.ProductClickLog, Utils.mapToPairList(Utils.paramsToMap(productClickLogRequest)));
+        Map<String, String> requestMap = Utils.paramsToMap(productClickLogRequest);
+        Map<String, String> paramsMap = paramsFilter(requestMap);
+        RawResponse response = post(Const.ProductClickLog, Utils.mapToPairList(requestMap), Utils.mapToPairList(paramsMap));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -265,7 +291,9 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
 
     @Override
     public LogResponse videoPlayAutoLog(VideoPlayAutoLogRequest videoPlayAutoLogRequest) throws Exception {
-        RawResponse response = query(Const.VideoPlayAutoLog, Utils.mapToPairList(Utils.paramsToMap(videoPlayAutoLogRequest)));
+        Map<String, String> requestMap = Utils.paramsToMap(videoPlayAutoLogRequest);
+        Map<String, String> paramsMap = paramsFilter(requestMap);
+        RawResponse response = post(Const.VideoPlayAutoLog, Utils.mapToPairList(requestMap), Utils.mapToPairList(paramsMap));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -275,11 +303,24 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
 
     @Override
     public LogResponse videoOverAutoLog(VideoOverAutoLogRequest videoOverAutoLogRequest) throws Exception {
-        RawResponse response = query(Const.VideoOverAutoLog, Utils.mapToPairList(Utils.paramsToMap(videoOverAutoLogRequest)));
+        Map<String, String> requestMap = Utils.paramsToMap(videoOverAutoLogRequest);
+        Map<String, String> paramsMap = paramsFilter(requestMap);
+        RawResponse response = post(Const.VideoOverAutoLog, Utils.mapToPairList(requestMap), Utils.mapToPairList(paramsMap));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         LogResponse logResponse = JSON.parseObject(response.getData(), LogResponse.class);
         return logResponse;
+    }
+
+    private Map<String, String> paramsFilter(Map<String, String> requestMap) {
+        Map<String, String> paramsMap = new HashMap<>();
+        for (String s : requestMap.keySet()) {
+            paramsMap.put(s, requestMap.get(s));
+        }
+        paramsMap.remove("Timestamp");
+        paramsMap.remove("Partner");
+        paramsMap.remove("AccessToken");
+        return paramsMap;
     }
 }

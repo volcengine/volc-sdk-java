@@ -26,7 +26,7 @@ public class ProductClickLogDemo {
         req.setGroupId("6938426748178530823");
         req.setCategory("server_sdk_demo_default_content_feed_1_3");
         req.setEventTime(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
-        req.setEntranceFrom("related_product");
+        req.setEntranceForm("related_product");
         req.setProductId("2021102615430865626");
         req.setDt("iphone6s");
         req.setOs("iOS");

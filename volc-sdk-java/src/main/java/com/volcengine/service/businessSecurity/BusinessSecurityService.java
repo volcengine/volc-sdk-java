@@ -1,10 +1,6 @@
 package com.volcengine.service.businessSecurity;
 
-import com.volcengine.model.request.DataReportRequest;
-import com.volcengine.model.request.RiskDetectionRequest;
-import com.volcengine.model.request.AsyncRiskDetectionRequest;
-
-import com.volcengine.model.request.RiskResultRequest;
+import com.volcengine.model.request.*;
 
 import com.volcengine.model.response.*;
 
@@ -67,4 +63,34 @@ public interface BusinessSecurityService extends IBaseService {
      * @throws Exception the exception
      */
     MobileStatusResponse MobileStatus(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+
+    /**
+     * Image Risk Detection.
+     *
+     * @param  riskDetectionRequest image risk detection request
+     * @return image risk detection response
+     * @throws Exception the exception
+     */
+    ImageRiskDetectionResponse ImageRiskDetection(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+    /**
+     * Image Risk Detection.
+     *
+     * @param  riskDetectionRequest image risk detection request
+     * @return async image risk detection response
+     * @throws Exception the exception
+     */
+    AsyncRiskDetectionResponse AsyncImageRisk(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+    /**
+     * Image Risk Result.
+     *
+     * @param  imageRiskResultRequest image risk result request
+     * @return image risk result response
+     * @throws Exception the exception
+     */
+    ImageRiskDetectionResponse ImageRiskResult(ImageRiskResultRequest imageRiskResultRequest) throws Exception;
+
+
 }

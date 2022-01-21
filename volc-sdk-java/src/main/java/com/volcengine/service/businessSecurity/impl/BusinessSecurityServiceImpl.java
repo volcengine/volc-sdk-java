@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
-import com.volcengine.model.request.AsyncRiskDetectionRequest;
-import com.volcengine.model.request.DataReportRequest;
-import com.volcengine.model.request.RiskDetectionRequest;
-import com.volcengine.model.request.RiskResultRequest;
+import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.businessSecurity.BusinessSecurityConfig;
@@ -85,5 +82,35 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
         }
 
         return JSON.parseObject(response.getData(), MobileStatusResponse.class);
+    }
+
+    @Override
+    public ImageRiskDetectionResponse ImageRiskDetection(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.ImageContentRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ImageRiskDetectionResponse.class);
+    }
+
+    @Override
+    public AsyncRiskDetectionResponse AsyncImageRisk(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.ImageContentRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ImageRiskDetectionResponse.class);
+    }
+
+    @Override
+    public ImageRiskDetectionResponse ImageRiskResult(ImageRiskResultRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.ImageContentRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ImageRiskDetectionResponse.class);
     }
 }

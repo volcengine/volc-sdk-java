@@ -115,6 +115,48 @@ public class BusinessSecurityConfig {
                         }
                     }
             ));
-        }
+            put(Const.ImageContentRisk, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ImageContentRisk));
+                                    add(new BasicNameValuePair("Version", "2021-11-29"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.AsyncImageRisk, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AsyncImageRisk));
+                                    add(new BasicNameValuePair("Version", "2021-11-29"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetImageResult, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetImageResult));
+                                    add(new BasicNameValuePair("Version", "2021-11-29"));
+                                }
+                            });
+                        }
+                    }
+            ));
+        };
     };
 }

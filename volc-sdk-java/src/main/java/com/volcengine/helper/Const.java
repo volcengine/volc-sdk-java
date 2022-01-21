@@ -104,6 +104,11 @@ public class Const {
     public static final String DataReport = "DataReport";
     public static final String AccountRisk = "AccountRisk";
     public static final String MobileStatus = "MobileStatus";
+    public static final String ImageContentRisk = "ImageContentRisk";
+    public static final String AsyncImageRisk = "AsyncImageRisk";
+    public static final String VideoResult = "VideoResult";
+    public static final String GetImageResult = "GetImageResult";
+    public static final String AsyncVideoRisk = "AsyncVideoRisk";
 
     // livesaas
 

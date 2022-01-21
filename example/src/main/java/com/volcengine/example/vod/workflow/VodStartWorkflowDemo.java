@@ -23,6 +23,7 @@ public class VodStartWorkflowDemo {
                 .setTemplateId("your template_id")
                 .setPriority(0)
                 .setCallbackArgs("your callback_args")
+                .setEnableLowPriority(false)
                 .build();
 
         try {

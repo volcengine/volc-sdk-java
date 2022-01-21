@@ -20,6 +20,7 @@ public class VodUploadMediaByUrlDemo {
 
         VodUrlUploadURLSet vodUrlUploadURLSet = VodUrlUploadURLSet.newBuilder()
                 .setSourceUrl(url)
+                .setFileName("test.mp4")
                 .build();
 
         VodUrlUploadRequest vodUrlUploadRequest = VodUrlUploadRequest.newBuilder()

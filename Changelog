@@ -1,5 +1,8 @@
 Change log
 
+2022-01-21 Bumped to version v1.0.32
+- added 闲时转码
+
 2022-01-20 Bumped to version v1.0.31
 - fixed 内容定制接口
 - add subEventTypeList

@@ -27,16 +27,17 @@ import java.text.DateFormat;
 
 public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl implements com.volcengine.service.vod.IVodService {
 
+    // 静态字段引用唯一实例:
+    private static final VodServiceImpl CN_NORTH_1_VOD = new VodServiceImpl();
+
+    // 通过静态方法返回实例:
+    public static com.volcengine.service.vod.IVodService getInstance() {
+        return CN_NORTH_1_VOD;
+    }
+
+    // private构造方法保证外部无法实例化:
     protected VodServiceImpl() {
         super(com.volcengine.service.vod.VodConfig.ServiceInfoMap.get(com.volcengine.helper.Const.REGION_CN_NORTH_1), com.volcengine.service.vod.VodConfig.apiInfoList);
-    }
-
-    private VodServiceImpl(com.volcengine.model.ServiceInfo serviceInfo) {
-        super(serviceInfo, com.volcengine.service.vod.VodConfig.apiInfoList);
-    }
-
-    public static com.volcengine.service.vod.IVodService getInstance() {
-        return new VodServiceImpl();
     }
 
     public static com.volcengine.service.vod.IVodService getInstance(String region) throws Exception {
@@ -44,7 +45,12 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         if (serviceInfo == null) {
             throw new Exception("Cant find the region, please check it carefully");
         }
-        return new VodServiceImpl(serviceInfo);
+        switch (region) {
+            case com.volcengine.helper.Const.REGION_CN_NORTH_1:
+                return CN_NORTH_1_VOD;
+            default:
+                throw new Exception("Cant find the region, please check it carefully");
+        }
     }
 
     @Override

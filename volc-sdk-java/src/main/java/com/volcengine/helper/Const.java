@@ -66,6 +66,30 @@ public class Const {
     public static final String UpdateSubtitleInfo = "UpdateSubtitleInfo";
     public static final String GetHlsDecryptionKey = "GetHlsDecryptionKey";
     public static final String GetPrivateDrmPlayAuth = "GetPrivateDrmPlayAuth";
+    public static final String GetPlayInfoWithLiveTimeShiftScene = "GetPlayInfoWithLiveTimeShiftScene";
+    public static final String GetAuditFramesForAudit = "GetAuditFramesForAudit";
+    public static final String GetMLFramesForAudit = "GetMLFramesForAudit";
+    public static final String GetBetterFramesForAudit = "GetBetterFramesForAudit";
+    public static final String GetAudioInfoForAudit = "GetAudioInfoForAudit";
+    public static final String GetAutomaticSpeechRecognitionForAudit = "GetAutomaticSpeechRecognitionForAudit";
+    public static final String GetAudioEventDetectionForAudit = "GetAudioEventDetectionForAudit";
+    public static final String CreateVideoClassification = "CreateVideoClassification";
+    public static final String UpdateVideoClassification = "UpdateVideoClassification";
+    public static final String DeleteVideoClassification = "DeleteVideoClassification";
+    public static final String ListVideoClassifications = "ListVideoClassifications";
+    public static final String CreateSpace = "CreateSpace";
+    public static final String ListSpace = "ListSpace";
+    public static final String GetSpaceDetail = "GetSpaceDetail";
+    public static final String GetSpaceConfig = "GetSpaceConfig";
+    public static final String UpdateSpace = "UpdateSpace";
+    public static final String UpdateSpaceUploadConfig = "UpdateSpaceUploadConfig";
+    public static final String ListDomain = "ListDomain";
+    public static final String CreateCdnRefreshTask = "CreateCdnRefreshTask";
+    public static final String CreateCdnPreloadTask = "CreateCdnPreloadTask";
+    public static final String AddCallbackSubscription = "AddCallbackSubscription";
+    public static final String SetCallbackEvent = "SetCallbackEvent";
+
+
     public static final int MinChunkSize = 1024 * 1024 * 20;
     public static final int LargeFileSize = 1024 * 1024 * 1024;
     public static final String FileTypeMedia = "media";

@@ -19,7 +19,6 @@ public class RiskDetectionDemo {
 
         businessSecurityService.setAccessKey("AK");
         businessSecurityService.setSecretKey("SK");
-        businessSecurityService.setSocketTimeout();
         // risk detection
         try {
             RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();

@@ -2,17 +2,17 @@ package com.volcengine.model.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
-
 import java.util.List;
 
+@Data
 public class VideoRiskResultResponse {
     @JSONField(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
-    ImageRiskDetectionResponse.ImageDetectionResult result;
+    VideoDetectionResult result;
 
     @Data
-    public static class ImageDetectionResult  {
+    public static class VideoDetectionResult  {
         @JSONField(name = "RequestId")
         private String requestId;
         @JSONField(name = "Code")
@@ -20,7 +20,13 @@ public class VideoRiskResultResponse {
         @JSONField(name = "Message")
         private String message;
         @JSONField(name = "Data")
-        private VideoLabelResult data;
+        private VideoData data;
+    }
+
+    @Data
+    public static class VideoData {
+        @JSONField(name = "VideoResult")
+        private VideoLabelResult videoLabelResult;
     }
 
     @Data
@@ -36,7 +42,7 @@ public class VideoRiskResultResponse {
         @JSONField(name = "Url")
         private String url;
         @JSONField(name = "Offset")
-        private String offset;
+        private float offset;
         @JSONField(name = "Results")
         private List<FrameResult> results;
     }

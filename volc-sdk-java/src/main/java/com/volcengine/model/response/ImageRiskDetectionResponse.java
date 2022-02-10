@@ -20,8 +20,18 @@ public class ImageRiskDetectionResponse {
         private Integer code;
         @JSONField(name = "Message")
         private String message;
+        @JSONField(name = "Data")
+        private ImageDetectionData data;
+    }
+
+    @Data
+    public static class ImageDetectionData {
+        @JSONField(name = "DataId")
+        private String dataId;
+        @JSONField(name = "Decision")
+        private String decision;
         @JSONField(name = "Results")
-        private String results;
+        private List<ImageLabelResult> results;
     }
 
     @Data
@@ -32,6 +42,8 @@ public class ImageRiskDetectionResponse {
         private String subLabel;
         @JSONField(name = "Detail")
         private List<String> detail;
+        @JSONField(name = "Decision")
+        private String decision;
         @JSONField(name = "Frames")
         private List<Object> frames;
     }

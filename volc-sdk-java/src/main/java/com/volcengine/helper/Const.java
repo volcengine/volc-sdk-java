@@ -104,11 +104,15 @@ public class Const {
     public static final String DataReport = "DataReport";
     public static final String AccountRisk = "AccountRisk";
     public static final String MobileStatus = "MobileStatus";
+    // content security
     public static final String ImageContentRisk = "ImageContentRisk";
     public static final String AsyncImageRisk = "AsyncImageRisk";
     public static final String VideoResult = "VideoResult";
     public static final String GetImageResult = "GetImageResult";
     public static final String AsyncVideoRisk = "AsyncVideoRisk";
+    public static final String TextRisk = "TextRisk";
+    public static final String CreateCustomContents = "CreateCustomContents";
+    public static final String UploadCustomContents = "UploadCustomContents";
 
     // livesaas
 

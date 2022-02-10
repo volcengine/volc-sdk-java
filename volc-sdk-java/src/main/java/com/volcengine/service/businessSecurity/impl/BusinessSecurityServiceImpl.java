@@ -85,28 +85,8 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
     }
 
     @Override
-    public ImageRiskDetectionResponse ImageRiskDetection(RiskDetectionRequest riskDetectionRequest) throws Exception {
-        RawResponse response = json(Const.ImageContentRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-
-        return JSON.parseObject(response.getData(), ImageRiskDetectionResponse.class);
-    }
-
-    @Override
-    public AsyncRiskDetectionResponse AsyncImageRisk(RiskDetectionRequest riskDetectionRequest) throws Exception {
-        RawResponse response = json(Const.ImageContentRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-
-        return JSON.parseObject(response.getData(), ImageRiskDetectionResponse.class);
-    }
-
-    @Override
-    public ImageRiskDetectionResponse ImageRiskResult(ImageRiskResultRequest riskDetectionRequest) throws Exception {
-        RawResponse response = json(Const.ImageContentRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+    public ElementVerifyResponse ElementVerify(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.ElementVerify, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }

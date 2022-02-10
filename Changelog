@@ -1,5 +1,23 @@
 Change log
 
+2022-01-21 Bumped to version v1.0.32
+- added 闲时转码
+
+2022-01-20 Bumped to version v1.0.31
+- fixed 内容定制接口
+- add subEventTypeList
+
+2022-01-14 Bumped to version v1.0.30
+- added 内容定制接口接入java SDK
+
+2021-12-30 Bumped to version v1.0.29
+- Refactored the signing method
+
+2021-12-16 Bumped to version v1.0.28
+- Added element verify
+- Added more error tracks
+- Added more business security ability
+
 2021-09-29 Bumped to version v1.0.26
 - new service mobile status & account risk"
 

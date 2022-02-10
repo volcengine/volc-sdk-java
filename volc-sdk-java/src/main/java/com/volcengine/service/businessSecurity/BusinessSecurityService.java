@@ -64,33 +64,12 @@ public interface BusinessSecurityService extends IBaseService {
      */
     MobileStatusResponse MobileStatus(RiskDetectionRequest riskDetectionRequest) throws Exception;
 
-
     /**
-     * Image Risk Detection.
+     * Element Verify.
      *
-     * @param  riskDetectionRequest image risk detection request
-     * @return image risk detection response
+     * @param  riskDetectionRequest element verify request
+     * @return element verify response
      * @throws Exception the exception
      */
-    ImageRiskDetectionResponse ImageRiskDetection(RiskDetectionRequest riskDetectionRequest) throws Exception;
-
-    /**
-     * Image Risk Detection.
-     *
-     * @param  riskDetectionRequest image risk detection request
-     * @return async image risk detection response
-     * @throws Exception the exception
-     */
-    AsyncRiskDetectionResponse AsyncImageRisk(RiskDetectionRequest riskDetectionRequest) throws Exception;
-
-    /**
-     * Image Risk Result.
-     *
-     * @param  imageRiskResultRequest image risk result request
-     * @return image risk result response
-     * @throws Exception the exception
-     */
-    ImageRiskDetectionResponse ImageRiskResult(ImageRiskResultRequest imageRiskResultRequest) throws Exception;
-
-
+    ElementVerifyResponse ElementVerify(RiskDetectionRequest riskDetectionRequest) throws Exception;
 }

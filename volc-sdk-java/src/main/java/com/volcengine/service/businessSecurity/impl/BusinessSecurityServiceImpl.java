@@ -96,4 +96,44 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
 
         return JSON.parseObject(response.getData(), ElementVerifyResponse.class);
     }
+
+    @Override
+    public MobileSecondSaleResponse MobileSecondSale(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.MobileSecondSale, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ElementVerifyResponse.class);
+    }
+
+    @Override
+    public MobileEmptyCheckResponse MobileEmptyCheck(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.MobileEmptyCheck, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ElementVerifyResponse.class);
+    }
+
+    @Override
+    public MobileOnlineStatusResponse MobileOnlineStatus(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.MobileOnlineStatus, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ElementVerifyResponse.class);
+    }
+
+    @Override
+    public MobileOnlineTimeResponse MobileOnlineTime(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.MobileOnlineTime, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ElementVerifyResponse.class);
+    }
 }

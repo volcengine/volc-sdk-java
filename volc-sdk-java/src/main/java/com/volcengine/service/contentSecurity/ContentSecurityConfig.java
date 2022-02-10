@@ -1,4 +1,4 @@
-package com.volcengine.service.businessSecurity;
+package com.volcengine.service.contentSecurity;
 
 import com.volcengine.helper.Const;
 import com.volcengine.model.ApiInfo;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BusinessSecurityConfig {
+public class ContentSecurityConfig {
     public static ServiceInfo serviceInfo = new ServiceInfo(
             new HashMap<String, Object>() {
                 {
@@ -31,161 +31,118 @@ public class BusinessSecurityConfig {
     );
     public static Map<String, ApiInfo> apiInfoList = new HashMap<String, ApiInfo>() {
         {
-            put(Const.RiskDetection, new ApiInfo(
+            put(Const.ImageContentRisk, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.RiskDetection));
-                                    add(new BasicNameValuePair("Version", "2021-02-02"));
+                                    add(new BasicNameValuePair("Action", Const.ImageContentRisk));
+                                    add(new BasicNameValuePair("Version", "2021-11-29"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.AsyncRiskDetection, new ApiInfo(
+            put(Const.AsyncImageRisk, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.AsyncRiskDetection));
-                                    add(new BasicNameValuePair("Version", "2021-02-25"));
+                                    add(new BasicNameValuePair("Action", Const.AsyncImageRisk));
+                                    add(new BasicNameValuePair("Version", "2021-11-29"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.RiskResult, new ApiInfo(
+            put(Const.GetImageResult, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.RiskResult));
-                                    add(new BasicNameValuePair("Version", "2021-03-10"));
+                                    add(new BasicNameValuePair("Action", Const.GetImageResult));
+                                    add(new BasicNameValuePair("Version", "2021-11-29"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.DataReport, new ApiInfo(
+            put(Const.AsyncVideoRisk, new ApiInfo (
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DataReport));
-                                    add(new BasicNameValuePair("Version", "2021-08-31"));
+                                    add(new BasicNameValuePair("Action", Const.AsyncVideoRisk));
+                                    add(new BasicNameValuePair("Version", "2021-11-29"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.AccountRisk, new ApiInfo(
+            put(Const.VideoResult, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.VideoResult));
+                                    add(new BasicNameValuePair("Version", "2021-11-29"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.TextRisk, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.AccountRisk));
-                                    add(new BasicNameValuePair("Version", "2020-12-25"));
+                                    add(new BasicNameValuePair("Action", Const.TextRisk));
+                                    add(new BasicNameValuePair("Version", "2022-01-26"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.MobileStatus, new ApiInfo(
+            put(Const.CreateCustomContents, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.MobileStatus));
-                                    add(new BasicNameValuePair("Version", "2020-12-25"));
+                                    add(new BasicNameValuePair("Action", Const.CreateCustomContents));
+                                    add(new BasicNameValuePair("Version", "2022-01-22"));
                                 }
                             });
                         }
                     }
             ));
-
-            put(Const.ElementVerify, new ApiInfo(
+            put(Const.UploadCustomContents, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ElementVerify));
-                                    add(new BasicNameValuePair("Version", "2021-11-23"));
+                                    add(new BasicNameValuePair("Action", Const.UploadCustomContents));
+                                    add(new BasicNameValuePair("Version", "2022-02-07"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.MobileSecondSale, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "POST");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.MobileSecondSale));
-                                    add(new BasicNameValuePair("Version", "2022-02-08"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.MobileEmptyCheck, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "POST");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.MobileEmptyCheck));
-                                    add(new BasicNameValuePair("Version", "2022-02-08"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.MobileOnlineStatus, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "POST");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.MobileOnlineStatus));
-                                    add(new BasicNameValuePair("Version", "2022-02-08"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.MobileOnlineTime, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "POST");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.MobileOnlineTime));
-                                    add(new BasicNameValuePair("Version", "2022-02-08"));
-                                }
-                            });
-                        }
-                    }
-            ));
-        }
+        };
     };
 }

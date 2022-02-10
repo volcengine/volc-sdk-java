@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
-import com.volcengine.model.request.AsyncRiskDetectionRequest;
-import com.volcengine.model.request.DataReportRequest;
-import com.volcengine.model.request.RiskDetectionRequest;
-import com.volcengine.model.request.RiskResultRequest;
+import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.businessSecurity.BusinessSecurityConfig;
@@ -134,6 +131,6 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
             throw response.getException();
         }
 
-        return JSON.parseObject(response.getData(), ElementVerifyResponse.class);
+        return JSON.parseObject(response.getData(), ImageRiskDetectionResponse.class);
     }
 }

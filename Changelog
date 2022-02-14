@@ -1,5 +1,15 @@
 Change log
 
+2022-02-10 Bumped to version v1.0.33
+- Added image risk detection
+- Added text risk detection
+- Added video risk detection
+- Added 号码验证二期需求
+- Added 火山语音通知功能-任务管理类接口
+- Added 火山语音通知功能-单次发送接口
+- Added 火山语音通知功能-资源管理类接口
+
+
 2022-01-21 Bumped to version v1.0.32
 - added 闲时转码
 

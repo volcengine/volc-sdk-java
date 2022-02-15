@@ -105,10 +105,6 @@ public class Const {
     public static final String AccountRisk = "AccountRisk";
     public static final String MobileStatus = "MobileStatus";
     public static final String ElementVerify = "ElementVerify";
-    public static final String MobileSecondSale = "MobileSecondSale";
-    public static final String MobileEmptyCheck = "MobileEmptyCheck";
-    public static final String MobileOnlineStatus = "MobileOnlineStatus";
-    public static final String MobileOnlineTime = "MobileOnlineTime";
 
     // content security
     public static final String ImageContentRisk = "ImageContentRisk";

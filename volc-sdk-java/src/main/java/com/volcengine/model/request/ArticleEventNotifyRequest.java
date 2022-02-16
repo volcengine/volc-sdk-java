@@ -7,6 +7,8 @@ import java.util.List;
 
 @Data
 public class ArticleEventNotifyRequest {
+    @JSONField(name = "GenerateType")
+    String generateType;
     @JSONField(name = "EventType")
     String eventType;
     @JSONField(name = "SubEventType")

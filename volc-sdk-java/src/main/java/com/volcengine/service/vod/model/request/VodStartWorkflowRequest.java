@@ -87,6 +87,11 @@ private static final long serialVersionUID = 0L;
             callbackArgs_ = s;
             break;
           }
+          case 48: {
+
+            enableLowPriority_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -310,6 +315,21 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int ENABLELOWPRIORITY_FIELD_NUMBER = 6;
+  private boolean enableLowPriority_;
+  /**
+   * <pre>
+   * 是否使能闲时转码
+   * </pre>
+   *
+   * <code>bool EnableLowPriority = 6;</code>
+   * @return The enableLowPriority.
+   */
+  @java.lang.Override
+  public boolean getEnableLowPriority() {
+    return enableLowPriority_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -339,6 +359,9 @@ private static final long serialVersionUID = 0L;
     if (!getCallbackArgsBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, callbackArgs_);
     }
+    if (enableLowPriority_ != false) {
+      output.writeBool(6, enableLowPriority_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -364,6 +387,10 @@ private static final long serialVersionUID = 0L;
     }
     if (!getCallbackArgsBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, callbackArgs_);
+    }
+    if (enableLowPriority_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(6, enableLowPriority_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -393,6 +420,8 @@ private static final long serialVersionUID = 0L;
         != other.getPriority()) return false;
     if (!getCallbackArgs()
         .equals(other.getCallbackArgs())) return false;
+    if (getEnableLowPriority()
+        != other.getEnableLowPriority()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -416,6 +445,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPriority();
     hash = (37 * hash) + CALLBACKARGS_FIELD_NUMBER;
     hash = (53 * hash) + getCallbackArgs().hashCode();
+    hash = (37 * hash) + ENABLELOWPRIORITY_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getEnableLowPriority());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -563,6 +595,8 @@ private static final long serialVersionUID = 0L;
 
       callbackArgs_ = "";
 
+      enableLowPriority_ = false;
+
       return this;
     }
 
@@ -598,6 +632,7 @@ private static final long serialVersionUID = 0L;
       }
       result.priority_ = priority_;
       result.callbackArgs_ = callbackArgs_;
+      result.enableLowPriority_ = enableLowPriority_;
       onBuilt();
       return result;
     }
@@ -663,6 +698,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getCallbackArgs().isEmpty()) {
         callbackArgs_ = other.callbackArgs_;
         onChanged();
+      }
+      if (other.getEnableLowPriority() != false) {
+        setEnableLowPriority(other.getEnableLowPriority());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1175,6 +1213,49 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       callbackArgs_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean enableLowPriority_ ;
+    /**
+     * <pre>
+     * 是否使能闲时转码
+     * </pre>
+     *
+     * <code>bool EnableLowPriority = 6;</code>
+     * @return The enableLowPriority.
+     */
+    @java.lang.Override
+    public boolean getEnableLowPriority() {
+      return enableLowPriority_;
+    }
+    /**
+     * <pre>
+     * 是否使能闲时转码
+     * </pre>
+     *
+     * <code>bool EnableLowPriority = 6;</code>
+     * @param value The enableLowPriority to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEnableLowPriority(boolean value) {
+      
+      enableLowPriority_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 是否使能闲时转码
+     * </pre>
+     *
+     * <code>bool EnableLowPriority = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEnableLowPriority() {
+      
+      enableLowPriority_ = false;
       onChanged();
       return this;
     }

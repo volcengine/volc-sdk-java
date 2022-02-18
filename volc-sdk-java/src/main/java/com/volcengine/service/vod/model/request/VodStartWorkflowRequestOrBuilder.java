@@ -103,4 +103,14 @@ public interface VodStartWorkflowRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getCallbackArgsBytes();
+
+  /**
+   * <pre>
+   * 是否使能闲时转码
+   * </pre>
+   *
+   * <code>bool EnableLowPriority = 6;</code>
+   * @return The enableLowPriority.
+   */
+  boolean getEnableLowPriority();
 }

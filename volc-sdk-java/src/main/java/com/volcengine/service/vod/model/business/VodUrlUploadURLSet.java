@@ -111,6 +111,11 @@ private static final long serialVersionUID = 0L;
             fileName_ = s;
             break;
           }
+          case 80: {
+
+            classificationId_ = input.readInt64();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -557,6 +562,21 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int CLASSIFICATIONID_FIELD_NUMBER = 10;
+  private long classificationId_;
+  /**
+   * <pre>
+   *设置分类Id
+   * </pre>
+   *
+   * <code>int64 ClassificationId = 10;</code>
+   * @return The classificationId.
+   */
+  @java.lang.Override
+  public long getClassificationId() {
+    return classificationId_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -598,6 +618,9 @@ private static final long serialVersionUID = 0L;
     if (!getFileNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, fileName_);
     }
+    if (classificationId_ != 0L) {
+      output.writeInt64(10, classificationId_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -634,6 +657,10 @@ private static final long serialVersionUID = 0L;
     if (!getFileNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, fileName_);
     }
+    if (classificationId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(10, classificationId_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -667,6 +694,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCategory())) return false;
     if (!getFileName()
         .equals(other.getFileName())) return false;
+    if (getClassificationId()
+        != other.getClassificationId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -696,6 +725,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getCategory().hashCode();
     hash = (37 * hash) + FILENAME_FIELD_NUMBER;
     hash = (53 * hash) + getFileName().hashCode();
+    hash = (37 * hash) + CLASSIFICATIONID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getClassificationId());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -847,6 +879,8 @@ private static final long serialVersionUID = 0L;
 
       fileName_ = "";
 
+      classificationId_ = 0L;
+
       return this;
     }
 
@@ -882,6 +916,7 @@ private static final long serialVersionUID = 0L;
       result.tags_ = tags_;
       result.category_ = category_;
       result.fileName_ = fileName_;
+      result.classificationId_ = classificationId_;
       onBuilt();
       return result;
     }
@@ -965,6 +1000,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getFileName().isEmpty()) {
         fileName_ = other.fileName_;
         onChanged();
+      }
+      if (other.getClassificationId() != 0L) {
+        setClassificationId(other.getClassificationId());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1855,6 +1893,49 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       fileName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private long classificationId_ ;
+    /**
+     * <pre>
+     *设置分类Id
+     * </pre>
+     *
+     * <code>int64 ClassificationId = 10;</code>
+     * @return The classificationId.
+     */
+    @java.lang.Override
+    public long getClassificationId() {
+      return classificationId_;
+    }
+    /**
+     * <pre>
+     *设置分类Id
+     * </pre>
+     *
+     * <code>int64 ClassificationId = 10;</code>
+     * @param value The classificationId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setClassificationId(long value) {
+      
+      classificationId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *设置分类Id
+     * </pre>
+     *
+     * <code>int64 ClassificationId = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearClassificationId() {
+      
+      classificationId_ = 0L;
       onChanged();
       return this;
     }

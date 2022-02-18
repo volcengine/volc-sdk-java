@@ -69,6 +69,81 @@ public final class VodMedia {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodGetSubtitleInfoListData_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodFrameDataForAudit_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodFrameDataForAudit_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodGetFramesForAuditResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodGetFramesForAuditResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodBetterFrameDataForAudit_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodBetterFrameDataForAudit_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodGetBetterFramesForAuditResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodGetBetterFramesForAuditResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodAudioInfoForAudit_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodAudioInfoForAudit_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodGetAudioInfoForAuditResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodGetAudioInfoForAuditResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodASRUtteranceWordForAudit_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodASRUtteranceWordForAudit_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodASRUtteranceForAudit_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodASRUtteranceForAudit_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodASRLanguageDetailForAudit_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodASRLanguageDetailForAudit_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodASRInfoForAudit_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodASRInfoForAudit_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodGetAutomaticSpeechRecognitionForAuditResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodGetAutomaticSpeechRecognitionForAuditResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodAEDTimeRangeForAudit_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodAEDTimeRangeForAudit_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodAEDEventItemForAudit_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodAEDEventItemForAudit_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodAEDInfoForAudit_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodAEDInfoForAudit_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodGetAudioEventDetectionForAuditResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodGetAudioEventDetectionForAuditResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -113,12 +188,67 @@ public final class VodMedia {
       "3.Volcengine.Vod.Models.Business.VodFile" +
       "SubtitleInfo\022\027\n\017NotExistFileIds\030\003 \003(\t\022\022\n" +
       "\nTotalCount\030\004 \001(\005\022\016\n\006Offset\030\005 \001(\005\022\020\n\010Pag" +
-      "eSize\030\006 \001(\005B\314\001\n)com.volcengine.service.v" +
-      "od.model.businessB\010VodMediaP\001ZAgithub.co" +
-      "m/volcengine/volc-sdk-golang/service/vod" +
-      "/models/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service" +
-      "\\Vod\\Models\\Business\342\002#Volc\\Service\\Vod\\" +
-      "Models\\GPBMetadatab\006proto3"
+      "eSize\030\006 \001(\005\"q\n\024VodFrameDataForAudit\022\020\n\010S" +
+      "toreUri\030\001 \001(\t\022\023\n\013FrameNumber\030\002 \001(\005\022\023\n\013Cu" +
+      "tTimeMill\030\003 \001(\001\022\r\n\005Width\030\004 \001(\005\022\016\n\006Height" +
+      "\030\005 \001(\005\"b\n\032VodGetFramesForAuditResult\022D\n\006" +
+      "Frames\030\001 \003(\01324.Volcengine.Vod.Models.Bus" +
+      "iness.VodFrameDataForAudit\"\237\001\n\032VodBetter" +
+      "FrameDataForAudit\022\020\n\010StoreUri\030\001 \001(\t\022\023\n\013F" +
+      "rameNumber\030\002 \001(\005\022\023\n\013CutTimeMill\030\003 \001(\001\022\r\n" +
+      "\005Width\030\004 \001(\005\022\016\n\006Height\030\005 \001(\005\022\021\n\tCoverRat" +
+      "e\030\006 \001(\001\022\023\n\013LBPHashCode\030\007 \003(\001\"n\n VodGetBe" +
+      "tterFramesForAuditResult\022J\n\006Frames\030\001 \003(\013" +
+      "2:.Volcengine.Vod.Models.Business.VodBet" +
+      "terFrameDataForAudit\"J\n\024VodAudioInfoForA" +
+      "udit\022\020\n\010StoreUri\030\001 \001(\t\022\020\n\010Duration\030\002 \001(\001" +
+      "\022\016\n\006Format\030\003 \001(\t\"h\n\035VodGetAudioInfoForAu" +
+      "ditResult\022G\n\tAudioInfo\030\001 \001(\01324.Volcengin" +
+      "e.Vod.Models.Business.VodAudioInfoForAud" +
+      "it\"n\n\033VodASRUtteranceWordForAudit\022\014\n\004Tex" +
+      "t\030\001 \001(\t\022\025\n\rStartTimeMill\030\002 \001(\001\022\023\n\013EndTim" +
+      "eMill\030\003 \001(\001\022\025\n\rBlankDuration\030\004 \001(\001\"\305\001\n\027V" +
+      "odASRUtteranceForAudit\022\014\n\004Text\030\001 \001(\t\022\025\n\r" +
+      "StartTimeMill\030\002 \001(\001\022\023\n\013EndTimeMill\030\003 \001(\001" +
+      "\022J\n\005Words\030\004 \003(\0132;.Volcengine.Vod.Models." +
+      "Business.VodASRUtteranceWordForAudit\022\020\n\010" +
+      "Language\030\005 \001(\t\022\022\n\nSpeechRate\030\006 \001(\001\">\n\034Vo" +
+      "dASRLanguageDetailForAudit\022\014\n\004Prob\030\001 \001(\001" +
+      "\022\020\n\010Language\030\002 \001(\t\"\374\001\n\022VodASRInfoForAudi" +
+      "t\022\014\n\004Text\030\001 \001(\t\022K\n\nUtterances\030\003 \003(\01327.Vo" +
+      "lcengine.Vod.Models.Business.VodASRUtter" +
+      "anceForAudit\022\020\n\010Language\030\004 \001(\t\022U\n\017Langua" +
+      "geDetails\030\005 \003(\0132<.Volcengine.Vod.Models." +
+      "Business.VodASRLanguageDetailForAudit\022\022\n" +
+      "\nSpeechRate\030\006 \001(\001\022\016\n\006Volume\030\007 \001(\001\"r\n.Vod" +
+      "GetAutomaticSpeechRecognitionForAuditRes" +
+      "ult\022@\n\004Info\030\001 \001(\01322.Volcengine.Vod.Model" +
+      "s.Business.VodASRInfoForAudit\"S\n\027VodAEDT" +
+      "imeRangeForAudit\022\025\n\rStartTimeMill\030\001 \001(\001\022" +
+      "\023\n\013EndTimeMill\030\002 \001(\001\022\014\n\004Prob\030\003 \001(\001\"\206\001\n\027V" +
+      "odAEDEventItemForAudit\022\r\n\005Event\030\001 \001(\t\022\017\n" +
+      "\007UttProb\030\002 \001(\001\022K\n\nTimeRanges\030\003 \003(\01327.Vol" +
+      "cengine.Vod.Models.Business.VodAEDTimeRa" +
+      "ngeForAudit\"a\n\022VodAEDInfoForAudit\022K\n\nEve" +
+      "ntItems\030\001 \003(\01327.Volcengine.Vod.Models.Bu" +
+      "siness.VodAEDEventItemForAudit\"k\n\'VodGet" +
+      "AudioEventDetectionForAuditResult\022@\n\004Inf" +
+      "o\030\001 \001(\01322.Volcengine.Vod.Models.Business" +
+      ".VodAEDInfoForAudit*\320\002\n VodFrameExtracti" +
+      "ngOptionForAudit\022-\n)UndefinedVodFrameExt" +
+      "ractingOptionForAudit\020\000\022\'\n#FpsVodFrameEx" +
+      "tractingOptionForAudit\020\001\0222\n.NumberOfFram" +
+      "esVodFrameExtractingOptionForAudit\020\002\022,\n(" +
+      "CutTimesVodFrameExtractingOptionForAudit" +
+      "\020\003\022:\n6FpsLimitNumberOfFramesVodFrameExtr" +
+      "actingOptionForAudit\020\004\0226\n2OnlyFirstLastF" +
+      "rameVodFrameExtractingOptionForAudit\020\005B\314" +
+      "\001\n)com.volcengine.service.vod.model.busi" +
+      "nessB\010VodMediaP\001ZAgithub.com/volcengine/" +
+      "volc-sdk-golang/service/vod/models/busin" +
+      "ess\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Models\\B" +
+      "usiness\342\002#Volc\\Service\\Vod\\Models\\GPBMet" +
+      "adatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -191,6 +321,96 @@ public final class VodMedia {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodGetSubtitleInfoListData_descriptor,
         new java.lang.String[] { "Vid", "FileSubtitleInfoList", "NotExistFileIds", "TotalCount", "Offset", "PageSize", });
+    internal_static_Volcengine_Vod_Models_Business_VodFrameDataForAudit_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_Volcengine_Vod_Models_Business_VodFrameDataForAudit_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodFrameDataForAudit_descriptor,
+        new java.lang.String[] { "StoreUri", "FrameNumber", "CutTimeMill", "Width", "Height", });
+    internal_static_Volcengine_Vod_Models_Business_VodGetFramesForAuditResult_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_Volcengine_Vod_Models_Business_VodGetFramesForAuditResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodGetFramesForAuditResult_descriptor,
+        new java.lang.String[] { "Frames", });
+    internal_static_Volcengine_Vod_Models_Business_VodBetterFrameDataForAudit_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_Volcengine_Vod_Models_Business_VodBetterFrameDataForAudit_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodBetterFrameDataForAudit_descriptor,
+        new java.lang.String[] { "StoreUri", "FrameNumber", "CutTimeMill", "Width", "Height", "CoverRate", "LBPHashCode", });
+    internal_static_Volcengine_Vod_Models_Business_VodGetBetterFramesForAuditResult_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_Volcengine_Vod_Models_Business_VodGetBetterFramesForAuditResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodGetBetterFramesForAuditResult_descriptor,
+        new java.lang.String[] { "Frames", });
+    internal_static_Volcengine_Vod_Models_Business_VodAudioInfoForAudit_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_Volcengine_Vod_Models_Business_VodAudioInfoForAudit_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodAudioInfoForAudit_descriptor,
+        new java.lang.String[] { "StoreUri", "Duration", "Format", });
+    internal_static_Volcengine_Vod_Models_Business_VodGetAudioInfoForAuditResult_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_Volcengine_Vod_Models_Business_VodGetAudioInfoForAuditResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodGetAudioInfoForAuditResult_descriptor,
+        new java.lang.String[] { "AudioInfo", });
+    internal_static_Volcengine_Vod_Models_Business_VodASRUtteranceWordForAudit_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_Volcengine_Vod_Models_Business_VodASRUtteranceWordForAudit_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodASRUtteranceWordForAudit_descriptor,
+        new java.lang.String[] { "Text", "StartTimeMill", "EndTimeMill", "BlankDuration", });
+    internal_static_Volcengine_Vod_Models_Business_VodASRUtteranceForAudit_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_Volcengine_Vod_Models_Business_VodASRUtteranceForAudit_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodASRUtteranceForAudit_descriptor,
+        new java.lang.String[] { "Text", "StartTimeMill", "EndTimeMill", "Words", "Language", "SpeechRate", });
+    internal_static_Volcengine_Vod_Models_Business_VodASRLanguageDetailForAudit_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_Volcengine_Vod_Models_Business_VodASRLanguageDetailForAudit_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodASRLanguageDetailForAudit_descriptor,
+        new java.lang.String[] { "Prob", "Language", });
+    internal_static_Volcengine_Vod_Models_Business_VodASRInfoForAudit_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_Volcengine_Vod_Models_Business_VodASRInfoForAudit_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodASRInfoForAudit_descriptor,
+        new java.lang.String[] { "Text", "Utterances", "Language", "LanguageDetails", "SpeechRate", "Volume", });
+    internal_static_Volcengine_Vod_Models_Business_VodGetAutomaticSpeechRecognitionForAuditResult_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_Volcengine_Vod_Models_Business_VodGetAutomaticSpeechRecognitionForAuditResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodGetAutomaticSpeechRecognitionForAuditResult_descriptor,
+        new java.lang.String[] { "Info", });
+    internal_static_Volcengine_Vod_Models_Business_VodAEDTimeRangeForAudit_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_Volcengine_Vod_Models_Business_VodAEDTimeRangeForAudit_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodAEDTimeRangeForAudit_descriptor,
+        new java.lang.String[] { "StartTimeMill", "EndTimeMill", "Prob", });
+    internal_static_Volcengine_Vod_Models_Business_VodAEDEventItemForAudit_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_Volcengine_Vod_Models_Business_VodAEDEventItemForAudit_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodAEDEventItemForAudit_descriptor,
+        new java.lang.String[] { "Event", "UttProb", "TimeRanges", });
+    internal_static_Volcengine_Vod_Models_Business_VodAEDInfoForAudit_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_Volcengine_Vod_Models_Business_VodAEDInfoForAudit_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodAEDInfoForAudit_descriptor,
+        new java.lang.String[] { "EventItems", });
+    internal_static_Volcengine_Vod_Models_Business_VodGetAudioEventDetectionForAuditResult_descriptor =
+      getDescriptor().getMessageTypes().get(25);
+    internal_static_Volcengine_Vod_Models_Business_VodGetAudioEventDetectionForAuditResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodGetAudioEventDetectionForAuditResult_descriptor,
+        new java.lang.String[] { "Info", });
     com.volcengine.service.vod.model.business.VodCommon.getDescriptor();
   }
 

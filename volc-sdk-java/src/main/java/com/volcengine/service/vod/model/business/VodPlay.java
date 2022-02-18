@@ -39,6 +39,16 @@ public final class VodPlay {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodGetHlsDecryptionKeyResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodPlayInfoWithLiveTimeShiftScene_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodPlayInfoWithLiveTimeShiftScene_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodGetPlayInfoWithLiveTimeShiftSceneResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodGetPlayInfoWithLiveTimeShiftSceneResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -75,17 +85,24 @@ public final class VodPlay {
       "InfoList\030\001 \003(\01329.Volcengine.Vod.Models.B" +
       "usiness.VodPrivateDrmPlayAuthInfo\"1\n\034Vod" +
       "GetHlsDecryptionKeyResult\022\021\n\tSecretKey\030\001" +
-      " \001(\t*\326\001\n\027VodPlayInfoModelVersion\022$\n Unde" +
-      "finedVodPlayInfoModelVersion\020\000\022%\n!Intern" +
-      "alV1VodPlayInfoModelVersion\020\001\022%\n!Interna" +
-      "lV2VodPlayInfoModelVersion\020\002\022%\n!Internal" +
-      "V3VodPlayInfoModelVersion\020\003\022 \n\034ToBV1VodP" +
-      "layInfoModelVersion\020\004B\313\001\n)com.volcengine" +
-      ".service.vod.model.businessB\007VodPlayP\001ZA" +
-      "github.com/volcengine/volc-sdk-golang/se" +
-      "rvice/vod/models/business\240\001\001\330\001\001\302\002\000\312\002 Vol" +
-      "c\\Service\\Vod\\Models\\Business\342\002#Volc\\Ser" +
-      "vice\\Vod\\Models\\GPBMetadatab\006proto3"
+      " \001(\t\"t\n!VodPlayInfoWithLiveTimeShiftScen" +
+      "e\022\020\n\010StoreUri\030\001 \001(\t\022\023\n\013MainPlayUrl\030\002 \001(\t" +
+      "\022\025\n\rBackupPlayUrl\030\003 \001(\t\022\021\n\tUrlExpire\030\004 \001" +
+      "(\001\"\205\001\n*VodGetPlayInfoWithLiveTimeShiftSc" +
+      "eneResult\022W\n\014PlayInfoList\030\001 \003(\0132A.Volcen" +
+      "gine.Vod.Models.Business.VodPlayInfoWith" +
+      "LiveTimeShiftScene*\326\001\n\027VodPlayInfoModelV" +
+      "ersion\022$\n UndefinedVodPlayInfoModelVersi" +
+      "on\020\000\022%\n!InternalV1VodPlayInfoModelVersio" +
+      "n\020\001\022%\n!InternalV2VodPlayInfoModelVersion" +
+      "\020\002\022%\n!InternalV3VodPlayInfoModelVersion\020" +
+      "\003\022 \n\034ToBV1VodPlayInfoModelVersion\020\004B\313\001\n)" +
+      "com.volcengine.service.vod.model.busines" +
+      "sB\007VodPlayP\001ZAgithub.com/volcengine/volc" +
+      "-sdk-golang/service/vod/models/business\240" +
+      "\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Models\\Busin" +
+      "ess\342\002#Volc\\Service\\Vod\\Models\\GPBMetadat" +
+      "ab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -122,6 +139,18 @@ public final class VodPlay {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodGetHlsDecryptionKeyResult_descriptor,
         new java.lang.String[] { "SecretKey", });
+    internal_static_Volcengine_Vod_Models_Business_VodPlayInfoWithLiveTimeShiftScene_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_Volcengine_Vod_Models_Business_VodPlayInfoWithLiveTimeShiftScene_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodPlayInfoWithLiveTimeShiftScene_descriptor,
+        new java.lang.String[] { "StoreUri", "MainPlayUrl", "BackupPlayUrl", "UrlExpire", });
+    internal_static_Volcengine_Vod_Models_Business_VodGetPlayInfoWithLiveTimeShiftSceneResult_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_Volcengine_Vod_Models_Business_VodGetPlayInfoWithLiveTimeShiftSceneResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodGetPlayInfoWithLiveTimeShiftSceneResult_descriptor,
+        new java.lang.String[] { "PlayInfoList", });
     com.volcengine.service.vod.model.business.VodCommon.getDescriptor();
   }
 

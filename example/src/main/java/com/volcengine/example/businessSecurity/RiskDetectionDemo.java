@@ -93,53 +93,5 @@ public class RiskDetectionDemo {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        // mobile second sale
-        try {
-            RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
-            riskDetectionRequest.setAppId(5461);
-            riskDetectionRequest.setService("mobile_status");
-            riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"mobile\": \"\", \"since_date\":\"\"}");
-            MobileSecondSaleResponse mobileSecondSaleResponse = businessSecurityService.MobileSecondSale(riskDetectionRequest);
-            System.out.println(JSON.toJSONString(mobileSecondSaleResponse));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // mobile empty check
-        try {
-            RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
-            riskDetectionRequest.setAppId(5461);
-            riskDetectionRequest.setService("mobile_status");
-            riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"mobile\": \"\"}");
-            MobileEmptyCheckResponse mobileEmptyCheckResponse = businessSecurityService.MobileEmptyCheck(riskDetectionRequest);
-            System.out.println(JSON.toJSONString(mobileEmptyCheckResponse));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // mobile online status
-        try {
-            RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
-            riskDetectionRequest.setAppId(5461);
-            riskDetectionRequest.setService("mobile_status");
-            riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"mobile\": \"\"}");
-            MobileOnlineStatusResponse mobileOnlineStatusResponse = businessSecurityService.MobileOnlineStatus(riskDetectionRequest);
-            System.out.println(JSON.toJSONString(mobileOnlineStatusResponse));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // mobile online time
-        try {
-            RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
-            riskDetectionRequest.setAppId(5461);
-            riskDetectionRequest.setService("mobile_status");
-            riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"mobile\": \"\"}");
-            MobileOnlineTimeResponse mobileOnlineTimeResponse = businessSecurityService.MobileOnlineTime(riskDetectionRequest);
-            System.out.println(JSON.toJSONString(mobileOnlineTimeResponse));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.request.AsyncRiskDetectionRequest;
 import com.volcengine.model.request.RiskDetectionRequest;
 import com.volcengine.model.request.RiskResultRequest;
-import com.volcengine.model.response.AsyncRiskDetectionResponse;
-import com.volcengine.model.response.MobileStatusResponse;
-import com.volcengine.model.response.RiskDetectionResponse;
-import com.volcengine.model.response.RiskResultResponse;
+import com.volcengine.model.response.*;
 import com.volcengine.service.businessSecurity.BusinessSecurityService;
 
 import com.volcengine.service.businessSecurity.impl.BusinessSecurityServiceImpl;
@@ -17,8 +14,8 @@ public class RiskDetectionDemo {
         BusinessSecurityService businessSecurityService = BusinessSecurityServiceImpl.getInstance();
         // call below method if you dont set ak and sk in ～/.volc/config
 
-        businessSecurityService.setAccessKey("ak");
-        businessSecurityService.setSecretKey("sk");
+        businessSecurityService.setAccessKey("AK");
+        businessSecurityService.setSecretKey("SK");
         // risk detection
         try {
             RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
@@ -66,7 +63,7 @@ public class RiskDetectionDemo {
             RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
             riskDetectionRequest.setAppId(5461);
             riskDetectionRequest.setService("account_risk");
-            riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"mobile_sha1\": \"\"}");
+            riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"mobile_sha1\": \"fee831dd2756c863b052de0725719d4246a387dc\", \"ip\": \"218.6.209.45\"}");
             RiskDetectionResponse riskDetectionResponse = businessSecurityService.AccountRisk(riskDetectionRequest);
             System.out.println(JSON.toJSONString(riskDetectionResponse));
         } catch (Exception e) {
@@ -81,6 +78,66 @@ public class RiskDetectionDemo {
             riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"mobile\": \"\"}");
             MobileStatusResponse mobileStatusResponse = businessSecurityService.MobileStatus(riskDetectionRequest);
             System.out.println(JSON.toJSONString(mobileStatusResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // element verify
+        try {
+            RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
+            riskDetectionRequest.setAppId(5461);
+            riskDetectionRequest.setService("idcard_two_element_verify");
+            riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"idcard_no\": \"\", \"idcard_name\":\"\"}");
+            ElementVerifyResponse elementVerifyResponse = businessSecurityService.ElementVerify(riskDetectionRequest);
+            System.out.println(JSON.toJSONString(elementVerifyResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // mobile second sale
+        try {
+            RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
+            riskDetectionRequest.setAppId(5461);
+            riskDetectionRequest.setService("mobile_status");
+            riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"mobile\": \"\", \"since_date\":\"\"}");
+            MobileSecondSaleResponse mobileSecondSaleResponse = businessSecurityService.MobileSecondSale(riskDetectionRequest);
+            System.out.println(JSON.toJSONString(mobileSecondSaleResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // mobile empty check
+        try {
+            RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
+            riskDetectionRequest.setAppId(5461);
+            riskDetectionRequest.setService("mobile_status");
+            riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"mobile\": \"\"}");
+            MobileEmptyCheckResponse mobileEmptyCheckResponse = businessSecurityService.MobileEmptyCheck(riskDetectionRequest);
+            System.out.println(JSON.toJSONString(mobileEmptyCheckResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // mobile online status
+        try {
+            RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
+            riskDetectionRequest.setAppId(5461);
+            riskDetectionRequest.setService("mobile_status");
+            riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"mobile\": \"\"}");
+            MobileOnlineStatusResponse mobileOnlineStatusResponse = businessSecurityService.MobileOnlineStatus(riskDetectionRequest);
+            System.out.println(JSON.toJSONString(mobileOnlineStatusResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // mobile online time
+        try {
+            RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
+            riskDetectionRequest.setAppId(5461);
+            riskDetectionRequest.setService("mobile_status");
+            riskDetectionRequest.setParameters("{\"operate_time\":1609818934, \"mobile\": \"\"}");
+            MobileOnlineTimeResponse mobileOnlineTimeResponse = businessSecurityService.MobileOnlineTime(riskDetectionRequest);
+            System.out.println(JSON.toJSONString(mobileOnlineTimeResponse));
         } catch (Exception e) {
             e.printStackTrace();
         }

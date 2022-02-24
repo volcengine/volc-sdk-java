@@ -1,7 +1,6 @@
 package com.volcengine.example.livesaas;
 
 import com.alibaba.fastjson.JSON;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import com.volcengine.model.livesaas.request.CommonAPIRequest;
 import com.volcengine.model.livesaas.request.ListActivityDetailStatusAPIRequest;
 import com.volcengine.model.livesaas.response.GetStreamsAPIResponse;

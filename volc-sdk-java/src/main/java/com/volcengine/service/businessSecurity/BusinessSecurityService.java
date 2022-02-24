@@ -1,10 +1,6 @@
 package com.volcengine.service.businessSecurity;
 
-import com.volcengine.model.request.DataReportRequest;
-import com.volcengine.model.request.RiskDetectionRequest;
-import com.volcengine.model.request.AsyncRiskDetectionRequest;
-
-import com.volcengine.model.request.RiskResultRequest;
+import com.volcengine.model.request.*;
 
 import com.volcengine.model.response.*;
 
@@ -67,4 +63,49 @@ public interface BusinessSecurityService extends IBaseService {
      * @throws Exception the exception
      */
     MobileStatusResponse MobileStatus(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+    /**
+     * Element Verify.
+     *
+     * @param  riskDetectionRequest element verify request
+     * @return element verify response
+     * @throws Exception the exception
+     */
+    ElementVerifyResponse ElementVerify(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+    /**
+     * Mobile Second Sale.
+     *
+     * @param  riskDetectionRequest mobile second sale request
+     * @return mobile second sale response
+     * @throws Exception the exception
+     */
+    MobileSecondSaleResponse MobileSecondSale(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+    /**
+     * Mobile Empty Check.
+     *
+     * @param  riskDetectionRequest mobile empty check request
+     * @return mobile empty check response
+     * @throws Exception the exception
+     */
+    MobileEmptyCheckResponse MobileEmptyCheck(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+    /**
+     * Mobile Online Status.
+     *
+     * @param  riskDetectionRequest mobile online status request
+     * @return mobile online status response
+     * @throws Exception the exception
+     */
+    MobileOnlineStatusResponse MobileOnlineStatus(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+    /**
+     * Mobile Online Time.
+     *
+     * @param  riskDetectionRequest mobile online time request
+     * @return mobile online time response
+     * @throws Exception the exception
+     */
+    MobileOnlineTimeResponse MobileOnlineTime(RiskDetectionRequest riskDetectionRequest) throws Exception;
 }

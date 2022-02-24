@@ -1,5 +1,33 @@
 Change log
 
+2022-02-10 Bumped to version v1.0.33
+- Added image risk detection
+- Added text risk detection
+- Added video risk detection
+- Added 号码验证二期需求
+- Added 火山语音通知功能-任务管理类接口
+- Added 火山语音通知功能-单次发送接口
+- Added 火山语音通知功能-资源管理类接口
+
+
+2022-01-21 Bumped to version v1.0.32
+- added 闲时转码
+
+2022-01-20 Bumped to version v1.0.31
+- fixed 内容定制接口
+- add subEventTypeList
+
+2022-01-14 Bumped to version v1.0.30
+- added 内容定制接口接入java SDK
+
+2021-12-30 Bumped to version v1.0.29
+- Refactored the signing method
+
+2021-12-16 Bumped to version v1.0.28
+- Added element verify
+- Added more error tracks
+- Added more business security ability
+
 2021-09-29 Bumped to version v1.0.26
 - new service mobile status & account risk"
 

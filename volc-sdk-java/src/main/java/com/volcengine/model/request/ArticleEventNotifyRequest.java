@@ -3,6 +3,8 @@ package com.volcengine.model.request;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class ArticleEventNotifyRequest {
     @JSONField(name = "EventType")
@@ -11,4 +13,6 @@ public class ArticleEventNotifyRequest {
     String subEventType;
     @JSONField(name = "CursorTime")
     Long cursorTime;
+    @JSONField(name = "SubEventTypeList")
+    List<String> subEventTypeList;
 }

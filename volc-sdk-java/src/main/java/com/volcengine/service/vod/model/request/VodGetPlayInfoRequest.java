@@ -267,7 +267,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object codec_;
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264,bytevc1等Codec
+   *编码类型，默认h264，可选值为h264, h265等Codec
    * </pre>
    *
    * <code>string Codec = 3;</code>
@@ -288,7 +288,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264,bytevc1等Codec
+   *编码类型，默认h264，可选值为h264, h265等Codec
    * </pre>
    *
    * <code>string Codec = 3;</code>
@@ -1470,7 +1470,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object codec_ = "";
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264,bytevc1等Codec
+     *编码类型，默认h264，可选值为h264, h265等Codec
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -1490,7 +1490,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264,bytevc1等Codec
+     *编码类型，默认h264，可选值为h264, h265等Codec
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -1511,7 +1511,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264,bytevc1等Codec
+     *编码类型，默认h264，可选值为h264, h265等Codec
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -1530,7 +1530,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264,bytevc1等Codec
+     *编码类型，默认h264，可选值为h264, h265等Codec
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -1544,7 +1544,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264,bytevc1等Codec
+     *编码类型，默认h264，可选值为h264, h265等Codec
      * </pre>
      *
      * <code>string Codec = 3;</code>

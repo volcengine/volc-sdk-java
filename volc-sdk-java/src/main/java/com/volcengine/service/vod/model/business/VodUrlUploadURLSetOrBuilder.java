@@ -186,4 +186,14 @@ public interface VodUrlUploadURLSetOrBuilder extends
    */
   com.google.protobuf.ByteString
       getFileNameBytes();
+
+  /**
+   * <pre>
+   *设置分类Id
+   * </pre>
+   *
+   * <code>int64 ClassificationId = 10;</code>
+   * @return The classificationId.
+   */
+  long getClassificationId();
 }

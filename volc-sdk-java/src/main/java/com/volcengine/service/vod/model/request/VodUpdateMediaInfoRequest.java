@@ -107,6 +107,19 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 50: {
+            com.google.protobuf.Int64Value.Builder subBuilder = null;
+            if (classificationId_ != null) {
+              subBuilder = classificationId_.toBuilder();
+            }
+            classificationId_ = input.readMessage(com.google.protobuf.Int64Value.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(classificationId_);
+              classificationId_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -337,6 +350,44 @@ private static final long serialVersionUID = 0L;
     return getTags();
   }
 
+  public static final int CLASSIFICATIONID_FIELD_NUMBER = 6;
+  private com.google.protobuf.Int64Value classificationId_;
+  /**
+   * <pre>
+   *视频分类Id
+   * </pre>
+   *
+   * <code>.google.protobuf.Int64Value ClassificationId = 6;</code>
+   * @return Whether the classificationId field is set.
+   */
+  @java.lang.Override
+  public boolean hasClassificationId() {
+    return classificationId_ != null;
+  }
+  /**
+   * <pre>
+   *视频分类Id
+   * </pre>
+   *
+   * <code>.google.protobuf.Int64Value ClassificationId = 6;</code>
+   * @return The classificationId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Int64Value getClassificationId() {
+    return classificationId_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : classificationId_;
+  }
+  /**
+   * <pre>
+   *视频分类Id
+   * </pre>
+   *
+   * <code>.google.protobuf.Int64Value ClassificationId = 6;</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.Int64ValueOrBuilder getClassificationIdOrBuilder() {
+    return getClassificationId();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -366,6 +417,9 @@ private static final long serialVersionUID = 0L;
     if (tags_ != null) {
       output.writeMessage(5, getTags());
     }
+    if (classificationId_ != null) {
+      output.writeMessage(6, getClassificationId());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -393,6 +447,10 @@ private static final long serialVersionUID = 0L;
     if (tags_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getTags());
+    }
+    if (classificationId_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, getClassificationId());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -431,6 +489,11 @@ private static final long serialVersionUID = 0L;
       if (!getTags()
           .equals(other.getTags())) return false;
     }
+    if (hasClassificationId() != other.hasClassificationId()) return false;
+    if (hasClassificationId()) {
+      if (!getClassificationId()
+          .equals(other.getClassificationId())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -459,6 +522,10 @@ private static final long serialVersionUID = 0L;
     if (hasTags()) {
       hash = (37 * hash) + TAGS_FIELD_NUMBER;
       hash = (53 * hash) + getTags().hashCode();
+    }
+    if (hasClassificationId()) {
+      hash = (37 * hash) + CLASSIFICATIONID_FIELD_NUMBER;
+      hash = (53 * hash) + getClassificationId().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -619,6 +686,12 @@ private static final long serialVersionUID = 0L;
         tags_ = null;
         tagsBuilder_ = null;
       }
+      if (classificationIdBuilder_ == null) {
+        classificationId_ = null;
+      } else {
+        classificationId_ = null;
+        classificationIdBuilder_ = null;
+      }
       return this;
     }
 
@@ -665,6 +738,11 @@ private static final long serialVersionUID = 0L;
         result.tags_ = tags_;
       } else {
         result.tags_ = tagsBuilder_.build();
+      }
+      if (classificationIdBuilder_ == null) {
+        result.classificationId_ = classificationId_;
+      } else {
+        result.classificationId_ = classificationIdBuilder_.build();
       }
       onBuilt();
       return result;
@@ -729,6 +807,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasTags()) {
         mergeTags(other.getTags());
+      }
+      if (other.hasClassificationId()) {
+        mergeClassificationId(other.getClassificationId());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1473,6 +1554,161 @@ private static final long serialVersionUID = 0L;
         tags_ = null;
       }
       return tagsBuilder_;
+    }
+
+    private com.google.protobuf.Int64Value classificationId_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> classificationIdBuilder_;
+    /**
+     * <pre>
+     *视频分类Id
+     * </pre>
+     *
+     * <code>.google.protobuf.Int64Value ClassificationId = 6;</code>
+     * @return Whether the classificationId field is set.
+     */
+    public boolean hasClassificationId() {
+      return classificationIdBuilder_ != null || classificationId_ != null;
+    }
+    /**
+     * <pre>
+     *视频分类Id
+     * </pre>
+     *
+     * <code>.google.protobuf.Int64Value ClassificationId = 6;</code>
+     * @return The classificationId.
+     */
+    public com.google.protobuf.Int64Value getClassificationId() {
+      if (classificationIdBuilder_ == null) {
+        return classificationId_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : classificationId_;
+      } else {
+        return classificationIdBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     *视频分类Id
+     * </pre>
+     *
+     * <code>.google.protobuf.Int64Value ClassificationId = 6;</code>
+     */
+    public Builder setClassificationId(com.google.protobuf.Int64Value value) {
+      if (classificationIdBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        classificationId_ = value;
+        onChanged();
+      } else {
+        classificationIdBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *视频分类Id
+     * </pre>
+     *
+     * <code>.google.protobuf.Int64Value ClassificationId = 6;</code>
+     */
+    public Builder setClassificationId(
+        com.google.protobuf.Int64Value.Builder builderForValue) {
+      if (classificationIdBuilder_ == null) {
+        classificationId_ = builderForValue.build();
+        onChanged();
+      } else {
+        classificationIdBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *视频分类Id
+     * </pre>
+     *
+     * <code>.google.protobuf.Int64Value ClassificationId = 6;</code>
+     */
+    public Builder mergeClassificationId(com.google.protobuf.Int64Value value) {
+      if (classificationIdBuilder_ == null) {
+        if (classificationId_ != null) {
+          classificationId_ =
+            com.google.protobuf.Int64Value.newBuilder(classificationId_).mergeFrom(value).buildPartial();
+        } else {
+          classificationId_ = value;
+        }
+        onChanged();
+      } else {
+        classificationIdBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *视频分类Id
+     * </pre>
+     *
+     * <code>.google.protobuf.Int64Value ClassificationId = 6;</code>
+     */
+    public Builder clearClassificationId() {
+      if (classificationIdBuilder_ == null) {
+        classificationId_ = null;
+        onChanged();
+      } else {
+        classificationId_ = null;
+        classificationIdBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *视频分类Id
+     * </pre>
+     *
+     * <code>.google.protobuf.Int64Value ClassificationId = 6;</code>
+     */
+    public com.google.protobuf.Int64Value.Builder getClassificationIdBuilder() {
+      
+      onChanged();
+      return getClassificationIdFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     *视频分类Id
+     * </pre>
+     *
+     * <code>.google.protobuf.Int64Value ClassificationId = 6;</code>
+     */
+    public com.google.protobuf.Int64ValueOrBuilder getClassificationIdOrBuilder() {
+      if (classificationIdBuilder_ != null) {
+        return classificationIdBuilder_.getMessageOrBuilder();
+      } else {
+        return classificationId_ == null ?
+            com.google.protobuf.Int64Value.getDefaultInstance() : classificationId_;
+      }
+    }
+    /**
+     * <pre>
+     *视频分类Id
+     * </pre>
+     *
+     * <code>.google.protobuf.Int64Value ClassificationId = 6;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> 
+        getClassificationIdFieldBuilder() {
+      if (classificationIdBuilder_ == null) {
+        classificationIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder>(
+                getClassificationId(),
+                getParentForChildren(),
+                isClean());
+        classificationId_ = null;
+      }
+      return classificationIdBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

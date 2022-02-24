@@ -56,6 +56,12 @@ public class ArticleCreateRequest {
         String authorAvatarUrl;
         @JSONField(name = "AuthorTags")
         List<String> authorTags;
+        @JSONField(name = "Description")
+        String description;
+        @JSONField(name = "AuthorOpenId")
+        String authorOpenId;
+        @JSONField(name = "FollowerCount")
+        Long followerCount;
     }
 
     @Data

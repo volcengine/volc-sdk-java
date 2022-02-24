@@ -69,6 +69,10 @@ public class ArticleFeedResponse {
         Long commentCount;
         @JSONField(name = "CommentUrl")
         String commentUrl;
+        @JSONField(name = "GoodsIds")
+        List<String> goodsIds;
+        @JSONField(name = "GoodsList")
+        List<GoodsInfo> goodsList;
     }
 
     @Data
@@ -113,5 +117,19 @@ public class ArticleFeedResponse {
         Double videoDuration;
         @JSONField(name = "CoverImages")
         Image coverImage;
+    }
+
+    @Data
+    public static class GoodsInfo {
+        @JSONField(name = "GoodsId")
+        String goodsId;
+        @JSONField(name = "GoodsName")
+        String goodsName;
+        @JSONField(name = "Keywords")
+        String keywords;
+        @JSONField(name = "Description")
+        String description;
+        @JSONField(name = "GoodsSourceId")
+        String goodsSourceId;
     }
 }

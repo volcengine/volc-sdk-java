@@ -82,20 +82,20 @@ public class VodServiceConfig {
                         }
                     }
             ));
-            put(Const.GetPlayInfoWithLiveTimeShiftScene, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.GetPlayInfoWithLiveTimeShiftScene));
-                                    add(new BasicNameValuePair("Version", "2021-11-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
+//            put(Const.GetPlayInfoWithLiveTimeShiftScene, new ApiInfo(
+//                    new HashMap<String, Object>() {
+//                        {
+//                            put(Const.Method, "GET");
+//                            put(Const.Path, "/");
+//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                                {
+//                                    add(new BasicNameValuePair("Action", Const.GetPlayInfoWithLiveTimeShiftScene));
+//                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+//                                }
+//                            });
+//                        }
+//                    }
+//            ));
 
             // **********************************************************************
             // 上传
@@ -302,90 +302,90 @@ public class VodServiceConfig {
                         }
                     }
             ));
-            put(Const.GetAuditFramesForAudit, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.GetAuditFramesForAudit));
-                                    add(new BasicNameValuePair("Version", "2021-11-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.GetMLFramesForAudit, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.GetMLFramesForAudit));
-                                    add(new BasicNameValuePair("Version", "2021-11-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.GetBetterFramesForAudit, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.GetBetterFramesForAudit));
-                                    add(new BasicNameValuePair("Version", "2021-11-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.GetAudioInfoForAudit, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.GetAudioInfoForAudit));
-                                    add(new BasicNameValuePair("Version", "2021-11-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.GetAutomaticSpeechRecognitionForAudit, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.GetAutomaticSpeechRecognitionForAudit));
-                                    add(new BasicNameValuePair("Version", "2021-11-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.GetAudioEventDetectionForAudit, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.GetAudioEventDetectionForAudit));
-                                    add(new BasicNameValuePair("Version", "2021-11-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
+//            put(Const.GetAuditFramesForAudit, new ApiInfo(
+//                    new HashMap<String, Object>() {
+//                        {
+//                            put(Const.Method, "GET");
+//                            put(Const.Path, "/");
+//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                                {
+//                                    add(new BasicNameValuePair("Action", Const.GetAuditFramesForAudit));
+//                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+//                                }
+//                            });
+//                        }
+//                    }
+//            ));
+//            put(Const.GetMLFramesForAudit, new ApiInfo(
+//                    new HashMap<String, Object>() {
+//                        {
+//                            put(Const.Method, "GET");
+//                            put(Const.Path, "/");
+//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                                {
+//                                    add(new BasicNameValuePair("Action", Const.GetMLFramesForAudit));
+//                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+//                                }
+//                            });
+//                        }
+//                    }
+//            ));
+//            put(Const.GetBetterFramesForAudit, new ApiInfo(
+//                    new HashMap<String, Object>() {
+//                        {
+//                            put(Const.Method, "GET");
+//                            put(Const.Path, "/");
+//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                                {
+//                                    add(new BasicNameValuePair("Action", Const.GetBetterFramesForAudit));
+//                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+//                                }
+//                            });
+//                        }
+//                    }
+//            ));
+//            put(Const.GetAudioInfoForAudit, new ApiInfo(
+//                    new HashMap<String, Object>() {
+//                        {
+//                            put(Const.Method, "GET");
+//                            put(Const.Path, "/");
+//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                                {
+//                                    add(new BasicNameValuePair("Action", Const.GetAudioInfoForAudit));
+//                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+//                                }
+//                            });
+//                        }
+//                    }
+//            ));
+//            put(Const.GetAutomaticSpeechRecognitionForAudit, new ApiInfo(
+//                    new HashMap<String, Object>() {
+//                        {
+//                            put(Const.Method, "GET");
+//                            put(Const.Path, "/");
+//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                                {
+//                                    add(new BasicNameValuePair("Action", Const.GetAutomaticSpeechRecognitionForAudit));
+//                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+//                                }
+//                            });
+//                        }
+//                    }
+//            ));
+//            put(Const.GetAudioEventDetectionForAudit, new ApiInfo(
+//                    new HashMap<String, Object>() {
+//                        {
+//                            put(Const.Method, "GET");
+//                            put(Const.Path, "/");
+//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                                {
+//                                    add(new BasicNameValuePair("Action", Const.GetAudioEventDetectionForAudit));
+//                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+//                                }
+//                            });
+//                        }
+//                    }
+//            ));
             put(Const.CreateVideoClassification, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -461,169 +461,169 @@ public class VodServiceConfig {
                     }
             ));
 
-            // **********************************************************************
-            // 空间管理
-            // **********************************************************************
-            put(Const.CreateSpace, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.CreateSpace));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.ListSpace, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.ListSpace));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.GetSpaceDetail, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.GetSpaceDetail));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.GetSpaceConfig, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.GetSpaceConfig));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.UpdateSpace, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.UpdateSpace));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.UpdateSpaceUploadConfig, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.UpdateSpaceUploadConfig));
-                                    add(new BasicNameValuePair("Version", "2022-01-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            // **********************************************************************
-            // 分发加速管理
-            // **********************************************************************
-            put(Const.ListDomain, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.ListDomain));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.CreateCdnRefreshTask, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.CreateCdnRefreshTask));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.CreateCdnPreloadTask, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.CreateCdnPreloadTask));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            // **********************************************************************
-            // 回调管理
-            // **********************************************************************
-            put(Const.AddCallbackSubscription, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.AddCallbackSubscription));
-                                    add(new BasicNameValuePair("Version", "2021-12-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.SetCallbackEvent, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.SetCallbackEvent));
-                                    add(new BasicNameValuePair("Version", "2021-12-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
+//            // **********************************************************************
+//            // 空间管理
+//            // **********************************************************************
+//            put(Const.CreateSpace, new ApiInfo(
+//                    new HashMap<String, Object>() {
+//                        {
+//                            put(Const.Method, "GET");
+//                            put(Const.Path, "/");
+//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                                {
+//                                    add(new BasicNameValuePair("Action", Const.CreateSpace));
+//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+//                                }
+//                            });
+//                        }
+//                    }
+//            ));
+//            put(Const.ListSpace, new ApiInfo(
+//                    new HashMap<String, Object>() {
+//                        {
+//                            put(Const.Method, "GET");
+//                            put(Const.Path, "/");
+//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                                {
+//                                    add(new BasicNameValuePair("Action", Const.ListSpace));
+//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+//                                }
+//                            });
+//                        }
+//                    }
+//            ));
+//            put(Const.GetSpaceDetail, new ApiInfo(
+//                    new HashMap<String, Object>() {
+//                        {
+//                            put(Const.Method, "GET");
+//                            put(Const.Path, "/");
+//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                                {
+//                                    add(new BasicNameValuePair("Action", Const.GetSpaceDetail));
+//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+//                                }
+//                            });
+//                        }
+//                    }
+//            ));
+//            put(Const.GetSpaceConfig, new ApiInfo(
+//                    new HashMap<String, Object>() {
+//                        {
+//                            put(Const.Method, "GET");
+//                            put(Const.Path, "/");
+//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                                {
+//                                    add(new BasicNameValuePair("Action", Const.GetSpaceConfig));
+//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+//                                }
+//                            });
+//                        }
+//                    }
+//            ));
+//            put(Const.UpdateSpace, new ApiInfo(
+//                    new HashMap<String, Object>() {
+//                        {
+//                            put(Const.Method, "GET");
+//                            put(Const.Path, "/");
+//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                                {
+//                                    add(new BasicNameValuePair("Action", Const.UpdateSpace));
+//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+//                                }
+//                            });
+//                        }
+//                    }
+//            ));
+//            put(Const.UpdateSpaceUploadConfig, new ApiInfo(
+//                    new HashMap<String, Object>() {
+//                        {
+//                            put(Const.Method, "GET");
+//                            put(Const.Path, "/");
+//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                                {
+//                                    add(new BasicNameValuePair("Action", Const.UpdateSpaceUploadConfig));
+//                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+//                                }
+//                            });
+//                        }
+//                    }
+//            ));
+//            // **********************************************************************
+//            // 分发加速管理
+//            // **********************************************************************
+//            put(Const.ListDomain, new ApiInfo(
+//                    new HashMap<String, Object>() {
+//                        {
+//                            put(Const.Method, "GET");
+//                            put(Const.Path, "/");
+//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                                {
+//                                    add(new BasicNameValuePair("Action", Const.ListDomain));
+//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+//                                }
+//                            });
+//                        }
+//                    }
+//            ));
+//            put(Const.CreateCdnRefreshTask, new ApiInfo(
+//                    new HashMap<String, Object>() {
+//                        {
+//                            put(Const.Method, "GET");
+//                            put(Const.Path, "/");
+//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                                {
+//                                    add(new BasicNameValuePair("Action", Const.CreateCdnRefreshTask));
+//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+//                                }
+//                            });
+//                        }
+//                    }
+//            ));
+//            put(Const.CreateCdnPreloadTask, new ApiInfo(
+//                    new HashMap<String, Object>() {
+//                        {
+//                            put(Const.Method, "GET");
+//                            put(Const.Path, "/");
+//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                                {
+//                                    add(new BasicNameValuePair("Action", Const.CreateCdnPreloadTask));
+//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+//                                }
+//                            });
+//                        }
+//                    }
+//            ));
+//            // **********************************************************************
+//            // 回调管理
+//            // **********************************************************************
+//            put(Const.AddCallbackSubscription, new ApiInfo(
+//                    new HashMap<String, Object>() {
+//                        {
+//                            put(Const.Method, "GET");
+//                            put(Const.Path, "/");
+//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                                {
+//                                    add(new BasicNameValuePair("Action", Const.AddCallbackSubscription));
+//                                    add(new BasicNameValuePair("Version", "2021-12-01"));
+//                                }
+//                            });
+//                        }
+//                    }
+//            ));
+//            put(Const.SetCallbackEvent, new ApiInfo(
+//                    new HashMap<String, Object>() {
+//                        {
+//                            put(Const.Method, "GET");
+//                            put(Const.Path, "/");
+//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                                {
+//                                    add(new BasicNameValuePair("Action", Const.SetCallbackEvent));
+//                                    add(new BasicNameValuePair("Version", "2021-12-01"));
+//                                }
+//                            });
+//                        }
+//                    }
+//            ));
 
         }
     };

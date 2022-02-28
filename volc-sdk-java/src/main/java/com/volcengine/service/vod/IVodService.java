@@ -76,9 +76,9 @@ public interface IVodService extends com.volcengine.service.IBaseService {
     /**
 	 * uploadMaterial
 	 *
-	 * @param vodUploadMaterialRequest
-	 * @return
-	 * @throws Exception
+	 * @param vodUploadMaterialRequest com.volcengine.service.vod.model.request.VodUploadMaterialRequest
+	 * @return com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse
+	 * @throws Exception the exception
 	 */
 	com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadMaterial(com.volcengine.service.vod.model.request.VodUploadMaterialRequest vodUploadMaterialRequest) throws Exception;
 

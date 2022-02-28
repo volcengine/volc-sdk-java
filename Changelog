@@ -1,6 +1,6 @@
 Change log
 
-2022-02-10 Bumped to version v1.0.34
+2022-02-24 Bumped to version v1.0.34
 - Deleted 4 apis
 - Changed rtc service instances to singleton
 - Added complete fields

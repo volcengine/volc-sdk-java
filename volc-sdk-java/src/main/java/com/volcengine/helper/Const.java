@@ -23,69 +23,6 @@ public class Const {
     public static final String Query = "Query";
     public static final String Form = "Form";
 
-    // vod
-    public static final String VOD_TPL_OBJ = "tplv-vod-obj";
-    public static final String VOD_TPL_NOOP = "tplv-vod-noop";
-    public static final String VOD_TPL_RESIZE = "tplv-vod-rs";
-    public static final String VOD_TPL_CENTER_CROP = "tplv-vod-cc";
-    public static final String VOD_TPL_SMART_CROP = "tplv-vod-cs";
-
-    public static final String SpaceName = "SpaceName";
-
-    public static final int MinChunkSize = 1024 * 1024 * 20;
-    public static final int LargeFileSize = 1024 * 1024 * 1024;
-
-
-    public static final String DSAHmacSha1 = "HMAC-SHA1";
-    public static final String DSAHmacSha256 = "HMAC-SHA256";
-    // vod-play
-    public static final String GetPlayInfo = "GetPlayInfo";
-    public static final String GetPrivateDrmPlayAuth = "GetPrivateDrmPlayAuth";
-    public static final String GetHlsDecryptionKey = "GetHlsDecryptionKey";
-    public static final String GetPlayInfoWithLiveTimeShiftScene = "GetPlayInfoWithLiveTimeShiftScene";
-    // vod-upload
-    public static final String UploadMediaByUrl = "UploadMediaByUrl";
-    public static final String QueryUploadTaskInfo = "QueryUploadTaskInfo";
-    public static final String ApplyUploadInfo = "ApplyUploadInfo";
-    public static final String CommitUploadInfo = "CommitUploadInfo";
-    // vod-media
-    public static final String UpdateMediaInfo = "UpdateMediaInfo";
-    public static final String UpdateMediaPublishStatus = "UpdateMediaPublishStatus";
-    public static final String GetMediaInfos = "GetMediaInfos";
-    public static final String GetRecommendedPoster = "GetRecommendedPoster";
-    public static final String DeleteMedia = "DeleteMedia";
-    public static final String DeleteTranscodes = "DeleteTranscodes";
-    public static final String GetMediaList = "GetMediaList";
-    public static final String GetSubtitleInfoList = "GetSubtitleInfoList";
-    public static final String UpdateSubtitleStatus = "UpdateSubtitleStatus";
-    public static final String UpdateSubtitleInfo = "UpdateSubtitleInfo";
-    public static final String GetAuditFramesForAudit = "GetAuditFramesForAudit";
-    public static final String GetMLFramesForAudit = "GetMLFramesForAudit";
-    public static final String GetBetterFramesForAudit = "GetBetterFramesForAudit";
-    public static final String GetAudioInfoForAudit = "GetAudioInfoForAudit";
-    public static final String GetAutomaticSpeechRecognitionForAudit = "GetAutomaticSpeechRecognitionForAudit";
-    public static final String GetAudioEventDetectionForAudit = "GetAudioEventDetectionForAudit";
-    public static final String CreateVideoClassification = "CreateVideoClassification";
-    public static final String UpdateVideoClassification = "UpdateVideoClassification";
-    public static final String DeleteVideoClassification = "DeleteVideoClassification";
-    public static final String ListVideoClassifications = "ListVideoClassifications";
-    //vod-transcode
-    public static final String StartWorkflow = "StartWorkflow";
-    //vod-space
-    public static final String CreateSpace = "CreateSpace";
-    public static final String ListSpace = "ListSpace";
-    public static final String GetSpaceDetail = "GetSpaceDetail";
-    public static final String GetSpaceConfig = "GetSpaceConfig";
-    public static final String UpdateSpace = "UpdateSpace";
-    public static final String UpdateSpaceUploadConfig = "UpdateSpaceUploadConfig";
-    //vod-cdn
-    public static final String ListDomain = "ListDomain";
-    public static final String CreateCdnRefreshTask = "CreateCDNRefreshTask";
-    public static final String CreateCdnPreloadTask = "CreateCDNPreloadTask";
-    //vod-callback
-    public static final String AddCallbackSubscription = "AddCallbackSubscription";
-    public static final String SetCallbackEvent = "SetCallbackEvent";
-
     // iam
     public static final String CreateUser = "CreateUser";
     public static final String ListUsers = "ListUsers";

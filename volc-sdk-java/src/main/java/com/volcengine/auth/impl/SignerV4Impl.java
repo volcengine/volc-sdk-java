@@ -74,6 +74,9 @@ public class SignerV4Impl implements ISignerV4 {
         request.setHeader(Const.XDate, signRequest.getXDate());
         request.setHeader(Const.XContentSha256, signRequest.getXContentSha256());
         request.setHeader(Const.Authorization, signRequest.getAuthorization());
+        if (StringUtils.isNotEmpty(signRequest.getXSecurityToken())) {
+            request.setHeader(Const.XSecurityToken, signRequest.getXSecurityToken());
+        }
         request.setURI(request.getUriBuilder().build());
     }
 
@@ -95,6 +98,9 @@ public class SignerV4Impl implements ISignerV4 {
         uriBuilder.setParameter(Const.XSignedHeaders, signRequest.getXSignedHeaders());
         uriBuilder.setParameter(Const.XSignedQueries, signRequest.getXSignedQueries());
         uriBuilder.setParameter(Const.XSignature, signRequest.getXSignature());
+        if (StringUtils.isNotEmpty(signRequest.getXSecurityToken())) {
+            uriBuilder.setParameter(Const.XSecurityToken, signRequest.getXSecurityToken());
+        }
         return uriBuilder.build().toURL().getQuery();
     }
 
@@ -111,7 +117,11 @@ public class SignerV4Impl implements ISignerV4 {
 
         Map<String, String> requestSignMap = new HashMap<>();
         String bodyHash;
-        SignRequest signRequest = SignRequest.builder().xDate(formatDate).build();
+        SignRequest signRequest = SignRequest.builder().xDate(formatDate).xSecurityToken(credentials.getSessionToken()).build();
+        if (StringUtils.isNotEmpty(credentials.getSessionToken())) {
+            requestSignMap.put(Const.XSecurityToken, credentials.getSessionToken());
+        }
+
         if (requestParam.getIsSignUrl()) {
             requestParam.getQueryList().forEach(nv -> requestSignMap.put(nv.getName(), nv.getValue()));
 

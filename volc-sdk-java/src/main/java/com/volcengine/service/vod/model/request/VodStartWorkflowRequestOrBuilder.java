@@ -4,8 +4,8 @@
 package com.volcengine.service.vod.model.request;
 
 public interface VodStartWorkflowRequestOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:Volcengine.Vod.Models.Request.VodStartWorkflowRequest)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:Volcengine.Vod.Models.Request.VodStartWorkflowRequest)
+    com.google.protobuf.MessageOrBuilder {
 
   /**
    * <pre>
@@ -25,7 +25,7 @@ public interface VodStartWorkflowRequestOrBuilder extends
    * @return The bytes for vid.
    */
   com.google.protobuf.ByteString
-  getVidBytes();
+      getVidBytes();
 
   /**
    * <pre>
@@ -45,7 +45,7 @@ public interface VodStartWorkflowRequestOrBuilder extends
    * @return The bytes for templateId.
    */
   com.google.protobuf.ByteString
-  getTemplateIdBytes();
+      getTemplateIdBytes();
 
   /**
    * <pre>
@@ -102,7 +102,7 @@ public interface VodStartWorkflowRequestOrBuilder extends
    * @return The bytes for callbackArgs.
    */
   com.google.protobuf.ByteString
-  getCallbackArgsBytes();
+      getCallbackArgsBytes();
 
   /**
    * <pre>

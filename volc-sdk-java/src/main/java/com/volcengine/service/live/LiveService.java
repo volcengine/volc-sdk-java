@@ -2,8 +2,9 @@ package com.volcengine.service.live;
 
 import com.volcengine.model.live.request.*;
 import com.volcengine.model.live.response.*;
+import com.volcengine.service.IBaseService;
 
-public interface LiveService {
+public interface LiveService extends IBaseService {
 
 
     /**

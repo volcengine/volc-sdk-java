@@ -7,6 +7,6 @@ import lombok.Data;
 public class ListCommonTransPresetDetailRequest {
 
     @JSONField(name = "PresetList")
-    private String[] PresetList;
+    String[] PresetList;
 
 }

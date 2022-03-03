@@ -8,4 +8,12 @@ import lombok.Data;
 public class DescribeTranscodePresetResponse {
     @JSONField(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;
+    @JSONField(name = "Result")
+    DescribeTranscodePresetOutput Result;
+
+    @Data
+    private static class DescribeTranscodePresetOutput {
+        @JSONField(name = "PresetList")
+        String[] PresetList;
+    }
 }

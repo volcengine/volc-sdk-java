@@ -27,7 +27,7 @@ public class VodStartWorkflowDemo {
                 .build();
 
         try {
-            VodStartWorkflowResponse vodStartWorkflowResponse = vodService.StartWorkflow(vodStartWorkflowRequest);
+            VodStartWorkflowResponse vodStartWorkflowResponse = vodService.startWorkflow(vodStartWorkflowRequest);
             if (vodStartWorkflowResponse.getResponseMetadata().hasError()) {
                 System.out.println(vodStartWorkflowResponse.getResponseMetadata().getError());
                 System.exit(-1);

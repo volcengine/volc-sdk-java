@@ -134,4 +134,31 @@ public interface VodUpdateMediaInfoRequestOrBuilder extends
    * <code>.google.protobuf.StringValue Tags = 5;</code>
    */
   com.google.protobuf.StringValueOrBuilder getTagsOrBuilder();
+
+  /**
+   * <pre>
+   *视频分类Id
+   * </pre>
+   *
+   * <code>.google.protobuf.Int64Value ClassificationId = 6;</code>
+   * @return Whether the classificationId field is set.
+   */
+  boolean hasClassificationId();
+  /**
+   * <pre>
+   *视频分类Id
+   * </pre>
+   *
+   * <code>.google.protobuf.Int64Value ClassificationId = 6;</code>
+   * @return The classificationId.
+   */
+  com.google.protobuf.Int64Value getClassificationId();
+  /**
+   * <pre>
+   *视频分类Id
+   * </pre>
+   *
+   * <code>.google.protobuf.Int64Value ClassificationId = 6;</code>
+   */
+  com.google.protobuf.Int64ValueOrBuilder getClassificationIdOrBuilder();
 }

@@ -26,6 +26,15 @@ public class Const {
     // iam
     public static final String CreateUser = "CreateUser";
     public static final String ListUsers = "ListUsers";
+    public static final String CreateRole = "CreateRole";
+    public static final String GetRole = "GetRole";
+    public static final String UpdateRole = "UpdateRole";
+    public static final String ListRoles = "ListRoles";
+    public static final String DeleteRole = "DeleteRole";
+
+
+    // sts
+    public static final String AssumeRole = "AssumeRole";
 
     // ad blocker
     public static final String AdBlock = "AdBlock";
@@ -99,6 +108,7 @@ public class Const {
     public static final String ContentTypeValue = "application/x-www-form-urlencoded; charset=utf-8";
     public static final String XContentSha256 = "X-Content-Sha256";
     public static final String Authorization = "Authorization";
+    public static final String XSecurityToken = "X-Security-Token";
 
     public static final String ContentMd5 = "Content-Md5";
 

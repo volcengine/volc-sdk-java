@@ -48,6 +48,20 @@ public interface IBaseService {
     void setSecretKey(String secretKey);
 
     /**
+     * Gets session token.
+     *
+     * @return the session token
+     */
+    String getSessionToken();
+
+    /**
+     * Sets session token.
+     *
+     * @param sessionToken the session token
+     */
+    void setSessionToken(String sessionToken);
+
+    /**
      * Sets region.
      *
      * @param region the region

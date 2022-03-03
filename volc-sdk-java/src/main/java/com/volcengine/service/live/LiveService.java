@@ -9,21 +9,21 @@ public interface LiveService extends IBaseService {
 
     /**
      * @param listCommonTransPresetDetailRequest
-     * @return
+     * @return ListCommonTransPresetDetailResponse
      * @throws Exception
      */
     ListCommonTransPresetDetailResponse listCommonTransPresetDetail(ListCommonTransPresetDetailRequest listCommonTransPresetDetailRequest) throws Exception;
 
     /**
      * @param updateCallbackRequest
-     * @return
+     * @return UpdateCallbackResponse
      * @throws Exception
      */
     UpdateCallbackResponse updateCallback(UpdateCallbackRequest updateCallbackRequest) throws Exception;
 
     /**
      * @param describeCallbackRequest
-     * @return
+     * @return DescribeCallbackResponse
      * @throws Exception
      */
     DescribeCallbackResponse describeCallback(DescribeCallbackRequest describeCallbackRequest) throws Exception;

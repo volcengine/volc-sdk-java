@@ -1,5 +1,11 @@
 Change log
 
+2022-03-03 Bumped to version v1.0.35
+- Add Video-Classfication for VOD
+- Adjust VoD Consts' location
+- Supported sts credential
+- Added iam role action
+
 2022-02-24 Bumped to version v1.0.34
 - Deleted 4 apis
 - Changed rtc service instances to singleton

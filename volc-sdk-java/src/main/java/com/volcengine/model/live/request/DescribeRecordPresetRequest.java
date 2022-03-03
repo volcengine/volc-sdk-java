@@ -1,4 +1,13 @@
 package com.volcengine.model.live.request;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import lombok.Data;
+
+@Data
 public class DescribeRecordPresetRequest {
+
+    @JSONField(name = "Vhost")
+    String vhost;
+    @JSONField(name = "App")
+    String app;
 }

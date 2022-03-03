@@ -8,4 +8,13 @@ import lombok.Data;
 public class DescribeSnapshotPresetResponse {
     @JSONField(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;
+
+    @JSONField(name = "Result")
+    DescribeSnapshotPresetOutput result;
+
+    @Data
+    private static class DescribeSnapshotPresetOutput {
+        @JSONField(name = "PresetList")
+        String[] PresetList;
+    }
 }

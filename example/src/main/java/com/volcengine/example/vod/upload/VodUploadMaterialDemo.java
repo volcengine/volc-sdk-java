@@ -1,7 +1,7 @@
 package com.volcengine.example.vod.upload;
 
 import com.alibaba.fastjson.JSON;
-import com.volcengine.helper.Const;
+import com.volcengine.service.vod.Const;
 import com.volcengine.model.beans.Functions;
 import com.volcengine.service.vod.IVodService;
 import com.volcengine.service.vod.impl.VodServiceImpl;

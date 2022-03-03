@@ -49,7 +49,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264,bytevc1等Codec
+   *编码类型，默认h264，可选值为h264, h265等Codec
    * </pre>
    *
    * <code>string Codec = 3;</code>
@@ -58,7 +58,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getCodec();
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264,bytevc1等Codec
+   *编码类型，默认h264，可选值为h264, h265等Codec
    * </pre>
    *
    * <code>string Codec = 3;</code>

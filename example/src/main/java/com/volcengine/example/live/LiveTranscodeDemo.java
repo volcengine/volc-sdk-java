@@ -19,10 +19,6 @@ public class LiveTranscodeDemo {
         //
         updateTranscodePresetDemo(liveService);
         //
-        describeTranscodePresetDemo(liveService);
-        //
-        describeTranscodePresetDetailDemo(liveService);
-        //
         deleteTranscodePresetDemo(liveService);
     }
 
@@ -44,27 +40,6 @@ public class LiveTranscodeDemo {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    private static void describeTranscodePresetDemo(LiveService liveService) {
-        DescribeTranscodePresetRequest request = new DescribeTranscodePresetRequest();
-        try {
-            DescribeTranscodePresetResponse response = liveService.describeTranscodePreset(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static void describeTranscodePresetDetailDemo(LiveService liveService) {
-        DescribeTranscodePresetDetailRequest request = new DescribeTranscodePresetDetailRequest();
-        try {
-            DescribeTranscodePresetDetailResponse response = liveService.describeTranscodePresetDetail(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 
     private static void deleteTranscodePresetDemo(LiveService liveService) {

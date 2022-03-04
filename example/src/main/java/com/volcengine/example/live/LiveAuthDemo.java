@@ -22,8 +22,6 @@ public class LiveAuthDemo {
         disableAuthDemo(liveService);
         //
         describeAuthDemo(liveService);
-        //
-        updateAllAuthUnderVhostDemo(liveService);
 
     }
 
@@ -67,13 +65,4 @@ public class LiveAuthDemo {
         }
     }
 
-    private static void updateAllAuthUnderVhostDemo(LiveService liveService) {
-        UpdateAllAuthUnderVhostRequest request = new UpdateAllAuthUnderVhostRequest();
-        try {
-            UpdateAllAuthUnderVhostResponse response = liveService.updateAllAuthUnderVhost(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

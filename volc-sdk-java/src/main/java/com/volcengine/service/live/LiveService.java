@@ -113,13 +113,6 @@ public interface LiveService extends IBaseService {
     DescribeAuthResponse describeAuth(DescribeAuthRequest describeAuthRequest) throws Exception;
 
     /**
-     * @param updateAllAuthUnderVhostRequest
-     * @return
-     * @throws Exception
-     */
-    UpdateAllAuthUnderVhostResponse updateAllAuthUnderVhost(UpdateAllAuthUnderVhostRequest updateAllAuthUnderVhostRequest) throws Exception;
-
-    /**
      * @param forbidStreamRequest
      * @return
      * @throws Exception
@@ -218,20 +211,6 @@ public interface LiveService extends IBaseService {
     UpdateRecordPresetResponse updateRecordPreset(UpdateRecordPresetRequest updateRecordPresetRequest) throws Exception;
 
     /**
-     * @param describeRecordPresetRequest
-     * @return
-     * @throws Exception
-     */
-    DescribeRecordPresetResponse describeRecordPreset(DescribeRecordPresetRequest describeRecordPresetRequest) throws Exception;
-
-    /**
-     * @param describeRecordPresetDetailRequest
-     * @return
-     * @throws Exception
-     */
-    DescribeRecordPresetDetailResponse describeRecordPresetDetail(DescribeRecordPresetDetailRequest describeRecordPresetDetailRequest) throws Exception;
-
-    /**
      * @param deleteRecordPresetRequest
      * @return
      * @throws Exception
@@ -260,20 +239,6 @@ public interface LiveService extends IBaseService {
     UpdateTranscodePresetResponse updateTranscodePreset(UpdateTranscodePresetRequest updateTranscodePresetRequest) throws Exception;
 
     /**
-     * @param describeTranscodePresetRequest
-     * @return
-     * @throws Exception
-     */
-    DescribeTranscodePresetResponse describeTranscodePreset(DescribeTranscodePresetRequest describeTranscodePresetRequest) throws Exception;
-
-    /**
-     * @param describeTranscodePresetDetailRequest
-     * @return
-     * @throws Exception
-     */
-    DescribeTranscodePresetDetailResponse describeTranscodePresetDetail(DescribeTranscodePresetDetailRequest describeTranscodePresetDetailRequest) throws Exception;
-
-    /**
      * @param deleteTranscodePresetRequest
      * @return
      * @throws Exception
@@ -293,20 +258,6 @@ public interface LiveService extends IBaseService {
      * @throws Exception
      */
     UpdateSnapshotPresetResponse updateSnapshotPreset(UpdateSnapshotPresetRequest updateSnapshotPresetRequest) throws Exception;
-
-    /**
-     * @param describeSnapshotPresetRequest
-     * @return
-     * @throws Exception
-     */
-    DescribeSnapshotPresetResponse describeSnapshotPreset(DescribeSnapshotPresetRequest describeSnapshotPresetRequest) throws Exception;
-
-    /**
-     * @param describeSnapshotPresetDetailRequest
-     * @return
-     * @throws Exception
-     */
-    DescribeSnapshotPresetDetailResponse describeSnapshotPresetDetail(DescribeSnapshotPresetDetailRequest describeSnapshotPresetDetailRequest) throws Exception;
 
     /**
      * @param deleteSnapshotPresetRequest

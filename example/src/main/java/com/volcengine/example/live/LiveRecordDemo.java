@@ -19,10 +19,6 @@ public class LiveRecordDemo {
         //
         updateRecordPresetDemo(liveService);
         //
-        describeRecordPresetDemo(liveService);
-        //
-        describeRecordPresetDetailDemo(liveService);
-        //
         deleteRecordPresetDemo(liveService);
         //
         listVhostRecordPresetDemo(liveService);
@@ -48,25 +44,6 @@ public class LiveRecordDemo {
         }
     }
 
-    private static void describeRecordPresetDemo(LiveService liveService) {
-        DescribeRecordPresetRequest request = new DescribeRecordPresetRequest();
-        try {
-            DescribeRecordPresetResponse response = liveService.describeRecordPreset(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static void describeRecordPresetDetailDemo(LiveService liveService) {
-        DescribeRecordPresetDetailRequest request = new DescribeRecordPresetDetailRequest();
-        try {
-            DescribeRecordPresetDetailResponse response = liveService.describeRecordPresetDetail(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     private static void deleteRecordPresetDemo(LiveService liveService) {
         DeleteRecordPresetRequest request = new DeleteRecordPresetRequest();

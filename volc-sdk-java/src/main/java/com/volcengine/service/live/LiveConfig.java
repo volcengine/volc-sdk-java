@@ -249,14 +249,14 @@ public class LiveConfig {
                         }
                     }
             ));
-            put(Const.UpdateAllAuthUnder, new ApiInfo(
+            put(Const.UpdateAllAuthUnderVhost, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateAllAuthUnder));
+                                    add(new BasicNameValuePair("Action", Const.UpdateAllAuthUnderVhost));
                                     add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });

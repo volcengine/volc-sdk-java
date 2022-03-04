@@ -519,34 +519,34 @@ public class VodServiceConfig {
                         }
                     }
             ));
-//            put(Const.UpdateSpace, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(com.volcengine.helper.Const.Method, "GET");
-//                            put(com.volcengine.helper.Const.Path, "/");
-//                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.UpdateSpace));
-//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
-//            put(Const.UpdateSpaceUploadConfig, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(com.volcengine.helper.Const.Method, "GET");
-//                            put(com.volcengine.helper.Const.Path, "/");
-//                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.UpdateSpaceUploadConfig));
-//                                    add(new BasicNameValuePair("Version", "2022-01-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
+            put(Const.UpdateSpace, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateSpace));
+                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateSpaceUploadConfig, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateSpaceUploadConfig));
+                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             // **********************************************************************
             // 分发加速管理
             // **********************************************************************
@@ -564,34 +564,34 @@ public class VodServiceConfig {
                         }
                     }
             ));
-//            put(Const.CreateCdnRefreshTask, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(com.volcengine.helper.Const.Method, "GET");
-//                            put(com.volcengine.helper.Const.Path, "/");
-//                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.CreateCdnRefreshTask));
-//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
-//            put(Const.CreateCdnPreloadTask, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(com.volcengine.helper.Const.Method, "GET");
-//                            put(com.volcengine.helper.Const.Path, "/");
-//                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.CreateCdnPreloadTask));
-//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
+            put(Const.CreateCdnRefreshTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CreateCdnRefreshTask));
+                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.CreateCdnPreloadTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CreateCdnPreloadTask));
+                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             // **********************************************************************
             // 回调管理
             // **********************************************************************

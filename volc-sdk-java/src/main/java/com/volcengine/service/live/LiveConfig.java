@@ -516,6 +516,21 @@ public class LiveConfig {
                         }
                     }
             ));
+            put(Const.ListVhostTransCodePreset, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListVhostTransCodePreset));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.CreateSnapshotPreset, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

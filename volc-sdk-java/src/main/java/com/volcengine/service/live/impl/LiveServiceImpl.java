@@ -594,6 +594,22 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
     }
 
     @Override
+    public ListVhostTransCodePresetResponse listVhostTransCodePreset(ListVhostTransCodePresetRequest listVhostTransCodePresetRequest) throws Exception {
+        RawResponse response = json(Const.DeleteTranscodePreset, new ArrayList<>(), JSON.toJSONString(listVhostTransCodePresetRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListVhostTransCodePresetResponse res = JSON.parseObject(response.getData(), ListVhostTransCodePresetResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+    @Override
     public CreateSnapshotPresetResponse createSnapshotPreset(CreateSnapshotPresetRequest createSnapshotPresetRequest) throws Exception {
         RawResponse response = json(Const.CreateSnapshotPreset, new ArrayList<>(), JSON.toJSONString(createSnapshotPresetRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

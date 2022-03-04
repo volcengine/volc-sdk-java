@@ -172,16 +172,6 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
-    public void testUpdateAllAuthUnderVhost() {
-        LiveService liveService = getLiveService();
-        UpdateAllAuthUnderVhostRequest request = new UpdateAllAuthUnderVhostRequest();
-        try {
-            UpdateAllAuthUnderVhostResponse response = liveService.updateAllAuthUnderVhost(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     public void testForbidStream() {
         LiveService liveService = getLiveService();
@@ -337,27 +327,6 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
-    public void testDescribeRecordPreset() {
-        LiveService liveService = getLiveService();
-        DescribeRecordPresetRequest request = new DescribeRecordPresetRequest();
-        try {
-            DescribeRecordPresetResponse response = liveService.describeRecordPreset(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void testDescribeRecordPresetDetail() {
-        LiveService liveService = getLiveService();
-        DescribeRecordPresetDetailRequest request = new DescribeRecordPresetDetailRequest();
-        try {
-            DescribeRecordPresetDetailResponse response = liveService.describeRecordPresetDetail(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     public void testDeleteRecordPreset() {
         LiveService liveService = getLiveService();
@@ -403,27 +372,6 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
-    public void testDescribeTranscodePreset() {
-        LiveService liveService = getLiveService();
-        DescribeTranscodePresetRequest request = new DescribeTranscodePresetRequest();
-        try {
-            DescribeTranscodePresetResponse response = liveService.describeTranscodePreset(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void testDescribeTranscodePresetDetail() {
-        LiveService liveService = getLiveService();
-        DescribeTranscodePresetDetailRequest request = new DescribeTranscodePresetDetailRequest();
-        try {
-            DescribeTranscodePresetDetailResponse response = liveService.describeTranscodePresetDetail(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     public void testDeleteTranscodePreset() {
         LiveService liveService = getLiveService();
@@ -452,28 +400,6 @@ public class LiveServiceImplTest extends TestCase {
         UpdateSnapshotPresetRequest request = new UpdateSnapshotPresetRequest();
         try {
             UpdateSnapshotPresetResponse response = liveService.updateSnapshotPreset(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void testDescribeSnapshotPreset() {
-        LiveService liveService = getLiveService();
-        DescribeSnapshotPresetRequest request = new DescribeSnapshotPresetRequest();
-        try {
-            DescribeSnapshotPresetResponse response = liveService.describeSnapshotPreset(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void testDescribeSnapshotPresetDetail() {
-        LiveService liveService = getLiveService();
-        DescribeSnapshotPresetDetailRequest request = new DescribeSnapshotPresetDetailRequest();
-        try {
-            DescribeSnapshotPresetDetailResponse response = liveService.describeSnapshotPresetDetail(request);
             System.out.println(JSON.toJSONString(response));
         } catch (Exception e) {
             e.printStackTrace();

@@ -249,20 +249,6 @@ public class LiveConfig {
                         }
                     }
             ));
-            put(Const.UpdateAllAuthUnderVhost, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "POST");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.UpdateAllAuthUnderVhost));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
-                                }
-                            });
-                        }
-                    }
-            ));
             put(Const.ForbidStream, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -459,34 +445,6 @@ public class LiveConfig {
                         }
                     }
             ));
-            put(Const.DescribeRecordPreset, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "POST");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.DescribeRecordPreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.DescribeRecordPresetDetail, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "POST");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.DescribeRecordPresetDetail));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
-                                }
-                            });
-                        }
-                    }
-            ));
             put(Const.DeleteRecordPreset, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -543,35 +501,6 @@ public class LiveConfig {
                         }
                     }
             ));
-            put(Const.DescribeTranscodePreset, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "POST");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.DescribeTranscodePreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.DescribeTranscodePresetDetail, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "POST");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.DescribeTranscodePresetDetail));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
-
-                                }
-                            });
-                        }
-                    }
-            ));
             put(Const.DeleteTranscodePreset, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -610,36 +539,6 @@ public class LiveConfig {
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.UpdateSnapshotPreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
-
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.DescribeSnapshotPreset, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "POST");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.DescribeSnapshotPreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
-
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.DescribeSnapshotPresetDetail, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "POST");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.DescribeSnapshotPresetDetail));
                                     add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
 
                                 }

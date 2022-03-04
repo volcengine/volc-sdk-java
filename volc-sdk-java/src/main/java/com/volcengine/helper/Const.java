@@ -244,7 +244,6 @@ public class Const {
     public static final String EnableAuth = "EnableAuth";
     public static final String DisableAuth = "DisableAuth";
     public static final String DescribeAuth = "DescribeAuth";
-    public static final String UpdateAllAuthUnderVhost = "UpdateAllAuthUnderVhost";
     public static final String ForbidStream = "ForbidStream";
     public static final String ResumeStream = "ResumeStream";
     public static final String ListCert = "ListCert";
@@ -259,19 +258,13 @@ public class Const {
     public static final String DescribeReferer = "DescribeReferer";
     public static final String CreateRecordPreset = "CreateRecordPreset";
     public static final String UpdateRecordPreset = "UpdateRecordPreset";
-    public static final String DescribeRecordPreset = "DescribeRecordPreset";
-    public static final String DescribeRecordPresetDetail = "DescribeRecordPresetDetail";
     public static final String DeleteRecordPreset = "DeleteRecordPreset";
     public static final String ListVhostRecordPreset = "ListVhostRecordPreset";
     public static final String CreateTranscodePreset = "CreateTranscodePreset";
     public static final String UpdateTranscodePreset = "UpdateTranscodePreset";
-    public static final String DescribeTranscodePreset = "DescribeTranscodePreset";
-    public static final String DescribeTranscodePresetDetail = "DescribeTranscodePresetDetail";
     public static final String DeleteTranscodePreset = "DeleteTranscodePreset";
     public static final String CreateSnapshotPreset = "CreateSnapshotPreset";
     public static final String UpdateSnapshotPreset = "UpdateSnapshotPreset";
-    public static final String DescribeSnapshotPreset = "DescribeSnapshotPreset";
-    public static final String DescribeSnapshotPresetDetail = "DescribeSnapshotPresetDetail";
     public static final String DeleteSnapshotPreset = "DeleteSnapshotPreset";
     public static final String ListVhostSnapshotPreset = "ListVhostSnapshotPreset";
 

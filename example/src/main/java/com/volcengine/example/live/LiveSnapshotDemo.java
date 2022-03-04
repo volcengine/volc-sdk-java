@@ -19,10 +19,6 @@ public class LiveSnapshotDemo {
         //
         updateSnapshotPresetDemo(liveService);
         //
-        describeSnapshotPresetDemo(liveService);
-        //
-        describeSnapshotPresetDetailDemo(liveService);
-        //
         deleteSnapshotPresetDemo(liveService);
         //
         listVhostSnapshotPresetDemo(liveService);
@@ -48,25 +44,6 @@ public class LiveSnapshotDemo {
         }
     }
 
-    private static void describeSnapshotPresetDemo(LiveService liveService) {
-        DescribeSnapshotPresetRequest request = new DescribeSnapshotPresetRequest();
-        try {
-            DescribeSnapshotPresetResponse response = liveService.describeSnapshotPreset(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static void describeSnapshotPresetDetailDemo(LiveService liveService) {
-        DescribeSnapshotPresetDetailRequest request = new DescribeSnapshotPresetDetailRequest();
-        try {
-            DescribeSnapshotPresetDetailResponse response = liveService.describeSnapshotPresetDetail(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     private static void deleteSnapshotPresetDemo(LiveService liveService) {
         DeleteSnapshotPresetRequest request = new DeleteSnapshotPresetRequest();

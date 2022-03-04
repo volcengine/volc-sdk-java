@@ -56,7 +56,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
         }
         res.getResponseMetadata().setService("live");
         return res;
@@ -72,7 +72,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -87,7 +88,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -102,7 +104,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -117,7 +120,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -132,7 +136,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -147,7 +152,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -162,7 +168,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -177,7 +184,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -192,7 +200,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -207,7 +216,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -222,7 +232,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -237,7 +248,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -252,7 +264,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -267,25 +280,12 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
 
-    @Override
-    public UpdateAllAuthUnderVhostResponse updateAllAuthUnderVhost(UpdateAllAuthUnderVhostRequest updateAllAuthUnderVhostRequest) throws Exception {
-        RawResponse response = json(Const.UpdateAllAuthUnderVhost, new ArrayList<>(), JSON.toJSONString(updateAllAuthUnderVhostRequest));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-        UpdateAllAuthUnderVhostResponse res = JSON.parseObject(response.getData(), UpdateAllAuthUnderVhostResponse.class);
-        if (res.getResponseMetadata().getError() != null) {
-            ResponseMetadata meta = res.getResponseMetadata();
-//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
-        res.getResponseMetadata().setService("live");
-        return res;
-    }
 
     @Override
     public ForbidStreamResponse forbidStream(ForbidStreamRequest forbidStreamRequest) throws Exception {
@@ -297,7 +297,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -312,7 +313,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -327,7 +329,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -342,7 +345,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -357,7 +361,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -372,7 +377,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -387,7 +393,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -402,7 +409,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -417,7 +425,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -432,7 +441,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -447,7 +457,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -462,7 +473,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -477,7 +489,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -492,40 +505,12 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
 
-    @Override
-    public DescribeRecordPresetResponse describeRecordPreset(DescribeRecordPresetRequest describeRecordPresetRequest) throws Exception {
-        RawResponse response = json(Const.DescribeRecordPreset, new ArrayList<>(), JSON.toJSONString(describeRecordPresetRequest));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-        DescribeRecordPresetResponse res = JSON.parseObject(response.getData(), DescribeRecordPresetResponse.class);
-        if (res.getResponseMetadata().getError() != null) {
-            ResponseMetadata meta = res.getResponseMetadata();
-//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
-        res.getResponseMetadata().setService("live");
-        return res;
-    }
-
-    @Override
-    public DescribeRecordPresetDetailResponse describeRecordPresetDetail(DescribeRecordPresetDetailRequest describeRecordPresetDetailRequest) throws Exception {
-        RawResponse response = json(Const.DescribeRecordPresetDetail, new ArrayList<>(), JSON.toJSONString(describeRecordPresetDetailRequest));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-        DescribeRecordPresetDetailResponse res = JSON.parseObject(response.getData(), DescribeRecordPresetDetailResponse.class);
-        if (res.getResponseMetadata().getError() != null) {
-            ResponseMetadata meta = res.getResponseMetadata();
-//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
-        res.getResponseMetadata().setService("live");
-        return res;
-    }
 
     @Override
     public DeleteRecordPresetResponse deleteRecordPreset(DeleteRecordPresetRequest deleteRecordPresetRequest) throws Exception {
@@ -537,7 +522,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -552,7 +538,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -567,7 +554,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -582,40 +570,12 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
 
-    @Override
-    public DescribeTranscodePresetResponse describeTranscodePreset(DescribeTranscodePresetRequest describeTranscodePresetRequest) throws Exception {
-        RawResponse response = json(Const.DescribeTranscodePreset, new ArrayList<>(), JSON.toJSONString(describeTranscodePresetRequest));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-        DescribeTranscodePresetResponse res = JSON.parseObject(response.getData(), DescribeTranscodePresetResponse.class);
-        if (res.getResponseMetadata().getError() != null) {
-            ResponseMetadata meta = res.getResponseMetadata();
-//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
-        res.getResponseMetadata().setService("live");
-        return res;
-    }
-
-    @Override
-    public DescribeTranscodePresetDetailResponse describeTranscodePresetDetail(DescribeTranscodePresetDetailRequest describeTranscodePresetDetailRequest) throws Exception {
-        RawResponse response = json(Const.DescribeTranscodePresetDetail, new ArrayList<>(), JSON.toJSONString(describeTranscodePresetDetailRequest));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-        DescribeTranscodePresetDetailResponse res = JSON.parseObject(response.getData(), DescribeTranscodePresetDetailResponse.class);
-        if (res.getResponseMetadata().getError() != null) {
-            ResponseMetadata meta = res.getResponseMetadata();
-//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
-        res.getResponseMetadata().setService("live");
-        return res;
-    }
 
     @Override
     public DeleteTranscodePresetResponse deleteTranscodePreset(DeleteTranscodePresetRequest deleteTranscodePresetRequest) throws Exception {
@@ -627,7 +587,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -642,7 +603,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -657,37 +619,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
-        res.getResponseMetadata().setService("live");
-        return res;
-    }
-
-    @Override
-    public DescribeSnapshotPresetResponse describeSnapshotPreset(DescribeSnapshotPresetRequest describeSnapshotPresetRequest) throws Exception {
-        RawResponse response = json(Const.DescribeSnapshotPreset, new ArrayList<>(), JSON.toJSONString(describeSnapshotPresetRequest));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
         }
-        DescribeSnapshotPresetResponse res = JSON.parseObject(response.getData(), DescribeSnapshotPresetResponse.class);
-        if (res.getResponseMetadata().getError() != null) {
-            ResponseMetadata meta = res.getResponseMetadata();
-//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
-        res.getResponseMetadata().setService("live");
-        return res;
-    }
-
-    @Override
-    public DescribeSnapshotPresetDetailResponse describeSnapshotPresetDetail(DescribeSnapshotPresetDetailRequest describeSnapshotPresetDetailRequest) throws Exception {
-        RawResponse response = json(Const.DescribeSnapshotPresetDetail, new ArrayList<>(), JSON.toJSONString(describeSnapshotPresetDetailRequest));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-        DescribeSnapshotPresetDetailResponse res = JSON.parseObject(response.getData(), DescribeSnapshotPresetDetailResponse.class);
-        if (res.getResponseMetadata().getError() != null) {
-            ResponseMetadata meta = res.getResponseMetadata();
-//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -702,7 +635,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }
@@ -717,7 +651,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
 //            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage()+JSON.toJSONString(res));        }
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
         res.getResponseMetadata().setService("live");
         return res;
     }

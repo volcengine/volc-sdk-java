@@ -384,6 +384,17 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
+    public void testListVhostTransCodePreset() {
+        LiveService liveService = getLiveService();
+        ListVhostTransCodePresetRequest request = new ListVhostTransCodePresetRequest();
+        try {
+            ListVhostTransCodePresetResponse response = liveService.listVhostTransCodePreset(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void testCreateSnapshotPreset() {
         LiveService liveService = getLiveService();
         CreateSnapshotPresetRequest request = new CreateSnapshotPresetRequest();

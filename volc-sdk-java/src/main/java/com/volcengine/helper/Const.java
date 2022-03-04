@@ -263,6 +263,7 @@ public class Const {
     public static final String CreateTranscodePreset = "CreateTranscodePreset";
     public static final String UpdateTranscodePreset = "UpdateTranscodePreset";
     public static final String DeleteTranscodePreset = "DeleteTranscodePreset";
+    public static final String ListVhostTransCodePreset = "ListVhostTransCodePreset";
     public static final String CreateSnapshotPreset = "CreateSnapshotPreset";
     public static final String UpdateSnapshotPreset = "UpdateSnapshotPreset";
     public static final String DeleteSnapshotPreset = "DeleteSnapshotPreset";

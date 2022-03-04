@@ -246,6 +246,14 @@ public interface LiveService extends IBaseService {
     DeleteTranscodePresetResponse deleteTranscodePreset(DeleteTranscodePresetRequest deleteTranscodePresetRequest) throws Exception;
 
     /**
+     *
+     * @param listVhostTransCodePresetRequest
+     * @return
+     * @throws Exception
+     */
+    ListVhostTransCodePresetResponse listVhostTransCodePreset(ListVhostTransCodePresetRequest listVhostTransCodePresetRequest) throws Exception;
+
+    /**
      * @param createSnapshotPresetRequest
      * @return
      * @throws Exception

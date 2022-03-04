@@ -244,7 +244,7 @@ public class Const {
     public static final String EnableAuth = "EnableAuth";
     public static final String DisableAuth = "DisableAuth";
     public static final String DescribeAuth = "DescribeAuth";
-    public static final String UpdateAllAuthUnder = "UpdateAllAuthUnder";
+    public static final String UpdateAllAuthUnderVhost = "UpdateAllAuthUnderVhost";
     public static final String ForbidStream = "ForbidStream";
     public static final String ResumeStream = "ResumeStream";
     public static final String ListCert = "ListCert";

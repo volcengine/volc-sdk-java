@@ -7,15 +7,15 @@ import lombok.Data;
 public class UpdateCertRequest {
 
     @JSONField(name = "useway")
-    String UseWay;
+    String useWay;
     @JSONField(name = "chainid")
-    String ChainID;
+    String chainID;
     @JSONField(name = "AccountID")
-    String AccountID;
+    String accountID;
     @JSONField(name = "CertName")
-    String CertName;
+    String certName;
     @JSONField(name = "rsa")
-    CertRSAData Rsa;
+    CertRSAData rsa;
 
     @Data
     private static class CertRSAData {

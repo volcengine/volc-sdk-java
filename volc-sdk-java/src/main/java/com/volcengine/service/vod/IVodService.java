@@ -310,15 +310,6 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodListSpaceResponse listSpace(com.volcengine.service.vod.model.request.VodListSpaceRequest input) throws Exception;
 
 	/**
-	 * getSpaceConfig.
-	 *
-	 * @param input com.volcengine.service.vod.model.request.VodGetSpaceConfigRequest
-	 * @return com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse
-	 * @throws Exception the exception
-	 */
-	com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse getSpaceConfig(com.volcengine.service.vod.model.request.VodGetSpaceConfigRequest input) throws Exception;
-
-	/**
 	 * updateSpace.
 	 *
 	 * @param input com.volcengine.service.vod.model.request.VodUpdateSpaceRequest

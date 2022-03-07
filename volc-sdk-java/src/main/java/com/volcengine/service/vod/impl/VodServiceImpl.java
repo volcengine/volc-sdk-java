@@ -798,25 +798,6 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 
 
     /**
-     * getSpaceConfig.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetSpaceConfigRequest
-     * @return com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse
-     * @throws Exception the exception
-     */
-    @Override
-    public com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse getSpaceConfig(com.volcengine.service.vod.model.request.VodGetSpaceConfigRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.GetSpaceConfig, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
-        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-        com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse.newBuilder();
-        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
-        return responseBuilder.build();
-    }
-
-
-    /**
      * updateSpace.
      *
      * @param input com.volcengine.service.vod.model.request.VodUpdateSpaceRequest

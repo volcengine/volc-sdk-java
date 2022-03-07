@@ -438,4 +438,15 @@ public class LiveServiceImplTest extends TestCase {
             e.printStackTrace();
         }
     }
+
+    public void testListCommonTransPresetDetail() {
+        LiveService liveService = getLiveService();
+        ListCommonTransPresetDetailRequest request = new ListCommonTransPresetDetailRequest();
+        try {
+            ListCommonTransPresetDetailResponse response = liveService.listCommonTransPresetDetail(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -22,6 +22,8 @@ public class LiveTranscodeDemo {
         deleteTranscodePresetDemo(liveService);
         //
         listVhostTransCodePresetDemo(liveService);
+        //
+        listCommonTransPresetDetailDemo(liveService);
     }
 
     private static void createTranscodePresetDemo(LiveService liveService) {
@@ -58,6 +60,16 @@ public class LiveTranscodeDemo {
         ListVhostTransCodePresetRequest request = new ListVhostTransCodePresetRequest();
         try {
             ListVhostTransCodePresetResponse response = liveService.listVhostTransCodePreset(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void listCommonTransPresetDetailDemo(LiveService liveService) {
+        ListCommonTransPresetDetailRequest request = new ListCommonTransPresetDetailRequest();
+        try {
+            ListCommonTransPresetDetailResponse response = liveService.listCommonTransPresetDetail(request);
             System.out.println(JSON.toJSONString(response));
         } catch (Exception e) {
             e.printStackTrace();

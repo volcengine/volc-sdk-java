@@ -15,31 +15,20 @@ public class CreateSnapshotPresetRequest {
     String app;
     @JSONField(name = "Status")
     Long status;
-    @JSONField(name = "Format")
-    String[] format;
-    @JSONField(name = "Duration")
-    Long duration;
-    @JSONField(name = "SliceDuration")
-    Long sliceDuration;
+    @JSONField(name = "Interval")
+    Long interval;
     @JSONField(name = "Bucket")
     String bucket;
     @JSONField(name = "StorageDir")
     String storageDir;
     @JSONField(name = "AccessKey")
     String accessKey;
-    @JSONField(name = "ReserveDays")
-    Long reserveDays;
-    @JSONField(name = "RecordTob")
-    RecordTob[] recordTob;
+    @JSONField(name = "SnapshotFormat")
+    String snapshotFormat;
+    @JSONField(name = "SnapshotObject")
+    String snapshotObject;
     @JSONField(name = "CallbackDetailList")
     CallbackDetail[] callbackDetailList;
-    @JSONField(name = "PullDomain")
-    String pullDomain;
-    @JSONField(name = "VodNamespace")
-    String vodNamespace;
-    @JSONField(name = "WorkflowID")
-    String workflowID;
-    @JSONField(name = "ACL")
-    String ACL;
-
+    @JSONField(name = "ServiceID")
+    String serviceID;
 }

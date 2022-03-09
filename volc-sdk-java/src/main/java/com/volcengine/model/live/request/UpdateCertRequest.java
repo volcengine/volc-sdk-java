@@ -1,6 +1,7 @@
 package com.volcengine.model.live.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.live.CertRSAData;
 import lombok.Data;
 
 @Data
@@ -17,11 +18,4 @@ public class UpdateCertRequest {
     @JSONField(name = "rsa")
     CertRSAData rsa;
 
-    @Data
-    private static class CertRSAData {
-        @JSONField(name = "pubkey")
-        String pubKey;
-        @JSONField(name = "prikey")
-        String priKey;
-    }
 }

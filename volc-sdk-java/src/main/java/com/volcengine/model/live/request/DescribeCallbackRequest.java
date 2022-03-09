@@ -13,5 +13,5 @@ public class DescribeCallbackRequest {
     @JSONField(name = "App")
     String app;
     @JSONField(name = "MessageType")
-    String MmssageType;
+    String messageType;
 }

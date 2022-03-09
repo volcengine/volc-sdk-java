@@ -13,14 +13,14 @@ public class DescribeRefererResponse {
 
 
     @Data
-    private static class DescribeRefererResult {
+    public static class DescribeRefererResult {
 
         @JSONField(name = "RefererList")
         RefererItem[] RefererList;
     }
 
     @Data
-    private static class RefererItem {
+    public static class RefererItem {
 
         @JSONField(name = "Vhost")
         String vhost;
@@ -31,7 +31,7 @@ public class DescribeRefererResponse {
     }
 
     @Data
-    private static class RefererInfo {
+    public static class RefererInfo {
 
         @JSONField(name = "Type")
         String Type;

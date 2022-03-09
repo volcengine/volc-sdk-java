@@ -9,14 +9,14 @@ import java.util.Map;
 @Data
 public class UpdateCallbackRequest {
 
+    @JSONField(name = "MessageType")
+    String messageType;
     @JSONField(name = "Vhost")
     String vhost;
     @JSONField(name = "Domain")
     String domain;
     @JSONField(name = "App")
     String App;
-    @JSONField(name = "MessageType")
-    String messageType;
     @JSONField(name = "TranscodeCallback")
     Long transcodeCallback;
     @JSONField(name = "AuthEnable")
@@ -27,16 +27,14 @@ public class UpdateCallbackRequest {
     String authKeySecond;
     @JSONField(name = "ValidDuration")
     Long validDuration;
-    @JSONField(name = "encryptionAlgorithm")
-    String EncryptionAlgorithm;
+    @JSONField(name = "EncryptionAlgorithm")
+    String encryptionAlgorithm;
     @JSONField(name = "CallbackField")
     String[] callbackField;
     @JSONField(name = "AuthField")
     Map<String, String> authField;
     @JSONField(name = "EncryptField")
     String[] encryptField;
-    @JSONField(name = "AppendField")
-    Map<String, String> appendField;
     @JSONField(name = "TimeoutSecond")
     Long timeoutSecond;
     @JSONField(name = "RetryTimes")
@@ -45,13 +43,5 @@ public class UpdateCallbackRequest {
     Long retryInternalSecond;
     @JSONField(name = "CallbackDetailList")
     CallbackDetail[] callbackDetailList;
-
-//    @Data
-//    private static class CallbackDetail {
-//
-//        @JSONField(name = "CallbackType")
-//        String callbackType;
-//        @JSONField(name = "URL")
-//        String URL;
-//    }
+    
 }

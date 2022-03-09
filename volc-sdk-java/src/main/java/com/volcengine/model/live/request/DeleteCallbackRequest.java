@@ -7,11 +7,9 @@ import lombok.Data;
 public class DeleteCallbackRequest {
     @JSONField(name = "Vhost")
     String vhost;
-    @JSONField(name = "Domain")
-    String domain;
     @JSONField(name = "App")
     String app;
     @JSONField(name = "MessageType")
-    String MmssageType;
+    String messageType;
 
 }

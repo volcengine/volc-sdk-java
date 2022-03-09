@@ -23,6 +23,8 @@ public class DescribeCertDetailSecretResponse {
         String useWay;
         @JSONField(name = "Status")
         String status;
+        @JSONField(name = "CertName")
+        String certName;
         @JSONField(name = "Rsa")
         OpenAPICertData rsa;
     }

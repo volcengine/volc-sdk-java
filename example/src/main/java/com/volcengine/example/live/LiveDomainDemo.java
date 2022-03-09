@@ -37,6 +37,8 @@ public class LiveDomainDemo {
      */
     private static void createDomainDemo(LiveService liveService) {
         CreateDomainRequest request = new CreateDomainRequest();
+        request.setDomain("your domain");
+        request.setType("your type");
         try {
             CreateDomainResponse response = liveService.createDomain(request);
             System.out.println(JSON.toJSONString(response));
@@ -52,6 +54,8 @@ public class LiveDomainDemo {
      */
     private static void deleteDomainDemo(LiveService liveService) {
         DeleteDomainRequest request = new DeleteDomainRequest();
+        //first disable
+        request.setDomain("your domain");
         try {
             DeleteDomainResponse response = liveService.deleteDomain(request);
             System.out.println(JSON.toJSONString(response));
@@ -67,6 +71,8 @@ public class LiveDomainDemo {
      */
     private static void listDomainDetailDemo(LiveService liveService) {
         ListDomainDetailRequest request = new ListDomainDetailRequest();
+        request.setPageNum(1);
+        request.setPageSize(10);
         try {
             ListDomainDetailResponse response = liveService.listDomainDetail(request);
             System.out.println(JSON.toJSONString(response));
@@ -82,6 +88,7 @@ public class LiveDomainDemo {
      */
     private static void describeDomainDemo(LiveService liveService) {
         DescribeDomainRequest request = new DescribeDomainRequest();
+        request.setDomainList(new String[]{"your domain list"});
         try {
             DescribeDomainResponse response = liveService.describeDomain(request);
             System.out.println(JSON.toJSONString(response));
@@ -97,6 +104,7 @@ public class LiveDomainDemo {
      */
     private static void enableDomainDemo(LiveService liveService) {
         EnableDomainRequest request = new EnableDomainRequest();
+        request.setDomain("your domain");
         try {
             EnableDomainResponse response = liveService.enableDomain(request);
             System.out.println(JSON.toJSONString(response));
@@ -112,6 +120,7 @@ public class LiveDomainDemo {
      */
     private static void disableDomainDemo(LiveService liveService) {
         DisableDomainRequest request = new DisableDomainRequest();
+        request.setDomain("your domain");
         try {
             DisableDomainResponse response = liveService.disableDomain(request);
             System.out.println(JSON.toJSONString(response));
@@ -129,6 +138,8 @@ public class LiveDomainDemo {
      */
     private static void managerPullPushDomainBindDemo(LiveService liveService) {
         ManagerPullPushDomainBindRequest request = new ManagerPullPushDomainBindRequest();
+        request.setPullDomain("your push domain");
+        request.setPullDomain("your Pull domain");
         try {
             ManagerPullPushDomainBindResponse response = liveService.managerPullPushDomainBind(request);
             System.out.println(JSON.toJSONString(response));

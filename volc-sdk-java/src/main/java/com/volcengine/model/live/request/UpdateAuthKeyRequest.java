@@ -16,8 +16,6 @@ public class UpdateAuthKeyRequest {
     String sceneType;
     @JSONField(name = "AuthDetailList")
     Object[] authDetailList;
-    @JSONField(name = "ValidDuration")
-    Long validDuration;
     @JSONField(name = "PushPullEnable")
     Boolean pushPullEnable;
 }

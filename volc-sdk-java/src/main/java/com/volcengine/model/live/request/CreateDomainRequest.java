@@ -6,8 +6,6 @@ import lombok.Data;
 @Data
 public class CreateDomainRequest {
 
-    @JSONField(name = "AccountID")
-    String accountID;
     @JSONField(name = "Vhost")
     String vhost;
     @JSONField(name = "Domain")
@@ -20,6 +18,4 @@ public class CreateDomainRequest {
     String CNAME;
     @JSONField(name = "AutoNext")
     Boolean autoNext;
-    @JSONField(name = "DomainID")
-    Long domainID;
 }

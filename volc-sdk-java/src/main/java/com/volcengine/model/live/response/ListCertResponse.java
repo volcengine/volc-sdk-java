@@ -32,5 +32,7 @@ public class ListCertResponse {
         String Status;
         @JSONField(name = "statuscode")
         Integer StatusCode;
+        @JSONField(name = "CertName")
+        String certName;
     }
 }

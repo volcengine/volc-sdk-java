@@ -16,7 +16,7 @@ public class UpdateCallbackRequest {
     @JSONField(name = "Domain")
     String domain;
     @JSONField(name = "App")
-    String App;
+    String app;
     @JSONField(name = "TranscodeCallback")
     Long transcodeCallback;
     @JSONField(name = "AuthEnable")
@@ -43,5 +43,5 @@ public class UpdateCallbackRequest {
     Long retryInternalSecond;
     @JSONField(name = "CallbackDetailList")
     CallbackDetail[] callbackDetailList;
-    
+
 }

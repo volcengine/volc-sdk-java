@@ -6,8 +6,6 @@ import lombok.Data;
 @Data
 public class DeleteCertRequest {
 
-    @JSONField(name = "AccountID")
-    String accountID;
     @JSONField(name = "chainid")
     String chainID;
 }

@@ -22,6 +22,8 @@ public class UpdateRecordPresetRequest {
     Long duration;
     @JSONField(name = "SliceDuration")
     Long sliceDuration;
+    @JSONField(name = "ReserveDuration")
+    Long reserveDuration;
     @JSONField(name = "Bucket")
     String bucket;
     @JSONField(name = "StorageDir")

@@ -8,4 +8,6 @@ public class EnableDomainRequest {
 
     @JSONField(name = "Domain")
     String domain;
+    @JSONField(name = "AutoNext")
+    Boolean autoNext;
 }

@@ -16,7 +16,7 @@ public class UpdateRefererRequest {
     RefererInfo[] refererInfoList;
 
     @Data
-    private static class RefererInfo {
+    public static class RefererInfo {
         @JSONField(name = "Type")
         String type;
         @JSONField(name = "Key")

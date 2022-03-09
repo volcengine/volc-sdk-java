@@ -1,6 +1,9 @@
 package com.volcengine.service.live.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.volcengine.model.live.CallbackDetail;
+import com.volcengine.model.live.CertRSAData;
+import com.volcengine.model.live.RecordTob;
 import com.volcengine.model.live.request.*;
 import com.volcengine.model.live.response.*;
 import com.volcengine.service.live.LiveService;
@@ -24,7 +27,12 @@ public class LiveServiceImplTest extends TestCase {
     public void testUpdateCallback() {
         LiveService liveService = getLiveService();
         UpdateCallbackRequest request = new UpdateCallbackRequest();
-        request.setVhost("");
+        request.setMessageType("record");
+        request.setVhost("vhost");
+        CallbackDetail callbackDetail = new CallbackDetail();
+        callbackDetail.setCallbackType("");
+        callbackDetail.setURL("");
+        request.setCallbackDetailList(new CallbackDetail[]{callbackDetail});
         try {
             UpdateCallbackResponse response = liveService.updateCallback(request);
             System.out.println(JSON.toJSONString(response));
@@ -36,6 +44,9 @@ public class LiveServiceImplTest extends TestCase {
     public void testDescribeCallback() {
         LiveService liveService = getLiveService();
         DescribeCallbackRequest request = new DescribeCallbackRequest();
+        request.setMessageType("");
+        request.setDomain("");
+        request.setApp("");
         try {
             DescribeCallbackResponse response = liveService.describeCallback(request);
             System.out.println(JSON.toJSONString(response));
@@ -47,6 +58,8 @@ public class LiveServiceImplTest extends TestCase {
     public void testDeleteCallback() {
         LiveService liveService = getLiveService();
         DeleteCallbackRequest request = new DeleteCallbackRequest();
+        request.setMessageType("record");
+        request.setVhost("vhost");
         try {
             DeleteCallbackRespose response = liveService.deleteCallback(request);
             System.out.println(JSON.toJSONString(response));
@@ -274,9 +287,17 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
+    //todo 待测
     public void testCreateCert() {
         LiveService liveService = getLiveService();
         CreateCertRequest request = new CreateCertRequest();
+        request.setCertName("testCert");
+        CertRSAData rsa = new CertRSAData();
+        rsa.setPubKey("pubKey");
+        rsa.setPriKey("priKey");
+        request.setRsa(rsa);
+//        request.setAccountID("123");
+        request.setUseWay("sign");
         try {
             CreateCertResponse response = liveService.createCert(request);
             System.out.println(JSON.toJSONString(response));
@@ -299,9 +320,18 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
+    //todo
     public void testUpdateCert() {
         LiveService liveService = getLiveService();
         UpdateCertRequest request = new UpdateCertRequest();
+        CertRSAData rsa = new CertRSAData();
+        rsa.setPubKey("pubKey");
+        rsa.setPriKey("priKey");
+        request.setRsa(rsa);
+        request.setCertName("certName");
+        request.setChainID("123");
+        request.setUseWay("sign");
+        System.out.println(JSON.toJSONString(request));
         try {
             UpdateCertResponse response = liveService.updateCert(request);
             System.out.println(JSON.toJSONString(response));
@@ -321,6 +351,7 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
+    //todo
     public void testUnBindCert() {
         LiveService liveService = getLiveService();
         UnbindCertRequest request = new UnbindCertRequest();
@@ -332,6 +363,7 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
+    //todo
     public void testDeleteCert() {
         LiveService liveService = getLiveService();
         DeleteCertRequest request = new DeleteCertRequest();
@@ -346,6 +378,19 @@ public class LiveServiceImplTest extends TestCase {
     public void testUpdateReferer() {
         LiveService liveService = getLiveService();
         UpdateRefererRequest request = new UpdateRefererRequest();
+        request.setDomain("domain");
+        request.setApp("app");
+        UpdateRefererRequest.RefererInfo refererInfo1 = new UpdateRefererRequest.RefererInfo();
+        refererInfo1.setKey("key1");
+        refererInfo1.setType("type1");
+        refererInfo1.setValue("value1");
+        refererInfo1.setPriority(50L);
+        UpdateRefererRequest.RefererInfo refererInfo2 = new UpdateRefererRequest.RefererInfo();
+        refererInfo2.setKey("key2");
+        refererInfo2.setType("type2");
+        refererInfo2.setValue("value2");
+        refererInfo2.setPriority(60L);
+        request.setRefererInfoList(new UpdateRefererRequest.RefererInfo[]{refererInfo1, refererInfo2});
         try {
             UpdateRefererResponse response = liveService.updateReferer(request);
             System.out.println(JSON.toJSONString(response));
@@ -357,6 +402,8 @@ public class LiveServiceImplTest extends TestCase {
     public void testDeleteReferer() {
         LiveService liveService = getLiveService();
         DeleteRefererRequest request = new DeleteRefererRequest();
+        request.setVhost("vhost");
+        request.setApp("app");
         try {
             DeleteRefererResponse response = liveService.deleteReferer(request);
             System.out.println(JSON.toJSONString(response));
@@ -368,6 +415,9 @@ public class LiveServiceImplTest extends TestCase {
     public void testDescribeReferer() {
         LiveService liveService = getLiveService();
         DescribeRefererRequest request = new DescribeRefererRequest();
+        request.setVhost("vhost");
+        request.setDomain("domain");
+        request.setApp("app");
         try {
             DescribeRefererResponse response = liveService.describeReferer(request);
             System.out.println(JSON.toJSONString(response));
@@ -379,6 +429,16 @@ public class LiveServiceImplTest extends TestCase {
     public void testCreateRecordPreset() {
         LiveService liveService = getLiveService();
         CreateRecordPresetRequest request = new CreateRecordPresetRequest();
+        request.setVhost("vhost");
+        request.setApp("app");
+        request.setBucket("bb");
+        request.setStatus(1L);
+        RecordTob recordTob1 = new RecordTob();
+        recordTob1.setDuration(100L);
+        recordTob1.setFormat("hls");
+        recordTob1.setSplice(-1L);
+        recordTob1.setRecordObject("/xx/xx");
+        request.setRecordTob(new RecordTob[]{recordTob1});
         try {
             CreateRecordPresetResponse response = liveService.createRecordPreset(request);
             System.out.println(JSON.toJSONString(response));
@@ -390,6 +450,17 @@ public class LiveServiceImplTest extends TestCase {
     public void testUpdateRecordPreset() {
         LiveService liveService = getLiveService();
         UpdateRecordPresetRequest request = new UpdateRecordPresetRequest();
+        request.setPreset("preset1");
+        request.setVhost("vhost");
+        request.setApp("app");
+        request.setStatus(1L);
+        request.setBucket("bb");
+        RecordTob recordTob1 = new RecordTob();
+        recordTob1.setDuration(100L);
+        recordTob1.setFormat("hls");
+        recordTob1.setSplice(-1L);
+        recordTob1.setRecordObject("/xx/xx");
+        request.setRecordTob(new RecordTob[]{recordTob1});
         try {
             UpdateRecordPresetResponse response = liveService.updateRecordPreset(request);
             System.out.println(JSON.toJSONString(response));
@@ -402,6 +473,9 @@ public class LiveServiceImplTest extends TestCase {
     public void testDeleteRecordPreset() {
         LiveService liveService = getLiveService();
         DeleteRecordPresetRequest request = new DeleteRecordPresetRequest();
+        request.setVhost("vhost");
+        request.setPreset("preset");
+        request.setApp("app");
         try {
             DeleteRecordPresetResponse response = liveService.deleteRecordPreset(request);
             System.out.println(JSON.toJSONString(response));
@@ -413,6 +487,7 @@ public class LiveServiceImplTest extends TestCase {
     public void testListVhostRecordPreset() {
         LiveService liveService = getLiveService();
         ListVhostRecordPresetRequest request = new ListVhostRecordPresetRequest();
+        request.setVhost("vhost");
         try {
             ListVhostRecordPresetResponse response = liveService.listVhostRecordPreset(request);
             System.out.println(JSON.toJSONString(response));
@@ -424,6 +499,12 @@ public class LiveServiceImplTest extends TestCase {
     public void testCreateTranscodePreset() {
         LiveService liveService = getLiveService();
         CreateTranscodePresetRequest request = new CreateTranscodePresetRequest();
+        request.setVhost("vhost");
+        request.setApp("app");
+        request.setStatus(1L);
+        request.setSuffixName("");
+        request.setPreset("preset");
+        request.setFPS(30L);
         try {
             CreateTranscodePresetResponse response = liveService.createTranscodePreset(request);
             System.out.println(JSON.toJSONString(response));
@@ -435,6 +516,9 @@ public class LiveServiceImplTest extends TestCase {
     public void testUpdateTranscodePreset() {
         LiveService liveService = getLiveService();
         UpdateTranscodePresetRequest request = new UpdateTranscodePresetRequest();
+        request.setVhost("vhost");
+        request.setApp("app");
+        request.setPreset("preset");
         try {
             UpdateTranscodePresetResponse response = liveService.updateTranscodePreset(request);
             System.out.println(JSON.toJSONString(response));
@@ -447,6 +531,9 @@ public class LiveServiceImplTest extends TestCase {
     public void testDeleteTranscodePreset() {
         LiveService liveService = getLiveService();
         DeleteTranscodePresetRequest request = new DeleteTranscodePresetRequest();
+        request.setVhost("vhost");
+        request.setApp("app");
+        request.setPreset("preset");
         try {
             DeleteTranscodePresetResponse response = liveService.deleteTranscodePreset(request);
             System.out.println(JSON.toJSONString(response));
@@ -458,8 +545,21 @@ public class LiveServiceImplTest extends TestCase {
     public void testListVhostTransCodePreset() {
         LiveService liveService = getLiveService();
         ListVhostTransCodePresetRequest request = new ListVhostTransCodePresetRequest();
+        request.setVhost("vhost");
         try {
             ListVhostTransCodePresetResponse response = liveService.listVhostTransCodePreset(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testListCommonTransPresetDetail() {
+        LiveService liveService = getLiveService();
+        ListCommonTransPresetDetailRequest request = new ListCommonTransPresetDetailRequest();
+        request.setPresetList(new String[]{"Preset1", "Preset1"});
+        try {
+            ListCommonTransPresetDetailResponse response = liveService.listCommonTransPresetDetail(request);
             System.out.println(JSON.toJSONString(response));
         } catch (Exception e) {
             e.printStackTrace();
@@ -469,6 +569,14 @@ public class LiveServiceImplTest extends TestCase {
     public void testCreateSnapshotPreset() {
         LiveService liveService = getLiveService();
         CreateSnapshotPresetRequest request = new CreateSnapshotPresetRequest();
+        request.setVhost("vhost");
+        request.setApp("app");
+        request.setStatus(1L);
+        request.setInterval(5L);
+        request.setBucket("bb");
+        request.setSnapshotFormat("");
+        request.setSnapshotObject("");
+        request.setStorageDir("/xx");
         try {
             CreateSnapshotPresetResponse response = liveService.createSnapshotPreset(request);
             System.out.println(JSON.toJSONString(response));
@@ -480,6 +588,14 @@ public class LiveServiceImplTest extends TestCase {
     public void testUpdateSnapshotPreset() {
         LiveService liveService = getLiveService();
         UpdateSnapshotPresetRequest request = new UpdateSnapshotPresetRequest();
+        request.setVhost("vhost");
+        request.setApp("app");
+        request.setStatus(1L);
+        request.setInterval(5L);
+        request.setBucket("bb");
+        request.setSnapshotFormat("");
+        request.setSnapshotObject("");
+        request.setStorageDir("/xx");
         try {
             UpdateSnapshotPresetResponse response = liveService.updateSnapshotPreset(request);
             System.out.println(JSON.toJSONString(response));
@@ -491,6 +607,9 @@ public class LiveServiceImplTest extends TestCase {
     public void testDeleteSnapshotPreset() {
         LiveService liveService = getLiveService();
         DeleteSnapshotPresetRequest request = new DeleteSnapshotPresetRequest();
+        request.setVhost("vhost");
+        request.setApp("app");
+        request.setPreset("preset");
         try {
             DeleteSnapshotPresetResponse response = liveService.deleteSnapshotPreset(request);
             System.out.println(JSON.toJSONString(response));
@@ -502,6 +621,7 @@ public class LiveServiceImplTest extends TestCase {
     public void testListVhostSnapshotPreset() {
         LiveService liveService = getLiveService();
         ListVhostSnapshotPresetRequest request = new ListVhostSnapshotPresetRequest();
+        request.setVhost("vhost");
         try {
             ListVhostSnapshotPresetResponse response = liveService.listVhostSnapshotPreset(request);
             System.out.println(JSON.toJSONString(response));
@@ -510,14 +630,5 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
-    public void testListCommonTransPresetDetail() {
-        LiveService liveService = getLiveService();
-        ListCommonTransPresetDetailRequest request = new ListCommonTransPresetDetailRequest();
-        try {
-            ListCommonTransPresetDetailResponse response = liveService.listCommonTransPresetDetail(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+
 }

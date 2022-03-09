@@ -8,9 +8,9 @@ public class RecordTob {
     @JSONField(name = "Format")
     String format;
     @JSONField(name = "Duration")
-    String duration;
+    Long duration;
     @JSONField(name = "Splice")
     Long splice;
     @JSONField(name = "RecordObject")
-    Long recordObject;
+    String recordObject;
 }

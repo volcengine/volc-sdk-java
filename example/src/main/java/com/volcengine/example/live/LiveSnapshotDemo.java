@@ -26,6 +26,14 @@ public class LiveSnapshotDemo {
 
     private static void createSnapshotPresetDemo(LiveService liveService) {
         CreateSnapshotPresetRequest request = new CreateSnapshotPresetRequest();
+        request.setVhost("vhost");
+        request.setApp("app");
+        request.setStatus(1L);
+        request.setInterval(5L);
+        request.setBucket("bb");
+        request.setSnapshotFormat("");
+        request.setSnapshotObject("");
+        request.setStorageDir("/xx");
         try {
             CreateSnapshotPresetResponse response = liveService.createSnapshotPreset(request);
             System.out.println(JSON.toJSONString(response));
@@ -36,6 +44,14 @@ public class LiveSnapshotDemo {
 
     private static void updateSnapshotPresetDemo(LiveService liveService) {
         UpdateSnapshotPresetRequest request = new UpdateSnapshotPresetRequest();
+        request.setVhost("vhost");
+        request.setApp("app");
+        request.setStatus(1L);
+        request.setInterval(5L);
+        request.setBucket("bb");
+        request.setSnapshotFormat("");
+        request.setSnapshotObject("");
+        request.setStorageDir("/xx");
         try {
             UpdateSnapshotPresetResponse response = liveService.updateSnapshotPreset(request);
             System.out.println(JSON.toJSONString(response));
@@ -47,6 +63,9 @@ public class LiveSnapshotDemo {
 
     private static void deleteSnapshotPresetDemo(LiveService liveService) {
         DeleteSnapshotPresetRequest request = new DeleteSnapshotPresetRequest();
+        request.setVhost("vhost");
+        request.setApp("app");
+        request.setPreset("preset");
         try {
             DeleteSnapshotPresetResponse response = liveService.deleteSnapshotPreset(request);
             System.out.println(JSON.toJSONString(response));
@@ -57,6 +76,7 @@ public class LiveSnapshotDemo {
 
     private static void listVhostSnapshotPresetDemo(LiveService liveService) {
         ListVhostSnapshotPresetRequest request = new ListVhostSnapshotPresetRequest();
+        request.setVhost("vhost");
         try {
             ListVhostSnapshotPresetResponse response = liveService.listVhostSnapshotPreset(request);
             System.out.println(JSON.toJSONString(response));

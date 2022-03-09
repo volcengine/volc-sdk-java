@@ -13,7 +13,7 @@ public class CreateTranscodePresetRequest {
     @JSONField(name = "App")
     String App;
     @JSONField(name = "Status")
-    String Status;
+    Long Status;
     @JSONField(name = "SuffixName")
     String SuffixName;
     @JSONField(name = "VideoBitrate")

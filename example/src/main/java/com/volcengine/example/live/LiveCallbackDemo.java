@@ -1,6 +1,7 @@
 package com.volcengine.example.live;
 
 import com.alibaba.fastjson.JSON;
+import com.volcengine.model.live.CallbackDetail;
 import com.volcengine.model.live.request.DeleteCallbackRequest;
 import com.volcengine.model.live.request.DescribeCallbackRequest;
 import com.volcengine.model.live.request.UpdateCallbackRequest;
@@ -35,6 +36,12 @@ public class LiveCallbackDemo {
      */
     private static void updateCallbackDemo(LiveService liveService) {
         UpdateCallbackRequest request = new UpdateCallbackRequest();
+        request.setMessageType("record");
+        request.setVhost("vhost");
+        CallbackDetail callbackDetail = new CallbackDetail();
+        callbackDetail.setCallbackType("");
+        callbackDetail.setURL("");
+        request.setCallbackDetailList(new CallbackDetail[]{callbackDetail});
         try {
             UpdateCallbackResponse response = liveService.updateCallback(request);
             System.out.println(JSON.toJSONString(response));
@@ -51,6 +58,9 @@ public class LiveCallbackDemo {
      */
     private static void describeCallbackDemo(LiveService liveService) {
         DescribeCallbackRequest request = new DescribeCallbackRequest();
+        request.setMessageType("");
+        request.setDomain("");
+        request.setApp("");
         try {
             DescribeCallbackResponse response = liveService.describeCallback(request);
             System.out.println(JSON.toJSONString(response));
@@ -66,6 +76,8 @@ public class LiveCallbackDemo {
      */
     private static void deleteCallbackDemo(LiveService liveService) {
         DeleteCallbackRequest request = new DeleteCallbackRequest();
+        request.setMessageType("record");
+        request.setVhost("vhost");
         try {
             DeleteCallbackRespose response = liveService.deleteCallback(request);
             System.out.println(JSON.toJSONString(response));

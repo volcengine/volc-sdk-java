@@ -33,7 +33,6 @@ public class LiveStreamDemo {
         request.setDomain("domain");
         request.setApp("app");
         request.setStream("stream");
-        request.setEndTime("2022-03-8 11:49:58");
         try {
             ForbidStreamResponse response = liveService.forbidStream(request);
             System.out.println(JSON.toJSONString(response));

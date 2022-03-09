@@ -239,7 +239,6 @@ public class LiveServiceImplTest extends TestCase {
     }
 
 
-    //todo 感觉没问题
     public void testForbidStream() {
         LiveService liveService = getLiveService();
         ForbidStreamRequest request = new ForbidStreamRequest();
@@ -247,7 +246,6 @@ public class LiveServiceImplTest extends TestCase {
         request.setDomain(testDomain);
         request.setApp("123");
         request.setStream("123");
-        request.setEndTime("2021-03-23 14:49:58");
         try {
             ForbidStreamResponse response = liveService.forbidStream(request);
             System.out.println(JSON.toJSONString(response));
@@ -255,8 +253,7 @@ public class LiveServiceImplTest extends TestCase {
             e.printStackTrace();
         }
     }
-
-    //todo 感觉没问题
+    
     public void testResumeStream() {
         LiveService liveService = getLiveService();
         ResumeStreamRequest request = new ResumeStreamRequest();
@@ -275,8 +272,8 @@ public class LiveServiceImplTest extends TestCase {
     public void testListCert() {
         LiveService liveService = getLiveService();
         ListCertRequest request = new ListCertRequest();
-//        String testDomain = "push-rtmp-testf5java.bytedance.com";
-//        request.setDomain(testDomain);
+        String testDomain = "push-rtmp-testf5java.bytedance.com";
+        request.setDomain(testDomain);
         request.setAvailable(Boolean.TRUE);
         request.setExpiring(Boolean.FALSE);
         try {
@@ -287,7 +284,6 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
-    //todo 待测
     public void testCreateCert() {
         LiveService liveService = getLiveService();
         CreateCertRequest request = new CreateCertRequest();
@@ -296,7 +292,6 @@ public class LiveServiceImplTest extends TestCase {
         rsa.setPubKey("pubKey");
         rsa.setPriKey("priKey");
         request.setRsa(rsa);
-//        request.setAccountID("123");
         request.setUseWay("sign");
         try {
             CreateCertResponse response = liveService.createCert(request);
@@ -320,7 +315,6 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
-    //todo
     public void testUpdateCert() {
         LiveService liveService = getLiveService();
         UpdateCertRequest request = new UpdateCertRequest();
@@ -343,6 +337,9 @@ public class LiveServiceImplTest extends TestCase {
     public void testBindCert() {
         LiveService liveService = getLiveService();
         BindCertRequest request = new BindCertRequest();
+        request.setDomain("domain");
+        request.setChainID("chainID");
+        request.setCertDomain("");
         try {
             BindCertResponse response = liveService.bindCert(request);
             System.out.println(JSON.toJSONString(response));
@@ -351,10 +348,10 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
-    //todo
     public void testUnBindCert() {
         LiveService liveService = getLiveService();
         UnbindCertRequest request = new UnbindCertRequest();
+        request.setDomain("domain");
         try {
             UnbindCertResponse response = liveService.unbindCert(request);
             System.out.println(JSON.toJSONString(response));
@@ -363,10 +360,10 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
-    //todo
     public void testDeleteCert() {
         LiveService liveService = getLiveService();
         DeleteCertRequest request = new DeleteCertRequest();
+        request.setChainID("chainID");
         try {
             DeleteCertResponse response = liveService.deleteCert(request);
             System.out.println(JSON.toJSONString(response));

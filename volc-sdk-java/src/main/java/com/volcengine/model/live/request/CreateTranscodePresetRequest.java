@@ -40,7 +40,7 @@ public class CreateTranscodePresetRequest {
     Long ShortSide;
     @JSONField(name = "LongSide")
     Long LongSide;
-    @JSONField(name = "PresetKind")
+    @JSONField(name = "Kind")
     Long PresetKind; //form Kind. json PresetKind
     @JSONField(name = "PresetType")
     Integer PresetType;

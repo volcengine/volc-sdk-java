@@ -12,7 +12,7 @@ public class ListVhostTransCodePresetResponse {
     @JSONField(name = "Result")
     ListVhostTransCodePresetRespOutput result;
     @Data
-    private static class ListVhostTransCodePresetRespOutput {
+    public static class ListVhostTransCodePresetRespOutput {
 
         @JSONField(name = "CommonPresetList")
         TranscodePresetVhostAPP[] CommonPresetList;
@@ -21,7 +21,7 @@ public class ListVhostTransCodePresetResponse {
     }
 
     @Data
-    private static class TranscodePresetVhostAPP {
+    public static class TranscodePresetVhostAPP {
         @JSONField(name = "Preset")
         String Preset;
         @JSONField(name = "Vhost")

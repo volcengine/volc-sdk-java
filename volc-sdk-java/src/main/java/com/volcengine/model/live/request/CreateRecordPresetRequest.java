@@ -25,6 +25,8 @@ public class CreateRecordPresetRequest {
     Long sliceDuration;
     @JSONField(name = "ReserveDays")
     Long reserveDays;
+    @JSONField(name = "ReserveDuration")
+    Long reserveDuration;
     @JSONField(name = "StorageDir")
     String storageDir;
     @JSONField(name = "CallbackDetailList")

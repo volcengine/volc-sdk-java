@@ -14,13 +14,13 @@ public class ListVhostSnapshotPresetResponse {
     ListVhostSnapshotPresetRespOutput result;
 
     @Data
-    private static class ListVhostSnapshotPresetRespOutput {
+    public static class ListVhostSnapshotPresetRespOutput {
         @JSONField(name = "PresetList")
         SlicePresetsVhostAPP[] PresetList;
     }
 
     @Data
-    private static class SlicePresetsVhostAPP {
+    public static class SlicePresetsVhostAPP {
 
         @JSONField(name = "Vhost")
         String vhost;
@@ -31,7 +31,7 @@ public class ListVhostSnapshotPresetResponse {
     }
 
     @Data
-    private static class SlicePreset {
+    public static class SlicePreset {
         @JSONField(name = "Preset")
         String preset;
         @JSONField(name = "Description")

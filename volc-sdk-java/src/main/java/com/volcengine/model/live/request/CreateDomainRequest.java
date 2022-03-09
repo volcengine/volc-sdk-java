@@ -14,8 +14,6 @@ public class CreateDomainRequest {
     String type;
     @JSONField(name = "Region")
     String region;
-    @JSONField(name = "CNAME")
-    String CNAME;
     @JSONField(name = "AutoNext")
     Boolean autoNext;
 }

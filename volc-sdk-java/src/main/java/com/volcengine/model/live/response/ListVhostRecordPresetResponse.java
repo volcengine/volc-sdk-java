@@ -13,13 +13,13 @@ public class ListVhostRecordPresetResponse {
     ListVhostRecordPresetRespOutput result;
 
     @Data
-    private static class ListVhostRecordPresetRespOutput {
+    public static class ListVhostRecordPresetRespOutput {
         @JSONField(name = "PresetList")
         SlicePresetsVhostAPP PresetList;
     }
 
     @Data
-    private static class SlicePresetsVhostAPP {
+    public static class SlicePresetsVhostAPP {
         @JSONField(name = "Vhost")
         String vhost;
         @JSONField(name = "App")
@@ -29,7 +29,7 @@ public class ListVhostRecordPresetResponse {
     }
 
     @Data
-    private static class SlicePreset {
+    public static class SlicePreset {
         @JSONField(name = "Preset")
         String preset;
         @JSONField(name = "Description")

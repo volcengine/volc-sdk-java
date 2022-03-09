@@ -1,6 +1,7 @@
 package com.volcengine.example.live;
 
 import com.alibaba.fastjson.JSON;
+import com.volcengine.model.live.CertRSAData;
 import com.volcengine.model.live.request.*;
 import com.volcengine.model.live.response.*;
 import com.volcengine.service.live.LiveService;
@@ -38,7 +39,9 @@ public class LiveCertDemo {
      */
     private static void listCertDemo(LiveService liveService) {
         ListCertRequest request = new ListCertRequest();
-
+        request.setDomain("domain");
+        request.setExpiring(Boolean.FALSE);
+        request.setAvailable(Boolean.TRUE);
         try {
             ListCertResponse response = liveService.listCert(request);
             System.out.println(JSON.toJSONString(response));
@@ -54,6 +57,12 @@ public class LiveCertDemo {
      */
     private static void createCertDemo(LiveService liveService) {
         CreateCertRequest request = new CreateCertRequest();
+        request.setUseWay("sign");
+        request.setCertName("certName");
+        CertRSAData rsa = new CertRSAData();
+        rsa.setPubKey("pubKey");
+        rsa.setPriKey("priKey");
+        request.setRsa(rsa);
         try {
             CreateCertResponse response = liveService.createCert(request);
             System.out.println(JSON.toJSONString(response));
@@ -69,6 +78,7 @@ public class LiveCertDemo {
      */
     private static void describeCertDetailSecretDemo(LiveService liveService) {
         DescribeCertDetailSecretRequest request = new DescribeCertDetailSecretRequest();
+        request.setChainID("chainID");
         try {
             DescribeCertDetailSecretResponse response = liveService.describeCertDetailSecret(request);
             System.out.println(JSON.toJSONString(response));
@@ -84,6 +94,13 @@ public class LiveCertDemo {
      */
     private static void updateCertDemo(LiveService liveService) {
         UpdateCertRequest request = new UpdateCertRequest();
+        CertRSAData rsa = new CertRSAData();
+        rsa.setPubKey("pubKey");
+        rsa.setPriKey("priKey");
+        request.setRsa(rsa);
+        request.setCertName("certName");
+        request.setChainID("chainID");
+        request.setUseWay("sign");
         try {
             UpdateCertResponse response = liveService.updateCert(request);
             System.out.println(JSON.toJSONString(response));
@@ -99,6 +116,9 @@ public class LiveCertDemo {
      */
     private static void bindCertDemo(LiveService liveService) {
         BindCertRequest request = new BindCertRequest();
+        request.setDomain("domain");
+        request.setChainID("chainID");
+        request.setCertDomain("");
         try {
             BindCertResponse response = liveService.bindCert(request);
             System.out.println(JSON.toJSONString(response));
@@ -114,6 +134,7 @@ public class LiveCertDemo {
      */
     private static void unbindCertDemo(LiveService liveService) {
         UnbindCertRequest request = new UnbindCertRequest();
+        request.setDomain("domain");
         try {
             UnbindCertResponse response = liveService.unbindCert(request);
             System.out.println(JSON.toJSONString(response));
@@ -129,6 +150,7 @@ public class LiveCertDemo {
      */
     private static void deleteCertDemo(LiveService liveService) {
         DeleteCertRequest request = new DeleteCertRequest();
+        request.setChainID("chainID");
         try {
             DeleteCertResponse response = liveService.deleteCert(request);
             System.out.println(JSON.toJSONString(response));

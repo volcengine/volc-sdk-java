@@ -16,4 +16,6 @@ public class BindCertRequest {
     String chainID;
     @JSONField(name = "HTTPS")
     Boolean HTTPS;
+    @JSONField(name = "CertName")
+    Boolean certName;
 }

@@ -19,10 +19,6 @@ public class DescribeCertDetailSecretResponse {
         String chainID;
         @JSONField(name = "Domain")
         String certDomain;
-        @JSONField(name = "UseWay")
-        String useWay;
-        @JSONField(name = "Status")
-        String status;
         @JSONField(name = "CertName")
         String certName;
         @JSONField(name = "Rsa")

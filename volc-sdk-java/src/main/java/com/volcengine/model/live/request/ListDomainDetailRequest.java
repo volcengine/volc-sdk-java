@@ -5,6 +5,10 @@ import lombok.Data;
 
 @Data
 public class ListDomainDetailRequest {
+    @JSONField(name = "PageNum")
+    Integer PageNum;
+    @JSONField(name = "PageSize")
+    Integer PageSize;
     @JSONField(name = "AccountIDList")
     String[] accountIDList;
     @JSONField(name = "VhostList")
@@ -17,9 +21,4 @@ public class ListDomainDetailRequest {
     String[] domainRegionList;
     @JSONField(name = "DomainNameList")
     String[] domainNameList;
-    @JSONField(name = "CnameNameList")
-    String[] cnameNameList;
-    @JSONField(name = "ListType")
-    String listType;
-
 }

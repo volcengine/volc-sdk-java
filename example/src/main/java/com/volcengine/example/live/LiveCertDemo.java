@@ -38,6 +38,7 @@ public class LiveCertDemo {
      */
     private static void listCertDemo(LiveService liveService) {
         ListCertRequest request = new ListCertRequest();
+
         try {
             ListCertResponse response = liveService.listCert(request);
             System.out.println(JSON.toJSONString(response));

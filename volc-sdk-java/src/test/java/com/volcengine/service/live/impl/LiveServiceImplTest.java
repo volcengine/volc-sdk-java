@@ -6,6 +6,9 @@ import com.volcengine.model.live.response.*;
 import com.volcengine.service.live.LiveService;
 import junit.framework.TestCase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class LiveServiceImplTest extends TestCase {
 
     private final String accessKey = "***REMOVED***";
@@ -21,6 +24,7 @@ public class LiveServiceImplTest extends TestCase {
     public void testUpdateCallback() {
         LiveService liveService = getLiveService();
         UpdateCallbackRequest request = new UpdateCallbackRequest();
+        request.setVhost("");
         try {
             UpdateCallbackResponse response = liveService.updateCallback(request);
             System.out.println(JSON.toJSONString(response));
@@ -51,9 +55,16 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
+    //done
     public void testCreateDomain() {
         LiveService liveService = getLiveService();
         CreateDomainRequest request = new CreateDomainRequest();
+        String testDomain = "push-rtmp-testf5java.bytedance.com";
+//        String testDomain = "pull-rtmp-testlwhjava.bytedance.com";
+
+        request.setDomain(testDomain);
+        request.setType("push");
+//        request.setType("pull-flv");
         try {
             CreateDomainResponse response = liveService.createDomain(request);
             System.out.println(JSON.toJSONString(response));
@@ -62,9 +73,13 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
+    //done
     public void testDeleteDomain() {
         LiveService liveService = getLiveService();
         DeleteDomainRequest request = new DeleteDomainRequest();
+        String testPushDomain = "push-rtmp-testf5.bytedance.com";
+        String testPullDomain = "pull-rtmp-testlwhjava.bytedance.com";
+        request.setDomain(testPullDomain);
         try {
             DeleteDomainResponse response = liveService.deleteDomain(request);
             System.out.println(JSON.toJSONString(response));
@@ -73,9 +88,12 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
+    //done
     public void testListDomainDetail() {
         LiveService liveService = getLiveService();
         ListDomainDetailRequest request = new ListDomainDetailRequest();
+        request.setPageNum(1);
+        request.setPageSize(10);
         try {
             ListDomainDetailResponse response = liveService.listDomainDetail(request);
             System.out.println(JSON.toJSONString(response));
@@ -84,9 +102,12 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
+    //done
     public void testDescribeDomain() {
         LiveService liveService = getLiveService();
         DescribeDomainRequest request = new DescribeDomainRequest();
+        String testDomain = "push-rtmp-testf5.bytedance.com";
+        request.setDomainList(new String[]{"push-rtmp-testf5go.bytedance.com"});
         try {
             DescribeDomainResponse response = liveService.describeDomain(request);
             System.out.println(JSON.toJSONString(response));
@@ -95,20 +116,14 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
-    public void testEnableDomain() {
-        LiveService liveService = getLiveService();
-        EnableDomainRequest request = new EnableDomainRequest();
-        try {
-            EnableDomainResponse response = liveService.enableDomain(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
+    //done
     public void testDisableDomain() {
         LiveService liveService = getLiveService();
         DisableDomainRequest request = new DisableDomainRequest();
+        String testDomain = "push-rtmp-testf5.bytedance.com";
+        String testPullDomain = "pull-rtmp-testlwhjava.bytedance.com";
+
+        request.setDomain(testPullDomain);
         try {
             DisableDomainResponse response = liveService.disableDomain(request);
             System.out.println(JSON.toJSONString(response));
@@ -117,9 +132,28 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
+    //done
+    public void testEnableDomain() {
+        LiveService liveService = getLiveService();
+        EnableDomainRequest request = new EnableDomainRequest();
+        String testDomain = "push-rtmp-testf5.bytedance.com";
+        request.setDomain(testDomain);
+        try {
+            EnableDomainResponse response = liveService.enableDomain(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //done
     public void testManagerPullPushDomainBind() {
         LiveService liveService = getLiveService();
         ManagerPullPushDomainBindRequest request = new ManagerPullPushDomainBindRequest();
+        String testPushDomain = "push-rtmp-testf5.bytedance.com";
+        String testPullDomain = "pull-rtmp-testlwhjava.bytedance.com";
+//        request.setPushDomain(testPushDomain);
+        request.setPullDomain(testPullDomain);
         try {
             ManagerPullPushDomainBindResponse response = liveService.managerPullPushDomainBind(request);
             System.out.println(JSON.toJSONString(response));
@@ -128,9 +162,17 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
+    //done
     public void testUpdateAuthKey() {
         LiveService liveService = getLiveService();
         UpdateAuthKeyRequest request = new UpdateAuthKeyRequest();
+        String testDomain = "push-rtmp-testf5java.bytedance.com";
+        request.setDomain(testDomain);
+        request.setSceneType("push");
+        Map<String, String> items = new HashMap<>();
+        items.put("EncryptionAlgorithm", "md5");
+        items.put("SecretKey", "yyytt4ju");
+        request.setAuthDetailList(new Object[]{items});
         try {
             UpdateAuthKeyResponse response = liveService.updateAuthKey(request);
             System.out.println(JSON.toJSONString(response));
@@ -139,9 +181,13 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
+    //done
     public void testEnableAuth() {
         LiveService liveService = getLiveService();
         EnableAuthRequest request = new EnableAuthRequest();
+        String testDomain = "push-rtmp-testf5java.bytedance.com";
+        request.setDomain(testDomain);
+        request.setSceneType("push");
         try {
             EnableAuthResponse response = liveService.enableAuth(request);
             System.out.println(JSON.toJSONString(response));
@@ -150,9 +196,13 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
+    //done
     public void testDisableAuth() {
         LiveService liveService = getLiveService();
         DisableAuthRequest request = new DisableAuthRequest();
+        String testDomain = "push-rtmp-testf5java.bytedance.com";
+        request.setDomain(testDomain);
+        request.setSceneType("push");
         try {
             DisableAuthResponse response = liveService.disableAuth(request);
             System.out.println(JSON.toJSONString(response));
@@ -161,9 +211,12 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
+    //done
     public void testDescribeAuth() {
         LiveService liveService = getLiveService();
         DescribeAuthRequest request = new DescribeAuthRequest();
+        String testDomain = "push-rtmp-testf5java.bytedance.com";
+        request.setDomain(testDomain);
         try {
             DescribeAuthResponse response = liveService.describeAuth(request);
             System.out.println(JSON.toJSONString(response));
@@ -173,9 +226,15 @@ public class LiveServiceImplTest extends TestCase {
     }
 
 
+    //todo 感觉没问题
     public void testForbidStream() {
         LiveService liveService = getLiveService();
         ForbidStreamRequest request = new ForbidStreamRequest();
+        String testDomain = "push-rtmp-testf5java.bytedance.com";
+        request.setDomain(testDomain);
+        request.setApp("123");
+        request.setStream("123");
+        request.setEndTime("2021-03-23 14:49:58");
         try {
             ForbidStreamResponse response = liveService.forbidStream(request);
             System.out.println(JSON.toJSONString(response));
@@ -184,9 +243,13 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
+    //todo 感觉没问题
     public void testResumeStream() {
         LiveService liveService = getLiveService();
         ResumeStreamRequest request = new ResumeStreamRequest();
+        request.setDomain("domain");
+        request.setApp("app");
+        request.setStream("stream");
         try {
             ResumeStreamResponse response = liveService.resumeStream(request);
             System.out.println(JSON.toJSONString(response));
@@ -195,9 +258,14 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
+    //done
     public void testListCert() {
         LiveService liveService = getLiveService();
         ListCertRequest request = new ListCertRequest();
+//        String testDomain = "push-rtmp-testf5java.bytedance.com";
+//        request.setDomain(testDomain);
+        request.setAvailable(Boolean.TRUE);
+        request.setExpiring(Boolean.FALSE);
         try {
             ListCertResponse response = liveService.listCert(request);
             System.out.println(JSON.toJSONString(response));
@@ -217,9 +285,12 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
+    //done
     public void testDescribeCertDetailSecret() {
         LiveService liveService = getLiveService();
         DescribeCertDetailSecretRequest request = new DescribeCertDetailSecretRequest();
+        String chainID = "ff5e0a71dd4842ac9d251f4531919f73";
+        request.setChainID(chainID);
         try {
             DescribeCertDetailSecretResponse response = liveService.describeCertDetailSecret(request);
             System.out.println(JSON.toJSONString(response));

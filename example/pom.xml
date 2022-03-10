@@ -26,6 +26,7 @@
         <dependency>
             <groupId>com.volcengine</groupId>
             <artifactId>volc-sdk-java</artifactId>
+            <version>LATEST</version>
         </dependency>
     </dependencies>
 

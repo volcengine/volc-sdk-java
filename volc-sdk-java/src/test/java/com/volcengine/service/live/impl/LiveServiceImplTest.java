@@ -14,8 +14,8 @@ import java.util.Map;
 
 public class LiveServiceImplTest extends TestCase {
 
-    private final String accessKey = "AKLTZDkyYTQyYmE3NzBmNDE4OWJmYTllYzY0ODhmN2MwZTI";
-    private final String secretKey = "TkRkak5tUTFOalJpWkRVMU5EWTRZVGd4TmpsaE1tRmhOVEEwTXpKaFlUWQ==";
+    private final String accessKey = "";
+    private final String secretKey = "";
 
     private LiveService getLiveService() {
         LiveService liveService = LiveServiceImpl.getInstance();
@@ -253,7 +253,7 @@ public class LiveServiceImplTest extends TestCase {
             e.printStackTrace();
         }
     }
-    
+
     public void testResumeStream() {
         LiveService liveService = getLiveService();
         ResumeStreamRequest request = new ResumeStreamRequest();

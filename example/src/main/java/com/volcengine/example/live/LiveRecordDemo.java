@@ -26,7 +26,7 @@ public class LiveRecordDemo {
     }
 
     private static void createRecordPresetDemo(LiveService liveService) {
-        
+
         CreateRecordPresetRequest request = new CreateRecordPresetRequest();
         request.setVhost("vhost");
         request.setApp("app");

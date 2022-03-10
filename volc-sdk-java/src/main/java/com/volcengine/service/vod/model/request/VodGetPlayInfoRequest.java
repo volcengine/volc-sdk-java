@@ -30,7 +30,6 @@ private static final long serialVersionUID = 0L;
     unionInfo_ = "";
     hDRDefinition_ = "";
     playScene_ = "";
-    drmExpireTimestamp_ = "";
   }
 
   @java.lang.Override
@@ -145,12 +144,6 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             playScene_ = s;
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            drmExpireTimestamp_ = s;
             break;
           }
           default: {
@@ -829,52 +822,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int DRMEXPIRETIMESTAMP_FIELD_NUMBER = 15;
-  private volatile java.lang.Object drmExpireTimestamp_;
-  /**
-   * <pre>
-   * DRM过期时间戳
-   * </pre>
-   *
-   * <code>string DrmExpireTimestamp = 15;</code>
-   * @return The drmExpireTimestamp.
-   */
-  @java.lang.Override
-  public java.lang.String getDrmExpireTimestamp() {
-    java.lang.Object ref = drmExpireTimestamp_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      drmExpireTimestamp_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * DRM过期时间戳
-   * </pre>
-   *
-   * <code>string DrmExpireTimestamp = 15;</code>
-   * @return The bytes for drmExpireTimestamp.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getDrmExpireTimestampBytes() {
-    java.lang.Object ref = drmExpireTimestamp_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      drmExpireTimestamp_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -931,9 +878,6 @@ private static final long serialVersionUID = 0L;
     if (!getPlaySceneBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 14, playScene_);
     }
-    if (!getDrmExpireTimestampBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 15, drmExpireTimestamp_);
-    }
     unknownFields.writeTo(output);
   }
 
@@ -985,9 +929,6 @@ private static final long serialVersionUID = 0L;
     if (!getPlaySceneBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, playScene_);
     }
-    if (!getDrmExpireTimestampBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, drmExpireTimestamp_);
-    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1031,8 +972,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getHDRDefinition())) return false;
     if (!getPlayScene()
         .equals(other.getPlayScene())) return false;
-    if (!getDrmExpireTimestamp()
-        .equals(other.getDrmExpireTimestamp())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1072,8 +1011,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getHDRDefinition().hashCode();
     hash = (37 * hash) + PLAYSCENE_FIELD_NUMBER;
     hash = (53 * hash) + getPlayScene().hashCode();
-    hash = (37 * hash) + DRMEXPIRETIMESTAMP_FIELD_NUMBER;
-    hash = (53 * hash) + getDrmExpireTimestamp().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1235,8 +1172,6 @@ private static final long serialVersionUID = 0L;
 
       playScene_ = "";
 
-      drmExpireTimestamp_ = "";
-
       return this;
     }
 
@@ -1277,7 +1212,6 @@ private static final long serialVersionUID = 0L;
       result.unionInfo_ = unionInfo_;
       result.hDRDefinition_ = hDRDefinition_;
       result.playScene_ = playScene_;
-      result.drmExpireTimestamp_ = drmExpireTimestamp_;
       onBuilt();
       return result;
     }
@@ -1380,10 +1314,6 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPlayScene().isEmpty()) {
         playScene_ = other.playScene_;
-        onChanged();
-      }
-      if (!other.getDrmExpireTimestamp().isEmpty()) {
-        drmExpireTimestamp_ = other.drmExpireTimestamp_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -2755,102 +2685,6 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       playScene_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object drmExpireTimestamp_ = "";
-    /**
-     * <pre>
-     * DRM过期时间戳
-     * </pre>
-     *
-     * <code>string DrmExpireTimestamp = 15;</code>
-     * @return The drmExpireTimestamp.
-     */
-    public java.lang.String getDrmExpireTimestamp() {
-      java.lang.Object ref = drmExpireTimestamp_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        drmExpireTimestamp_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * DRM过期时间戳
-     * </pre>
-     *
-     * <code>string DrmExpireTimestamp = 15;</code>
-     * @return The bytes for drmExpireTimestamp.
-     */
-    public com.google.protobuf.ByteString
-        getDrmExpireTimestampBytes() {
-      java.lang.Object ref = drmExpireTimestamp_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        drmExpireTimestamp_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * DRM过期时间戳
-     * </pre>
-     *
-     * <code>string DrmExpireTimestamp = 15;</code>
-     * @param value The drmExpireTimestamp to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDrmExpireTimestamp(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      drmExpireTimestamp_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * DRM过期时间戳
-     * </pre>
-     *
-     * <code>string DrmExpireTimestamp = 15;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDrmExpireTimestamp() {
-      
-      drmExpireTimestamp_ = getDefaultInstance().getDrmExpireTimestamp();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * DRM过期时间戳
-     * </pre>
-     *
-     * <code>string DrmExpireTimestamp = 15;</code>
-     * @param value The bytes for drmExpireTimestamp to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDrmExpireTimestampBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      drmExpireTimestamp_ = value;
       onChanged();
       return this;
     }

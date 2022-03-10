@@ -81,20 +81,20 @@ public class VodServiceConfig {
                         }
                     }
             ));
-//            put(Const.GetPlayInfoWithLiveTimeShiftScene, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(Const.Method, "GET");
-//                            put(Const.Path, "/");
-//                            put(Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.GetPlayInfoWithLiveTimeShiftScene));
-//                                    add(new BasicNameValuePair("Version", "2021-11-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
+            put(Const.GetPlayInfoWithLiveTimeShiftScene, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetPlayInfoWithLiveTimeShiftScene));
+                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
 
             // **********************************************************************
             // 上传
@@ -460,46 +460,46 @@ public class VodServiceConfig {
                     }
             ));
 
-//            // **********************************************************************
-//            // 空间管理
-//            // **********************************************************************
-//            put(Const.CreateSpace, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(Const.Method, "GET");
-//                            put(Const.Path, "/");
-//                            put(Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.CreateSpace));
-//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
-//            put(Const.ListSpace, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(Const.Method, "GET");
-//                            put(Const.Path, "/");
-//                            put(Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.ListSpace));
-//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
+            // **********************************************************************
+            // 空间管理
+            // **********************************************************************
+            put(Const.CreateSpace, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CreateSpace));
+                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListSpace, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListSpace));
+                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
 //            put(Const.GetSpaceDetail, new ApiInfo(
 //                    new HashMap<String, Object>() {
 //                        {
-//                            put(Const.Method, "GET");
-//                            put(Const.Path, "/");
-//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                            put(com.volcengine.helper.Const.Method, "GET");
+//                            put(com.volcengine.helper.Const.Path, "/");
+//                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
 //                                {
 //                                    add(new BasicNameValuePair("Action", Const.GetSpaceDetail));
-//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+//                                    add(new BasicNameValuePair("Version", "2022-01-01"));
 //                                }
 //                            });
 //                        }
@@ -508,121 +508,121 @@ public class VodServiceConfig {
 //            put(Const.GetSpaceConfig, new ApiInfo(
 //                    new HashMap<String, Object>() {
 //                        {
-//                            put(Const.Method, "GET");
-//                            put(Const.Path, "/");
-//                            put(Const.Query, new ArrayList<NameValuePair>() {
+//                            put(com.volcengine.helper.Const.Method, "GET");
+//                            put(com.volcengine.helper.Const.Path, "/");
+//                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
 //                                {
 //                                    add(new BasicNameValuePair("Action", Const.GetSpaceConfig));
-//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
-//            put(Const.UpdateSpace, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(Const.Method, "GET");
-//                            put(Const.Path, "/");
-//                            put(Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.UpdateSpace));
-//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
-//            put(Const.UpdateSpaceUploadConfig, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(Const.Method, "GET");
-//                            put(Const.Path, "/");
-//                            put(Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.UpdateSpaceUploadConfig));
 //                                    add(new BasicNameValuePair("Version", "2022-01-01"));
 //                                }
 //                            });
 //                        }
 //                    }
 //            ));
-//            // **********************************************************************
-//            // 分发加速管理
-//            // **********************************************************************
-//            put(Const.ListDomain, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(Const.Method, "GET");
-//                            put(Const.Path, "/");
-//                            put(Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.ListDomain));
-//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
-//            put(Const.CreateCdnRefreshTask, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(Const.Method, "GET");
-//                            put(Const.Path, "/");
-//                            put(Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.CreateCdnRefreshTask));
-//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
-//            put(Const.CreateCdnPreloadTask, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(Const.Method, "GET");
-//                            put(Const.Path, "/");
-//                            put(Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.CreateCdnPreloadTask));
-//                                    add(new BasicNameValuePair("Version", "2021-01-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
-//            // **********************************************************************
-//            // 回调管理
-//            // **********************************************************************
-//            put(Const.AddCallbackSubscription, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(Const.Method, "GET");
-//                            put(Const.Path, "/");
-//                            put(Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.AddCallbackSubscription));
-//                                    add(new BasicNameValuePair("Version", "2021-12-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
-//            put(Const.SetCallbackEvent, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(Const.Method, "GET");
-//                            put(Const.Path, "/");
-//                            put(Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.SetCallbackEvent));
-//                                    add(new BasicNameValuePair("Version", "2021-12-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
+            put(Const.UpdateSpace, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateSpace));
+                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateSpaceUploadConfig, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateSpaceUploadConfig));
+                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            // **********************************************************************
+            // 分发加速管理
+            // **********************************************************************
+            put(Const.ListDomain, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListDomain));
+                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.CreateCdnRefreshTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CreateCdnRefreshTask));
+                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.CreateCdnPreloadTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CreateCdnPreloadTask));
+                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            // **********************************************************************
+            // 回调管理
+            // **********************************************************************
+            put(Const.AddCallbackSubscription, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AddCallbackSubscription));
+                                    add(new BasicNameValuePair("Version", "2021-12-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.SetCallbackEvent, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.SetCallbackEvent));
+                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
 
         }
     };

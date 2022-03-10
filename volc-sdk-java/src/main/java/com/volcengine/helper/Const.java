@@ -170,4 +170,21 @@ public class Const {
     public static final String UnionProduct = "UnionProduct";
     public static final String HotBoard = "HotBoard";
     public static final String ContentVersion = "2021-01-01";
+
+    //kms
+    public static final String CreateKeyring = "CreateKeyring";
+    public static final String DescribeKeyrings = "DescribeKeyrings";
+    public static final String UpdateKeyring = "UpdateKeyring";
+    public static final String QueryKeyring = "QueryKeyring";
+    public static final String CreateKey = "CreateKey";
+    public static final String DescribeKeys = "DescribeKeys";
+    public static final String UpdateKey = "UpdateKey";
+    public static final String GenerateDataKey = "GenerateDataKey";
+    public static final String Encrypt = "Encrypt";
+    public static final String Decrypt = "Decrypt";
+    public static final String EnableKey = "EnableKey";
+    public static final String DisableKey = "DisableKey";
+    public static final String ScheduleKeyDeletion = "ScheduleKeyDeletion";
+    public static final String CancelKeyDeletion = "CancelKeyDeletion";
+    public static final String KmsServiceVersion = "2021-02-18";
 }

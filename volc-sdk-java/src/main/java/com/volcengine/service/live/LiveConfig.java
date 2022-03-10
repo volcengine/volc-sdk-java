@@ -23,8 +23,7 @@ public class LiveConfig {
                             put(Const.CONNECTION_TIMEOUT, 5000);
                             put(Const.SOCKET_TIMEOUT, 5000);
                             put(Const.Scheme, "https");
-                            put(Const.Host, "volcengineapi-boe.byted.org");//boe
-//                            put(Const.Host, "live.volcengineapi.com");
+                            put(Const.Host, "live.volcengineapi.com");
                             put(Const.Header, new ArrayList<Header>() {
                                 {
                                     add(new BasicHeader("Accept", "application/json"));

@@ -595,7 +595,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
 
     @Override
     public ListVhostTransCodePresetResponse listVhostTransCodePreset(ListVhostTransCodePresetRequest listVhostTransCodePresetRequest) throws Exception {
-        RawResponse response = json(Const.DeleteTranscodePreset, new ArrayList<>(), JSON.toJSONString(listVhostTransCodePresetRequest));
+        RawResponse response = json(Const.ListVhostTransCodePreset, new ArrayList<>(), JSON.toJSONString(listVhostTransCodePresetRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }

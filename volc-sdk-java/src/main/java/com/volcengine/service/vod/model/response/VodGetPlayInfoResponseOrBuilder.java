@@ -12,7 +12,7 @@ public interface VodGetPlayInfoResponseOrBuilder extends
    * 响应通用信息
    * </pre>
    *
-   * <code>.Volcengine.Vod.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
+   * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    * @return Whether the responseMetadata field is set.
    */
   boolean hasResponseMetadata();
@@ -21,18 +21,18 @@ public interface VodGetPlayInfoResponseOrBuilder extends
    * 响应通用信息
    * </pre>
    *
-   * <code>.Volcengine.Vod.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
+   * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    * @return The responseMetadata.
    */
-  com.volcengine.service.vod.model.base.ResponseMetadata getResponseMetadata();
+  com.volcengine.service.base.model.base.ResponseMetadata getResponseMetadata();
   /**
    * <pre>
    * 响应通用信息
    * </pre>
    *
-   * <code>.Volcengine.Vod.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
+   * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    */
-  com.volcengine.service.vod.model.base.ResponseMetadataOrBuilder getResponseMetadataOrBuilder();
+  com.volcengine.service.base.model.base.ResponseMetadataOrBuilder getResponseMetadataOrBuilder();
 
   /**
    * <pre>

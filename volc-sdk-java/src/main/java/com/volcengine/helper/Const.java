@@ -26,6 +26,15 @@ public class Const {
     // iam
     public static final String CreateUser = "CreateUser";
     public static final String ListUsers = "ListUsers";
+    public static final String CreateRole = "CreateRole";
+    public static final String GetRole = "GetRole";
+    public static final String UpdateRole = "UpdateRole";
+    public static final String ListRoles = "ListRoles";
+    public static final String DeleteRole = "DeleteRole";
+
+
+    // sts
+    public static final String AssumeRole = "AssumeRole";
 
     // ad blocker
     public static final String AdBlock = "AdBlock";
@@ -39,10 +48,6 @@ public class Const {
     public static final String AccountRisk = "AccountRisk";
     public static final String MobileStatus = "MobileStatus";
     public static final String ElementVerify = "ElementVerify";
-    public static final String MobileSecondSale = "MobileSecondSale";
-    public static final String MobileEmptyCheck = "MobileEmptyCheck";
-    public static final String MobileOnlineStatus = "MobileOnlineStatus";
-    public static final String MobileOnlineTime = "MobileOnlineTime";
 
     // content security
     public static final String ImageContentRisk = "ImageContentRisk";
@@ -103,6 +108,7 @@ public class Const {
     public static final String ContentTypeValue = "application/x-www-form-urlencoded; charset=utf-8";
     public static final String XContentSha256 = "X-Content-Sha256";
     public static final String Authorization = "Authorization";
+    public static final String XSecurityToken = "X-Security-Token";
 
     public static final String ContentMd5 = "Content-Md5";
 
@@ -164,4 +170,21 @@ public class Const {
     public static final String UnionProduct = "UnionProduct";
     public static final String HotBoard = "HotBoard";
     public static final String ContentVersion = "2021-01-01";
+
+    //kms
+    public static final String CreateKeyring = "CreateKeyring";
+    public static final String DescribeKeyrings = "DescribeKeyrings";
+    public static final String UpdateKeyring = "UpdateKeyring";
+    public static final String QueryKeyring = "QueryKeyring";
+    public static final String CreateKey = "CreateKey";
+    public static final String DescribeKeys = "DescribeKeys";
+    public static final String UpdateKey = "UpdateKey";
+    public static final String GenerateDataKey = "GenerateDataKey";
+    public static final String Encrypt = "Encrypt";
+    public static final String Decrypt = "Decrypt";
+    public static final String EnableKey = "EnableKey";
+    public static final String DisableKey = "DisableKey";
+    public static final String ScheduleKeyDeletion = "ScheduleKeyDeletion";
+    public static final String CancelKeyDeletion = "CancelKeyDeletion";
+    public static final String KmsServiceVersion = "2021-02-18";
 }

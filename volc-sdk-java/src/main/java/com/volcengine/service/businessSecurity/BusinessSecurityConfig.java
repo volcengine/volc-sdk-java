@@ -130,62 +130,6 @@ public class BusinessSecurityConfig {
                         }
                     }
             ));
-            put(Const.MobileSecondSale, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "POST");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.MobileSecondSale));
-                                    add(new BasicNameValuePair("Version", "2022-02-08"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.MobileEmptyCheck, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "POST");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.MobileEmptyCheck));
-                                    add(new BasicNameValuePair("Version", "2022-02-08"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.MobileOnlineStatus, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "POST");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.MobileOnlineStatus));
-                                    add(new BasicNameValuePair("Version", "2022-02-08"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.MobileOnlineTime, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "POST");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", Const.MobileOnlineTime));
-                                    add(new BasicNameValuePair("Version", "2022-02-08"));
-                                }
-                            });
-                        }
-                    }
-            ));
         }
     };
 }

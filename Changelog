@@ -1,5 +1,21 @@
 Change log
 
+2022-03-10 Bumped to version v1.0.36
+- Added kms open API and example
+- Added vod preview
+- Added vod some base api for space、callback、cdn
+
+2022-03-03 Bumped to version v1.0.35
+- Add Video-Classfication for VOD
+- Adjust VoD Consts' location
+- Supported sts credential
+- Added iam role action
+
+2022-02-24 Bumped to version v1.0.34
+- Deleted 4 apis
+- Changed rtc service instances to singleton
+- Added complete fields
+
 2022-02-10 Bumped to version v1.0.33
 - Added image risk detection
 - Added text risk detection

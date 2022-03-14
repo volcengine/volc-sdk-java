@@ -12,6 +12,7 @@ public class Credentials {
     private String secretAccessKey;
     private String service;
     private String region;
+    private String sessionToken;
 
     public Credentials() {
     }

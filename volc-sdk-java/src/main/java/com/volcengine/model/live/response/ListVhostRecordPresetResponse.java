@@ -15,7 +15,7 @@ public class ListVhostRecordPresetResponse {
     @Data
     public static class ListVhostRecordPresetRespOutput {
         @JSONField(name = "PresetList")
-        SlicePresetsVhostAPP PresetList;
+        SlicePresetsVhostAPP[] PresetList;
     }
 
     @Data

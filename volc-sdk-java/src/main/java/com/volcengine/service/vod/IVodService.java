@@ -245,61 +245,7 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodUpdateSubtitleInfoResponse updateSubtitleInfo(com.volcengine.service.vod.model.request.VodUpdateSubtitleInfoRequest input) throws Exception;
-	
-	/**
-     * getAuditFramesForAudit.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetAuditFramesForAuditRequest
-     * @return com.volcengine.service.vod.model.response.VodGetAuditFramesForAuditResponse
-     * @throws Exception the exception
-     */
-	com.volcengine.service.vod.model.response.VodGetAuditFramesForAuditResponse getAuditFramesForAudit(com.volcengine.service.vod.model.request.VodGetAuditFramesForAuditRequest input) throws Exception;
-	
-	/**
-     * getMLFramesForAudit.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetMLFramesForAuditRequest
-     * @return com.volcengine.service.vod.model.response.VodGetMLFramesForAuditResponse
-     * @throws Exception the exception
-     */
-	com.volcengine.service.vod.model.response.VodGetMLFramesForAuditResponse getMLFramesForAudit(com.volcengine.service.vod.model.request.VodGetMLFramesForAuditRequest input) throws Exception;
-	
-	/**
-     * getBetterFramesForAudit.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetBetterFramesForAuditRequest
-     * @return com.volcengine.service.vod.model.response.VodGetBetterFramesForAuditResponse
-     * @throws Exception the exception
-     */
-	com.volcengine.service.vod.model.response.VodGetBetterFramesForAuditResponse getBetterFramesForAudit(com.volcengine.service.vod.model.request.VodGetBetterFramesForAuditRequest input) throws Exception;
-	
-	/**
-     * getAudioInfoForAudit.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetAudioInfoForAuditRequest
-     * @return com.volcengine.service.vod.model.response.VodGetAudioInfoForAuditResponse
-     * @throws Exception the exception
-     */
-	com.volcengine.service.vod.model.response.VodGetAudioInfoForAuditResponse getAudioInfoForAudit(com.volcengine.service.vod.model.request.VodGetAudioInfoForAuditRequest input) throws Exception;
-	
-	/**
-     * getAutomaticSpeechRecognitionForAudit.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetAutomaticSpeechRecognitionForAuditRequest
-     * @return com.volcengine.service.vod.model.response.VodGetAutomaticSpeechRecognitionForAuditResponse
-     * @throws Exception the exception
-     */
-	com.volcengine.service.vod.model.response.VodGetAutomaticSpeechRecognitionForAuditResponse getAutomaticSpeechRecognitionForAudit(com.volcengine.service.vod.model.request.VodGetAutomaticSpeechRecognitionForAuditRequest input) throws Exception;
-	
-	/**
-     * getAudioEventDetectionForAudit.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetAudioEventDetectionForAuditRequest
-     * @return com.volcengine.service.vod.model.response.VodGetAudioEventDetectionForAuditResponse
-     * @throws Exception the exception
-     */
-	com.volcengine.service.vod.model.response.VodGetAudioEventDetectionForAuditResponse getAudioEventDetectionForAudit(com.volcengine.service.vod.model.request.VodGetAudioEventDetectionForAuditRequest input) throws Exception;
-	
+
 	/**
      * createVideoClassification.
      *
@@ -337,24 +283,6 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodListVideoClassificationsResponse listVideoClassifications(com.volcengine.service.vod.model.request.VodListVideoClassificationsRequest input) throws Exception;
 	
 	/**
-     * listSnapshots.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodListSnapshotsRequest
-     * @return com.volcengine.service.vod.model.response.VodListSnapshotsResponse
-     * @throws Exception the exception
-     */
-	com.volcengine.service.vod.model.response.VodListSnapshotsResponse listSnapshots(com.volcengine.service.vod.model.request.VodListSnapshotsRequest input) throws Exception;
-	
-	/**
-     * getVideoDetail.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetVideoDetailRequest
-     * @return com.volcengine.service.vod.model.response.VodGetVideoDetailResponse
-     * @throws Exception the exception
-     */
-	com.volcengine.service.vod.model.response.VodGetVideoDetailResponse getVideoDetail(com.volcengine.service.vod.model.request.VodGetVideoDetailRequest input) throws Exception;
-	
-	/**
      * startWorkflow.
      *
      * @param input com.volcengine.service.vod.model.request.VodStartWorkflowRequest
@@ -380,25 +308,7 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodListSpaceResponse listSpace(com.volcengine.service.vod.model.request.VodListSpaceRequest input) throws Exception;
-	
-	/**
-     * getSpaceDetail.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetSpaceDetailRequest
-     * @return com.volcengine.service.vod.model.response.VodGetSpaceDetailResponse
-     * @throws Exception the exception
-     */
-	com.volcengine.service.vod.model.response.VodGetSpaceDetailResponse getSpaceDetail(com.volcengine.service.vod.model.request.VodGetSpaceDetailRequest input) throws Exception;
-	
-	/**
-     * getSpaceConfig.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetSpaceConfigRequest
-     * @return com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse
-     * @throws Exception the exception
-     */
-	com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse getSpaceConfig(com.volcengine.service.vod.model.request.VodGetSpaceConfigRequest input) throws Exception;
-	
+
 	/**
      * updateSpace.
      *

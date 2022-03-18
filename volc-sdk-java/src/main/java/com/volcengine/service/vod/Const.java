@@ -74,6 +74,8 @@ public class Const {
     public static final String UpdateVideoClassification = "UpdateVideoClassification";
     public static final String DeleteVideoClassification = "DeleteVideoClassification";
     public static final String ListVideoClassifications = "ListVideoClassifications";
+    public static final String ListSnapshots = "ListSnapshots";
+    public static final String GetVideoDetail = "GetVideoDetail";
     //vod-transcode
     public static final String StartWorkflow = "StartWorkflow";
     //vod-space

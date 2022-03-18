@@ -441,6 +441,20 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.ListSnapshots, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListSnapshots));
+                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
 
             // **********************************************************************
             // 转码
@@ -491,20 +505,20 @@ public class VodServiceConfig {
                         }
                     }
             ));
-//            put(Const.GetSpaceDetail, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(com.volcengine.helper.Const.Method, "GET");
-//                            put(com.volcengine.helper.Const.Path, "/");
-//                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.GetSpaceDetail));
-//                                    add(new BasicNameValuePair("Version", "2022-01-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
+            put(Const.GetSpaceDetail, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetSpaceDetail));
+                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
 //            put(Const.GetSpaceConfig, new ApiInfo(
 //                    new HashMap<String, Object>() {
 //                        {

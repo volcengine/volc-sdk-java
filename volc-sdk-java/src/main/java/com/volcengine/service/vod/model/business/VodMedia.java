@@ -159,6 +159,21 @@ public final class VodMedia {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodGetAudioEventDetectionForAuditResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodSnapshot_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodSnapshot_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodSpriteSnapshot_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodSpriteSnapshot_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodSnapshotData_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodSnapshotData_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -263,21 +278,38 @@ public final class VodMedia {
       "els.Business.VodAEDEventItemForAudit\"k\n\'" +
       "VodGetAudioEventDetectionForAuditResult\022" +
       "@\n\004Info\030\001 \001(\01322.Volcengine.Vod.Models.Bu" +
-      "siness.VodAEDInfoForAudit*\320\002\n VodFrameEx" +
-      "tractingOptionForAudit\022-\n)UndefinedVodFr" +
-      "ameExtractingOptionForAudit\020\000\022\'\n#FpsVodF" +
-      "rameExtractingOptionForAudit\020\001\0222\n.Number" +
-      "OfFramesVodFrameExtractingOptionForAudit" +
-      "\020\002\022,\n(CutTimesVodFrameExtractingOptionFo" +
-      "rAudit\020\003\022:\n6FpsLimitNumberOfFramesVodFra" +
-      "meExtractingOptionForAudit\020\004\0226\n2OnlyFirs" +
-      "tLastFrameVodFrameExtractingOptionForAud" +
-      "it\020\005B\314\001\n)com.volcengine.service.vod.mode" +
-      "l.businessB\010VodMediaP\001ZAgithub.com/volce" +
-      "ngine/volc-sdk-golang/service/vod/models" +
-      "/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Mo" +
-      "dels\\Business\342\002#Volc\\Service\\Vod\\Models\\" +
-      "GPBMetadatab\006proto3"
+      "siness.VodAEDInfoForAudit\"[\n\013VodSnapshot" +
+      "\022\016\n\006Format\030\001 \001(\t\022\016\n\006Height\030\002 \001(\005\022\r\n\005Widt" +
+      "h\030\003 \001(\005\022\020\n\010StoreUri\030\004 \001(\t\022\013\n\003Url\030\005 \001(\t\"\263" +
+      "\001\n\021VodSpriteSnapshot\022\016\n\006Format\030\001 \001(\t\022\017\n\007" +
+      "ImgXLen\030\002 \001(\005\022\017\n\007ImgYLen\030\003 \001(\005\022\021\n\tCellWi" +
+      "dth\030\004 \001(\005\022\022\n\nCellHeight\030\005 \001(\005\022\020\n\010Interva" +
+      "l\030\006 \001(\002\022\022\n\nCaptureNum\030\007 \001(\005\022\021\n\tStoreUris" +
+      "\030\010 \003(\t\022\014\n\004Urls\030\t \003(\t\"\241\003\n\017VodSnapshotData" +
+      "\022\021\n\tSpaceName\030\001 \001(\t\022\013\n\003Vid\030\002 \001(\t\022D\n\017Post" +
+      "erSnapshots\030\003 \003(\0132+.Volcengine.Vod.Model" +
+      "s.Business.VodSnapshot\022E\n\020DynpostSnapsho" +
+      "ts\030\004 \003(\0132+.Volcengine.Vod.Models.Busines" +
+      "s.VodSnapshot\022L\n\027AnimatedPosterSnapshots" +
+      "\030\005 \003(\0132+.Volcengine.Vod.Models.Business." +
+      "VodSnapshot\022G\n\022AiDynpostSnapshots\030\006 \003(\0132" +
+      "+.Volcengine.Vod.Models.Business.VodSnap" +
+      "shot\022J\n\017SpriteSnapshots\030\007 \003(\01321.Volcengi" +
+      "ne.Vod.Models.Business.VodSpriteSnapshot" +
+      "*\320\002\n VodFrameExtractingOptionForAudit\022-\n" +
+      ")UndefinedVodFrameExtractingOptionForAud" +
+      "it\020\000\022\'\n#FpsVodFrameExtractingOptionForAu" +
+      "dit\020\001\0222\n.NumberOfFramesVodFrameExtractin" +
+      "gOptionForAudit\020\002\022,\n(CutTimesVodFrameExt" +
+      "ractingOptionForAudit\020\003\022:\n6FpsLimitNumbe" +
+      "rOfFramesVodFrameExtractingOptionForAudi" +
+      "t\020\004\0226\n2OnlyFirstLastFrameVodFrameExtract" +
+      "ingOptionForAudit\020\005B\314\001\n)com.volcengine.s" +
+      "ervice.vod.model.businessB\010VodMediaP\001ZAg" +
+      "ithub.com/volcengine/volc-sdk-golang/ser" +
+      "vice/vod/models/business\240\001\001\330\001\001\302\002\000\312\002 Volc" +
+      "\\Service\\Vod\\Models\\Business\342\002#Volc\\Serv" +
+      "ice\\Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -458,6 +490,24 @@ public final class VodMedia {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodGetAudioEventDetectionForAuditResult_descriptor,
         new java.lang.String[] { "Info", });
+    internal_static_Volcengine_Vod_Models_Business_VodSnapshot_descriptor =
+      getDescriptor().getMessageTypes().get(29);
+    internal_static_Volcengine_Vod_Models_Business_VodSnapshot_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodSnapshot_descriptor,
+        new java.lang.String[] { "Format", "Height", "Width", "StoreUri", "Url", });
+    internal_static_Volcengine_Vod_Models_Business_VodSpriteSnapshot_descriptor =
+      getDescriptor().getMessageTypes().get(30);
+    internal_static_Volcengine_Vod_Models_Business_VodSpriteSnapshot_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodSpriteSnapshot_descriptor,
+        new java.lang.String[] { "Format", "ImgXLen", "ImgYLen", "CellWidth", "CellHeight", "Interval", "CaptureNum", "StoreUris", "Urls", });
+    internal_static_Volcengine_Vod_Models_Business_VodSnapshotData_descriptor =
+      getDescriptor().getMessageTypes().get(31);
+    internal_static_Volcengine_Vod_Models_Business_VodSnapshotData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodSnapshotData_descriptor,
+        new java.lang.String[] { "SpaceName", "Vid", "PosterSnapshots", "DynpostSnapshots", "AnimatedPosterSnapshots", "AiDynpostSnapshots", "SpriteSnapshots", });
     com.volcengine.service.vod.model.business.VodCommon.getDescriptor();
   }
 

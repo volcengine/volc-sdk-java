@@ -55,11 +55,11 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            com.volcengine.service.vod.model.base.ResponseMetadata.Builder subBuilder = null;
+            com.volcengine.service.base.model.base.ResponseMetadata.Builder subBuilder = null;
             if (responseMetadata_ != null) {
               subBuilder = responseMetadata_.toBuilder();
             }
-            responseMetadata_ = input.readMessage(com.volcengine.service.vod.model.base.ResponseMetadata.parser(), extensionRegistry);
+            responseMetadata_ = input.readMessage(com.volcengine.service.base.model.base.ResponseMetadata.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(responseMetadata_);
               responseMetadata_ = subBuilder.buildPartial();
@@ -113,9 +113,9 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESPONSEMETADATA_FIELD_NUMBER = 1;
-  private com.volcengine.service.vod.model.base.ResponseMetadata responseMetadata_;
+  private com.volcengine.service.base.model.base.ResponseMetadata responseMetadata_;
   /**
-   * <code>.Volcengine.Vod.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
+   * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    * @return Whether the responseMetadata field is set.
    */
   @java.lang.Override
@@ -123,18 +123,18 @@ private static final long serialVersionUID = 0L;
     return responseMetadata_ != null;
   }
   /**
-   * <code>.Volcengine.Vod.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
+   * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    * @return The responseMetadata.
    */
   @java.lang.Override
-  public com.volcengine.service.vod.model.base.ResponseMetadata getResponseMetadata() {
-    return responseMetadata_ == null ? com.volcengine.service.vod.model.base.ResponseMetadata.getDefaultInstance() : responseMetadata_;
+  public com.volcengine.service.base.model.base.ResponseMetadata getResponseMetadata() {
+    return responseMetadata_ == null ? com.volcengine.service.base.model.base.ResponseMetadata.getDefaultInstance() : responseMetadata_;
   }
   /**
-   * <code>.Volcengine.Vod.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
+   * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    */
   @java.lang.Override
-  public com.volcengine.service.vod.model.base.ResponseMetadataOrBuilder getResponseMetadataOrBuilder() {
+  public com.volcengine.service.base.model.base.ResponseMetadataOrBuilder getResponseMetadataOrBuilder() {
     return getResponseMetadata();
   }
 
@@ -515,31 +515,31 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.volcengine.service.vod.model.base.ResponseMetadata responseMetadata_;
+    private com.volcengine.service.base.model.base.ResponseMetadata responseMetadata_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.volcengine.service.vod.model.base.ResponseMetadata, com.volcengine.service.vod.model.base.ResponseMetadata.Builder, com.volcengine.service.vod.model.base.ResponseMetadataOrBuilder> responseMetadataBuilder_;
+        com.volcengine.service.base.model.base.ResponseMetadata, com.volcengine.service.base.model.base.ResponseMetadata.Builder, com.volcengine.service.base.model.base.ResponseMetadataOrBuilder> responseMetadataBuilder_;
     /**
-     * <code>.Volcengine.Vod.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
+     * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      * @return Whether the responseMetadata field is set.
      */
     public boolean hasResponseMetadata() {
       return responseMetadataBuilder_ != null || responseMetadata_ != null;
     }
     /**
-     * <code>.Volcengine.Vod.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
+     * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      * @return The responseMetadata.
      */
-    public com.volcengine.service.vod.model.base.ResponseMetadata getResponseMetadata() {
+    public com.volcengine.service.base.model.base.ResponseMetadata getResponseMetadata() {
       if (responseMetadataBuilder_ == null) {
-        return responseMetadata_ == null ? com.volcengine.service.vod.model.base.ResponseMetadata.getDefaultInstance() : responseMetadata_;
+        return responseMetadata_ == null ? com.volcengine.service.base.model.base.ResponseMetadata.getDefaultInstance() : responseMetadata_;
       } else {
         return responseMetadataBuilder_.getMessage();
       }
     }
     /**
-     * <code>.Volcengine.Vod.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
+     * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
-    public Builder setResponseMetadata(com.volcengine.service.vod.model.base.ResponseMetadata value) {
+    public Builder setResponseMetadata(com.volcengine.service.base.model.base.ResponseMetadata value) {
       if (responseMetadataBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -553,10 +553,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Volcengine.Vod.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
+     * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public Builder setResponseMetadata(
-        com.volcengine.service.vod.model.base.ResponseMetadata.Builder builderForValue) {
+        com.volcengine.service.base.model.base.ResponseMetadata.Builder builderForValue) {
       if (responseMetadataBuilder_ == null) {
         responseMetadata_ = builderForValue.build();
         onChanged();
@@ -567,13 +567,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Volcengine.Vod.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
+     * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
-    public Builder mergeResponseMetadata(com.volcengine.service.vod.model.base.ResponseMetadata value) {
+    public Builder mergeResponseMetadata(com.volcengine.service.base.model.base.ResponseMetadata value) {
       if (responseMetadataBuilder_ == null) {
         if (responseMetadata_ != null) {
           responseMetadata_ =
-            com.volcengine.service.vod.model.base.ResponseMetadata.newBuilder(responseMetadata_).mergeFrom(value).buildPartial();
+            com.volcengine.service.base.model.base.ResponseMetadata.newBuilder(responseMetadata_).mergeFrom(value).buildPartial();
         } else {
           responseMetadata_ = value;
         }
@@ -585,7 +585,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Volcengine.Vod.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
+     * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public Builder clearResponseMetadata() {
       if (responseMetadataBuilder_ == null) {
@@ -599,33 +599,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Volcengine.Vod.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
+     * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
-    public com.volcengine.service.vod.model.base.ResponseMetadata.Builder getResponseMetadataBuilder() {
+    public com.volcengine.service.base.model.base.ResponseMetadata.Builder getResponseMetadataBuilder() {
       
       onChanged();
       return getResponseMetadataFieldBuilder().getBuilder();
     }
     /**
-     * <code>.Volcengine.Vod.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
+     * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
-    public com.volcengine.service.vod.model.base.ResponseMetadataOrBuilder getResponseMetadataOrBuilder() {
+    public com.volcengine.service.base.model.base.ResponseMetadataOrBuilder getResponseMetadataOrBuilder() {
       if (responseMetadataBuilder_ != null) {
         return responseMetadataBuilder_.getMessageOrBuilder();
       } else {
         return responseMetadata_ == null ?
-            com.volcengine.service.vod.model.base.ResponseMetadata.getDefaultInstance() : responseMetadata_;
+            com.volcengine.service.base.model.base.ResponseMetadata.getDefaultInstance() : responseMetadata_;
       }
     }
     /**
-     * <code>.Volcengine.Vod.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
+     * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.volcengine.service.vod.model.base.ResponseMetadata, com.volcengine.service.vod.model.base.ResponseMetadata.Builder, com.volcengine.service.vod.model.base.ResponseMetadataOrBuilder> 
+        com.volcengine.service.base.model.base.ResponseMetadata, com.volcengine.service.base.model.base.ResponseMetadata.Builder, com.volcengine.service.base.model.base.ResponseMetadataOrBuilder> 
         getResponseMetadataFieldBuilder() {
       if (responseMetadataBuilder_ == null) {
         responseMetadataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.volcengine.service.vod.model.base.ResponseMetadata, com.volcengine.service.vod.model.base.ResponseMetadata.Builder, com.volcengine.service.vod.model.base.ResponseMetadataOrBuilder>(
+            com.volcengine.service.base.model.base.ResponseMetadata, com.volcengine.service.base.model.base.ResponseMetadata.Builder, com.volcengine.service.base.model.base.ResponseMetadataOrBuilder>(
                 getResponseMetadata(),
                 getParentForChildren(),
                 isClean());

@@ -54,4 +54,16 @@ public interface VodUploadMediaRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getFunctionsBytes();
+
+  /**
+   * <code>string FileName = 5;</code>
+   * @return The fileName.
+   */
+  java.lang.String getFileName();
+  /**
+   * <code>string FileName = 5;</code>
+   * @return The bytes for fileName.
+   */
+  com.google.protobuf.ByteString
+      getFileNameBytes();
 }

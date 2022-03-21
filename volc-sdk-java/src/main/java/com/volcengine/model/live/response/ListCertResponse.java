@@ -19,7 +19,7 @@ public class ListCertResponse {
     }
 
     @Data
-    private static class SimpleCertInfo {
+    public static class SimpleCertInfo {
         @JSONField(name = "CertDomain")
         String CertDomain;
         @JSONField(name = "ChainID")

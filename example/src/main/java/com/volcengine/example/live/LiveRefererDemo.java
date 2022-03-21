@@ -64,6 +64,7 @@ public class LiveRefererDemo {
 
         DeleteRefererRequest request = new DeleteRefererRequest();
         request.setVhost("vhost");
+        request.setDomain("domain");
         request.setApp("app");
         try {
             DeleteRefererResponse response = liveService.deleteReferer(request);

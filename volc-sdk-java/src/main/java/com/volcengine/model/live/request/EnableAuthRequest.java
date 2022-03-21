@@ -6,12 +6,12 @@ import lombok.Data;
 @Data
 public class EnableAuthRequest {
 
-    @JSONField(name = "vhost")
-    String Vhost;
-    @JSONField(name = "domain")
-    String Domain;
-    @JSONField(name = "app")
-    String App;
-    @JSONField(name = "sceneType")
-    String SceneType;
+    @JSONField(name = "Vhost")
+    String vhost;
+    @JSONField(name = "Domain")
+    String domain;
+    @JSONField(name = "App")
+    String app;
+    @JSONField(name = "SceneType")
+    String sceneType;
 }

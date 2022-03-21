@@ -19,16 +19,6 @@ public class UpdateCallbackRequest {
     String app;
     @JSONField(name = "TranscodeCallback")
     Long transcodeCallback;
-    @JSONField(name = "AuthEnable")
-    Boolean authEnable;
-    @JSONField(name = "AuthKeyPrimary")
-    String authKeyPrimary;
-    @JSONField(name = "AuthKeySecond")
-    String authKeySecond;
-    @JSONField(name = "ValidDuration")
-    Long validDuration;
-    @JSONField(name = "EncryptionAlgorithm")
-    String encryptionAlgorithm;
     @JSONField(name = "CallbackField")
     String[] callbackField;
     @JSONField(name = "AuthField")

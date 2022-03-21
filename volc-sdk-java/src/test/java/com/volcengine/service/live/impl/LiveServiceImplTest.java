@@ -28,6 +28,7 @@ public class LiveServiceImplTest extends TestCase {
         LiveService liveService = getLiveService();
         UpdateCallbackRequest request = new UpdateCallbackRequest();
         request.setMessageType("record");
+        request.setDomain("domain");
         request.setVhost("vhost");
         CallbackDetail callbackDetail = new CallbackDetail();
         callbackDetail.setCallbackType("");
@@ -400,6 +401,7 @@ public class LiveServiceImplTest extends TestCase {
         LiveService liveService = getLiveService();
         DeleteRefererRequest request = new DeleteRefererRequest();
         request.setVhost("vhost");
+        request.setDomain("domain");
         request.setApp("app");
         try {
             DeleteRefererResponse response = liveService.deleteReferer(request);

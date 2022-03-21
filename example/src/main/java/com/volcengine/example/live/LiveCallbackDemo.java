@@ -37,6 +37,7 @@ public class LiveCallbackDemo {
     private static void updateCallbackDemo(LiveService liveService) {
         UpdateCallbackRequest request = new UpdateCallbackRequest();
         request.setMessageType("record");
+        request.setDomain("domain");
         request.setVhost("vhost");
         CallbackDetail callbackDetail = new CallbackDetail();
         callbackDetail.setCallbackType("");

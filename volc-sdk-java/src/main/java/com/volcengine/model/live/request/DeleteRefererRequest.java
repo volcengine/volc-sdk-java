@@ -8,6 +8,8 @@ public class DeleteRefererRequest {
 
     @JSONField(name = "Vhost")
     String vhost;
+    @JSONField(name = "Domain")
+    String domain;
     @JSONField(name = "App")
     String app;
 }

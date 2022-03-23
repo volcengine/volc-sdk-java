@@ -8,6 +8,4 @@ public class DisableDomainRequest {
 
     @JSONField(name = "Domain")
     String domain;
-    @JSONField(name = "AutoNext")
-    Boolean autoNext;
 }

@@ -6,8 +6,6 @@ import lombok.Data;
 @Data
 public class UnbindCertRequest {
 
-    @JSONField(name = "Vhost")
-    String vhost;
     @JSONField(name = "Domain")
     String domain;
 }

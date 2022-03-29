@@ -10,7 +10,6 @@ import java.util.List;
 public class GetListResponse {
     @JSONField(name = "ResponseMetadata")
     CommonPo.ResponseMetadata responseMetadata;
-//    ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
     List<Result> result;
 
@@ -65,7 +64,7 @@ public class GetListResponse {
         @JSONField(name = "ProfileTags")
         List<String> profileTags;
         @JSONField(name = "UserInfo")
-        List<CommonPo.UserInfo> userInfo;
+        CommonPo.UserInfo userInfo;
         @JSONField(name = "MiddleImage")
         CommonPo.Image middleImage;
         @JSONField(name = "LargeImageList")

@@ -108,6 +108,19 @@ private static final long serialVersionUID = 0L;
             createTime_ = s;
             break;
           }
+          case 74: {
+            com.volcengine.service.vod.model.business.VodClassification.Builder subBuilder = null;
+            if (classification_ != null) {
+              subBuilder = classification_.toBuilder();
+            }
+            classification_ = input.readMessage(com.volcengine.service.vod.model.business.VodClassification.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(classification_);
+              classification_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -516,6 +529,44 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int CLASSIFICATION_FIELD_NUMBER = 9;
+  private com.volcengine.service.vod.model.business.VodClassification classification_;
+  /**
+   * <pre>
+   *分类串
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodClassification Classification = 9;</code>
+   * @return Whether the classification field is set.
+   */
+  @java.lang.Override
+  public boolean hasClassification() {
+    return classification_ != null;
+  }
+  /**
+   * <pre>
+   *分类串
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodClassification Classification = 9;</code>
+   * @return The classification.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodClassification getClassification() {
+    return classification_ == null ? com.volcengine.service.vod.model.business.VodClassification.getDefaultInstance() : classification_;
+  }
+  /**
+   * <pre>
+   *分类串
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodClassification Classification = 9;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodClassificationOrBuilder getClassificationOrBuilder() {
+    return getClassification();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -553,6 +604,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!getCreateTimeBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, createTime_);
+    }
+    if (classification_ != null) {
+      output.writeMessage(9, getClassification());
     }
     unknownFields.writeTo(output);
   }
@@ -592,6 +646,10 @@ private static final long serialVersionUID = 0L;
     if (!getCreateTimeBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, createTime_);
     }
+    if (classification_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, getClassification());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -623,6 +681,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTagsList())) return false;
     if (!getCreateTime()
         .equals(other.getCreateTime())) return false;
+    if (hasClassification() != other.hasClassification()) return false;
+    if (hasClassification()) {
+      if (!getClassification()
+          .equals(other.getClassification())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -652,6 +715,10 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + CREATETIME_FIELD_NUMBER;
     hash = (53 * hash) + getCreateTime().hashCode();
+    if (hasClassification()) {
+      hash = (37 * hash) + CLASSIFICATION_FIELD_NUMBER;
+      hash = (53 * hash) + getClassification().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -801,6 +868,12 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00000001);
       createTime_ = "";
 
+      if (classificationBuilder_ == null) {
+        classification_ = null;
+      } else {
+        classification_ = null;
+        classificationBuilder_ = null;
+      }
       return this;
     }
 
@@ -840,6 +913,11 @@ private static final long serialVersionUID = 0L;
       }
       result.tags_ = tags_;
       result.createTime_ = createTime_;
+      if (classificationBuilder_ == null) {
+        result.classification_ = classification_;
+      } else {
+        result.classification_ = classificationBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -925,6 +1003,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getCreateTime().isEmpty()) {
         createTime_ = other.createTime_;
         onChanged();
+      }
+      if (other.hasClassification()) {
+        mergeClassification(other.getClassification());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1772,6 +1853,161 @@ private static final long serialVersionUID = 0L;
       createTime_ = value;
       onChanged();
       return this;
+    }
+
+    private com.volcengine.service.vod.model.business.VodClassification classification_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodClassification, com.volcengine.service.vod.model.business.VodClassification.Builder, com.volcengine.service.vod.model.business.VodClassificationOrBuilder> classificationBuilder_;
+    /**
+     * <pre>
+     *分类串
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodClassification Classification = 9;</code>
+     * @return Whether the classification field is set.
+     */
+    public boolean hasClassification() {
+      return classificationBuilder_ != null || classification_ != null;
+    }
+    /**
+     * <pre>
+     *分类串
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodClassification Classification = 9;</code>
+     * @return The classification.
+     */
+    public com.volcengine.service.vod.model.business.VodClassification getClassification() {
+      if (classificationBuilder_ == null) {
+        return classification_ == null ? com.volcengine.service.vod.model.business.VodClassification.getDefaultInstance() : classification_;
+      } else {
+        return classificationBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     *分类串
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodClassification Classification = 9;</code>
+     */
+    public Builder setClassification(com.volcengine.service.vod.model.business.VodClassification value) {
+      if (classificationBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        classification_ = value;
+        onChanged();
+      } else {
+        classificationBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *分类串
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodClassification Classification = 9;</code>
+     */
+    public Builder setClassification(
+        com.volcengine.service.vod.model.business.VodClassification.Builder builderForValue) {
+      if (classificationBuilder_ == null) {
+        classification_ = builderForValue.build();
+        onChanged();
+      } else {
+        classificationBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *分类串
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodClassification Classification = 9;</code>
+     */
+    public Builder mergeClassification(com.volcengine.service.vod.model.business.VodClassification value) {
+      if (classificationBuilder_ == null) {
+        if (classification_ != null) {
+          classification_ =
+            com.volcengine.service.vod.model.business.VodClassification.newBuilder(classification_).mergeFrom(value).buildPartial();
+        } else {
+          classification_ = value;
+        }
+        onChanged();
+      } else {
+        classificationBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *分类串
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodClassification Classification = 9;</code>
+     */
+    public Builder clearClassification() {
+      if (classificationBuilder_ == null) {
+        classification_ = null;
+        onChanged();
+      } else {
+        classification_ = null;
+        classificationBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *分类串
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodClassification Classification = 9;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodClassification.Builder getClassificationBuilder() {
+      
+      onChanged();
+      return getClassificationFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     *分类串
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodClassification Classification = 9;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodClassificationOrBuilder getClassificationOrBuilder() {
+      if (classificationBuilder_ != null) {
+        return classificationBuilder_.getMessageOrBuilder();
+      } else {
+        return classification_ == null ?
+            com.volcengine.service.vod.model.business.VodClassification.getDefaultInstance() : classification_;
+      }
+    }
+    /**
+     * <pre>
+     *分类串
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodClassification Classification = 9;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodClassification, com.volcengine.service.vod.model.business.VodClassification.Builder, com.volcengine.service.vod.model.business.VodClassificationOrBuilder> 
+        getClassificationFieldBuilder() {
+      if (classificationBuilder_ == null) {
+        classificationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.VodClassification, com.volcengine.service.vod.model.business.VodClassification.Builder, com.volcengine.service.vod.model.business.VodClassificationOrBuilder>(
+                getClassification(),
+                getParentForChildren(),
+                isClean());
+        classification_ = null;
+      }
+      return classificationBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

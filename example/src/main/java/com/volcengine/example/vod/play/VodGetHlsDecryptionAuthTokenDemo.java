@@ -2,8 +2,6 @@ package com.volcengine.example.vod.play;
 
 import com.volcengine.service.vod.IVodService;
 import com.volcengine.service.vod.impl.VodServiceImpl;
-import com.volcengine.service.vod.model.request.VodGetHlsDecryptionKeyRequest;
-import com.volcengine.service.vod.model.request.VodGetPlayInfoRequest;
 
 public class VodGetHlsDecryptionAuthTokenDemo {
 

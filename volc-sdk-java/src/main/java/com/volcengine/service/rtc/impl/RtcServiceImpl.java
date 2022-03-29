@@ -17,10 +17,12 @@ import com.volcengine.service.rtc.RtcConfig;
 import com.volcengine.service.rtc.RtcService;
 
 public class RtcServiceImpl extends BaseServiceImpl implements RtcService {
-    public RtcServiceImpl() { super(RtcConfig.serviceInfo, RtcConfig.apiInfoList); }
+    private RtcServiceImpl() { super(RtcConfig.serviceInfo, RtcConfig.apiInfoList); }
+
+    private static final RtcServiceImpl rtcServiceImplInstance = new RtcServiceImpl();
 
     public static RtcService getInstance() {
-        return new RtcServiceImpl();
+        return rtcServiceImplInstance;
     }
     
     

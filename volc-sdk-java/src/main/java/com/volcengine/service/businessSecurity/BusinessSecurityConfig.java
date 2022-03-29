@@ -115,6 +115,7 @@ public class BusinessSecurityConfig {
                         }
                     }
             ));
+
             put(Const.ElementVerify, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

@@ -23,10 +23,11 @@ public class VodStartWorkflowDemo {
                 .setTemplateId("your template_id")
                 .setPriority(0)
                 .setCallbackArgs("your callback_args")
+                .setEnableLowPriority(false)
                 .build();
 
         try {
-            VodStartWorkflowResponse vodStartWorkflowResponse = vodService.StartWorkflow(vodStartWorkflowRequest);
+            VodStartWorkflowResponse vodStartWorkflowResponse = vodService.startWorkflow(vodStartWorkflowRequest);
             if (vodStartWorkflowResponse.getResponseMetadata().hasError()) {
                 System.out.println(vodStartWorkflowResponse.getResponseMetadata().getError());
                 System.exit(-1);

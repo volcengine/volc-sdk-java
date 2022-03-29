@@ -1,5 +1,43 @@
 Change log
 
+2022-03-18 Bumped to version v1.0.37
+- Added some apis of space\callback\cdn for vod
+- Added media snapshot
+- Added filename when upload
+
+2022-03-10 Bumped to version v1.0.36
+- Added kms open API and example
+- Added vod preview
+- Added vod some base api for space、callback、cdn
+
+2022-03-03 Bumped to version v1.0.35
+- Add Video-Classfication for VOD
+- Adjust VoD Consts' location
+- Supported sts credential
+- Added iam role action
+
+2022-02-24 Bumped to version v1.0.34
+- Deleted 4 apis
+- Changed rtc service instances to singleton
+- Added complete fields
+
+2022-02-10 Bumped to version v1.0.33
+- Added image risk detection
+- Added text risk detection
+- Added video risk detection
+- Added 号码验证二期需求
+- Added 火山语音通知功能-任务管理类接口
+- Added 火山语音通知功能-单次发送接口
+- Added 火山语音通知功能-资源管理类接口
+
+
+2022-01-21 Bumped to version v1.0.32
+- added 闲时转码
+
+2022-01-20 Bumped to version v1.0.31
+- fixed 内容定制接口
+- add subEventTypeList
+
 2022-01-14 Bumped to version v1.0.30
 - added 内容定制接口接入java SDK
 

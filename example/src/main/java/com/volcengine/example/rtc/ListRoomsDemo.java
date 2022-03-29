@@ -8,6 +8,7 @@ import com.volcengine.service.rtc.impl.RtcServiceImpl;
 
 public class ListRoomsDemo {
     public static void main(String[] args) {
+        //注意：1.0.33版本之前的getInstance方法不是单例模式，内部存在监控http client的守护线程，多次重复调用可能会产生内存泄露
         RtcService rtcService = RtcServiceImpl.getInstance();
 
         rtcService.setAccessKey("ak");

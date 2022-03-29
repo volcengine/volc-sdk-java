@@ -49,7 +49,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264,bytevc1等Codec
+   *编码类型，默认h264，可选值为h264, h265等Codec
    * </pre>
    *
    * <code>string Codec = 3;</code>
@@ -58,7 +58,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getCodec();
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264,bytevc1等Codec
+   *编码类型，默认h264，可选值为h264, h265等Codec
    * </pre>
    *
    * <code>string Codec = 3;</code>
@@ -266,4 +266,24 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getHDRDefinitionBytes();
+
+  /**
+   * <pre>
+   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+   * </pre>
+   *
+   * <code>string PlayScene = 14;</code>
+   * @return The playScene.
+   */
+  java.lang.String getPlayScene();
+  /**
+   * <pre>
+   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+   * </pre>
+   *
+   * <code>string PlayScene = 14;</code>
+   * @return The bytes for playScene.
+   */
+  com.google.protobuf.ByteString
+      getPlaySceneBytes();
 }

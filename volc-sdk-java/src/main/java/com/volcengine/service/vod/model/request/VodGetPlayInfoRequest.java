@@ -29,6 +29,7 @@ private static final long serialVersionUID = 0L;
     cdnType_ = "";
     unionInfo_ = "";
     hDRDefinition_ = "";
+    playScene_ = "";
   }
 
   @java.lang.Override
@@ -137,6 +138,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             hDRDefinition_ = s;
+            break;
+          }
+          case 114: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            playScene_ = s;
             break;
           }
           default: {
@@ -267,7 +274,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object codec_;
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264,bytevc1等Codec
+   *编码类型，默认h264，可选值为h264, h265等Codec
    * </pre>
    *
    * <code>string Codec = 3;</code>
@@ -288,7 +295,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264,bytevc1等Codec
+   *编码类型，默认h264，可选值为h264, h265等Codec
    * </pre>
    *
    * <code>string Codec = 3;</code>
@@ -769,6 +776,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int PLAYSCENE_FIELD_NUMBER = 14;
+  private volatile java.lang.Object playScene_;
+  /**
+   * <pre>
+   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+   * </pre>
+   *
+   * <code>string PlayScene = 14;</code>
+   * @return The playScene.
+   */
+  @java.lang.Override
+  public java.lang.String getPlayScene() {
+    java.lang.Object ref = playScene_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      playScene_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+   * </pre>
+   *
+   * <code>string PlayScene = 14;</code>
+   * @return The bytes for playScene.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPlaySceneBytes() {
+    java.lang.Object ref = playScene_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      playScene_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -822,6 +875,9 @@ private static final long serialVersionUID = 0L;
     if (!getHDRDefinitionBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 13, hDRDefinition_);
     }
+    if (!getPlaySceneBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 14, playScene_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -870,6 +926,9 @@ private static final long serialVersionUID = 0L;
     if (!getHDRDefinitionBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, hDRDefinition_);
     }
+    if (!getPlaySceneBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, playScene_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -911,6 +970,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getUnionInfo())) return false;
     if (!getHDRDefinition()
         .equals(other.getHDRDefinition())) return false;
+    if (!getPlayScene()
+        .equals(other.getPlayScene())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -948,6 +1009,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getUnionInfo().hashCode();
     hash = (37 * hash) + HDRDEFINITION_FIELD_NUMBER;
     hash = (53 * hash) + getHDRDefinition().hashCode();
+    hash = (37 * hash) + PLAYSCENE_FIELD_NUMBER;
+    hash = (53 * hash) + getPlayScene().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1107,6 +1170,8 @@ private static final long serialVersionUID = 0L;
 
       hDRDefinition_ = "";
 
+      playScene_ = "";
+
       return this;
     }
 
@@ -1146,6 +1211,7 @@ private static final long serialVersionUID = 0L;
       result.cdnType_ = cdnType_;
       result.unionInfo_ = unionInfo_;
       result.hDRDefinition_ = hDRDefinition_;
+      result.playScene_ = playScene_;
       onBuilt();
       return result;
     }
@@ -1244,6 +1310,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getHDRDefinition().isEmpty()) {
         hDRDefinition_ = other.hDRDefinition_;
+        onChanged();
+      }
+      if (!other.getPlayScene().isEmpty()) {
+        playScene_ = other.playScene_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1470,7 +1540,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object codec_ = "";
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264,bytevc1等Codec
+     *编码类型，默认h264，可选值为h264, h265等Codec
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -1490,7 +1560,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264,bytevc1等Codec
+     *编码类型，默认h264，可选值为h264, h265等Codec
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -1511,7 +1581,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264,bytevc1等Codec
+     *编码类型，默认h264，可选值为h264, h265等Codec
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -1530,7 +1600,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264,bytevc1等Codec
+     *编码类型，默认h264，可选值为h264, h265等Codec
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -1544,7 +1614,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264,bytevc1等Codec
+     *编码类型，默认h264，可选值为h264, h265等Codec
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -2519,6 +2589,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       hDRDefinition_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object playScene_ = "";
+    /**
+     * <pre>
+     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * </pre>
+     *
+     * <code>string PlayScene = 14;</code>
+     * @return The playScene.
+     */
+    public java.lang.String getPlayScene() {
+      java.lang.Object ref = playScene_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        playScene_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * </pre>
+     *
+     * <code>string PlayScene = 14;</code>
+     * @return The bytes for playScene.
+     */
+    public com.google.protobuf.ByteString
+        getPlaySceneBytes() {
+      java.lang.Object ref = playScene_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        playScene_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * </pre>
+     *
+     * <code>string PlayScene = 14;</code>
+     * @param value The playScene to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPlayScene(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      playScene_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * </pre>
+     *
+     * <code>string PlayScene = 14;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPlayScene() {
+      
+      playScene_ = getDefaultInstance().getPlayScene();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * </pre>
+     *
+     * <code>string PlayScene = 14;</code>
+     * @param value The bytes for playScene to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPlaySceneBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      playScene_ = value;
       onChanged();
       return this;
     }

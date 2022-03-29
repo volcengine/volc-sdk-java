@@ -186,4 +186,24 @@ public interface VodGetMediaListRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getPageSizeBytes();
+
+  /**
+   * <pre>
+   *分类id列表
+   * </pre>
+   *
+   * <code>string ClassificationIds = 10;</code>
+   * @return The classificationIds.
+   */
+  java.lang.String getClassificationIds();
+  /**
+   * <pre>
+   *分类id列表
+   * </pre>
+   *
+   * <code>string ClassificationIds = 10;</code>
+   * @return The bytes for classificationIds.
+   */
+  com.google.protobuf.ByteString
+      getClassificationIdsBytes();
 }

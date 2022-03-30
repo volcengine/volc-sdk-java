@@ -24,7 +24,7 @@ public class GetListDemo {
         req.setAccessToken("accessToken");
         req.setCategory("server_sdk_demo_default_content_feed_1_3");
         req.setPartner("server_sdk_demo_default_content");
-
+        req.setOffPersonalRec(1);
         try {
             GetListResponse response = streamService.getList(req);
             System.out.println(JSON.toJSONString(response));

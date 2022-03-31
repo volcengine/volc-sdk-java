@@ -272,4 +272,50 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         }
         return JSON.parseObject(response.getData(), HotBoardResponse.class);
     }
+
+    @Override
+    public HotBoardListResponse hotBoardList(HotBoardListRequest hotBoardListRequest) throws Exception {
+        HotBoardBaseRequest request = HotBoardBaseRequest.builder()
+                .accessToken(hotBoardListRequest.getAccessToken())
+                .partner(hotBoardListRequest.getPartner())
+                .timestamp(hotBoardListRequest.getTimestamp())
+                .biz("list").build();
+        RawResponse response = query(Const.HotBoard, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), HotBoardListResponse.class);
+    }
+
+    @Override
+    public HotBoardBoardResponse hotBoardBoard(HotBoardBoardRequest hotBoardBoardRequest) throws Exception {
+        HotBoardBaseRequest request = HotBoardBaseRequest.builder()
+                .accessToken(hotBoardBoardRequest.getAccessToken())
+                .partner(hotBoardBoardRequest.getPartner())
+                .timestamp(hotBoardBoardRequest.getTimestamp())
+                .hotBoardGid(hotBoardBoardRequest.getHotBoardGid())
+                .biz("board").build();
+        RawResponse response = query(Const.HotBoard, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), HotBoardBoardResponse.class);
+    }
+
+    @Override
+    public HotBoardArticleResponse hotBoardArticle(HotBoardArticleRequest hotBoardArticleRequest) throws Exception {
+        HotBoardBaseRequest request = HotBoardBaseRequest.builder()
+                .accessToken(hotBoardArticleRequest.getAccessToken())
+                .partner(hotBoardArticleRequest.getPartner())
+                .timestamp(hotBoardArticleRequest.getTimestamp())
+                .offset(hotBoardArticleRequest.getOffset())
+                .limit(hotBoardArticleRequest.getLimit())
+                .hotBoardGid(hotBoardArticleRequest.getHotBoardGid())
+                .biz("article").build();
+        RawResponse response = query(Const.HotBoard, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), HotBoardArticleResponse.class);
+    }
 }

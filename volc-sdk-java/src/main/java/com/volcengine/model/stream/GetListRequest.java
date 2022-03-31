@@ -39,4 +39,6 @@ public class GetListRequest {
     String province;
     @JSONField(name = "District")
     String district;
+    @JSONField(name = "OffPersonalRec")
+    int offPersonalRec;
 }

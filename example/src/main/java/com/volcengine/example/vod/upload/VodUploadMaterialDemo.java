@@ -54,7 +54,7 @@ public class VodUploadMaterialDemo {
         }
     }
 
-//    图片素材上传
+////  图片素材上传
 //    public static void main(String[] args) {
 //        IVodService vodService = VodServiceImpl.getInstance();
 //
@@ -79,6 +79,7 @@ public class VodUploadMaterialDemo {
 //                .setSpaceName(space)
 //                .setFilePath(filePath)
 //                .setFileType(Const.FileTypeImage)
+//                .setFileName("hello/vod/image")
 //                .setFunctions(JSON.toJSONString(functionsList))
 //                .build();
 //
@@ -96,7 +97,7 @@ public class VodUploadMaterialDemo {
 //        }
 //    }
 
-//    字幕素材上传
+////    字幕素材上传
 //    public static void main(String[] args) {
 //        IVodService vodService = VodServiceImpl.getInstance();
 //
@@ -121,6 +122,7 @@ public class VodUploadMaterialDemo {
 //                .setSpaceName(space)
 //                .setFilePath(filePath)
 //                .setFileType(Const.FileTypeObject)
+//                .setFileName("hello/vod/object")
 //                .setFunctions(JSON.toJSONString(functionsList))
 //                .build();
 //

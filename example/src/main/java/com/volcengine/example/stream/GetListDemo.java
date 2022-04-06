@@ -15,13 +15,13 @@ public class GetListDemo {
         StreamService streamService = StreamServiceImpl.getInstance();
 
         //设置ak，sk 此为请求的凭证
-        streamService.setAccessKey("AKLTY2IwYmI4NWI2NGE2NDU0MDgwNDkxN2ZlYzRjYjZkMDQ");
-        streamService.setSecretKey("TldZd09XVmhOMkl5TUdJNU5HRXdPV0kyWTJOak1HSmhPR1UwTXpjd1lqTQ==");
+        streamService.setAccessKey("ak");
+        streamService.setSecretKey("sk");
 
         //初始化一个request
         GetListRequest req = new GetListRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
-        req.setAccessToken("31164990332316956578902395919b34");
+        req.setAccessToken("accessToken");
         req.setCategory("xib001_default_content_feed_2_8");
         req.setPartner("xib001_default_content");
         req.setOffPersonalRec(0);

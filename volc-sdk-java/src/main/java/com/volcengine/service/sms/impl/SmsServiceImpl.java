@@ -15,6 +15,7 @@ import com.volcengine.model.response.SmsSendResponse;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.sms.SmsConfig;
 import com.volcengine.service.sms.SmsService;
+import org.apache.http.HttpHost;
 
 import java.util.ArrayList;
 
@@ -27,6 +28,10 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         super(serviceInfo, SmsConfig.apiInfoList);
     }
 
+    private SmsServiceImpl(HttpHost proxy) {
+        super(SmsConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), proxy, SmsConfig.apiInfoList);
+    }
+
     public static SmsService getInstance() {
         return new SmsServiceImpl();
     }
@@ -37,6 +42,10 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
             throw new Exception("Edit not support region " + region);
         }
         return new SmsServiceImpl(serviceInfo);
+    }
+
+    public static SmsService getInstance(HttpHost proxy) {
+        return new SmsServiceImpl(proxy);
     }
 
     // low-level，需要用户自己定义serviceInfo

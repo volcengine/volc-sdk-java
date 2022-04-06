@@ -15,16 +15,16 @@ public class GetListDemo {
         StreamService streamService = StreamServiceImpl.getInstance();
 
         //设置ak，sk 此为请求的凭证
-        streamService.setAccessKey("ak");
-        streamService.setSecretKey("sk");
+        streamService.setAccessKey("AKLTY2IwYmI4NWI2NGE2NDU0MDgwNDkxN2ZlYzRjYjZkMDQ");
+        streamService.setSecretKey("TldZd09XVmhOMkl5TUdJNU5HRXdPV0kyWTJOak1HSmhPR1UwTXpjd1lqTQ==");
 
         //初始化一个request
         GetListRequest req = new GetListRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
-        req.setAccessToken("accessToken");
-        req.setCategory("server_sdk_demo_default_content_feed_1_3");
-        req.setPartner("server_sdk_demo_default_content");
-        req.setOffPersonalRec(1);
+        req.setAccessToken("31164990332316956578902395919b34");
+        req.setCategory("xib001_default_content_feed_2_8");
+        req.setPartner("xib001_default_content");
+        req.setOffPersonalRec(0);
         try {
             GetListResponse response = streamService.getList(req);
             System.out.println(JSON.toJSONString(response));

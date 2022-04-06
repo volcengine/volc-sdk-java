@@ -3,9 +3,7 @@ package com.volcengine.example.vod.cdn;
 import com.volcengine.service.vod.IVodService;
 import com.volcengine.service.vod.impl.VodServiceImpl;
 import com.volcengine.service.vod.model.request.VodCreateCdnPreloadTaskRequest;
-import com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest;
 import com.volcengine.service.vod.model.response.VodCreateCdnPreloadTaskResponse;
-import com.volcengine.service.vod.model.response.VodCreateCdnRefreshTaskResponse;
 
 public class VodCreateCdnPreloadTaskDemo {
     public static void main(String[] args) throws Exception {

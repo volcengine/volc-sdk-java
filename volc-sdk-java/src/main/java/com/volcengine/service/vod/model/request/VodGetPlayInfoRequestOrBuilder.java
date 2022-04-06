@@ -286,4 +286,24 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getPlaySceneBytes();
+
+  /**
+   * <pre>
+   * DRM过期时间戳
+   * </pre>
+   *
+   * <code>string DrmExpireTimestamp = 15;</code>
+   * @return The drmExpireTimestamp.
+   */
+  java.lang.String getDrmExpireTimestamp();
+  /**
+   * <pre>
+   * DRM过期时间戳
+   * </pre>
+   *
+   * <code>string DrmExpireTimestamp = 15;</code>
+   * @return The bytes for drmExpireTimestamp.
+   */
+  com.google.protobuf.ByteString
+      getDrmExpireTimestampBytes();
 }

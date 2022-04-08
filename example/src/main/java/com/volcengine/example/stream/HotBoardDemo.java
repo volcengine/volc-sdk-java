@@ -1,6 +1,8 @@
 package com.volcengine.example.stream;
 
 import com.alibaba.fastjson.JSON;
+import com.volcengine.model.stream.HotBoardListRequest;
+import com.volcengine.model.stream.HotBoardListResponse;
 import com.volcengine.model.stream.HotBoardRequest;
 import com.volcengine.model.stream.HotBoardResponse;
 import com.volcengine.service.stream.StreamService;
@@ -17,7 +19,6 @@ public class HotBoardDemo {
         //设置ak，sk 此为请求的凭证
         streamService.setAccessKey("ak");
         streamService.setSecretKey("sk");
-
         //初始化一个request
         HotBoardRequest req = new HotBoardRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));

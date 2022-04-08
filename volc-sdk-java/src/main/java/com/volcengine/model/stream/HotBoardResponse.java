@@ -25,12 +25,18 @@ public class HotBoardResponse {
     public static class HotBoard {
         @JSONField(name = "Title")
         String title;
-        @JSONField(name = "CoverImgUrl")
-        String coverImgUrl;
-        @JSONField(name = "EffectiveEndTime")
-        long effectiveEndTime;
         @JSONField(name = "GroupId")
         String GroupId;
+        @JSONField(name = "Category")
+        String category;
+        @JSONField(name = "ArticleUrl")
+        String articleUrl;
+        @JSONField(name = "CoverImgUrl")
+        String coverImgUrl;
+        @JSONField(name = "CoverImageList")
+        List<CommonPo.Image> coverImageList;
+        @JSONField(name = "EffectiveEndTime")
+        long effectiveEndTime;
     }
 
     @Data
@@ -70,7 +76,7 @@ public class HotBoardResponse {
         @JSONField(name = "HasGallery")
         boolean hasGallery;
         @JSONField(name = "GallaryImageCount")
-        boolean gallaryImageCount;
+        int gallaryImageCount;
         @JSONField(name = "HasVideo")
         boolean hasVideo;
         @JSONField(name = "ImageList")
@@ -115,6 +121,9 @@ public class HotBoardResponse {
         List<String> detailPreLoad;
         @JSONField(name = "Rank")
         int rank;
+        @JSONField(name = "ArticleReadCount")
+        int articleReadCount;
+
     }
 
     @Data

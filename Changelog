@@ -1,5 +1,13 @@
 Change log
 
+2022-04-07 Bumped to version v1.0.39
+- Fixed bugs for stream
+- Supported proxy for sms
+
+2022-03-31 Bumped to version v1.0.38
+- Added apis for stream
+- Added params for vod api
+
 2022-03-18 Bumped to version v1.0.37
 - Added some apis of space\callback\cdn for vod
 - Added media snapshot

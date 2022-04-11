@@ -19,11 +19,6 @@ public final class VodSpace {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodSpaceInfo_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Volcengine_Vod_Models_Business_VodSpaceConfigInfo_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Volcengine_Vod_Models_Business_VodSpaceConfigInfo_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -34,30 +29,25 @@ public final class VodSpace {
   static {
     java.lang.String[] descriptorData = {
       "\n\034vod/business/vod_space.proto\022\036Volcengi" +
-      "ne.Vod.Models.Business\032\035vod/business/vod" +
-      "_common.proto\"\320\001\n\014VodSpaceInfo\022\021\n\tSpaceN" +
-      "ame\030\001 \001(\t\022\016\n\006Region\030\003 \001(\t\022\023\n\013ProjectName" +
-      "\030\004 \001(\t\022\022\n\nBucketName\030\005 \001(\t\022\024\n\014BucketStat" +
-      "us\030\006 \001(\t\022\023\n\013Description\030\007 \001(\t\022\020\n\010UserNam" +
-      "e\030\010 \001(\t\022\021\n\tCreatedAt\030\t \001(\t\022\014\n\004Type\030\n \001(\t" +
-      "\022\026\n\016MediaSyncLevel\030\013 \001(\t\"\244\001\n\022VodSpaceCon" +
-      "figInfo\022\021\n\tAccountID\030\001 \001(\r\022\022\n\nInstanceID" +
-      "\030\002 \001(\t\022\021\n\tSpaceName\030\003 \001(\t\022\016\n\006Status\030\004 \001(" +
-      "\t\022D\n\007Configs\030\005 \003(\01323.Volcengine.Vod.Mode" +
-      "ls.Business.VodCommonConfigInfo*p\n\027VodSp" +
-      "aceUploadConfigKey\022$\n UndefinedVodSpaceU" +
-      "ploadConfigKey\020\000\022/\n+CustomUploadFilePath" +
-      "VodSpaceUploadConfigKey\020\001B\314\001\n)com.volcen" +
-      "gine.service.vod.model.businessB\010VodSpac" +
-      "eP\001ZAgithub.com/volcengine/volc-sdk-gola" +
-      "ng/service/vod/models/business\240\001\001\330\001\001\302\002\000\312" +
-      "\002 Volc\\Service\\Vod\\Models\\Business\342\002#Vol" +
-      "c\\Service\\Vod\\Models\\GPBMetadatab\006proto3"
+      "ne.Vod.Models.Business\"\320\001\n\014VodSpaceInfo\022" +
+      "\021\n\tSpaceName\030\001 \001(\t\022\016\n\006Region\030\003 \001(\t\022\023\n\013Pr" +
+      "ojectName\030\004 \001(\t\022\022\n\nBucketName\030\005 \001(\t\022\024\n\014B" +
+      "ucketStatus\030\006 \001(\t\022\023\n\013Description\030\007 \001(\t\022\020" +
+      "\n\010UserName\030\010 \001(\t\022\021\n\tCreatedAt\030\t \001(\t\022\014\n\004T" +
+      "ype\030\n \001(\t\022\026\n\016MediaSyncLevel\030\013 \001(\t*p\n\027Vod" +
+      "SpaceUploadConfigKey\022$\n UndefinedVodSpac" +
+      "eUploadConfigKey\020\000\022/\n+CustomUploadFilePa" +
+      "thVodSpaceUploadConfigKey\020\001B\314\001\n)com.volc" +
+      "engine.service.vod.model.businessB\010VodSp" +
+      "aceP\001ZAgithub.com/volcengine/volc-sdk-go" +
+      "lang/service/vod/models/business\240\001\001\330\001\001\302\002" +
+      "\000\312\002 Volc\\Service\\Vod\\Models\\Business\342\002#V" +
+      "olc\\Service\\Vod\\Models\\GPBMetadatab\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.volcengine.service.vod.model.business.VodCommon.getDescriptor(),
         });
     internal_static_Volcengine_Vod_Models_Business_VodSpaceInfo_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -65,13 +55,6 @@ public final class VodSpace {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodSpaceInfo_descriptor,
         new java.lang.String[] { "SpaceName", "Region", "ProjectName", "BucketName", "BucketStatus", "Description", "UserName", "CreatedAt", "Type", "MediaSyncLevel", });
-    internal_static_Volcengine_Vod_Models_Business_VodSpaceConfigInfo_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_Volcengine_Vod_Models_Business_VodSpaceConfigInfo_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Volcengine_Vod_Models_Business_VodSpaceConfigInfo_descriptor,
-        new java.lang.String[] { "AccountID", "InstanceID", "SpaceName", "Status", "Configs", });
-    com.volcengine.service.vod.model.business.VodCommon.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

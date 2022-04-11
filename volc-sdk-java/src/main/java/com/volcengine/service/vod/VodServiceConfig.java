@@ -519,20 +519,6 @@ public class VodServiceConfig {
                         }
                     }
             ));
-//            put(Const.GetSpaceConfig, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(com.volcengine.helper.Const.Method, "GET");
-//                            put(com.volcengine.helper.Const.Path, "/");
-//                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.GetSpaceConfig));
-//                                    add(new BasicNameValuePair("Version", "2022-01-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
             put(Const.UpdateSpace, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -601,6 +587,20 @@ public class VodServiceConfig {
                                 {
                                     add(new BasicNameValuePair("Action", Const.CreateCdnPreloadTask));
                                     add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListCdnAccessLog, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListCdnAccessLog));
+                                    add(new BasicNameValuePair("Version", "2022-01-01"));
                                 }
                             });
                         }

@@ -230,6 +230,11 @@ public final class VodRequest {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Request_VodCreateCdnPreloadTaskRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Request_VodListCdnAccessLogRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Request_VodListCdnAccessLogRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Vod_Models_Request_VodAddCallbackSubscriptionRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -371,16 +376,18 @@ public final class VodRequest {
       "ateCdnRefreshTaskRequest\022\021\n\tSpaceName\030\001 " +
       "\001(\t\022\014\n\004Urls\030\002 \001(\t\022\014\n\004Type\030\003 \001(\t\"A\n\036VodCr" +
       "eateCdnPreloadTaskRequest\022\021\n\tSpaceName\030\001" +
-      " \001(\t\022\014\n\004Urls\030\002 \001(\t\"C\n!VodAddCallbackSubs" +
-      "criptionRequest\022\021\n\tSpaceName\030\001 \001(\t\022\013\n\003Ur" +
-      "l\030\002 \001(\t\"?\n\032VodSetCallbackEventRequest\022\021\n" +
-      "\tSpaceName\030\001 \001(\t\022\016\n\006Events\030\002 \001(\tB\310\001\n(com" +
-      ".volcengine.service.vod.model.requestB\nV" +
-      "odRequestP\001Z@github.com/volcengine/volc-" +
-      "sdk-golang/service/vod/models/request\240\001\001" +
-      "\330\001\001\312\002\037Volc\\Service\\Vod\\Models\\Request\342\002#" +
-      "Volc\\Service\\Vod\\Models\\GPBMetadatab\006pro" +
-      "to3"
+      " \001(\t\022\014\n\004Urls\030\002 \001(\t\"n\n\032VodListCdnAccessLo" +
+      "gRequest\022\017\n\007Domains\030\001 \001(\t\022\026\n\016StartTimest" +
+      "amp\030\002 \001(\005\022\024\n\014EndTimestamp\030\003 \001(\005\022\021\n\tSpace" +
+      "Name\030\004 \001(\t\"C\n!VodAddCallbackSubscription" +
+      "Request\022\021\n\tSpaceName\030\001 \001(\t\022\013\n\003Url\030\002 \001(\t\"" +
+      "?\n\032VodSetCallbackEventRequest\022\021\n\tSpaceNa" +
+      "me\030\001 \001(\t\022\016\n\006Events\030\002 \001(\tB\310\001\n(com.volceng" +
+      "ine.service.vod.model.requestB\nVodReques" +
+      "tP\001Z@github.com/volcengine/volc-sdk-gola" +
+      "ng/service/vod/models/request\240\001\001\330\001\001\312\002\037Vo" +
+      "lc\\Service\\Vod\\Models\\Request\342\002#Volc\\Ser" +
+      "vice\\Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -647,14 +654,20 @@ public final class VodRequest {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Request_VodCreateCdnPreloadTaskRequest_descriptor,
         new java.lang.String[] { "SpaceName", "Urls", });
-    internal_static_Volcengine_Vod_Models_Request_VodAddCallbackSubscriptionRequest_descriptor =
+    internal_static_Volcengine_Vod_Models_Request_VodListCdnAccessLogRequest_descriptor =
       getDescriptor().getMessageTypes().get(43);
+    internal_static_Volcengine_Vod_Models_Request_VodListCdnAccessLogRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Request_VodListCdnAccessLogRequest_descriptor,
+        new java.lang.String[] { "Domains", "StartTimestamp", "EndTimestamp", "SpaceName", });
+    internal_static_Volcengine_Vod_Models_Request_VodAddCallbackSubscriptionRequest_descriptor =
+      getDescriptor().getMessageTypes().get(44);
     internal_static_Volcengine_Vod_Models_Request_VodAddCallbackSubscriptionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Request_VodAddCallbackSubscriptionRequest_descriptor,
         new java.lang.String[] { "SpaceName", "Url", });
     internal_static_Volcengine_Vod_Models_Request_VodSetCallbackEventRequest_descriptor =
-      getDescriptor().getMessageTypes().get(44);
+      getDescriptor().getMessageTypes().get(45);
     internal_static_Volcengine_Vod_Models_Request_VodSetCallbackEventRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Request_VodSetCallbackEventRequest_descriptor,

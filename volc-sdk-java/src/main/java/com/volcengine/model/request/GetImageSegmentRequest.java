@@ -8,7 +8,7 @@ public class GetImageSegmentRequest{
     @JSONField(name = "ServiceId")
     String serviceId;
     @JSONField(name = "Class")
-    String Class;
+    String classify;
     @JSONField(name = "Refine")
     Boolean refine;
     @JSONField(name = "StoreUri")

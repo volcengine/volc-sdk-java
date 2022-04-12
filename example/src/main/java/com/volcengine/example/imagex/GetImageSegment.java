@@ -19,7 +19,7 @@ public class GetImageSegment {
         GetImageSegmentRequest request = new GetImageSegmentRequest();
         request.setServiceId("xx");
         request.setStoreUri("uri");
-        request.setClass("xx");
+        request.setClassify("xx");
         request.setRefine(true);
         request.setOutFormat("xx");
         request.setTransBg(true);

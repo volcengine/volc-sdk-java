@@ -20,7 +20,6 @@ public class GetImageSegmentRequest{
     @JSONField(name = "Contour")
     Contour contour;
 
-
     @Data
     public static class Contour{
         @JSONField(name = "Color")

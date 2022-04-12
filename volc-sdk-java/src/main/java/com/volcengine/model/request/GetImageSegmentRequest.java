@@ -18,7 +18,7 @@ public class GetImageSegmentRequest{
     @JSONField(name = "TransBg")
     Boolean TransBg;
     @JSONField(name = "Contour")
-    Contour contour;
+    Contour Contour;
 
 
     @Data

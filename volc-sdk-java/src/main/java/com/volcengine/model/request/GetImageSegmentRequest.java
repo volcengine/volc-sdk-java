@@ -10,15 +10,15 @@ public class GetImageSegmentRequest{
     @JSONField(name = "Class")
     String Class;
     @JSONField(name = "Refine")
-    Boolean Refine;
+    Boolean refine;
     @JSONField(name = "StoreUri")
-    String StoreUri;
+    String storeUri;
     @JSONField(name = "OutFormat")
-    String OutFormat;
+    String outFormat;
     @JSONField(name = "TransBg")
-    Boolean TransBg;
+    Boolean transBg;
     @JSONField(name = "Contour")
-    Contour Contour;
+    Contour contour;
 
 
     @Data

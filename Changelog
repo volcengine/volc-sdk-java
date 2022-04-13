@@ -1,5 +1,8 @@
 Change log
 
+2022-04-13 Bumped to version v1.0.40
+- Added apis for Vod
+
 2022-04-07 Bumped to version v1.0.39
 - Fixed bugs for stream
 - Supported proxy for sms

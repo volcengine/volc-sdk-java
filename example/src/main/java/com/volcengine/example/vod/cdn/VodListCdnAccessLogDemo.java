@@ -16,8 +16,8 @@ public class VodListCdnAccessLogDemo {
             VodListCdnAccessLogRequest.Builder input = com.volcengine.service.vod.model.request.VodListCdnAccessLogRequest.newBuilder();
             input.setSpaceName("your space name");
             input.setDomains("your domain");
-            input.setStartTime(0);
-            input.setEndTime(0);
+            input.setStartTimestamp(0);
+            input.setEndTimestamp(0);
             VodListCdnAccessLogResponse resp = vodService.listCdnAccessLog(input.build());
             System.out.println(resp);
         } catch (Exception e) {

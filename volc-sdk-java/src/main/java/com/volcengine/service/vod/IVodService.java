@@ -427,6 +427,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodCreateCdnPreloadTaskResponse createCdnPreloadTask(com.volcengine.service.vod.model.request.VodCreateCdnPreloadTaskRequest input) throws Exception;
 	
 	/**
+     * listCdnTasks.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodListCdnTasksRequest
+     * @return com.volcengine.service.vod.model.response.VodListCdnTasksResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodListCdnTasksResponse listCdnTasks(com.volcengine.service.vod.model.request.VodListCdnTasksRequest input) throws Exception;
+	
+	/**
      * listCdnAccessLog.
      *
      * @param input com.volcengine.service.vod.model.request.VodListCdnAccessLogRequest

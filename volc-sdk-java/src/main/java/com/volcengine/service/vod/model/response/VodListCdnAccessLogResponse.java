@@ -4,26 +4,25 @@
 package com.volcengine.service.vod.model.response;
 
 /**
- * Protobuf type {@code Volcengine.Vod.Models.Response.VodGetSpaceConfigResponse}
+ * Protobuf type {@code Volcengine.Vod.Models.Response.VodListCdnAccessLogResponse}
  */
-public final class VodGetSpaceConfigResponse extends
+public final class VodListCdnAccessLogResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Response.VodGetSpaceConfigResponse)
-    VodGetSpaceConfigResponseOrBuilder {
+    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Response.VodListCdnAccessLogResponse)
+    VodListCdnAccessLogResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use VodGetSpaceConfigResponse.newBuilder() to construct.
-  private VodGetSpaceConfigResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use VodListCdnAccessLogResponse.newBuilder() to construct.
+  private VodListCdnAccessLogResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private VodGetSpaceConfigResponse() {
-    result_ = java.util.Collections.emptyList();
+  private VodListCdnAccessLogResponse() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new VodGetSpaceConfigResponse();
+    return new VodListCdnAccessLogResponse();
   }
 
   @java.lang.Override
@@ -31,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VodGetSpaceConfigResponse(
+  private VodListCdnAccessLogResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -39,7 +38,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -64,12 +62,16 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              result_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodSpaceConfigInfo>();
-              mutable_bitField0_ |= 0x00000001;
+            com.volcengine.service.vod.model.business.VodListCdnAccessLogResult.Builder subBuilder = null;
+            if (result_ != null) {
+              subBuilder = result_.toBuilder();
             }
-            result_.add(
-                input.readMessage(com.volcengine.service.vod.model.business.VodSpaceConfigInfo.parser(), extensionRegistry));
+            result_ = input.readMessage(com.volcengine.service.vod.model.business.VodListCdnAccessLogResult.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(result_);
+              result_ = subBuilder.buildPartial();
+            }
+
             break;
           }
           default: {
@@ -87,24 +89,21 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        result_ = java.util.Collections.unmodifiableList(result_);
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodGetSpaceConfigResponse_descriptor;
+    return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodListCdnAccessLogResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodGetSpaceConfigResponse_fieldAccessorTable
+    return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodListCdnAccessLogResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse.class, com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse.Builder.class);
+            com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse.class, com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse.Builder.class);
   }
 
   public static final int RESPONSEMETADATA_FIELD_NUMBER = 1;
@@ -134,43 +133,29 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESULT_FIELD_NUMBER = 2;
-  private java.util.List<com.volcengine.service.vod.model.business.VodSpaceConfigInfo> result_;
+  private com.volcengine.service.vod.model.business.VodListCdnAccessLogResult result_;
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
+   * <code>.Volcengine.Vod.Models.Business.VodListCdnAccessLogResult Result = 2;</code>
+   * @return Whether the result field is set.
    */
   @java.lang.Override
-  public java.util.List<com.volcengine.service.vod.model.business.VodSpaceConfigInfo> getResultList() {
-    return result_;
+  public boolean hasResult() {
+    return result_ != null;
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
+   * <code>.Volcengine.Vod.Models.Business.VodListCdnAccessLogResult Result = 2;</code>
+   * @return The result.
    */
   @java.lang.Override
-  public java.util.List<? extends com.volcengine.service.vod.model.business.VodSpaceConfigInfoOrBuilder> 
-      getResultOrBuilderList() {
-    return result_;
+  public com.volcengine.service.vod.model.business.VodListCdnAccessLogResult getResult() {
+    return result_ == null ? com.volcengine.service.vod.model.business.VodListCdnAccessLogResult.getDefaultInstance() : result_;
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
+   * <code>.Volcengine.Vod.Models.Business.VodListCdnAccessLogResult Result = 2;</code>
    */
   @java.lang.Override
-  public int getResultCount() {
-    return result_.size();
-  }
-  /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
-   */
-  @java.lang.Override
-  public com.volcengine.service.vod.model.business.VodSpaceConfigInfo getResult(int index) {
-    return result_.get(index);
-  }
-  /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
-   */
-  @java.lang.Override
-  public com.volcengine.service.vod.model.business.VodSpaceConfigInfoOrBuilder getResultOrBuilder(
-      int index) {
-    return result_.get(index);
+  public com.volcengine.service.vod.model.business.VodListCdnAccessLogResultOrBuilder getResultOrBuilder() {
+    return getResult();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -190,8 +175,8 @@ private static final long serialVersionUID = 0L;
     if (responseMetadata_ != null) {
       output.writeMessage(1, getResponseMetadata());
     }
-    for (int i = 0; i < result_.size(); i++) {
-      output.writeMessage(2, result_.get(i));
+    if (result_ != null) {
+      output.writeMessage(2, getResult());
     }
     unknownFields.writeTo(output);
   }
@@ -206,9 +191,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getResponseMetadata());
     }
-    for (int i = 0; i < result_.size(); i++) {
+    if (result_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, result_.get(i));
+        .computeMessageSize(2, getResult());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -220,18 +205,21 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse)) {
+    if (!(obj instanceof com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse)) {
       return super.equals(obj);
     }
-    com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse other = (com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse) obj;
+    com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse other = (com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse) obj;
 
     if (hasResponseMetadata() != other.hasResponseMetadata()) return false;
     if (hasResponseMetadata()) {
       if (!getResponseMetadata()
           .equals(other.getResponseMetadata())) return false;
     }
-    if (!getResultList()
-        .equals(other.getResultList())) return false;
+    if (hasResult() != other.hasResult()) return false;
+    if (hasResult()) {
+      if (!getResult()
+          .equals(other.getResult())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -247,78 +235,78 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RESPONSEMETADATA_FIELD_NUMBER;
       hash = (53 * hash) + getResponseMetadata().hashCode();
     }
-    if (getResultCount() > 0) {
+    if (hasResult()) {
       hash = (37 * hash) + RESULT_FIELD_NUMBER;
-      hash = (53 * hash) + getResultList().hashCode();
+      hash = (53 * hash) + getResult().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse parseFrom(byte[] data)
+  public static com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse parseFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse parseDelimitedFrom(
+  public static com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -331,7 +319,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse prototype) {
+  public static Builder newBuilder(com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -347,26 +335,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code Volcengine.Vod.Models.Response.VodGetSpaceConfigResponse}
+   * Protobuf type {@code Volcengine.Vod.Models.Response.VodListCdnAccessLogResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Response.VodGetSpaceConfigResponse)
-      com.volcengine.service.vod.model.response.VodGetSpaceConfigResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Response.VodListCdnAccessLogResponse)
+      com.volcengine.service.vod.model.response.VodListCdnAccessLogResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodGetSpaceConfigResponse_descriptor;
+      return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodListCdnAccessLogResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodGetSpaceConfigResponse_fieldAccessorTable
+      return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodListCdnAccessLogResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse.class, com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse.Builder.class);
+              com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse.class, com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse.Builder.class);
     }
 
-    // Construct using com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse.newBuilder()
+    // Construct using com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -379,7 +367,6 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getResultFieldBuilder();
       }
     }
     @java.lang.Override
@@ -392,10 +379,10 @@ private static final long serialVersionUID = 0L;
         responseMetadataBuilder_ = null;
       }
       if (resultBuilder_ == null) {
-        result_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        result_ = null;
       } else {
-        resultBuilder_.clear();
+        result_ = null;
+        resultBuilder_ = null;
       }
       return this;
     }
@@ -403,17 +390,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodGetSpaceConfigResponse_descriptor;
+      return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodListCdnAccessLogResponse_descriptor;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse getDefaultInstanceForType() {
-      return com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse.getDefaultInstance();
+    public com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse getDefaultInstanceForType() {
+      return com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse build() {
-      com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse result = buildPartial();
+    public com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse build() {
+      com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -421,19 +408,14 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse buildPartial() {
-      com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse result = new com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse(this);
-      int from_bitField0_ = bitField0_;
+    public com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse buildPartial() {
+      com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse result = new com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse(this);
       if (responseMetadataBuilder_ == null) {
         result.responseMetadata_ = responseMetadata_;
       } else {
         result.responseMetadata_ = responseMetadataBuilder_.build();
       }
       if (resultBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
-          result_ = java.util.Collections.unmodifiableList(result_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
         result.result_ = result_;
       } else {
         result.result_ = resultBuilder_.build();
@@ -476,44 +458,21 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse) {
-        return mergeFrom((com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse)other);
+      if (other instanceof com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse) {
+        return mergeFrom((com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse other) {
-      if (other == com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse other) {
+      if (other == com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse.getDefaultInstance()) return this;
       if (other.hasResponseMetadata()) {
         mergeResponseMetadata(other.getResponseMetadata());
       }
-      if (resultBuilder_ == null) {
-        if (!other.result_.isEmpty()) {
-          if (result_.isEmpty()) {
-            result_ = other.result_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureResultIsMutable();
-            result_.addAll(other.result_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.result_.isEmpty()) {
-          if (resultBuilder_.isEmpty()) {
-            resultBuilder_.dispose();
-            resultBuilder_ = null;
-            result_ = other.result_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-            resultBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getResultFieldBuilder() : null;
-          } else {
-            resultBuilder_.addAllMessages(other.result_);
-          }
-        }
+      if (other.hasResult()) {
+        mergeResult(other.getResult());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -530,11 +489,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse parsedMessage = null;
+      com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -543,7 +502,6 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
 
     private com.volcengine.service.base.model.base.ResponseMetadata responseMetadata_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -664,239 +622,118 @@ private static final long serialVersionUID = 0L;
       return responseMetadataBuilder_;
     }
 
-    private java.util.List<com.volcengine.service.vod.model.business.VodSpaceConfigInfo> result_ =
-      java.util.Collections.emptyList();
-    private void ensureResultIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        result_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodSpaceConfigInfo>(result_);
-        bitField0_ |= 0x00000001;
-       }
+    private com.volcengine.service.vod.model.business.VodListCdnAccessLogResult result_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodListCdnAccessLogResult, com.volcengine.service.vod.model.business.VodListCdnAccessLogResult.Builder, com.volcengine.service.vod.model.business.VodListCdnAccessLogResultOrBuilder> resultBuilder_;
+    /**
+     * <code>.Volcengine.Vod.Models.Business.VodListCdnAccessLogResult Result = 2;</code>
+     * @return Whether the result field is set.
+     */
+    public boolean hasResult() {
+      return resultBuilder_ != null || result_ != null;
     }
+    /**
+     * <code>.Volcengine.Vod.Models.Business.VodListCdnAccessLogResult Result = 2;</code>
+     * @return The result.
+     */
+    public com.volcengine.service.vod.model.business.VodListCdnAccessLogResult getResult() {
+      if (resultBuilder_ == null) {
+        return result_ == null ? com.volcengine.service.vod.model.business.VodListCdnAccessLogResult.getDefaultInstance() : result_;
+      } else {
+        return resultBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.Volcengine.Vod.Models.Business.VodListCdnAccessLogResult Result = 2;</code>
+     */
+    public Builder setResult(com.volcengine.service.vod.model.business.VodListCdnAccessLogResult value) {
+      if (resultBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        result_ = value;
+        onChanged();
+      } else {
+        resultBuilder_.setMessage(value);
+      }
 
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.volcengine.service.vod.model.business.VodSpaceConfigInfo, com.volcengine.service.vod.model.business.VodSpaceConfigInfo.Builder, com.volcengine.service.vod.model.business.VodSpaceConfigInfoOrBuilder> resultBuilder_;
-
-    /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
-     */
-    public java.util.List<com.volcengine.service.vod.model.business.VodSpaceConfigInfo> getResultList() {
-      if (resultBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(result_);
-      } else {
-        return resultBuilder_.getMessageList();
-      }
+      return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
-     */
-    public int getResultCount() {
-      if (resultBuilder_ == null) {
-        return result_.size();
-      } else {
-        return resultBuilder_.getCount();
-      }
-    }
-    /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
-     */
-    public com.volcengine.service.vod.model.business.VodSpaceConfigInfo getResult(int index) {
-      if (resultBuilder_ == null) {
-        return result_.get(index);
-      } else {
-        return resultBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
+     * <code>.Volcengine.Vod.Models.Business.VodListCdnAccessLogResult Result = 2;</code>
      */
     public Builder setResult(
-        int index, com.volcengine.service.vod.model.business.VodSpaceConfigInfo value) {
+        com.volcengine.service.vod.model.business.VodListCdnAccessLogResult.Builder builderForValue) {
       if (resultBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
+        result_ = builderForValue.build();
+        onChanged();
+      } else {
+        resultBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Volcengine.Vod.Models.Business.VodListCdnAccessLogResult Result = 2;</code>
+     */
+    public Builder mergeResult(com.volcengine.service.vod.model.business.VodListCdnAccessLogResult value) {
+      if (resultBuilder_ == null) {
+        if (result_ != null) {
+          result_ =
+            com.volcengine.service.vod.model.business.VodListCdnAccessLogResult.newBuilder(result_).mergeFrom(value).buildPartial();
+        } else {
+          result_ = value;
         }
-        ensureResultIsMutable();
-        result_.set(index, value);
         onChanged();
       } else {
-        resultBuilder_.setMessage(index, value);
+        resultBuilder_.mergeFrom(value);
       }
+
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
-     */
-    public Builder setResult(
-        int index, com.volcengine.service.vod.model.business.VodSpaceConfigInfo.Builder builderForValue) {
-      if (resultBuilder_ == null) {
-        ensureResultIsMutable();
-        result_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        resultBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
-     */
-    public Builder addResult(com.volcengine.service.vod.model.business.VodSpaceConfigInfo value) {
-      if (resultBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureResultIsMutable();
-        result_.add(value);
-        onChanged();
-      } else {
-        resultBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
-     */
-    public Builder addResult(
-        int index, com.volcengine.service.vod.model.business.VodSpaceConfigInfo value) {
-      if (resultBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureResultIsMutable();
-        result_.add(index, value);
-        onChanged();
-      } else {
-        resultBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
-     */
-    public Builder addResult(
-        com.volcengine.service.vod.model.business.VodSpaceConfigInfo.Builder builderForValue) {
-      if (resultBuilder_ == null) {
-        ensureResultIsMutable();
-        result_.add(builderForValue.build());
-        onChanged();
-      } else {
-        resultBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
-     */
-    public Builder addResult(
-        int index, com.volcengine.service.vod.model.business.VodSpaceConfigInfo.Builder builderForValue) {
-      if (resultBuilder_ == null) {
-        ensureResultIsMutable();
-        result_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        resultBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
-     */
-    public Builder addAllResult(
-        java.lang.Iterable<? extends com.volcengine.service.vod.model.business.VodSpaceConfigInfo> values) {
-      if (resultBuilder_ == null) {
-        ensureResultIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, result_);
-        onChanged();
-      } else {
-        resultBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
+     * <code>.Volcengine.Vod.Models.Business.VodListCdnAccessLogResult Result = 2;</code>
      */
     public Builder clearResult() {
       if (resultBuilder_ == null) {
-        result_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        result_ = null;
         onChanged();
       } else {
-        resultBuilder_.clear();
+        result_ = null;
+        resultBuilder_ = null;
       }
+
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
+     * <code>.Volcengine.Vod.Models.Business.VodListCdnAccessLogResult Result = 2;</code>
      */
-    public Builder removeResult(int index) {
-      if (resultBuilder_ == null) {
-        ensureResultIsMutable();
-        result_.remove(index);
-        onChanged();
-      } else {
-        resultBuilder_.remove(index);
-      }
-      return this;
+    public com.volcengine.service.vod.model.business.VodListCdnAccessLogResult.Builder getResultBuilder() {
+      
+      onChanged();
+      return getResultFieldBuilder().getBuilder();
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
+     * <code>.Volcengine.Vod.Models.Business.VodListCdnAccessLogResult Result = 2;</code>
      */
-    public com.volcengine.service.vod.model.business.VodSpaceConfigInfo.Builder getResultBuilder(
-        int index) {
-      return getResultFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
-     */
-    public com.volcengine.service.vod.model.business.VodSpaceConfigInfoOrBuilder getResultOrBuilder(
-        int index) {
-      if (resultBuilder_ == null) {
-        return result_.get(index);  } else {
-        return resultBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
-     */
-    public java.util.List<? extends com.volcengine.service.vod.model.business.VodSpaceConfigInfoOrBuilder> 
-         getResultOrBuilderList() {
+    public com.volcengine.service.vod.model.business.VodListCdnAccessLogResultOrBuilder getResultOrBuilder() {
       if (resultBuilder_ != null) {
-        return resultBuilder_.getMessageOrBuilderList();
+        return resultBuilder_.getMessageOrBuilder();
       } else {
-        return java.util.Collections.unmodifiableList(result_);
+        return result_ == null ?
+            com.volcengine.service.vod.model.business.VodListCdnAccessLogResult.getDefaultInstance() : result_;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
+     * <code>.Volcengine.Vod.Models.Business.VodListCdnAccessLogResult Result = 2;</code>
      */
-    public com.volcengine.service.vod.model.business.VodSpaceConfigInfo.Builder addResultBuilder() {
-      return getResultFieldBuilder().addBuilder(
-          com.volcengine.service.vod.model.business.VodSpaceConfigInfo.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
-     */
-    public com.volcengine.service.vod.model.business.VodSpaceConfigInfo.Builder addResultBuilder(
-        int index) {
-      return getResultFieldBuilder().addBuilder(
-          index, com.volcengine.service.vod.model.business.VodSpaceConfigInfo.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceConfigInfo Result = 2;</code>
-     */
-    public java.util.List<com.volcengine.service.vod.model.business.VodSpaceConfigInfo.Builder> 
-         getResultBuilderList() {
-      return getResultFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.volcengine.service.vod.model.business.VodSpaceConfigInfo, com.volcengine.service.vod.model.business.VodSpaceConfigInfo.Builder, com.volcengine.service.vod.model.business.VodSpaceConfigInfoOrBuilder> 
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodListCdnAccessLogResult, com.volcengine.service.vod.model.business.VodListCdnAccessLogResult.Builder, com.volcengine.service.vod.model.business.VodListCdnAccessLogResultOrBuilder> 
         getResultFieldBuilder() {
       if (resultBuilder_ == null) {
-        resultBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.volcengine.service.vod.model.business.VodSpaceConfigInfo, com.volcengine.service.vod.model.business.VodSpaceConfigInfo.Builder, com.volcengine.service.vod.model.business.VodSpaceConfigInfoOrBuilder>(
-                result_,
-                ((bitField0_ & 0x00000001) != 0),
+        resultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.VodListCdnAccessLogResult, com.volcengine.service.vod.model.business.VodListCdnAccessLogResult.Builder, com.volcengine.service.vod.model.business.VodListCdnAccessLogResultOrBuilder>(
+                getResult(),
                 getParentForChildren(),
                 isClean());
         result_ = null;
@@ -916,41 +753,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Response.VodGetSpaceConfigResponse)
+    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Response.VodListCdnAccessLogResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Response.VodGetSpaceConfigResponse)
-  private static final com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Response.VodListCdnAccessLogResponse)
+  private static final com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse();
+    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse();
   }
 
-  public static com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse getDefaultInstance() {
+  public static com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<VodGetSpaceConfigResponse>
-      PARSER = new com.google.protobuf.AbstractParser<VodGetSpaceConfigResponse>() {
+  private static final com.google.protobuf.Parser<VodListCdnAccessLogResponse>
+      PARSER = new com.google.protobuf.AbstractParser<VodListCdnAccessLogResponse>() {
     @java.lang.Override
-    public VodGetSpaceConfigResponse parsePartialFrom(
+    public VodListCdnAccessLogResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VodGetSpaceConfigResponse(input, extensionRegistry);
+      return new VodListCdnAccessLogResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<VodGetSpaceConfigResponse> parser() {
+  public static com.google.protobuf.Parser<VodListCdnAccessLogResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<VodGetSpaceConfigResponse> getParserForType() {
+  public com.google.protobuf.Parser<VodListCdnAccessLogResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.volcengine.service.vod.model.response.VodGetSpaceConfigResponse getDefaultInstanceForType() {
+  public com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

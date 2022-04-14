@@ -54,6 +54,21 @@ public final class VodCdn {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodCdnTaskResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodCdnAccessLogElement_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodCdnAccessLogElement_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodCdnAccessLogInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodCdnAccessLogInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodListCdnAccessLogResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodListCdnAccessLogResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -95,12 +110,20 @@ public final class VodCdn {
       "ult\022\022\n\nTotalCount\030\001 \001(\005\022\017\n\007PageNum\030\002 \001(\005" +
       "\022\020\n\010PageSize\030\003 \001(\005\022D\n\014ContentInfos\030\004 \003(\013" +
       "2..Volcengine.Vod.Models.Business.VodCon" +
-      "tentInfoB\312\001\n)com.volcengine.service.vod." +
-      "model.businessB\006VodCdnP\001ZAgithub.com/vol" +
-      "cengine/volc-sdk-golang/service/vod/mode" +
-      "ls/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\" +
-      "Models\\Business\342\002#Volc\\Service\\Vod\\Model" +
-      "s\\GPBMetadatab\006proto3"
+      "tentInfo\"\177\n\026VodCdnAccessLogElement\022\023\n\013Do" +
+      "wnloadUrl\030\001 \001(\t\022\020\n\010FileSize\030\002 \001(\003\022\020\n\010Fil" +
+      "eName\030\003 \001(\t\022\026\n\016StartTimestamp\030\004 \001(\005\022\024\n\014E" +
+      "ndTimestamp\030\005 \001(\005\"n\n\023VodCdnAccessLogInfo" +
+      "\022\016\n\006Domain\030\001 \001(\t\022G\n\007LogList\030\002 \003(\01326.Volc" +
+      "engine.Vod.Models.Business.VodCdnAccessL" +
+      "ogElement\"^\n\031VodListCdnAccessLogResult\022A" +
+      "\n\004Logs\030\001 \003(\01323.Volcengine.Vod.Models.Bus" +
+      "iness.VodCdnAccessLogInfoB\312\001\n)com.volcen" +
+      "gine.service.vod.model.businessB\006VodCdnP" +
+      "\001ZAgithub.com/volcengine/volc-sdk-golang" +
+      "/service/vod/models/business\240\001\001\330\001\001\302\002\000\312\002 " +
+      "Volc\\Service\\Vod\\Models\\Business\342\002#Volc\\" +
+      "Service\\Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -154,6 +177,24 @@ public final class VodCdn {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodCdnTaskResult_descriptor,
         new java.lang.String[] { "TotalCount", "PageNum", "PageSize", "ContentInfos", });
+    internal_static_Volcengine_Vod_Models_Business_VodCdnAccessLogElement_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_Volcengine_Vod_Models_Business_VodCdnAccessLogElement_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodCdnAccessLogElement_descriptor,
+        new java.lang.String[] { "DownloadUrl", "FileSize", "FileName", "StartTimestamp", "EndTimestamp", });
+    internal_static_Volcengine_Vod_Models_Business_VodCdnAccessLogInfo_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_Volcengine_Vod_Models_Business_VodCdnAccessLogInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodCdnAccessLogInfo_descriptor,
+        new java.lang.String[] { "Domain", "LogList", });
+    internal_static_Volcengine_Vod_Models_Business_VodListCdnAccessLogResult_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_Volcengine_Vod_Models_Business_VodListCdnAccessLogResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodListCdnAccessLogResult_descriptor,
+        new java.lang.String[] { "Logs", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

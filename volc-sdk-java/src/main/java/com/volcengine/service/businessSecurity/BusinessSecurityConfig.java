@@ -115,7 +115,6 @@ public class BusinessSecurityConfig {
                         }
                     }
             ));
-
             put(Const.ElementVerify, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -125,6 +124,34 @@ public class BusinessSecurityConfig {
                                 {
                                     add(new BasicNameValuePair("Action", Const.ElementVerify));
                                     add(new BasicNameValuePair("Version", "2021-11-23"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.MobileStatusV2, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "MobileStatus"));
+                                    add(new BasicNameValuePair("Version", "2022-04-13"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ElementVerifyV2, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ElementVerify"));
+                                    add(new BasicNameValuePair("Version", "2022-04-13"));
                                 }
                             });
                         }

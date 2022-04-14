@@ -29,43 +29,43 @@ public class GetVideoUrlResponse {
 
     @Data
     public static class VideoList {
-        @JSONField(name = "main_url")
+        @JSONField(name = "MainUrl")
         String mainUrl;
-        @JSONField(name = "main_http_url")
+        @JSONField(name = "MainHttpUrl")
         String mainHttpUrl;
-        @JSONField(name = "backup_url_1")
+        @JSONField(name = "BackupUrl1")
         String backupUrl1;
-        @JSONField(name = "backup_http_url")
+        @JSONField(name = "BackupHttpUrl")
         String backupHttpUrl;
-        @JSONField(name = "url_expire")
+        @JSONField(name = "UrlExpire")
         long urlExpire;
-        @JSONField(name = "file_id")
+        @JSONField(name = "FileId")
         String fileId;
-        @JSONField(name = "bitrate")
+        @JSONField(name = "Bitrate")
         int bitrate;
-        @JSONField(name = "codec_type")
+        @JSONField(name = "CodecType")
         String codecType;
-        @JSONField(name = "logo_type")
+        @JSONField(name = "LogoType")
         String logoType;
-        @JSONField(name = "size")
+        @JSONField(name = "Size")
         int size;
         @JSONField(name = "FPS")
         int fps;
-        @JSONField(name = "quality")
+        @JSONField(name = "Quality")
         String quality;
-        @JSONField(name = "encrypt")
+        @JSONField(name = "Encrypt")
         boolean encrypt;
-        @JSONField(name = "file_hash")
+        @JSONField(name = "FileHash")
         String fileHash;
-        @JSONField(name = "vheight")
+        @JSONField(name = "Vheight")
         int vHeight;
-        @JSONField(name = "vwidth")
+        @JSONField(name = "Vwidth")
         int vWidth;
-        @JSONField(name = "vtype")
+        @JSONField(name = "Vtype")
         String vType;
-        @JSONField(name = "definition")
+        @JSONField(name = "Definition")
         String definition;
-        @JSONField(name = "redirect")
+        @JSONField(name = "Redirect")
         boolean redirect;
     }
 }

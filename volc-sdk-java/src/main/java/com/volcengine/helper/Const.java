@@ -48,6 +48,8 @@ public class Const {
     public static final String AccountRisk = "AccountRisk";
     public static final String MobileStatus = "MobileStatus";
     public static final String ElementVerify = "ElementVerify";
+    public static final String MobileStatusV2 = "MobileStatusV2";
+    public static final String ElementVerifyV2 = "ElementVerifyV2";
 
     // content security
     public static final String ImageContentRisk = "ImageContentRisk";

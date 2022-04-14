@@ -1,5 +1,9 @@
 Change log
 
+2022-04-14 Bumped to version v1.0.41
+- Added apis for Vod 
+- Fixed apis for business security/stream/translate
+
 2022-04-13 Bumped to version v1.0.40
 - Added apis for Vod
 

@@ -301,90 +301,90 @@ public class VodServiceConfig {
                         }
                     }
             ));
-//            put(Const.GetAuditFramesForAudit, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(Const.Method, "GET");
-//                            put(Const.Path, "/");
-//                            put(Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.GetAuditFramesForAudit));
-//                                    add(new BasicNameValuePair("Version", "2021-11-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
-//            put(Const.GetMLFramesForAudit, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(Const.Method, "GET");
-//                            put(Const.Path, "/");
-//                            put(Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.GetMLFramesForAudit));
-//                                    add(new BasicNameValuePair("Version", "2021-11-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
-//            put(Const.GetBetterFramesForAudit, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(Const.Method, "GET");
-//                            put(Const.Path, "/");
-//                            put(Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.GetBetterFramesForAudit));
-//                                    add(new BasicNameValuePair("Version", "2021-11-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
-//            put(Const.GetAudioInfoForAudit, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(Const.Method, "GET");
-//                            put(Const.Path, "/");
-//                            put(Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.GetAudioInfoForAudit));
-//                                    add(new BasicNameValuePair("Version", "2021-11-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
-//            put(Const.GetAutomaticSpeechRecognitionForAudit, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(Const.Method, "GET");
-//                            put(Const.Path, "/");
-//                            put(Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.GetAutomaticSpeechRecognitionForAudit));
-//                                    add(new BasicNameValuePair("Version", "2021-11-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
-//            put(Const.GetAudioEventDetectionForAudit, new ApiInfo(
-//                    new HashMap<String, Object>() {
-//                        {
-//                            put(Const.Method, "GET");
-//                            put(Const.Path, "/");
-//                            put(Const.Query, new ArrayList<NameValuePair>() {
-//                                {
-//                                    add(new BasicNameValuePair("Action", Const.GetAudioEventDetectionForAudit));
-//                                    add(new BasicNameValuePair("Version", "2021-11-01"));
-//                                }
-//                            });
-//                        }
-//                    }
-//            ));
+            put(Const.GetAuditFramesForAudit, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetAuditFramesForAudit));
+                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetMLFramesForAudit, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetMLFramesForAudit));
+                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetBetterFramesForAudit, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetBetterFramesForAudit));
+                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetAudioInfoForAudit, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetAudioInfoForAudit));
+                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetAutomaticSpeechRecognitionForAudit, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetAutomaticSpeechRecognitionForAudit));
+                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetAudioEventDetectionForAudit, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetAudioEventDetectionForAudit));
+                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.CreateVideoClassification, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -600,6 +600,20 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.CreateCdnPreloadTask));
+                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListCdnTasks, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListCdnTasks));
                                     add(new BasicNameValuePair("Version", "2021-01-01"));
                                 }
                             });

@@ -1,13 +1,7 @@
 package com.volcengine.service.businessSecurity;
 
 import com.volcengine.helper.Const;
-import com.volcengine.model.ApiInfo;
-import com.volcengine.model.Credentials;
-import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +16,7 @@ public class BusinessSecurityConfig {
                     put(Const.Host, "riskcontrol.volcengineapi.com");
                     put(Const.Header, new ArrayList<Header>() {
                         {
-                            add(new BasicHeader("Accept", "application/json"));
+                            add(new Header("Accept", "application/json"));
                         }
                     });
                     put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "BusinessSecurity"));
@@ -38,8 +32,8 @@ public class BusinessSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.RiskDetection));
-                                    add(new BasicNameValuePair("Version", "2021-02-02"));
+                                    add(new NameValuePair("Action", Const.RiskDetection));
+                                    add(new NameValuePair("Version", "2021-02-02"));
                                 }
                             });
                         }
@@ -52,8 +46,8 @@ public class BusinessSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.AsyncRiskDetection));
-                                    add(new BasicNameValuePair("Version", "2021-02-25"));
+                                    add(new NameValuePair("Action", Const.AsyncRiskDetection));
+                                    add(new NameValuePair("Version", "2021-02-25"));
                                 }
                             });
                         }
@@ -66,8 +60,8 @@ public class BusinessSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.RiskResult));
-                                    add(new BasicNameValuePair("Version", "2021-03-10"));
+                                    add(new NameValuePair("Action", Const.RiskResult));
+                                    add(new NameValuePair("Version", "2021-03-10"));
                                 }
                             });
                         }
@@ -80,8 +74,8 @@ public class BusinessSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DataReport));
-                                    add(new BasicNameValuePair("Version", "2021-08-31"));
+                                    add(new NameValuePair("Action", Const.DataReport));
+                                    add(new NameValuePair("Version", "2021-08-31"));
                                 }
                             });
                         }
@@ -94,8 +88,8 @@ public class BusinessSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.AccountRisk));
-                                    add(new BasicNameValuePair("Version", "2020-12-25"));
+                                    add(new NameValuePair("Action", Const.AccountRisk));
+                                    add(new NameValuePair("Version", "2020-12-25"));
                                 }
                             });
                         }
@@ -108,8 +102,8 @@ public class BusinessSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.MobileStatus));
-                                    add(new BasicNameValuePair("Version", "2020-12-25"));
+                                    add(new NameValuePair("Action", Const.MobileStatus));
+                                    add(new NameValuePair("Version", "2020-12-25"));
                                 }
                             });
                         }
@@ -123,8 +117,8 @@ public class BusinessSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ElementVerify));
-                                    add(new BasicNameValuePair("Version", "2021-11-23"));
+                                    add(new NameValuePair("Action", Const.ElementVerify));
+                                    add(new NameValuePair("Version", "2021-11-23"));
                                 }
                             });
                         }
@@ -137,8 +131,8 @@ public class BusinessSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "MobileStatus"));
-                                    add(new BasicNameValuePair("Version", "2022-04-13"));
+                                    add(new NameValuePair("Action", "MobileStatus"));
+                                    add(new NameValuePair("Version", "2022-04-13"));
                                 }
                             });
                         }
@@ -151,8 +145,8 @@ public class BusinessSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "ElementVerify"));
-                                    add(new BasicNameValuePair("Version", "2022-04-13"));
+                                    add(new NameValuePair("Action", "ElementVerify"));
+                                    add(new NameValuePair("Version", "2022-04-13"));
                                 }
                             });
                         }

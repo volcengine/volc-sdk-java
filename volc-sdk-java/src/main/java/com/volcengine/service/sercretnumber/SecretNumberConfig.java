@@ -7,10 +7,7 @@ import com.volcengine.model.ServiceInfo;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 public class SecretNumberConfig {
 
@@ -25,7 +22,7 @@ public class SecretNumberConfig {
               put(Const.Host, "cloud-vms.volcengineapi.com");
               put(Const.Header, new ArrayList<Header>() {
                 {
-                  add(new BasicHeader("Accept", "application/json"));
+                  add(new Header("Accept", "application/json"));
                 }
               });
               put(Const.Credentials,
@@ -45,8 +42,8 @@ public class SecretNumberConfig {
               put(Const.Path, "/");
               put(Const.Query, new ArrayList<NameValuePair>() {
                 {
-                  add(new BasicNameValuePair("Action", "BindAXB"));
-                  add(new BasicNameValuePair("Version", "2020-09-01"));
+                  add(new NameValuePair("Action", "BindAXB"));
+                  add(new NameValuePair("Version", "2020-09-01"));
                 }
               });
             }
@@ -59,8 +56,8 @@ public class SecretNumberConfig {
               put(Const.Path, "/");
               put(Const.Query, new ArrayList<NameValuePair>() {
                 {
-                  add(new BasicNameValuePair("Action", "SelectNumberAndBindAXB"));
-                  add(new BasicNameValuePair("Version", "2020-09-01"));
+                  add(new NameValuePair("Action", "SelectNumberAndBindAXB"));
+                  add(new NameValuePair("Version", "2020-09-01"));
                 }
               });
             }
@@ -73,8 +70,8 @@ public class SecretNumberConfig {
               put(Const.Path, "/");
               put(Const.Query, new ArrayList<NameValuePair>() {
                 {
-                  add(new BasicNameValuePair("Action", "UnbindAXB"));
-                  add(new BasicNameValuePair("Version", "2020-09-01"));
+                  add(new NameValuePair("Action", "UnbindAXB"));
+                  add(new NameValuePair("Version", "2020-09-01"));
                 }
               });
             }
@@ -87,8 +84,8 @@ public class SecretNumberConfig {
               put(Const.Path, "/");
               put(Const.Query, new ArrayList<NameValuePair>() {
                 {
-                  add(new BasicNameValuePair("Action", "QuerySubscription"));
-                  add(new BasicNameValuePair("Version", "2020-09-01"));
+                  add(new NameValuePair("Action", "QuerySubscription"));
+                  add(new NameValuePair("Version", "2020-09-01"));
                 }
               });
             }
@@ -101,8 +98,8 @@ public class SecretNumberConfig {
               put(Const.Path, "/");
               put(Const.Query, new ArrayList<NameValuePair>() {
                 {
-                  add(new BasicNameValuePair("Action", "QuerySubscriptionForList"));
-                  add(new BasicNameValuePair("Version", "2020-09-01"));
+                  add(new NameValuePair("Action", "QuerySubscriptionForList"));
+                  add(new NameValuePair("Version", "2020-09-01"));
                 }
               });
             }
@@ -115,8 +112,8 @@ public class SecretNumberConfig {
               put(Const.Path, "/");
               put(Const.Query, new ArrayList<NameValuePair>() {
                 {
-                  add(new BasicNameValuePair("Action", "UpgradeAXToAXB"));
-                  add(new BasicNameValuePair("Version", "2020-09-01"));
+                  add(new NameValuePair("Action", "UpgradeAXToAXB"));
+                  add(new NameValuePair("Version", "2020-09-01"));
                 }
               });
             }
@@ -129,8 +126,8 @@ public class SecretNumberConfig {
               put(Const.Path, "/");
               put(Const.Query, new ArrayList<NameValuePair>() {
                 {
-                  add(new BasicNameValuePair("Action", "UpdateAXB"));
-                  add(new BasicNameValuePair("Version", "2020-09-01"));
+                  add(new NameValuePair("Action", "UpdateAXB"));
+                  add(new NameValuePair("Version", "2020-09-01"));
                 }
               });
             }
@@ -143,8 +140,8 @@ public class SecretNumberConfig {
               put(Const.Path, "/");
               put(Const.Query, new ArrayList<NameValuePair>() {
                 {
-                  add(new BasicNameValuePair("Action", "BindAXN"));
-                  add(new BasicNameValuePair("Version", "2020-09-01"));
+                  add(new NameValuePair("Action", "BindAXN"));
+                  add(new NameValuePair("Version", "2020-09-01"));
                 }
               });
             }
@@ -157,8 +154,8 @@ public class SecretNumberConfig {
               put(Const.Path, "/");
               put(Const.Query, new ArrayList<NameValuePair>() {
                 {
-                  add(new BasicNameValuePair("Action", "UpdateAXN"));
-                  add(new BasicNameValuePair("Version", "2020-09-01"));
+                  add(new NameValuePair("Action", "UpdateAXN"));
+                  add(new NameValuePair("Version", "2020-09-01"));
                 }
               });
             }
@@ -171,8 +168,8 @@ public class SecretNumberConfig {
               put(Const.Path, "/");
               put(Const.Query, new ArrayList<NameValuePair>() {
                 {
-                  add(new BasicNameValuePair("Action", "UnbindAXN"));
-                  add(new BasicNameValuePair("Version", "2020-09-01"));
+                  add(new NameValuePair("Action", "UnbindAXN"));
+                  add(new NameValuePair("Version", "2020-09-01"));
                 }
               });
             }

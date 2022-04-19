@@ -4,10 +4,7 @@ import com.volcengine.helper.Const;
 import com.volcengine.model.ApiInfo;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,7 +26,7 @@ public class CmsConfig {
                             put(Const.Host, "cms.volcengineapi.com");
                             put(Const.Header, new ArrayList<Header>() {
                                 {
-                                    add(new BasicHeader("Accept", "application/json"));
+                                    add(new Header("Accept", "application/json"));
                                 }
                             });
                             put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, PlatformService));
@@ -48,8 +45,8 @@ public class CmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.BatchCreateSourceArticle));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.BatchCreateSourceArticle));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -62,8 +59,8 @@ public class CmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetArticleBatchUploadDetail));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.GetArticleBatchUploadDetail));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -76,8 +73,8 @@ public class CmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DeleteSourceArticle));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.DeleteSourceArticle));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -90,8 +87,8 @@ public class CmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DeleteSourceArticleByOpenid));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.DeleteSourceArticleByOpenid));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -104,8 +101,8 @@ public class CmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ArticleEventNotify));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.ArticleEventNotify));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -125,7 +122,7 @@ public class CmsConfig {
                             put(Const.Host, "cms.volcengineapi.com");
                             put(Const.Header, new ArrayList<Header>() {
                                 {
-                                    add(new BasicHeader("Accept", "application/json"));
+                                    add(new Header("Accept", "application/json"));
                                 }
                             });
                             put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, ApiService));
@@ -144,8 +141,8 @@ public class CmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.Feed));
-                                    add(new BasicNameValuePair("Version", "2021-06-17"));
+                                    add(new NameValuePair("Action", Const.Feed));
+                                    add(new NameValuePair("Version", "2021-06-17"));
                                 }
                             });
                         }
@@ -158,8 +155,8 @@ public class CmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetVideoByVid));
-                                    add(new BasicNameValuePair("Version", "2021-08-18"));
+                                    add(new NameValuePair("Action", Const.GetVideoByVid));
+                                    add(new NameValuePair("Version", "2021-08-18"));
                                 }
                             });
                         }
@@ -172,8 +169,8 @@ public class CmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.MGetVideoByVids));
-                                    add(new BasicNameValuePair("Version", "2021-09-01"));
+                                    add(new NameValuePair("Action", Const.MGetVideoByVids));
+                                    add(new NameValuePair("Version", "2021-09-01"));
                                 }
                             });
                         }

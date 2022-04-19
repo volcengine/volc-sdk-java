@@ -4,10 +4,7 @@ import com.volcengine.helper.Const;
 import com.volcengine.model.ApiInfo;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,7 +30,7 @@ public class ImageXConfig {
                             put(Const.Host, "imagex.volcengineapi.com");
                             put(Const.Header, new ArrayList<Header>() {
                                 {
-                                    add(new BasicHeader("Accept", "application/json"));
+                                    add(new Header("Accept", "application/json"));
                                 }
                             });
                             put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "ImageX"));
@@ -49,7 +46,7 @@ public class ImageXConfig {
                             put(Const.Host, "imagex-us-east-1.volcengineapi.com");
                             put(Const.Header, new ArrayList<Header>() {
                                 {
-                                    add(new BasicHeader("Accept", "application/json"));
+                                    add(new Header("Accept", "application/json"));
                                 }
                             });
                             put(Const.Credentials, new Credentials(Const.REGION_US_EASE_1, "ImageX"));
@@ -65,7 +62,7 @@ public class ImageXConfig {
                             put(Const.Host, "imagex-ap-singapore-1.volcengineapi.com");
                             put(Const.Header, new ArrayList<Header>() {
                                 {
-                                    add(new BasicHeader("Accept", "application/json"));
+                                    add(new Header("Accept", "application/json"));
                                 }
                             });
                             put(Const.Credentials, new Credentials(Const.REGION_AP_SINGAPORE_1, "ImageX"));
@@ -85,8 +82,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "CreateImageTemplate"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "CreateImageTemplate"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }
@@ -99,8 +96,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DeleteImageTemplate"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "DeleteImageTemplate"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }
@@ -113,8 +110,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "PreviewImageTemplate"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "PreviewImageTemplate"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }
@@ -127,8 +124,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "GetImageTemplate"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "GetImageTemplate"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }
@@ -141,8 +138,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "GetAllImageTemplates"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "GetAllImageTemplates"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }
@@ -156,8 +153,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "ApplyImageUpload"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "ApplyImageUpload"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }
@@ -170,8 +167,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "CommitImageUpload"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "CommitImageUpload"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }
@@ -184,8 +181,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DeleteImageUploadFiles"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "DeleteImageUploadFiles"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }
@@ -198,8 +195,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "UpdateImageUploadFiles"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "UpdateImageUploadFiles"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }
@@ -212,8 +209,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "GetImageUploadFile"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "GetImageUploadFile"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }
@@ -226,8 +223,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "GetImageUploadFiles"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "GetImageUploadFiles"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }
@@ -240,8 +237,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "PreviewImageUploadFile"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "PreviewImageUploadFile"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }
@@ -254,8 +251,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "GetImageUpdateFiles"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "GetImageUpdateFiles"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }
@@ -268,8 +265,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "GetImageOCR"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "GetImageOCR"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }
@@ -282,8 +279,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "CreateImageHmEmbed"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "CreateImageHmEmbed"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }
@@ -296,8 +293,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "CreateImageHmExtract"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "CreateImageHmExtract"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }
@@ -310,8 +307,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "GetSegmentImage"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "GetSegmentImage"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }

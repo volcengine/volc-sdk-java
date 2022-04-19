@@ -6,10 +6,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageOrBuilder;
 import com.google.protobuf.util.JsonFormat;
+import com.volcengine.model.NameValuePair;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -34,7 +33,7 @@ public class Utils {
 
         if (params != null) {
             for (String key : params.keySet()) {
-                res.add(new BasicNameValuePair(key, params.get(key)));
+                res.add(new NameValuePair(key, params.get(key)));
             }
         }
         return res;
@@ -162,15 +161,15 @@ public class Utils {
         List<NameValuePair> pairs = new ArrayList<>();
         for (Map.Entry<String, Object> entry : map.entrySet()) {
             if (entry.getValue().getClass() == Integer.class) {
-                pairs.add(new BasicNameValuePair(entry.getKey(), ((Integer) entry.getValue()).toString()));
+                pairs.add(new NameValuePair(entry.getKey(), ((Integer) entry.getValue()).toString()));
             } else if (entry.getValue().getClass() == String.class) {
-                pairs.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
+                pairs.add(new NameValuePair(entry.getKey(), (String) entry.getValue()));
             } else if (entry.getValue().getClass() == Long.class) {
-                pairs.add(new BasicNameValuePair(entry.getKey(),((Long) entry.getValue()).toString()));
+                pairs.add(new NameValuePair(entry.getKey(),((Long) entry.getValue()).toString()));
             } else if (entry.getValue().getClass() == JSONArray.class) {
                 List<String> list = (List<String>) entry.getValue();
                 for (String item : list) {
-                    pairs.add(new BasicNameValuePair(entry.getKey(), item));
+                    pairs.add(new NameValuePair(entry.getKey(), item));
                 }
             }
         }

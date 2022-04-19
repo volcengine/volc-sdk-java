@@ -4,10 +4,7 @@ import com.volcengine.helper.Const;
 import com.volcengine.model.ApiInfo;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,7 +22,7 @@ public class LivesaasConfig {
                             put(Const.Host, "livesaas.volcengineapi.com");
                             put(Const.Header, new ArrayList<Header>() {
                                 {
-                                    add(new BasicHeader("Accept", "application/json"));
+                                    add(new Header("Accept", "application/json"));
                                 }
                             });
                             put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "livesaas"));
@@ -44,8 +41,8 @@ public class LivesaasConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CreateActivityAPI));
-                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                    add(new NameValuePair("Action", Const.CreateActivityAPI));
+                                    add(new NameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
@@ -58,8 +55,8 @@ public class LivesaasConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetActivityAPI));
-                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                    add(new NameValuePair("Action", Const.GetActivityAPI));
+                                    add(new NameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
@@ -72,8 +69,8 @@ public class LivesaasConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetStreamsAPI));
-                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                    add(new NameValuePair("Action", Const.GetStreamsAPI));
+                                    add(new NameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
@@ -86,8 +83,8 @@ public class LivesaasConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetAdvertisementDataAPI));
-                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                    add(new NameValuePair("Action", Const.GetAdvertisementDataAPI));
+                                    add(new NameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
@@ -100,8 +97,8 @@ public class LivesaasConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetRealTimeOnlineNumberAPI));
-                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                    add(new NameValuePair("Action", Const.GetRealTimeOnlineNumberAPI));
+                                    add(new NameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
@@ -114,8 +111,8 @@ public class LivesaasConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DeleteActivityAPI));
-                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                    add(new NameValuePair("Action", Const.DeleteActivityAPI));
+                                    add(new NameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
@@ -128,8 +125,8 @@ public class LivesaasConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateActivityBasicConfigAPI));
-                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                    add(new NameValuePair("Action", Const.UpdateActivityBasicConfigAPI));
+                                    add(new NameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
@@ -142,8 +139,8 @@ public class LivesaasConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetActivityBasicConfigAPI));
-                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                    add(new NameValuePair("Action", Const.GetActivityBasicConfigAPI));
+                                    add(new NameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
@@ -156,8 +153,8 @@ public class LivesaasConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UploadLibAPI));
-                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                    add(new NameValuePair("Action", Const.UploadLibAPI));
+                                    add(new NameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
@@ -170,8 +167,8 @@ public class LivesaasConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetActivityMenuAPI));
-                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                    add(new NameValuePair("Action", Const.GetActivityMenuAPI));
+                                    add(new NameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
@@ -184,8 +181,8 @@ public class LivesaasConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateActivityMenuAPI));
-                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                    add(new NameValuePair("Action", Const.UpdateActivityMenuAPI));
+                                    add(new NameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
@@ -198,8 +195,8 @@ public class LivesaasConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetActivityProductAPI));
-                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                    add(new NameValuePair("Action", Const.GetActivityProductAPI));
+                                    add(new NameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
@@ -212,8 +209,8 @@ public class LivesaasConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateActivityProductAPI));
-                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                    add(new NameValuePair("Action", Const.UpdateActivityProductAPI));
+                                    add(new NameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
@@ -226,8 +223,8 @@ public class LivesaasConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListActivityDetailStatusAPI));
-                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                    add(new NameValuePair("Action", Const.ListActivityDetailStatusAPI));
+                                    add(new NameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }

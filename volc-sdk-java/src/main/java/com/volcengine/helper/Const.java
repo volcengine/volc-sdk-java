@@ -1,7 +1,11 @@
 package com.volcengine.helper;
 
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+
 public class Const {
 
+    public static final Charset UTF_8 = StandardCharsets.UTF_8;
     public static final String ACCESS_KEY = "VOLC_ACCESSKEY";
     public static final String SECRET_KEY = "VOLC_SECRETKEY";
 
@@ -22,6 +26,8 @@ public class Const {
     public static final String Path = "Path";
     public static final String Query = "Query";
     public static final String Form = "Form";
+
+    public static final String Action = "Action";
 
     // iam
     public static final String CreateUser = "CreateUser";
@@ -119,6 +125,8 @@ public class Const {
     public static final String XSecurityToken = "X-Security-Token";
 
     public static final String ContentMd5 = "Content-Md5";
+
+    public static final String USERAGENT = "User-Agent";
 
     public static final String ListRooms = "ListRooms";
     public static final String ListIndicators = "ListIndicators";
@@ -256,4 +264,5 @@ public class Const {
     public static final String ScheduleKeyDeletion = "ScheduleKeyDeletion";
     public static final String CancelKeyDeletion = "CancelKeyDeletion";
     public static final String KmsServiceVersion = "2021-02-18";
+
 }

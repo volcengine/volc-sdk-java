@@ -4,10 +4,7 @@ import com.volcengine.helper.Const;
 import com.volcengine.model.ApiInfo;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +20,7 @@ public class StreamConfig {
                     put(Const.Host, "open.volcengineapi.com");
                     put(Const.Header, new ArrayList<Header>() {
                         {
-                            add(new BasicHeader("Accept", "application/json"));
+                            add(new Header("Accept", "application/json"));
                         }
                     });
                     put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "content"));
@@ -40,8 +37,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.WapRegister));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.WapRegister));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -54,8 +51,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ContentStream));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.ContentStream));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -68,8 +65,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.Digg));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.Digg));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -82,8 +79,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.Bury));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.Bury));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -96,8 +93,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UnDigg));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.UnDigg));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -110,8 +107,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UnBury));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.UnBury));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -124,8 +121,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.SingleArticleInfo));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.SingleArticleInfo));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -138,8 +135,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.MultiArticleInfo));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.MultiArticleInfo));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -152,8 +149,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.Feedback));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.Feedback));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -166,8 +163,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.Follow));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.Follow));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -180,8 +177,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.Unfollow));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.Unfollow));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -194,8 +191,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CheckRelation));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.CheckRelation));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -208,8 +205,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.FollowingList));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.FollowingList));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -222,8 +219,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.RefreshTips));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.RefreshTips));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -236,8 +233,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.FollowArticles));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.FollowArticles));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -250,8 +247,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.RecommendRelatedUser));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.RecommendRelatedUser));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -264,8 +261,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.RecommendCategoryUser));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.RecommendCategoryUser));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -278,8 +275,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.RecommendCategoryInfo));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.RecommendCategoryInfo));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -292,8 +289,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.RelatedArticle));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.RelatedArticle));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -306,8 +303,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DiggList));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.DiggList));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -320,8 +317,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.VideoUrl));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.VideoUrl));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -334,8 +331,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UnionProduct));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.UnionProduct));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -348,8 +345,8 @@ public class StreamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.HotBoard));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.HotBoard));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }

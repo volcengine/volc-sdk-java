@@ -4,10 +4,7 @@ import com.volcengine.helper.Const;
 import com.volcengine.model.ApiInfo;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +19,7 @@ public class ContentSecurityConfig {
                     put(Const.Host, "riskcontrol.volcengineapi.com");
                     put(Const.Header, new ArrayList<Header>() {
                         {
-                            add(new BasicHeader("Accept", "application/json"));
+                            add(new Header("Accept", "application/json"));
                         }
                     });
                     put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "BusinessSecurity"));
@@ -38,8 +35,8 @@ public class ContentSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ImageContentRisk));
-                                    add(new BasicNameValuePair("Version", "2021-11-29"));
+                                    add(new NameValuePair("Action", Const.ImageContentRisk));
+                                    add(new NameValuePair("Version", "2021-11-29"));
                                 }
                             });
                         }
@@ -52,8 +49,8 @@ public class ContentSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.AsyncImageRisk));
-                                    add(new BasicNameValuePair("Version", "2021-11-29"));
+                                    add(new NameValuePair("Action", Const.AsyncImageRisk));
+                                    add(new NameValuePair("Version", "2021-11-29"));
                                 }
                             });
                         }
@@ -66,8 +63,8 @@ public class ContentSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetImageResult));
-                                    add(new BasicNameValuePair("Version", "2021-11-29"));
+                                    add(new NameValuePair("Action", Const.GetImageResult));
+                                    add(new NameValuePair("Version", "2021-11-29"));
                                 }
                             });
                         }
@@ -80,8 +77,8 @@ public class ContentSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.AsyncVideoRisk));
-                                    add(new BasicNameValuePair("Version", "2021-11-29"));
+                                    add(new NameValuePair("Action", Const.AsyncVideoRisk));
+                                    add(new NameValuePair("Version", "2021-11-29"));
                                 }
                             });
                         }
@@ -94,8 +91,8 @@ public class ContentSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.VideoResult));
-                                    add(new BasicNameValuePair("Version", "2021-11-29"));
+                                    add(new NameValuePair("Action", Const.VideoResult));
+                                    add(new NameValuePair("Version", "2021-11-29"));
                                 }
                             });
                         }
@@ -108,8 +105,8 @@ public class ContentSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.TextRisk));
-                                    add(new BasicNameValuePair("Version", "2022-01-26"));
+                                    add(new NameValuePair("Action", Const.TextRisk));
+                                    add(new NameValuePair("Version", "2022-01-26"));
                                 }
                             });
                         }
@@ -150,8 +147,8 @@ public class ContentSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CreateCustomContents));
-                                    add(new BasicNameValuePair("Version", "2022-01-22"));
+                                    add(new NameValuePair("Action", Const.CreateCustomContents));
+                                    add(new NameValuePair("Version", "2022-01-22"));
                                 }
                             });
                         }
@@ -164,8 +161,8 @@ public class ContentSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UploadCustomContents));
-                                    add(new BasicNameValuePair("Version", "2022-02-07"));
+                                    add(new NameValuePair("Action", Const.UploadCustomContents));
+                                    add(new NameValuePair("Version", "2022-02-07"));
                                 }
                             });
                         }

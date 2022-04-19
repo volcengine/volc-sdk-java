@@ -4,10 +4,7 @@ import com.volcengine.helper.Const;
 import com.volcengine.model.ApiInfo;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,7 +22,7 @@ public class SmsConfig {
                             put(Const.Host, "sms.volcengineapi.com");
                             put(Const.Header, new ArrayList<Header>() {
                                 {
-                                    add(new BasicHeader("Accept", "application/json"));
+                                    add(new Header("Accept", "application/json"));
                                 }
                             });
                             put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "volcSMS"));
@@ -41,7 +38,7 @@ public class SmsConfig {
                             put(Const.Host, "sms.byteplusapi.com");
                             put(Const.Header, new ArrayList<Header>() {
                                 {
-                                    add(new BasicHeader("Accept", "application/json"));
+                                    add(new Header("Accept", "application/json"));
                                 }
                             });
                             put(Const.Credentials, new Credentials(Const.REGION_AP_SINGAPORE_1, "volcSMS"));
@@ -60,8 +57,8 @@ public class SmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "SendSms"));
-                                    add(new BasicNameValuePair("Version", "2020-01-01"));
+                                    add(new NameValuePair("Action", "SendSms"));
+                                    add(new NameValuePair("Version", "2020-01-01"));
                                 }
                             });
                         }
@@ -74,8 +71,8 @@ public class SmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "SendBatchSms"));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", "SendBatchSms"));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -88,8 +85,8 @@ public class SmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "SendSmsVerifyCode"));
-                                    add(new BasicNameValuePair("Version", "2020-01-01"));
+                                    add(new NameValuePair("Action", "SendSmsVerifyCode"));
+                                    add(new NameValuePair("Version", "2020-01-01"));
                                 }
                             });
                         }
@@ -102,8 +99,8 @@ public class SmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "CheckSmsVerifyCode"));
-                                    add(new BasicNameValuePair("Version", "2020-01-01"));
+                                    add(new NameValuePair("Action", "CheckSmsVerifyCode"));
+                                    add(new NameValuePair("Version", "2020-01-01"));
                                 }
                             });
                         }

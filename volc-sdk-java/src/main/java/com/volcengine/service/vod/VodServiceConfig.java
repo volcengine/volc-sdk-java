@@ -3,10 +3,7 @@ package com.volcengine.service.vod;
 import com.volcengine.model.ApiInfo;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,7 +21,7 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Host, "vod.volcengineapi.com");
                             put(com.volcengine.helper.Const.Header, new ArrayList<Header>() {
                                 {
-                                    add(new BasicHeader("Accept", "application/json"));
+                                    add(new Header("Accept", "application/json"));
                                 }
                             });
                             put(com.volcengine.helper.Const.Credentials, new Credentials(com.volcengine.helper.Const.REGION_CN_NORTH_1, "vod"));
@@ -46,8 +43,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetPlayInfo));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.GetPlayInfo));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
@@ -60,8 +57,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetPrivateDrmPlayAuth));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.GetPrivateDrmPlayAuth));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
@@ -74,8 +71,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetHlsDecryptionKey));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.GetHlsDecryptionKey));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
@@ -88,8 +85,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetPlayInfoWithLiveTimeShiftScene));
-                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+                                    add(new NameValuePair("Action", Const.GetPlayInfoWithLiveTimeShiftScene));
+                                    add(new NameValuePair("Version", "2021-11-01"));
                                 }
                             });
                         }
@@ -106,8 +103,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UploadMediaByUrl));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.UploadMediaByUrl));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
@@ -120,8 +117,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.QueryUploadTaskInfo));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.QueryUploadTaskInfo));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
@@ -134,8 +131,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ApplyUploadInfo));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.ApplyUploadInfo));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
@@ -148,8 +145,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CommitUploadInfo));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.CommitUploadInfo));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                             put(com.volcengine.helper.Const.CONNECTION_TIMEOUT, 8000);
@@ -168,8 +165,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateMediaInfo));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.UpdateMediaInfo));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
@@ -182,8 +179,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateMediaPublishStatus));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.UpdateMediaPublishStatus));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
@@ -196,8 +193,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetMediaInfos));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.GetMediaInfos));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
@@ -210,8 +207,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetRecommendedPoster));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.GetRecommendedPoster));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
@@ -224,8 +221,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DeleteMedia));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.DeleteMedia));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
@@ -238,8 +235,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DeleteTranscodes));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.DeleteTranscodes));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
@@ -252,8 +249,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetMediaList));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.GetMediaList));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
@@ -266,8 +263,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetSubtitleInfoList));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.GetSubtitleInfoList));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
@@ -280,8 +277,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateSubtitleStatus));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.UpdateSubtitleStatus));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
@@ -294,8 +291,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateSubtitleInfo));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.UpdateSubtitleInfo));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
@@ -308,8 +305,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetAuditFramesForAudit));
-                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+                                    add(new NameValuePair("Action", Const.GetAuditFramesForAudit));
+                                    add(new NameValuePair("Version", "2021-11-01"));
                                 }
                             });
                         }
@@ -322,8 +319,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetMLFramesForAudit));
-                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+                                    add(new NameValuePair("Action", Const.GetMLFramesForAudit));
+                                    add(new NameValuePair("Version", "2021-11-01"));
                                 }
                             });
                         }
@@ -336,8 +333,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetBetterFramesForAudit));
-                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+                                    add(new NameValuePair("Action", Const.GetBetterFramesForAudit));
+                                    add(new NameValuePair("Version", "2021-11-01"));
                                 }
                             });
                         }
@@ -350,8 +347,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetAudioInfoForAudit));
-                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+                                    add(new NameValuePair("Action", Const.GetAudioInfoForAudit));
+                                    add(new NameValuePair("Version", "2021-11-01"));
                                 }
                             });
                         }
@@ -364,8 +361,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetAutomaticSpeechRecognitionForAudit));
-                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+                                    add(new NameValuePair("Action", Const.GetAutomaticSpeechRecognitionForAudit));
+                                    add(new NameValuePair("Version", "2021-11-01"));
                                 }
                             });
                         }
@@ -378,8 +375,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetAudioEventDetectionForAudit));
-                                    add(new BasicNameValuePair("Version", "2021-11-01"));
+                                    add(new NameValuePair("Action", Const.GetAudioEventDetectionForAudit));
+                                    add(new NameValuePair("Version", "2021-11-01"));
                                 }
                             });
                         }
@@ -392,8 +389,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CreateVideoClassification));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.CreateVideoClassification));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -406,8 +403,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateVideoClassification));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.UpdateVideoClassification));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -420,8 +417,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DeleteVideoClassification));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.DeleteVideoClassification));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -434,8 +431,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListVideoClassifications));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.ListVideoClassifications));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -448,8 +445,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListSnapshots));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.ListSnapshots));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -466,8 +463,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.StartWorkflow));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.StartWorkflow));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
@@ -484,8 +481,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CreateSpace));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.CreateSpace));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -498,8 +495,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListSpace));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.ListSpace));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -512,8 +509,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetSpaceDetail));
-                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+                                    add(new NameValuePair("Action", Const.GetSpaceDetail));
+                                    add(new NameValuePair("Version", "2022-01-01"));
                                 }
                             });
                         }
@@ -526,8 +523,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateSpace));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.UpdateSpace));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -540,8 +537,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateSpaceUploadConfig));
-                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+                                    add(new NameValuePair("Action", Const.UpdateSpaceUploadConfig));
+                                    add(new NameValuePair("Version", "2022-01-01"));
                                 }
                             });
                         }
@@ -557,8 +554,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListDomain));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.ListDomain));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -571,8 +568,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CreateCdnRefreshTask));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.CreateCdnRefreshTask));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -585,8 +582,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CreateCdnPreloadTask));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.CreateCdnPreloadTask));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -599,8 +596,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListCdnTasks));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.ListCdnTasks));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -613,8 +610,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListCdnAccessLog));
-                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+                                    add(new NameValuePair("Action", Const.ListCdnAccessLog));
+                                    add(new NameValuePair("Version", "2022-01-01"));
 
                                 }
                             });
@@ -661,8 +658,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.AddCallbackSubscription));
-                                    add(new BasicNameValuePair("Version", "2021-12-01"));
+                                    add(new NameValuePair("Action", Const.AddCallbackSubscription));
+                                    add(new NameValuePair("Version", "2021-12-01"));
                                 }
                             });
                         }
@@ -675,8 +672,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.SetCallbackEvent));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.SetCallbackEvent));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }

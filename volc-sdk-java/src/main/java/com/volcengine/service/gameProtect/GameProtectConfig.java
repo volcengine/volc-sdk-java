@@ -4,10 +4,7 @@ import com.volcengine.helper.Const;
 import com.volcengine.model.ApiInfo;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +19,7 @@ public class GameProtectConfig {
                     put(Const.Host, "gameprotect.volcengineapi.com");
                     put(Const.Header, new ArrayList<Header>() {
                         {
-                            add(new BasicHeader("Accept", "application/json"));
+                            add(new Header("Accept", "application/json"));
                         }
                 });
                    put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "game_protect"));
@@ -39,8 +36,8 @@ public class GameProtectConfig {
                             put(Const.Path,  "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "riskResult"));
-                                    add(new BasicNameValuePair("Version", "2021-04-25"));
+                                    add(new NameValuePair("Action", "riskResult"));
+                                    add(new NameValuePair("Version", "2021-04-25"));
                                 }
                             });
                         }

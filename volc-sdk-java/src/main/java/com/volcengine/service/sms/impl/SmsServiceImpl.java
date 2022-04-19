@@ -15,8 +15,8 @@ import com.volcengine.model.response.SmsSendResponse;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.sms.SmsConfig;
 import com.volcengine.service.sms.SmsService;
-import org.apache.http.HttpHost;
 
+import java.net.Proxy;
 import java.util.ArrayList;
 
 public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
@@ -28,7 +28,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         super(serviceInfo, SmsConfig.apiInfoList);
     }
 
-    private SmsServiceImpl(HttpHost proxy) {
+    private SmsServiceImpl(Proxy proxy) {
         super(SmsConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), proxy, SmsConfig.apiInfoList);
     }
 
@@ -44,7 +44,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         return new SmsServiceImpl(serviceInfo);
     }
 
-    public static SmsService getInstance(HttpHost proxy) {
+    public static SmsService getInstance(Proxy proxy) {
         return new SmsServiceImpl(proxy);
     }
 

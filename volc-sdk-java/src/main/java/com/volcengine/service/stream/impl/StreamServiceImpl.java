@@ -10,8 +10,8 @@ import com.volcengine.model.stream.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.stream.StreamConfig;
 import com.volcengine.service.stream.StreamService;
-import org.apache.http.HttpHost;
 
+import java.net.Proxy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +22,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         super(StreamConfig.serviceInfo, StreamConfig.apiInfoList);
     }
 
-    private StreamServiceImpl(HttpHost proxy) {
+    private StreamServiceImpl(Proxy proxy) {
         super(StreamConfig.serviceInfo, proxy, StreamConfig.apiInfoList);
     }
 
@@ -30,7 +30,7 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
         return new StreamServiceImpl();
     }
 
-    public static StreamService getInstance(HttpHost proxy) {
+    public static StreamService getInstance(Proxy proxy) {
         return new StreamServiceImpl(proxy);
     }
 

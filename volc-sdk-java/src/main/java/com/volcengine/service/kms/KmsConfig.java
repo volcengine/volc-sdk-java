@@ -1,13 +1,7 @@
 package com.volcengine.service.kms;
 
 import com.volcengine.helper.Const;
-import com.volcengine.model.ApiInfo;
-import com.volcengine.model.Credentials;
-import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +16,7 @@ public class KmsConfig {
                     put(Const.Host, "kms.volcengineapi.com");
                     put(Const.Header, new ArrayList<Header>() {
                         {
-                            add(new BasicHeader("Accept", "application/json"));
+                            add(new Header("Accept", "application/json"));
                         }
                     });
                     put(Const.Credentials, new Credentials("cn-beijing", "kms"));
@@ -38,8 +32,8 @@ public class KmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CreateKeyring));
-                                    add(new BasicNameValuePair("Version", Const.KmsServiceVersion));
+                                    add(new NameValuePair("Action", Const.CreateKeyring));
+                                    add(new NameValuePair("Version", Const.KmsServiceVersion));
                                 }
                             });
                         }
@@ -52,8 +46,8 @@ public class KmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeKeyrings));
-                                    add(new BasicNameValuePair("Version", Const.KmsServiceVersion));
+                                    add(new NameValuePair("Action", Const.DescribeKeyrings));
+                                    add(new NameValuePair("Version", Const.KmsServiceVersion));
                                 }
                             });
                         }
@@ -66,8 +60,8 @@ public class KmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateKeyring));
-                                    add(new BasicNameValuePair("Version", Const.KmsServiceVersion));
+                                    add(new NameValuePair("Action", Const.UpdateKeyring));
+                                    add(new NameValuePair("Version", Const.KmsServiceVersion));
                                 }
                             });
                         }
@@ -80,8 +74,8 @@ public class KmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.QueryKeyring));
-                                    add(new BasicNameValuePair("Version", Const.KmsServiceVersion));
+                                    add(new NameValuePair("Action", Const.QueryKeyring));
+                                    add(new NameValuePair("Version", Const.KmsServiceVersion));
                                 }
                             });
                         }
@@ -94,8 +88,8 @@ public class KmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CreateKey));
-                                    add(new BasicNameValuePair("Version", Const.KmsServiceVersion));
+                                    add(new NameValuePair("Action", Const.CreateKey));
+                                    add(new NameValuePair("Version", Const.KmsServiceVersion));
                                 }
                             });
                         }
@@ -108,8 +102,8 @@ public class KmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeKeys));
-                                    add(new BasicNameValuePair("Version", Const.KmsServiceVersion));
+                                    add(new NameValuePair("Action", Const.DescribeKeys));
+                                    add(new NameValuePair("Version", Const.KmsServiceVersion));
                                 }
                             });
                         }
@@ -122,8 +116,8 @@ public class KmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateKey));
-                                    add(new BasicNameValuePair("Version", Const.KmsServiceVersion));
+                                    add(new NameValuePair("Action", Const.UpdateKey));
+                                    add(new NameValuePair("Version", Const.KmsServiceVersion));
                                 }
                             });
                         }
@@ -136,8 +130,8 @@ public class KmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GenerateDataKey));
-                                    add(new BasicNameValuePair("Version", Const.KmsServiceVersion));
+                                    add(new NameValuePair("Action", Const.GenerateDataKey));
+                                    add(new NameValuePair("Version", Const.KmsServiceVersion));
                                 }
                             });
                         }
@@ -150,8 +144,8 @@ public class KmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.Encrypt));
-                                    add(new BasicNameValuePair("Version", Const.KmsServiceVersion));
+                                    add(new NameValuePair("Action", Const.Encrypt));
+                                    add(new NameValuePair("Version", Const.KmsServiceVersion));
                                 }
                             });
                         }
@@ -164,8 +158,8 @@ public class KmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.Decrypt));
-                                    add(new BasicNameValuePair("Version", Const.KmsServiceVersion));
+                                    add(new NameValuePair("Action", Const.Decrypt));
+                                    add(new NameValuePair("Version", Const.KmsServiceVersion));
                                 }
                             });
                         }
@@ -178,8 +172,8 @@ public class KmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.EnableKey));
-                                    add(new BasicNameValuePair("Version", Const.KmsServiceVersion));
+                                    add(new NameValuePair("Action", Const.EnableKey));
+                                    add(new NameValuePair("Version", Const.KmsServiceVersion));
                                 }
                             });
                         }
@@ -192,8 +186,8 @@ public class KmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DisableKey));
-                                    add(new BasicNameValuePair("Version", Const.KmsServiceVersion));
+                                    add(new NameValuePair("Action", Const.DisableKey));
+                                    add(new NameValuePair("Version", Const.KmsServiceVersion));
                                 }
                             });
                         }
@@ -206,8 +200,8 @@ public class KmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ScheduleKeyDeletion));
-                                    add(new BasicNameValuePair("Version", Const.KmsServiceVersion));
+                                    add(new NameValuePair("Action", Const.ScheduleKeyDeletion));
+                                    add(new NameValuePair("Version", Const.KmsServiceVersion));
                                 }
                             });
                         }
@@ -220,8 +214,8 @@ public class KmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CancelKeyDeletion));
-                                    add(new BasicNameValuePair("Version", Const.KmsServiceVersion));
+                                    add(new NameValuePair("Action", Const.CancelKeyDeletion));
+                                    add(new NameValuePair("Version", Const.KmsServiceVersion));
                                 }
                             });
                         }

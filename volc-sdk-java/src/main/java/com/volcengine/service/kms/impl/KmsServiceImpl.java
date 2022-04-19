@@ -20,8 +20,7 @@ import com.volcengine.service.iam.IIamService;
 import com.volcengine.service.iam.IamConfig;
 import com.volcengine.service.kms.IKmsService;
 import com.volcengine.service.kms.KmsConfig;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.NameValuePair;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -53,12 +52,12 @@ public class KmsServiceImpl extends BaseServiceImpl implements IKmsService {
     @Override
     public CreateKeyringResponse createKeyring(CreateKeyringRequest req) throws Exception {
         List<NameValuePair> query = new ArrayList<>();
-        query.add(new BasicNameValuePair("KeyringName", req.getKeyringName()));
+        query.add(new NameValuePair("KeyringName", req.getKeyringName()));
         if (req.getKeyringType() != null && req.getKeyringType().length() != 0) {
-            query.add(new BasicNameValuePair("KeyringType", req.getKeyringType()));
+            query.add(new NameValuePair("KeyringType", req.getKeyringType()));
         }
         if (req.getDescription() != null) {
-            query.add(new BasicNameValuePair("Description", req.getDescription()));
+            query.add(new NameValuePair("Description", req.getDescription()));
         }
         RawResponse response = commonHandlerQuery("CreateKeyring", query);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -71,10 +70,10 @@ public class KmsServiceImpl extends BaseServiceImpl implements IKmsService {
     public DescribeKeyringsResponse describeKeyrings(DescribeKeyringsRequest req) throws Exception {
         List<NameValuePair> query = new ArrayList<>();
         if (req.getCurrentPage() != 0) {
-            query.add(new BasicNameValuePair("CurrentPage", String.valueOf(req.getCurrentPage())));
+            query.add(new NameValuePair("CurrentPage", String.valueOf(req.getCurrentPage())));
         }
         if (req.getPageSize() != 0) {
-            query.add(new BasicNameValuePair("PageSize", String.valueOf(req.getPageSize())));
+            query.add(new NameValuePair("PageSize", String.valueOf(req.getPageSize())));
         }
         RawResponse response = commonHandlerQuery("DescribeKeyrings", query);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -86,12 +85,12 @@ public class KmsServiceImpl extends BaseServiceImpl implements IKmsService {
     @Override
     public UpdateKeyringResponse updateKeyring(UpdateKeyringRequest req) throws Exception {
         List<NameValuePair> query = new ArrayList<>();
-        query.add(new BasicNameValuePair("KeyringName", req.getKeyringName()));
+        query.add(new NameValuePair("KeyringName", req.getKeyringName()));
         if (req.getNewKeyringName() != null && req.getNewKeyringName().length() != 0) {
-            query.add(new BasicNameValuePair("NewKeyringName", req.getNewKeyringName()));
+            query.add(new NameValuePair("NewKeyringName", req.getNewKeyringName()));
         }
         if (req.getDescription() != null) {
-            query.add(new BasicNameValuePair("Description", req.getDescription()));
+            query.add(new NameValuePair("Description", req.getDescription()));
         }
         RawResponse response = commonHandlerQuery("UpdateKeyring", query);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -103,7 +102,7 @@ public class KmsServiceImpl extends BaseServiceImpl implements IKmsService {
     @Override
     public QueryKeyringResponse queryKeyring(QueryKeyringRequest req) throws Exception {
         List<NameValuePair> query = new ArrayList<>();
-        query.add(new BasicNameValuePair("KeyringName", req.getKeyringName()));
+        query.add(new NameValuePair("KeyringName", req.getKeyringName()));
         RawResponse response = commonHandlerQuery("QueryKeyring", query);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -114,20 +113,20 @@ public class KmsServiceImpl extends BaseServiceImpl implements IKmsService {
     @Override
     public CreateKeyResponse createKey(CreateKeyRequest req) throws Exception {
         List<NameValuePair> query = new ArrayList<>();
-        query.add(new BasicNameValuePair("KeyringName", req.getKeyringName()));
-        query.add(new BasicNameValuePair("KeyName", req.getKeyName()));
+        query.add(new NameValuePair("KeyringName", req.getKeyringName()));
+        query.add(new NameValuePair("KeyName", req.getKeyName()));
 
         if (req.getKeySpec() != null && req.getKeySpec().length() != 0) {
-            query.add(new BasicNameValuePair("KeySpec", req.getKeySpec()));
+            query.add(new NameValuePair("KeySpec", req.getKeySpec()));
         }
         if (req.getKeyUsage() != null && req.getKeyUsage().length() != 0) {
-            query.add(new BasicNameValuePair("KeyUsage", req.getKeySpec()));
+            query.add(new NameValuePair("KeyUsage", req.getKeySpec()));
         }
         if (req.getProtectionLevel() != null && req.getProtectionLevel().length() != 0) {
-            query.add(new BasicNameValuePair("ProtectionLevel", req.getKeySpec()));
+            query.add(new NameValuePair("ProtectionLevel", req.getKeySpec()));
         }
         if (req.getDescription() != null) {
-            query.add(new BasicNameValuePair("Description", req.getDescription()));
+            query.add(new NameValuePair("Description", req.getDescription()));
         }
         RawResponse response = commonHandlerQuery("CreateKey", query);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -139,12 +138,12 @@ public class KmsServiceImpl extends BaseServiceImpl implements IKmsService {
     @Override
     public DescribeKeysResponse describeKeys(DescribeKeysRequest req) throws Exception {
         List<NameValuePair> query = new ArrayList<>();
-        query.add(new BasicNameValuePair("KeyringName", req.getKeyringName()));
+        query.add(new NameValuePair("KeyringName", req.getKeyringName()));
         if (req.getCurrentPage() != 0) {
-            query.add(new BasicNameValuePair("CurrentPage", String.valueOf(req.getCurrentPage())));
+            query.add(new NameValuePair("CurrentPage", String.valueOf(req.getCurrentPage())));
         }
         if (req.getPageSize() != 0) {
-            query.add(new BasicNameValuePair("PageSize", String.valueOf(req.getPageSize())));
+            query.add(new NameValuePair("PageSize", String.valueOf(req.getPageSize())));
         }
         RawResponse response = commonHandlerQuery("DescribeKeys", query);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -156,14 +155,14 @@ public class KmsServiceImpl extends BaseServiceImpl implements IKmsService {
     @Override
     public UpdateKeyResponse updateKey(UpdateKeyRequest req) throws Exception {
         List<NameValuePair> query = new ArrayList<>();
-        query.add(new BasicNameValuePair("KeyringName", req.getKeyringName()));
-        query.add(new BasicNameValuePair("KeyName", req.getKeyName()));
+        query.add(new NameValuePair("KeyringName", req.getKeyringName()));
+        query.add(new NameValuePair("KeyName", req.getKeyName()));
 
         if (req.getNewKeyName() != null && req.getNewKeyName().length() != 0) {
-            query.add(new BasicNameValuePair("NewKeyName", req.getNewKeyName()));
+            query.add(new NameValuePair("NewKeyName", req.getNewKeyName()));
         }
         if (req.getDescription() != null) {
-            query.add(new BasicNameValuePair("Description", req.getDescription()));
+            query.add(new NameValuePair("Description", req.getDescription()));
         }
         RawResponse response = commonHandlerQuery("UpdateKey", query);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -175,10 +174,10 @@ public class KmsServiceImpl extends BaseServiceImpl implements IKmsService {
     @Override
     public GenerateDataKeyResponse generateDataKey(GenerateDataKeyRequest req) throws Exception {
         List<NameValuePair> query = new ArrayList<>();
-        query.add(new BasicNameValuePair("KeyringName", req.getKeyringName()));
-        query.add(new BasicNameValuePair("KeyName", req.getKeyName()));
+        query.add(new NameValuePair("KeyringName", req.getKeyringName()));
+        query.add(new NameValuePair("KeyName", req.getKeyName()));
         if (req.getNumberOfBytes() != 0) {
-            query.add(new BasicNameValuePair("NumberOfBytes", String.valueOf(req.getNumberOfBytes())));
+            query.add(new NameValuePair("NumberOfBytes", String.valueOf(req.getNumberOfBytes())));
         }
 
         Map<String, Object> reqBody = new HashMap<>();
@@ -195,8 +194,8 @@ public class KmsServiceImpl extends BaseServiceImpl implements IKmsService {
     @Override
     public EncryptResponse encrypt(EncryptRequest req) throws Exception {
         List<NameValuePair> query = new ArrayList<>();
-        query.add(new BasicNameValuePair("KeyringName", req.getKeyringName()));
-        query.add(new BasicNameValuePair("KeyName", req.getKeyName()));
+        query.add(new NameValuePair("KeyringName", req.getKeyringName()));
+        query.add(new NameValuePair("KeyName", req.getKeyName()));
         Map<String, Object> reqBody = new HashMap<>();
         if (req.getEncryptionContext() != null) {
             reqBody.put("EncryptionContext", req.getEncryptionContext());
@@ -227,8 +226,8 @@ public class KmsServiceImpl extends BaseServiceImpl implements IKmsService {
     @Override
     public EnableKeyResponse enableKey(EnableKeyRequest req) throws Exception {
         List<NameValuePair> query = new ArrayList<>();
-        query.add(new BasicNameValuePair("KeyringName", req.getKeyringName()));
-        query.add(new BasicNameValuePair("KeyName", req.getKeyName()));
+        query.add(new NameValuePair("KeyringName", req.getKeyringName()));
+        query.add(new NameValuePair("KeyName", req.getKeyName()));
         RawResponse response = commonHandlerQuery("EnableKey", query);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -239,8 +238,8 @@ public class KmsServiceImpl extends BaseServiceImpl implements IKmsService {
     @Override
     public DisableKeyResponse disable(DisableKeyRequest req) throws Exception {
         List<NameValuePair> query = new ArrayList<>();
-        query.add(new BasicNameValuePair("KeyringName", req.getKeyringName()));
-        query.add(new BasicNameValuePair("KeyName", req.getKeyName()));
+        query.add(new NameValuePair("KeyringName", req.getKeyringName()));
+        query.add(new NameValuePair("KeyName", req.getKeyName()));
         RawResponse response = commonHandlerQuery("DisableKey", query);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -251,10 +250,10 @@ public class KmsServiceImpl extends BaseServiceImpl implements IKmsService {
     @Override
     public ScheduleKeyDeletionResponse scheduleKeyDeletion(ScheduleKeyDeletionRequest req) throws Exception {
         List<NameValuePair> query = new ArrayList<>();
-        query.add(new BasicNameValuePair("KeyringName", req.getKeyringName()));
-        query.add(new BasicNameValuePair("KeyName", req.getKeyName()));
+        query.add(new NameValuePair("KeyringName", req.getKeyringName()));
+        query.add(new NameValuePair("KeyName", req.getKeyName()));
         if (req.getPendingWindowInDays() != 0) {
-            query.add(new BasicNameValuePair("PendingWindowInDays", String.valueOf(req.getKeyName())));
+            query.add(new NameValuePair("PendingWindowInDays", String.valueOf(req.getKeyName())));
         }
         RawResponse response = commonHandlerQuery("ScheduleKeyDeletion", query);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -266,8 +265,8 @@ public class KmsServiceImpl extends BaseServiceImpl implements IKmsService {
     @Override
     public CancelKeyDeletionResponse cancelKeyDeletion(CancelKeyDeletionRequest req) throws Exception {
         List<NameValuePair> query = new ArrayList<>();
-        query.add(new BasicNameValuePair("KeyringName", req.getKeyringName()));
-        query.add(new BasicNameValuePair("KeyName", req.getKeyName()));
+        query.add(new NameValuePair("KeyringName", req.getKeyringName()));
+        query.add(new NameValuePair("KeyName", req.getKeyName()));
         RawResponse response = commonHandlerQuery("CancelKeyDeletion", query);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();

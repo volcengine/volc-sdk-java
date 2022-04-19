@@ -23,12 +23,18 @@ import org.apache.commons.logging.LogFactory;
 
 import java.io.*;
 import java.net.Proxy;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.net.Proxy;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public abstract class BaseServiceImpl implements IBaseService {
     public static final MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json");
+
 
     private static final Log LOG = LogFactory.getLog(BaseServiceImpl.class);
     protected ServiceInfo serviceInfo;

@@ -12,6 +12,10 @@ import java.util.List;
 @Getter
 public class RequestParam {
 
+    public RequestParam() {
+
+    }
+
     private Boolean isSignUrl;
     private byte[] body;
     private String method;

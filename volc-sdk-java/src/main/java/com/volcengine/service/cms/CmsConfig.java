@@ -183,8 +183,8 @@ public class CmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetGoodsRelatedArticles));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.GetGoodsRelatedArticles));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -197,8 +197,8 @@ public class CmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.MGetGoodsRelatedArticles));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", Const.MGetGoodsRelatedArticles));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -211,8 +211,8 @@ public class CmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CmsSearch));
-                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+                                    add(new NameValuePair("Action", Const.CmsSearch));
+                                    add(new NameValuePair("Version", "2022-01-01"));
                                 }
                             });
                         }
@@ -225,8 +225,8 @@ public class CmsConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.RelatedFeed));
-                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+                                    add(new NameValuePair("Action", Const.RelatedFeed));
+                                    add(new NameValuePair("Version", "2022-01-01"));
                                 }
                             });
                         }

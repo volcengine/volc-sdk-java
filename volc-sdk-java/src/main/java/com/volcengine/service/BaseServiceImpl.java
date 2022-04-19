@@ -5,17 +5,16 @@ import com.volcengine.auth.ISignerV4;
 import com.volcengine.auth.impl.SignerV4Impl;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
-import com.volcengine.http.ClientConfiguration;
-import com.volcengine.http.HttpClientFactory;
-import com.volcengine.model.ApiInfo;
+import com.volcengine.http.OkHttpClientFactory;
+import com.volcengine.http.VolcengineInterceptor;
+import com.volcengine.model.*;
 import com.volcengine.model.Credentials;
-import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.sts2.InnerToken;
 import com.volcengine.model.sts2.Policy;
 import com.volcengine.model.sts2.SecurityToken2;
-import com.volcengine.util.NameValueComparator;
 import com.volcengine.util.Sts2Utils;
+import okhttp3.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -34,6 +33,7 @@ import org.apache.http.util.EntityUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.Proxy;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -41,13 +41,10 @@ import java.util.stream.Collectors;
 
 public abstract class BaseServiceImpl implements IBaseService {
 
-
     private static final Log LOG = LogFactory.getLog(BaseServiceImpl.class);
-    private String VERSION;
-
     protected ServiceInfo serviceInfo;
     protected Map<String, ApiInfo> apiInfoList;
-    private HttpClient httpClient;
+    private OkHttpClient httpClient;
     private ISignerV4 ISigner;
     private int socketTimeout;
     private int connectionTimeout;
@@ -56,12 +53,12 @@ public abstract class BaseServiceImpl implements IBaseService {
     private BaseServiceImpl() {
     }
 
-    public BaseServiceImpl(ServiceInfo info, HttpHost proxy, Map<String, ApiInfo> apiInfoList) {
+    public BaseServiceImpl(ServiceInfo info, Proxy proxy, Map<String, ApiInfo> apiInfoList) {
         this.serviceInfo = info;
         this.apiInfoList = apiInfoList;
         this.ISigner = new SignerV4Impl();
-
-        this.httpClient = HttpClientFactory.create(new ClientConfiguration(), proxy);
+        VolcengineInterceptor volcengineInterceptor = new VolcengineInterceptor(this.ISigner, serviceInfo.getCredentials());
+        this.httpClient = OkHttpClientFactory.create(proxy, volcengineInterceptor);
 
         init(info);
     }
@@ -70,9 +67,8 @@ public abstract class BaseServiceImpl implements IBaseService {
         this.serviceInfo = info;
         this.apiInfoList = apiInfoList;
         this.ISigner = new SignerV4Impl();
-
-        this.httpClient = HttpClientFactory.create(new ClientConfiguration(), null);
-
+        VolcengineInterceptor volcengineInterceptor = new VolcengineInterceptor(this.ISigner, serviceInfo.getCredentials());
+        this.httpClient = OkHttpClientFactory.create(volcengineInterceptor);
         init(info);
     }
 
@@ -103,17 +99,8 @@ public abstract class BaseServiceImpl implements IBaseService {
                 } catch (Exception e) {
                     e.printStackTrace();
                     LOG.error("Read file " + file.getName() + " fail.");
-                    this.VERSION = "";
                 }
             }
-        }
-
-        final Properties properties = new Properties();
-        try {
-            properties.load(this.getClass().getClassLoader().getResourceAsStream("com/volcengine/version"));
-            this.VERSION = properties.getProperty("version");
-        } catch (IOException e) {
-            LOG.error("Read file version file fail.");
         }
     }
 
@@ -146,7 +133,7 @@ public abstract class BaseServiceImpl implements IBaseService {
             return new RawResponse(null, SdkError.ENOAPI.getNumber(), new Exception(SdkError.getErrorDesc(SdkError.ENOAPI)));
         }
 
-        SignableRequest request = prepareRequest(api, params);
+        Request request = prepareRequest(api, params);
         return makeRequest(api, request);
     }
 
@@ -245,7 +232,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         List<NameValuePair> mergedForm = mergeQuery(form, apiInfo.getForm());
 
         try {
-            Collections.sort(mergedForm, NameValueComparator.INSTANCE);
+            Collections.sort(mergedForm);
             request.setEntity(new UrlEncodedFormEntity(mergedForm));
         } catch (Exception e) {
             e.printStackTrace();
@@ -254,41 +241,36 @@ public abstract class BaseServiceImpl implements IBaseService {
         return makeRequest(api, request);
     }
 
-    private RawResponse makeRequest(String api, SignableRequest request) {
+    private RawResponse makeRequest(String api, Request request) {
+        OkHttpClient client;
+        Response response = null;
         try {
-            ISigner.sign(request, serviceInfo.getCredentials());
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new RawResponse(null, SdkError.ESIGN.getNumber(), e);
-        }
+            client = getHttpClient();
+            if (client == null) {
+                return new RawResponse(null, SdkError.UNKNOWN.getNumber(), new IllegalStateException(""));
+            }
 
-        HttpClient client;
-        HttpResponse response = null;
-        try {
-            if (getHttpClient() != null) {
-                client = getHttpClient();
-            } else {
-                client = HttpClients.createDefault();
-            }
-            response = client.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
-            Header[] responseHeaders = response.getAllHeaders();
+            Call call = client.newCall(request);
+            response = call.execute();
+            ResponseBody body  = response.body();
+            byte[] bytes = null;
+            int statusCode = response.code();
             if (statusCode >= 300) {
-                String msg = SdkError.getErrorDesc(SdkError.EHTTP);
-                byte[] bytes = EntityUtils.toByteArray(response.getEntity());
-                if (bytes != null && bytes.length > 0) {
-                    msg = new String(bytes, StandardCharsets.UTF_8);
+                if (body != null) {
+                    return new RawResponse(null, SdkError.EHTTP.getNumber(), new Exception(body.string()));
                 }
-                return new RawResponse(null, SdkError.EHTTP.getNumber(), new Exception(msg), responseHeaders, statusCode);
             }
-            byte[] bytes = EntityUtils.toByteArray(response.getEntity());
-            return new RawResponse(bytes, SdkError.SUCCESS.getNumber(), null, responseHeaders);
+            if (body != null) {
+                bytes = body.bytes();
+            }
+            return new RawResponse(bytes, SdkError.SUCCESS.getNumber(), null);
         } catch (Exception e) {
             e.printStackTrace();
-            if (response != null) {
-                EntityUtils.consumeQuietly(response.getEntity());
-            }
             return new RawResponse(null, SdkError.EHTTP.getNumber(), new Exception(SdkError.getErrorDesc(SdkError.EHTTP)));
+        } finally {
+            if (response != null) {
+                response.close();
+            }
         }
     }
 
@@ -304,7 +286,6 @@ public abstract class BaseServiceImpl implements IBaseService {
         for (Header header : mergedH) {
             request.setHeader(header);
         }
-        request.setHeader("User-Agent", "volc-sdk-java/v" + this.VERSION);
         List<NameValuePair> mergedNV = mergeQuery(params, apiInfo.getQuery());
         URIBuilder builder = request.getUriBuilder();
 
@@ -314,9 +295,6 @@ public abstract class BaseServiceImpl implements IBaseService {
         //修复空参数导致url构造多了？的404错误
         if (!mergedNV.isEmpty())
             builder.setParameters(mergedNV);
-
-        RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(socketTimeout).setConnectTimeout(connectionTimeout).build();
-        request.setConfig(requestConfig);
 
         return request;
     }
@@ -428,12 +406,12 @@ public abstract class BaseServiceImpl implements IBaseService {
         serviceInfo.setScheme(scheme);
     }
 
-    public HttpClient getHttpClient() {
+    public OkHttpClient getHttpClient() {
         return httpClient;
     }
 
     @Override
-    public void setHttpClient(HttpClient httpClient) {
+    public void setHttpClient(OkHttpClient httpClient) {
         this.httpClient = httpClient;
     }
 

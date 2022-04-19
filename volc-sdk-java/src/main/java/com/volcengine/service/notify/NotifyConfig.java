@@ -4,10 +4,7 @@ import com.volcengine.helper.Const;
 import com.volcengine.model.ApiInfo;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,7 +22,7 @@ public class NotifyConfig {
                             put(Const.Host, "cloud-vms.volcengineapi.com");
                             put(Const.Header, new ArrayList<Header>() {
                                 {
-                                    add(new BasicHeader("Accept", "application/json"));
+                                    add(new Header("Accept", "application/json"));
                                 }
                             });
                             put(Const.Credentials,
@@ -45,8 +42,8 @@ public class NotifyConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "CreateTask"));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", "CreateTask"));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -59,8 +56,8 @@ public class NotifyConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "BatchAppend"));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", "BatchAppend"));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -73,8 +70,8 @@ public class NotifyConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "PauseTask"));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", "PauseTask"));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -87,8 +84,8 @@ public class NotifyConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "ResumeTask"));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", "ResumeTask"));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -101,8 +98,8 @@ public class NotifyConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "StopTask"));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", "StopTask"));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -115,8 +112,8 @@ public class NotifyConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "UpdateTask"));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", "UpdateTask"));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -129,8 +126,8 @@ public class NotifyConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "SingleBatchAppend"));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", "SingleBatchAppend"));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -143,8 +140,8 @@ public class NotifyConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "SingleInfo"));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", "SingleInfo"));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -157,8 +154,8 @@ public class NotifyConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "SingleCancel"));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", "SingleCancel"));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -171,8 +168,8 @@ public class NotifyConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "FetchResource"));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", "FetchResource"));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -186,8 +183,8 @@ public class NotifyConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "OpenCreateTts"));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", "OpenCreateTts"));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -201,8 +198,8 @@ public class NotifyConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "OpenDeleteResource"));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", "OpenDeleteResource"));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -216,8 +213,8 @@ public class NotifyConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "GetResourceUploadUrl"));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", "GetResourceUploadUrl"));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }
@@ -231,8 +228,8 @@ public class NotifyConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "CommitResourceUpload"));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new NameValuePair("Action", "CommitResourceUpload"));
+                                    add(new NameValuePair("Version", "2021-01-01"));
                                 }
                             });
                         }

@@ -8,15 +8,10 @@ import com.volcengine.model.Credentials;
 import com.volcengine.model.RequestParam;
 import com.volcengine.model.SignRequest;
 import com.volcengine.service.SignableRequest;
-import com.volcengine.util.NameValueComparator;
+import okhttp3.Request;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.http.Consts;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
+import com.volcengine.model.*;
 
 import java.nio.ByteBuffer;
 import java.text.DateFormat;
@@ -50,34 +45,6 @@ public class SignerV4Impl implements ISignerV4 {
         URLENCODER.set('_');
         URLENCODER.set('.');
         URLENCODER.set('~');
-    }
-
-    @Override
-    public void sign(SignableRequest request, Credentials credentials) throws Exception {
-        URIBuilder builder = request.getUriBuilder();
-        if (StringUtils.isEmpty(builder.getPath())) {
-            builder.setPath(builder.getPath() + "/");
-        }
-
-        RequestParam requestParam = RequestParam.builder().isSignUrl(false)
-                .body(request.getEntity() == null ? new byte[0] : EntityUtils.toByteArray(request.getEntity()))
-                .host(request.getUriBuilder().getHost())
-                .path(builder.getPath()).method(request.getMethod()).date(new Date())
-                .queryList(request.getUriBuilder().getQueryParams())
-                .headers(request.getAllHeaders())
-                .build();
-
-        SignRequest signRequest = getSignRequest(requestParam, credentials);
-
-        request.setHeader(Const.Host, signRequest.getHost());
-        request.setHeader(Const.ContentType, signRequest.getContentType());
-        request.setHeader(Const.XDate, signRequest.getXDate());
-        request.setHeader(Const.XContentSha256, signRequest.getXContentSha256());
-        request.setHeader(Const.Authorization, signRequest.getAuthorization());
-        if (StringUtils.isNotEmpty(signRequest.getXSecurityToken())) {
-            request.setHeader(Const.XSecurityToken, signRequest.getXSecurityToken());
-        }
-        request.setURI(request.getUriBuilder().build());
     }
 
     @Override
@@ -203,7 +170,7 @@ public class SignerV4Impl implements ISignerV4 {
         String canonicalRequest;
         if (requestParam.getIsSignUrl()) {
             for (String key : requestSignMap.keySet()) {
-                queryList.add(new BasicNameValuePair(key, requestSignMap.get(key)));
+                queryList.add(new NameValuePair(key, requestSignMap.get(key)));
             }
             canonicalRequest = StringUtils.join(new String[]{requestParam.getMethod(), this.normUri(requestParam.getPath()),
                     this.normQuery(queryList), "\n", meta.getSignedHeaders(), bodyHash}, "\n");
@@ -306,7 +273,7 @@ public class SignerV4Impl implements ISignerV4 {
      * @return query
      */
     private String normQuery(List<NameValuePair> params) {
-        params.sort(NameValueComparator.INSTANCE);
+
         return signQueryEncoder(params);
     }
 
@@ -344,7 +311,7 @@ public class SignerV4Impl implements ISignerV4 {
             return null;
         }
         StringBuilder buf = new StringBuilder(source.length());
-        ByteBuffer bb = Consts.UTF_8.encode(source);
+        ByteBuffer bb = Const.UTF_8.encode(source);
         while (bb.hasRemaining()) {
             int b = bb.get() & 255;
             if (URLENCODER.get(b)) {

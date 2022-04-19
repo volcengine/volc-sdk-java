@@ -4,10 +4,7 @@ import com.volcengine.helper.Const;
 import com.volcengine.model.ApiInfo;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +19,7 @@ public class LogConfig {
                     put(Const.Host, "open.volcengineapi.com");
                     put(Const.Header, new ArrayList<Header>() {
                         {
-                            add(new BasicHeader("Accept", "application/json"));
+                            add(new Header("Accept", "application/json"));
                         }
                     });
                     put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "content"));
@@ -39,8 +36,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ClickLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.ClickLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -53,8 +50,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.VideoPlayLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.VideoPlayLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -67,8 +64,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.VideoOverLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.VideoOverLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -81,8 +78,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.StayLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.StayLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -95,8 +92,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.SingleShowLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.SingleShowLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -109,8 +106,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.MultiShowLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.MultiShowLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -123,8 +120,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ShareLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.ShareLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -137,8 +134,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.FavouriteLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.FavouriteLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -151,8 +148,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.VerifyLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.VerifyLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -165,8 +162,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.FollowLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.FollowLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -179,8 +176,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UnfollowLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.UnfollowLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -193,8 +190,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.FollowCardLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.FollowCardLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -207,8 +204,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DislikeLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.DislikeLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -221,8 +218,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.VideoPlayDrawLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.VideoPlayDrawLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -235,8 +232,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.VideoOverDrawLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.VideoOverDrawLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -249,8 +246,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ProductShowLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.ProductShowLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -263,8 +260,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.PushLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.PushLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -277,8 +274,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ProductClickLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.ProductClickLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -291,8 +288,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.VideoPlayAutoLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.VideoPlayAutoLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }
@@ -305,8 +302,8 @@ public class LogConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.VideoOverAutoLog));
-                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                    add(new NameValuePair("Action", Const.VideoOverAutoLog));
+                                    add(new NameValuePair("Version", Const.ContentVersion));
                                 }
                             });
                         }

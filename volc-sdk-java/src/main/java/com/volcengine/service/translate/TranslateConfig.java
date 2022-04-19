@@ -4,10 +4,7 @@ import com.volcengine.helper.Const;
 import com.volcengine.model.ApiInfo;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +19,7 @@ public class TranslateConfig {
                     put(Const.Host, "open.volcengineapi.com");
                     put(Const.Header, new ArrayList<Header>() {
                         {
-                            add(new BasicHeader("Accept", "application/json"));
+                            add(new Header("Accept", "application/json"));
                         }
                     });
                     put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "translate"));
@@ -38,8 +35,8 @@ public class TranslateConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.LangDetect));
-                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                    add(new NameValuePair("Action", Const.LangDetect));
+                                    add(new NameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
@@ -52,8 +49,8 @@ public class TranslateConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.TranslateText));
-                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                    add(new NameValuePair("Action", Const.TranslateText));
+                                    add(new NameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
@@ -66,8 +63,8 @@ public class TranslateConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.TranslateImage));
-                                    add(new BasicNameValuePair("Version", "2020-07-01"));
+                                    add(new NameValuePair("Action", Const.TranslateImage));
+                                    add(new NameValuePair("Version", "2020-07-01"));
                                 }
                             });
                         }

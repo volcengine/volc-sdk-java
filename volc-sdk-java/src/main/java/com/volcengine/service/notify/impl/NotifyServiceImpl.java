@@ -11,8 +11,7 @@ import com.volcengine.service.notify.NotifyConfig;
 import com.volcengine.service.notify.NotifyService;
 import com.volcengine.service.notify.model.request.*;
 import com.volcengine.service.notify.model.response.*;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.NameValuePair;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -70,17 +69,17 @@ public class NotifyServiceImpl extends BaseServiceImpl implements NotifyService 
 
     @Override
     public CommonResponse pauseTask(String taskOpenId) throws Exception{
-        return doQuery("PauseTask",Arrays.asList(new BasicNameValuePair("TaskOpenId",taskOpenId)), new TypeReference<CommonResponse>(){});
+        return doQuery("PauseTask",Arrays.asList(new NameValuePair("TaskOpenId",taskOpenId)), new TypeReference<CommonResponse>(){});
     }
 
     @Override
     public CommonResponse resumeTask(String taskOpenId) throws Exception{
-        return doQuery("ResumeTask",Arrays.asList(new BasicNameValuePair("TaskOpenId",taskOpenId)), new TypeReference<CommonResponse>(){});
+        return doQuery("ResumeTask",Arrays.asList(new NameValuePair("TaskOpenId",taskOpenId)), new TypeReference<CommonResponse>(){});
     }
 
     @Override
     public CommonResponse stopTask(String taskOpenId) throws Exception{
-        return doQuery("StopTask",Arrays.asList(new BasicNameValuePair("TaskOpenId",taskOpenId)), new TypeReference<CommonResponse>(){});
+        return doQuery("StopTask",Arrays.asList(new NameValuePair("TaskOpenId",taskOpenId)), new TypeReference<CommonResponse>(){});
     }
 
     @Override
@@ -90,13 +89,13 @@ public class NotifyServiceImpl extends BaseServiceImpl implements NotifyService 
 
     @Override
     public CommonResponse<SingleInfo> singleInfo(String singleOpenId) throws Exception {
-        return doQuery("SingleInfo",Arrays.asList(new BasicNameValuePair("SingleOpenId",singleOpenId)), new TypeReference<CommonResponse<SingleInfo>>(){});
+        return doQuery("SingleInfo",Arrays.asList(new NameValuePair("SingleOpenId",singleOpenId)), new TypeReference<CommonResponse<SingleInfo>>(){});
 
     }
 
     @Override
     public CommonResponse singleCancel(String singleOpenId) throws Exception {
-        return doQuery("SingleCancel",Arrays.asList(new BasicNameValuePair("SingleOpenId",singleOpenId)), new TypeReference<CommonResponse>(){});
+        return doQuery("SingleCancel",Arrays.asList(new NameValuePair("SingleOpenId",singleOpenId)), new TypeReference<CommonResponse>(){});
     }
 
 
@@ -112,7 +111,7 @@ public class NotifyServiceImpl extends BaseServiceImpl implements NotifyService 
 
     @Override
     public CommonResponse<BasicResourceResult> deleteResourceByResourceKey(String resourceKey) throws Exception {
-        return doQuery("OpenDeleteResource", Collections.singletonList(new BasicNameValuePair("ResourceKey", resourceKey)), new TypeReference<CommonResponse<BasicResourceResult>>(){});
+        return doQuery("OpenDeleteResource", Collections.singletonList(new NameValuePair("ResourceKey", resourceKey)), new TypeReference<CommonResponse<BasicResourceResult>>(){});
     }
 
     @Override

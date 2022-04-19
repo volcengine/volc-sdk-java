@@ -3,8 +3,6 @@ package com.volcengine.model;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
 
 import java.util.Date;
 import java.util.List;
@@ -13,6 +11,11 @@ import java.util.List;
 @Setter
 @Getter
 public class RequestParam {
+
+    public RequestParam() {
+
+    }
+
     private Boolean isSignUrl;
     private byte[] body;
     private String method;
@@ -20,5 +23,5 @@ public class RequestParam {
     private String path;
     private String host;
     private List<NameValuePair> queryList;
-    private Header[] headers;
+    private List<Header> headers;
 }

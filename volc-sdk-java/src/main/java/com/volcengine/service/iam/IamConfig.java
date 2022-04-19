@@ -4,10 +4,7 @@ import com.volcengine.helper.Const;
 import com.volcengine.model.ApiInfo;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +20,7 @@ public class IamConfig {
                     put(Const.Host, "iam.volcengineapi.com");
                     put(Const.Header, new ArrayList<Header>() {
                         {
-                            add(new BasicHeader("Accept", "application/json"));
+                            add(new Header("Accept", "application/json"));
                         }
                     });
                     put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "iam"));
@@ -39,8 +36,8 @@ public class IamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CreateUser));
-                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                    add(new NameValuePair("Action", Const.CreateUser));
+                                    add(new NameValuePair("Version", "2018-01-01"));
                                 }
                             });
                         }
@@ -53,8 +50,8 @@ public class IamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListUsers));
-                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                    add(new NameValuePair("Action", Const.ListUsers));
+                                    add(new NameValuePair("Version", "2018-01-01"));
                                 }
                             });
                         }
@@ -67,8 +64,8 @@ public class IamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CreateRole));
-                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                    add(new NameValuePair("Action", Const.CreateRole));
+                                    add(new NameValuePair("Version", "2018-01-01"));
                                 }
                             });
                         }
@@ -81,8 +78,8 @@ public class IamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateRole));
-                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                    add(new NameValuePair("Action", Const.UpdateRole));
+                                    add(new NameValuePair("Version", "2018-01-01"));
                                 }
                             });
                         }
@@ -95,8 +92,8 @@ public class IamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListRoles));
-                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                    add(new NameValuePair("Action", Const.ListRoles));
+                                    add(new NameValuePair("Version", "2018-01-01"));
                                 }
                             });
                         }
@@ -109,8 +106,8 @@ public class IamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DeleteRole));
-                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                    add(new NameValuePair("Action", Const.DeleteRole));
+                                    add(new NameValuePair("Version", "2018-01-01"));
                                 }
                             });
                         }
@@ -123,8 +120,8 @@ public class IamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetRole));
-                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                    add(new NameValuePair("Action", Const.GetRole));
+                                    add(new NameValuePair("Version", "2018-01-01"));
                                 }
                             });
                         }

@@ -4,10 +4,7 @@ import com.volcengine.helper.Const;
 import com.volcengine.model.ApiInfo;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,7 +22,7 @@ public class VEditConfig {
                             put(Const.Host, "vedit.volcengineapi.com");
                             put(Const.Header, new ArrayList<Header>() {
                                 {
-                                    add(new BasicHeader("Accept", "application/json"));
+                                    add(new Header("Accept", "application/json"));
                                 }
                             });
                             put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "edit"));
@@ -44,8 +41,8 @@ public class VEditConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "SubmitDirectEditTaskAsync"));
-                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                    add(new NameValuePair("Action", "SubmitDirectEditTaskAsync"));
+                                    add(new NameValuePair("Version", "2018-01-01"));
                                 }
                             });
                         }
@@ -58,8 +55,8 @@ public class VEditConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "GetDirectEditResult"));
-                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                    add(new NameValuePair("Action", "GetDirectEditResult"));
+                                    add(new NameValuePair("Version", "2018-01-01"));
                                 }
                             });
                         }
@@ -72,8 +69,8 @@ public class VEditConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "SubmitTemplateTaskAsync"));
-                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                    add(new NameValuePair("Action", "SubmitTemplateTaskAsync"));
+                                    add(new NameValuePair("Version", "2018-01-01"));
                                 }
                             });
                         }

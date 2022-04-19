@@ -12,8 +12,8 @@ import com.volcengine.model.response.ResponseMetadata;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.livesaas.LivesaasConfig;
 import com.volcengine.service.livesaas.LivesaasService;
-import org.apache.http.HttpHost;
 
+import java.net.Proxy;
 import java.util.ArrayList;
 
 public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasService {
@@ -22,7 +22,7 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         super(LivesaasConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), LivesaasConfig.apiInfoList);
     }
 
-    private LivesaasServiceImpl(HttpHost proxy) {
+    private LivesaasServiceImpl(Proxy proxy) {
         super(LivesaasConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), proxy, LivesaasConfig.apiInfoList);
     }
 
@@ -34,7 +34,7 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         return new LivesaasServiceImpl();
     }
 
-    public static LivesaasService getInstance(HttpHost proxy) {
+    public static LivesaasService getInstance(Proxy proxy) {
         return new LivesaasServiceImpl(proxy);
     }
 

@@ -4,14 +4,14 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
+import com.volcengine.model.NameValuePair;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.stream.log.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.stream.LogConfig;
 import com.volcengine.service.stream.LogService;
-import org.apache.http.HttpHost;
-import org.apache.http.NameValuePair;
 
+import java.net.Proxy;
 import java.net.URLDecoder;
 import java.util.*;
 
@@ -21,7 +21,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         super(LogConfig.serviceInfo, LogConfig.apiInfoList);
     }
 
-    private LogServiceImpl(HttpHost proxy) {
+    private LogServiceImpl(Proxy proxy) {
         super(LogConfig.serviceInfo, proxy, LogConfig.apiInfoList);
     }
 
@@ -29,7 +29,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         return new LogServiceImpl();
     }
 
-    public static LogService getInstance(HttpHost proxy) {
+    public static LogService getInstance(Proxy proxy) {
         return new LogServiceImpl(proxy);
     }
 

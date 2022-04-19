@@ -2,7 +2,6 @@ package com.volcengine.model;
 
 import com.volcengine.helper.Const;
 import lombok.Data;
-import org.apache.http.Header;
 
 import java.util.List;
 import java.util.Map;

@@ -1,10 +1,10 @@
 package com.volcengine.service;
 
+import com.volcengine.model.NameValuePair;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.sts2.Policy;
 import com.volcengine.model.sts2.SecurityToken2;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
+import okhttp3.OkHttpClient;
 
 import java.util.List;
 import java.util.Map;
@@ -94,7 +94,7 @@ public interface IBaseService {
      *
      * @param httpClient the http client
      */
-    void setHttpClient(HttpClient httpClient);
+    void setHttpClient(OkHttpClient httpClient);
 
     /**
      * Sets service info.

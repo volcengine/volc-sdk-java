@@ -29,30 +29,10 @@ public interface VodListCdnTopAccessUrlRequestOrBuilder extends
 
   /**
    * <pre>
-   * 空间名
-   * </pre>
-   *
-   * <code>string SpaceName = 2;</code>
-   * @return The spaceName.
-   */
-  java.lang.String getSpaceName();
-  /**
-   * <pre>
-   * 空间名
-   * </pre>
-   *
-   * <code>string SpaceName = 2;</code>
-   * @return The bytes for spaceName.
-   */
-  com.google.protobuf.ByteString
-      getSpaceNameBytes();
-
-  /**
-   * <pre>
    * 查询起始时间戳，单位：Unix秒级时间戳
    * </pre>
    *
-   * <code>int32 StartTimestamp = 3;</code>
+   * <code>int32 StartTimestamp = 2;</code>
    * @return The startTimestamp.
    */
   int getStartTimestamp();
@@ -62,7 +42,7 @@ public interface VodListCdnTopAccessUrlRequestOrBuilder extends
    * 查询结束时间戳，单位：Unix秒级时间戳
    * </pre>
    *
-   * <code>int32 EndTimestamp = 4;</code>
+   * <code>int32 EndTimestamp = 3;</code>
    * @return The endTimestamp.
    */
   int getEndTimestamp();
@@ -72,7 +52,7 @@ public interface VodListCdnTopAccessUrlRequestOrBuilder extends
    *排序方式，默认值为pv。取值：flux - 流量, pv -访问量
    * </pre>
    *
-   * <code>string SortType = 5;</code>
+   * <code>string SortType = 4;</code>
    * @return The sortType.
    */
   java.lang.String getSortType();
@@ -81,7 +61,7 @@ public interface VodListCdnTopAccessUrlRequestOrBuilder extends
    *排序方式，默认值为pv。取值：flux - 流量, pv -访问量
    * </pre>
    *
-   * <code>string SortType = 5;</code>
+   * <code>string SortType = 4;</code>
    * @return The bytes for sortType.
    */
   com.google.protobuf.ByteString

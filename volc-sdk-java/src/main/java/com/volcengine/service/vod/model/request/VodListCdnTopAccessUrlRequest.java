@@ -17,7 +17,6 @@ private static final long serialVersionUID = 0L;
   }
   private VodListCdnTopAccessUrlRequest() {
     domains_ = "";
-    spaceName_ = "";
     sortType_ = "";
   }
 
@@ -57,23 +56,17 @@ private static final long serialVersionUID = 0L;
             domains_ = s;
             break;
           }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            spaceName_ = s;
-            break;
-          }
-          case 24: {
+          case 16: {
 
             startTimestamp_ = input.readInt32();
             break;
           }
-          case 32: {
+          case 24: {
 
             endTimestamp_ = input.readInt32();
             break;
           }
-          case 42: {
+          case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
             sortType_ = s;
@@ -157,60 +150,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int SPACENAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object spaceName_;
-  /**
-   * <pre>
-   * 空间名
-   * </pre>
-   *
-   * <code>string SpaceName = 2;</code>
-   * @return The spaceName.
-   */
-  @java.lang.Override
-  public java.lang.String getSpaceName() {
-    java.lang.Object ref = spaceName_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      spaceName_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * 空间名
-   * </pre>
-   *
-   * <code>string SpaceName = 2;</code>
-   * @return The bytes for spaceName.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getSpaceNameBytes() {
-    java.lang.Object ref = spaceName_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      spaceName_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int STARTTIMESTAMP_FIELD_NUMBER = 3;
+  public static final int STARTTIMESTAMP_FIELD_NUMBER = 2;
   private int startTimestamp_;
   /**
    * <pre>
    * 查询起始时间戳，单位：Unix秒级时间戳
    * </pre>
    *
-   * <code>int32 StartTimestamp = 3;</code>
+   * <code>int32 StartTimestamp = 2;</code>
    * @return The startTimestamp.
    */
   @java.lang.Override
@@ -218,14 +165,14 @@ private static final long serialVersionUID = 0L;
     return startTimestamp_;
   }
 
-  public static final int ENDTIMESTAMP_FIELD_NUMBER = 4;
+  public static final int ENDTIMESTAMP_FIELD_NUMBER = 3;
   private int endTimestamp_;
   /**
    * <pre>
    * 查询结束时间戳，单位：Unix秒级时间戳
    * </pre>
    *
-   * <code>int32 EndTimestamp = 4;</code>
+   * <code>int32 EndTimestamp = 3;</code>
    * @return The endTimestamp.
    */
   @java.lang.Override
@@ -233,14 +180,14 @@ private static final long serialVersionUID = 0L;
     return endTimestamp_;
   }
 
-  public static final int SORTTYPE_FIELD_NUMBER = 5;
+  public static final int SORTTYPE_FIELD_NUMBER = 4;
   private volatile java.lang.Object sortType_;
   /**
    * <pre>
    *排序方式，默认值为pv。取值：flux - 流量, pv -访问量
    * </pre>
    *
-   * <code>string SortType = 5;</code>
+   * <code>string SortType = 4;</code>
    * @return The sortType.
    */
   @java.lang.Override
@@ -261,7 +208,7 @@ private static final long serialVersionUID = 0L;
    *排序方式，默认值为pv。取值：flux - 流量, pv -访问量
    * </pre>
    *
-   * <code>string SortType = 5;</code>
+   * <code>string SortType = 4;</code>
    * @return The bytes for sortType.
    */
   @java.lang.Override
@@ -296,17 +243,14 @@ private static final long serialVersionUID = 0L;
     if (!getDomainsBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, domains_);
     }
-    if (!getSpaceNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, spaceName_);
-    }
     if (startTimestamp_ != 0) {
-      output.writeInt32(3, startTimestamp_);
+      output.writeInt32(2, startTimestamp_);
     }
     if (endTimestamp_ != 0) {
-      output.writeInt32(4, endTimestamp_);
+      output.writeInt32(3, endTimestamp_);
     }
     if (!getSortTypeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, sortType_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, sortType_);
     }
     unknownFields.writeTo(output);
   }
@@ -320,19 +264,16 @@ private static final long serialVersionUID = 0L;
     if (!getDomainsBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, domains_);
     }
-    if (!getSpaceNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, spaceName_);
-    }
     if (startTimestamp_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(3, startTimestamp_);
+        .computeInt32Size(2, startTimestamp_);
     }
     if (endTimestamp_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(4, endTimestamp_);
+        .computeInt32Size(3, endTimestamp_);
     }
     if (!getSortTypeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, sortType_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, sortType_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -351,8 +292,6 @@ private static final long serialVersionUID = 0L;
 
     if (!getDomains()
         .equals(other.getDomains())) return false;
-    if (!getSpaceName()
-        .equals(other.getSpaceName())) return false;
     if (getStartTimestamp()
         != other.getStartTimestamp()) return false;
     if (getEndTimestamp()
@@ -372,8 +311,6 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + DOMAINS_FIELD_NUMBER;
     hash = (53 * hash) + getDomains().hashCode();
-    hash = (37 * hash) + SPACENAME_FIELD_NUMBER;
-    hash = (53 * hash) + getSpaceName().hashCode();
     hash = (37 * hash) + STARTTIMESTAMP_FIELD_NUMBER;
     hash = (53 * hash) + getStartTimestamp();
     hash = (37 * hash) + ENDTIMESTAMP_FIELD_NUMBER;
@@ -515,8 +452,6 @@ private static final long serialVersionUID = 0L;
       super.clear();
       domains_ = "";
 
-      spaceName_ = "";
-
       startTimestamp_ = 0;
 
       endTimestamp_ = 0;
@@ -550,7 +485,6 @@ private static final long serialVersionUID = 0L;
     public com.volcengine.service.vod.model.request.VodListCdnTopAccessUrlRequest buildPartial() {
       com.volcengine.service.vod.model.request.VodListCdnTopAccessUrlRequest result = new com.volcengine.service.vod.model.request.VodListCdnTopAccessUrlRequest(this);
       result.domains_ = domains_;
-      result.spaceName_ = spaceName_;
       result.startTimestamp_ = startTimestamp_;
       result.endTimestamp_ = endTimestamp_;
       result.sortType_ = sortType_;
@@ -604,10 +538,6 @@ private static final long serialVersionUID = 0L;
       if (other == com.volcengine.service.vod.model.request.VodListCdnTopAccessUrlRequest.getDefaultInstance()) return this;
       if (!other.getDomains().isEmpty()) {
         domains_ = other.domains_;
-        onChanged();
-      }
-      if (!other.getSpaceName().isEmpty()) {
-        spaceName_ = other.spaceName_;
         onChanged();
       }
       if (other.getStartTimestamp() != 0) {
@@ -745,109 +675,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object spaceName_ = "";
-    /**
-     * <pre>
-     * 空间名
-     * </pre>
-     *
-     * <code>string SpaceName = 2;</code>
-     * @return The spaceName.
-     */
-    public java.lang.String getSpaceName() {
-      java.lang.Object ref = spaceName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        spaceName_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 空间名
-     * </pre>
-     *
-     * <code>string SpaceName = 2;</code>
-     * @return The bytes for spaceName.
-     */
-    public com.google.protobuf.ByteString
-        getSpaceNameBytes() {
-      java.lang.Object ref = spaceName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        spaceName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 空间名
-     * </pre>
-     *
-     * <code>string SpaceName = 2;</code>
-     * @param value The spaceName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSpaceName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      spaceName_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 空间名
-     * </pre>
-     *
-     * <code>string SpaceName = 2;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSpaceName() {
-      
-      spaceName_ = getDefaultInstance().getSpaceName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 空间名
-     * </pre>
-     *
-     * <code>string SpaceName = 2;</code>
-     * @param value The bytes for spaceName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSpaceNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      spaceName_ = value;
-      onChanged();
-      return this;
-    }
-
     private int startTimestamp_ ;
     /**
      * <pre>
      * 查询起始时间戳，单位：Unix秒级时间戳
      * </pre>
      *
-     * <code>int32 StartTimestamp = 3;</code>
+     * <code>int32 StartTimestamp = 2;</code>
      * @return The startTimestamp.
      */
     @java.lang.Override
@@ -859,7 +693,7 @@ private static final long serialVersionUID = 0L;
      * 查询起始时间戳，单位：Unix秒级时间戳
      * </pre>
      *
-     * <code>int32 StartTimestamp = 3;</code>
+     * <code>int32 StartTimestamp = 2;</code>
      * @param value The startTimestamp to set.
      * @return This builder for chaining.
      */
@@ -874,7 +708,7 @@ private static final long serialVersionUID = 0L;
      * 查询起始时间戳，单位：Unix秒级时间戳
      * </pre>
      *
-     * <code>int32 StartTimestamp = 3;</code>
+     * <code>int32 StartTimestamp = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearStartTimestamp() {
@@ -890,7 +724,7 @@ private static final long serialVersionUID = 0L;
      * 查询结束时间戳，单位：Unix秒级时间戳
      * </pre>
      *
-     * <code>int32 EndTimestamp = 4;</code>
+     * <code>int32 EndTimestamp = 3;</code>
      * @return The endTimestamp.
      */
     @java.lang.Override
@@ -902,7 +736,7 @@ private static final long serialVersionUID = 0L;
      * 查询结束时间戳，单位：Unix秒级时间戳
      * </pre>
      *
-     * <code>int32 EndTimestamp = 4;</code>
+     * <code>int32 EndTimestamp = 3;</code>
      * @param value The endTimestamp to set.
      * @return This builder for chaining.
      */
@@ -917,7 +751,7 @@ private static final long serialVersionUID = 0L;
      * 查询结束时间戳，单位：Unix秒级时间戳
      * </pre>
      *
-     * <code>int32 EndTimestamp = 4;</code>
+     * <code>int32 EndTimestamp = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearEndTimestamp() {
@@ -933,7 +767,7 @@ private static final long serialVersionUID = 0L;
      *排序方式，默认值为pv。取值：flux - 流量, pv -访问量
      * </pre>
      *
-     * <code>string SortType = 5;</code>
+     * <code>string SortType = 4;</code>
      * @return The sortType.
      */
     public java.lang.String getSortType() {
@@ -953,7 +787,7 @@ private static final long serialVersionUID = 0L;
      *排序方式，默认值为pv。取值：flux - 流量, pv -访问量
      * </pre>
      *
-     * <code>string SortType = 5;</code>
+     * <code>string SortType = 4;</code>
      * @return The bytes for sortType.
      */
     public com.google.protobuf.ByteString
@@ -974,7 +808,7 @@ private static final long serialVersionUID = 0L;
      *排序方式，默认值为pv。取值：flux - 流量, pv -访问量
      * </pre>
      *
-     * <code>string SortType = 5;</code>
+     * <code>string SortType = 4;</code>
      * @param value The sortType to set.
      * @return This builder for chaining.
      */
@@ -993,7 +827,7 @@ private static final long serialVersionUID = 0L;
      *排序方式，默认值为pv。取值：flux - 流量, pv -访问量
      * </pre>
      *
-     * <code>string SortType = 5;</code>
+     * <code>string SortType = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearSortType() {
@@ -1007,7 +841,7 @@ private static final long serialVersionUID = 0L;
      *排序方式，默认值为pv。取值：flux - 流量, pv -访问量
      * </pre>
      *
-     * <code>string SortType = 5;</code>
+     * <code>string SortType = 4;</code>
      * @param value The bytes for sortType to set.
      * @return This builder for chaining.
      */

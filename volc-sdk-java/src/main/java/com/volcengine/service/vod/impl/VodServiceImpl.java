@@ -227,7 +227,8 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
     }
 
     private void directUpload(String host, String oid, String auth, File file, Retryer retryer) throws Exception {
-        String url = String.format("https://%s/%s", host, oid);
+        String oidEncode = StringUtils.replace(oid, " ", "%20");
+        String url = String.format("https://%s/%s", host, oidEncode);
         byte[] bytes = Files.readAllBytes(Paths.get(file.getPath()));
         long crc32 = com.volcengine.helper.Utils.crc32(bytes);
         String checkSum = String.format("%08x", crc32);
@@ -263,7 +264,8 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
     }
 
     private String initUploadPart(String host, String oid, String auth, boolean isLargeFile, Retryer retryer) throws ExecutionException, RetryException, IOException {
-        String url = String.format("http://%s/%s?uploads", host, oid);
+        String oidEncode = StringUtils.replace(oid, " ", "%20");
+        String url = String.format("http://%s/%s?uploads", host, oidEncode);
         Map<String, String> headers = new HashMap<>();
         headers.put("Authorization", auth);
         if (isLargeFile) {
@@ -282,7 +284,8 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
     }
 
     private String uploadPart(String host, String oid, String auth, String uploadID, long partNumber, byte[] data, boolean isLargeFile, Retryer retryer) throws Exception {
-        String url = String.format("http://%s/%s?partNumber=%d&uploadID=%s", host, oid, partNumber, uploadID);
+        String oidEncode = StringUtils.replace(oid, " ", "%20");
+        String url = String.format("http://%s/%s?partNumber=%d&uploadID=%s", host, oidEncode, partNumber, uploadID);
         Map<String, String> headers = new HashMap<>();
         headers.put("Authorization", auth);
         long crc32 = com.volcengine.helper.Utils.crc32(data);
@@ -296,7 +299,8 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
     }
 
     private void uploadMergePart(String host, String oid, String auth, String uploadID, String[] checkSum, boolean isLargeFile, Retryer retryer) throws ExecutionException, RetryException {
-        String url = String.format("http://%s/%s?uploadID=%s", host, oid, uploadID);
+        String oidEncode = StringUtils.replace(oid, " ", "%20");
+        String url = String.format("http://%s/%s?uploadID=%s", host, oidEncode, uploadID);
         String body = IntStream.range(0, checkSum.length).mapToObj(i -> String.format("%d:%s", i, checkSum[i])).collect(Collectors.joining(",", "", ""));
         Map<String, String> headers = new HashMap<>();
         headers.put("Authorization", auth);

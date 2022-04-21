@@ -387,19 +387,19 @@ public final class VodRequest {
       "\001(\003\022\017\n\007PageNum\030\010 \001(\005\022\020\n\010PageSize\030\t \001(\005\"n" +
       "\n\032VodListCdnAccessLogRequest\022\017\n\007Domains\030" +
       "\001 \001(\t\022\026\n\016StartTimestamp\030\002 \001(\005\022\024\n\014EndTime" +
-      "stamp\030\003 \001(\005\022\021\n\tSpaceName\030\004 \001(\t\"\203\001\n\035VodLi" +
-      "stCdnTopAccessUrlRequest\022\017\n\007Domains\030\001 \001(" +
-      "\t\022\021\n\tSpaceName\030\002 \001(\t\022\026\n\016StartTimestamp\030\003" +
-      " \001(\005\022\024\n\014EndTimestamp\030\004 \001(\005\022\020\n\010SortType\030\005" +
-      " \001(\t\"C\n!VodAddCallbackSubscriptionReques" +
-      "t\022\021\n\tSpaceName\030\001 \001(\t\022\013\n\003Url\030\002 \001(\t\"?\n\032Vod" +
-      "SetCallbackEventRequest\022\021\n\tSpaceName\030\001 \001" +
-      "(\t\022\016\n\006Events\030\002 \001(\tB\310\001\n(com.volcengine.se" +
-      "rvice.vod.model.requestB\nVodRequestP\001Z@g" +
-      "ithub.com/volcengine/volc-sdk-golang/ser" +
-      "vice/vod/models/request\240\001\001\330\001\001\312\002\037Volc\\Ser" +
-      "vice\\Vod\\Models\\Request\342\002#Volc\\Service\\V" +
-      "od\\Models\\GPBMetadatab\006proto3"
+      "stamp\030\003 \001(\005\022\021\n\tSpaceName\030\004 \001(\t\"p\n\035VodLis" +
+      "tCdnTopAccessUrlRequest\022\017\n\007Domains\030\001 \001(\t" +
+      "\022\026\n\016StartTimestamp\030\002 \001(\005\022\024\n\014EndTimestamp" +
+      "\030\003 \001(\005\022\020\n\010SortType\030\004 \001(\t\"C\n!VodAddCallba" +
+      "ckSubscriptionRequest\022\021\n\tSpaceName\030\001 \001(\t" +
+      "\022\013\n\003Url\030\002 \001(\t\"?\n\032VodSetCallbackEventRequ" +
+      "est\022\021\n\tSpaceName\030\001 \001(\t\022\016\n\006Events\030\002 \001(\tB\310" +
+      "\001\n(com.volcengine.service.vod.model.requ" +
+      "estB\nVodRequestP\001Z@github.com/volcengine" +
+      "/volc-sdk-golang/service/vod/models/requ" +
+      "est\240\001\001\330\001\001\312\002\037Volc\\Service\\Vod\\Models\\Requ" +
+      "est\342\002#Volc\\Service\\Vod\\Models\\GPBMetadat" +
+      "ab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -677,7 +677,7 @@ public final class VodRequest {
     internal_static_Volcengine_Vod_Models_Request_VodListCdnTopAccessUrlRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Request_VodListCdnTopAccessUrlRequest_descriptor,
-        new java.lang.String[] { "Domains", "SpaceName", "StartTimestamp", "EndTimestamp", "SortType", });
+        new java.lang.String[] { "Domains", "StartTimestamp", "EndTimestamp", "SortType", });
     internal_static_Volcengine_Vod_Models_Request_VodAddCallbackSubscriptionRequest_descriptor =
       getDescriptor().getMessageTypes().get(45);
     internal_static_Volcengine_Vod_Models_Request_VodAddCallbackSubscriptionRequest_fieldAccessorTable = new

@@ -140,4 +140,12 @@ public interface IImageXService extends IBaseService {
      * @throws Exception the exception
      */
     ExtractImageHmResponse extractImageHm(ExtractImageHmRequest req) throws Exception;
+
+    /**
+     * Request ImageX api with method POST.
+     * @param req get image segment request
+     * @return image store uri
+     * @throws Exception the exception
+     */
+    GetImageSegmentResponse getImageSegment(GetImageSegmentRequest req) throws Exception;
 }

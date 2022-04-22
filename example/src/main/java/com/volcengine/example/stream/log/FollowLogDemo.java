@@ -41,7 +41,7 @@ public class FollowLogDemo {
         body1.setSource("article_detail");
         bodyList.add(body1);
 
-        req.setBody(body);
+        req.setBody(bodyList);
         try {
             LogResponse response = logService.followLog(req);
             System.out.println(JSON.toJSONString(response));

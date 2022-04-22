@@ -160,6 +160,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
                 break;
             }
         }
+        jsonBody = URLDecoder.decode(jsonBody, "UTF-8");
         nameValuePairList.removeIf(n -> n.getName().equals("Body"));
         RawResponse response = json(Const.FollowLog, nameValuePairList, jsonBody);
 
@@ -179,6 +180,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
                 jsonBody = nameValuePair.getValue();
             }
         }
+        jsonBody = URLDecoder.decode(jsonBody, "UTF-8");
         nameValuePairList.removeIf(n -> n.getName().equals("Body"));
         RawResponse response = json(Const.UnfollowLog, nameValuePairList, jsonBody);
 
@@ -198,6 +200,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
                 jsonBody = nameValuePair.getValue();
             }
         }
+        jsonBody = URLDecoder.decode(jsonBody, "UTF-8");
         nameValuePairList.removeIf(n -> n.getName().equals("Body"));
         RawResponse response = json(Const.FollowCardLog, nameValuePairList, jsonBody);
 

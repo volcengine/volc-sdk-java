@@ -25,6 +25,7 @@ private static final long serialVersionUID = 0L;
     endTime_ = "";
     offset_ = "";
     pageSize_ = "";
+    classificationIds_ = "";
   }
 
   @java.lang.Override
@@ -109,6 +110,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             pageSize_ = s;
+            break;
+          }
+          case 82: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            classificationIds_ = s;
             break;
           }
           default: {
@@ -557,6 +564,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int CLASSIFICATIONIDS_FIELD_NUMBER = 10;
+  private volatile java.lang.Object classificationIds_;
+  /**
+   * <pre>
+   *分类id列表
+   * </pre>
+   *
+   * <code>string ClassificationIds = 10;</code>
+   * @return The classificationIds.
+   */
+  @java.lang.Override
+  public java.lang.String getClassificationIds() {
+    java.lang.Object ref = classificationIds_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      classificationIds_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *分类id列表
+   * </pre>
+   *
+   * <code>string ClassificationIds = 10;</code>
+   * @return The bytes for classificationIds.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getClassificationIdsBytes() {
+    java.lang.Object ref = classificationIds_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      classificationIds_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -598,6 +651,9 @@ private static final long serialVersionUID = 0L;
     if (!getPageSizeBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, pageSize_);
     }
+    if (!getClassificationIdsBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, classificationIds_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -634,6 +690,9 @@ private static final long serialVersionUID = 0L;
     if (!getPageSizeBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, pageSize_);
     }
+    if (!getClassificationIdsBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, classificationIds_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -667,6 +726,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getOffset())) return false;
     if (!getPageSize()
         .equals(other.getPageSize())) return false;
+    if (!getClassificationIds()
+        .equals(other.getClassificationIds())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -696,6 +757,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getOffset().hashCode();
     hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
     hash = (53 * hash) + getPageSize().hashCode();
+    hash = (37 * hash) + CLASSIFICATIONIDS_FIELD_NUMBER;
+    hash = (53 * hash) + getClassificationIds().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -847,6 +910,8 @@ private static final long serialVersionUID = 0L;
 
       pageSize_ = "";
 
+      classificationIds_ = "";
+
       return this;
     }
 
@@ -882,6 +947,7 @@ private static final long serialVersionUID = 0L;
       result.endTime_ = endTime_;
       result.offset_ = offset_;
       result.pageSize_ = pageSize_;
+      result.classificationIds_ = classificationIds_;
       onBuilt();
       return result;
     }
@@ -964,6 +1030,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageSize().isEmpty()) {
         pageSize_ = other.pageSize_;
+        onChanged();
+      }
+      if (!other.getClassificationIds().isEmpty()) {
+        classificationIds_ = other.classificationIds_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1855,6 +1925,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       pageSize_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object classificationIds_ = "";
+    /**
+     * <pre>
+     *分类id列表
+     * </pre>
+     *
+     * <code>string ClassificationIds = 10;</code>
+     * @return The classificationIds.
+     */
+    public java.lang.String getClassificationIds() {
+      java.lang.Object ref = classificationIds_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        classificationIds_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *分类id列表
+     * </pre>
+     *
+     * <code>string ClassificationIds = 10;</code>
+     * @return The bytes for classificationIds.
+     */
+    public com.google.protobuf.ByteString
+        getClassificationIdsBytes() {
+      java.lang.Object ref = classificationIds_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        classificationIds_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *分类id列表
+     * </pre>
+     *
+     * <code>string ClassificationIds = 10;</code>
+     * @param value The classificationIds to set.
+     * @return This builder for chaining.
+     */
+    public Builder setClassificationIds(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      classificationIds_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *分类id列表
+     * </pre>
+     *
+     * <code>string ClassificationIds = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearClassificationIds() {
+      
+      classificationIds_ = getDefaultInstance().getClassificationIds();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *分类id列表
+     * </pre>
+     *
+     * <code>string ClassificationIds = 10;</code>
+     * @param value The bytes for classificationIds to set.
+     * @return This builder for chaining.
+     */
+    public Builder setClassificationIdsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      classificationIds_ = value;
       onChanged();
       return this;
     }

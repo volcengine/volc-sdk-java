@@ -24,6 +24,7 @@ private static final long serialVersionUID = 0L;
     description_ = "";
     tags_ = "";
     category_ = "";
+    fileName_ = "";
   }
 
   @java.lang.Override
@@ -102,6 +103,17 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             category_ = s;
+            break;
+          }
+          case 74: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            fileName_ = s;
+            break;
+          }
+          case 80: {
+
+            classificationId_ = input.readInt64();
             break;
           }
           default: {
@@ -504,6 +516,67 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int FILENAME_FIELD_NUMBER = 9;
+  private volatile java.lang.Object fileName_;
+  /**
+   * <pre>
+   * 设置文件名
+   * </pre>
+   *
+   * <code>string FileName = 9;</code>
+   * @return The fileName.
+   */
+  @java.lang.Override
+  public java.lang.String getFileName() {
+    java.lang.Object ref = fileName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      fileName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 设置文件名
+   * </pre>
+   *
+   * <code>string FileName = 9;</code>
+   * @return The bytes for fileName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getFileNameBytes() {
+    java.lang.Object ref = fileName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      fileName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CLASSIFICATIONID_FIELD_NUMBER = 10;
+  private long classificationId_;
+  /**
+   * <pre>
+   *设置分类Id
+   * </pre>
+   *
+   * <code>int64 ClassificationId = 10;</code>
+   * @return The classificationId.
+   */
+  @java.lang.Override
+  public long getClassificationId() {
+    return classificationId_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -542,6 +615,12 @@ private static final long serialVersionUID = 0L;
     if (!getCategoryBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, category_);
     }
+    if (!getFileNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, fileName_);
+    }
+    if (classificationId_ != 0L) {
+      output.writeInt64(10, classificationId_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -575,6 +654,13 @@ private static final long serialVersionUID = 0L;
     if (!getCategoryBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, category_);
     }
+    if (!getFileNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, fileName_);
+    }
+    if (classificationId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(10, classificationId_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -606,6 +692,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTags())) return false;
     if (!getCategory()
         .equals(other.getCategory())) return false;
+    if (!getFileName()
+        .equals(other.getFileName())) return false;
+    if (getClassificationId()
+        != other.getClassificationId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -633,6 +723,11 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getTags().hashCode();
     hash = (37 * hash) + CATEGORY_FIELD_NUMBER;
     hash = (53 * hash) + getCategory().hashCode();
+    hash = (37 * hash) + FILENAME_FIELD_NUMBER;
+    hash = (53 * hash) + getFileName().hashCode();
+    hash = (37 * hash) + CLASSIFICATIONID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getClassificationId());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -782,6 +877,10 @@ private static final long serialVersionUID = 0L;
 
       category_ = "";
 
+      fileName_ = "";
+
+      classificationId_ = 0L;
+
       return this;
     }
 
@@ -816,6 +915,8 @@ private static final long serialVersionUID = 0L;
       result.description_ = description_;
       result.tags_ = tags_;
       result.category_ = category_;
+      result.fileName_ = fileName_;
+      result.classificationId_ = classificationId_;
       onBuilt();
       return result;
     }
@@ -895,6 +996,13 @@ private static final long serialVersionUID = 0L;
       if (!other.getCategory().isEmpty()) {
         category_ = other.category_;
         onChanged();
+      }
+      if (!other.getFileName().isEmpty()) {
+        fileName_ = other.fileName_;
+        onChanged();
+      }
+      if (other.getClassificationId() != 0L) {
+        setClassificationId(other.getClassificationId());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1689,6 +1797,145 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       category_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object fileName_ = "";
+    /**
+     * <pre>
+     * 设置文件名
+     * </pre>
+     *
+     * <code>string FileName = 9;</code>
+     * @return The fileName.
+     */
+    public java.lang.String getFileName() {
+      java.lang.Object ref = fileName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fileName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 设置文件名
+     * </pre>
+     *
+     * <code>string FileName = 9;</code>
+     * @return The bytes for fileName.
+     */
+    public com.google.protobuf.ByteString
+        getFileNameBytes() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 设置文件名
+     * </pre>
+     *
+     * <code>string FileName = 9;</code>
+     * @param value The fileName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFileName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      fileName_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 设置文件名
+     * </pre>
+     *
+     * <code>string FileName = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFileName() {
+      
+      fileName_ = getDefaultInstance().getFileName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 设置文件名
+     * </pre>
+     *
+     * <code>string FileName = 9;</code>
+     * @param value The bytes for fileName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFileNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      fileName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private long classificationId_ ;
+    /**
+     * <pre>
+     *设置分类Id
+     * </pre>
+     *
+     * <code>int64 ClassificationId = 10;</code>
+     * @return The classificationId.
+     */
+    @java.lang.Override
+    public long getClassificationId() {
+      return classificationId_;
+    }
+    /**
+     * <pre>
+     *设置分类Id
+     * </pre>
+     *
+     * <code>int64 ClassificationId = 10;</code>
+     * @param value The classificationId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setClassificationId(long value) {
+      
+      classificationId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *设置分类Id
+     * </pre>
+     *
+     * <code>int64 ClassificationId = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearClassificationId() {
+      
+      classificationId_ = 0L;
       onChanged();
       return this;
     }

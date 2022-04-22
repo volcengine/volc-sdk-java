@@ -3,6 +3,8 @@ package com.volcengine.model.stream.log;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class FollowCardLogRequest {
     @JSONField(name = "Timestamp")
@@ -14,7 +16,7 @@ public class FollowCardLogRequest {
     @JSONField(name = "Ouid")
     String ouid;
     @JSONField(name = "Body")
-    Body body;
+    List<Body> body;
 
     @Data
     public static class Body {

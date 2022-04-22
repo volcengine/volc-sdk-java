@@ -173,6 +173,48 @@ public class Const {
     public static final String HotBoard = "HotBoard";
     public static final String ContentVersion = "2021-01-01";
 
+    //live
+    public static final String LiveSDKVersion = "2020-08-01";
+    public static final String ListCommonTransPresetDetail = "ListCommonTransPresetDetail";
+    public static final String UpdateCallback = "UpdateCallback";
+    public static final String DescribeCallback = "DescribeCallback";
+    public static final String DeleteCallback = "DeleteCallback";
+    public static final String CreateDomain = "CreateDomain";
+    public static final String DeleteDomain = "DeleteDomain";
+    public static final String ListDomainDetail = "ListDomainDetail";
+    public static final String DescribeDomain = "DescribeDomain";
+    public static final String EnableDomain = "EnableDomain";
+    public static final String DisableDomain = "DisableDomain";
+    public static final String ManagerPullPushDomainBind = "ManagerPullPushDomainBind";
+    public static final String UpdateAuthKey = "UpdateAuthKey";
+    public static final String EnableAuth = "EnableAuth";
+    public static final String DisableAuth = "DisableAuth";
+    public static final String DescribeAuth = "DescribeAuth";
+    public static final String ForbidStream = "ForbidStream";
+    public static final String ResumeStream = "ResumeStream";
+    public static final String ListCert = "ListCert";
+    public static final String CreateCert = "CreateCert";
+    public static final String DescribeCertDetailSecret = "DescribeCertDetailSecret";
+    public static final String UpdateCert = "UpdateCert";
+    public static final String BindCert = "BindCert";
+    public static final String UnbindCert = "UnbindCert";
+    public static final String DeleteCert = "DeleteCert";
+    public static final String UpdateReferer = "UpdateReferer";
+    public static final String DeleteReferer = "DeleteReferer";
+    public static final String DescribeReferer = "DescribeReferer";
+    public static final String CreateRecordPreset = "CreateRecordPreset";
+    public static final String UpdateRecordPreset = "UpdateRecordPreset";
+    public static final String DeleteRecordPreset = "DeleteRecordPreset";
+    public static final String ListVhostRecordPreset = "ListVhostRecordPreset";
+    public static final String CreateTranscodePreset = "CreateTranscodePreset";
+    public static final String UpdateTranscodePreset = "UpdateTranscodePreset";
+    public static final String DeleteTranscodePreset = "DeleteTranscodePreset";
+    public static final String ListVhostTransCodePreset = "ListVhostTransCodePreset";
+    public static final String CreateSnapshotPreset = "CreateSnapshotPreset";
+    public static final String UpdateSnapshotPreset = "UpdateSnapshotPreset";
+    public static final String DeleteSnapshotPreset = "DeleteSnapshotPreset";
+    public static final String ListVhostSnapshotPreset = "ListVhostSnapshotPreset";
+
     //kms
     public static final String CreateKeyring = "CreateKeyring";
     public static final String DescribeKeyrings = "DescribeKeyrings";

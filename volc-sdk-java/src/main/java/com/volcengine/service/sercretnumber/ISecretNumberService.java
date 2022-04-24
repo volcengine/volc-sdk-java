@@ -1,18 +1,8 @@
 package com.volcengine.service.sercretnumber;
 
 import com.volcengine.service.IBaseService;
-import com.volcengine.service.sercretnumber.model.request.BindAXBRequest;
-import com.volcengine.service.sercretnumber.model.request.BindAXNRequest;
-import com.volcengine.service.sercretnumber.model.request.QuerySubscriptionForListRequest;
-import com.volcengine.service.sercretnumber.model.request.SelectNumberAndBindAXBRequest;
-import com.volcengine.service.sercretnumber.model.request.SpecificSubIdRequest;
-import com.volcengine.service.sercretnumber.model.request.UpdateAXBRequest;
-import com.volcengine.service.sercretnumber.model.request.UpdateAXNRequest;
-import com.volcengine.service.sercretnumber.model.request.UpgradeAXToAXBRequest;
-import com.volcengine.service.sercretnumber.model.response.OperationResponse;
-import com.volcengine.service.sercretnumber.model.response.QuerySubscriptionForListResponse;
-import com.volcengine.service.sercretnumber.model.response.QuerySubscriptionResponse;
-import com.volcengine.service.sercretnumber.model.response.SecretBindResponse;
+import com.volcengine.service.sercretnumber.model.request.*;
+import com.volcengine.service.sercretnumber.model.response.*;
 
 /**
  * The interface secret number service.
@@ -38,4 +28,8 @@ public interface ISecretNumberService extends IBaseService {
   OperationResponse updateAXN(UpdateAXNRequest request) throws Exception;
 
   OperationResponse unbindAXN(SpecificSubIdRequest request) throws Exception;
+
+  Click2CallResponse click2Call(Click2CallRequest request) throws Exception;
+
+  OperationResponse cancelClick2Call(CancelClick2CallRequest request) throws Exception;
 }

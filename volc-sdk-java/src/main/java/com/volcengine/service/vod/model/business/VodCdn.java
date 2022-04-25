@@ -69,6 +69,16 @@ public final class VodCdn {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodListCdnAccessLogResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodBandwidthData_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodBandwidthData_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodDescribeVodDomainBandwidthDataResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodDescribeVodDomainBandwidthDataResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -118,12 +128,21 @@ public final class VodCdn {
       "engine.Vod.Models.Business.VodCdnAccessL" +
       "ogElement\"^\n\031VodListCdnAccessLogResult\022A" +
       "\n\004Logs\030\001 \003(\01323.Volcengine.Vod.Models.Bus" +
-      "iness.VodCdnAccessLogInfoB\312\001\n)com.volcen" +
-      "gine.service.vod.model.businessB\006VodCdnP" +
-      "\001ZAgithub.com/volcengine/volc-sdk-golang" +
-      "/service/vod/models/business\240\001\001\330\001\001\302\002\000\312\002 " +
-      "Volc\\Service\\Vod\\Models\\Business\342\002#Volc\\" +
-      "Service\\Vod\\Models\\GPBMetadatab\006proto3"
+      "iness.VodCdnAccessLogInfo\"3\n\020VodBandwidt" +
+      "hData\022\014\n\004Time\030\001 \001(\t\022\021\n\tBandwidth\030\002 \001(\001\"\214" +
+      "\002\n\'VodDescribeVodDomainBandwidthDataResu" +
+      "lt\022\022\n\nDomainList\030\001 \003(\t\022\021\n\tStartTime\030\002 \001(" +
+      "\t\022\017\n\007EndTime\030\003 \001(\t\022\023\n\013Aggregation\030\004 \001(\005\022" +
+      "\025\n\rBandwidthType\030\005 \001(\t\022\025\n\rPeakBandwidth\030" +
+      "\006 \001(\001\022\031\n\021PeakBandwidthTime\030\007 \001(\t\022K\n\021Band" +
+      "widthDataList\030\010 \003(\01320.Volcengine.Vod.Mod" +
+      "els.Business.VodBandwidthDataB\312\001\n)com.vo" +
+      "lcengine.service.vod.model.businessB\006Vod" +
+      "CdnP\001ZAgithub.com/volcengine/volc-sdk-go" +
+      "lang/service/vod/models/business\240\001\001\330\001\001\302\002" +
+      "\000\312\002 Volc\\Service\\Vod\\Models\\Business\342\002#V" +
+      "olc\\Service\\Vod\\Models\\GPBMetadatab\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -195,6 +214,18 @@ public final class VodCdn {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodListCdnAccessLogResult_descriptor,
         new java.lang.String[] { "Logs", });
+    internal_static_Volcengine_Vod_Models_Business_VodBandwidthData_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_Volcengine_Vod_Models_Business_VodBandwidthData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodBandwidthData_descriptor,
+        new java.lang.String[] { "Time", "Bandwidth", });
+    internal_static_Volcengine_Vod_Models_Business_VodDescribeVodDomainBandwidthDataResult_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_Volcengine_Vod_Models_Business_VodDescribeVodDomainBandwidthDataResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodDescribeVodDomainBandwidthDataResult_descriptor,
+        new java.lang.String[] { "DomainList", "StartTime", "EndTime", "Aggregation", "BandwidthType", "PeakBandwidth", "PeakBandwidthTime", "BandwidthDataList", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

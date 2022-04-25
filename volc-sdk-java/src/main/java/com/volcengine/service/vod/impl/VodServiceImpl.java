@@ -1088,6 +1088,25 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 	
 	
 	/**
+     * describeVodDomainBandwidthData.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDescribeVodDomainBandwidthDataRequest
+     * @return com.volcengine.service.vod.model.response.VodDescribeVodDomainBandwidthDataResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodDescribeVodDomainBandwidthDataResponse describeVodDomainBandwidthData(com.volcengine.service.vod.model.request.VodDescribeVodDomainBandwidthDataRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.DescribeVodDomainBandwidthData, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodDescribeVodDomainBandwidthDataResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodDescribeVodDomainBandwidthDataResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
      * addCallbackSubscription.
      *
      * @param input com.volcengine.service.vod.model.request.VodAddCallbackSubscriptionRequest

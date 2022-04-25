@@ -445,6 +445,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse listCdnAccessLog(com.volcengine.service.vod.model.request.VodListCdnAccessLogRequest input) throws Exception;
 	
 	/**
+     * describeVodDomainBandwidthData.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDescribeVodDomainBandwidthDataRequest
+     * @return com.volcengine.service.vod.model.response.VodDescribeVodDomainBandwidthDataResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodDescribeVodDomainBandwidthDataResponse describeVodDomainBandwidthData(com.volcengine.service.vod.model.request.VodDescribeVodDomainBandwidthDataRequest input) throws Exception;
+	
+	/**
      * addCallbackSubscription.
      *
      * @param input com.volcengine.service.vod.model.request.VodAddCallbackSubscriptionRequest

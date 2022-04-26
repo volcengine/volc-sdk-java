@@ -14,7 +14,6 @@ public class VodListCdnTopAccessUrlDemo {
 
         try {
             VodListCdnTopAccessUrlRequest.Builder input = VodListCdnTopAccessUrlRequest.newBuilder();
-            input.setSpaceName("your space name");
             input.setDomains("your domain");
             input.setStartTimestamp(0);
             input.setEndTimestamp(0);

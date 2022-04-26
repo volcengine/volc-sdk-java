@@ -1088,6 +1088,25 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 	
 	
 	/**
+     * listCdnTopAccessUrl.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodListCdnTopAccessUrlRequest
+     * @return com.volcengine.service.vod.model.response.VodListCdnTopAccessUrlResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodListCdnTopAccessUrlResponse listCdnTopAccessUrl(com.volcengine.service.vod.model.request.VodListCdnTopAccessUrlRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.ListCdnTopAccessUrl, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodListCdnTopAccessUrlResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodListCdnTopAccessUrlResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
      * addCallbackSubscription.
      *
      * @param input com.volcengine.service.vod.model.request.VodAddCallbackSubscriptionRequest

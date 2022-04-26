@@ -69,6 +69,16 @@ public final class VodCdn {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodListCdnAccessLogResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodCdnTopAccessUrlElement_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodCdnTopAccessUrlElement_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodListCdnTopAccessUrlResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodListCdnTopAccessUrlResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -118,12 +128,17 @@ public final class VodCdn {
       "engine.Vod.Models.Business.VodCdnAccessL" +
       "ogElement\"^\n\031VodListCdnAccessLogResult\022A" +
       "\n\004Logs\030\001 \003(\01323.Volcengine.Vod.Models.Bus" +
-      "iness.VodCdnAccessLogInfoB\312\001\n)com.volcen" +
-      "gine.service.vod.model.businessB\006VodCdnP" +
-      "\001ZAgithub.com/volcengine/volc-sdk-golang" +
-      "/service/vod/models/business\240\001\001\330\001\001\302\002\000\312\002 " +
-      "Volc\\Service\\Vod\\Models\\Business\342\002#Volc\\" +
-      "Service\\Vod\\Models\\GPBMetadatab\006proto3"
+      "iness.VodCdnAccessLogInfo\"B\n\031VodCdnTopAc" +
+      "cessUrlElement\022\013\n\003Url\030\001 \001(\t\022\n\n\002Pv\030\002 \001(\003\022" +
+      "\014\n\004Flux\030\003 \001(\003\"k\n\034VodListCdnTopAccessUrlR" +
+      "esult\022K\n\010UrlInfos\030\001 \003(\01329.Volcengine.Vod" +
+      ".Models.Business.VodCdnTopAccessUrlEleme" +
+      "ntB\312\001\n)com.volcengine.service.vod.model." +
+      "businessB\006VodCdnP\001ZAgithub.com/volcengin" +
+      "e/volc-sdk-golang/service/vod/models/bus" +
+      "iness\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Models" +
+      "\\Business\342\002#Volc\\Service\\Vod\\Models\\GPBM" +
+      "etadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -195,6 +210,18 @@ public final class VodCdn {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodListCdnAccessLogResult_descriptor,
         new java.lang.String[] { "Logs", });
+    internal_static_Volcengine_Vod_Models_Business_VodCdnTopAccessUrlElement_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_Volcengine_Vod_Models_Business_VodCdnTopAccessUrlElement_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodCdnTopAccessUrlElement_descriptor,
+        new java.lang.String[] { "Url", "Pv", "Flux", });
+    internal_static_Volcengine_Vod_Models_Business_VodListCdnTopAccessUrlResult_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_Volcengine_Vod_Models_Business_VodListCdnTopAccessUrlResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodListCdnTopAccessUrlResult_descriptor,
+        new java.lang.String[] { "UrlInfos", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

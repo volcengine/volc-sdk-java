@@ -1415,10 +1415,10 @@ public class CDN {
     public static class DomainLogDetail {
 
         @JSONField(name = "StartTime")
-        String StartTime;
+        Long StartTime;
 
         @JSONField(name = "EndTime")
-        String EndTime;
+        Long EndTime;
 
         @JSONField(name = "LogName")
         String LogName;
@@ -1427,7 +1427,7 @@ public class CDN {
         String LogPath;
 
         @JSONField(name = "LogSize")
-        String LogSize;
+        Long LogSize;
     }
 
     @Data

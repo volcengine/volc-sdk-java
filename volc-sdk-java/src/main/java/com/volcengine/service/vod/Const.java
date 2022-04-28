@@ -91,6 +91,8 @@ public class Const {
     public static final String CreateCdnPreloadTask = "CreateCDNPreloadTask";
     public static final String ListCdnTasks = "ListCdnTasks";
     public static final String ListCdnAccessLog = "ListCdnAccessLog";
+    public static final String ListCdnTopAccessUrl = "ListCdnTopAccessUrl";
+    public static final String DescribeVodDomainBandwidthData = "DescribeVodDomainBandwidthData";
 
     //vod-callback
     public static final String AddCallbackSubscription = "AddCallbackSubscription";

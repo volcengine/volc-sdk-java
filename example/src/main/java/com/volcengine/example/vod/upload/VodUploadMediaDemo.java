@@ -32,6 +32,7 @@ public class VodUploadMediaDemo {
         VodUploadMediaRequest vodUploadMediaRequest = VodUploadMediaRequest.newBuilder()
                 .setSpaceName(space)
                 .setFilePath(filePath)
+                .setFileName("hello/vod/video")
                 .setFunctions(JSON.toJSONString(functionsList))
                 .build();
         try {

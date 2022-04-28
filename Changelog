@@ -1,5 +1,9 @@
 Change log
 
+2022-04-28 Bumped to version v1.0.45
+- Added service cdn
+- Added apis for vod/vms
+
 2022-04-22 Bumped to version v1.0.44
 - Added service live
 

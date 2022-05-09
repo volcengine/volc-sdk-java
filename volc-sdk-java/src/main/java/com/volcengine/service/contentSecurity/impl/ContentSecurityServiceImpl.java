@@ -105,4 +105,63 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
         return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
     }
 
+   @Override
+   public AsyncRiskDetectionResponse AsyncAudioRisk(RiskDetectionRequest riskDetectionRequest) throws Exception {
+       RawResponse response = json(Const.AsyncAudioRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+       if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+           throw response.getException();
+       }
+
+       return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
+   }
+
+    @Override
+    public GetAudioRiskResponse AudioResult(ImageRiskResultRequest audioRiskResultRequest) throws Exception {
+        RawResponse response = query(Const.GetAudioResult, Utils.mapToPairList(Utils.paramsToMap(audioRiskResultRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
+    }
+
+    @Override
+    public AsyncRiskDetectionResponse AsyncLiveVideoRisk(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.AsyncLiveVideoRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
+    }
+
+    @Override
+    public VideoRiskResultResponse VideoLiveResult(ImageRiskResultRequest videoRiskResultRequest) throws Exception {
+        RawResponse response = query(Const.GetVideoLiveResult, Utils.mapToPairList(Utils.paramsToMap(videoRiskResultRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
+    }
+
+    @Override
+    public AsyncRiskDetectionResponse AsyncLiveAudioRisk(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.AsyncLiveAudioRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
+    }
+
+    @Override
+    public GetAudioRiskResponse AudioLiveResult(ImageRiskResultRequest audioRiskResultRequest) throws Exception {
+        RawResponse response = query(Const.AsyncLiveAudioRisk, Utils.mapToPairList(Utils.paramsToMap(audioRiskResultRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
+    }
 }

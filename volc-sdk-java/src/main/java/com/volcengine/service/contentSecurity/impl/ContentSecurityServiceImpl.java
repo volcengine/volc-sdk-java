@@ -122,7 +122,7 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
             throw response.getException();
         }
 
-        return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
+        return JSON.parseObject(response.getData(), GetAudioRiskResponse.class);
     }
 
     @Override
@@ -142,7 +142,7 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
             throw response.getException();
         }
 
-        return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
+        return JSON.parseObject(response.getData(), VideoRiskResultResponse.class);
     }
 
     @Override
@@ -162,6 +162,6 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
             throw response.getException();
         }
 
-        return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
+        return JSON.parseObject(response.getData(), GetAudioRiskResponse.class);
     }
 }

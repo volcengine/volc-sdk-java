@@ -9,7 +9,9 @@ import com.volcengine.model.live.response.*;
 import com.volcengine.service.live.LiveService;
 import junit.framework.TestCase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class LiveServiceImplTest extends TestCase {
@@ -196,34 +198,34 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     //done
-    public void testEnableAuth() {
-        LiveService liveService = getLiveService();
-        EnableAuthRequest request = new EnableAuthRequest();
-        String testDomain = "";
-        request.setDomain(testDomain);
-        request.setSceneType("push");
-        try {
-            EnableAuthResponse response = liveService.enableAuth(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    public void testEnableAuth() {
+//        LiveService liveService = getLiveService();
+//        EnableAuthRequest request = new EnableAuthRequest();
+//        String testDomain = "";
+//        request.setDomain(testDomain);
+//        request.setSceneType("push");
+//        try {
+//            EnableAuthResponse response = liveService.enableAuth(request);
+//            System.out.println(JSON.toJSONString(response));
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     //done
-    public void testDisableAuth() {
-        LiveService liveService = getLiveService();
-        DisableAuthRequest request = new DisableAuthRequest();
-        String testDomain = "";
-        request.setDomain(testDomain);
-        request.setSceneType("push");
-        try {
-            DisableAuthResponse response = liveService.disableAuth(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    public void testDisableAuth() {
+//        LiveService liveService = getLiveService();
+//        DisableAuthRequest request = new DisableAuthRequest();
+//        String testDomain = "";
+//        request.setDomain(testDomain);
+//        request.setSceneType("push");
+//        try {
+//            DisableAuthResponse response = liveService.disableAuth(request);
+//            System.out.println(JSON.toJSONString(response));
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     //done
     public void testDescribeAuth() {
@@ -303,18 +305,18 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     //done
-    public void testDescribeCertDetailSecret() {
-        LiveService liveService = getLiveService();
-        DescribeCertDetailSecretRequest request = new DescribeCertDetailSecretRequest();
-        String chainID = "ff5e0a71dd4842ac9d251f4531919f73";
-        request.setChainID(chainID);
-        try {
-            DescribeCertDetailSecretResponse response = liveService.describeCertDetailSecret(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    public void testDescribeCertDetailSecret() {
+//        LiveService liveService = getLiveService();
+//        DescribeCertDetailSecretRequest request = new DescribeCertDetailSecretRequest();
+//        String chainID = "ff5e0a71dd4842ac9d251f4531919f73";
+//        request.setChainID(chainID);
+//        try {
+//            DescribeCertDetailSecretResponse response = liveService.describeCertDetailSecret(request);
+//            System.out.println(JSON.toJSONString(response));
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public void testUpdateCert() {
         LiveService liveService = getLiveService();
@@ -630,4 +632,265 @@ public class LiveServiceImplTest extends TestCase {
     }
 
 
+    public void testDescribeLiveBandwidthData() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"DomainList\": [\"domain\"],\n" +
+                "    \"StartTime\": \"2021-04-13T00:00:00Z\",\n" +
+                "    \"EndTime\": \"2021-04-14T00:00:00Z\",\n" +
+                "    \"Aggregation\": 300\n" +
+                "}";
+        DescribeLiveBandwidthDataRequest request = JSON.parseObject(jsonStr, DescribeLiveBandwidthDataRequest.class);
+
+        try {
+            DescribeLiveBandwidthDataResponse response = liveService.describeLiveBandwidthData(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testDescribeLiveTrafficData() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"DomainList\": [],\n" +
+                "    \"StartTime\": \"2022-04-25T00:00:00Z\",\n" +
+                "    \"EndTime\":\"2022-04-25T23:59:00Z\",\n" +
+                "    \"Aggregation\":300\n" +
+                "}";
+        DescribeLiveTrafficDataRequest request = JSON.parseObject(jsonStr, DescribeLiveTrafficDataRequest.class);
+        try {
+            DescribeLiveTrafficDataResponse response = liveService.describeLiveTrafficData(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testDescribeLiveP95PeakBandwidthData() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"StartTime\": \"2021-04-13T00:00:00Z\",\n" +
+                "    \"EndTime\": \"2021-04-14T00:00:00Z\",\n" +
+                "    \"Aggregation\": 300\n" +
+                "}";
+        DescribeLiveP95PeakBandwidthDataRequest request = JSON.parseObject(jsonStr, DescribeLiveP95PeakBandwidthDataRequest.class);
+        try {
+            DescribeLiveP95PeakBandwidthDataResponse response = liveService.describeLiveP95PeakBandwidthData(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testDescribeTranscodeData() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"DomainList\":[\"example.com\",\"example2.com\"],\n" +
+                "    \"StartTime\": \"2022-03-07T00:00:00+08:00\",\n" +
+                "    \"EndTime\":\"2022-03-08T00:00:00+08:00\",\n" +
+                "    \"Aggregation\": 86400\n" +
+                "}";
+        DescribeTranscodeDataRequest request = JSON.parseObject(jsonStr, DescribeTranscodeDataRequest.class);
+        try {
+            DescribeTranscodeDataResponse response = liveService.describeTranscodeData(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testDescribeSnapshotData() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"DomainList\":[\"example.com\",\"example2.com\"],\n" +
+                "    \"StartTime\": \"2022-03-07T00:00:00+08:00\",\n" +
+                "    \"EndTime\":\"2022-03-08T00:00:00+08:00\",\n" +
+                "    \"Aggregation\": 86400\n" +
+                "}";
+        DescribeSnapshotDataRequest request = JSON.parseObject(jsonStr, DescribeSnapshotDataRequest.class);
+        try {
+            DescribeSnapshotDataResponse response = liveService.describeSnapshotData(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testDescribeRecordData() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"StartTime\": \"2021-04-13T00:00:00Z\",\n" +
+                "    \"EndTime\": \"2021-04-13T00:10:00Z\",\n" +
+                "    \"Aggregation\": 300\n" +
+                "}";
+        DescribeRecordDataRequest request = JSON.parseObject(jsonStr, DescribeRecordDataRequest.class);
+        try {
+            DescribeRecordDataResponse response = liveService.describeRecordData(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testDescribeLiveTimeShiftData() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"Aggregation\": 86400,\n" +
+                "    \"EndTime\": \"2022-02-17T23:59:59+08:00\",\n" +
+                "    \"StartTime\": \"2022-02-11T00:00:00+08:00\",\n" +
+                "    \"Vhosts\": [\"www.example.com\"]\n" +
+                "}";
+        DescribeLiveTimeShiftDataRequest request = JSON.parseObject(jsonStr, DescribeLiveTimeShiftDataRequest.class);
+        try {
+            DescribeLiveTimeShiftDataResponse response = liveService.describeLiveTimeShiftData(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testDescribePushStreamMetrics() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"Domain\": \"example.com\",\n" +
+                "    \"App\": \"example_app\",\n" +
+                "    \"Stream\": \"example_stream\",\n" +
+                "    \"StartTime\": \"2021-08-16T00:00:00Z\",\n" +
+                "    \"EndTime\": \"2021-08-16T00:01:59Z\",\n" +
+                "    \"Aggregation\": 30\n" +
+                "}";
+        DescribePushStreamMetricsRequest request = JSON.parseObject(jsonStr, DescribePushStreamMetricsRequest.class);
+        try {
+            DescribePushStreamMetricsResponse response = liveService.describePushStreamMetrics(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testDescribeLiveStreamSessions() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"DomainList\":[\"example.com\",\"example2.com\"],\n" +
+                "    \"App\": \"example\",\n" +
+                "    \"Stream\": \"example080601\",\n" +
+                "    \"ProtocolList\": [\"RTMP\", \"HTTP-FLV\"],\n" +
+                "    \"StartTime\": \"2021-08-16T00:00:00Z\",\n" +
+                "    \"EndTime\":\"2021-08-16T23:59:59Z\",\n" +
+                "    \"Aggregation\":60\n" +
+                "}";
+        DescribeLiveStreamSessionsRequest request = JSON.parseObject(jsonStr, DescribeLiveStreamSessionsRequest.class);
+        try {
+            DescribeLiveStreamSessionsResponse response = liveService.describeLiveStreamSessions(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testDescribePlayResponseStatusStat() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"DomainList\":[\"example.com\",\"example2.com\"],\n" +
+                "    \"StartTime\": \"2022-04-19T00:00:00Z\",\n" +
+                "    \"EndTime\": \"2022-04-19T00:01:59Z\",\n" +
+                "    \"Aggregation\": 60\n" +
+                "}";
+        DescribePlayResponseStatusStatRequest request = JSON.parseObject(jsonStr, DescribePlayResponseStatusStatRequest.class);
+        try {
+            DescribePlayResponseStatusStatResponse response = liveService.describePlayResponseStatusStat(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testDescribeLiveDomainLog() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"Domain\":\"example.com\",\n" +
+                "    \"StartTime\": \"2022-04-19T00:00:00Z\",\n" +
+                "    \"EndTime\": \"2022-04-19T00:01:59Z\",\n" +
+                "}";
+        DescribeLiveDomainLogRequest request = JSON.parseObject(jsonStr, DescribeLiveDomainLogRequest.class);
+        try {
+            DescribeLiveDomainLogResponse response = liveService.describeLiveDomainLog(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testDescribeLiveMetricTrafficData() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"DomainList\": [\"example.com\"],\n" +
+                "    \"ProtocolList\": [\"HTTP-FLV\", \"RTMP\"],\n" +
+                "    \"ISPList\": [\"telecom\"],\n" +
+                "    \"IPList\": [\"123.123.123.000\"],\n" +
+                "    \"RegionList\": [\n" +
+                "        {\n" +
+                "            \"Area\": \"cn\",\n" +
+                "            \"Country\": \"cn\",\n" +
+                "            \"Province\": \"beijing\"\n" +
+                "        }\n" +
+                "    ],\n" +
+                "    \"StartTime\": \"2021-04-13T00:00:00+08:00\",\n" +
+                "    \"EndTime\": \"2021-04-14T00:00:00+08:00\",\n" +
+                "    \"Aggregation\": 300,\n" +
+                "    \"ShowDetail\": true\n" +
+                "}";
+        DescribeLiveMetricTrafficDataRequest request = JSON.parseObject(jsonStr, DescribeLiveMetricTrafficDataRequest.class);
+        try {
+            DescribeLiveMetricTrafficDataResponse response = liveService.describeLiveMetricTrafficData(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testDescribeLiveMetricBandwidthData() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"DomainList\": [\"example.com\"],\n" +
+                "    \"ProtocolList\": [\"HTTP-FLV\", \"RTMP\"],\n" +
+                "    \"ISPList\": [\"telecom\"],\n" +
+                "    \"IPList\": [\"123.123.123.000\"],\n" +
+                "    \"RegionList\": [\n" +
+                "        {\n" +
+                "            \"Area\": \"cn\",\n" +
+                "            \"Country\": \"cn\",\n" +
+                "            \"Province\": \"beijing\"\n" +
+                "        }\n" +
+                "    ],\n" +
+                "    \"StartTime\": \"2021-04-13T00:00:00+08:00\",\n" +
+                "    \"EndTime\": \"2021-04-14T00:00:00+08:00\",\n" +
+                "    \"Aggregation\": 300,\n" +
+                "    \"ShowDetail\": true\n" +
+                "}";
+        DescribeLiveMetricBandwidthDataRequest request = JSON.parseObject(jsonStr, DescribeLiveMetricBandwidthDataRequest.class);
+        try {
+            DescribeLiveMetricBandwidthDataResponse response = liveService.describeLiveMetricBandwidthData(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testDescribePlayStreamListResponse() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"Domain\":\"example.com\",\n" +
+                "    \"StartTime\": \"2022-04-19T00:00:00Z\",\n" +
+                "    \"EndTime\": \"2022-04-19T00:01:59Z\",\n" +
+                "}";
+        DescribePlayStreamListRequest request = JSON.parseObject(jsonStr, DescribePlayStreamListRequest.class);
+        try {
+            DescribePlayStreamListResponse response = liveService.describePlayStreamList(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -1,12 +1,8 @@
 package com.volcengine.example.contentSecurity;
 
 import com.alibaba.fastjson.JSON;
-import com.volcengine.model.request.ImageRiskResultRequest;
-import com.volcengine.model.request.RiskDetectionRequest;
-import com.volcengine.model.response.AsyncRiskDetectionResponse;
-import com.volcengine.model.response.ImageRiskDetectionResponse;
-import com.volcengine.model.response.TextRiskResponse;
-import com.volcengine.model.response.VideoRiskResultResponse;
+import com.volcengine.model.request.*;
+import com.volcengine.model.response.*;
 import com.volcengine.service.contentSecurity.ContentSecurityService;
 import com.volcengine.service.contentSecurity.impl.ContentSecurityServiceImpl;
 

@@ -590,6 +590,216 @@ public class LiveConfig {
                         }
                     }
             ));
+            put(Const.DescribeLiveBandwidthData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeLiveBandwidthData));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeLiveTrafficData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeLiveTrafficData));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeLiveP95PeakBandwidthData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeLiveP95PeakBandwidthData));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeTranscodeData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeTranscodeData));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeSnapshotData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeSnapshotData));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeRecordData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeRecordData));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeLiveTimeShiftData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeLiveTimeShiftData));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribePushStreamMetrics, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribePushStreamMetrics));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeLiveStreamSessions, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeLiveStreamSessions));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribePlayResponseStatusStat, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribePlayResponseStatusStat));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeLiveDomainLog, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeLiveDomainLog));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeLiveMetricTrafficData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeLiveMetricTrafficData));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeLiveMetricBandwidthData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeLiveMetricBandwidthData));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribePlayStreamList, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribePlayStreamList));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

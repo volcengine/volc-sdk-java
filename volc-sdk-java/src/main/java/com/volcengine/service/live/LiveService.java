@@ -96,14 +96,14 @@ public interface LiveService extends IBaseService {
      * @return
      * @throws Exception
      */
-    EnableAuthResponse enableAuth(EnableAuthRequest enableAuthRequest) throws Exception;
+//    EnableAuthResponse enableAuth(EnableAuthRequest enableAuthRequest) throws Exception;
 
     /**
      * @param disableAuthRequest
      * @return
      * @throws Exception
      */
-    DisableAuthResponse disableAuth(DisableAuthRequest disableAuthRequest) throws Exception;
+//    DisableAuthResponse disableAuth(DisableAuthRequest disableAuthRequest) throws Exception;
 
     /**
      * @param describeAuthRequest
@@ -145,7 +145,7 @@ public interface LiveService extends IBaseService {
      * @return
      * @throws Exception
      */
-    DescribeCertDetailSecretResponse describeCertDetailSecret(DescribeCertDetailSecretRequest describeCertDetailSecretRequest) throws Exception;
+//    DescribeCertDetailSecretResponse describeCertDetailSecret(DescribeCertDetailSecretRequest describeCertDetailSecretRequest) throws Exception;
 
     /**
      * @param updateCertRequest
@@ -280,4 +280,116 @@ public interface LiveService extends IBaseService {
      * @throws Exception
      */
     ListVhostSnapshotPresetResponse listVhostSnapshotPreset(ListVhostSnapshotPresetRequest listVhostSnapshotPresetRequest) throws Exception;
+
+    /**
+     *
+     * @param describeLiveBandwidthDataRequest
+     * @return
+     * @throws Exception
+     */
+    DescribeLiveBandwidthDataResponse describeLiveBandwidthData(DescribeLiveBandwidthDataRequest describeLiveBandwidthDataRequest) throws Exception;
+
+    /**
+     *
+     * @param describeLiveTrafficDataRequest
+     * @return
+     * @throws Exception
+     */
+    DescribeLiveTrafficDataResponse describeLiveTrafficData(DescribeLiveTrafficDataRequest describeLiveTrafficDataRequest) throws Exception;
+
+    /**
+     *
+     * @param describeLiveP95PeakBandwidthDataRequest
+     * @return
+     * @throws Exception
+     */
+    DescribeLiveP95PeakBandwidthDataResponse describeLiveP95PeakBandwidthData(DescribeLiveP95PeakBandwidthDataRequest describeLiveP95PeakBandwidthDataRequest) throws Exception;
+
+    /**
+     *
+     * @param describeTranscodeDataRequest
+     * @return
+     * @throws Exception
+     */
+    DescribeTranscodeDataResponse describeTranscodeData(DescribeTranscodeDataRequest describeTranscodeDataRequest) throws Exception;
+
+    /**
+     *
+     * @param describeSnapshotDataRequest
+     * @return
+     * @throws Exception
+     */
+    DescribeSnapshotDataResponse describeSnapshotData(DescribeSnapshotDataRequest describeSnapshotDataRequest) throws Exception;
+
+    /**
+     *
+     * @param describeRecordDataRequest
+     * @return
+     * @throws Exception
+     */
+    DescribeRecordDataResponse describeRecordData(DescribeRecordDataRequest describeRecordDataRequest) throws Exception;
+
+    /**
+     *
+     * @param describeLiveTimeShiftDataRequest
+     * @return
+     * @throws Exception
+     */
+    DescribeLiveTimeShiftDataResponse describeLiveTimeShiftData(DescribeLiveTimeShiftDataRequest describeLiveTimeShiftDataRequest) throws Exception;
+
+    /**
+     *
+     * @param describePushStreamMetricsRequest
+     * @return
+     * @throws Exception
+     */
+    DescribePushStreamMetricsResponse describePushStreamMetrics(DescribePushStreamMetricsRequest describePushStreamMetricsRequest) throws Exception;
+
+    /**
+     *
+     * @param describeLiveStreamSessionsRequest
+     * @return
+     * @throws Exception
+     */
+    DescribeLiveStreamSessionsResponse describeLiveStreamSessions(DescribeLiveStreamSessionsRequest describeLiveStreamSessionsRequest) throws Exception;
+
+    /**
+     *
+     * @param describePlayResponseStatusStatRequest
+     * @return
+     * @throws Exception
+     */
+    DescribePlayResponseStatusStatResponse describePlayResponseStatusStat(DescribePlayResponseStatusStatRequest describePlayResponseStatusStatRequest) throws Exception;
+
+    /**
+     *
+     * @param describeLiveDomainLogRequest
+     * @return
+     * @throws Exception
+     */
+    DescribeLiveDomainLogResponse describeLiveDomainLog(DescribeLiveDomainLogRequest describeLiveDomainLogRequest) throws Exception;
+
+    /**
+     *
+     * @param describeLiveMetricTrafficDataRequest
+     * @return
+     * @throws Exception
+     */
+    DescribeLiveMetricTrafficDataResponse describeLiveMetricTrafficData(DescribeLiveMetricTrafficDataRequest describeLiveMetricTrafficDataRequest) throws Exception;
+
+    /**
+     *
+     * @param describeLiveMetricBandwidthDataRequest
+     * @return
+     * @throws Exception
+     */
+    DescribeLiveMetricBandwidthDataResponse describeLiveMetricBandwidthData(DescribeLiveMetricBandwidthDataRequest describeLiveMetricBandwidthDataRequest) throws Exception;
+
+    /**
+     *
+     * @param describePlayStreamListRequest
+     * @return
+     * @throws Exception
+     */
+    DescribePlayStreamListResponse describePlayStreamList(DescribePlayStreamListRequest describePlayStreamListRequest) throws Exception;
 }

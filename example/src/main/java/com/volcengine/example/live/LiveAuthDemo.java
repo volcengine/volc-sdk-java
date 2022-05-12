@@ -20,10 +20,6 @@ public class LiveAuthDemo {
         //
         updateAuthKeyDemo(liveService);
         //
-        enableAuthDemo(liveService);
-        //
-        disableAuthDemo(liveService);
-        //
         describeAuthDemo(liveService);
 
     }
@@ -44,29 +40,7 @@ public class LiveAuthDemo {
         }
     }
 
-    private static void enableAuthDemo(LiveService liveService) {
-        EnableAuthRequest request = new EnableAuthRequest();
-        request.setDomain("your domain");
-        request.setSceneType("push");
-        try {
-            EnableAuthResponse response = liveService.enableAuth(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
-    private static void disableAuthDemo(LiveService liveService) {
-        DisableAuthRequest request = new DisableAuthRequest();
-        request.setDomain("your domain");
-        request.setSceneType("push");
-        try {
-            DisableAuthResponse response = liveService.disableAuth(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     private static void describeAuthDemo(LiveService liveService) {
         DescribeAuthRequest request = new DescribeAuthRequest();

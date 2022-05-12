@@ -115,6 +115,34 @@ public class ContentSecurityConfig {
                         }
                     }
             ));
+            put(Const.AsyncAudioRisk, new ApiInfo (
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AsyncAudioRisk));
+                                    add(new BasicNameValuePair("Version", "2022-04-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetAudioResult, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetAudioResult));
+                                    add(new BasicNameValuePair("Version", "2022-04-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.CreateCustomContents, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -138,6 +166,62 @@ public class ContentSecurityConfig {
                                 {
                                     add(new BasicNameValuePair("Action", Const.UploadCustomContents));
                                     add(new BasicNameValuePair("Version", "2022-02-07"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.AsyncLiveVideoRisk, new ApiInfo (
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AsyncLiveVideoRisk));
+                                    add(new BasicNameValuePair("Version", "2022-04-25"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetVideoLiveResult, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetVideoLiveResult));
+                                    add(new BasicNameValuePair("Version", "2022-04-25"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.AsyncLiveAudioRisk, new ApiInfo (
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AsyncLiveAudioRisk));
+                                    add(new BasicNameValuePair("Version", "2022-04-25"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetAudioLiveResult, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetAudioLiveResult));
+                                    add(new BasicNameValuePair("Version", "2022-04-25"));
                                 }
                             });
                         }

@@ -1,7 +1,7 @@
 package com.volcengine.example.vod.upload;
 
 import com.alibaba.fastjson.JSON;
-import com.volcengine.helper.Const;
+import com.volcengine.service.vod.Const;
 import com.volcengine.model.beans.Functions;
 import com.volcengine.service.vod.IVodService;
 import com.volcengine.service.vod.impl.VodServiceImpl;
@@ -54,7 +54,7 @@ public class VodUploadMaterialDemo {
         }
     }
 
-//    图片素材上传
+////  图片素材上传
 //    public static void main(String[] args) {
 //        IVodService vodService = VodServiceImpl.getInstance();
 //
@@ -79,6 +79,7 @@ public class VodUploadMaterialDemo {
 //                .setSpaceName(space)
 //                .setFilePath(filePath)
 //                .setFileType(Const.FileTypeImage)
+//                .setFileName("hello/vod/image")
 //                .setFunctions(JSON.toJSONString(functionsList))
 //                .build();
 //
@@ -96,7 +97,7 @@ public class VodUploadMaterialDemo {
 //        }
 //    }
 
-//    字幕素材上传
+////    字幕素材上传
 //    public static void main(String[] args) {
 //        IVodService vodService = VodServiceImpl.getInstance();
 //
@@ -121,6 +122,7 @@ public class VodUploadMaterialDemo {
 //                .setSpaceName(space)
 //                .setFilePath(filePath)
 //                .setFileType(Const.FileTypeObject)
+//                .setFileName("hello/vod/object")
 //                .setFunctions(JSON.toJSONString(functionsList))
 //                .build();
 //

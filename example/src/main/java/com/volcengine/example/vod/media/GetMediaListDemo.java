@@ -24,6 +24,7 @@ public class GetMediaListDemo {
             req.setEndTime("2021-04-01T00:00:00Z");
             req.setOffset("0");
             req.setPageSize("10");
+            req.setClassificationIds("id1,id2");
 
             VodGetMediaListResponse resp = vodService.getMediaList(req.build());
             System.out.println(resp);

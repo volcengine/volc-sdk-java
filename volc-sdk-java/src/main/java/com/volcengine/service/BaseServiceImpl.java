@@ -397,6 +397,16 @@ public abstract class BaseServiceImpl implements IBaseService {
     }
 
     @Override
+    public String getSessionToken() {
+        return serviceInfo.getCredentials().getSessionToken();
+    }
+
+    @Override
+    public void setSessionToken(String sessionToken) {
+        serviceInfo.getCredentials().setSessionToken(sessionToken);
+    }
+
+    @Override
     public void setRegion(String region) {
         serviceInfo.getCredentials().setRegion(region);
     }

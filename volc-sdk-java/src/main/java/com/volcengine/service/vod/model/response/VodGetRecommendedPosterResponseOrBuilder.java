@@ -8,19 +8,19 @@ public interface VodGetRecommendedPosterResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.Volcengine.Vod.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
+   * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    * @return Whether the responseMetadata field is set.
    */
   boolean hasResponseMetadata();
   /**
-   * <code>.Volcengine.Vod.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
+   * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    * @return The responseMetadata.
    */
-  com.volcengine.service.vod.model.base.ResponseMetadata getResponseMetadata();
+  com.volcengine.service.base.model.base.ResponseMetadata getResponseMetadata();
   /**
-   * <code>.Volcengine.Vod.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
+   * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    */
-  com.volcengine.service.vod.model.base.ResponseMetadataOrBuilder getResponseMetadataOrBuilder();
+  com.volcengine.service.base.model.base.ResponseMetadataOrBuilder getResponseMetadataOrBuilder();
 
   /**
    * <code>.Volcengine.Vod.Models.Business.VodGetRecPosterData Result = 2;</code>

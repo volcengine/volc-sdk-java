@@ -54,6 +54,11 @@ public final class VodCommon {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodSubtitleInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodCommonConfigInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodCommonConfigInfo_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -107,12 +112,14 @@ public final class VodCommon {
       "\030\007 \001(\t\022\013\n\003Tag\030\010 \001(\t\022\016\n\006Status\030\t \001(\t\022\016\n\006S" +
       "ource\030\n \001(\t\022\020\n\010StoreUri\030\013 \001(\t\022\023\n\013Subtitl" +
       "eUrl\030\014 \001(\t\022\022\n\nCreateTime\030\r \001(\t\022\017\n\007Versio" +
-      "n\030\016 \001(\tB\315\001\n)com.volcengine.service.vod.m" +
-      "odel.businessB\tVodCommonP\001ZAgithub.com/v" +
-      "olcengine/volc-sdk-golang/service/vod/mo" +
-      "dels/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vo" +
-      "d\\Models\\Business\342\002#Volc\\Service\\Vod\\Mod" +
-      "els\\GPBMetadatab\006proto3"
+      "n\030\016 \001(\t\"A\n\023VodCommonConfigInfo\022\016\n\006Module" +
+      "\030\001 \001(\t\022\013\n\003Key\030\002 \001(\t\022\r\n\005Value\030\003 \001(\tB\315\001\n)c" +
+      "om.volcengine.service.vod.model.business" +
+      "B\tVodCommonP\001ZAgithub.com/volcengine/vol" +
+      "c-sdk-golang/service/vod/models/business" +
+      "\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Models\\Busi" +
+      "ness\342\002#Volc\\Service\\Vod\\Models\\GPBMetada" +
+      "tab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -166,6 +173,12 @@ public final class VodCommon {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodSubtitleInfo_descriptor,
         new java.lang.String[] { "Vid", "FileId", "Language", "LanguageId", "Format", "SubtitleId", "Title", "Tag", "Status", "Source", "StoreUri", "SubtitleUrl", "CreateTime", "Version", });
+    internal_static_Volcengine_Vod_Models_Business_VodCommonConfigInfo_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_Volcengine_Vod_Models_Business_VodCommonConfigInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodCommonConfigInfo_descriptor,
+        new java.lang.String[] { "Module", "Key", "Value", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

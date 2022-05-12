@@ -1,8 +1,8 @@
 package com.volcengine.auth.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.volcengine.model.request.ListUsersRequest;
-import com.volcengine.model.response.ListUsersResponse;
+import com.volcengine.model.request.iam.ListUsersRequest;
+import com.volcengine.model.response.iam.ListUsersResponse;
 import com.volcengine.service.iam.IIamService;
 import com.volcengine.service.iam.impl.IamServiceImpl;
 import com.volcengine.service.imagex.IImageXService;

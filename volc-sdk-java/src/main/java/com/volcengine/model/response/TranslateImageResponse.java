@@ -2,36 +2,41 @@ package com.volcengine.model.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
-import java.util.Map;
+
+import java.util.List;
 
 @Data
 public class TranslateImageResponse {
     @JSONField(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;
 
-    @JSONField(name = "TranslateImage")
-    String translateImage;
+    @JSONField(name = "Image")
+    String image;
 
-    @JSONField(name = "Result")
-    Result result;
+    @JSONField(name = "TextBlocks")
+    List<TextBlock> result;
 
     @Data
-    public static class Result {
+    public static class TextBlock {
+        @JSONField(name = "Points")
+        List<Point> points;
+        @JSONField(name = "DetectedLanguage")
+        String detectedLanguage;
         @JSONField(name = "Text")
         String text;
-        @JSONField(name = "TranslateText")
-        String translateText;
+        @JSONField(name = "Translation")
+        String translation;
+        @JSONField(name = "ForeColor")
+        List<Integer> foreColor;
+        @JSONField(name = "BackColor")
+        List<Integer> backColor;
+    }
+
+    @Data
+    public static class Point {
         @JSONField(name = "X")
         Integer x;
         @JSONField(name = "Y")
         Integer y;
-        @JSONField(name = "Width")
-        Integer width;
-        @JSONField(name = "Height")
-        Integer height;
-        @JSONField(name = "Row")
-        Integer row;
-        @JSONField(name = "Extra")
-        Map<String, String> extra;
     }
 }

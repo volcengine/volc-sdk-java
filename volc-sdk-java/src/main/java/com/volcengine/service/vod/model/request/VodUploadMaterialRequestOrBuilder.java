@@ -66,4 +66,16 @@ public interface VodUploadMaterialRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getFileTypeBytes();
+
+  /**
+   * <code>string FileName = 6;</code>
+   * @return The fileName.
+   */
+  java.lang.String getFileName();
+  /**
+   * <code>string FileName = 6;</code>
+   * @return The bytes for fileName.
+   */
+  com.google.protobuf.ByteString
+      getFileNameBytes();
 }

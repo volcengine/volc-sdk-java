@@ -61,6 +61,22 @@ public class Const {
     public static final String CreateCustomContents = "CreateCustomContents";
     public static final String UploadCustomContents = "UploadCustomContents";
 
+    // content security
+    public static final String ImageContentRisk = "ImageContentRisk";
+    public static final String AsyncImageRisk = "AsyncImageRisk";
+    public static final String VideoResult = "VideoResult";
+    public static final String GetImageResult = "GetImageResult";
+    public static final String AsyncVideoRisk = "AsyncVideoRisk";
+    public static final String TextRisk = "TextRisk";
+    public static final String CreateCustomContents = "CreateCustomContents";
+    public static final String UploadCustomContents = "UploadCustomContents";
+    public static final String GetAudioResult = "GetAudioResult";
+    public static final String AsyncAudioRisk = "AsyncAudioRisk";
+    public static final String GetVideoLiveResult = "GetVideoLiveResult";
+    public static final String AsyncLiveVideoRisk = "AsyncLiveVideoRisk";
+    public static final String GetAudioLiveResult = "GetAudioLiveResult";
+    public static final String AsyncLiveAudioRisk = "AsyncLiveAudioRisk";
+
     // livesaas
 
     //创建直播间

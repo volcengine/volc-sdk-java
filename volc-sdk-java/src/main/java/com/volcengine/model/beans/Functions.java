@@ -23,11 +23,15 @@ public class Functions {
     }
 
     public static Functions AddOptionInfoFunction(String title, String tags, String description) {
-        return new Functions("AddOptionInfo", new FunctionsOptionInfo(title, tags, description, "", 1, ""));
+        return new Functions("AddOptionInfo", new FunctionsOptionInfo(title, tags, description, "", 1, "", 0));
+    }
+
+    public static Functions AddOptionInfoFunction(String title, String tags, String description, long classificationId) {
+        return new Functions("AddOptionInfo", new FunctionsOptionInfo(title, tags, description, "", 1, "", classificationId));
     }
 
     public static Functions AddOptionInfoFunction(String title, String tags, String description, String category, String format) {
-        return new Functions("AddOptionInfo", new FunctionsOptionInfo(title, tags, description, category, 2, format));
+        return new Functions("AddOptionInfo", new FunctionsOptionInfo(title, tags, description, category, 2, format, 0));
     }
 
     public static Functions StartWorkFlowFunction(String templateId) {

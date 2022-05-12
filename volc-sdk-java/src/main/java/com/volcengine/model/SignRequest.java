@@ -16,6 +16,7 @@ public class SignRequest {
     private String xSignedHeaders;
     private String xSignedQueries;
     private String xSignature;
+    private String xSecurityToken;
 
     private String host;
     private String contentType;

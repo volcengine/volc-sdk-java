@@ -10,8 +10,6 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author zhangminchao
- * @create 2019-09-08 14:25
  * 编辑任务请求
  */
 @Data

@@ -8,18 +8,8 @@ import com.volcengine.model.response.RawResponse;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.sercretnumber.ISecretNumberService;
 import com.volcengine.service.sercretnumber.SecretNumberConfig;
-import com.volcengine.service.sercretnumber.model.request.BindAXBRequest;
-import com.volcengine.service.sercretnumber.model.request.BindAXNRequest;
-import com.volcengine.service.sercretnumber.model.request.QuerySubscriptionForListRequest;
-import com.volcengine.service.sercretnumber.model.request.SelectNumberAndBindAXBRequest;
-import com.volcengine.service.sercretnumber.model.request.SpecificSubIdRequest;
-import com.volcengine.service.sercretnumber.model.request.UpdateAXBRequest;
-import com.volcengine.service.sercretnumber.model.request.UpdateAXNRequest;
-import com.volcengine.service.sercretnumber.model.request.UpgradeAXToAXBRequest;
-import com.volcengine.service.sercretnumber.model.response.OperationResponse;
-import com.volcengine.service.sercretnumber.model.response.QuerySubscriptionForListResponse;
-import com.volcengine.service.sercretnumber.model.response.QuerySubscriptionResponse;
-import com.volcengine.service.sercretnumber.model.response.SecretBindResponse;
+import com.volcengine.service.sercretnumber.model.request.*;
+import com.volcengine.service.sercretnumber.model.response.*;
 
 public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretNumberService {
 
@@ -122,6 +112,24 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
   @Override
   public OperationResponse unbindAXN(SpecificSubIdRequest request) throws Exception {
     RawResponse response = query("UnbindAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
+    if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+      throw response.getException();
+    }
+    return JSON.parseObject(response.getData(), OperationResponse.class);
+  }
+
+  @Override
+  public Click2CallResponse click2Call(Click2CallRequest request) throws Exception {
+    RawResponse response = query("Click2Call", Utils.mapToPairList(Utils.paramsToMap(request)));
+    if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+      throw response.getException();
+    }
+    return JSON.parseObject(response.getData(), Click2CallResponse.class);
+  }
+
+  @Override
+  public OperationResponse cancelClick2Call(CancelClick2CallRequest request) throws Exception {
+    RawResponse response = query("CancelClick2Call", Utils.mapToPairList(Utils.paramsToMap(request)));
     if (response.getCode() != SdkError.SUCCESS.getNumber()) {
       throw response.getException();
     }

@@ -8,8 +8,6 @@ import java.util.Date;
 
 /**
  * @author kaede
- * @className SingleInfo
- * @date 2021/12/20 3:10 下午
  */
 @Data
 public class SingleInfo {

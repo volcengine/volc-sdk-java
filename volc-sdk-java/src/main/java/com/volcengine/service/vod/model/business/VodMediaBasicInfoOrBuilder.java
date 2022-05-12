@@ -187,4 +187,31 @@ public interface VodMediaBasicInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getCreateTimeBytes();
+
+  /**
+   * <pre>
+   *分类串
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodClassification Classification = 9;</code>
+   * @return Whether the classification field is set.
+   */
+  boolean hasClassification();
+  /**
+   * <pre>
+   *分类串
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodClassification Classification = 9;</code>
+   * @return The classification.
+   */
+  com.volcengine.service.vod.model.business.VodClassification getClassification();
+  /**
+   * <pre>
+   *分类串
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodClassification Classification = 9;</code>
+   */
+  com.volcengine.service.vod.model.business.VodClassificationOrBuilder getClassificationOrBuilder();
 }

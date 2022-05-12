@@ -178,6 +178,34 @@ public class SecretNumberConfig {
             }
           }
       ));
+      put("Click2Call", new ApiInfo(
+            new HashMap<String, Object>() {
+                {
+                    put(Const.Method, "POST");
+                    put(Const.Path, "/");
+                    put(Const.Query, new ArrayList<NameValuePair>() {
+                        {
+                            add(new BasicNameValuePair("Action", "Click2Call"));
+                            add(new BasicNameValuePair("Version", "2021-09-01"));
+                        }
+                    });
+                }
+            }
+      ));
+      put("CancelClick2Call", new ApiInfo(
+            new HashMap<String, Object>() {
+                {
+                    put(Const.Method, "POST");
+                    put(Const.Path, "/");
+                    put(Const.Query, new ArrayList<NameValuePair>() {
+                        {
+                            add(new BasicNameValuePair("Action", "CancelClick2Call"));
+                            add(new BasicNameValuePair("Version", "2021-09-01"));
+                        }
+                    });
+                }
+            }
+      ));
     }
   };
 }

@@ -297,4 +297,18 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         }
         return res;
     }
+
+    @Override
+    public GetImageSegmentResponse getImageSegment(GetImageSegmentRequest req) throws Exception {
+        RawResponse response = query("GetSegmentImage", Utils.paramsToPair(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImageSegmentResponse res = JSON.parseObject(response.getData(), GetImageSegmentResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
 }

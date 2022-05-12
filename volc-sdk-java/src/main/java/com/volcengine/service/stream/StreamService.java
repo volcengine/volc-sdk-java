@@ -187,4 +187,28 @@ public interface StreamService extends IBaseService {
      * @author zhangyuhang
     */
     HotBoardResponse hotBoard(HotBoardRequest hotBoardRequest) throws Exception;
+
+    /**
+     *    热点分发list
+     * @param hotBoardListRequest
+     * @return com.volcengine.model.stream.HotBoardListResponse
+     * @author zhangyuhang
+     */
+    HotBoardListResponse hotBoardList(HotBoardListRequest hotBoardListRequest) throws Exception;
+
+    /**
+     *    热点分发
+     * @param hotBoardBoardRequest
+     * @return com.volcengine.model.stream.HotBoardBoardResponse
+     * @author zhangyuhang
+     */
+    HotBoardBoardResponse hotBoardBoard(HotBoardBoardRequest hotBoardBoardRequest) throws Exception;
+
+    /**
+     *    热点分发
+     * @param hotBoardArticleRequest
+     * @return com.volcengine.model.stream.HotBoardArticleResponse
+     * @author zhangyuhang
+     */
+    HotBoardArticleResponse hotBoardArticle(HotBoardArticleRequest hotBoardArticleRequest) throws Exception;
 }

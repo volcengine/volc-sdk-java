@@ -197,7 +197,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object configValue_;
   /**
    * <pre>
-   * 需要变更的设置value
+   * 需要变更的设置value，取值与ConfigKey相关。ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
    * </pre>
    *
    * <code>string ConfigValue = 3;</code>
@@ -218,7 +218,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 需要变更的设置value
+   * 需要变更的设置value，取值与ConfigKey相关。ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
    * </pre>
    *
    * <code>string ConfigValue = 3;</code>
@@ -770,7 +770,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object configValue_ = "";
     /**
      * <pre>
-     * 需要变更的设置value
+     * 需要变更的设置value，取值与ConfigKey相关。ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
      * </pre>
      *
      * <code>string ConfigValue = 3;</code>
@@ -790,7 +790,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 需要变更的设置value
+     * 需要变更的设置value，取值与ConfigKey相关。ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
      * </pre>
      *
      * <code>string ConfigValue = 3;</code>
@@ -811,7 +811,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 需要变更的设置value
+     * 需要变更的设置value，取值与ConfigKey相关。ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
      * </pre>
      *
      * <code>string ConfigValue = 3;</code>
@@ -830,7 +830,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 需要变更的设置value
+     * 需要变更的设置value，取值与ConfigKey相关。ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
      * </pre>
      *
      * <code>string ConfigValue = 3;</code>
@@ -844,7 +844,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 需要变更的设置value
+     * 需要变更的设置value，取值与ConfigKey相关。ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
      * </pre>
      *
      * <code>string ConfigValue = 3;</code>

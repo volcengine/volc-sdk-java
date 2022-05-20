@@ -7,8 +7,6 @@ import com.volcengine.helper.Utils;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.RequestParam;
 import com.volcengine.model.SignRequest;
-import com.volcengine.service.SignableRequest;
-import okhttp3.Request;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringUtils;
 import com.volcengine.model.*;
@@ -45,30 +43,6 @@ public class SignerV4Impl implements ISignerV4 {
         URLENCODER.set('_');
         URLENCODER.set('.');
         URLENCODER.set('~');
-    }
-
-    @Override
-    public String signUrl(SignableRequest request, Credentials credentials) throws Exception {
-        URIBuilder uriBuilder = request.getUriBuilder();
-        RequestParam requestParam = RequestParam.builder().isSignUrl(true)
-                .body(request.getEntity() == null ? new byte[0] : EntityUtils.toByteArray(request.getEntity()))
-                .host(uriBuilder.getHost())
-                .path(uriBuilder.getPath()).method(request.getMethod()).date(new Date())
-                .queryList(request.getUriBuilder().getQueryParams())
-                .build();
-
-        SignRequest signRequest = getSignRequest(requestParam, credentials);
-        uriBuilder.setParameter(Const.XDate, signRequest.getXDate());
-        uriBuilder.setParameter(Const.XNotSignBody, signRequest.getXNotSignBody());
-        uriBuilder.setParameter(Const.XCredential, signRequest.getXCredential());
-        uriBuilder.setParameter(Const.XAlgorithm, signRequest.getXAlgorithm());
-        uriBuilder.setParameter(Const.XSignedHeaders, signRequest.getXSignedHeaders());
-        uriBuilder.setParameter(Const.XSignedQueries, signRequest.getXSignedQueries());
-        uriBuilder.setParameter(Const.XSignature, signRequest.getXSignature());
-        if (StringUtils.isNotEmpty(signRequest.getXSecurityToken())) {
-            uriBuilder.setParameter(Const.XSecurityToken, signRequest.getXSecurityToken());
-        }
-        return uriBuilder.build().toURL().getQuery();
     }
 
     @Override
@@ -273,7 +247,7 @@ public class SignerV4Impl implements ISignerV4 {
      * @return query
      */
     private String normQuery(List<NameValuePair> params) {
-
+        Collections.sort(params);
         return signQueryEncoder(params);
     }
 

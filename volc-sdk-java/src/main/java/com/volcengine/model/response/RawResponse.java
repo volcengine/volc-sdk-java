@@ -9,6 +9,8 @@ public class RawResponse {
     private int code;
     private Exception exception;
 
+    public RawResponse() {
+    }
 
     public RawResponse(byte[] data, int code, Exception e) {
         this.data = data;

@@ -5,6 +5,7 @@ import com.volcengine.auth.ISignerV4;
 import com.volcengine.auth.impl.SignerV4Impl;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
+import com.volcengine.http.DynamicTimeoutInterceptor;
 import com.volcengine.http.OkHttpClientFactory;
 import com.volcengine.http.VolcengineInterceptor;
 import com.volcengine.model.*;
@@ -16,59 +17,63 @@ import com.volcengine.model.sts2.SecurityToken2;
 import com.volcengine.util.Sts2Utils;
 import okhttp3.*;
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.http.*;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPut;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.entity.ByteArrayEntity;
-import org.apache.http.entity.FileEntity;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.Proxy;
-import java.nio.charset.StandardCharsets;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public abstract class BaseServiceImpl implements IBaseService {
-
+    public static final MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json");
     private static final Log LOG = LogFactory.getLog(BaseServiceImpl.class);
     protected ServiceInfo serviceInfo;
     protected Map<String, ApiInfo> apiInfoList;
     private OkHttpClient httpClient;
     private ISignerV4 ISigner;
-    private int socketTimeout;
-    private int connectionTimeout;
-
 
     private BaseServiceImpl() {
     }
 
     public BaseServiceImpl(ServiceInfo info, Proxy proxy, Map<String, ApiInfo> apiInfoList) {
-        this.serviceInfo = info;
-        this.apiInfoList = apiInfoList;
-        this.ISigner = new SignerV4Impl();
-        VolcengineInterceptor volcengineInterceptor = new VolcengineInterceptor(this.ISigner, serviceInfo.getCredentials());
-        this.httpClient = OkHttpClientFactory.create(proxy, volcengineInterceptor);
-
-        init(info);
+        initBean(info, proxy, apiInfoList);
     }
 
     public BaseServiceImpl(ServiceInfo info, Map<String, ApiInfo> apiInfoList) {
+        initBean(info, null, apiInfoList);
+    }
+
+    private void initBean(ServiceInfo info, Proxy proxy, Map<String, ApiInfo> apiInfoList) {
         this.serviceInfo = info;
         this.apiInfoList = apiInfoList;
         this.ISigner = new SignerV4Impl();
         VolcengineInterceptor volcengineInterceptor = new VolcengineInterceptor(this.ISigner, serviceInfo.getCredentials());
-        this.httpClient = OkHttpClientFactory.create(volcengineInterceptor);
+
+        DynamicTimeoutInterceptor.DynamicTimeoutConfig defaultTimeout = new DynamicTimeoutInterceptor.DynamicTimeoutConfig(info.getConnectionTimeout(), info.getSocketTimeout());
+        Map<String, DynamicTimeoutInterceptor.DynamicTimeoutConfig> apiTimeoutMap = new HashMap<String, DynamicTimeoutInterceptor.DynamicTimeoutConfig>();
+        for (Map.Entry<String, ApiInfo> entry : apiInfoList.entrySet()) {
+            ApiInfo apiInfo = entry.getValue();
+
+            if (apiInfo.getConnectionTimeout()==0 && apiInfo.getSocketTimeout() == 0) {
+                continue;
+            }
+            if (apiInfo.getConnectionTimeout() == defaultTimeout.getConnectTimeout() && apiInfo.getSocketTimeout() == defaultTimeout.getReadTimeout()) {
+                continue;
+            }
+            apiTimeoutMap.put(entry.getKey(), new DynamicTimeoutInterceptor.DynamicTimeoutConfig(apiInfo.getConnectionTimeout(), apiInfo.getSocketTimeout()));
+        }
+
+        DynamicTimeoutInterceptor dynamicTimeoutInterceptor = new DynamicTimeoutInterceptor(defaultTimeout, apiTimeoutMap);
+        if (proxy == null) {
+            this.httpClient = OkHttpClientFactory.create(volcengineInterceptor, dynamicTimeoutInterceptor);
+        } else {
+            this.httpClient = OkHttpClientFactory.create(proxy, volcengineInterceptor, dynamicTimeoutInterceptor);
+        }
+
         init(info);
     }
 
@@ -114,16 +119,35 @@ public abstract class BaseServiceImpl implements IBaseService {
 
         List<NameValuePair> mergedNV = mergeQuery(params, apiInfo.getQuery());
 
-        SignableRequest request = new SignableRequest();
-        URIBuilder builder = request.getUriBuilder();
+        RequestParam requestParam = RequestParam.builder().isSignUrl(true)
+                .body(new byte[0])
+                .host(serviceInfo.getHost())
+                .path(apiInfo.getPath())
+                .method(apiInfo.getMethod().toUpperCase())
+                .date(new Date())
+                .queryList(mergedNV)
+                .build();
+        SignRequest signRequest = ISigner.getSignRequest(requestParam, serviceInfo.getCredentials());
 
-        request.setMethod(apiInfo.getMethod().toUpperCase());
-        builder.setScheme(serviceInfo.getScheme());
-        builder.setHost(serviceInfo.getHost());
-        builder.setPath(apiInfo.getPath());
-        builder.setParameters(mergedNV);
+        HttpUrl.Builder urlBuilder = new HttpUrl.Builder();
+        urlBuilder.scheme(serviceInfo.getScheme()).host(serviceInfo.getHost()).encodedPath(apiInfo.getPath());
 
-        return ISigner.signUrl(request, serviceInfo.getCredentials());
+        for (NameValuePair pair : mergedNV) {
+            urlBuilder.addQueryParameter(pair.getName(), pair.getValue());
+        }
+
+        urlBuilder.addQueryParameter(Const.XDate, signRequest.getXDate());
+        urlBuilder.addQueryParameter(Const.XNotSignBody, signRequest.getXNotSignBody());
+        urlBuilder.addQueryParameter(Const.XCredential, signRequest.getXCredential());
+        urlBuilder.addQueryParameter(Const.XAlgorithm, signRequest.getXAlgorithm());
+        urlBuilder.addQueryParameter(Const.XSignedHeaders, signRequest.getXSignedHeaders());
+        urlBuilder.addQueryParameter(Const.XSignedQueries, signRequest.getXSignedQueries());
+        urlBuilder.addQueryParameter(Const.XSignature, signRequest.getXSignature());
+        if (StringUtils.isNotEmpty(signRequest.getXSecurityToken())) {
+            urlBuilder.addQueryParameter(Const.XSecurityToken, signRequest.getXSecurityToken());
+        }
+
+        return urlBuilder.build().toString();
     }
 
     @Override
@@ -133,78 +157,53 @@ public abstract class BaseServiceImpl implements IBaseService {
             return new RawResponse(null, SdkError.ENOAPI.getNumber(), new Exception(SdkError.getErrorDesc(SdkError.ENOAPI)));
         }
 
-        Request request = prepareRequest(api, params);
+        Request request = prepareRequestBuilder(api, params).get().build();
         return makeRequest(api, request);
     }
 
     @Override
-    public boolean put(String url, String filePath, Map<String, String> headers) {
-        HttpEntity httpEntity = new FileEntity(new File(filePath));
-        return doPut(url, httpEntity, headers);
-    }
-
-    @Override
     public boolean putData(String url, byte[] data, Map<String, String> headers) {
-        HttpEntity httpEntity = new ByteArrayEntity(data);
-        return doPut(url, httpEntity, headers);
+        RequestBody body = RequestBody.create(data);
+        return doPut(url, body, headers).getCode() == 200;
     }
 
-    public HttpResponse putDataWithResponse(String url, byte[] data, Map<String, String> headers) {
-        HttpPut httpPut = new HttpPut(url);
-        HttpEntity httpEntity = new ByteArrayEntity(data);
-        if (headers != null && headers.size() > 0) {
-            for (Map.Entry<String, String> entry : headers.entrySet()) {
-                httpPut.setHeader(entry.getKey(), entry.getValue());
-            }
-        }
-        httpPut.setEntity(httpEntity);
-        HttpResponse response = null;
-        try {
-            HttpClient client;
-            if (getHttpClient() != null) {
-                client = getHttpClient();
-            } else {
-                client = HttpClients.createDefault();
-            }
-            return client.execute(httpPut);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (response != null) {
-                EntityUtils.consumeQuietly(response.getEntity());
-            }
-        }
-        return null;
+    public RawResponse putDataWithResponse(String url, byte[] data, Map<String, String> headers) {
+        return doPut(url, RequestBody.create(data), headers);
     }
 
-    private boolean doPut(String url, HttpEntity entity, Map<String, String> headers) {
-        HttpPut httpPut = new HttpPut(url);
+    private RawResponse doPut(String url, RequestBody entity, Map<String, String> headers) {
+        Request.Builder httpPut = new Request.Builder();
+        httpPut.put(entity);
         if (headers != null && headers.size() > 0) {
             for (Map.Entry<String, String> entry : headers.entrySet()) {
-                httpPut.setHeader(entry.getKey(), entry.getValue());
+                httpPut.addHeader(entry.getKey(), entry.getValue());
             }
         }
-        httpPut.setEntity(entity);
-        HttpResponse response = null;
+        OkHttpClient client;
+        Response response = null;
+        RawResponse rawResponse = new RawResponse();
         try {
-            HttpClient client;
-            if (getHttpClient() != null) {
-                client = getHttpClient();
-            } else {
-                client = HttpClients.createDefault();
+            client = getHttpClient();
+            if (client == null) {
+                return new RawResponse(null, SdkError.UNKNOWN.getNumber(), new IllegalStateException(""));
             }
-            response = client.execute(httpPut);
-            if (response.getStatusLine().getStatusCode() == 200) {
-                return true;
+            Call call = client.newCall(httpPut.build());
+            response = call.execute();
+            int statusCode = response.code();
+            rawResponse.setCode(statusCode);
+            ResponseBody body = response.body();
+            if (body != null) {
+                rawResponse.setData(body.bytes());
             }
         } catch (Exception e) {
             e.printStackTrace();
+            rawResponse.setException(e);
         } finally {
             if (response != null) {
-                EntityUtils.consumeQuietly(response.getEntity());
+                response.close();
             }
         }
-        return false;
+        return rawResponse;
     }
 
     @Override
@@ -214,10 +213,9 @@ public abstract class BaseServiceImpl implements IBaseService {
             return new RawResponse(null, SdkError.ENOAPI.getNumber(), new Exception(SdkError.getErrorDesc(SdkError.ENOAPI)));
         }
 
-        SignableRequest request = prepareRequest(api, params);
-        request.setHeader("Content-Type", "application/json");
-        request.setEntity(new StringEntity(body, "utf-8"));
-        return makeRequest(api, request);
+        Request.Builder requestBuilder = prepareRequestBuilder(api, params);
+        requestBuilder.post(RequestBody.create(body, MEDIA_TYPE_JSON));
+        return makeRequest(api, requestBuilder.build());
     }
 
     @Override
@@ -227,18 +225,15 @@ public abstract class BaseServiceImpl implements IBaseService {
             return new RawResponse(null, SdkError.ENOAPI.getNumber(), new Exception(SdkError.getErrorDesc(SdkError.ENOAPI)));
         }
 
-        SignableRequest request = prepareRequest(api, query);
-        request.setHeader("Content-Type", "application/x-www-form-urlencoded");
+        Request.Builder requestBuilder = prepareRequestBuilder(api, query);
         List<NameValuePair> mergedForm = mergeQuery(form, apiInfo.getForm());
-
-        try {
-            Collections.sort(mergedForm);
-            request.setEntity(new UrlEncodedFormEntity(mergedForm));
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new RawResponse(null, SdkError.EENCODING.getNumber(), e);
+        FormBody.Builder bodyBuilder = new FormBody.Builder();
+        for (NameValuePair pair : mergedForm) {
+            bodyBuilder.add(pair.getName(), pair.getValue());
         }
-        return makeRequest(api, request);
+
+
+        return makeRequest(api, requestBuilder.post(bodyBuilder.build()).build());
     }
 
     private RawResponse makeRequest(String api, Request request) {
@@ -252,7 +247,7 @@ public abstract class BaseServiceImpl implements IBaseService {
 
             Call call = client.newCall(request);
             response = call.execute();
-            ResponseBody body  = response.body();
+            ResponseBody body = response.body();
             byte[] bytes = null;
             int statusCode = response.code();
             if (statusCode >= 300) {
@@ -274,29 +269,28 @@ public abstract class BaseServiceImpl implements IBaseService {
         }
     }
 
-    private SignableRequest prepareRequest(String api, List<NameValuePair> params) {
+    private Request.Builder prepareRequestBuilder(String api, List<NameValuePair> params) {
+        Request.Builder requestBuilder = new Request.Builder();
         ApiInfo apiInfo = apiInfoList.get(api);
 
-        int socketTimeout = getSocketTimeout(serviceInfo.getSocketTimeout(), apiInfo.getSocketTimeout());
-        int connectionTimeout = getConnectionTimeout(serviceInfo.getConnectionTimeout(), apiInfo.getConnectionTimeout());
-        SignableRequest request = new SignableRequest();
-        request.setMethod(apiInfo.getMethod().toUpperCase());
+        HttpUrl.Builder urlBuilder = new HttpUrl.Builder();
 
         Collection<Header> mergedH = mergeHeader(serviceInfo.getHeader(), apiInfo.getHeader());
         for (Header header : mergedH) {
-            request.setHeader(header);
+            requestBuilder.addHeader(header.getName(), header.getValue());
         }
         List<NameValuePair> mergedNV = mergeQuery(params, apiInfo.getQuery());
-        URIBuilder builder = request.getUriBuilder();
 
-        builder.setScheme(serviceInfo.getScheme());
-        builder.setHost(serviceInfo.getHost());
-        builder.setPath(apiInfo.getPath());
-        //修复空参数导致url构造多了？的404错误
-        if (!mergedNV.isEmpty())
-            builder.setParameters(mergedNV);
 
-        return request;
+        urlBuilder.scheme(serviceInfo.getScheme());
+        urlBuilder.host(serviceInfo.getHost());
+        urlBuilder.encodedPath(apiInfo.getPath());
+        for (NameValuePair pair : mergedNV) {
+            urlBuilder.addQueryParameter(pair.getName(), pair.getValue());
+        }
+
+        requestBuilder.url(urlBuilder.build());
+        return requestBuilder;
     }
 
     private Collection<Header> mergeHeader(List<Header> header1, List<Header> header2) {
@@ -324,35 +318,6 @@ public abstract class BaseServiceImpl implements IBaseService {
     @Override
     public void setClientNoReuse() {
         this.httpClient = null;
-    }
-
-
-    private int getConnectionTimeout(int serviceTimeout, int apiTimeout) {
-        int timeout = 5000;
-        if (serviceTimeout != 0) {
-            timeout = serviceTimeout;
-        }
-        if (apiTimeout != 0) {
-            timeout = apiTimeout;
-        }
-        if (connectionTimeout != 0) {
-            timeout = connectionTimeout;
-        }
-        return timeout;
-    }
-
-    private int getSocketTimeout(int serviceTimeout, int apiTimeout) {
-        int timeout = 5000;
-        if (serviceTimeout != 0) {
-            timeout = serviceTimeout;
-        }
-        if (apiTimeout != 0) {
-            timeout = apiTimeout;
-        }
-        if (socketTimeout != 0) {
-            timeout = socketTimeout;
-        }
-        return timeout;
     }
 
     @Override
@@ -430,16 +395,6 @@ public abstract class BaseServiceImpl implements IBaseService {
 
     public ISignerV4 getISigner() {
         return ISigner;
-    }
-
-    @Override
-    public void setSocketTimeout(int socketTimeout) {
-        this.socketTimeout = socketTimeout;
-    }
-
-    @Override
-    public void setConnectionTimeout(int connectionTimeout) {
-        this.connectionTimeout = connectionTimeout;
     }
 
     @Override

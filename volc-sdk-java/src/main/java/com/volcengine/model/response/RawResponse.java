@@ -9,6 +9,9 @@ public class RawResponse {
     private byte[] data;
     private int code;
     private Exception exception;
+
+    public RawResponse() {
+    }
     //response header and origin http response code
     private Header[] headers;
     private int httpCode;

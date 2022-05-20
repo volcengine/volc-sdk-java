@@ -1,13 +1,7 @@
 package com.volcengine.service.cdn;
 
 import com.volcengine.helper.Const;
-import com.volcengine.model.ApiInfo;
-import com.volcengine.model.Credentials;
-import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +16,7 @@ public class CDNConfig {
                     put(Const.Host, "cdn.volcengineapi.com");
                     put(Const.Header, new ArrayList<Header>() {
                         {
-                            add(new BasicHeader("Accept", "application/json"));
+                            add(new Header("Accept", "application/json"));
                         }
                     });
                     put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "CDN"));
@@ -39,8 +33,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "AddCdnDomain"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "AddCdnDomain"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -54,8 +48,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "StartCdnDomain"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "StartCdnDomain"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -69,8 +63,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "StopCdnDomain"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "StopCdnDomain"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -84,8 +78,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DeleteCdnDomain"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DeleteCdnDomain"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -99,8 +93,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "ListCdnDomains"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "ListCdnDomains"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -114,8 +108,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeCdnConfig"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeCdnConfig"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -129,8 +123,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "UpdateCdnConfig"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "UpdateCdnConfig"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -144,8 +138,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeCdnData"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeCdnData"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -159,8 +153,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeEdgeNrtDataSummary"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeEdgeNrtDataSummary"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -174,8 +168,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeCdnOriginData"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeCdnOriginData"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -189,8 +183,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeOriginNrtDataSummary"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeOriginNrtDataSummary"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -204,8 +198,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeCdnDataDetail"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeCdnDataDetail"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -219,8 +213,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeEdgeStatisticalData"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeEdgeStatisticalData"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -234,8 +228,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeEdgeTopNrtData"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeEdgeTopNrtData"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -249,8 +243,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeOriginTopNrtData"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeOriginTopNrtData"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -264,8 +258,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeEdgeTopStatusCode"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeEdgeTopStatusCode"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -279,8 +273,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeOriginTopStatusCode"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeOriginTopStatusCode"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -294,8 +288,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeEdgeTopStatisticalData"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeEdgeTopStatisticalData"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -309,8 +303,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeCdnRegionAndIsp"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeCdnRegionAndIsp"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -324,8 +318,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeCdnDomainTopData"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeCdnDomainTopData"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -339,8 +333,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeCdnService"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeCdnService"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -354,8 +348,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeAccountingData"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeAccountingData"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -369,8 +363,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "SubmitRefreshTask"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "SubmitRefreshTask"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -384,8 +378,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "SubmitPreloadTask"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "SubmitPreloadTask"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -399,8 +393,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeContentTasks"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeContentTasks"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -414,8 +408,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeContentQuota"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeContentQuota"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -429,8 +423,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "SubmitBlockTask"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "SubmitBlockTask"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -444,8 +438,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "SubmitUnblockTask"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "SubmitUnblockTask"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -459,8 +453,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeContentBlockTasks"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeContentBlockTasks"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -474,8 +468,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeCdnAccessLog"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeCdnAccessLog"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -489,8 +483,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeIPInfo"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeIPInfo"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -519,8 +513,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DescribeCdnUpperIp"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DescribeCdnUpperIp"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -534,8 +528,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "AddResourceTags"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "AddResourceTags"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -549,8 +543,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "UpdateResourceTags"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "UpdateResourceTags"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -564,8 +558,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "ListResourceTags"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "ListResourceTags"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }
@@ -579,8 +573,8 @@ public class CDNConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "DeleteResourceTags"));
-                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                    add(new NameValuePair("Action", "DeleteResourceTags"));
+                                    add(new NameValuePair("Version", "2021-03-01"));
                                 }
                             });
                         }

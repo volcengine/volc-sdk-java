@@ -104,20 +104,6 @@ public interface IBaseService {
     void setServiceInfo(com.volcengine.model.ServiceInfo serviceInfo);
 
     /**
-     * Sets socket timeout.
-     *
-     * @param socketTimeout the socket timeout
-     */
-    void setSocketTimeout(int socketTimeout);
-
-    /**
-     * Sets connection timeout.
-     *
-     * @param connectionTimeout the connection timeout
-     */
-    void setConnectionTimeout(int connectionTimeout);
-
-    /**
      * Query raw response.
      *
      * @param api    the api
@@ -158,17 +144,6 @@ public interface IBaseService {
      * @throws Exception the exception
      */
     RawResponse post(String api, List<NameValuePair> params, List<NameValuePair> form) throws Exception;
-
-    /**
-     * Put boolean.
-     *
-     * @param url      the url
-     * @param filePath the file path
-     * @param headers  the headers
-     * @return the boolean
-     * @throws Exception the exception
-     */
-    boolean put(String url, String filePath, Map<String, String> headers) throws Exception;
 
     /**
      * Put binary data.

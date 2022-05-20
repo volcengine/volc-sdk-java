@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
+import com.volcengine.model.NameValuePair;
 import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
@@ -15,7 +16,6 @@ import com.volcengine.service.imagex.IImageXService;
 import com.volcengine.service.imagex.ImageXConfig;
 import com.volcengine.util.Sts2Utils;
 import com.volcengine.util.Time;
-import org.apache.http.NameValuePair;
 
 import java.util.*;
 
@@ -100,7 +100,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         long endTime = System.currentTimeMillis();
         long cost = endTime - startTime;
         float avgSpeed = (float) imageData.length / (float) cost;
-        System.out.println(String.format("upload image cost {%d} ms, avgSpeed: {%f} KB/s", cost, avgSpeed));
+        System.out.printf("upload image cost {%d} ms, avgSpeed: {%f} KB/s%n", cost, avgSpeed);
     }
 
     @Override

@@ -10,8 +10,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.google.protobuf.util.JsonFormat;
 import com.google.common.base.Predicates;
-import org.apache.http.HttpResponse;
-import org.apache.http.util.EntityUtils;
+import com.volcengine.model.response.RawResponse;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -273,14 +272,14 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         if (isLargeFile) {
             headers.put("X-Storage-Mode", "gateway");
         }
-        HttpResponse httpResponse = (HttpResponse) (retryer.call(() -> putDataWithResponse(url, new byte[]{}, headers)));
+        RawResponse httpResponse = (RawResponse) (retryer.call(() -> putDataWithResponse(url, new byte[]{}, headers)));
         if (httpResponse == null) {
             throw new RuntimeException("init part error,response is empty");
         }
-        if (httpResponse.getStatusLine().getStatusCode() != 200) {
-            throw new RuntimeException("http code is " + httpResponse.getStatusLine().getStatusCode());
+        if (httpResponse.getCode() != 200) {
+            throw new RuntimeException("http code is " + httpResponse.getCode());
         }
-        String entity = EntityUtils.toString(httpResponse.getEntity());
+        String entity = new String(httpResponse.getData());
         JSONObject result = JSONObject.parseObject(entity);
         return result.getJSONObject("payload").getInnerMap().get("uploadID").toString();
     }

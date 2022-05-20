@@ -1,13 +1,7 @@
 package com.volcengine.service.live;
 
 import com.volcengine.helper.Const;
-import com.volcengine.model.ApiInfo;
-import com.volcengine.model.Credentials;
-import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +20,7 @@ public class LiveConfig {
                             put(Const.Host, "live.volcengineapi.com");
                             put(Const.Header, new ArrayList<Header>() {
                                 {
-                                    add(new BasicHeader("Accept", "application/json"));
+                                    add(new Header("Accept", "application/json"));
                                 }
                             });
                             put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "live"));
@@ -45,8 +39,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListCommonTransPresetDetail));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.ListCommonTransPresetDetail));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -59,8 +53,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateCallback));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.UpdateCallback));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -73,8 +67,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeCallback));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribeCallback));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -87,8 +81,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DeleteCallback));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DeleteCallback));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -101,8 +95,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CreateDomain));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.CreateDomain));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -115,8 +109,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DeleteDomain));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DeleteDomain));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -129,8 +123,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListDomainDetail));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.ListDomainDetail));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -143,8 +137,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeDomain));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribeDomain));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -157,8 +151,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.EnableDomain));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.EnableDomain));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -171,8 +165,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DisableDomain));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DisableDomain));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -185,8 +179,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ManagerPullPushDomainBind));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.ManagerPullPushDomainBind));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -199,8 +193,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateAuthKey));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.UpdateAuthKey));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -213,8 +207,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.EnableAuth));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.EnableAuth));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -227,8 +221,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DisableAuth));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DisableAuth));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -241,8 +235,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeAuth));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribeAuth));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -255,8 +249,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ForbidStream));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.ForbidStream));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -269,8 +263,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ResumeStream));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.ResumeStream));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -283,8 +277,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListCert));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.ListCert));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -297,8 +291,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CreateCert));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.CreateCert));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -311,8 +305,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeCertDetailSecret));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribeCertDetailSecret));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -325,8 +319,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateCert));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.UpdateCert));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -339,8 +333,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.BindCert));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.BindCert));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -353,8 +347,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UnbindCert));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.UnbindCert));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -367,8 +361,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DeleteCert));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DeleteCert));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -381,8 +375,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateReferer));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.UpdateReferer));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -395,8 +389,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DeleteReferer));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DeleteReferer));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -409,8 +403,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeReferer));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribeReferer));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -423,8 +417,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CreateRecordPreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.CreateRecordPreset));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -437,8 +431,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateRecordPreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.UpdateRecordPreset));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -451,8 +445,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DeleteRecordPreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DeleteRecordPreset));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -465,8 +459,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListVhostRecordPreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.ListVhostRecordPreset));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -479,8 +473,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CreateTranscodePreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.CreateTranscodePreset));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -493,8 +487,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateTranscodePreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.UpdateTranscodePreset));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
                                 }
                             });
                         }
@@ -507,8 +501,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DeleteTranscodePreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DeleteTranscodePreset));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -522,8 +516,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListVhostTransCodePreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.ListVhostTransCodePreset));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -537,8 +531,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CreateSnapshotPreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.CreateSnapshotPreset));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -552,8 +546,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateSnapshotPreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.UpdateSnapshotPreset));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -567,8 +561,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DeleteSnapshotPreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DeleteSnapshotPreset));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -582,8 +576,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListVhostSnapshotPreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.ListVhostSnapshotPreset));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -597,8 +591,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeLiveBandwidthData));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribeLiveBandwidthData));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -612,8 +606,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeLiveTrafficData));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribeLiveTrafficData));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -627,8 +621,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeLiveP95PeakBandwidthData));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribeLiveP95PeakBandwidthData));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -642,8 +636,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeTranscodeData));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribeTranscodeData));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -657,8 +651,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeSnapshotData));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribeSnapshotData));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -672,8 +666,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeRecordData));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribeRecordData));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -687,8 +681,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeLiveTimeShiftData));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribeLiveTimeShiftData));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -702,8 +696,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribePushStreamMetrics));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribePushStreamMetrics));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -717,8 +711,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeLiveStreamSessions));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribeLiveStreamSessions));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -732,8 +726,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribePlayResponseStatusStat));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribePlayResponseStatusStat));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -747,8 +741,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeLiveDomainLog));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribeLiveDomainLog));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -762,8 +756,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeLiveMetricTrafficData));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribeLiveMetricTrafficData));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -777,8 +771,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeLiveMetricBandwidthData));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribeLiveMetricBandwidthData));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -792,8 +786,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribePlayStreamList));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribePlayStreamList));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });

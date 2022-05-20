@@ -119,8 +119,8 @@ public class ContentSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.AsyncAudioRisk));
-                                    add(new BasicNameValuePair("Version", "2022-04-01"));
+                                    add(new NameValuePair("Action", Const.AsyncAudioRisk));
+                                    add(new NameValuePair("Version", "2022-04-01"));
                                 }
                             });
                         }
@@ -133,8 +133,8 @@ public class ContentSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetAudioResult));
-                                    add(new BasicNameValuePair("Version", "2022-04-01"));
+                                    add(new NameValuePair("Action", Const.GetAudioResult));
+                                    add(new NameValuePair("Version", "2022-04-01"));
                                 }
                             });
                         }
@@ -175,8 +175,8 @@ public class ContentSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.AsyncLiveVideoRisk));
-                                    add(new BasicNameValuePair("Version", "2022-04-25"));
+                                    add(new NameValuePair("Action", Const.AsyncLiveVideoRisk));
+                                    add(new NameValuePair("Version", "2022-04-25"));
                                 }
                             });
                         }
@@ -189,8 +189,8 @@ public class ContentSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetVideoLiveResult));
-                                    add(new BasicNameValuePair("Version", "2022-04-25"));
+                                    add(new NameValuePair("Action", Const.GetVideoLiveResult));
+                                    add(new NameValuePair("Version", "2022-04-25"));
                                 }
                             });
                         }
@@ -203,8 +203,8 @@ public class ContentSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.AsyncLiveAudioRisk));
-                                    add(new BasicNameValuePair("Version", "2022-04-25"));
+                                    add(new NameValuePair("Action", Const.AsyncLiveAudioRisk));
+                                    add(new NameValuePair("Version", "2022-04-25"));
                                 }
                             });
                         }
@@ -217,13 +217,13 @@ public class ContentSecurityConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GetAudioLiveResult));
-                                    add(new BasicNameValuePair("Version", "2022-04-25"));
+                                    add(new NameValuePair("Action", Const.GetAudioLiveResult));
+                                    add(new NameValuePair("Version", "2022-04-25"));
                                 }
                             });
                         }
                     }
             ));
-        };
+        }
     };
 }

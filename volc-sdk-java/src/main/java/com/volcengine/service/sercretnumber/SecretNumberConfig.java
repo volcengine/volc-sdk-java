@@ -182,8 +182,8 @@ public class SecretNumberConfig {
                     put(Const.Path, "/");
                     put(Const.Query, new ArrayList<NameValuePair>() {
                         {
-                            add(new BasicNameValuePair("Action", "Click2Call"));
-                            add(new BasicNameValuePair("Version", "2021-09-01"));
+                            add(new NameValuePair("Action", "Click2Call"));
+                            add(new NameValuePair("Version", "2021-09-01"));
                         }
                     });
                 }
@@ -196,8 +196,8 @@ public class SecretNumberConfig {
                     put(Const.Path, "/");
                     put(Const.Query, new ArrayList<NameValuePair>() {
                         {
-                            add(new BasicNameValuePair("Action", "CancelClick2Call"));
-                            add(new BasicNameValuePair("Version", "2021-09-01"));
+                            add(new NameValuePair("Action", "CancelClick2Call"));
+                            add(new NameValuePair("Version", "2021-09-01"));
                         }
                     });
                 }

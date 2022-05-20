@@ -7,6 +7,7 @@ import com.volcengine.model.*;
 import com.volcengine.model.Credentials;
 import okhttp3.*;
 import okio.Buffer;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,21 +27,21 @@ public class VolcengineInterceptor implements Interceptor {
     }
 
     @Override
-    public Response intercept(Chain chain) throws IOException {
+    public Response intercept(@NotNull Chain chain) throws IOException {
         Request req = chain.request();
-        RequestParam param = new RequestParam();
-        param.setBody(getBytes(req));
-        param.setHost(req.url().host());
-        param.setPath(req.url().encodedPath());
-        param.setMethod(req.method());
-        param.setQueryList(convertQuery(req.url()));
-        param.setHeaders(convertHeader(req.headers()));
-        param.setIsSignUrl(false);
-        param.setDate(new Date());
+        RequestParam.RequestParamBuilder param = RequestParam.builder();
+        param.body(getBytes(req));
+        param.host(req.url().host());
+        param.path(req.url().encodedPath());
+        param.method(req.method());
+        param.queryList(convertQuery(req.url()));
+        param.headers(convertHeader(req.headers()));
+        param.isSignUrl(false);
+        param.date(new Date());
 
         SignRequest signRequest;
         try {
-            signRequest = signer.getSignRequest(param, credentials);
+            signRequest = signer.getSignRequest(param.build(), credentials);
         } catch (Exception e) {
             throw new IllegalStateException(e);
         }

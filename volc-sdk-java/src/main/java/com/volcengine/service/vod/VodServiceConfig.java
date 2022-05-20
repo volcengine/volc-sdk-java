@@ -625,8 +625,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListCdnTopAccessUrl));
-                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+                                    add(new NameValuePair("Action", Const.ListCdnTopAccessUrl));
+                                    add(new NameValuePair("Version", "2022-01-01"));
 
                                 }
                             });
@@ -640,8 +640,8 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeVodDomainBandwidthData));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new NameValuePair("Action", Const.DescribeVodDomainBandwidthData));
+                                    add(new NameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }

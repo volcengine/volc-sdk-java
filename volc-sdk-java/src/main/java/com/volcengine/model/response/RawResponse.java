@@ -1,7 +1,7 @@
 package com.volcengine.model.response;
 
 import lombok.Data;
-import org.apache.http.Header;
+import com.volcengine.model.Header;
 
 @Data
 public class RawResponse {

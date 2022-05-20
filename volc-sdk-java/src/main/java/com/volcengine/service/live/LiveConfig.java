@@ -801,8 +801,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribePullToPushBandwidthData));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribePullToPushBandwidthData));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });

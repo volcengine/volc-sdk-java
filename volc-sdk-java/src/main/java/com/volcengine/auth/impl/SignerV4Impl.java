@@ -7,8 +7,6 @@ import com.volcengine.helper.Utils;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.RequestParam;
 import com.volcengine.model.SignRequest;
-import com.volcengine.service.SignableRequest;
-import okhttp3.Request;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringUtils;
 import com.volcengine.model.*;

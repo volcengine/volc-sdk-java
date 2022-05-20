@@ -15,9 +15,9 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class DynamicTimeoutInterceptor implements Interceptor {
-    private DynamicTimeoutConfig defaultTimeout;
+    private final DynamicTimeoutConfig defaultTimeout;
 
-    private Map<String, DynamicTimeoutConfig> apiTimeout;
+    private final Map<String, DynamicTimeoutConfig> apiTimeout;
 
     public DynamicTimeoutInterceptor(DynamicTimeoutConfig defaultTimeout, Map<String, DynamicTimeoutConfig> apiTimeout) {
         this.defaultTimeout = defaultTimeout;
@@ -28,12 +28,13 @@ public class DynamicTimeoutInterceptor implements Interceptor {
     @Override
     public Response intercept(@NotNull Chain chain) throws IOException {
         Request request = chain.request();
+        Chain overrideChain = chain;
         if (defaultTimeout != null) {
             if (defaultTimeout.connectTimeout > 0) {
-                chain.withConnectTimeout(defaultTimeout.connectTimeout, TimeUnit.MILLISECONDS);
+                overrideChain = chain.withConnectTimeout(defaultTimeout.connectTimeout, TimeUnit.MILLISECONDS);
             }
             if (defaultTimeout.readTimeout > 0) {
-                chain.withReadTimeout(defaultTimeout.connectTimeout, TimeUnit.MILLISECONDS);
+                overrideChain = chain.withReadTimeout(defaultTimeout.connectTimeout, TimeUnit.MILLISECONDS);
             }
         }
         List<String> actions = request.url().queryParameterValues(Const.Action);
@@ -42,14 +43,14 @@ public class DynamicTimeoutInterceptor implements Interceptor {
             if (apiTimeout.containsKey(action)) {
                 DynamicTimeoutConfig newTimeout = apiTimeout.get(action);
                 if (newTimeout.connectTimeout > 0) {
-                    chain.withConnectTimeout(newTimeout.connectTimeout, TimeUnit.MILLISECONDS);
+                    overrideChain = chain.withConnectTimeout(newTimeout.connectTimeout, TimeUnit.MILLISECONDS);
                 }
                 if (newTimeout.readTimeout > 0) {
-                    chain.withReadTimeout(newTimeout.connectTimeout, TimeUnit.MILLISECONDS);
+                    overrideChain = chain.withReadTimeout(newTimeout.connectTimeout, TimeUnit.MILLISECONDS);
                 }
             }
         }
-        return chain.proceed(request);
+        return overrideChain.proceed(request);
     }
 
     public static class DynamicTimeoutConfig {
@@ -59,6 +60,14 @@ public class DynamicTimeoutInterceptor implements Interceptor {
         public DynamicTimeoutConfig(int connectMills, int socketMills) {
             this.connectTimeout = connectMills;
             this.readTimeout = socketMills;
+        }
+
+        public int getConnectTimeout() {
+            return connectTimeout;
+        }
+
+        public int getReadTimeout() {
+            return readTimeout;
         }
     }
 }

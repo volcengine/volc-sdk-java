@@ -12,8 +12,8 @@ import com.volcengine.model.response.ResponseMetadata;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.live.LiveConfig;
 import com.volcengine.service.live.LiveService;
-import org.apache.http.HttpHost;
 
+import java.net.Proxy;
 import java.util.ArrayList;
 
 
@@ -23,7 +23,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         super(LiveConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), LiveConfig.apiInfoList);
     }
 
-    private LiveServiceImpl(HttpHost proxy) {
+    private LiveServiceImpl(Proxy proxy) {
         super(LiveConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), proxy, LiveConfig.apiInfoList);
     }
 
@@ -35,7 +35,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         return new LiveServiceImpl();
     }
 
-    public static LiveService getInstance(HttpHost proxy) {
+    public static LiveService getInstance(Proxy proxy) {
         return new LiveServiceImpl(proxy);
     }
 

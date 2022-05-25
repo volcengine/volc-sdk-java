@@ -2,10 +2,8 @@ package com.volcengine.example.vod.cdn;
 
 import com.volcengine.service.vod.IVodService;
 import com.volcengine.service.vod.impl.VodServiceImpl;
-import com.volcengine.service.vod.model.request.VodListCdnTopAccessUrlRequest;
 import com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest;
 import com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse;
-import com.volcengine.service.vod.model.response.VodListCdnTopAccessUrlResponse;
 
 public class VodListCdnUsageDataDemo {
     public static void main(String[] args) throws Exception {

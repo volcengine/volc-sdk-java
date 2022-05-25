@@ -98,4 +98,7 @@ public class Const {
     //vod-callback
     public static final String AddCallbackSubscription = "AddCallbackSubscription";
     public static final String SetCallbackEvent = "SetCallbackEvent";
+
+    // vod-smartstrategy
+    public static final String GetSmartStrategyLitePlayInfo = "GetSmartStrategyLitePlayInfo";
 }

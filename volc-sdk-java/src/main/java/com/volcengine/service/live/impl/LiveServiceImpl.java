@@ -3,6 +3,7 @@ package com.volcengine.service.live.impl;
 import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
+import com.volcengine.helper.Utils;
 import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.live.request.*;
 import com.volcengine.model.live.response.*;
@@ -238,37 +239,37 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         return res;
     }
 
-    @Override
-    public EnableAuthResponse enableAuth(EnableAuthRequest enableAuthRequest) throws Exception {
-        RawResponse response = json(Const.EnableAuth, new ArrayList<>(), JSON.toJSONString(enableAuthRequest));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-        EnableAuthResponse res = JSON.parseObject(response.getData(), EnableAuthResponse.class);
-        if (res.getResponseMetadata().getError() != null) {
-            ResponseMetadata meta = res.getResponseMetadata();
-//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
-        }
-        res.getResponseMetadata().setService("live");
-        return res;
-    }
+//    @Override
+//    public EnableAuthResponse enableAuth(EnableAuthRequest enableAuthRequest) throws Exception {
+//        RawResponse response = json(Const.EnableAuth, new ArrayList<>(), JSON.toJSONString(enableAuthRequest));
+//        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+//            throw response.getException();
+//        }
+//        EnableAuthResponse res = JSON.parseObject(response.getData(), EnableAuthResponse.class);
+//        if (res.getResponseMetadata().getError() != null) {
+//            ResponseMetadata meta = res.getResponseMetadata();
+////            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+//        }
+//        res.getResponseMetadata().setService("live");
+//        return res;
+//    }
 
-    @Override
-    public DisableAuthResponse disableAuth(DisableAuthRequest disableAuthRequest) throws Exception {
-        RawResponse response = json(Const.DisableAuth, new ArrayList<>(), JSON.toJSONString(disableAuthRequest));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-        DisableAuthResponse res = JSON.parseObject(response.getData(), DisableAuthResponse.class);
-        if (res.getResponseMetadata().getError() != null) {
-            ResponseMetadata meta = res.getResponseMetadata();
-//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
-        }
-        res.getResponseMetadata().setService("live");
-        return res;
-    }
+//    @Override
+//    public DisableAuthResponse disableAuth(DisableAuthRequest disableAuthRequest) throws Exception {
+//        RawResponse response = json(Const.DisableAuth, new ArrayList<>(), JSON.toJSONString(disableAuthRequest));
+//        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+//            throw response.getException();
+//        }
+//        DisableAuthResponse res = JSON.parseObject(response.getData(), DisableAuthResponse.class);
+//        if (res.getResponseMetadata().getError() != null) {
+//            ResponseMetadata meta = res.getResponseMetadata();
+////            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+//        }
+//        res.getResponseMetadata().setService("live");
+//        return res;
+//    }
 
     @Override
     public DescribeAuthResponse describeAuth(DescribeAuthRequest describeAuthRequest) throws Exception {
@@ -351,21 +352,21 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         return res;
     }
 
-    @Override
-    public DescribeCertDetailSecretResponse describeCertDetailSecret(DescribeCertDetailSecretRequest describeCertDetailSecretRequest) throws Exception {
-        RawResponse response = json(Const.DescribeCertDetailSecret, new ArrayList<>(), JSON.toJSONString(describeCertDetailSecretRequest));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-        DescribeCertDetailSecretResponse res = JSON.parseObject(response.getData(), DescribeCertDetailSecretResponse.class);
-        if (res.getResponseMetadata().getError() != null) {
-            ResponseMetadata meta = res.getResponseMetadata();
-//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
-        }
-        res.getResponseMetadata().setService("live");
-        return res;
-    }
+//    @Override
+//    public DescribeCertDetailSecretResponse describeCertDetailSecret(DescribeCertDetailSecretRequest describeCertDetailSecretRequest) throws Exception {
+//        RawResponse response = json(Const.DescribeCertDetailSecret, new ArrayList<>(), JSON.toJSONString(describeCertDetailSecretRequest));
+//        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+//            throw response.getException();
+//        }
+//        DescribeCertDetailSecretResponse res = JSON.parseObject(response.getData(), DescribeCertDetailSecretResponse.class);
+//        if (res.getResponseMetadata().getError() != null) {
+//            ResponseMetadata meta = res.getResponseMetadata();
+////            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+//        }
+//        res.getResponseMetadata().setService("live");
+//        return res;
+//    }
 
     @Override
     public UpdateCertResponse updateCert(UpdateCertRequest updateCertRequest) throws Exception {
@@ -672,4 +673,230 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         res.getResponseMetadata().setService("live");
         return res;
     }
+
+    @Override
+    public DescribeLiveBandwidthDataResponse describeLiveBandwidthData(DescribeLiveBandwidthDataRequest describeLiveBandwidthDataRequest) throws Exception {
+        RawResponse response = json(Const.DescribeLiveBandwidthData, new ArrayList<>(), JSON.toJSONString(describeLiveBandwidthDataRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DescribeLiveBandwidthDataResponse res = JSON.parseObject(response.getData(), DescribeLiveBandwidthDataResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+    @Override
+    public DescribeLiveTrafficDataResponse describeLiveTrafficData(DescribeLiveTrafficDataRequest describeLiveTrafficDataRequest) throws Exception {
+        RawResponse response = json(Const.DescribeLiveTrafficData, new ArrayList<>(), JSON.toJSONString(describeLiveTrafficDataRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DescribeLiveTrafficDataResponse res = JSON.parseObject(response.getData(), DescribeLiveTrafficDataResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+    @Override
+    public DescribeLiveP95PeakBandwidthDataResponse describeLiveP95PeakBandwidthData(DescribeLiveP95PeakBandwidthDataRequest describeLiveP95PeakBandwidthDataRequest) throws Exception {
+        RawResponse response = json(Const.DescribeLiveP95PeakBandwidthData, new ArrayList<>(), JSON.toJSONString(describeLiveP95PeakBandwidthDataRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DescribeLiveP95PeakBandwidthDataResponse res = JSON.parseObject(response.getData(), DescribeLiveP95PeakBandwidthDataResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+    @Override
+    public DescribeTranscodeDataResponse describeTranscodeData(DescribeTranscodeDataRequest describeTranscodeDataRequest) throws Exception {
+        RawResponse response = json(Const.DescribeTranscodeData, new ArrayList<>(), JSON.toJSONString(describeTranscodeDataRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DescribeTranscodeDataResponse res = JSON.parseObject(response.getData(), DescribeTranscodeDataResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+    @Override
+    public DescribeSnapshotDataResponse describeSnapshotData(DescribeSnapshotDataRequest describeSnapshotDataRequest) throws Exception {
+        RawResponse response = json(Const.DescribeSnapshotData, new ArrayList<>(), JSON.toJSONString(describeSnapshotDataRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DescribeSnapshotDataResponse res = JSON.parseObject(response.getData(), DescribeSnapshotDataResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+    @Override
+    public DescribeRecordDataResponse describeRecordData(DescribeRecordDataRequest describeRecordDataRequest) throws Exception {
+        RawResponse response = json(Const.DescribeRecordData, new ArrayList<>(), JSON.toJSONString(describeRecordDataRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DescribeRecordDataResponse res = JSON.parseObject(response.getData(), DescribeRecordDataResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+    @Override
+    public DescribeLiveTimeShiftDataResponse describeLiveTimeShiftData(DescribeLiveTimeShiftDataRequest describeLiveTimeShiftDataRequest) throws Exception {
+        RawResponse response = json(Const.DescribeLiveTimeShiftData, new ArrayList<>(), JSON.toJSONString(describeLiveTimeShiftDataRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DescribeLiveTimeShiftDataResponse res = JSON.parseObject(response.getData(), DescribeLiveTimeShiftDataResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+    @Override
+    public DescribePushStreamMetricsResponse describePushStreamMetrics(DescribePushStreamMetricsRequest describePushStreamMetricsRequest) throws Exception {
+        RawResponse response = json(Const.DescribePushStreamMetrics, new ArrayList<>(), JSON.toJSONString(describePushStreamMetricsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DescribePushStreamMetricsResponse res = JSON.parseObject(response.getData(), DescribePushStreamMetricsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+    @Override
+    public DescribeLiveStreamSessionsResponse describeLiveStreamSessions(DescribeLiveStreamSessionsRequest describeLiveStreamSessionsRequest) throws Exception {
+        RawResponse response = json(Const.DescribeLiveStreamSessions, new ArrayList<>(), JSON.toJSONString(describeLiveStreamSessionsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DescribeLiveStreamSessionsResponse res = JSON.parseObject(response.getData(), DescribeLiveStreamSessionsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+    @Override
+    public DescribePlayResponseStatusStatResponse describePlayResponseStatusStat(DescribePlayResponseStatusStatRequest describePlayResponseStatusStatRequest) throws Exception {
+        RawResponse response = json(Const.DescribePlayResponseStatusStat, new ArrayList<>(), JSON.toJSONString(describePlayResponseStatusStatRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DescribePlayResponseStatusStatResponse res = JSON.parseObject(response.getData(), DescribePlayResponseStatusStatResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+    @Override
+    public DescribeLiveDomainLogResponse describeLiveDomainLog(DescribeLiveDomainLogRequest describeLiveDomainLogRequest) throws Exception {
+        RawResponse response = query(Const.DescribeLiveDomainLog, Utils.mapToPairList(Utils.paramsToMap(describeLiveDomainLogRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DescribeLiveDomainLogResponse res = JSON.parseObject(response.getData(), DescribeLiveDomainLogResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+    @Override
+    public DescribeLiveMetricTrafficDataResponse describeLiveMetricTrafficData(DescribeLiveMetricTrafficDataRequest describeLiveMetricTrafficDataRequest) throws Exception {
+        RawResponse response = json(Const.DescribeLiveMetricTrafficData, new ArrayList<>(), JSON.toJSONString(describeLiveMetricTrafficDataRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DescribeLiveMetricTrafficDataResponse res = JSON.parseObject(response.getData(), DescribeLiveMetricTrafficDataResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+    @Override
+    public DescribeLiveMetricBandwidthDataResponse describeLiveMetricBandwidthData(DescribeLiveMetricBandwidthDataRequest describeLiveMetricBandwidthDataRequest) throws Exception {
+        RawResponse response = json(Const.DescribeLiveMetricBandwidthData, new ArrayList<>(), JSON.toJSONString(describeLiveMetricBandwidthDataRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DescribeLiveMetricBandwidthDataResponse res = JSON.parseObject(response.getData(), DescribeLiveMetricBandwidthDataResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+    @Override
+    public DescribePlayStreamListResponse describePlayStreamList(DescribePlayStreamListRequest describePlayStreamListRequest) throws Exception {
+        RawResponse response = query(Const.DescribePlayStreamList, Utils.mapToPairList(Utils.paramsToMap(describePlayStreamListRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DescribePlayStreamListResponse res = JSON.parseObject(response.getData(), DescribePlayStreamListResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+
 }

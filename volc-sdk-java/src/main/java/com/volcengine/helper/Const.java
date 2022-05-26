@@ -60,6 +60,12 @@ public class Const {
     public static final String TextRisk = "TextRisk";
     public static final String CreateCustomContents = "CreateCustomContents";
     public static final String UploadCustomContents = "UploadCustomContents";
+    public static final String GetAudioResult = "GetAudioResult";
+    public static final String AsyncAudioRisk = "AsyncAudioRisk";
+    public static final String GetVideoLiveResult = "GetVideoLiveResult";
+    public static final String AsyncLiveVideoRisk = "AsyncLiveVideoRisk";
+    public static final String GetAudioLiveResult = "GetAudioLiveResult";
+    public static final String AsyncLiveAudioRisk = "AsyncLiveAudioRisk";
 
     // livesaas
 
@@ -214,6 +220,20 @@ public class Const {
     public static final String UpdateSnapshotPreset = "UpdateSnapshotPreset";
     public static final String DeleteSnapshotPreset = "DeleteSnapshotPreset";
     public static final String ListVhostSnapshotPreset = "ListVhostSnapshotPreset";
+    public static final String DescribeLiveBandwidthData = "DescribeLiveBandwidthData";
+    public static final String DescribeLiveTrafficData = "DescribeLiveTrafficData";
+    public static final String DescribeLiveP95PeakBandwidthData = "DescribeLiveP95PeakBandwidthData";
+    public static final String DescribeTranscodeData = "DescribeTranscodeData";
+    public static final String DescribeSnapshotData = "DescribeSnapshotData";
+    public static final String DescribeRecordData = "DescribeRecordData";
+    public static final String DescribeLiveTimeShiftData = "DescribeLiveTimeShiftData";
+    public static final String DescribePushStreamMetrics = "DescribePushStreamMetrics";
+    public static final String DescribeLiveStreamSessions = "DescribeLiveStreamSessions";
+    public static final String DescribePlayResponseStatusStat = "DescribePlayResponseStatusStat";
+    public static final String DescribeLiveDomainLog = "DescribeLiveDomainLog";
+    public static final String DescribeLiveMetricTrafficData = "DescribeLiveMetricTrafficData";
+    public static final String DescribeLiveMetricBandwidthData = "DescribeLiveMetricBandwidthData";
+    public static final String DescribePlayStreamList = "DescribePlayStreamList";
 
     //kms
     public static final String CreateKeyring = "CreateKeyring";

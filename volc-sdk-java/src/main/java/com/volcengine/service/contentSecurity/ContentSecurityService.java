@@ -77,4 +77,58 @@ public interface ContentSecurityService extends IBaseService {
      * @throws Exception the exception
      */
     AsyncRiskDetectionResponse UploadCustomContents(UploadCustomContentsRequest request) throws Exception;
+
+    /**
+     * Async Audio Risk Detection.
+     *
+     * @param  riskDetectionRequest audip risk detection request
+     * @return async audio risk detection response
+     * @throws Exception the exception
+     */
+    AsyncRiskDetectionResponse AsyncAudioRisk(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+    /**
+     * Audio Risk Result.
+     *
+     * @param  audioRiskResultRequest video risk detection request
+     * @return async video risk detection response
+     * @throws Exception the exception
+     */
+    GetAudioRiskResponse AudioResult(ImageRiskResultRequest audioRiskResultRequest) throws Exception;
+
+    /**
+     * Async Video live Risk Detection.
+     *
+     * @param  riskDetectionRequest video risk detection request
+     * @return async video risk detection response
+     * @throws Exception the exception
+     */
+    AsyncRiskDetectionResponse AsyncLiveVideoRisk(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+    /**
+     * Video Live Risk Result.
+     *
+     * @param  videoRiskResultRequest video risk detection request
+     * @return async video risk detection response
+     * @throws Exception the exception
+     */
+    VideoRiskResultResponse VideoLiveResult(ImageRiskResultRequest videoRiskResultRequest) throws Exception;
+
+    /**
+     * Async Audio Live Risk Detection.
+     *
+     * @param  riskDetectionRequest audip risk detection request
+     * @return async audio risk detection response
+     * @throws Exception the exception
+     */
+    AsyncRiskDetectionResponse AsyncLiveAudioRisk(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+    /**
+     * Audio Live Risk Result.
+     *
+     * @param  audioRiskResultRequest video risk detection request
+     * @return async video risk detection response
+     * @throws Exception the exception
+     */
+    GetAudioRiskResponse AudioLiveResult(ImageRiskResultRequest audioRiskResultRequest) throws Exception;
 }

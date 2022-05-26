@@ -20,8 +20,6 @@ public class LiveCertDemo {
         listCertDemo(liveService);
         //上传第三方证书
         createCertDemo(liveService);
-        //查询证书详情
-        describeCertDetailSecretDemo(liveService);
         //更新某个证书
         updateCertDemo(liveService);
         //为某个domain绑定证书
@@ -71,21 +69,6 @@ public class LiveCertDemo {
         }
     }
 
-    /**
-     * 查询证书详情
-     *
-     * @param liveService
-     */
-    private static void describeCertDetailSecretDemo(LiveService liveService) {
-        DescribeCertDetailSecretRequest request = new DescribeCertDetailSecretRequest();
-        request.setChainID("chainID");
-        try {
-            DescribeCertDetailSecretResponse response = liveService.describeCertDetailSecret(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     /**
      * 更新某个证书

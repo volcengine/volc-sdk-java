@@ -4,6 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Map;
 
 @Data
 public class TranslateTextRequest {
@@ -15,4 +16,17 @@ public class TranslateTextRequest {
 
     @JSONField(name = "TextList")
     List<String> textList;
+
+    @JSONField(name = "Options")
+    Options options;
+
+    @Data
+    public static class Options {
+        @JSONField(name = "MimeType")
+        String mimeType;
+        @JSONField(name = "Category")
+        String category;
+        @JSONField(name = "Extra")
+        Map<String, String> extra;
+    }
 }

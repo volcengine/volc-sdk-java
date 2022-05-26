@@ -306,4 +306,24 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getDrmExpireTimestampBytes();
+
+  /**
+   * <pre>
+   *音频码率
+   * </pre>
+   *
+   * <code>string Quality = 16;</code>
+   * @return The quality.
+   */
+  java.lang.String getQuality();
+  /**
+   * <pre>
+   *音频码率
+   * </pre>
+   *
+   * <code>string Quality = 16;</code>
+   * @return The bytes for quality.
+   */
+  com.google.protobuf.ByteString
+      getQualityBytes();
 }

@@ -23,7 +23,6 @@ import org.apache.commons.logging.LogFactory;
 
 import java.io.*;
 import java.net.Proxy;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -161,18 +160,34 @@ public abstract class BaseServiceImpl implements IBaseService {
         return makeRequest(api, request);
     }
 
-    @Override
-    public boolean putData(String url, byte[] data, Map<String, String> headers) {
+    /**
+     * Origin put method which without volcengine signer
+     *
+     * @param url url
+     * @param data data
+     * @param headers headers
+     * @return true if the http response code is 200, otherwise false
+     */
+    protected boolean originPutData(String url, byte[] data, Map<String, String> headers) {
         RequestBody body = RequestBody.create(data);
-        return doPut(url, body, headers).getCode() == 200;
+        return doOriginPut(url, body, headers).getCode() == 200;
     }
 
-    public RawResponse putDataWithResponse(String url, byte[] data, Map<String, String> headers) {
-        return doPut(url, RequestBody.create(data), headers);
+    /**
+     * Origin put method which without volcengine signer
+     *
+     * @param url url
+     * @param data data
+     * @param headers headers
+     * @return the raw response
+     */
+    protected RawResponse originPutDataWithResponse(String url, byte[] data, Map<String, String> headers) {
+        return doOriginPut(url, RequestBody.create(data), headers);
     }
 
-    private RawResponse doPut(String url, RequestBody entity, Map<String, String> headers) {
+    private RawResponse doOriginPut(String url, RequestBody entity, Map<String, String> headers) {
         Request.Builder httpPut = new Request.Builder();
+        httpPut.url(url);
         httpPut.put(entity);
         if (headers != null && headers.size() > 0) {
             for (Map.Entry<String, String> entry : headers.entrySet()) {
@@ -183,7 +198,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         Response response = null;
         RawResponse rawResponse = new RawResponse();
         try {
-            client = getHttpClient();
+            client = OkHttpClientFactory.create();
             if (client == null) {
                 return new RawResponse(null, SdkError.UNKNOWN.getNumber(), new IllegalStateException(""));
             }

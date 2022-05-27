@@ -234,7 +234,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         Map<String, String> headers = new HashMap<>();
         headers.put("Authorization", auth);
         headers.put("Content-CRC32", checkSum);
-        retryer.call(() -> putData(url, bytes, headers));
+        retryer.call(() -> originPutData(url, bytes, headers));
     }
 
     private void chunkUpload(String host, String oid, String auth, File file, boolean isLargeFile, Retryer retryer) throws Exception {
@@ -270,7 +270,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         if (isLargeFile) {
             headers.put("X-Storage-Mode", "gateway");
         }
-        RawResponse httpResponse = (RawResponse) (retryer.call(() -> putDataWithResponse(url, new byte[]{}, headers)));
+        RawResponse httpResponse = (RawResponse) (retryer.call(() -> originPutDataWithResponse(url, new byte[]{}, headers)));
         if (httpResponse == null) {
             throw new RuntimeException("init part error,response is empty");
         }
@@ -293,7 +293,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         if (isLargeFile) {
             headers.put("X-Storage-Mode", "gateway");
         }
-        retryer.call(() -> putData(url, data, headers));
+        retryer.call(() -> originPutData(url, data, headers));
         return checkSum;
     }
 
@@ -306,7 +306,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         if (isLargeFile) {
             headers.put("X-Storage-Mode", "gateway");
         }
-        retryer.call(() -> putData(url, body.getBytes(), headers));
+        retryer.call(() -> originPutData(url, body.getBytes(), headers));
     }
 
     @Override

@@ -8,11 +8,11 @@ import com.volcengine.service.cdn.impl.CDNServiceImpl;
 public class SubmitUnblockTask {
     public static void main(String[] args) {
         CDNService service = CDNServiceImpl.getInstance();
-        service.setAccessKey("ak");
-        service.setSecretKey("sk");
+        service.setAccessKey(Utils.ak);
+        service.setSecretKey(Utils.sk);
         try {
             CDN.SubmitUnblockTaskRequest req = new CDN.SubmitUnblockTaskRequest()
-                    .setUrls(Utils.exampleUrl1);
+                .setUrls(Utils.exampleUrl1);
             CDN.SubmitUnblockTaskResponse resp = service.submitUnblockTask(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {

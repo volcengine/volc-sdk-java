@@ -89,7 +89,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         long startTime = System.currentTimeMillis();
         boolean uploadStatus = false;
         for (int i = 0; i < 3; i++) {
-            uploadStatus = putData(url, imageData, headers);
+            uploadStatus = originPutData(url, imageData, headers);
             if (uploadStatus) {
                 break;
             }
@@ -100,7 +100,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         long endTime = System.currentTimeMillis();
         long cost = endTime - startTime;
         float avgSpeed = (float) imageData.length / (float) cost;
-        System.out.printf("upload image cost {%d} ms, avgSpeed: {%f} KB/s%n", cost, avgSpeed);
+        System.out.println(String.format("upload image cost {%d} ms, avgSpeed: {%f} KB/s%n", cost, avgSpeed));
     }
 
     @Override

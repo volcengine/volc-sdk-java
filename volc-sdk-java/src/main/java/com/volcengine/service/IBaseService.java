@@ -145,17 +145,6 @@ public interface IBaseService {
      */
     RawResponse post(String api, List<NameValuePair> params, List<NameValuePair> form) throws Exception;
 
-    /**
-     * Put binary data.
-     *
-     * @param url target url
-     * @param data binary data
-     * @param headers http headers
-     * @return put status
-     * @throws Exception exception
-     */
-    boolean putData(String url, byte[] data, Map<String, String> headers) throws Exception;
-
 
     /**
      * Sign by sts2.

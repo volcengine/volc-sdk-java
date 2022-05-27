@@ -31,6 +31,7 @@ private static final long serialVersionUID = 0L;
     hDRDefinition_ = "";
     playScene_ = "";
     drmExpireTimestamp_ = "";
+    quality_ = "";
   }
 
   @java.lang.Override
@@ -151,6 +152,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             drmExpireTimestamp_ = s;
+            break;
+          }
+          case 130: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            quality_ = s;
             break;
           }
           default: {
@@ -875,6 +882,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int QUALITY_FIELD_NUMBER = 16;
+  private volatile java.lang.Object quality_;
+  /**
+   * <pre>
+   *音频码率
+   * </pre>
+   *
+   * <code>string Quality = 16;</code>
+   * @return The quality.
+   */
+  @java.lang.Override
+  public java.lang.String getQuality() {
+    java.lang.Object ref = quality_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      quality_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *音频码率
+   * </pre>
+   *
+   * <code>string Quality = 16;</code>
+   * @return The bytes for quality.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getQualityBytes() {
+    java.lang.Object ref = quality_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      quality_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -934,6 +987,9 @@ private static final long serialVersionUID = 0L;
     if (!getDrmExpireTimestampBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 15, drmExpireTimestamp_);
     }
+    if (!getQualityBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 16, quality_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -988,6 +1044,9 @@ private static final long serialVersionUID = 0L;
     if (!getDrmExpireTimestampBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, drmExpireTimestamp_);
     }
+    if (!getQualityBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, quality_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1033,6 +1092,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPlayScene())) return false;
     if (!getDrmExpireTimestamp()
         .equals(other.getDrmExpireTimestamp())) return false;
+    if (!getQuality()
+        .equals(other.getQuality())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1074,6 +1135,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPlayScene().hashCode();
     hash = (37 * hash) + DRMEXPIRETIMESTAMP_FIELD_NUMBER;
     hash = (53 * hash) + getDrmExpireTimestamp().hashCode();
+    hash = (37 * hash) + QUALITY_FIELD_NUMBER;
+    hash = (53 * hash) + getQuality().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1237,6 +1300,8 @@ private static final long serialVersionUID = 0L;
 
       drmExpireTimestamp_ = "";
 
+      quality_ = "";
+
       return this;
     }
 
@@ -1278,6 +1343,7 @@ private static final long serialVersionUID = 0L;
       result.hDRDefinition_ = hDRDefinition_;
       result.playScene_ = playScene_;
       result.drmExpireTimestamp_ = drmExpireTimestamp_;
+      result.quality_ = quality_;
       onBuilt();
       return result;
     }
@@ -1384,6 +1450,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDrmExpireTimestamp().isEmpty()) {
         drmExpireTimestamp_ = other.drmExpireTimestamp_;
+        onChanged();
+      }
+      if (!other.getQuality().isEmpty()) {
+        quality_ = other.quality_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -2851,6 +2921,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       drmExpireTimestamp_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object quality_ = "";
+    /**
+     * <pre>
+     *音频码率
+     * </pre>
+     *
+     * <code>string Quality = 16;</code>
+     * @return The quality.
+     */
+    public java.lang.String getQuality() {
+      java.lang.Object ref = quality_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        quality_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *音频码率
+     * </pre>
+     *
+     * <code>string Quality = 16;</code>
+     * @return The bytes for quality.
+     */
+    public com.google.protobuf.ByteString
+        getQualityBytes() {
+      java.lang.Object ref = quality_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        quality_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *音频码率
+     * </pre>
+     *
+     * <code>string Quality = 16;</code>
+     * @param value The quality to set.
+     * @return This builder for chaining.
+     */
+    public Builder setQuality(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      quality_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *音频码率
+     * </pre>
+     *
+     * <code>string Quality = 16;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearQuality() {
+      
+      quality_ = getDefaultInstance().getQuality();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *音频码率
+     * </pre>
+     *
+     * <code>string Quality = 16;</code>
+     * @param value The bytes for quality to set.
+     * @return This builder for chaining.
+     */
+    public Builder setQualityBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      quality_ = value;
       onChanged();
       return this;
     }

@@ -8,11 +8,11 @@ import com.volcengine.service.cdn.impl.CDNServiceImpl;
 public class DescribeContentTasks {
     public static void main(String[] args) {
         CDNService service = CDNServiceImpl.getInstance();
-        service.setAccessKey("ak");
-        service.setSecretKey("sk");
+        service.setAccessKey(Utils.ak);
+        service.setSecretKey(Utils.sk);
         try {
             CDN.DescribeContentTasksRequest req = new CDN.DescribeContentTasksRequest()
-                    .setTaskType("file")
+                    .setTaskType("refresh_file")
                     .setStartTime(Utils.startTime)
                     .setEndTime(Utils.endTime);
             CDN.DescribeContentTasksResponse resp = service.describeContentTasks(req);

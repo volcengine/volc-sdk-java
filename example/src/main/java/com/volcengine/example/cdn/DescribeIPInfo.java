@@ -8,11 +8,11 @@ import com.volcengine.service.cdn.impl.CDNServiceImpl;
 public class DescribeIPInfo {
     public static void main(String[] args) {
         CDNService service = CDNServiceImpl.getInstance();
-        service.setAccessKey("ak");
-        service.setSecretKey("sk");
+        service.setAccessKey(Utils.ak);
+        service.setSecretKey(Utils.sk);
         try {
             CDN.DescribeIPInfoRequest req = new CDN.DescribeIPInfoRequest()
-                    .setIP("1.1.1.1");
+                .setIP("1.1.1.1");
             CDN.DescribeIPInfoResponse resp = service.describeIPInfo(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {

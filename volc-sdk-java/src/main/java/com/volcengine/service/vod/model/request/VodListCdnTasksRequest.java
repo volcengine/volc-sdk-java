@@ -85,12 +85,12 @@ private static final long serialVersionUID = 0L;
           }
           case 48: {
 
-            startTime_ = input.readInt64();
+            startTimestamp_ = input.readInt32();
             break;
           }
           case 56: {
 
-            endTime_ = input.readInt64();
+            endTimestamp_ = input.readInt32();
             break;
           }
           case 64: {
@@ -365,34 +365,34 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int STARTTIME_FIELD_NUMBER = 6;
-  private long startTime_;
+  public static final int STARTTIMESTAMP_FIELD_NUMBER = 6;
+  private int startTimestamp_;
   /**
    * <pre>
-   *起始时间戳
+   *起始时间戳，单位：Unix秒级时间戳
    * </pre>
    *
-   * <code>int64 StartTime = 6;</code>
-   * @return The startTime.
+   * <code>int32 StartTimestamp = 6;</code>
+   * @return The startTimestamp.
    */
   @java.lang.Override
-  public long getStartTime() {
-    return startTime_;
+  public int getStartTimestamp() {
+    return startTimestamp_;
   }
 
-  public static final int ENDTIME_FIELD_NUMBER = 7;
-  private long endTime_;
+  public static final int ENDTIMESTAMP_FIELD_NUMBER = 7;
+  private int endTimestamp_;
   /**
    * <pre>
-   *截止时间戳
+   *截止时间戳，单位：Unix秒级时间戳
    * </pre>
    *
-   * <code>int64 EndTime = 7;</code>
-   * @return The endTime.
+   * <code>int32 EndTimestamp = 7;</code>
+   * @return The endTimestamp.
    */
   @java.lang.Override
-  public long getEndTime() {
-    return endTime_;
+  public int getEndTimestamp() {
+    return endTimestamp_;
   }
 
   public static final int PAGENUM_FIELD_NUMBER = 8;
@@ -454,11 +454,11 @@ private static final long serialVersionUID = 0L;
     if (!getStatusBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, status_);
     }
-    if (startTime_ != 0L) {
-      output.writeInt64(6, startTime_);
+    if (startTimestamp_ != 0) {
+      output.writeInt32(6, startTimestamp_);
     }
-    if (endTime_ != 0L) {
-      output.writeInt64(7, endTime_);
+    if (endTimestamp_ != 0) {
+      output.writeInt32(7, endTimestamp_);
     }
     if (pageNum_ != 0) {
       output.writeInt32(8, pageNum_);
@@ -490,13 +490,13 @@ private static final long serialVersionUID = 0L;
     if (!getStatusBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, status_);
     }
-    if (startTime_ != 0L) {
+    if (startTimestamp_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(6, startTime_);
+        .computeInt32Size(6, startTimestamp_);
     }
-    if (endTime_ != 0L) {
+    if (endTimestamp_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(7, endTime_);
+        .computeInt32Size(7, endTimestamp_);
     }
     if (pageNum_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -531,10 +531,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTaskType())) return false;
     if (!getStatus()
         .equals(other.getStatus())) return false;
-    if (getStartTime()
-        != other.getStartTime()) return false;
-    if (getEndTime()
-        != other.getEndTime()) return false;
+    if (getStartTimestamp()
+        != other.getStartTimestamp()) return false;
+    if (getEndTimestamp()
+        != other.getEndTimestamp()) return false;
     if (getPageNum()
         != other.getPageNum()) return false;
     if (getPageSize()
@@ -560,12 +560,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getTaskType().hashCode();
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
     hash = (53 * hash) + getStatus().hashCode();
-    hash = (37 * hash) + STARTTIME_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getStartTime());
-    hash = (37 * hash) + ENDTIME_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getEndTime());
+    hash = (37 * hash) + STARTTIMESTAMP_FIELD_NUMBER;
+    hash = (53 * hash) + getStartTimestamp();
+    hash = (37 * hash) + ENDTIMESTAMP_FIELD_NUMBER;
+    hash = (53 * hash) + getEndTimestamp();
     hash = (37 * hash) + PAGENUM_FIELD_NUMBER;
     hash = (53 * hash) + getPageNum();
     hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
@@ -713,9 +711,9 @@ private static final long serialVersionUID = 0L;
 
       status_ = "";
 
-      startTime_ = 0L;
+      startTimestamp_ = 0;
 
-      endTime_ = 0L;
+      endTimestamp_ = 0;
 
       pageNum_ = 0;
 
@@ -752,8 +750,8 @@ private static final long serialVersionUID = 0L;
       result.domainName_ = domainName_;
       result.taskType_ = taskType_;
       result.status_ = status_;
-      result.startTime_ = startTime_;
-      result.endTime_ = endTime_;
+      result.startTimestamp_ = startTimestamp_;
+      result.endTimestamp_ = endTimestamp_;
       result.pageNum_ = pageNum_;
       result.pageSize_ = pageSize_;
       onBuilt();
@@ -824,11 +822,11 @@ private static final long serialVersionUID = 0L;
         status_ = other.status_;
         onChanged();
       }
-      if (other.getStartTime() != 0L) {
-        setStartTime(other.getStartTime());
+      if (other.getStartTimestamp() != 0) {
+        setStartTimestamp(other.getStartTimestamp());
       }
-      if (other.getEndTime() != 0L) {
-        setEndTime(other.getEndTime());
+      if (other.getEndTimestamp() != 0) {
+        setEndTimestamp(other.getEndTimestamp());
       }
       if (other.getPageNum() != 0) {
         setPageNum(other.getPageNum());
@@ -1345,88 +1343,88 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long startTime_ ;
+    private int startTimestamp_ ;
     /**
      * <pre>
-     *起始时间戳
+     *起始时间戳，单位：Unix秒级时间戳
      * </pre>
      *
-     * <code>int64 StartTime = 6;</code>
-     * @return The startTime.
+     * <code>int32 StartTimestamp = 6;</code>
+     * @return The startTimestamp.
      */
     @java.lang.Override
-    public long getStartTime() {
-      return startTime_;
+    public int getStartTimestamp() {
+      return startTimestamp_;
     }
     /**
      * <pre>
-     *起始时间戳
+     *起始时间戳，单位：Unix秒级时间戳
      * </pre>
      *
-     * <code>int64 StartTime = 6;</code>
-     * @param value The startTime to set.
+     * <code>int32 StartTimestamp = 6;</code>
+     * @param value The startTimestamp to set.
      * @return This builder for chaining.
      */
-    public Builder setStartTime(long value) {
+    public Builder setStartTimestamp(int value) {
       
-      startTime_ = value;
+      startTimestamp_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *起始时间戳
+     *起始时间戳，单位：Unix秒级时间戳
      * </pre>
      *
-     * <code>int64 StartTime = 6;</code>
+     * <code>int32 StartTimestamp = 6;</code>
      * @return This builder for chaining.
      */
-    public Builder clearStartTime() {
+    public Builder clearStartTimestamp() {
       
-      startTime_ = 0L;
+      startTimestamp_ = 0;
       onChanged();
       return this;
     }
 
-    private long endTime_ ;
+    private int endTimestamp_ ;
     /**
      * <pre>
-     *截止时间戳
+     *截止时间戳，单位：Unix秒级时间戳
      * </pre>
      *
-     * <code>int64 EndTime = 7;</code>
-     * @return The endTime.
+     * <code>int32 EndTimestamp = 7;</code>
+     * @return The endTimestamp.
      */
     @java.lang.Override
-    public long getEndTime() {
-      return endTime_;
+    public int getEndTimestamp() {
+      return endTimestamp_;
     }
     /**
      * <pre>
-     *截止时间戳
+     *截止时间戳，单位：Unix秒级时间戳
      * </pre>
      *
-     * <code>int64 EndTime = 7;</code>
-     * @param value The endTime to set.
+     * <code>int32 EndTimestamp = 7;</code>
+     * @param value The endTimestamp to set.
      * @return This builder for chaining.
      */
-    public Builder setEndTime(long value) {
+    public Builder setEndTimestamp(int value) {
       
-      endTime_ = value;
+      endTimestamp_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *截止时间戳
+     *截止时间戳，单位：Unix秒级时间戳
      * </pre>
      *
-     * <code>int64 EndTime = 7;</code>
+     * <code>int32 EndTimestamp = 7;</code>
      * @return This builder for chaining.
      */
-    public Builder clearEndTime() {
+    public Builder clearEndTimestamp() {
       
-      endTime_ = 0L;
+      endTimestamp_ = 0;
       onChanged();
       return this;
     }

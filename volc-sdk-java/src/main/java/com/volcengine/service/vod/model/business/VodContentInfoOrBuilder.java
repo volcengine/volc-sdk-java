@@ -89,13 +89,13 @@ public interface VodContentInfoOrBuilder extends
 
   /**
    * <pre>
-   *任务创建时间
+   *任务创建时间，单位：Unix秒级时间戳
    * </pre>
    *
-   * <code>double CreateTime = 5;</code>
-   * @return The createTime.
+   * <code>int32 CreateTimestamp = 5;</code>
+   * @return The createTimestamp.
    */
-  double getCreateTime();
+  int getCreateTimestamp();
 
   /**
    * <pre>

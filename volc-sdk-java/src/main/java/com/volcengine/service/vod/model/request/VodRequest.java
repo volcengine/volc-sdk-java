@@ -400,43 +400,44 @@ public final class VodRequest {
       "\"O\n\036VodCreateCdnRefreshTaskRequest\022\021\n\tSp" +
       "aceName\030\001 \001(\t\022\014\n\004Urls\030\002 \001(\t\022\014\n\004Type\030\003 \001(" +
       "\t\"A\n\036VodCreateCdnPreloadTaskRequest\022\021\n\tS" +
-      "paceName\030\001 \001(\t\022\014\n\004Urls\030\002 \001(\t\"\270\001\n\026VodList" +
+      "paceName\030\001 \001(\t\022\014\n\004Urls\030\002 \001(\t\"\302\001\n\026VodList" +
       "CdnTasksRequest\022\021\n\tSpaceName\030\001 \001(\t\022\016\n\006Ta" +
       "skId\030\002 \001(\t\022\022\n\nDomainName\030\003 \001(\t\022\020\n\010TaskTy" +
-      "pe\030\004 \001(\t\022\016\n\006Status\030\005 \001(\t\022\021\n\tStartTime\030\006 " +
-      "\001(\003\022\017\n\007EndTime\030\007 \001(\003\022\017\n\007PageNum\030\010 \001(\005\022\020\n" +
-      "\010PageSize\030\t \001(\005\"n\n\032VodListCdnAccessLogRe" +
-      "quest\022\017\n\007Domains\030\001 \001(\t\022\026\n\016StartTimestamp" +
-      "\030\002 \001(\005\022\024\n\014EndTimestamp\030\003 \001(\005\022\021\n\tSpaceNam" +
-      "e\030\004 \001(\t\"p\n\035VodListCdnTopAccessUrlRequest" +
-      "\022\017\n\007Domains\030\001 \001(\t\022\026\n\016StartTimestamp\030\002 \001(" +
-      "\005\022\024\n\014EndTimestamp\030\003 \001(\005\022\020\n\010SortType\030\004 \001(" +
-      "\t\"\216\001\n(VodDescribeVodDomainBandwidthDataR" +
-      "equest\022\022\n\nDomainList\030\001 \001(\t\022\021\n\tStartTime\030" +
-      "\002 \001(\t\022\017\n\007EndTime\030\003 \001(\t\022\023\n\013Aggregation\030\004 " +
-      "\001(\005\022\025\n\rBandwidthType\030\005 \001(\t\"\217\001\n\032VodListCd" +
-      "nUsageDataRequest\022\017\n\007Domains\030\001 \001(\t\022\020\n\010In" +
-      "terval\030\002 \001(\t\022\026\n\016StartTimestamp\030\003 \001(\003\022\024\n\014" +
-      "EndTimestamp\030\004 \001(\003\022\020\n\010DataType\030\005 \001(\t\022\016\n\006" +
-      "Metric\030\006 \001(\t\"\220\001\n\033VodListCdnStatusDataReq" +
-      "uest\022\017\n\007Domains\030\001 \001(\t\022\020\n\010Interval\030\002 \001(\t\022" +
-      "\026\n\016StartTimestamp\030\003 \001(\003\022\024\n\014EndTimestamp\030" +
-      "\004 \001(\003\022\020\n\010DataType\030\005 \001(\t\022\016\n\006Metric\030\006 \001(\t\"" +
-      "C\n!VodAddCallbackSubscriptionRequest\022\021\n\t" +
-      "SpaceName\030\001 \001(\t\022\013\n\003Url\030\002 \001(\t\"?\n\032VodSetCa" +
-      "llbackEventRequest\022\021\n\tSpaceName\030\001 \001(\t\022\016\n" +
-      "\006Events\030\002 \001(\t\"\364\001\n&VodGetSmartStrategyLit" +
-      "ePlayInfoRequest\022\017\n\007PlayUrl\030\001 \001(\t\022\016\n\006For" +
-      "mat\030\002 \001(\t\022\r\n\005Codec\030\003 \001(\t\022\022\n\nDefinition\030\004" +
-      " \001(\t\022\020\n\010FileType\030\005 \001(\t\022\020\n\010LogoType\030\006 \001(\t" +
-      "\022\013\n\003Ssl\030\007 \001(\t\022\022\n\nNeedThumbs\030\010 \001(\t\022\027\n\017Nee" +
-      "dBarrageMask\030\t \001(\t\022\021\n\tUnionInfo\030\n \001(\t\022\025\n" +
-      "\rHDRDefinition\030\013 \001(\tB\310\001\n(com.volcengine." +
-      "service.vod.model.requestB\nVodRequestP\001Z" +
-      "@github.com/volcengine/volc-sdk-golang/s" +
-      "ervice/vod/models/request\240\001\001\330\001\001\312\002\037Volc\\S" +
-      "ervice\\Vod\\Models\\Request\342\002#Volc\\Service" +
-      "\\Vod\\Models\\GPBMetadatab\006proto3"
+      "pe\030\004 \001(\t\022\016\n\006Status\030\005 \001(\t\022\026\n\016StartTimesta" +
+      "mp\030\006 \001(\005\022\024\n\014EndTimestamp\030\007 \001(\005\022\017\n\007PageNu" +
+      "m\030\010 \001(\005\022\020\n\010PageSize\030\t \001(\005\"n\n\032VodListCdnA" +
+      "ccessLogRequest\022\017\n\007Domains\030\001 \001(\t\022\026\n\016Star" +
+      "tTimestamp\030\002 \001(\005\022\024\n\014EndTimestamp\030\003 \001(\005\022\021" +
+      "\n\tSpaceName\030\004 \001(\t\"p\n\035VodListCdnTopAccess" +
+      "UrlRequest\022\017\n\007Domains\030\001 \001(\t\022\026\n\016StartTime" +
+      "stamp\030\002 \001(\005\022\024\n\014EndTimestamp\030\003 \001(\005\022\020\n\010Sor" +
+      "tType\030\004 \001(\t\"\216\001\n(VodDescribeVodDomainBand" +
+      "widthDataRequest\022\022\n\nDomainList\030\001 \001(\t\022\021\n\t" +
+      "StartTime\030\002 \001(\t\022\017\n\007EndTime\030\003 \001(\t\022\023\n\013Aggr" +
+      "egation\030\004 \001(\005\022\025\n\rBandwidthType\030\005 \001(\t\"\217\001\n" +
+      "\032VodListCdnUsageDataRequest\022\017\n\007Domains\030\001" +
+      " \001(\t\022\020\n\010Interval\030\002 \001(\t\022\026\n\016StartTimestamp" +
+      "\030\003 \001(\003\022\024\n\014EndTimestamp\030\004 \001(\003\022\020\n\010DataType" +
+      "\030\005 \001(\t\022\016\n\006Metric\030\006 \001(\t\"\220\001\n\033VodListCdnSta" +
+      "tusDataRequest\022\017\n\007Domains\030\001 \001(\t\022\020\n\010Inter" +
+      "val\030\002 \001(\t\022\026\n\016StartTimestamp\030\003 \001(\003\022\024\n\014End" +
+      "Timestamp\030\004 \001(\003\022\020\n\010DataType\030\005 \001(\t\022\016\n\006Met" +
+      "ric\030\006 \001(\t\"C\n!VodAddCallbackSubscriptionR" +
+      "equest\022\021\n\tSpaceName\030\001 \001(\t\022\013\n\003Url\030\002 \001(\t\"?" +
+      "\n\032VodSetCallbackEventRequest\022\021\n\tSpaceNam" +
+      "e\030\001 \001(\t\022\016\n\006Events\030\002 \001(\t\"\364\001\n&VodGetSmartS" +
+      "trategyLitePlayInfoRequest\022\017\n\007PlayUrl\030\001 " +
+      "\001(\t\022\016\n\006Format\030\002 \001(\t\022\r\n\005Codec\030\003 \001(\t\022\022\n\nDe" +
+      "finition\030\004 \001(\t\022\020\n\010FileType\030\005 \001(\t\022\020\n\010Logo" +
+      "Type\030\006 \001(\t\022\013\n\003Ssl\030\007 \001(\t\022\022\n\nNeedThumbs\030\010 " +
+      "\001(\t\022\027\n\017NeedBarrageMask\030\t \001(\t\022\021\n\tUnionInf" +
+      "o\030\n \001(\t\022\025\n\rHDRDefinition\030\013 \001(\tB\310\001\n(com.v" +
+      "olcengine.service.vod.model.requestB\nVod" +
+      "RequestP\001Z@github.com/volcengine/volc-sd" +
+      "k-golang/service/vod/models/request\240\001\001\330\001" +
+      "\001\312\002\037Volc\\Service\\Vod\\Models\\Request\342\002#Vo" +
+      "lc\\Service\\Vod\\Models\\GPBMetadatab\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -702,7 +703,7 @@ public final class VodRequest {
     internal_static_Volcengine_Vod_Models_Request_VodListCdnTasksRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Request_VodListCdnTasksRequest_descriptor,
-        new java.lang.String[] { "SpaceName", "TaskId", "DomainName", "TaskType", "Status", "StartTime", "EndTime", "PageNum", "PageSize", });
+        new java.lang.String[] { "SpaceName", "TaskId", "DomainName", "TaskType", "Status", "StartTimestamp", "EndTimestamp", "PageNum", "PageSize", });
     internal_static_Volcengine_Vod_Models_Request_VodListCdnAccessLogRequest_descriptor =
       getDescriptor().getMessageTypes().get(43);
     internal_static_Volcengine_Vod_Models_Request_VodListCdnAccessLogRequest_fieldAccessorTable = new

@@ -77,9 +77,9 @@ private static final long serialVersionUID = 0L;
             taskType_ = s;
             break;
           }
-          case 41: {
+          case 40: {
 
-            createTime_ = input.readDouble();
+            createTimestamp_ = input.readInt32();
             break;
           }
           case 50: {
@@ -304,19 +304,19 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CREATETIME_FIELD_NUMBER = 5;
-  private double createTime_;
+  public static final int CREATETIMESTAMP_FIELD_NUMBER = 5;
+  private int createTimestamp_;
   /**
    * <pre>
-   *任务创建时间
+   *任务创建时间，单位：Unix秒级时间戳
    * </pre>
    *
-   * <code>double CreateTime = 5;</code>
-   * @return The createTime.
+   * <code>int32 CreateTimestamp = 5;</code>
+   * @return The createTimestamp.
    */
   @java.lang.Override
-  public double getCreateTime() {
-    return createTime_;
+  public int getCreateTimestamp() {
+    return createTimestamp_;
   }
 
   public static final int TASKID_FIELD_NUMBER = 6;
@@ -391,8 +391,8 @@ private static final long serialVersionUID = 0L;
     if (!getTaskTypeBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, taskType_);
     }
-    if (createTime_ != 0D) {
-      output.writeDouble(5, createTime_);
+    if (createTimestamp_ != 0) {
+      output.writeInt32(5, createTimestamp_);
     }
     if (!getTaskIdBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, taskId_);
@@ -418,9 +418,9 @@ private static final long serialVersionUID = 0L;
     if (!getTaskTypeBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, taskType_);
     }
-    if (createTime_ != 0D) {
+    if (createTimestamp_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(5, createTime_);
+        .computeInt32Size(5, createTimestamp_);
     }
     if (!getTaskIdBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, taskId_);
@@ -448,9 +448,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getStatus())) return false;
     if (!getTaskType()
         .equals(other.getTaskType())) return false;
-    if (java.lang.Double.doubleToLongBits(getCreateTime())
-        != java.lang.Double.doubleToLongBits(
-            other.getCreateTime())) return false;
+    if (getCreateTimestamp()
+        != other.getCreateTimestamp()) return false;
     if (!getTaskId()
         .equals(other.getTaskId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -472,9 +471,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getStatus().hashCode();
     hash = (37 * hash) + TASKTYPE_FIELD_NUMBER;
     hash = (53 * hash) + getTaskType().hashCode();
-    hash = (37 * hash) + CREATETIME_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getCreateTime()));
+    hash = (37 * hash) + CREATETIMESTAMP_FIELD_NUMBER;
+    hash = (53 * hash) + getCreateTimestamp();
     hash = (37 * hash) + TASKID_FIELD_NUMBER;
     hash = (53 * hash) + getTaskId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -618,7 +616,7 @@ private static final long serialVersionUID = 0L;
 
       taskType_ = "";
 
-      createTime_ = 0D;
+      createTimestamp_ = 0;
 
       taskId_ = "";
 
@@ -652,7 +650,7 @@ private static final long serialVersionUID = 0L;
       result.url_ = url_;
       result.status_ = status_;
       result.taskType_ = taskType_;
-      result.createTime_ = createTime_;
+      result.createTimestamp_ = createTimestamp_;
       result.taskId_ = taskId_;
       onBuilt();
       return result;
@@ -718,8 +716,8 @@ private static final long serialVersionUID = 0L;
         taskType_ = other.taskType_;
         onChanged();
       }
-      if (other.getCreateTime() != 0D) {
-        setCreateTime(other.getCreateTime());
+      if (other.getCreateTimestamp() != 0) {
+        setCreateTimestamp(other.getCreateTimestamp());
       }
       if (!other.getTaskId().isEmpty()) {
         taskId_ = other.taskId_;
@@ -1138,45 +1136,45 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private double createTime_ ;
+    private int createTimestamp_ ;
     /**
      * <pre>
-     *任务创建时间
+     *任务创建时间，单位：Unix秒级时间戳
      * </pre>
      *
-     * <code>double CreateTime = 5;</code>
-     * @return The createTime.
+     * <code>int32 CreateTimestamp = 5;</code>
+     * @return The createTimestamp.
      */
     @java.lang.Override
-    public double getCreateTime() {
-      return createTime_;
+    public int getCreateTimestamp() {
+      return createTimestamp_;
     }
     /**
      * <pre>
-     *任务创建时间
+     *任务创建时间，单位：Unix秒级时间戳
      * </pre>
      *
-     * <code>double CreateTime = 5;</code>
-     * @param value The createTime to set.
+     * <code>int32 CreateTimestamp = 5;</code>
+     * @param value The createTimestamp to set.
      * @return This builder for chaining.
      */
-    public Builder setCreateTime(double value) {
+    public Builder setCreateTimestamp(int value) {
       
-      createTime_ = value;
+      createTimestamp_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *任务创建时间
+     *任务创建时间，单位：Unix秒级时间戳
      * </pre>
      *
-     * <code>double CreateTime = 5;</code>
+     * <code>int32 CreateTimestamp = 5;</code>
      * @return This builder for chaining.
      */
-    public Builder clearCreateTime() {
+    public Builder clearCreateTimestamp() {
       
-      createTime_ = 0D;
+      createTimestamp_ = 0;
       onChanged();
       return this;
     }

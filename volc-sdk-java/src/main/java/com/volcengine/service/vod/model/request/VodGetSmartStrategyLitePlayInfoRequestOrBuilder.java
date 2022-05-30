@@ -3,29 +3,29 @@
 
 package com.volcengine.service.vod.model.request;
 
-public interface VodGetPlayInfoRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:Volcengine.Vod.Models.Request.VodGetPlayInfoRequest)
+public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:Volcengine.Vod.Models.Request.VodGetSmartStrategyLitePlayInfoRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
    * <pre>
-   * 视频ID
+   * 播放url
    * </pre>
    *
-   * <code>string Vid = 1;</code>
-   * @return The vid.
+   * <code>string PlayUrl = 1;</code>
+   * @return The playUrl.
    */
-  java.lang.String getVid();
+  java.lang.String getPlayUrl();
   /**
    * <pre>
-   * 视频ID
+   * 播放url
    * </pre>
    *
-   * <code>string Vid = 1;</code>
-   * @return The bytes for vid.
+   * <code>string PlayUrl = 1;</code>
+   * @return The bytes for playUrl.
    */
   com.google.protobuf.ByteString
-      getVidBytes();
+      getPlayUrlBytes();
 
   /**
    * <pre>
@@ -49,7 +49,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264, h265等Codec
+   *编码类型，默认h264，可选值为h264,bytevc1等Codec
    * </pre>
    *
    * <code>string Codec = 3;</code>
@@ -58,7 +58,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getCodec();
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264, h265等Codec
+   *编码类型，默认h264，可选值为h264,bytevc1等Codec
    * </pre>
    *
    * <code>string Codec = 3;</code>
@@ -129,30 +129,10 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
-   * </pre>
-   *
-   * <code>string Base64 = 7;</code>
-   * @return The base64.
-   */
-  java.lang.String getBase64();
-  /**
-   * <pre>
-   *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
-   * </pre>
-   *
-   * <code>string Base64 = 7;</code>
-   * @return The bytes for base64.
-   */
-  com.google.protobuf.ByteString
-      getBase64Bytes();
-
-  /**
-   * <pre>
    *返回https播放地址，默认否, 1-是；0-否
    * </pre>
    *
-   * <code>string Ssl = 8;</code>
+   * <code>string Ssl = 7;</code>
    * @return The ssl.
    */
   java.lang.String getSsl();
@@ -161,7 +141,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    *返回https播放地址，默认否, 1-是；0-否
    * </pre>
    *
-   * <code>string Ssl = 8;</code>
+   * <code>string Ssl = 7;</code>
    * @return The bytes for ssl.
    */
   com.google.protobuf.ByteString
@@ -172,7 +152,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    * 是否需要雪碧图（缩略图），默认否，1-是；0-否
    * </pre>
    *
-   * <code>string NeedThumbs = 9;</code>
+   * <code>string NeedThumbs = 8;</code>
    * @return The needThumbs.
    */
   java.lang.String getNeedThumbs();
@@ -181,7 +161,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    * 是否需要雪碧图（缩略图），默认否，1-是；0-否
    * </pre>
    *
-   * <code>string NeedThumbs = 9;</code>
+   * <code>string NeedThumbs = 8;</code>
    * @return The bytes for needThumbs.
    */
   com.google.protobuf.ByteString
@@ -192,7 +172,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    * 是否需要蒙版弹幕，默认否，1-是；0-否
    * </pre>
    *
-   * <code>string NeedBarrageMask = 10;</code>
+   * <code>string NeedBarrageMask = 9;</code>
    * @return The needBarrageMask.
    */
   java.lang.String getNeedBarrageMask();
@@ -201,7 +181,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    * 是否需要蒙版弹幕，默认否，1-是；0-否
    * </pre>
    *
-   * <code>string NeedBarrageMask = 10;</code>
+   * <code>string NeedBarrageMask = 9;</code>
    * @return The bytes for needBarrageMask.
    */
   com.google.protobuf.ByteString
@@ -209,30 +189,10 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 指定CDN类型
-   * </pre>
-   *
-   * <code>string CdnType = 11;</code>
-   * @return The cdnType.
-   */
-  java.lang.String getCdnType();
-  /**
-   * <pre>
-   * 指定CDN类型
-   * </pre>
-   *
-   * <code>string CdnType = 11;</code>
-   * @return The bytes for cdnType.
-   */
-  com.google.protobuf.ByteString
-      getCdnTypeBytes();
-
-  /**
-   * <pre>
    * 唯一性标识信息
    * </pre>
    *
-   * <code>string UnionInfo = 12;</code>
+   * <code>string UnionInfo = 10;</code>
    * @return The unionInfo.
    */
   java.lang.String getUnionInfo();
@@ -241,7 +201,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    * 唯一性标识信息
    * </pre>
    *
-   * <code>string UnionInfo = 12;</code>
+   * <code>string UnionInfo = 10;</code>
    * @return The bytes for unionInfo.
    */
   com.google.protobuf.ByteString
@@ -252,7 +212,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    * HDR清晰度，默认不查询，支持：all,
    * </pre>
    *
-   * <code>string HDRDefinition = 13;</code>
+   * <code>string HDRDefinition = 11;</code>
    * @return The hDRDefinition.
    */
   java.lang.String getHDRDefinition();
@@ -261,69 +221,9 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    * HDR清晰度，默认不查询，支持：all,
    * </pre>
    *
-   * <code>string HDRDefinition = 13;</code>
+   * <code>string HDRDefinition = 11;</code>
    * @return The bytes for hDRDefinition.
    */
   com.google.protobuf.ByteString
       getHDRDefinitionBytes();
-
-  /**
-   * <pre>
-   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
-   * </pre>
-   *
-   * <code>string PlayScene = 14;</code>
-   * @return The playScene.
-   */
-  java.lang.String getPlayScene();
-  /**
-   * <pre>
-   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
-   * </pre>
-   *
-   * <code>string PlayScene = 14;</code>
-   * @return The bytes for playScene.
-   */
-  com.google.protobuf.ByteString
-      getPlaySceneBytes();
-
-  /**
-   * <pre>
-   * DRM过期时间戳
-   * </pre>
-   *
-   * <code>string DrmExpireTimestamp = 15;</code>
-   * @return The drmExpireTimestamp.
-   */
-  java.lang.String getDrmExpireTimestamp();
-  /**
-   * <pre>
-   * DRM过期时间戳
-   * </pre>
-   *
-   * <code>string DrmExpireTimestamp = 15;</code>
-   * @return The bytes for drmExpireTimestamp.
-   */
-  com.google.protobuf.ByteString
-      getDrmExpireTimestampBytes();
-
-  /**
-   * <pre>
-   *音频码率
-   * </pre>
-   *
-   * <code>string Quality = 16;</code>
-   * @return The quality.
-   */
-  java.lang.String getQuality();
-  /**
-   * <pre>
-   *音频码率
-   * </pre>
-   *
-   * <code>string Quality = 16;</code>
-   * @return The bytes for quality.
-   */
-  com.google.protobuf.ByteString
-      getQualityBytes();
 }

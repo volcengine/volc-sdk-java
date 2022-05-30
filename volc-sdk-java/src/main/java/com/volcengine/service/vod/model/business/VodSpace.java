@@ -34,16 +34,17 @@ public final class VodSpace {
       "ojectName\030\004 \001(\t\022\022\n\nBucketName\030\005 \001(\t\022\024\n\014B" +
       "ucketStatus\030\006 \001(\t\022\023\n\013Description\030\007 \001(\t\022\020" +
       "\n\010UserName\030\010 \001(\t\022\021\n\tCreatedAt\030\t \001(\t\022\014\n\004T" +
-      "ype\030\n \001(\t\022\026\n\016MediaSyncLevel\030\013 \001(\t*p\n\027Vod" +
-      "SpaceUploadConfigKey\022$\n UndefinedVodSpac" +
-      "eUploadConfigKey\020\000\022/\n+CustomUploadFilePa" +
-      "thVodSpaceUploadConfigKey\020\001B\314\001\n)com.volc" +
-      "engine.service.vod.model.businessB\010VodSp" +
-      "aceP\001ZAgithub.com/volcengine/volc-sdk-go" +
-      "lang/service/vod/models/business\240\001\001\330\001\001\302\002" +
-      "\000\312\002 Volc\\Service\\Vod\\Models\\Business\342\002#V" +
-      "olc\\Service\\Vod\\Models\\GPBMetadatab\006prot" +
-      "o3"
+      "ype\030\n \001(\t\022\026\n\016MediaSyncLevel\030\013 \001(\t*\243\001\n\027Vo" +
+      "dSpaceUploadConfigKey\022$\n UndefinedVodSpa" +
+      "ceUploadConfigKey\020\000\022/\n+CustomUploadFileP" +
+      "athVodSpaceUploadConfigKey\020\001\0221\n-AutoPubl" +
+      "ishAfterUploadVodSpaceUploadConfigKey\020\002B" +
+      "\314\001\n)com.volcengine.service.vod.model.bus" +
+      "inessB\010VodSpaceP\001ZAgithub.com/volcengine" +
+      "/volc-sdk-golang/service/vod/models/busi" +
+      "ness\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Models\\" +
+      "Business\342\002#Volc\\Service\\Vod\\Models\\GPBMe" +
+      "tadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

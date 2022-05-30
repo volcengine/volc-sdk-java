@@ -463,6 +463,24 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodDescribeVodDomainBandwidthDataResponse describeVodDomainBandwidthData(com.volcengine.service.vod.model.request.VodDescribeVodDomainBandwidthDataRequest input) throws Exception;
 	
 	/**
+     * listCdnUsageData.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest
+     * @return com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse listCdnUsageData(com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest input) throws Exception;
+	
+	/**
+     * listCdnStatusData.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodListCdnStatusDataRequest
+     * @return com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse listCdnStatusData(com.volcengine.service.vod.model.request.VodListCdnStatusDataRequest input) throws Exception;
+	
+	/**
      * addCallbackSubscription.
      *
      * @param input com.volcengine.service.vod.model.request.VodAddCallbackSubscriptionRequest
@@ -479,5 +497,14 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodSetCallbackEventResponse setCallbackEvent(com.volcengine.service.vod.model.request.VodSetCallbackEventRequest input) throws Exception;
+	
+	/**
+     * getSmartStrategyLitePlayInfo.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest
+     * @return com.volcengine.service.vod.model.response.VodGetSmartStrategyLitePlayInfoResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodGetSmartStrategyLitePlayInfoResponse getSmartStrategyLitePlayInfo(com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest input) throws Exception;
 	
 }  // end of service interface

@@ -4,41 +4,42 @@
 package com.volcengine.service.vod.model.request;
 
 /**
- * Protobuf type {@code Volcengine.Vod.Models.Request.VodGetPlayInfoRequest}
+ * <pre>
+ * **********************************************************************
+ * 智能策略-轻量版
+ * **********************************************************************
+ * </pre>
+ *
+ * Protobuf type {@code Volcengine.Vod.Models.Request.VodGetSmartStrategyLitePlayInfoRequest}
  */
-public final class VodGetPlayInfoRequest extends
+public final class VodGetSmartStrategyLitePlayInfoRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Request.VodGetPlayInfoRequest)
-    VodGetPlayInfoRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Request.VodGetSmartStrategyLitePlayInfoRequest)
+    VodGetSmartStrategyLitePlayInfoRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use VodGetPlayInfoRequest.newBuilder() to construct.
-  private VodGetPlayInfoRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use VodGetSmartStrategyLitePlayInfoRequest.newBuilder() to construct.
+  private VodGetSmartStrategyLitePlayInfoRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private VodGetPlayInfoRequest() {
-    vid_ = "";
+  private VodGetSmartStrategyLitePlayInfoRequest() {
+    playUrl_ = "";
     format_ = "";
     codec_ = "";
     definition_ = "";
     fileType_ = "";
     logoType_ = "";
-    base64_ = "";
     ssl_ = "";
     needThumbs_ = "";
     needBarrageMask_ = "";
-    cdnType_ = "";
     unionInfo_ = "";
     hDRDefinition_ = "";
-    playScene_ = "";
-    drmExpireTimestamp_ = "";
-    quality_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new VodGetPlayInfoRequest();
+    return new VodGetSmartStrategyLitePlayInfoRequest();
   }
 
   @java.lang.Override
@@ -46,7 +47,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VodGetPlayInfoRequest(
+  private VodGetSmartStrategyLitePlayInfoRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -67,7 +68,7 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            vid_ = s;
+            playUrl_ = s;
             break;
           }
           case 18: {
@@ -103,61 +104,31 @@ private static final long serialVersionUID = 0L;
           case 58: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            base64_ = s;
+            ssl_ = s;
             break;
           }
           case 66: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            ssl_ = s;
+            needThumbs_ = s;
             break;
           }
           case 74: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            needThumbs_ = s;
+            needBarrageMask_ = s;
             break;
           }
           case 82: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            needBarrageMask_ = s;
+            unionInfo_ = s;
             break;
           }
           case 90: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            cdnType_ = s;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            unionInfo_ = s;
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-
             hDRDefinition_ = s;
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            playScene_ = s;
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            drmExpireTimestamp_ = s;
-            break;
-          }
-          case 130: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            quality_ = s;
             break;
           }
           default: {
@@ -181,57 +152,57 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetPlayInfoRequest_descriptor;
+    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetSmartStrategyLitePlayInfoRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetPlayInfoRequest_fieldAccessorTable
+    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetSmartStrategyLitePlayInfoRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.volcengine.service.vod.model.request.VodGetPlayInfoRequest.class, com.volcengine.service.vod.model.request.VodGetPlayInfoRequest.Builder.class);
+            com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest.class, com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest.Builder.class);
   }
 
-  public static final int VID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object vid_;
+  public static final int PLAYURL_FIELD_NUMBER = 1;
+  private volatile java.lang.Object playUrl_;
   /**
    * <pre>
-   * 视频ID
+   * 播放url
    * </pre>
    *
-   * <code>string Vid = 1;</code>
-   * @return The vid.
+   * <code>string PlayUrl = 1;</code>
+   * @return The playUrl.
    */
   @java.lang.Override
-  public java.lang.String getVid() {
-    java.lang.Object ref = vid_;
+  public java.lang.String getPlayUrl() {
+    java.lang.Object ref = playUrl_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      vid_ = s;
+      playUrl_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * 视频ID
+   * 播放url
    * </pre>
    *
-   * <code>string Vid = 1;</code>
-   * @return The bytes for vid.
+   * <code>string PlayUrl = 1;</code>
+   * @return The bytes for playUrl.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getVidBytes() {
-    java.lang.Object ref = vid_;
+      getPlayUrlBytes() {
+    java.lang.Object ref = playUrl_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      vid_ = b;
+      playUrl_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -288,7 +259,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object codec_;
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264, h265等Codec
+   *编码类型，默认h264，可选值为h264,bytevc1等Codec
    * </pre>
    *
    * <code>string Codec = 3;</code>
@@ -309,7 +280,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264, h265等Codec
+   *编码类型，默认h264，可选值为h264,bytevc1等Codec
    * </pre>
    *
    * <code>string Codec = 3;</code>
@@ -468,60 +439,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int BASE64_FIELD_NUMBER = 7;
-  private volatile java.lang.Object base64_;
-  /**
-   * <pre>
-   *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
-   * </pre>
-   *
-   * <code>string Base64 = 7;</code>
-   * @return The base64.
-   */
-  @java.lang.Override
-  public java.lang.String getBase64() {
-    java.lang.Object ref = base64_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      base64_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
-   * </pre>
-   *
-   * <code>string Base64 = 7;</code>
-   * @return The bytes for base64.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getBase64Bytes() {
-    java.lang.Object ref = base64_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      base64_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int SSL_FIELD_NUMBER = 8;
+  public static final int SSL_FIELD_NUMBER = 7;
   private volatile java.lang.Object ssl_;
   /**
    * <pre>
    *返回https播放地址，默认否, 1-是；0-否
    * </pre>
    *
-   * <code>string Ssl = 8;</code>
+   * <code>string Ssl = 7;</code>
    * @return The ssl.
    */
   @java.lang.Override
@@ -542,7 +467,7 @@ private static final long serialVersionUID = 0L;
    *返回https播放地址，默认否, 1-是；0-否
    * </pre>
    *
-   * <code>string Ssl = 8;</code>
+   * <code>string Ssl = 7;</code>
    * @return The bytes for ssl.
    */
   @java.lang.Override
@@ -560,14 +485,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int NEEDTHUMBS_FIELD_NUMBER = 9;
+  public static final int NEEDTHUMBS_FIELD_NUMBER = 8;
   private volatile java.lang.Object needThumbs_;
   /**
    * <pre>
    * 是否需要雪碧图（缩略图），默认否，1-是；0-否
    * </pre>
    *
-   * <code>string NeedThumbs = 9;</code>
+   * <code>string NeedThumbs = 8;</code>
    * @return The needThumbs.
    */
   @java.lang.Override
@@ -588,7 +513,7 @@ private static final long serialVersionUID = 0L;
    * 是否需要雪碧图（缩略图），默认否，1-是；0-否
    * </pre>
    *
-   * <code>string NeedThumbs = 9;</code>
+   * <code>string NeedThumbs = 8;</code>
    * @return The bytes for needThumbs.
    */
   @java.lang.Override
@@ -606,14 +531,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int NEEDBARRAGEMASK_FIELD_NUMBER = 10;
+  public static final int NEEDBARRAGEMASK_FIELD_NUMBER = 9;
   private volatile java.lang.Object needBarrageMask_;
   /**
    * <pre>
    * 是否需要蒙版弹幕，默认否，1-是；0-否
    * </pre>
    *
-   * <code>string NeedBarrageMask = 10;</code>
+   * <code>string NeedBarrageMask = 9;</code>
    * @return The needBarrageMask.
    */
   @java.lang.Override
@@ -634,7 +559,7 @@ private static final long serialVersionUID = 0L;
    * 是否需要蒙版弹幕，默认否，1-是；0-否
    * </pre>
    *
-   * <code>string NeedBarrageMask = 10;</code>
+   * <code>string NeedBarrageMask = 9;</code>
    * @return The bytes for needBarrageMask.
    */
   @java.lang.Override
@@ -652,60 +577,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CDNTYPE_FIELD_NUMBER = 11;
-  private volatile java.lang.Object cdnType_;
-  /**
-   * <pre>
-   * 指定CDN类型
-   * </pre>
-   *
-   * <code>string CdnType = 11;</code>
-   * @return The cdnType.
-   */
-  @java.lang.Override
-  public java.lang.String getCdnType() {
-    java.lang.Object ref = cdnType_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      cdnType_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * 指定CDN类型
-   * </pre>
-   *
-   * <code>string CdnType = 11;</code>
-   * @return The bytes for cdnType.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getCdnTypeBytes() {
-    java.lang.Object ref = cdnType_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      cdnType_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int UNIONINFO_FIELD_NUMBER = 12;
+  public static final int UNIONINFO_FIELD_NUMBER = 10;
   private volatile java.lang.Object unionInfo_;
   /**
    * <pre>
    * 唯一性标识信息
    * </pre>
    *
-   * <code>string UnionInfo = 12;</code>
+   * <code>string UnionInfo = 10;</code>
    * @return The unionInfo.
    */
   @java.lang.Override
@@ -726,7 +605,7 @@ private static final long serialVersionUID = 0L;
    * 唯一性标识信息
    * </pre>
    *
-   * <code>string UnionInfo = 12;</code>
+   * <code>string UnionInfo = 10;</code>
    * @return The bytes for unionInfo.
    */
   @java.lang.Override
@@ -744,14 +623,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int HDRDEFINITION_FIELD_NUMBER = 13;
+  public static final int HDRDEFINITION_FIELD_NUMBER = 11;
   private volatile java.lang.Object hDRDefinition_;
   /**
    * <pre>
    * HDR清晰度，默认不查询，支持：all,
    * </pre>
    *
-   * <code>string HDRDefinition = 13;</code>
+   * <code>string HDRDefinition = 11;</code>
    * @return The hDRDefinition.
    */
   @java.lang.Override
@@ -772,7 +651,7 @@ private static final long serialVersionUID = 0L;
    * HDR清晰度，默认不查询，支持：all,
    * </pre>
    *
-   * <code>string HDRDefinition = 13;</code>
+   * <code>string HDRDefinition = 11;</code>
    * @return The bytes for hDRDefinition.
    */
   @java.lang.Override
@@ -784,144 +663,6 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       hDRDefinition_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int PLAYSCENE_FIELD_NUMBER = 14;
-  private volatile java.lang.Object playScene_;
-  /**
-   * <pre>
-   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
-   * </pre>
-   *
-   * <code>string PlayScene = 14;</code>
-   * @return The playScene.
-   */
-  @java.lang.Override
-  public java.lang.String getPlayScene() {
-    java.lang.Object ref = playScene_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      playScene_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
-   * </pre>
-   *
-   * <code>string PlayScene = 14;</code>
-   * @return The bytes for playScene.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getPlaySceneBytes() {
-    java.lang.Object ref = playScene_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      playScene_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int DRMEXPIRETIMESTAMP_FIELD_NUMBER = 15;
-  private volatile java.lang.Object drmExpireTimestamp_;
-  /**
-   * <pre>
-   * DRM过期时间戳
-   * </pre>
-   *
-   * <code>string DrmExpireTimestamp = 15;</code>
-   * @return The drmExpireTimestamp.
-   */
-  @java.lang.Override
-  public java.lang.String getDrmExpireTimestamp() {
-    java.lang.Object ref = drmExpireTimestamp_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      drmExpireTimestamp_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * DRM过期时间戳
-   * </pre>
-   *
-   * <code>string DrmExpireTimestamp = 15;</code>
-   * @return The bytes for drmExpireTimestamp.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getDrmExpireTimestampBytes() {
-    java.lang.Object ref = drmExpireTimestamp_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      drmExpireTimestamp_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int QUALITY_FIELD_NUMBER = 16;
-  private volatile java.lang.Object quality_;
-  /**
-   * <pre>
-   *音频码率
-   * </pre>
-   *
-   * <code>string Quality = 16;</code>
-   * @return The quality.
-   */
-  @java.lang.Override
-  public java.lang.String getQuality() {
-    java.lang.Object ref = quality_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      quality_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   *音频码率
-   * </pre>
-   *
-   * <code>string Quality = 16;</code>
-   * @return The bytes for quality.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getQualityBytes() {
-    java.lang.Object ref = quality_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      quality_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -942,8 +683,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getVidBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vid_);
+    if (!getPlayUrlBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, playUrl_);
     }
     if (!getFormatBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, format_);
@@ -960,35 +701,20 @@ private static final long serialVersionUID = 0L;
     if (!getLogoTypeBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, logoType_);
     }
-    if (!getBase64Bytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, base64_);
-    }
     if (!getSslBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, ssl_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, ssl_);
     }
     if (!getNeedThumbsBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, needThumbs_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, needThumbs_);
     }
     if (!getNeedBarrageMaskBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, needBarrageMask_);
-    }
-    if (!getCdnTypeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, cdnType_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, needBarrageMask_);
     }
     if (!getUnionInfoBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, unionInfo_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, unionInfo_);
     }
     if (!getHDRDefinitionBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, hDRDefinition_);
-    }
-    if (!getPlaySceneBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 14, playScene_);
-    }
-    if (!getDrmExpireTimestampBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 15, drmExpireTimestamp_);
-    }
-    if (!getQualityBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 16, quality_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, hDRDefinition_);
     }
     unknownFields.writeTo(output);
   }
@@ -999,8 +725,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getVidBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vid_);
+    if (!getPlayUrlBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, playUrl_);
     }
     if (!getFormatBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, format_);
@@ -1017,35 +743,20 @@ private static final long serialVersionUID = 0L;
     if (!getLogoTypeBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, logoType_);
     }
-    if (!getBase64Bytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, base64_);
-    }
     if (!getSslBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, ssl_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, ssl_);
     }
     if (!getNeedThumbsBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, needThumbs_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, needThumbs_);
     }
     if (!getNeedBarrageMaskBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, needBarrageMask_);
-    }
-    if (!getCdnTypeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, cdnType_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, needBarrageMask_);
     }
     if (!getUnionInfoBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, unionInfo_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, unionInfo_);
     }
     if (!getHDRDefinitionBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, hDRDefinition_);
-    }
-    if (!getPlaySceneBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, playScene_);
-    }
-    if (!getDrmExpireTimestampBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, drmExpireTimestamp_);
-    }
-    if (!getQualityBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, quality_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, hDRDefinition_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -1057,13 +768,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.volcengine.service.vod.model.request.VodGetPlayInfoRequest)) {
+    if (!(obj instanceof com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest)) {
       return super.equals(obj);
     }
-    com.volcengine.service.vod.model.request.VodGetPlayInfoRequest other = (com.volcengine.service.vod.model.request.VodGetPlayInfoRequest) obj;
+    com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest other = (com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest) obj;
 
-    if (!getVid()
-        .equals(other.getVid())) return false;
+    if (!getPlayUrl()
+        .equals(other.getPlayUrl())) return false;
     if (!getFormat()
         .equals(other.getFormat())) return false;
     if (!getCodec()
@@ -1074,26 +785,16 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFileType())) return false;
     if (!getLogoType()
         .equals(other.getLogoType())) return false;
-    if (!getBase64()
-        .equals(other.getBase64())) return false;
     if (!getSsl()
         .equals(other.getSsl())) return false;
     if (!getNeedThumbs()
         .equals(other.getNeedThumbs())) return false;
     if (!getNeedBarrageMask()
         .equals(other.getNeedBarrageMask())) return false;
-    if (!getCdnType()
-        .equals(other.getCdnType())) return false;
     if (!getUnionInfo()
         .equals(other.getUnionInfo())) return false;
     if (!getHDRDefinition()
         .equals(other.getHDRDefinition())) return false;
-    if (!getPlayScene()
-        .equals(other.getPlayScene())) return false;
-    if (!getDrmExpireTimestamp()
-        .equals(other.getDrmExpireTimestamp())) return false;
-    if (!getQuality()
-        .equals(other.getQuality())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1105,8 +806,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + VID_FIELD_NUMBER;
-    hash = (53 * hash) + getVid().hashCode();
+    hash = (37 * hash) + PLAYURL_FIELD_NUMBER;
+    hash = (53 * hash) + getPlayUrl().hashCode();
     hash = (37 * hash) + FORMAT_FIELD_NUMBER;
     hash = (53 * hash) + getFormat().hashCode();
     hash = (37 * hash) + CODEC_FIELD_NUMBER;
@@ -1117,94 +818,84 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFileType().hashCode();
     hash = (37 * hash) + LOGOTYPE_FIELD_NUMBER;
     hash = (53 * hash) + getLogoType().hashCode();
-    hash = (37 * hash) + BASE64_FIELD_NUMBER;
-    hash = (53 * hash) + getBase64().hashCode();
     hash = (37 * hash) + SSL_FIELD_NUMBER;
     hash = (53 * hash) + getSsl().hashCode();
     hash = (37 * hash) + NEEDTHUMBS_FIELD_NUMBER;
     hash = (53 * hash) + getNeedThumbs().hashCode();
     hash = (37 * hash) + NEEDBARRAGEMASK_FIELD_NUMBER;
     hash = (53 * hash) + getNeedBarrageMask().hashCode();
-    hash = (37 * hash) + CDNTYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getCdnType().hashCode();
     hash = (37 * hash) + UNIONINFO_FIELD_NUMBER;
     hash = (53 * hash) + getUnionInfo().hashCode();
     hash = (37 * hash) + HDRDEFINITION_FIELD_NUMBER;
     hash = (53 * hash) + getHDRDefinition().hashCode();
-    hash = (37 * hash) + PLAYSCENE_FIELD_NUMBER;
-    hash = (53 * hash) + getPlayScene().hashCode();
-    hash = (37 * hash) + DRMEXPIRETIMESTAMP_FIELD_NUMBER;
-    hash = (53 * hash) + getDrmExpireTimestamp().hashCode();
-    hash = (37 * hash) + QUALITY_FIELD_NUMBER;
-    hash = (53 * hash) + getQuality().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(byte[] data)
+  public static com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseDelimitedFrom(
+  public static com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -1217,7 +908,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.volcengine.service.vod.model.request.VodGetPlayInfoRequest prototype) {
+  public static Builder newBuilder(com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -1233,26 +924,32 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code Volcengine.Vod.Models.Request.VodGetPlayInfoRequest}
+   * <pre>
+   * **********************************************************************
+   * 智能策略-轻量版
+   * **********************************************************************
+   * </pre>
+   *
+   * Protobuf type {@code Volcengine.Vod.Models.Request.VodGetSmartStrategyLitePlayInfoRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Request.VodGetPlayInfoRequest)
-      com.volcengine.service.vod.model.request.VodGetPlayInfoRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Request.VodGetSmartStrategyLitePlayInfoRequest)
+      com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetPlayInfoRequest_descriptor;
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetSmartStrategyLitePlayInfoRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetPlayInfoRequest_fieldAccessorTable
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetSmartStrategyLitePlayInfoRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.volcengine.service.vod.model.request.VodGetPlayInfoRequest.class, com.volcengine.service.vod.model.request.VodGetPlayInfoRequest.Builder.class);
+              com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest.class, com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest.Builder.class);
     }
 
-    // Construct using com.volcengine.service.vod.model.request.VodGetPlayInfoRequest.newBuilder()
+    // Construct using com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -1270,7 +967,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      vid_ = "";
+      playUrl_ = "";
 
       format_ = "";
 
@@ -1282,25 +979,15 @@ private static final long serialVersionUID = 0L;
 
       logoType_ = "";
 
-      base64_ = "";
-
       ssl_ = "";
 
       needThumbs_ = "";
 
       needBarrageMask_ = "";
 
-      cdnType_ = "";
-
       unionInfo_ = "";
 
       hDRDefinition_ = "";
-
-      playScene_ = "";
-
-      drmExpireTimestamp_ = "";
-
-      quality_ = "";
 
       return this;
     }
@@ -1308,17 +995,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetPlayInfoRequest_descriptor;
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetSmartStrategyLitePlayInfoRequest_descriptor;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodGetPlayInfoRequest getDefaultInstanceForType() {
-      return com.volcengine.service.vod.model.request.VodGetPlayInfoRequest.getDefaultInstance();
+    public com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest getDefaultInstanceForType() {
+      return com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodGetPlayInfoRequest build() {
-      com.volcengine.service.vod.model.request.VodGetPlayInfoRequest result = buildPartial();
+    public com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest build() {
+      com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -1326,24 +1013,19 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodGetPlayInfoRequest buildPartial() {
-      com.volcengine.service.vod.model.request.VodGetPlayInfoRequest result = new com.volcengine.service.vod.model.request.VodGetPlayInfoRequest(this);
-      result.vid_ = vid_;
+    public com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest buildPartial() {
+      com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest result = new com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest(this);
+      result.playUrl_ = playUrl_;
       result.format_ = format_;
       result.codec_ = codec_;
       result.definition_ = definition_;
       result.fileType_ = fileType_;
       result.logoType_ = logoType_;
-      result.base64_ = base64_;
       result.ssl_ = ssl_;
       result.needThumbs_ = needThumbs_;
       result.needBarrageMask_ = needBarrageMask_;
-      result.cdnType_ = cdnType_;
       result.unionInfo_ = unionInfo_;
       result.hDRDefinition_ = hDRDefinition_;
-      result.playScene_ = playScene_;
-      result.drmExpireTimestamp_ = drmExpireTimestamp_;
-      result.quality_ = quality_;
       onBuilt();
       return result;
     }
@@ -1382,18 +1064,18 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.volcengine.service.vod.model.request.VodGetPlayInfoRequest) {
-        return mergeFrom((com.volcengine.service.vod.model.request.VodGetPlayInfoRequest)other);
+      if (other instanceof com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest) {
+        return mergeFrom((com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.volcengine.service.vod.model.request.VodGetPlayInfoRequest other) {
-      if (other == com.volcengine.service.vod.model.request.VodGetPlayInfoRequest.getDefaultInstance()) return this;
-      if (!other.getVid().isEmpty()) {
-        vid_ = other.vid_;
+    public Builder mergeFrom(com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest other) {
+      if (other == com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest.getDefaultInstance()) return this;
+      if (!other.getPlayUrl().isEmpty()) {
+        playUrl_ = other.playUrl_;
         onChanged();
       }
       if (!other.getFormat().isEmpty()) {
@@ -1416,10 +1098,6 @@ private static final long serialVersionUID = 0L;
         logoType_ = other.logoType_;
         onChanged();
       }
-      if (!other.getBase64().isEmpty()) {
-        base64_ = other.base64_;
-        onChanged();
-      }
       if (!other.getSsl().isEmpty()) {
         ssl_ = other.ssl_;
         onChanged();
@@ -1432,28 +1110,12 @@ private static final long serialVersionUID = 0L;
         needBarrageMask_ = other.needBarrageMask_;
         onChanged();
       }
-      if (!other.getCdnType().isEmpty()) {
-        cdnType_ = other.cdnType_;
-        onChanged();
-      }
       if (!other.getUnionInfo().isEmpty()) {
         unionInfo_ = other.unionInfo_;
         onChanged();
       }
       if (!other.getHDRDefinition().isEmpty()) {
         hDRDefinition_ = other.hDRDefinition_;
-        onChanged();
-      }
-      if (!other.getPlayScene().isEmpty()) {
-        playScene_ = other.playScene_;
-        onChanged();
-      }
-      if (!other.getDrmExpireTimestamp().isEmpty()) {
-        drmExpireTimestamp_ = other.drmExpireTimestamp_;
-        onChanged();
-      }
-      if (!other.getQuality().isEmpty()) {
-        quality_ = other.quality_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1471,11 +1133,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parsedMessage = null;
+      com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.volcengine.service.vod.model.request.VodGetPlayInfoRequest) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -1485,22 +1147,22 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object vid_ = "";
+    private java.lang.Object playUrl_ = "";
     /**
      * <pre>
-     * 视频ID
+     * 播放url
      * </pre>
      *
-     * <code>string Vid = 1;</code>
-     * @return The vid.
+     * <code>string PlayUrl = 1;</code>
+     * @return The playUrl.
      */
-    public java.lang.String getVid() {
-      java.lang.Object ref = vid_;
+    public java.lang.String getPlayUrl() {
+      java.lang.Object ref = playUrl_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        vid_ = s;
+        playUrl_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -1508,20 +1170,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频ID
+     * 播放url
      * </pre>
      *
-     * <code>string Vid = 1;</code>
-     * @return The bytes for vid.
+     * <code>string PlayUrl = 1;</code>
+     * @return The bytes for playUrl.
      */
     public com.google.protobuf.ByteString
-        getVidBytes() {
-      java.lang.Object ref = vid_;
+        getPlayUrlBytes() {
+      java.lang.Object ref = playUrl_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        vid_ = b;
+        playUrl_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1529,54 +1191,54 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频ID
+     * 播放url
      * </pre>
      *
-     * <code>string Vid = 1;</code>
-     * @param value The vid to set.
+     * <code>string PlayUrl = 1;</code>
+     * @param value The playUrl to set.
      * @return This builder for chaining.
      */
-    public Builder setVid(
+    public Builder setPlayUrl(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      vid_ = value;
+      playUrl_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 视频ID
+     * 播放url
      * </pre>
      *
-     * <code>string Vid = 1;</code>
+     * <code>string PlayUrl = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearVid() {
+    public Builder clearPlayUrl() {
       
-      vid_ = getDefaultInstance().getVid();
+      playUrl_ = getDefaultInstance().getPlayUrl();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 视频ID
+     * 播放url
      * </pre>
      *
-     * <code>string Vid = 1;</code>
-     * @param value The bytes for vid to set.
+     * <code>string PlayUrl = 1;</code>
+     * @param value The bytes for playUrl to set.
      * @return This builder for chaining.
      */
-    public Builder setVidBytes(
+    public Builder setPlayUrlBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      vid_ = value;
+      playUrl_ = value;
       onChanged();
       return this;
     }
@@ -1680,7 +1342,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object codec_ = "";
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264, h265等Codec
+     *编码类型，默认h264，可选值为h264,bytevc1等Codec
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -1700,7 +1362,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264, h265等Codec
+     *编码类型，默认h264，可选值为h264,bytevc1等Codec
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -1721,7 +1383,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264, h265等Codec
+     *编码类型，默认h264，可选值为h264,bytevc1等Codec
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -1740,7 +1402,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264, h265等Codec
+     *编码类型，默认h264，可选值为h264,bytevc1等Codec
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -1754,7 +1416,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264, h265等Codec
+     *编码类型，默认h264，可选值为h264,bytevc1等Codec
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -2061,109 +1723,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object base64_ = "";
-    /**
-     * <pre>
-     *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
-     * </pre>
-     *
-     * <code>string Base64 = 7;</code>
-     * @return The base64.
-     */
-    public java.lang.String getBase64() {
-      java.lang.Object ref = base64_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        base64_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
-     * </pre>
-     *
-     * <code>string Base64 = 7;</code>
-     * @return The bytes for base64.
-     */
-    public com.google.protobuf.ByteString
-        getBase64Bytes() {
-      java.lang.Object ref = base64_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        base64_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
-     * </pre>
-     *
-     * <code>string Base64 = 7;</code>
-     * @param value The base64 to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBase64(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      base64_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
-     * </pre>
-     *
-     * <code>string Base64 = 7;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBase64() {
-      
-      base64_ = getDefaultInstance().getBase64();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
-     * </pre>
-     *
-     * <code>string Base64 = 7;</code>
-     * @param value The bytes for base64 to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBase64Bytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      base64_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object ssl_ = "";
     /**
      * <pre>
      *返回https播放地址，默认否, 1-是；0-否
      * </pre>
      *
-     * <code>string Ssl = 8;</code>
+     * <code>string Ssl = 7;</code>
      * @return The ssl.
      */
     public java.lang.String getSsl() {
@@ -2183,7 +1749,7 @@ private static final long serialVersionUID = 0L;
      *返回https播放地址，默认否, 1-是；0-否
      * </pre>
      *
-     * <code>string Ssl = 8;</code>
+     * <code>string Ssl = 7;</code>
      * @return The bytes for ssl.
      */
     public com.google.protobuf.ByteString
@@ -2204,7 +1770,7 @@ private static final long serialVersionUID = 0L;
      *返回https播放地址，默认否, 1-是；0-否
      * </pre>
      *
-     * <code>string Ssl = 8;</code>
+     * <code>string Ssl = 7;</code>
      * @param value The ssl to set.
      * @return This builder for chaining.
      */
@@ -2223,7 +1789,7 @@ private static final long serialVersionUID = 0L;
      *返回https播放地址，默认否, 1-是；0-否
      * </pre>
      *
-     * <code>string Ssl = 8;</code>
+     * <code>string Ssl = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearSsl() {
@@ -2237,7 +1803,7 @@ private static final long serialVersionUID = 0L;
      *返回https播放地址，默认否, 1-是；0-否
      * </pre>
      *
-     * <code>string Ssl = 8;</code>
+     * <code>string Ssl = 7;</code>
      * @param value The bytes for ssl to set.
      * @return This builder for chaining.
      */
@@ -2259,7 +1825,7 @@ private static final long serialVersionUID = 0L;
      * 是否需要雪碧图（缩略图），默认否，1-是；0-否
      * </pre>
      *
-     * <code>string NeedThumbs = 9;</code>
+     * <code>string NeedThumbs = 8;</code>
      * @return The needThumbs.
      */
     public java.lang.String getNeedThumbs() {
@@ -2279,7 +1845,7 @@ private static final long serialVersionUID = 0L;
      * 是否需要雪碧图（缩略图），默认否，1-是；0-否
      * </pre>
      *
-     * <code>string NeedThumbs = 9;</code>
+     * <code>string NeedThumbs = 8;</code>
      * @return The bytes for needThumbs.
      */
     public com.google.protobuf.ByteString
@@ -2300,7 +1866,7 @@ private static final long serialVersionUID = 0L;
      * 是否需要雪碧图（缩略图），默认否，1-是；0-否
      * </pre>
      *
-     * <code>string NeedThumbs = 9;</code>
+     * <code>string NeedThumbs = 8;</code>
      * @param value The needThumbs to set.
      * @return This builder for chaining.
      */
@@ -2319,7 +1885,7 @@ private static final long serialVersionUID = 0L;
      * 是否需要雪碧图（缩略图），默认否，1-是；0-否
      * </pre>
      *
-     * <code>string NeedThumbs = 9;</code>
+     * <code>string NeedThumbs = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearNeedThumbs() {
@@ -2333,7 +1899,7 @@ private static final long serialVersionUID = 0L;
      * 是否需要雪碧图（缩略图），默认否，1-是；0-否
      * </pre>
      *
-     * <code>string NeedThumbs = 9;</code>
+     * <code>string NeedThumbs = 8;</code>
      * @param value The bytes for needThumbs to set.
      * @return This builder for chaining.
      */
@@ -2355,7 +1921,7 @@ private static final long serialVersionUID = 0L;
      * 是否需要蒙版弹幕，默认否，1-是；0-否
      * </pre>
      *
-     * <code>string NeedBarrageMask = 10;</code>
+     * <code>string NeedBarrageMask = 9;</code>
      * @return The needBarrageMask.
      */
     public java.lang.String getNeedBarrageMask() {
@@ -2375,7 +1941,7 @@ private static final long serialVersionUID = 0L;
      * 是否需要蒙版弹幕，默认否，1-是；0-否
      * </pre>
      *
-     * <code>string NeedBarrageMask = 10;</code>
+     * <code>string NeedBarrageMask = 9;</code>
      * @return The bytes for needBarrageMask.
      */
     public com.google.protobuf.ByteString
@@ -2396,7 +1962,7 @@ private static final long serialVersionUID = 0L;
      * 是否需要蒙版弹幕，默认否，1-是；0-否
      * </pre>
      *
-     * <code>string NeedBarrageMask = 10;</code>
+     * <code>string NeedBarrageMask = 9;</code>
      * @param value The needBarrageMask to set.
      * @return This builder for chaining.
      */
@@ -2415,7 +1981,7 @@ private static final long serialVersionUID = 0L;
      * 是否需要蒙版弹幕，默认否，1-是；0-否
      * </pre>
      *
-     * <code>string NeedBarrageMask = 10;</code>
+     * <code>string NeedBarrageMask = 9;</code>
      * @return This builder for chaining.
      */
     public Builder clearNeedBarrageMask() {
@@ -2429,7 +1995,7 @@ private static final long serialVersionUID = 0L;
      * 是否需要蒙版弹幕，默认否，1-是；0-否
      * </pre>
      *
-     * <code>string NeedBarrageMask = 10;</code>
+     * <code>string NeedBarrageMask = 9;</code>
      * @param value The bytes for needBarrageMask to set.
      * @return This builder for chaining.
      */
@@ -2445,109 +2011,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object cdnType_ = "";
-    /**
-     * <pre>
-     * 指定CDN类型
-     * </pre>
-     *
-     * <code>string CdnType = 11;</code>
-     * @return The cdnType.
-     */
-    public java.lang.String getCdnType() {
-      java.lang.Object ref = cdnType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        cdnType_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 指定CDN类型
-     * </pre>
-     *
-     * <code>string CdnType = 11;</code>
-     * @return The bytes for cdnType.
-     */
-    public com.google.protobuf.ByteString
-        getCdnTypeBytes() {
-      java.lang.Object ref = cdnType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        cdnType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 指定CDN类型
-     * </pre>
-     *
-     * <code>string CdnType = 11;</code>
-     * @param value The cdnType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCdnType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      cdnType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 指定CDN类型
-     * </pre>
-     *
-     * <code>string CdnType = 11;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearCdnType() {
-      
-      cdnType_ = getDefaultInstance().getCdnType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 指定CDN类型
-     * </pre>
-     *
-     * <code>string CdnType = 11;</code>
-     * @param value The bytes for cdnType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCdnTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      cdnType_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object unionInfo_ = "";
     /**
      * <pre>
      * 唯一性标识信息
      * </pre>
      *
-     * <code>string UnionInfo = 12;</code>
+     * <code>string UnionInfo = 10;</code>
      * @return The unionInfo.
      */
     public java.lang.String getUnionInfo() {
@@ -2567,7 +2037,7 @@ private static final long serialVersionUID = 0L;
      * 唯一性标识信息
      * </pre>
      *
-     * <code>string UnionInfo = 12;</code>
+     * <code>string UnionInfo = 10;</code>
      * @return The bytes for unionInfo.
      */
     public com.google.protobuf.ByteString
@@ -2588,7 +2058,7 @@ private static final long serialVersionUID = 0L;
      * 唯一性标识信息
      * </pre>
      *
-     * <code>string UnionInfo = 12;</code>
+     * <code>string UnionInfo = 10;</code>
      * @param value The unionInfo to set.
      * @return This builder for chaining.
      */
@@ -2607,7 +2077,7 @@ private static final long serialVersionUID = 0L;
      * 唯一性标识信息
      * </pre>
      *
-     * <code>string UnionInfo = 12;</code>
+     * <code>string UnionInfo = 10;</code>
      * @return This builder for chaining.
      */
     public Builder clearUnionInfo() {
@@ -2621,7 +2091,7 @@ private static final long serialVersionUID = 0L;
      * 唯一性标识信息
      * </pre>
      *
-     * <code>string UnionInfo = 12;</code>
+     * <code>string UnionInfo = 10;</code>
      * @param value The bytes for unionInfo to set.
      * @return This builder for chaining.
      */
@@ -2643,7 +2113,7 @@ private static final long serialVersionUID = 0L;
      * HDR清晰度，默认不查询，支持：all,
      * </pre>
      *
-     * <code>string HDRDefinition = 13;</code>
+     * <code>string HDRDefinition = 11;</code>
      * @return The hDRDefinition.
      */
     public java.lang.String getHDRDefinition() {
@@ -2663,7 +2133,7 @@ private static final long serialVersionUID = 0L;
      * HDR清晰度，默认不查询，支持：all,
      * </pre>
      *
-     * <code>string HDRDefinition = 13;</code>
+     * <code>string HDRDefinition = 11;</code>
      * @return The bytes for hDRDefinition.
      */
     public com.google.protobuf.ByteString
@@ -2684,7 +2154,7 @@ private static final long serialVersionUID = 0L;
      * HDR清晰度，默认不查询，支持：all,
      * </pre>
      *
-     * <code>string HDRDefinition = 13;</code>
+     * <code>string HDRDefinition = 11;</code>
      * @param value The hDRDefinition to set.
      * @return This builder for chaining.
      */
@@ -2703,7 +2173,7 @@ private static final long serialVersionUID = 0L;
      * HDR清晰度，默认不查询，支持：all,
      * </pre>
      *
-     * <code>string HDRDefinition = 13;</code>
+     * <code>string HDRDefinition = 11;</code>
      * @return This builder for chaining.
      */
     public Builder clearHDRDefinition() {
@@ -2717,7 +2187,7 @@ private static final long serialVersionUID = 0L;
      * HDR清晰度，默认不查询，支持：all,
      * </pre>
      *
-     * <code>string HDRDefinition = 13;</code>
+     * <code>string HDRDefinition = 11;</code>
      * @param value The bytes for hDRDefinition to set.
      * @return This builder for chaining.
      */
@@ -2729,294 +2199,6 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       hDRDefinition_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object playScene_ = "";
-    /**
-     * <pre>
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
-     * </pre>
-     *
-     * <code>string PlayScene = 14;</code>
-     * @return The playScene.
-     */
-    public java.lang.String getPlayScene() {
-      java.lang.Object ref = playScene_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        playScene_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
-     * </pre>
-     *
-     * <code>string PlayScene = 14;</code>
-     * @return The bytes for playScene.
-     */
-    public com.google.protobuf.ByteString
-        getPlaySceneBytes() {
-      java.lang.Object ref = playScene_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        playScene_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
-     * </pre>
-     *
-     * <code>string PlayScene = 14;</code>
-     * @param value The playScene to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPlayScene(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      playScene_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
-     * </pre>
-     *
-     * <code>string PlayScene = 14;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPlayScene() {
-      
-      playScene_ = getDefaultInstance().getPlayScene();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
-     * </pre>
-     *
-     * <code>string PlayScene = 14;</code>
-     * @param value The bytes for playScene to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPlaySceneBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      playScene_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object drmExpireTimestamp_ = "";
-    /**
-     * <pre>
-     * DRM过期时间戳
-     * </pre>
-     *
-     * <code>string DrmExpireTimestamp = 15;</code>
-     * @return The drmExpireTimestamp.
-     */
-    public java.lang.String getDrmExpireTimestamp() {
-      java.lang.Object ref = drmExpireTimestamp_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        drmExpireTimestamp_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * DRM过期时间戳
-     * </pre>
-     *
-     * <code>string DrmExpireTimestamp = 15;</code>
-     * @return The bytes for drmExpireTimestamp.
-     */
-    public com.google.protobuf.ByteString
-        getDrmExpireTimestampBytes() {
-      java.lang.Object ref = drmExpireTimestamp_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        drmExpireTimestamp_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * DRM过期时间戳
-     * </pre>
-     *
-     * <code>string DrmExpireTimestamp = 15;</code>
-     * @param value The drmExpireTimestamp to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDrmExpireTimestamp(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      drmExpireTimestamp_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * DRM过期时间戳
-     * </pre>
-     *
-     * <code>string DrmExpireTimestamp = 15;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDrmExpireTimestamp() {
-      
-      drmExpireTimestamp_ = getDefaultInstance().getDrmExpireTimestamp();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * DRM过期时间戳
-     * </pre>
-     *
-     * <code>string DrmExpireTimestamp = 15;</code>
-     * @param value The bytes for drmExpireTimestamp to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDrmExpireTimestampBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      drmExpireTimestamp_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object quality_ = "";
-    /**
-     * <pre>
-     *音频码率
-     * </pre>
-     *
-     * <code>string Quality = 16;</code>
-     * @return The quality.
-     */
-    public java.lang.String getQuality() {
-      java.lang.Object ref = quality_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        quality_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     *音频码率
-     * </pre>
-     *
-     * <code>string Quality = 16;</code>
-     * @return The bytes for quality.
-     */
-    public com.google.protobuf.ByteString
-        getQualityBytes() {
-      java.lang.Object ref = quality_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        quality_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     *音频码率
-     * </pre>
-     *
-     * <code>string Quality = 16;</code>
-     * @param value The quality to set.
-     * @return This builder for chaining.
-     */
-    public Builder setQuality(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      quality_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *音频码率
-     * </pre>
-     *
-     * <code>string Quality = 16;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearQuality() {
-      
-      quality_ = getDefaultInstance().getQuality();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *音频码率
-     * </pre>
-     *
-     * <code>string Quality = 16;</code>
-     * @param value The bytes for quality to set.
-     * @return This builder for chaining.
-     */
-    public Builder setQualityBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      quality_ = value;
       onChanged();
       return this;
     }
@@ -3033,41 +2215,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Request.VodGetPlayInfoRequest)
+    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Request.VodGetSmartStrategyLitePlayInfoRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Request.VodGetPlayInfoRequest)
-  private static final com.volcengine.service.vod.model.request.VodGetPlayInfoRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Request.VodGetSmartStrategyLitePlayInfoRequest)
+  private static final com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.request.VodGetPlayInfoRequest();
+    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest();
   }
 
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest getDefaultInstance() {
+  public static com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<VodGetPlayInfoRequest>
-      PARSER = new com.google.protobuf.AbstractParser<VodGetPlayInfoRequest>() {
+  private static final com.google.protobuf.Parser<VodGetSmartStrategyLitePlayInfoRequest>
+      PARSER = new com.google.protobuf.AbstractParser<VodGetSmartStrategyLitePlayInfoRequest>() {
     @java.lang.Override
-    public VodGetPlayInfoRequest parsePartialFrom(
+    public VodGetSmartStrategyLitePlayInfoRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VodGetPlayInfoRequest(input, extensionRegistry);
+      return new VodGetSmartStrategyLitePlayInfoRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<VodGetPlayInfoRequest> parser() {
+  public static com.google.protobuf.Parser<VodGetSmartStrategyLitePlayInfoRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<VodGetPlayInfoRequest> getParserForType() {
+  public com.google.protobuf.Parser<VodGetSmartStrategyLitePlayInfoRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.volcengine.service.vod.model.request.VodGetPlayInfoRequest getDefaultInstanceForType() {
+  public com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

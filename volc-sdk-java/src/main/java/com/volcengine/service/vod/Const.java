@@ -75,14 +75,12 @@ public class Const {
     public static final String DeleteVideoClassification = "DeleteVideoClassification";
     public static final String ListVideoClassifications = "ListVideoClassifications";
     public static final String ListSnapshots = "ListSnapshots";
-    public static final String GetVideoDetail = "GetVideoDetail";
     //vod-transcode
     public static final String StartWorkflow = "StartWorkflow";
     //vod-space
     public static final String CreateSpace = "CreateSpace";
     public static final String ListSpace = "ListSpace";
     public static final String GetSpaceDetail = "GetSpaceDetail";
-    public static final String GetSpaceConfig = "GetSpaceConfig";
     public static final String UpdateSpace = "UpdateSpace";
     public static final String UpdateSpaceUploadConfig = "UpdateSpaceUploadConfig";
     //vod-cdn
@@ -93,8 +91,14 @@ public class Const {
     public static final String ListCdnAccessLog = "ListCdnAccessLog";
     public static final String ListCdnTopAccessUrl = "ListCdnTopAccessUrl";
     public static final String DescribeVodDomainBandwidthData = "DescribeVodDomainBandwidthData";
+    public static final String ListCdnUsageData = "ListCdnUsageData";
+    public static final String ListCdnStatusData = "ListCdnStatusData";
+
 
     //vod-callback
     public static final String AddCallbackSubscription = "AddCallbackSubscription";
     public static final String SetCallbackEvent = "SetCallbackEvent";
+
+    // vod-smartstrategy
+    public static final String GetSmartStrategyLitePlayInfo = "GetSmartStrategyLitePlayInfo";
 }

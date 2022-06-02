@@ -21,8 +21,7 @@ public class ImpServiceConfig {
                         {
                             put(com.volcengine.helper.Const.CONNECTION_TIMEOUT, 5000);
                             put(com.volcengine.helper.Const.SOCKET_TIMEOUT, 5000);
-                            //put(com.volcengine.helper.Const.Host, "open.volcengineapi.com");
-                            put(com.volcengine.helper.Const.Host, "volcengineapi-boe.byted.org");
+                            put(com.volcengine.helper.Const.Host, "open.volcengineapi.com");
                             put(com.volcengine.helper.Const.Header, new ArrayList<Header>() {
                                 {
                                     add(new BasicHeader("Accept", "application/json"));

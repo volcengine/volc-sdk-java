@@ -24,6 +24,14 @@ public enum VodSpaceUploadConfigKey
    * <code>CustomUploadFilePathVodSpaceUploadConfigKey = 1;</code>
    */
   CustomUploadFilePathVodSpaceUploadConfigKey(1),
+  /**
+   * <pre>
+   * 上传完成后自动发布key
+   * </pre>
+   *
+   * <code>AutoPublishAfterUploadVodSpaceUploadConfigKey = 2;</code>
+   */
+  AutoPublishAfterUploadVodSpaceUploadConfigKey(2),
   UNRECOGNIZED(-1),
   ;
 
@@ -43,6 +51,14 @@ public enum VodSpaceUploadConfigKey
    * <code>CustomUploadFilePathVodSpaceUploadConfigKey = 1;</code>
    */
   public static final int CustomUploadFilePathVodSpaceUploadConfigKey_VALUE = 1;
+  /**
+   * <pre>
+   * 上传完成后自动发布key
+   * </pre>
+   *
+   * <code>AutoPublishAfterUploadVodSpaceUploadConfigKey = 2;</code>
+   */
+  public static final int AutoPublishAfterUploadVodSpaceUploadConfigKey_VALUE = 2;
 
 
   public final int getNumber() {
@@ -71,6 +87,7 @@ public enum VodSpaceUploadConfigKey
     switch (value) {
       case 0: return UndefinedVodSpaceUploadConfigKey;
       case 1: return CustomUploadFilePathVodSpaceUploadConfigKey;
+      case 2: return AutoPublishAfterUploadVodSpaceUploadConfigKey;
       default: return null;
     }
   }

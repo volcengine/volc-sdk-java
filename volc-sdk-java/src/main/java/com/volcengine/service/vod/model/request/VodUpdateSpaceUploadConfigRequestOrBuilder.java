@@ -49,7 +49,7 @@ public interface VodUpdateSpaceUploadConfigRequestOrBuilder extends
 
   /**
    * <pre>
-   * 需要变更的设置value
+   * 需要变更的设置value，取值与ConfigKey相关。ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
    * </pre>
    *
    * <code>string ConfigValue = 3;</code>
@@ -58,7 +58,7 @@ public interface VodUpdateSpaceUploadConfigRequestOrBuilder extends
   java.lang.String getConfigValue();
   /**
    * <pre>
-   * 需要变更的设置value
+   * 需要变更的设置value，取值与ConfigKey相关。ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
    * </pre>
    *
    * <code>string ConfigValue = 3;</code>

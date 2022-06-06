@@ -1126,6 +1126,44 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 	
 	
 	/**
+     * listCdnUsageData.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest
+     * @return com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse listCdnUsageData(com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.ListCdnUsageData, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * listCdnStatusData.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodListCdnStatusDataRequest
+     * @return com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse listCdnStatusData(com.volcengine.service.vod.model.request.VodListCdnStatusDataRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.ListCdnStatusData, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
      * addCallbackSubscription.
      *
      * @param input com.volcengine.service.vod.model.request.VodAddCallbackSubscriptionRequest
@@ -1158,6 +1196,25 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodSetCallbackEventResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodSetCallbackEventResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * getSmartStrategyLitePlayInfo.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest
+     * @return com.volcengine.service.vod.model.response.VodGetSmartStrategyLitePlayInfoResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodGetSmartStrategyLitePlayInfoResponse getSmartStrategyLitePlayInfo(com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.GetSmartStrategyLitePlayInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodGetSmartStrategyLitePlayInfoResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetSmartStrategyLitePlayInfoResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}

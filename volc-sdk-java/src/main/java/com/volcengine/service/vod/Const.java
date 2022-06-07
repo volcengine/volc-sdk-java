@@ -93,6 +93,7 @@ public class Const {
     public static final String DescribeVodDomainBandwidthData = "DescribeVodDomainBandwidthData";
     public static final String ListCdnUsageData = "ListCdnUsageData";
     public static final String ListCdnStatusData = "ListCdnStatusData";
+    public static final String DescribeIpInfo = "DescribeIpInfo";
 
 
     //vod-callback

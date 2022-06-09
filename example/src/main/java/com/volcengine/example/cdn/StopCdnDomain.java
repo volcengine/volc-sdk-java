@@ -8,11 +8,11 @@ import com.volcengine.service.cdn.impl.CDNServiceImpl;
 public class StopCdnDomain {
     public static void main(String[] args) {
         CDNService service = CDNServiceImpl.getInstance();
-        service.setAccessKey("ak");
-        service.setSecretKey("sk");
+        service.setAccessKey(Utils.ak);
+        service.setSecretKey(Utils.sk);
         try {
             CDN.StopCdnDomainRequest req = new CDN.StopCdnDomainRequest()
-                    .setDomain("example.com");
+                .setDomain("example.com");
             CDN.EmptyResponse resp = service.stopCdnDomain(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {

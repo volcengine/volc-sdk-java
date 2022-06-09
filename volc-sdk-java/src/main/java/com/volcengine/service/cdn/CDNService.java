@@ -97,6 +97,9 @@ public interface CDNService extends IBaseService {
 
     // 获取 IP 归属信息: https://www.volcengine.com/docs/6454/75233
     CDN.DescribeIPInfoResponse describeIPInfo(CDN.DescribeIPInfoRequest request) throws Exception;
+    
+    // 批量获取 IP 归属信息: https://www.volcengine.com/docs/6454/106852
+    CDN.DescribeIPListInfoResponse describeIPListInfo(CDN.DescribeIPListInfoRequest request) throws Exception;
 
     // 获取回源节点 IP 列表: https://www.volcengine.com/docs/6454/75273
     CDN.DescribeCdnUpperIpResponse describeCdnUpperIp(CDN.DescribeCdnUpperIpRequest request) throws Exception;

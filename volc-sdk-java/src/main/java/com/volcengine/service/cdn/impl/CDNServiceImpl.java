@@ -299,6 +299,15 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
+    public CDN.DescribeIPListInfoResponse describeIPListInfo(CDN.DescribeIPListInfoRequest request) throws Exception {
+        RawResponse response = json("DescribeIPListInfo", null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeIPListInfoResponse.class);
+    }
+
+    @Override
     public CDN.DescribeCdnUpperIpResponse describeCdnUpperIp(CDN.DescribeCdnUpperIpRequest request) throws Exception {
         RawResponse response = json("DescribeCdnUpperIp", null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

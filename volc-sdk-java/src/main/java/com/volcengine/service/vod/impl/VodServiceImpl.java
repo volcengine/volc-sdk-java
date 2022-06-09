@@ -75,6 +75,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 
         Map<String, String> params = new HashMap<>();
         params.put("DrmAuthToken", token);
+        params.put("X-Expires", expireSeconds.toString());
         return getSignUrl(com.volcengine.service.vod.Const.GetHlsDecryptionKey, com.volcengine.helper.Utils.mapToPairList(params));
     }
 

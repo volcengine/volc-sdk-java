@@ -91,7 +91,7 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @return com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse
      * @throws Exception the exception
      */
-//	com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse getAllPlayInfo(com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse getAllPlayInfo(com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest input) throws Exception;
 	
 	/**
      * getPlayInfo.

@@ -8,15 +8,15 @@ import com.volcengine.service.cdn.impl.CDNServiceImpl;
 public class DescribeEdgeTopStatisticalData {
     public static void main(String[] args) {
         CDNService service = CDNServiceImpl.getInstance();
-        service.setAccessKey("ak");
-        service.setSecretKey("sk");
+        service.setAccessKey(Utils.ak);
+        service.setSecretKey(Utils.sk);
         try {
             CDN.DescribeEdgeTopStatisticalDataRequest req = new CDN.DescribeEdgeTopStatisticalDataRequest()
-                    .setStartTime(Utils.startTime)
-                    .setEndTime(Utils.endTime)
-                    .setMetric("flux")
-                    .setDomain(Utils.exampleHost)
-                    .setItem("region");
+                .setStartTime(Utils.startTime)
+                .setEndTime(Utils.endTime)
+                .setMetric("clientIp")
+                .setDomain(Utils.exampleHost)
+                .setItem("region");
 
             CDN.DescribeEdgeTopStatisticalDataResponse resp = service.describeEdgeTopStatisticalData(req);
             System.out.println(JSON.toJSONString(resp));

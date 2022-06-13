@@ -379,22 +379,22 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getItemIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(itemId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, itemId_);
     }
-    if (!getUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, url_);
     }
-    if (!getStatusBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, status_);
     }
-    if (!getTaskTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(taskType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, taskType_);
     }
     if (createTimestamp_ != 0) {
       output.writeInt32(5, createTimestamp_);
     }
-    if (!getTaskIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(taskId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, taskId_);
     }
     unknownFields.writeTo(output);
@@ -406,23 +406,23 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getItemIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(itemId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, itemId_);
     }
-    if (!getUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, url_);
     }
-    if (!getStatusBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, status_);
     }
-    if (!getTaskTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(taskType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, taskType_);
     }
     if (createTimestamp_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(5, createTimestamp_);
     }
-    if (!getTaskIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(taskId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, taskId_);
     }
     size += unknownFields.getSerializedSize();

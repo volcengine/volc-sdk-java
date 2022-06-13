@@ -4,23 +4,22 @@
 package com.volcengine.service.vod.model.business;
 
 /**
- * Protobuf type {@code Volcengine.Vod.Models.Business.VodPlayInfoModel}
+ * Protobuf type {@code Volcengine.Vod.Models.Business.VodAllPlayInfoModel}
  */
-public final class VodPlayInfoModel extends
+public final class VodAllPlayInfoModel extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Business.VodPlayInfoModel)
-    VodPlayInfoModelOrBuilder {
+    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Business.VodAllPlayInfoModel)
+    VodAllPlayInfoModelOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use VodPlayInfoModel.newBuilder() to construct.
-  private VodPlayInfoModel(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use VodAllPlayInfoModel.newBuilder() to construct.
+  private VodAllPlayInfoModel(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private VodPlayInfoModel() {
-    version_ = 0;
+  private VodAllPlayInfoModel() {
     vid_ = "";
     posterUrl_ = "";
-    fileType_ = "";
-    playInfoList_ = java.util.Collections.emptyList();
+    vodTranscodePlayInfo_ = java.util.Collections.emptyList();
+    version_ = 0;
     thumbInfoList_ = java.util.Collections.emptyList();
     barrageMaskUrl_ = "";
     subtitleInfoList_ = java.util.Collections.emptyList();
@@ -30,7 +29,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new VodPlayInfoModel();
+    return new VodAllPlayInfoModel();
   }
 
   @java.lang.Override
@@ -38,7 +37,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VodPlayInfoModel(
+  private VodAllPlayInfoModel(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -74,56 +73,45 @@ private static final long serialVersionUID = 0L;
             posterUrl_ = s;
             break;
           }
-          case 37: {
-
-            duration_ = input.readFloat();
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            fileType_ = s;
-            break;
-          }
-          case 48: {
-
-            enableAdaptive_ = input.readBool();
-            break;
-          }
-          case 56: {
+          case 32: {
 
             totalCount_ = input.readInt32();
             break;
           }
-          case 66: {
-            com.volcengine.service.vod.model.business.VodAdaptiveInfo.Builder subBuilder = null;
-            if (adaptiveInfo_ != null) {
-              subBuilder = adaptiveInfo_.toBuilder();
+          case 40: {
+
+            enableAdaptive_ = input.readBool();
+            break;
+          }
+          case 50: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              vodTranscodePlayInfo_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodPlayInfo>();
+              mutable_bitField0_ |= 0x00000001;
             }
-            adaptiveInfo_ = input.readMessage(com.volcengine.service.vod.model.business.VodAdaptiveInfo.parser(), extensionRegistry);
+            vodTranscodePlayInfo_.add(
+                input.readMessage(com.volcengine.service.vod.model.business.VodPlayInfo.parser(), extensionRegistry));
+            break;
+          }
+          case 58: {
+            com.volcengine.service.vod.model.business.VodPlayInfo.Builder subBuilder = null;
+            if (vodSourcePlayInfo_ != null) {
+              subBuilder = vodSourcePlayInfo_.toBuilder();
+            }
+            vodSourcePlayInfo_ = input.readMessage(com.volcengine.service.vod.model.business.VodPlayInfo.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(adaptiveInfo_);
-              adaptiveInfo_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(vodSourcePlayInfo_);
+              vodSourcePlayInfo_ = subBuilder.buildPartial();
             }
 
             break;
           }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              playInfoList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodPlayInfo>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            playInfoList_.add(
-                input.readMessage(com.volcengine.service.vod.model.business.VodPlayInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 80: {
+          case 64: {
             int rawValue = input.readEnum();
 
             version_ = rawValue;
             break;
           }
-          case 90: {
+          case 74: {
             if (!((mutable_bitField0_ & 0x00000002) != 0)) {
               thumbInfoList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodThumbInfo>();
               mutable_bitField0_ |= 0x00000002;
@@ -132,13 +120,13 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(com.volcengine.service.vod.model.business.VodThumbInfo.parser(), extensionRegistry));
             break;
           }
-          case 98: {
+          case 82: {
             java.lang.String s = input.readStringRequireUtf8();
 
             barrageMaskUrl_ = s;
             break;
           }
-          case 106: {
+          case 90: {
             if (!((mutable_bitField0_ & 0x00000004) != 0)) {
               subtitleInfoList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodSubtitleInfo>();
               mutable_bitField0_ |= 0x00000004;
@@ -163,7 +151,7 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        playInfoList_ = java.util.Collections.unmodifiableList(playInfoList_);
+        vodTranscodePlayInfo_ = java.util.Collections.unmodifiableList(vodTranscodePlayInfo_);
       }
       if (((mutable_bitField0_ & 0x00000002) != 0)) {
         thumbInfoList_ = java.util.Collections.unmodifiableList(thumbInfoList_);
@@ -177,42 +165,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.volcengine.service.vod.model.business.VodCommon.internal_static_Volcengine_Vod_Models_Business_VodPlayInfoModel_descriptor;
+    return com.volcengine.service.vod.model.business.VodCommon.internal_static_Volcengine_Vod_Models_Business_VodAllPlayInfoModel_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.volcengine.service.vod.model.business.VodCommon.internal_static_Volcengine_Vod_Models_Business_VodPlayInfoModel_fieldAccessorTable
+    return com.volcengine.service.vod.model.business.VodCommon.internal_static_Volcengine_Vod_Models_Business_VodAllPlayInfoModel_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.volcengine.service.vod.model.business.VodPlayInfoModel.class, com.volcengine.service.vod.model.business.VodPlayInfoModel.Builder.class);
-  }
-
-  public static final int VERSION_FIELD_NUMBER = 10;
-  private int version_;
-  /**
-   * <pre>
-   * 数据版本
-   * </pre>
-   *
-   * <code>.Volcengine.Vod.Models.Business.VodPlayInfoModelVersion Version = 10;</code>
-   * @return The enum numeric value on the wire for version.
-   */
-  @java.lang.Override public int getVersionValue() {
-    return version_;
-  }
-  /**
-   * <pre>
-   * 数据版本
-   * </pre>
-   *
-   * <code>.Volcengine.Vod.Models.Business.VodPlayInfoModelVersion Version = 10;</code>
-   * @return The version.
-   */
-  @java.lang.Override public com.volcengine.service.vod.model.business.VodPlayInfoModelVersion getVersion() {
-    @SuppressWarnings("deprecation")
-    com.volcengine.service.vod.model.business.VodPlayInfoModelVersion result = com.volcengine.service.vod.model.business.VodPlayInfoModelVersion.valueOf(version_);
-    return result == null ? com.volcengine.service.vod.model.business.VodPlayInfoModelVersion.UNRECOGNIZED : result;
+            com.volcengine.service.vod.model.business.VodAllPlayInfoModel.class, com.volcengine.service.vod.model.business.VodAllPlayInfoModel.Builder.class);
   }
 
   public static final int VID_FIELD_NUMBER = 1;
@@ -322,90 +283,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int DURATION_FIELD_NUMBER = 4;
-  private float duration_;
-  /**
-   * <pre>
-   * 播放时长(单位：s)
-   * </pre>
-   *
-   * <code>float Duration = 4;</code>
-   * @return The duration.
-   */
-  @java.lang.Override
-  public float getDuration() {
-    return duration_;
-  }
-
-  public static final int FILETYPE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object fileType_;
-  /**
-   * <pre>
-   * 媒体类型
-   * </pre>
-   *
-   * <code>string FileType = 5;</code>
-   * @return The fileType.
-   */
-  @java.lang.Override
-  public java.lang.String getFileType() {
-    java.lang.Object ref = fileType_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      fileType_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * 媒体类型
-   * </pre>
-   *
-   * <code>string FileType = 5;</code>
-   * @return The bytes for fileType.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getFileTypeBytes() {
-    java.lang.Object ref = fileType_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      fileType_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int ENABLEADAPTIVE_FIELD_NUMBER = 6;
-  private boolean enableAdaptive_;
-  /**
-   * <pre>
-   * 是否关键针对齐
-   * </pre>
-   *
-   * <code>bool EnableAdaptive = 6;</code>
-   * @return The enableAdaptive.
-   */
-  @java.lang.Override
-  public boolean getEnableAdaptive() {
-    return enableAdaptive_;
-  }
-
-  public static final int TOTALCOUNT_FIELD_NUMBER = 7;
+  public static final int TOTALCOUNT_FIELD_NUMBER = 4;
   private int totalCount_;
   /**
    * <pre>
    * 播放列表数量
    * </pre>
    *
-   * <code>int32 TotalCount = 7;</code>
+   * <code>int32 TotalCount = 4;</code>
    * @return The totalCount.
    */
   @java.lang.Override
@@ -413,112 +298,154 @@ private static final long serialVersionUID = 0L;
     return totalCount_;
   }
 
-  public static final int ADAPTIVEINFO_FIELD_NUMBER = 8;
-  private com.volcengine.service.vod.model.business.VodAdaptiveInfo adaptiveInfo_;
+  public static final int ENABLEADAPTIVE_FIELD_NUMBER = 5;
+  private boolean enableAdaptive_;
   /**
    * <pre>
-   * dash播放信息
+   * 是否关键针对齐
    * </pre>
    *
-   * <code>.Volcengine.Vod.Models.Business.VodAdaptiveInfo AdaptiveInfo = 8;</code>
-   * @return Whether the adaptiveInfo field is set.
+   * <code>bool EnableAdaptive = 5;</code>
+   * @return The enableAdaptive.
    */
   @java.lang.Override
-  public boolean hasAdaptiveInfo() {
-    return adaptiveInfo_ != null;
-  }
-  /**
-   * <pre>
-   * dash播放信息
-   * </pre>
-   *
-   * <code>.Volcengine.Vod.Models.Business.VodAdaptiveInfo AdaptiveInfo = 8;</code>
-   * @return The adaptiveInfo.
-   */
-  @java.lang.Override
-  public com.volcengine.service.vod.model.business.VodAdaptiveInfo getAdaptiveInfo() {
-    return adaptiveInfo_ == null ? com.volcengine.service.vod.model.business.VodAdaptiveInfo.getDefaultInstance() : adaptiveInfo_;
-  }
-  /**
-   * <pre>
-   * dash播放信息
-   * </pre>
-   *
-   * <code>.Volcengine.Vod.Models.Business.VodAdaptiveInfo AdaptiveInfo = 8;</code>
-   */
-  @java.lang.Override
-  public com.volcengine.service.vod.model.business.VodAdaptiveInfoOrBuilder getAdaptiveInfoOrBuilder() {
-    return getAdaptiveInfo();
+  public boolean getEnableAdaptive() {
+    return enableAdaptive_;
   }
 
-  public static final int PLAYINFOLIST_FIELD_NUMBER = 9;
-  private java.util.List<com.volcengine.service.vod.model.business.VodPlayInfo> playInfoList_;
+  public static final int VODTRANSCODEPLAYINFO_FIELD_NUMBER = 6;
+  private java.util.List<com.volcengine.service.vod.model.business.VodPlayInfo> vodTranscodePlayInfo_;
   /**
    * <pre>
-   * 播放列表
+   * 转码流
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
    */
   @java.lang.Override
-  public java.util.List<com.volcengine.service.vod.model.business.VodPlayInfo> getPlayInfoListList() {
-    return playInfoList_;
+  public java.util.List<com.volcengine.service.vod.model.business.VodPlayInfo> getVodTranscodePlayInfoList() {
+    return vodTranscodePlayInfo_;
   }
   /**
    * <pre>
-   * 播放列表
+   * 转码流
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.volcengine.service.vod.model.business.VodPlayInfoOrBuilder> 
-      getPlayInfoListOrBuilderList() {
-    return playInfoList_;
+      getVodTranscodePlayInfoOrBuilderList() {
+    return vodTranscodePlayInfo_;
   }
   /**
    * <pre>
-   * 播放列表
+   * 转码流
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
    */
   @java.lang.Override
-  public int getPlayInfoListCount() {
-    return playInfoList_.size();
+  public int getVodTranscodePlayInfoCount() {
+    return vodTranscodePlayInfo_.size();
   }
   /**
    * <pre>
-   * 播放列表
+   * 转码流
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
    */
   @java.lang.Override
-  public com.volcengine.service.vod.model.business.VodPlayInfo getPlayInfoList(int index) {
-    return playInfoList_.get(index);
+  public com.volcengine.service.vod.model.business.VodPlayInfo getVodTranscodePlayInfo(int index) {
+    return vodTranscodePlayInfo_.get(index);
   }
   /**
    * <pre>
-   * 播放列表
+   * 转码流
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
    */
   @java.lang.Override
-  public com.volcengine.service.vod.model.business.VodPlayInfoOrBuilder getPlayInfoListOrBuilder(
+  public com.volcengine.service.vod.model.business.VodPlayInfoOrBuilder getVodTranscodePlayInfoOrBuilder(
       int index) {
-    return playInfoList_.get(index);
+    return vodTranscodePlayInfo_.get(index);
   }
 
-  public static final int THUMBINFOLIST_FIELD_NUMBER = 11;
+  public static final int VODSOURCEPLAYINFO_FIELD_NUMBER = 7;
+  private com.volcengine.service.vod.model.business.VodPlayInfo vodSourcePlayInfo_;
+  /**
+   * <pre>
+   * 原片流
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodPlayInfo VodSourcePlayInfo = 7;</code>
+   * @return Whether the vodSourcePlayInfo field is set.
+   */
+  @java.lang.Override
+  public boolean hasVodSourcePlayInfo() {
+    return vodSourcePlayInfo_ != null;
+  }
+  /**
+   * <pre>
+   * 原片流
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodPlayInfo VodSourcePlayInfo = 7;</code>
+   * @return The vodSourcePlayInfo.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodPlayInfo getVodSourcePlayInfo() {
+    return vodSourcePlayInfo_ == null ? com.volcengine.service.vod.model.business.VodPlayInfo.getDefaultInstance() : vodSourcePlayInfo_;
+  }
+  /**
+   * <pre>
+   * 原片流
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodPlayInfo VodSourcePlayInfo = 7;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodPlayInfoOrBuilder getVodSourcePlayInfoOrBuilder() {
+    return getVodSourcePlayInfo();
+  }
+
+  public static final int VERSION_FIELD_NUMBER = 8;
+  private int version_;
+  /**
+   * <pre>
+   * 数据版本
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodPlayInfoModelVersion Version = 8;</code>
+   * @return The enum numeric value on the wire for version.
+   */
+  @java.lang.Override public int getVersionValue() {
+    return version_;
+  }
+  /**
+   * <pre>
+   * 数据版本
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodPlayInfoModelVersion Version = 8;</code>
+   * @return The version.
+   */
+  @java.lang.Override public com.volcengine.service.vod.model.business.VodPlayInfoModelVersion getVersion() {
+    @SuppressWarnings("deprecation")
+    com.volcengine.service.vod.model.business.VodPlayInfoModelVersion result = com.volcengine.service.vod.model.business.VodPlayInfoModelVersion.valueOf(version_);
+    return result == null ? com.volcengine.service.vod.model.business.VodPlayInfoModelVersion.UNRECOGNIZED : result;
+  }
+
+  public static final int THUMBINFOLIST_FIELD_NUMBER = 9;
   private java.util.List<com.volcengine.service.vod.model.business.VodThumbInfo> thumbInfoList_;
   /**
    * <pre>
    * 雪碧图列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
    */
   @java.lang.Override
   public java.util.List<com.volcengine.service.vod.model.business.VodThumbInfo> getThumbInfoListList() {
@@ -529,7 +456,7 @@ private static final long serialVersionUID = 0L;
    * 雪碧图列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.volcengine.service.vod.model.business.VodThumbInfoOrBuilder> 
@@ -541,7 +468,7 @@ private static final long serialVersionUID = 0L;
    * 雪碧图列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
    */
   @java.lang.Override
   public int getThumbInfoListCount() {
@@ -552,7 +479,7 @@ private static final long serialVersionUID = 0L;
    * 雪碧图列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.VodThumbInfo getThumbInfoList(int index) {
@@ -563,7 +490,7 @@ private static final long serialVersionUID = 0L;
    * 雪碧图列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.VodThumbInfoOrBuilder getThumbInfoListOrBuilder(
@@ -571,14 +498,14 @@ private static final long serialVersionUID = 0L;
     return thumbInfoList_.get(index);
   }
 
-  public static final int BARRAGEMASKURL_FIELD_NUMBER = 12;
+  public static final int BARRAGEMASKURL_FIELD_NUMBER = 10;
   private volatile java.lang.Object barrageMaskUrl_;
   /**
    * <pre>
    * 弹幕蒙版url
    * </pre>
    *
-   * <code>string BarrageMaskUrl = 12;</code>
+   * <code>string BarrageMaskUrl = 10;</code>
    * @return The barrageMaskUrl.
    */
   @java.lang.Override
@@ -599,7 +526,7 @@ private static final long serialVersionUID = 0L;
    * 弹幕蒙版url
    * </pre>
    *
-   * <code>string BarrageMaskUrl = 12;</code>
+   * <code>string BarrageMaskUrl = 10;</code>
    * @return The bytes for barrageMaskUrl.
    */
   @java.lang.Override
@@ -617,14 +544,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int SUBTITLEINFOLIST_FIELD_NUMBER = 13;
+  public static final int SUBTITLEINFOLIST_FIELD_NUMBER = 11;
   private java.util.List<com.volcengine.service.vod.model.business.VodSubtitleInfo> subtitleInfoList_;
   /**
    * <pre>
    * 字幕信息列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
    */
   @java.lang.Override
   public java.util.List<com.volcengine.service.vod.model.business.VodSubtitleInfo> getSubtitleInfoListList() {
@@ -635,7 +562,7 @@ private static final long serialVersionUID = 0L;
    * 字幕信息列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.volcengine.service.vod.model.business.VodSubtitleInfoOrBuilder> 
@@ -647,7 +574,7 @@ private static final long serialVersionUID = 0L;
    * 字幕信息列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
    */
   @java.lang.Override
   public int getSubtitleInfoListCount() {
@@ -658,7 +585,7 @@ private static final long serialVersionUID = 0L;
    * 字幕信息列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.VodSubtitleInfo getSubtitleInfoList(int index) {
@@ -669,7 +596,7 @@ private static final long serialVersionUID = 0L;
    * 字幕信息列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.VodSubtitleInfoOrBuilder getSubtitleInfoListOrBuilder(
@@ -700,35 +627,29 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(posterUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, posterUrl_);
     }
-    if (java.lang.Float.floatToRawIntBits(duration_) != 0) {
-      output.writeFloat(4, duration_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, fileType_);
+    if (totalCount_ != 0) {
+      output.writeInt32(4, totalCount_);
     }
     if (enableAdaptive_ != false) {
-      output.writeBool(6, enableAdaptive_);
+      output.writeBool(5, enableAdaptive_);
     }
-    if (totalCount_ != 0) {
-      output.writeInt32(7, totalCount_);
+    for (int i = 0; i < vodTranscodePlayInfo_.size(); i++) {
+      output.writeMessage(6, vodTranscodePlayInfo_.get(i));
     }
-    if (adaptiveInfo_ != null) {
-      output.writeMessage(8, getAdaptiveInfo());
-    }
-    for (int i = 0; i < playInfoList_.size(); i++) {
-      output.writeMessage(9, playInfoList_.get(i));
+    if (vodSourcePlayInfo_ != null) {
+      output.writeMessage(7, getVodSourcePlayInfo());
     }
     if (version_ != com.volcengine.service.vod.model.business.VodPlayInfoModelVersion.UndefinedVodPlayInfoModelVersion.getNumber()) {
-      output.writeEnum(10, version_);
+      output.writeEnum(8, version_);
     }
     for (int i = 0; i < thumbInfoList_.size(); i++) {
-      output.writeMessage(11, thumbInfoList_.get(i));
+      output.writeMessage(9, thumbInfoList_.get(i));
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(barrageMaskUrl_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, barrageMaskUrl_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, barrageMaskUrl_);
     }
     for (int i = 0; i < subtitleInfoList_.size(); i++) {
-      output.writeMessage(13, subtitleInfoList_.get(i));
+      output.writeMessage(11, subtitleInfoList_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -749,43 +670,36 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(posterUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, posterUrl_);
     }
-    if (java.lang.Float.floatToRawIntBits(duration_) != 0) {
+    if (totalCount_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeFloatSize(4, duration_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, fileType_);
+        .computeInt32Size(4, totalCount_);
     }
     if (enableAdaptive_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(6, enableAdaptive_);
+        .computeBoolSize(5, enableAdaptive_);
     }
-    if (totalCount_ != 0) {
+    for (int i = 0; i < vodTranscodePlayInfo_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(7, totalCount_);
+        .computeMessageSize(6, vodTranscodePlayInfo_.get(i));
     }
-    if (adaptiveInfo_ != null) {
+    if (vodSourcePlayInfo_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(8, getAdaptiveInfo());
-    }
-    for (int i = 0; i < playInfoList_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(9, playInfoList_.get(i));
+        .computeMessageSize(7, getVodSourcePlayInfo());
     }
     if (version_ != com.volcengine.service.vod.model.business.VodPlayInfoModelVersion.UndefinedVodPlayInfoModelVersion.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(10, version_);
+        .computeEnumSize(8, version_);
     }
     for (int i = 0; i < thumbInfoList_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(11, thumbInfoList_.get(i));
+        .computeMessageSize(9, thumbInfoList_.get(i));
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(barrageMaskUrl_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, barrageMaskUrl_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, barrageMaskUrl_);
     }
     for (int i = 0; i < subtitleInfoList_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(13, subtitleInfoList_.get(i));
+        .computeMessageSize(11, subtitleInfoList_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -797,34 +711,29 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.volcengine.service.vod.model.business.VodPlayInfoModel)) {
+    if (!(obj instanceof com.volcengine.service.vod.model.business.VodAllPlayInfoModel)) {
       return super.equals(obj);
     }
-    com.volcengine.service.vod.model.business.VodPlayInfoModel other = (com.volcengine.service.vod.model.business.VodPlayInfoModel) obj;
+    com.volcengine.service.vod.model.business.VodAllPlayInfoModel other = (com.volcengine.service.vod.model.business.VodAllPlayInfoModel) obj;
 
-    if (version_ != other.version_) return false;
     if (!getVid()
         .equals(other.getVid())) return false;
     if (getStatus()
         != other.getStatus()) return false;
     if (!getPosterUrl()
         .equals(other.getPosterUrl())) return false;
-    if (java.lang.Float.floatToIntBits(getDuration())
-        != java.lang.Float.floatToIntBits(
-            other.getDuration())) return false;
-    if (!getFileType()
-        .equals(other.getFileType())) return false;
-    if (getEnableAdaptive()
-        != other.getEnableAdaptive()) return false;
     if (getTotalCount()
         != other.getTotalCount()) return false;
-    if (hasAdaptiveInfo() != other.hasAdaptiveInfo()) return false;
-    if (hasAdaptiveInfo()) {
-      if (!getAdaptiveInfo()
-          .equals(other.getAdaptiveInfo())) return false;
+    if (getEnableAdaptive()
+        != other.getEnableAdaptive()) return false;
+    if (!getVodTranscodePlayInfoList()
+        .equals(other.getVodTranscodePlayInfoList())) return false;
+    if (hasVodSourcePlayInfo() != other.hasVodSourcePlayInfo()) return false;
+    if (hasVodSourcePlayInfo()) {
+      if (!getVodSourcePlayInfo()
+          .equals(other.getVodSourcePlayInfo())) return false;
     }
-    if (!getPlayInfoListList()
-        .equals(other.getPlayInfoListList())) return false;
+    if (version_ != other.version_) return false;
     if (!getThumbInfoListList()
         .equals(other.getThumbInfoListList())) return false;
     if (!getBarrageMaskUrl()
@@ -842,32 +751,27 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + VERSION_FIELD_NUMBER;
-    hash = (53 * hash) + version_;
     hash = (37 * hash) + VID_FIELD_NUMBER;
     hash = (53 * hash) + getVid().hashCode();
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
     hash = (53 * hash) + getStatus();
     hash = (37 * hash) + POSTERURL_FIELD_NUMBER;
     hash = (53 * hash) + getPosterUrl().hashCode();
-    hash = (37 * hash) + DURATION_FIELD_NUMBER;
-    hash = (53 * hash) + java.lang.Float.floatToIntBits(
-        getDuration());
-    hash = (37 * hash) + FILETYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getFileType().hashCode();
+    hash = (37 * hash) + TOTALCOUNT_FIELD_NUMBER;
+    hash = (53 * hash) + getTotalCount();
     hash = (37 * hash) + ENABLEADAPTIVE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getEnableAdaptive());
-    hash = (37 * hash) + TOTALCOUNT_FIELD_NUMBER;
-    hash = (53 * hash) + getTotalCount();
-    if (hasAdaptiveInfo()) {
-      hash = (37 * hash) + ADAPTIVEINFO_FIELD_NUMBER;
-      hash = (53 * hash) + getAdaptiveInfo().hashCode();
+    if (getVodTranscodePlayInfoCount() > 0) {
+      hash = (37 * hash) + VODTRANSCODEPLAYINFO_FIELD_NUMBER;
+      hash = (53 * hash) + getVodTranscodePlayInfoList().hashCode();
     }
-    if (getPlayInfoListCount() > 0) {
-      hash = (37 * hash) + PLAYINFOLIST_FIELD_NUMBER;
-      hash = (53 * hash) + getPlayInfoListList().hashCode();
+    if (hasVodSourcePlayInfo()) {
+      hash = (37 * hash) + VODSOURCEPLAYINFO_FIELD_NUMBER;
+      hash = (53 * hash) + getVodSourcePlayInfo().hashCode();
     }
+    hash = (37 * hash) + VERSION_FIELD_NUMBER;
+    hash = (53 * hash) + version_;
     if (getThumbInfoListCount() > 0) {
       hash = (37 * hash) + THUMBINFOLIST_FIELD_NUMBER;
       hash = (53 * hash) + getThumbInfoListList().hashCode();
@@ -883,69 +787,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.volcengine.service.vod.model.business.VodPlayInfoModel parseFrom(
+  public static com.volcengine.service.vod.model.business.VodAllPlayInfoModel parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.business.VodPlayInfoModel parseFrom(
+  public static com.volcengine.service.vod.model.business.VodAllPlayInfoModel parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.business.VodPlayInfoModel parseFrom(
+  public static com.volcengine.service.vod.model.business.VodAllPlayInfoModel parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.business.VodPlayInfoModel parseFrom(
+  public static com.volcengine.service.vod.model.business.VodAllPlayInfoModel parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.business.VodPlayInfoModel parseFrom(byte[] data)
+  public static com.volcengine.service.vod.model.business.VodAllPlayInfoModel parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.business.VodPlayInfoModel parseFrom(
+  public static com.volcengine.service.vod.model.business.VodAllPlayInfoModel parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.business.VodPlayInfoModel parseFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.business.VodAllPlayInfoModel parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.business.VodPlayInfoModel parseFrom(
+  public static com.volcengine.service.vod.model.business.VodAllPlayInfoModel parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.business.VodPlayInfoModel parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.business.VodAllPlayInfoModel parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.business.VodPlayInfoModel parseDelimitedFrom(
+  public static com.volcengine.service.vod.model.business.VodAllPlayInfoModel parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.business.VodPlayInfoModel parseFrom(
+  public static com.volcengine.service.vod.model.business.VodAllPlayInfoModel parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.business.VodPlayInfoModel parseFrom(
+  public static com.volcengine.service.vod.model.business.VodAllPlayInfoModel parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -958,7 +862,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.volcengine.service.vod.model.business.VodPlayInfoModel prototype) {
+  public static Builder newBuilder(com.volcengine.service.vod.model.business.VodAllPlayInfoModel prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -974,26 +878,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code Volcengine.Vod.Models.Business.VodPlayInfoModel}
+   * Protobuf type {@code Volcengine.Vod.Models.Business.VodAllPlayInfoModel}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Business.VodPlayInfoModel)
-      com.volcengine.service.vod.model.business.VodPlayInfoModelOrBuilder {
+      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Business.VodAllPlayInfoModel)
+      com.volcengine.service.vod.model.business.VodAllPlayInfoModelOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.volcengine.service.vod.model.business.VodCommon.internal_static_Volcengine_Vod_Models_Business_VodPlayInfoModel_descriptor;
+      return com.volcengine.service.vod.model.business.VodCommon.internal_static_Volcengine_Vod_Models_Business_VodAllPlayInfoModel_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.volcengine.service.vod.model.business.VodCommon.internal_static_Volcengine_Vod_Models_Business_VodPlayInfoModel_fieldAccessorTable
+      return com.volcengine.service.vod.model.business.VodCommon.internal_static_Volcengine_Vod_Models_Business_VodAllPlayInfoModel_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.volcengine.service.vod.model.business.VodPlayInfoModel.class, com.volcengine.service.vod.model.business.VodPlayInfoModel.Builder.class);
+              com.volcengine.service.vod.model.business.VodAllPlayInfoModel.class, com.volcengine.service.vod.model.business.VodAllPlayInfoModel.Builder.class);
     }
 
-    // Construct using com.volcengine.service.vod.model.business.VodPlayInfoModel.newBuilder()
+    // Construct using com.volcengine.service.vod.model.business.VodAllPlayInfoModel.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -1006,7 +910,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getPlayInfoListFieldBuilder();
+        getVodTranscodePlayInfoFieldBuilder();
         getThumbInfoListFieldBuilder();
         getSubtitleInfoListFieldBuilder();
       }
@@ -1014,34 +918,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      version_ = 0;
-
       vid_ = "";
 
       status_ = 0;
 
       posterUrl_ = "";
 
-      duration_ = 0F;
-
-      fileType_ = "";
+      totalCount_ = 0;
 
       enableAdaptive_ = false;
 
-      totalCount_ = 0;
-
-      if (adaptiveInfoBuilder_ == null) {
-        adaptiveInfo_ = null;
-      } else {
-        adaptiveInfo_ = null;
-        adaptiveInfoBuilder_ = null;
-      }
-      if (playInfoListBuilder_ == null) {
-        playInfoList_ = java.util.Collections.emptyList();
+      if (vodTranscodePlayInfoBuilder_ == null) {
+        vodTranscodePlayInfo_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
       } else {
-        playInfoListBuilder_.clear();
+        vodTranscodePlayInfoBuilder_.clear();
       }
+      if (vodSourcePlayInfoBuilder_ == null) {
+        vodSourcePlayInfo_ = null;
+      } else {
+        vodSourcePlayInfo_ = null;
+        vodSourcePlayInfoBuilder_ = null;
+      }
+      version_ = 0;
+
       if (thumbInfoListBuilder_ == null) {
         thumbInfoList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -1062,17 +962,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.volcengine.service.vod.model.business.VodCommon.internal_static_Volcengine_Vod_Models_Business_VodPlayInfoModel_descriptor;
+      return com.volcengine.service.vod.model.business.VodCommon.internal_static_Volcengine_Vod_Models_Business_VodAllPlayInfoModel_descriptor;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.business.VodPlayInfoModel getDefaultInstanceForType() {
-      return com.volcengine.service.vod.model.business.VodPlayInfoModel.getDefaultInstance();
+    public com.volcengine.service.vod.model.business.VodAllPlayInfoModel getDefaultInstanceForType() {
+      return com.volcengine.service.vod.model.business.VodAllPlayInfoModel.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.business.VodPlayInfoModel build() {
-      com.volcengine.service.vod.model.business.VodPlayInfoModel result = buildPartial();
+    public com.volcengine.service.vod.model.business.VodAllPlayInfoModel build() {
+      com.volcengine.service.vod.model.business.VodAllPlayInfoModel result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -1080,31 +980,29 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.business.VodPlayInfoModel buildPartial() {
-      com.volcengine.service.vod.model.business.VodPlayInfoModel result = new com.volcengine.service.vod.model.business.VodPlayInfoModel(this);
+    public com.volcengine.service.vod.model.business.VodAllPlayInfoModel buildPartial() {
+      com.volcengine.service.vod.model.business.VodAllPlayInfoModel result = new com.volcengine.service.vod.model.business.VodAllPlayInfoModel(this);
       int from_bitField0_ = bitField0_;
-      result.version_ = version_;
       result.vid_ = vid_;
       result.status_ = status_;
       result.posterUrl_ = posterUrl_;
-      result.duration_ = duration_;
-      result.fileType_ = fileType_;
-      result.enableAdaptive_ = enableAdaptive_;
       result.totalCount_ = totalCount_;
-      if (adaptiveInfoBuilder_ == null) {
-        result.adaptiveInfo_ = adaptiveInfo_;
-      } else {
-        result.adaptiveInfo_ = adaptiveInfoBuilder_.build();
-      }
-      if (playInfoListBuilder_ == null) {
+      result.enableAdaptive_ = enableAdaptive_;
+      if (vodTranscodePlayInfoBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
-          playInfoList_ = java.util.Collections.unmodifiableList(playInfoList_);
+          vodTranscodePlayInfo_ = java.util.Collections.unmodifiableList(vodTranscodePlayInfo_);
           bitField0_ = (bitField0_ & ~0x00000001);
         }
-        result.playInfoList_ = playInfoList_;
+        result.vodTranscodePlayInfo_ = vodTranscodePlayInfo_;
       } else {
-        result.playInfoList_ = playInfoListBuilder_.build();
+        result.vodTranscodePlayInfo_ = vodTranscodePlayInfoBuilder_.build();
       }
+      if (vodSourcePlayInfoBuilder_ == null) {
+        result.vodSourcePlayInfo_ = vodSourcePlayInfo_;
+      } else {
+        result.vodSourcePlayInfo_ = vodSourcePlayInfoBuilder_.build();
+      }
+      result.version_ = version_;
       if (thumbInfoListBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0)) {
           thumbInfoList_ = java.util.Collections.unmodifiableList(thumbInfoList_);
@@ -1162,19 +1060,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.volcengine.service.vod.model.business.VodPlayInfoModel) {
-        return mergeFrom((com.volcengine.service.vod.model.business.VodPlayInfoModel)other);
+      if (other instanceof com.volcengine.service.vod.model.business.VodAllPlayInfoModel) {
+        return mergeFrom((com.volcengine.service.vod.model.business.VodAllPlayInfoModel)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.volcengine.service.vod.model.business.VodPlayInfoModel other) {
-      if (other == com.volcengine.service.vod.model.business.VodPlayInfoModel.getDefaultInstance()) return this;
-      if (other.version_ != 0) {
-        setVersionValue(other.getVersionValue());
-      }
+    public Builder mergeFrom(com.volcengine.service.vod.model.business.VodAllPlayInfoModel other) {
+      if (other == com.volcengine.service.vod.model.business.VodAllPlayInfoModel.getDefaultInstance()) return this;
       if (!other.getVid().isEmpty()) {
         vid_ = other.vid_;
         onChanged();
@@ -1186,47 +1081,43 @@ private static final long serialVersionUID = 0L;
         posterUrl_ = other.posterUrl_;
         onChanged();
       }
-      if (other.getDuration() != 0F) {
-        setDuration(other.getDuration());
-      }
-      if (!other.getFileType().isEmpty()) {
-        fileType_ = other.fileType_;
-        onChanged();
+      if (other.getTotalCount() != 0) {
+        setTotalCount(other.getTotalCount());
       }
       if (other.getEnableAdaptive() != false) {
         setEnableAdaptive(other.getEnableAdaptive());
       }
-      if (other.getTotalCount() != 0) {
-        setTotalCount(other.getTotalCount());
-      }
-      if (other.hasAdaptiveInfo()) {
-        mergeAdaptiveInfo(other.getAdaptiveInfo());
-      }
-      if (playInfoListBuilder_ == null) {
-        if (!other.playInfoList_.isEmpty()) {
-          if (playInfoList_.isEmpty()) {
-            playInfoList_ = other.playInfoList_;
+      if (vodTranscodePlayInfoBuilder_ == null) {
+        if (!other.vodTranscodePlayInfo_.isEmpty()) {
+          if (vodTranscodePlayInfo_.isEmpty()) {
+            vodTranscodePlayInfo_ = other.vodTranscodePlayInfo_;
             bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            ensurePlayInfoListIsMutable();
-            playInfoList_.addAll(other.playInfoList_);
+            ensureVodTranscodePlayInfoIsMutable();
+            vodTranscodePlayInfo_.addAll(other.vodTranscodePlayInfo_);
           }
           onChanged();
         }
       } else {
-        if (!other.playInfoList_.isEmpty()) {
-          if (playInfoListBuilder_.isEmpty()) {
-            playInfoListBuilder_.dispose();
-            playInfoListBuilder_ = null;
-            playInfoList_ = other.playInfoList_;
+        if (!other.vodTranscodePlayInfo_.isEmpty()) {
+          if (vodTranscodePlayInfoBuilder_.isEmpty()) {
+            vodTranscodePlayInfoBuilder_.dispose();
+            vodTranscodePlayInfoBuilder_ = null;
+            vodTranscodePlayInfo_ = other.vodTranscodePlayInfo_;
             bitField0_ = (bitField0_ & ~0x00000001);
-            playInfoListBuilder_ = 
+            vodTranscodePlayInfoBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getPlayInfoListFieldBuilder() : null;
+                 getVodTranscodePlayInfoFieldBuilder() : null;
           } else {
-            playInfoListBuilder_.addAllMessages(other.playInfoList_);
+            vodTranscodePlayInfoBuilder_.addAllMessages(other.vodTranscodePlayInfo_);
           }
         }
+      }
+      if (other.hasVodSourcePlayInfo()) {
+        mergeVodSourcePlayInfo(other.getVodSourcePlayInfo());
+      }
+      if (other.version_ != 0) {
+        setVersionValue(other.getVersionValue());
       }
       if (thumbInfoListBuilder_ == null) {
         if (!other.thumbInfoList_.isEmpty()) {
@@ -1299,11 +1190,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.volcengine.service.vod.model.business.VodPlayInfoModel parsedMessage = null;
+      com.volcengine.service.vod.model.business.VodAllPlayInfoModel parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.volcengine.service.vod.model.business.VodPlayInfoModel) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.service.vod.model.business.VodAllPlayInfoModel) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -1313,80 +1204,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     private int bitField0_;
-
-    private int version_ = 0;
-    /**
-     * <pre>
-     * 数据版本
-     * </pre>
-     *
-     * <code>.Volcengine.Vod.Models.Business.VodPlayInfoModelVersion Version = 10;</code>
-     * @return The enum numeric value on the wire for version.
-     */
-    @java.lang.Override public int getVersionValue() {
-      return version_;
-    }
-    /**
-     * <pre>
-     * 数据版本
-     * </pre>
-     *
-     * <code>.Volcengine.Vod.Models.Business.VodPlayInfoModelVersion Version = 10;</code>
-     * @param value The enum numeric value on the wire for version to set.
-     * @return This builder for chaining.
-     */
-    public Builder setVersionValue(int value) {
-      
-      version_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 数据版本
-     * </pre>
-     *
-     * <code>.Volcengine.Vod.Models.Business.VodPlayInfoModelVersion Version = 10;</code>
-     * @return The version.
-     */
-    @java.lang.Override
-    public com.volcengine.service.vod.model.business.VodPlayInfoModelVersion getVersion() {
-      @SuppressWarnings("deprecation")
-      com.volcengine.service.vod.model.business.VodPlayInfoModelVersion result = com.volcengine.service.vod.model.business.VodPlayInfoModelVersion.valueOf(version_);
-      return result == null ? com.volcengine.service.vod.model.business.VodPlayInfoModelVersion.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * 数据版本
-     * </pre>
-     *
-     * <code>.Volcengine.Vod.Models.Business.VodPlayInfoModelVersion Version = 10;</code>
-     * @param value The version to set.
-     * @return This builder for chaining.
-     */
-    public Builder setVersion(com.volcengine.service.vod.model.business.VodPlayInfoModelVersion value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      version_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 数据版本
-     * </pre>
-     *
-     * <code>.Volcengine.Vod.Models.Business.VodPlayInfoModelVersion Version = 10;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearVersion() {
-      
-      version_ = 0;
-      onChanged();
-      return this;
-    }
 
     private java.lang.Object vid_ = "";
     /**
@@ -1623,195 +1440,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float duration_ ;
-    /**
-     * <pre>
-     * 播放时长(单位：s)
-     * </pre>
-     *
-     * <code>float Duration = 4;</code>
-     * @return The duration.
-     */
-    @java.lang.Override
-    public float getDuration() {
-      return duration_;
-    }
-    /**
-     * <pre>
-     * 播放时长(单位：s)
-     * </pre>
-     *
-     * <code>float Duration = 4;</code>
-     * @param value The duration to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDuration(float value) {
-      
-      duration_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 播放时长(单位：s)
-     * </pre>
-     *
-     * <code>float Duration = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDuration() {
-      
-      duration_ = 0F;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object fileType_ = "";
-    /**
-     * <pre>
-     * 媒体类型
-     * </pre>
-     *
-     * <code>string FileType = 5;</code>
-     * @return The fileType.
-     */
-    public java.lang.String getFileType() {
-      java.lang.Object ref = fileType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        fileType_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 媒体类型
-     * </pre>
-     *
-     * <code>string FileType = 5;</code>
-     * @return The bytes for fileType.
-     */
-    public com.google.protobuf.ByteString
-        getFileTypeBytes() {
-      java.lang.Object ref = fileType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        fileType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 媒体类型
-     * </pre>
-     *
-     * <code>string FileType = 5;</code>
-     * @param value The fileType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setFileType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      fileType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 媒体类型
-     * </pre>
-     *
-     * <code>string FileType = 5;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearFileType() {
-      
-      fileType_ = getDefaultInstance().getFileType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 媒体类型
-     * </pre>
-     *
-     * <code>string FileType = 5;</code>
-     * @param value The bytes for fileType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setFileTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      fileType_ = value;
-      onChanged();
-      return this;
-    }
-
-    private boolean enableAdaptive_ ;
-    /**
-     * <pre>
-     * 是否关键针对齐
-     * </pre>
-     *
-     * <code>bool EnableAdaptive = 6;</code>
-     * @return The enableAdaptive.
-     */
-    @java.lang.Override
-    public boolean getEnableAdaptive() {
-      return enableAdaptive_;
-    }
-    /**
-     * <pre>
-     * 是否关键针对齐
-     * </pre>
-     *
-     * <code>bool EnableAdaptive = 6;</code>
-     * @param value The enableAdaptive to set.
-     * @return This builder for chaining.
-     */
-    public Builder setEnableAdaptive(boolean value) {
-      
-      enableAdaptive_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 是否关键针对齐
-     * </pre>
-     *
-     * <code>bool EnableAdaptive = 6;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearEnableAdaptive() {
-      
-      enableAdaptive_ = false;
-      onChanged();
-      return this;
-    }
-
     private int totalCount_ ;
     /**
      * <pre>
      * 播放列表数量
      * </pre>
      *
-     * <code>int32 TotalCount = 7;</code>
+     * <code>int32 TotalCount = 4;</code>
      * @return The totalCount.
      */
     @java.lang.Override
@@ -1823,7 +1458,7 @@ private static final long serialVersionUID = 0L;
      * 播放列表数量
      * </pre>
      *
-     * <code>int32 TotalCount = 7;</code>
+     * <code>int32 TotalCount = 4;</code>
      * @param value The totalCount to set.
      * @return This builder for chaining.
      */
@@ -1838,7 +1473,7 @@ private static final long serialVersionUID = 0L;
      * 播放列表数量
      * </pre>
      *
-     * <code>int32 TotalCount = 7;</code>
+     * <code>int32 TotalCount = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearTotalCount() {
@@ -1848,471 +1483,588 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.volcengine.service.vod.model.business.VodAdaptiveInfo adaptiveInfo_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.volcengine.service.vod.model.business.VodAdaptiveInfo, com.volcengine.service.vod.model.business.VodAdaptiveInfo.Builder, com.volcengine.service.vod.model.business.VodAdaptiveInfoOrBuilder> adaptiveInfoBuilder_;
+    private boolean enableAdaptive_ ;
     /**
      * <pre>
-     * dash播放信息
+     * 是否关键针对齐
      * </pre>
      *
-     * <code>.Volcengine.Vod.Models.Business.VodAdaptiveInfo AdaptiveInfo = 8;</code>
-     * @return Whether the adaptiveInfo field is set.
+     * <code>bool EnableAdaptive = 5;</code>
+     * @return The enableAdaptive.
      */
-    public boolean hasAdaptiveInfo() {
-      return adaptiveInfoBuilder_ != null || adaptiveInfo_ != null;
+    @java.lang.Override
+    public boolean getEnableAdaptive() {
+      return enableAdaptive_;
     }
     /**
      * <pre>
-     * dash播放信息
+     * 是否关键针对齐
      * </pre>
      *
-     * <code>.Volcengine.Vod.Models.Business.VodAdaptiveInfo AdaptiveInfo = 8;</code>
-     * @return The adaptiveInfo.
+     * <code>bool EnableAdaptive = 5;</code>
+     * @param value The enableAdaptive to set.
+     * @return This builder for chaining.
      */
-    public com.volcengine.service.vod.model.business.VodAdaptiveInfo getAdaptiveInfo() {
-      if (adaptiveInfoBuilder_ == null) {
-        return adaptiveInfo_ == null ? com.volcengine.service.vod.model.business.VodAdaptiveInfo.getDefaultInstance() : adaptiveInfo_;
-      } else {
-        return adaptiveInfoBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * dash播放信息
-     * </pre>
-     *
-     * <code>.Volcengine.Vod.Models.Business.VodAdaptiveInfo AdaptiveInfo = 8;</code>
-     */
-    public Builder setAdaptiveInfo(com.volcengine.service.vod.model.business.VodAdaptiveInfo value) {
-      if (adaptiveInfoBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        adaptiveInfo_ = value;
-        onChanged();
-      } else {
-        adaptiveInfoBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * dash播放信息
-     * </pre>
-     *
-     * <code>.Volcengine.Vod.Models.Business.VodAdaptiveInfo AdaptiveInfo = 8;</code>
-     */
-    public Builder setAdaptiveInfo(
-        com.volcengine.service.vod.model.business.VodAdaptiveInfo.Builder builderForValue) {
-      if (adaptiveInfoBuilder_ == null) {
-        adaptiveInfo_ = builderForValue.build();
-        onChanged();
-      } else {
-        adaptiveInfoBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * dash播放信息
-     * </pre>
-     *
-     * <code>.Volcengine.Vod.Models.Business.VodAdaptiveInfo AdaptiveInfo = 8;</code>
-     */
-    public Builder mergeAdaptiveInfo(com.volcengine.service.vod.model.business.VodAdaptiveInfo value) {
-      if (adaptiveInfoBuilder_ == null) {
-        if (adaptiveInfo_ != null) {
-          adaptiveInfo_ =
-            com.volcengine.service.vod.model.business.VodAdaptiveInfo.newBuilder(adaptiveInfo_).mergeFrom(value).buildPartial();
-        } else {
-          adaptiveInfo_ = value;
-        }
-        onChanged();
-      } else {
-        adaptiveInfoBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * dash播放信息
-     * </pre>
-     *
-     * <code>.Volcengine.Vod.Models.Business.VodAdaptiveInfo AdaptiveInfo = 8;</code>
-     */
-    public Builder clearAdaptiveInfo() {
-      if (adaptiveInfoBuilder_ == null) {
-        adaptiveInfo_ = null;
-        onChanged();
-      } else {
-        adaptiveInfo_ = null;
-        adaptiveInfoBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * dash播放信息
-     * </pre>
-     *
-     * <code>.Volcengine.Vod.Models.Business.VodAdaptiveInfo AdaptiveInfo = 8;</code>
-     */
-    public com.volcengine.service.vod.model.business.VodAdaptiveInfo.Builder getAdaptiveInfoBuilder() {
+    public Builder setEnableAdaptive(boolean value) {
       
+      enableAdaptive_ = value;
       onChanged();
-      return getAdaptiveInfoFieldBuilder().getBuilder();
+      return this;
     }
     /**
      * <pre>
-     * dash播放信息
+     * 是否关键针对齐
      * </pre>
      *
-     * <code>.Volcengine.Vod.Models.Business.VodAdaptiveInfo AdaptiveInfo = 8;</code>
+     * <code>bool EnableAdaptive = 5;</code>
+     * @return This builder for chaining.
      */
-    public com.volcengine.service.vod.model.business.VodAdaptiveInfoOrBuilder getAdaptiveInfoOrBuilder() {
-      if (adaptiveInfoBuilder_ != null) {
-        return adaptiveInfoBuilder_.getMessageOrBuilder();
-      } else {
-        return adaptiveInfo_ == null ?
-            com.volcengine.service.vod.model.business.VodAdaptiveInfo.getDefaultInstance() : adaptiveInfo_;
-      }
-    }
-    /**
-     * <pre>
-     * dash播放信息
-     * </pre>
-     *
-     * <code>.Volcengine.Vod.Models.Business.VodAdaptiveInfo AdaptiveInfo = 8;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.volcengine.service.vod.model.business.VodAdaptiveInfo, com.volcengine.service.vod.model.business.VodAdaptiveInfo.Builder, com.volcengine.service.vod.model.business.VodAdaptiveInfoOrBuilder> 
-        getAdaptiveInfoFieldBuilder() {
-      if (adaptiveInfoBuilder_ == null) {
-        adaptiveInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.volcengine.service.vod.model.business.VodAdaptiveInfo, com.volcengine.service.vod.model.business.VodAdaptiveInfo.Builder, com.volcengine.service.vod.model.business.VodAdaptiveInfoOrBuilder>(
-                getAdaptiveInfo(),
-                getParentForChildren(),
-                isClean());
-        adaptiveInfo_ = null;
-      }
-      return adaptiveInfoBuilder_;
+    public Builder clearEnableAdaptive() {
+      
+      enableAdaptive_ = false;
+      onChanged();
+      return this;
     }
 
-    private java.util.List<com.volcengine.service.vod.model.business.VodPlayInfo> playInfoList_ =
+    private java.util.List<com.volcengine.service.vod.model.business.VodPlayInfo> vodTranscodePlayInfo_ =
       java.util.Collections.emptyList();
-    private void ensurePlayInfoListIsMutable() {
+    private void ensureVodTranscodePlayInfoIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        playInfoList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodPlayInfo>(playInfoList_);
+        vodTranscodePlayInfo_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodPlayInfo>(vodTranscodePlayInfo_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.volcengine.service.vod.model.business.VodPlayInfo, com.volcengine.service.vod.model.business.VodPlayInfo.Builder, com.volcengine.service.vod.model.business.VodPlayInfoOrBuilder> playInfoListBuilder_;
+        com.volcengine.service.vod.model.business.VodPlayInfo, com.volcengine.service.vod.model.business.VodPlayInfo.Builder, com.volcengine.service.vod.model.business.VodPlayInfoOrBuilder> vodTranscodePlayInfoBuilder_;
 
     /**
      * <pre>
-     * 播放列表
+     * 转码流
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
      */
-    public java.util.List<com.volcengine.service.vod.model.business.VodPlayInfo> getPlayInfoListList() {
-      if (playInfoListBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(playInfoList_);
+    public java.util.List<com.volcengine.service.vod.model.business.VodPlayInfo> getVodTranscodePlayInfoList() {
+      if (vodTranscodePlayInfoBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(vodTranscodePlayInfo_);
       } else {
-        return playInfoListBuilder_.getMessageList();
+        return vodTranscodePlayInfoBuilder_.getMessageList();
       }
     }
     /**
      * <pre>
-     * 播放列表
+     * 转码流
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
      */
-    public int getPlayInfoListCount() {
-      if (playInfoListBuilder_ == null) {
-        return playInfoList_.size();
+    public int getVodTranscodePlayInfoCount() {
+      if (vodTranscodePlayInfoBuilder_ == null) {
+        return vodTranscodePlayInfo_.size();
       } else {
-        return playInfoListBuilder_.getCount();
+        return vodTranscodePlayInfoBuilder_.getCount();
       }
     }
     /**
      * <pre>
-     * 播放列表
+     * 转码流
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
      */
-    public com.volcengine.service.vod.model.business.VodPlayInfo getPlayInfoList(int index) {
-      if (playInfoListBuilder_ == null) {
-        return playInfoList_.get(index);
+    public com.volcengine.service.vod.model.business.VodPlayInfo getVodTranscodePlayInfo(int index) {
+      if (vodTranscodePlayInfoBuilder_ == null) {
+        return vodTranscodePlayInfo_.get(index);
       } else {
-        return playInfoListBuilder_.getMessage(index);
+        return vodTranscodePlayInfoBuilder_.getMessage(index);
       }
     }
     /**
      * <pre>
-     * 播放列表
+     * 转码流
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
      */
-    public Builder setPlayInfoList(
+    public Builder setVodTranscodePlayInfo(
         int index, com.volcengine.service.vod.model.business.VodPlayInfo value) {
-      if (playInfoListBuilder_ == null) {
+      if (vodTranscodePlayInfoBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensurePlayInfoListIsMutable();
-        playInfoList_.set(index, value);
+        ensureVodTranscodePlayInfoIsMutable();
+        vodTranscodePlayInfo_.set(index, value);
         onChanged();
       } else {
-        playInfoListBuilder_.setMessage(index, value);
+        vodTranscodePlayInfoBuilder_.setMessage(index, value);
       }
       return this;
     }
     /**
      * <pre>
-     * 播放列表
+     * 转码流
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
      */
-    public Builder setPlayInfoList(
+    public Builder setVodTranscodePlayInfo(
         int index, com.volcengine.service.vod.model.business.VodPlayInfo.Builder builderForValue) {
-      if (playInfoListBuilder_ == null) {
-        ensurePlayInfoListIsMutable();
-        playInfoList_.set(index, builderForValue.build());
+      if (vodTranscodePlayInfoBuilder_ == null) {
+        ensureVodTranscodePlayInfoIsMutable();
+        vodTranscodePlayInfo_.set(index, builderForValue.build());
         onChanged();
       } else {
-        playInfoListBuilder_.setMessage(index, builderForValue.build());
+        vodTranscodePlayInfoBuilder_.setMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
      * <pre>
-     * 播放列表
+     * 转码流
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
      */
-    public Builder addPlayInfoList(com.volcengine.service.vod.model.business.VodPlayInfo value) {
-      if (playInfoListBuilder_ == null) {
+    public Builder addVodTranscodePlayInfo(com.volcengine.service.vod.model.business.VodPlayInfo value) {
+      if (vodTranscodePlayInfoBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensurePlayInfoListIsMutable();
-        playInfoList_.add(value);
+        ensureVodTranscodePlayInfoIsMutable();
+        vodTranscodePlayInfo_.add(value);
         onChanged();
       } else {
-        playInfoListBuilder_.addMessage(value);
+        vodTranscodePlayInfoBuilder_.addMessage(value);
       }
       return this;
     }
     /**
      * <pre>
-     * 播放列表
+     * 转码流
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
      */
-    public Builder addPlayInfoList(
+    public Builder addVodTranscodePlayInfo(
         int index, com.volcengine.service.vod.model.business.VodPlayInfo value) {
-      if (playInfoListBuilder_ == null) {
+      if (vodTranscodePlayInfoBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensurePlayInfoListIsMutable();
-        playInfoList_.add(index, value);
+        ensureVodTranscodePlayInfoIsMutable();
+        vodTranscodePlayInfo_.add(index, value);
         onChanged();
       } else {
-        playInfoListBuilder_.addMessage(index, value);
+        vodTranscodePlayInfoBuilder_.addMessage(index, value);
       }
       return this;
     }
     /**
      * <pre>
-     * 播放列表
+     * 转码流
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
      */
-    public Builder addPlayInfoList(
+    public Builder addVodTranscodePlayInfo(
         com.volcengine.service.vod.model.business.VodPlayInfo.Builder builderForValue) {
-      if (playInfoListBuilder_ == null) {
-        ensurePlayInfoListIsMutable();
-        playInfoList_.add(builderForValue.build());
+      if (vodTranscodePlayInfoBuilder_ == null) {
+        ensureVodTranscodePlayInfoIsMutable();
+        vodTranscodePlayInfo_.add(builderForValue.build());
         onChanged();
       } else {
-        playInfoListBuilder_.addMessage(builderForValue.build());
+        vodTranscodePlayInfoBuilder_.addMessage(builderForValue.build());
       }
       return this;
     }
     /**
      * <pre>
-     * 播放列表
+     * 转码流
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
      */
-    public Builder addPlayInfoList(
+    public Builder addVodTranscodePlayInfo(
         int index, com.volcengine.service.vod.model.business.VodPlayInfo.Builder builderForValue) {
-      if (playInfoListBuilder_ == null) {
-        ensurePlayInfoListIsMutable();
-        playInfoList_.add(index, builderForValue.build());
+      if (vodTranscodePlayInfoBuilder_ == null) {
+        ensureVodTranscodePlayInfoIsMutable();
+        vodTranscodePlayInfo_.add(index, builderForValue.build());
         onChanged();
       } else {
-        playInfoListBuilder_.addMessage(index, builderForValue.build());
+        vodTranscodePlayInfoBuilder_.addMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
      * <pre>
-     * 播放列表
+     * 转码流
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
      */
-    public Builder addAllPlayInfoList(
+    public Builder addAllVodTranscodePlayInfo(
         java.lang.Iterable<? extends com.volcengine.service.vod.model.business.VodPlayInfo> values) {
-      if (playInfoListBuilder_ == null) {
-        ensurePlayInfoListIsMutable();
+      if (vodTranscodePlayInfoBuilder_ == null) {
+        ensureVodTranscodePlayInfoIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, playInfoList_);
+            values, vodTranscodePlayInfo_);
         onChanged();
       } else {
-        playInfoListBuilder_.addAllMessages(values);
+        vodTranscodePlayInfoBuilder_.addAllMessages(values);
       }
       return this;
     }
     /**
      * <pre>
-     * 播放列表
+     * 转码流
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
      */
-    public Builder clearPlayInfoList() {
-      if (playInfoListBuilder_ == null) {
-        playInfoList_ = java.util.Collections.emptyList();
+    public Builder clearVodTranscodePlayInfo() {
+      if (vodTranscodePlayInfoBuilder_ == null) {
+        vodTranscodePlayInfo_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
-        playInfoListBuilder_.clear();
+        vodTranscodePlayInfoBuilder_.clear();
       }
       return this;
     }
     /**
      * <pre>
-     * 播放列表
+     * 转码流
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
      */
-    public Builder removePlayInfoList(int index) {
-      if (playInfoListBuilder_ == null) {
-        ensurePlayInfoListIsMutable();
-        playInfoList_.remove(index);
+    public Builder removeVodTranscodePlayInfo(int index) {
+      if (vodTranscodePlayInfoBuilder_ == null) {
+        ensureVodTranscodePlayInfoIsMutable();
+        vodTranscodePlayInfo_.remove(index);
         onChanged();
       } else {
-        playInfoListBuilder_.remove(index);
+        vodTranscodePlayInfoBuilder_.remove(index);
       }
       return this;
     }
     /**
      * <pre>
-     * 播放列表
+     * 转码流
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
      */
-    public com.volcengine.service.vod.model.business.VodPlayInfo.Builder getPlayInfoListBuilder(
+    public com.volcengine.service.vod.model.business.VodPlayInfo.Builder getVodTranscodePlayInfoBuilder(
         int index) {
-      return getPlayInfoListFieldBuilder().getBuilder(index);
+      return getVodTranscodePlayInfoFieldBuilder().getBuilder(index);
     }
     /**
      * <pre>
-     * 播放列表
+     * 转码流
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
      */
-    public com.volcengine.service.vod.model.business.VodPlayInfoOrBuilder getPlayInfoListOrBuilder(
+    public com.volcengine.service.vod.model.business.VodPlayInfoOrBuilder getVodTranscodePlayInfoOrBuilder(
         int index) {
-      if (playInfoListBuilder_ == null) {
-        return playInfoList_.get(index);  } else {
-        return playInfoListBuilder_.getMessageOrBuilder(index);
+      if (vodTranscodePlayInfoBuilder_ == null) {
+        return vodTranscodePlayInfo_.get(index);  } else {
+        return vodTranscodePlayInfoBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
      * <pre>
-     * 播放列表
+     * 转码流
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
      */
     public java.util.List<? extends com.volcengine.service.vod.model.business.VodPlayInfoOrBuilder> 
-         getPlayInfoListOrBuilderList() {
-      if (playInfoListBuilder_ != null) {
-        return playInfoListBuilder_.getMessageOrBuilderList();
+         getVodTranscodePlayInfoOrBuilderList() {
+      if (vodTranscodePlayInfoBuilder_ != null) {
+        return vodTranscodePlayInfoBuilder_.getMessageOrBuilderList();
       } else {
-        return java.util.Collections.unmodifiableList(playInfoList_);
+        return java.util.Collections.unmodifiableList(vodTranscodePlayInfo_);
       }
     }
     /**
      * <pre>
-     * 播放列表
+     * 转码流
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
      */
-    public com.volcengine.service.vod.model.business.VodPlayInfo.Builder addPlayInfoListBuilder() {
-      return getPlayInfoListFieldBuilder().addBuilder(
+    public com.volcengine.service.vod.model.business.VodPlayInfo.Builder addVodTranscodePlayInfoBuilder() {
+      return getVodTranscodePlayInfoFieldBuilder().addBuilder(
           com.volcengine.service.vod.model.business.VodPlayInfo.getDefaultInstance());
     }
     /**
      * <pre>
-     * 播放列表
+     * 转码流
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
      */
-    public com.volcengine.service.vod.model.business.VodPlayInfo.Builder addPlayInfoListBuilder(
+    public com.volcengine.service.vod.model.business.VodPlayInfo.Builder addVodTranscodePlayInfoBuilder(
         int index) {
-      return getPlayInfoListFieldBuilder().addBuilder(
+      return getVodTranscodePlayInfoFieldBuilder().addBuilder(
           index, com.volcengine.service.vod.model.business.VodPlayInfo.getDefaultInstance());
     }
     /**
      * <pre>
-     * 播放列表
+     * 转码流
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo VodTranscodePlayInfo = 6;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodPlayInfo.Builder> 
-         getPlayInfoListBuilderList() {
-      return getPlayInfoListFieldBuilder().getBuilderList();
+         getVodTranscodePlayInfoBuilderList() {
+      return getVodTranscodePlayInfoFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
         com.volcengine.service.vod.model.business.VodPlayInfo, com.volcengine.service.vod.model.business.VodPlayInfo.Builder, com.volcengine.service.vod.model.business.VodPlayInfoOrBuilder> 
-        getPlayInfoListFieldBuilder() {
-      if (playInfoListBuilder_ == null) {
-        playInfoListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+        getVodTranscodePlayInfoFieldBuilder() {
+      if (vodTranscodePlayInfoBuilder_ == null) {
+        vodTranscodePlayInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.volcengine.service.vod.model.business.VodPlayInfo, com.volcengine.service.vod.model.business.VodPlayInfo.Builder, com.volcengine.service.vod.model.business.VodPlayInfoOrBuilder>(
-                playInfoList_,
+                vodTranscodePlayInfo_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
-        playInfoList_ = null;
+        vodTranscodePlayInfo_ = null;
       }
-      return playInfoListBuilder_;
+      return vodTranscodePlayInfoBuilder_;
+    }
+
+    private com.volcengine.service.vod.model.business.VodPlayInfo vodSourcePlayInfo_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodPlayInfo, com.volcengine.service.vod.model.business.VodPlayInfo.Builder, com.volcengine.service.vod.model.business.VodPlayInfoOrBuilder> vodSourcePlayInfoBuilder_;
+    /**
+     * <pre>
+     * 原片流
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodPlayInfo VodSourcePlayInfo = 7;</code>
+     * @return Whether the vodSourcePlayInfo field is set.
+     */
+    public boolean hasVodSourcePlayInfo() {
+      return vodSourcePlayInfoBuilder_ != null || vodSourcePlayInfo_ != null;
+    }
+    /**
+     * <pre>
+     * 原片流
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodPlayInfo VodSourcePlayInfo = 7;</code>
+     * @return The vodSourcePlayInfo.
+     */
+    public com.volcengine.service.vod.model.business.VodPlayInfo getVodSourcePlayInfo() {
+      if (vodSourcePlayInfoBuilder_ == null) {
+        return vodSourcePlayInfo_ == null ? com.volcengine.service.vod.model.business.VodPlayInfo.getDefaultInstance() : vodSourcePlayInfo_;
+      } else {
+        return vodSourcePlayInfoBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * 原片流
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodPlayInfo VodSourcePlayInfo = 7;</code>
+     */
+    public Builder setVodSourcePlayInfo(com.volcengine.service.vod.model.business.VodPlayInfo value) {
+      if (vodSourcePlayInfoBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        vodSourcePlayInfo_ = value;
+        onChanged();
+      } else {
+        vodSourcePlayInfoBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 原片流
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodPlayInfo VodSourcePlayInfo = 7;</code>
+     */
+    public Builder setVodSourcePlayInfo(
+        com.volcengine.service.vod.model.business.VodPlayInfo.Builder builderForValue) {
+      if (vodSourcePlayInfoBuilder_ == null) {
+        vodSourcePlayInfo_ = builderForValue.build();
+        onChanged();
+      } else {
+        vodSourcePlayInfoBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 原片流
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodPlayInfo VodSourcePlayInfo = 7;</code>
+     */
+    public Builder mergeVodSourcePlayInfo(com.volcengine.service.vod.model.business.VodPlayInfo value) {
+      if (vodSourcePlayInfoBuilder_ == null) {
+        if (vodSourcePlayInfo_ != null) {
+          vodSourcePlayInfo_ =
+            com.volcengine.service.vod.model.business.VodPlayInfo.newBuilder(vodSourcePlayInfo_).mergeFrom(value).buildPartial();
+        } else {
+          vodSourcePlayInfo_ = value;
+        }
+        onChanged();
+      } else {
+        vodSourcePlayInfoBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 原片流
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodPlayInfo VodSourcePlayInfo = 7;</code>
+     */
+    public Builder clearVodSourcePlayInfo() {
+      if (vodSourcePlayInfoBuilder_ == null) {
+        vodSourcePlayInfo_ = null;
+        onChanged();
+      } else {
+        vodSourcePlayInfo_ = null;
+        vodSourcePlayInfoBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 原片流
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodPlayInfo VodSourcePlayInfo = 7;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodPlayInfo.Builder getVodSourcePlayInfoBuilder() {
+      
+      onChanged();
+      return getVodSourcePlayInfoFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * 原片流
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodPlayInfo VodSourcePlayInfo = 7;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodPlayInfoOrBuilder getVodSourcePlayInfoOrBuilder() {
+      if (vodSourcePlayInfoBuilder_ != null) {
+        return vodSourcePlayInfoBuilder_.getMessageOrBuilder();
+      } else {
+        return vodSourcePlayInfo_ == null ?
+            com.volcengine.service.vod.model.business.VodPlayInfo.getDefaultInstance() : vodSourcePlayInfo_;
+      }
+    }
+    /**
+     * <pre>
+     * 原片流
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodPlayInfo VodSourcePlayInfo = 7;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodPlayInfo, com.volcengine.service.vod.model.business.VodPlayInfo.Builder, com.volcengine.service.vod.model.business.VodPlayInfoOrBuilder> 
+        getVodSourcePlayInfoFieldBuilder() {
+      if (vodSourcePlayInfoBuilder_ == null) {
+        vodSourcePlayInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.VodPlayInfo, com.volcengine.service.vod.model.business.VodPlayInfo.Builder, com.volcengine.service.vod.model.business.VodPlayInfoOrBuilder>(
+                getVodSourcePlayInfo(),
+                getParentForChildren(),
+                isClean());
+        vodSourcePlayInfo_ = null;
+      }
+      return vodSourcePlayInfoBuilder_;
+    }
+
+    private int version_ = 0;
+    /**
+     * <pre>
+     * 数据版本
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodPlayInfoModelVersion Version = 8;</code>
+     * @return The enum numeric value on the wire for version.
+     */
+    @java.lang.Override public int getVersionValue() {
+      return version_;
+    }
+    /**
+     * <pre>
+     * 数据版本
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodPlayInfoModelVersion Version = 8;</code>
+     * @param value The enum numeric value on the wire for version to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVersionValue(int value) {
+      
+      version_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 数据版本
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodPlayInfoModelVersion Version = 8;</code>
+     * @return The version.
+     */
+    @java.lang.Override
+    public com.volcengine.service.vod.model.business.VodPlayInfoModelVersion getVersion() {
+      @SuppressWarnings("deprecation")
+      com.volcengine.service.vod.model.business.VodPlayInfoModelVersion result = com.volcengine.service.vod.model.business.VodPlayInfoModelVersion.valueOf(version_);
+      return result == null ? com.volcengine.service.vod.model.business.VodPlayInfoModelVersion.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * 数据版本
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodPlayInfoModelVersion Version = 8;</code>
+     * @param value The version to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVersion(com.volcengine.service.vod.model.business.VodPlayInfoModelVersion value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      version_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 数据版本
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodPlayInfoModelVersion Version = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVersion() {
+      
+      version_ = 0;
+      onChanged();
+      return this;
     }
 
     private java.util.List<com.volcengine.service.vod.model.business.VodThumbInfo> thumbInfoList_ =
@@ -2332,7 +2084,7 @@ private static final long serialVersionUID = 0L;
      * 雪碧图列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodThumbInfo> getThumbInfoListList() {
       if (thumbInfoListBuilder_ == null) {
@@ -2346,7 +2098,7 @@ private static final long serialVersionUID = 0L;
      * 雪碧图列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
      */
     public int getThumbInfoListCount() {
       if (thumbInfoListBuilder_ == null) {
@@ -2360,7 +2112,7 @@ private static final long serialVersionUID = 0L;
      * 雪碧图列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
      */
     public com.volcengine.service.vod.model.business.VodThumbInfo getThumbInfoList(int index) {
       if (thumbInfoListBuilder_ == null) {
@@ -2374,7 +2126,7 @@ private static final long serialVersionUID = 0L;
      * 雪碧图列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
      */
     public Builder setThumbInfoList(
         int index, com.volcengine.service.vod.model.business.VodThumbInfo value) {
@@ -2395,7 +2147,7 @@ private static final long serialVersionUID = 0L;
      * 雪碧图列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
      */
     public Builder setThumbInfoList(
         int index, com.volcengine.service.vod.model.business.VodThumbInfo.Builder builderForValue) {
@@ -2413,7 +2165,7 @@ private static final long serialVersionUID = 0L;
      * 雪碧图列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
      */
     public Builder addThumbInfoList(com.volcengine.service.vod.model.business.VodThumbInfo value) {
       if (thumbInfoListBuilder_ == null) {
@@ -2433,7 +2185,7 @@ private static final long serialVersionUID = 0L;
      * 雪碧图列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
      */
     public Builder addThumbInfoList(
         int index, com.volcengine.service.vod.model.business.VodThumbInfo value) {
@@ -2454,7 +2206,7 @@ private static final long serialVersionUID = 0L;
      * 雪碧图列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
      */
     public Builder addThumbInfoList(
         com.volcengine.service.vod.model.business.VodThumbInfo.Builder builderForValue) {
@@ -2472,7 +2224,7 @@ private static final long serialVersionUID = 0L;
      * 雪碧图列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
      */
     public Builder addThumbInfoList(
         int index, com.volcengine.service.vod.model.business.VodThumbInfo.Builder builderForValue) {
@@ -2490,7 +2242,7 @@ private static final long serialVersionUID = 0L;
      * 雪碧图列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
      */
     public Builder addAllThumbInfoList(
         java.lang.Iterable<? extends com.volcengine.service.vod.model.business.VodThumbInfo> values) {
@@ -2509,7 +2261,7 @@ private static final long serialVersionUID = 0L;
      * 雪碧图列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
      */
     public Builder clearThumbInfoList() {
       if (thumbInfoListBuilder_ == null) {
@@ -2526,7 +2278,7 @@ private static final long serialVersionUID = 0L;
      * 雪碧图列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
      */
     public Builder removeThumbInfoList(int index) {
       if (thumbInfoListBuilder_ == null) {
@@ -2543,7 +2295,7 @@ private static final long serialVersionUID = 0L;
      * 雪碧图列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
      */
     public com.volcengine.service.vod.model.business.VodThumbInfo.Builder getThumbInfoListBuilder(
         int index) {
@@ -2554,7 +2306,7 @@ private static final long serialVersionUID = 0L;
      * 雪碧图列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
      */
     public com.volcengine.service.vod.model.business.VodThumbInfoOrBuilder getThumbInfoListOrBuilder(
         int index) {
@@ -2568,7 +2320,7 @@ private static final long serialVersionUID = 0L;
      * 雪碧图列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
      */
     public java.util.List<? extends com.volcengine.service.vod.model.business.VodThumbInfoOrBuilder> 
          getThumbInfoListOrBuilderList() {
@@ -2583,7 +2335,7 @@ private static final long serialVersionUID = 0L;
      * 雪碧图列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
      */
     public com.volcengine.service.vod.model.business.VodThumbInfo.Builder addThumbInfoListBuilder() {
       return getThumbInfoListFieldBuilder().addBuilder(
@@ -2594,7 +2346,7 @@ private static final long serialVersionUID = 0L;
      * 雪碧图列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
      */
     public com.volcengine.service.vod.model.business.VodThumbInfo.Builder addThumbInfoListBuilder(
         int index) {
@@ -2606,7 +2358,7 @@ private static final long serialVersionUID = 0L;
      * 雪碧图列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 9;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodThumbInfo.Builder> 
          getThumbInfoListBuilderList() {
@@ -2633,7 +2385,7 @@ private static final long serialVersionUID = 0L;
      * 弹幕蒙版url
      * </pre>
      *
-     * <code>string BarrageMaskUrl = 12;</code>
+     * <code>string BarrageMaskUrl = 10;</code>
      * @return The barrageMaskUrl.
      */
     public java.lang.String getBarrageMaskUrl() {
@@ -2653,7 +2405,7 @@ private static final long serialVersionUID = 0L;
      * 弹幕蒙版url
      * </pre>
      *
-     * <code>string BarrageMaskUrl = 12;</code>
+     * <code>string BarrageMaskUrl = 10;</code>
      * @return The bytes for barrageMaskUrl.
      */
     public com.google.protobuf.ByteString
@@ -2674,7 +2426,7 @@ private static final long serialVersionUID = 0L;
      * 弹幕蒙版url
      * </pre>
      *
-     * <code>string BarrageMaskUrl = 12;</code>
+     * <code>string BarrageMaskUrl = 10;</code>
      * @param value The barrageMaskUrl to set.
      * @return This builder for chaining.
      */
@@ -2693,7 +2445,7 @@ private static final long serialVersionUID = 0L;
      * 弹幕蒙版url
      * </pre>
      *
-     * <code>string BarrageMaskUrl = 12;</code>
+     * <code>string BarrageMaskUrl = 10;</code>
      * @return This builder for chaining.
      */
     public Builder clearBarrageMaskUrl() {
@@ -2707,7 +2459,7 @@ private static final long serialVersionUID = 0L;
      * 弹幕蒙版url
      * </pre>
      *
-     * <code>string BarrageMaskUrl = 12;</code>
+     * <code>string BarrageMaskUrl = 10;</code>
      * @param value The bytes for barrageMaskUrl to set.
      * @return This builder for chaining.
      */
@@ -2740,7 +2492,7 @@ private static final long serialVersionUID = 0L;
      * 字幕信息列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodSubtitleInfo> getSubtitleInfoListList() {
       if (subtitleInfoListBuilder_ == null) {
@@ -2754,7 +2506,7 @@ private static final long serialVersionUID = 0L;
      * 字幕信息列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
      */
     public int getSubtitleInfoListCount() {
       if (subtitleInfoListBuilder_ == null) {
@@ -2768,7 +2520,7 @@ private static final long serialVersionUID = 0L;
      * 字幕信息列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.VodSubtitleInfo getSubtitleInfoList(int index) {
       if (subtitleInfoListBuilder_ == null) {
@@ -2782,7 +2534,7 @@ private static final long serialVersionUID = 0L;
      * 字幕信息列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
      */
     public Builder setSubtitleInfoList(
         int index, com.volcengine.service.vod.model.business.VodSubtitleInfo value) {
@@ -2803,7 +2555,7 @@ private static final long serialVersionUID = 0L;
      * 字幕信息列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
      */
     public Builder setSubtitleInfoList(
         int index, com.volcengine.service.vod.model.business.VodSubtitleInfo.Builder builderForValue) {
@@ -2821,7 +2573,7 @@ private static final long serialVersionUID = 0L;
      * 字幕信息列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
      */
     public Builder addSubtitleInfoList(com.volcengine.service.vod.model.business.VodSubtitleInfo value) {
       if (subtitleInfoListBuilder_ == null) {
@@ -2841,7 +2593,7 @@ private static final long serialVersionUID = 0L;
      * 字幕信息列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
      */
     public Builder addSubtitleInfoList(
         int index, com.volcengine.service.vod.model.business.VodSubtitleInfo value) {
@@ -2862,7 +2614,7 @@ private static final long serialVersionUID = 0L;
      * 字幕信息列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
      */
     public Builder addSubtitleInfoList(
         com.volcengine.service.vod.model.business.VodSubtitleInfo.Builder builderForValue) {
@@ -2880,7 +2632,7 @@ private static final long serialVersionUID = 0L;
      * 字幕信息列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
      */
     public Builder addSubtitleInfoList(
         int index, com.volcengine.service.vod.model.business.VodSubtitleInfo.Builder builderForValue) {
@@ -2898,7 +2650,7 @@ private static final long serialVersionUID = 0L;
      * 字幕信息列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
      */
     public Builder addAllSubtitleInfoList(
         java.lang.Iterable<? extends com.volcengine.service.vod.model.business.VodSubtitleInfo> values) {
@@ -2917,7 +2669,7 @@ private static final long serialVersionUID = 0L;
      * 字幕信息列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
      */
     public Builder clearSubtitleInfoList() {
       if (subtitleInfoListBuilder_ == null) {
@@ -2934,7 +2686,7 @@ private static final long serialVersionUID = 0L;
      * 字幕信息列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
      */
     public Builder removeSubtitleInfoList(int index) {
       if (subtitleInfoListBuilder_ == null) {
@@ -2951,7 +2703,7 @@ private static final long serialVersionUID = 0L;
      * 字幕信息列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.VodSubtitleInfo.Builder getSubtitleInfoListBuilder(
         int index) {
@@ -2962,7 +2714,7 @@ private static final long serialVersionUID = 0L;
      * 字幕信息列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.VodSubtitleInfoOrBuilder getSubtitleInfoListOrBuilder(
         int index) {
@@ -2976,7 +2728,7 @@ private static final long serialVersionUID = 0L;
      * 字幕信息列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
      */
     public java.util.List<? extends com.volcengine.service.vod.model.business.VodSubtitleInfoOrBuilder> 
          getSubtitleInfoListOrBuilderList() {
@@ -2991,7 +2743,7 @@ private static final long serialVersionUID = 0L;
      * 字幕信息列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.VodSubtitleInfo.Builder addSubtitleInfoListBuilder() {
       return getSubtitleInfoListFieldBuilder().addBuilder(
@@ -3002,7 +2754,7 @@ private static final long serialVersionUID = 0L;
      * 字幕信息列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.VodSubtitleInfo.Builder addSubtitleInfoListBuilder(
         int index) {
@@ -3014,7 +2766,7 @@ private static final long serialVersionUID = 0L;
      * 字幕信息列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 11;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodSubtitleInfo.Builder> 
          getSubtitleInfoListBuilderList() {
@@ -3047,41 +2799,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Business.VodPlayInfoModel)
+    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Business.VodAllPlayInfoModel)
   }
 
-  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Business.VodPlayInfoModel)
-  private static final com.volcengine.service.vod.model.business.VodPlayInfoModel DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Business.VodAllPlayInfoModel)
+  private static final com.volcengine.service.vod.model.business.VodAllPlayInfoModel DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.business.VodPlayInfoModel();
+    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.business.VodAllPlayInfoModel();
   }
 
-  public static com.volcengine.service.vod.model.business.VodPlayInfoModel getDefaultInstance() {
+  public static com.volcengine.service.vod.model.business.VodAllPlayInfoModel getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<VodPlayInfoModel>
-      PARSER = new com.google.protobuf.AbstractParser<VodPlayInfoModel>() {
+  private static final com.google.protobuf.Parser<VodAllPlayInfoModel>
+      PARSER = new com.google.protobuf.AbstractParser<VodAllPlayInfoModel>() {
     @java.lang.Override
-    public VodPlayInfoModel parsePartialFrom(
+    public VodAllPlayInfoModel parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VodPlayInfoModel(input, extensionRegistry);
+      return new VodAllPlayInfoModel(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<VodPlayInfoModel> parser() {
+  public static com.google.protobuf.Parser<VodAllPlayInfoModel> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<VodPlayInfoModel> getParserForType() {
+  public com.google.protobuf.Parser<VodAllPlayInfoModel> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.volcengine.service.vod.model.business.VodPlayInfoModel getDefaultInstanceForType() {
+  public com.volcengine.service.vod.model.business.VodAllPlayInfoModel getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

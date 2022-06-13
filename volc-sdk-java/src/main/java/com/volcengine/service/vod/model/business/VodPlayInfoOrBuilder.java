@@ -366,4 +366,34 @@ public interface VodPlayInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getBarrageMaskOffsetBytes();
+
+  /**
+   * <pre>
+   *时长
+   * </pre>
+   *
+   * <code>float Duration = 21;</code>
+   * @return The duration.
+   */
+  float getDuration();
+
+  /**
+   * <pre>
+   * 在转对齐,使用的帧对齐转码版本
+   * </pre>
+   *
+   * <code>string KeyFrameAlignment = 22;</code>
+   * @return The keyFrameAlignment.
+   */
+  java.lang.String getKeyFrameAlignment();
+  /**
+   * <pre>
+   * 在转对齐,使用的帧对齐转码版本
+   * </pre>
+   *
+   * <code>string KeyFrameAlignment = 22;</code>
+   * @return The bytes for keyFrameAlignment.
+   */
+  com.google.protobuf.ByteString
+      getKeyFrameAlignmentBytes();
 }

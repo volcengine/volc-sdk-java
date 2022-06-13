@@ -260,13 +260,13 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getDownloadUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(downloadUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, downloadUrl_);
     }
     if (fileSize_ != 0L) {
       output.writeInt64(2, fileSize_);
     }
-    if (!getFileNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, fileName_);
     }
     if (startTimestamp_ != 0) {
@@ -284,14 +284,14 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getDownloadUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(downloadUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, downloadUrl_);
     }
     if (fileSize_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, fileSize_);
     }
-    if (!getFileNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, fileName_);
     }
     if (startTimestamp_ != 0) {

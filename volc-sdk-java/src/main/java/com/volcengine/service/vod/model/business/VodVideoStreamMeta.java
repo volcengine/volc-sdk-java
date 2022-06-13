@@ -300,7 +300,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getCodecBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codec_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, codec_);
     }
     if (height_ != 0) {
@@ -309,16 +309,16 @@ private static final long serialVersionUID = 0L;
     if (width_ != 0) {
       output.writeInt32(3, width_);
     }
-    if (duration_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(duration_) != 0) {
       output.writeFloat(4, duration_);
     }
-    if (!getDefinitionBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(definition_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, definition_);
     }
     if (bitrate_ != 0) {
       output.writeInt32(6, bitrate_);
     }
-    if (fps_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(fps_) != 0) {
       output.writeFloat(7, fps_);
     }
     unknownFields.writeTo(output);
@@ -330,7 +330,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getCodecBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codec_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, codec_);
     }
     if (height_ != 0) {
@@ -341,18 +341,18 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, width_);
     }
-    if (duration_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(duration_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(4, duration_);
     }
-    if (!getDefinitionBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(definition_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, definition_);
     }
     if (bitrate_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(6, bitrate_);
     }
-    if (fps_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(fps_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(7, fps_);
     }

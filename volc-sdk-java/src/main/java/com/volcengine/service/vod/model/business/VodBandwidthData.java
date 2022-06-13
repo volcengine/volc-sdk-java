@@ -167,10 +167,10 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getTimeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(time_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, time_);
     }
-    if (bandwidth_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(bandwidth_) != 0) {
       output.writeDouble(2, bandwidth_);
     }
     unknownFields.writeTo(output);
@@ -182,10 +182,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getTimeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(time_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, time_);
     }
-    if (bandwidth_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(bandwidth_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(2, bandwidth_);
     }

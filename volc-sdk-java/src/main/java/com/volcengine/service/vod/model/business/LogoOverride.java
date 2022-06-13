@@ -196,7 +196,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean containsVars(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     return internalGetVars().getMap().containsKey(key);
   }
   /**
@@ -231,7 +231,7 @@ private static final long serialVersionUID = 0L;
   public java.lang.String getVarsOrDefault(
       java.lang.String key,
       java.lang.String defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetVars().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -247,7 +247,7 @@ private static final long serialVersionUID = 0L;
 
   public java.lang.String getVarsOrThrow(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetVars().getMap();
     if (!map.containsKey(key)) {
@@ -270,7 +270,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getTemplateIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(templateId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, templateId_);
     }
     com.google.protobuf.GeneratedMessageV3
@@ -288,7 +288,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getTemplateIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(templateId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, templateId_);
     }
     for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
@@ -742,7 +742,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean containsVars(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetVars().getMap().containsKey(key);
     }
     /**
@@ -777,7 +777,7 @@ private static final long serialVersionUID = 0L;
     public java.lang.String getVarsOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetVars().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -793,7 +793,7 @@ private static final long serialVersionUID = 0L;
 
     public java.lang.String getVarsOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetVars().getMap();
       if (!map.containsKey(key)) {
@@ -817,7 +817,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder removeVars(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableVars().getMutableMap()
           .remove(key);
       return this;
@@ -840,8 +840,11 @@ private static final long serialVersionUID = 0L;
     public Builder putVars(
         java.lang.String key,
         java.lang.String value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
       internalGetMutableVars().getMutableMap()
           .put(key, value);
       return this;

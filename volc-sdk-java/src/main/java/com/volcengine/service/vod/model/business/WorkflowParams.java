@@ -194,7 +194,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean containsCondition(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     return internalGetCondition().getMap().containsKey(key);
   }
   /**
@@ -229,7 +229,7 @@ private static final long serialVersionUID = 0L;
   public boolean getConditionOrDefault(
       java.lang.String key,
       boolean defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.Boolean> map =
         internalGetCondition().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -245,7 +245,7 @@ private static final long serialVersionUID = 0L;
 
   public boolean getConditionOrThrow(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.Boolean> map =
         internalGetCondition().getMap();
     if (!map.containsKey(key)) {
@@ -812,7 +812,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean containsCondition(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetCondition().getMap().containsKey(key);
     }
     /**
@@ -847,7 +847,7 @@ private static final long serialVersionUID = 0L;
     public boolean getConditionOrDefault(
         java.lang.String key,
         boolean defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.Boolean> map =
           internalGetCondition().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -863,7 +863,7 @@ private static final long serialVersionUID = 0L;
 
     public boolean getConditionOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.Boolean> map =
           internalGetCondition().getMap();
       if (!map.containsKey(key)) {
@@ -887,7 +887,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder removeCondition(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableCondition().getMutableMap()
           .remove(key);
       return this;
@@ -910,7 +910,7 @@ private static final long serialVersionUID = 0L;
     public Builder putCondition(
         java.lang.String key,
         boolean value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       
       internalGetMutableCondition().getMutableMap()
           .put(key, value);

@@ -350,10 +350,10 @@ private static final long serialVersionUID = 0L;
     if (imgYLen_ != 0) {
       output.writeInt32(6, imgYLen_);
     }
-    if (interval_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(interval_) != 0) {
       output.writeDouble(7, interval_);
     }
-    if (!getFormatBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(format_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, format_);
     }
     unknownFields.writeTo(output);
@@ -393,11 +393,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(6, imgYLen_);
     }
-    if (interval_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(interval_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(7, interval_);
     }
-    if (!getFormatBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(format_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, format_);
     }
     size += unknownFields.getSerializedSize();

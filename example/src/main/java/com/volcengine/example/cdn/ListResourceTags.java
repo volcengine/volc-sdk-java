@@ -10,8 +10,8 @@ import java.util.Arrays;
 public class ListResourceTags {
     public static void main(String[] args) {
         CDNService service = CDNServiceImpl.getInstance();
-        service.setAccessKey("ak");
-        service.setSecretKey("sk");
+        service.setAccessKey(Utils.ak);
+        service.setSecretKey(Utils.sk);
         try {
             CDN.ListResourceTagsResponse resp = service.listResourceTags();
             System.out.println(JSON.toJSONString(resp));

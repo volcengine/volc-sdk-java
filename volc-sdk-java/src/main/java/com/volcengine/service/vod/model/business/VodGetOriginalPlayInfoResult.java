@@ -512,13 +512,13 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getFileTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, fileType_);
     }
-    if (duration_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(duration_) != 0) {
       output.writeFloat(2, duration_);
     }
-    if (size_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(size_) != 0) {
       output.writeDouble(3, size_);
     }
     if (height_ != 0) {
@@ -527,22 +527,22 @@ private static final long serialVersionUID = 0L;
     if (width_ != 0) {
       output.writeInt32(5, width_);
     }
-    if (!getFormatBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(format_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, format_);
     }
-    if (!getCodecBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codec_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, codec_);
     }
     if (bitrate_ != 0) {
       output.writeInt32(8, bitrate_);
     }
-    if (!getMd5Bytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(md5_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, md5_);
     }
-    if (!getMainPlayUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mainPlayUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, mainPlayUrl_);
     }
-    if (!getBackupPlayUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(backupPlayUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 11, backupPlayUrl_);
     }
     unknownFields.writeTo(output);
@@ -554,14 +554,14 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getFileTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, fileType_);
     }
-    if (duration_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(duration_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(2, duration_);
     }
-    if (size_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(size_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(3, size_);
     }
@@ -573,23 +573,23 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(5, width_);
     }
-    if (!getFormatBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(format_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, format_);
     }
-    if (!getCodecBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codec_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, codec_);
     }
     if (bitrate_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(8, bitrate_);
     }
-    if (!getMd5Bytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(md5_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, md5_);
     }
-    if (!getMainPlayUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mainPlayUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, mainPlayUrl_);
     }
-    if (!getBackupPlayUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(backupPlayUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, backupPlayUrl_);
     }
     size += unknownFields.getSerializedSize();

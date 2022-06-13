@@ -220,13 +220,13 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getStoreUriBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(storeUri_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, storeUri_);
     }
-    if (duration_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(duration_) != 0) {
       output.writeDouble(2, duration_);
     }
-    if (!getFormatBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(format_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, format_);
     }
     unknownFields.writeTo(output);
@@ -238,14 +238,14 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getStoreUriBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(storeUri_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, storeUri_);
     }
-    if (duration_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(duration_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(2, duration_);
     }
-    if (!getFormatBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(format_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, format_);
     }
     size += unknownFields.getSerializedSize();

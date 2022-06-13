@@ -260,10 +260,10 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getCodecBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codec_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, codec_);
     }
-    if (duration_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(duration_) != 0) {
       output.writeFloat(2, duration_);
     }
     if (sampleRate_ != 0) {
@@ -272,7 +272,7 @@ private static final long serialVersionUID = 0L;
     if (bitrate_ != 0) {
       output.writeInt32(4, bitrate_);
     }
-    if (!getQualityBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(quality_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, quality_);
     }
     unknownFields.writeTo(output);
@@ -284,10 +284,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getCodecBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codec_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, codec_);
     }
-    if (duration_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(duration_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(2, duration_);
     }
@@ -299,7 +299,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(4, bitrate_);
     }
-    if (!getQualityBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(quality_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, quality_);
     }
     size += unknownFields.getSerializedSize();

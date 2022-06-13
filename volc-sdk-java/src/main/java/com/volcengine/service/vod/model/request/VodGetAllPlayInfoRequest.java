@@ -4,33 +4,41 @@
 package com.volcengine.service.vod.model.request;
 
 /**
- * Protobuf type {@code Volcengine.Vod.Models.Request.VodGetPlayInfoRequest}
+ * <pre>
+ * **********************************************************************
+ * 播放
+ * **********************************************************************
+ * </pre>
+ *
+ * Protobuf type {@code Volcengine.Vod.Models.Request.VodGetAllPlayInfoRequest}
  */
-public final class VodGetPlayInfoRequest extends
+public final class VodGetAllPlayInfoRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Request.VodGetPlayInfoRequest)
-    VodGetPlayInfoRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Request.VodGetAllPlayInfoRequest)
+    VodGetAllPlayInfoRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use VodGetPlayInfoRequest.newBuilder() to construct.
-  private VodGetPlayInfoRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use VodGetAllPlayInfoRequest.newBuilder() to construct.
+  private VodGetAllPlayInfoRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private VodGetPlayInfoRequest() {
-    vid_ = "";
-    format_ = "";
-    codec_ = "";
-    definition_ = "";
-    fileType_ = "";
-    logoType_ = "";
-    base64_ = "";
+  private VodGetAllPlayInfoRequest() {
+    vids_ = "";
+    formats_ = "";
+    codecs_ = "";
+    definitions_ = "";
+    fileTypes_ = "";
+    logoTypes_ = "";
+    needEncryptStream_ = "";
     ssl_ = "";
     needThumbs_ = "";
     needBarrageMask_ = "";
     cdnType_ = "";
     unionInfo_ = "";
-    hDRDefinition_ = "";
     playScene_ = "";
     drmExpireTimestamp_ = "";
+    hDRType_ = "";
+    keyFrameAlignmentVersion_ = "";
+    userAction_ = "";
     quality_ = "";
   }
 
@@ -38,7 +46,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new VodGetPlayInfoRequest();
+    return new VodGetAllPlayInfoRequest();
   }
 
   @java.lang.Override
@@ -46,7 +54,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VodGetPlayInfoRequest(
+  private VodGetAllPlayInfoRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -67,43 +75,43 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            vid_ = s;
+            vids_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            format_ = s;
+            formats_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            codec_ = s;
+            codecs_ = s;
             break;
           }
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            definition_ = s;
+            definitions_ = s;
             break;
           }
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            fileType_ = s;
+            fileTypes_ = s;
             break;
           }
           case 50: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            logoType_ = s;
+            logoTypes_ = s;
             break;
           }
           case 58: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            base64_ = s;
+            needEncryptStream_ = s;
             break;
           }
           case 66: {
@@ -139,22 +147,34 @@ private static final long serialVersionUID = 0L;
           case 106: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            hDRDefinition_ = s;
+            playScene_ = s;
             break;
           }
           case 114: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            playScene_ = s;
+            drmExpireTimestamp_ = s;
             break;
           }
           case 122: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            drmExpireTimestamp_ = s;
+            hDRType_ = s;
             break;
           }
           case 130: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            keyFrameAlignmentVersion_ = s;
+            break;
+          }
+          case 138: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            userAction_ = s;
+            break;
+          }
+          case 146: {
             java.lang.String s = input.readStringRequireUtf8();
 
             quality_ = s;
@@ -181,37 +201,37 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetPlayInfoRequest_descriptor;
+    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetAllPlayInfoRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetPlayInfoRequest_fieldAccessorTable
+    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetAllPlayInfoRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.volcengine.service.vod.model.request.VodGetPlayInfoRequest.class, com.volcengine.service.vod.model.request.VodGetPlayInfoRequest.Builder.class);
+            com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest.class, com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest.Builder.class);
   }
 
-  public static final int VID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object vid_;
+  public static final int VIDS_FIELD_NUMBER = 1;
+  private volatile java.lang.Object vids_;
   /**
    * <pre>
    * 视频ID
    * </pre>
    *
-   * <code>string Vid = 1;</code>
-   * @return The vid.
+   * <code>string Vids = 1;</code>
+   * @return The vids.
    */
   @java.lang.Override
-  public java.lang.String getVid() {
-    java.lang.Object ref = vid_;
+  public java.lang.String getVids() {
+    java.lang.Object ref = vids_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      vid_ = s;
+      vids_ = s;
       return s;
     }
   }
@@ -220,228 +240,228 @@ private static final long serialVersionUID = 0L;
    * 视频ID
    * </pre>
    *
-   * <code>string Vid = 1;</code>
-   * @return The bytes for vid.
+   * <code>string Vids = 1;</code>
+   * @return The bytes for vids.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getVidBytes() {
-    java.lang.Object ref = vid_;
+      getVidsBytes() {
+    java.lang.Object ref = vids_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      vid_ = b;
+      vids_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int FORMAT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object format_;
+  public static final int FORMATS_FIELD_NUMBER = 2;
+  private volatile java.lang.Object formats_;
   /**
    * <pre>
-   *封装格式，支持mp4,dash,hls，默认mp4Format
+   *封装格式，支持 mp4、dash、hls、mp3、m4a、ogg。 多个 Format 组成的字符串，中间用","隔开。默认获取全部
    * </pre>
    *
-   * <code>string Format = 2;</code>
-   * @return The format.
+   * <code>string Formats = 2;</code>
+   * @return The formats.
    */
   @java.lang.Override
-  public java.lang.String getFormat() {
-    java.lang.Object ref = format_;
+  public java.lang.String getFormats() {
+    java.lang.Object ref = formats_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      format_ = s;
+      formats_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   *封装格式，支持mp4,dash,hls，默认mp4Format
+   *封装格式，支持 mp4、dash、hls、mp3、m4a、ogg。 多个 Format 组成的字符串，中间用","隔开。默认获取全部
    * </pre>
    *
-   * <code>string Format = 2;</code>
-   * @return The bytes for format.
+   * <code>string Formats = 2;</code>
+   * @return The bytes for formats.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getFormatBytes() {
-    java.lang.Object ref = format_;
+      getFormatsBytes() {
+    java.lang.Object ref = formats_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      format_ = b;
+      formats_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int CODEC_FIELD_NUMBER = 3;
-  private volatile java.lang.Object codec_;
+  public static final int CODECS_FIELD_NUMBER = 3;
+  private volatile java.lang.Object codecs_;
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264, h265等Codec
+   *编码格式，支持 mp3、aac、opus、H264、H265、H266 。 多个 Codec 组成的字符串，中间用","隔开。默认获取全部
    * </pre>
    *
-   * <code>string Codec = 3;</code>
-   * @return The codec.
+   * <code>string Codecs = 3;</code>
+   * @return The codecs.
    */
   @java.lang.Override
-  public java.lang.String getCodec() {
-    java.lang.Object ref = codec_;
+  public java.lang.String getCodecs() {
+    java.lang.Object ref = codecs_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      codec_ = s;
+      codecs_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264, h265等Codec
+   *编码格式，支持 mp3、aac、opus、H264、H265、H266 。 多个 Codec 组成的字符串，中间用","隔开。默认获取全部
    * </pre>
    *
-   * <code>string Codec = 3;</code>
-   * @return The bytes for codec.
+   * <code>string Codecs = 3;</code>
+   * @return The bytes for codecs.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getCodecBytes() {
-    java.lang.Object ref = codec_;
+      getCodecsBytes() {
+    java.lang.Object ref = codecs_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      codec_ = b;
+      codecs_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int DEFINITION_FIELD_NUMBER = 4;
-  private volatile java.lang.Object definition_;
+  public static final int DEFINITIONS_FIELD_NUMBER = 4;
+  private volatile java.lang.Object definitions_;
   /**
    * <pre>
-   *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+   *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p。 多个 Codec 组成的字符串，中间用","隔开。默认获取全部
    * </pre>
    *
-   * <code>string Definition = 4;</code>
-   * @return The definition.
+   * <code>string Definitions = 4;</code>
+   * @return The definitions.
    */
   @java.lang.Override
-  public java.lang.String getDefinition() {
-    java.lang.Object ref = definition_;
+  public java.lang.String getDefinitions() {
+    java.lang.Object ref = definitions_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      definition_ = s;
+      definitions_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+   *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p。 多个 Codec 组成的字符串，中间用","隔开。默认获取全部
    * </pre>
    *
-   * <code>string Definition = 4;</code>
-   * @return The bytes for definition.
+   * <code>string Definitions = 4;</code>
+   * @return The bytes for definitions.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getDefinitionBytes() {
-    java.lang.Object ref = definition_;
+      getDefinitionsBytes() {
+    java.lang.Object ref = definitions_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      definition_ = b;
+      definitions_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int FILETYPE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object fileType_;
+  public static final int FILETYPES_FIELD_NUMBER = 5;
+  private volatile java.lang.Object fileTypes_;
   /**
    * <pre>
-   * 2k, 4k
+   *视频流清晰度，默认返回全部，支持："video": 加密视频流, "audio": 普通音频音频流。 多个 FileType 组成的字符串，中间用","隔开
    * </pre>
    *
-   * <code>string FileType = 5;</code>
-   * @return The fileType.
+   * <code>string FileTypes = 5;</code>
+   * @return The fileTypes.
    */
   @java.lang.Override
-  public java.lang.String getFileType() {
-    java.lang.Object ref = fileType_;
+  public java.lang.String getFileTypes() {
+    java.lang.Object ref = fileTypes_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      fileType_ = s;
+      fileTypes_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * 2k, 4k
+   *视频流清晰度，默认返回全部，支持："video": 加密视频流, "audio": 普通音频音频流。 多个 FileType 组成的字符串，中间用","隔开
    * </pre>
    *
-   * <code>string FileType = 5;</code>
-   * @return The bytes for fileType.
+   * <code>string FileTypes = 5;</code>
+   * @return The bytes for fileTypes.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getFileTypeBytes() {
-    java.lang.Object ref = fileType_;
+      getFileTypesBytes() {
+    java.lang.Object ref = fileTypes_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      fileType_ = b;
+      fileTypes_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int LOGOTYPE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object logoType_;
+  public static final int LOGOTYPES_FIELD_NUMBER = 6;
+  private volatile java.lang.Object logoTypes_;
   /**
    * <pre>
    * 水印贴片标签
    * </pre>
    *
-   * <code>string LogoType = 6;</code>
-   * @return The logoType.
+   * <code>string LogoTypes = 6;</code>
+   * @return The logoTypes.
    */
   @java.lang.Override
-  public java.lang.String getLogoType() {
-    java.lang.Object ref = logoType_;
+  public java.lang.String getLogoTypes() {
+    java.lang.Object ref = logoTypes_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      logoType_ = s;
+      logoTypes_ = s;
       return s;
     }
   }
@@ -450,64 +470,64 @@ private static final long serialVersionUID = 0L;
    * 水印贴片标签
    * </pre>
    *
-   * <code>string LogoType = 6;</code>
-   * @return The bytes for logoType.
+   * <code>string LogoTypes = 6;</code>
+   * @return The bytes for logoTypes.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getLogoTypeBytes() {
-    java.lang.Object ref = logoType_;
+      getLogoTypesBytes() {
+    java.lang.Object ref = logoTypes_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      logoType_ = b;
+      logoTypes_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int BASE64_FIELD_NUMBER = 7;
-  private volatile java.lang.Object base64_;
+  public static final int NEEDENCRYPTSTREAM_FIELD_NUMBER = 7;
+  private volatile java.lang.Object needEncryptStream_;
   /**
    * <pre>
-   *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
+   * 是否加密, 支持: "encrypt" : 加密流, "normal" : 非加密流, 默认返回全部
    * </pre>
    *
-   * <code>string Base64 = 7;</code>
-   * @return The base64.
+   * <code>string NeedEncryptStream = 7;</code>
+   * @return The needEncryptStream.
    */
   @java.lang.Override
-  public java.lang.String getBase64() {
-    java.lang.Object ref = base64_;
+  public java.lang.String getNeedEncryptStream() {
+    java.lang.Object ref = needEncryptStream_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      base64_ = s;
+      needEncryptStream_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
+   * 是否加密, 支持: "encrypt" : 加密流, "normal" : 非加密流, 默认返回全部
    * </pre>
    *
-   * <code>string Base64 = 7;</code>
-   * @return The bytes for base64.
+   * <code>string NeedEncryptStream = 7;</code>
+   * @return The bytes for needEncryptStream.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getBase64Bytes() {
-    java.lang.Object ref = base64_;
+      getNeedEncryptStreamBytes() {
+    java.lang.Object ref = needEncryptStream_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      base64_ = b;
+      needEncryptStream_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -656,7 +676,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object cdnType_;
   /**
    * <pre>
-   * 指定CDN类型
+   * 指定 CDN 类型, 支持 "1"-P2P；"2"-OwnVDP。 默认 normal
    * </pre>
    *
    * <code>string CdnType = 11;</code>
@@ -677,7 +697,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 指定CDN类型
+   * 指定 CDN 类型, 支持 "1"-P2P；"2"-OwnVDP。 默认 normal
    * </pre>
    *
    * <code>string CdnType = 11;</code>
@@ -744,60 +764,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int HDRDEFINITION_FIELD_NUMBER = 13;
-  private volatile java.lang.Object hDRDefinition_;
-  /**
-   * <pre>
-   * HDR清晰度，默认不查询，支持：all,
-   * </pre>
-   *
-   * <code>string HDRDefinition = 13;</code>
-   * @return The hDRDefinition.
-   */
-  @java.lang.Override
-  public java.lang.String getHDRDefinition() {
-    java.lang.Object ref = hDRDefinition_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      hDRDefinition_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * HDR清晰度，默认不查询，支持：all,
-   * </pre>
-   *
-   * <code>string HDRDefinition = 13;</code>
-   * @return The bytes for hDRDefinition.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getHDRDefinitionBytes() {
-    java.lang.Object ref = hDRDefinition_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      hDRDefinition_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int PLAYSCENE_FIELD_NUMBER = 14;
+  public static final int PLAYSCENE_FIELD_NUMBER = 13;
   private volatile java.lang.Object playScene_;
   /**
    * <pre>
-   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+   * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看
    * </pre>
    *
-   * <code>string PlayScene = 14;</code>
+   * <code>string PlayScene = 13;</code>
    * @return The playScene.
    */
   @java.lang.Override
@@ -815,10 +789,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+   * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看
    * </pre>
    *
-   * <code>string PlayScene = 14;</code>
+   * <code>string PlayScene = 13;</code>
    * @return The bytes for playScene.
    */
   @java.lang.Override
@@ -836,14 +810,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int DRMEXPIRETIMESTAMP_FIELD_NUMBER = 15;
+  public static final int DRMEXPIRETIMESTAMP_FIELD_NUMBER = 14;
   private volatile java.lang.Object drmExpireTimestamp_;
   /**
    * <pre>
    * DRM过期时间戳
    * </pre>
    *
-   * <code>string DrmExpireTimestamp = 15;</code>
+   * <code>string DrmExpireTimestamp = 14;</code>
    * @return The drmExpireTimestamp.
    */
   @java.lang.Override
@@ -864,7 +838,7 @@ private static final long serialVersionUID = 0L;
    * DRM过期时间戳
    * </pre>
    *
-   * <code>string DrmExpireTimestamp = 15;</code>
+   * <code>string DrmExpireTimestamp = 14;</code>
    * @return The bytes for drmExpireTimestamp.
    */
   @java.lang.Override
@@ -882,14 +856,152 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int QUALITY_FIELD_NUMBER = 16;
+  public static final int HDRTYPE_FIELD_NUMBER = 15;
+  private volatile java.lang.Object hDRType_;
+  /**
+   * <pre>
+   * 默认获取全部。支持: "SDR", "PQHDR", "SLGHDR", 默认返回全部
+   * </pre>
+   *
+   * <code>string HDRType = 15;</code>
+   * @return The hDRType.
+   */
+  @java.lang.Override
+  public java.lang.String getHDRType() {
+    java.lang.Object ref = hDRType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      hDRType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 默认获取全部。支持: "SDR", "PQHDR", "SLGHDR", 默认返回全部
+   * </pre>
+   *
+   * <code>string HDRType = 15;</code>
+   * @return The bytes for hDRType.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getHDRTypeBytes() {
+    java.lang.Object ref = hDRType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      hDRType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int KEYFRAMEALIGNMENTVERSION_FIELD_NUMBER = 16;
+  private volatile java.lang.Object keyFrameAlignmentVersion_;
+  /**
+   * <pre>
+   * 使用的帧对齐转码版本。支持: "1" - 返回版本一, 默认没指定版本，全部返回
+   * </pre>
+   *
+   * <code>string KeyFrameAlignmentVersion = 16;</code>
+   * @return The keyFrameAlignmentVersion.
+   */
+  @java.lang.Override
+  public java.lang.String getKeyFrameAlignmentVersion() {
+    java.lang.Object ref = keyFrameAlignmentVersion_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      keyFrameAlignmentVersion_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 使用的帧对齐转码版本。支持: "1" - 返回版本一, 默认没指定版本，全部返回
+   * </pre>
+   *
+   * <code>string KeyFrameAlignmentVersion = 16;</code>
+   * @return The bytes for keyFrameAlignmentVersion.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getKeyFrameAlignmentVersionBytes() {
+    java.lang.Object ref = keyFrameAlignmentVersion_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      keyFrameAlignmentVersion_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int USERACTION_FIELD_NUMBER = 17;
+  private volatile java.lang.Object userAction_;
+  /**
+   * <pre>
+   * 发布状态, 支持: "Available" : 发布, "NoAction" : 未发布, 默认返回全部
+   * </pre>
+   *
+   * <code>string UserAction = 17;</code>
+   * @return The userAction.
+   */
+  @java.lang.Override
+  public java.lang.String getUserAction() {
+    java.lang.Object ref = userAction_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      userAction_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 发布状态, 支持: "Available" : 发布, "NoAction" : 未发布, 默认返回全部
+   * </pre>
+   *
+   * <code>string UserAction = 17;</code>
+   * @return The bytes for userAction.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUserActionBytes() {
+    java.lang.Object ref = userAction_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      userAction_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int QUALITY_FIELD_NUMBER = 18;
   private volatile java.lang.Object quality_;
   /**
    * <pre>
-   *音频码率
+   * 音频音质。当 FileType 为 audio 时起作用，表示音频音质参数。支持：medium、higher、highest. 默认返回所有音频流
    * </pre>
    *
-   * <code>string Quality = 16;</code>
+   * <code>string Quality = 18;</code>
    * @return The quality.
    */
   @java.lang.Override
@@ -907,10 +1019,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *音频码率
+   * 音频音质。当 FileType 为 audio 时起作用，表示音频音质参数。支持：medium、higher、highest. 默认返回所有音频流
    * </pre>
    *
-   * <code>string Quality = 16;</code>
+   * <code>string Quality = 18;</code>
    * @return The bytes for quality.
    */
   @java.lang.Override
@@ -942,26 +1054,26 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vid_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vid_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vids_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vids_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(format_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, format_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(formats_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, formats_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codec_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, codec_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codecs_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, codecs_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(definition_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, definition_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(definitions_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, definitions_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, fileType_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileTypes_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, fileTypes_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(logoType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, logoType_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(logoTypes_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, logoTypes_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(base64_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, base64_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(needEncryptStream_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, needEncryptStream_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(ssl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, ssl_);
@@ -978,17 +1090,23 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(unionInfo_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, unionInfo_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hDRDefinition_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, hDRDefinition_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playScene_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 14, playScene_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, playScene_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(drmExpireTimestamp_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 15, drmExpireTimestamp_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 14, drmExpireTimestamp_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hDRType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 15, hDRType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyFrameAlignmentVersion_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 16, keyFrameAlignmentVersion_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userAction_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 17, userAction_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(quality_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 16, quality_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 18, quality_);
     }
     unknownFields.writeTo(output);
   }
@@ -999,26 +1117,26 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vid_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vid_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vids_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vids_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(format_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, format_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(formats_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, formats_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codec_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, codec_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codecs_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, codecs_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(definition_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, definition_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(definitions_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, definitions_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, fileType_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileTypes_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, fileTypes_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(logoType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, logoType_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(logoTypes_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, logoTypes_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(base64_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, base64_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(needEncryptStream_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, needEncryptStream_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(ssl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, ssl_);
@@ -1035,17 +1153,23 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(unionInfo_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, unionInfo_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hDRDefinition_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, hDRDefinition_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playScene_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, playScene_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, playScene_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(drmExpireTimestamp_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, drmExpireTimestamp_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, drmExpireTimestamp_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hDRType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, hDRType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyFrameAlignmentVersion_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, keyFrameAlignmentVersion_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userAction_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, userAction_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(quality_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, quality_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(18, quality_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -1057,25 +1181,25 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.volcengine.service.vod.model.request.VodGetPlayInfoRequest)) {
+    if (!(obj instanceof com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest)) {
       return super.equals(obj);
     }
-    com.volcengine.service.vod.model.request.VodGetPlayInfoRequest other = (com.volcengine.service.vod.model.request.VodGetPlayInfoRequest) obj;
+    com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest other = (com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest) obj;
 
-    if (!getVid()
-        .equals(other.getVid())) return false;
-    if (!getFormat()
-        .equals(other.getFormat())) return false;
-    if (!getCodec()
-        .equals(other.getCodec())) return false;
-    if (!getDefinition()
-        .equals(other.getDefinition())) return false;
-    if (!getFileType()
-        .equals(other.getFileType())) return false;
-    if (!getLogoType()
-        .equals(other.getLogoType())) return false;
-    if (!getBase64()
-        .equals(other.getBase64())) return false;
+    if (!getVids()
+        .equals(other.getVids())) return false;
+    if (!getFormats()
+        .equals(other.getFormats())) return false;
+    if (!getCodecs()
+        .equals(other.getCodecs())) return false;
+    if (!getDefinitions()
+        .equals(other.getDefinitions())) return false;
+    if (!getFileTypes()
+        .equals(other.getFileTypes())) return false;
+    if (!getLogoTypes()
+        .equals(other.getLogoTypes())) return false;
+    if (!getNeedEncryptStream()
+        .equals(other.getNeedEncryptStream())) return false;
     if (!getSsl()
         .equals(other.getSsl())) return false;
     if (!getNeedThumbs()
@@ -1086,12 +1210,16 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCdnType())) return false;
     if (!getUnionInfo()
         .equals(other.getUnionInfo())) return false;
-    if (!getHDRDefinition()
-        .equals(other.getHDRDefinition())) return false;
     if (!getPlayScene()
         .equals(other.getPlayScene())) return false;
     if (!getDrmExpireTimestamp()
         .equals(other.getDrmExpireTimestamp())) return false;
+    if (!getHDRType()
+        .equals(other.getHDRType())) return false;
+    if (!getKeyFrameAlignmentVersion()
+        .equals(other.getKeyFrameAlignmentVersion())) return false;
+    if (!getUserAction()
+        .equals(other.getUserAction())) return false;
     if (!getQuality()
         .equals(other.getQuality())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -1105,20 +1233,20 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + VID_FIELD_NUMBER;
-    hash = (53 * hash) + getVid().hashCode();
-    hash = (37 * hash) + FORMAT_FIELD_NUMBER;
-    hash = (53 * hash) + getFormat().hashCode();
-    hash = (37 * hash) + CODEC_FIELD_NUMBER;
-    hash = (53 * hash) + getCodec().hashCode();
-    hash = (37 * hash) + DEFINITION_FIELD_NUMBER;
-    hash = (53 * hash) + getDefinition().hashCode();
-    hash = (37 * hash) + FILETYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getFileType().hashCode();
-    hash = (37 * hash) + LOGOTYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getLogoType().hashCode();
-    hash = (37 * hash) + BASE64_FIELD_NUMBER;
-    hash = (53 * hash) + getBase64().hashCode();
+    hash = (37 * hash) + VIDS_FIELD_NUMBER;
+    hash = (53 * hash) + getVids().hashCode();
+    hash = (37 * hash) + FORMATS_FIELD_NUMBER;
+    hash = (53 * hash) + getFormats().hashCode();
+    hash = (37 * hash) + CODECS_FIELD_NUMBER;
+    hash = (53 * hash) + getCodecs().hashCode();
+    hash = (37 * hash) + DEFINITIONS_FIELD_NUMBER;
+    hash = (53 * hash) + getDefinitions().hashCode();
+    hash = (37 * hash) + FILETYPES_FIELD_NUMBER;
+    hash = (53 * hash) + getFileTypes().hashCode();
+    hash = (37 * hash) + LOGOTYPES_FIELD_NUMBER;
+    hash = (53 * hash) + getLogoTypes().hashCode();
+    hash = (37 * hash) + NEEDENCRYPTSTREAM_FIELD_NUMBER;
+    hash = (53 * hash) + getNeedEncryptStream().hashCode();
     hash = (37 * hash) + SSL_FIELD_NUMBER;
     hash = (53 * hash) + getSsl().hashCode();
     hash = (37 * hash) + NEEDTHUMBS_FIELD_NUMBER;
@@ -1129,12 +1257,16 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getCdnType().hashCode();
     hash = (37 * hash) + UNIONINFO_FIELD_NUMBER;
     hash = (53 * hash) + getUnionInfo().hashCode();
-    hash = (37 * hash) + HDRDEFINITION_FIELD_NUMBER;
-    hash = (53 * hash) + getHDRDefinition().hashCode();
     hash = (37 * hash) + PLAYSCENE_FIELD_NUMBER;
     hash = (53 * hash) + getPlayScene().hashCode();
     hash = (37 * hash) + DRMEXPIRETIMESTAMP_FIELD_NUMBER;
     hash = (53 * hash) + getDrmExpireTimestamp().hashCode();
+    hash = (37 * hash) + HDRTYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getHDRType().hashCode();
+    hash = (37 * hash) + KEYFRAMEALIGNMENTVERSION_FIELD_NUMBER;
+    hash = (53 * hash) + getKeyFrameAlignmentVersion().hashCode();
+    hash = (37 * hash) + USERACTION_FIELD_NUMBER;
+    hash = (53 * hash) + getUserAction().hashCode();
     hash = (37 * hash) + QUALITY_FIELD_NUMBER;
     hash = (53 * hash) + getQuality().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -1142,69 +1274,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(byte[] data)
+  public static com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseDelimitedFrom(
+  public static com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -1217,7 +1349,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.volcengine.service.vod.model.request.VodGetPlayInfoRequest prototype) {
+  public static Builder newBuilder(com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -1233,26 +1365,32 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code Volcengine.Vod.Models.Request.VodGetPlayInfoRequest}
+   * <pre>
+   * **********************************************************************
+   * 播放
+   * **********************************************************************
+   * </pre>
+   *
+   * Protobuf type {@code Volcengine.Vod.Models.Request.VodGetAllPlayInfoRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Request.VodGetPlayInfoRequest)
-      com.volcengine.service.vod.model.request.VodGetPlayInfoRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Request.VodGetAllPlayInfoRequest)
+      com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetPlayInfoRequest_descriptor;
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetAllPlayInfoRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetPlayInfoRequest_fieldAccessorTable
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetAllPlayInfoRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.volcengine.service.vod.model.request.VodGetPlayInfoRequest.class, com.volcengine.service.vod.model.request.VodGetPlayInfoRequest.Builder.class);
+              com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest.class, com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest.Builder.class);
     }
 
-    // Construct using com.volcengine.service.vod.model.request.VodGetPlayInfoRequest.newBuilder()
+    // Construct using com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -1270,19 +1408,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      vid_ = "";
+      vids_ = "";
 
-      format_ = "";
+      formats_ = "";
 
-      codec_ = "";
+      codecs_ = "";
 
-      definition_ = "";
+      definitions_ = "";
 
-      fileType_ = "";
+      fileTypes_ = "";
 
-      logoType_ = "";
+      logoTypes_ = "";
 
-      base64_ = "";
+      needEncryptStream_ = "";
 
       ssl_ = "";
 
@@ -1294,11 +1432,15 @@ private static final long serialVersionUID = 0L;
 
       unionInfo_ = "";
 
-      hDRDefinition_ = "";
-
       playScene_ = "";
 
       drmExpireTimestamp_ = "";
+
+      hDRType_ = "";
+
+      keyFrameAlignmentVersion_ = "";
+
+      userAction_ = "";
 
       quality_ = "";
 
@@ -1308,17 +1450,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetPlayInfoRequest_descriptor;
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetAllPlayInfoRequest_descriptor;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodGetPlayInfoRequest getDefaultInstanceForType() {
-      return com.volcengine.service.vod.model.request.VodGetPlayInfoRequest.getDefaultInstance();
+    public com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest getDefaultInstanceForType() {
+      return com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodGetPlayInfoRequest build() {
-      com.volcengine.service.vod.model.request.VodGetPlayInfoRequest result = buildPartial();
+    public com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest build() {
+      com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -1326,23 +1468,25 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodGetPlayInfoRequest buildPartial() {
-      com.volcengine.service.vod.model.request.VodGetPlayInfoRequest result = new com.volcengine.service.vod.model.request.VodGetPlayInfoRequest(this);
-      result.vid_ = vid_;
-      result.format_ = format_;
-      result.codec_ = codec_;
-      result.definition_ = definition_;
-      result.fileType_ = fileType_;
-      result.logoType_ = logoType_;
-      result.base64_ = base64_;
+    public com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest buildPartial() {
+      com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest result = new com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest(this);
+      result.vids_ = vids_;
+      result.formats_ = formats_;
+      result.codecs_ = codecs_;
+      result.definitions_ = definitions_;
+      result.fileTypes_ = fileTypes_;
+      result.logoTypes_ = logoTypes_;
+      result.needEncryptStream_ = needEncryptStream_;
       result.ssl_ = ssl_;
       result.needThumbs_ = needThumbs_;
       result.needBarrageMask_ = needBarrageMask_;
       result.cdnType_ = cdnType_;
       result.unionInfo_ = unionInfo_;
-      result.hDRDefinition_ = hDRDefinition_;
       result.playScene_ = playScene_;
       result.drmExpireTimestamp_ = drmExpireTimestamp_;
+      result.hDRType_ = hDRType_;
+      result.keyFrameAlignmentVersion_ = keyFrameAlignmentVersion_;
+      result.userAction_ = userAction_;
       result.quality_ = quality_;
       onBuilt();
       return result;
@@ -1382,42 +1526,42 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.volcengine.service.vod.model.request.VodGetPlayInfoRequest) {
-        return mergeFrom((com.volcengine.service.vod.model.request.VodGetPlayInfoRequest)other);
+      if (other instanceof com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest) {
+        return mergeFrom((com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.volcengine.service.vod.model.request.VodGetPlayInfoRequest other) {
-      if (other == com.volcengine.service.vod.model.request.VodGetPlayInfoRequest.getDefaultInstance()) return this;
-      if (!other.getVid().isEmpty()) {
-        vid_ = other.vid_;
+    public Builder mergeFrom(com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest other) {
+      if (other == com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest.getDefaultInstance()) return this;
+      if (!other.getVids().isEmpty()) {
+        vids_ = other.vids_;
         onChanged();
       }
-      if (!other.getFormat().isEmpty()) {
-        format_ = other.format_;
+      if (!other.getFormats().isEmpty()) {
+        formats_ = other.formats_;
         onChanged();
       }
-      if (!other.getCodec().isEmpty()) {
-        codec_ = other.codec_;
+      if (!other.getCodecs().isEmpty()) {
+        codecs_ = other.codecs_;
         onChanged();
       }
-      if (!other.getDefinition().isEmpty()) {
-        definition_ = other.definition_;
+      if (!other.getDefinitions().isEmpty()) {
+        definitions_ = other.definitions_;
         onChanged();
       }
-      if (!other.getFileType().isEmpty()) {
-        fileType_ = other.fileType_;
+      if (!other.getFileTypes().isEmpty()) {
+        fileTypes_ = other.fileTypes_;
         onChanged();
       }
-      if (!other.getLogoType().isEmpty()) {
-        logoType_ = other.logoType_;
+      if (!other.getLogoTypes().isEmpty()) {
+        logoTypes_ = other.logoTypes_;
         onChanged();
       }
-      if (!other.getBase64().isEmpty()) {
-        base64_ = other.base64_;
+      if (!other.getNeedEncryptStream().isEmpty()) {
+        needEncryptStream_ = other.needEncryptStream_;
         onChanged();
       }
       if (!other.getSsl().isEmpty()) {
@@ -1440,16 +1584,24 @@ private static final long serialVersionUID = 0L;
         unionInfo_ = other.unionInfo_;
         onChanged();
       }
-      if (!other.getHDRDefinition().isEmpty()) {
-        hDRDefinition_ = other.hDRDefinition_;
-        onChanged();
-      }
       if (!other.getPlayScene().isEmpty()) {
         playScene_ = other.playScene_;
         onChanged();
       }
       if (!other.getDrmExpireTimestamp().isEmpty()) {
         drmExpireTimestamp_ = other.drmExpireTimestamp_;
+        onChanged();
+      }
+      if (!other.getHDRType().isEmpty()) {
+        hDRType_ = other.hDRType_;
+        onChanged();
+      }
+      if (!other.getKeyFrameAlignmentVersion().isEmpty()) {
+        keyFrameAlignmentVersion_ = other.keyFrameAlignmentVersion_;
+        onChanged();
+      }
+      if (!other.getUserAction().isEmpty()) {
+        userAction_ = other.userAction_;
         onChanged();
       }
       if (!other.getQuality().isEmpty()) {
@@ -1471,11 +1623,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.volcengine.service.vod.model.request.VodGetPlayInfoRequest parsedMessage = null;
+      com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.volcengine.service.vod.model.request.VodGetPlayInfoRequest) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -1485,22 +1637,22 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object vid_ = "";
+    private java.lang.Object vids_ = "";
     /**
      * <pre>
      * 视频ID
      * </pre>
      *
-     * <code>string Vid = 1;</code>
-     * @return The vid.
+     * <code>string Vids = 1;</code>
+     * @return The vids.
      */
-    public java.lang.String getVid() {
-      java.lang.Object ref = vid_;
+    public java.lang.String getVids() {
+      java.lang.Object ref = vids_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        vid_ = s;
+        vids_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -1511,17 +1663,17 @@ private static final long serialVersionUID = 0L;
      * 视频ID
      * </pre>
      *
-     * <code>string Vid = 1;</code>
-     * @return The bytes for vid.
+     * <code>string Vids = 1;</code>
+     * @return The bytes for vids.
      */
     public com.google.protobuf.ByteString
-        getVidBytes() {
-      java.lang.Object ref = vid_;
+        getVidsBytes() {
+      java.lang.Object ref = vids_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        vid_ = b;
+        vids_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1532,31 +1684,17 @@ private static final long serialVersionUID = 0L;
      * 视频ID
      * </pre>
      *
-     * <code>string Vid = 1;</code>
-     * @param value The vid to set.
+     * <code>string Vids = 1;</code>
+     * @param value The vids to set.
      * @return This builder for chaining.
      */
-    public Builder setVid(
+    public Builder setVids(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      vid_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 视频ID
-     * </pre>
-     *
-     * <code>string Vid = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearVid() {
-      
-      vid_ = getDefaultInstance().getVid();
+      vids_ = value;
       onChanged();
       return this;
     }
@@ -1565,38 +1703,52 @@ private static final long serialVersionUID = 0L;
      * 视频ID
      * </pre>
      *
-     * <code>string Vid = 1;</code>
-     * @param value The bytes for vid to set.
+     * <code>string Vids = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder setVidBytes(
+    public Builder clearVids() {
+      
+      vids_ = getDefaultInstance().getVids();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 视频ID
+     * </pre>
+     *
+     * <code>string Vids = 1;</code>
+     * @param value The bytes for vids to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVidsBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      vid_ = value;
+      vids_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object format_ = "";
+    private java.lang.Object formats_ = "";
     /**
      * <pre>
-     *封装格式，支持mp4,dash,hls，默认mp4Format
+     *封装格式，支持 mp4、dash、hls、mp3、m4a、ogg。 多个 Format 组成的字符串，中间用","隔开。默认获取全部
      * </pre>
      *
-     * <code>string Format = 2;</code>
-     * @return The format.
+     * <code>string Formats = 2;</code>
+     * @return The formats.
      */
-    public java.lang.String getFormat() {
-      java.lang.Object ref = format_;
+    public java.lang.String getFormats() {
+      java.lang.Object ref = formats_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        format_ = s;
+        formats_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -1604,20 +1756,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *封装格式，支持mp4,dash,hls，默认mp4Format
+     *封装格式，支持 mp4、dash、hls、mp3、m4a、ogg。 多个 Format 组成的字符串，中间用","隔开。默认获取全部
      * </pre>
      *
-     * <code>string Format = 2;</code>
-     * @return The bytes for format.
+     * <code>string Formats = 2;</code>
+     * @return The bytes for formats.
      */
     public com.google.protobuf.ByteString
-        getFormatBytes() {
-      java.lang.Object ref = format_;
+        getFormatsBytes() {
+      java.lang.Object ref = formats_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        format_ = b;
+        formats_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1625,74 +1777,74 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *封装格式，支持mp4,dash,hls，默认mp4Format
+     *封装格式，支持 mp4、dash、hls、mp3、m4a、ogg。 多个 Format 组成的字符串，中间用","隔开。默认获取全部
      * </pre>
      *
-     * <code>string Format = 2;</code>
-     * @param value The format to set.
+     * <code>string Formats = 2;</code>
+     * @param value The formats to set.
      * @return This builder for chaining.
      */
-    public Builder setFormat(
+    public Builder setFormats(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      format_ = value;
+      formats_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *封装格式，支持mp4,dash,hls，默认mp4Format
+     *封装格式，支持 mp4、dash、hls、mp3、m4a、ogg。 多个 Format 组成的字符串，中间用","隔开。默认获取全部
      * </pre>
      *
-     * <code>string Format = 2;</code>
+     * <code>string Formats = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearFormat() {
+    public Builder clearFormats() {
       
-      format_ = getDefaultInstance().getFormat();
+      formats_ = getDefaultInstance().getFormats();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *封装格式，支持mp4,dash,hls，默认mp4Format
+     *封装格式，支持 mp4、dash、hls、mp3、m4a、ogg。 多个 Format 组成的字符串，中间用","隔开。默认获取全部
      * </pre>
      *
-     * <code>string Format = 2;</code>
-     * @param value The bytes for format to set.
+     * <code>string Formats = 2;</code>
+     * @param value The bytes for formats to set.
      * @return This builder for chaining.
      */
-    public Builder setFormatBytes(
+    public Builder setFormatsBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      format_ = value;
+      formats_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object codec_ = "";
+    private java.lang.Object codecs_ = "";
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264, h265等Codec
+     *编码格式，支持 mp3、aac、opus、H264、H265、H266 。 多个 Codec 组成的字符串，中间用","隔开。默认获取全部
      * </pre>
      *
-     * <code>string Codec = 3;</code>
-     * @return The codec.
+     * <code>string Codecs = 3;</code>
+     * @return The codecs.
      */
-    public java.lang.String getCodec() {
-      java.lang.Object ref = codec_;
+    public java.lang.String getCodecs() {
+      java.lang.Object ref = codecs_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        codec_ = s;
+        codecs_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -1700,20 +1852,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264, h265等Codec
+     *编码格式，支持 mp3、aac、opus、H264、H265、H266 。 多个 Codec 组成的字符串，中间用","隔开。默认获取全部
      * </pre>
      *
-     * <code>string Codec = 3;</code>
-     * @return The bytes for codec.
+     * <code>string Codecs = 3;</code>
+     * @return The bytes for codecs.
      */
     public com.google.protobuf.ByteString
-        getCodecBytes() {
-      java.lang.Object ref = codec_;
+        getCodecsBytes() {
+      java.lang.Object ref = codecs_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        codec_ = b;
+        codecs_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1721,74 +1873,74 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264, h265等Codec
+     *编码格式，支持 mp3、aac、opus、H264、H265、H266 。 多个 Codec 组成的字符串，中间用","隔开。默认获取全部
      * </pre>
      *
-     * <code>string Codec = 3;</code>
-     * @param value The codec to set.
+     * <code>string Codecs = 3;</code>
+     * @param value The codecs to set.
      * @return This builder for chaining.
      */
-    public Builder setCodec(
+    public Builder setCodecs(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      codec_ = value;
+      codecs_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264, h265等Codec
+     *编码格式，支持 mp3、aac、opus、H264、H265、H266 。 多个 Codec 组成的字符串，中间用","隔开。默认获取全部
      * </pre>
      *
-     * <code>string Codec = 3;</code>
+     * <code>string Codecs = 3;</code>
      * @return This builder for chaining.
      */
-    public Builder clearCodec() {
+    public Builder clearCodecs() {
       
-      codec_ = getDefaultInstance().getCodec();
+      codecs_ = getDefaultInstance().getCodecs();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264, h265等Codec
+     *编码格式，支持 mp3、aac、opus、H264、H265、H266 。 多个 Codec 组成的字符串，中间用","隔开。默认获取全部
      * </pre>
      *
-     * <code>string Codec = 3;</code>
-     * @param value The bytes for codec to set.
+     * <code>string Codecs = 3;</code>
+     * @param value The bytes for codecs to set.
      * @return This builder for chaining.
      */
-    public Builder setCodecBytes(
+    public Builder setCodecsBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      codec_ = value;
+      codecs_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object definition_ = "";
+    private java.lang.Object definitions_ = "";
     /**
      * <pre>
-     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p。 多个 Codec 组成的字符串，中间用","隔开。默认获取全部
      * </pre>
      *
-     * <code>string Definition = 4;</code>
-     * @return The definition.
+     * <code>string Definitions = 4;</code>
+     * @return The definitions.
      */
-    public java.lang.String getDefinition() {
-      java.lang.Object ref = definition_;
+    public java.lang.String getDefinitions() {
+      java.lang.Object ref = definitions_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        definition_ = s;
+        definitions_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -1796,20 +1948,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p。 多个 Codec 组成的字符串，中间用","隔开。默认获取全部
      * </pre>
      *
-     * <code>string Definition = 4;</code>
-     * @return The bytes for definition.
+     * <code>string Definitions = 4;</code>
+     * @return The bytes for definitions.
      */
     public com.google.protobuf.ByteString
-        getDefinitionBytes() {
-      java.lang.Object ref = definition_;
+        getDefinitionsBytes() {
+      java.lang.Object ref = definitions_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        definition_ = b;
+        definitions_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1817,74 +1969,74 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p。 多个 Codec 组成的字符串，中间用","隔开。默认获取全部
      * </pre>
      *
-     * <code>string Definition = 4;</code>
-     * @param value The definition to set.
+     * <code>string Definitions = 4;</code>
+     * @param value The definitions to set.
      * @return This builder for chaining.
      */
-    public Builder setDefinition(
+    public Builder setDefinitions(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      definition_ = value;
+      definitions_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p。 多个 Codec 组成的字符串，中间用","隔开。默认获取全部
      * </pre>
      *
-     * <code>string Definition = 4;</code>
+     * <code>string Definitions = 4;</code>
      * @return This builder for chaining.
      */
-    public Builder clearDefinition() {
+    public Builder clearDefinitions() {
       
-      definition_ = getDefaultInstance().getDefinition();
+      definitions_ = getDefaultInstance().getDefinitions();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p。 多个 Codec 组成的字符串，中间用","隔开。默认获取全部
      * </pre>
      *
-     * <code>string Definition = 4;</code>
-     * @param value The bytes for definition to set.
+     * <code>string Definitions = 4;</code>
+     * @param value The bytes for definitions to set.
      * @return This builder for chaining.
      */
-    public Builder setDefinitionBytes(
+    public Builder setDefinitionsBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      definition_ = value;
+      definitions_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object fileType_ = "";
+    private java.lang.Object fileTypes_ = "";
     /**
      * <pre>
-     * 2k, 4k
+     *视频流清晰度，默认返回全部，支持："video": 加密视频流, "audio": 普通音频音频流。 多个 FileType 组成的字符串，中间用","隔开
      * </pre>
      *
-     * <code>string FileType = 5;</code>
-     * @return The fileType.
+     * <code>string FileTypes = 5;</code>
+     * @return The fileTypes.
      */
-    public java.lang.String getFileType() {
-      java.lang.Object ref = fileType_;
+    public java.lang.String getFileTypes() {
+      java.lang.Object ref = fileTypes_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        fileType_ = s;
+        fileTypes_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -1892,20 +2044,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 2k, 4k
+     *视频流清晰度，默认返回全部，支持："video": 加密视频流, "audio": 普通音频音频流。 多个 FileType 组成的字符串，中间用","隔开
      * </pre>
      *
-     * <code>string FileType = 5;</code>
-     * @return The bytes for fileType.
+     * <code>string FileTypes = 5;</code>
+     * @return The bytes for fileTypes.
      */
     public com.google.protobuf.ByteString
-        getFileTypeBytes() {
-      java.lang.Object ref = fileType_;
+        getFileTypesBytes() {
+      java.lang.Object ref = fileTypes_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        fileType_ = b;
+        fileTypes_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1913,98 +2065,77 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 2k, 4k
+     *视频流清晰度，默认返回全部，支持："video": 加密视频流, "audio": 普通音频音频流。 多个 FileType 组成的字符串，中间用","隔开
      * </pre>
      *
-     * <code>string FileType = 5;</code>
-     * @param value The fileType to set.
+     * <code>string FileTypes = 5;</code>
+     * @param value The fileTypes to set.
      * @return This builder for chaining.
      */
-    public Builder setFileType(
+    public Builder setFileTypes(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      fileType_ = value;
+      fileTypes_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 2k, 4k
+     *视频流清晰度，默认返回全部，支持："video": 加密视频流, "audio": 普通音频音频流。 多个 FileType 组成的字符串，中间用","隔开
      * </pre>
      *
-     * <code>string FileType = 5;</code>
+     * <code>string FileTypes = 5;</code>
      * @return This builder for chaining.
      */
-    public Builder clearFileType() {
+    public Builder clearFileTypes() {
       
-      fileType_ = getDefaultInstance().getFileType();
+      fileTypes_ = getDefaultInstance().getFileTypes();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 2k, 4k
+     *视频流清晰度，默认返回全部，支持："video": 加密视频流, "audio": 普通音频音频流。 多个 FileType 组成的字符串，中间用","隔开
      * </pre>
      *
-     * <code>string FileType = 5;</code>
-     * @param value The bytes for fileType to set.
+     * <code>string FileTypes = 5;</code>
+     * @param value The bytes for fileTypes to set.
      * @return This builder for chaining.
      */
-    public Builder setFileTypeBytes(
+    public Builder setFileTypesBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      fileType_ = value;
+      fileTypes_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object logoType_ = "";
+    private java.lang.Object logoTypes_ = "";
     /**
      * <pre>
      * 水印贴片标签
      * </pre>
      *
-     * <code>string LogoType = 6;</code>
-     * @return The logoType.
+     * <code>string LogoTypes = 6;</code>
+     * @return The logoTypes.
      */
-    public java.lang.String getLogoType() {
-      java.lang.Object ref = logoType_;
+    public java.lang.String getLogoTypes() {
+      java.lang.Object ref = logoTypes_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        logoType_ = s;
+        logoTypes_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 水印贴片标签
-     * </pre>
-     *
-     * <code>string LogoType = 6;</code>
-     * @return The bytes for logoType.
-     */
-    public com.google.protobuf.ByteString
-        getLogoTypeBytes() {
-      java.lang.Object ref = logoType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        logoType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
@@ -2012,92 +2143,17 @@ private static final long serialVersionUID = 0L;
      * 水印贴片标签
      * </pre>
      *
-     * <code>string LogoType = 6;</code>
-     * @param value The logoType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLogoType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      logoType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 水印贴片标签
-     * </pre>
-     *
-     * <code>string LogoType = 6;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearLogoType() {
-      
-      logoType_ = getDefaultInstance().getLogoType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 水印贴片标签
-     * </pre>
-     *
-     * <code>string LogoType = 6;</code>
-     * @param value The bytes for logoType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLogoTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      logoType_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object base64_ = "";
-    /**
-     * <pre>
-     *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
-     * </pre>
-     *
-     * <code>string Base64 = 7;</code>
-     * @return The base64.
-     */
-    public java.lang.String getBase64() {
-      java.lang.Object ref = base64_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        base64_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
-     * </pre>
-     *
-     * <code>string Base64 = 7;</code>
-     * @return The bytes for base64.
+     * <code>string LogoTypes = 6;</code>
+     * @return The bytes for logoTypes.
      */
     public com.google.protobuf.ByteString
-        getBase64Bytes() {
-      java.lang.Object ref = base64_;
+        getLogoTypesBytes() {
+      java.lang.Object ref = logoTypes_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        base64_ = b;
+        logoTypes_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -2105,54 +2161,150 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
+     * 水印贴片标签
      * </pre>
      *
-     * <code>string Base64 = 7;</code>
-     * @param value The base64 to set.
+     * <code>string LogoTypes = 6;</code>
+     * @param value The logoTypes to set.
      * @return This builder for chaining.
      */
-    public Builder setBase64(
+    public Builder setLogoTypes(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      base64_ = value;
+      logoTypes_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
+     * 水印贴片标签
      * </pre>
      *
-     * <code>string Base64 = 7;</code>
+     * <code>string LogoTypes = 6;</code>
      * @return This builder for chaining.
      */
-    public Builder clearBase64() {
+    public Builder clearLogoTypes() {
       
-      base64_ = getDefaultInstance().getBase64();
+      logoTypes_ = getDefaultInstance().getLogoTypes();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
+     * 水印贴片标签
      * </pre>
      *
-     * <code>string Base64 = 7;</code>
-     * @param value The bytes for base64 to set.
+     * <code>string LogoTypes = 6;</code>
+     * @param value The bytes for logoTypes to set.
      * @return This builder for chaining.
      */
-    public Builder setBase64Bytes(
+    public Builder setLogoTypesBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      base64_ = value;
+      logoTypes_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object needEncryptStream_ = "";
+    /**
+     * <pre>
+     * 是否加密, 支持: "encrypt" : 加密流, "normal" : 非加密流, 默认返回全部
+     * </pre>
+     *
+     * <code>string NeedEncryptStream = 7;</code>
+     * @return The needEncryptStream.
+     */
+    public java.lang.String getNeedEncryptStream() {
+      java.lang.Object ref = needEncryptStream_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        needEncryptStream_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 是否加密, 支持: "encrypt" : 加密流, "normal" : 非加密流, 默认返回全部
+     * </pre>
+     *
+     * <code>string NeedEncryptStream = 7;</code>
+     * @return The bytes for needEncryptStream.
+     */
+    public com.google.protobuf.ByteString
+        getNeedEncryptStreamBytes() {
+      java.lang.Object ref = needEncryptStream_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        needEncryptStream_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 是否加密, 支持: "encrypt" : 加密流, "normal" : 非加密流, 默认返回全部
+     * </pre>
+     *
+     * <code>string NeedEncryptStream = 7;</code>
+     * @param value The needEncryptStream to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNeedEncryptStream(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      needEncryptStream_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 是否加密, 支持: "encrypt" : 加密流, "normal" : 非加密流, 默认返回全部
+     * </pre>
+     *
+     * <code>string NeedEncryptStream = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNeedEncryptStream() {
+      
+      needEncryptStream_ = getDefaultInstance().getNeedEncryptStream();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 是否加密, 支持: "encrypt" : 加密流, "normal" : 非加密流, 默认返回全部
+     * </pre>
+     *
+     * <code>string NeedEncryptStream = 7;</code>
+     * @param value The bytes for needEncryptStream to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNeedEncryptStreamBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      needEncryptStream_ = value;
       onChanged();
       return this;
     }
@@ -2448,7 +2600,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object cdnType_ = "";
     /**
      * <pre>
-     * 指定CDN类型
+     * 指定 CDN 类型, 支持 "1"-P2P；"2"-OwnVDP。 默认 normal
      * </pre>
      *
      * <code>string CdnType = 11;</code>
@@ -2468,7 +2620,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 指定CDN类型
+     * 指定 CDN 类型, 支持 "1"-P2P；"2"-OwnVDP。 默认 normal
      * </pre>
      *
      * <code>string CdnType = 11;</code>
@@ -2489,7 +2641,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 指定CDN类型
+     * 指定 CDN 类型, 支持 "1"-P2P；"2"-OwnVDP。 默认 normal
      * </pre>
      *
      * <code>string CdnType = 11;</code>
@@ -2508,7 +2660,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 指定CDN类型
+     * 指定 CDN 类型, 支持 "1"-P2P；"2"-OwnVDP。 默认 normal
      * </pre>
      *
      * <code>string CdnType = 11;</code>
@@ -2522,7 +2674,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 指定CDN类型
+     * 指定 CDN 类型, 支持 "1"-P2P；"2"-OwnVDP。 默认 normal
      * </pre>
      *
      * <code>string CdnType = 11;</code>
@@ -2637,109 +2789,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object hDRDefinition_ = "";
-    /**
-     * <pre>
-     * HDR清晰度，默认不查询，支持：all,
-     * </pre>
-     *
-     * <code>string HDRDefinition = 13;</code>
-     * @return The hDRDefinition.
-     */
-    public java.lang.String getHDRDefinition() {
-      java.lang.Object ref = hDRDefinition_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        hDRDefinition_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * HDR清晰度，默认不查询，支持：all,
-     * </pre>
-     *
-     * <code>string HDRDefinition = 13;</code>
-     * @return The bytes for hDRDefinition.
-     */
-    public com.google.protobuf.ByteString
-        getHDRDefinitionBytes() {
-      java.lang.Object ref = hDRDefinition_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        hDRDefinition_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * HDR清晰度，默认不查询，支持：all,
-     * </pre>
-     *
-     * <code>string HDRDefinition = 13;</code>
-     * @param value The hDRDefinition to set.
-     * @return This builder for chaining.
-     */
-    public Builder setHDRDefinition(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      hDRDefinition_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * HDR清晰度，默认不查询，支持：all,
-     * </pre>
-     *
-     * <code>string HDRDefinition = 13;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearHDRDefinition() {
-      
-      hDRDefinition_ = getDefaultInstance().getHDRDefinition();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * HDR清晰度，默认不查询，支持：all,
-     * </pre>
-     *
-     * <code>string HDRDefinition = 13;</code>
-     * @param value The bytes for hDRDefinition to set.
-     * @return This builder for chaining.
-     */
-    public Builder setHDRDefinitionBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      hDRDefinition_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object playScene_ = "";
     /**
      * <pre>
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看
      * </pre>
      *
-     * <code>string PlayScene = 14;</code>
+     * <code>string PlayScene = 13;</code>
      * @return The playScene.
      */
     public java.lang.String getPlayScene() {
@@ -2756,10 +2812,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看
      * </pre>
      *
-     * <code>string PlayScene = 14;</code>
+     * <code>string PlayScene = 13;</code>
      * @return The bytes for playScene.
      */
     public com.google.protobuf.ByteString
@@ -2777,10 +2833,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看
      * </pre>
      *
-     * <code>string PlayScene = 14;</code>
+     * <code>string PlayScene = 13;</code>
      * @param value The playScene to set.
      * @return This builder for chaining.
      */
@@ -2796,10 +2852,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看
      * </pre>
      *
-     * <code>string PlayScene = 14;</code>
+     * <code>string PlayScene = 13;</code>
      * @return This builder for chaining.
      */
     public Builder clearPlayScene() {
@@ -2810,10 +2866,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看
      * </pre>
      *
-     * <code>string PlayScene = 14;</code>
+     * <code>string PlayScene = 13;</code>
      * @param value The bytes for playScene to set.
      * @return This builder for chaining.
      */
@@ -2835,7 +2891,7 @@ private static final long serialVersionUID = 0L;
      * DRM过期时间戳
      * </pre>
      *
-     * <code>string DrmExpireTimestamp = 15;</code>
+     * <code>string DrmExpireTimestamp = 14;</code>
      * @return The drmExpireTimestamp.
      */
     public java.lang.String getDrmExpireTimestamp() {
@@ -2855,7 +2911,7 @@ private static final long serialVersionUID = 0L;
      * DRM过期时间戳
      * </pre>
      *
-     * <code>string DrmExpireTimestamp = 15;</code>
+     * <code>string DrmExpireTimestamp = 14;</code>
      * @return The bytes for drmExpireTimestamp.
      */
     public com.google.protobuf.ByteString
@@ -2876,7 +2932,7 @@ private static final long serialVersionUID = 0L;
      * DRM过期时间戳
      * </pre>
      *
-     * <code>string DrmExpireTimestamp = 15;</code>
+     * <code>string DrmExpireTimestamp = 14;</code>
      * @param value The drmExpireTimestamp to set.
      * @return This builder for chaining.
      */
@@ -2895,7 +2951,7 @@ private static final long serialVersionUID = 0L;
      * DRM过期时间戳
      * </pre>
      *
-     * <code>string DrmExpireTimestamp = 15;</code>
+     * <code>string DrmExpireTimestamp = 14;</code>
      * @return This builder for chaining.
      */
     public Builder clearDrmExpireTimestamp() {
@@ -2909,7 +2965,7 @@ private static final long serialVersionUID = 0L;
      * DRM过期时间戳
      * </pre>
      *
-     * <code>string DrmExpireTimestamp = 15;</code>
+     * <code>string DrmExpireTimestamp = 14;</code>
      * @param value The bytes for drmExpireTimestamp to set.
      * @return This builder for chaining.
      */
@@ -2925,13 +2981,301 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object hDRType_ = "";
+    /**
+     * <pre>
+     * 默认获取全部。支持: "SDR", "PQHDR", "SLGHDR", 默认返回全部
+     * </pre>
+     *
+     * <code>string HDRType = 15;</code>
+     * @return The hDRType.
+     */
+    public java.lang.String getHDRType() {
+      java.lang.Object ref = hDRType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        hDRType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 默认获取全部。支持: "SDR", "PQHDR", "SLGHDR", 默认返回全部
+     * </pre>
+     *
+     * <code>string HDRType = 15;</code>
+     * @return The bytes for hDRType.
+     */
+    public com.google.protobuf.ByteString
+        getHDRTypeBytes() {
+      java.lang.Object ref = hDRType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        hDRType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 默认获取全部。支持: "SDR", "PQHDR", "SLGHDR", 默认返回全部
+     * </pre>
+     *
+     * <code>string HDRType = 15;</code>
+     * @param value The hDRType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHDRType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      hDRType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 默认获取全部。支持: "SDR", "PQHDR", "SLGHDR", 默认返回全部
+     * </pre>
+     *
+     * <code>string HDRType = 15;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHDRType() {
+      
+      hDRType_ = getDefaultInstance().getHDRType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 默认获取全部。支持: "SDR", "PQHDR", "SLGHDR", 默认返回全部
+     * </pre>
+     *
+     * <code>string HDRType = 15;</code>
+     * @param value The bytes for hDRType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHDRTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      hDRType_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object keyFrameAlignmentVersion_ = "";
+    /**
+     * <pre>
+     * 使用的帧对齐转码版本。支持: "1" - 返回版本一, 默认没指定版本，全部返回
+     * </pre>
+     *
+     * <code>string KeyFrameAlignmentVersion = 16;</code>
+     * @return The keyFrameAlignmentVersion.
+     */
+    public java.lang.String getKeyFrameAlignmentVersion() {
+      java.lang.Object ref = keyFrameAlignmentVersion_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        keyFrameAlignmentVersion_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 使用的帧对齐转码版本。支持: "1" - 返回版本一, 默认没指定版本，全部返回
+     * </pre>
+     *
+     * <code>string KeyFrameAlignmentVersion = 16;</code>
+     * @return The bytes for keyFrameAlignmentVersion.
+     */
+    public com.google.protobuf.ByteString
+        getKeyFrameAlignmentVersionBytes() {
+      java.lang.Object ref = keyFrameAlignmentVersion_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        keyFrameAlignmentVersion_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 使用的帧对齐转码版本。支持: "1" - 返回版本一, 默认没指定版本，全部返回
+     * </pre>
+     *
+     * <code>string KeyFrameAlignmentVersion = 16;</code>
+     * @param value The keyFrameAlignmentVersion to set.
+     * @return This builder for chaining.
+     */
+    public Builder setKeyFrameAlignmentVersion(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      keyFrameAlignmentVersion_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 使用的帧对齐转码版本。支持: "1" - 返回版本一, 默认没指定版本，全部返回
+     * </pre>
+     *
+     * <code>string KeyFrameAlignmentVersion = 16;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearKeyFrameAlignmentVersion() {
+      
+      keyFrameAlignmentVersion_ = getDefaultInstance().getKeyFrameAlignmentVersion();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 使用的帧对齐转码版本。支持: "1" - 返回版本一, 默认没指定版本，全部返回
+     * </pre>
+     *
+     * <code>string KeyFrameAlignmentVersion = 16;</code>
+     * @param value The bytes for keyFrameAlignmentVersion to set.
+     * @return This builder for chaining.
+     */
+    public Builder setKeyFrameAlignmentVersionBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      keyFrameAlignmentVersion_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object userAction_ = "";
+    /**
+     * <pre>
+     * 发布状态, 支持: "Available" : 发布, "NoAction" : 未发布, 默认返回全部
+     * </pre>
+     *
+     * <code>string UserAction = 17;</code>
+     * @return The userAction.
+     */
+    public java.lang.String getUserAction() {
+      java.lang.Object ref = userAction_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userAction_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 发布状态, 支持: "Available" : 发布, "NoAction" : 未发布, 默认返回全部
+     * </pre>
+     *
+     * <code>string UserAction = 17;</code>
+     * @return The bytes for userAction.
+     */
+    public com.google.protobuf.ByteString
+        getUserActionBytes() {
+      java.lang.Object ref = userAction_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userAction_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 发布状态, 支持: "Available" : 发布, "NoAction" : 未发布, 默认返回全部
+     * </pre>
+     *
+     * <code>string UserAction = 17;</code>
+     * @param value The userAction to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserAction(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      userAction_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 发布状态, 支持: "Available" : 发布, "NoAction" : 未发布, 默认返回全部
+     * </pre>
+     *
+     * <code>string UserAction = 17;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUserAction() {
+      
+      userAction_ = getDefaultInstance().getUserAction();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 发布状态, 支持: "Available" : 发布, "NoAction" : 未发布, 默认返回全部
+     * </pre>
+     *
+     * <code>string UserAction = 17;</code>
+     * @param value The bytes for userAction to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserActionBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      userAction_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object quality_ = "";
     /**
      * <pre>
-     *音频码率
+     * 音频音质。当 FileType 为 audio 时起作用，表示音频音质参数。支持：medium、higher、highest. 默认返回所有音频流
      * </pre>
      *
-     * <code>string Quality = 16;</code>
+     * <code>string Quality = 18;</code>
      * @return The quality.
      */
     public java.lang.String getQuality() {
@@ -2948,10 +3292,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *音频码率
+     * 音频音质。当 FileType 为 audio 时起作用，表示音频音质参数。支持：medium、higher、highest. 默认返回所有音频流
      * </pre>
      *
-     * <code>string Quality = 16;</code>
+     * <code>string Quality = 18;</code>
      * @return The bytes for quality.
      */
     public com.google.protobuf.ByteString
@@ -2969,10 +3313,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *音频码率
+     * 音频音质。当 FileType 为 audio 时起作用，表示音频音质参数。支持：medium、higher、highest. 默认返回所有音频流
      * </pre>
      *
-     * <code>string Quality = 16;</code>
+     * <code>string Quality = 18;</code>
      * @param value The quality to set.
      * @return This builder for chaining.
      */
@@ -2988,10 +3332,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *音频码率
+     * 音频音质。当 FileType 为 audio 时起作用，表示音频音质参数。支持：medium、higher、highest. 默认返回所有音频流
      * </pre>
      *
-     * <code>string Quality = 16;</code>
+     * <code>string Quality = 18;</code>
      * @return This builder for chaining.
      */
     public Builder clearQuality() {
@@ -3002,10 +3346,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *音频码率
+     * 音频音质。当 FileType 为 audio 时起作用，表示音频音质参数。支持：medium、higher、highest. 默认返回所有音频流
      * </pre>
      *
-     * <code>string Quality = 16;</code>
+     * <code>string Quality = 18;</code>
      * @param value The bytes for quality to set.
      * @return This builder for chaining.
      */
@@ -3033,41 +3377,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Request.VodGetPlayInfoRequest)
+    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Request.VodGetAllPlayInfoRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Request.VodGetPlayInfoRequest)
-  private static final com.volcengine.service.vod.model.request.VodGetPlayInfoRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Request.VodGetAllPlayInfoRequest)
+  private static final com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.request.VodGetPlayInfoRequest();
+    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest();
   }
 
-  public static com.volcengine.service.vod.model.request.VodGetPlayInfoRequest getDefaultInstance() {
+  public static com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<VodGetPlayInfoRequest>
-      PARSER = new com.google.protobuf.AbstractParser<VodGetPlayInfoRequest>() {
+  private static final com.google.protobuf.Parser<VodGetAllPlayInfoRequest>
+      PARSER = new com.google.protobuf.AbstractParser<VodGetAllPlayInfoRequest>() {
     @java.lang.Override
-    public VodGetPlayInfoRequest parsePartialFrom(
+    public VodGetAllPlayInfoRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VodGetPlayInfoRequest(input, extensionRegistry);
+      return new VodGetAllPlayInfoRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<VodGetPlayInfoRequest> parser() {
+  public static com.google.protobuf.Parser<VodGetAllPlayInfoRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<VodGetPlayInfoRequest> getParserForType() {
+  public com.google.protobuf.Parser<VodGetAllPlayInfoRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.volcengine.service.vod.model.request.VodGetPlayInfoRequest getDefaultInstanceForType() {
+  public com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

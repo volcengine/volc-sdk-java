@@ -253,13 +253,13 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getDrmAuthTokenBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(drmAuthToken_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, drmAuthToken_);
     }
-    if (!getAkBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(ak_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, ak_);
     }
-    if (!getSourceBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(source_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, source_);
     }
     unknownFields.writeTo(output);
@@ -271,13 +271,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getDrmAuthTokenBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(drmAuthToken_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, drmAuthToken_);
     }
-    if (!getAkBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(ak_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, ak_);
     }
-    if (!getSourceBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(source_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, source_);
     }
     size += unknownFields.getSerializedSize();

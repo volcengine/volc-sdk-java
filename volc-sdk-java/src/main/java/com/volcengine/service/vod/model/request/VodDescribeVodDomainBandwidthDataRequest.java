@@ -326,19 +326,19 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getDomainListBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domainList_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, domainList_);
     }
-    if (!getStartTimeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(startTime_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, startTime_);
     }
-    if (!getEndTimeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endTime_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, endTime_);
     }
     if (aggregation_ != 0) {
       output.writeInt32(4, aggregation_);
     }
-    if (!getBandwidthTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bandwidthType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, bandwidthType_);
     }
     unknownFields.writeTo(output);
@@ -350,20 +350,20 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getDomainListBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domainList_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, domainList_);
     }
-    if (!getStartTimeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(startTime_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, startTime_);
     }
-    if (!getEndTimeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endTime_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, endTime_);
     }
     if (aggregation_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(4, aggregation_);
     }
-    if (!getBandwidthTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bandwidthType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, bandwidthType_);
     }
     size += unknownFields.getSerializedSize();

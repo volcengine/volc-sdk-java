@@ -275,7 +275,7 @@ private static final long serialVersionUID = 0L;
     if (playInfoModel_ != null) {
       output.writeMessage(3, getPlayInfoModel());
     }
-    if (!getOriginalPlayUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(originalPlayUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, originalPlayUrl_);
     }
     unknownFields.writeTo(output);
@@ -299,7 +299,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getPlayInfoModel());
     }
-    if (!getOriginalPlayUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(originalPlayUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, originalPlayUrl_);
     }
     size += unknownFields.getSerializedSize();

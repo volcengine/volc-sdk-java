@@ -35,7 +35,7 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
 
     @Override
     public AsyncRiskDetectionResponse AsyncImageRisk(RiskDetectionRequest riskDetectionRequest) throws Exception {
-        RawResponse response = json(Const.ImageContentRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        RawResponse response = json(Const.AsyncImageRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }

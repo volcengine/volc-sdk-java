@@ -8,13 +8,14 @@ import com.volcengine.service.cdn.impl.CDNServiceImpl;
 public class DescribeCdnAccountingData {
     public static void main(String[] args) {
         CDNService service = CDNServiceImpl.getInstance();
-        service.setAccessKey("ak");
-        service.setSecretKey("sk");
+        service.setAccessKey(Utils.ak);
+        service.setSecretKey(Utils.sk);
         try {
             CDN.DescribeAccountingDataRequest req = new CDN.DescribeAccountingDataRequest()
-                    .setDomain(Utils.exampleHost)
-                    .setStartTime(Utils.startTime)
-                    .setEndTime(Utils.endTime);
+                .setDomain(Utils.exampleHost)
+                .setStartTime(Utils.startTime)
+                .setEndTime(Utils.endTime)
+                .setMetric("flux");
 
             CDN.DescribeAccountingDataResponse resp = service.describeAccountingData(req);
             System.out.println(JSON.toJSONString(resp));

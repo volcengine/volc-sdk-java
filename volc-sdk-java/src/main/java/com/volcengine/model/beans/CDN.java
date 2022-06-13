@@ -1182,6 +1182,25 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class DescribeIPListInfoRequest {
+
+        @JSONField(name = "IpList")
+        String IpList;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DescribeIPListInfoResponse {
+
+        @JSONField(name = "ResponseMetadata")
+        ResponseMetadata ResponseMetadata;
+
+        @JSONField(name = "Result")
+        List<DescribeIPInfoResult> Result;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class DescribeOriginNrtDataSummaryRequest {
 
         @JSONField(name = "StartTime")

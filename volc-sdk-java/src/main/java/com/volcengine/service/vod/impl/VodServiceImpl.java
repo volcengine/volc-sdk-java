@@ -334,16 +334,16 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
      * @return com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse getAllPlayInfo(com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.GetAllPlayInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
-        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-        com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse.newBuilder();
-        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
-        return responseBuilder.build();
-	}
+//	@Override
+//	public com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse getAllPlayInfo(com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest input) throws Exception {
+//		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.GetAllPlayInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+//        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+//            throw response.getException();
+//        }
+//        com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse.newBuilder();
+//        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+//        return responseBuilder.build();
+//	}
 	
 	
 	/**

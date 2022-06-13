@@ -10,8 +10,8 @@ import java.util.Arrays;
 public class DescribeCdnAccessLog {
     public static void main(String[] args) {
         CDNService service = CDNServiceImpl.getInstance();
-        service.setAccessKey("ak");
-        service.setSecretKey("sk");
+        service.setAccessKey(Utils.ak);
+        service.setSecretKey(Utils.sk);
         try {
             CDN.DescribeCdnAccessLogRequest req = new CDN.DescribeCdnAccessLogRequest()
                     .setStartTime(Utils.startTime)

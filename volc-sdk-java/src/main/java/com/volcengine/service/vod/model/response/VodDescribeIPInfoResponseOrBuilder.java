@@ -23,17 +23,26 @@ public interface VodDescribeIPInfoResponseOrBuilder extends
   com.volcengine.service.base.model.base.ResponseMetadataOrBuilder getResponseMetadataOrBuilder();
 
   /**
-   * <code>.Volcengine.Vod.Models.Business.VodDescribeIpInfoResult Result = 2;</code>
-   * @return Whether the result field is set.
+   * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
    */
-  boolean hasResult();
+  java.util.List<com.volcengine.service.vod.model.business.VodCdnIpInfo> 
+      getResultList();
   /**
-   * <code>.Volcengine.Vod.Models.Business.VodDescribeIpInfoResult Result = 2;</code>
-   * @return The result.
+   * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
    */
-  com.volcengine.service.vod.model.business.VodDescribeIpInfoResult getResult();
+  com.volcengine.service.vod.model.business.VodCdnIpInfo getResult(int index);
   /**
-   * <code>.Volcengine.Vod.Models.Business.VodDescribeIpInfoResult Result = 2;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
    */
-  com.volcengine.service.vod.model.business.VodDescribeIpInfoResultOrBuilder getResultOrBuilder();
+  int getResultCount();
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
+   */
+  java.util.List<? extends com.volcengine.service.vod.model.business.VodCdnIpInfoOrBuilder> 
+      getResultOrBuilderList();
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
+   */
+  com.volcengine.service.vod.model.business.VodCdnIpInfoOrBuilder getResultOrBuilder(
+      int index);
 }

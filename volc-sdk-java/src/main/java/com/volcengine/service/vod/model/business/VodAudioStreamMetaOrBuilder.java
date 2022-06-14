@@ -56,24 +56,4 @@ public interface VodAudioStreamMetaOrBuilder extends
    * @return The bitrate.
    */
   int getBitrate();
-
-  /**
-   * <pre>
-   *音频质量
-   * </pre>
-   *
-   * <code>string Quality = 5;</code>
-   * @return The quality.
-   */
-  java.lang.String getQuality();
-  /**
-   * <pre>
-   *音频质量
-   * </pre>
-   *
-   * <code>string Quality = 5;</code>
-   * @return The bytes for quality.
-   */
-  com.google.protobuf.ByteString
-      getQualityBytes();
 }

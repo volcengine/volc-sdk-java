@@ -438,20 +438,21 @@ public final class VodRequest {
       "\022\026\n\016StartTimestamp\030\003 \001(\003\022\024\n\014EndTimestamp" +
       "\030\004 \001(\003\022\020\n\010DataType\030\005 \001(\t\022\016\n\006Metric\030\006 \001(\t" +
       "\"C\n!VodAddCallbackSubscriptionRequest\022\021\n" +
-      "\tSpaceName\030\001 \001(\t\022\013\n\003Url\030\002 \001(\t\"?\n\032VodSetC" +
+      "\tSpaceName\030\001 \001(\t\022\013\n\003Url\030\002 \001(\t\"h\n\032VodSetC" +
       "allbackEventRequest\022\021\n\tSpaceName\030\001 \001(\t\022\016" +
-      "\n\006Events\030\002 \001(\t\"\364\001\n&VodGetSmartStrategyLi" +
-      "tePlayInfoRequest\022\017\n\007PlayUrl\030\001 \001(\t\022\016\n\006Fo" +
-      "rmat\030\002 \001(\t\022\r\n\005Codec\030\003 \001(\t\022\022\n\nDefinition\030" +
-      "\004 \001(\t\022\020\n\010FileType\030\005 \001(\t\022\020\n\010LogoType\030\006 \001(" +
-      "\t\022\013\n\003Ssl\030\007 \001(\t\022\022\n\nNeedThumbs\030\010 \001(\t\022\027\n\017Ne" +
-      "edBarrageMask\030\t \001(\t\022\021\n\tUnionInfo\030\n \001(\t\022\025" +
-      "\n\rHDRDefinition\030\013 \001(\tB\310\001\n(com.volcengine" +
-      ".service.vod.model.requestB\nVodRequestP\001" +
-      "Z@github.com/volcengine/volc-sdk-golang/" +
-      "service/vod/models/request\240\001\001\330\001\001\312\002\037Volc\\" +
-      "Service\\Vod\\Models\\Request\342\002#Volc\\Servic" +
-      "e\\Vod\\Models\\GPBMetadatab\006proto3"
+      "\n\006Events\030\002 \001(\t\022\023\n\013AuthEnabled\030\003 \001(\t\022\022\n\nP" +
+      "rivateKey\030\004 \001(\t\"\364\001\n&VodGetSmartStrategyL" +
+      "itePlayInfoRequest\022\017\n\007PlayUrl\030\001 \001(\t\022\016\n\006F" +
+      "ormat\030\002 \001(\t\022\r\n\005Codec\030\003 \001(\t\022\022\n\nDefinition" +
+      "\030\004 \001(\t\022\020\n\010FileType\030\005 \001(\t\022\020\n\010LogoType\030\006 \001" +
+      "(\t\022\013\n\003Ssl\030\007 \001(\t\022\022\n\nNeedThumbs\030\010 \001(\t\022\027\n\017N" +
+      "eedBarrageMask\030\t \001(\t\022\021\n\tUnionInfo\030\n \001(\t\022" +
+      "\025\n\rHDRDefinition\030\013 \001(\tB\310\001\n(com.volcengin" +
+      "e.service.vod.model.requestB\nVodRequestP" +
+      "\001Z@github.com/volcengine/volc-sdk-golang" +
+      "/service/vod/models/request\240\001\001\330\001\001\312\002\037Volc" +
+      "\\Service\\Vod\\Models\\Request\342\002#Volc\\Servi" +
+      "ce\\Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -765,7 +766,7 @@ public final class VodRequest {
     internal_static_Volcengine_Vod_Models_Request_VodSetCallbackEventRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Request_VodSetCallbackEventRequest_descriptor,
-        new java.lang.String[] { "SpaceName", "Events", });
+        new java.lang.String[] { "SpaceName", "Events", "AuthEnabled", "PrivateKey", });
     internal_static_Volcengine_Vod_Models_Request_VodGetSmartStrategyLitePlayInfoRequest_descriptor =
       getDescriptor().getMessageTypes().get(51);
     internal_static_Volcengine_Vod_Models_Request_VodGetSmartStrategyLitePlayInfoRequest_fieldAccessorTable = new

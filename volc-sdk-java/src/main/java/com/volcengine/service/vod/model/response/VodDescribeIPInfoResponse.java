@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private VodDescribeIPInfoResponse() {
+    result_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -38,6 +39,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -62,16 +64,12 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            com.volcengine.service.vod.model.business.VodDescribeIpInfoResult.Builder subBuilder = null;
-            if (result_ != null) {
-              subBuilder = result_.toBuilder();
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              result_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodCdnIpInfo>();
+              mutable_bitField0_ |= 0x00000001;
             }
-            result_ = input.readMessage(com.volcengine.service.vod.model.business.VodDescribeIpInfoResult.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(result_);
-              result_ = subBuilder.buildPartial();
-            }
-
+            result_.add(
+                input.readMessage(com.volcengine.service.vod.model.business.VodCdnIpInfo.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -89,6 +87,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        result_ = java.util.Collections.unmodifiableList(result_);
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -133,29 +134,43 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESULT_FIELD_NUMBER = 2;
-  private com.volcengine.service.vod.model.business.VodDescribeIpInfoResult result_;
+  private java.util.List<com.volcengine.service.vod.model.business.VodCdnIpInfo> result_;
   /**
-   * <code>.Volcengine.Vod.Models.Business.VodDescribeIpInfoResult Result = 2;</code>
-   * @return Whether the result field is set.
+   * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
    */
   @java.lang.Override
-  public boolean hasResult() {
-    return result_ != null;
+  public java.util.List<com.volcengine.service.vod.model.business.VodCdnIpInfo> getResultList() {
+    return result_;
   }
   /**
-   * <code>.Volcengine.Vod.Models.Business.VodDescribeIpInfoResult Result = 2;</code>
-   * @return The result.
+   * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
    */
   @java.lang.Override
-  public com.volcengine.service.vod.model.business.VodDescribeIpInfoResult getResult() {
-    return result_ == null ? com.volcengine.service.vod.model.business.VodDescribeIpInfoResult.getDefaultInstance() : result_;
+  public java.util.List<? extends com.volcengine.service.vod.model.business.VodCdnIpInfoOrBuilder> 
+      getResultOrBuilderList() {
+    return result_;
   }
   /**
-   * <code>.Volcengine.Vod.Models.Business.VodDescribeIpInfoResult Result = 2;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
    */
   @java.lang.Override
-  public com.volcengine.service.vod.model.business.VodDescribeIpInfoResultOrBuilder getResultOrBuilder() {
-    return getResult();
+  public int getResultCount() {
+    return result_.size();
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodCdnIpInfo getResult(int index) {
+    return result_.get(index);
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodCdnIpInfoOrBuilder getResultOrBuilder(
+      int index) {
+    return result_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -175,8 +190,8 @@ private static final long serialVersionUID = 0L;
     if (responseMetadata_ != null) {
       output.writeMessage(1, getResponseMetadata());
     }
-    if (result_ != null) {
-      output.writeMessage(2, getResult());
+    for (int i = 0; i < result_.size(); i++) {
+      output.writeMessage(2, result_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -191,9 +206,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getResponseMetadata());
     }
-    if (result_ != null) {
+    for (int i = 0; i < result_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getResult());
+        .computeMessageSize(2, result_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -215,11 +230,8 @@ private static final long serialVersionUID = 0L;
       if (!getResponseMetadata()
           .equals(other.getResponseMetadata())) return false;
     }
-    if (hasResult() != other.hasResult()) return false;
-    if (hasResult()) {
-      if (!getResult()
-          .equals(other.getResult())) return false;
-    }
+    if (!getResultList()
+        .equals(other.getResultList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -235,9 +247,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RESPONSEMETADATA_FIELD_NUMBER;
       hash = (53 * hash) + getResponseMetadata().hashCode();
     }
-    if (hasResult()) {
+    if (getResultCount() > 0) {
       hash = (37 * hash) + RESULT_FIELD_NUMBER;
-      hash = (53 * hash) + getResult().hashCode();
+      hash = (53 * hash) + getResultList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -367,6 +379,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getResultFieldBuilder();
       }
     }
     @java.lang.Override
@@ -379,10 +392,10 @@ private static final long serialVersionUID = 0L;
         responseMetadataBuilder_ = null;
       }
       if (resultBuilder_ == null) {
-        result_ = null;
+        result_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
-        result_ = null;
-        resultBuilder_ = null;
+        resultBuilder_.clear();
       }
       return this;
     }
@@ -410,12 +423,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.volcengine.service.vod.model.response.VodDescribeIPInfoResponse buildPartial() {
       com.volcengine.service.vod.model.response.VodDescribeIPInfoResponse result = new com.volcengine.service.vod.model.response.VodDescribeIPInfoResponse(this);
+      int from_bitField0_ = bitField0_;
       if (responseMetadataBuilder_ == null) {
         result.responseMetadata_ = responseMetadata_;
       } else {
         result.responseMetadata_ = responseMetadataBuilder_.build();
       }
       if (resultBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          result_ = java.util.Collections.unmodifiableList(result_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
         result.result_ = result_;
       } else {
         result.result_ = resultBuilder_.build();
@@ -471,8 +489,31 @@ private static final long serialVersionUID = 0L;
       if (other.hasResponseMetadata()) {
         mergeResponseMetadata(other.getResponseMetadata());
       }
-      if (other.hasResult()) {
-        mergeResult(other.getResult());
+      if (resultBuilder_ == null) {
+        if (!other.result_.isEmpty()) {
+          if (result_.isEmpty()) {
+            result_ = other.result_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureResultIsMutable();
+            result_.addAll(other.result_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.result_.isEmpty()) {
+          if (resultBuilder_.isEmpty()) {
+            resultBuilder_.dispose();
+            resultBuilder_ = null;
+            result_ = other.result_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            resultBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getResultFieldBuilder() : null;
+          } else {
+            resultBuilder_.addAllMessages(other.result_);
+          }
+        }
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -502,6 +543,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private com.volcengine.service.base.model.base.ResponseMetadata responseMetadata_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -622,118 +664,239 @@ private static final long serialVersionUID = 0L;
       return responseMetadataBuilder_;
     }
 
-    private com.volcengine.service.vod.model.business.VodDescribeIpInfoResult result_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.volcengine.service.vod.model.business.VodDescribeIpInfoResult, com.volcengine.service.vod.model.business.VodDescribeIpInfoResult.Builder, com.volcengine.service.vod.model.business.VodDescribeIpInfoResultOrBuilder> resultBuilder_;
-    /**
-     * <code>.Volcengine.Vod.Models.Business.VodDescribeIpInfoResult Result = 2;</code>
-     * @return Whether the result field is set.
-     */
-    public boolean hasResult() {
-      return resultBuilder_ != null || result_ != null;
+    private java.util.List<com.volcengine.service.vod.model.business.VodCdnIpInfo> result_ =
+      java.util.Collections.emptyList();
+    private void ensureResultIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        result_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodCdnIpInfo>(result_);
+        bitField0_ |= 0x00000001;
+       }
     }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodCdnIpInfo, com.volcengine.service.vod.model.business.VodCdnIpInfo.Builder, com.volcengine.service.vod.model.business.VodCdnIpInfoOrBuilder> resultBuilder_;
+
     /**
-     * <code>.Volcengine.Vod.Models.Business.VodDescribeIpInfoResult Result = 2;</code>
-     * @return The result.
+     * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
-    public com.volcengine.service.vod.model.business.VodDescribeIpInfoResult getResult() {
+    public java.util.List<com.volcengine.service.vod.model.business.VodCdnIpInfo> getResultList() {
       if (resultBuilder_ == null) {
-        return result_ == null ? com.volcengine.service.vod.model.business.VodDescribeIpInfoResult.getDefaultInstance() : result_;
+        return java.util.Collections.unmodifiableList(result_);
       } else {
-        return resultBuilder_.getMessage();
+        return resultBuilder_.getMessageList();
       }
     }
     /**
-     * <code>.Volcengine.Vod.Models.Business.VodDescribeIpInfoResult Result = 2;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
-    public Builder setResult(com.volcengine.service.vod.model.business.VodDescribeIpInfoResult value) {
+    public int getResultCount() {
+      if (resultBuilder_ == null) {
+        return result_.size();
+      } else {
+        return resultBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodCdnIpInfo getResult(int index) {
+      if (resultBuilder_ == null) {
+        return result_.get(index);
+      } else {
+        return resultBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
+     */
+    public Builder setResult(
+        int index, com.volcengine.service.vod.model.business.VodCdnIpInfo value) {
       if (resultBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        result_ = value;
+        ensureResultIsMutable();
+        result_.set(index, value);
         onChanged();
       } else {
-        resultBuilder_.setMessage(value);
+        resultBuilder_.setMessage(index, value);
       }
-
       return this;
     }
     /**
-     * <code>.Volcengine.Vod.Models.Business.VodDescribeIpInfoResult Result = 2;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public Builder setResult(
-        com.volcengine.service.vod.model.business.VodDescribeIpInfoResult.Builder builderForValue) {
+        int index, com.volcengine.service.vod.model.business.VodCdnIpInfo.Builder builderForValue) {
       if (resultBuilder_ == null) {
-        result_ = builderForValue.build();
+        ensureResultIsMutable();
+        result_.set(index, builderForValue.build());
         onChanged();
       } else {
-        resultBuilder_.setMessage(builderForValue.build());
+        resultBuilder_.setMessage(index, builderForValue.build());
       }
-
       return this;
     }
     /**
-     * <code>.Volcengine.Vod.Models.Business.VodDescribeIpInfoResult Result = 2;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
-    public Builder mergeResult(com.volcengine.service.vod.model.business.VodDescribeIpInfoResult value) {
+    public Builder addResult(com.volcengine.service.vod.model.business.VodCdnIpInfo value) {
       if (resultBuilder_ == null) {
-        if (result_ != null) {
-          result_ =
-            com.volcengine.service.vod.model.business.VodDescribeIpInfoResult.newBuilder(result_).mergeFrom(value).buildPartial();
-        } else {
-          result_ = value;
+        if (value == null) {
+          throw new NullPointerException();
         }
+        ensureResultIsMutable();
+        result_.add(value);
         onChanged();
       } else {
-        resultBuilder_.mergeFrom(value);
+        resultBuilder_.addMessage(value);
       }
-
       return this;
     }
     /**
-     * <code>.Volcengine.Vod.Models.Business.VodDescribeIpInfoResult Result = 2;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
+     */
+    public Builder addResult(
+        int index, com.volcengine.service.vod.model.business.VodCdnIpInfo value) {
+      if (resultBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureResultIsMutable();
+        result_.add(index, value);
+        onChanged();
+      } else {
+        resultBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
+     */
+    public Builder addResult(
+        com.volcengine.service.vod.model.business.VodCdnIpInfo.Builder builderForValue) {
+      if (resultBuilder_ == null) {
+        ensureResultIsMutable();
+        result_.add(builderForValue.build());
+        onChanged();
+      } else {
+        resultBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
+     */
+    public Builder addResult(
+        int index, com.volcengine.service.vod.model.business.VodCdnIpInfo.Builder builderForValue) {
+      if (resultBuilder_ == null) {
+        ensureResultIsMutable();
+        result_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        resultBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
+     */
+    public Builder addAllResult(
+        java.lang.Iterable<? extends com.volcengine.service.vod.model.business.VodCdnIpInfo> values) {
+      if (resultBuilder_ == null) {
+        ensureResultIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, result_);
+        onChanged();
+      } else {
+        resultBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public Builder clearResult() {
       if (resultBuilder_ == null) {
-        result_ = null;
+        result_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
-        result_ = null;
-        resultBuilder_ = null;
+        resultBuilder_.clear();
       }
-
       return this;
     }
     /**
-     * <code>.Volcengine.Vod.Models.Business.VodDescribeIpInfoResult Result = 2;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
-    public com.volcengine.service.vod.model.business.VodDescribeIpInfoResult.Builder getResultBuilder() {
-      
-      onChanged();
-      return getResultFieldBuilder().getBuilder();
+    public Builder removeResult(int index) {
+      if (resultBuilder_ == null) {
+        ensureResultIsMutable();
+        result_.remove(index);
+        onChanged();
+      } else {
+        resultBuilder_.remove(index);
+      }
+      return this;
     }
     /**
-     * <code>.Volcengine.Vod.Models.Business.VodDescribeIpInfoResult Result = 2;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
-    public com.volcengine.service.vod.model.business.VodDescribeIpInfoResultOrBuilder getResultOrBuilder() {
-      if (resultBuilder_ != null) {
-        return resultBuilder_.getMessageOrBuilder();
-      } else {
-        return result_ == null ?
-            com.volcengine.service.vod.model.business.VodDescribeIpInfoResult.getDefaultInstance() : result_;
+    public com.volcengine.service.vod.model.business.VodCdnIpInfo.Builder getResultBuilder(
+        int index) {
+      return getResultFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodCdnIpInfoOrBuilder getResultOrBuilder(
+        int index) {
+      if (resultBuilder_ == null) {
+        return result_.get(index);  } else {
+        return resultBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>.Volcengine.Vod.Models.Business.VodDescribeIpInfoResult Result = 2;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.volcengine.service.vod.model.business.VodDescribeIpInfoResult, com.volcengine.service.vod.model.business.VodDescribeIpInfoResult.Builder, com.volcengine.service.vod.model.business.VodDescribeIpInfoResultOrBuilder> 
+    public java.util.List<? extends com.volcengine.service.vod.model.business.VodCdnIpInfoOrBuilder> 
+         getResultOrBuilderList() {
+      if (resultBuilder_ != null) {
+        return resultBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(result_);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodCdnIpInfo.Builder addResultBuilder() {
+      return getResultFieldBuilder().addBuilder(
+          com.volcengine.service.vod.model.business.VodCdnIpInfo.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodCdnIpInfo.Builder addResultBuilder(
+        int index) {
+      return getResultFieldBuilder().addBuilder(
+          index, com.volcengine.service.vod.model.business.VodCdnIpInfo.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.VodCdnIpInfo.Builder> 
+         getResultBuilderList() {
+      return getResultFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodCdnIpInfo, com.volcengine.service.vod.model.business.VodCdnIpInfo.Builder, com.volcengine.service.vod.model.business.VodCdnIpInfoOrBuilder> 
         getResultFieldBuilder() {
       if (resultBuilder_ == null) {
-        resultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.volcengine.service.vod.model.business.VodDescribeIpInfoResult, com.volcengine.service.vod.model.business.VodDescribeIpInfoResult.Builder, com.volcengine.service.vod.model.business.VodDescribeIpInfoResultOrBuilder>(
-                getResult(),
+        resultBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.service.vod.model.business.VodCdnIpInfo, com.volcengine.service.vod.model.business.VodCdnIpInfo.Builder, com.volcengine.service.vod.model.business.VodCdnIpInfoOrBuilder>(
+                result_,
+                ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
         result_ = null;

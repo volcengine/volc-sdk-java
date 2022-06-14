@@ -226,24 +226,4 @@ public interface VodSourceInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getCreateTimeBytes();
-
-  /**
-   * <pre>
-   *音频质量
-   * </pre>
-   *
-   * <code>string Quality = 15;</code>
-   * @return The quality.
-   */
-  java.lang.String getQuality();
-  /**
-   * <pre>
-   *音频质量
-   * </pre>
-   *
-   * <code>string Quality = 15;</code>
-   * @return The bytes for quality.
-   */
-  com.google.protobuf.ByteString
-      getQualityBytes();
 }

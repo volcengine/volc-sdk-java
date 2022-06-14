@@ -273,16 +273,16 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getIpBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(ip_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, ip_);
     }
     if (cdnIp_ != false) {
       output.writeBool(2, cdnIp_);
     }
-    if (!getLocationBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(location_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, location_);
     }
-    if (!getIspBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(isp_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, isp_);
     }
     unknownFields.writeTo(output);
@@ -294,17 +294,17 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getIpBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(ip_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, ip_);
     }
     if (cdnIp_ != false) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(2, cdnIp_);
     }
-    if (!getLocationBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(location_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, location_);
     }
-    if (!getIspBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(isp_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, isp_);
     }
     size += unknownFields.getSerializedSize();

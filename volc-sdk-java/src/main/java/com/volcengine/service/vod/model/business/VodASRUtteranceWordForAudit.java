@@ -207,16 +207,16 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getTextBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(text_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, text_);
     }
-    if (startTimeMill_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(startTimeMill_) != 0) {
       output.writeDouble(2, startTimeMill_);
     }
-    if (endTimeMill_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(endTimeMill_) != 0) {
       output.writeDouble(3, endTimeMill_);
     }
-    if (blankDuration_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(blankDuration_) != 0) {
       output.writeDouble(4, blankDuration_);
     }
     unknownFields.writeTo(output);
@@ -228,18 +228,18 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getTextBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(text_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, text_);
     }
-    if (startTimeMill_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(startTimeMill_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(2, startTimeMill_);
     }
-    if (endTimeMill_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(endTimeMill_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(3, endTimeMill_);
     }
-    if (blankDuration_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(blankDuration_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(4, blankDuration_);
     }

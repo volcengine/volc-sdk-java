@@ -8,8 +8,8 @@ import com.volcengine.service.cdn.impl.CDNServiceImpl;
 public class DescribeContentQuota {
     public static void main(String[] args) {
         CDNService service = CDNServiceImpl.getInstance();
-        service.setAccessKey("ak");
-        service.setSecretKey("sk");
+        service.setAccessKey(Utils.ak);
+        service.setSecretKey(Utils.sk);
         try {
             CDN.DescribeContentQuotaResponse resp = service.describeContentQuota();
             System.out.println(JSON.toJSONString(resp));

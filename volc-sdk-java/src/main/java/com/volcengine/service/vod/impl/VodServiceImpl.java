@@ -68,13 +68,13 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
     }
 
     public String createHlsDrmAuthToken(String dsa, Long expireSeconds) throws Exception {
-        if (expireSeconds == null || expireSeconds == 0) {
+        if (expireSeconds == null || expireSeconds <= 0) {
             throw new Exception("Invalid Expire");
         }
         String token = createAuth(dsa, expireSeconds);
-
         Map<String, String> params = new HashMap<>();
         params.put("DrmAuthToken", token);
+        params.put("X-Expires", expireSeconds.toString());
         return getSignUrl(com.volcengine.service.vod.Const.GetHlsDecryptionKey, com.volcengine.helper.Utils.mapToPairList(params));
     }
 
@@ -327,6 +327,25 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 
 
 
+	/**
+     * getAllPlayInfo.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest
+     * @return com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse getAllPlayInfo(com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.GetAllPlayInfo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
 	/**
      * getPlayInfo.
      *

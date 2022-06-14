@@ -10,12 +10,12 @@ import java.util.Arrays;
 public class DeleteResourceTags {
     public static void main(String[] args) {
         CDNService service = CDNServiceImpl.getInstance();
-        service.setAccessKey("ak");
-        service.setSecretKey("sk");
+        service.setAccessKey(Utils.ak);
+        service.setSecretKey(Utils.sk);
         try {
             CDN.DeleteResourceTagsRequest req = new CDN.DeleteResourceTagsRequest()
-                    .setResources(Arrays.asList("www.example.com", "www.example2.com"))
-                    .setResourceTags(Arrays.asList(new CDN.ResourceTagEntry().setKey("userKey").setValue("userValue")));
+            .setResources(Arrays.asList("www.example.com", "www.example2.com"))
+            .setResourceTags(Arrays.asList(new CDN.ResourceTagEntry().setKey("userKey").setValue("userValue")));
 
             CDN.EmptyResponse resp = service.deleteResourceTags(req);
             System.out.println(JSON.toJSONString(resp));

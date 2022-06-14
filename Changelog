@@ -1,5 +1,13 @@
 Change log
 
+2022-06-09 Bumped to version v1.0.49
+- Added service imp
+- Fixed cdn example
+- Fixed bugs for security
+
+2022-05-30 Bumped to version v1.0.48
+- Added apis for vod
+
 2022-05-20 Bumped to version v1.0.47
 - Fixed models for translate
 

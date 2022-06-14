@@ -396,7 +396,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getFormatBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(format_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, format_);
     }
     if (imgXLen_ != 0) {
@@ -411,7 +411,7 @@ private static final long serialVersionUID = 0L;
     if (cellHeight_ != 0) {
       output.writeInt32(5, cellHeight_);
     }
-    if (interval_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(interval_) != 0) {
       output.writeFloat(6, interval_);
     }
     if (captureNum_ != 0) {
@@ -432,7 +432,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getFormatBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(format_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, format_);
     }
     if (imgXLen_ != 0) {
@@ -451,7 +451,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(5, cellHeight_);
     }
-    if (interval_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(interval_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(6, interval_);
     }

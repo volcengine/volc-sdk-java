@@ -253,13 +253,13 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getMainPlayUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mainPlayUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, mainPlayUrl_);
     }
-    if (!getBackupPlayUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(backupPlayUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, backupPlayUrl_);
     }
-    if (!getAdaptiveTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(adaptiveType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, adaptiveType_);
     }
     unknownFields.writeTo(output);
@@ -271,13 +271,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getMainPlayUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mainPlayUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, mainPlayUrl_);
     }
-    if (!getBackupPlayUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(backupPlayUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, backupPlayUrl_);
     }
-    if (!getAdaptiveTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(adaptiveType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, adaptiveType_);
     }
     size += unknownFields.getSerializedSize();

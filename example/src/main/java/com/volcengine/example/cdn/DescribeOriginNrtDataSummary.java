@@ -8,13 +8,13 @@ import com.volcengine.service.cdn.impl.CDNServiceImpl;
 public class DescribeOriginNrtDataSummary {
     public static void main(String[] args) {
         CDNService service = CDNServiceImpl.getInstance();
-        service.setAccessKey("ak");
-        service.setSecretKey("sk");
+        service.setAccessKey(Utils.ak);
+        service.setSecretKey(Utils.sk);
         try {
             CDN.DescribeOriginNrtDataSummaryRequest req = new CDN.DescribeOriginNrtDataSummaryRequest()
-                    .setStartTime(Utils.startTime)
-                    .setEndTime(Utils.endTime)
-                    .setMetric("flux");
+                .setStartTime(Utils.startTime)
+                .setEndTime(Utils.endTime)
+                .setMetric("flux");
 
             CDN.DescribeOriginNrtDataSummaryResponse resp = service.describeOriginNrtDataSummary(req);
             System.out.println(JSON.toJSONString(resp));

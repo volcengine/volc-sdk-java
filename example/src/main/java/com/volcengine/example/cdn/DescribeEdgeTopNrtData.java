@@ -8,8 +8,8 @@ import com.volcengine.service.cdn.impl.CDNServiceImpl;
 public class DescribeEdgeTopNrtData {
     public static void main(String[] args) {
         CDNService service = CDNServiceImpl.getInstance();
-        service.setAccessKey("ak");
-        service.setSecretKey("sk");
+        service.setAccessKey(Utils.ak);
+        service.setSecretKey(Utils.sk);
         try {
             CDN.DescribeEdgeTopNrtDataRequest req = new CDN.DescribeEdgeTopNrtDataRequest()
                     .setStartTime(Utils.startTime)

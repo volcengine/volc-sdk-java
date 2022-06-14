@@ -8,11 +8,11 @@ import com.volcengine.service.cdn.impl.CDNServiceImpl;
 public class SubmitPreloadTask {
     public static void main(String[] args) {
         CDNService service = CDNServiceImpl.getInstance();
-        service.setAccessKey("ak");
-        service.setSecretKey("sk");
+        service.setAccessKey(Utils.ak);
+        service.setSecretKey(Utils.sk);
         try {
             CDN.SubmitPreloadTaskRequest req = new CDN.SubmitPreloadTaskRequest()
-                    .setUrls(Utils.exampleUrl1);
+                .setUrls(Utils.exampleUrl1);
             CDN.SubmitPreloadTaskResponse resp = service.submitPreloadTask(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {

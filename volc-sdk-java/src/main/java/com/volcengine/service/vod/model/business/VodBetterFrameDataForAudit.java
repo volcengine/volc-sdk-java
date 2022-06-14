@@ -314,13 +314,13 @@ private static final long serialVersionUID = 0L;
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     getSerializedSize();
-    if (!getStoreUriBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(storeUri_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, storeUri_);
     }
     if (frameNumber_ != 0) {
       output.writeInt32(2, frameNumber_);
     }
-    if (cutTimeMill_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(cutTimeMill_) != 0) {
       output.writeDouble(3, cutTimeMill_);
     }
     if (width_ != 0) {
@@ -329,7 +329,7 @@ private static final long serialVersionUID = 0L;
     if (height_ != 0) {
       output.writeInt32(5, height_);
     }
-    if (coverRate_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(coverRate_) != 0) {
       output.writeDouble(6, coverRate_);
     }
     if (getLBPHashCodeList().size() > 0) {
@@ -348,14 +348,14 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getStoreUriBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(storeUri_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, storeUri_);
     }
     if (frameNumber_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(2, frameNumber_);
     }
-    if (cutTimeMill_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(cutTimeMill_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(3, cutTimeMill_);
     }
@@ -367,7 +367,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(5, height_);
     }
-    if (coverRate_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(coverRate_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(6, coverRate_);
     }

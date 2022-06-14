@@ -496,6 +496,21 @@ public class CDNConfig {
                         }
                     }
             ));
+            // 批量获取 IP 归属信息: https://www.volcengine.com/docs/6454/106852
+            put("DescribeIPListInfo", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DescribeIPListInfo"));
+                                add(new BasicNameValuePair("Version", "2021-03-01"));
+                            }
+                        });
+                    }
+                }
+            ));
 // 获取回源节点 IP 列表: https://www.volcengine.com/docs/6454/75273
             put("DescribeCdnUpperIp", new ApiInfo(
                     new HashMap<String, Object>() {

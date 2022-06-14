@@ -387,22 +387,22 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getTextBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(text_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, text_);
     }
     for (int i = 0; i < utterances_.size(); i++) {
       output.writeMessage(3, utterances_.get(i));
     }
-    if (!getLanguageBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(language_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, language_);
     }
     for (int i = 0; i < languageDetails_.size(); i++) {
       output.writeMessage(5, languageDetails_.get(i));
     }
-    if (speechRate_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(speechRate_) != 0) {
       output.writeDouble(6, speechRate_);
     }
-    if (volume_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(volume_) != 0) {
       output.writeDouble(7, volume_);
     }
     unknownFields.writeTo(output);
@@ -414,25 +414,25 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getTextBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(text_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, text_);
     }
     for (int i = 0; i < utterances_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, utterances_.get(i));
     }
-    if (!getLanguageBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(language_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, language_);
     }
     for (int i = 0; i < languageDetails_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, languageDetails_.get(i));
     }
-    if (speechRate_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(speechRate_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(6, speechRate_);
     }
-    if (volume_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(volume_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(7, volume_);
     }

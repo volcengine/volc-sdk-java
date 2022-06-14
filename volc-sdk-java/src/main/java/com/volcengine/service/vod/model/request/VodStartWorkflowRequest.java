@@ -344,10 +344,10 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getVidBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vid_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vid_);
     }
-    if (!getTemplateIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(templateId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, templateId_);
     }
     if (input_ != null) {
@@ -356,7 +356,7 @@ private static final long serialVersionUID = 0L;
     if (priority_ != 0) {
       output.writeInt32(4, priority_);
     }
-    if (!getCallbackArgsBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackArgs_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, callbackArgs_);
     }
     if (enableLowPriority_ != false) {
@@ -371,10 +371,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getVidBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vid_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vid_);
     }
-    if (!getTemplateIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(templateId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, templateId_);
     }
     if (input_ != null) {
@@ -385,7 +385,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(4, priority_);
     }
-    if (!getCallbackArgsBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackArgs_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, callbackArgs_);
     }
     if (enableLowPriority_ != false) {

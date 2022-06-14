@@ -691,19 +691,19 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getVidBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vid_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vid_);
     }
     if (status_ != 0) {
       output.writeInt32(2, status_);
     }
-    if (!getPosterUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(posterUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, posterUrl_);
     }
-    if (duration_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(duration_) != 0) {
       output.writeFloat(4, duration_);
     }
-    if (!getFileTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, fileType_);
     }
     if (enableAdaptive_ != false) {
@@ -724,7 +724,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < thumbInfoList_.size(); i++) {
       output.writeMessage(11, thumbInfoList_.get(i));
     }
-    if (!getBarrageMaskUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(barrageMaskUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, barrageMaskUrl_);
     }
     for (int i = 0; i < subtitleInfoList_.size(); i++) {
@@ -739,21 +739,21 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getVidBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vid_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vid_);
     }
     if (status_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(2, status_);
     }
-    if (!getPosterUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(posterUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, posterUrl_);
     }
-    if (duration_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(duration_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(4, duration_);
     }
-    if (!getFileTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, fileType_);
     }
     if (enableAdaptive_ != false) {
@@ -780,7 +780,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, thumbInfoList_.get(i));
     }
-    if (!getBarrageMaskUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(barrageMaskUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, barrageMaskUrl_);
     }
     for (int i = 0; i < subtitleInfoList_.size(); i++) {

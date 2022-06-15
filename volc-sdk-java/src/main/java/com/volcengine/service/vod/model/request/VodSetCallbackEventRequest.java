@@ -18,6 +18,8 @@ private static final long serialVersionUID = 0L;
   private VodSetCallbackEventRequest() {
     spaceName_ = "";
     events_ = "";
+    authEnabled_ = "";
+    privateKey_ = "";
   }
 
   @java.lang.Override
@@ -60,6 +62,18 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             events_ = s;
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            authEnabled_ = s;
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            privateKey_ = s;
             break;
           }
           default: {
@@ -186,6 +200,98 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int AUTHENABLED_FIELD_NUMBER = 3;
+  private volatile java.lang.Object authEnabled_;
+  /**
+   * <pre>
+   * 是否开启回调鉴权,值为VodCallbackAuthType中的枚举数字
+   * </pre>
+   *
+   * <code>string AuthEnabled = 3;</code>
+   * @return The authEnabled.
+   */
+  @java.lang.Override
+  public java.lang.String getAuthEnabled() {
+    java.lang.Object ref = authEnabled_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      authEnabled_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 是否开启回调鉴权,值为VodCallbackAuthType中的枚举数字
+   * </pre>
+   *
+   * <code>string AuthEnabled = 3;</code>
+   * @return The bytes for authEnabled.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getAuthEnabledBytes() {
+    java.lang.Object ref = authEnabled_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      authEnabled_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PRIVATEKEY_FIELD_NUMBER = 4;
+  private volatile java.lang.Object privateKey_;
+  /**
+   * <pre>
+   * 回调鉴权key
+   * </pre>
+   *
+   * <code>string PrivateKey = 4;</code>
+   * @return The privateKey.
+   */
+  @java.lang.Override
+  public java.lang.String getPrivateKey() {
+    java.lang.Object ref = privateKey_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      privateKey_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 回调鉴权key
+   * </pre>
+   *
+   * <code>string PrivateKey = 4;</code>
+   * @return The bytes for privateKey.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPrivateKeyBytes() {
+    java.lang.Object ref = privateKey_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      privateKey_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -206,6 +312,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(events_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, events_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(authEnabled_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, authEnabled_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(privateKey_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, privateKey_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -220,6 +332,12 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(events_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, events_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(authEnabled_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, authEnabled_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(privateKey_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, privateKey_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -240,6 +358,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSpaceName())) return false;
     if (!getEvents()
         .equals(other.getEvents())) return false;
+    if (!getAuthEnabled()
+        .equals(other.getAuthEnabled())) return false;
+    if (!getPrivateKey()
+        .equals(other.getPrivateKey())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -255,6 +377,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getSpaceName().hashCode();
     hash = (37 * hash) + EVENTS_FIELD_NUMBER;
     hash = (53 * hash) + getEvents().hashCode();
+    hash = (37 * hash) + AUTHENABLED_FIELD_NUMBER;
+    hash = (53 * hash) + getAuthEnabled().hashCode();
+    hash = (37 * hash) + PRIVATEKEY_FIELD_NUMBER;
+    hash = (53 * hash) + getPrivateKey().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -392,6 +518,10 @@ private static final long serialVersionUID = 0L;
 
       events_ = "";
 
+      authEnabled_ = "";
+
+      privateKey_ = "";
+
       return this;
     }
 
@@ -420,6 +550,8 @@ private static final long serialVersionUID = 0L;
       com.volcengine.service.vod.model.request.VodSetCallbackEventRequest result = new com.volcengine.service.vod.model.request.VodSetCallbackEventRequest(this);
       result.spaceName_ = spaceName_;
       result.events_ = events_;
+      result.authEnabled_ = authEnabled_;
+      result.privateKey_ = privateKey_;
       onBuilt();
       return result;
     }
@@ -474,6 +606,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEvents().isEmpty()) {
         events_ = other.events_;
+        onChanged();
+      }
+      if (!other.getAuthEnabled().isEmpty()) {
+        authEnabled_ = other.authEnabled_;
+        onChanged();
+      }
+      if (!other.getPrivateKey().isEmpty()) {
+        privateKey_ = other.privateKey_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -693,6 +833,198 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       events_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object authEnabled_ = "";
+    /**
+     * <pre>
+     * 是否开启回调鉴权,值为VodCallbackAuthType中的枚举数字
+     * </pre>
+     *
+     * <code>string AuthEnabled = 3;</code>
+     * @return The authEnabled.
+     */
+    public java.lang.String getAuthEnabled() {
+      java.lang.Object ref = authEnabled_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        authEnabled_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 是否开启回调鉴权,值为VodCallbackAuthType中的枚举数字
+     * </pre>
+     *
+     * <code>string AuthEnabled = 3;</code>
+     * @return The bytes for authEnabled.
+     */
+    public com.google.protobuf.ByteString
+        getAuthEnabledBytes() {
+      java.lang.Object ref = authEnabled_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        authEnabled_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 是否开启回调鉴权,值为VodCallbackAuthType中的枚举数字
+     * </pre>
+     *
+     * <code>string AuthEnabled = 3;</code>
+     * @param value The authEnabled to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAuthEnabled(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      authEnabled_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 是否开启回调鉴权,值为VodCallbackAuthType中的枚举数字
+     * </pre>
+     *
+     * <code>string AuthEnabled = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAuthEnabled() {
+      
+      authEnabled_ = getDefaultInstance().getAuthEnabled();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 是否开启回调鉴权,值为VodCallbackAuthType中的枚举数字
+     * </pre>
+     *
+     * <code>string AuthEnabled = 3;</code>
+     * @param value The bytes for authEnabled to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAuthEnabledBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      authEnabled_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object privateKey_ = "";
+    /**
+     * <pre>
+     * 回调鉴权key
+     * </pre>
+     *
+     * <code>string PrivateKey = 4;</code>
+     * @return The privateKey.
+     */
+    public java.lang.String getPrivateKey() {
+      java.lang.Object ref = privateKey_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        privateKey_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 回调鉴权key
+     * </pre>
+     *
+     * <code>string PrivateKey = 4;</code>
+     * @return The bytes for privateKey.
+     */
+    public com.google.protobuf.ByteString
+        getPrivateKeyBytes() {
+      java.lang.Object ref = privateKey_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        privateKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 回调鉴权key
+     * </pre>
+     *
+     * <code>string PrivateKey = 4;</code>
+     * @param value The privateKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPrivateKey(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      privateKey_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 回调鉴权key
+     * </pre>
+     *
+     * <code>string PrivateKey = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPrivateKey() {
+      
+      privateKey_ = getDefaultInstance().getPrivateKey();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 回调鉴权key
+     * </pre>
+     *
+     * <code>string PrivateKey = 4;</code>
+     * @param value The bytes for privateKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPrivateKeyBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      privateKey_ = value;
       onChanged();
       return this;
     }

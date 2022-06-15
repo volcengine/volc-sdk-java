@@ -24,13 +24,15 @@ public final class VodCallback {
   static {
     java.lang.String[] descriptorData = {
       "\n\037vod/business/vod_callback.proto\022\036Volce" +
-      "ngine.Vod.Models.BusinessB\317\001\n)com.volcen" +
-      "gine.service.vod.model.businessB\013VodCall" +
-      "backP\001ZAgithub.com/volcengine/volc-sdk-g" +
-      "olang/service/vod/models/business\240\001\001\330\001\001\302" +
-      "\002\000\312\002 Volc\\Service\\Vod\\Models\\Business\342\002#" +
-      "Volc\\Service\\Vod\\Models\\GPBMetadatab\006pro" +
-      "to3"
+      "ngine.Vod.Models.Business*V\n\023VodCallback" +
+      "AuthType\022\037\n\033VodCallbackAuthTypeDisabled\020" +
+      "\000\022\036\n\032VodCallbackAuthTypeEnabled\020\001B\317\001\n)co" +
+      "m.volcengine.service.vod.model.businessB" +
+      "\013VodCallbackP\001ZAgithub.com/volcengine/vo" +
+      "lc-sdk-golang/service/vod/models/busines" +
+      "s\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Models\\Bus" +
+      "iness\342\002#Volc\\Service\\Vod\\Models\\GPBMetad" +
+      "atab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -16,6 +16,8 @@ public class VodSetCallbackEventDemo {
             VodSetCallbackEventRequest.Builder input = com.volcengine.service.vod.model.request.VodSetCallbackEventRequest.newBuilder();
             input.setSpaceName("your space name");
             input.setEvents("your event");
+            input.setPrivateKey("your private key");
+            input.setAuthEnabled("1"); //1: enable; 0:disable
             VodSetCallbackEventResponse resp = vodService.setCallbackEvent(input.build());
             System.out.println(resp);
         } catch (Exception e) {

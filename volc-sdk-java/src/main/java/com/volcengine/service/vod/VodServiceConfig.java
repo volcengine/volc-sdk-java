@@ -734,7 +734,7 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.SetCallbackEvent));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new BasicNameValuePair("Version", "2022-01-01"));
                                 }
                             });
                         }

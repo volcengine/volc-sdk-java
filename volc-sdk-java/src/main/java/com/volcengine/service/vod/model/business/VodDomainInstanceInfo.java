@@ -294,7 +294,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getInstanceIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(instanceId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, instanceId_);
     }
     for (int i = 0; i < domains_.size(); i++) {
@@ -303,7 +303,7 @@ private static final long serialVersionUID = 0L;
     if (canSelfEditing_ != false) {
       output.writeBool(3, canSelfEditing_);
     }
-    if (!getConfigStatusBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(configStatus_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, configStatus_);
     }
     unknownFields.writeTo(output);
@@ -315,7 +315,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getInstanceIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(instanceId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, instanceId_);
     }
     for (int i = 0; i < domains_.size(); i++) {
@@ -326,7 +326,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(3, canSelfEditing_);
     }
-    if (!getConfigStatusBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(configStatus_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, configStatus_);
     }
     size += unknownFields.getSerializedSize();

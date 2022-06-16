@@ -45,6 +45,7 @@ public class Const {
     public static final String SpaceName = "SpaceName";
     // vod-play
     public static final String GetPlayInfo = "GetPlayInfo";
+    public static final String GetAllPlayInfo = "GetAllPlayInfo";
     public static final String GetPrivateDrmPlayAuth = "GetPrivateDrmPlayAuth";
     public static final String GetHlsDecryptionKey = "GetHlsDecryptionKey";
     public static final String GetPlayInfoWithLiveTimeShiftScene = "GetPlayInfoWithLiveTimeShiftScene";
@@ -93,6 +94,7 @@ public class Const {
     public static final String DescribeVodDomainBandwidthData = "DescribeVodDomainBandwidthData";
     public static final String ListCdnUsageData = "ListCdnUsageData";
     public static final String ListCdnStatusData = "ListCdnStatusData";
+    public static final String DescribeIpInfo = "DescribeIpInfo";
 
 
     //vod-callback

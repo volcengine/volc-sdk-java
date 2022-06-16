@@ -109,23 +109,23 @@ public interface VodListCdnTasksRequestOrBuilder extends
 
   /**
    * <pre>
-   *起始时间戳
+   *起始时间戳，单位：Unix秒级时间戳
    * </pre>
    *
-   * <code>int64 StartTime = 6;</code>
-   * @return The startTime.
+   * <code>int32 StartTimestamp = 6;</code>
+   * @return The startTimestamp.
    */
-  long getStartTime();
+  int getStartTimestamp();
 
   /**
    * <pre>
-   *截止时间戳
+   *截止时间戳，单位：Unix秒级时间戳
    * </pre>
    *
-   * <code>int64 EndTime = 7;</code>
-   * @return The endTime.
+   * <code>int32 EndTimestamp = 7;</code>
+   * @return The endTimestamp.
    */
-  long getEndTime();
+  int getEndTimestamp();
 
   /**
    * <pre>

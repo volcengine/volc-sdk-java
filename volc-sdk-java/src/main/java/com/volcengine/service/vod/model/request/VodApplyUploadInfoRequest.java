@@ -290,19 +290,19 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getSpaceNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(spaceName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, spaceName_);
     }
-    if (!getSessionKeyBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sessionKey_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, sessionKey_);
     }
-    if (fileSize_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(fileSize_) != 0) {
       output.writeDouble(3, fileSize_);
     }
-    if (!getFileTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, fileType_);
     }
-    if (!getFileNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, fileName_);
     }
     unknownFields.writeTo(output);
@@ -314,20 +314,20 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getSpaceNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(spaceName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, spaceName_);
     }
-    if (!getSessionKeyBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sessionKey_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, sessionKey_);
     }
-    if (fileSize_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(fileSize_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(3, fileSize_);
     }
-    if (!getFileTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, fileType_);
     }
-    if (!getFileNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, fileName_);
     }
     size += unknownFields.getSerializedSize();

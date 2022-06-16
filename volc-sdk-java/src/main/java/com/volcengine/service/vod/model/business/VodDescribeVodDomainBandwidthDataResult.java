@@ -487,22 +487,22 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < domainList_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, domainList_.getRaw(i));
     }
-    if (!getStartTimeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(startTime_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, startTime_);
     }
-    if (!getEndTimeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endTime_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, endTime_);
     }
     if (aggregation_ != 0) {
       output.writeInt32(4, aggregation_);
     }
-    if (!getBandwidthTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bandwidthType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, bandwidthType_);
     }
-    if (peakBandwidth_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(peakBandwidth_) != 0) {
       output.writeDouble(6, peakBandwidth_);
     }
-    if (!getPeakBandwidthTimeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(peakBandwidthTime_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, peakBandwidthTime_);
     }
     for (int i = 0; i < bandwidthDataList_.size(); i++) {
@@ -525,24 +525,24 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getDomainListList().size();
     }
-    if (!getStartTimeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(startTime_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, startTime_);
     }
-    if (!getEndTimeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endTime_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, endTime_);
     }
     if (aggregation_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(4, aggregation_);
     }
-    if (!getBandwidthTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bandwidthType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, bandwidthType_);
     }
-    if (peakBandwidth_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(peakBandwidth_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(6, peakBandwidth_);
     }
-    if (!getPeakBandwidthTimeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(peakBandwidthTime_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, peakBandwidthTime_);
     }
     for (int i = 0; i < bandwidthDataList_.size(); i++) {

@@ -32,6 +32,7 @@ private static final long serialVersionUID = 0L;
     logoType_ = "";
     quality_ = "";
     barrageMaskOffset_ = "";
+    keyFrameAlignment_ = "";
   }
 
   @java.lang.Override
@@ -178,6 +179,17 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             barrageMaskOffset_ = s;
+            break;
+          }
+          case 173: {
+
+            duration_ = input.readFloat();
+            break;
+          }
+          case 178: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            keyFrameAlignment_ = s;
             break;
           }
           default: {
@@ -1008,6 +1020,67 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int DURATION_FIELD_NUMBER = 21;
+  private float duration_;
+  /**
+   * <pre>
+   *时长
+   * </pre>
+   *
+   * <code>float Duration = 21;</code>
+   * @return The duration.
+   */
+  @java.lang.Override
+  public float getDuration() {
+    return duration_;
+  }
+
+  public static final int KEYFRAMEALIGNMENT_FIELD_NUMBER = 22;
+  private volatile java.lang.Object keyFrameAlignment_;
+  /**
+   * <pre>
+   * 在转对齐,使用的帧对齐转码版本
+   * </pre>
+   *
+   * <code>string KeyFrameAlignment = 22;</code>
+   * @return The keyFrameAlignment.
+   */
+  @java.lang.Override
+  public java.lang.String getKeyFrameAlignment() {
+    java.lang.Object ref = keyFrameAlignment_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      keyFrameAlignment_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 在转对齐,使用的帧对齐转码版本
+   * </pre>
+   *
+   * <code>string KeyFrameAlignment = 22;</code>
+   * @return The bytes for keyFrameAlignment.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getKeyFrameAlignmentBytes() {
+    java.lang.Object ref = keyFrameAlignment_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      keyFrameAlignment_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1022,28 +1095,28 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getFileIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, fileId_);
     }
-    if (!getMd5Bytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(md5_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, md5_);
     }
-    if (!getFileTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, fileType_);
     }
-    if (!getFormatBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(format_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, format_);
     }
-    if (!getCodecBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codec_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, codec_);
     }
-    if (!getDefinitionBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(definition_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, definition_);
     }
-    if (!getMainPlayUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mainPlayUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, mainPlayUrl_);
     }
-    if (!getBackupPlayUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(backupPlayUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, backupPlayUrl_);
     }
     if (bitrate_ != 0) {
@@ -1055,32 +1128,38 @@ private static final long serialVersionUID = 0L;
     if (height_ != 0) {
       output.writeInt32(11, height_);
     }
-    if (size_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(size_) != 0) {
       output.writeDouble(12, size_);
     }
-    if (!getCheckInfoBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(checkInfo_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 13, checkInfo_);
     }
-    if (!getIndexRangeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(indexRange_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 14, indexRange_);
     }
-    if (!getInitRangeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(initRange_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 15, initRange_);
     }
-    if (!getPlayAuthBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playAuth_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 16, playAuth_);
     }
-    if (!getPlayAuthIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playAuthId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 17, playAuthId_);
     }
-    if (!getLogoTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(logoType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 18, logoType_);
     }
-    if (!getQualityBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(quality_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 19, quality_);
     }
-    if (!getBarrageMaskOffsetBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(barrageMaskOffset_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 20, barrageMaskOffset_);
+    }
+    if (java.lang.Float.floatToRawIntBits(duration_) != 0) {
+      output.writeFloat(21, duration_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyFrameAlignment_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 22, keyFrameAlignment_);
     }
     unknownFields.writeTo(output);
   }
@@ -1091,28 +1170,28 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getFileIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, fileId_);
     }
-    if (!getMd5Bytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(md5_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, md5_);
     }
-    if (!getFileTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, fileType_);
     }
-    if (!getFormatBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(format_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, format_);
     }
-    if (!getCodecBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codec_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, codec_);
     }
-    if (!getDefinitionBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(definition_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, definition_);
     }
-    if (!getMainPlayUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mainPlayUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, mainPlayUrl_);
     }
-    if (!getBackupPlayUrlBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(backupPlayUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, backupPlayUrl_);
     }
     if (bitrate_ != 0) {
@@ -1127,33 +1206,40 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(11, height_);
     }
-    if (size_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(size_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(12, size_);
     }
-    if (!getCheckInfoBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(checkInfo_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, checkInfo_);
     }
-    if (!getIndexRangeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(indexRange_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, indexRange_);
     }
-    if (!getInitRangeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(initRange_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, initRange_);
     }
-    if (!getPlayAuthBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playAuth_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, playAuth_);
     }
-    if (!getPlayAuthIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playAuthId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, playAuthId_);
     }
-    if (!getLogoTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(logoType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(18, logoType_);
     }
-    if (!getQualityBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(quality_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(19, quality_);
     }
-    if (!getBarrageMaskOffsetBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(barrageMaskOffset_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, barrageMaskOffset_);
+    }
+    if (java.lang.Float.floatToRawIntBits(duration_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeFloatSize(21, duration_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyFrameAlignment_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(22, keyFrameAlignment_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -1211,6 +1297,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getQuality())) return false;
     if (!getBarrageMaskOffset()
         .equals(other.getBarrageMaskOffset())) return false;
+    if (java.lang.Float.floatToIntBits(getDuration())
+        != java.lang.Float.floatToIntBits(
+            other.getDuration())) return false;
+    if (!getKeyFrameAlignment()
+        .equals(other.getKeyFrameAlignment())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1263,6 +1354,11 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getQuality().hashCode();
     hash = (37 * hash) + BARRAGEMASKOFFSET_FIELD_NUMBER;
     hash = (53 * hash) + getBarrageMaskOffset().hashCode();
+    hash = (37 * hash) + DURATION_FIELD_NUMBER;
+    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+        getDuration());
+    hash = (37 * hash) + KEYFRAMEALIGNMENT_FIELD_NUMBER;
+    hash = (53 * hash) + getKeyFrameAlignment().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1436,6 +1532,10 @@ private static final long serialVersionUID = 0L;
 
       barrageMaskOffset_ = "";
 
+      duration_ = 0F;
+
+      keyFrameAlignment_ = "";
+
       return this;
     }
 
@@ -1482,6 +1582,8 @@ private static final long serialVersionUID = 0L;
       result.logoType_ = logoType_;
       result.quality_ = quality_;
       result.barrageMaskOffset_ = barrageMaskOffset_;
+      result.duration_ = duration_;
+      result.keyFrameAlignment_ = keyFrameAlignment_;
       onBuilt();
       return result;
     }
@@ -1604,6 +1706,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getBarrageMaskOffset().isEmpty()) {
         barrageMaskOffset_ = other.barrageMaskOffset_;
+        onChanged();
+      }
+      if (other.getDuration() != 0F) {
+        setDuration(other.getDuration());
+      }
+      if (!other.getKeyFrameAlignment().isEmpty()) {
+        keyFrameAlignment_ = other.keyFrameAlignment_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -3339,6 +3448,145 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       barrageMaskOffset_ = value;
+      onChanged();
+      return this;
+    }
+
+    private float duration_ ;
+    /**
+     * <pre>
+     *时长
+     * </pre>
+     *
+     * <code>float Duration = 21;</code>
+     * @return The duration.
+     */
+    @java.lang.Override
+    public float getDuration() {
+      return duration_;
+    }
+    /**
+     * <pre>
+     *时长
+     * </pre>
+     *
+     * <code>float Duration = 21;</code>
+     * @param value The duration to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDuration(float value) {
+      
+      duration_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *时长
+     * </pre>
+     *
+     * <code>float Duration = 21;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDuration() {
+      
+      duration_ = 0F;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object keyFrameAlignment_ = "";
+    /**
+     * <pre>
+     * 在转对齐,使用的帧对齐转码版本
+     * </pre>
+     *
+     * <code>string KeyFrameAlignment = 22;</code>
+     * @return The keyFrameAlignment.
+     */
+    public java.lang.String getKeyFrameAlignment() {
+      java.lang.Object ref = keyFrameAlignment_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        keyFrameAlignment_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 在转对齐,使用的帧对齐转码版本
+     * </pre>
+     *
+     * <code>string KeyFrameAlignment = 22;</code>
+     * @return The bytes for keyFrameAlignment.
+     */
+    public com.google.protobuf.ByteString
+        getKeyFrameAlignmentBytes() {
+      java.lang.Object ref = keyFrameAlignment_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        keyFrameAlignment_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 在转对齐,使用的帧对齐转码版本
+     * </pre>
+     *
+     * <code>string KeyFrameAlignment = 22;</code>
+     * @param value The keyFrameAlignment to set.
+     * @return This builder for chaining.
+     */
+    public Builder setKeyFrameAlignment(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      keyFrameAlignment_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 在转对齐,使用的帧对齐转码版本
+     * </pre>
+     *
+     * <code>string KeyFrameAlignment = 22;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearKeyFrameAlignment() {
+      
+      keyFrameAlignment_ = getDefaultInstance().getKeyFrameAlignment();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 在转对齐,使用的帧对齐转码版本
+     * </pre>
+     *
+     * <code>string KeyFrameAlignment = 22;</code>
+     * @param value The bytes for keyFrameAlignment to set.
+     * @return This builder for chaining.
+     */
+    public Builder setKeyFrameAlignmentBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      keyFrameAlignment_ = value;
       onChanged();
       return this;
     }

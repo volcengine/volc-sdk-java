@@ -85,6 +85,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 
 
 	/**
+     * getAllPlayInfo.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest
+     * @return com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse getAllPlayInfo(com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest input) throws Exception;
+	
+	/**
      * getPlayInfo.
      *
      * @param input com.volcengine.service.vod.model.request.VodGetPlayInfoRequest
@@ -479,6 +488,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse listCdnStatusData(com.volcengine.service.vod.model.request.VodListCdnStatusDataRequest input) throws Exception;
+	
+	/**
+     * describeIpInfo.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDescribeIPInfoRequest
+     * @return com.volcengine.service.vod.model.response.VodDescribeIPInfoResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodDescribeIPInfoResponse describeIpInfo(com.volcengine.service.vod.model.request.VodDescribeIPInfoRequest input) throws Exception;
 	
 	/**
      * addCallbackSubscription.

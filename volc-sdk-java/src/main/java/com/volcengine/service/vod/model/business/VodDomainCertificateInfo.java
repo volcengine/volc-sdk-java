@@ -359,19 +359,19 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getCertificateIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(certificateId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, certificateId_);
     }
-    if (!getCertificateNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(certificateName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, certificateName_);
     }
-    if (!getCertificatePubBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(certificatePub_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, certificatePub_);
     }
-    if (!getCertificatePriBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(certificatePri_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, certificatePri_);
     }
-    if (!getHttpsStatusBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(httpsStatus_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, httpsStatus_);
     }
     unknownFields.writeTo(output);
@@ -383,19 +383,19 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getCertificateIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(certificateId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, certificateId_);
     }
-    if (!getCertificateNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(certificateName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, certificateName_);
     }
-    if (!getCertificatePubBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(certificatePub_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, certificatePub_);
     }
-    if (!getCertificatePriBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(certificatePri_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, certificatePri_);
     }
-    if (!getHttpsStatusBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(httpsStatus_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, httpsStatus_);
     }
     size += unknownFields.getSerializedSize();

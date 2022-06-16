@@ -306,16 +306,16 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getVidBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vid_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vid_);
     }
-    if (!getStrategyBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(strategy_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, strategy_);
     }
-    if (!getMinNumberOfFramesBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(minNumberOfFrames_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, minNumberOfFrames_);
     }
-    if (!getMaxNumberOfFramesBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(maxNumberOfFrames_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, maxNumberOfFrames_);
     }
     unknownFields.writeTo(output);
@@ -327,16 +327,16 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getVidBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vid_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vid_);
     }
-    if (!getStrategyBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(strategy_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, strategy_);
     }
-    if (!getMinNumberOfFramesBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(minNumberOfFrames_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, minNumberOfFrames_);
     }
-    if (!getMaxNumberOfFramesBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(maxNumberOfFrames_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, maxNumberOfFrames_);
     }
     size += unknownFields.getSerializedSize();

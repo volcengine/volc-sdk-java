@@ -46,4 +46,44 @@ public interface VodSetCallbackEventRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getEventsBytes();
+
+  /**
+   * <pre>
+   * 是否开启回调鉴权,值为VodCallbackAuthType中的枚举数字
+   * </pre>
+   *
+   * <code>string AuthEnabled = 3;</code>
+   * @return The authEnabled.
+   */
+  java.lang.String getAuthEnabled();
+  /**
+   * <pre>
+   * 是否开启回调鉴权,值为VodCallbackAuthType中的枚举数字
+   * </pre>
+   *
+   * <code>string AuthEnabled = 3;</code>
+   * @return The bytes for authEnabled.
+   */
+  com.google.protobuf.ByteString
+      getAuthEnabledBytes();
+
+  /**
+   * <pre>
+   * 回调鉴权key
+   * </pre>
+   *
+   * <code>string PrivateKey = 4;</code>
+   * @return The privateKey.
+   */
+  java.lang.String getPrivateKey();
+  /**
+   * <pre>
+   * 回调鉴权key
+   * </pre>
+   *
+   * <code>string PrivateKey = 4;</code>
+   * @return The bytes for privateKey.
+   */
+  com.google.protobuf.ByteString
+      getPrivateKeyBytes();
 }

@@ -24,6 +24,7 @@ private static final long serialVersionUID = 0L;
     storeUri_ = "";
     definition_ = "";
     createTime_ = "";
+    quality_ = "";
   }
 
   @java.lang.Override
@@ -132,6 +133,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             createTime_ = s;
+            break;
+          }
+          case 122: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            quality_ = s;
             break;
           }
           default: {
@@ -624,6 +631,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int QUALITY_FIELD_NUMBER = 15;
+  private volatile java.lang.Object quality_;
+  /**
+   * <pre>
+   *音频质量
+   * </pre>
+   *
+   * <code>string Quality = 15;</code>
+   * @return The quality.
+   */
+  @java.lang.Override
+  public java.lang.String getQuality() {
+    java.lang.Object ref = quality_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      quality_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *音频质量
+   * </pre>
+   *
+   * <code>string Quality = 15;</code>
+   * @return The bytes for quality.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getQualityBytes() {
+    java.lang.Object ref = quality_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      quality_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -638,16 +691,16 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getFileIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, fileId_);
     }
-    if (!getMd5Bytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(md5_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, md5_);
     }
-    if (!getFileTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, fileType_);
     }
-    if (!getCodecBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codec_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, codec_);
     }
     if (height_ != 0) {
@@ -656,29 +709,32 @@ private static final long serialVersionUID = 0L;
     if (width_ != 0) {
       output.writeInt32(6, width_);
     }
-    if (!getFormatBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(format_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, format_);
     }
-    if (duration_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(duration_) != 0) {
       output.writeFloat(8, duration_);
     }
-    if (size_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(size_) != 0) {
       output.writeDouble(9, size_);
     }
-    if (!getStoreUriBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(storeUri_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, storeUri_);
     }
-    if (!getDefinitionBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(definition_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 11, definition_);
     }
     if (bitrate_ != 0) {
       output.writeInt32(12, bitrate_);
     }
-    if (fps_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(fps_) != 0) {
       output.writeFloat(13, fps_);
     }
-    if (!getCreateTimeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(createTime_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 14, createTime_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(quality_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 15, quality_);
     }
     unknownFields.writeTo(output);
   }
@@ -689,16 +745,16 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getFileIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, fileId_);
     }
-    if (!getMd5Bytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(md5_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, md5_);
     }
-    if (!getFileTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, fileType_);
     }
-    if (!getCodecBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codec_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, codec_);
     }
     if (height_ != 0) {
@@ -709,33 +765,36 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(6, width_);
     }
-    if (!getFormatBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(format_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, format_);
     }
-    if (duration_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(duration_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(8, duration_);
     }
-    if (size_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(size_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(9, size_);
     }
-    if (!getStoreUriBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(storeUri_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, storeUri_);
     }
-    if (!getDefinitionBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(definition_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, definition_);
     }
     if (bitrate_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(12, bitrate_);
     }
-    if (fps_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(fps_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(13, fps_);
     }
-    if (!getCreateTimeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(createTime_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, createTime_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(quality_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, quality_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -783,6 +842,8 @@ private static final long serialVersionUID = 0L;
             other.getFps())) return false;
     if (!getCreateTime()
         .equals(other.getCreateTime())) return false;
+    if (!getQuality()
+        .equals(other.getQuality())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -825,6 +886,8 @@ private static final long serialVersionUID = 0L;
         getFps());
     hash = (37 * hash) + CREATETIME_FIELD_NUMBER;
     hash = (53 * hash) + getCreateTime().hashCode();
+    hash = (37 * hash) + QUALITY_FIELD_NUMBER;
+    hash = (53 * hash) + getQuality().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -986,6 +1049,8 @@ private static final long serialVersionUID = 0L;
 
       createTime_ = "";
 
+      quality_ = "";
+
       return this;
     }
 
@@ -1026,6 +1091,7 @@ private static final long serialVersionUID = 0L;
       result.bitrate_ = bitrate_;
       result.fps_ = fps_;
       result.createTime_ = createTime_;
+      result.quality_ = quality_;
       onBuilt();
       return result;
     }
@@ -1122,6 +1188,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCreateTime().isEmpty()) {
         createTime_ = other.createTime_;
+        onChanged();
+      }
+      if (!other.getQuality().isEmpty()) {
+        quality_ = other.quality_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -2175,6 +2245,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       createTime_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object quality_ = "";
+    /**
+     * <pre>
+     *音频质量
+     * </pre>
+     *
+     * <code>string Quality = 15;</code>
+     * @return The quality.
+     */
+    public java.lang.String getQuality() {
+      java.lang.Object ref = quality_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        quality_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *音频质量
+     * </pre>
+     *
+     * <code>string Quality = 15;</code>
+     * @return The bytes for quality.
+     */
+    public com.google.protobuf.ByteString
+        getQualityBytes() {
+      java.lang.Object ref = quality_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        quality_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *音频质量
+     * </pre>
+     *
+     * <code>string Quality = 15;</code>
+     * @param value The quality to set.
+     * @return This builder for chaining.
+     */
+    public Builder setQuality(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      quality_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *音频质量
+     * </pre>
+     *
+     * <code>string Quality = 15;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearQuality() {
+      
+      quality_ = getDefaultInstance().getQuality();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *音频质量
+     * </pre>
+     *
+     * <code>string Quality = 15;</code>
+     * @param value The bytes for quality to set.
+     * @return This builder for chaining.
+     */
+    public Builder setQualityBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      quality_ = value;
       onChanged();
       return this;
     }

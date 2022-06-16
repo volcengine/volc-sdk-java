@@ -306,16 +306,16 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getDrmTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(drmType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, drmType_);
     }
-    if (!getVidBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vid_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, vid_);
     }
-    if (!getPlayAuthIdsBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playAuthIds_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, playAuthIds_);
     }
-    if (!getUnionInfoBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(unionInfo_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, unionInfo_);
     }
     unknownFields.writeTo(output);
@@ -327,16 +327,16 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getDrmTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(drmType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, drmType_);
     }
-    if (!getVidBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vid_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, vid_);
     }
-    if (!getPlayAuthIdsBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playAuthIds_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, playAuthIds_);
     }
-    if (!getUnionInfoBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(unionInfo_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, unionInfo_);
     }
     size += unknownFields.getSerializedSize();

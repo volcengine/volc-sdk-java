@@ -19,8 +19,8 @@ public class VodListCdnTasksDemo {
             input.setDomainName("your domain name");
             input.setTaskType("your task type");
             input.setStatus("your status");
-            input.setStartTime(0);
-            input.setEndTime(0);
+            input.setStartTimestamp(0);
+            input.setEndTimestamp(0);
             input.setPageNum(1);
             input.setPageSize(10);
             VodListCdnTasksResponse resp = vodService.listCdnTasks(input.build());

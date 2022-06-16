@@ -53,6 +53,20 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.GetAllPlayInfo, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetAllPlayInfo));
+                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.GetPrivateDrmPlayAuth, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -600,7 +614,7 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.ListCdnTasks));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new BasicNameValuePair("Version", "2022-01-01"));
                                 }
                             });
                         }
@@ -680,6 +694,21 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.DescribeIpInfo, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeIpInfo));
+                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+
+                                }
+                            });
+                        }
+                    }
+            ));
             // **********************************************************************
             // 回调管理
             // **********************************************************************
@@ -705,7 +734,7 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.SetCallbackEvent));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new BasicNameValuePair("Version", "2022-01-01"));
                                 }
                             });
                         }

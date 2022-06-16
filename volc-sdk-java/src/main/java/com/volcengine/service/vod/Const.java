@@ -78,6 +78,7 @@ public class Const {
     public static final String ListSnapshots = "ListSnapshots";
     //vod-transcode
     public static final String StartWorkflow = "StartWorkflow";
+    public static final String RetrieveTranscodeResult = "RetrieveTranscodeResult";
     //vod-space
     public static final String CreateSpace = "CreateSpace";
     public static final String ListSpace = "ListSpace";

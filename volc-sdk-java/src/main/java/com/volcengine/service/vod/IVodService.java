@@ -364,6 +364,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodStartWorkflowResponse startWorkflow(com.volcengine.service.vod.model.request.VodStartWorkflowRequest input) throws Exception;
 	
 	/**
+     * retrieveTranscodeResult.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest
+     * @return com.volcengine.service.vod.model.response.VodRetrieveTranscodeResultResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodRetrieveTranscodeResultResponse retrieveTranscodeResult(com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest input) throws Exception;
+	
+	/**
      * createSpace.
      *
      * @param input com.volcengine.service.vod.model.request.VodCreateSpaceRequest

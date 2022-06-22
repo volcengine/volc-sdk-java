@@ -105,7 +105,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object spaceName_;
   /**
    * <pre>
-   * 上传的空间名
+   * 上传的空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -126,7 +126,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 上传的空间名
+   * 上传的空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -151,7 +151,7 @@ private static final long serialVersionUID = 0L;
   private java.util.List<com.volcengine.service.vod.model.business.VodUrlUploadURLSet> uRLSets_;
   /**
    * <pre>
-   * 上传URL设置参数集合
+   * 上传URL设置参数集合，每个URL入参的设置均在此设置 
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -162,7 +162,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 上传URL设置参数集合
+   * 上传URL设置参数集合，每个URL入参的设置均在此设置 
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -174,7 +174,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 上传URL设置参数集合
+   * 上传URL设置参数集合，每个URL入参的设置均在此设置 
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -185,7 +185,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 上传URL设置参数集合
+   * 上传URL设置参数集合，每个URL入参的设置均在此设置 
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -196,7 +196,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 上传URL设置参数集合
+   * 上传URL设置参数集合，每个URL入参的设置均在此设置 
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -569,7 +569,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object spaceName_ = "";
     /**
      * <pre>
-     * 上传的空间名
+     * 上传的空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -589,7 +589,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传的空间名
+     * 上传的空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -610,7 +610,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传的空间名
+     * 上传的空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -629,7 +629,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传的空间名
+     * 上传的空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -643,7 +643,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传的空间名
+     * 上传的空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -676,7 +676,7 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * 上传URL设置参数集合
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -690,7 +690,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传URL设置参数集合
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -704,7 +704,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传URL设置参数集合
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -718,7 +718,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传URL设置参数集合
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -739,7 +739,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传URL设置参数集合
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -757,7 +757,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传URL设置参数集合
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -777,7 +777,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传URL设置参数集合
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -798,7 +798,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传URL设置参数集合
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -816,7 +816,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传URL设置参数集合
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -834,7 +834,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传URL设置参数集合
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -853,7 +853,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传URL设置参数集合
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -870,7 +870,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传URL设置参数集合
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -887,7 +887,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传URL设置参数集合
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -898,7 +898,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传URL设置参数集合
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -912,7 +912,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传URL设置参数集合
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -927,7 +927,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传URL设置参数集合
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -938,7 +938,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传URL设置参数集合
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -950,7 +950,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传URL设置参数集合
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>

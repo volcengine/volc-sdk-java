@@ -117,7 +117,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object domainList_;
   /**
    * <pre>
-   * 域名列表,多个域名用逗号分割
+   * 域名列表,多个域名用逗号分割 
    * </pre>
    *
    * <code>string DomainList = 1;</code>
@@ -138,7 +138,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 域名列表,多个域名用逗号分割
+   * 域名列表,多个域名用逗号分割 
    * </pre>
    *
    * <code>string DomainList = 1;</code>
@@ -163,7 +163,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object startTime_;
   /**
    * <pre>
-   * 查询的起始时间, rfc3339
+   * 查询的起始时间, rfc3339 
    * </pre>
    *
    * <code>string StartTime = 2;</code>
@@ -184,7 +184,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 查询的起始时间, rfc3339
+   * 查询的起始时间, rfc3339 
    * </pre>
    *
    * <code>string StartTime = 2;</code>
@@ -209,7 +209,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object endTime_;
   /**
    * <pre>
-   * 查询的结束时间, rfc3339；查询时间跨度不超过93天
+   * 查询的结束时间, rfc3339；查询时间跨度不超过93天 
    * </pre>
    *
    * <code>string EndTime = 3;</code>
@@ -230,7 +230,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 查询的结束时间, rfc3339；查询时间跨度不超过93天
+   * 查询的结束时间, rfc3339；查询时间跨度不超过93天 
    * </pre>
    *
    * <code>string EndTime = 3;</code>
@@ -255,7 +255,7 @@ private static final long serialVersionUID = 0L;
   private int aggregation_;
   /**
    * <pre>
-   * 聚合的时间粒度，单位秒，默认300，支持300，1800，3600和86400
+   * 聚合的时间粒度，单位秒，默认300，支持300，1800，3600和86400 
    * </pre>
    *
    * <code>int32 Aggregation = 4;</code>
@@ -270,7 +270,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object bandwidthType_;
   /**
    * <pre>
-   * 默认是CDN，支持CDN、PCDN、ALL
+   * 默认是CDN，支持CDN、PCDN、ALL 
    * </pre>
    *
    * <code>string BandwidthType = 5;</code>
@@ -291,7 +291,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 默认是CDN，支持CDN、PCDN、ALL
+   * 默认是CDN，支持CDN、PCDN、ALL 
    * </pre>
    *
    * <code>string BandwidthType = 5;</code>
@@ -685,7 +685,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object domainList_ = "";
     /**
      * <pre>
-     * 域名列表,多个域名用逗号分割
+     * 域名列表,多个域名用逗号分割 
      * </pre>
      *
      * <code>string DomainList = 1;</code>
@@ -705,7 +705,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 域名列表,多个域名用逗号分割
+     * 域名列表,多个域名用逗号分割 
      * </pre>
      *
      * <code>string DomainList = 1;</code>
@@ -726,7 +726,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 域名列表,多个域名用逗号分割
+     * 域名列表,多个域名用逗号分割 
      * </pre>
      *
      * <code>string DomainList = 1;</code>
@@ -745,7 +745,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 域名列表,多个域名用逗号分割
+     * 域名列表,多个域名用逗号分割 
      * </pre>
      *
      * <code>string DomainList = 1;</code>
@@ -759,7 +759,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 域名列表,多个域名用逗号分割
+     * 域名列表,多个域名用逗号分割 
      * </pre>
      *
      * <code>string DomainList = 1;</code>
@@ -781,7 +781,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object startTime_ = "";
     /**
      * <pre>
-     * 查询的起始时间, rfc3339
+     * 查询的起始时间, rfc3339 
      * </pre>
      *
      * <code>string StartTime = 2;</code>
@@ -801,7 +801,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 查询的起始时间, rfc3339
+     * 查询的起始时间, rfc3339 
      * </pre>
      *
      * <code>string StartTime = 2;</code>
@@ -822,7 +822,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 查询的起始时间, rfc3339
+     * 查询的起始时间, rfc3339 
      * </pre>
      *
      * <code>string StartTime = 2;</code>
@@ -841,7 +841,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 查询的起始时间, rfc3339
+     * 查询的起始时间, rfc3339 
      * </pre>
      *
      * <code>string StartTime = 2;</code>
@@ -855,7 +855,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 查询的起始时间, rfc3339
+     * 查询的起始时间, rfc3339 
      * </pre>
      *
      * <code>string StartTime = 2;</code>
@@ -877,7 +877,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object endTime_ = "";
     /**
      * <pre>
-     * 查询的结束时间, rfc3339；查询时间跨度不超过93天
+     * 查询的结束时间, rfc3339；查询时间跨度不超过93天 
      * </pre>
      *
      * <code>string EndTime = 3;</code>
@@ -897,7 +897,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 查询的结束时间, rfc3339；查询时间跨度不超过93天
+     * 查询的结束时间, rfc3339；查询时间跨度不超过93天 
      * </pre>
      *
      * <code>string EndTime = 3;</code>
@@ -918,7 +918,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 查询的结束时间, rfc3339；查询时间跨度不超过93天
+     * 查询的结束时间, rfc3339；查询时间跨度不超过93天 
      * </pre>
      *
      * <code>string EndTime = 3;</code>
@@ -937,7 +937,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 查询的结束时间, rfc3339；查询时间跨度不超过93天
+     * 查询的结束时间, rfc3339；查询时间跨度不超过93天 
      * </pre>
      *
      * <code>string EndTime = 3;</code>
@@ -951,7 +951,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 查询的结束时间, rfc3339；查询时间跨度不超过93天
+     * 查询的结束时间, rfc3339；查询时间跨度不超过93天 
      * </pre>
      *
      * <code>string EndTime = 3;</code>
@@ -973,7 +973,7 @@ private static final long serialVersionUID = 0L;
     private int aggregation_ ;
     /**
      * <pre>
-     * 聚合的时间粒度，单位秒，默认300，支持300，1800，3600和86400
+     * 聚合的时间粒度，单位秒，默认300，支持300，1800，3600和86400 
      * </pre>
      *
      * <code>int32 Aggregation = 4;</code>
@@ -985,7 +985,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 聚合的时间粒度，单位秒，默认300，支持300，1800，3600和86400
+     * 聚合的时间粒度，单位秒，默认300，支持300，1800，3600和86400 
      * </pre>
      *
      * <code>int32 Aggregation = 4;</code>
@@ -1000,7 +1000,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 聚合的时间粒度，单位秒，默认300，支持300，1800，3600和86400
+     * 聚合的时间粒度，单位秒，默认300，支持300，1800，3600和86400 
      * </pre>
      *
      * <code>int32 Aggregation = 4;</code>
@@ -1016,7 +1016,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object bandwidthType_ = "";
     /**
      * <pre>
-     * 默认是CDN，支持CDN、PCDN、ALL
+     * 默认是CDN，支持CDN、PCDN、ALL 
      * </pre>
      *
      * <code>string BandwidthType = 5;</code>
@@ -1036,7 +1036,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 默认是CDN，支持CDN、PCDN、ALL
+     * 默认是CDN，支持CDN、PCDN、ALL 
      * </pre>
      *
      * <code>string BandwidthType = 5;</code>
@@ -1057,7 +1057,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 默认是CDN，支持CDN、PCDN、ALL
+     * 默认是CDN，支持CDN、PCDN、ALL 
      * </pre>
      *
      * <code>string BandwidthType = 5;</code>
@@ -1076,7 +1076,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 默认是CDN，支持CDN、PCDN、ALL
+     * 默认是CDN，支持CDN、PCDN、ALL 
      * </pre>
      *
      * <code>string BandwidthType = 5;</code>
@@ -1090,7 +1090,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 默认是CDN，支持CDN、PCDN、ALL
+     * 默认是CDN，支持CDN、PCDN、ALL 
      * </pre>
      *
      * <code>string BandwidthType = 5;</code>

@@ -9,7 +9,7 @@ public interface VodDescribeVodDomainBandwidthDataRequestOrBuilder extends
 
   /**
    * <pre>
-   * 域名列表,多个域名用逗号分割
+   * 域名列表,多个域名用逗号分割 
    * </pre>
    *
    * <code>string DomainList = 1;</code>
@@ -18,7 +18,7 @@ public interface VodDescribeVodDomainBandwidthDataRequestOrBuilder extends
   java.lang.String getDomainList();
   /**
    * <pre>
-   * 域名列表,多个域名用逗号分割
+   * 域名列表,多个域名用逗号分割 
    * </pre>
    *
    * <code>string DomainList = 1;</code>
@@ -29,7 +29,7 @@ public interface VodDescribeVodDomainBandwidthDataRequestOrBuilder extends
 
   /**
    * <pre>
-   * 查询的起始时间, rfc3339
+   * 查询的起始时间, rfc3339 
    * </pre>
    *
    * <code>string StartTime = 2;</code>
@@ -38,7 +38,7 @@ public interface VodDescribeVodDomainBandwidthDataRequestOrBuilder extends
   java.lang.String getStartTime();
   /**
    * <pre>
-   * 查询的起始时间, rfc3339
+   * 查询的起始时间, rfc3339 
    * </pre>
    *
    * <code>string StartTime = 2;</code>
@@ -49,7 +49,7 @@ public interface VodDescribeVodDomainBandwidthDataRequestOrBuilder extends
 
   /**
    * <pre>
-   * 查询的结束时间, rfc3339；查询时间跨度不超过93天
+   * 查询的结束时间, rfc3339；查询时间跨度不超过93天 
    * </pre>
    *
    * <code>string EndTime = 3;</code>
@@ -58,7 +58,7 @@ public interface VodDescribeVodDomainBandwidthDataRequestOrBuilder extends
   java.lang.String getEndTime();
   /**
    * <pre>
-   * 查询的结束时间, rfc3339；查询时间跨度不超过93天
+   * 查询的结束时间, rfc3339；查询时间跨度不超过93天 
    * </pre>
    *
    * <code>string EndTime = 3;</code>
@@ -69,7 +69,7 @@ public interface VodDescribeVodDomainBandwidthDataRequestOrBuilder extends
 
   /**
    * <pre>
-   * 聚合的时间粒度，单位秒，默认300，支持300，1800，3600和86400
+   * 聚合的时间粒度，单位秒，默认300，支持300，1800，3600和86400 
    * </pre>
    *
    * <code>int32 Aggregation = 4;</code>
@@ -79,7 +79,7 @@ public interface VodDescribeVodDomainBandwidthDataRequestOrBuilder extends
 
   /**
    * <pre>
-   * 默认是CDN，支持CDN、PCDN、ALL
+   * 默认是CDN，支持CDN、PCDN、ALL 
    * </pre>
    *
    * <code>string BandwidthType = 5;</code>
@@ -88,7 +88,7 @@ public interface VodDescribeVodDomainBandwidthDataRequestOrBuilder extends
   java.lang.String getBandwidthType();
   /**
    * <pre>
-   * 默认是CDN，支持CDN、PCDN、ALL
+   * 默认是CDN，支持CDN、PCDN、ALL 
    * </pre>
    *
    * <code>string BandwidthType = 5;</code>

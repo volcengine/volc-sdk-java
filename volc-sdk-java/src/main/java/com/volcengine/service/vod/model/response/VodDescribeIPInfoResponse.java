@@ -110,6 +110,10 @@ private static final long serialVersionUID = 0L;
   public static final int RESPONSEMETADATA_FIELD_NUMBER = 1;
   private com.volcengine.service.base.model.base.ResponseMetadata responseMetadata_;
   /**
+   * <pre>
+   *响应通用信息
+   * </pre>
+   *
    * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    * @return Whether the responseMetadata field is set.
    */
@@ -118,6 +122,10 @@ private static final long serialVersionUID = 0L;
     return responseMetadata_ != null;
   }
   /**
+   * <pre>
+   *响应通用信息
+   * </pre>
+   *
    * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    * @return The responseMetadata.
    */
@@ -126,6 +134,10 @@ private static final long serialVersionUID = 0L;
     return responseMetadata_ == null ? com.volcengine.service.base.model.base.ResponseMetadata.getDefaultInstance() : responseMetadata_;
   }
   /**
+   * <pre>
+   *响应通用信息
+   * </pre>
+   *
    * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    */
   @java.lang.Override
@@ -136,6 +148,10 @@ private static final long serialVersionUID = 0L;
   public static final int RESULT_FIELD_NUMBER = 2;
   private java.util.List<com.volcengine.service.vod.model.business.VodCdnIpInfo> result_;
   /**
+   * <pre>
+   *响应结果
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
    */
   @java.lang.Override
@@ -143,6 +159,10 @@ private static final long serialVersionUID = 0L;
     return result_;
   }
   /**
+   * <pre>
+   *响应结果
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
    */
   @java.lang.Override
@@ -151,6 +171,10 @@ private static final long serialVersionUID = 0L;
     return result_;
   }
   /**
+   * <pre>
+   *响应结果
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
    */
   @java.lang.Override
@@ -158,6 +182,10 @@ private static final long serialVersionUID = 0L;
     return result_.size();
   }
   /**
+   * <pre>
+   *响应结果
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
    */
   @java.lang.Override
@@ -165,6 +193,10 @@ private static final long serialVersionUID = 0L;
     return result_.get(index);
   }
   /**
+   * <pre>
+   *响应结果
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
    */
   @java.lang.Override
@@ -549,6 +581,10 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.volcengine.service.base.model.base.ResponseMetadata, com.volcengine.service.base.model.base.ResponseMetadata.Builder, com.volcengine.service.base.model.base.ResponseMetadataOrBuilder> responseMetadataBuilder_;
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      * @return Whether the responseMetadata field is set.
      */
@@ -556,6 +592,10 @@ private static final long serialVersionUID = 0L;
       return responseMetadataBuilder_ != null || responseMetadata_ != null;
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      * @return The responseMetadata.
      */
@@ -567,6 +607,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public Builder setResponseMetadata(com.volcengine.service.base.model.base.ResponseMetadata value) {
@@ -583,6 +627,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public Builder setResponseMetadata(
@@ -597,6 +645,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public Builder mergeResponseMetadata(com.volcengine.service.base.model.base.ResponseMetadata value) {
@@ -615,6 +667,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public Builder clearResponseMetadata() {
@@ -629,6 +685,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public com.volcengine.service.base.model.base.ResponseMetadata.Builder getResponseMetadataBuilder() {
@@ -637,6 +697,10 @@ private static final long serialVersionUID = 0L;
       return getResponseMetadataFieldBuilder().getBuilder();
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public com.volcengine.service.base.model.base.ResponseMetadataOrBuilder getResponseMetadataOrBuilder() {
@@ -648,6 +712,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -677,6 +745,10 @@ private static final long serialVersionUID = 0L;
         com.volcengine.service.vod.model.business.VodCdnIpInfo, com.volcengine.service.vod.model.business.VodCdnIpInfo.Builder, com.volcengine.service.vod.model.business.VodCdnIpInfoOrBuilder> resultBuilder_;
 
     /**
+     * <pre>
+     *响应结果
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodCdnIpInfo> getResultList() {
@@ -687,6 +759,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *响应结果
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public int getResultCount() {
@@ -697,6 +773,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *响应结果
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public com.volcengine.service.vod.model.business.VodCdnIpInfo getResult(int index) {
@@ -707,6 +787,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *响应结果
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public Builder setResult(
@@ -724,6 +808,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应结果
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public Builder setResult(
@@ -738,6 +826,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应结果
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public Builder addResult(com.volcengine.service.vod.model.business.VodCdnIpInfo value) {
@@ -754,6 +846,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应结果
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public Builder addResult(
@@ -771,6 +867,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应结果
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public Builder addResult(
@@ -785,6 +885,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应结果
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public Builder addResult(
@@ -799,6 +903,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应结果
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public Builder addAllResult(
@@ -814,6 +922,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应结果
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public Builder clearResult() {
@@ -827,6 +939,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应结果
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public Builder removeResult(int index) {
@@ -840,6 +956,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应结果
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public com.volcengine.service.vod.model.business.VodCdnIpInfo.Builder getResultBuilder(
@@ -847,6 +967,10 @@ private static final long serialVersionUID = 0L;
       return getResultFieldBuilder().getBuilder(index);
     }
     /**
+     * <pre>
+     *响应结果
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public com.volcengine.service.vod.model.business.VodCdnIpInfoOrBuilder getResultOrBuilder(
@@ -857,6 +981,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *响应结果
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public java.util.List<? extends com.volcengine.service.vod.model.business.VodCdnIpInfoOrBuilder> 
@@ -868,6 +996,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *响应结果
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public com.volcengine.service.vod.model.business.VodCdnIpInfo.Builder addResultBuilder() {
@@ -875,6 +1007,10 @@ private static final long serialVersionUID = 0L;
           com.volcengine.service.vod.model.business.VodCdnIpInfo.getDefaultInstance());
     }
     /**
+     * <pre>
+     *响应结果
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public com.volcengine.service.vod.model.business.VodCdnIpInfo.Builder addResultBuilder(
@@ -883,6 +1019,10 @@ private static final long serialVersionUID = 0L;
           index, com.volcengine.service.vod.model.business.VodCdnIpInfo.getDefaultInstance());
     }
     /**
+     * <pre>
+     *响应结果
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodCdnIpInfo Result = 2;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodCdnIpInfo.Builder> 

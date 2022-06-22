@@ -3,8 +3,8 @@
 
 package com.volcengine.service.vod.model.request;
 
-public interface VodListCdnStatusDataRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:Volcengine.Vod.Models.Request.VodListCdnStatusDataRequest)
+public interface VodListCdnPvDataRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:Volcengine.Vod.Models.Request.VodListCdnPvDataRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -29,7 +29,7 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
 
   /**
    * <pre>
-   * 聚合度 
+   * 聚合度,可选：auto,5min,hour,day 
    * </pre>
    *
    * <code>string Interval = 2;</code>
@@ -38,7 +38,7 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
   java.lang.String getInterval();
   /**
    * <pre>
-   * 聚合度 
+   * 聚合度,可选：auto,5min,hour,day 
    * </pre>
    *
    * <code>string Interval = 2;</code>
@@ -69,7 +69,7 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
 
   /**
    * <pre>
-   * 统计数据类别 
+   * 统计数据类别, 可选edge-边缘数据,origin-回源数据 
    * </pre>
    *
    * <code>string DataType = 5;</code>
@@ -78,7 +78,7 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
   java.lang.String getDataType();
   /**
    * <pre>
-   * 统计数据类别 
+   * 统计数据类别, 可选edge-边缘数据,origin-回源数据 
    * </pre>
    *
    * <code>string DataType = 5;</code>
@@ -86,24 +86,4 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getDataTypeBytes();
-
-  /**
-   * <pre>
-   * 指标类别 
-   * </pre>
-   *
-   * <code>string Metric = 6;</code>
-   * @return The metric.
-   */
-  java.lang.String getMetric();
-  /**
-   * <pre>
-   * 指标类别 
-   * </pre>
-   *
-   * <code>string Metric = 6;</code>
-   * @return The bytes for metric.
-   */
-  com.google.protobuf.ByteString
-      getMetricBytes();
 }

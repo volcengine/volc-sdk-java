@@ -8,11 +8,19 @@ public interface VodUploadMediaRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * 上传的空间名 
+   * </pre>
+   *
    * <code>string SpaceName = 1;</code>
    * @return The spaceName.
    */
   java.lang.String getSpaceName();
   /**
+   * <pre>
+   * 上传的空间名 
+   * </pre>
+   *
    * <code>string SpaceName = 1;</code>
    * @return The bytes for spaceName.
    */
@@ -20,11 +28,19 @@ public interface VodUploadMediaRequestOrBuilder extends
       getSpaceNameBytes();
 
   /**
+   * <pre>
+   * 上传文件的路径 
+   * </pre>
+   *
    * <code>string FilePath = 2;</code>
    * @return The filePath.
    */
   java.lang.String getFilePath();
   /**
+   * <pre>
+   * 上传文件的路径 
+   * </pre>
+   *
    * <code>string FilePath = 2;</code>
    * @return The bytes for filePath.
    */
@@ -32,11 +48,19 @@ public interface VodUploadMediaRequestOrBuilder extends
       getFilePathBytes();
 
   /**
+   * <pre>
+   * 业务希望上传透传的信息，会在上传成功时返回给用户 
+   * </pre>
+   *
    * <code>string CallbackArgs = 3;</code>
    * @return The callbackArgs.
    */
   java.lang.String getCallbackArgs();
   /**
+   * <pre>
+   * 业务希望上传透传的信息，会在上传成功时返回给用户 
+   * </pre>
+   *
    * <code>string CallbackArgs = 3;</code>
    * @return The bytes for callbackArgs.
    */
@@ -44,11 +68,19 @@ public interface VodUploadMediaRequestOrBuilder extends
       getCallbackArgsBytes();
 
   /**
+   * <pre>
+   * 上传的功能函数 
+   * </pre>
+   *
    * <code>string Functions = 4;</code>
    * @return The functions.
    */
   java.lang.String getFunctions();
   /**
+   * <pre>
+   * 上传的功能函数 
+   * </pre>
+   *
    * <code>string Functions = 4;</code>
    * @return The bytes for functions.
    */
@@ -56,11 +88,19 @@ public interface VodUploadMediaRequestOrBuilder extends
       getFunctionsBytes();
 
   /**
+   * <pre>
+   * 上传的文件在存储中的名字，即 bucket/key 中的 key 
+   * </pre>
+   *
    * <code>string FileName = 5;</code>
    * @return The fileName.
    */
   java.lang.String getFileName();
   /**
+   * <pre>
+   * 上传的文件在存储中的名字，即 bucket/key 中的 key 
+   * </pre>
+   *
    * <code>string FileName = 5;</code>
    * @return The bytes for fileName.
    */

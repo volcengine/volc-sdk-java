@@ -139,7 +139,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object spaceName_;
   /**
    * <pre>
-   *空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -160,7 +160,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -185,7 +185,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object taskId_;
   /**
    * <pre>
-   *任务ID
+   * 任务ID 
    * </pre>
    *
    * <code>string TaskId = 2;</code>
@@ -206,7 +206,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *任务ID
+   * 任务ID 
    * </pre>
    *
    * <code>string TaskId = 2;</code>
@@ -231,7 +231,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object domainName_;
   /**
    * <pre>
-   *域名
+   * 域名 
    * </pre>
    *
    * <code>string DomainName = 3;</code>
@@ -252,7 +252,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *域名
+   * 域名 
    * </pre>
    *
    * <code>string DomainName = 3;</code>
@@ -277,7 +277,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object taskType_;
   /**
    * <pre>
-   *任务类型
+   * 任务类型 
    * </pre>
    *
    * <code>string TaskType = 4;</code>
@@ -298,7 +298,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *任务类型
+   * 任务类型 
    * </pre>
    *
    * <code>string TaskType = 4;</code>
@@ -323,7 +323,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object status_;
   /**
    * <pre>
-   *任务状态
+   * 任务状态 
    * </pre>
    *
    * <code>string Status = 5;</code>
@@ -344,7 +344,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *任务状态
+   * 任务状态 
    * </pre>
    *
    * <code>string Status = 5;</code>
@@ -369,7 +369,7 @@ private static final long serialVersionUID = 0L;
   private int startTimestamp_;
   /**
    * <pre>
-   *起始时间戳，单位：Unix秒级时间戳
+   * 起始时间戳，单位：Unix秒级时间戳 
    * </pre>
    *
    * <code>int32 StartTimestamp = 6;</code>
@@ -384,7 +384,7 @@ private static final long serialVersionUID = 0L;
   private int endTimestamp_;
   /**
    * <pre>
-   *截止时间戳，单位：Unix秒级时间戳
+   * 截止时间戳，单位：Unix秒级时间戳 
    * </pre>
    *
    * <code>int32 EndTimestamp = 7;</code>
@@ -399,7 +399,7 @@ private static final long serialVersionUID = 0L;
   private int pageNum_;
   /**
    * <pre>
-   *页码
+   * 页码 
    * </pre>
    *
    * <code>int32 PageNum = 8;</code>
@@ -414,7 +414,7 @@ private static final long serialVersionUID = 0L;
   private int pageSize_;
   /**
    * <pre>
-   *页面大小
+   * 页面大小 
    * </pre>
    *
    * <code>int32 PageSize = 9;</code>
@@ -866,7 +866,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object spaceName_ = "";
     /**
      * <pre>
-     *空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -886,7 +886,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -907,7 +907,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -926,7 +926,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -940,7 +940,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -962,7 +962,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object taskId_ = "";
     /**
      * <pre>
-     *任务ID
+     * 任务ID 
      * </pre>
      *
      * <code>string TaskId = 2;</code>
@@ -982,7 +982,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *任务ID
+     * 任务ID 
      * </pre>
      *
      * <code>string TaskId = 2;</code>
@@ -1003,7 +1003,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *任务ID
+     * 任务ID 
      * </pre>
      *
      * <code>string TaskId = 2;</code>
@@ -1022,7 +1022,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *任务ID
+     * 任务ID 
      * </pre>
      *
      * <code>string TaskId = 2;</code>
@@ -1036,7 +1036,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *任务ID
+     * 任务ID 
      * </pre>
      *
      * <code>string TaskId = 2;</code>
@@ -1058,7 +1058,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object domainName_ = "";
     /**
      * <pre>
-     *域名
+     * 域名 
      * </pre>
      *
      * <code>string DomainName = 3;</code>
@@ -1078,7 +1078,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *域名
+     * 域名 
      * </pre>
      *
      * <code>string DomainName = 3;</code>
@@ -1099,7 +1099,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *域名
+     * 域名 
      * </pre>
      *
      * <code>string DomainName = 3;</code>
@@ -1118,7 +1118,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *域名
+     * 域名 
      * </pre>
      *
      * <code>string DomainName = 3;</code>
@@ -1132,7 +1132,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *域名
+     * 域名 
      * </pre>
      *
      * <code>string DomainName = 3;</code>
@@ -1154,7 +1154,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object taskType_ = "";
     /**
      * <pre>
-     *任务类型
+     * 任务类型 
      * </pre>
      *
      * <code>string TaskType = 4;</code>
@@ -1174,7 +1174,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *任务类型
+     * 任务类型 
      * </pre>
      *
      * <code>string TaskType = 4;</code>
@@ -1195,7 +1195,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *任务类型
+     * 任务类型 
      * </pre>
      *
      * <code>string TaskType = 4;</code>
@@ -1214,7 +1214,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *任务类型
+     * 任务类型 
      * </pre>
      *
      * <code>string TaskType = 4;</code>
@@ -1228,7 +1228,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *任务类型
+     * 任务类型 
      * </pre>
      *
      * <code>string TaskType = 4;</code>
@@ -1250,7 +1250,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object status_ = "";
     /**
      * <pre>
-     *任务状态
+     * 任务状态 
      * </pre>
      *
      * <code>string Status = 5;</code>
@@ -1270,7 +1270,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *任务状态
+     * 任务状态 
      * </pre>
      *
      * <code>string Status = 5;</code>
@@ -1291,7 +1291,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *任务状态
+     * 任务状态 
      * </pre>
      *
      * <code>string Status = 5;</code>
@@ -1310,7 +1310,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *任务状态
+     * 任务状态 
      * </pre>
      *
      * <code>string Status = 5;</code>
@@ -1324,7 +1324,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *任务状态
+     * 任务状态 
      * </pre>
      *
      * <code>string Status = 5;</code>
@@ -1346,7 +1346,7 @@ private static final long serialVersionUID = 0L;
     private int startTimestamp_ ;
     /**
      * <pre>
-     *起始时间戳，单位：Unix秒级时间戳
+     * 起始时间戳，单位：Unix秒级时间戳 
      * </pre>
      *
      * <code>int32 StartTimestamp = 6;</code>
@@ -1358,7 +1358,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *起始时间戳，单位：Unix秒级时间戳
+     * 起始时间戳，单位：Unix秒级时间戳 
      * </pre>
      *
      * <code>int32 StartTimestamp = 6;</code>
@@ -1373,7 +1373,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *起始时间戳，单位：Unix秒级时间戳
+     * 起始时间戳，单位：Unix秒级时间戳 
      * </pre>
      *
      * <code>int32 StartTimestamp = 6;</code>
@@ -1389,7 +1389,7 @@ private static final long serialVersionUID = 0L;
     private int endTimestamp_ ;
     /**
      * <pre>
-     *截止时间戳，单位：Unix秒级时间戳
+     * 截止时间戳，单位：Unix秒级时间戳 
      * </pre>
      *
      * <code>int32 EndTimestamp = 7;</code>
@@ -1401,7 +1401,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *截止时间戳，单位：Unix秒级时间戳
+     * 截止时间戳，单位：Unix秒级时间戳 
      * </pre>
      *
      * <code>int32 EndTimestamp = 7;</code>
@@ -1416,7 +1416,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *截止时间戳，单位：Unix秒级时间戳
+     * 截止时间戳，单位：Unix秒级时间戳 
      * </pre>
      *
      * <code>int32 EndTimestamp = 7;</code>
@@ -1432,7 +1432,7 @@ private static final long serialVersionUID = 0L;
     private int pageNum_ ;
     /**
      * <pre>
-     *页码
+     * 页码 
      * </pre>
      *
      * <code>int32 PageNum = 8;</code>
@@ -1444,7 +1444,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *页码
+     * 页码 
      * </pre>
      *
      * <code>int32 PageNum = 8;</code>
@@ -1459,7 +1459,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *页码
+     * 页码 
      * </pre>
      *
      * <code>int32 PageNum = 8;</code>
@@ -1475,7 +1475,7 @@ private static final long serialVersionUID = 0L;
     private int pageSize_ ;
     /**
      * <pre>
-     *页面大小
+     * 页面大小 
      * </pre>
      *
      * <code>int32 PageSize = 9;</code>
@@ -1487,7 +1487,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *页面大小
+     * 页面大小 
      * </pre>
      *
      * <code>int32 PageSize = 9;</code>
@@ -1502,7 +1502,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *页面大小
+     * 页面大小 
      * </pre>
      *
      * <code>int32 PageSize = 9;</code>

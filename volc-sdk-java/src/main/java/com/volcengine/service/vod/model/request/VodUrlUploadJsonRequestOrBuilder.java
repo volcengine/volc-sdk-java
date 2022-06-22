@@ -8,11 +8,19 @@ public interface VodUrlUploadJsonRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * 上传的空间名 
+   * </pre>
+   *
    * <code>string SpaceName = 1;</code>
    * @return The spaceName.
    */
   java.lang.String getSpaceName();
   /**
+   * <pre>
+   * 上传的空间名 
+   * </pre>
+   *
    * <code>string SpaceName = 1;</code>
    * @return The bytes for spaceName.
    */
@@ -20,11 +28,19 @@ public interface VodUrlUploadJsonRequestOrBuilder extends
       getSpaceNameBytes();
 
   /**
+   * <pre>
+   * 上传URL设置参数集合，每个URL入参的设置均在此设置 
+   * </pre>
+   *
    * <code>string URLSets = 2;</code>
    * @return The uRLSets.
    */
   java.lang.String getURLSets();
   /**
+   * <pre>
+   * 上传URL设置参数集合，每个URL入参的设置均在此设置 
+   * </pre>
+   *
    * <code>string URLSets = 2;</code>
    * @return The bytes for uRLSets.
    */

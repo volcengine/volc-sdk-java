@@ -9,7 +9,7 @@ public interface VodAddCallbackSubscriptionRequestOrBuilder extends
 
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -18,7 +18,7 @@ public interface VodAddCallbackSubscriptionRequestOrBuilder extends
   java.lang.String getSpaceName();
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -29,7 +29,7 @@ public interface VodAddCallbackSubscriptionRequestOrBuilder extends
 
   /**
    * <pre>
-   * 订阅URL
+   * 订阅URL 
    * </pre>
    *
    * <code>string Url = 2;</code>
@@ -38,7 +38,7 @@ public interface VodAddCallbackSubscriptionRequestOrBuilder extends
   java.lang.String getUrl();
   /**
    * <pre>
-   * 订阅URL
+   * 订阅URL 
    * </pre>
    *
    * <code>string Url = 2;</code>

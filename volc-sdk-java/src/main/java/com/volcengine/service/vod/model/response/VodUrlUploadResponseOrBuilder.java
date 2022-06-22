@@ -8,31 +8,55 @@ public interface VodUrlUploadResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * 通用返回结构 
+   * </pre>
+   *
    * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    * @return Whether the responseMetadata field is set.
    */
   boolean hasResponseMetadata();
   /**
+   * <pre>
+   * 通用返回结构 
+   * </pre>
+   *
    * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    * @return The responseMetadata.
    */
   com.volcengine.service.base.model.base.ResponseMetadata getResponseMetadata();
   /**
+   * <pre>
+   * 通用返回结构 
+   * </pre>
+   *
    * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    */
   com.volcengine.service.base.model.base.ResponseMetadataOrBuilder getResponseMetadataOrBuilder();
 
   /**
+   * <pre>
+   * URL批量上传结果 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodUrlResponseData Result = 2;</code>
    * @return Whether the result field is set.
    */
   boolean hasResult();
   /**
+   * <pre>
+   * URL批量上传结果 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodUrlResponseData Result = 2;</code>
    * @return The result.
    */
   com.volcengine.service.vod.model.business.VodUrlResponseData getResult();
   /**
+   * <pre>
+   * URL批量上传结果 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodUrlResponseData Result = 2;</code>
    */
   com.volcengine.service.vod.model.business.VodUrlResponseDataOrBuilder getResultOrBuilder();

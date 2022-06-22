@@ -97,6 +97,8 @@ public class Const {
     public static final String ListCdnStatusData = "ListCdnStatusData";
     public static final String DescribeIpInfo = "DescribeIpInfo";
 
+    public static final String ListCdnPvData = "ListCdnPvData";
+
 
     //vod-callback
     public static final String AddCallbackSubscription = "AddCallbackSubscription";

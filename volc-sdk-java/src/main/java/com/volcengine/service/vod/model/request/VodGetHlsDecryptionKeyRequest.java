@@ -105,7 +105,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object drmAuthToken_;
   /**
    * <pre>
-   * Drm鉴权Token
+   * Drm鉴权Token 
    * </pre>
    *
    * <code>string DrmAuthToken = 1;</code>
@@ -126,7 +126,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Drm鉴权Token
+   * Drm鉴权Token 
    * </pre>
    *
    * <code>string DrmAuthToken = 1;</code>
@@ -151,7 +151,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object ak_;
   /**
    * <pre>
-   * AccessKey
+   * 加密hls的访问Key,从m3u8文件中取到 
    * </pre>
    *
    * <code>string Ak = 2;</code>
@@ -172,7 +172,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * AccessKey
+   * 加密hls的访问Key,从m3u8文件中取到 
    * </pre>
    *
    * <code>string Ak = 2;</code>
@@ -197,7 +197,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object source_;
   /**
    * <pre>
-   * Drm鉴权数据源
+   * Drm鉴权数据源,从m3u8文件中取到 
    * </pre>
    *
    * <code>string Source = 3;</code>
@@ -218,7 +218,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Drm鉴权数据源
+   * Drm鉴权数据源,从m3u8文件中取到 
    * </pre>
    *
    * <code>string Source = 3;</code>
@@ -578,7 +578,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object drmAuthToken_ = "";
     /**
      * <pre>
-     * Drm鉴权Token
+     * Drm鉴权Token 
      * </pre>
      *
      * <code>string DrmAuthToken = 1;</code>
@@ -598,7 +598,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Drm鉴权Token
+     * Drm鉴权Token 
      * </pre>
      *
      * <code>string DrmAuthToken = 1;</code>
@@ -619,7 +619,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Drm鉴权Token
+     * Drm鉴权Token 
      * </pre>
      *
      * <code>string DrmAuthToken = 1;</code>
@@ -638,7 +638,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Drm鉴权Token
+     * Drm鉴权Token 
      * </pre>
      *
      * <code>string DrmAuthToken = 1;</code>
@@ -652,7 +652,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Drm鉴权Token
+     * Drm鉴权Token 
      * </pre>
      *
      * <code>string DrmAuthToken = 1;</code>
@@ -674,7 +674,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object ak_ = "";
     /**
      * <pre>
-     * AccessKey
+     * 加密hls的访问Key,从m3u8文件中取到 
      * </pre>
      *
      * <code>string Ak = 2;</code>
@@ -694,7 +694,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * AccessKey
+     * 加密hls的访问Key,从m3u8文件中取到 
      * </pre>
      *
      * <code>string Ak = 2;</code>
@@ -715,7 +715,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * AccessKey
+     * 加密hls的访问Key,从m3u8文件中取到 
      * </pre>
      *
      * <code>string Ak = 2;</code>
@@ -734,7 +734,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * AccessKey
+     * 加密hls的访问Key,从m3u8文件中取到 
      * </pre>
      *
      * <code>string Ak = 2;</code>
@@ -748,7 +748,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * AccessKey
+     * 加密hls的访问Key,从m3u8文件中取到 
      * </pre>
      *
      * <code>string Ak = 2;</code>
@@ -770,7 +770,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object source_ = "";
     /**
      * <pre>
-     * Drm鉴权数据源
+     * Drm鉴权数据源,从m3u8文件中取到 
      * </pre>
      *
      * <code>string Source = 3;</code>
@@ -790,7 +790,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Drm鉴权数据源
+     * Drm鉴权数据源,从m3u8文件中取到 
      * </pre>
      *
      * <code>string Source = 3;</code>
@@ -811,7 +811,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Drm鉴权数据源
+     * Drm鉴权数据源,从m3u8文件中取到 
      * </pre>
      *
      * <code>string Source = 3;</code>
@@ -830,7 +830,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Drm鉴权数据源
+     * Drm鉴权数据源,从m3u8文件中取到 
      * </pre>
      *
      * <code>string Source = 3;</code>
@@ -844,7 +844,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Drm鉴权数据源
+     * Drm鉴权数据源,从m3u8文件中取到 
      * </pre>
      *
      * <code>string Source = 3;</code>

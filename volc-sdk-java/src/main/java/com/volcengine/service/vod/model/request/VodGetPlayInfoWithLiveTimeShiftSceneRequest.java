@@ -119,7 +119,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object storeUris_;
   /**
    * <pre>
-   * 播放URI
+   * 播放URI列表,多个uri之间使用“,”分隔 
    * </pre>
    *
    * <code>string StoreUris = 1;</code>
@@ -140,7 +140,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 播放URI
+   * 播放URI列表,多个uri之间使用“,”分隔 
    * </pre>
    *
    * <code>string StoreUris = 1;</code>
@@ -165,7 +165,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object spaceName_;
   /**
    * <pre>
-   * 空间名称
+   * 空间名称 
    * </pre>
    *
    * <code>string SpaceName = 2;</code>
@@ -186,7 +186,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 空间名称
+   * 空间名称 
    * </pre>
    *
    * <code>string SpaceName = 2;</code>
@@ -211,7 +211,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object ssl_;
   /**
    * <pre>
-   *返回https播放地址，默认否, 1-是；0-否
+   * 返回https播放地址，默认否, 1-是；0-否 
    * </pre>
    *
    * <code>string Ssl = 3;</code>
@@ -232,7 +232,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *返回https播放地址，默认否, 1-是；0-否
+   * 返回https播放地址，默认否, 1-是；0-否 
    * </pre>
    *
    * <code>string Ssl = 3;</code>
@@ -257,7 +257,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object expireTimestamp_;
   /**
    * <pre>
-   * 过期时间戳：毫秒。若不传，则为当前时间+1小时
+   * 过期时间戳：毫秒。若不传，则为当前时间+1小时 
    * </pre>
    *
    * <code>string ExpireTimestamp = 4;</code>
@@ -278,7 +278,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 过期时间戳：毫秒。若不传，则为当前时间+1小时
+   * 过期时间戳：毫秒。若不传，则为当前时间+1小时 
    * </pre>
    *
    * <code>string ExpireTimestamp = 4;</code>
@@ -303,7 +303,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object needComposeBucketName_;
   /**
    * <pre>
-   *生成地址时填充BucketName，默认否, 1-是；0-否
+   * 生成地址时填充BucketName，默认否, 1-是；0-否 
    * </pre>
    *
    * <code>string NeedComposeBucketName = 5;</code>
@@ -324,7 +324,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *生成地址时填充BucketName，默认否, 1-是；0-否
+   * 生成地址时填充BucketName，默认否, 1-是；0-否 
    * </pre>
    *
    * <code>string NeedComposeBucketName = 5;</code>
@@ -718,7 +718,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object storeUris_ = "";
     /**
      * <pre>
-     * 播放URI
+     * 播放URI列表,多个uri之间使用“,”分隔 
      * </pre>
      *
      * <code>string StoreUris = 1;</code>
@@ -738,7 +738,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 播放URI
+     * 播放URI列表,多个uri之间使用“,”分隔 
      * </pre>
      *
      * <code>string StoreUris = 1;</code>
@@ -759,7 +759,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 播放URI
+     * 播放URI列表,多个uri之间使用“,”分隔 
      * </pre>
      *
      * <code>string StoreUris = 1;</code>
@@ -778,7 +778,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 播放URI
+     * 播放URI列表,多个uri之间使用“,”分隔 
      * </pre>
      *
      * <code>string StoreUris = 1;</code>
@@ -792,7 +792,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 播放URI
+     * 播放URI列表,多个uri之间使用“,”分隔 
      * </pre>
      *
      * <code>string StoreUris = 1;</code>
@@ -814,7 +814,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object spaceName_ = "";
     /**
      * <pre>
-     * 空间名称
+     * 空间名称 
      * </pre>
      *
      * <code>string SpaceName = 2;</code>
@@ -834,7 +834,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名称
+     * 空间名称 
      * </pre>
      *
      * <code>string SpaceName = 2;</code>
@@ -855,7 +855,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名称
+     * 空间名称 
      * </pre>
      *
      * <code>string SpaceName = 2;</code>
@@ -874,7 +874,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名称
+     * 空间名称 
      * </pre>
      *
      * <code>string SpaceName = 2;</code>
@@ -888,7 +888,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名称
+     * 空间名称 
      * </pre>
      *
      * <code>string SpaceName = 2;</code>
@@ -910,7 +910,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object ssl_ = "";
     /**
      * <pre>
-     *返回https播放地址，默认否, 1-是；0-否
+     * 返回https播放地址，默认否, 1-是；0-否 
      * </pre>
      *
      * <code>string Ssl = 3;</code>
@@ -930,7 +930,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *返回https播放地址，默认否, 1-是；0-否
+     * 返回https播放地址，默认否, 1-是；0-否 
      * </pre>
      *
      * <code>string Ssl = 3;</code>
@@ -951,7 +951,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *返回https播放地址，默认否, 1-是；0-否
+     * 返回https播放地址，默认否, 1-是；0-否 
      * </pre>
      *
      * <code>string Ssl = 3;</code>
@@ -970,7 +970,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *返回https播放地址，默认否, 1-是；0-否
+     * 返回https播放地址，默认否, 1-是；0-否 
      * </pre>
      *
      * <code>string Ssl = 3;</code>
@@ -984,7 +984,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *返回https播放地址，默认否, 1-是；0-否
+     * 返回https播放地址，默认否, 1-是；0-否 
      * </pre>
      *
      * <code>string Ssl = 3;</code>
@@ -1006,7 +1006,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object expireTimestamp_ = "";
     /**
      * <pre>
-     * 过期时间戳：毫秒。若不传，则为当前时间+1小时
+     * 过期时间戳：毫秒。若不传，则为当前时间+1小时 
      * </pre>
      *
      * <code>string ExpireTimestamp = 4;</code>
@@ -1026,7 +1026,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 过期时间戳：毫秒。若不传，则为当前时间+1小时
+     * 过期时间戳：毫秒。若不传，则为当前时间+1小时 
      * </pre>
      *
      * <code>string ExpireTimestamp = 4;</code>
@@ -1047,7 +1047,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 过期时间戳：毫秒。若不传，则为当前时间+1小时
+     * 过期时间戳：毫秒。若不传，则为当前时间+1小时 
      * </pre>
      *
      * <code>string ExpireTimestamp = 4;</code>
@@ -1066,7 +1066,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 过期时间戳：毫秒。若不传，则为当前时间+1小时
+     * 过期时间戳：毫秒。若不传，则为当前时间+1小时 
      * </pre>
      *
      * <code>string ExpireTimestamp = 4;</code>
@@ -1080,7 +1080,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 过期时间戳：毫秒。若不传，则为当前时间+1小时
+     * 过期时间戳：毫秒。若不传，则为当前时间+1小时 
      * </pre>
      *
      * <code>string ExpireTimestamp = 4;</code>
@@ -1102,7 +1102,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object needComposeBucketName_ = "";
     /**
      * <pre>
-     *生成地址时填充BucketName，默认否, 1-是；0-否
+     * 生成地址时填充BucketName，默认否, 1-是；0-否 
      * </pre>
      *
      * <code>string NeedComposeBucketName = 5;</code>
@@ -1122,7 +1122,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *生成地址时填充BucketName，默认否, 1-是；0-否
+     * 生成地址时填充BucketName，默认否, 1-是；0-否 
      * </pre>
      *
      * <code>string NeedComposeBucketName = 5;</code>
@@ -1143,7 +1143,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *生成地址时填充BucketName，默认否, 1-是；0-否
+     * 生成地址时填充BucketName，默认否, 1-是；0-否 
      * </pre>
      *
      * <code>string NeedComposeBucketName = 5;</code>
@@ -1162,7 +1162,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *生成地址时填充BucketName，默认否, 1-是；0-否
+     * 生成地址时填充BucketName，默认否, 1-是；0-否 
      * </pre>
      *
      * <code>string NeedComposeBucketName = 5;</code>
@@ -1176,7 +1176,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *生成地址时填充BucketName，默认否, 1-是；0-否
+     * 生成地址时填充BucketName，默认否, 1-是；0-否 
      * </pre>
      *
      * <code>string NeedComposeBucketName = 5;</code>

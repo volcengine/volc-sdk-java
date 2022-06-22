@@ -105,7 +105,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object spaceName_;
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -126,7 +126,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -151,7 +151,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object configKey_;
   /**
    * <pre>
-   * 需要变更的设置key，值为VodSpaceUploadConfigKey中的枚举数字
+   * 需要变更的设置key，值为VodSpaceUploadConfigKey中的枚举数字 
    * </pre>
    *
    * <code>string ConfigKey = 2;</code>
@@ -172,7 +172,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 需要变更的设置key，值为VodSpaceUploadConfigKey中的枚举数字
+   * 需要变更的设置key，值为VodSpaceUploadConfigKey中的枚举数字 
    * </pre>
    *
    * <code>string ConfigKey = 2;</code>
@@ -197,7 +197,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object configValue_;
   /**
    * <pre>
-   * 需要变更的设置value，取值与ConfigKey相关。ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
+   * 需要变更的设置value，取值与ConfigKey相关。
+   * ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
+   * ConfigKey传入2时，ConfigValue可选值为”Available“或”Unavailable“
    * </pre>
    *
    * <code>string ConfigValue = 3;</code>
@@ -218,7 +220,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 需要变更的设置value，取值与ConfigKey相关。ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
+   * 需要变更的设置value，取值与ConfigKey相关。
+   * ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
+   * ConfigKey传入2时，ConfigValue可选值为”Available“或”Unavailable“
    * </pre>
    *
    * <code>string ConfigValue = 3;</code>
@@ -578,7 +582,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object spaceName_ = "";
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -598,7 +602,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -619,7 +623,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -638,7 +642,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -652,7 +656,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -674,7 +678,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object configKey_ = "";
     /**
      * <pre>
-     * 需要变更的设置key，值为VodSpaceUploadConfigKey中的枚举数字
+     * 需要变更的设置key，值为VodSpaceUploadConfigKey中的枚举数字 
      * </pre>
      *
      * <code>string ConfigKey = 2;</code>
@@ -694,7 +698,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 需要变更的设置key，值为VodSpaceUploadConfigKey中的枚举数字
+     * 需要变更的设置key，值为VodSpaceUploadConfigKey中的枚举数字 
      * </pre>
      *
      * <code>string ConfigKey = 2;</code>
@@ -715,7 +719,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 需要变更的设置key，值为VodSpaceUploadConfigKey中的枚举数字
+     * 需要变更的设置key，值为VodSpaceUploadConfigKey中的枚举数字 
      * </pre>
      *
      * <code>string ConfigKey = 2;</code>
@@ -734,7 +738,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 需要变更的设置key，值为VodSpaceUploadConfigKey中的枚举数字
+     * 需要变更的设置key，值为VodSpaceUploadConfigKey中的枚举数字 
      * </pre>
      *
      * <code>string ConfigKey = 2;</code>
@@ -748,7 +752,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 需要变更的设置key，值为VodSpaceUploadConfigKey中的枚举数字
+     * 需要变更的设置key，值为VodSpaceUploadConfigKey中的枚举数字 
      * </pre>
      *
      * <code>string ConfigKey = 2;</code>
@@ -770,7 +774,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object configValue_ = "";
     /**
      * <pre>
-     * 需要变更的设置value，取值与ConfigKey相关。ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
+     * 需要变更的设置value，取值与ConfigKey相关。
+     * ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
+     * ConfigKey传入2时，ConfigValue可选值为”Available“或”Unavailable“
      * </pre>
      *
      * <code>string ConfigValue = 3;</code>
@@ -790,7 +796,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 需要变更的设置value，取值与ConfigKey相关。ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
+     * 需要变更的设置value，取值与ConfigKey相关。
+     * ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
+     * ConfigKey传入2时，ConfigValue可选值为”Available“或”Unavailable“
      * </pre>
      *
      * <code>string ConfigValue = 3;</code>
@@ -811,7 +819,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 需要变更的设置value，取值与ConfigKey相关。ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
+     * 需要变更的设置value，取值与ConfigKey相关。
+     * ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
+     * ConfigKey传入2时，ConfigValue可选值为”Available“或”Unavailable“
      * </pre>
      *
      * <code>string ConfigValue = 3;</code>
@@ -830,7 +840,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 需要变更的设置value，取值与ConfigKey相关。ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
+     * 需要变更的设置value，取值与ConfigKey相关。
+     * ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
+     * ConfigKey传入2时，ConfigValue可选值为”Available“或”Unavailable“
      * </pre>
      *
      * <code>string ConfigValue = 3;</code>
@@ -844,7 +856,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 需要变更的设置value，取值与ConfigKey相关。ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
+     * 需要变更的设置value，取值与ConfigKey相关。
+     * ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
+     * ConfigKey传入2时，ConfigValue可选值为”Available“或”Unavailable“
      * </pre>
      *
      * <code>string ConfigValue = 3;</code>

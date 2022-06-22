@@ -112,7 +112,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object spaceName_;
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -133,7 +133,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -158,7 +158,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object sourceProjectName_;
   /**
    * <pre>
-   * 原项目
+   * 原项目 
    * </pre>
    *
    * <code>string SourceProjectName = 2;</code>
@@ -179,7 +179,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 原项目
+   * 原项目 
    * </pre>
    *
    * <code>string SourceProjectName = 2;</code>
@@ -204,7 +204,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object targetProjectName_;
   /**
    * <pre>
-   * 变更目标项目
+   * 变更目标项目 
    * </pre>
    *
    * <code>string TargetProjectName = 3;</code>
@@ -225,7 +225,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 变更目标项目
+   * 变更目标项目 
    * </pre>
    *
    * <code>string TargetProjectName = 3;</code>
@@ -250,7 +250,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object description_;
   /**
    * <pre>
-   * 描述
+   * 描述 
    * </pre>
    *
    * <code>string Description = 4;</code>
@@ -271,7 +271,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 描述
+   * 描述 
    * </pre>
    *
    * <code>string Description = 4;</code>
@@ -648,7 +648,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object spaceName_ = "";
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -668,7 +668,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -689,7 +689,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -708,7 +708,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -722,7 +722,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -744,7 +744,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object sourceProjectName_ = "";
     /**
      * <pre>
-     * 原项目
+     * 原项目 
      * </pre>
      *
      * <code>string SourceProjectName = 2;</code>
@@ -764,7 +764,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 原项目
+     * 原项目 
      * </pre>
      *
      * <code>string SourceProjectName = 2;</code>
@@ -785,7 +785,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 原项目
+     * 原项目 
      * </pre>
      *
      * <code>string SourceProjectName = 2;</code>
@@ -804,7 +804,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 原项目
+     * 原项目 
      * </pre>
      *
      * <code>string SourceProjectName = 2;</code>
@@ -818,7 +818,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 原项目
+     * 原项目 
      * </pre>
      *
      * <code>string SourceProjectName = 2;</code>
@@ -840,7 +840,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object targetProjectName_ = "";
     /**
      * <pre>
-     * 变更目标项目
+     * 变更目标项目 
      * </pre>
      *
      * <code>string TargetProjectName = 3;</code>
@@ -860,7 +860,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 变更目标项目
+     * 变更目标项目 
      * </pre>
      *
      * <code>string TargetProjectName = 3;</code>
@@ -881,7 +881,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 变更目标项目
+     * 变更目标项目 
      * </pre>
      *
      * <code>string TargetProjectName = 3;</code>
@@ -900,7 +900,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 变更目标项目
+     * 变更目标项目 
      * </pre>
      *
      * <code>string TargetProjectName = 3;</code>
@@ -914,7 +914,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 变更目标项目
+     * 变更目标项目 
      * </pre>
      *
      * <code>string TargetProjectName = 3;</code>
@@ -936,7 +936,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object description_ = "";
     /**
      * <pre>
-     * 描述
+     * 描述 
      * </pre>
      *
      * <code>string Description = 4;</code>
@@ -956,7 +956,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 描述
+     * 描述 
      * </pre>
      *
      * <code>string Description = 4;</code>
@@ -977,7 +977,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 描述
+     * 描述 
      * </pre>
      *
      * <code>string Description = 4;</code>
@@ -996,7 +996,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 描述
+     * 描述 
      * </pre>
      *
      * <code>string Description = 4;</code>
@@ -1010,7 +1010,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 描述
+     * 描述 
      * </pre>
      *
      * <code>string Description = 4;</code>

@@ -112,7 +112,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object drmType_;
   /**
    * <pre>
-   * drm类型（不区分大小写，支持web,app;默认web）
+   * drm类型，支持web,app。默认web 
    * </pre>
    *
    * <code>string DrmType = 1;</code>
@@ -133,7 +133,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * drm类型（不区分大小写，支持web,app;默认web）
+   * drm类型，支持web,app。默认web 
    * </pre>
    *
    * <code>string DrmType = 1;</code>
@@ -158,7 +158,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object vid_;
   /**
    * <pre>
-   * 视频id
+   * 视频id 
    * </pre>
    *
    * <code>string Vid = 2;</code>
@@ -179,7 +179,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 视频id
+   * 视频id 
    * </pre>
    *
    * <code>string Vid = 2;</code>
@@ -204,7 +204,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object playAuthIds_;
   /**
    * <pre>
-   * 播放许可id列表，以逗号分割
+   * 播放许可id列表，以逗号分割 
    * </pre>
    *
    * <code>string PlayAuthIds = 3;</code>
@@ -225,7 +225,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 播放许可id列表，以逗号分割
+   * 播放许可id列表，以逗号分割 
    * </pre>
    *
    * <code>string PlayAuthIds = 3;</code>
@@ -250,7 +250,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object unionInfo_;
   /**
    * <pre>
-   * 加密唯一信息
+   * 唯一性标识信息, 若需使用请联系技术支持 
    * </pre>
    *
    * <code>string UnionInfo = 4;</code>
@@ -271,7 +271,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 加密唯一信息
+   * 唯一性标识信息, 若需使用请联系技术支持 
    * </pre>
    *
    * <code>string UnionInfo = 4;</code>
@@ -648,7 +648,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object drmType_ = "";
     /**
      * <pre>
-     * drm类型（不区分大小写，支持web,app;默认web）
+     * drm类型，支持web,app。默认web 
      * </pre>
      *
      * <code>string DrmType = 1;</code>
@@ -668,7 +668,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * drm类型（不区分大小写，支持web,app;默认web）
+     * drm类型，支持web,app。默认web 
      * </pre>
      *
      * <code>string DrmType = 1;</code>
@@ -689,7 +689,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * drm类型（不区分大小写，支持web,app;默认web）
+     * drm类型，支持web,app。默认web 
      * </pre>
      *
      * <code>string DrmType = 1;</code>
@@ -708,7 +708,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * drm类型（不区分大小写，支持web,app;默认web）
+     * drm类型，支持web,app。默认web 
      * </pre>
      *
      * <code>string DrmType = 1;</code>
@@ -722,7 +722,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * drm类型（不区分大小写，支持web,app;默认web）
+     * drm类型，支持web,app。默认web 
      * </pre>
      *
      * <code>string DrmType = 1;</code>
@@ -744,7 +744,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object vid_ = "";
     /**
      * <pre>
-     * 视频id
+     * 视频id 
      * </pre>
      *
      * <code>string Vid = 2;</code>
@@ -764,7 +764,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频id
+     * 视频id 
      * </pre>
      *
      * <code>string Vid = 2;</code>
@@ -785,7 +785,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频id
+     * 视频id 
      * </pre>
      *
      * <code>string Vid = 2;</code>
@@ -804,7 +804,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频id
+     * 视频id 
      * </pre>
      *
      * <code>string Vid = 2;</code>
@@ -818,7 +818,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频id
+     * 视频id 
      * </pre>
      *
      * <code>string Vid = 2;</code>
@@ -840,7 +840,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object playAuthIds_ = "";
     /**
      * <pre>
-     * 播放许可id列表，以逗号分割
+     * 播放许可id列表，以逗号分割 
      * </pre>
      *
      * <code>string PlayAuthIds = 3;</code>
@@ -860,7 +860,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 播放许可id列表，以逗号分割
+     * 播放许可id列表，以逗号分割 
      * </pre>
      *
      * <code>string PlayAuthIds = 3;</code>
@@ -881,7 +881,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 播放许可id列表，以逗号分割
+     * 播放许可id列表，以逗号分割 
      * </pre>
      *
      * <code>string PlayAuthIds = 3;</code>
@@ -900,7 +900,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 播放许可id列表，以逗号分割
+     * 播放许可id列表，以逗号分割 
      * </pre>
      *
      * <code>string PlayAuthIds = 3;</code>
@@ -914,7 +914,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 播放许可id列表，以逗号分割
+     * 播放许可id列表，以逗号分割 
      * </pre>
      *
      * <code>string PlayAuthIds = 3;</code>
@@ -936,7 +936,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object unionInfo_ = "";
     /**
      * <pre>
-     * 加密唯一信息
+     * 唯一性标识信息, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string UnionInfo = 4;</code>
@@ -956,7 +956,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 加密唯一信息
+     * 唯一性标识信息, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string UnionInfo = 4;</code>
@@ -977,7 +977,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 加密唯一信息
+     * 唯一性标识信息, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string UnionInfo = 4;</code>
@@ -996,7 +996,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 加密唯一信息
+     * 唯一性标识信息, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string UnionInfo = 4;</code>
@@ -1010,7 +1010,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 加密唯一信息
+     * 唯一性标识信息, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string UnionInfo = 4;</code>

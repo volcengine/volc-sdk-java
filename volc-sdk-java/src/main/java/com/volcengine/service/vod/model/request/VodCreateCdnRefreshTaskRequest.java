@@ -105,7 +105,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object spaceName_;
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -126,7 +126,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -151,7 +151,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object urls_;
   /**
    * <pre>
-   * 刷新Url或目录
+   * 刷新Url或目录 
    * </pre>
    *
    * <code>string Urls = 2;</code>
@@ -172,7 +172,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 刷新Url或目录
+   * 刷新Url或目录 
    * </pre>
    *
    * <code>string Urls = 2;</code>
@@ -197,7 +197,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object type_;
   /**
    * <pre>
-   * 刷新任务类型
+   * 刷新任务类型 
    * </pre>
    *
    * <code>string Type = 3;</code>
@@ -218,7 +218,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 刷新任务类型
+   * 刷新任务类型 
    * </pre>
    *
    * <code>string Type = 3;</code>
@@ -578,7 +578,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object spaceName_ = "";
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -598,7 +598,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -619,7 +619,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -638,7 +638,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -652,7 +652,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -674,7 +674,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object urls_ = "";
     /**
      * <pre>
-     * 刷新Url或目录
+     * 刷新Url或目录 
      * </pre>
      *
      * <code>string Urls = 2;</code>
@@ -694,7 +694,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 刷新Url或目录
+     * 刷新Url或目录 
      * </pre>
      *
      * <code>string Urls = 2;</code>
@@ -715,7 +715,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 刷新Url或目录
+     * 刷新Url或目录 
      * </pre>
      *
      * <code>string Urls = 2;</code>
@@ -734,7 +734,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 刷新Url或目录
+     * 刷新Url或目录 
      * </pre>
      *
      * <code>string Urls = 2;</code>
@@ -748,7 +748,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 刷新Url或目录
+     * 刷新Url或目录 
      * </pre>
      *
      * <code>string Urls = 2;</code>
@@ -770,7 +770,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object type_ = "";
     /**
      * <pre>
-     * 刷新任务类型
+     * 刷新任务类型 
      * </pre>
      *
      * <code>string Type = 3;</code>
@@ -790,7 +790,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 刷新任务类型
+     * 刷新任务类型 
      * </pre>
      *
      * <code>string Type = 3;</code>
@@ -811,7 +811,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 刷新任务类型
+     * 刷新任务类型 
      * </pre>
      *
      * <code>string Type = 3;</code>
@@ -830,7 +830,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 刷新任务类型
+     * 刷新任务类型 
      * </pre>
      *
      * <code>string Type = 3;</code>
@@ -844,7 +844,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 刷新任务类型
+     * 刷新任务类型 
      * </pre>
      *
      * <code>string Type = 3;</code>

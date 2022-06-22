@@ -122,7 +122,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object domains_;
   /**
    * <pre>
-   * 域名，多个用逗号隔开
+   * 域名，多个用逗号隔开 
    * </pre>
    *
    * <code>string Domains = 1;</code>
@@ -143,7 +143,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 域名，多个用逗号隔开
+   * 域名，多个用逗号隔开 
    * </pre>
    *
    * <code>string Domains = 1;</code>
@@ -168,7 +168,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object interval_;
   /**
    * <pre>
-   * 聚合度
+   * 聚合度 
    * </pre>
    *
    * <code>string Interval = 2;</code>
@@ -189,7 +189,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 聚合度
+   * 聚合度 
    * </pre>
    *
    * <code>string Interval = 2;</code>
@@ -214,7 +214,7 @@ private static final long serialVersionUID = 0L;
   private long startTimestamp_;
   /**
    * <pre>
-   * 查询范围起始时间
+   * 查询范围起始时间 
    * </pre>
    *
    * <code>int64 StartTimestamp = 3;</code>
@@ -229,7 +229,7 @@ private static final long serialVersionUID = 0L;
   private long endTimestamp_;
   /**
    * <pre>
-   * 查询范围截止时间
+   * 查询范围截止时间 
    * </pre>
    *
    * <code>int64 EndTimestamp = 4;</code>
@@ -244,7 +244,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object dataType_;
   /**
    * <pre>
-   *统计数据类别
+   * 统计数据类别 
    * </pre>
    *
    * <code>string DataType = 5;</code>
@@ -265,7 +265,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *统计数据类别
+   * 统计数据类别 
    * </pre>
    *
    * <code>string DataType = 5;</code>
@@ -290,7 +290,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object metric_;
   /**
    * <pre>
-   *指标类别
+   * 指标类别 
    * </pre>
    *
    * <code>string Metric = 6;</code>
@@ -311,7 +311,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *指标类别
+   * 指标类别 
    * </pre>
    *
    * <code>string Metric = 6;</code>
@@ -724,7 +724,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object domains_ = "";
     /**
      * <pre>
-     * 域名，多个用逗号隔开
+     * 域名，多个用逗号隔开 
      * </pre>
      *
      * <code>string Domains = 1;</code>
@@ -744,7 +744,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 域名，多个用逗号隔开
+     * 域名，多个用逗号隔开 
      * </pre>
      *
      * <code>string Domains = 1;</code>
@@ -765,7 +765,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 域名，多个用逗号隔开
+     * 域名，多个用逗号隔开 
      * </pre>
      *
      * <code>string Domains = 1;</code>
@@ -784,7 +784,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 域名，多个用逗号隔开
+     * 域名，多个用逗号隔开 
      * </pre>
      *
      * <code>string Domains = 1;</code>
@@ -798,7 +798,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 域名，多个用逗号隔开
+     * 域名，多个用逗号隔开 
      * </pre>
      *
      * <code>string Domains = 1;</code>
@@ -820,7 +820,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object interval_ = "";
     /**
      * <pre>
-     * 聚合度
+     * 聚合度 
      * </pre>
      *
      * <code>string Interval = 2;</code>
@@ -840,7 +840,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 聚合度
+     * 聚合度 
      * </pre>
      *
      * <code>string Interval = 2;</code>
@@ -861,7 +861,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 聚合度
+     * 聚合度 
      * </pre>
      *
      * <code>string Interval = 2;</code>
@@ -880,7 +880,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 聚合度
+     * 聚合度 
      * </pre>
      *
      * <code>string Interval = 2;</code>
@@ -894,7 +894,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 聚合度
+     * 聚合度 
      * </pre>
      *
      * <code>string Interval = 2;</code>
@@ -916,7 +916,7 @@ private static final long serialVersionUID = 0L;
     private long startTimestamp_ ;
     /**
      * <pre>
-     * 查询范围起始时间
+     * 查询范围起始时间 
      * </pre>
      *
      * <code>int64 StartTimestamp = 3;</code>
@@ -928,7 +928,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 查询范围起始时间
+     * 查询范围起始时间 
      * </pre>
      *
      * <code>int64 StartTimestamp = 3;</code>
@@ -943,7 +943,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 查询范围起始时间
+     * 查询范围起始时间 
      * </pre>
      *
      * <code>int64 StartTimestamp = 3;</code>
@@ -959,7 +959,7 @@ private static final long serialVersionUID = 0L;
     private long endTimestamp_ ;
     /**
      * <pre>
-     * 查询范围截止时间
+     * 查询范围截止时间 
      * </pre>
      *
      * <code>int64 EndTimestamp = 4;</code>
@@ -971,7 +971,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 查询范围截止时间
+     * 查询范围截止时间 
      * </pre>
      *
      * <code>int64 EndTimestamp = 4;</code>
@@ -986,7 +986,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 查询范围截止时间
+     * 查询范围截止时间 
      * </pre>
      *
      * <code>int64 EndTimestamp = 4;</code>
@@ -1002,7 +1002,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object dataType_ = "";
     /**
      * <pre>
-     *统计数据类别
+     * 统计数据类别 
      * </pre>
      *
      * <code>string DataType = 5;</code>
@@ -1022,7 +1022,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *统计数据类别
+     * 统计数据类别 
      * </pre>
      *
      * <code>string DataType = 5;</code>
@@ -1043,7 +1043,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *统计数据类别
+     * 统计数据类别 
      * </pre>
      *
      * <code>string DataType = 5;</code>
@@ -1062,7 +1062,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *统计数据类别
+     * 统计数据类别 
      * </pre>
      *
      * <code>string DataType = 5;</code>
@@ -1076,7 +1076,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *统计数据类别
+     * 统计数据类别 
      * </pre>
      *
      * <code>string DataType = 5;</code>
@@ -1098,7 +1098,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object metric_ = "";
     /**
      * <pre>
-     *指标类别
+     * 指标类别 
      * </pre>
      *
      * <code>string Metric = 6;</code>
@@ -1118,7 +1118,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *指标类别
+     * 指标类别 
      * </pre>
      *
      * <code>string Metric = 6;</code>
@@ -1139,7 +1139,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *指标类别
+     * 指标类别 
      * </pre>
      *
      * <code>string Metric = 6;</code>
@@ -1158,7 +1158,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *指标类别
+     * 指标类别 
      * </pre>
      *
      * <code>string Metric = 6;</code>
@@ -1172,7 +1172,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *指标类别
+     * 指标类别 
      * </pre>
      *
      * <code>string Metric = 6;</code>

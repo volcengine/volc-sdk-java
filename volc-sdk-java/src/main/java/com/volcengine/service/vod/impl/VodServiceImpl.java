@@ -1221,6 +1221,25 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 	
 	
 	/**
+     * listCdnPvData.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodListCdnPvDataRequest
+     * @return com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse listCdnPvData(com.volcengine.service.vod.model.request.VodListCdnPvDataRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.ListCdnPvData, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
      * addCallbackSubscription.
      *
      * @param input com.volcengine.service.vod.model.request.VodAddCallbackSubscriptionRequest

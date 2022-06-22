@@ -8,39 +8,71 @@ public interface VodListSpaceResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   *响应通用信息
+   * </pre>
+   *
    * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    * @return Whether the responseMetadata field is set.
    */
   boolean hasResponseMetadata();
   /**
+   * <pre>
+   *响应通用信息
+   * </pre>
+   *
    * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    * @return The responseMetadata.
    */
   com.volcengine.service.base.model.base.ResponseMetadata getResponseMetadata();
   /**
+   * <pre>
+   *响应通用信息
+   * </pre>
+   *
    * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    */
   com.volcengine.service.base.model.base.ResponseMetadataOrBuilder getResponseMetadataOrBuilder();
 
   /**
+   * <pre>
+   *响应结果
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceInfo Result = 2;</code>
    */
   java.util.List<com.volcengine.service.vod.model.business.VodSpaceInfo> 
       getResultList();
   /**
+   * <pre>
+   *响应结果
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceInfo Result = 2;</code>
    */
   com.volcengine.service.vod.model.business.VodSpaceInfo getResult(int index);
   /**
+   * <pre>
+   *响应结果
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceInfo Result = 2;</code>
    */
   int getResultCount();
   /**
+   * <pre>
+   *响应结果
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceInfo Result = 2;</code>
    */
   java.util.List<? extends com.volcengine.service.vod.model.business.VodSpaceInfoOrBuilder> 
       getResultOrBuilderList();
   /**
+   * <pre>
+   *响应结果
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodSpaceInfo Result = 2;</code>
    */
   com.volcengine.service.vod.model.business.VodSpaceInfoOrBuilder getResultOrBuilder(

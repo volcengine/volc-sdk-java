@@ -90,6 +90,10 @@ private static final long serialVersionUID = 0L;
   public static final int JOBIDS_FIELD_NUMBER = 1;
   private volatile java.lang.Object jobIds_;
   /**
+   * <pre>
+   * 任务ID列表，通过任务ID可以查询任务的状态 
+   * </pre>
+   *
    * <code>string JobIds = 1;</code>
    * @return The jobIds.
    */
@@ -107,6 +111,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 任务ID列表，通过任务ID可以查询任务的状态 
+   * </pre>
+   *
    * <code>string JobIds = 1;</code>
    * @return The bytes for jobIds.
    */
@@ -429,6 +437,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object jobIds_ = "";
     /**
+     * <pre>
+     * 任务ID列表，通过任务ID可以查询任务的状态 
+     * </pre>
+     *
      * <code>string JobIds = 1;</code>
      * @return The jobIds.
      */
@@ -445,6 +457,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 任务ID列表，通过任务ID可以查询任务的状态 
+     * </pre>
+     *
      * <code>string JobIds = 1;</code>
      * @return The bytes for jobIds.
      */
@@ -462,6 +478,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 任务ID列表，通过任务ID可以查询任务的状态 
+     * </pre>
+     *
      * <code>string JobIds = 1;</code>
      * @param value The jobIds to set.
      * @return This builder for chaining.
@@ -477,6 +497,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 任务ID列表，通过任务ID可以查询任务的状态 
+     * </pre>
+     *
      * <code>string JobIds = 1;</code>
      * @return This builder for chaining.
      */
@@ -487,6 +511,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 任务ID列表，通过任务ID可以查询任务的状态 
+     * </pre>
+     *
      * <code>string JobIds = 1;</code>
      * @param value The bytes for jobIds to set.
      * @return This builder for chaining.

@@ -8,11 +8,19 @@ public interface VodApplyUploadInfoRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * 上传的空间名 
+   * </pre>
+   *
    * <code>string SpaceName = 1;</code>
    * @return The spaceName.
    */
   java.lang.String getSpaceName();
   /**
+   * <pre>
+   * 上传的空间名 
+   * </pre>
+   *
    * <code>string SpaceName = 1;</code>
    * @return The bytes for spaceName.
    */
@@ -20,11 +28,19 @@ public interface VodApplyUploadInfoRequestOrBuilder extends
       getSpaceNameBytes();
 
   /**
+   * <pre>
+   * 上传重试时可选择带上的 Session 信息，作为下发参数的辅助信息 
+   * </pre>
+   *
    * <code>string SessionKey = 2;</code>
    * @return The sessionKey.
    */
   java.lang.String getSessionKey();
   /**
+   * <pre>
+   * 上传重试时可选择带上的 Session 信息，作为下发参数的辅助信息 
+   * </pre>
+   *
    * <code>string SessionKey = 2;</code>
    * @return The bytes for sessionKey.
    */
@@ -32,17 +48,29 @@ public interface VodApplyUploadInfoRequestOrBuilder extends
       getSessionKeyBytes();
 
   /**
+   * <pre>
+   * 上传的文件大小，单位为字节，非必填参数 
+   * </pre>
+   *
    * <code>double FileSize = 3;</code>
    * @return The fileSize.
    */
   double getFileSize();
 
   /**
+   * <pre>
+   * 上传的类型，可不填，默认为 media 
+   * </pre>
+   *
    * <code>string FileType = 4;</code>
    * @return The fileType.
    */
   java.lang.String getFileType();
   /**
+   * <pre>
+   * 上传的类型，可不填，默认为 media 
+   * </pre>
+   *
    * <code>string FileType = 4;</code>
    * @return The bytes for fileType.
    */
@@ -50,11 +78,19 @@ public interface VodApplyUploadInfoRequestOrBuilder extends
       getFileTypeBytes();
 
   /**
+   * <pre>
+   * 上传的文件在存储中的名字，即 bucket/key 中的 key 
+   * </pre>
+   *
    * <code>string FileName = 5;</code>
    * @return The fileName.
    */
   java.lang.String getFileName();
   /**
+   * <pre>
+   * 上传的文件在存储中的名字，即 bucket/key 中的 key 
+   * </pre>
+   *
    * <code>string FileName = 5;</code>
    * @return The bytes for fileName.
    */

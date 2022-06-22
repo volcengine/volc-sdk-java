@@ -508,6 +508,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodDescribeIPInfoResponse describeIpInfo(com.volcengine.service.vod.model.request.VodDescribeIPInfoRequest input) throws Exception;
 	
 	/**
+     * listCdnPvData.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodListCdnPvDataRequest
+     * @return com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse listCdnPvData(com.volcengine.service.vod.model.request.VodListCdnPvDataRequest input) throws Exception;
+	
+	/**
      * addCallbackSubscription.
      *
      * @param input com.volcengine.service.vod.model.request.VodAddCallbackSubscriptionRequest

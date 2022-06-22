@@ -9,7 +9,7 @@ public interface VodSetCallbackEventRequestOrBuilder extends
 
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -18,7 +18,7 @@ public interface VodSetCallbackEventRequestOrBuilder extends
   java.lang.String getSpaceName();
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -29,7 +29,7 @@ public interface VodSetCallbackEventRequestOrBuilder extends
 
   /**
    * <pre>
-   * 事件列表
+   * 事件列表 
    * </pre>
    *
    * <code>string Events = 2;</code>
@@ -38,7 +38,7 @@ public interface VodSetCallbackEventRequestOrBuilder extends
   java.lang.String getEvents();
   /**
    * <pre>
-   * 事件列表
+   * 事件列表 
    * </pre>
    *
    * <code>string Events = 2;</code>
@@ -49,7 +49,7 @@ public interface VodSetCallbackEventRequestOrBuilder extends
 
   /**
    * <pre>
-   * 是否开启回调鉴权,值为VodCallbackAuthType中的枚举数字
+   * 是否开启回调鉴权,值为VodCallbackAuthType中的枚举数字 
    * </pre>
    *
    * <code>string AuthEnabled = 3;</code>
@@ -58,7 +58,7 @@ public interface VodSetCallbackEventRequestOrBuilder extends
   java.lang.String getAuthEnabled();
   /**
    * <pre>
-   * 是否开启回调鉴权,值为VodCallbackAuthType中的枚举数字
+   * 是否开启回调鉴权,值为VodCallbackAuthType中的枚举数字 
    * </pre>
    *
    * <code>string AuthEnabled = 3;</code>
@@ -69,7 +69,7 @@ public interface VodSetCallbackEventRequestOrBuilder extends
 
   /**
    * <pre>
-   * 回调鉴权key
+   * 回调鉴权key 
    * </pre>
    *
    * <code>string PrivateKey = 4;</code>
@@ -78,7 +78,7 @@ public interface VodSetCallbackEventRequestOrBuilder extends
   java.lang.String getPrivateKey();
   /**
    * <pre>
-   * 回调鉴权key
+   * 回调鉴权key 
    * </pre>
    *
    * <code>string PrivateKey = 4;</code>

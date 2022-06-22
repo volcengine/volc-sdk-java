@@ -116,6 +116,10 @@ private static final long serialVersionUID = 0L;
   public static final int SPACENAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object spaceName_;
   /**
+   * <pre>
+   * 上传的空间名 
+   * </pre>
+   *
    * <code>string SpaceName = 1;</code>
    * @return The spaceName.
    */
@@ -133,6 +137,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 上传的空间名 
+   * </pre>
+   *
    * <code>string SpaceName = 1;</code>
    * @return The bytes for spaceName.
    */
@@ -154,6 +162,10 @@ private static final long serialVersionUID = 0L;
   public static final int SESSIONKEY_FIELD_NUMBER = 2;
   private volatile java.lang.Object sessionKey_;
   /**
+   * <pre>
+   * 上传重试时可选择带上的 Session 信息，作为下发参数的辅助信息 
+   * </pre>
+   *
    * <code>string SessionKey = 2;</code>
    * @return The sessionKey.
    */
@@ -171,6 +183,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 上传重试时可选择带上的 Session 信息，作为下发参数的辅助信息 
+   * </pre>
+   *
    * <code>string SessionKey = 2;</code>
    * @return The bytes for sessionKey.
    */
@@ -192,6 +208,10 @@ private static final long serialVersionUID = 0L;
   public static final int FILESIZE_FIELD_NUMBER = 3;
   private double fileSize_;
   /**
+   * <pre>
+   * 上传的文件大小，单位为字节，非必填参数 
+   * </pre>
+   *
    * <code>double FileSize = 3;</code>
    * @return The fileSize.
    */
@@ -203,6 +223,10 @@ private static final long serialVersionUID = 0L;
   public static final int FILETYPE_FIELD_NUMBER = 4;
   private volatile java.lang.Object fileType_;
   /**
+   * <pre>
+   * 上传的类型，可不填，默认为 media 
+   * </pre>
+   *
    * <code>string FileType = 4;</code>
    * @return The fileType.
    */
@@ -220,6 +244,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 上传的类型，可不填，默认为 media 
+   * </pre>
+   *
    * <code>string FileType = 4;</code>
    * @return The bytes for fileType.
    */
@@ -241,6 +269,10 @@ private static final long serialVersionUID = 0L;
   public static final int FILENAME_FIELD_NUMBER = 5;
   private volatile java.lang.Object fileName_;
   /**
+   * <pre>
+   * 上传的文件在存储中的名字，即 bucket/key 中的 key 
+   * </pre>
+   *
    * <code>string FileName = 5;</code>
    * @return The fileName.
    */
@@ -258,6 +290,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 上传的文件在存储中的名字，即 bucket/key 中的 key 
+   * </pre>
+   *
    * <code>string FileName = 5;</code>
    * @return The bytes for fileName.
    */
@@ -650,6 +686,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object spaceName_ = "";
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @return The spaceName.
      */
@@ -666,6 +706,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @return The bytes for spaceName.
      */
@@ -683,6 +727,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @param value The spaceName to set.
      * @return This builder for chaining.
@@ -698,6 +746,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @return This builder for chaining.
      */
@@ -708,6 +760,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @param value The bytes for spaceName to set.
      * @return This builder for chaining.
@@ -726,6 +782,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object sessionKey_ = "";
     /**
+     * <pre>
+     * 上传重试时可选择带上的 Session 信息，作为下发参数的辅助信息 
+     * </pre>
+     *
      * <code>string SessionKey = 2;</code>
      * @return The sessionKey.
      */
@@ -742,6 +802,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传重试时可选择带上的 Session 信息，作为下发参数的辅助信息 
+     * </pre>
+     *
      * <code>string SessionKey = 2;</code>
      * @return The bytes for sessionKey.
      */
@@ -759,6 +823,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传重试时可选择带上的 Session 信息，作为下发参数的辅助信息 
+     * </pre>
+     *
      * <code>string SessionKey = 2;</code>
      * @param value The sessionKey to set.
      * @return This builder for chaining.
@@ -774,6 +842,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传重试时可选择带上的 Session 信息，作为下发参数的辅助信息 
+     * </pre>
+     *
      * <code>string SessionKey = 2;</code>
      * @return This builder for chaining.
      */
@@ -784,6 +856,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传重试时可选择带上的 Session 信息，作为下发参数的辅助信息 
+     * </pre>
+     *
      * <code>string SessionKey = 2;</code>
      * @param value The bytes for sessionKey to set.
      * @return This builder for chaining.
@@ -802,6 +878,10 @@ private static final long serialVersionUID = 0L;
 
     private double fileSize_ ;
     /**
+     * <pre>
+     * 上传的文件大小，单位为字节，非必填参数 
+     * </pre>
+     *
      * <code>double FileSize = 3;</code>
      * @return The fileSize.
      */
@@ -810,6 +890,10 @@ private static final long serialVersionUID = 0L;
       return fileSize_;
     }
     /**
+     * <pre>
+     * 上传的文件大小，单位为字节，非必填参数 
+     * </pre>
+     *
      * <code>double FileSize = 3;</code>
      * @param value The fileSize to set.
      * @return This builder for chaining.
@@ -821,6 +905,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的文件大小，单位为字节，非必填参数 
+     * </pre>
+     *
      * <code>double FileSize = 3;</code>
      * @return This builder for chaining.
      */
@@ -833,6 +921,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object fileType_ = "";
     /**
+     * <pre>
+     * 上传的类型，可不填，默认为 media 
+     * </pre>
+     *
      * <code>string FileType = 4;</code>
      * @return The fileType.
      */
@@ -849,6 +941,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的类型，可不填，默认为 media 
+     * </pre>
+     *
      * <code>string FileType = 4;</code>
      * @return The bytes for fileType.
      */
@@ -866,6 +962,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的类型，可不填，默认为 media 
+     * </pre>
+     *
      * <code>string FileType = 4;</code>
      * @param value The fileType to set.
      * @return This builder for chaining.
@@ -881,6 +981,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的类型，可不填，默认为 media 
+     * </pre>
+     *
      * <code>string FileType = 4;</code>
      * @return This builder for chaining.
      */
@@ -891,6 +995,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的类型，可不填，默认为 media 
+     * </pre>
+     *
      * <code>string FileType = 4;</code>
      * @param value The bytes for fileType to set.
      * @return This builder for chaining.
@@ -909,6 +1017,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object fileName_ = "";
     /**
+     * <pre>
+     * 上传的文件在存储中的名字，即 bucket/key 中的 key 
+     * </pre>
+     *
      * <code>string FileName = 5;</code>
      * @return The fileName.
      */
@@ -925,6 +1037,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的文件在存储中的名字，即 bucket/key 中的 key 
+     * </pre>
+     *
      * <code>string FileName = 5;</code>
      * @return The bytes for fileName.
      */
@@ -942,6 +1058,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的文件在存储中的名字，即 bucket/key 中的 key 
+     * </pre>
+     *
      * <code>string FileName = 5;</code>
      * @param value The fileName to set.
      * @return This builder for chaining.
@@ -957,6 +1077,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的文件在存储中的名字，即 bucket/key 中的 key 
+     * </pre>
+     *
      * <code>string FileName = 5;</code>
      * @return This builder for chaining.
      */
@@ -967,6 +1091,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的文件在存储中的名字，即 bucket/key 中的 key 
+     * </pre>
+     *
      * <code>string FileName = 5;</code>
      * @param value The bytes for fileName to set.
      * @return This builder for chaining.

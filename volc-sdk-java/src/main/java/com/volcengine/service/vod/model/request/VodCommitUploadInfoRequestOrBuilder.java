@@ -8,11 +8,19 @@ public interface VodCommitUploadInfoRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * 上传的空间名 
+   * </pre>
+   *
    * <code>string SpaceName = 1;</code>
    * @return The spaceName.
    */
   java.lang.String getSpaceName();
   /**
+   * <pre>
+   * 上传的空间名 
+   * </pre>
+   *
    * <code>string SpaceName = 1;</code>
    * @return The bytes for spaceName.
    */
@@ -20,11 +28,19 @@ public interface VodCommitUploadInfoRequestOrBuilder extends
       getSpaceNameBytes();
 
   /**
+   * <pre>
+   * 上传 1005 阶段需要带上 1001 的 Session 
+   * </pre>
+   *
    * <code>string SessionKey = 2;</code>
    * @return The sessionKey.
    */
   java.lang.String getSessionKey();
   /**
+   * <pre>
+   * 上传 1005 阶段需要带上 1001 的 Session 
+   * </pre>
+   *
    * <code>string SessionKey = 2;</code>
    * @return The bytes for sessionKey.
    */
@@ -32,11 +48,19 @@ public interface VodCommitUploadInfoRequestOrBuilder extends
       getSessionKeyBytes();
 
   /**
+   * <pre>
+   * 业务希望上传透传的信息，会在上传成功时返回给用户 
+   * </pre>
+   *
    * <code>string CallbackArgs = 3;</code>
    * @return The callbackArgs.
    */
   java.lang.String getCallbackArgs();
   /**
+   * <pre>
+   * 业务希望上传透传的信息，会在上传成功时返回给用户 
+   * </pre>
+   *
    * <code>string CallbackArgs = 3;</code>
    * @return The bytes for callbackArgs.
    */
@@ -44,11 +68,19 @@ public interface VodCommitUploadInfoRequestOrBuilder extends
       getCallbackArgsBytes();
 
   /**
+   * <pre>
+   * 上传的功能函数 
+   * </pre>
+   *
    * <code>string Functions = 4;</code>
    * @return The functions.
    */
   java.lang.String getFunctions();
   /**
+   * <pre>
+   * 上传的功能函数 
+   * </pre>
+   *
    * <code>string Functions = 4;</code>
    * @return The bytes for functions.
    */

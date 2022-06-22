@@ -9,7 +9,7 @@ public interface VodListSpaceRequestOrBuilder extends
 
   /**
    * <pre>
-   * 查询游标
+   * 查询游标 
    * </pre>
    *
    * <code>double Offset = 1;</code>
@@ -19,7 +19,7 @@ public interface VodListSpaceRequestOrBuilder extends
 
   /**
    * <pre>
-   * 查询数量
+   * 查询数量 
    * </pre>
    *
    * <code>double Limit = 2;</code>

@@ -4,6 +4,12 @@
 package com.volcengine.service.vod.model.request;
 
 /**
+ * <pre>
+ * **********************************************************************
+ * 转码
+ * **********************************************************************
+ * </pre>
+ *
  * Protobuf type {@code Volcengine.Vod.Models.Request.VodStartWorkflowRequest}
  */
 public final class VodStartWorkflowRequest extends
@@ -544,6 +550,12 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * **********************************************************************
+   * 转码
+   * **********************************************************************
+   * </pre>
+   *
    * Protobuf type {@code Volcengine.Vod.Models.Request.VodStartWorkflowRequest}
    */
   public static final class Builder extends

@@ -9,7 +9,7 @@ public interface VodDescribeIPInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *ip，多个用逗号隔开
+   * ip，多个用逗号隔开
    * </pre>
    *
    * <code>string Ips = 1;</code>
@@ -18,7 +18,7 @@ public interface VodDescribeIPInfoRequestOrBuilder extends
   java.lang.String getIps();
   /**
    * <pre>
-   *ip，多个用逗号隔开
+   * ip，多个用逗号隔开
    * </pre>
    *
    * <code>string Ips = 1;</code>

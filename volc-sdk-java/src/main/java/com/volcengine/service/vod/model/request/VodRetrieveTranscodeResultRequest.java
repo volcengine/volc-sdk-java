@@ -4,28 +4,27 @@
 package com.volcengine.service.vod.model.request;
 
 /**
- * Protobuf type {@code Volcengine.Vod.Models.Request.VodGetOriginalPlayInfoRequest}
+ * Protobuf type {@code Volcengine.Vod.Models.Request.VodRetrieveTranscodeResultRequest}
  */
-public final class VodGetOriginalPlayInfoRequest extends
+public final class VodRetrieveTranscodeResultRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Request.VodGetOriginalPlayInfoRequest)
-    VodGetOriginalPlayInfoRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Request.VodRetrieveTranscodeResultRequest)
+    VodRetrieveTranscodeResultRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use VodGetOriginalPlayInfoRequest.newBuilder() to construct.
-  private VodGetOriginalPlayInfoRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use VodRetrieveTranscodeResultRequest.newBuilder() to construct.
+  private VodRetrieveTranscodeResultRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private VodGetOriginalPlayInfoRequest() {
+  private VodRetrieveTranscodeResultRequest() {
     vid_ = "";
-    base64_ = "";
-    ssl_ = "";
+    resultType_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new VodGetOriginalPlayInfoRequest();
+    return new VodRetrieveTranscodeResultRequest();
   }
 
   @java.lang.Override
@@ -33,7 +32,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VodGetOriginalPlayInfoRequest(
+  private VodRetrieveTranscodeResultRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -60,13 +59,7 @@ private static final long serialVersionUID = 0L;
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            base64_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            ssl_ = s;
+            resultType_ = s;
             break;
           }
           default: {
@@ -90,22 +83,22 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetOriginalPlayInfoRequest_descriptor;
+    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodRetrieveTranscodeResultRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetOriginalPlayInfoRequest_fieldAccessorTable
+    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodRetrieveTranscodeResultRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest.class, com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest.Builder.class);
+            com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest.class, com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest.Builder.class);
   }
 
   public static final int VID_FIELD_NUMBER = 1;
   private volatile java.lang.Object vid_;
   /**
    * <pre>
-   *视频ID
+   * 视频Id
    * </pre>
    *
    * <code>string Vid = 1;</code>
@@ -126,7 +119,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *视频ID
+   * 视频Id
    * </pre>
    *
    * <code>string Vid = 1;</code>
@@ -147,92 +140,46 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int BASE64_FIELD_NUMBER = 2;
-  private volatile java.lang.Object base64_;
+  public static final int RESULTTYPE_FIELD_NUMBER = 2;
+  private volatile java.lang.Object resultType_;
   /**
    * <pre>
-   *播放地址是否base64编码,默认否，0-否，1-是
+   * 预期获取的结果类型，可选：inspection、category_tags，支持多选，用,分隔，例如inspection,category_tags
    * </pre>
    *
-   * <code>string Base64 = 2;</code>
-   * @return The base64.
+   * <code>string ResultType = 2;</code>
+   * @return The resultType.
    */
   @java.lang.Override
-  public java.lang.String getBase64() {
-    java.lang.Object ref = base64_;
+  public java.lang.String getResultType() {
+    java.lang.Object ref = resultType_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      base64_ = s;
+      resultType_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   *播放地址是否base64编码,默认否，0-否，1-是
+   * 预期获取的结果类型，可选：inspection、category_tags，支持多选，用,分隔，例如inspection,category_tags
    * </pre>
    *
-   * <code>string Base64 = 2;</code>
-   * @return The bytes for base64.
+   * <code>string ResultType = 2;</code>
+   * @return The bytes for resultType.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getBase64Bytes() {
-    java.lang.Object ref = base64_;
+      getResultTypeBytes() {
+    java.lang.Object ref = resultType_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      base64_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int SSL_FIELD_NUMBER = 3;
-  private volatile java.lang.Object ssl_;
-  /**
-   * <pre>
-   *返回https播放地址,默认否, 0-否，1-是
-   * </pre>
-   *
-   * <code>string Ssl = 3;</code>
-   * @return The ssl.
-   */
-  @java.lang.Override
-  public java.lang.String getSsl() {
-    java.lang.Object ref = ssl_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      ssl_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   *返回https播放地址,默认否, 0-否，1-是
-   * </pre>
-   *
-   * <code>string Ssl = 3;</code>
-   * @return The bytes for ssl.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getSslBytes() {
-    java.lang.Object ref = ssl_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      ssl_ = b;
+      resultType_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -256,11 +203,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vid_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vid_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(base64_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, base64_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(ssl_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, ssl_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(resultType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, resultType_);
     }
     unknownFields.writeTo(output);
   }
@@ -274,11 +218,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vid_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vid_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(base64_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, base64_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(ssl_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, ssl_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(resultType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, resultType_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -290,17 +231,15 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest)) {
+    if (!(obj instanceof com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest)) {
       return super.equals(obj);
     }
-    com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest other = (com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest) obj;
+    com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest other = (com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest) obj;
 
     if (!getVid()
         .equals(other.getVid())) return false;
-    if (!getBase64()
-        .equals(other.getBase64())) return false;
-    if (!getSsl()
-        .equals(other.getSsl())) return false;
+    if (!getResultType()
+        .equals(other.getResultType())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -314,78 +253,76 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + VID_FIELD_NUMBER;
     hash = (53 * hash) + getVid().hashCode();
-    hash = (37 * hash) + BASE64_FIELD_NUMBER;
-    hash = (53 * hash) + getBase64().hashCode();
-    hash = (37 * hash) + SSL_FIELD_NUMBER;
-    hash = (53 * hash) + getSsl().hashCode();
+    hash = (37 * hash) + RESULTTYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getResultType().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest parseFrom(byte[] data)
+  public static com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest parseFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest parseDelimitedFrom(
+  public static com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -398,7 +335,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest prototype) {
+  public static Builder newBuilder(com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -414,26 +351,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code Volcengine.Vod.Models.Request.VodGetOriginalPlayInfoRequest}
+   * Protobuf type {@code Volcengine.Vod.Models.Request.VodRetrieveTranscodeResultRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Request.VodGetOriginalPlayInfoRequest)
-      com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Request.VodRetrieveTranscodeResultRequest)
+      com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetOriginalPlayInfoRequest_descriptor;
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodRetrieveTranscodeResultRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetOriginalPlayInfoRequest_fieldAccessorTable
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodRetrieveTranscodeResultRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest.class, com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest.Builder.class);
+              com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest.class, com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest.Builder.class);
     }
 
-    // Construct using com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest.newBuilder()
+    // Construct using com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -453,9 +390,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       vid_ = "";
 
-      base64_ = "";
-
-      ssl_ = "";
+      resultType_ = "";
 
       return this;
     }
@@ -463,17 +398,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetOriginalPlayInfoRequest_descriptor;
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodRetrieveTranscodeResultRequest_descriptor;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest getDefaultInstanceForType() {
-      return com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest.getDefaultInstance();
+    public com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest getDefaultInstanceForType() {
+      return com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest build() {
-      com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest result = buildPartial();
+    public com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest build() {
+      com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -481,11 +416,10 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest buildPartial() {
-      com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest result = new com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest(this);
+    public com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest buildPartial() {
+      com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest result = new com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest(this);
       result.vid_ = vid_;
-      result.base64_ = base64_;
-      result.ssl_ = ssl_;
+      result.resultType_ = resultType_;
       onBuilt();
       return result;
     }
@@ -524,26 +458,22 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest) {
-        return mergeFrom((com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest)other);
+      if (other instanceof com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest) {
+        return mergeFrom((com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest other) {
-      if (other == com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest other) {
+      if (other == com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest.getDefaultInstance()) return this;
       if (!other.getVid().isEmpty()) {
         vid_ = other.vid_;
         onChanged();
       }
-      if (!other.getBase64().isEmpty()) {
-        base64_ = other.base64_;
-        onChanged();
-      }
-      if (!other.getSsl().isEmpty()) {
-        ssl_ = other.ssl_;
+      if (!other.getResultType().isEmpty()) {
+        resultType_ = other.resultType_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -561,11 +491,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest parsedMessage = null;
+      com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -578,7 +508,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object vid_ = "";
     /**
      * <pre>
-     *视频ID
+     * 视频Id
      * </pre>
      *
      * <code>string Vid = 1;</code>
@@ -598,7 +528,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *视频ID
+     * 视频Id
      * </pre>
      *
      * <code>string Vid = 1;</code>
@@ -619,7 +549,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *视频ID
+     * 视频Id
      * </pre>
      *
      * <code>string Vid = 1;</code>
@@ -638,7 +568,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *视频ID
+     * 视频Id
      * </pre>
      *
      * <code>string Vid = 1;</code>
@@ -652,7 +582,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *视频ID
+     * 视频Id
      * </pre>
      *
      * <code>string Vid = 1;</code>
@@ -671,22 +601,22 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object base64_ = "";
+    private java.lang.Object resultType_ = "";
     /**
      * <pre>
-     *播放地址是否base64编码,默认否，0-否，1-是
+     * 预期获取的结果类型，可选：inspection、category_tags，支持多选，用,分隔，例如inspection,category_tags
      * </pre>
      *
-     * <code>string Base64 = 2;</code>
-     * @return The base64.
+     * <code>string ResultType = 2;</code>
+     * @return The resultType.
      */
-    public java.lang.String getBase64() {
-      java.lang.Object ref = base64_;
+    public java.lang.String getResultType() {
+      java.lang.Object ref = resultType_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        base64_ = s;
+        resultType_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -694,20 +624,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放地址是否base64编码,默认否，0-否，1-是
+     * 预期获取的结果类型，可选：inspection、category_tags，支持多选，用,分隔，例如inspection,category_tags
      * </pre>
      *
-     * <code>string Base64 = 2;</code>
-     * @return The bytes for base64.
+     * <code>string ResultType = 2;</code>
+     * @return The bytes for resultType.
      */
     public com.google.protobuf.ByteString
-        getBase64Bytes() {
-      java.lang.Object ref = base64_;
+        getResultTypeBytes() {
+      java.lang.Object ref = resultType_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        base64_ = b;
+        resultType_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -715,150 +645,54 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放地址是否base64编码,默认否，0-否，1-是
+     * 预期获取的结果类型，可选：inspection、category_tags，支持多选，用,分隔，例如inspection,category_tags
      * </pre>
      *
-     * <code>string Base64 = 2;</code>
-     * @param value The base64 to set.
+     * <code>string ResultType = 2;</code>
+     * @param value The resultType to set.
      * @return This builder for chaining.
      */
-    public Builder setBase64(
+    public Builder setResultType(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      base64_ = value;
+      resultType_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *播放地址是否base64编码,默认否，0-否，1-是
+     * 预期获取的结果类型，可选：inspection、category_tags，支持多选，用,分隔，例如inspection,category_tags
      * </pre>
      *
-     * <code>string Base64 = 2;</code>
+     * <code>string ResultType = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearBase64() {
+    public Builder clearResultType() {
       
-      base64_ = getDefaultInstance().getBase64();
+      resultType_ = getDefaultInstance().getResultType();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *播放地址是否base64编码,默认否，0-否，1-是
+     * 预期获取的结果类型，可选：inspection、category_tags，支持多选，用,分隔，例如inspection,category_tags
      * </pre>
      *
-     * <code>string Base64 = 2;</code>
-     * @param value The bytes for base64 to set.
+     * <code>string ResultType = 2;</code>
+     * @param value The bytes for resultType to set.
      * @return This builder for chaining.
      */
-    public Builder setBase64Bytes(
+    public Builder setResultTypeBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      base64_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object ssl_ = "";
-    /**
-     * <pre>
-     *返回https播放地址,默认否, 0-否，1-是
-     * </pre>
-     *
-     * <code>string Ssl = 3;</code>
-     * @return The ssl.
-     */
-    public java.lang.String getSsl() {
-      java.lang.Object ref = ssl_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        ssl_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     *返回https播放地址,默认否, 0-否，1-是
-     * </pre>
-     *
-     * <code>string Ssl = 3;</code>
-     * @return The bytes for ssl.
-     */
-    public com.google.protobuf.ByteString
-        getSslBytes() {
-      java.lang.Object ref = ssl_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        ssl_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     *返回https播放地址,默认否, 0-否，1-是
-     * </pre>
-     *
-     * <code>string Ssl = 3;</code>
-     * @param value The ssl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSsl(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      ssl_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *返回https播放地址,默认否, 0-否，1-是
-     * </pre>
-     *
-     * <code>string Ssl = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSsl() {
-      
-      ssl_ = getDefaultInstance().getSsl();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *返回https播放地址,默认否, 0-否，1-是
-     * </pre>
-     *
-     * <code>string Ssl = 3;</code>
-     * @param value The bytes for ssl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSslBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      ssl_ = value;
+      resultType_ = value;
       onChanged();
       return this;
     }
@@ -875,41 +709,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Request.VodGetOriginalPlayInfoRequest)
+    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Request.VodRetrieveTranscodeResultRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Request.VodGetOriginalPlayInfoRequest)
-  private static final com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Request.VodRetrieveTranscodeResultRequest)
+  private static final com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest();
+    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest();
   }
 
-  public static com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest getDefaultInstance() {
+  public static com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<VodGetOriginalPlayInfoRequest>
-      PARSER = new com.google.protobuf.AbstractParser<VodGetOriginalPlayInfoRequest>() {
+  private static final com.google.protobuf.Parser<VodRetrieveTranscodeResultRequest>
+      PARSER = new com.google.protobuf.AbstractParser<VodRetrieveTranscodeResultRequest>() {
     @java.lang.Override
-    public VodGetOriginalPlayInfoRequest parsePartialFrom(
+    public VodRetrieveTranscodeResultRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VodGetOriginalPlayInfoRequest(input, extensionRegistry);
+      return new VodRetrieveTranscodeResultRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<VodGetOriginalPlayInfoRequest> parser() {
+  public static com.google.protobuf.Parser<VodRetrieveTranscodeResultRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<VodGetOriginalPlayInfoRequest> getParserForType() {
+  public com.google.protobuf.Parser<VodRetrieveTranscodeResultRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.volcengine.service.vod.model.request.VodGetOriginalPlayInfoRequest getDefaultInstanceForType() {
+  public com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

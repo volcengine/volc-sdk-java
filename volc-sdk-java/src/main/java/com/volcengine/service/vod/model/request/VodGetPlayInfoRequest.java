@@ -196,7 +196,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object vid_;
   /**
    * <pre>
-   * 视频ID
+   * 视频ID 
    * </pre>
    *
    * <code>string Vid = 1;</code>
@@ -217,7 +217,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 视频ID
+   * 视频ID 
    * </pre>
    *
    * <code>string Vid = 1;</code>
@@ -242,7 +242,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object format_;
   /**
    * <pre>
-   *封装格式，支持mp4,dash,hls，默认mp4Format
+   * 封装格式，支持 mp4、dash、hls、mp3、m4a、ogg, 默认mp4 
    * </pre>
    *
    * <code>string Format = 2;</code>
@@ -263,7 +263,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *封装格式，支持mp4,dash,hls，默认mp4Format
+   * 封装格式，支持 mp4、dash、hls、mp3、m4a、ogg, 默认mp4 
    * </pre>
    *
    * <code>string Format = 2;</code>
@@ -288,7 +288,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object codec_;
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264, h265等Codec
+   * 编码格式，支持 mp3、aac、opus、H264、H265、H266, 视频默认H264，音频默认aac
    * </pre>
    *
    * <code>string Codec = 3;</code>
@@ -309,7 +309,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264, h265等Codec
+   * 编码格式，支持 mp3、aac、opus、H264、H265、H266, 视频默认H264，音频默认aac
    * </pre>
    *
    * <code>string Codec = 3;</code>
@@ -334,7 +334,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object definition_;
   /**
    * <pre>
-   *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k.默认返回全部
    * </pre>
    *
    * <code>string Definition = 4;</code>
@@ -355,7 +355,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k.默认返回全部
    * </pre>
    *
    * <code>string Definition = 4;</code>
@@ -380,7 +380,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object fileType_;
   /**
    * <pre>
-   * 2k, 4k
+   * 流文件类型，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio.默认video
    * </pre>
    *
    * <code>string FileType = 5;</code>
@@ -401,7 +401,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 2k, 4k
+   * 流文件类型，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio.默认video
    * </pre>
    *
    * <code>string FileType = 5;</code>
@@ -426,7 +426,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object logoType_;
   /**
    * <pre>
-   * 水印贴片标签
+   * 水印贴片标签 
    * </pre>
    *
    * <code>string LogoType = 6;</code>
@@ -447,7 +447,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 水印贴片标签
+   * 水印贴片标签 
    * </pre>
    *
    * <code>string LogoType = 6;</code>
@@ -472,7 +472,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object base64_;
   /**
    * <pre>
-   *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
+   * 播放地址是否base64编码，默认否，支持设置： 0-否，1-是 
    * </pre>
    *
    * <code>string Base64 = 7;</code>
@@ -493,7 +493,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
+   * 播放地址是否base64编码，默认否，支持设置： 0-否，1-是 
    * </pre>
    *
    * <code>string Base64 = 7;</code>
@@ -518,7 +518,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object ssl_;
   /**
    * <pre>
-   *返回https播放地址，默认否, 1-是；0-否
+   * 返回https播放地址，默认否, 1-是；0-否 
    * </pre>
    *
    * <code>string Ssl = 8;</code>
@@ -539,7 +539,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *返回https播放地址，默认否, 1-是；0-否
+   * 返回https播放地址，默认否, 1-是；0-否 
    * </pre>
    *
    * <code>string Ssl = 8;</code>
@@ -564,7 +564,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object needThumbs_;
   /**
    * <pre>
-   * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+   * 是否需要雪碧图（缩略图），默认否，1-是；0-否 
    * </pre>
    *
    * <code>string NeedThumbs = 9;</code>
@@ -585,7 +585,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+   * 是否需要雪碧图（缩略图），默认否，1-是；0-否 
    * </pre>
    *
    * <code>string NeedThumbs = 9;</code>
@@ -610,7 +610,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object needBarrageMask_;
   /**
    * <pre>
-   * 是否需要蒙版弹幕，默认否，1-是；0-否
+   * 是否需要蒙版弹幕，默认否，1-是；0-否 
    * </pre>
    *
    * <code>string NeedBarrageMask = 10;</code>
@@ -631,7 +631,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 是否需要蒙版弹幕，默认否，1-是；0-否
+   * 是否需要蒙版弹幕，默认否，1-是；0-否 
    * </pre>
    *
    * <code>string NeedBarrageMask = 10;</code>
@@ -656,7 +656,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object cdnType_;
   /**
    * <pre>
-   * 指定CDN类型
+   * 指定CDN类型, 默认不传为普通CDN, 若需使用请联系技术支持 
    * </pre>
    *
    * <code>string CdnType = 11;</code>
@@ -677,7 +677,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 指定CDN类型
+   * 指定CDN类型, 默认不传为普通CDN, 若需使用请联系技术支持 
    * </pre>
    *
    * <code>string CdnType = 11;</code>
@@ -702,7 +702,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object unionInfo_;
   /**
    * <pre>
-   * 唯一性标识信息
+   * 唯一性标识信息, 若需使用请联系技术支持 
    * </pre>
    *
    * <code>string UnionInfo = 12;</code>
@@ -723,7 +723,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 唯一性标识信息
+   * 唯一性标识信息, 若需使用请联系技术支持 
    * </pre>
    *
    * <code>string UnionInfo = 12;</code>
@@ -748,7 +748,8 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object hDRDefinition_;
   /**
    * <pre>
-   * HDR清晰度，默认不查询，支持：all,
+   * HDR清晰度，默认不查询，支持：all, 240p, 360p,
+   * 420p，480p，540p，720p，1080p, 2k, 4k
    * </pre>
    *
    * <code>string HDRDefinition = 13;</code>
@@ -769,7 +770,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * HDR清晰度，默认不查询，支持：all,
+   * HDR清晰度，默认不查询，支持：all, 240p, 360p,
+   * 420p，480p，540p，720p，1080p, 2k, 4k
    * </pre>
    *
    * <code>string HDRDefinition = 13;</code>
@@ -794,7 +796,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object playScene_;
   /**
    * <pre>
-   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+   * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看 
    * </pre>
    *
    * <code>string PlayScene = 14;</code>
@@ -815,7 +817,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+   * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看 
    * </pre>
    *
    * <code>string PlayScene = 14;</code>
@@ -840,7 +842,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object drmExpireTimestamp_;
   /**
    * <pre>
-   * DRM过期时间戳
+   * DRM过期时间戳, 若需使用请联系技术支持 
    * </pre>
    *
    * <code>string DrmExpireTimestamp = 15;</code>
@@ -861,7 +863,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * DRM过期时间戳
+   * DRM过期时间戳, 若需使用请联系技术支持 
    * </pre>
    *
    * <code>string DrmExpireTimestamp = 15;</code>
@@ -886,7 +888,8 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object quality_;
   /**
    * <pre>
-   *音频码率
+   * 音频音质。当
+   * FileType为audio和eaudio时起作用，表示音频音质参数。支持：medium、higher、highest.默认返回所有音频流
    * </pre>
    *
    * <code>string Quality = 16;</code>
@@ -907,7 +910,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *音频码率
+   * 音频音质。当
+   * FileType为audio和eaudio时起作用，表示音频音质参数。支持：medium、higher、highest.默认返回所有音频流
    * </pre>
    *
    * <code>string Quality = 16;</code>
@@ -1488,7 +1492,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object vid_ = "";
     /**
      * <pre>
-     * 视频ID
+     * 视频ID 
      * </pre>
      *
      * <code>string Vid = 1;</code>
@@ -1508,7 +1512,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频ID
+     * 视频ID 
      * </pre>
      *
      * <code>string Vid = 1;</code>
@@ -1529,7 +1533,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频ID
+     * 视频ID 
      * </pre>
      *
      * <code>string Vid = 1;</code>
@@ -1548,7 +1552,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频ID
+     * 视频ID 
      * </pre>
      *
      * <code>string Vid = 1;</code>
@@ -1562,7 +1566,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频ID
+     * 视频ID 
      * </pre>
      *
      * <code>string Vid = 1;</code>
@@ -1584,7 +1588,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object format_ = "";
     /**
      * <pre>
-     *封装格式，支持mp4,dash,hls，默认mp4Format
+     * 封装格式，支持 mp4、dash、hls、mp3、m4a、ogg, 默认mp4 
      * </pre>
      *
      * <code>string Format = 2;</code>
@@ -1604,7 +1608,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *封装格式，支持mp4,dash,hls，默认mp4Format
+     * 封装格式，支持 mp4、dash、hls、mp3、m4a、ogg, 默认mp4 
      * </pre>
      *
      * <code>string Format = 2;</code>
@@ -1625,7 +1629,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *封装格式，支持mp4,dash,hls，默认mp4Format
+     * 封装格式，支持 mp4、dash、hls、mp3、m4a、ogg, 默认mp4 
      * </pre>
      *
      * <code>string Format = 2;</code>
@@ -1644,7 +1648,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *封装格式，支持mp4,dash,hls，默认mp4Format
+     * 封装格式，支持 mp4、dash、hls、mp3、m4a、ogg, 默认mp4 
      * </pre>
      *
      * <code>string Format = 2;</code>
@@ -1658,7 +1662,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *封装格式，支持mp4,dash,hls，默认mp4Format
+     * 封装格式，支持 mp4、dash、hls、mp3、m4a、ogg, 默认mp4 
      * </pre>
      *
      * <code>string Format = 2;</code>
@@ -1680,7 +1684,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object codec_ = "";
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264, h265等Codec
+     * 编码格式，支持 mp3、aac、opus、H264、H265、H266, 视频默认H264，音频默认aac
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -1700,7 +1704,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264, h265等Codec
+     * 编码格式，支持 mp3、aac、opus、H264、H265、H266, 视频默认H264，音频默认aac
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -1721,7 +1725,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264, h265等Codec
+     * 编码格式，支持 mp3、aac、opus、H264、H265、H266, 视频默认H264，音频默认aac
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -1740,7 +1744,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264, h265等Codec
+     * 编码格式，支持 mp3、aac、opus、H264、H265、H266, 视频默认H264，音频默认aac
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -1754,7 +1758,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *编码类型，默认h264，可选值为h264, h265等Codec
+     * 编码格式，支持 mp3、aac、opus、H264、H265、H266, 视频默认H264，音频默认aac
      * </pre>
      *
      * <code>string Codec = 3;</code>
@@ -1776,7 +1780,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object definition_ = "";
     /**
      * <pre>
-     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k.默认返回全部
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -1796,7 +1800,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k.默认返回全部
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -1817,7 +1821,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k.默认返回全部
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -1836,7 +1840,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k.默认返回全部
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -1850,7 +1854,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k.默认返回全部
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -1872,7 +1876,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object fileType_ = "";
     /**
      * <pre>
-     * 2k, 4k
+     * 流文件类型，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio.默认video
      * </pre>
      *
      * <code>string FileType = 5;</code>
@@ -1892,7 +1896,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 2k, 4k
+     * 流文件类型，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio.默认video
      * </pre>
      *
      * <code>string FileType = 5;</code>
@@ -1913,7 +1917,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 2k, 4k
+     * 流文件类型，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio.默认video
      * </pre>
      *
      * <code>string FileType = 5;</code>
@@ -1932,7 +1936,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 2k, 4k
+     * 流文件类型，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio.默认video
      * </pre>
      *
      * <code>string FileType = 5;</code>
@@ -1946,7 +1950,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 2k, 4k
+     * 流文件类型，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio.默认video
      * </pre>
      *
      * <code>string FileType = 5;</code>
@@ -1968,7 +1972,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object logoType_ = "";
     /**
      * <pre>
-     * 水印贴片标签
+     * 水印贴片标签 
      * </pre>
      *
      * <code>string LogoType = 6;</code>
@@ -1988,7 +1992,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 水印贴片标签
+     * 水印贴片标签 
      * </pre>
      *
      * <code>string LogoType = 6;</code>
@@ -2009,7 +2013,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 水印贴片标签
+     * 水印贴片标签 
      * </pre>
      *
      * <code>string LogoType = 6;</code>
@@ -2028,7 +2032,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 水印贴片标签
+     * 水印贴片标签 
      * </pre>
      *
      * <code>string LogoType = 6;</code>
@@ -2042,7 +2046,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 水印贴片标签
+     * 水印贴片标签 
      * </pre>
      *
      * <code>string LogoType = 6;</code>
@@ -2064,7 +2068,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object base64_ = "";
     /**
      * <pre>
-     *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
+     * 播放地址是否base64编码，默认否，支持设置： 0-否，1-是 
      * </pre>
      *
      * <code>string Base64 = 7;</code>
@@ -2084,7 +2088,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
+     * 播放地址是否base64编码，默认否，支持设置： 0-否，1-是 
      * </pre>
      *
      * <code>string Base64 = 7;</code>
@@ -2105,7 +2109,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
+     * 播放地址是否base64编码，默认否，支持设置： 0-否，1-是 
      * </pre>
      *
      * <code>string Base64 = 7;</code>
@@ -2124,7 +2128,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
+     * 播放地址是否base64编码，默认否，支持设置： 0-否，1-是 
      * </pre>
      *
      * <code>string Base64 = 7;</code>
@@ -2138,7 +2142,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
+     * 播放地址是否base64编码，默认否，支持设置： 0-否，1-是 
      * </pre>
      *
      * <code>string Base64 = 7;</code>
@@ -2160,7 +2164,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object ssl_ = "";
     /**
      * <pre>
-     *返回https播放地址，默认否, 1-是；0-否
+     * 返回https播放地址，默认否, 1-是；0-否 
      * </pre>
      *
      * <code>string Ssl = 8;</code>
@@ -2180,7 +2184,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *返回https播放地址，默认否, 1-是；0-否
+     * 返回https播放地址，默认否, 1-是；0-否 
      * </pre>
      *
      * <code>string Ssl = 8;</code>
@@ -2201,7 +2205,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *返回https播放地址，默认否, 1-是；0-否
+     * 返回https播放地址，默认否, 1-是；0-否 
      * </pre>
      *
      * <code>string Ssl = 8;</code>
@@ -2220,7 +2224,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *返回https播放地址，默认否, 1-是；0-否
+     * 返回https播放地址，默认否, 1-是；0-否 
      * </pre>
      *
      * <code>string Ssl = 8;</code>
@@ -2234,7 +2238,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *返回https播放地址，默认否, 1-是；0-否
+     * 返回https播放地址，默认否, 1-是；0-否 
      * </pre>
      *
      * <code>string Ssl = 8;</code>
@@ -2256,7 +2260,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object needThumbs_ = "";
     /**
      * <pre>
-     * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+     * 是否需要雪碧图（缩略图），默认否，1-是；0-否 
      * </pre>
      *
      * <code>string NeedThumbs = 9;</code>
@@ -2276,7 +2280,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+     * 是否需要雪碧图（缩略图），默认否，1-是；0-否 
      * </pre>
      *
      * <code>string NeedThumbs = 9;</code>
@@ -2297,7 +2301,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+     * 是否需要雪碧图（缩略图），默认否，1-是；0-否 
      * </pre>
      *
      * <code>string NeedThumbs = 9;</code>
@@ -2316,7 +2320,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+     * 是否需要雪碧图（缩略图），默认否，1-是；0-否 
      * </pre>
      *
      * <code>string NeedThumbs = 9;</code>
@@ -2330,7 +2334,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+     * 是否需要雪碧图（缩略图），默认否，1-是；0-否 
      * </pre>
      *
      * <code>string NeedThumbs = 9;</code>
@@ -2352,7 +2356,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object needBarrageMask_ = "";
     /**
      * <pre>
-     * 是否需要蒙版弹幕，默认否，1-是；0-否
+     * 是否需要蒙版弹幕，默认否，1-是；0-否 
      * </pre>
      *
      * <code>string NeedBarrageMask = 10;</code>
@@ -2372,7 +2376,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 是否需要蒙版弹幕，默认否，1-是；0-否
+     * 是否需要蒙版弹幕，默认否，1-是；0-否 
      * </pre>
      *
      * <code>string NeedBarrageMask = 10;</code>
@@ -2393,7 +2397,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 是否需要蒙版弹幕，默认否，1-是；0-否
+     * 是否需要蒙版弹幕，默认否，1-是；0-否 
      * </pre>
      *
      * <code>string NeedBarrageMask = 10;</code>
@@ -2412,7 +2416,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 是否需要蒙版弹幕，默认否，1-是；0-否
+     * 是否需要蒙版弹幕，默认否，1-是；0-否 
      * </pre>
      *
      * <code>string NeedBarrageMask = 10;</code>
@@ -2426,7 +2430,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 是否需要蒙版弹幕，默认否，1-是；0-否
+     * 是否需要蒙版弹幕，默认否，1-是；0-否 
      * </pre>
      *
      * <code>string NeedBarrageMask = 10;</code>
@@ -2448,7 +2452,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object cdnType_ = "";
     /**
      * <pre>
-     * 指定CDN类型
+     * 指定CDN类型, 默认不传为普通CDN, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string CdnType = 11;</code>
@@ -2468,7 +2472,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 指定CDN类型
+     * 指定CDN类型, 默认不传为普通CDN, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string CdnType = 11;</code>
@@ -2489,7 +2493,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 指定CDN类型
+     * 指定CDN类型, 默认不传为普通CDN, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string CdnType = 11;</code>
@@ -2508,7 +2512,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 指定CDN类型
+     * 指定CDN类型, 默认不传为普通CDN, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string CdnType = 11;</code>
@@ -2522,7 +2526,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 指定CDN类型
+     * 指定CDN类型, 默认不传为普通CDN, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string CdnType = 11;</code>
@@ -2544,7 +2548,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object unionInfo_ = "";
     /**
      * <pre>
-     * 唯一性标识信息
+     * 唯一性标识信息, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string UnionInfo = 12;</code>
@@ -2564,7 +2568,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 唯一性标识信息
+     * 唯一性标识信息, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string UnionInfo = 12;</code>
@@ -2585,7 +2589,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 唯一性标识信息
+     * 唯一性标识信息, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string UnionInfo = 12;</code>
@@ -2604,7 +2608,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 唯一性标识信息
+     * 唯一性标识信息, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string UnionInfo = 12;</code>
@@ -2618,7 +2622,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 唯一性标识信息
+     * 唯一性标识信息, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string UnionInfo = 12;</code>
@@ -2640,7 +2644,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object hDRDefinition_ = "";
     /**
      * <pre>
-     * HDR清晰度，默认不查询，支持：all,
+     * HDR清晰度，默认不查询，支持：all, 240p, 360p,
+     * 420p，480p，540p，720p，1080p, 2k, 4k
      * </pre>
      *
      * <code>string HDRDefinition = 13;</code>
@@ -2660,7 +2665,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * HDR清晰度，默认不查询，支持：all,
+     * HDR清晰度，默认不查询，支持：all, 240p, 360p,
+     * 420p，480p，540p，720p，1080p, 2k, 4k
      * </pre>
      *
      * <code>string HDRDefinition = 13;</code>
@@ -2681,7 +2687,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * HDR清晰度，默认不查询，支持：all,
+     * HDR清晰度，默认不查询，支持：all, 240p, 360p,
+     * 420p，480p，540p，720p，1080p, 2k, 4k
      * </pre>
      *
      * <code>string HDRDefinition = 13;</code>
@@ -2700,7 +2707,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * HDR清晰度，默认不查询，支持：all,
+     * HDR清晰度，默认不查询，支持：all, 240p, 360p,
+     * 420p，480p，540p，720p，1080p, 2k, 4k
      * </pre>
      *
      * <code>string HDRDefinition = 13;</code>
@@ -2714,7 +2722,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * HDR清晰度，默认不查询，支持：all,
+     * HDR清晰度，默认不查询，支持：all, 240p, 360p,
+     * 420p，480p，540p，720p，1080p, 2k, 4k
      * </pre>
      *
      * <code>string HDRDefinition = 13;</code>
@@ -2736,7 +2745,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object playScene_ = "";
     /**
      * <pre>
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看 
      * </pre>
      *
      * <code>string PlayScene = 14;</code>
@@ -2756,7 +2765,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看 
      * </pre>
      *
      * <code>string PlayScene = 14;</code>
@@ -2777,7 +2786,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看 
      * </pre>
      *
      * <code>string PlayScene = 14;</code>
@@ -2796,7 +2805,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看 
      * </pre>
      *
      * <code>string PlayScene = 14;</code>
@@ -2810,7 +2819,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看 
      * </pre>
      *
      * <code>string PlayScene = 14;</code>
@@ -2832,7 +2841,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object drmExpireTimestamp_ = "";
     /**
      * <pre>
-     * DRM过期时间戳
+     * DRM过期时间戳, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string DrmExpireTimestamp = 15;</code>
@@ -2852,7 +2861,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * DRM过期时间戳
+     * DRM过期时间戳, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string DrmExpireTimestamp = 15;</code>
@@ -2873,7 +2882,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * DRM过期时间戳
+     * DRM过期时间戳, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string DrmExpireTimestamp = 15;</code>
@@ -2892,7 +2901,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * DRM过期时间戳
+     * DRM过期时间戳, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string DrmExpireTimestamp = 15;</code>
@@ -2906,7 +2915,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * DRM过期时间戳
+     * DRM过期时间戳, 若需使用请联系技术支持 
      * </pre>
      *
      * <code>string DrmExpireTimestamp = 15;</code>
@@ -2928,7 +2937,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object quality_ = "";
     /**
      * <pre>
-     *音频码率
+     * 音频音质。当
+     * FileType为audio和eaudio时起作用，表示音频音质参数。支持：medium、higher、highest.默认返回所有音频流
      * </pre>
      *
      * <code>string Quality = 16;</code>
@@ -2948,7 +2958,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *音频码率
+     * 音频音质。当
+     * FileType为audio和eaudio时起作用，表示音频音质参数。支持：medium、higher、highest.默认返回所有音频流
      * </pre>
      *
      * <code>string Quality = 16;</code>
@@ -2969,7 +2980,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *音频码率
+     * 音频音质。当
+     * FileType为audio和eaudio时起作用，表示音频音质参数。支持：medium、higher、highest.默认返回所有音频流
      * </pre>
      *
      * <code>string Quality = 16;</code>
@@ -2988,7 +3000,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *音频码率
+     * 音频音质。当
+     * FileType为audio和eaudio时起作用，表示音频音质参数。支持：medium、higher、highest.默认返回所有音频流
      * </pre>
      *
      * <code>string Quality = 16;</code>
@@ -3002,7 +3015,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *音频码率
+     * 音频音质。当
+     * FileType为audio和eaudio时起作用，表示音频音质参数。支持：medium、higher、highest.默认返回所有音频流
      * </pre>
      *
      * <code>string Quality = 16;</code>

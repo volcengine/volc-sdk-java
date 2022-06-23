@@ -9,7 +9,7 @@ public interface VodUpdateSpaceUploadConfigRequestOrBuilder extends
 
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -18,7 +18,7 @@ public interface VodUpdateSpaceUploadConfigRequestOrBuilder extends
   java.lang.String getSpaceName();
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -29,7 +29,7 @@ public interface VodUpdateSpaceUploadConfigRequestOrBuilder extends
 
   /**
    * <pre>
-   * 需要变更的设置key，值为VodSpaceUploadConfigKey中的枚举数字
+   * 需要变更的设置key，值为VodSpaceUploadConfigKey中的枚举数字 
    * </pre>
    *
    * <code>string ConfigKey = 2;</code>
@@ -38,7 +38,7 @@ public interface VodUpdateSpaceUploadConfigRequestOrBuilder extends
   java.lang.String getConfigKey();
   /**
    * <pre>
-   * 需要变更的设置key，值为VodSpaceUploadConfigKey中的枚举数字
+   * 需要变更的设置key，值为VodSpaceUploadConfigKey中的枚举数字 
    * </pre>
    *
    * <code>string ConfigKey = 2;</code>
@@ -49,7 +49,9 @@ public interface VodUpdateSpaceUploadConfigRequestOrBuilder extends
 
   /**
    * <pre>
-   * 需要变更的设置value，取值与ConfigKey相关。ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
+   * 需要变更的设置value，取值与ConfigKey相关。
+   * ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
+   * ConfigKey传入2时，ConfigValue可选值为”Available“或”Unavailable“
    * </pre>
    *
    * <code>string ConfigValue = 3;</code>
@@ -58,7 +60,9 @@ public interface VodUpdateSpaceUploadConfigRequestOrBuilder extends
   java.lang.String getConfigValue();
   /**
    * <pre>
-   * 需要变更的设置value，取值与ConfigKey相关。ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
+   * 需要变更的设置value，取值与ConfigKey相关。
+   * ConfigKey传入1时，ConfigValue可选值为”true“或”false“;
+   * ConfigKey传入2时，ConfigValue可选值为”Available“或”Unavailable“
    * </pre>
    *
    * <code>string ConfigValue = 3;</code>

@@ -9,7 +9,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 播放url
+   * 播放url 
    * </pre>
    *
    * <code>string PlayUrl = 1;</code>
@@ -18,7 +18,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
   java.lang.String getPlayUrl();
   /**
    * <pre>
-   * 播放url
+   * 播放url 
    * </pre>
    *
    * <code>string PlayUrl = 1;</code>
@@ -29,7 +29,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *封装格式，支持mp4,dash,hls，默认mp4Format
+   * 封装格式，支持mp4,dash,hls，默认mp4Format 
    * </pre>
    *
    * <code>string Format = 2;</code>
@@ -38,7 +38,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
   java.lang.String getFormat();
   /**
    * <pre>
-   *封装格式，支持mp4,dash,hls，默认mp4Format
+   * 封装格式，支持mp4,dash,hls，默认mp4Format 
    * </pre>
    *
    * <code>string Format = 2;</code>
@@ -49,7 +49,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264,bytevc1等Codec
+   * 编码类型，默认h264，可选值为h264,bytevc1等Codec 
    * </pre>
    *
    * <code>string Codec = 3;</code>
@@ -58,7 +58,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
   java.lang.String getCodec();
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264,bytevc1等Codec
+   * 编码类型，默认h264，可选值为h264,bytevc1等Codec 
    * </pre>
    *
    * <code>string Codec = 3;</code>
@@ -69,7 +69,8 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+   * 视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+   * 2k, 4k
    * </pre>
    *
    * <code>string Definition = 4;</code>
@@ -78,7 +79,8 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
   java.lang.String getDefinition();
   /**
    * <pre>
-   *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+   * 视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+   * 2k, 4k
    * </pre>
    *
    * <code>string Definition = 4;</code>
@@ -89,7 +91,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 2k, 4k
+   * 流文件类型，默认video，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio
    * </pre>
    *
    * <code>string FileType = 5;</code>
@@ -98,7 +100,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
   java.lang.String getFileType();
   /**
    * <pre>
-   * 2k, 4k
+   * 流文件类型，默认video，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio
    * </pre>
    *
    * <code>string FileType = 5;</code>
@@ -109,7 +111,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 水印贴片标签
+   * 水印贴片标签 
    * </pre>
    *
    * <code>string LogoType = 6;</code>
@@ -118,7 +120,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
   java.lang.String getLogoType();
   /**
    * <pre>
-   * 水印贴片标签
+   * 水印贴片标签 
    * </pre>
    *
    * <code>string LogoType = 6;</code>
@@ -129,7 +131,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *返回https播放地址，默认否, 1-是；0-否
+   * 返回https播放地址，默认否, 1-是；0-否 
    * </pre>
    *
    * <code>string Ssl = 7;</code>
@@ -138,7 +140,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
   java.lang.String getSsl();
   /**
    * <pre>
-   *返回https播放地址，默认否, 1-是；0-否
+   * 返回https播放地址，默认否, 1-是；0-否 
    * </pre>
    *
    * <code>string Ssl = 7;</code>
@@ -149,7 +151,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+   * 是否需要雪碧图（缩略图），默认否，1-是；0-否 
    * </pre>
    *
    * <code>string NeedThumbs = 8;</code>
@@ -158,7 +160,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
   java.lang.String getNeedThumbs();
   /**
    * <pre>
-   * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+   * 是否需要雪碧图（缩略图），默认否，1-是；0-否 
    * </pre>
    *
    * <code>string NeedThumbs = 8;</code>
@@ -169,7 +171,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 是否需要蒙版弹幕，默认否，1-是；0-否
+   * 是否需要蒙版弹幕，默认否，1-是；0-否 
    * </pre>
    *
    * <code>string NeedBarrageMask = 9;</code>
@@ -178,7 +180,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
   java.lang.String getNeedBarrageMask();
   /**
    * <pre>
-   * 是否需要蒙版弹幕，默认否，1-是；0-否
+   * 是否需要蒙版弹幕，默认否，1-是；0-否 
    * </pre>
    *
    * <code>string NeedBarrageMask = 9;</code>
@@ -189,7 +191,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 唯一性标识信息
+   * 唯一性标识信息 
    * </pre>
    *
    * <code>string UnionInfo = 10;</code>
@@ -198,7 +200,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
   java.lang.String getUnionInfo();
   /**
    * <pre>
-   * 唯一性标识信息
+   * 唯一性标识信息 
    * </pre>
    *
    * <code>string UnionInfo = 10;</code>
@@ -210,6 +212,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
   /**
    * <pre>
    * HDR清晰度，默认不查询，支持：all,
+   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
    * </pre>
    *
    * <code>string HDRDefinition = 11;</code>
@@ -219,6 +222,7 @@ public interface VodGetSmartStrategyLitePlayInfoRequestOrBuilder extends
   /**
    * <pre>
    * HDR清晰度，默认不查询，支持：all,
+   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
    * </pre>
    *
    * <code>string HDRDefinition = 11;</code>

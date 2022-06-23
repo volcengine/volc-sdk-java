@@ -9,7 +9,7 @@ public interface VodGetPlayInfoWithLiveTimeShiftSceneRequestOrBuilder extends
 
   /**
    * <pre>
-   * 播放URI
+   * 播放URI列表,多个uri之间使用“,”分隔 
    * </pre>
    *
    * <code>string StoreUris = 1;</code>
@@ -18,7 +18,7 @@ public interface VodGetPlayInfoWithLiveTimeShiftSceneRequestOrBuilder extends
   java.lang.String getStoreUris();
   /**
    * <pre>
-   * 播放URI
+   * 播放URI列表,多个uri之间使用“,”分隔 
    * </pre>
    *
    * <code>string StoreUris = 1;</code>
@@ -29,7 +29,7 @@ public interface VodGetPlayInfoWithLiveTimeShiftSceneRequestOrBuilder extends
 
   /**
    * <pre>
-   * 空间名称
+   * 空间名称 
    * </pre>
    *
    * <code>string SpaceName = 2;</code>
@@ -38,7 +38,7 @@ public interface VodGetPlayInfoWithLiveTimeShiftSceneRequestOrBuilder extends
   java.lang.String getSpaceName();
   /**
    * <pre>
-   * 空间名称
+   * 空间名称 
    * </pre>
    *
    * <code>string SpaceName = 2;</code>
@@ -49,7 +49,7 @@ public interface VodGetPlayInfoWithLiveTimeShiftSceneRequestOrBuilder extends
 
   /**
    * <pre>
-   *返回https播放地址，默认否, 1-是；0-否
+   * 返回https播放地址，默认否, 1-是；0-否 
    * </pre>
    *
    * <code>string Ssl = 3;</code>
@@ -58,7 +58,7 @@ public interface VodGetPlayInfoWithLiveTimeShiftSceneRequestOrBuilder extends
   java.lang.String getSsl();
   /**
    * <pre>
-   *返回https播放地址，默认否, 1-是；0-否
+   * 返回https播放地址，默认否, 1-是；0-否 
    * </pre>
    *
    * <code>string Ssl = 3;</code>
@@ -69,7 +69,7 @@ public interface VodGetPlayInfoWithLiveTimeShiftSceneRequestOrBuilder extends
 
   /**
    * <pre>
-   * 过期时间戳：毫秒。若不传，则为当前时间+1小时
+   * 过期时间戳：毫秒。若不传，则为当前时间+1小时 
    * </pre>
    *
    * <code>string ExpireTimestamp = 4;</code>
@@ -78,7 +78,7 @@ public interface VodGetPlayInfoWithLiveTimeShiftSceneRequestOrBuilder extends
   java.lang.String getExpireTimestamp();
   /**
    * <pre>
-   * 过期时间戳：毫秒。若不传，则为当前时间+1小时
+   * 过期时间戳：毫秒。若不传，则为当前时间+1小时 
    * </pre>
    *
    * <code>string ExpireTimestamp = 4;</code>
@@ -89,7 +89,7 @@ public interface VodGetPlayInfoWithLiveTimeShiftSceneRequestOrBuilder extends
 
   /**
    * <pre>
-   *生成地址时填充BucketName，默认否, 1-是；0-否
+   * 生成地址时填充BucketName，默认否, 1-是；0-否 
    * </pre>
    *
    * <code>string NeedComposeBucketName = 5;</code>
@@ -98,7 +98,7 @@ public interface VodGetPlayInfoWithLiveTimeShiftSceneRequestOrBuilder extends
   java.lang.String getNeedComposeBucketName();
   /**
    * <pre>
-   *生成地址时填充BucketName，默认否, 1-是；0-否
+   * 生成地址时填充BucketName，默认否, 1-是；0-否 
    * </pre>
    *
    * <code>string NeedComposeBucketName = 5;</code>

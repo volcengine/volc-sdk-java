@@ -102,6 +102,10 @@ private static final long serialVersionUID = 0L;
   public static final int RESPONSEMETADATA_FIELD_NUMBER = 1;
   private com.volcengine.service.base.model.base.ResponseMetadata responseMetadata_;
   /**
+   * <pre>
+   *响应通用信息
+   * </pre>
+   *
    * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    * @return Whether the responseMetadata field is set.
    */
@@ -110,6 +114,10 @@ private static final long serialVersionUID = 0L;
     return responseMetadata_ != null;
   }
   /**
+   * <pre>
+   *响应通用信息
+   * </pre>
+   *
    * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    * @return The responseMetadata.
    */
@@ -118,6 +126,10 @@ private static final long serialVersionUID = 0L;
     return responseMetadata_ == null ? com.volcengine.service.base.model.base.ResponseMetadata.getDefaultInstance() : responseMetadata_;
   }
   /**
+   * <pre>
+   *响应通用信息
+   * </pre>
+   *
    * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    */
   @java.lang.Override
@@ -450,6 +462,10 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.volcengine.service.base.model.base.ResponseMetadata, com.volcengine.service.base.model.base.ResponseMetadata.Builder, com.volcengine.service.base.model.base.ResponseMetadataOrBuilder> responseMetadataBuilder_;
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      * @return Whether the responseMetadata field is set.
      */
@@ -457,6 +473,10 @@ private static final long serialVersionUID = 0L;
       return responseMetadataBuilder_ != null || responseMetadata_ != null;
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      * @return The responseMetadata.
      */
@@ -468,6 +488,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public Builder setResponseMetadata(com.volcengine.service.base.model.base.ResponseMetadata value) {
@@ -484,6 +508,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public Builder setResponseMetadata(
@@ -498,6 +526,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public Builder mergeResponseMetadata(com.volcengine.service.base.model.base.ResponseMetadata value) {
@@ -516,6 +548,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public Builder clearResponseMetadata() {
@@ -530,6 +566,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public com.volcengine.service.base.model.base.ResponseMetadata.Builder getResponseMetadataBuilder() {
@@ -538,6 +578,10 @@ private static final long serialVersionUID = 0L;
       return getResponseMetadataFieldBuilder().getBuilder();
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public com.volcengine.service.base.model.base.ResponseMetadataOrBuilder getResponseMetadataOrBuilder() {
@@ -549,6 +593,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<

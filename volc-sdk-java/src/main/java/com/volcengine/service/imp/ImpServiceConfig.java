@@ -1,12 +1,6 @@
 package com.volcengine.service.imp;
 
-import com.volcengine.model.ApiInfo;
-import com.volcengine.model.Credentials;
-import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,7 +18,7 @@ public class ImpServiceConfig {
                             put(com.volcengine.helper.Const.Host, "open.volcengineapi.com");
                             put(com.volcengine.helper.Const.Header, new ArrayList<Header>() {
                                 {
-                                    add(new BasicHeader("Accept", "application/json"));
+                                    add(new Header("Accept", "application/json"));
                                 }
                             });
                             put(com.volcengine.helper.Const.Credentials, new Credentials(com.volcengine.helper.Const.REGION_CN_NORTH_1, "imp"));
@@ -46,8 +40,8 @@ public class ImpServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.SubmitJob));
-                                    add(new BasicNameValuePair("Version", "2021-06-11"));
+                                    add(new NameValuePair("Action", Const.SubmitJob));
+                                    add(new NameValuePair("Version", "2021-06-11"));
                                 }
                             });
                         }
@@ -64,8 +58,8 @@ public class ImpServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.RetrieveJob));
-                                    add(new BasicNameValuePair("Version", "2021-06-11"));
+                                    add(new NameValuePair("Action", Const.RetrieveJob));
+                                    add(new NameValuePair("Version", "2021-06-11"));
                                 }
                             });
                         }
@@ -82,8 +76,8 @@ public class ImpServiceConfig {
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.KillJob));
-                                    add(new BasicNameValuePair("Version", "2021-06-11"));
+                                    add(new NameValuePair("Action", Const.KillJob));
+                                    add(new NameValuePair("Version", "2021-06-11"));
                                 }
                             });
                         }

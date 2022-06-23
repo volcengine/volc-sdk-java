@@ -498,8 +498,8 @@ public class CDNConfig {
                         put(Const.Path, "/");
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
-                                add(new BasicNameValuePair("Action", "DescribeIPListInfo"));
-                                add(new BasicNameValuePair("Version", "2021-03-01"));
+                                add(new NameValuePair("Action", "DescribeIPListInfo"));
+                                add(new NameValuePair("Version", "2021-03-01"));
                             }
                         });
                     }

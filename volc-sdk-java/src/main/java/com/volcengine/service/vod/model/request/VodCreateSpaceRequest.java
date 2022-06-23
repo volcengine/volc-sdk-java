@@ -4,6 +4,12 @@
 package com.volcengine.service.vod.model.request;
 
 /**
+ * <pre>
+ * **********************************************************************
+ * 空间管理
+ * **********************************************************************
+ * </pre>
+ *
  * Protobuf type {@code Volcengine.Vod.Models.Request.VodCreateSpaceRequest}
  */
 public final class VodCreateSpaceRequest extends
@@ -119,7 +125,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object spaceName_;
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -140,7 +146,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -165,7 +171,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object projectName_;
   /**
    * <pre>
-   * 项目名
+   * 项目名 
    * </pre>
    *
    * <code>string ProjectName = 2;</code>
@@ -186,7 +192,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 项目名
+   * 项目名 
    * </pre>
    *
    * <code>string ProjectName = 2;</code>
@@ -211,7 +217,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object description_;
   /**
    * <pre>
-   * 描述
+   * 描述 
    * </pre>
    *
    * <code>string Description = 3;</code>
@@ -232,7 +238,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 描述
+   * 描述 
    * </pre>
    *
    * <code>string Description = 3;</code>
@@ -257,7 +263,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object region_;
   /**
    * <pre>
-   * 空间区域
+   * 空间区域 
    * </pre>
    *
    * <code>string Region = 4;</code>
@@ -278,7 +284,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 空间区域
+   * 空间区域 
    * </pre>
    *
    * <code>string Region = 4;</code>
@@ -303,7 +309,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object userName_;
   /**
    * <pre>
-   * 创建用户
+   * 创建用户 
    * </pre>
    *
    * <code>string UserName = 5;</code>
@@ -324,7 +330,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 创建用户
+   * 创建用户 
    * </pre>
    *
    * <code>string UserName = 5;</code>
@@ -540,6 +546,12 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * **********************************************************************
+   * 空间管理
+   * **********************************************************************
+   * </pre>
+   *
    * Protobuf type {@code Volcengine.Vod.Models.Request.VodCreateSpaceRequest}
    */
   public static final class Builder extends
@@ -718,7 +730,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object spaceName_ = "";
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -738,7 +750,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -759,7 +771,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -778,7 +790,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -792,7 +804,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -814,7 +826,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object projectName_ = "";
     /**
      * <pre>
-     * 项目名
+     * 项目名 
      * </pre>
      *
      * <code>string ProjectName = 2;</code>
@@ -834,7 +846,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 项目名
+     * 项目名 
      * </pre>
      *
      * <code>string ProjectName = 2;</code>
@@ -855,7 +867,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 项目名
+     * 项目名 
      * </pre>
      *
      * <code>string ProjectName = 2;</code>
@@ -874,7 +886,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 项目名
+     * 项目名 
      * </pre>
      *
      * <code>string ProjectName = 2;</code>
@@ -888,7 +900,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 项目名
+     * 项目名 
      * </pre>
      *
      * <code>string ProjectName = 2;</code>
@@ -910,7 +922,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object description_ = "";
     /**
      * <pre>
-     * 描述
+     * 描述 
      * </pre>
      *
      * <code>string Description = 3;</code>
@@ -930,7 +942,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 描述
+     * 描述 
      * </pre>
      *
      * <code>string Description = 3;</code>
@@ -951,7 +963,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 描述
+     * 描述 
      * </pre>
      *
      * <code>string Description = 3;</code>
@@ -970,7 +982,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 描述
+     * 描述 
      * </pre>
      *
      * <code>string Description = 3;</code>
@@ -984,7 +996,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 描述
+     * 描述 
      * </pre>
      *
      * <code>string Description = 3;</code>
@@ -1006,7 +1018,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object region_ = "";
     /**
      * <pre>
-     * 空间区域
+     * 空间区域 
      * </pre>
      *
      * <code>string Region = 4;</code>
@@ -1026,7 +1038,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间区域
+     * 空间区域 
      * </pre>
      *
      * <code>string Region = 4;</code>
@@ -1047,7 +1059,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间区域
+     * 空间区域 
      * </pre>
      *
      * <code>string Region = 4;</code>
@@ -1066,7 +1078,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间区域
+     * 空间区域 
      * </pre>
      *
      * <code>string Region = 4;</code>
@@ -1080,7 +1092,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间区域
+     * 空间区域 
      * </pre>
      *
      * <code>string Region = 4;</code>
@@ -1102,7 +1114,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object userName_ = "";
     /**
      * <pre>
-     * 创建用户
+     * 创建用户 
      * </pre>
      *
      * <code>string UserName = 5;</code>
@@ -1122,7 +1134,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 创建用户
+     * 创建用户 
      * </pre>
      *
      * <code>string UserName = 5;</code>
@@ -1143,7 +1155,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 创建用户
+     * 创建用户 
      * </pre>
      *
      * <code>string UserName = 5;</code>
@@ -1162,7 +1174,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 创建用户
+     * 创建用户 
      * </pre>
      *
      * <code>string UserName = 5;</code>
@@ -1176,7 +1188,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 创建用户
+     * 创建用户 
      * </pre>
      *
      * <code>string UserName = 5;</code>

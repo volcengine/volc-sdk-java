@@ -97,7 +97,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object spaceName_;
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -118,7 +118,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -450,7 +450,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object spaceName_ = "";
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -470,7 +470,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -491,7 +491,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -510,7 +510,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -524,7 +524,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名
+     * 空间名 
      * </pre>
      *
      * <code>string SpaceName = 1;</code>

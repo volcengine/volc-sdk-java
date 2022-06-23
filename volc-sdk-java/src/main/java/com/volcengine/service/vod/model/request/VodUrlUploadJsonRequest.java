@@ -97,6 +97,10 @@ private static final long serialVersionUID = 0L;
   public static final int SPACENAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object spaceName_;
   /**
+   * <pre>
+   * 上传的空间名 
+   * </pre>
+   *
    * <code>string SpaceName = 1;</code>
    * @return The spaceName.
    */
@@ -114,6 +118,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 上传的空间名 
+   * </pre>
+   *
    * <code>string SpaceName = 1;</code>
    * @return The bytes for spaceName.
    */
@@ -135,6 +143,10 @@ private static final long serialVersionUID = 0L;
   public static final int URLSETS_FIELD_NUMBER = 2;
   private volatile java.lang.Object uRLSets_;
   /**
+   * <pre>
+   * 上传URL设置参数集合，每个URL入参的设置均在此设置 
+   * </pre>
+   *
    * <code>string URLSets = 2;</code>
    * @return The uRLSets.
    */
@@ -152,6 +164,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 上传URL设置参数集合，每个URL入参的设置均在此设置 
+   * </pre>
+   *
    * <code>string URLSets = 2;</code>
    * @return The bytes for uRLSets.
    */
@@ -491,6 +507,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object spaceName_ = "";
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @return The spaceName.
      */
@@ -507,6 +527,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @return The bytes for spaceName.
      */
@@ -524,6 +548,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @param value The spaceName to set.
      * @return This builder for chaining.
@@ -539,6 +567,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @return This builder for chaining.
      */
@@ -549,6 +581,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @param value The bytes for spaceName to set.
      * @return This builder for chaining.
@@ -567,6 +603,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object uRLSets_ = "";
     /**
+     * <pre>
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
+     * </pre>
+     *
      * <code>string URLSets = 2;</code>
      * @return The uRLSets.
      */
@@ -583,6 +623,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
+     * </pre>
+     *
      * <code>string URLSets = 2;</code>
      * @return The bytes for uRLSets.
      */
@@ -600,6 +644,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
+     * </pre>
+     *
      * <code>string URLSets = 2;</code>
      * @param value The uRLSets to set.
      * @return This builder for chaining.
@@ -615,6 +663,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
+     * </pre>
+     *
      * <code>string URLSets = 2;</code>
      * @return This builder for chaining.
      */
@@ -625,6 +677,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传URL设置参数集合，每个URL入参的设置均在此设置 
+     * </pre>
+     *
      * <code>string URLSets = 2;</code>
      * @param value The bytes for uRLSets to set.
      * @return This builder for chaining.

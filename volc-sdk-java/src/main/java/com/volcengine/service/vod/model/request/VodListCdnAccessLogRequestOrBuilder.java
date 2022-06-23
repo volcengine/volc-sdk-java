@@ -9,7 +9,7 @@ public interface VodListCdnAccessLogRequestOrBuilder extends
 
   /**
    * <pre>
-   * 域名（当前仅支持设置一个域名）
+   * 域名（当前仅支持设置一个域名） 
    * </pre>
    *
    * <code>string Domains = 1;</code>
@@ -18,7 +18,7 @@ public interface VodListCdnAccessLogRequestOrBuilder extends
   java.lang.String getDomains();
   /**
    * <pre>
-   * 域名（当前仅支持设置一个域名）
+   * 域名（当前仅支持设置一个域名） 
    * </pre>
    *
    * <code>string Domains = 1;</code>
@@ -29,7 +29,7 @@ public interface VodListCdnAccessLogRequestOrBuilder extends
 
   /**
    * <pre>
-   * 查询起始时间戳，单位：Unix秒级时间戳
+   * 查询起始时间戳，单位：Unix秒级时间戳 
    * </pre>
    *
    * <code>int32 StartTimestamp = 2;</code>
@@ -39,7 +39,7 @@ public interface VodListCdnAccessLogRequestOrBuilder extends
 
   /**
    * <pre>
-   * 查询结束时间戳，单位：Unix秒级时间戳
+   * 查询结束时间戳，单位：Unix秒级时间戳 
    * </pre>
    *
    * <code>int32 EndTimestamp = 3;</code>
@@ -49,7 +49,7 @@ public interface VodListCdnAccessLogRequestOrBuilder extends
 
   /**
    * <pre>
-   * 空间名称
+   * 空间名称 
    * </pre>
    *
    * <code>string SpaceName = 4;</code>
@@ -58,7 +58,7 @@ public interface VodListCdnAccessLogRequestOrBuilder extends
   java.lang.String getSpaceName();
   /**
    * <pre>
-   * 空间名称
+   * 空间名称 
    * </pre>
    *
    * <code>string SpaceName = 4;</code>

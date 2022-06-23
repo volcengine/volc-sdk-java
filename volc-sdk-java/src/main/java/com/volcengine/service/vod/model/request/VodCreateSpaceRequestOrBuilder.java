@@ -9,7 +9,7 @@ public interface VodCreateSpaceRequestOrBuilder extends
 
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -18,7 +18,7 @@ public interface VodCreateSpaceRequestOrBuilder extends
   java.lang.String getSpaceName();
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -29,7 +29,7 @@ public interface VodCreateSpaceRequestOrBuilder extends
 
   /**
    * <pre>
-   * 项目名
+   * 项目名 
    * </pre>
    *
    * <code>string ProjectName = 2;</code>
@@ -38,7 +38,7 @@ public interface VodCreateSpaceRequestOrBuilder extends
   java.lang.String getProjectName();
   /**
    * <pre>
-   * 项目名
+   * 项目名 
    * </pre>
    *
    * <code>string ProjectName = 2;</code>
@@ -49,7 +49,7 @@ public interface VodCreateSpaceRequestOrBuilder extends
 
   /**
    * <pre>
-   * 描述
+   * 描述 
    * </pre>
    *
    * <code>string Description = 3;</code>
@@ -58,7 +58,7 @@ public interface VodCreateSpaceRequestOrBuilder extends
   java.lang.String getDescription();
   /**
    * <pre>
-   * 描述
+   * 描述 
    * </pre>
    *
    * <code>string Description = 3;</code>
@@ -69,7 +69,7 @@ public interface VodCreateSpaceRequestOrBuilder extends
 
   /**
    * <pre>
-   * 空间区域
+   * 空间区域 
    * </pre>
    *
    * <code>string Region = 4;</code>
@@ -78,7 +78,7 @@ public interface VodCreateSpaceRequestOrBuilder extends
   java.lang.String getRegion();
   /**
    * <pre>
-   * 空间区域
+   * 空间区域 
    * </pre>
    *
    * <code>string Region = 4;</code>
@@ -89,7 +89,7 @@ public interface VodCreateSpaceRequestOrBuilder extends
 
   /**
    * <pre>
-   * 创建用户
+   * 创建用户 
    * </pre>
    *
    * <code>string UserName = 5;</code>
@@ -98,7 +98,7 @@ public interface VodCreateSpaceRequestOrBuilder extends
   java.lang.String getUserName();
   /**
    * <pre>
-   * 创建用户
+   * 创建用户 
    * </pre>
    *
    * <code>string UserName = 5;</code>

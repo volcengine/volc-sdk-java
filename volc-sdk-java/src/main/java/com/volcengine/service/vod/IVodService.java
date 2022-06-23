@@ -364,6 +364,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodStartWorkflowResponse startWorkflow(com.volcengine.service.vod.model.request.VodStartWorkflowRequest input) throws Exception;
 	
 	/**
+     * retrieveTranscodeResult.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest
+     * @return com.volcengine.service.vod.model.response.VodRetrieveTranscodeResultResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodRetrieveTranscodeResultResponse retrieveTranscodeResult(com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest input) throws Exception;
+	
+	/**
      * createSpace.
      *
      * @param input com.volcengine.service.vod.model.request.VodCreateSpaceRequest
@@ -497,6 +506,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodDescribeIPInfoResponse describeIpInfo(com.volcengine.service.vod.model.request.VodDescribeIPInfoRequest input) throws Exception;
+	
+	/**
+     * listCdnPvData.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodListCdnPvDataRequest
+     * @return com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse listCdnPvData(com.volcengine.service.vod.model.request.VodListCdnPvDataRequest input) throws Exception;
 	
 	/**
      * addCallbackSubscription.

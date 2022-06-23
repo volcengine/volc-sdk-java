@@ -8,11 +8,19 @@ public interface VodQueryUploadTaskInfoRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * 任务ID列表，通过任务ID可以查询任务的状态 
+   * </pre>
+   *
    * <code>string JobIds = 1;</code>
    * @return The jobIds.
    */
   java.lang.String getJobIds();
   /**
+   * <pre>
+   * 任务ID列表，通过任务ID可以查询任务的状态 
+   * </pre>
+   *
    * <code>string JobIds = 1;</code>
    * @return The bytes for jobIds.
    */

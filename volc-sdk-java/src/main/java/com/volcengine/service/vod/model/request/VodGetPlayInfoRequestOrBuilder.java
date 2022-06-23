@@ -9,7 +9,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 视频ID
+   * 视频ID 
    * </pre>
    *
    * <code>string Vid = 1;</code>
@@ -18,7 +18,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getVid();
   /**
    * <pre>
-   * 视频ID
+   * 视频ID 
    * </pre>
    *
    * <code>string Vid = 1;</code>
@@ -29,7 +29,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *封装格式，支持mp4,dash,hls，默认mp4Format
+   * 封装格式，支持 mp4、dash、hls、mp3、m4a、ogg, 默认mp4 
    * </pre>
    *
    * <code>string Format = 2;</code>
@@ -38,7 +38,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getFormat();
   /**
    * <pre>
-   *封装格式，支持mp4,dash,hls，默认mp4Format
+   * 封装格式，支持 mp4、dash、hls、mp3、m4a、ogg, 默认mp4 
    * </pre>
    *
    * <code>string Format = 2;</code>
@@ -49,7 +49,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264, h265等Codec
+   * 编码格式，支持 mp3、aac、opus、H264、H265、H266, 视频默认H264，音频默认aac
    * </pre>
    *
    * <code>string Codec = 3;</code>
@@ -58,7 +58,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getCodec();
   /**
    * <pre>
-   *编码类型，默认h264，可选值为h264, h265等Codec
+   * 编码格式，支持 mp3、aac、opus、H264、H265、H266, 视频默认H264，音频默认aac
    * </pre>
    *
    * <code>string Codec = 3;</code>
@@ -69,7 +69,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k.默认返回全部
    * </pre>
    *
    * <code>string Definition = 4;</code>
@@ -78,7 +78,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getDefinition();
   /**
    * <pre>
-   *视频流清晰度，默认返回全部，支持：240p，360p，480p，540p，720p，1080p,
+   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k.默认返回全部
    * </pre>
    *
    * <code>string Definition = 4;</code>
@@ -89,7 +89,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 2k, 4k
+   * 流文件类型，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio.默认video
    * </pre>
    *
    * <code>string FileType = 5;</code>
@@ -98,7 +98,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getFileType();
   /**
    * <pre>
-   * 2k, 4k
+   * 流文件类型，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio.默认video
    * </pre>
    *
    * <code>string FileType = 5;</code>
@@ -109,7 +109,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 水印贴片标签
+   * 水印贴片标签 
    * </pre>
    *
    * <code>string LogoType = 6;</code>
@@ -118,7 +118,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getLogoType();
   /**
    * <pre>
-   * 水印贴片标签
+   * 水印贴片标签 
    * </pre>
    *
    * <code>string LogoType = 6;</code>
@@ -129,7 +129,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
+   * 播放地址是否base64编码，默认否，支持设置： 0-否，1-是 
    * </pre>
    *
    * <code>string Base64 = 7;</code>
@@ -138,7 +138,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getBase64();
   /**
    * <pre>
-   *播放地址是否base64编码，默认否，支持设置： 0-否，1-是
+   * 播放地址是否base64编码，默认否，支持设置： 0-否，1-是 
    * </pre>
    *
    * <code>string Base64 = 7;</code>
@@ -149,7 +149,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *返回https播放地址，默认否, 1-是；0-否
+   * 返回https播放地址，默认否, 1-是；0-否 
    * </pre>
    *
    * <code>string Ssl = 8;</code>
@@ -158,7 +158,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getSsl();
   /**
    * <pre>
-   *返回https播放地址，默认否, 1-是；0-否
+   * 返回https播放地址，默认否, 1-是；0-否 
    * </pre>
    *
    * <code>string Ssl = 8;</code>
@@ -169,7 +169,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+   * 是否需要雪碧图（缩略图），默认否，1-是；0-否 
    * </pre>
    *
    * <code>string NeedThumbs = 9;</code>
@@ -178,7 +178,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getNeedThumbs();
   /**
    * <pre>
-   * 是否需要雪碧图（缩略图），默认否，1-是；0-否
+   * 是否需要雪碧图（缩略图），默认否，1-是；0-否 
    * </pre>
    *
    * <code>string NeedThumbs = 9;</code>
@@ -189,7 +189,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 是否需要蒙版弹幕，默认否，1-是；0-否
+   * 是否需要蒙版弹幕，默认否，1-是；0-否 
    * </pre>
    *
    * <code>string NeedBarrageMask = 10;</code>
@@ -198,7 +198,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getNeedBarrageMask();
   /**
    * <pre>
-   * 是否需要蒙版弹幕，默认否，1-是；0-否
+   * 是否需要蒙版弹幕，默认否，1-是；0-否 
    * </pre>
    *
    * <code>string NeedBarrageMask = 10;</code>
@@ -209,7 +209,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 指定CDN类型
+   * 指定CDN类型, 默认不传为普通CDN, 若需使用请联系技术支持 
    * </pre>
    *
    * <code>string CdnType = 11;</code>
@@ -218,7 +218,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getCdnType();
   /**
    * <pre>
-   * 指定CDN类型
+   * 指定CDN类型, 默认不传为普通CDN, 若需使用请联系技术支持 
    * </pre>
    *
    * <code>string CdnType = 11;</code>
@@ -229,7 +229,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 唯一性标识信息
+   * 唯一性标识信息, 若需使用请联系技术支持 
    * </pre>
    *
    * <code>string UnionInfo = 12;</code>
@@ -238,7 +238,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getUnionInfo();
   /**
    * <pre>
-   * 唯一性标识信息
+   * 唯一性标识信息, 若需使用请联系技术支持 
    * </pre>
    *
    * <code>string UnionInfo = 12;</code>
@@ -249,7 +249,8 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * HDR清晰度，默认不查询，支持：all,
+   * HDR清晰度，默认不查询，支持：all, 240p, 360p,
+   * 420p，480p，540p，720p，1080p, 2k, 4k
    * </pre>
    *
    * <code>string HDRDefinition = 13;</code>
@@ -258,7 +259,8 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getHDRDefinition();
   /**
    * <pre>
-   * HDR清晰度，默认不查询，支持：all,
+   * HDR清晰度，默认不查询，支持：all, 240p, 360p,
+   * 420p，480p，540p，720p，1080p, 2k, 4k
    * </pre>
    *
    * <code>string HDRDefinition = 13;</code>
@@ -269,7 +271,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+   * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看 
    * </pre>
    *
    * <code>string PlayScene = 14;</code>
@@ -278,7 +280,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getPlayScene();
   /**
    * <pre>
-   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+   * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看 
    * </pre>
    *
    * <code>string PlayScene = 14;</code>
@@ -289,7 +291,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * DRM过期时间戳
+   * DRM过期时间戳, 若需使用请联系技术支持 
    * </pre>
    *
    * <code>string DrmExpireTimestamp = 15;</code>
@@ -298,7 +300,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getDrmExpireTimestamp();
   /**
    * <pre>
-   * DRM过期时间戳
+   * DRM过期时间戳, 若需使用请联系技术支持 
    * </pre>
    *
    * <code>string DrmExpireTimestamp = 15;</code>
@@ -309,7 +311,8 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   *音频码率
+   * 音频音质。当
+   * FileType为audio和eaudio时起作用，表示音频音质参数。支持：medium、higher、highest.默认返回所有音频流
    * </pre>
    *
    * <code>string Quality = 16;</code>
@@ -318,7 +321,8 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getQuality();
   /**
    * <pre>
-   *音频码率
+   * 音频音质。当
+   * FileType为audio和eaudio时起作用，表示音频音质参数。支持：medium、higher、highest.默认返回所有音频流
    * </pre>
    *
    * <code>string Quality = 16;</code>

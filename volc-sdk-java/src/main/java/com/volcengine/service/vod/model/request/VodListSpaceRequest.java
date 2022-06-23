@@ -94,7 +94,7 @@ private static final long serialVersionUID = 0L;
   private double offset_;
   /**
    * <pre>
-   * 查询游标
+   * 查询游标 
    * </pre>
    *
    * <code>double Offset = 1;</code>
@@ -109,7 +109,7 @@ private static final long serialVersionUID = 0L;
   private double limit_;
   /**
    * <pre>
-   * 查询数量
+   * 查询数量 
    * </pre>
    *
    * <code>double Limit = 2;</code>
@@ -446,7 +446,7 @@ private static final long serialVersionUID = 0L;
     private double offset_ ;
     /**
      * <pre>
-     * 查询游标
+     * 查询游标 
      * </pre>
      *
      * <code>double Offset = 1;</code>
@@ -458,7 +458,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 查询游标
+     * 查询游标 
      * </pre>
      *
      * <code>double Offset = 1;</code>
@@ -473,7 +473,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 查询游标
+     * 查询游标 
      * </pre>
      *
      * <code>double Offset = 1;</code>
@@ -489,7 +489,7 @@ private static final long serialVersionUID = 0L;
     private double limit_ ;
     /**
      * <pre>
-     * 查询数量
+     * 查询数量 
      * </pre>
      *
      * <code>double Limit = 2;</code>
@@ -501,7 +501,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 查询数量
+     * 查询数量 
      * </pre>
      *
      * <code>double Limit = 2;</code>
@@ -516,7 +516,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 查询数量
+     * 查询数量 
      * </pre>
      *
      * <code>double Limit = 2;</code>

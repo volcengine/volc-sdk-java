@@ -9,7 +9,7 @@ public interface VodCreateCdnPreloadTaskRequestOrBuilder extends
 
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -18,7 +18,7 @@ public interface VodCreateCdnPreloadTaskRequestOrBuilder extends
   java.lang.String getSpaceName();
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -29,7 +29,7 @@ public interface VodCreateCdnPreloadTaskRequestOrBuilder extends
 
   /**
    * <pre>
-   * 预热Url
+   * 预热Url 
    * </pre>
    *
    * <code>string Urls = 2;</code>
@@ -38,7 +38,7 @@ public interface VodCreateCdnPreloadTaskRequestOrBuilder extends
   java.lang.String getUrls();
   /**
    * <pre>
-   * 预热Url
+   * 预热Url 
    * </pre>
    *
    * <code>string Urls = 2;</code>

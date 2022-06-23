@@ -9,7 +9,7 @@ public interface VodListCdnTasksRequestOrBuilder extends
 
   /**
    * <pre>
-   *空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -18,7 +18,7 @@ public interface VodListCdnTasksRequestOrBuilder extends
   java.lang.String getSpaceName();
   /**
    * <pre>
-   *空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -29,7 +29,7 @@ public interface VodListCdnTasksRequestOrBuilder extends
 
   /**
    * <pre>
-   *任务ID
+   * 任务ID 
    * </pre>
    *
    * <code>string TaskId = 2;</code>
@@ -38,7 +38,7 @@ public interface VodListCdnTasksRequestOrBuilder extends
   java.lang.String getTaskId();
   /**
    * <pre>
-   *任务ID
+   * 任务ID 
    * </pre>
    *
    * <code>string TaskId = 2;</code>
@@ -49,7 +49,7 @@ public interface VodListCdnTasksRequestOrBuilder extends
 
   /**
    * <pre>
-   *域名
+   * 域名 
    * </pre>
    *
    * <code>string DomainName = 3;</code>
@@ -58,7 +58,7 @@ public interface VodListCdnTasksRequestOrBuilder extends
   java.lang.String getDomainName();
   /**
    * <pre>
-   *域名
+   * 域名 
    * </pre>
    *
    * <code>string DomainName = 3;</code>
@@ -69,7 +69,7 @@ public interface VodListCdnTasksRequestOrBuilder extends
 
   /**
    * <pre>
-   *任务类型
+   * 任务类型 
    * </pre>
    *
    * <code>string TaskType = 4;</code>
@@ -78,7 +78,7 @@ public interface VodListCdnTasksRequestOrBuilder extends
   java.lang.String getTaskType();
   /**
    * <pre>
-   *任务类型
+   * 任务类型 
    * </pre>
    *
    * <code>string TaskType = 4;</code>
@@ -89,7 +89,7 @@ public interface VodListCdnTasksRequestOrBuilder extends
 
   /**
    * <pre>
-   *任务状态
+   * 任务状态 
    * </pre>
    *
    * <code>string Status = 5;</code>
@@ -98,7 +98,7 @@ public interface VodListCdnTasksRequestOrBuilder extends
   java.lang.String getStatus();
   /**
    * <pre>
-   *任务状态
+   * 任务状态 
    * </pre>
    *
    * <code>string Status = 5;</code>
@@ -109,7 +109,7 @@ public interface VodListCdnTasksRequestOrBuilder extends
 
   /**
    * <pre>
-   *起始时间戳，单位：Unix秒级时间戳
+   * 起始时间戳，单位：Unix秒级时间戳 
    * </pre>
    *
    * <code>int32 StartTimestamp = 6;</code>
@@ -119,7 +119,7 @@ public interface VodListCdnTasksRequestOrBuilder extends
 
   /**
    * <pre>
-   *截止时间戳，单位：Unix秒级时间戳
+   * 截止时间戳，单位：Unix秒级时间戳 
    * </pre>
    *
    * <code>int32 EndTimestamp = 7;</code>
@@ -129,7 +129,7 @@ public interface VodListCdnTasksRequestOrBuilder extends
 
   /**
    * <pre>
-   *页码
+   * 页码 
    * </pre>
    *
    * <code>int32 PageNum = 8;</code>
@@ -139,7 +139,7 @@ public interface VodListCdnTasksRequestOrBuilder extends
 
   /**
    * <pre>
-   *页面大小
+   * 页面大小 
    * </pre>
    *
    * <code>int32 PageSize = 9;</code>

@@ -487,6 +487,20 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.RetrieveTranscodeResult, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.RetrieveTranscodeResult));
+                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
 
             // **********************************************************************
             // 空间管理
@@ -702,6 +716,21 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.DescribeIpInfo));
+                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListCdnPvData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListCdnPvData));
                                     add(new BasicNameValuePair("Version", "2022-01-01"));
 
                                 }

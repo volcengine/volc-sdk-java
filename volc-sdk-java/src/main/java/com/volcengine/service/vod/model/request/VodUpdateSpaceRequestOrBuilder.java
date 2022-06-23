@@ -9,7 +9,7 @@ public interface VodUpdateSpaceRequestOrBuilder extends
 
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -18,7 +18,7 @@ public interface VodUpdateSpaceRequestOrBuilder extends
   java.lang.String getSpaceName();
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -29,7 +29,7 @@ public interface VodUpdateSpaceRequestOrBuilder extends
 
   /**
    * <pre>
-   * 原项目
+   * 原项目 
    * </pre>
    *
    * <code>string SourceProjectName = 2;</code>
@@ -38,7 +38,7 @@ public interface VodUpdateSpaceRequestOrBuilder extends
   java.lang.String getSourceProjectName();
   /**
    * <pre>
-   * 原项目
+   * 原项目 
    * </pre>
    *
    * <code>string SourceProjectName = 2;</code>
@@ -49,7 +49,7 @@ public interface VodUpdateSpaceRequestOrBuilder extends
 
   /**
    * <pre>
-   * 变更目标项目
+   * 变更目标项目 
    * </pre>
    *
    * <code>string TargetProjectName = 3;</code>
@@ -58,7 +58,7 @@ public interface VodUpdateSpaceRequestOrBuilder extends
   java.lang.String getTargetProjectName();
   /**
    * <pre>
-   * 变更目标项目
+   * 变更目标项目 
    * </pre>
    *
    * <code>string TargetProjectName = 3;</code>
@@ -69,7 +69,7 @@ public interface VodUpdateSpaceRequestOrBuilder extends
 
   /**
    * <pre>
-   * 描述
+   * 描述 
    * </pre>
    *
    * <code>string Description = 4;</code>
@@ -78,7 +78,7 @@ public interface VodUpdateSpaceRequestOrBuilder extends
   java.lang.String getDescription();
   /**
    * <pre>
-   * 描述
+   * 描述 
    * </pre>
    *
    * <code>string Description = 4;</code>

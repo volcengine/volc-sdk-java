@@ -118,6 +118,10 @@ private static final long serialVersionUID = 0L;
   public static final int SPACENAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object spaceName_;
   /**
+   * <pre>
+   * 上传的空间名 
+   * </pre>
+   *
    * <code>string SpaceName = 1;</code>
    * @return The spaceName.
    */
@@ -135,6 +139,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 上传的空间名 
+   * </pre>
+   *
    * <code>string SpaceName = 1;</code>
    * @return The bytes for spaceName.
    */
@@ -156,6 +164,10 @@ private static final long serialVersionUID = 0L;
   public static final int FILEPATH_FIELD_NUMBER = 2;
   private volatile java.lang.Object filePath_;
   /**
+   * <pre>
+   * 上传文件的路径 
+   * </pre>
+   *
    * <code>string FilePath = 2;</code>
    * @return The filePath.
    */
@@ -173,6 +185,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 上传文件的路径 
+   * </pre>
+   *
    * <code>string FilePath = 2;</code>
    * @return The bytes for filePath.
    */
@@ -194,6 +210,10 @@ private static final long serialVersionUID = 0L;
   public static final int CALLBACKARGS_FIELD_NUMBER = 3;
   private volatile java.lang.Object callbackArgs_;
   /**
+   * <pre>
+   * 业务希望上传透传的信息，会在上传成功时返回给用户 
+   * </pre>
+   *
    * <code>string CallbackArgs = 3;</code>
    * @return The callbackArgs.
    */
@@ -211,6 +231,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 业务希望上传透传的信息，会在上传成功时返回给用户 
+   * </pre>
+   *
    * <code>string CallbackArgs = 3;</code>
    * @return The bytes for callbackArgs.
    */
@@ -232,6 +256,10 @@ private static final long serialVersionUID = 0L;
   public static final int FUNCTIONS_FIELD_NUMBER = 4;
   private volatile java.lang.Object functions_;
   /**
+   * <pre>
+   * 上传的功能函数 
+   * </pre>
+   *
    * <code>string Functions = 4;</code>
    * @return The functions.
    */
@@ -249,6 +277,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 上传的功能函数 
+   * </pre>
+   *
    * <code>string Functions = 4;</code>
    * @return The bytes for functions.
    */
@@ -270,6 +302,10 @@ private static final long serialVersionUID = 0L;
   public static final int FILENAME_FIELD_NUMBER = 5;
   private volatile java.lang.Object fileName_;
   /**
+   * <pre>
+   * 上传的文件在存储中的名字，即 bucket/key 中的 key 
+   * </pre>
+   *
    * <code>string FileName = 5;</code>
    * @return The fileName.
    */
@@ -287,6 +323,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 上传的文件在存储中的名字，即 bucket/key 中的 key 
+   * </pre>
+   *
    * <code>string FileName = 5;</code>
    * @return The bytes for fileName.
    */
@@ -677,6 +717,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object spaceName_ = "";
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @return The spaceName.
      */
@@ -693,6 +737,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @return The bytes for spaceName.
      */
@@ -710,6 +758,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @param value The spaceName to set.
      * @return This builder for chaining.
@@ -725,6 +777,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @return This builder for chaining.
      */
@@ -735,6 +791,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @param value The bytes for spaceName to set.
      * @return This builder for chaining.
@@ -753,6 +813,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object filePath_ = "";
     /**
+     * <pre>
+     * 上传文件的路径 
+     * </pre>
+     *
      * <code>string FilePath = 2;</code>
      * @return The filePath.
      */
@@ -769,6 +833,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传文件的路径 
+     * </pre>
+     *
      * <code>string FilePath = 2;</code>
      * @return The bytes for filePath.
      */
@@ -786,6 +854,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传文件的路径 
+     * </pre>
+     *
      * <code>string FilePath = 2;</code>
      * @param value The filePath to set.
      * @return This builder for chaining.
@@ -801,6 +873,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传文件的路径 
+     * </pre>
+     *
      * <code>string FilePath = 2;</code>
      * @return This builder for chaining.
      */
@@ -811,6 +887,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传文件的路径 
+     * </pre>
+     *
      * <code>string FilePath = 2;</code>
      * @param value The bytes for filePath to set.
      * @return This builder for chaining.
@@ -829,6 +909,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object callbackArgs_ = "";
     /**
+     * <pre>
+     * 业务希望上传透传的信息，会在上传成功时返回给用户 
+     * </pre>
+     *
      * <code>string CallbackArgs = 3;</code>
      * @return The callbackArgs.
      */
@@ -845,6 +929,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 业务希望上传透传的信息，会在上传成功时返回给用户 
+     * </pre>
+     *
      * <code>string CallbackArgs = 3;</code>
      * @return The bytes for callbackArgs.
      */
@@ -862,6 +950,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 业务希望上传透传的信息，会在上传成功时返回给用户 
+     * </pre>
+     *
      * <code>string CallbackArgs = 3;</code>
      * @param value The callbackArgs to set.
      * @return This builder for chaining.
@@ -877,6 +969,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 业务希望上传透传的信息，会在上传成功时返回给用户 
+     * </pre>
+     *
      * <code>string CallbackArgs = 3;</code>
      * @return This builder for chaining.
      */
@@ -887,6 +983,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 业务希望上传透传的信息，会在上传成功时返回给用户 
+     * </pre>
+     *
      * <code>string CallbackArgs = 3;</code>
      * @param value The bytes for callbackArgs to set.
      * @return This builder for chaining.
@@ -905,6 +1005,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object functions_ = "";
     /**
+     * <pre>
+     * 上传的功能函数 
+     * </pre>
+     *
      * <code>string Functions = 4;</code>
      * @return The functions.
      */
@@ -921,6 +1025,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的功能函数 
+     * </pre>
+     *
      * <code>string Functions = 4;</code>
      * @return The bytes for functions.
      */
@@ -938,6 +1046,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的功能函数 
+     * </pre>
+     *
      * <code>string Functions = 4;</code>
      * @param value The functions to set.
      * @return This builder for chaining.
@@ -953,6 +1065,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的功能函数 
+     * </pre>
+     *
      * <code>string Functions = 4;</code>
      * @return This builder for chaining.
      */
@@ -963,6 +1079,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的功能函数 
+     * </pre>
+     *
      * <code>string Functions = 4;</code>
      * @param value The bytes for functions to set.
      * @return This builder for chaining.
@@ -981,6 +1101,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object fileName_ = "";
     /**
+     * <pre>
+     * 上传的文件在存储中的名字，即 bucket/key 中的 key 
+     * </pre>
+     *
      * <code>string FileName = 5;</code>
      * @return The fileName.
      */
@@ -997,6 +1121,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的文件在存储中的名字，即 bucket/key 中的 key 
+     * </pre>
+     *
      * <code>string FileName = 5;</code>
      * @return The bytes for fileName.
      */
@@ -1014,6 +1142,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的文件在存储中的名字，即 bucket/key 中的 key 
+     * </pre>
+     *
      * <code>string FileName = 5;</code>
      * @param value The fileName to set.
      * @return This builder for chaining.
@@ -1029,6 +1161,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的文件在存储中的名字，即 bucket/key 中的 key 
+     * </pre>
+     *
      * <code>string FileName = 5;</code>
      * @return This builder for chaining.
      */
@@ -1039,6 +1175,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的文件在存储中的名字，即 bucket/key 中的 key 
+     * </pre>
+     *
      * <code>string FileName = 5;</code>
      * @param value The bytes for fileName to set.
      * @return This builder for chaining.

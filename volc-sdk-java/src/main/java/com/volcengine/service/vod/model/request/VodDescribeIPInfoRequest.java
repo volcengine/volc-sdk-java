@@ -91,7 +91,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object ips_;
   /**
    * <pre>
-   *ip，多个用逗号隔开
+   * ip，多个用逗号隔开
    * </pre>
    *
    * <code>string Ips = 1;</code>
@@ -112,7 +112,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *ip，多个用逗号隔开
+   * ip，多个用逗号隔开
    * </pre>
    *
    * <code>string Ips = 1;</code>
@@ -438,7 +438,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object ips_ = "";
     /**
      * <pre>
-     *ip，多个用逗号隔开
+     * ip，多个用逗号隔开
      * </pre>
      *
      * <code>string Ips = 1;</code>
@@ -458,7 +458,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *ip，多个用逗号隔开
+     * ip，多个用逗号隔开
      * </pre>
      *
      * <code>string Ips = 1;</code>
@@ -479,7 +479,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *ip，多个用逗号隔开
+     * ip，多个用逗号隔开
      * </pre>
      *
      * <code>string Ips = 1;</code>
@@ -498,7 +498,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *ip，多个用逗号隔开
+     * ip，多个用逗号隔开
      * </pre>
      *
      * <code>string Ips = 1;</code>
@@ -512,7 +512,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *ip，多个用逗号隔开
+     * ip，多个用逗号隔开
      * </pre>
      *
      * <code>string Ips = 1;</code>

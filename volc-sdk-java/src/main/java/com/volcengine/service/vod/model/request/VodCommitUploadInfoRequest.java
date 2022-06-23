@@ -111,6 +111,10 @@ private static final long serialVersionUID = 0L;
   public static final int SPACENAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object spaceName_;
   /**
+   * <pre>
+   * 上传的空间名 
+   * </pre>
+   *
    * <code>string SpaceName = 1;</code>
    * @return The spaceName.
    */
@@ -128,6 +132,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 上传的空间名 
+   * </pre>
+   *
    * <code>string SpaceName = 1;</code>
    * @return The bytes for spaceName.
    */
@@ -149,6 +157,10 @@ private static final long serialVersionUID = 0L;
   public static final int SESSIONKEY_FIELD_NUMBER = 2;
   private volatile java.lang.Object sessionKey_;
   /**
+   * <pre>
+   * 上传 1005 阶段需要带上 1001 的 Session 
+   * </pre>
+   *
    * <code>string SessionKey = 2;</code>
    * @return The sessionKey.
    */
@@ -166,6 +178,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 上传 1005 阶段需要带上 1001 的 Session 
+   * </pre>
+   *
    * <code>string SessionKey = 2;</code>
    * @return The bytes for sessionKey.
    */
@@ -187,6 +203,10 @@ private static final long serialVersionUID = 0L;
   public static final int CALLBACKARGS_FIELD_NUMBER = 3;
   private volatile java.lang.Object callbackArgs_;
   /**
+   * <pre>
+   * 业务希望上传透传的信息，会在上传成功时返回给用户 
+   * </pre>
+   *
    * <code>string CallbackArgs = 3;</code>
    * @return The callbackArgs.
    */
@@ -204,6 +224,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 业务希望上传透传的信息，会在上传成功时返回给用户 
+   * </pre>
+   *
    * <code>string CallbackArgs = 3;</code>
    * @return The bytes for callbackArgs.
    */
@@ -225,6 +249,10 @@ private static final long serialVersionUID = 0L;
   public static final int FUNCTIONS_FIELD_NUMBER = 4;
   private volatile java.lang.Object functions_;
   /**
+   * <pre>
+   * 上传的功能函数 
+   * </pre>
+   *
    * <code>string Functions = 4;</code>
    * @return The functions.
    */
@@ -242,6 +270,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 上传的功能函数 
+   * </pre>
+   *
    * <code>string Functions = 4;</code>
    * @return The bytes for functions.
    */
@@ -615,6 +647,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object spaceName_ = "";
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @return The spaceName.
      */
@@ -631,6 +667,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @return The bytes for spaceName.
      */
@@ -648,6 +688,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @param value The spaceName to set.
      * @return This builder for chaining.
@@ -663,6 +707,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @return This builder for chaining.
      */
@@ -673,6 +721,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @param value The bytes for spaceName to set.
      * @return This builder for chaining.
@@ -691,6 +743,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object sessionKey_ = "";
     /**
+     * <pre>
+     * 上传 1005 阶段需要带上 1001 的 Session 
+     * </pre>
+     *
      * <code>string SessionKey = 2;</code>
      * @return The sessionKey.
      */
@@ -707,6 +763,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传 1005 阶段需要带上 1001 的 Session 
+     * </pre>
+     *
      * <code>string SessionKey = 2;</code>
      * @return The bytes for sessionKey.
      */
@@ -724,6 +784,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传 1005 阶段需要带上 1001 的 Session 
+     * </pre>
+     *
      * <code>string SessionKey = 2;</code>
      * @param value The sessionKey to set.
      * @return This builder for chaining.
@@ -739,6 +803,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传 1005 阶段需要带上 1001 的 Session 
+     * </pre>
+     *
      * <code>string SessionKey = 2;</code>
      * @return This builder for chaining.
      */
@@ -749,6 +817,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传 1005 阶段需要带上 1001 的 Session 
+     * </pre>
+     *
      * <code>string SessionKey = 2;</code>
      * @param value The bytes for sessionKey to set.
      * @return This builder for chaining.
@@ -767,6 +839,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object callbackArgs_ = "";
     /**
+     * <pre>
+     * 业务希望上传透传的信息，会在上传成功时返回给用户 
+     * </pre>
+     *
      * <code>string CallbackArgs = 3;</code>
      * @return The callbackArgs.
      */
@@ -783,6 +859,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 业务希望上传透传的信息，会在上传成功时返回给用户 
+     * </pre>
+     *
      * <code>string CallbackArgs = 3;</code>
      * @return The bytes for callbackArgs.
      */
@@ -800,6 +880,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 业务希望上传透传的信息，会在上传成功时返回给用户 
+     * </pre>
+     *
      * <code>string CallbackArgs = 3;</code>
      * @param value The callbackArgs to set.
      * @return This builder for chaining.
@@ -815,6 +899,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 业务希望上传透传的信息，会在上传成功时返回给用户 
+     * </pre>
+     *
      * <code>string CallbackArgs = 3;</code>
      * @return This builder for chaining.
      */
@@ -825,6 +913,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 业务希望上传透传的信息，会在上传成功时返回给用户 
+     * </pre>
+     *
      * <code>string CallbackArgs = 3;</code>
      * @param value The bytes for callbackArgs to set.
      * @return This builder for chaining.
@@ -843,6 +935,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object functions_ = "";
     /**
+     * <pre>
+     * 上传的功能函数 
+     * </pre>
+     *
      * <code>string Functions = 4;</code>
      * @return The functions.
      */
@@ -859,6 +955,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的功能函数 
+     * </pre>
+     *
      * <code>string Functions = 4;</code>
      * @return The bytes for functions.
      */
@@ -876,6 +976,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的功能函数 
+     * </pre>
+     *
      * <code>string Functions = 4;</code>
      * @param value The functions to set.
      * @return This builder for chaining.
@@ -891,6 +995,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的功能函数 
+     * </pre>
+     *
      * <code>string Functions = 4;</code>
      * @return This builder for chaining.
      */
@@ -901,6 +1009,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的功能函数 
+     * </pre>
+     *
      * <code>string Functions = 4;</code>
      * @param value The bytes for functions to set.
      * @return This builder for chaining.

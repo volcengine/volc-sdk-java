@@ -9,7 +9,7 @@ public interface VodUrlUploadRequestOrBuilder extends
 
   /**
    * <pre>
-   * 上传的空间名
+   * 上传的空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -18,7 +18,7 @@ public interface VodUrlUploadRequestOrBuilder extends
   java.lang.String getSpaceName();
   /**
    * <pre>
-   * 上传的空间名
+   * 上传的空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -29,7 +29,7 @@ public interface VodUrlUploadRequestOrBuilder extends
 
   /**
    * <pre>
-   * 上传URL设置参数集合
+   * 上传URL设置参数集合，每个URL入参的设置均在此设置 
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -38,7 +38,7 @@ public interface VodUrlUploadRequestOrBuilder extends
       getURLSetsList();
   /**
    * <pre>
-   * 上传URL设置参数集合
+   * 上传URL设置参数集合，每个URL入参的设置均在此设置 
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -46,7 +46,7 @@ public interface VodUrlUploadRequestOrBuilder extends
   com.volcengine.service.vod.model.business.VodUrlUploadURLSet getURLSets(int index);
   /**
    * <pre>
-   * 上传URL设置参数集合
+   * 上传URL设置参数集合，每个URL入参的设置均在此设置 
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -54,7 +54,7 @@ public interface VodUrlUploadRequestOrBuilder extends
   int getURLSetsCount();
   /**
    * <pre>
-   * 上传URL设置参数集合
+   * 上传URL设置参数集合，每个URL入参的设置均在此设置 
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>
@@ -63,7 +63,7 @@ public interface VodUrlUploadRequestOrBuilder extends
       getURLSetsOrBuilderList();
   /**
    * <pre>
-   * 上传URL设置参数集合
+   * 上传URL设置参数集合，每个URL入参的设置均在此设置 
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodUrlUploadURLSet URLSets = 2;</code>

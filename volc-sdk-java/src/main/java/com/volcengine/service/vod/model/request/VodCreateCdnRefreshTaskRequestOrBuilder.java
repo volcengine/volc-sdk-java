@@ -9,7 +9,7 @@ public interface VodCreateCdnRefreshTaskRequestOrBuilder extends
 
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -18,7 +18,7 @@ public interface VodCreateCdnRefreshTaskRequestOrBuilder extends
   java.lang.String getSpaceName();
   /**
    * <pre>
-   * 空间名
+   * 空间名 
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -29,7 +29,7 @@ public interface VodCreateCdnRefreshTaskRequestOrBuilder extends
 
   /**
    * <pre>
-   * 刷新Url或目录
+   * 刷新Url或目录 
    * </pre>
    *
    * <code>string Urls = 2;</code>
@@ -38,7 +38,7 @@ public interface VodCreateCdnRefreshTaskRequestOrBuilder extends
   java.lang.String getUrls();
   /**
    * <pre>
-   * 刷新Url或目录
+   * 刷新Url或目录 
    * </pre>
    *
    * <code>string Urls = 2;</code>
@@ -49,7 +49,7 @@ public interface VodCreateCdnRefreshTaskRequestOrBuilder extends
 
   /**
    * <pre>
-   * 刷新任务类型
+   * 刷新任务类型 
    * </pre>
    *
    * <code>string Type = 3;</code>
@@ -58,7 +58,7 @@ public interface VodCreateCdnRefreshTaskRequestOrBuilder extends
   java.lang.String getType();
   /**
    * <pre>
-   * 刷新任务类型
+   * 刷新任务类型 
    * </pre>
    *
    * <code>string Type = 3;</code>

@@ -9,7 +9,7 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
 
   /**
    * <pre>
-   * 域名，多个用逗号隔开
+   * 域名，多个用逗号隔开 
    * </pre>
    *
    * <code>string Domains = 1;</code>
@@ -18,7 +18,7 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
   java.lang.String getDomains();
   /**
    * <pre>
-   * 域名，多个用逗号隔开
+   * 域名，多个用逗号隔开 
    * </pre>
    *
    * <code>string Domains = 1;</code>
@@ -29,7 +29,7 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
 
   /**
    * <pre>
-   * 聚合度
+   * 聚合度 
    * </pre>
    *
    * <code>string Interval = 2;</code>
@@ -38,7 +38,7 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
   java.lang.String getInterval();
   /**
    * <pre>
-   * 聚合度
+   * 聚合度 
    * </pre>
    *
    * <code>string Interval = 2;</code>
@@ -49,7 +49,7 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
 
   /**
    * <pre>
-   * 查询范围起始时间
+   * 查询范围起始时间 
    * </pre>
    *
    * <code>int64 StartTimestamp = 3;</code>
@@ -59,7 +59,7 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
 
   /**
    * <pre>
-   * 查询范围截止时间
+   * 查询范围截止时间 
    * </pre>
    *
    * <code>int64 EndTimestamp = 4;</code>
@@ -69,7 +69,7 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
 
   /**
    * <pre>
-   *统计数据类别
+   * 统计数据类别 
    * </pre>
    *
    * <code>string DataType = 5;</code>
@@ -78,7 +78,7 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
   java.lang.String getDataType();
   /**
    * <pre>
-   *统计数据类别
+   * 统计数据类别 
    * </pre>
    *
    * <code>string DataType = 5;</code>
@@ -89,7 +89,7 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
 
   /**
    * <pre>
-   *指标类别
+   * 指标类别 
    * </pre>
    *
    * <code>string Metric = 6;</code>
@@ -98,7 +98,7 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
   java.lang.String getMetric();
   /**
    * <pre>
-   *指标类别
+   * 指标类别 
    * </pre>
    *
    * <code>string Metric = 6;</code>

@@ -27,7 +27,6 @@ public class VodRetrieveTranscodeResultDemo {
                 System.exit(-1);
             }
             System.out.println(vodRetrieveTranscodeResultResponse.toString());
-            System.out.println(vodRetrieveTranscodeResultResponse.getResult().getRunId());
             System.out.println(vodRetrieveTranscodeResultResponse.getResponseMetadata().getRequestId());
         } catch (Exception e) {
             e.printStackTrace();

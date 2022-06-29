@@ -19,7 +19,6 @@ public class VodListCdnPvDataDemo {
             input.setEndTimestamp(0);
             input.setDataType("your dataType");
             input.setInterval("your interval");
-            input.setMetric("your metric");
             VodCdnStatisticsCommonResponse resp = vodService.listCdnPvData(input.build());
             System.out.println(resp);
         } catch (Exception e) {

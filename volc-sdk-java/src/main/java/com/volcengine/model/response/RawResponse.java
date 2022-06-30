@@ -3,21 +3,34 @@ package com.volcengine.model.response;
 import lombok.Data;
 import org.apache.http.Header;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 @Data
 public class RawResponse {
 
     private byte[] data;
     private int code;
     private Exception exception;
-    private Map<String,String> headers;
+    //response header and origin http response code
+    private Header[] headers;
+    private int httpCode;
 
     public RawResponse(byte[] data, int code, Exception e) {
         this.data = data;
         this.code = code;
         this.exception = e;
+    }
+
+    public RawResponse(byte[] data, int code, Exception exception, Header[] headers) {
+        this.data = data;
+        this.code = code;
+        this.exception = exception;
+        this.headers = headers;
+    }
+
+    public RawResponse(byte[] data, int code, Exception exception, Header[] headers, int httpCode) {
+        this.data = data;
+        this.code = code;
+        this.exception = exception;
+        this.headers = headers;
+        this.httpCode = httpCode;
     }
 }

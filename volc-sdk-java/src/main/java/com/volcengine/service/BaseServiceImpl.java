@@ -272,22 +272,17 @@ public abstract class BaseServiceImpl implements IBaseService {
             }
             response = client.execute(request);
             int statusCode = response.getStatusLine().getStatusCode();
-            Header[] allHeaders = response.getAllHeaders();
-            Map<String, String> responseHeaders = new HashMap<>();
-            if (allHeaders != null)
-                for (Header header : allHeaders) {
-                    responseHeaders.put(header.getName(), header.getValue());
-                }
+            Header[] responseHeaders = response.getAllHeaders();
             if (statusCode >= 300) {
                 String msg = SdkError.getErrorDesc(SdkError.EHTTP);
                 byte[] bytes = EntityUtils.toByteArray(response.getEntity());
                 if (bytes != null && bytes.length > 0) {
                     msg = new String(bytes, StandardCharsets.UTF_8);
                 }
-                return new RawResponse(null, SdkError.EHTTP.getNumber(), new Exception(msg));
+                return new RawResponse(null, SdkError.EHTTP.getNumber(), new Exception(msg), responseHeaders, statusCode);
             }
             byte[] bytes = EntityUtils.toByteArray(response.getEntity());
-            return new RawResponse(bytes, SdkError.SUCCESS.getNumber(), null);
+            return new RawResponse(bytes, SdkError.SUCCESS.getNumber(), null, responseHeaders);
         } catch (Exception e) {
             e.printStackTrace();
             if (response != null) {
@@ -318,10 +313,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         builder.setPath(apiInfo.getPath());
         builder.setParameters(mergedNV);
 
-        RequestConfig requestConfig = RequestConfig.custom()
-                .setSocketTimeout(socketTimeout)
-                .setConnectTimeout(connectionTimeout)
-                .build();
+        RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(socketTimeout).setConnectTimeout(connectionTimeout).build();
         request.setConfig(requestConfig);
 
         return request;

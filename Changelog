@@ -1,5 +1,8 @@
 Change log
 
+2022-06-30 Bumped to version v1.0.52
+- Updated models for security
+
 2022-06-23 Bumped to version v1.0.51
 - Updated apis for vod
 - Changed location of the version file

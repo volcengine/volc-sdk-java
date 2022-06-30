@@ -37,6 +37,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public abstract class BaseServiceImpl implements IBaseService {
 
@@ -271,6 +272,12 @@ public abstract class BaseServiceImpl implements IBaseService {
             }
             response = client.execute(request);
             int statusCode = response.getStatusLine().getStatusCode();
+            Header[] allHeaders = response.getAllHeaders();
+            Map<String, String> responseHeaders = new HashMap<>();
+            if (allHeaders != null)
+                for (Header header : allHeaders) {
+                    responseHeaders.put(header.getName(), header.getValue());
+                }
             if (statusCode >= 300) {
                 String msg = SdkError.getErrorDesc(SdkError.EHTTP);
                 byte[] bytes = EntityUtils.toByteArray(response.getEntity());
@@ -480,7 +487,6 @@ public abstract class BaseServiceImpl implements IBaseService {
         sts2.setSessionToken(sessionToken);
         return sts2;
     }
-
 
 
 }

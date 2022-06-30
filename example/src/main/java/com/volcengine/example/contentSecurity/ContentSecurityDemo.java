@@ -26,7 +26,6 @@ public class ContentSecurityDemo {
             e.printStackTrace();
         }
 
-        // video risk result
         try {
             ImageRiskResultRequest request = new ImageRiskResultRequest();
             request.setAppId(3332);
@@ -71,7 +70,6 @@ public class ContentSecurityDemo {
             request.setAppId(3332);
             request.setService("image_content_risk");
             request.setParameters("{\"operate_time\": 1617960951, \"ip\": \"127.0.0.9\", \"did\":1357924680, \"url\": \"\", \"data_id\": \"image_123\", \"account_id\": \"2000000409\"}");
-
             ImageRiskDetectionResponse riskResultResponse = contentSecurityService.ImageRiskDetection(request);
             System.out.println(JSON.toJSONString(riskResultResponse));
         } catch (Exception e) {

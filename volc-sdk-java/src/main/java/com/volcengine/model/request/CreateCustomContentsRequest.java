@@ -13,4 +13,6 @@ public class CreateCustomContentsRequest {
     String decision;
     @JSONField(name = "Description")
     String description;
+    @JSONField(name = "Name")
+    String name;
 }

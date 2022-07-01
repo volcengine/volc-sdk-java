@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ProjectDemo {
-    private static final String PROJECT_NAME = "ProjectNamed";
+    private static final String PROJECT_NAME = "ProjectName";
     private static final String REGION = "Region";
     private static final String DESCRIPTION = "Description";
     private static final String CREATE_PROJECT = "/CreateProject";
@@ -90,8 +90,7 @@ public class ProjectDemo {
         } else {
             String requestBody = JSONObject.toJSONString(new CreateProjectRequest(projectName, region, description));
             RawResponse rawResponse = new HttpCodeTestUtil(TEST_SERVICE, API_INFO_LIST).json(CREATE_PROJECT, new ArrayList<>(), requestBody);
-            rawResponse.getFirstHeader("");
-            return String.valueOf(rawResponse.getHttpCode());
+            return rawResponse.getFirstHeader("X-Tls-Requestid");
         }
     }
 }

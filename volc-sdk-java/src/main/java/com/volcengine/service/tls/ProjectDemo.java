@@ -1,4 +1,4 @@
-package com.volcengine.example.tls;
+package com.volcengine.service.tls;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
@@ -90,6 +90,7 @@ public class ProjectDemo {
         } else {
             String requestBody = JSONObject.toJSONString(new CreateProjectRequest(projectName, region, description));
             RawResponse rawResponse = new HttpCodeTestUtil(TEST_SERVICE, API_INFO_LIST).json(CREATE_PROJECT, new ArrayList<>(), requestBody);
+            rawResponse.getFirstHeader("");
             return String.valueOf(rawResponse.getHttpCode());
         }
     }

@@ -33,4 +33,15 @@ public class RawResponse {
         this.headers = headers;
         this.httpCode = httpCode;
     }
+
+    public String getFirstHeader(String key) {
+        if (key != null && headers != null) {
+            for (Header header : headers) {
+                if (header.getName().equalsIgnoreCase(key)) {
+                    return header.getValue();
+                }
+            }
+        }
+        return null;
+    }
 }

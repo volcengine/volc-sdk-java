@@ -311,7 +311,9 @@ public abstract class BaseServiceImpl implements IBaseService {
         builder.setScheme(serviceInfo.getScheme());
         builder.setHost(serviceInfo.getHost());
         builder.setPath(apiInfo.getPath());
-        builder.setParameters(mergedNV);
+        //修复空参数导致url构造多了？的404错误
+        if (!mergedNV.isEmpty())
+            builder.setParameters(mergedNV);
 
         RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(socketTimeout).setConnectTimeout(connectionTimeout).build();
         request.setConfig(requestConfig);

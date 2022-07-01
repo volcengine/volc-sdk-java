@@ -50,7 +50,7 @@ public class TextRiskResponse {
         private List<String> matchedWords;
         @JSONField(name = "LibName")
         private String libName;
-        @JSONField(name = "positions")
+        @JSONField(name = "Positions")
         private List<Position> positions;
     }
 

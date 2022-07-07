@@ -898,5 +898,21 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         return res;
     }
 
+    @Override
+    public DescribePullToPushBandwidthDataResponse describePullToPushBandwidthData(DescribePullToPushBandwidthDataRequest describePullToPushBandwidthDataRequest) throws Exception {
+        RawResponse response = json(Const.DescribePullToPushBandwidthData, new ArrayList<>(), JSON.toJSONString(describePullToPushBandwidthDataRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DescribePullToPushBandwidthDataResponse res = JSON.parseObject(response.getData(), DescribePullToPushBandwidthDataResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
 
 }

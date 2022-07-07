@@ -22,6 +22,7 @@ public class LiveUsageQuryDemo {
         describeRecordDataDemo(liveService);
         describeSnapshotDataDemo(liveService);
         describeTranscodeDataDemo(liveService);
+        describePullToPushBandwidthDataDemo(liveService);
 
     }
 
@@ -136,6 +137,25 @@ public class LiveUsageQuryDemo {
         DescribeLiveTimeShiftDataRequest request = JSON.parseObject(jsonStr, DescribeLiveTimeShiftDataRequest.class);
         try {
             DescribeLiveTimeShiftDataResponse response = liveService.describeLiveTimeShiftData(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void describePullToPushBandwidthDataDemo(LiveService liveService) {
+
+        String jsonStr = "{\n" +
+                "    \"DomainList\": [\"example.com\"],\n" +
+                "    \"DstAddrTypeList\": [\"live\",\"Third\"],\n" +
+                "    \"StartTime\": \"2021-04-13T00:00:00+08:00\",\n" +
+                "    \"EndTime\": \"2021-04-14T00:00:00+08:00\",\n" +
+                "    \"Aggregation\": 300,\n" +
+                "    \"ShowDetail\": true\n" +
+                "}";
+        DescribePullToPushBandwidthDataRequest request = JSON.parseObject(jsonStr, DescribePullToPushBandwidthDataRequest.class);
+        try {
+            DescribePullToPushBandwidthDataResponse response = liveService.describePullToPushBandwidthData(request);
             System.out.println(JSON.toJSONString(response));
         } catch (Exception e) {
             e.printStackTrace();

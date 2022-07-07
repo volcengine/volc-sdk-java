@@ -392,4 +392,12 @@ public interface LiveService extends IBaseService {
      * @throws Exception
      */
     DescribePlayStreamListResponse describePlayStreamList(DescribePlayStreamListRequest describePlayStreamListRequest) throws Exception;
+
+    /**
+     *
+     * @param describePullToPushBandwidthDataRequest
+     * @return
+     * @throws Exception
+     */
+    DescribePullToPushBandwidthDataResponse describePullToPushBandwidthData(DescribePullToPushBandwidthDataRequest describePullToPushBandwidthDataRequest) throws Exception;
 }

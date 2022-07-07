@@ -234,6 +234,7 @@ public class Const {
     public static final String DescribeLiveMetricTrafficData = "DescribeLiveMetricTrafficData";
     public static final String DescribeLiveMetricBandwidthData = "DescribeLiveMetricBandwidthData";
     public static final String DescribePlayStreamList = "DescribePlayStreamList";
+    public static final String DescribePullToPushBandwidthData = "DescribePullToPushBandwidthData";
 
     //kms
     public static final String CreateKeyring = "CreateKeyring";

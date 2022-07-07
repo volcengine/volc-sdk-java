@@ -37,6 +37,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public abstract class BaseServiceImpl implements IBaseService {
 
@@ -271,16 +272,17 @@ public abstract class BaseServiceImpl implements IBaseService {
             }
             response = client.execute(request);
             int statusCode = response.getStatusLine().getStatusCode();
+            Header[] responseHeaders = response.getAllHeaders();
             if (statusCode >= 300) {
                 String msg = SdkError.getErrorDesc(SdkError.EHTTP);
                 byte[] bytes = EntityUtils.toByteArray(response.getEntity());
                 if (bytes != null && bytes.length > 0) {
                     msg = new String(bytes, StandardCharsets.UTF_8);
                 }
-                return new RawResponse(null, SdkError.EHTTP.getNumber(), new Exception(msg));
+                return new RawResponse(null, SdkError.EHTTP.getNumber(), new Exception(msg), responseHeaders, statusCode);
             }
             byte[] bytes = EntityUtils.toByteArray(response.getEntity());
-            return new RawResponse(bytes, SdkError.SUCCESS.getNumber(), null);
+            return new RawResponse(bytes, SdkError.SUCCESS.getNumber(), null, responseHeaders);
         } catch (Exception e) {
             e.printStackTrace();
             if (response != null) {
@@ -309,12 +311,11 @@ public abstract class BaseServiceImpl implements IBaseService {
         builder.setScheme(serviceInfo.getScheme());
         builder.setHost(serviceInfo.getHost());
         builder.setPath(apiInfo.getPath());
-        builder.setParameters(mergedNV);
+        //修复空参数导致url构造多了？的404错误
+        if (!mergedNV.isEmpty())
+            builder.setParameters(mergedNV);
 
-        RequestConfig requestConfig = RequestConfig.custom()
-                .setSocketTimeout(socketTimeout)
-                .setConnectTimeout(connectionTimeout)
-                .build();
+        RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(socketTimeout).setConnectTimeout(connectionTimeout).build();
         request.setConfig(requestConfig);
 
         return request;
@@ -480,7 +481,6 @@ public abstract class BaseServiceImpl implements IBaseService {
         sts2.setSessionToken(sessionToken);
         return sts2;
     }
-
 
 
 }

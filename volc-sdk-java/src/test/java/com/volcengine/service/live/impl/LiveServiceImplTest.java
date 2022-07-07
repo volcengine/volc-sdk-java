@@ -878,7 +878,7 @@ public class LiveServiceImplTest extends TestCase {
         }
     }
 
-    public void testDescribePlayStreamListResponse() {
+    public void testDescribePlayStreamList() {
         LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"Domain\":\"example.com\",\n" +
@@ -888,6 +888,26 @@ public class LiveServiceImplTest extends TestCase {
         DescribePlayStreamListRequest request = JSON.parseObject(jsonStr, DescribePlayStreamListRequest.class);
         try {
             DescribePlayStreamListResponse response = liveService.describePlayStreamList(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void testDescribePullToPushBandwidthData() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"DomainList\": [\"example.com\"],\n" +
+                "    \"DstAddrTypeList\": [\"live\",\"Third\"],\n" +
+                "    \"StartTime\": \"2022-06-13T00:00:00+08:00\",\n" +
+                "    \"EndTime\": \"2022-06-14T00:00:00+08:00\",\n" +
+                "    \"Aggregation\": 300,\n" +
+                "    \"ShowDetail\": true\n" +
+                "}";
+        DescribePullToPushBandwidthDataRequest request = JSON.parseObject(jsonStr, DescribePullToPushBandwidthDataRequest.class);
+        try {
+            DescribePullToPushBandwidthDataResponse response = liveService.describePullToPushBandwidthData(request);
             System.out.println(JSON.toJSONString(response));
         } catch (Exception e) {
             e.printStackTrace();

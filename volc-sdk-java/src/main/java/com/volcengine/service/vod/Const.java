@@ -111,4 +111,8 @@ public class Const {
 
     // vod-smartstrategy
     public static final String GetSmartStrategyLitePlayInfo = "GetSmartStrategyLitePlayInfo";
+
+    // vod-appid
+    public static final String GetAppInfo = "GetAppInfo";
+
 }

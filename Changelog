@@ -1,5 +1,8 @@
 Change log
 
+2022-07-22 Bumped to version v1.0.54
+- Added apis for vod
+
 2022-07-07 Bumped to version v1.0.53
 - Fixed bug for risk
 - Updated base models

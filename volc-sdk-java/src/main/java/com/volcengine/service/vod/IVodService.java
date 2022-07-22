@@ -82,6 +82,24 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	 */
 	com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadMaterial(com.volcengine.service.vod.model.request.VodUploadMaterialRequest vodUploadMaterialRequest) throws Exception;
 
+	/**
+    * submitDirectEditTaskAsync.
+    *
+    * @param input com.volcengine.service.vod.model.request.VodSubmitDirectEditTaskAsyncRequest
+    * @return com.volcengine.service.vod.model.response.VodSubmitDirectEditTaskAsyncResponse
+    * @throws Exception the exception
+    */
+    com.volcengine.service.vod.model.response.VodSubmitDirectEditTaskAsyncResponse submitDirectEditTaskAsync(com.volcengine.service.vod.model.request.VodSubmitDirectEditTaskAsyncRequest input) throws Exception;
+
+    /**
+    * getDirectEditResult.
+    *
+    * @param input com.volcengine.service.vod.model.request.VodGetDirectEditResultRequest
+    * @return com.volcengine.service.vod.model.response.VodGetDirectEditResultResponse
+    * @throws Exception the exception
+    */
+    com.volcengine.service.vod.model.response.VodGetDirectEditResultResponse getDirectEditResult(com.volcengine.service.vod.model.request.VodGetDirectEditResultRequest input) throws Exception;
+
 
 
 	/**
@@ -418,6 +436,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodUpdateSpaceUploadConfigResponse updateSpaceUploadConfig(com.volcengine.service.vod.model.request.VodUpdateSpaceUploadConfigRequest input) throws Exception;
 	
 	/**
+     * describeVodSpaceStorageData.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDescribeVodSpaceStorageDataRequest
+     * @return com.volcengine.service.vod.model.response.VodDescribeVodSpaceStorageDataResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodDescribeVodSpaceStorageDataResponse describeVodSpaceStorageData(com.volcengine.service.vod.model.request.VodDescribeVodSpaceStorageDataRequest input) throws Exception;
+	
+	/**
      * listDomain.
      *
      * @param input com.volcengine.service.vod.model.request.VodListDomainRequest
@@ -508,6 +535,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodDescribeIPInfoResponse describeIpInfo(com.volcengine.service.vod.model.request.VodDescribeIPInfoRequest input) throws Exception;
 	
 	/**
+     * describeVodDomainTrafficData.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDescribeVodDomainTrafficDataRequest
+     * @return com.volcengine.service.vod.model.response.VodDescribeVodDomainTrafficDataResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodDescribeVodDomainTrafficDataResponse describeVodDomainTrafficData(com.volcengine.service.vod.model.request.VodDescribeVodDomainTrafficDataRequest input) throws Exception;
+	
+	/**
      * listCdnPvData.
      *
      * @param input com.volcengine.service.vod.model.request.VodListCdnPvDataRequest
@@ -542,5 +578,14 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodGetSmartStrategyLitePlayInfoResponse getSmartStrategyLitePlayInfo(com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest input) throws Exception;
+	
+	/**
+     * getAppInfo.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetAppInfoRequest
+     * @return com.volcengine.service.vod.model.response.VodGetAppInfoResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodGetAppInfoResponse getAppInfo(com.volcengine.service.vod.model.request.VodGetAppInfoRequest input) throws Exception;
 	
 }  // end of service interface

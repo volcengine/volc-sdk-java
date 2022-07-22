@@ -117,6 +117,10 @@ private static final long serialVersionUID = 0L;
   public static final int VID_FIELD_NUMBER = 1;
   private volatile java.lang.Object vid_;
   /**
+   * <pre>
+   * 视频 id 
+   * </pre>
+   *
    * <code>string Vid = 1;</code>
    * @return The vid.
    */
@@ -134,6 +138,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 视频 id 
+   * </pre>
+   *
    * <code>string Vid = 1;</code>
    * @return The bytes for vid.
    */
@@ -155,6 +163,10 @@ private static final long serialVersionUID = 0L;
   public static final int POSTERURI_FIELD_NUMBER = 2;
   private volatile java.lang.Object posterUri_;
   /**
+   * <pre>
+   * 视频对应的封面图 URI id 
+   * </pre>
+   *
    * <code>string PosterUri = 2;</code>
    * @return The posterUri.
    */
@@ -172,6 +184,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 视频对应的封面图 URI id 
+   * </pre>
+   *
    * <code>string PosterUri = 2;</code>
    * @return The bytes for posterUri.
    */
@@ -193,6 +209,10 @@ private static final long serialVersionUID = 0L;
   public static final int SOURCEINFO_FIELD_NUMBER = 3;
   private com.volcengine.service.vod.model.business.VodSourceInfo sourceInfo_;
   /**
+   * <pre>
+   * 视频元信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 3;</code>
    * @return Whether the sourceInfo field is set.
    */
@@ -201,6 +221,10 @@ private static final long serialVersionUID = 0L;
     return sourceInfo_ != null;
   }
   /**
+   * <pre>
+   * 视频元信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 3;</code>
    * @return The sourceInfo.
    */
@@ -209,6 +233,10 @@ private static final long serialVersionUID = 0L;
     return sourceInfo_ == null ? com.volcengine.service.vod.model.business.VodSourceInfo.getDefaultInstance() : sourceInfo_;
   }
   /**
+   * <pre>
+   * 视频元信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 3;</code>
    */
   @java.lang.Override
@@ -219,6 +247,10 @@ private static final long serialVersionUID = 0L;
   public static final int MID_FIELD_NUMBER = 4;
   private volatile java.lang.Object mid_;
   /**
+   * <pre>
+   * 素材 id 
+   * </pre>
+   *
    * <code>string Mid = 4;</code>
    * @return The mid.
    */
@@ -236,6 +268,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 素材 id 
+   * </pre>
+   *
    * <code>string Mid = 4;</code>
    * @return The bytes for mid.
    */
@@ -622,6 +658,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object vid_ = "";
     /**
+     * <pre>
+     * 视频 id 
+     * </pre>
+     *
      * <code>string Vid = 1;</code>
      * @return The vid.
      */
@@ -638,6 +678,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 视频 id 
+     * </pre>
+     *
      * <code>string Vid = 1;</code>
      * @return The bytes for vid.
      */
@@ -655,6 +699,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 视频 id 
+     * </pre>
+     *
      * <code>string Vid = 1;</code>
      * @param value The vid to set.
      * @return This builder for chaining.
@@ -670,6 +718,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频 id 
+     * </pre>
+     *
      * <code>string Vid = 1;</code>
      * @return This builder for chaining.
      */
@@ -680,6 +732,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频 id 
+     * </pre>
+     *
      * <code>string Vid = 1;</code>
      * @param value The bytes for vid to set.
      * @return This builder for chaining.
@@ -698,6 +754,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object posterUri_ = "";
     /**
+     * <pre>
+     * 视频对应的封面图 URI id 
+     * </pre>
+     *
      * <code>string PosterUri = 2;</code>
      * @return The posterUri.
      */
@@ -714,6 +774,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 视频对应的封面图 URI id 
+     * </pre>
+     *
      * <code>string PosterUri = 2;</code>
      * @return The bytes for posterUri.
      */
@@ -731,6 +795,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 视频对应的封面图 URI id 
+     * </pre>
+     *
      * <code>string PosterUri = 2;</code>
      * @param value The posterUri to set.
      * @return This builder for chaining.
@@ -746,6 +814,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频对应的封面图 URI id 
+     * </pre>
+     *
      * <code>string PosterUri = 2;</code>
      * @return This builder for chaining.
      */
@@ -756,6 +828,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频对应的封面图 URI id 
+     * </pre>
+     *
      * <code>string PosterUri = 2;</code>
      * @param value The bytes for posterUri to set.
      * @return This builder for chaining.
@@ -776,6 +852,10 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.volcengine.service.vod.model.business.VodSourceInfo, com.volcengine.service.vod.model.business.VodSourceInfo.Builder, com.volcengine.service.vod.model.business.VodSourceInfoOrBuilder> sourceInfoBuilder_;
     /**
+     * <pre>
+     * 视频元信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 3;</code>
      * @return Whether the sourceInfo field is set.
      */
@@ -783,6 +863,10 @@ private static final long serialVersionUID = 0L;
       return sourceInfoBuilder_ != null || sourceInfo_ != null;
     }
     /**
+     * <pre>
+     * 视频元信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 3;</code>
      * @return The sourceInfo.
      */
@@ -794,6 +878,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 视频元信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 3;</code>
      */
     public Builder setSourceInfo(com.volcengine.service.vod.model.business.VodSourceInfo value) {
@@ -810,6 +898,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频元信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 3;</code>
      */
     public Builder setSourceInfo(
@@ -824,6 +916,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频元信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 3;</code>
      */
     public Builder mergeSourceInfo(com.volcengine.service.vod.model.business.VodSourceInfo value) {
@@ -842,6 +938,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频元信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 3;</code>
      */
     public Builder clearSourceInfo() {
@@ -856,6 +956,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频元信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 3;</code>
      */
     public com.volcengine.service.vod.model.business.VodSourceInfo.Builder getSourceInfoBuilder() {
@@ -864,6 +968,10 @@ private static final long serialVersionUID = 0L;
       return getSourceInfoFieldBuilder().getBuilder();
     }
     /**
+     * <pre>
+     * 视频元信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 3;</code>
      */
     public com.volcengine.service.vod.model.business.VodSourceInfoOrBuilder getSourceInfoOrBuilder() {
@@ -875,6 +983,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 视频元信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 3;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -893,6 +1005,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object mid_ = "";
     /**
+     * <pre>
+     * 素材 id 
+     * </pre>
+     *
      * <code>string Mid = 4;</code>
      * @return The mid.
      */
@@ -909,6 +1025,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 素材 id 
+     * </pre>
+     *
      * <code>string Mid = 4;</code>
      * @return The bytes for mid.
      */
@@ -926,6 +1046,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 素材 id 
+     * </pre>
+     *
      * <code>string Mid = 4;</code>
      * @param value The mid to set.
      * @return This builder for chaining.
@@ -941,6 +1065,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 素材 id 
+     * </pre>
+     *
      * <code>string Mid = 4;</code>
      * @return This builder for chaining.
      */
@@ -951,6 +1079,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 素材 id 
+     * </pre>
+     *
      * <code>string Mid = 4;</code>
      * @param value The bytes for mid to set.
      * @return This builder for chaining.

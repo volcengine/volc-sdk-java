@@ -152,7 +152,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object sourceUrl_;
   /**
    * <pre>
-   * 视频的URL
+   * 视频的URL 
    * </pre>
    *
    * <code>string SourceUrl = 1;</code>
@@ -173,7 +173,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 视频的URL
+   * 视频的URL 
    * </pre>
    *
    * <code>string SourceUrl = 1;</code>
@@ -198,7 +198,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object callbackArgs_;
   /**
    * <pre>
-   * 透传的回调信息
+   * 透传的业务信息 
    * </pre>
    *
    * <code>string CallbackArgs = 2;</code>
@@ -219,7 +219,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 透传的回调信息
+   * 透传的业务信息 
    * </pre>
    *
    * <code>string CallbackArgs = 2;</code>
@@ -244,7 +244,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object md5_;
   /**
    * <pre>
-   * 视频的MD5
+   * 视频的MD5 
    * </pre>
    *
    * <code>string Md5 = 3;</code>
@@ -265,7 +265,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 视频的MD5
+   * 视频的MD5 
    * </pre>
    *
    * <code>string Md5 = 3;</code>
@@ -290,7 +290,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object templateId_;
   /**
    * <pre>
-   * 模板Id
+   * 模板Id 
    * </pre>
    *
    * <code>string TemplateId = 4;</code>
@@ -311,7 +311,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 模板Id
+   * 模板Id 
    * </pre>
    *
    * <code>string TemplateId = 4;</code>
@@ -336,7 +336,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object title_;
   /**
    * <pre>
-   * 标题
+   * 标题 
    * </pre>
    *
    * <code>string Title = 5;</code>
@@ -357,7 +357,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 标题
+   * 标题 
    * </pre>
    *
    * <code>string Title = 5;</code>
@@ -382,7 +382,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object description_;
   /**
    * <pre>
-   * 描述信息
+   * 描述信息 
    * </pre>
    *
    * <code>string Description = 6;</code>
@@ -403,7 +403,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 描述信息
+   * 描述信息 
    * </pre>
    *
    * <code>string Description = 6;</code>
@@ -428,7 +428,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object tags_;
   /**
    * <pre>
-   * 标签
+   * 标签 
    * </pre>
    *
    * <code>string Tags = 7;</code>
@@ -449,7 +449,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 标签
+   * 标签 
    * </pre>
    *
    * <code>string Tags = 7;</code>
@@ -474,7 +474,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object category_;
   /**
    * <pre>
-   * 分类
+   * 分类 
    * </pre>
    *
    * <code>string Category = 8;</code>
@@ -495,7 +495,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 分类
+   * 分类 
    * </pre>
    *
    * <code>string Category = 8;</code>
@@ -520,7 +520,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object fileName_;
   /**
    * <pre>
-   * 设置文件名
+   * 设置文件名 
    * </pre>
    *
    * <code>string FileName = 9;</code>
@@ -541,7 +541,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 设置文件名
+   * 设置文件名 
    * </pre>
    *
    * <code>string FileName = 9;</code>
@@ -566,7 +566,7 @@ private static final long serialVersionUID = 0L;
   private long classificationId_;
   /**
    * <pre>
-   *设置分类Id
+   * 设置分类Id 
    * </pre>
    *
    * <code>int64 ClassificationId = 10;</code>
@@ -1036,7 +1036,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object sourceUrl_ = "";
     /**
      * <pre>
-     * 视频的URL
+     * 视频的URL 
      * </pre>
      *
      * <code>string SourceUrl = 1;</code>
@@ -1056,7 +1056,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频的URL
+     * 视频的URL 
      * </pre>
      *
      * <code>string SourceUrl = 1;</code>
@@ -1077,7 +1077,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频的URL
+     * 视频的URL 
      * </pre>
      *
      * <code>string SourceUrl = 1;</code>
@@ -1096,7 +1096,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频的URL
+     * 视频的URL 
      * </pre>
      *
      * <code>string SourceUrl = 1;</code>
@@ -1110,7 +1110,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频的URL
+     * 视频的URL 
      * </pre>
      *
      * <code>string SourceUrl = 1;</code>
@@ -1132,7 +1132,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object callbackArgs_ = "";
     /**
      * <pre>
-     * 透传的回调信息
+     * 透传的业务信息 
      * </pre>
      *
      * <code>string CallbackArgs = 2;</code>
@@ -1152,7 +1152,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 透传的回调信息
+     * 透传的业务信息 
      * </pre>
      *
      * <code>string CallbackArgs = 2;</code>
@@ -1173,7 +1173,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 透传的回调信息
+     * 透传的业务信息 
      * </pre>
      *
      * <code>string CallbackArgs = 2;</code>
@@ -1192,7 +1192,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 透传的回调信息
+     * 透传的业务信息 
      * </pre>
      *
      * <code>string CallbackArgs = 2;</code>
@@ -1206,7 +1206,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 透传的回调信息
+     * 透传的业务信息 
      * </pre>
      *
      * <code>string CallbackArgs = 2;</code>
@@ -1228,7 +1228,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object md5_ = "";
     /**
      * <pre>
-     * 视频的MD5
+     * 视频的MD5 
      * </pre>
      *
      * <code>string Md5 = 3;</code>
@@ -1248,7 +1248,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频的MD5
+     * 视频的MD5 
      * </pre>
      *
      * <code>string Md5 = 3;</code>
@@ -1269,7 +1269,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频的MD5
+     * 视频的MD5 
      * </pre>
      *
      * <code>string Md5 = 3;</code>
@@ -1288,7 +1288,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频的MD5
+     * 视频的MD5 
      * </pre>
      *
      * <code>string Md5 = 3;</code>
@@ -1302,7 +1302,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频的MD5
+     * 视频的MD5 
      * </pre>
      *
      * <code>string Md5 = 3;</code>
@@ -1324,7 +1324,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object templateId_ = "";
     /**
      * <pre>
-     * 模板Id
+     * 模板Id 
      * </pre>
      *
      * <code>string TemplateId = 4;</code>
@@ -1344,7 +1344,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 模板Id
+     * 模板Id 
      * </pre>
      *
      * <code>string TemplateId = 4;</code>
@@ -1365,7 +1365,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 模板Id
+     * 模板Id 
      * </pre>
      *
      * <code>string TemplateId = 4;</code>
@@ -1384,7 +1384,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 模板Id
+     * 模板Id 
      * </pre>
      *
      * <code>string TemplateId = 4;</code>
@@ -1398,7 +1398,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 模板Id
+     * 模板Id 
      * </pre>
      *
      * <code>string TemplateId = 4;</code>
@@ -1420,7 +1420,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object title_ = "";
     /**
      * <pre>
-     * 标题
+     * 标题 
      * </pre>
      *
      * <code>string Title = 5;</code>
@@ -1440,7 +1440,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 标题
+     * 标题 
      * </pre>
      *
      * <code>string Title = 5;</code>
@@ -1461,7 +1461,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 标题
+     * 标题 
      * </pre>
      *
      * <code>string Title = 5;</code>
@@ -1480,7 +1480,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 标题
+     * 标题 
      * </pre>
      *
      * <code>string Title = 5;</code>
@@ -1494,7 +1494,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 标题
+     * 标题 
      * </pre>
      *
      * <code>string Title = 5;</code>
@@ -1516,7 +1516,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object description_ = "";
     /**
      * <pre>
-     * 描述信息
+     * 描述信息 
      * </pre>
      *
      * <code>string Description = 6;</code>
@@ -1536,7 +1536,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 描述信息
+     * 描述信息 
      * </pre>
      *
      * <code>string Description = 6;</code>
@@ -1557,7 +1557,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 描述信息
+     * 描述信息 
      * </pre>
      *
      * <code>string Description = 6;</code>
@@ -1576,7 +1576,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 描述信息
+     * 描述信息 
      * </pre>
      *
      * <code>string Description = 6;</code>
@@ -1590,7 +1590,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 描述信息
+     * 描述信息 
      * </pre>
      *
      * <code>string Description = 6;</code>
@@ -1612,7 +1612,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object tags_ = "";
     /**
      * <pre>
-     * 标签
+     * 标签 
      * </pre>
      *
      * <code>string Tags = 7;</code>
@@ -1632,7 +1632,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 标签
+     * 标签 
      * </pre>
      *
      * <code>string Tags = 7;</code>
@@ -1653,7 +1653,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 标签
+     * 标签 
      * </pre>
      *
      * <code>string Tags = 7;</code>
@@ -1672,7 +1672,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 标签
+     * 标签 
      * </pre>
      *
      * <code>string Tags = 7;</code>
@@ -1686,7 +1686,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 标签
+     * 标签 
      * </pre>
      *
      * <code>string Tags = 7;</code>
@@ -1708,7 +1708,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object category_ = "";
     /**
      * <pre>
-     * 分类
+     * 分类 
      * </pre>
      *
      * <code>string Category = 8;</code>
@@ -1728,7 +1728,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 分类
+     * 分类 
      * </pre>
      *
      * <code>string Category = 8;</code>
@@ -1749,7 +1749,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 分类
+     * 分类 
      * </pre>
      *
      * <code>string Category = 8;</code>
@@ -1768,7 +1768,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 分类
+     * 分类 
      * </pre>
      *
      * <code>string Category = 8;</code>
@@ -1782,7 +1782,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 分类
+     * 分类 
      * </pre>
      *
      * <code>string Category = 8;</code>
@@ -1804,7 +1804,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object fileName_ = "";
     /**
      * <pre>
-     * 设置文件名
+     * 设置文件名 
      * </pre>
      *
      * <code>string FileName = 9;</code>
@@ -1824,7 +1824,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 设置文件名
+     * 设置文件名 
      * </pre>
      *
      * <code>string FileName = 9;</code>
@@ -1845,7 +1845,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 设置文件名
+     * 设置文件名 
      * </pre>
      *
      * <code>string FileName = 9;</code>
@@ -1864,7 +1864,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 设置文件名
+     * 设置文件名 
      * </pre>
      *
      * <code>string FileName = 9;</code>
@@ -1878,7 +1878,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 设置文件名
+     * 设置文件名 
      * </pre>
      *
      * <code>string FileName = 9;</code>
@@ -1900,7 +1900,7 @@ private static final long serialVersionUID = 0L;
     private long classificationId_ ;
     /**
      * <pre>
-     *设置分类Id
+     * 设置分类Id 
      * </pre>
      *
      * <code>int64 ClassificationId = 10;</code>
@@ -1912,7 +1912,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *设置分类Id
+     * 设置分类Id 
      * </pre>
      *
      * <code>int64 ClassificationId = 10;</code>
@@ -1927,7 +1927,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *设置分类Id
+     * 设置分类Id 
      * </pre>
      *
      * <code>int64 ClassificationId = 10;</code>

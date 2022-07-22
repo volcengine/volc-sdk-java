@@ -89,7 +89,8 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 流文件类型，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio.默认video
+   * 流文件类型,支持:
+   * 加密视频流evideo，加密音频流传eaudio,非加密视频流video,普通音频音频流audio.默认video
    * </pre>
    *
    * <code>string FileType = 5;</code>
@@ -98,7 +99,8 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getFileType();
   /**
    * <pre>
-   * 流文件类型，支持：加密视频流evideo，加密音频流传eaudio，非加密视频流video，普通音频音频流audio.默认video
+   * 流文件类型,支持:
+   * 加密视频流evideo，加密音频流传eaudio,非加密视频流video,普通音频音频流audio.默认video
    * </pre>
    *
    * <code>string FileType = 5;</code>
@@ -249,8 +251,8 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * HDR清晰度，默认不查询，支持：all, 240p, 360p,
-   * 420p，480p，540p，720p，1080p, 2k, 4k
+   * HDR清晰度，默认不查询，支持：all, 240p, 360p, 420p, 480p, 540p, 720p,
+   * 1080p, 2k, 4k 
    * </pre>
    *
    * <code>string HDRDefinition = 13;</code>
@@ -259,8 +261,8 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getHDRDefinition();
   /**
    * <pre>
-   * HDR清晰度，默认不查询，支持：all, 240p, 360p,
-   * 420p，480p，540p，720p，1080p, 2k, 4k
+   * HDR清晰度，默认不查询，支持：all, 240p, 360p, 420p, 480p, 540p, 720p,
+   * 1080p, 2k, 4k 
    * </pre>
    *
    * <code>string HDRDefinition = 13;</code>
@@ -311,8 +313,8 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 音频音质。当
-   * FileType为audio和eaudio时起作用，表示音频音质参数。支持：medium、higher、highest.默认返回所有音频流
+   * 音频音质。当FileType为audio和eaudio时起作用,表示音频音质参数.支持: medium,
+   * higher, highest.默认返回所有音频流
    * </pre>
    *
    * <code>string Quality = 16;</code>
@@ -321,8 +323,8 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getQuality();
   /**
    * <pre>
-   * 音频音质。当
-   * FileType为audio和eaudio时起作用，表示音频音质参数。支持：medium、higher、highest.默认返回所有音频流
+   * 音频音质。当FileType为audio和eaudio时起作用,表示音频音质参数.支持: medium,
+   * higher, highest.默认返回所有音频流
    * </pre>
    *
    * <code>string Quality = 16;</code>

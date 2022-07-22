@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     startTime_ = "";
     endTime_ = "";
     bandwidthType_ = "";
+    area_ = "";
   }
 
   @java.lang.Override
@@ -79,6 +80,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             bandwidthType_ = s;
+            break;
+          }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            area_ = s;
             break;
           }
           default: {
@@ -312,6 +319,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int AREA_FIELD_NUMBER = 6;
+  private volatile java.lang.Object area_;
+  /**
+   * <pre>
+   * 加速区域 
+   * </pre>
+   *
+   * <code>string Area = 6;</code>
+   * @return The area.
+   */
+  @java.lang.Override
+  public java.lang.String getArea() {
+    java.lang.Object ref = area_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      area_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 加速区域 
+   * </pre>
+   *
+   * <code>string Area = 6;</code>
+   * @return The bytes for area.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getAreaBytes() {
+    java.lang.Object ref = area_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      area_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -341,6 +394,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bandwidthType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, bandwidthType_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(area_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, area_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -365,6 +421,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bandwidthType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, bandwidthType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(area_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, area_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -391,6 +450,8 @@ private static final long serialVersionUID = 0L;
         != other.getAggregation()) return false;
     if (!getBandwidthType()
         .equals(other.getBandwidthType())) return false;
+    if (!getArea()
+        .equals(other.getArea())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -412,6 +473,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getAggregation();
     hash = (37 * hash) + BANDWIDTHTYPE_FIELD_NUMBER;
     hash = (53 * hash) + getBandwidthType().hashCode();
+    hash = (37 * hash) + AREA_FIELD_NUMBER;
+    hash = (53 * hash) + getArea().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -555,6 +618,8 @@ private static final long serialVersionUID = 0L;
 
       bandwidthType_ = "";
 
+      area_ = "";
+
       return this;
     }
 
@@ -586,6 +651,7 @@ private static final long serialVersionUID = 0L;
       result.endTime_ = endTime_;
       result.aggregation_ = aggregation_;
       result.bandwidthType_ = bandwidthType_;
+      result.area_ = area_;
       onBuilt();
       return result;
     }
@@ -651,6 +717,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getBandwidthType().isEmpty()) {
         bandwidthType_ = other.bandwidthType_;
+        onChanged();
+      }
+      if (!other.getArea().isEmpty()) {
+        area_ = other.area_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1105,6 +1175,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       bandwidthType_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object area_ = "";
+    /**
+     * <pre>
+     * 加速区域 
+     * </pre>
+     *
+     * <code>string Area = 6;</code>
+     * @return The area.
+     */
+    public java.lang.String getArea() {
+      java.lang.Object ref = area_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        area_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 加速区域 
+     * </pre>
+     *
+     * <code>string Area = 6;</code>
+     * @return The bytes for area.
+     */
+    public com.google.protobuf.ByteString
+        getAreaBytes() {
+      java.lang.Object ref = area_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        area_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 加速区域 
+     * </pre>
+     *
+     * <code>string Area = 6;</code>
+     * @param value The area to set.
+     * @return This builder for chaining.
+     */
+    public Builder setArea(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      area_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 加速区域 
+     * </pre>
+     *
+     * <code>string Area = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearArea() {
+      
+      area_ = getDefaultInstance().getArea();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 加速区域 
+     * </pre>
+     *
+     * <code>string Area = 6;</code>
+     * @param value The bytes for area to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAreaBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      area_ = value;
       onChanged();
       return this;
     }

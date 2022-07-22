@@ -96,4 +96,24 @@ public interface VodDescribeVodDomainBandwidthDataRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getBandwidthTypeBytes();
+
+  /**
+   * <pre>
+   * 加速区域 
+   * </pre>
+   *
+   * <code>string Area = 6;</code>
+   * @return The area.
+   */
+  java.lang.String getArea();
+  /**
+   * <pre>
+   * 加速区域 
+   * </pre>
+   *
+   * <code>string Area = 6;</code>
+   * @return The bytes for area.
+   */
+  com.google.protobuf.ByteString
+      getAreaBytes();
 }

@@ -191,7 +191,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object storeUri_;
   /**
    * <pre>
-   *Uri
+   * Uri
    * </pre>
    *
    * <code>string StoreUri = 4;</code>
@@ -212,7 +212,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *Uri
+   * Uri
    * </pre>
    *
    * <code>string StoreUri = 4;</code>
@@ -834,7 +834,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object storeUri_ = "";
     /**
      * <pre>
-     *Uri
+     * Uri
      * </pre>
      *
      * <code>string StoreUri = 4;</code>
@@ -854,7 +854,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Uri
+     * Uri
      * </pre>
      *
      * <code>string StoreUri = 4;</code>
@@ -875,7 +875,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Uri
+     * Uri
      * </pre>
      *
      * <code>string StoreUri = 4;</code>
@@ -894,7 +894,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Uri
+     * Uri
      * </pre>
      *
      * <code>string StoreUri = 4;</code>
@@ -908,7 +908,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Uri
+     * Uri
      * </pre>
      *
      * <code>string StoreUri = 4;</code>

@@ -9,7 +9,7 @@ public interface ValuePairOrBuilder extends
 
   /**
    * <pre>
-   * Url对应的JobId
+   * Url对应的JobId 
    * </pre>
    *
    * <code>string JobId = 1;</code>
@@ -18,7 +18,7 @@ public interface ValuePairOrBuilder extends
   java.lang.String getJobId();
   /**
    * <pre>
-   * Url对应的JobId
+   * Url对应的JobId 
    * </pre>
    *
    * <code>string JobId = 1;</code>
@@ -29,7 +29,7 @@ public interface ValuePairOrBuilder extends
 
   /**
    * <pre>
-   * 上传的Url
+   * 用户上传的Url 
    * </pre>
    *
    * <code>string SourceUrl = 2;</code>
@@ -38,7 +38,7 @@ public interface ValuePairOrBuilder extends
   java.lang.String getSourceUrl();
   /**
    * <pre>
-   * 上传的Url
+   * 用户上传的Url 
    * </pre>
    *
    * <code>string SourceUrl = 2;</code>

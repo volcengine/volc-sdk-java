@@ -200,7 +200,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object region_;
   /**
    * <pre>
-   *  uint32 AccountID = 2;        // 账号ID
+   * 所属区域
    * </pre>
    *
    * <code>string Region = 3;</code>
@@ -221,7 +221,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *  uint32 AccountID = 2;        // 账号ID
+   * 所属区域
    * </pre>
    *
    * <code>string Region = 3;</code>
@@ -1164,7 +1164,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object region_ = "";
     /**
      * <pre>
-     *  uint32 AccountID = 2;        // 账号ID
+     * 所属区域
      * </pre>
      *
      * <code>string Region = 3;</code>
@@ -1184,7 +1184,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *  uint32 AccountID = 2;        // 账号ID
+     * 所属区域
      * </pre>
      *
      * <code>string Region = 3;</code>
@@ -1205,7 +1205,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *  uint32 AccountID = 2;        // 账号ID
+     * 所属区域
      * </pre>
      *
      * <code>string Region = 3;</code>
@@ -1224,7 +1224,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *  uint32 AccountID = 2;        // 账号ID
+     * 所属区域
      * </pre>
      *
      * <code>string Region = 3;</code>
@@ -1238,7 +1238,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *  uint32 AccountID = 2;        // 账号ID
+     * 所属区域
      * </pre>
      *
      * <code>string Region = 3;</code>

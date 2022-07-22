@@ -46,4 +46,28 @@ public interface VodAddCallbackSubscriptionRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getUrlBytes();
+
+  /**
+   * <pre>
+   * 添加订阅地址的内容类型。默认值为“application/octet-stream”。支持的取值为
+   * "application/json",
+   * "application/octet-stream"
+   * </pre>
+   *
+   * <code>string ContentType = 3;</code>
+   * @return The contentType.
+   */
+  java.lang.String getContentType();
+  /**
+   * <pre>
+   * 添加订阅地址的内容类型。默认值为“application/octet-stream”。支持的取值为
+   * "application/json",
+   * "application/octet-stream"
+   * </pre>
+   *
+   * <code>string ContentType = 3;</code>
+   * @return The bytes for contentType.
+   */
+  com.google.protobuf.ByteString
+      getContentTypeBytes();
 }

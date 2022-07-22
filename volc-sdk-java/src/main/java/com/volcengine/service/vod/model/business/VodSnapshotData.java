@@ -436,7 +436,7 @@ private static final long serialVersionUID = 0L;
   private java.util.List<com.volcengine.service.vod.model.business.VodSnapshot> aiDynpostSnapshots_;
   /**
    * <pre>
-   *Ai动图
+   * Ai动图
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -447,7 +447,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *Ai动图
+   * Ai动图
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -459,7 +459,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *Ai动图
+   * Ai动图
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -470,7 +470,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *Ai动图
+   * Ai动图
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -481,7 +481,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *Ai动图
+   * Ai动图
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -2290,7 +2290,7 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     *Ai动图
+     * Ai动图
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -2304,7 +2304,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Ai动图
+     * Ai动图
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -2318,7 +2318,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Ai动图
+     * Ai动图
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -2332,7 +2332,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Ai动图
+     * Ai动图
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -2353,7 +2353,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Ai动图
+     * Ai动图
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -2371,7 +2371,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Ai动图
+     * Ai动图
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -2391,7 +2391,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Ai动图
+     * Ai动图
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -2412,7 +2412,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Ai动图
+     * Ai动图
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -2430,7 +2430,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Ai动图
+     * Ai动图
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -2448,7 +2448,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Ai动图
+     * Ai动图
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -2467,7 +2467,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Ai动图
+     * Ai动图
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -2484,7 +2484,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Ai动图
+     * Ai动图
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -2501,7 +2501,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Ai动图
+     * Ai动图
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -2512,7 +2512,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Ai动图
+     * Ai动图
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -2526,7 +2526,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Ai动图
+     * Ai动图
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -2541,7 +2541,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Ai动图
+     * Ai动图
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -2552,7 +2552,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Ai动图
+     * Ai动图
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -2564,7 +2564,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Ai动图
+     * Ai动图
      * </pre>
      *
      * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>

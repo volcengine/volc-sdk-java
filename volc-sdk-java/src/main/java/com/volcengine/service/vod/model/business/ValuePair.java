@@ -98,7 +98,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object jobId_;
   /**
    * <pre>
-   * Url对应的JobId
+   * Url对应的JobId 
    * </pre>
    *
    * <code>string JobId = 1;</code>
@@ -119,7 +119,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Url对应的JobId
+   * Url对应的JobId 
    * </pre>
    *
    * <code>string JobId = 1;</code>
@@ -144,7 +144,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object sourceUrl_;
   /**
    * <pre>
-   * 上传的Url
+   * 用户上传的Url 
    * </pre>
    *
    * <code>string SourceUrl = 2;</code>
@@ -165,7 +165,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 上传的Url
+   * 用户上传的Url 
    * </pre>
    *
    * <code>string SourceUrl = 2;</code>
@@ -508,7 +508,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object jobId_ = "";
     /**
      * <pre>
-     * Url对应的JobId
+     * Url对应的JobId 
      * </pre>
      *
      * <code>string JobId = 1;</code>
@@ -528,7 +528,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Url对应的JobId
+     * Url对应的JobId 
      * </pre>
      *
      * <code>string JobId = 1;</code>
@@ -549,7 +549,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Url对应的JobId
+     * Url对应的JobId 
      * </pre>
      *
      * <code>string JobId = 1;</code>
@@ -568,7 +568,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Url对应的JobId
+     * Url对应的JobId 
      * </pre>
      *
      * <code>string JobId = 1;</code>
@@ -582,7 +582,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Url对应的JobId
+     * Url对应的JobId 
      * </pre>
      *
      * <code>string JobId = 1;</code>
@@ -604,7 +604,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object sourceUrl_ = "";
     /**
      * <pre>
-     * 上传的Url
+     * 用户上传的Url 
      * </pre>
      *
      * <code>string SourceUrl = 2;</code>
@@ -624,7 +624,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传的Url
+     * 用户上传的Url 
      * </pre>
      *
      * <code>string SourceUrl = 2;</code>
@@ -645,7 +645,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传的Url
+     * 用户上传的Url 
      * </pre>
      *
      * <code>string SourceUrl = 2;</code>
@@ -664,7 +664,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传的Url
+     * 用户上传的Url 
      * </pre>
      *
      * <code>string SourceUrl = 2;</code>
@@ -678,7 +678,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传的Url
+     * 用户上传的Url 
      * </pre>
      *
      * <code>string SourceUrl = 2;</code>

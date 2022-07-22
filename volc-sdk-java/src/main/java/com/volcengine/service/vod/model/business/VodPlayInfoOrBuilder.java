@@ -396,4 +396,31 @@ public interface VodPlayInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getKeyFrameAlignmentBytes();
+
+  /**
+   * <pre>
+   *响度信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodVolumeInfo Volume = 23;</code>
+   * @return Whether the volume field is set.
+   */
+  boolean hasVolume();
+  /**
+   * <pre>
+   *响度信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodVolumeInfo Volume = 23;</code>
+   * @return The volume.
+   */
+  com.volcengine.service.vod.model.business.VodVolumeInfo getVolume();
+  /**
+   * <pre>
+   *响度信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodVolumeInfo Volume = 23;</code>
+   */
+  com.volcengine.service.vod.model.business.VodVolumeInfoOrBuilder getVolumeOrBuilder();
 }

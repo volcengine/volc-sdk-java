@@ -8,16 +8,28 @@ public interface VodQueryDataOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * URL批量上传状态查询结果 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodQueryUploadResult Data = 1;</code>
    * @return Whether the data field is set.
    */
   boolean hasData();
   /**
+   * <pre>
+   * URL批量上传状态查询结果 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodQueryUploadResult Data = 1;</code>
    * @return The data.
    */
   com.volcengine.service.vod.model.business.VodQueryUploadResult getData();
   /**
+   * <pre>
+   * URL批量上传状态查询结果 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodQueryUploadResult Data = 1;</code>
    */
   com.volcengine.service.vod.model.business.VodQueryUploadResultOrBuilder getDataOrBuilder();

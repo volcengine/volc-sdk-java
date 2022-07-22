@@ -96,6 +96,10 @@ private static final long serialVersionUID = 0L;
   public static final int UPLOADADDRESS_FIELD_NUMBER = 1;
   private com.volcengine.service.vod.model.business.VodUploadAddress uploadAddress_;
   /**
+   * <pre>
+   * 1001 阶段返回信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodUploadAddress UploadAddress = 1;</code>
    * @return Whether the uploadAddress field is set.
    */
@@ -104,6 +108,10 @@ private static final long serialVersionUID = 0L;
     return uploadAddress_ != null;
   }
   /**
+   * <pre>
+   * 1001 阶段返回信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodUploadAddress UploadAddress = 1;</code>
    * @return The uploadAddress.
    */
@@ -112,6 +120,10 @@ private static final long serialVersionUID = 0L;
     return uploadAddress_ == null ? com.volcengine.service.vod.model.business.VodUploadAddress.getDefaultInstance() : uploadAddress_;
   }
   /**
+   * <pre>
+   * 1001 阶段返回信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodUploadAddress UploadAddress = 1;</code>
    */
   @java.lang.Override
@@ -438,6 +450,10 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.volcengine.service.vod.model.business.VodUploadAddress, com.volcengine.service.vod.model.business.VodUploadAddress.Builder, com.volcengine.service.vod.model.business.VodUploadAddressOrBuilder> uploadAddressBuilder_;
     /**
+     * <pre>
+     * 1001 阶段返回信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodUploadAddress UploadAddress = 1;</code>
      * @return Whether the uploadAddress field is set.
      */
@@ -445,6 +461,10 @@ private static final long serialVersionUID = 0L;
       return uploadAddressBuilder_ != null || uploadAddress_ != null;
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodUploadAddress UploadAddress = 1;</code>
      * @return The uploadAddress.
      */
@@ -456,6 +476,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodUploadAddress UploadAddress = 1;</code>
      */
     public Builder setUploadAddress(com.volcengine.service.vod.model.business.VodUploadAddress value) {
@@ -472,6 +496,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodUploadAddress UploadAddress = 1;</code>
      */
     public Builder setUploadAddress(
@@ -486,6 +514,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodUploadAddress UploadAddress = 1;</code>
      */
     public Builder mergeUploadAddress(com.volcengine.service.vod.model.business.VodUploadAddress value) {
@@ -504,6 +536,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodUploadAddress UploadAddress = 1;</code>
      */
     public Builder clearUploadAddress() {
@@ -518,6 +554,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodUploadAddress UploadAddress = 1;</code>
      */
     public com.volcengine.service.vod.model.business.VodUploadAddress.Builder getUploadAddressBuilder() {
@@ -526,6 +566,10 @@ private static final long serialVersionUID = 0L;
       return getUploadAddressFieldBuilder().getBuilder();
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodUploadAddress UploadAddress = 1;</code>
      */
     public com.volcengine.service.vod.model.business.VodUploadAddressOrBuilder getUploadAddressOrBuilder() {
@@ -537,6 +581,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodUploadAddress UploadAddress = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<

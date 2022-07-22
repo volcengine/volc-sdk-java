@@ -19,6 +19,16 @@ public final class VodSpace {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodSpaceInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodStorageData_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodStorageData_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodDescribeVodSpaceStorageDataResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodDescribeVodSpaceStorageDataResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -34,7 +44,14 @@ public final class VodSpace {
       "ojectName\030\004 \001(\t\022\022\n\nBucketName\030\005 \001(\t\022\024\n\014B" +
       "ucketStatus\030\006 \001(\t\022\023\n\013Description\030\007 \001(\t\022\020" +
       "\n\010UserName\030\010 \001(\t\022\021\n\tCreatedAt\030\t \001(\t\022\014\n\004T" +
-      "ype\030\n \001(\t\022\026\n\016MediaSyncLevel\030\013 \001(\t*\243\001\n\027Vo" +
+      "ype\030\n \001(\t\022\026\n\016MediaSyncLevel\030\013 \001(\t\"/\n\016Vod" +
+      "StorageData\022\014\n\004Time\030\001 \001(\t\022\017\n\007Storage\030\002 \001" +
+      "(\003\"\344\001\n$VodDescribeVodSpaceStorageDataRes" +
+      "ult\022\021\n\tSpaceList\030\001 \003(\t\022\021\n\tStartTime\030\002 \001(" +
+      "\t\022\017\n\007EndTime\030\003 \001(\t\022\023\n\013Aggregation\030\004 \001(\005\022" +
+      "\014\n\004Type\030\005 \001(\t\022\031\n\021LatestStorageData\030\006 \001(\003" +
+      "\022G\n\017StorageDataList\030\007 \003(\0132..Volcengine.V" +
+      "od.Models.Business.VodStorageData*\243\001\n\027Vo" +
       "dSpaceUploadConfigKey\022$\n UndefinedVodSpa" +
       "ceUploadConfigKey\020\000\022/\n+CustomUploadFileP" +
       "athVodSpaceUploadConfigKey\020\001\0221\n-AutoPubl" +
@@ -56,6 +73,18 @@ public final class VodSpace {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodSpaceInfo_descriptor,
         new java.lang.String[] { "SpaceName", "Region", "ProjectName", "BucketName", "BucketStatus", "Description", "UserName", "CreatedAt", "Type", "MediaSyncLevel", });
+    internal_static_Volcengine_Vod_Models_Business_VodStorageData_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_Volcengine_Vod_Models_Business_VodStorageData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodStorageData_descriptor,
+        new java.lang.String[] { "Time", "Storage", });
+    internal_static_Volcengine_Vod_Models_Business_VodDescribeVodSpaceStorageDataResult_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_Volcengine_Vod_Models_Business_VodDescribeVodSpaceStorageDataResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodDescribeVodSpaceStorageDataResult_descriptor,
+        new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "Aggregation", "Type", "LatestStorageData", "StorageDataList", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -8,11 +8,19 @@ public interface VodURLSetOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * 请求 Id,用于日志查询 
+   * </pre>
+   *
    * <code>string RequestId = 1;</code>
    * @return The requestId.
    */
   java.lang.String getRequestId();
   /**
+   * <pre>
+   * 请求 Id,用于日志查询 
+   * </pre>
+   *
    * <code>string RequestId = 1;</code>
    * @return The bytes for requestId.
    */
@@ -20,11 +28,19 @@ public interface VodURLSetOrBuilder extends
       getRequestIdBytes();
 
   /**
+   * <pre>
+   * JobId，用于查询 URL 上传状态 
+   * </pre>
+   *
    * <code>string JobId = 2;</code>
    * @return The jobId.
    */
   java.lang.String getJobId();
   /**
+   * <pre>
+   * JobId，用于查询 URL 上传状态 
+   * </pre>
+   *
    * <code>string JobId = 2;</code>
    * @return The bytes for jobId.
    */
@@ -32,11 +48,19 @@ public interface VodURLSetOrBuilder extends
       getJobIdBytes();
 
   /**
+   * <pre>
+   * 用户上传的Url 
+   * </pre>
+   *
    * <code>string SourceUrl = 3;</code>
    * @return The sourceUrl.
    */
   java.lang.String getSourceUrl();
   /**
+   * <pre>
+   * 用户上传的Url 
+   * </pre>
+   *
    * <code>string SourceUrl = 3;</code>
    * @return The bytes for sourceUrl.
    */
@@ -44,11 +68,19 @@ public interface VodURLSetOrBuilder extends
       getSourceUrlBytes();
 
   /**
+   * <pre>
+   * Url 的上传状态，init,process,success,fail 
+   * </pre>
+   *
    * <code>string State = 4;</code>
    * @return The state.
    */
   java.lang.String getState();
   /**
+   * <pre>
+   * Url 的上传状态，init,process,success,fail 
+   * </pre>
+   *
    * <code>string State = 4;</code>
    * @return The bytes for state.
    */
@@ -56,11 +88,19 @@ public interface VodURLSetOrBuilder extends
       getStateBytes();
 
   /**
+   * <pre>
+   * 视频 id 
+   * </pre>
+   *
    * <code>string Vid = 5;</code>
    * @return The vid.
    */
   java.lang.String getVid();
   /**
+   * <pre>
+   * 视频 id 
+   * </pre>
+   *
    * <code>string Vid = 5;</code>
    * @return The bytes for vid.
    */
@@ -68,11 +108,19 @@ public interface VodURLSetOrBuilder extends
       getVidBytes();
 
   /**
+   * <pre>
+   * 上传的空间 
+   * </pre>
+   *
    * <code>string SpaceName = 6;</code>
    * @return The spaceName.
    */
   java.lang.String getSpaceName();
   /**
+   * <pre>
+   * 上传的空间 
+   * </pre>
+   *
    * <code>string SpaceName = 6;</code>
    * @return The bytes for spaceName.
    */
@@ -80,11 +128,19 @@ public interface VodURLSetOrBuilder extends
       getSpaceNameBytes();
 
   /**
+   * <pre>
+   * 用户账号的 Id 
+   * </pre>
+   *
    * <code>string AccountId = 7;</code>
    * @return The accountId.
    */
   java.lang.String getAccountId();
   /**
+   * <pre>
+   * 用户账号的 Id 
+   * </pre>
+   *
    * <code>string AccountId = 7;</code>
    * @return The bytes for accountId.
    */
@@ -92,16 +148,28 @@ public interface VodURLSetOrBuilder extends
       getAccountIdBytes();
 
   /**
+   * <pre>
+   * 视频的元信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 8;</code>
    * @return Whether the sourceInfo field is set.
    */
   boolean hasSourceInfo();
   /**
+   * <pre>
+   * 视频的元信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 8;</code>
    * @return The sourceInfo.
    */
   com.volcengine.service.vod.model.business.VodSourceInfo getSourceInfo();
   /**
+   * <pre>
+   * 视频的元信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 8;</code>
    */
   com.volcengine.service.vod.model.business.VodSourceInfoOrBuilder getSourceInfoOrBuilder();

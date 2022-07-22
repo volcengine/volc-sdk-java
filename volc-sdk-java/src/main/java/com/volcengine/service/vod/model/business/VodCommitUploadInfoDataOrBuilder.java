@@ -8,11 +8,19 @@ public interface VodCommitUploadInfoDataOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * 视频 id 
+   * </pre>
+   *
    * <code>string Vid = 1;</code>
    * @return The vid.
    */
   java.lang.String getVid();
   /**
+   * <pre>
+   * 视频 id 
+   * </pre>
+   *
    * <code>string Vid = 1;</code>
    * @return The bytes for vid.
    */
@@ -20,11 +28,19 @@ public interface VodCommitUploadInfoDataOrBuilder extends
       getVidBytes();
 
   /**
+   * <pre>
+   * 视频对应的封面图 URI id 
+   * </pre>
+   *
    * <code>string PosterUri = 2;</code>
    * @return The posterUri.
    */
   java.lang.String getPosterUri();
   /**
+   * <pre>
+   * 视频对应的封面图 URI id 
+   * </pre>
+   *
    * <code>string PosterUri = 2;</code>
    * @return The bytes for posterUri.
    */
@@ -32,26 +48,46 @@ public interface VodCommitUploadInfoDataOrBuilder extends
       getPosterUriBytes();
 
   /**
+   * <pre>
+   * 视频元信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 3;</code>
    * @return Whether the sourceInfo field is set.
    */
   boolean hasSourceInfo();
   /**
+   * <pre>
+   * 视频元信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 3;</code>
    * @return The sourceInfo.
    */
   com.volcengine.service.vod.model.business.VodSourceInfo getSourceInfo();
   /**
+   * <pre>
+   * 视频元信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 3;</code>
    */
   com.volcengine.service.vod.model.business.VodSourceInfoOrBuilder getSourceInfoOrBuilder();
 
   /**
+   * <pre>
+   * 素材 id 
+   * </pre>
+   *
    * <code>string Mid = 4;</code>
    * @return The mid.
    */
   java.lang.String getMid();
   /**
+   * <pre>
+   * 素材 id 
+   * </pre>
+   *
    * <code>string Mid = 4;</code>
    * @return The bytes for mid.
    */

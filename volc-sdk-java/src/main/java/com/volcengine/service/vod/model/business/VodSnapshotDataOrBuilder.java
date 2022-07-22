@@ -181,7 +181,7 @@ public interface VodSnapshotDataOrBuilder extends
 
   /**
    * <pre>
-   *Ai动图
+   * Ai动图
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -190,7 +190,7 @@ public interface VodSnapshotDataOrBuilder extends
       getAiDynpostSnapshotsList();
   /**
    * <pre>
-   *Ai动图
+   * Ai动图
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -198,7 +198,7 @@ public interface VodSnapshotDataOrBuilder extends
   com.volcengine.service.vod.model.business.VodSnapshot getAiDynpostSnapshots(int index);
   /**
    * <pre>
-   *Ai动图
+   * Ai动图
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -206,7 +206,7 @@ public interface VodSnapshotDataOrBuilder extends
   int getAiDynpostSnapshotsCount();
   /**
    * <pre>
-   *Ai动图
+   * Ai动图
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>
@@ -215,7 +215,7 @@ public interface VodSnapshotDataOrBuilder extends
       getAiDynpostSnapshotsOrBuilderList();
   /**
    * <pre>
-   *Ai动图
+   * Ai动图
    * </pre>
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodSnapshot AiDynpostSnapshots = 6;</code>

@@ -8,47 +8,83 @@ public interface VodQueryUploadResultOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * URL批量上传状态查询返回的 JobId 对应的信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
    */
   java.util.List<com.volcengine.service.vod.model.business.VodURLSet> 
       getMediaInfoListList();
   /**
+   * <pre>
+   * URL批量上传状态查询返回的 JobId 对应的信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
    */
   com.volcengine.service.vod.model.business.VodURLSet getMediaInfoList(int index);
   /**
+   * <pre>
+   * URL批量上传状态查询返回的 JobId 对应的信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
    */
   int getMediaInfoListCount();
   /**
+   * <pre>
+   * URL批量上传状态查询返回的 JobId 对应的信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
    */
   java.util.List<? extends com.volcengine.service.vod.model.business.VodURLSetOrBuilder> 
       getMediaInfoListOrBuilderList();
   /**
+   * <pre>
+   * URL批量上传状态查询返回的 JobId 对应的信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
    */
   com.volcengine.service.vod.model.business.VodURLSetOrBuilder getMediaInfoListOrBuilder(
       int index);
 
   /**
+   * <pre>
+   * URL批量上传状态查询不存在的 JobId 
+   * </pre>
+   *
    * <code>repeated string NotExistJobIds = 2;</code>
    * @return A list containing the notExistJobIds.
    */
   java.util.List<java.lang.String>
       getNotExistJobIdsList();
   /**
+   * <pre>
+   * URL批量上传状态查询不存在的 JobId 
+   * </pre>
+   *
    * <code>repeated string NotExistJobIds = 2;</code>
    * @return The count of notExistJobIds.
    */
   int getNotExistJobIdsCount();
   /**
+   * <pre>
+   * URL批量上传状态查询不存在的 JobId 
+   * </pre>
+   *
    * <code>repeated string NotExistJobIds = 2;</code>
    * @param index The index of the element to return.
    * @return The notExistJobIds at the given index.
    */
   java.lang.String getNotExistJobIds(int index);
   /**
+   * <pre>
+   * URL批量上传状态查询不存在的 JobId 
+   * </pre>
+   *
    * <code>repeated string NotExistJobIds = 2;</code>
    * @param index The index of the value to return.
    * @return The bytes of the notExistJobIds at the given index.

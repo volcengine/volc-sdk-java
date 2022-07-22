@@ -9,7 +9,7 @@ public interface VodCdnIpInfoOrBuilder extends
 
   /**
    * <pre>
-   *ip地址
+   * ip地址
    * </pre>
    *
    * <code>string Ip = 1;</code>
@@ -18,7 +18,7 @@ public interface VodCdnIpInfoOrBuilder extends
   java.lang.String getIp();
   /**
    * <pre>
-   *ip地址
+   * ip地址
    * </pre>
    *
    * <code>string Ip = 1;</code>
@@ -39,7 +39,7 @@ public interface VodCdnIpInfoOrBuilder extends
 
   /**
    * <pre>
-   *IP所属地区,非火山cdn返回"-"
+   * IP所属地区,非火山cdn返回"-"
    * </pre>
    *
    * <code>string Location = 3;</code>
@@ -48,7 +48,7 @@ public interface VodCdnIpInfoOrBuilder extends
   java.lang.String getLocation();
   /**
    * <pre>
-   *IP所属地区,非火山cdn返回"-"
+   * IP所属地区,非火山cdn返回"-"
    * </pre>
    *
    * <code>string Location = 3;</code>
@@ -59,7 +59,7 @@ public interface VodCdnIpInfoOrBuilder extends
 
   /**
    * <pre>
-   *IP所属运营商,非火山cdn返回"-"
+   * IP所属运营商,非火山cdn返回"-"
    * </pre>
    *
    * <code>string Isp = 4;</code>
@@ -68,7 +68,7 @@ public interface VodCdnIpInfoOrBuilder extends
   java.lang.String getIsp();
   /**
    * <pre>
-   *IP所属运营商,非火山cdn返回"-"
+   * IP所属运营商,非火山cdn返回"-"
    * </pre>
    *
    * <code>string Isp = 4;</code>

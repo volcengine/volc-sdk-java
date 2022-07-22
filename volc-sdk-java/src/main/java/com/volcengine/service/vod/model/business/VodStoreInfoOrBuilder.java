@@ -8,11 +8,19 @@ public interface VodStoreInfoOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * 1001 阶段返回存储的 uri 
+   * </pre>
+   *
    * <code>string StoreUri = 1;</code>
    * @return The storeUri.
    */
   java.lang.String getStoreUri();
   /**
+   * <pre>
+   * 1001 阶段返回存储的 uri 
+   * </pre>
+   *
    * <code>string StoreUri = 1;</code>
    * @return The bytes for storeUri.
    */
@@ -20,11 +28,19 @@ public interface VodStoreInfoOrBuilder extends
       getStoreUriBytes();
 
   /**
+   * <pre>
+   * 1001 阶段返回上传使用的签名信息 
+   * </pre>
+   *
    * <code>string Auth = 2;</code>
    * @return The auth.
    */
   java.lang.String getAuth();
   /**
+   * <pre>
+   * 1001 阶段返回上传使用的签名信息 
+   * </pre>
+   *
    * <code>string Auth = 2;</code>
    * @return The bytes for auth.
    */

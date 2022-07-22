@@ -79,12 +79,16 @@ public class Const {
     //vod-transcode
     public static final String StartWorkflow = "StartWorkflow";
     public static final String RetrieveTranscodeResult = "RetrieveTranscodeResult";
+    //vod-edit
+    public static final String SubmitDirectEditTaskAsync = "SubmitDirectEditTaskAsync";
+    public static final String GetDirectEditResult = "GetDirectEditResult";
     //vod-space
     public static final String CreateSpace = "CreateSpace";
     public static final String ListSpace = "ListSpace";
     public static final String GetSpaceDetail = "GetSpaceDetail";
     public static final String UpdateSpace = "UpdateSpace";
     public static final String UpdateSpaceUploadConfig = "UpdateSpaceUploadConfig";
+    public static final String DescribeVodSpaceStorageData = "DescribeVodSpaceStorageData";
     //vod-cdn
     public static final String ListDomain = "ListDomain";
     public static final String CreateCdnRefreshTask = "CreateCDNRefreshTask";
@@ -96,6 +100,7 @@ public class Const {
     public static final String ListCdnUsageData = "ListCdnUsageData";
     public static final String ListCdnStatusData = "ListCdnStatusData";
     public static final String DescribeIpInfo = "DescribeIpInfo";
+    public static final String DescribeVodDomainTrafficData = "DescribeVodDomainTrafficData";
 
     public static final String ListCdnPvData = "ListCdnPvData";
 

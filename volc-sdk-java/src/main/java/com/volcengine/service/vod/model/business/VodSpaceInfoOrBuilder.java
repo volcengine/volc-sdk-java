@@ -29,7 +29,7 @@ public interface VodSpaceInfoOrBuilder extends
 
   /**
    * <pre>
-   *  uint32 AccountID = 2;        // 账号ID
+   * 所属区域
    * </pre>
    *
    * <code>string Region = 3;</code>
@@ -38,7 +38,7 @@ public interface VodSpaceInfoOrBuilder extends
   java.lang.String getRegion();
   /**
    * <pre>
-   *  uint32 AccountID = 2;        // 账号ID
+   * 所属区域
    * </pre>
    *
    * <code>string Region = 3;</code>

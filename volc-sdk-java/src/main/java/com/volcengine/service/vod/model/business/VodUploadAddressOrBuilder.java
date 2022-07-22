@@ -8,47 +8,83 @@ public interface VodUploadAddressOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * 1001 阶段返回指定存储相关信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
    */
   java.util.List<com.volcengine.service.vod.model.business.VodStoreInfo> 
       getStoreInfosList();
   /**
+   * <pre>
+   * 1001 阶段返回指定存储相关信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
    */
   com.volcengine.service.vod.model.business.VodStoreInfo getStoreInfos(int index);
   /**
+   * <pre>
+   * 1001 阶段返回指定存储相关信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
    */
   int getStoreInfosCount();
   /**
+   * <pre>
+   * 1001 阶段返回指定存储相关信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
    */
   java.util.List<? extends com.volcengine.service.vod.model.business.VodStoreInfoOrBuilder> 
       getStoreInfosOrBuilderList();
   /**
+   * <pre>
+   * 1001 阶段返回指定存储相关信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
    */
   com.volcengine.service.vod.model.business.VodStoreInfoOrBuilder getStoreInfosOrBuilder(
       int index);
 
   /**
+   * <pre>
+   * 1001 阶段返回指定的上传域名 
+   * </pre>
+   *
    * <code>repeated string UploadHosts = 2;</code>
    * @return A list containing the uploadHosts.
    */
   java.util.List<java.lang.String>
       getUploadHostsList();
   /**
+   * <pre>
+   * 1001 阶段返回指定的上传域名 
+   * </pre>
+   *
    * <code>repeated string UploadHosts = 2;</code>
    * @return The count of uploadHosts.
    */
   int getUploadHostsCount();
   /**
+   * <pre>
+   * 1001 阶段返回指定的上传域名 
+   * </pre>
+   *
    * <code>repeated string UploadHosts = 2;</code>
    * @param index The index of the element to return.
    * @return The uploadHosts at the given index.
    */
   java.lang.String getUploadHosts(int index);
   /**
+   * <pre>
+   * 1001 阶段返回指定的上传域名 
+   * </pre>
+   *
    * <code>repeated string UploadHosts = 2;</code>
    * @param index The index of the value to return.
    * @return The bytes of the uploadHosts at the given index.
@@ -57,35 +93,63 @@ public interface VodUploadAddressOrBuilder extends
       getUploadHostsBytes(int index);
 
   /**
+   * <pre>
+   * 1001 阶段返回指定上传带的头信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
    */
   java.util.List<com.volcengine.service.vod.model.business.VodHeaderPair> 
       getUploadHeaderList();
   /**
+   * <pre>
+   * 1001 阶段返回指定上传带的头信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
    */
   com.volcengine.service.vod.model.business.VodHeaderPair getUploadHeader(int index);
   /**
+   * <pre>
+   * 1001 阶段返回指定上传带的头信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
    */
   int getUploadHeaderCount();
   /**
+   * <pre>
+   * 1001 阶段返回指定上传带的头信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
    */
   java.util.List<? extends com.volcengine.service.vod.model.business.VodHeaderPairOrBuilder> 
       getUploadHeaderOrBuilderList();
   /**
+   * <pre>
+   * 1001 阶段返回指定上传带的头信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
    */
   com.volcengine.service.vod.model.business.VodHeaderPairOrBuilder getUploadHeaderOrBuilder(
       int index);
 
   /**
+   * <pre>
+   * 1001 阶段返回的 Session 信息 
+   * </pre>
+   *
    * <code>string SessionKey = 4;</code>
    * @return The sessionKey.
    */
   java.lang.String getSessionKey();
   /**
+   * <pre>
+   * 1001 阶段返回的 Session 信息 
+   * </pre>
+   *
    * <code>string SessionKey = 4;</code>
    * @return The bytes for sessionKey.
    */

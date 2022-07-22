@@ -24,6 +24,7 @@ private static final long serialVersionUID = 0L;
   private VodAddCallbackSubscriptionRequest() {
     spaceName_ = "";
     url_ = "";
+    contentType_ = "";
   }
 
   @java.lang.Override
@@ -66,6 +67,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             url_ = s;
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            contentType_ = s;
             break;
           }
           default: {
@@ -192,6 +199,56 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int CONTENTTYPE_FIELD_NUMBER = 3;
+  private volatile java.lang.Object contentType_;
+  /**
+   * <pre>
+   * 添加订阅地址的内容类型。默认值为“application/octet-stream”。支持的取值为
+   * "application/json",
+   * "application/octet-stream"
+   * </pre>
+   *
+   * <code>string ContentType = 3;</code>
+   * @return The contentType.
+   */
+  @java.lang.Override
+  public java.lang.String getContentType() {
+    java.lang.Object ref = contentType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      contentType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 添加订阅地址的内容类型。默认值为“application/octet-stream”。支持的取值为
+   * "application/json",
+   * "application/octet-stream"
+   * </pre>
+   *
+   * <code>string ContentType = 3;</code>
+   * @return The bytes for contentType.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getContentTypeBytes() {
+    java.lang.Object ref = contentType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      contentType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -212,6 +269,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, url_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, contentType_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -226,6 +286,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, url_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, contentType_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -246,6 +309,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSpaceName())) return false;
     if (!getUrl()
         .equals(other.getUrl())) return false;
+    if (!getContentType()
+        .equals(other.getContentType())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -261,6 +326,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getSpaceName().hashCode();
     hash = (37 * hash) + URL_FIELD_NUMBER;
     hash = (53 * hash) + getUrl().hashCode();
+    hash = (37 * hash) + CONTENTTYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getContentType().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -404,6 +471,8 @@ private static final long serialVersionUID = 0L;
 
       url_ = "";
 
+      contentType_ = "";
+
       return this;
     }
 
@@ -432,6 +501,7 @@ private static final long serialVersionUID = 0L;
       com.volcengine.service.vod.model.request.VodAddCallbackSubscriptionRequest result = new com.volcengine.service.vod.model.request.VodAddCallbackSubscriptionRequest(this);
       result.spaceName_ = spaceName_;
       result.url_ = url_;
+      result.contentType_ = contentType_;
       onBuilt();
       return result;
     }
@@ -486,6 +556,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getUrl().isEmpty()) {
         url_ = other.url_;
+        onChanged();
+      }
+      if (!other.getContentType().isEmpty()) {
+        contentType_ = other.contentType_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -705,6 +779,112 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       url_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object contentType_ = "";
+    /**
+     * <pre>
+     * 添加订阅地址的内容类型。默认值为“application/octet-stream”。支持的取值为
+     * "application/json",
+     * "application/octet-stream"
+     * </pre>
+     *
+     * <code>string ContentType = 3;</code>
+     * @return The contentType.
+     */
+    public java.lang.String getContentType() {
+      java.lang.Object ref = contentType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        contentType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 添加订阅地址的内容类型。默认值为“application/octet-stream”。支持的取值为
+     * "application/json",
+     * "application/octet-stream"
+     * </pre>
+     *
+     * <code>string ContentType = 3;</code>
+     * @return The bytes for contentType.
+     */
+    public com.google.protobuf.ByteString
+        getContentTypeBytes() {
+      java.lang.Object ref = contentType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        contentType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 添加订阅地址的内容类型。默认值为“application/octet-stream”。支持的取值为
+     * "application/json",
+     * "application/octet-stream"
+     * </pre>
+     *
+     * <code>string ContentType = 3;</code>
+     * @param value The contentType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setContentType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      contentType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 添加订阅地址的内容类型。默认值为“application/octet-stream”。支持的取值为
+     * "application/json",
+     * "application/octet-stream"
+     * </pre>
+     *
+     * <code>string ContentType = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearContentType() {
+      
+      contentType_ = getDefaultInstance().getContentType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 添加订阅地址的内容类型。默认值为“application/octet-stream”。支持的取值为
+     * "application/json",
+     * "application/octet-stream"
+     * </pre>
+     *
+     * <code>string ContentType = 3;</code>
+     * @param value The bytes for contentType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setContentTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      contentType_ = value;
       onChanged();
       return this;
     }

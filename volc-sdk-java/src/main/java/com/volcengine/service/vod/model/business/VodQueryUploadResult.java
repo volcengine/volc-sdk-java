@@ -110,6 +110,10 @@ private static final long serialVersionUID = 0L;
   public static final int MEDIAINFOLIST_FIELD_NUMBER = 1;
   private java.util.List<com.volcengine.service.vod.model.business.VodURLSet> mediaInfoList_;
   /**
+   * <pre>
+   * URL批量上传状态查询返回的 JobId 对应的信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
    */
   @java.lang.Override
@@ -117,6 +121,10 @@ private static final long serialVersionUID = 0L;
     return mediaInfoList_;
   }
   /**
+   * <pre>
+   * URL批量上传状态查询返回的 JobId 对应的信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
    */
   @java.lang.Override
@@ -125,6 +133,10 @@ private static final long serialVersionUID = 0L;
     return mediaInfoList_;
   }
   /**
+   * <pre>
+   * URL批量上传状态查询返回的 JobId 对应的信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
    */
   @java.lang.Override
@@ -132,6 +144,10 @@ private static final long serialVersionUID = 0L;
     return mediaInfoList_.size();
   }
   /**
+   * <pre>
+   * URL批量上传状态查询返回的 JobId 对应的信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
    */
   @java.lang.Override
@@ -139,6 +155,10 @@ private static final long serialVersionUID = 0L;
     return mediaInfoList_.get(index);
   }
   /**
+   * <pre>
+   * URL批量上传状态查询返回的 JobId 对应的信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
    */
   @java.lang.Override
@@ -150,6 +170,10 @@ private static final long serialVersionUID = 0L;
   public static final int NOTEXISTJOBIDS_FIELD_NUMBER = 2;
   private com.google.protobuf.LazyStringList notExistJobIds_;
   /**
+   * <pre>
+   * URL批量上传状态查询不存在的 JobId 
+   * </pre>
+   *
    * <code>repeated string NotExistJobIds = 2;</code>
    * @return A list containing the notExistJobIds.
    */
@@ -158,6 +182,10 @@ private static final long serialVersionUID = 0L;
     return notExistJobIds_;
   }
   /**
+   * <pre>
+   * URL批量上传状态查询不存在的 JobId 
+   * </pre>
+   *
    * <code>repeated string NotExistJobIds = 2;</code>
    * @return The count of notExistJobIds.
    */
@@ -165,6 +193,10 @@ private static final long serialVersionUID = 0L;
     return notExistJobIds_.size();
   }
   /**
+   * <pre>
+   * URL批量上传状态查询不存在的 JobId 
+   * </pre>
+   *
    * <code>repeated string NotExistJobIds = 2;</code>
    * @param index The index of the element to return.
    * @return The notExistJobIds at the given index.
@@ -173,6 +205,10 @@ private static final long serialVersionUID = 0L;
     return notExistJobIds_.get(index);
   }
   /**
+   * <pre>
+   * URL批量上传状态查询不存在的 JobId 
+   * </pre>
+   *
    * <code>repeated string NotExistJobIds = 2;</code>
    * @param index The index of the value to return.
    * @return The bytes of the notExistJobIds at the given index.
@@ -571,6 +607,10 @@ private static final long serialVersionUID = 0L;
         com.volcengine.service.vod.model.business.VodURLSet, com.volcengine.service.vod.model.business.VodURLSet.Builder, com.volcengine.service.vod.model.business.VodURLSetOrBuilder> mediaInfoListBuilder_;
 
     /**
+     * <pre>
+     * URL批量上传状态查询返回的 JobId 对应的信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodURLSet> getMediaInfoListList() {
@@ -581,6 +621,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * URL批量上传状态查询返回的 JobId 对应的信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public int getMediaInfoListCount() {
@@ -591,6 +635,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * URL批量上传状态查询返回的 JobId 对应的信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public com.volcengine.service.vod.model.business.VodURLSet getMediaInfoList(int index) {
@@ -601,6 +649,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * URL批量上传状态查询返回的 JobId 对应的信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public Builder setMediaInfoList(
@@ -618,6 +670,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * URL批量上传状态查询返回的 JobId 对应的信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public Builder setMediaInfoList(
@@ -632,6 +688,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * URL批量上传状态查询返回的 JobId 对应的信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public Builder addMediaInfoList(com.volcengine.service.vod.model.business.VodURLSet value) {
@@ -648,6 +708,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * URL批量上传状态查询返回的 JobId 对应的信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public Builder addMediaInfoList(
@@ -665,6 +729,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * URL批量上传状态查询返回的 JobId 对应的信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public Builder addMediaInfoList(
@@ -679,6 +747,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * URL批量上传状态查询返回的 JobId 对应的信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public Builder addMediaInfoList(
@@ -693,6 +765,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * URL批量上传状态查询返回的 JobId 对应的信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public Builder addAllMediaInfoList(
@@ -708,6 +784,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * URL批量上传状态查询返回的 JobId 对应的信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public Builder clearMediaInfoList() {
@@ -721,6 +801,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * URL批量上传状态查询返回的 JobId 对应的信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public Builder removeMediaInfoList(int index) {
@@ -734,6 +818,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * URL批量上传状态查询返回的 JobId 对应的信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public com.volcengine.service.vod.model.business.VodURLSet.Builder getMediaInfoListBuilder(
@@ -741,6 +829,10 @@ private static final long serialVersionUID = 0L;
       return getMediaInfoListFieldBuilder().getBuilder(index);
     }
     /**
+     * <pre>
+     * URL批量上传状态查询返回的 JobId 对应的信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public com.volcengine.service.vod.model.business.VodURLSetOrBuilder getMediaInfoListOrBuilder(
@@ -751,6 +843,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * URL批量上传状态查询返回的 JobId 对应的信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public java.util.List<? extends com.volcengine.service.vod.model.business.VodURLSetOrBuilder> 
@@ -762,6 +858,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * URL批量上传状态查询返回的 JobId 对应的信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public com.volcengine.service.vod.model.business.VodURLSet.Builder addMediaInfoListBuilder() {
@@ -769,6 +869,10 @@ private static final long serialVersionUID = 0L;
           com.volcengine.service.vod.model.business.VodURLSet.getDefaultInstance());
     }
     /**
+     * <pre>
+     * URL批量上传状态查询返回的 JobId 对应的信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public com.volcengine.service.vod.model.business.VodURLSet.Builder addMediaInfoListBuilder(
@@ -777,6 +881,10 @@ private static final long serialVersionUID = 0L;
           index, com.volcengine.service.vod.model.business.VodURLSet.getDefaultInstance());
     }
     /**
+     * <pre>
+     * URL批量上传状态查询返回的 JobId 对应的信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodURLSet MediaInfoList = 1;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodURLSet.Builder> 
@@ -806,6 +914,10 @@ private static final long serialVersionUID = 0L;
        }
     }
     /**
+     * <pre>
+     * URL批量上传状态查询不存在的 JobId 
+     * </pre>
+     *
      * <code>repeated string NotExistJobIds = 2;</code>
      * @return A list containing the notExistJobIds.
      */
@@ -814,6 +926,10 @@ private static final long serialVersionUID = 0L;
       return notExistJobIds_.getUnmodifiableView();
     }
     /**
+     * <pre>
+     * URL批量上传状态查询不存在的 JobId 
+     * </pre>
+     *
      * <code>repeated string NotExistJobIds = 2;</code>
      * @return The count of notExistJobIds.
      */
@@ -821,6 +937,10 @@ private static final long serialVersionUID = 0L;
       return notExistJobIds_.size();
     }
     /**
+     * <pre>
+     * URL批量上传状态查询不存在的 JobId 
+     * </pre>
+     *
      * <code>repeated string NotExistJobIds = 2;</code>
      * @param index The index of the element to return.
      * @return The notExistJobIds at the given index.
@@ -829,6 +949,10 @@ private static final long serialVersionUID = 0L;
       return notExistJobIds_.get(index);
     }
     /**
+     * <pre>
+     * URL批量上传状态查询不存在的 JobId 
+     * </pre>
+     *
      * <code>repeated string NotExistJobIds = 2;</code>
      * @param index The index of the value to return.
      * @return The bytes of the notExistJobIds at the given index.
@@ -838,6 +962,10 @@ private static final long serialVersionUID = 0L;
       return notExistJobIds_.getByteString(index);
     }
     /**
+     * <pre>
+     * URL批量上传状态查询不存在的 JobId 
+     * </pre>
+     *
      * <code>repeated string NotExistJobIds = 2;</code>
      * @param index The index to set the value at.
      * @param value The notExistJobIds to set.
@@ -854,6 +982,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * URL批量上传状态查询不存在的 JobId 
+     * </pre>
+     *
      * <code>repeated string NotExistJobIds = 2;</code>
      * @param value The notExistJobIds to add.
      * @return This builder for chaining.
@@ -869,6 +1001,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * URL批量上传状态查询不存在的 JobId 
+     * </pre>
+     *
      * <code>repeated string NotExistJobIds = 2;</code>
      * @param values The notExistJobIds to add.
      * @return This builder for chaining.
@@ -882,6 +1018,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * URL批量上传状态查询不存在的 JobId 
+     * </pre>
+     *
      * <code>repeated string NotExistJobIds = 2;</code>
      * @return This builder for chaining.
      */
@@ -892,6 +1032,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * URL批量上传状态查询不存在的 JobId 
+     * </pre>
+     *
      * <code>repeated string NotExistJobIds = 2;</code>
      * @param value The bytes of the notExistJobIds to add.
      * @return This builder for chaining.

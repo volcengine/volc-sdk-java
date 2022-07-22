@@ -130,6 +130,10 @@ private static final long serialVersionUID = 0L;
   public static final int STOREINFOS_FIELD_NUMBER = 1;
   private java.util.List<com.volcengine.service.vod.model.business.VodStoreInfo> storeInfos_;
   /**
+   * <pre>
+   * 1001 阶段返回指定存储相关信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
    */
   @java.lang.Override
@@ -137,6 +141,10 @@ private static final long serialVersionUID = 0L;
     return storeInfos_;
   }
   /**
+   * <pre>
+   * 1001 阶段返回指定存储相关信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
    */
   @java.lang.Override
@@ -145,6 +153,10 @@ private static final long serialVersionUID = 0L;
     return storeInfos_;
   }
   /**
+   * <pre>
+   * 1001 阶段返回指定存储相关信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
    */
   @java.lang.Override
@@ -152,6 +164,10 @@ private static final long serialVersionUID = 0L;
     return storeInfos_.size();
   }
   /**
+   * <pre>
+   * 1001 阶段返回指定存储相关信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
    */
   @java.lang.Override
@@ -159,6 +175,10 @@ private static final long serialVersionUID = 0L;
     return storeInfos_.get(index);
   }
   /**
+   * <pre>
+   * 1001 阶段返回指定存储相关信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
    */
   @java.lang.Override
@@ -170,6 +190,10 @@ private static final long serialVersionUID = 0L;
   public static final int UPLOADHOSTS_FIELD_NUMBER = 2;
   private com.google.protobuf.LazyStringList uploadHosts_;
   /**
+   * <pre>
+   * 1001 阶段返回指定的上传域名 
+   * </pre>
+   *
    * <code>repeated string UploadHosts = 2;</code>
    * @return A list containing the uploadHosts.
    */
@@ -178,6 +202,10 @@ private static final long serialVersionUID = 0L;
     return uploadHosts_;
   }
   /**
+   * <pre>
+   * 1001 阶段返回指定的上传域名 
+   * </pre>
+   *
    * <code>repeated string UploadHosts = 2;</code>
    * @return The count of uploadHosts.
    */
@@ -185,6 +213,10 @@ private static final long serialVersionUID = 0L;
     return uploadHosts_.size();
   }
   /**
+   * <pre>
+   * 1001 阶段返回指定的上传域名 
+   * </pre>
+   *
    * <code>repeated string UploadHosts = 2;</code>
    * @param index The index of the element to return.
    * @return The uploadHosts at the given index.
@@ -193,6 +225,10 @@ private static final long serialVersionUID = 0L;
     return uploadHosts_.get(index);
   }
   /**
+   * <pre>
+   * 1001 阶段返回指定的上传域名 
+   * </pre>
+   *
    * <code>repeated string UploadHosts = 2;</code>
    * @param index The index of the value to return.
    * @return The bytes of the uploadHosts at the given index.
@@ -205,6 +241,10 @@ private static final long serialVersionUID = 0L;
   public static final int UPLOADHEADER_FIELD_NUMBER = 3;
   private java.util.List<com.volcengine.service.vod.model.business.VodHeaderPair> uploadHeader_;
   /**
+   * <pre>
+   * 1001 阶段返回指定上传带的头信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
    */
   @java.lang.Override
@@ -212,6 +252,10 @@ private static final long serialVersionUID = 0L;
     return uploadHeader_;
   }
   /**
+   * <pre>
+   * 1001 阶段返回指定上传带的头信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
    */
   @java.lang.Override
@@ -220,6 +264,10 @@ private static final long serialVersionUID = 0L;
     return uploadHeader_;
   }
   /**
+   * <pre>
+   * 1001 阶段返回指定上传带的头信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
    */
   @java.lang.Override
@@ -227,6 +275,10 @@ private static final long serialVersionUID = 0L;
     return uploadHeader_.size();
   }
   /**
+   * <pre>
+   * 1001 阶段返回指定上传带的头信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
    */
   @java.lang.Override
@@ -234,6 +286,10 @@ private static final long serialVersionUID = 0L;
     return uploadHeader_.get(index);
   }
   /**
+   * <pre>
+   * 1001 阶段返回指定上传带的头信息 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
    */
   @java.lang.Override
@@ -245,6 +301,10 @@ private static final long serialVersionUID = 0L;
   public static final int SESSIONKEY_FIELD_NUMBER = 4;
   private volatile java.lang.Object sessionKey_;
   /**
+   * <pre>
+   * 1001 阶段返回的 Session 信息 
+   * </pre>
+   *
    * <code>string SessionKey = 4;</code>
    * @return The sessionKey.
    */
@@ -262,6 +322,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 1001 阶段返回的 Session 信息 
+   * </pre>
+   *
    * <code>string SessionKey = 4;</code>
    * @return The bytes for sessionKey.
    */
@@ -741,6 +805,10 @@ private static final long serialVersionUID = 0L;
         com.volcengine.service.vod.model.business.VodStoreInfo, com.volcengine.service.vod.model.business.VodStoreInfo.Builder, com.volcengine.service.vod.model.business.VodStoreInfoOrBuilder> storeInfosBuilder_;
 
     /**
+     * <pre>
+     * 1001 阶段返回指定存储相关信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodStoreInfo> getStoreInfosList() {
@@ -751,6 +819,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定存储相关信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
      */
     public int getStoreInfosCount() {
@@ -761,6 +833,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定存储相关信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
      */
     public com.volcengine.service.vod.model.business.VodStoreInfo getStoreInfos(int index) {
@@ -771,6 +847,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定存储相关信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
      */
     public Builder setStoreInfos(
@@ -788,6 +868,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定存储相关信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
      */
     public Builder setStoreInfos(
@@ -802,6 +886,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定存储相关信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
      */
     public Builder addStoreInfos(com.volcengine.service.vod.model.business.VodStoreInfo value) {
@@ -818,6 +906,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定存储相关信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
      */
     public Builder addStoreInfos(
@@ -835,6 +927,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定存储相关信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
      */
     public Builder addStoreInfos(
@@ -849,6 +945,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定存储相关信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
      */
     public Builder addStoreInfos(
@@ -863,6 +963,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定存储相关信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
      */
     public Builder addAllStoreInfos(
@@ -878,6 +982,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定存储相关信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
      */
     public Builder clearStoreInfos() {
@@ -891,6 +999,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定存储相关信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
      */
     public Builder removeStoreInfos(int index) {
@@ -904,6 +1016,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定存储相关信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
      */
     public com.volcengine.service.vod.model.business.VodStoreInfo.Builder getStoreInfosBuilder(
@@ -911,6 +1027,10 @@ private static final long serialVersionUID = 0L;
       return getStoreInfosFieldBuilder().getBuilder(index);
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定存储相关信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
      */
     public com.volcengine.service.vod.model.business.VodStoreInfoOrBuilder getStoreInfosOrBuilder(
@@ -921,6 +1041,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定存储相关信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
      */
     public java.util.List<? extends com.volcengine.service.vod.model.business.VodStoreInfoOrBuilder> 
@@ -932,6 +1056,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定存储相关信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
      */
     public com.volcengine.service.vod.model.business.VodStoreInfo.Builder addStoreInfosBuilder() {
@@ -939,6 +1067,10 @@ private static final long serialVersionUID = 0L;
           com.volcengine.service.vod.model.business.VodStoreInfo.getDefaultInstance());
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定存储相关信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
      */
     public com.volcengine.service.vod.model.business.VodStoreInfo.Builder addStoreInfosBuilder(
@@ -947,6 +1079,10 @@ private static final long serialVersionUID = 0L;
           index, com.volcengine.service.vod.model.business.VodStoreInfo.getDefaultInstance());
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定存储相关信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodStoreInfo StoreInfos = 1;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodStoreInfo.Builder> 
@@ -976,6 +1112,10 @@ private static final long serialVersionUID = 0L;
        }
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定的上传域名 
+     * </pre>
+     *
      * <code>repeated string UploadHosts = 2;</code>
      * @return A list containing the uploadHosts.
      */
@@ -984,6 +1124,10 @@ private static final long serialVersionUID = 0L;
       return uploadHosts_.getUnmodifiableView();
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定的上传域名 
+     * </pre>
+     *
      * <code>repeated string UploadHosts = 2;</code>
      * @return The count of uploadHosts.
      */
@@ -991,6 +1135,10 @@ private static final long serialVersionUID = 0L;
       return uploadHosts_.size();
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定的上传域名 
+     * </pre>
+     *
      * <code>repeated string UploadHosts = 2;</code>
      * @param index The index of the element to return.
      * @return The uploadHosts at the given index.
@@ -999,6 +1147,10 @@ private static final long serialVersionUID = 0L;
       return uploadHosts_.get(index);
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定的上传域名 
+     * </pre>
+     *
      * <code>repeated string UploadHosts = 2;</code>
      * @param index The index of the value to return.
      * @return The bytes of the uploadHosts at the given index.
@@ -1008,6 +1160,10 @@ private static final long serialVersionUID = 0L;
       return uploadHosts_.getByteString(index);
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定的上传域名 
+     * </pre>
+     *
      * <code>repeated string UploadHosts = 2;</code>
      * @param index The index to set the value at.
      * @param value The uploadHosts to set.
@@ -1024,6 +1180,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定的上传域名 
+     * </pre>
+     *
      * <code>repeated string UploadHosts = 2;</code>
      * @param value The uploadHosts to add.
      * @return This builder for chaining.
@@ -1039,6 +1199,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定的上传域名 
+     * </pre>
+     *
      * <code>repeated string UploadHosts = 2;</code>
      * @param values The uploadHosts to add.
      * @return This builder for chaining.
@@ -1052,6 +1216,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定的上传域名 
+     * </pre>
+     *
      * <code>repeated string UploadHosts = 2;</code>
      * @return This builder for chaining.
      */
@@ -1062,6 +1230,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定的上传域名 
+     * </pre>
+     *
      * <code>repeated string UploadHosts = 2;</code>
      * @param value The bytes of the uploadHosts to add.
      * @return This builder for chaining.
@@ -1091,6 +1263,10 @@ private static final long serialVersionUID = 0L;
         com.volcengine.service.vod.model.business.VodHeaderPair, com.volcengine.service.vod.model.business.VodHeaderPair.Builder, com.volcengine.service.vod.model.business.VodHeaderPairOrBuilder> uploadHeaderBuilder_;
 
     /**
+     * <pre>
+     * 1001 阶段返回指定上传带的头信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodHeaderPair> getUploadHeaderList() {
@@ -1101,6 +1277,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定上传带的头信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
      */
     public int getUploadHeaderCount() {
@@ -1111,6 +1291,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定上传带的头信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
      */
     public com.volcengine.service.vod.model.business.VodHeaderPair getUploadHeader(int index) {
@@ -1121,6 +1305,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定上传带的头信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
      */
     public Builder setUploadHeader(
@@ -1138,6 +1326,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定上传带的头信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
      */
     public Builder setUploadHeader(
@@ -1152,6 +1344,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定上传带的头信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
      */
     public Builder addUploadHeader(com.volcengine.service.vod.model.business.VodHeaderPair value) {
@@ -1168,6 +1364,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定上传带的头信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
      */
     public Builder addUploadHeader(
@@ -1185,6 +1385,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定上传带的头信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
      */
     public Builder addUploadHeader(
@@ -1199,6 +1403,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定上传带的头信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
      */
     public Builder addUploadHeader(
@@ -1213,6 +1421,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定上传带的头信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
      */
     public Builder addAllUploadHeader(
@@ -1228,6 +1440,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定上传带的头信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
      */
     public Builder clearUploadHeader() {
@@ -1241,6 +1457,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定上传带的头信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
      */
     public Builder removeUploadHeader(int index) {
@@ -1254,6 +1474,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定上传带的头信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
      */
     public com.volcengine.service.vod.model.business.VodHeaderPair.Builder getUploadHeaderBuilder(
@@ -1261,6 +1485,10 @@ private static final long serialVersionUID = 0L;
       return getUploadHeaderFieldBuilder().getBuilder(index);
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定上传带的头信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
      */
     public com.volcengine.service.vod.model.business.VodHeaderPairOrBuilder getUploadHeaderOrBuilder(
@@ -1271,6 +1499,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定上传带的头信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
      */
     public java.util.List<? extends com.volcengine.service.vod.model.business.VodHeaderPairOrBuilder> 
@@ -1282,6 +1514,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定上传带的头信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
      */
     public com.volcengine.service.vod.model.business.VodHeaderPair.Builder addUploadHeaderBuilder() {
@@ -1289,6 +1525,10 @@ private static final long serialVersionUID = 0L;
           com.volcengine.service.vod.model.business.VodHeaderPair.getDefaultInstance());
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定上传带的头信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
      */
     public com.volcengine.service.vod.model.business.VodHeaderPair.Builder addUploadHeaderBuilder(
@@ -1297,6 +1537,10 @@ private static final long serialVersionUID = 0L;
           index, com.volcengine.service.vod.model.business.VodHeaderPair.getDefaultInstance());
     }
     /**
+     * <pre>
+     * 1001 阶段返回指定上传带的头信息 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.VodHeaderPair UploadHeader = 3;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodHeaderPair.Builder> 
@@ -1320,6 +1564,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object sessionKey_ = "";
     /**
+     * <pre>
+     * 1001 阶段返回的 Session 信息 
+     * </pre>
+     *
      * <code>string SessionKey = 4;</code>
      * @return The sessionKey.
      */
@@ -1336,6 +1584,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回的 Session 信息 
+     * </pre>
+     *
      * <code>string SessionKey = 4;</code>
      * @return The bytes for sessionKey.
      */
@@ -1353,6 +1605,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回的 Session 信息 
+     * </pre>
+     *
      * <code>string SessionKey = 4;</code>
      * @param value The sessionKey to set.
      * @return This builder for chaining.
@@ -1368,6 +1624,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回的 Session 信息 
+     * </pre>
+     *
      * <code>string SessionKey = 4;</code>
      * @return This builder for chaining.
      */
@@ -1378,6 +1638,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回的 Session 信息 
+     * </pre>
+     *
      * <code>string SessionKey = 4;</code>
      * @param value The bytes for sessionKey to set.
      * @return This builder for chaining.

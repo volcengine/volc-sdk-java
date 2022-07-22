@@ -8,11 +8,19 @@ public interface VodHeaderPairOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * 1001 阶段返回信息，1002-1004 上传时需要带的 header 中的 key 
+   * </pre>
+   *
    * <code>string Key = 1;</code>
    * @return The key.
    */
   java.lang.String getKey();
   /**
+   * <pre>
+   * 1001 阶段返回信息，1002-1004 上传时需要带的 header 中的 key 
+   * </pre>
+   *
    * <code>string Key = 1;</code>
    * @return The bytes for key.
    */
@@ -20,11 +28,19 @@ public interface VodHeaderPairOrBuilder extends
       getKeyBytes();
 
   /**
+   * <pre>
+   * 1001 阶段返回信息，1002-1004 上传时需要带的 header 中的 value 
+   * </pre>
+   *
    * <code>string Value = 2;</code>
    * @return The value.
    */
   java.lang.String getValue();
   /**
+   * <pre>
+   * 1001 阶段返回信息，1002-1004 上传时需要带的 header 中的 value 
+   * </pre>
+   *
    * <code>string Value = 2;</code>
    * @return The bytes for value.
    */

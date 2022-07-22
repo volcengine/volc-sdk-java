@@ -173,4 +173,24 @@ public interface VodDomainoInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getUpdateTimeBytes();
+
+  /**
+   * <pre>
+   *加速区域，cn:国内,overseas:海外，global:全球
+   * </pre>
+   *
+   * <code>string Region = 9;</code>
+   * @return The region.
+   */
+  java.lang.String getRegion();
+  /**
+   * <pre>
+   *加速区域，cn:国内,overseas:海外，global:全球
+   * </pre>
+   *
+   * <code>string Region = 9;</code>
+   * @return The bytes for region.
+   */
+  com.google.protobuf.ByteString
+      getRegionBytes();
 }

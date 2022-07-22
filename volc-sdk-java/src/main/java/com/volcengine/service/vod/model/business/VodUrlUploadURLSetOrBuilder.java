@@ -9,7 +9,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
 
   /**
    * <pre>
-   * 视频的URL
+   * 视频的URL 
    * </pre>
    *
    * <code>string SourceUrl = 1;</code>
@@ -18,7 +18,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
   java.lang.String getSourceUrl();
   /**
    * <pre>
-   * 视频的URL
+   * 视频的URL 
    * </pre>
    *
    * <code>string SourceUrl = 1;</code>
@@ -29,7 +29,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
 
   /**
    * <pre>
-   * 透传的回调信息
+   * 透传的业务信息 
    * </pre>
    *
    * <code>string CallbackArgs = 2;</code>
@@ -38,7 +38,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
   java.lang.String getCallbackArgs();
   /**
    * <pre>
-   * 透传的回调信息
+   * 透传的业务信息 
    * </pre>
    *
    * <code>string CallbackArgs = 2;</code>
@@ -49,7 +49,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
 
   /**
    * <pre>
-   * 视频的MD5
+   * 视频的MD5 
    * </pre>
    *
    * <code>string Md5 = 3;</code>
@@ -58,7 +58,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
   java.lang.String getMd5();
   /**
    * <pre>
-   * 视频的MD5
+   * 视频的MD5 
    * </pre>
    *
    * <code>string Md5 = 3;</code>
@@ -69,7 +69,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
 
   /**
    * <pre>
-   * 模板Id
+   * 模板Id 
    * </pre>
    *
    * <code>string TemplateId = 4;</code>
@@ -78,7 +78,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
   java.lang.String getTemplateId();
   /**
    * <pre>
-   * 模板Id
+   * 模板Id 
    * </pre>
    *
    * <code>string TemplateId = 4;</code>
@@ -89,7 +89,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
 
   /**
    * <pre>
-   * 标题
+   * 标题 
    * </pre>
    *
    * <code>string Title = 5;</code>
@@ -98,7 +98,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
   java.lang.String getTitle();
   /**
    * <pre>
-   * 标题
+   * 标题 
    * </pre>
    *
    * <code>string Title = 5;</code>
@@ -109,7 +109,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
 
   /**
    * <pre>
-   * 描述信息
+   * 描述信息 
    * </pre>
    *
    * <code>string Description = 6;</code>
@@ -118,7 +118,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
   java.lang.String getDescription();
   /**
    * <pre>
-   * 描述信息
+   * 描述信息 
    * </pre>
    *
    * <code>string Description = 6;</code>
@@ -129,7 +129,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
 
   /**
    * <pre>
-   * 标签
+   * 标签 
    * </pre>
    *
    * <code>string Tags = 7;</code>
@@ -138,7 +138,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
   java.lang.String getTags();
   /**
    * <pre>
-   * 标签
+   * 标签 
    * </pre>
    *
    * <code>string Tags = 7;</code>
@@ -149,7 +149,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
 
   /**
    * <pre>
-   * 分类
+   * 分类 
    * </pre>
    *
    * <code>string Category = 8;</code>
@@ -158,7 +158,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
   java.lang.String getCategory();
   /**
    * <pre>
-   * 分类
+   * 分类 
    * </pre>
    *
    * <code>string Category = 8;</code>
@@ -169,7 +169,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
 
   /**
    * <pre>
-   * 设置文件名
+   * 设置文件名 
    * </pre>
    *
    * <code>string FileName = 9;</code>
@@ -178,7 +178,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
   java.lang.String getFileName();
   /**
    * <pre>
-   * 设置文件名
+   * 设置文件名 
    * </pre>
    *
    * <code>string FileName = 9;</code>
@@ -189,7 +189,7 @@ public interface VodUrlUploadURLSetOrBuilder extends
 
   /**
    * <pre>
-   *设置分类Id
+   * 设置分类Id 
    * </pre>
    *
    * <code>int64 ClassificationId = 10;</code>

@@ -97,6 +97,10 @@ private static final long serialVersionUID = 0L;
   public static final int DATA_FIELD_NUMBER = 1;
   private java.util.List<com.volcengine.service.vod.model.business.ValuePair> data_;
   /**
+   * <pre>
+   * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
    */
   @java.lang.Override
@@ -104,6 +108,10 @@ private static final long serialVersionUID = 0L;
     return data_;
   }
   /**
+   * <pre>
+   * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
    */
   @java.lang.Override
@@ -112,6 +120,10 @@ private static final long serialVersionUID = 0L;
     return data_;
   }
   /**
+   * <pre>
+   * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
    */
   @java.lang.Override
@@ -119,6 +131,10 @@ private static final long serialVersionUID = 0L;
     return data_.size();
   }
   /**
+   * <pre>
+   * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
    */
   @java.lang.Override
@@ -126,6 +142,10 @@ private static final long serialVersionUID = 0L;
     return data_.get(index);
   }
   /**
+   * <pre>
+   * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
    */
   @java.lang.Override
@@ -489,6 +509,10 @@ private static final long serialVersionUID = 0L;
         com.volcengine.service.vod.model.business.ValuePair, com.volcengine.service.vod.model.business.ValuePair.Builder, com.volcengine.service.vod.model.business.ValuePairOrBuilder> dataBuilder_;
 
     /**
+     * <pre>
+     * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.ValuePair> getDataList() {
@@ -499,6 +523,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
      */
     public int getDataCount() {
@@ -509,6 +537,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
      */
     public com.volcengine.service.vod.model.business.ValuePair getData(int index) {
@@ -519,6 +551,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
      */
     public Builder setData(
@@ -536,6 +572,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
      */
     public Builder setData(
@@ -550,6 +590,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
      */
     public Builder addData(com.volcengine.service.vod.model.business.ValuePair value) {
@@ -566,6 +610,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
      */
     public Builder addData(
@@ -583,6 +631,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
      */
     public Builder addData(
@@ -597,6 +649,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
      */
     public Builder addData(
@@ -611,6 +667,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
      */
     public Builder addAllData(
@@ -626,6 +686,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
      */
     public Builder clearData() {
@@ -639,6 +703,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
      */
     public Builder removeData(int index) {
@@ -652,6 +720,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
      */
     public com.volcengine.service.vod.model.business.ValuePair.Builder getDataBuilder(
@@ -659,6 +731,10 @@ private static final long serialVersionUID = 0L;
       return getDataFieldBuilder().getBuilder(index);
     }
     /**
+     * <pre>
+     * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
      */
     public com.volcengine.service.vod.model.business.ValuePairOrBuilder getDataOrBuilder(
@@ -669,6 +745,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
      */
     public java.util.List<? extends com.volcengine.service.vod.model.business.ValuePairOrBuilder> 
@@ -680,6 +760,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
      */
     public com.volcengine.service.vod.model.business.ValuePair.Builder addDataBuilder() {
@@ -687,6 +771,10 @@ private static final long serialVersionUID = 0L;
           com.volcengine.service.vod.model.business.ValuePair.getDefaultInstance());
     }
     /**
+     * <pre>
+     * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
      */
     public com.volcengine.service.vod.model.business.ValuePair.Builder addDataBuilder(
@@ -695,6 +783,10 @@ private static final long serialVersionUID = 0L;
           index, com.volcengine.service.vod.model.business.ValuePair.getDefaultInstance());
     }
     /**
+     * <pre>
+     * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+     * </pre>
+     *
      * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.ValuePair.Builder> 

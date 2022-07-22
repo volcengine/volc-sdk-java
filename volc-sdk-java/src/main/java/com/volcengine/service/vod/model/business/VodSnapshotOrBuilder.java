@@ -49,7 +49,7 @@ public interface VodSnapshotOrBuilder extends
 
   /**
    * <pre>
-   *Uri
+   * Uri
    * </pre>
    *
    * <code>string StoreUri = 4;</code>
@@ -58,7 +58,7 @@ public interface VodSnapshotOrBuilder extends
   java.lang.String getStoreUri();
   /**
    * <pre>
-   *Uri
+   * Uri
    * </pre>
    *
    * <code>string StoreUri = 4;</code>

@@ -503,6 +503,38 @@ public class VodServiceConfig {
             ));
 
             // **********************************************************************
+            // 视频编辑
+            // **********************************************************************
+            put(Const.SubmitDirectEditTaskAsync, new ApiInfo(
+                     new HashMap<String, Object>() {
+                         {
+                             put(com.volcengine.helper.Const.Method, "POST");
+                             put(com.volcengine.helper.Const.Path, "/");
+                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                 {
+                                      add(new BasicNameValuePair("Action", Const.SubmitDirectEditTaskAsync));
+                                      add(new BasicNameValuePair("Version", "2018-01-01"));
+                                 }
+                             });
+                         }
+                    }
+            ));
+            put(Const.GetDirectEditResult, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "POST");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetDirectEditResult));
+                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // **********************************************************************
             // 空间管理
             // **********************************************************************
             put(Const.CreateSpace, new ApiInfo(
@@ -570,6 +602,20 @@ public class VodServiceConfig {
                                 {
                                     add(new BasicNameValuePair("Action", Const.UpdateSpaceUploadConfig));
                                     add(new BasicNameValuePair("Version", "2022-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeVodSpaceStorageData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeVodSpaceStorageData));
+                                    add(new BasicNameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }
@@ -672,6 +718,20 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.DescribeVodDomainBandwidthData));
+                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeVodDomainTrafficData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeVodDomainTrafficData));
                                     add(new BasicNameValuePair("Version", "2020-08-01"));
                                 }
                             });

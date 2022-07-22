@@ -89,7 +89,7 @@ public interface VodSpriteSnapshotOrBuilder extends
 
   /**
    * <pre>
-   *Uri列表
+   * Uri列表
    * </pre>
    *
    * <code>repeated string StoreUris = 8;</code>
@@ -99,7 +99,7 @@ public interface VodSpriteSnapshotOrBuilder extends
       getStoreUrisList();
   /**
    * <pre>
-   *Uri列表
+   * Uri列表
    * </pre>
    *
    * <code>repeated string StoreUris = 8;</code>
@@ -108,7 +108,7 @@ public interface VodSpriteSnapshotOrBuilder extends
   int getStoreUrisCount();
   /**
    * <pre>
-   *Uri列表
+   * Uri列表
    * </pre>
    *
    * <code>repeated string StoreUris = 8;</code>
@@ -118,7 +118,7 @@ public interface VodSpriteSnapshotOrBuilder extends
   java.lang.String getStoreUris(int index);
   /**
    * <pre>
-   *Uri列表
+   * Uri列表
    * </pre>
    *
    * <code>repeated string StoreUris = 8;</code>

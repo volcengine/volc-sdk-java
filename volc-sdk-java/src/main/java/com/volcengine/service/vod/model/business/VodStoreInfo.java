@@ -97,6 +97,10 @@ private static final long serialVersionUID = 0L;
   public static final int STOREURI_FIELD_NUMBER = 1;
   private volatile java.lang.Object storeUri_;
   /**
+   * <pre>
+   * 1001 阶段返回存储的 uri 
+   * </pre>
+   *
    * <code>string StoreUri = 1;</code>
    * @return The storeUri.
    */
@@ -114,6 +118,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 1001 阶段返回存储的 uri 
+   * </pre>
+   *
    * <code>string StoreUri = 1;</code>
    * @return The bytes for storeUri.
    */
@@ -135,6 +143,10 @@ private static final long serialVersionUID = 0L;
   public static final int AUTH_FIELD_NUMBER = 2;
   private volatile java.lang.Object auth_;
   /**
+   * <pre>
+   * 1001 阶段返回上传使用的签名信息 
+   * </pre>
+   *
    * <code>string Auth = 2;</code>
    * @return The auth.
    */
@@ -152,6 +164,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 1001 阶段返回上传使用的签名信息 
+   * </pre>
+   *
    * <code>string Auth = 2;</code>
    * @return The bytes for auth.
    */
@@ -491,6 +507,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object storeUri_ = "";
     /**
+     * <pre>
+     * 1001 阶段返回存储的 uri 
+     * </pre>
+     *
      * <code>string StoreUri = 1;</code>
      * @return The storeUri.
      */
@@ -507,6 +527,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回存储的 uri 
+     * </pre>
+     *
      * <code>string StoreUri = 1;</code>
      * @return The bytes for storeUri.
      */
@@ -524,6 +548,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回存储的 uri 
+     * </pre>
+     *
      * <code>string StoreUri = 1;</code>
      * @param value The storeUri to set.
      * @return This builder for chaining.
@@ -539,6 +567,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回存储的 uri 
+     * </pre>
+     *
      * <code>string StoreUri = 1;</code>
      * @return This builder for chaining.
      */
@@ -549,6 +581,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回存储的 uri 
+     * </pre>
+     *
      * <code>string StoreUri = 1;</code>
      * @param value The bytes for storeUri to set.
      * @return This builder for chaining.
@@ -567,6 +603,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object auth_ = "";
     /**
+     * <pre>
+     * 1001 阶段返回上传使用的签名信息 
+     * </pre>
+     *
      * <code>string Auth = 2;</code>
      * @return The auth.
      */
@@ -583,6 +623,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回上传使用的签名信息 
+     * </pre>
+     *
      * <code>string Auth = 2;</code>
      * @return The bytes for auth.
      */
@@ -600,6 +644,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回上传使用的签名信息 
+     * </pre>
+     *
      * <code>string Auth = 2;</code>
      * @param value The auth to set.
      * @return This builder for chaining.
@@ -615,6 +663,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回上传使用的签名信息 
+     * </pre>
+     *
      * <code>string Auth = 2;</code>
      * @return This builder for chaining.
      */
@@ -625,6 +677,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回上传使用的签名信息 
+     * </pre>
+     *
      * <code>string Auth = 2;</code>
      * @param value The bytes for auth to set.
      * @return This builder for chaining.

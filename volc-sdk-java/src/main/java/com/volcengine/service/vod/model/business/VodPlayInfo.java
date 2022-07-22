@@ -192,6 +192,19 @@ private static final long serialVersionUID = 0L;
             keyFrameAlignment_ = s;
             break;
           }
+          case 186: {
+            com.volcengine.service.vod.model.business.VodVolumeInfo.Builder subBuilder = null;
+            if (volume_ != null) {
+              subBuilder = volume_.toBuilder();
+            }
+            volume_ = input.readMessage(com.volcengine.service.vod.model.business.VodVolumeInfo.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(volume_);
+              volume_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -1081,6 +1094,44 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int VOLUME_FIELD_NUMBER = 23;
+  private com.volcengine.service.vod.model.business.VodVolumeInfo volume_;
+  /**
+   * <pre>
+   *响度信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodVolumeInfo Volume = 23;</code>
+   * @return Whether the volume field is set.
+   */
+  @java.lang.Override
+  public boolean hasVolume() {
+    return volume_ != null;
+  }
+  /**
+   * <pre>
+   *响度信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodVolumeInfo Volume = 23;</code>
+   * @return The volume.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodVolumeInfo getVolume() {
+    return volume_ == null ? com.volcengine.service.vod.model.business.VodVolumeInfo.getDefaultInstance() : volume_;
+  }
+  /**
+   * <pre>
+   *响度信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodVolumeInfo Volume = 23;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodVolumeInfoOrBuilder getVolumeOrBuilder() {
+    return getVolume();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1160,6 +1211,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyFrameAlignment_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 22, keyFrameAlignment_);
+    }
+    if (volume_ != null) {
+      output.writeMessage(23, getVolume());
     }
     unknownFields.writeTo(output);
   }
@@ -1241,6 +1295,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyFrameAlignment_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(22, keyFrameAlignment_);
     }
+    if (volume_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(23, getVolume());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1302,6 +1360,11 @@ private static final long serialVersionUID = 0L;
             other.getDuration())) return false;
     if (!getKeyFrameAlignment()
         .equals(other.getKeyFrameAlignment())) return false;
+    if (hasVolume() != other.hasVolume()) return false;
+    if (hasVolume()) {
+      if (!getVolume()
+          .equals(other.getVolume())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1359,6 +1422,10 @@ private static final long serialVersionUID = 0L;
         getDuration());
     hash = (37 * hash) + KEYFRAMEALIGNMENT_FIELD_NUMBER;
     hash = (53 * hash) + getKeyFrameAlignment().hashCode();
+    if (hasVolume()) {
+      hash = (37 * hash) + VOLUME_FIELD_NUMBER;
+      hash = (53 * hash) + getVolume().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1536,6 +1603,12 @@ private static final long serialVersionUID = 0L;
 
       keyFrameAlignment_ = "";
 
+      if (volumeBuilder_ == null) {
+        volume_ = null;
+      } else {
+        volume_ = null;
+        volumeBuilder_ = null;
+      }
       return this;
     }
 
@@ -1584,6 +1657,11 @@ private static final long serialVersionUID = 0L;
       result.barrageMaskOffset_ = barrageMaskOffset_;
       result.duration_ = duration_;
       result.keyFrameAlignment_ = keyFrameAlignment_;
+      if (volumeBuilder_ == null) {
+        result.volume_ = volume_;
+      } else {
+        result.volume_ = volumeBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -1714,6 +1792,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getKeyFrameAlignment().isEmpty()) {
         keyFrameAlignment_ = other.keyFrameAlignment_;
         onChanged();
+      }
+      if (other.hasVolume()) {
+        mergeVolume(other.getVolume());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -3589,6 +3670,161 @@ private static final long serialVersionUID = 0L;
       keyFrameAlignment_ = value;
       onChanged();
       return this;
+    }
+
+    private com.volcengine.service.vod.model.business.VodVolumeInfo volume_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodVolumeInfo, com.volcengine.service.vod.model.business.VodVolumeInfo.Builder, com.volcengine.service.vod.model.business.VodVolumeInfoOrBuilder> volumeBuilder_;
+    /**
+     * <pre>
+     *响度信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodVolumeInfo Volume = 23;</code>
+     * @return Whether the volume field is set.
+     */
+    public boolean hasVolume() {
+      return volumeBuilder_ != null || volume_ != null;
+    }
+    /**
+     * <pre>
+     *响度信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodVolumeInfo Volume = 23;</code>
+     * @return The volume.
+     */
+    public com.volcengine.service.vod.model.business.VodVolumeInfo getVolume() {
+      if (volumeBuilder_ == null) {
+        return volume_ == null ? com.volcengine.service.vod.model.business.VodVolumeInfo.getDefaultInstance() : volume_;
+      } else {
+        return volumeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     *响度信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodVolumeInfo Volume = 23;</code>
+     */
+    public Builder setVolume(com.volcengine.service.vod.model.business.VodVolumeInfo value) {
+      if (volumeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        volume_ = value;
+        onChanged();
+      } else {
+        volumeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *响度信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodVolumeInfo Volume = 23;</code>
+     */
+    public Builder setVolume(
+        com.volcengine.service.vod.model.business.VodVolumeInfo.Builder builderForValue) {
+      if (volumeBuilder_ == null) {
+        volume_ = builderForValue.build();
+        onChanged();
+      } else {
+        volumeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *响度信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodVolumeInfo Volume = 23;</code>
+     */
+    public Builder mergeVolume(com.volcengine.service.vod.model.business.VodVolumeInfo value) {
+      if (volumeBuilder_ == null) {
+        if (volume_ != null) {
+          volume_ =
+            com.volcengine.service.vod.model.business.VodVolumeInfo.newBuilder(volume_).mergeFrom(value).buildPartial();
+        } else {
+          volume_ = value;
+        }
+        onChanged();
+      } else {
+        volumeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *响度信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodVolumeInfo Volume = 23;</code>
+     */
+    public Builder clearVolume() {
+      if (volumeBuilder_ == null) {
+        volume_ = null;
+        onChanged();
+      } else {
+        volume_ = null;
+        volumeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *响度信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodVolumeInfo Volume = 23;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodVolumeInfo.Builder getVolumeBuilder() {
+      
+      onChanged();
+      return getVolumeFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     *响度信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodVolumeInfo Volume = 23;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodVolumeInfoOrBuilder getVolumeOrBuilder() {
+      if (volumeBuilder_ != null) {
+        return volumeBuilder_.getMessageOrBuilder();
+      } else {
+        return volume_ == null ?
+            com.volcengine.service.vod.model.business.VodVolumeInfo.getDefaultInstance() : volume_;
+      }
+    }
+    /**
+     * <pre>
+     *响度信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodVolumeInfo Volume = 23;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodVolumeInfo, com.volcengine.service.vod.model.business.VodVolumeInfo.Builder, com.volcengine.service.vod.model.business.VodVolumeInfoOrBuilder> 
+        getVolumeFieldBuilder() {
+      if (volumeBuilder_ == null) {
+        volumeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.VodVolumeInfo, com.volcengine.service.vod.model.business.VodVolumeInfo.Builder, com.volcengine.service.vod.model.business.VodVolumeInfoOrBuilder>(
+                getVolume(),
+                getParentForChildren(),
+                isClean());
+        volume_ = null;
+      }
+      return volumeBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

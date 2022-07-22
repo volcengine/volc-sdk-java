@@ -145,6 +145,10 @@ private static final long serialVersionUID = 0L;
   public static final int REQUESTID_FIELD_NUMBER = 1;
   private volatile java.lang.Object requestId_;
   /**
+   * <pre>
+   * 请求 Id,用于日志查询 
+   * </pre>
+   *
    * <code>string RequestId = 1;</code>
    * @return The requestId.
    */
@@ -162,6 +166,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 请求 Id,用于日志查询 
+   * </pre>
+   *
    * <code>string RequestId = 1;</code>
    * @return The bytes for requestId.
    */
@@ -183,6 +191,10 @@ private static final long serialVersionUID = 0L;
   public static final int JOBID_FIELD_NUMBER = 2;
   private volatile java.lang.Object jobId_;
   /**
+   * <pre>
+   * JobId，用于查询 URL 上传状态 
+   * </pre>
+   *
    * <code>string JobId = 2;</code>
    * @return The jobId.
    */
@@ -200,6 +212,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * JobId，用于查询 URL 上传状态 
+   * </pre>
+   *
    * <code>string JobId = 2;</code>
    * @return The bytes for jobId.
    */
@@ -221,6 +237,10 @@ private static final long serialVersionUID = 0L;
   public static final int SOURCEURL_FIELD_NUMBER = 3;
   private volatile java.lang.Object sourceUrl_;
   /**
+   * <pre>
+   * 用户上传的Url 
+   * </pre>
+   *
    * <code>string SourceUrl = 3;</code>
    * @return The sourceUrl.
    */
@@ -238,6 +258,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 用户上传的Url 
+   * </pre>
+   *
    * <code>string SourceUrl = 3;</code>
    * @return The bytes for sourceUrl.
    */
@@ -259,6 +283,10 @@ private static final long serialVersionUID = 0L;
   public static final int STATE_FIELD_NUMBER = 4;
   private volatile java.lang.Object state_;
   /**
+   * <pre>
+   * Url 的上传状态，init,process,success,fail 
+   * </pre>
+   *
    * <code>string State = 4;</code>
    * @return The state.
    */
@@ -276,6 +304,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * Url 的上传状态，init,process,success,fail 
+   * </pre>
+   *
    * <code>string State = 4;</code>
    * @return The bytes for state.
    */
@@ -297,6 +329,10 @@ private static final long serialVersionUID = 0L;
   public static final int VID_FIELD_NUMBER = 5;
   private volatile java.lang.Object vid_;
   /**
+   * <pre>
+   * 视频 id 
+   * </pre>
+   *
    * <code>string Vid = 5;</code>
    * @return The vid.
    */
@@ -314,6 +350,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 视频 id 
+   * </pre>
+   *
    * <code>string Vid = 5;</code>
    * @return The bytes for vid.
    */
@@ -335,6 +375,10 @@ private static final long serialVersionUID = 0L;
   public static final int SPACENAME_FIELD_NUMBER = 6;
   private volatile java.lang.Object spaceName_;
   /**
+   * <pre>
+   * 上传的空间 
+   * </pre>
+   *
    * <code>string SpaceName = 6;</code>
    * @return The spaceName.
    */
@@ -352,6 +396,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 上传的空间 
+   * </pre>
+   *
    * <code>string SpaceName = 6;</code>
    * @return The bytes for spaceName.
    */
@@ -373,6 +421,10 @@ private static final long serialVersionUID = 0L;
   public static final int ACCOUNTID_FIELD_NUMBER = 7;
   private volatile java.lang.Object accountId_;
   /**
+   * <pre>
+   * 用户账号的 Id 
+   * </pre>
+   *
    * <code>string AccountId = 7;</code>
    * @return The accountId.
    */
@@ -390,6 +442,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 用户账号的 Id 
+   * </pre>
+   *
    * <code>string AccountId = 7;</code>
    * @return The bytes for accountId.
    */
@@ -411,6 +467,10 @@ private static final long serialVersionUID = 0L;
   public static final int SOURCEINFO_FIELD_NUMBER = 8;
   private com.volcengine.service.vod.model.business.VodSourceInfo sourceInfo_;
   /**
+   * <pre>
+   * 视频的元信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 8;</code>
    * @return Whether the sourceInfo field is set.
    */
@@ -419,6 +479,10 @@ private static final long serialVersionUID = 0L;
     return sourceInfo_ != null;
   }
   /**
+   * <pre>
+   * 视频的元信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 8;</code>
    * @return The sourceInfo.
    */
@@ -427,6 +491,10 @@ private static final long serialVersionUID = 0L;
     return sourceInfo_ == null ? com.volcengine.service.vod.model.business.VodSourceInfo.getDefaultInstance() : sourceInfo_;
   }
   /**
+   * <pre>
+   * 视频的元信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 8;</code>
    */
   @java.lang.Override
@@ -870,6 +938,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object requestId_ = "";
     /**
+     * <pre>
+     * 请求 Id,用于日志查询 
+     * </pre>
+     *
      * <code>string RequestId = 1;</code>
      * @return The requestId.
      */
@@ -886,6 +958,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 请求 Id,用于日志查询 
+     * </pre>
+     *
      * <code>string RequestId = 1;</code>
      * @return The bytes for requestId.
      */
@@ -903,6 +979,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 请求 Id,用于日志查询 
+     * </pre>
+     *
      * <code>string RequestId = 1;</code>
      * @param value The requestId to set.
      * @return This builder for chaining.
@@ -918,6 +998,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 请求 Id,用于日志查询 
+     * </pre>
+     *
      * <code>string RequestId = 1;</code>
      * @return This builder for chaining.
      */
@@ -928,6 +1012,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 请求 Id,用于日志查询 
+     * </pre>
+     *
      * <code>string RequestId = 1;</code>
      * @param value The bytes for requestId to set.
      * @return This builder for chaining.
@@ -946,6 +1034,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object jobId_ = "";
     /**
+     * <pre>
+     * JobId，用于查询 URL 上传状态 
+     * </pre>
+     *
      * <code>string JobId = 2;</code>
      * @return The jobId.
      */
@@ -962,6 +1054,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * JobId，用于查询 URL 上传状态 
+     * </pre>
+     *
      * <code>string JobId = 2;</code>
      * @return The bytes for jobId.
      */
@@ -979,6 +1075,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * JobId，用于查询 URL 上传状态 
+     * </pre>
+     *
      * <code>string JobId = 2;</code>
      * @param value The jobId to set.
      * @return This builder for chaining.
@@ -994,6 +1094,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * JobId，用于查询 URL 上传状态 
+     * </pre>
+     *
      * <code>string JobId = 2;</code>
      * @return This builder for chaining.
      */
@@ -1004,6 +1108,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * JobId，用于查询 URL 上传状态 
+     * </pre>
+     *
      * <code>string JobId = 2;</code>
      * @param value The bytes for jobId to set.
      * @return This builder for chaining.
@@ -1022,6 +1130,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object sourceUrl_ = "";
     /**
+     * <pre>
+     * 用户上传的Url 
+     * </pre>
+     *
      * <code>string SourceUrl = 3;</code>
      * @return The sourceUrl.
      */
@@ -1038,6 +1150,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 用户上传的Url 
+     * </pre>
+     *
      * <code>string SourceUrl = 3;</code>
      * @return The bytes for sourceUrl.
      */
@@ -1055,6 +1171,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 用户上传的Url 
+     * </pre>
+     *
      * <code>string SourceUrl = 3;</code>
      * @param value The sourceUrl to set.
      * @return This builder for chaining.
@@ -1070,6 +1190,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 用户上传的Url 
+     * </pre>
+     *
      * <code>string SourceUrl = 3;</code>
      * @return This builder for chaining.
      */
@@ -1080,6 +1204,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 用户上传的Url 
+     * </pre>
+     *
      * <code>string SourceUrl = 3;</code>
      * @param value The bytes for sourceUrl to set.
      * @return This builder for chaining.
@@ -1098,6 +1226,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object state_ = "";
     /**
+     * <pre>
+     * Url 的上传状态，init,process,success,fail 
+     * </pre>
+     *
      * <code>string State = 4;</code>
      * @return The state.
      */
@@ -1114,6 +1246,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Url 的上传状态，init,process,success,fail 
+     * </pre>
+     *
      * <code>string State = 4;</code>
      * @return The bytes for state.
      */
@@ -1131,6 +1267,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Url 的上传状态，init,process,success,fail 
+     * </pre>
+     *
      * <code>string State = 4;</code>
      * @param value The state to set.
      * @return This builder for chaining.
@@ -1146,6 +1286,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Url 的上传状态，init,process,success,fail 
+     * </pre>
+     *
      * <code>string State = 4;</code>
      * @return This builder for chaining.
      */
@@ -1156,6 +1300,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Url 的上传状态，init,process,success,fail 
+     * </pre>
+     *
      * <code>string State = 4;</code>
      * @param value The bytes for state to set.
      * @return This builder for chaining.
@@ -1174,6 +1322,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object vid_ = "";
     /**
+     * <pre>
+     * 视频 id 
+     * </pre>
+     *
      * <code>string Vid = 5;</code>
      * @return The vid.
      */
@@ -1190,6 +1342,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 视频 id 
+     * </pre>
+     *
      * <code>string Vid = 5;</code>
      * @return The bytes for vid.
      */
@@ -1207,6 +1363,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 视频 id 
+     * </pre>
+     *
      * <code>string Vid = 5;</code>
      * @param value The vid to set.
      * @return This builder for chaining.
@@ -1222,6 +1382,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频 id 
+     * </pre>
+     *
      * <code>string Vid = 5;</code>
      * @return This builder for chaining.
      */
@@ -1232,6 +1396,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频 id 
+     * </pre>
+     *
      * <code>string Vid = 5;</code>
      * @param value The bytes for vid to set.
      * @return This builder for chaining.
@@ -1250,6 +1418,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object spaceName_ = "";
     /**
+     * <pre>
+     * 上传的空间 
+     * </pre>
+     *
      * <code>string SpaceName = 6;</code>
      * @return The spaceName.
      */
@@ -1266,6 +1438,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的空间 
+     * </pre>
+     *
      * <code>string SpaceName = 6;</code>
      * @return The bytes for spaceName.
      */
@@ -1283,6 +1459,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 上传的空间 
+     * </pre>
+     *
      * <code>string SpaceName = 6;</code>
      * @param value The spaceName to set.
      * @return This builder for chaining.
@@ -1298,6 +1478,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的空间 
+     * </pre>
+     *
      * <code>string SpaceName = 6;</code>
      * @return This builder for chaining.
      */
@@ -1308,6 +1492,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 上传的空间 
+     * </pre>
+     *
      * <code>string SpaceName = 6;</code>
      * @param value The bytes for spaceName to set.
      * @return This builder for chaining.
@@ -1326,6 +1514,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object accountId_ = "";
     /**
+     * <pre>
+     * 用户账号的 Id 
+     * </pre>
+     *
      * <code>string AccountId = 7;</code>
      * @return The accountId.
      */
@@ -1342,6 +1534,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 用户账号的 Id 
+     * </pre>
+     *
      * <code>string AccountId = 7;</code>
      * @return The bytes for accountId.
      */
@@ -1359,6 +1555,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 用户账号的 Id 
+     * </pre>
+     *
      * <code>string AccountId = 7;</code>
      * @param value The accountId to set.
      * @return This builder for chaining.
@@ -1374,6 +1574,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 用户账号的 Id 
+     * </pre>
+     *
      * <code>string AccountId = 7;</code>
      * @return This builder for chaining.
      */
@@ -1384,6 +1588,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 用户账号的 Id 
+     * </pre>
+     *
      * <code>string AccountId = 7;</code>
      * @param value The bytes for accountId to set.
      * @return This builder for chaining.
@@ -1404,6 +1612,10 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.volcengine.service.vod.model.business.VodSourceInfo, com.volcengine.service.vod.model.business.VodSourceInfo.Builder, com.volcengine.service.vod.model.business.VodSourceInfoOrBuilder> sourceInfoBuilder_;
     /**
+     * <pre>
+     * 视频的元信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 8;</code>
      * @return Whether the sourceInfo field is set.
      */
@@ -1411,6 +1623,10 @@ private static final long serialVersionUID = 0L;
       return sourceInfoBuilder_ != null || sourceInfo_ != null;
     }
     /**
+     * <pre>
+     * 视频的元信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 8;</code>
      * @return The sourceInfo.
      */
@@ -1422,6 +1638,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 视频的元信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 8;</code>
      */
     public Builder setSourceInfo(com.volcengine.service.vod.model.business.VodSourceInfo value) {
@@ -1438,6 +1658,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频的元信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 8;</code>
      */
     public Builder setSourceInfo(
@@ -1452,6 +1676,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频的元信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 8;</code>
      */
     public Builder mergeSourceInfo(com.volcengine.service.vod.model.business.VodSourceInfo value) {
@@ -1470,6 +1698,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频的元信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 8;</code>
      */
     public Builder clearSourceInfo() {
@@ -1484,6 +1716,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 视频的元信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 8;</code>
      */
     public com.volcengine.service.vod.model.business.VodSourceInfo.Builder getSourceInfoBuilder() {
@@ -1492,6 +1728,10 @@ private static final long serialVersionUID = 0L;
       return getSourceInfoFieldBuilder().getBuilder();
     }
     /**
+     * <pre>
+     * 视频的元信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 8;</code>
      */
     public com.volcengine.service.vod.model.business.VodSourceInfoOrBuilder getSourceInfoOrBuilder() {
@@ -1503,6 +1743,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 视频的元信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 8;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<

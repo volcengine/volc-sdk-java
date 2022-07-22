@@ -49,7 +49,7 @@ public interface VodGetBetterFramesForAuditRequestOrBuilder extends
 
   /**
    * <pre>
-   * 优选帧的覆盖率得分，取值[0,1]，0代表取全部优选帧
+   * 优选帧的覆盖率得分，取值为从0至1的小数，0代表取全部优选帧
    * </pre>
    *
    * <code>string CoverRate = 3;</code>
@@ -58,7 +58,7 @@ public interface VodGetBetterFramesForAuditRequestOrBuilder extends
   java.lang.String getCoverRate();
   /**
    * <pre>
-   * 优选帧的覆盖率得分，取值[0,1]，0代表取全部优选帧
+   * 优选帧的覆盖率得分，取值为从0至1的小数，0代表取全部优选帧
    * </pre>
    *
    * <code>string CoverRate = 3;</code>

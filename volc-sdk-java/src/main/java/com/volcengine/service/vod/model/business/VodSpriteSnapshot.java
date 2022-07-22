@@ -284,7 +284,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.LazyStringList storeUris_;
   /**
    * <pre>
-   *Uri列表
+   * Uri列表
    * </pre>
    *
    * <code>repeated string StoreUris = 8;</code>
@@ -296,7 +296,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *Uri列表
+   * Uri列表
    * </pre>
    *
    * <code>repeated string StoreUris = 8;</code>
@@ -307,7 +307,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *Uri列表
+   * Uri列表
    * </pre>
    *
    * <code>repeated string StoreUris = 8;</code>
@@ -319,7 +319,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *Uri列表
+   * Uri列表
    * </pre>
    *
    * <code>repeated string StoreUris = 8;</code>
@@ -1221,7 +1221,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Uri列表
+     * Uri列表
      * </pre>
      *
      * <code>repeated string StoreUris = 8;</code>
@@ -1233,7 +1233,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Uri列表
+     * Uri列表
      * </pre>
      *
      * <code>repeated string StoreUris = 8;</code>
@@ -1244,7 +1244,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Uri列表
+     * Uri列表
      * </pre>
      *
      * <code>repeated string StoreUris = 8;</code>
@@ -1256,7 +1256,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Uri列表
+     * Uri列表
      * </pre>
      *
      * <code>repeated string StoreUris = 8;</code>
@@ -1269,7 +1269,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Uri列表
+     * Uri列表
      * </pre>
      *
      * <code>repeated string StoreUris = 8;</code>
@@ -1289,7 +1289,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Uri列表
+     * Uri列表
      * </pre>
      *
      * <code>repeated string StoreUris = 8;</code>
@@ -1308,7 +1308,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Uri列表
+     * Uri列表
      * </pre>
      *
      * <code>repeated string StoreUris = 8;</code>
@@ -1325,7 +1325,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Uri列表
+     * Uri列表
      * </pre>
      *
      * <code>repeated string StoreUris = 8;</code>
@@ -1339,7 +1339,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Uri列表
+     * Uri列表
      * </pre>
      *
      * <code>repeated string StoreUris = 8;</code>

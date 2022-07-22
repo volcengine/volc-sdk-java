@@ -23,6 +23,7 @@ private static final long serialVersionUID = 0L;
     status_ = "";
     createTime_ = "";
     updateTime_ = "";
+    region_ = "";
   }
 
   @java.lang.Override
@@ -108,6 +109,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             updateTime_ = s;
+            break;
+          }
+          case 74: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            region_ = s;
             break;
           }
           default: {
@@ -502,6 +509,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int REGION_FIELD_NUMBER = 9;
+  private volatile java.lang.Object region_;
+  /**
+   * <pre>
+   *加速区域，cn:国内,overseas:海外，global:全球
+   * </pre>
+   *
+   * <code>string Region = 9;</code>
+   * @return The region.
+   */
+  @java.lang.Override
+  public java.lang.String getRegion() {
+    java.lang.Object ref = region_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      region_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *加速区域，cn:国内,overseas:海外，global:全球
+   * </pre>
+   *
+   * <code>string Region = 9;</code>
+   * @return The bytes for region.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getRegionBytes() {
+    java.lang.Object ref = region_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      region_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -540,6 +593,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(updateTime_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, updateTime_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(region_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, region_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -573,6 +629,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(updateTime_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, updateTime_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(region_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, region_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -608,6 +667,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCreateTime())) return false;
     if (!getUpdateTime()
         .equals(other.getUpdateTime())) return false;
+    if (!getRegion()
+        .equals(other.getRegion())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -637,6 +698,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getCreateTime().hashCode();
     hash = (37 * hash) + UPDATETIME_FIELD_NUMBER;
     hash = (53 * hash) + getUpdateTime().hashCode();
+    hash = (37 * hash) + REGION_FIELD_NUMBER;
+    hash = (53 * hash) + getRegion().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -790,6 +853,8 @@ private static final long serialVersionUID = 0L;
 
       updateTime_ = "";
 
+      region_ = "";
+
       return this;
     }
 
@@ -828,6 +893,7 @@ private static final long serialVersionUID = 0L;
       }
       result.createTime_ = createTime_;
       result.updateTime_ = updateTime_;
+      result.region_ = region_;
       onBuilt();
       return result;
     }
@@ -905,6 +971,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getUpdateTime().isEmpty()) {
         updateTime_ = other.updateTime_;
+        onChanged();
+      }
+      if (!other.getRegion().isEmpty()) {
+        region_ = other.region_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1759,6 +1829,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       updateTime_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object region_ = "";
+    /**
+     * <pre>
+     *加速区域，cn:国内,overseas:海外，global:全球
+     * </pre>
+     *
+     * <code>string Region = 9;</code>
+     * @return The region.
+     */
+    public java.lang.String getRegion() {
+      java.lang.Object ref = region_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        region_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *加速区域，cn:国内,overseas:海外，global:全球
+     * </pre>
+     *
+     * <code>string Region = 9;</code>
+     * @return The bytes for region.
+     */
+    public com.google.protobuf.ByteString
+        getRegionBytes() {
+      java.lang.Object ref = region_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        region_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *加速区域，cn:国内,overseas:海外，global:全球
+     * </pre>
+     *
+     * <code>string Region = 9;</code>
+     * @param value The region to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRegion(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      region_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *加速区域，cn:国内,overseas:海外，global:全球
+     * </pre>
+     *
+     * <code>string Region = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRegion() {
+      
+      region_ = getDefaultInstance().getRegion();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *加速区域，cn:国内,overseas:海外，global:全球
+     * </pre>
+     *
+     * <code>string Region = 9;</code>
+     * @param value The bytes for region to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRegionBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      region_ = value;
       onChanged();
       return this;
     }

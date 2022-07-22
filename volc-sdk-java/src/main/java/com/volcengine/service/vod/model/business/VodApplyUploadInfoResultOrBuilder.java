@@ -8,16 +8,28 @@ public interface VodApplyUploadInfoResultOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * 1001 阶段返回信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodApplyUploadInfoData Data = 1;</code>
    * @return Whether the data field is set.
    */
   boolean hasData();
   /**
+   * <pre>
+   * 1001 阶段返回信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodApplyUploadInfoData Data = 1;</code>
    * @return The data.
    */
   com.volcengine.service.vod.model.business.VodApplyUploadInfoData getData();
   /**
+   * <pre>
+   * 1001 阶段返回信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodApplyUploadInfoData Data = 1;</code>
    */
   com.volcengine.service.vod.model.business.VodApplyUploadInfoDataOrBuilder getDataOrBuilder();

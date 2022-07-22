@@ -8,24 +8,44 @@ public interface VodUrlResponseDataOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
    */
   java.util.List<com.volcengine.service.vod.model.business.ValuePair> 
       getDataList();
   /**
+   * <pre>
+   * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
    */
   com.volcengine.service.vod.model.business.ValuePair getData(int index);
   /**
+   * <pre>
+   * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
    */
   int getDataCount();
   /**
+   * <pre>
+   * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
    */
   java.util.List<? extends com.volcengine.service.vod.model.business.ValuePairOrBuilder> 
       getDataOrBuilderList();
   /**
+   * <pre>
+   * 视频的URL的键值对，包含 JobId 和对应的 SourceUrl 
+   * </pre>
+   *
    * <code>repeated .Volcengine.Vod.Models.Business.ValuePair Data = 1;</code>
    */
   com.volcengine.service.vod.model.business.ValuePairOrBuilder getDataOrBuilder(

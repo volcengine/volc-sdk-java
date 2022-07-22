@@ -97,6 +97,10 @@ private static final long serialVersionUID = 0L;
   public static final int KEY_FIELD_NUMBER = 1;
   private volatile java.lang.Object key_;
   /**
+   * <pre>
+   * 1001 阶段返回信息，1002-1004 上传时需要带的 header 中的 key 
+   * </pre>
+   *
    * <code>string Key = 1;</code>
    * @return The key.
    */
@@ -114,6 +118,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 1001 阶段返回信息，1002-1004 上传时需要带的 header 中的 key 
+   * </pre>
+   *
    * <code>string Key = 1;</code>
    * @return The bytes for key.
    */
@@ -135,6 +143,10 @@ private static final long serialVersionUID = 0L;
   public static final int VALUE_FIELD_NUMBER = 2;
   private volatile java.lang.Object value_;
   /**
+   * <pre>
+   * 1001 阶段返回信息，1002-1004 上传时需要带的 header 中的 value 
+   * </pre>
+   *
    * <code>string Value = 2;</code>
    * @return The value.
    */
@@ -152,6 +164,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 1001 阶段返回信息，1002-1004 上传时需要带的 header 中的 value 
+   * </pre>
+   *
    * <code>string Value = 2;</code>
    * @return The bytes for value.
    */
@@ -491,6 +507,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object key_ = "";
     /**
+     * <pre>
+     * 1001 阶段返回信息，1002-1004 上传时需要带的 header 中的 key 
+     * </pre>
+     *
      * <code>string Key = 1;</code>
      * @return The key.
      */
@@ -507,6 +527,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息，1002-1004 上传时需要带的 header 中的 key 
+     * </pre>
+     *
      * <code>string Key = 1;</code>
      * @return The bytes for key.
      */
@@ -524,6 +548,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息，1002-1004 上传时需要带的 header 中的 key 
+     * </pre>
+     *
      * <code>string Key = 1;</code>
      * @param value The key to set.
      * @return This builder for chaining.
@@ -539,6 +567,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息，1002-1004 上传时需要带的 header 中的 key 
+     * </pre>
+     *
      * <code>string Key = 1;</code>
      * @return This builder for chaining.
      */
@@ -549,6 +581,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息，1002-1004 上传时需要带的 header 中的 key 
+     * </pre>
+     *
      * <code>string Key = 1;</code>
      * @param value The bytes for key to set.
      * @return This builder for chaining.
@@ -567,6 +603,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object value_ = "";
     /**
+     * <pre>
+     * 1001 阶段返回信息，1002-1004 上传时需要带的 header 中的 value 
+     * </pre>
+     *
      * <code>string Value = 2;</code>
      * @return The value.
      */
@@ -583,6 +623,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息，1002-1004 上传时需要带的 header 中的 value 
+     * </pre>
+     *
      * <code>string Value = 2;</code>
      * @return The bytes for value.
      */
@@ -600,6 +644,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息，1002-1004 上传时需要带的 header 中的 value 
+     * </pre>
+     *
      * <code>string Value = 2;</code>
      * @param value The value to set.
      * @return This builder for chaining.
@@ -615,6 +663,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息，1002-1004 上传时需要带的 header 中的 value 
+     * </pre>
+     *
      * <code>string Value = 2;</code>
      * @return This builder for chaining.
      */
@@ -625,6 +677,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息，1002-1004 上传时需要带的 header 中的 value 
+     * </pre>
+     *
      * <code>string Value = 2;</code>
      * @param value The bytes for value to set.
      * @return This builder for chaining.

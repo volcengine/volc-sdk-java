@@ -96,6 +96,10 @@ private static final long serialVersionUID = 0L;
   public static final int DATA_FIELD_NUMBER = 1;
   private com.volcengine.service.vod.model.business.VodApplyUploadInfoData data_;
   /**
+   * <pre>
+   * 1001 阶段返回信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodApplyUploadInfoData Data = 1;</code>
    * @return Whether the data field is set.
    */
@@ -104,6 +108,10 @@ private static final long serialVersionUID = 0L;
     return data_ != null;
   }
   /**
+   * <pre>
+   * 1001 阶段返回信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodApplyUploadInfoData Data = 1;</code>
    * @return The data.
    */
@@ -112,6 +120,10 @@ private static final long serialVersionUID = 0L;
     return data_ == null ? com.volcengine.service.vod.model.business.VodApplyUploadInfoData.getDefaultInstance() : data_;
   }
   /**
+   * <pre>
+   * 1001 阶段返回信息 
+   * </pre>
+   *
    * <code>.Volcengine.Vod.Models.Business.VodApplyUploadInfoData Data = 1;</code>
    */
   @java.lang.Override
@@ -438,6 +450,10 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.volcengine.service.vod.model.business.VodApplyUploadInfoData, com.volcengine.service.vod.model.business.VodApplyUploadInfoData.Builder, com.volcengine.service.vod.model.business.VodApplyUploadInfoDataOrBuilder> dataBuilder_;
     /**
+     * <pre>
+     * 1001 阶段返回信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodApplyUploadInfoData Data = 1;</code>
      * @return Whether the data field is set.
      */
@@ -445,6 +461,10 @@ private static final long serialVersionUID = 0L;
       return dataBuilder_ != null || data_ != null;
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodApplyUploadInfoData Data = 1;</code>
      * @return The data.
      */
@@ -456,6 +476,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodApplyUploadInfoData Data = 1;</code>
      */
     public Builder setData(com.volcengine.service.vod.model.business.VodApplyUploadInfoData value) {
@@ -472,6 +496,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodApplyUploadInfoData Data = 1;</code>
      */
     public Builder setData(
@@ -486,6 +514,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodApplyUploadInfoData Data = 1;</code>
      */
     public Builder mergeData(com.volcengine.service.vod.model.business.VodApplyUploadInfoData value) {
@@ -504,6 +536,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodApplyUploadInfoData Data = 1;</code>
      */
     public Builder clearData() {
@@ -518,6 +554,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodApplyUploadInfoData Data = 1;</code>
      */
     public com.volcengine.service.vod.model.business.VodApplyUploadInfoData.Builder getDataBuilder() {
@@ -526,6 +566,10 @@ private static final long serialVersionUID = 0L;
       return getDataFieldBuilder().getBuilder();
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodApplyUploadInfoData Data = 1;</code>
      */
     public com.volcengine.service.vod.model.business.VodApplyUploadInfoDataOrBuilder getDataOrBuilder() {
@@ -537,6 +581,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 1001 阶段返回信息 
+     * </pre>
+     *
      * <code>.Volcengine.Vod.Models.Business.VodApplyUploadInfoData Data = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<

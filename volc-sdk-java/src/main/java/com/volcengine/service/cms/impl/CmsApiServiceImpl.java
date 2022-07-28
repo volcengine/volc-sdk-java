@@ -4,9 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.model.ServiceInfo;
-import com.volcengine.model.request.ArticleFeedRequest;
-import com.volcengine.model.request.ArticleGetVideoRequest;
-import com.volcengine.model.request.ArticleMGetVideoRequest;
+import com.volcengine.model.beans.cms.BaseResp;
+import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.cms.CmsApiService;
@@ -54,15 +53,36 @@ public class CmsApiServiceImpl extends BaseServiceImpl implements CmsApiService 
         return mGetVideoResult(response);
     }
 
+    @Override
+    public ArticleGetGoodsRelatedResponse getGoodsRelatedArticles(ArticleGetGoodsRelatedRequest getGoodsRelatedArticlesRequest) throws Exception {
+        RawResponse response = json(Const.GetGoodsRelatedArticles, new ArrayList<>(), JSON.toJSONString(getGoodsRelatedArticlesRequest));
+        return getGoodsRelatedArticlesResult(response);
+    }
+
+    @Override
+    public ArticleMGetGoodsRelatedResponse mGetGoodsRelatedArticles(ArticleMGetGoodsRelatedRequest mGetGoodsRelatedRequest) throws Exception {
+        RawResponse response = json(Const.MGetGoodsRelatedArticles, new ArrayList<>(), JSON.toJSONString(mGetGoodsRelatedRequest));
+        return mGetGoodsRelatedArticlesResult(response);
+    }
+
+    @Override
+    public ArticleSearchResponse articleSearch(ArticleSearchRequest searchRequest) throws Exception {
+        RawResponse response = json(Const.CmsSearch, new ArrayList<>(), JSON.toJSONString(searchRequest));
+        return articleSearchResult(response);
+    }
+
+    @Override
+    public ArticleRelatedFeedResponse relatedFeed(ArticleRelatedFeedRequest relatedFeedRequest) throws Exception {
+        RawResponse response = json(Const.RelatedFeed, new ArrayList<>(), JSON.toJSONString(relatedFeedRequest));
+        return relatedFeedResult(response);
+    }
+
     private ArticleFeedResponse getFeedResult(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         ArticleFeedResponse res = JSON.parseObject(response.getData(), ArticleFeedResponse.class);
-        if (res.getResponseMetadata() != null && res.getResponseMetadata().getError() != null) {
-            ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
-        }
+        checkResponseMetadata(res.getResponseMetadata());
         if (res.getBaseResp() != null && res.getBaseResp().getStatusCode() != 1000) {
             ArticleFeedResponse.BaseResp baseResp = res.getBaseResp();
             throw new Exception("error: " + baseResp.getStatusMessage());
@@ -75,10 +95,7 @@ public class CmsApiServiceImpl extends BaseServiceImpl implements CmsApiService 
             throw response.getException();
         }
         ArticleGetVideoResponse res = JSON.parseObject(response.getData(), ArticleGetVideoResponse.class);
-        if (res.getResponseMetadata() != null && res.getResponseMetadata().getError() != null) {
-            ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
-        }
+        checkResponseMetadata(res.getResponseMetadata());
         if (res.getBaseResp() != null && res.getBaseResp().getStatusCode() != 1000) {
             ArticleGetVideoResponse.BaseResp baseResp = res.getBaseResp();
             throw new Exception("error: " + baseResp.getStatusMessage());
@@ -91,14 +108,64 @@ public class CmsApiServiceImpl extends BaseServiceImpl implements CmsApiService 
             throw response.getException();
         }
         ArticleMGetVideoResponse res = JSON.parseObject(response.getData(), ArticleMGetVideoResponse.class);
-        if (res.getResponseMetadata() != null && res.getResponseMetadata().getError() != null) {
-            ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
-        }
+        checkResponseMetadata(res.getResponseMetadata());
         if (res.getBaseResp() != null && res.getBaseResp().getStatusCode() != 1000) {
             ArticleMGetVideoResponse.BaseResp baseResp = res.getBaseResp();
             throw new Exception("error: " + baseResp.getStatusMessage());
         }
         return res;
+    }
+
+    private ArticleGetGoodsRelatedResponse getGoodsRelatedArticlesResult(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ArticleGetGoodsRelatedResponse res = JSON.parseObject(response.getData(), ArticleGetGoodsRelatedResponse.class);
+        checkResponseMetadata(res.getResponseMetadata());
+        checkBaseResp(res.getBaseResp());
+        return res;
+    }
+
+    private ArticleMGetGoodsRelatedResponse mGetGoodsRelatedArticlesResult(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ArticleMGetGoodsRelatedResponse res = JSON.parseObject(response.getData(), ArticleMGetGoodsRelatedResponse.class);
+        checkResponseMetadata(res.getResponseMetadata());
+        checkBaseResp(res.getBaseResp());
+        return res;
+    }
+
+    private ArticleSearchResponse articleSearchResult(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ArticleSearchResponse res = JSON.parseObject(response.getData(), ArticleSearchResponse.class);
+        checkResponseMetadata(res.getResponseMetadata());
+        checkBaseResp(res.getBaseResp());
+        return res;
+    }
+
+    private ArticleRelatedFeedResponse relatedFeedResult(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ArticleRelatedFeedResponse res = JSON.parseObject(response.getData(), ArticleRelatedFeedResponse.class);
+        checkResponseMetadata(res.getResponseMetadata());
+        checkBaseResp(res.getBaseResp());
+        return res;
+    }
+
+
+    private void checkResponseMetadata(ResponseMetadata metadata) throws Exception {
+        if (metadata != null && metadata.getError() != null) {
+            throw new Exception(metadata.getRequestId() + " error: " + metadata.getError().getMessage());
+        }
+    }
+
+    private void checkBaseResp(BaseResp baseResp) throws Exception {
+        if (baseResp != null && baseResp.getStatusCode() != 1000) {
+            throw new Exception("error: " + baseResp.getStatusMessage());
+        }
     }
 }

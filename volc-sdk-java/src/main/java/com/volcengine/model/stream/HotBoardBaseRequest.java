@@ -19,6 +19,10 @@ public class HotBoardBaseRequest {
     int limit;
     @JSONField(name = "HotBoardGid")
     String hotBoardGid;
+    @JSONField(name = "From")
+    String from;
+    @JSONField(name = "CollectionId")
+    String collectionID;
     @JSONField(name = "Biz")
     String biz;
 }

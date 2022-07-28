@@ -27,7 +27,8 @@ public class HotBoardArticleDemo {
         req.setHotBoardGid("7022784394884546573");
         req.setLimit(10);
         req.setOffset(0);
-
+        req.setFrom("category_square");
+//        req.setCollectionID("1737140033954819");
         try {
             HotBoardArticleResponse response = streamService.hotBoardArticle(req);
             System.out.println(JSON.toJSONString(response));

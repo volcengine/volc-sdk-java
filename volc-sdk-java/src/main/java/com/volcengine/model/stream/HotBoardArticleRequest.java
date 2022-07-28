@@ -17,4 +17,8 @@ public class HotBoardArticleRequest {
     int limit;
     @JSONField(name = "HotBoardGid")
     String hotBoardGid;
+    @JSONField(name = "From")
+    String from;
+    @JSONField(name = "CollectionId")
+    String collectionID;
 }

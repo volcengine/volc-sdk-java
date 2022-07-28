@@ -311,6 +311,8 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
                 .offset(hotBoardArticleRequest.getOffset())
                 .limit(hotBoardArticleRequest.getLimit())
                 .hotBoardGid(hotBoardArticleRequest.getHotBoardGid())
+                .collectionID(hotBoardArticleRequest.getCollectionID())
+                .from(hotBoardArticleRequest.getFrom())
                 .biz("article").build();
         RawResponse response = query(Const.HotBoard, Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

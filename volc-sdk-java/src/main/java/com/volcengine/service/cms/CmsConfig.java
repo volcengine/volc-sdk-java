@@ -179,6 +179,62 @@ public class CmsConfig {
                         }
                     }
             ));
+            put(Const.GetGoodsRelatedArticles, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetGoodsRelatedArticles));
+                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.MGetGoodsRelatedArticles, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.MGetGoodsRelatedArticles));
+                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.CmsSearch, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CmsSearch));
+                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.RelatedFeed, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.RelatedFeed));
+                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

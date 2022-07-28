@@ -1,0 +1,111 @@
+package com.volcengine.model.beans.cms;
+
+import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.response.ArticleFeedResponse;
+import lombok.Data;
+
+import java.util.List;
+import java.util.Map;
+
+@Data
+public class Article {
+    @JSONField(name = "GroupId")
+    String groupId;
+    @JSONField(name = "Title")
+    String title;
+    @JSONField(name = "Author")
+    ArticleFeedResponse.Author author;
+    @JSONField(name = "GroupType")
+    String groupType;
+    @JSONField(name = "GenerateType")
+    String generateType;
+    @JSONField(name = "PublishTime")
+    long publishTime;
+    @JSONField(name = "Top")
+    boolean top;
+    @JSONField(name = "Link")
+    String link;
+    @JSONField(name = "OpenId")
+    String openId;
+    @JSONField(name = "Abstract")
+    String articleAbstract;
+    @JSONField(name = "Tags")
+    List<String> tags;
+    @JSONField(name = "Extra")
+    String extra;
+    @JSONField(name = "CoverImages")
+    List<ArticleFeedResponse.Image> coverImages;
+    @JSONField(name = "GroupVideos")
+    List<ArticleFeedResponse.Video> groupVideos;
+    @JSONField(name = "DisplayTag")
+    Map<String, String> displayTag;
+    @JSONField(name = "DiggCount")
+    Long diggCount;
+    @JSONField(name = "CommentCount")
+    Long commentCount;
+    @JSONField(name = "CommentUrl")
+    String commentUrl;
+    @JSONField(name = "GoodsIds")
+    List<String> goodsIds;
+    @JSONField(name = "GoodsList")
+    List<ArticleFeedResponse.GoodsInfo> goodsList;
+
+    @Data
+    public static class Author {
+        @JSONField(name = "AuthorName")
+        String authorName;
+        @JSONField(name = "AuthorId")
+        String authorId;
+        @JSONField(name = "AuthorAvatarUrl")
+        String authorAvatarUrl;
+        @JSONField(name = "AuthorTags")
+        List<String> authorTags;
+        @JSONField(name = "Description")
+        String description;
+        @JSONField(name = "HomePage")
+        String homePage;
+        @JSONField(name = "FollowerCount")
+        Long followerCount;
+        @JSONField(name = "AuthorBizId")
+        String authorBizId;
+    }
+
+    @Data
+    public static class Image {
+        @JSONField(name = "Url")
+        String url;
+        @JSONField(name = "Height")
+        Integer height;
+        @JSONField(name = "Width")
+        Integer width;
+    }
+
+    @Data
+    public static class Video {
+        @JSONField(name = "Url")
+        String url;
+        @JSONField(name = "Vid")
+        String vid;
+        @JSONField(name = "VideoSize")
+        Long videoSize;
+        @JSONField(name = "VideoDuration")
+        Double videoDuration;
+        @JSONField(name = "CoverImages")
+        ArticleFeedResponse.Image coverImage;
+    }
+
+    @Data
+    public static class GoodsInfo {
+        @JSONField(name = "GoodsId")
+        String goodsId;
+        @JSONField(name = "GoodsName")
+        String goodsName;
+        @JSONField(name = "Keywords")
+        String keywords;
+        @JSONField(name = "Description")
+        String description;
+        @JSONField(name = "GoodsSourceId")
+        String goodsSourceId;
+    }
+}
+

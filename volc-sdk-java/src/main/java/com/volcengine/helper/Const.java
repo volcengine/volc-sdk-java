@@ -132,6 +132,10 @@ public class Const {
     public static final String Feed = "Feed";
     public static final String GetVideoByVid = "GetVideoByVid";
     public static final String MGetVideoByVids = "MGetVideoByVids";
+    public static final String GetGoodsRelatedArticles = "GetGoodsRelatedArticles";
+    public static final String MGetGoodsRelatedArticles = "MGetGoodsRelatedArticles";
+    public static final String CmsSearch = "Search";
+    public static final String RelatedFeed = "RelatedFeed";
 
     // stream
     public static final String WapRegister = "WapRegister";

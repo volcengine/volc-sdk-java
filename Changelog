@@ -1,5 +1,9 @@
 Change log
 
+2022-07-28 Bumped to version v1.0.55
+- Updated apis for vod/stream
+- Added apis for cms
+
 2022-07-22 Bumped to version v1.0.54
 - Added apis for vod
 

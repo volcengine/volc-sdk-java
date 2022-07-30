@@ -23,6 +23,8 @@ import org.apache.commons.logging.LogFactory;
 
 import java.io.*;
 import java.net.Proxy;
+import java.io.*;
+import java.net.Proxy;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

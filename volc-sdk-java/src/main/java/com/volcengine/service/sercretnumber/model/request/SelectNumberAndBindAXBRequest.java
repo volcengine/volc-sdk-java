@@ -29,4 +29,6 @@ public class SelectNumberAndBindAXBRequest {
   private List<String> degradeCityList;
 
   private String userData;
+
+  private Integer randomFlag;
 }

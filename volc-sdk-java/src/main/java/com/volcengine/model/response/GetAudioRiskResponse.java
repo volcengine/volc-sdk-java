@@ -10,10 +10,10 @@ public class GetAudioRiskResponse {
     @JSONField(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
-    ImageRiskDetectionResponse.ImageDetectionResult result;
+    AudioRiskDetectionResult result;
 
     @Data
-    public static class TextRiskDetectionResult  {
+    public static class AudioRiskDetectionResult  {
         @JSONField(name = "RequestId")
         private String requestId;
         @JSONField(name = "Code")
@@ -24,11 +24,14 @@ public class GetAudioRiskResponse {
         private AudioResult data;
     }
 
-    @Data public static class AudioResult {
+    @Data
+    public static class AudioResult {
         @JSONField(name = "Decision")
         private String decision;
         @JSONField(name = "Details")
         private List<AudioDetail> details;
+        @JSONField(name = "DataId")
+        private String dataId;
     }
 
     @Data public static class AudioDetail {

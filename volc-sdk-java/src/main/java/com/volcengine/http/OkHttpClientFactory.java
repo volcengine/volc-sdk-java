@@ -3,7 +3,6 @@ package com.volcengine.http;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.math.NumberUtils;
 
 import java.net.InetSocketAddress;
 import java.net.Proxy;
@@ -13,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class OkHttpClientFactory {
 
     private static class ClientHolder {
-        private static OkHttpClient INSTANCE = new OkHttpClient();
+        private static final OkHttpClient INSTANCE;
 
         static {
             OkHttpClient.Builder builder = new OkHttpClient.Builder()

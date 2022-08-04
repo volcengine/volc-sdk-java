@@ -36,7 +36,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jre.version>1.8</jre.version>
+        <jre.version>1.7</jre.version>
         <skipTests>true</skipTests>
         <dep.maven-surefire-plugin.version>2.9</dep.maven-surefire-plugin.version>
         <httpcomponents.version>4.5.2</httpcomponents.version>

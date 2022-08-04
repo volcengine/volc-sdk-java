@@ -1,7 +1,7 @@
 package com.volcengine.model.response;
 
-import lombok.Data;
 import com.volcengine.model.Header;
+import lombok.Data;
 
 @Data
 public class RawResponse {
@@ -10,11 +10,14 @@ public class RawResponse {
     private int code;
     private Exception exception;
 
-    public RawResponse() {
-    }
-    //response header and origin http response code
     private Header[] headers;
+
+    //response header and origin http response code
     private int httpCode;
+
+    public RawResponse() {
+
+    }
 
     public RawResponse(byte[] data, int code, Exception e) {
         this.data = data;

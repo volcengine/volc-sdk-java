@@ -3,17 +3,12 @@ package com.volcengine.service.tls;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.volcengine.helper.Const;
-import com.volcengine.model.ApiInfo;
-import com.volcengine.model.Credentials;
-import com.volcengine.model.ServiceInfo;
+import com.volcengine.model.*;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.service.BaseServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -49,11 +44,11 @@ public class ProjectDemo {
                     put(Const.Host, "your host");
                     put(Const.Header, new ArrayList<Header>() {
                         {
-                            add(new BasicHeader("Accept", "*/*"));
-                            add(new BasicHeader("Content-Type", "application/json"));
-                            add(new BasicHeader("Accept-Encoding", "gzip, deflate, br"));
-                            add(new BasicHeader("Region", "your region"));
-                            add(new BasicHeader("ServiceName", "TLS"));
+                            add(new Header("Accept", "*/*"));
+                            add(new Header("Content-Type", "application/json"));
+                            add(new Header("Accept-Encoding", "gzip, deflate, br"));
+                            add(new Header("Region", "your region"));
+                            add(new Header("ServiceName", "TLS"));
                         }
                     });
                     put(Const.Credentials, TEST_CREDENTIALS);
@@ -89,7 +84,7 @@ public class ProjectDemo {
             return null;
         } else {
             String requestBody = JSONObject.toJSONString(new CreateProjectRequest(projectName, region, description));
-            RawResponse rawResponse = new HttpCodeTestUtil(TEST_SERVICE, API_INFO_LIST).json(CREATE_PROJECT, new ArrayList<>(), requestBody);
+            RawResponse rawResponse = new HttpCodeTestUtil(TEST_SERVICE, API_INFO_LIST).json(CREATE_PROJECT, new ArrayList<NameValuePair>(), requestBody);
             return rawResponse.getFirstHeader("X-Tls-Requestid");
         }
     }

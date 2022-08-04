@@ -11,8 +11,8 @@ public class ContentSecurityDemo {
         ContentSecurityService contentSecurityService = ContentSecurityServiceImpl.getInstance();
         // call below method if you dont set ak and sk in ～/.volc/config
 
-        contentSecurityService.setAccessKey("AK");
-        contentSecurityService.setSecretKey("SK");
+        contentSecurityService.setAccessKey("ak");
+        contentSecurityService.setSecretKey("sk");
         // async video risk detection
         try {
             RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
@@ -28,9 +28,9 @@ public class ContentSecurityDemo {
 
         try {
             ImageRiskResultRequest request = new ImageRiskResultRequest();
-            request.setAppId(3332);
+            request.setAppId(265193);
             request.setService("video_risk");
-            request.setDataId("123");
+            request.setDataId("wangyifan46");
 
             VideoRiskResultResponse riskResultResponse = contentSecurityService.VideoResult(request);
             System.out.println(JSON.toJSONString(riskResultResponse));
@@ -123,6 +123,19 @@ public class ContentSecurityDemo {
             request.setParameters("{}");
 
             AsyncRiskDetectionResponse riskResultResponse = contentSecurityService.AsyncLiveAudioRisk(request);
+            System.out.println(JSON.toJSONString(riskResultResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // audio result
+        try {
+            ImageRiskResultRequest request = new ImageRiskResultRequest();
+            request.setAppId(3332);
+            request.setService("audio_risk");
+            request.setDataId("test009284");
+
+            GetAudioRiskResponse riskResultResponse = contentSecurityService.AudioResult(request);
             System.out.println(JSON.toJSONString(riskResultResponse));
         } catch (Exception e) {
             e.printStackTrace();

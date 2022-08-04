@@ -1,6 +1,5 @@
 package com.volcengine.helper;
 
-import com.volcengine.service.BaseServiceImpl;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -17,7 +16,7 @@ public class SDKVersion {
     static {
         final Properties properties = new Properties();
         try {
-            properties.load(SDKVersion.class.getClassLoader().getResourceAsStream("version"));
+            properties.load(SDKVersion.class.getClassLoader().getResourceAsStream("com/volcengine/version"));
             VERSION = properties.getProperty("version");
             AGENT = "volc-sdk-java/v" + VERSION;
         } catch (IOException e) {

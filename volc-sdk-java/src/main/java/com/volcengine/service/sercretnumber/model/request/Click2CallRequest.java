@@ -23,7 +23,7 @@ public class Click2CallRequest {
 
     private int callerDegradeToCapital;
 
-    private List<String> callerNumberDegradeCityList;
+    private String callerNumberDegradeCityList;
 
     private String callee;
 
@@ -35,7 +35,7 @@ public class Click2CallRequest {
 
     private int calleeDegradeToCapital;
 
-    private List<String> calleeNumberDegradeCityList;
+    private String calleeNumberDegradeCityList;
 
     private int maxTime;
 

@@ -106,4 +106,24 @@ public interface VodDomainCertificateInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getHttpsStatusBytes();
+
+  /**
+   * <pre>
+   * 证书过期时间
+   * </pre>
+   *
+   * <code>string ExpiredAt = 6;</code>
+   * @return The expiredAt.
+   */
+  java.lang.String getExpiredAt();
+  /**
+   * <pre>
+   * 证书过期时间
+   * </pre>
+   *
+   * <code>string ExpiredAt = 6;</code>
+   * @return The bytes for expiredAt.
+   */
+  com.google.protobuf.ByteString
+      getExpiredAtBytes();
 }

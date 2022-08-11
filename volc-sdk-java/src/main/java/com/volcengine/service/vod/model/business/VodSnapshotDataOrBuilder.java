@@ -266,4 +266,48 @@ public interface VodSnapshotDataOrBuilder extends
    */
   com.volcengine.service.vod.model.business.VodSpriteSnapshotOrBuilder getSpriteSnapshotsOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   *视频采样截图
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+   */
+  java.util.List<com.volcengine.service.vod.model.business.VodSamplePosterSnapshot> 
+      getVSamplePosterSnapshotsList();
+  /**
+   * <pre>
+   *视频采样截图
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+   */
+  com.volcengine.service.vod.model.business.VodSamplePosterSnapshot getVSamplePosterSnapshots(int index);
+  /**
+   * <pre>
+   *视频采样截图
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+   */
+  int getVSamplePosterSnapshotsCount();
+  /**
+   * <pre>
+   *视频采样截图
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+   */
+  java.util.List<? extends com.volcengine.service.vod.model.business.VodSamplePosterSnapshotOrBuilder> 
+      getVSamplePosterSnapshotsOrBuilderList();
+  /**
+   * <pre>
+   *视频采样截图
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+   */
+  com.volcengine.service.vod.model.business.VodSamplePosterSnapshotOrBuilder getVSamplePosterSnapshotsOrBuilder(
+      int index);
 }

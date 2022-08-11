@@ -23,6 +23,7 @@ private static final long serialVersionUID = 0L;
     animatedPosterSnapshots_ = java.util.Collections.emptyList();
     aiDynpostSnapshots_ = java.util.Collections.emptyList();
     spriteSnapshots_ = java.util.Collections.emptyList();
+    vSamplePosterSnapshots_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -113,6 +114,15 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(com.volcengine.service.vod.model.business.VodSpriteSnapshot.parser(), extensionRegistry));
             break;
           }
+          case 66: {
+            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
+              vSamplePosterSnapshots_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodSamplePosterSnapshot>();
+              mutable_bitField0_ |= 0x00000020;
+            }
+            vSamplePosterSnapshots_.add(
+                input.readMessage(com.volcengine.service.vod.model.business.VodSamplePosterSnapshot.parser(), extensionRegistry));
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -142,6 +152,9 @@ private static final long serialVersionUID = 0L;
       }
       if (((mutable_bitField0_ & 0x00000010) != 0)) {
         spriteSnapshots_ = java.util.Collections.unmodifiableList(spriteSnapshots_);
+      }
+      if (((mutable_bitField0_ & 0x00000020) != 0)) {
+        vSamplePosterSnapshots_ = java.util.Collections.unmodifiableList(vSamplePosterSnapshots_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -552,6 +565,66 @@ private static final long serialVersionUID = 0L;
     return spriteSnapshots_.get(index);
   }
 
+  public static final int VSAMPLEPOSTERSNAPSHOTS_FIELD_NUMBER = 8;
+  private java.util.List<com.volcengine.service.vod.model.business.VodSamplePosterSnapshot> vSamplePosterSnapshots_;
+  /**
+   * <pre>
+   *视频采样截图
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.volcengine.service.vod.model.business.VodSamplePosterSnapshot> getVSamplePosterSnapshotsList() {
+    return vSamplePosterSnapshots_;
+  }
+  /**
+   * <pre>
+   *视频采样截图
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.volcengine.service.vod.model.business.VodSamplePosterSnapshotOrBuilder> 
+      getVSamplePosterSnapshotsOrBuilderList() {
+    return vSamplePosterSnapshots_;
+  }
+  /**
+   * <pre>
+   *视频采样截图
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+   */
+  @java.lang.Override
+  public int getVSamplePosterSnapshotsCount() {
+    return vSamplePosterSnapshots_.size();
+  }
+  /**
+   * <pre>
+   *视频采样截图
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodSamplePosterSnapshot getVSamplePosterSnapshots(int index) {
+    return vSamplePosterSnapshots_.get(index);
+  }
+  /**
+   * <pre>
+   *视频采样截图
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodSamplePosterSnapshotOrBuilder getVSamplePosterSnapshotsOrBuilder(
+      int index) {
+    return vSamplePosterSnapshots_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -586,6 +659,9 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < spriteSnapshots_.size(); i++) {
       output.writeMessage(7, spriteSnapshots_.get(i));
+    }
+    for (int i = 0; i < vSamplePosterSnapshots_.size(); i++) {
+      output.writeMessage(8, vSamplePosterSnapshots_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -622,6 +698,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, spriteSnapshots_.get(i));
     }
+    for (int i = 0; i < vSamplePosterSnapshots_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, vSamplePosterSnapshots_.get(i));
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -651,6 +731,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAiDynpostSnapshotsList())) return false;
     if (!getSpriteSnapshotsList()
         .equals(other.getSpriteSnapshotsList())) return false;
+    if (!getVSamplePosterSnapshotsList()
+        .equals(other.getVSamplePosterSnapshotsList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -685,6 +767,10 @@ private static final long serialVersionUID = 0L;
     if (getSpriteSnapshotsCount() > 0) {
       hash = (37 * hash) + SPRITESNAPSHOTS_FIELD_NUMBER;
       hash = (53 * hash) + getSpriteSnapshotsList().hashCode();
+    }
+    if (getVSamplePosterSnapshotsCount() > 0) {
+      hash = (37 * hash) + VSAMPLEPOSTERSNAPSHOTS_FIELD_NUMBER;
+      hash = (53 * hash) + getVSamplePosterSnapshotsList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -819,6 +905,7 @@ private static final long serialVersionUID = 0L;
         getAnimatedPosterSnapshotsFieldBuilder();
         getAiDynpostSnapshotsFieldBuilder();
         getSpriteSnapshotsFieldBuilder();
+        getVSamplePosterSnapshotsFieldBuilder();
       }
     }
     @java.lang.Override
@@ -857,6 +944,12 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000010);
       } else {
         spriteSnapshotsBuilder_.clear();
+      }
+      if (vSamplePosterSnapshotsBuilder_ == null) {
+        vSamplePosterSnapshots_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000020);
+      } else {
+        vSamplePosterSnapshotsBuilder_.clear();
       }
       return this;
     }
@@ -931,6 +1024,15 @@ private static final long serialVersionUID = 0L;
         result.spriteSnapshots_ = spriteSnapshots_;
       } else {
         result.spriteSnapshots_ = spriteSnapshotsBuilder_.build();
+      }
+      if (vSamplePosterSnapshotsBuilder_ == null) {
+        if (((bitField0_ & 0x00000020) != 0)) {
+          vSamplePosterSnapshots_ = java.util.Collections.unmodifiableList(vSamplePosterSnapshots_);
+          bitField0_ = (bitField0_ & ~0x00000020);
+        }
+        result.vSamplePosterSnapshots_ = vSamplePosterSnapshots_;
+      } else {
+        result.vSamplePosterSnapshots_ = vSamplePosterSnapshotsBuilder_.build();
       }
       onBuilt();
       return result;
@@ -1115,6 +1217,32 @@ private static final long serialVersionUID = 0L;
                  getSpriteSnapshotsFieldBuilder() : null;
           } else {
             spriteSnapshotsBuilder_.addAllMessages(other.spriteSnapshots_);
+          }
+        }
+      }
+      if (vSamplePosterSnapshotsBuilder_ == null) {
+        if (!other.vSamplePosterSnapshots_.isEmpty()) {
+          if (vSamplePosterSnapshots_.isEmpty()) {
+            vSamplePosterSnapshots_ = other.vSamplePosterSnapshots_;
+            bitField0_ = (bitField0_ & ~0x00000020);
+          } else {
+            ensureVSamplePosterSnapshotsIsMutable();
+            vSamplePosterSnapshots_.addAll(other.vSamplePosterSnapshots_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.vSamplePosterSnapshots_.isEmpty()) {
+          if (vSamplePosterSnapshotsBuilder_.isEmpty()) {
+            vSamplePosterSnapshotsBuilder_.dispose();
+            vSamplePosterSnapshotsBuilder_ = null;
+            vSamplePosterSnapshots_ = other.vSamplePosterSnapshots_;
+            bitField0_ = (bitField0_ & ~0x00000020);
+            vSamplePosterSnapshotsBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getVSamplePosterSnapshotsFieldBuilder() : null;
+          } else {
+            vSamplePosterSnapshotsBuilder_.addAllMessages(other.vSamplePosterSnapshots_);
           }
         }
       }
@@ -2898,6 +3026,318 @@ private static final long serialVersionUID = 0L;
         spriteSnapshots_ = null;
       }
       return spriteSnapshotsBuilder_;
+    }
+
+    private java.util.List<com.volcengine.service.vod.model.business.VodSamplePosterSnapshot> vSamplePosterSnapshots_ =
+      java.util.Collections.emptyList();
+    private void ensureVSamplePosterSnapshotsIsMutable() {
+      if (!((bitField0_ & 0x00000020) != 0)) {
+        vSamplePosterSnapshots_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodSamplePosterSnapshot>(vSamplePosterSnapshots_);
+        bitField0_ |= 0x00000020;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodSamplePosterSnapshot, com.volcengine.service.vod.model.business.VodSamplePosterSnapshot.Builder, com.volcengine.service.vod.model.business.VodSamplePosterSnapshotOrBuilder> vSamplePosterSnapshotsBuilder_;
+
+    /**
+     * <pre>
+     *视频采样截图
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.VodSamplePosterSnapshot> getVSamplePosterSnapshotsList() {
+      if (vSamplePosterSnapshotsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(vSamplePosterSnapshots_);
+      } else {
+        return vSamplePosterSnapshotsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     *视频采样截图
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+     */
+    public int getVSamplePosterSnapshotsCount() {
+      if (vSamplePosterSnapshotsBuilder_ == null) {
+        return vSamplePosterSnapshots_.size();
+      } else {
+        return vSamplePosterSnapshotsBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     *视频采样截图
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodSamplePosterSnapshot getVSamplePosterSnapshots(int index) {
+      if (vSamplePosterSnapshotsBuilder_ == null) {
+        return vSamplePosterSnapshots_.get(index);
+      } else {
+        return vSamplePosterSnapshotsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     *视频采样截图
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+     */
+    public Builder setVSamplePosterSnapshots(
+        int index, com.volcengine.service.vod.model.business.VodSamplePosterSnapshot value) {
+      if (vSamplePosterSnapshotsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureVSamplePosterSnapshotsIsMutable();
+        vSamplePosterSnapshots_.set(index, value);
+        onChanged();
+      } else {
+        vSamplePosterSnapshotsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     *视频采样截图
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+     */
+    public Builder setVSamplePosterSnapshots(
+        int index, com.volcengine.service.vod.model.business.VodSamplePosterSnapshot.Builder builderForValue) {
+      if (vSamplePosterSnapshotsBuilder_ == null) {
+        ensureVSamplePosterSnapshotsIsMutable();
+        vSamplePosterSnapshots_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        vSamplePosterSnapshotsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     *视频采样截图
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+     */
+    public Builder addVSamplePosterSnapshots(com.volcengine.service.vod.model.business.VodSamplePosterSnapshot value) {
+      if (vSamplePosterSnapshotsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureVSamplePosterSnapshotsIsMutable();
+        vSamplePosterSnapshots_.add(value);
+        onChanged();
+      } else {
+        vSamplePosterSnapshotsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     *视频采样截图
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+     */
+    public Builder addVSamplePosterSnapshots(
+        int index, com.volcengine.service.vod.model.business.VodSamplePosterSnapshot value) {
+      if (vSamplePosterSnapshotsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureVSamplePosterSnapshotsIsMutable();
+        vSamplePosterSnapshots_.add(index, value);
+        onChanged();
+      } else {
+        vSamplePosterSnapshotsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     *视频采样截图
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+     */
+    public Builder addVSamplePosterSnapshots(
+        com.volcengine.service.vod.model.business.VodSamplePosterSnapshot.Builder builderForValue) {
+      if (vSamplePosterSnapshotsBuilder_ == null) {
+        ensureVSamplePosterSnapshotsIsMutable();
+        vSamplePosterSnapshots_.add(builderForValue.build());
+        onChanged();
+      } else {
+        vSamplePosterSnapshotsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     *视频采样截图
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+     */
+    public Builder addVSamplePosterSnapshots(
+        int index, com.volcengine.service.vod.model.business.VodSamplePosterSnapshot.Builder builderForValue) {
+      if (vSamplePosterSnapshotsBuilder_ == null) {
+        ensureVSamplePosterSnapshotsIsMutable();
+        vSamplePosterSnapshots_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        vSamplePosterSnapshotsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     *视频采样截图
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+     */
+    public Builder addAllVSamplePosterSnapshots(
+        java.lang.Iterable<? extends com.volcengine.service.vod.model.business.VodSamplePosterSnapshot> values) {
+      if (vSamplePosterSnapshotsBuilder_ == null) {
+        ensureVSamplePosterSnapshotsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, vSamplePosterSnapshots_);
+        onChanged();
+      } else {
+        vSamplePosterSnapshotsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     *视频采样截图
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+     */
+    public Builder clearVSamplePosterSnapshots() {
+      if (vSamplePosterSnapshotsBuilder_ == null) {
+        vSamplePosterSnapshots_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000020);
+        onChanged();
+      } else {
+        vSamplePosterSnapshotsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     *视频采样截图
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+     */
+    public Builder removeVSamplePosterSnapshots(int index) {
+      if (vSamplePosterSnapshotsBuilder_ == null) {
+        ensureVSamplePosterSnapshotsIsMutable();
+        vSamplePosterSnapshots_.remove(index);
+        onChanged();
+      } else {
+        vSamplePosterSnapshotsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     *视频采样截图
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodSamplePosterSnapshot.Builder getVSamplePosterSnapshotsBuilder(
+        int index) {
+      return getVSamplePosterSnapshotsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     *视频采样截图
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodSamplePosterSnapshotOrBuilder getVSamplePosterSnapshotsOrBuilder(
+        int index) {
+      if (vSamplePosterSnapshotsBuilder_ == null) {
+        return vSamplePosterSnapshots_.get(index);  } else {
+        return vSamplePosterSnapshotsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     *视频采样截图
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+     */
+    public java.util.List<? extends com.volcengine.service.vod.model.business.VodSamplePosterSnapshotOrBuilder> 
+         getVSamplePosterSnapshotsOrBuilderList() {
+      if (vSamplePosterSnapshotsBuilder_ != null) {
+        return vSamplePosterSnapshotsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(vSamplePosterSnapshots_);
+      }
+    }
+    /**
+     * <pre>
+     *视频采样截图
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodSamplePosterSnapshot.Builder addVSamplePosterSnapshotsBuilder() {
+      return getVSamplePosterSnapshotsFieldBuilder().addBuilder(
+          com.volcengine.service.vod.model.business.VodSamplePosterSnapshot.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     *视频采样截图
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodSamplePosterSnapshot.Builder addVSamplePosterSnapshotsBuilder(
+        int index) {
+      return getVSamplePosterSnapshotsFieldBuilder().addBuilder(
+          index, com.volcengine.service.vod.model.business.VodSamplePosterSnapshot.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     *视频采样截图
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodSamplePosterSnapshot VSamplePosterSnapshots = 8;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.VodSamplePosterSnapshot.Builder> 
+         getVSamplePosterSnapshotsBuilderList() {
+      return getVSamplePosterSnapshotsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodSamplePosterSnapshot, com.volcengine.service.vod.model.business.VodSamplePosterSnapshot.Builder, com.volcengine.service.vod.model.business.VodSamplePosterSnapshotOrBuilder> 
+        getVSamplePosterSnapshotsFieldBuilder() {
+      if (vSamplePosterSnapshotsBuilder_ == null) {
+        vSamplePosterSnapshotsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.service.vod.model.business.VodSamplePosterSnapshot, com.volcengine.service.vod.model.business.VodSamplePosterSnapshot.Builder, com.volcengine.service.vod.model.business.VodSamplePosterSnapshotOrBuilder>(
+                vSamplePosterSnapshots_,
+                ((bitField0_ & 0x00000020) != 0),
+                getParentForChildren(),
+                isClean());
+        vSamplePosterSnapshots_ = null;
+      }
+      return vSamplePosterSnapshotsBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

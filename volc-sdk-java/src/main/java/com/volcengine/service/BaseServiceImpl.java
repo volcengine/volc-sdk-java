@@ -2,14 +2,13 @@ package com.volcengine.service;
 
 import com.alibaba.fastjson.JSON;
 import com.volcengine.auth.ISignerV4;
-import com.volcengine.auth.impl.SignerV4Impl;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.http.DynamicTimeoutInterceptor;
 import com.volcengine.http.OkHttpClientFactory;
 import com.volcengine.http.VolcengineInterceptor;
-import com.volcengine.model.*;
 import com.volcengine.model.Credentials;
+import com.volcengine.model.*;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.sts2.InnerToken;
 import com.volcengine.model.sts2.Policy;
@@ -31,7 +30,6 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public abstract class BaseServiceImpl implements IBaseService {
     public static final MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json");

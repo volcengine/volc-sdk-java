@@ -26,7 +26,7 @@ public class SelectNumberAndBindAXBRequest {
 
   private String cityCodeByPhoneNo;
 
-  private List<String> degradeCityList;
+  private String degradeCityList;
 
   private String userData;
 

@@ -147,5 +147,21 @@ public interface IImageXService extends IBaseService {
      * @return image store uri
      * @throws Exception the exception
      */
-    GetImageSegmentResponse getImageSegment(GetImageSegmentRequest req) throws Exception;
+    GetImageSegmentResponse getImageSegment(Map<String, String> param, GetImageSegmentRequest req) throws Exception;
+
+    /**
+     * Request ImageX api with method GET.
+     * @param req get image erase models request
+     * @return models array
+     * @throws Exception the exception
+     */
+    GetImageEraseModelsResponse getImageEraseModels(GetImageEraseModelsRequest req) throws Exception;
+
+    /**
+     * Request ImageX api with method POST.
+     * @param req get image erase result
+     * @return image store uri
+     * @throws Exception the exception
+     */
+    GetImageEraseResultResponse getImageEraseResult(GetImageEraseResultRequest req) throws Exception;
 }

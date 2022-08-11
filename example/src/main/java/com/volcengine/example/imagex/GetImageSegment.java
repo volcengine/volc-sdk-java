@@ -7,6 +7,9 @@ import com.volcengine.model.response.GetImageSegmentResponse;
 import com.volcengine.service.imagex.IImageXService;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class GetImageSegment {
     public static void main(String[] args) {
         // default region cn-north-1, for other region, call ImageXServiceImpl.getInstance(region)
@@ -16,13 +19,16 @@ public class GetImageSegment {
         service.setAccessKey("ak");
         service.setSecretKey("sk");
 
+        Map<String, String> params = new HashMap<>();
+        params.put("ServiceId", "xx");
+
         GetImageSegmentRequest request = new GetImageSegmentRequest();
-        request.setServiceId("xx");
         request.setStoreUri("uri");
         request.setClassify("xx");
         request.setRefine(true);
         request.setOutFormat("xx");
         request.setTransBg(true);
+
 
         GetImageSegmentRequest.Contour contour = new GetImageSegmentRequest.Contour();
         contour.setColor("#000000");
@@ -31,7 +37,7 @@ public class GetImageSegment {
         request.setContour(contour);
 
         try {
-            GetImageSegmentResponse resp = service.getImageSegment(request);
+            GetImageSegmentResponse resp = service.getImageSegment(params, request);
             System.out.println(resp);
         } catch (Exception e) {
             e.printStackTrace();

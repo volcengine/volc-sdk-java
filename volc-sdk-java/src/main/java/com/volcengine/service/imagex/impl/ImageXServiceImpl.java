@@ -299,12 +299,40 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     @Override
-    public GetImageSegmentResponse getImageSegment(GetImageSegmentRequest req) throws Exception {
-        RawResponse response = query("GetSegmentImage", Utils.paramsToPair(req));
+    public GetImageSegmentResponse getImageSegment(Map<String, String> param, GetImageSegmentRequest req) throws Exception {
+        RawResponse response = json("GetSegmentImage", Utils.mapToPairList(param), JSON.toJSONString(req));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         GetImageSegmentResponse res = JSON.parseObject(response.getData(), GetImageSegmentResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
+    public GetImageEraseModelsResponse getImageEraseModels(GetImageEraseModelsRequest req)throws Exception{
+        RawResponse response = query("GetImageEraseModels", Utils.paramsToPair(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImageEraseModelsResponse res = JSON.parseObject(response.getData(), GetImageEraseModelsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
+    public GetImageEraseResultResponse getImageEraseResult(GetImageEraseResultRequest req)throws Exception{
+        RawResponse response = json("GetImageEraseResult",null, JSON.toJSONString(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImageEraseResultResponse res = JSON.parseObject(response.getData(), GetImageEraseResultResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());

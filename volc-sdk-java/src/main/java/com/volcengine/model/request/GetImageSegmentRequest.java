@@ -5,8 +5,6 @@ import lombok.Data;
 
 @Data
 public class GetImageSegmentRequest{
-    @JSONField(name = "ServiceId")
-    String serviceId;
     @JSONField(name = "Class")
     String classify;
     @JSONField(name = "Refine")

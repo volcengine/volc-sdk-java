@@ -321,8 +321,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "GetImageEraseModels"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "GetImageEraseModels"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }
@@ -335,8 +335,8 @@ public class ImageXConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "GetImageEraseResult"));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                    add(new NameValuePair("Action", "GetImageEraseResult"));
+                                    add(new NameValuePair("Version", "2018-08-01"));
                                 }
                             });
                         }

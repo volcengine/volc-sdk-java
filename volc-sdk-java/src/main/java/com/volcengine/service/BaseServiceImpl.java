@@ -2,6 +2,7 @@ package com.volcengine.service;
 
 import com.alibaba.fastjson.JSON;
 import com.volcengine.auth.ISignerV4;
+import com.volcengine.auth.impl.SignerV4Impl;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.http.DynamicTimeoutInterceptor;
@@ -20,14 +21,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import java.io.*;
-import java.net.Proxy;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.net.Proxy;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -62,7 +58,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         for (Map.Entry<String, ApiInfo> entry : apiInfoList.entrySet()) {
             ApiInfo apiInfo = entry.getValue();
 
-            if (apiInfo.getConnectionTimeout()==0 && apiInfo.getSocketTimeout() == 0) {
+            if (apiInfo.getConnectionTimeout() == 0 && apiInfo.getSocketTimeout() == 0) {
                 continue;
             }
             if (apiInfo.getConnectionTimeout() == defaultTimeout.getConnectTimeout() && apiInfo.getSocketTimeout() == defaultTimeout.getReadTimeout()) {
@@ -168,8 +164,8 @@ public abstract class BaseServiceImpl implements IBaseService {
     /**
      * Origin put method which without volcengine signer
      *
-     * @param url url
-     * @param data data
+     * @param url     url
+     * @param data    data
      * @param headers headers
      * @return true if the http response code is 200, otherwise false
      */
@@ -181,8 +177,8 @@ public abstract class BaseServiceImpl implements IBaseService {
     /**
      * Origin put method which without volcengine signer
      *
-     * @param url url
-     * @param data data
+     * @param url     url
+     * @param data    data
      * @param headers headers
      * @return the raw response
      */

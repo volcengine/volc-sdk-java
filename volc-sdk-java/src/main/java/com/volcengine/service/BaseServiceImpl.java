@@ -230,7 +230,11 @@ public abstract class BaseServiceImpl implements IBaseService {
         }
 
         Request.Builder requestBuilder = prepareRequestBuilder(api, params);
-        requestBuilder.post(RequestBody.create(body, MEDIA_TYPE_JSON));
+
+        RequestBody requestBody = RequestBody.create(body, MEDIA_TYPE_JSON);
+
+        requestBuilder.header(Const.ContentType, requestBody.contentType().toString());
+        requestBuilder.post(requestBody);
         return makeRequest(api, requestBuilder.build());
     }
 
@@ -248,8 +252,10 @@ public abstract class BaseServiceImpl implements IBaseService {
             bodyBuilder.add(pair.getName(), pair.getValue());
         }
 
+        FormBody formBody = bodyBuilder.build();
 
-        return makeRequest(api, requestBuilder.post(bodyBuilder.build()).build());
+        requestBuilder.header(Const.ContentType, formBody.contentType().toString());
+        return makeRequest(api, requestBuilder.post(formBody).build());
     }
 
     private RawResponse makeRequest(String api, Request request) {

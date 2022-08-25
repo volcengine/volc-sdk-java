@@ -34,5 +34,7 @@ public class FollowCardLogRequest {
         String actionType;
         @JSONField(name = "order")
         int order;
+        @JSONField(name = "ReqId")
+        String reqId;
     }
 }

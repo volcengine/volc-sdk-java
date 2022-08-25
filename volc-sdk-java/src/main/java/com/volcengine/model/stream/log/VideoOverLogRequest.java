@@ -35,4 +35,6 @@ public class VideoOverLogRequest {
     String clientVersion;
     @JSONField(name = "DeviceBrand")
     String deviceBrand;
+    @JSONField(name = "ReqId")
+    String reqId;
 }

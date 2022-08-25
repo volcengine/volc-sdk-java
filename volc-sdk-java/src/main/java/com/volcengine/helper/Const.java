@@ -239,6 +239,11 @@ public class Const {
     public static final String DescribeLiveMetricBandwidthData = "DescribeLiveMetricBandwidthData";
     public static final String DescribePlayStreamList = "DescribePlayStreamList";
     public static final String DescribePullToPushBandwidthData = "DescribePullToPushBandwidthData";
+    public static final String CreateSnapshotAuditPreset = "CreateSnapshotAuditPreset";
+    public static final String UpdateSnapshotAuditPreset = "UpdateSnapshotAuditPreset";
+    public static final String DeleteSnapshotAuditPreset = "DeleteSnapshotAuditPreset";
+    public static final String ListVhostSnapshotAuditPreset = "ListVhostSnapshotAuditPreset";
+    public static final String DescribeLiveAuditData = "DescribeLiveAuditData";
 
     //kms
     public static final String CreateKeyring = "CreateKeyring";

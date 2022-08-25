@@ -815,6 +815,81 @@ public class LiveConfig {
                         }
                     }
             ));
+            put(Const.CreateSnapshotAuditPreset, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CreateSnapshotAuditPreset));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateSnapshotAuditPreset, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateSnapshotAuditPreset));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DeleteSnapshotAuditPreset, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DeleteSnapshotAuditPreset));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListVhostSnapshotAuditPreset, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListVhostSnapshotAuditPreset));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeLiveAuditData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeLiveAuditData));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

@@ -914,5 +914,82 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         return res;
     }
 
+    @Override
+    public CreateSnapshotAuditPresetResponse createSnapshotAuditPreset(CreateSnapshotAuditPresetRequest createSnapshotAuditPresetRequest) throws Exception {
+        RawResponse response = json(Const.CreateSnapshotAuditPreset, new ArrayList<>(), JSON.toJSONString(createSnapshotAuditPresetRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CreateSnapshotAuditPresetResponse res = JSON.parseObject(response.getData(), CreateSnapshotAuditPresetResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+    public DescribeLiveAuditDataResponse describeLiveAuditData(DescribeLiveAuditDataRequest describeLiveAuditDataRequest) throws Exception {
+        RawResponse response = json(Const.DescribeLiveAuditData, new ArrayList<>(), JSON.toJSONString(describeLiveAuditDataRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DescribeLiveAuditDataResponse res = JSON.parseObject(response.getData(), DescribeLiveAuditDataResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+    @Override
+    public UpdateSnapshotAuditPresetResponse updateSnapshotAuditPreset(UpdateSnapshotAuditPresetRequest updateSnapshotAuditPresetRequest) throws Exception {
+        RawResponse response = json(Const.UpdateSnapshotAuditPreset, new ArrayList<>(), JSON.toJSONString(updateSnapshotAuditPresetRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateSnapshotAuditPresetResponse res = JSON.parseObject(response.getData(), UpdateSnapshotAuditPresetResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+    @Override
+    public DeleteSnapshotAuditPresetResponse deleteSnapshotAuditPreset(DeleteSnapshotAuditPresetRequest deleteSnapshotAuditPresetRequest) throws Exception {
+        RawResponse response = json(Const.DeleteSnapshotAuditPreset, new ArrayList<>(), JSON.toJSONString(deleteSnapshotAuditPresetRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteSnapshotAuditPresetResponse res = JSON.parseObject(response.getData(), DeleteSnapshotAuditPresetResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
+
+    @Override
+    public ListVhostSnapshotAuditPresetResponse listVhostSnapshotAuditPreset(ListVhostSnapshotAuditPresetRequest listVhostSnapshotAuditPresetRequest) throws Exception {
+        RawResponse response = json(Const.ListVhostSnapshotAuditPreset, new ArrayList<>(), JSON.toJSONString(listVhostSnapshotAuditPresetRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListVhostSnapshotAuditPresetResponse res = JSON.parseObject(response.getData(), ListVhostSnapshotAuditPresetResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+        }
+        res.getResponseMetadata().setService("live");
+        return res;
+    }
 
 }

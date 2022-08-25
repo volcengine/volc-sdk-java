@@ -400,4 +400,44 @@ public interface LiveService extends IBaseService {
      * @throws Exception
      */
     DescribePullToPushBandwidthDataResponse describePullToPushBandwidthData(DescribePullToPushBandwidthDataRequest describePullToPushBandwidthDataRequest) throws Exception;
+
+    /**
+     *
+     * @param createSnapshotAuditPresetRequest snapshot audit params
+     * @return
+     * @throws Exception
+     */
+    CreateSnapshotAuditPresetResponse createSnapshotAuditPreset(CreateSnapshotAuditPresetRequest createSnapshotAuditPresetRequest) throws Exception;
+
+    /**
+     *
+     * @param updateSnapshotAuditPresetRequest snapshot audit params
+     * @return
+     * @throws Exception
+     */
+    UpdateSnapshotAuditPresetResponse updateSnapshotAuditPreset(UpdateSnapshotAuditPresetRequest updateSnapshotAuditPresetRequest) throws Exception;
+
+    /**
+     *
+     * @param deleteSnapshotAuditPresetRequest snapshot audit params
+     * @return
+     * @throws Exception
+     */
+    DeleteSnapshotAuditPresetResponse deleteSnapshotAuditPreset(DeleteSnapshotAuditPresetRequest deleteSnapshotAuditPresetRequest) throws Exception;
+
+    /**
+     *
+     * @param listVhostSnapshotAuditPresetRequest snapshot audit params
+     * @return
+     * @throws Exception
+     */
+    ListVhostSnapshotAuditPresetResponse listVhostSnapshotAuditPreset(ListVhostSnapshotAuditPresetRequest listVhostSnapshotAuditPresetRequest) throws Exception;
+    
+    /** 
+     *
+     * @param describeLiveAuditDataRequest
+     * @return
+     * @throws Exception
+     */
+    DescribeLiveAuditDataResponse describeLiveAuditData(DescribeLiveAuditDataRequest describeLiveAuditDataRequest) throws Exception;
 }

@@ -913,4 +913,89 @@ public class LiveServiceImplTest extends TestCase {
             e.printStackTrace();
         }
     }
+
+    public void testCreateSnapshotAuditPreset() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"Vhost\": \"vhost\",\n" +
+                "    \"App\": \"app\",\n" +
+                "    \"Interval\": 7.8,\n" +
+                "    \"Bucket\": \"bucket\",\n" +
+                "    \"StorageStrategy\": 1,\n" +
+                "    \"CallbackDetailList\": [{\"URL\": \"http://xx\", \"CallbackType\": \"http\"}],\n" +
+                "    \"Label\": [\"301\"]\n" +
+                "}";
+        CreateSnapshotAuditPresetRequest request = JSON.parseObject(jsonStr, CreateSnapshotAuditPresetRequest.class);
+        try {
+            CreateSnapshotAuditPresetResponse response = liveService.createSnapshotAuditPreset(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testUpdateSnapshotAuditPreset() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"Vhost\": \"vhost\",\n" +
+                "    \"App\": \"app\",\n" +
+                "    \"Interval\": 8.8,\n" +
+                "    \"PresetName\": \"presetName\"\n" +
+                "}";
+        UpdateSnapshotAuditPresetRequest request = JSON.parseObject(jsonStr, UpdateSnapshotAuditPresetRequest.class);
+        try {
+            UpdateSnapshotAuditPresetResponse response = liveService.updateSnapshotAuditPreset(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testDeleteSnapshotAuditPreset() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"Vhost\": \"vhost\",\n" +
+                "    \"App\": \"app\",\n" +
+                "    \"PresetName\": \"presetName\"\n" +
+                "}";
+        DeleteSnapshotAuditPresetRequest request = JSON.parseObject(jsonStr, DeleteSnapshotAuditPresetRequest.class);
+        try {
+            DeleteSnapshotAuditPresetResponse response = liveService.deleteSnapshotAuditPreset(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testListVhostSnapshotAuditPreset() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"Vhost\": \"vhost\"\n" +
+                "}";
+        ListVhostSnapshotAuditPresetRequest request = JSON.parseObject(jsonStr, ListVhostSnapshotAuditPresetRequest.class);
+        try {
+            ListVhostSnapshotAuditPresetResponse response = liveService.listVhostSnapshotAuditPreset(request);
+             System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }    
+    }
+
+    public void testDescribeLiveAuditData() {
+        LiveService liveService = getLiveService();
+        String jsonStr = "{\n" +
+                "    \"DomainList\": [\"example.com\", \"example2.com\"],\n" +
+                "    \"DetailField\": [\"Domain\"],\n" +
+                "    \"StartTime\": \"2022-07-13T00:00:00+08:00\",\n" +
+                "    \"EndTime\": \"2022-07-14T00:00:00+08:00\",\n" +
+                "    \"Aggregation\": 86400\n" +
+                "}";
+        DescribeLiveAuditDataRequest request = JSON.parseObject(jsonStr, DescribeLiveAuditDataRequest.class);
+        try {
+            DescribeLiveAuditDataResponse response = liveService.describeLiveAuditData(request);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

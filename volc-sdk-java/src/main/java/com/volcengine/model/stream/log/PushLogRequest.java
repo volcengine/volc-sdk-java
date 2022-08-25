@@ -21,4 +21,6 @@ public class PushLogRequest {
     long eventTime;
     @JSONField(name = "EventName")
     String eventName;
+    @JSONField(name = "ReqId")
+    String reqId;
 }

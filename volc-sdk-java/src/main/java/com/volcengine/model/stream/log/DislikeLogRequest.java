@@ -28,5 +28,7 @@ public class DislikeLogRequest {
         long timestamp;
         @JSONField(name = "FilterWords")
         List<String> filterWords;
+        @JSONField(name = "ReqId")
+        String reqId;
     }
 }

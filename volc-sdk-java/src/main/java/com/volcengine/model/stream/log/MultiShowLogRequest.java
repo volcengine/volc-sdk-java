@@ -36,5 +36,7 @@ public class MultiShowLogRequest {
         String clientVersion;
         @JSONField(name = "DeviceBrand")
         String deviceBrand;
+        @JSONField(name = "ReqId")
+        String reqId;
     }
 }

@@ -11,4 +11,6 @@ public class VerifyLogRequest {
     String partner;
     @JSONField(name = "AccessToken")
     String accessToken;
+    @JSONField(name = "ReqId")
+    String reqId;
 }

@@ -1,5 +1,9 @@
 Change log
 
+2022-08-25 Bumped to version v1.0.58
+- Updated models for stream
+- Updated apis for live
+
 2022-08-11 Bumped to version v1.0.57
 - Updated models for secretnumber
 - Updated apis for vod/imagex

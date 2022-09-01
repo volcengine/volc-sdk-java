@@ -1,6 +1,11 @@
 .idea
+.settings
+settings.json
 target
 .DS_Store
 *.iml
 scripts/build.out
 *.swp
+.classpath
+.factorypath
+.project

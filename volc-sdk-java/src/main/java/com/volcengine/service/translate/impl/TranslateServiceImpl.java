@@ -3,13 +3,8 @@ package com.volcengine.service.translate.impl;
 import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
-import com.volcengine.model.request.LangDetectRequest;
-import com.volcengine.model.request.TranslateImageRequest;
-import com.volcengine.model.request.TranslateTextRequest;
-import com.volcengine.model.response.LangDetectResponse;
-import com.volcengine.model.response.RawResponse;
-import com.volcengine.model.response.TranslateImageResponse;
-import com.volcengine.model.response.TranslateTextResponse;
+import com.volcengine.model.request.*;
+import com.volcengine.model.response.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.translate.ITranslateService;
 import com.volcengine.service.translate.TranslateConfig;
@@ -66,5 +61,33 @@ public class TranslateServiceImpl extends BaseServiceImpl implements ITranslateS
             throw response.getException();
         }
         return JSON.parseObject(response.getData(), TranslateImageResponse.class);
+    }
+
+    /**
+     * @param translateAudioSubmitRequest translateAudioSubmitRequest
+     * @return TranslateAudioSubmitResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public TranslateAudioSubmitResponse translateAudioSubmit(TranslateAudioSubmitRequest translateAudioSubmitRequest) throws Exception {
+        RawResponse response = json(Const.TranslateAudioSubmit, null, JSON.toJSONString(translateAudioSubmitRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), TranslateAudioSubmitResponse.class);
+    }
+
+    /**
+     * @param translateAudioQueryRequest translateAudioQueryRequest
+     * @return TranslateAudioQueryResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public TranslateAudioQueryResponse translateAudioQuery(TranslateAudioQueryRequest translateAudioQueryRequest) throws Exception {
+        RawResponse response = json(Const.TranslateAudioQuery, null, JSON.toJSONString(translateAudioQueryRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), TranslateAudioQueryResponse.class);
     }
 }

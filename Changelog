@@ -1,5 +1,9 @@
 Change log
 
+2022-09-01 Bumped to version v1.0.59
+- Added apis for translate/stream
+- Added apis for visual
+
 2022-08-25 Bumped to version v1.0.58
 - Updated models for stream
 - Updated apis for live

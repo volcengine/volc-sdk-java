@@ -102,6 +102,8 @@ public class Const {
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";
     public static final String TranslateImage = "TranslateImage";
+    public static final String TranslateAudioSubmit = "SubmitAudio";
+    public static final String TranslateAudioQuery = "QueryAudio";
 
     //sign
     public static final String XDate = "X-Date";

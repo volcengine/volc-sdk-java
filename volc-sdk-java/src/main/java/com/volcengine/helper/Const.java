@@ -261,4 +261,23 @@ public class Const {
     public static final String ScheduleKeyDeletion = "ScheduleKeyDeletion";
     public static final String CancelKeyDeletion = "CancelKeyDeletion";
     public static final String KmsServiceVersion = "2021-02-18";
+
+    // visual
+    public static final String SkySegment = "SkySegment";
+    public static final String HumanSegment = "HumanSegment";
+    public static final String GeneralSegment = "GeneralSegment";
+    public static final String CarDetection = "CarDetection";
+    public static final String CarSegment = "CarSegment";
+    public static final String CarPlateDetection = "CarPlateDetection";
+    public static final String PoemMaterial = "PoemMaterial";
+    public static final String ImageFlow = "ImageFlow";
+    public static final String ImageScore = "ImageScore";
+    public static final String FaceSwap = "FaceSwap";
+    public static final String JPCartoon = "JPCartoon";
+    public static final String EyeClose2Open = "EyeClose2Open";
+    public static final String EmoticonEdit = "EmoticonEdit";
+    public static final String StretchRecovery = "StretchRecovery";
+    public static final String DistortionFree = "DistortionFree";
+    public static final String EnhancePhoto = "EnhancePhoto";
+    public static final String ConvertPhoto = "ConvertPhoto";
 }

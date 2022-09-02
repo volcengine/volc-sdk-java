@@ -57,7 +57,7 @@ public interface BusinessSecurityService extends IBaseService {
 
     /**
      * Mobile Status.
-     *
+     * @deprecated
      * @param  riskDetectionRequest data report request
      * @return mobile status response
      * @throws Exception the exception
@@ -75,7 +75,7 @@ public interface BusinessSecurityService extends IBaseService {
 
     /**
      * Element Verify.
-     *
+     * @deprecated
      * @param  riskDetectionRequest element verify request
      * @return element verify response
      * @throws Exception the exception

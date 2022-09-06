@@ -32,5 +32,11 @@ public class ElementVerifyResponseV2 {
 
     @Data
     public static class ElementDetail {
+        @JSONField(name = "BankName")
+        private String bankName;
+        @JSONField(name = "CardType")
+        private String cardType;
+        @JSONField(name = "CardCategory")
+        private String cardCategory;
     }
 }

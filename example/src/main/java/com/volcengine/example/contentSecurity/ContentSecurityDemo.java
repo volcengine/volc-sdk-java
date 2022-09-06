@@ -13,18 +13,6 @@ public class ContentSecurityDemo {
 
         contentSecurityService.setAccessKey("ak");
         contentSecurityService.setSecretKey("sk");
-        // async video risk detection
-        try {
-            RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
-            riskDetectionRequest.setAppId(3332);
-            riskDetectionRequest.setService("video_risk");
-            riskDetectionRequest.setParameters("{\"operate_time\": 1617960951, \"ip\": \"127.0.0.9\", \"did\":1357924680, \"url\": \"\", \"data_id\": \"123\", \"account_id\": \"2000000409\"}");
-
-            AsyncRiskDetectionResponse riskDetectionResponse = contentSecurityService.AsyncVideoRisk(riskDetectionRequest);
-            System.out.println(JSON.toJSONString(riskDetectionResponse));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         try {
             ImageRiskResultRequest request = new ImageRiskResultRequest();

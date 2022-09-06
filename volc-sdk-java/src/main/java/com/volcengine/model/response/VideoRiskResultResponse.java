@@ -27,6 +27,10 @@ public class VideoRiskResultResponse {
     public static class VideoData {
         @JSONField(name = "VideoResults")
         private VideoLabelResult videoLabelResult;
+        @JSONField(name = "AudioResults")
+        private GetAudioRiskResponse.AudioResult audioResults;
+        @JSONField(name = "DataId")
+        private String dataId;
     }
 
     @Data

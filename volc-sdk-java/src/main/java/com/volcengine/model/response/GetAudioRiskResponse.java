@@ -45,7 +45,7 @@ public class GetAudioRiskResponse {
         private String audioText;
         @JSONField(name = "FrameID")
         private Integer frameId;
-        @JSONField(name = "FrameResult")
+        @JSONField(name = "FrameResults")
         private List<FrameResult> frameResults;
     }
 
@@ -56,11 +56,24 @@ public class GetAudioRiskResponse {
         private String subLabel;
         @JSONField(name = "Decision")
         private String decision;
+        @JSONField(name = "Contexts")
+        private List<TextRiskResponse.Context> contexts;
+    }
+
+    @Data
+    public static class Context {
         @JSONField(name = "MatchedWords")
         private List<String> matchedWords;
-        @JSONField(name = "LibId")
-        private String libId;
         @JSONField(name = "LibName")
         private String libName;
+        @JSONField(name = "Positions")
+        private List<TextRiskResponse.Position> positions;
+    }
+
+    public static class Position {
+        @JSONField(name = "StartPos")
+        private int startPos;
+        @JSONField(name = "EndPos")
+        private int endPos;
     }
 }

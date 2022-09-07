@@ -2,6 +2,8 @@ package com.volcengine.service.iam;
 
 import com.volcengine.model.request.iam.*;
 import com.volcengine.model.response.CommonResponse;
+import com.volcengine.model.response.iam.CreateUserResponse;
+import com.volcengine.model.response.iam.DeleteUserResponse;
 import com.volcengine.model.response.iam.ListUsersResponse;
 import com.volcengine.model.response.iam.RoleGetResponse;
 import com.volcengine.model.response.iam.RoleListResponse;
@@ -19,6 +21,24 @@ public interface IIamService extends IBaseService {
      * @throws Exception the exception
      */
     ListUsersResponse listUsers(ListUsersRequest listUsersRequest) throws Exception;
+
+    /**
+     * Create user.
+     *
+     * @param createUserRequest the request.
+     * @return the response.
+     * @throws Exception the exception.
+     */
+    CreateUserResponse createUser(CreateUserRequest createUserRequest) throws Exception;
+
+    /**
+     * Delete user.
+     *
+     * @param deleteUserRequest the request.
+     * @return the response.
+     * @throws Exception the exception.
+     */
+    DeleteUserResponse deleteUser(DeleteUserRequest deleteUserRequest) throws Exception;
 
     /**
      * create role.

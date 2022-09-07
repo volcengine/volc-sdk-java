@@ -46,6 +46,19 @@ public class IamConfig {
                         }
                     }
             ));
+            put(Const.DeleteUser, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DeleteUser));
+                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                }
+                            });
+                        }
+                    }));
             put(Const.ListUsers, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

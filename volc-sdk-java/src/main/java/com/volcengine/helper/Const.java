@@ -32,6 +32,11 @@ public class Const {
     public static final String ListRoles = "ListRoles";
     public static final String DeleteRole = "DeleteRole";
 
+    // billing
+    public static final String ListBill = "ListBill";
+    public static final String ListBillDetail = "ListBillDetail";
+    public static final String ListBillOverviewByProd = "ListBillOverviewByProd";
+
 
     // sts
     public static final String AssumeRole = "AssumeRole";

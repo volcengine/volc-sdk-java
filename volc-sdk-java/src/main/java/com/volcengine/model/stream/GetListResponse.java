@@ -79,6 +79,10 @@ public class GetListResponse {
         List<CommonPo.Image> imageList;
         @JSONField(name = "VideoDetail")
         VideoDetail videoDetail;
+        @JSONField(name = "ArticleClassification")
+        List<List<String>> articleClassification;
+        @JSONField(name = "BizLog")
+        String bizLog;
     }
 
     @Data

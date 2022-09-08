@@ -6,6 +6,8 @@ import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
 import com.volcengine.model.request.iam.*;
 import com.volcengine.model.response.CommonResponse;
+import com.volcengine.model.response.iam.CreateUserResponse;
+import com.volcengine.model.response.iam.DeleteUserResponse;
 import com.volcengine.model.response.iam.ListUsersResponse;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.response.iam.RoleGetResponse;
@@ -33,6 +35,26 @@ public class IamServiceImpl extends BaseServiceImpl implements IIamService {
         }
 
         return JSON.parseObject(response.getData(), ListUsersResponse.class);
+    }
+
+    @Override
+    public CreateUserResponse createUser(CreateUserRequest createUserRequest) throws Exception {
+        RawResponse response = query(Const.CreateUser, Utils.mapToPairList(Utils.paramsToMap(createUserRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), CreateUserResponse.class);
+    }
+
+    @Override
+    public DeleteUserResponse deleteUser(DeleteUserRequest deleteUserRequest) throws Exception {
+        RawResponse response = query(Const.DeleteUser, Utils.mapToPairList(Utils.paramsToMap(deleteUserRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), DeleteUserResponse.class);
     }
 
     @Override

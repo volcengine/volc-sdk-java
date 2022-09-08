@@ -25,6 +25,7 @@ public class Const {
 
     // iam
     public static final String CreateUser = "CreateUser";
+    public static final String DeleteUser = "DeleteUser";
     public static final String ListUsers = "ListUsers";
     public static final String CreateRole = "CreateRole";
     public static final String GetRole = "GetRole";

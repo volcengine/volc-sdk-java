@@ -17,6 +17,8 @@ private static final long serialVersionUID = 0L;
   }
   private TranscodeVideoOverride() {
     templateId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    outputIndex_ = emptyIntList();
+    fileName_ = "";
   }
 
   @java.lang.Override
@@ -72,6 +74,33 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 24: {
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              outputIndex_ = newIntList();
+              mutable_bitField0_ |= 0x00000002;
+            }
+            outputIndex_.addInt(input.readInt32());
+            break;
+          }
+          case 26: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
+              outputIndex_ = newIntList();
+              mutable_bitField0_ |= 0x00000002;
+            }
+            while (input.getBytesUntilLimit() > 0) {
+              outputIndex_.addInt(input.readInt32());
+            }
+            input.popLimit(limit);
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            fileName_ = s;
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -89,6 +118,9 @@ private static final long serialVersionUID = 0L;
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
         templateId_ = templateId_.getUnmodifiableView();
+      }
+      if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        outputIndex_.makeImmutable(); // C
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -196,6 +228,92 @@ private static final long serialVersionUID = 0L;
     return getClip();
   }
 
+  public static final int OUTPUTINDEX_FIELD_NUMBER = 3;
+  private com.google.protobuf.Internal.IntList outputIndex_;
+  /**
+   * <pre>
+   * 模板组下标，仅对模板组生效
+   * </pre>
+   *
+   * <code>repeated int32 OutputIndex = 3;</code>
+   * @return A list containing the outputIndex.
+   */
+  @java.lang.Override
+  public java.util.List<java.lang.Integer>
+      getOutputIndexList() {
+    return outputIndex_;
+  }
+  /**
+   * <pre>
+   * 模板组下标，仅对模板组生效
+   * </pre>
+   *
+   * <code>repeated int32 OutputIndex = 3;</code>
+   * @return The count of outputIndex.
+   */
+  public int getOutputIndexCount() {
+    return outputIndex_.size();
+  }
+  /**
+   * <pre>
+   * 模板组下标，仅对模板组生效
+   * </pre>
+   *
+   * <code>repeated int32 OutputIndex = 3;</code>
+   * @param index The index of the element to return.
+   * @return The outputIndex at the given index.
+   */
+  public int getOutputIndex(int index) {
+    return outputIndex_.getInt(index);
+  }
+  private int outputIndexMemoizedSerializedSize = -1;
+
+  public static final int FILENAME_FIELD_NUMBER = 4;
+  private volatile java.lang.Object fileName_;
+  /**
+   * <pre>
+   * FileName
+   * </pre>
+   *
+   * <code>string FileName = 4;</code>
+   * @return The fileName.
+   */
+  @java.lang.Override
+  public java.lang.String getFileName() {
+    java.lang.Object ref = fileName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      fileName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * FileName
+   * </pre>
+   *
+   * <code>string FileName = 4;</code>
+   * @return The bytes for fileName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getFileNameBytes() {
+    java.lang.Object ref = fileName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      fileName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -210,11 +328,22 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    getSerializedSize();
     for (int i = 0; i < templateId_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, templateId_.getRaw(i));
     }
     if (clip_ != null) {
       output.writeMessage(2, getClip());
+    }
+    if (getOutputIndexList().size() > 0) {
+      output.writeUInt32NoTag(26);
+      output.writeUInt32NoTag(outputIndexMemoizedSerializedSize);
+    }
+    for (int i = 0; i < outputIndex_.size(); i++) {
+      output.writeInt32NoTag(outputIndex_.getInt(i));
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, fileName_);
     }
     unknownFields.writeTo(output);
   }
@@ -236,6 +365,23 @@ private static final long serialVersionUID = 0L;
     if (clip_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getClip());
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < outputIndex_.size(); i++) {
+        dataSize += com.google.protobuf.CodedOutputStream
+          .computeInt32SizeNoTag(outputIndex_.getInt(i));
+      }
+      size += dataSize;
+      if (!getOutputIndexList().isEmpty()) {
+        size += 1;
+        size += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(dataSize);
+      }
+      outputIndexMemoizedSerializedSize = dataSize;
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, fileName_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -259,6 +405,10 @@ private static final long serialVersionUID = 0L;
       if (!getClip()
           .equals(other.getClip())) return false;
     }
+    if (!getOutputIndexList()
+        .equals(other.getOutputIndexList())) return false;
+    if (!getFileName()
+        .equals(other.getFileName())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -278,6 +428,12 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CLIP_FIELD_NUMBER;
       hash = (53 * hash) + getClip().hashCode();
     }
+    if (getOutputIndexCount() > 0) {
+      hash = (37 * hash) + OUTPUTINDEX_FIELD_NUMBER;
+      hash = (53 * hash) + getOutputIndexList().hashCode();
+    }
+    hash = (37 * hash) + FILENAME_FIELD_NUMBER;
+    hash = (53 * hash) + getFileName().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -419,6 +575,10 @@ private static final long serialVersionUID = 0L;
         clip_ = null;
         clipBuilder_ = null;
       }
+      outputIndex_ = emptyIntList();
+      bitField0_ = (bitField0_ & ~0x00000002);
+      fileName_ = "";
+
       return this;
     }
 
@@ -456,6 +616,12 @@ private static final long serialVersionUID = 0L;
       } else {
         result.clip_ = clipBuilder_.build();
       }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        outputIndex_.makeImmutable();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.outputIndex_ = outputIndex_;
+      result.fileName_ = fileName_;
       onBuilt();
       return result;
     }
@@ -516,6 +682,20 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasClip()) {
         mergeClip(other.getClip());
+      }
+      if (!other.outputIndex_.isEmpty()) {
+        if (outputIndex_.isEmpty()) {
+          outputIndex_ = other.outputIndex_;
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          ensureOutputIndexIsMutable();
+          outputIndex_.addAll(other.outputIndex_);
+        }
+        onChanged();
+      }
+      if (!other.getFileName().isEmpty()) {
+        fileName_ = other.fileName_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -846,6 +1026,209 @@ private static final long serialVersionUID = 0L;
         clip_ = null;
       }
       return clipBuilder_;
+    }
+
+    private com.google.protobuf.Internal.IntList outputIndex_ = emptyIntList();
+    private void ensureOutputIndexIsMutable() {
+      if (!((bitField0_ & 0x00000002) != 0)) {
+        outputIndex_ = mutableCopy(outputIndex_);
+        bitField0_ |= 0x00000002;
+       }
+    }
+    /**
+     * <pre>
+     * 模板组下标，仅对模板组生效
+     * </pre>
+     *
+     * <code>repeated int32 OutputIndex = 3;</code>
+     * @return A list containing the outputIndex.
+     */
+    public java.util.List<java.lang.Integer>
+        getOutputIndexList() {
+      return ((bitField0_ & 0x00000002) != 0) ?
+               java.util.Collections.unmodifiableList(outputIndex_) : outputIndex_;
+    }
+    /**
+     * <pre>
+     * 模板组下标，仅对模板组生效
+     * </pre>
+     *
+     * <code>repeated int32 OutputIndex = 3;</code>
+     * @return The count of outputIndex.
+     */
+    public int getOutputIndexCount() {
+      return outputIndex_.size();
+    }
+    /**
+     * <pre>
+     * 模板组下标，仅对模板组生效
+     * </pre>
+     *
+     * <code>repeated int32 OutputIndex = 3;</code>
+     * @param index The index of the element to return.
+     * @return The outputIndex at the given index.
+     */
+    public int getOutputIndex(int index) {
+      return outputIndex_.getInt(index);
+    }
+    /**
+     * <pre>
+     * 模板组下标，仅对模板组生效
+     * </pre>
+     *
+     * <code>repeated int32 OutputIndex = 3;</code>
+     * @param index The index to set the value at.
+     * @param value The outputIndex to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOutputIndex(
+        int index, int value) {
+      ensureOutputIndexIsMutable();
+      outputIndex_.setInt(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 模板组下标，仅对模板组生效
+     * </pre>
+     *
+     * <code>repeated int32 OutputIndex = 3;</code>
+     * @param value The outputIndex to add.
+     * @return This builder for chaining.
+     */
+    public Builder addOutputIndex(int value) {
+      ensureOutputIndexIsMutable();
+      outputIndex_.addInt(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 模板组下标，仅对模板组生效
+     * </pre>
+     *
+     * <code>repeated int32 OutputIndex = 3;</code>
+     * @param values The outputIndex to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllOutputIndex(
+        java.lang.Iterable<? extends java.lang.Integer> values) {
+      ensureOutputIndexIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, outputIndex_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 模板组下标，仅对模板组生效
+     * </pre>
+     *
+     * <code>repeated int32 OutputIndex = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOutputIndex() {
+      outputIndex_ = emptyIntList();
+      bitField0_ = (bitField0_ & ~0x00000002);
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object fileName_ = "";
+    /**
+     * <pre>
+     * FileName
+     * </pre>
+     *
+     * <code>string FileName = 4;</code>
+     * @return The fileName.
+     */
+    public java.lang.String getFileName() {
+      java.lang.Object ref = fileName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fileName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * FileName
+     * </pre>
+     *
+     * <code>string FileName = 4;</code>
+     * @return The bytes for fileName.
+     */
+    public com.google.protobuf.ByteString
+        getFileNameBytes() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * FileName
+     * </pre>
+     *
+     * <code>string FileName = 4;</code>
+     * @param value The fileName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFileName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      fileName_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * FileName
+     * </pre>
+     *
+     * <code>string FileName = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFileName() {
+      
+      fileName_ = getDefaultInstance().getFileName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * FileName
+     * </pre>
+     *
+     * <code>string FileName = 4;</code>
+     * @param value The bytes for fileName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFileNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      fileName_ = value;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

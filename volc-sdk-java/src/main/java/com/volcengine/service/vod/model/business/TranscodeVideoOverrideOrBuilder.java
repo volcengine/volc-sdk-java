@@ -74,4 +74,53 @@ public interface TranscodeVideoOverrideOrBuilder extends
    * <code>.Volcengine.Vod.Models.Business.Clip Clip = 2;</code>
    */
   com.volcengine.service.vod.model.business.ClipOrBuilder getClipOrBuilder();
+
+  /**
+   * <pre>
+   * 模板组下标，仅对模板组生效
+   * </pre>
+   *
+   * <code>repeated int32 OutputIndex = 3;</code>
+   * @return A list containing the outputIndex.
+   */
+  java.util.List<java.lang.Integer> getOutputIndexList();
+  /**
+   * <pre>
+   * 模板组下标，仅对模板组生效
+   * </pre>
+   *
+   * <code>repeated int32 OutputIndex = 3;</code>
+   * @return The count of outputIndex.
+   */
+  int getOutputIndexCount();
+  /**
+   * <pre>
+   * 模板组下标，仅对模板组生效
+   * </pre>
+   *
+   * <code>repeated int32 OutputIndex = 3;</code>
+   * @param index The index of the element to return.
+   * @return The outputIndex at the given index.
+   */
+  int getOutputIndex(int index);
+
+  /**
+   * <pre>
+   * FileName
+   * </pre>
+   *
+   * <code>string FileName = 4;</code>
+   * @return The fileName.
+   */
+  java.lang.String getFileName();
+  /**
+   * <pre>
+   * FileName
+   * </pre>
+   *
+   * <code>string FileName = 4;</code>
+   * @return The bytes for fileName.
+   */
+  com.google.protobuf.ByteString
+      getFileNameBytes();
 }

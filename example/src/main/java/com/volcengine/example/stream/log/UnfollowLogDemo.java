@@ -30,14 +30,14 @@ public class UnfollowLogDemo {
         FollowLogRequest.Body body = new FollowLogRequest.Body();
         body.setGroupId("7008339270066766349");
         body.setToUserId("104792520555");
-        body.setCategoryName("fhh_app_default_content");
+        body.setCategoryName("server_sdk_demo_default_content");
         body.setSource("article_detail");
         bodyList.add(body);
 
         FollowLogRequest.Body body1 = new FollowLogRequest.Body();
         body1.setGroupId("7008339270066766349");
         body1.setToUserId("104792520555");
-        body1.setCategoryName("fhh_app_default_content");
+        body1.setCategoryName("server_sdk_demo_default_content");
         body1.setSource("article_detail");
         bodyList.add(body1);
 

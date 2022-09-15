@@ -32,7 +32,7 @@ public class FollowCardLogDemo {
         body.setFollowType("from_group");
         body.setProfileUserId("104792520555");
         body.setToUserId("104792520555");
-        body.setCategoryName("fhh_app_default_content");
+        body.setCategoryName("server_sdk_demo_default_content");
         body.setSource("list_follow_card_related");
         body.setActionType("show");
         body.setOrder(2);

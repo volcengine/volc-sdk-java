@@ -29,7 +29,7 @@ public class DisLikeDemo {
         DislikeLogRequest.Body body = new DislikeLogRequest.Body();
         body.setGroupId("7008339270066766349");
         body.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
-        body.setCategory("fhh_app_default_content");
+        body.setCategory("server_sdk_demo_default_content");
         List<String> filterWords = new ArrayList<>();
         filterWords.add("id1");
         filterWords.add("id2");
@@ -39,7 +39,7 @@ public class DisLikeDemo {
         DislikeLogRequest.Body body1 = new DislikeLogRequest.Body();
         body1.setGroupId("7008339270066766349");
         body1.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
-        body1.setCategory("fhh_app_default_content");
+        body1.setCategory("server_sdk_demo_default_content");
         List<String> filterWords1 = new ArrayList<>();
         filterWords1.add("id1");
         filterWords1.add("id2");

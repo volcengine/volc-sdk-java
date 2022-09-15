@@ -270,6 +270,22 @@ public class Const {
     public static final String CancelKeyDeletion = "CancelKeyDeletion";
     public static final String KmsServiceVersion = "2021-02-18";
 
+    //request method
+    public static final String GET = "GET";
+    public static final String DELETE = "DELETE";
+    public static final String POST = "POST";
+    public static final String PUT = "PUT";
+
+    public static final String HTTP = "http";
+    public static final String HTTPS = "https";
+    public static final String ACCEPT = "Accept";
+    public static final String ACCEPT_ALL = "*/*";
+    public static final String ACCEPT_ENCODING = "Accept-Encoding";
+    public static final String GZIP_DEFLATE_BR = "gzip, deflate, br";
+    public static final String SERVICE_NAME = "ServiceName";
+    public static final String CONTENT_TYPE = "Content-Type";
+    public static final String APPLICATION_X_PROTOBUF = "application/x-protobuf";
+
     // visual
     public static final String SkySegment = "SkySegment";
     public static final String HumanSegment = "HumanSegment";

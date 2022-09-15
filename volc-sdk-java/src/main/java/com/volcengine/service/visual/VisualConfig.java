@@ -292,7 +292,91 @@ public class VisualConfig {
                         });
                     }
                 }
-        ));
+            ));
+            put(Const.OCRNormal, new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", Const.OCRNormal));
+                                add(new BasicNameValuePair("Version", "2020-08-26"));
+                            }
+                        });
+                    }
+                }
+            ));
+            put(Const.BankCard, new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", Const.BankCard));
+                                add(new BasicNameValuePair("Version", "2020-08-26"));
+                            }
+                        });
+                    }
+                }
+            ));
+            put(Const.BankCard, new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", Const.IDCard));
+                                add(new BasicNameValuePair("Version", "2020-08-26"));
+                            }
+                        });
+                    }
+                }
+            ));
+            put(Const.DrivingLicense, new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", Const.DrivingLicense));
+                                add(new BasicNameValuePair("Version", "2020-08-26"));
+                            }
+                        });
+                    }
+                }
+            ));
+            put(Const.VehicleLicense, new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", Const.VehicleLicense));
+                                add(new BasicNameValuePair("Version", "2020-08-26"));
+                            }
+                        });
+                    }
+                }
+            ));
+            put(Const.VatInvoice, new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", Const.VatInvoice));
+                                add(new BasicNameValuePair("Version", "2020-08-26"));
+                            }
+                        });
+                    }
+                }
+            ));
         }
     };
 }

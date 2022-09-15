@@ -29,6 +29,7 @@ import com.volcengine.service.visual.model.request.VisualJPCartoonRequest;
 import com.volcengine.service.visual.model.request.VisualPoemMaterialRequest;
 import com.volcengine.service.visual.model.request.VisualSkySegmentRequest;
 import com.volcengine.service.visual.model.request.VisualStretchRecoveryRequest;
+import com.volcengine.service.visual.model.request.*;
 import com.volcengine.service.visual.model.response.VisualCarDetectionResponse;
 import com.volcengine.service.visual.model.response.VisualCarPlateDetectionResponse;
 import com.volcengine.service.visual.model.response.VisualCarSegmentResponse;
@@ -46,6 +47,7 @@ import com.volcengine.service.visual.model.response.VisualJPCartoonResponse;
 import com.volcengine.service.visual.model.response.VisualPoemMaterialResponse;
 import com.volcengine.service.visual.model.response.VisualSkySegmentResponse;
 import com.volcengine.service.visual.model.response.VisualStretchRecoveryResponse;
+import com.volcengine.service.visual.model.response.*;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -223,6 +225,70 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
             throw response.getException();
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualConvertPhotoResponse.class);
+    }
+
+    @Override
+    public OCRNormalResponse ocrNormal(OCRNormalRequest request) throws Exception {
+        RawResponse response = post(Const.OCRNormal, null, convertNameValuePair(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        System.out.println(new String(response.getData(), "UTF-8"));
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), OCRNormalResponse.class);
+    }
+
+    @Override
+    public OCRBankCardV1Response bankCardV1(OCRBankCardRequest request) throws Exception {
+        RawResponse response = post(Const.BankCard, null, convertNameValuePair(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), OCRBankCardV1Response.class);
+    }
+
+    @Override
+    public OCRBankCardV2Response bankCardV2(OCRBankCardRequest request) throws Exception {
+        RawResponse response = post(Const.BankCard, null, convertNameValuePair(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), OCRBankCardV2Response.class);
+    }
+
+    @Override
+    public OCRIDCardResponse idCard(OCRIDCardRequest request) throws Exception {
+        RawResponse response = post(Const.IDCard, null, convertNameValuePair(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), OCRIDCardResponse.class);
+    }
+
+    @Override
+    public OCRDrivingLicenseResponse drivingLicense(OCRDrivingLicenseRequest request) throws Exception {
+        RawResponse response = post(Const.DrivingLicense, null, convertNameValuePair(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), OCRDrivingLicenseResponse.class);
+    }
+
+    @Override
+    public OCRVehicleLicenseResponse vehicleLicense(OCRVehicleLicenseRequest request) throws Exception {
+        RawResponse response = post(Const.VehicleLicense, null, convertNameValuePair(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), OCRVehicleLicenseResponse.class);
+    }
+
+    @Override
+    public OCRVatInvoiceResponse vatInvoice(OCRVatInvoiceRequest request) throws Exception {
+        RawResponse response = post(Const.VatInvoice, null, convertNameValuePair(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), OCRVatInvoiceResponse.class);
     }
 
     private List<NameValuePair> convertNameValuePair(Object obj)

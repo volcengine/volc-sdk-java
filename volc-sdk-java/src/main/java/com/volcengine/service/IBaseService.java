@@ -173,8 +173,8 @@ public interface IBaseService {
     /**
      * Put binary data.
      *
-     * @param url target url
-     * @param data binary data
+     * @param url     target url
+     * @param data    binary data
      * @param headers http headers
      * @return put status
      * @throws Exception exception
@@ -184,11 +184,21 @@ public interface IBaseService {
 
     /**
      * Sign by sts2.
-     * @param inlinePolicy  the Policy
-     * @param expire        expire time
-     * @return  the sts2
-     * @throws Exception    the exception
+     *
+     * @param inlinePolicy the Policy
+     * @param expire       expire time
+     * @return the sts2
+     * @throws Exception the exception
      */
     SecurityToken2 signSts2(Policy inlinePolicy, long expire) throws Exception;
 
+    /**
+     * @param api interface path like /PutLogs
+     * @param params query params
+     * @param header some special header for protobuf
+     * @param body request body
+     * @param compressType default not compress,support lz4
+     * @return
+     */
+    RawResponse proto(String api, List<NameValuePair> params, Map<String, String> header, byte[] body, String compressType);
 }

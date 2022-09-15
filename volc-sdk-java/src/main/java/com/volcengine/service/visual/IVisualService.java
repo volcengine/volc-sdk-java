@@ -141,4 +141,62 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     VisualConvertPhotoResponse convertPhoto(VisualConvertPhotoRequest request) throws Exception;
+
+    /**
+     * 通用文字识别
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    OCRNormalResponse ocrNormal(OCRNormalRequest request) throws Exception;
+
+    /**
+     * 银行卡V1
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    OCRBankCardV1Response bankCardV1(OCRBankCardRequest request) throws Exception;
+
+    /**
+     * 银行卡V2
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    OCRBankCardV2Response bankCardV2(OCRBankCardRequest request) throws Exception;
+
+    /**
+     * 身份证
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    OCRIDCardResponse idCard(OCRIDCardRequest request) throws Exception;
+
+    /**
+     * 驾驶证
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    OCRDrivingLicenseResponse drivingLicense(OCRDrivingLicenseRequest request) throws Exception;
+
+    /**
+     * 行驶证
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    OCRVehicleLicenseResponse vehicleLicense(OCRVehicleLicenseRequest request) throws Exception;
+
+    /**
+     * 增值税
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    OCRVatInvoiceResponse vatInvoice(OCRVatInvoiceRequest request) throws Exception;
+
+
 }

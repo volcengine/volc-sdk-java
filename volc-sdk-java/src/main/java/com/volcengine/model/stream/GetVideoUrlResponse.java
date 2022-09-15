@@ -42,13 +42,13 @@ public class GetVideoUrlResponse {
         @JSONField(name = "file_id")
         String fileId;
         @JSONField(name = "bitrate")
-        int bitrate;
+        long bitrate;
         @JSONField(name = "codec_type")
         String codecType;
         @JSONField(name = "logo_type")
         String logoType;
         @JSONField(name = "size")
-        int size;
+        long size;
         @JSONField(name = "FPS")
         int fps;
         @JSONField(name = "quality")

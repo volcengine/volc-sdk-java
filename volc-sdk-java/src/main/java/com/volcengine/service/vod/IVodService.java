@@ -99,6 +99,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
     * @throws Exception the exception
     */
     com.volcengine.service.vod.model.response.VodGetDirectEditResultResponse getDirectEditResult(com.volcengine.service.vod.model.request.VodGetDirectEditResultRequest input) throws Exception;
+    
+    /**
+    * getDirectEditProgress.
+    *
+    * @param input com.volcengine.service.vod.model.request.VodGetDirectEditProgressRequest
+    * @return com.volcengine.service.vod.model.response.VodGetDirectEditProgressResponse
+    * @throws Exception the exception
+    */
+    com.volcengine.service.vod.model.response.VodGetDirectEditProgressResponse getDirectEditProgress(com.volcengine.service.vod.model.request.VodGetDirectEditProgressRequest input) throws Exception;
 
 
 
@@ -390,6 +399,7 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      */
 	com.volcengine.service.vod.model.response.VodRetrieveTranscodeResultResponse retrieveTranscodeResult(com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest input) throws Exception;
 	
+
 	/**
      * createSpace.
      *

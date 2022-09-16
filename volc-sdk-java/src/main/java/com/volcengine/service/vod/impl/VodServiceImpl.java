@@ -10,6 +10,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.google.protobuf.util.JsonFormat;
 import com.google.common.base.Predicates;
+import com.volcengine.service.vod.Const;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 import java.io.*;
@@ -390,8 +391,39 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         public java.util.List<Map<String, Object>> result;
     }
 
-
-
+    /**
+     * getDirectEditProgress.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetDirectEditProgressRequest
+     * @return com.volcengine.service.vod.model.response.VodGetDirectEditProgressResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.vod.model.response.VodGetDirectEditProgressResponse getDirectEditProgress(com.volcengine.service.vod.model.request.VodGetDirectEditProgressRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.GetDirectEditProgress, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        VodServiceImpl.VodGetDirectEditProgressResponse resp = JSON.parseObject(response.getData(), VodServiceImpl.VodGetDirectEditProgressResponse.class);
+        if (resp.result!=null){
+            Result res = new Result();
+            res.result = (Integer) resp.result;
+            resp.result = res;
+        }
+        com.volcengine.service.vod.model.response.VodGetDirectEditProgressResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetDirectEditProgressResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(JSON.toJSONBytes(resp))), responseBuilder);
+        return responseBuilder.build();
+    }
+    static class VodGetDirectEditProgressResponse {
+        @JSONField(name = "ResponseMetadata")
+        public Map<String, Object> responseMetadata;
+        @JSONField(name = "Result")
+        public Object result;
+    }
+    static class Result{
+        @JSONField(name = "Result")
+        public Integer result;
+    }
 
 	/**
      * getAllPlayInfo.
@@ -999,9 +1031,8 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}
-	
-	
-	/**
+
+    /**
      * createSpace.
      *
      * @param input com.volcengine.service.vod.model.request.VodCreateSpaceRequest

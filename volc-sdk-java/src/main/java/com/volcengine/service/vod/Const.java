@@ -82,6 +82,7 @@ public class Const {
     //vod-edit
     public static final String SubmitDirectEditTaskAsync = "SubmitDirectEditTaskAsync";
     public static final String GetDirectEditResult = "GetDirectEditResult";
+    public static final String GetDirectEditProgress = "GetDirectEditProgress";
     //vod-space
     public static final String CreateSpace = "CreateSpace";
     public static final String ListSpace = "ListSpace";

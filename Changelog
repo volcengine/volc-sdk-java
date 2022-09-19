@@ -1,5 +1,8 @@
 Change log
 
+2022-09-16 Bumped to version v1.0.63
+- Updated apis for vod 
+
 2022-09-15 Bumped to version v1.0.62
 - Added tls service
 - Updated apis and demos for ocr/vod/stream 

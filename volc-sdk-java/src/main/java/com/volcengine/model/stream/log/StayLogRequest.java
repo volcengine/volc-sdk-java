@@ -33,4 +33,6 @@ public class StayLogRequest {
     String clientVersion;
     @JSONField(name = "DeviceBrand")
     String deviceBrand;
+    @JSONField(name = "ReqId")
+    String reqId;
 }

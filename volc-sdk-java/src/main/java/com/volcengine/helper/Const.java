@@ -31,12 +31,18 @@ public class Const {
 
     // iam
     public static final String CreateUser = "CreateUser";
+    public static final String DeleteUser = "DeleteUser";
     public static final String ListUsers = "ListUsers";
     public static final String CreateRole = "CreateRole";
     public static final String GetRole = "GetRole";
     public static final String UpdateRole = "UpdateRole";
     public static final String ListRoles = "ListRoles";
     public static final String DeleteRole = "DeleteRole";
+
+    // billing
+    public static final String ListBill = "ListBill";
+    public static final String ListBillDetail = "ListBillDetail";
+    public static final String ListBillOverviewByProd = "ListBillOverviewByProd";
 
 
     // sts
@@ -108,6 +114,8 @@ public class Const {
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";
     public static final String TranslateImage = "TranslateImage";
+    public static final String TranslateAudioSubmit = "SubmitAudio";
+    public static final String TranslateAudioQuery = "QueryAudio";
 
     //sign
     public static final String XDate = "X-Date";
@@ -247,6 +255,11 @@ public class Const {
     public static final String DescribeLiveMetricBandwidthData = "DescribeLiveMetricBandwidthData";
     public static final String DescribePlayStreamList = "DescribePlayStreamList";
     public static final String DescribePullToPushBandwidthData = "DescribePullToPushBandwidthData";
+    public static final String CreateSnapshotAuditPreset = "CreateSnapshotAuditPreset";
+    public static final String UpdateSnapshotAuditPreset = "UpdateSnapshotAuditPreset";
+    public static final String DeleteSnapshotAuditPreset = "DeleteSnapshotAuditPreset";
+    public static final String ListVhostSnapshotAuditPreset = "ListVhostSnapshotAuditPreset";
+    public static final String DescribeLiveAuditData = "DescribeLiveAuditData";
 
     //kms
     public static final String CreateKeyring = "CreateKeyring";
@@ -265,4 +278,44 @@ public class Const {
     public static final String CancelKeyDeletion = "CancelKeyDeletion";
     public static final String KmsServiceVersion = "2021-02-18";
 
+    //request method
+    public static final String GET = "GET";
+    public static final String DELETE = "DELETE";
+    public static final String POST = "POST";
+    public static final String PUT = "PUT";
+
+    public static final String HTTP = "http";
+    public static final String HTTPS = "https";
+    public static final String ACCEPT = "Accept";
+    public static final String ACCEPT_ALL = "*/*";
+    public static final String ACCEPT_ENCODING = "Accept-Encoding";
+    public static final String GZIP_DEFLATE_BR = "gzip, deflate, br";
+    public static final String SERVICE_NAME = "ServiceName";
+    public static final String CONTENT_TYPE = "Content-Type";
+    public static final String APPLICATION_X_PROTOBUF = "application/x-protobuf";
+
+    // visual
+    public static final String SkySegment = "SkySegment";
+    public static final String HumanSegment = "HumanSegment";
+    public static final String GeneralSegment = "GeneralSegment";
+    public static final String CarDetection = "CarDetection";
+    public static final String CarSegment = "CarSegment";
+    public static final String CarPlateDetection = "CarPlateDetection";
+    public static final String PoemMaterial = "PoemMaterial";
+    public static final String ImageFlow = "ImageFlow";
+    public static final String ImageScore = "ImageScore";
+    public static final String FaceSwap = "FaceSwap";
+    public static final String JPCartoon = "JPCartoon";
+    public static final String EyeClose2Open = "EyeClose2Open";
+    public static final String EmoticonEdit = "EmoticonEdit";
+    public static final String StretchRecovery = "StretchRecovery";
+    public static final String DistortionFree = "DistortionFree";
+    public static final String EnhancePhoto = "EnhancePhoto";
+    public static final String ConvertPhoto = "ConvertPhoto";
+    public static final String OCRNormal = "OCRNormal";
+    public static final String BankCard = "BankCard";
+    public static final String IDCard = "IDCard";
+    public static final String DrivingLicense = "DrivingLicense";
+    public static final String VehicleLicense = "VehicleLicense";
+    public static final String VatInvoice = "OcrVatInvoice";
 }

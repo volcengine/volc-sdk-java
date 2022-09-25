@@ -21,6 +21,5 @@ public class TranslateTextResponse {
         String detectedSourceLanguage;
         @JSONField(name = "Extra")
         Map<String, String> extra;
-
     }
 }

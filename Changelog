@@ -1,5 +1,27 @@
 Change log
 
+2022-09-16 Bumped to version v1.0.63
+- Updated apis for vod 
+
+2022-09-15 Bumped to version v1.0.62
+- Added tls service
+- Updated apis and demos for ocr/vod/stream 
+
+2022-09-09 Bumped to version v1.0.61
+- Added apis for billing/iam
+- Updated model for stream
+
+2022-09-06 Bumped to version v1.0.60
+- Updated apis for security
+
+2022-09-01 Bumped to version v1.0.59
+- Added apis for translate/stream
+- Added apis for visual
+
+2022-08-25 Bumped to version v1.0.58
+- Updated models for stream
+- Updated apis for live
+
 2022-08-11 Bumped to version v1.0.57
 - Updated models for secretnumber
 - Updated apis for vod/imagex

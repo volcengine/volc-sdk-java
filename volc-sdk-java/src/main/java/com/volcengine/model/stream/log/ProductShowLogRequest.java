@@ -31,4 +31,6 @@ public class ProductShowLogRequest {
     String clientVersion;
     @JSONField(name = "DeviceBrand")
     String deviceBrand;
+    @JSONField(name = "ReqId")
+    String reqId;
 }

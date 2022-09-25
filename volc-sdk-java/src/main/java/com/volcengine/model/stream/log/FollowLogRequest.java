@@ -30,5 +30,7 @@ public class FollowLogRequest {
         String categoryName;
         @JSONField(name = "source")
         String source;
+        @JSONField(name = "ReqId")
+        String reqId;
     }
 }

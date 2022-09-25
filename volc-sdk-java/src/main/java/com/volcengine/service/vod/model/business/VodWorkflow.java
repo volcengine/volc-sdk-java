@@ -132,45 +132,47 @@ public final class VodWorkflow {
       "\014LogoOverride\022\022\n\nTemplateId\030\001 \001(\t\022D\n\004Var" +
       "s\030\002 \003(\01326.Volcengine.Vod.Models.Business" +
       ".LogoOverride.VarsEntry\032+\n\tVarsEntry\022\013\n\003" +
-      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"`\n\026Transcod" +
-      "eVideoOverride\022\022\n\nTemplateId\030\001 \003(\t\0222\n\004Cl" +
-      "ip\030\002 \001(\0132$.Volcengine.Vod.Models.Busines" +
-      "s.Clip\"*\n\004Clip\022\021\n\tStartTime\030\001 \001(\005\022\017\n\007End" +
-      "Time\030\002 \001(\005\"`\n\026TranscodeAudioOverride\022\022\n\n" +
+      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\207\001\n\026Transco" +
+      "deVideoOverride\022\022\n\nTemplateId\030\001 \003(\t\0222\n\004C" +
+      "lip\030\002 \001(\0132$.Volcengine.Vod.Models.Busine" +
+      "ss.Clip\022\023\n\013OutputIndex\030\003 \003(\005\022\020\n\010FileName" +
+      "\030\004 \001(\t\"*\n\004Clip\022\021\n\tStartTime\030\001 \001(\005\022\017\n\007End" +
+      "Time\030\002 \001(\005\"r\n\026TranscodeAudioOverride\022\022\n\n" +
       "TemplateId\030\001 \003(\t\0222\n\004Clip\030\002 \001(\0132$.Volceng" +
-      "ine.Vod.Models.Business.Clip\"R\n\020Snapshot" +
-      "Override\022\022\n\nTemplateId\030\001 \003(\t\022\022\n\nOffsetTi" +
-      "me\030\002 \001(\005\022\026\n\016OffsetTimeList\030\003 \003(\005\"\245\001\n\017Tra" +
-      "nscodeResult\022\013\n\003Vid\030\001 \001(\t\022>\n\nInspection\030" +
-      "\002 \001(\0132*.Volcengine.Vod.Models.Business.I" +
-      "nspection\022E\n\014CategoryTags\030\003 \003(\0132/.Volcen" +
-      "gine.Vod.Models.Business.CategoryTagInfo" +
-      "\"\202\001\n\nInspection\0228\n\007Quality\030\001 \001(\0132\'.Volce" +
-      "ngine.Vod.Models.Business.Quality\022:\n\006DeL" +
-      "ogo\030\002 \003(\0132*.Volcengine.Vod.Models.Busine" +
-      "ss.DeLogoInfo\"\210\001\n\007Quality\022=\n\006Visual\030\001 \001(" +
-      "\0132-.Volcengine.Vod.Models.Business.Visua" +
-      "lQuality\022>\n\nVolumeInfo\030\002 \001(\0132*.Volcengin" +
-      "e.Vod.Models.Business.VolumeInfo\"q\n\nDeLo" +
-      "goInfo\022\023\n\013AnchorWidth\030\001 \001(\003\022\024\n\014AnchorHei" +
-      "ght\030\002 \001(\003\022\014\n\004PosX\030\003 \001(\003\022\014\n\004PosY\030\004 \001(\003\022\r\n" +
-      "\005SizeX\030\005 \001(\003\022\r\n\005SizeY\030\006 \001(\003\"|\n\rVisualQua" +
-      "lity\022\017\n\007VQScore\030\001 \001(\001\022\020\n\010Contrast\030\002 \001(\001\022" +
-      "\024\n\014Colorfulness\030\003 \001(\001\022\022\n\nBrightness\030\004 \001(" +
-      "\001\022\017\n\007Texture\030\005 \001(\001\022\r\n\005Noise\030\006 \001(\001\"S\n\nVol" +
-      "umeInfo\022\020\n\010Loudness\030\001 \001(\001\022\014\n\004Peak\030\002 \001(\001\022" +
-      "\022\n\nMeanVolume\030\003 \001(\001\022\021\n\tMaxVolume\030\004 \001(\001\"\326" +
-      "\001\n\017CategoryTagInfo\022\r\n\005TagId\030\001 \001(\003\022\014\n\004Pro" +
-      "b\030\002 \001(\001\022\017\n\007TagName\030\003 \001(\t\022\r\n\005Level\030\004 \001(\003\022" +
-      "S\n\nParentInfo\030\005 \003(\0132?.Volcengine.Vod.Mod" +
-      "els.Business.CategoryTagInfo.ParentInfoE" +
-      "ntry\0321\n\017ParentInfoEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
-      "value\030\002 \001(\t:\0028\001B\314\001\n)com.volcengine.servi" +
-      "ce.vod.model.businessB\013VodWorkflowP\001ZAgi" +
-      "thub.com/volcengine/volc-sdk-golang/serv" +
-      "ice/vod/models/business\240\001\001\330\001\001\312\002 Volc\\Ser" +
-      "vice\\Vod\\Models\\Business\342\002#Volc\\Service\\" +
-      "Vod\\Models\\GPBMetadatab\006proto3"
+      "ine.Vod.Models.Business.Clip\022\020\n\010FileName" +
+      "\030\003 \001(\t\"R\n\020SnapshotOverride\022\022\n\nTemplateId" +
+      "\030\001 \003(\t\022\022\n\nOffsetTime\030\002 \001(\005\022\026\n\016OffsetTime" +
+      "List\030\003 \003(\005\"\245\001\n\017TranscodeResult\022\013\n\003Vid\030\001 " +
+      "\001(\t\022>\n\nInspection\030\002 \001(\0132*.Volcengine.Vod" +
+      ".Models.Business.Inspection\022E\n\014CategoryT" +
+      "ags\030\003 \003(\0132/.Volcengine.Vod.Models.Busine" +
+      "ss.CategoryTagInfo\"\202\001\n\nInspection\0228\n\007Qua" +
+      "lity\030\001 \001(\0132\'.Volcengine.Vod.Models.Busin" +
+      "ess.Quality\022:\n\006DeLogo\030\002 \003(\0132*.Volcengine" +
+      ".Vod.Models.Business.DeLogoInfo\"\210\001\n\007Qual" +
+      "ity\022=\n\006Visual\030\001 \001(\0132-.Volcengine.Vod.Mod" +
+      "els.Business.VisualQuality\022>\n\nVolumeInfo" +
+      "\030\002 \001(\0132*.Volcengine.Vod.Models.Business." +
+      "VolumeInfo\"q\n\nDeLogoInfo\022\023\n\013AnchorWidth\030" +
+      "\001 \001(\003\022\024\n\014AnchorHeight\030\002 \001(\003\022\014\n\004PosX\030\003 \001(" +
+      "\003\022\014\n\004PosY\030\004 \001(\003\022\r\n\005SizeX\030\005 \001(\003\022\r\n\005SizeY\030" +
+      "\006 \001(\003\"|\n\rVisualQuality\022\017\n\007VQScore\030\001 \001(\001\022" +
+      "\020\n\010Contrast\030\002 \001(\001\022\024\n\014Colorfulness\030\003 \001(\001\022" +
+      "\022\n\nBrightness\030\004 \001(\001\022\017\n\007Texture\030\005 \001(\001\022\r\n\005" +
+      "Noise\030\006 \001(\001\"S\n\nVolumeInfo\022\020\n\010Loudness\030\001 " +
+      "\001(\001\022\014\n\004Peak\030\002 \001(\001\022\022\n\nMeanVolume\030\003 \001(\001\022\021\n" +
+      "\tMaxVolume\030\004 \001(\001\"\326\001\n\017CategoryTagInfo\022\r\n\005" +
+      "TagId\030\001 \001(\003\022\014\n\004Prob\030\002 \001(\001\022\017\n\007TagName\030\003 \001" +
+      "(\t\022\r\n\005Level\030\004 \001(\003\022S\n\nParentInfo\030\005 \003(\0132?." +
+      "Volcengine.Vod.Models.Business.CategoryT" +
+      "agInfo.ParentInfoEntry\0321\n\017ParentInfoEntr" +
+      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001B\314\001\n)co" +
+      "m.volcengine.service.vod.model.businessB" +
+      "\013VodWorkflowP\001ZAgithub.com/volcengine/vo" +
+      "lc-sdk-golang/service/vod/models/busines" +
+      "s\240\001\001\330\001\001\312\002 Volc\\Service\\Vod\\Models\\Busine" +
+      "ss\342\002#Volc\\Service\\Vod\\Models\\GPBMetadata" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -217,7 +219,7 @@ public final class VodWorkflow {
     internal_static_Volcengine_Vod_Models_Business_TranscodeVideoOverride_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_TranscodeVideoOverride_descriptor,
-        new java.lang.String[] { "TemplateId", "Clip", });
+        new java.lang.String[] { "TemplateId", "Clip", "OutputIndex", "FileName", });
     internal_static_Volcengine_Vod_Models_Business_Clip_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_Volcengine_Vod_Models_Business_Clip_fieldAccessorTable = new
@@ -229,7 +231,7 @@ public final class VodWorkflow {
     internal_static_Volcengine_Vod_Models_Business_TranscodeAudioOverride_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_TranscodeAudioOverride_descriptor,
-        new java.lang.String[] { "TemplateId", "Clip", });
+        new java.lang.String[] { "TemplateId", "Clip", "FileName", });
     internal_static_Volcengine_Vod_Models_Business_SnapshotOverride_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_Volcengine_Vod_Models_Business_SnapshotOverride_fieldAccessorTable = new

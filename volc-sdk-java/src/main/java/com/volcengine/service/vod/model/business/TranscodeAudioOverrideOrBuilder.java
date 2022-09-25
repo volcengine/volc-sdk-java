@@ -62,4 +62,24 @@ public interface TranscodeAudioOverrideOrBuilder extends
    * <code>.Volcengine.Vod.Models.Business.Clip Clip = 2;</code>
    */
   com.volcengine.service.vod.model.business.ClipOrBuilder getClipOrBuilder();
+
+  /**
+   * <pre>
+   * FileName
+   * </pre>
+   *
+   * <code>string FileName = 3;</code>
+   * @return The fileName.
+   */
+  java.lang.String getFileName();
+  /**
+   * <pre>
+   * FileName
+   * </pre>
+   *
+   * <code>string FileName = 3;</code>
+   * @return The bytes for fileName.
+   */
+  com.google.protobuf.ByteString
+      getFileNameBytes();
 }

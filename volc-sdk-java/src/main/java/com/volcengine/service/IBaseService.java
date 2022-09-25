@@ -145,14 +145,46 @@ public interface IBaseService {
      */
     RawResponse post(String api, List<NameValuePair> params, List<NameValuePair> form) throws Exception;
 
+    /**
+     * Put boolean.
+     *
+     * @param url      the url
+     * @param filePath the file path
+     * @param headers  the headers
+     * @return the boolean
+     * @throws Exception the exception
+     */
+    boolean put(String url, String filePath, Map<String, String> headers) throws Exception;
+
+    /**
+     * Put binary data.
+     *
+     * @param url     target url
+     * @param data    binary data
+     * @param headers http headers
+     * @return put status
+     * @throws Exception exception
+     */
+    boolean putData(String url, byte[] data, Map<String, String> headers) throws Exception;
+
 
     /**
      * Sign by sts2.
-     * @param inlinePolicy  the Policy
-     * @param expire        expire time
-     * @return  the sts2
-     * @throws Exception    the exception
+     *
+     * @param inlinePolicy the Policy
+     * @param expire       expire time
+     * @return the sts2
+     * @throws Exception the exception
      */
     SecurityToken2 signSts2(Policy inlinePolicy, long expire) throws Exception;
 
+    /**
+     * @param api interface path like /PutLogs
+     * @param params query params
+     * @param header some special header for protobuf
+     * @param body request body
+     * @param compressType default not compress,support lz4
+     * @return
+     */
+    RawResponse proto(String api, List<NameValuePair> params, Map<String, String> header, byte[] body, String compressType);
 }

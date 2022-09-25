@@ -816,8 +816,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CreateSnapshotAuditPreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.CreateSnapshotAuditPreset));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -831,8 +831,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.UpdateSnapshotAuditPreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.UpdateSnapshotAuditPreset));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -846,8 +846,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DeleteSnapshotAuditPreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DeleteSnapshotAuditPreset));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -861,8 +861,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListVhostSnapshotAuditPreset));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.ListVhostSnapshotAuditPreset));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });
@@ -876,8 +876,8 @@ public class LiveConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DescribeLiveAuditData));
-                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+                                    add(new NameValuePair("Action", Const.DescribeLiveAuditData));
+                                    add(new NameValuePair("Version", Const.LiveSDKVersion));
 
                                 }
                             });

@@ -1,13 +1,13 @@
 package com.volcengine.model.tls.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.Header;
 import com.volcengine.model.tls.Const;
 import com.volcengine.model.tls.TopicInfo;
 import com.volcengine.model.tls.exception.LogException;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.apache.http.Header;
 
 import java.util.List;
 

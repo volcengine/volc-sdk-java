@@ -15,7 +15,6 @@ import com.volcengine.model.sts2.InnerToken;
 import com.volcengine.model.sts2.Policy;
 import com.volcengine.model.sts2.SecurityToken2;
 import com.volcengine.util.EncodeUtil;
-import com.volcengine.util.NameValueComparator;
 import com.volcengine.util.Sts2Utils;
 import okhttp3.*;
 import org.apache.commons.codec.binary.Base64;
@@ -33,6 +32,7 @@ import static com.volcengine.model.tls.Const.LZ4;
 
 public abstract class BaseServiceImpl implements IBaseService {
     public static final MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json");
+    public static final MediaType MEDIA_TYPE_PROTOBUF = MediaType.parse(Const.APPLICATION_X_PROTOBUF);
 
     private static final Log LOG = LogFactory.getLog(BaseServiceImpl.class);
     protected ServiceInfo serviceInfo;
@@ -150,8 +150,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         if (StringUtils.isNotEmpty(signRequest.getXSecurityToken())) {
             urlBuilder.addQueryParameter(Const.XSecurityToken, signRequest.getXSecurityToken());
         }
-
-        return urlBuilder.build().toString();
+        return StringUtils.defaultString(urlBuilder.build().query(), StringUtils.EMPTY);
     }
 
     @Override
@@ -448,17 +447,21 @@ public abstract class BaseServiceImpl implements IBaseService {
             return new RawResponse(null, SdkError.ENOAPI.getNumber(), new Exception(SdkError.getErrorDesc(SdkError.ENOAPI)));
         }
 
-        SignableRequest request = prepareRequest(api, params);
-        request.setHeader(Const.CONTENT_TYPE, Const.APPLICATION_X_PROTOBUF);
+        Request.Builder requestBuilder = prepareRequestBuilder(api, params);
+
         if (header != null && header.size() > 0) {
-            header.forEach(request::setHeader);
+            for (Map.Entry<String, String> entry : header.entrySet()) {
+                requestBuilder.addHeader(entry.getKey(), entry.getValue());
+            }
         }
         byte[] compressedData = body.clone();
         if (compressType != null && compressType.equalsIgnoreCase(LZ4)) {
             compressedData = EncodeUtil.lz4Compress(body);
         }
-        if (compressedData != null && compressedData.length > 0)
-            request.setEntity(new ByteArrayEntity(compressedData));
-        return makeRequest(api, request);
+
+        RequestBody requestBody = RequestBody.create(compressedData, MEDIA_TYPE_PROTOBUF);
+        requestBuilder.header(Const.CONTENT_TYPE, requestBody.contentType().toString());
+        requestBuilder.post(requestBody);
+        return makeRequest(api, requestBuilder.build());
     }
 }

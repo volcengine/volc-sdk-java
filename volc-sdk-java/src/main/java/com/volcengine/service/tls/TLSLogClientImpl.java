@@ -3,6 +3,8 @@ package com.volcengine.service.tls;
 import com.alibaba.fastjson.JSONObject;
 import com.volcengine.error.SdkError;
 import com.volcengine.model.ApiInfo;
+import com.volcengine.model.Header;
+import com.volcengine.model.NameValuePair;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.tls.ClientConfig;
 import com.volcengine.model.tls.Const;
@@ -13,12 +15,7 @@ import com.volcengine.model.tls.response.*;
 import com.volcengine.model.tls.util.MessageUtil;
 import com.volcengine.model.tls.util.TimeUtil;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -59,8 +56,6 @@ public class TLSLogClientImpl implements TLSLogClient {
      */
     @Override
     public void setTimeout(int socketTimeout, int connectionTimeout) {
-        httpRequest.setSocketTimeout(socketTimeout);
-        httpRequest.setConnectionTimeout(connectionTimeout);
     }
 
     @Override
@@ -71,7 +66,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         }
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
+        params.add(new NameValuePair(TOPIC_ID, request.getTopicId()));
         HashMap<String, String> headers = new HashMap<>();
         if (request.getHashKey() != null) {
             headers.put(X_TLS_HASHKEY, request.getHashKey());
@@ -96,8 +91,8 @@ public class TLSLogClientImpl implements TLSLogClient {
         }
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
-        params.add(new BasicNameValuePair(SHARD_ID, String.valueOf(request.getShardId())));
+        params.add(new NameValuePair(TOPIC_ID, request.getTopicId()));
+        params.add(new NameValuePair(SHARD_ID, String.valueOf(request.getShardId())));
         String requestBody = JSONObject.toJSONString(request);
         // 3、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_CURSOR, params, requestBody);
@@ -115,8 +110,8 @@ public class TLSLogClientImpl implements TLSLogClient {
         }
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
-        params.add(new BasicNameValuePair(SHARD_ID, String.valueOf(request.getShardId())));
+        params.add(new NameValuePair(TOPIC_ID, request.getTopicId()));
+        params.add(new NameValuePair(SHARD_ID, String.valueOf(request.getShardId())));
         String requestBody = JSONObject.toJSONString(request);
         // 3、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(CONSUME_LOGS, params, requestBody);
@@ -150,12 +145,12 @@ public class TLSLogClientImpl implements TLSLogClient {
         }
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
+        params.add(new NameValuePair(TOPIC_ID, request.getTopicId()));
         if (request.getPageNumber() != null) {
-            params.add(new BasicNameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
+            params.add(new NameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
         }
         if (request.getPageSize() != null) {
-            params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
+            params.add(new NameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
         }
         // 3、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_SHARDS, params, Const.EMPTY_JSON);
@@ -287,7 +282,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         }
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair(PROJECT_ID, request.getProjectId()));
+        params.add(new NameValuePair(PROJECT_ID, request.getProjectId()));
 
         // 3、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_PROJECT, params, Const.EMPTY_JSON);
@@ -313,18 +308,18 @@ public class TLSLogClientImpl implements TLSLogClient {
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         if (request.getIsFullName() != null)
-            params.add(new BasicNameValuePair(IS_FULL_NAME, String.valueOf(request.getIsFullName())));
+            params.add(new NameValuePair(IS_FULL_NAME, String.valueOf(request.getIsFullName())));
         if (StringUtils.isNotEmpty(request.getProjectId())) {
-            params.add(new BasicNameValuePair(PROJECT_ID, request.getProjectId()));
+            params.add(new NameValuePair(PROJECT_ID, request.getProjectId()));
         }
         if (StringUtils.isNotEmpty(request.getProjectName())) {
-            params.add(new BasicNameValuePair(PROJECT_NAME, request.getProjectName()));
+            params.add(new NameValuePair(PROJECT_NAME, request.getProjectName()));
         }
         if (request.getPageNumber() != null) {
-            params.add(new BasicNameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
+            params.add(new NameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
         }
         if (request.getPageSize() != null) {
-            params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
+            params.add(new NameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
         }
 
         // 3、check sum and sendRequest
@@ -396,7 +391,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         }
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
+        params.add(new NameValuePair(TOPIC_ID, request.getTopicId()));
 
         // 3、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_TOPIC, params, Const.EMPTY_JSON);
@@ -415,20 +410,20 @@ public class TLSLogClientImpl implements TLSLogClient {
         }
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair(PROJECT_ID, request.getProjectId()));
+        params.add(new NameValuePair(PROJECT_ID, request.getProjectId()));
         if (request.getIsFullName() != null)
-            params.add(new BasicNameValuePair(IS_FULL_NAME, String.valueOf(request.getIsFullName())));
+            params.add(new NameValuePair(IS_FULL_NAME, String.valueOf(request.getIsFullName())));
         if (request.getPageNumber() != null) {
-            params.add(new BasicNameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
+            params.add(new NameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
         }
         if (request.getPageSize() != null) {
-            params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
+            params.add(new NameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
         }
         if (StringUtils.isNotEmpty(request.getTopicId())) {
-            params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
+            params.add(new NameValuePair(TOPIC_ID, request.getTopicId()));
         }
         if (StringUtils.isNotEmpty(request.getTopicName())) {
-            params.add(new BasicNameValuePair(TOPIC_NAME, request.getTopicName()));
+            params.add(new NameValuePair(TOPIC_NAME, request.getTopicName()));
         }
 
         // 3、check sum and sendRequest
@@ -499,7 +494,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         }
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
+        params.add(new NameValuePair(TOPIC_ID, request.getTopicId()));
 
         // 3、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_INDEX, params, Const.EMPTY_JSON);
@@ -569,7 +564,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         }
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair(RULE_ID, request.getRuleId()));
+        params.add(new NameValuePair(RULE_ID, request.getRuleId()));
 
         // 3、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_RULE, params, Const.EMPTY_JSON);
@@ -588,24 +583,24 @@ public class TLSLogClientImpl implements TLSLogClient {
         }
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair(PROJECT_ID, request.getProjectId()));
+        params.add(new NameValuePair(PROJECT_ID, request.getProjectId()));
         if (request.getPageNumber() != null) {
-            params.add(new BasicNameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
+            params.add(new NameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
         }
         if (request.getPageSize() != null) {
-            params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
+            params.add(new NameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
         }
         if (StringUtils.isNotEmpty(request.getRuleId())) {
-            params.add(new BasicNameValuePair(RULE_ID, request.getRuleId()));
+            params.add(new NameValuePair(RULE_ID, request.getRuleId()));
         }
         if (StringUtils.isNotEmpty(request.getRuleName())) {
-            params.add(new BasicNameValuePair(RULE_NAME, request.getRuleName()));
+            params.add(new NameValuePair(RULE_NAME, request.getRuleName()));
         }
         if (StringUtils.isNotEmpty(request.getTopicId())) {
-            params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
+            params.add(new NameValuePair(TOPIC_ID, request.getTopicId()));
         }
         if (StringUtils.isNotEmpty(request.getTopicName())) {
-            params.add(new BasicNameValuePair(TOPIC_NAME, request.getTopicName()));
+            params.add(new NameValuePair(TOPIC_NAME, request.getTopicName()));
         }
 
         // 3、check sum and sendRequest
@@ -711,7 +706,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         }
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair(HOST_GROUP_ID, request.getHostGroupId()));
+        params.add(new NameValuePair(HOST_GROUP_ID, request.getHostGroupId()));
 
         // 3、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_HOST_GROUP, params, Const.EMPTY_JSON);
@@ -730,16 +725,16 @@ public class TLSLogClientImpl implements TLSLogClient {
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         if (request.getPageNumber() != null) {
-            params.add(new BasicNameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
+            params.add(new NameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
         }
         if (request.getPageSize() != null) {
-            params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
+            params.add(new NameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
         }
         if (StringUtils.isNotEmpty(request.getHostGroupId())) {
-            params.add(new BasicNameValuePair(HOST_GROUP_ID, request.getHostGroupId()));
+            params.add(new NameValuePair(HOST_GROUP_ID, request.getHostGroupId()));
         }
         if (StringUtils.isNotEmpty(request.getHostGroupName())) {
-            params.add(new BasicNameValuePair(HOST_GROUP_NAME, request.getHostGroupName()));
+            params.add(new NameValuePair(HOST_GROUP_NAME, request.getHostGroupName()));
         }
 
         // 3、check sum and sendRequest
@@ -761,19 +756,19 @@ public class TLSLogClientImpl implements TLSLogClient {
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         if (request.getPageNumber() != null) {
-            params.add(new BasicNameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
+            params.add(new NameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
         }
         if (request.getPageSize() != null) {
-            params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
+            params.add(new NameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
         }
         if (request.getHeartbeatStatus() != null) {
-            params.add(new BasicNameValuePair(HEARTBEAT_STATUS, String.valueOf(request.getHeartbeatStatus())));
+            params.add(new NameValuePair(HEARTBEAT_STATUS, String.valueOf(request.getHeartbeatStatus())));
         }
         if (StringUtils.isNotEmpty(request.getHostGroupId())) {
-            params.add(new BasicNameValuePair(HOST_GROUP_ID, request.getHostGroupId()));
+            params.add(new NameValuePair(HOST_GROUP_ID, request.getHostGroupId()));
         }
         if (StringUtils.isNotEmpty(request.getIp())) {
-            params.add(new BasicNameValuePair(IP, request.getIp()));
+            params.add(new NameValuePair(IP, request.getIp()));
         }
 
         // 3、check sum and sendRequest
@@ -810,12 +805,12 @@ public class TLSLogClientImpl implements TLSLogClient {
         }
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair(HOST_GROUP_ID, request.getHostGroupId()));
+        params.add(new NameValuePair(HOST_GROUP_ID, request.getHostGroupId()));
         if (request.getPageNumber() > 0) {
-            params.add(new BasicNameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
+            params.add(new NameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
         }
         if (request.getPageSize() > 0) {
-            params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
+            params.add(new NameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
         }
 
         // 3、check sum and sendRequest
@@ -891,26 +886,26 @@ public class TLSLogClientImpl implements TLSLogClient {
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         if (request.getPageNumber() != null) {
-            params.add(new BasicNameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
+            params.add(new NameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
         }
         if (request.getPageSize() != null) {
-            params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
+            params.add(new NameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
         }
-        params.add(new BasicNameValuePair(PROJECT_ID, String.valueOf(request.getProjectId())));
+        params.add(new NameValuePair(PROJECT_ID, String.valueOf(request.getProjectId())));
         if (StringUtils.isNotEmpty(request.getAlarmName())) {
-            params.add(new BasicNameValuePair(ALARM_NAME, String.valueOf(request.getAlarmName())));
+            params.add(new NameValuePair(ALARM_NAME, String.valueOf(request.getAlarmName())));
         }
         if (StringUtils.isNotEmpty(request.getAlarmId())) {
-            params.add(new BasicNameValuePair(ALARM_ID, String.valueOf(request.getAlarmId())));
+            params.add(new NameValuePair(ALARM_ID, String.valueOf(request.getAlarmId())));
         }
         if (StringUtils.isNotEmpty(request.getTopicId())) {
-            params.add(new BasicNameValuePair(TOPIC_ID, String.valueOf(request.getTopicId())));
+            params.add(new NameValuePair(TOPIC_ID, String.valueOf(request.getTopicId())));
         }
         if (StringUtils.isNotEmpty(request.getTopicName())) {
-            params.add(new BasicNameValuePair(TOPIC_NAME, String.valueOf(request.getTopicName())));
+            params.add(new NameValuePair(TOPIC_NAME, String.valueOf(request.getTopicName())));
         }
         if (request.getStatus() != null) {
-            params.add(new BasicNameValuePair(STATUS, String.valueOf(request.getStatus())));
+            params.add(new NameValuePair(STATUS, String.valueOf(request.getStatus())));
         }
 
         // 3、check sum and sendRequest
@@ -986,23 +981,23 @@ public class TLSLogClientImpl implements TLSLogClient {
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         if (request.getPageNumber() != null) {
-            params.add(new BasicNameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
+            params.add(new NameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
         }
         if (request.getPageSize() != null) {
-            params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
+            params.add(new NameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
         }
         if (StringUtils.isNotEmpty(request.getAlarmNotifyGroupId())) {
-            params.add(new BasicNameValuePair(ALARM_NOTIFY_GROUP_ID, String.valueOf(request.getAlarmNotifyGroupId())));
+            params.add(new NameValuePair(ALARM_NOTIFY_GROUP_ID, String.valueOf(request.getAlarmNotifyGroupId())));
         }
         if (StringUtils.isNotEmpty(request.getAlarmNotifyGroupName())) {
-            params.add(new BasicNameValuePair(ALARM_NOTIFY_GROUP_NAME,
+            params.add(new NameValuePair(ALARM_NOTIFY_GROUP_NAME,
                     String.valueOf(request.getAlarmNotifyGroupName())));
         }
         if (StringUtils.isNotEmpty(request.getReceiverName())) {
-            params.add(new BasicNameValuePair(RECEIVER_NAME, String.valueOf(request.getReceiverName())));
+            params.add(new NameValuePair(RECEIVER_NAME, String.valueOf(request.getReceiverName())));
         }
         if (StringUtils.isNotEmpty(request.getAlarmNotifyGroupId())) {
-            params.add(new BasicNameValuePair(ALARM_NOTIFY_GROUP_ID, String.valueOf(request.getAlarmNotifyGroupId())));
+            params.add(new NameValuePair(ALARM_NOTIFY_GROUP_ID, String.valueOf(request.getAlarmNotifyGroupId())));
         }
 
         // 3、check sum and sendRequest
@@ -1047,7 +1042,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         }
         String checkSum = MessageUtil.md5CheckSum(body);
         if (checkSum != null) {
-            header.add(new BasicHeader(HEADER_CONTENT_MD5, checkSum));
+            header.add(new Header(HEADER_CONTENT_MD5, checkSum));
         }
     }
 

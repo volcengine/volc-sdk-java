@@ -50,8 +50,8 @@ public class IamConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DeleteUser));
-                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                    add(new NameValuePair("Action", Const.DeleteUser));
+                                    add(new NameValuePair("Version", "2018-01-01"));
                                 }
                             });
                         }

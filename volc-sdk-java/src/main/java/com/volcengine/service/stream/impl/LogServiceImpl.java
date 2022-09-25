@@ -1,6 +1,5 @@
 package com.volcengine.service.stream.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
@@ -15,7 +14,11 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.net.Proxy;
 import java.net.URLDecoder;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static com.alibaba.fastjson.JSON.parseObject;
 
 
 public class LogServiceImpl extends BaseServiceImpl implements LogService {
@@ -47,7 +50,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse clickLogResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse clickLogResponse = parseObject(response.getData(), LogResponse.class);
         return clickLogResponse;
     }
 
@@ -62,7 +65,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse stayLogResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse stayLogResponse = parseObject(response.getData(), LogResponse.class);
         return stayLogResponse;
     }
 
@@ -77,7 +80,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse videoPlayLogResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse videoPlayLogResponse = parseObject(response.getData(), LogResponse.class);
         return videoPlayLogResponse;
     }
 
@@ -92,7 +95,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse videoOverLogResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse videoOverLogResponse = parseObject(response.getData(), LogResponse.class);
         return videoOverLogResponse;
     }
 
@@ -107,7 +110,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse singleShowLogResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse singleShowLogResponse = parseObject(response.getData(), LogResponse.class);
         return singleShowLogResponse;
     }
 
@@ -132,7 +135,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse multiShowLogResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse multiShowLogResponse = parseObject(response.getData(), LogResponse.class);
         return multiShowLogResponse;
     }
 
@@ -147,7 +150,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse shareLogResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse shareLogResponse = parseObject(response.getData(), LogResponse.class);
         return shareLogResponse;
     }
 
@@ -162,7 +165,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse favouriteLogResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse favouriteLogResponse = parseObject(response.getData(), LogResponse.class);
         return favouriteLogResponse;
     }
 
@@ -177,7 +180,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse verifyLogResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse verifyLogResponse = parseObject(response.getData(), LogResponse.class);
         return verifyLogResponse;
     }
 
@@ -203,7 +206,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse followLogResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse followLogResponse = parseObject(response.getData(), LogResponse.class);
         return followLogResponse;
     }
 
@@ -228,7 +231,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse unfollowLogResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse unfollowLogResponse = parseObject(response.getData(), LogResponse.class);
         return unfollowLogResponse;
     }
 
@@ -253,7 +256,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse followCardLogResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse followCardLogResponse = parseObject(response.getData(), LogResponse.class);
         return followCardLogResponse;
     }
 
@@ -279,7 +282,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse logResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse logResponse = parseObject(response.getData(), LogResponse.class);
         return logResponse;
     }
 
@@ -294,7 +297,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse logResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse logResponse = parseObject(response.getData(), LogResponse.class);
         return logResponse;
     }
 
@@ -309,7 +312,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse logResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse logResponse = parseObject(response.getData(), LogResponse.class);
         return logResponse;
     }
 
@@ -324,7 +327,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse logResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse logResponse = parseObject(response.getData(), LogResponse.class);
         return logResponse;
     }
 
@@ -339,7 +342,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse logResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse logResponse = parseObject(response.getData(), LogResponse.class);
         return logResponse;
     }
 
@@ -354,7 +357,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse logResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse logResponse = parseObject(response.getData(), LogResponse.class);
         return logResponse;
     }
 
@@ -369,7 +372,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse logResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse logResponse = parseObject(response.getData(), LogResponse.class);
         return logResponse;
     }
 
@@ -384,7 +387,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        LogResponse logResponse = JSON.parseObject(response.getData(), LogResponse.class);
+        LogResponse logResponse = parseObject(response.getData(), LogResponse.class);
         return logResponse;
     }
 

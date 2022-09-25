@@ -1,56 +1,20 @@
 package com.volcengine.service.visual.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
+import com.volcengine.model.NameValuePair;
 import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.visual.IVisualService;
 import com.volcengine.service.visual.VisualConfig;
-import com.volcengine.service.visual.model.request.VisualCarDetectionRequest;
-import com.volcengine.service.visual.model.request.VisualCarPlateDetectionRequest;
-import com.volcengine.service.visual.model.request.VisualCarSegmentRequest;
-import com.volcengine.service.visual.model.request.VisualConvertPhotoRequest;
-import com.volcengine.service.visual.model.request.VisualDistortionFreeRequest;
-import com.volcengine.service.visual.model.request.VisualEmoticonEditRequest;
-import com.volcengine.service.visual.model.request.VisualEnhancePhotoRequest;
-import com.volcengine.service.visual.model.request.VisualEyeClose2OpenRequest;
-import com.volcengine.service.visual.model.request.VisualFaceSwapRequest;
-import com.volcengine.service.visual.model.request.VisualGeneralSegmentRequest;
-import com.volcengine.service.visual.model.request.VisualHumanSegmentRequest;
-import com.volcengine.service.visual.model.request.VisualImageFlowRequest;
-import com.volcengine.service.visual.model.request.VisualImageScoreRequest;
-import com.volcengine.service.visual.model.request.VisualJPCartoonRequest;
-import com.volcengine.service.visual.model.request.VisualPoemMaterialRequest;
-import com.volcengine.service.visual.model.request.VisualSkySegmentRequest;
-import com.volcengine.service.visual.model.request.VisualStretchRecoveryRequest;
 import com.volcengine.service.visual.model.request.*;
-import com.volcengine.service.visual.model.response.VisualCarDetectionResponse;
-import com.volcengine.service.visual.model.response.VisualCarPlateDetectionResponse;
-import com.volcengine.service.visual.model.response.VisualCarSegmentResponse;
-import com.volcengine.service.visual.model.response.VisualConvertPhotoResponse;
-import com.volcengine.service.visual.model.response.VisualDistortionFreeResponse;
-import com.volcengine.service.visual.model.response.VisualEmoticonEditResponse;
-import com.volcengine.service.visual.model.response.VisualEnhancePhotoResponse;
-import com.volcengine.service.visual.model.response.VisualEyeClose2OpenResponse;
-import com.volcengine.service.visual.model.response.VisualFaceSwapResponse;
-import com.volcengine.service.visual.model.response.VisualGeneralSegmentResponse;
-import com.volcengine.service.visual.model.response.VisualHumanSegmentResponse;
-import com.volcengine.service.visual.model.response.VisualImageFlowResponse;
-import com.volcengine.service.visual.model.response.VisualImageScoreResponse;
-import com.volcengine.service.visual.model.response.VisualJPCartoonResponse;
-import com.volcengine.service.visual.model.response.VisualPoemMaterialResponse;
-import com.volcengine.service.visual.model.response.VisualSkySegmentResponse;
-import com.volcengine.service.visual.model.response.VisualStretchRecoveryResponse;
 import com.volcengine.service.visual.model.response.*;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
+import java.util.ArrayList;
+import java.util.List;
 
 public class VisualServiceImpl extends BaseServiceImpl implements IVisualService {
 
@@ -296,7 +260,7 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         JSONObject jsonObject = (JSONObject) JSON.toJSON(obj);
         List<NameValuePair> list = new ArrayList<NameValuePair>();
         for (String key : jsonObject.keySet()) {
-            NameValuePair nameValuePair = new BasicNameValuePair(key, jsonObject.get(key).toString());
+            NameValuePair nameValuePair = new NameValuePair(key, jsonObject.get(key).toString());
             list.add(nameValuePair);
         }
         return list;

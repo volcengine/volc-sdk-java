@@ -1,12 +1,9 @@
 package com.volcengine.model.tls;
 
 import com.volcengine.model.Credentials;
+import com.volcengine.model.Header;
 import com.volcengine.model.ServiceInfo;
-import com.volcengine.model.tls.exception.LogException;
 import lombok.Data;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.http.Header;
-import org.apache.http.message.BasicHeader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -50,11 +47,11 @@ public class ClientConfig {
                         put(com.volcengine.helper.Const.Host, url[1]);
                         put(com.volcengine.helper.Const.Header, new ArrayList<Header>() {
                             {
-                                add(new BasicHeader(com.volcengine.helper.Const.ACCEPT,
+                                add(new Header(com.volcengine.helper.Const.ACCEPT,
                                         com.volcengine.helper.Const.ACCEPT_ALL));
-                                add(new BasicHeader(com.volcengine.helper.Const.ACCEPT_ENCODING,
+                                add(new Header(com.volcengine.helper.Const.ACCEPT_ENCODING,
                                         com.volcengine.helper.Const.GZIP_DEFLATE_BR));
-                                add(new BasicHeader(com.volcengine.model.tls.Const.REGION, config.getRegion()));
+                                add(new Header(com.volcengine.model.tls.Const.REGION, config.getRegion()));
                             }
                         });
                         put(com.volcengine.helper.Const.Credentials, new Credentials(config.getRegion(), TLS));

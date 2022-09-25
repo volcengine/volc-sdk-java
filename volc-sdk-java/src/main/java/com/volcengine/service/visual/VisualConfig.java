@@ -1,19 +1,11 @@
 package com.volcengine.service.visual;
 
+import com.volcengine.helper.Const;
+import com.volcengine.model.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import com.volcengine.helper.Const;
-import com.volcengine.model.ApiInfo;
-import com.volcengine.model.Credentials;
-import com.volcengine.model.ServiceInfo;
-
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
-
 public class VisualConfig {
     
     public static Map<String, ServiceInfo> serviceInfoMap = new HashMap<String, ServiceInfo>() {
@@ -27,7 +19,7 @@ public class VisualConfig {
                             put(Const.Host, "visual.volcengineapi.com");
                             put(Const.Header, new ArrayList<Header>() {
                                 {
-                                    add(new BasicHeader("Accept", "application/json"));
+                                    add(new Header("Accept", "application/json"));
                                 }
                             });
                             put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "cv"));
@@ -43,7 +35,7 @@ public class VisualConfig {
                             put(Const.Host, "open-ap-singapore-1.volcengineapi.com");
                             put(Const.Header, new ArrayList<Header>() {
                                 {
-                                    add(new BasicHeader("Accept", "application/json"));
+                                    add(new Header("Accept", "application/json"));
                                 }
                             });
                             put(Const.Credentials, new Credentials(Const.REGION_AP_SINGAPORE_1, "cv"));
@@ -62,8 +54,8 @@ public class VisualConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.SkySegment));
-                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                    add(new NameValuePair("Action", Const.SkySegment));
+                                    add(new NameValuePair("Version", "2020-08-26"));
                                 }
                             });
                         }
@@ -76,8 +68,8 @@ public class VisualConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.HumanSegment));
-                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                    add(new NameValuePair("Action", Const.HumanSegment));
+                                    add(new NameValuePair("Version", "2020-08-26"));
                                 }
                             });
                         }
@@ -90,8 +82,8 @@ public class VisualConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.GeneralSegment));
-                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                    add(new NameValuePair("Action", Const.GeneralSegment));
+                                    add(new NameValuePair("Version", "2020-08-26"));
                                 }
                             });
                         }
@@ -104,8 +96,8 @@ public class VisualConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CarDetection));
-                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                    add(new NameValuePair("Action", Const.CarDetection));
+                                    add(new NameValuePair("Version", "2020-08-26"));
                                 }
                             });
                         }
@@ -118,8 +110,8 @@ public class VisualConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CarSegment));
-                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                    add(new NameValuePair("Action", Const.CarSegment));
+                                    add(new NameValuePair("Version", "2020-08-26"));
                                 }
                             });
                         }
@@ -132,8 +124,8 @@ public class VisualConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.CarPlateDetection));
-                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                    add(new NameValuePair("Action", Const.CarPlateDetection));
+                                    add(new NameValuePair("Version", "2020-08-26"));
                                 }
                             });
                         }
@@ -146,8 +138,8 @@ public class VisualConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.PoemMaterial));
-                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                    add(new NameValuePair("Action", Const.PoemMaterial));
+                                    add(new NameValuePair("Version", "2020-08-26"));
                                 }
                             });
                         }
@@ -160,8 +152,8 @@ public class VisualConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ImageFlow));
-                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                    add(new NameValuePair("Action", Const.ImageFlow));
+                                    add(new NameValuePair("Version", "2020-08-26"));
                                 }
                             });
                         }
@@ -174,8 +166,8 @@ public class VisualConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ImageScore));
-                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                    add(new NameValuePair("Action", Const.ImageScore));
+                                    add(new NameValuePair("Version", "2020-08-26"));
                                 }
                             });
                         }
@@ -188,8 +180,8 @@ public class VisualConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.FaceSwap));
-                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                    add(new NameValuePair("Action", Const.FaceSwap));
+                                    add(new NameValuePair("Version", "2020-08-26"));
                                 }
                             });
                         }
@@ -202,8 +194,8 @@ public class VisualConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.JPCartoon));
-                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                    add(new NameValuePair("Action", Const.JPCartoon));
+                                    add(new NameValuePair("Version", "2020-08-26"));
                                 }
                             });
                         }
@@ -216,8 +208,8 @@ public class VisualConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.EyeClose2Open));
-                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                    add(new NameValuePair("Action", Const.EyeClose2Open));
+                                    add(new NameValuePair("Version", "2020-08-26"));
                                 }
                             });
                         }
@@ -230,8 +222,8 @@ public class VisualConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.EmoticonEdit));
-                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                    add(new NameValuePair("Action", Const.EmoticonEdit));
+                                    add(new NameValuePair("Version", "2020-08-26"));
                                 }
                             });
                         }
@@ -244,8 +236,8 @@ public class VisualConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.StretchRecovery));
-                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                    add(new NameValuePair("Action", Const.StretchRecovery));
+                                    add(new NameValuePair("Version", "2020-08-26"));
                                 }
                             });
                         }
@@ -258,8 +250,8 @@ public class VisualConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.DistortionFree));
-                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                    add(new NameValuePair("Action", Const.DistortionFree));
+                                    add(new NameValuePair("Version", "2020-08-26"));
                                 }
                             });
                         }
@@ -272,8 +264,8 @@ public class VisualConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.EnhancePhoto));
-                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                    add(new NameValuePair("Action", Const.EnhancePhoto));
+                                    add(new NameValuePair("Version", "2020-08-26"));
                                 }
                             });
                         }
@@ -286,8 +278,8 @@ public class VisualConfig {
                         put(Const.Path, "/");
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
-                                add(new BasicNameValuePair("Action", Const.ConvertPhoto));
-                                add(new BasicNameValuePair("Version", "2020-08-26"));
+                                add(new NameValuePair("Action", Const.ConvertPhoto));
+                                add(new NameValuePair("Version", "2020-08-26"));
                             }
                         });
                     }
@@ -300,8 +292,8 @@ public class VisualConfig {
                         put(Const.Path, "/");
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
-                                add(new BasicNameValuePair("Action", Const.OCRNormal));
-                                add(new BasicNameValuePair("Version", "2020-08-26"));
+                                add(new NameValuePair("Action", Const.OCRNormal));
+                                add(new NameValuePair("Version", "2020-08-26"));
                             }
                         });
                     }
@@ -314,8 +306,8 @@ public class VisualConfig {
                         put(Const.Path, "/");
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
-                                add(new BasicNameValuePair("Action", Const.BankCard));
-                                add(new BasicNameValuePair("Version", "2020-08-26"));
+                                add(new NameValuePair("Action", Const.BankCard));
+                                add(new NameValuePair("Version", "2020-08-26"));
                             }
                         });
                     }
@@ -328,8 +320,8 @@ public class VisualConfig {
                         put(Const.Path, "/");
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
-                                add(new BasicNameValuePair("Action", Const.IDCard));
-                                add(new BasicNameValuePair("Version", "2020-08-26"));
+                                add(new NameValuePair("Action", Const.IDCard));
+                                add(new NameValuePair("Version", "2020-08-26"));
                             }
                         });
                     }
@@ -342,8 +334,8 @@ public class VisualConfig {
                         put(Const.Path, "/");
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
-                                add(new BasicNameValuePair("Action", Const.DrivingLicense));
-                                add(new BasicNameValuePair("Version", "2020-08-26"));
+                                add(new NameValuePair("Action", Const.DrivingLicense));
+                                add(new NameValuePair("Version", "2020-08-26"));
                             }
                         });
                     }
@@ -356,8 +348,8 @@ public class VisualConfig {
                         put(Const.Path, "/");
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
-                                add(new BasicNameValuePair("Action", Const.VehicleLicense));
-                                add(new BasicNameValuePair("Version", "2020-08-26"));
+                                add(new NameValuePair("Action", Const.VehicleLicense));
+                                add(new NameValuePair("Version", "2020-08-26"));
                             }
                         });
                     }
@@ -370,8 +362,8 @@ public class VisualConfig {
                         put(Const.Path, "/");
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
-                                add(new BasicNameValuePair("Action", Const.VatInvoice));
-                                add(new BasicNameValuePair("Version", "2020-08-26"));
+                                add(new NameValuePair("Action", Const.VatInvoice));
+                                add(new NameValuePair("Version", "2020-08-26"));
                             }
                         });
                     }

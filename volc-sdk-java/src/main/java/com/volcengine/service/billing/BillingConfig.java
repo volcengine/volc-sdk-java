@@ -1,13 +1,7 @@
 package com.volcengine.service.billing;
 
 import com.volcengine.helper.Const;
-import com.volcengine.model.ApiInfo;
-import com.volcengine.model.Credentials;
-import com.volcengine.model.ServiceInfo;
-import org.apache.http.Header;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
+import com.volcengine.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +17,7 @@ public class BillingConfig {
                     put(Const.Host, "billing.volcengineapi.com");
                     put(Const.Header, new ArrayList<Header>() {
                         {
-                            add(new BasicHeader("Accept", "application/json"));
+                            add(new Header("Accept", "application/json"));
                         }
                     });
                     put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "billing"));
@@ -39,8 +33,8 @@ public class BillingConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListBill));
-                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+                                    add(new NameValuePair("Action", Const.ListBill));
+                                    add(new NameValuePair("Version", "2022-01-01"));
                                 }
                             });
                         }
@@ -54,8 +48,8 @@ public class BillingConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListBillDetail));
-                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+                                    add(new NameValuePair("Action", Const.ListBillDetail));
+                                    add(new NameValuePair("Version", "2022-01-01"));
                                 }
                             });
                         }
@@ -69,8 +63,8 @@ public class BillingConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.ListBillOverviewByProd));
-                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+                                    add(new NameValuePair("Action", Const.ListBillOverviewByProd));
+                                    add(new NameValuePair("Version", "2022-01-01"));
                                 }
                             });
                         }

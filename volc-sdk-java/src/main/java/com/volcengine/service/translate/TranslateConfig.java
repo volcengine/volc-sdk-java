@@ -77,8 +77,8 @@ public class TranslateConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.TranslateAudioSubmit));
-                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                    add(new NameValuePair("Action", Const.TranslateAudioSubmit));
+                                    add(new NameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }
@@ -91,8 +91,8 @@ public class TranslateConfig {
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.TranslateAudioQuery));
-                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                    add(new NameValuePair("Action", Const.TranslateAudioQuery));
+                                    add(new NameValuePair("Version", "2020-06-01"));
                                 }
                             });
                         }

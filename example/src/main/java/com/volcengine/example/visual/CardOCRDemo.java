@@ -3,15 +3,13 @@ package com.volcengine.example.visual;
 import com.alibaba.fastjson.JSON;
 import com.volcengine.service.visual.IVisualService;
 import com.volcengine.service.visual.impl.VisualServiceImpl;
-import com.volcengine.service.visual.model.request.*;
-import com.volcengine.service.visual.model.response.*;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
-public class OCRDemo {
+public class CardOCRDemo {
     
     public static void main(String[] args) {
         IVisualService visualService = VisualServiceImpl.getInstance();
@@ -20,16 +18,6 @@ public class OCRDemo {
         visualService.setAccessKey("ak");
         visualService.setSecretKey("sk");
         String base64="";
-
-//        通用OCR
-//        OCRNormalRequest req = new OCRNormalRequest();
-//        req.setImageBase64(base64);
-//        try {
-//            OCRNormalResponse response = visualService.ocrNormal(req);
-//            System.out.println(JSON.toJSONString(response));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
 
 //        银行卡
 //         OCRBankCardRequest req = new OCRBankCardRequest();
@@ -45,7 +33,7 @@ public class OCRDemo {
 //        身份证
 //         OCRIDCardRequest req = new OCRIDCardRequest();
 //         req.setImageBase64(base64);
-//         req.setType("v2")
+//         req.setType("v2");
 //         try {
 //             OCRIDCardResponse response = visualService.idCard(req);
 //             System.out.println(JSON.toJSONString(response));
@@ -53,14 +41,5 @@ public class OCRDemo {
 //             e.printStackTrace();
 //         }
 
-//         增值税发票
-//         OCRVatInvoiceRequest req = new OCRVatInvoiceRequest();
-//         req.setImageBase64(base64);
-//         try {
-//             OCRVatInvoiceResponse response = visualService.vatInvoice(req);
-//             System.out.println(JSON.toJSONString(response));
-//         } catch (Exception e) {
-//             e.printStackTrace();
-//         }
     }
 }

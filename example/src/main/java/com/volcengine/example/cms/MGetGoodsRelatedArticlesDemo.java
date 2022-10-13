@@ -4,18 +4,13 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.request.ArticleMGetGoodsRelatedRequest;
 import com.volcengine.model.response.ArticleMGetGoodsRelatedResponse;
 import com.volcengine.service.cms.CmsApiService;
-import com.volcengine.service.cms.impl.CmsApiServiceImpl;
 
 import java.util.Arrays;
 
 public class MGetGoodsRelatedArticlesDemo {
 
     public static void main(String[] args) {
-        CmsApiService apiService = CmsApiServiceImpl.getInstance();
-
-        // call below method if you dont set ak and sk in ～/.volc/config
-        apiService.setAccessKey("ak");
-        apiService.setSecretKey("sk");
+        CmsApiService apiService = Instance.getApiInstance();
 
         ArticleMGetGoodsRelatedRequest request = new ArticleMGetGoodsRelatedRequest();
         // set goodsIds

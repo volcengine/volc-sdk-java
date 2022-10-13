@@ -4,16 +4,12 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.request.ArticleEventNotifyRequest;
 import com.volcengine.model.response.ArticleEventNotifyResponse;
 import com.volcengine.service.cms.CmsPlatformService;
-import com.volcengine.service.cms.impl.CmsPlatformServiceImpl;
 
 import java.util.Arrays;
 
 public class ArticleEventNotifyDemo {
     public static void main(String[] args) {
-        CmsPlatformService service = CmsPlatformServiceImpl.getInstance();
-        // call below method if you dont set ak and sk in ～/.volc/config
-        service.setAccessKey("");
-        service.setSecretKey("");
+        CmsPlatformService service = Instance.getPlatformInstance();
 
         articleStatusUpdateEvent(service);
         articleTagUpdateEvent(service);

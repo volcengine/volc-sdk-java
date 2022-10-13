@@ -4,18 +4,13 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.request.ArticleMGetVideoRequest;
 import com.volcengine.model.response.ArticleMGetVideoResponse;
 import com.volcengine.service.cms.CmsApiService;
-import com.volcengine.service.cms.impl.CmsApiServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MGetVideoDemo {
     public static void main(String[] args) {
-        CmsApiService apiService = CmsApiServiceImpl.getInstance();
-
-        // call below method if you dont set ak and sk in ～/.volc/config
-        apiService.setAccessKey("ak");
-        apiService.setSecretKey("sk");
+        CmsApiService apiService = Instance.getApiInstance();
 
         ArticleMGetVideoRequest.GroupVideo groupVideo = new ArticleMGetVideoRequest.GroupVideo();
         // set group id here

@@ -4,15 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.request.ArticleFeedRequest;
 import com.volcengine.model.response.ArticleFeedResponse;
 import com.volcengine.service.cms.CmsApiService;
-import com.volcengine.service.cms.impl.CmsApiServiceImpl;
 
 public class FeedDemo {
     public static void main(String[] args) {
-        CmsApiService apiService = CmsApiServiceImpl.getInstance();
-
-        // call below method if you dont set ak and sk in ～/.volc/config
-        apiService.setAccessKey("ak");
-        apiService.setSecretKey("sk");
+        CmsApiService apiService = Instance.getApiInstance();
 
         ArticleFeedRequest request = new ArticleFeedRequest();
         request.setUniqUserId("");

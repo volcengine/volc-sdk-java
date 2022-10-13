@@ -15,18 +15,36 @@ import java.util.ArrayList;
 
 public class CmsApiServiceImpl extends BaseServiceImpl implements CmsApiService {
 
-    private CmsApiServiceImpl() {
+    public CmsApiServiceImpl() {
         super(CmsConfig.apiServiceInfoMap.get(Const.REGION_CN_NORTH_1), CmsConfig.apiApiInfoMap);
     }
 
-    private CmsApiServiceImpl(ServiceInfo serviceInfo) {
+    public CmsApiServiceImpl(ServiceInfo serviceInfo) {
         super(serviceInfo, CmsConfig.apiApiInfoMap);
     }
 
+    public CmsApiServiceImpl(String accessKey, String secretKey) {
+        this();
+        if (!accessKey.equals("")) {
+            this.setAccessKey(accessKey);
+        }
+        if (!secretKey.equals("")) {
+            this.setSecretKey(secretKey);
+        }
+    }
+
+    /**
+     * @deprecated 每次调用该方法都会新建一个实例，不建议使用该方法，可以参考Demo的使用方法
+     *
+     */
     public static CmsApiService getInstance() {
         return new CmsApiServiceImpl();
     }
 
+    /**
+     * @deprecated 每次调用该方法都会新建一个实例，不建议使用该方法，可以参考Demo的使用方法
+     *
+     */
     public static CmsApiService getInstance(String region) throws Exception {
         ServiceInfo serviceInfo = CmsConfig.apiServiceInfoMap.get(region);
         if (serviceInfo == null) {

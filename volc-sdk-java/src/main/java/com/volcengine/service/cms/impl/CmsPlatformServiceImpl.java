@@ -14,19 +14,36 @@ import java.util.ArrayList;
 
 public class CmsPlatformServiceImpl extends BaseServiceImpl implements CmsPlatformService {
 
-    private CmsPlatformServiceImpl() {
+    public CmsPlatformServiceImpl() {
         super(CmsConfig.platformServiceInfoMap.get(Const.REGION_CN_NORTH_1), CmsConfig.platformApiInfoMap);
     }
 
-    private CmsPlatformServiceImpl(ServiceInfo serviceInfo) {
+    public CmsPlatformServiceImpl(ServiceInfo serviceInfo) {
         super(serviceInfo, CmsConfig.platformApiInfoMap);
     }
 
+    public CmsPlatformServiceImpl(String accessKey, String secretKey) {
+        this();
+        if (!accessKey.equals("")) {
+            this.setAccessKey(accessKey);
+        }
+        if (!secretKey.equals("")) {
+            this.setSecretKey(secretKey);
+        }
+    }
 
+    /**
+     * @deprecated 每次调用该方法都会新建一个实例，不建议使用该方法，可以参考Demo的使用方法
+     *
+     */
     public static CmsPlatformService getInstance() {
         return new CmsPlatformServiceImpl();
     }
 
+    /**
+     * @deprecated 每次调用该方法都会新建一个实例，不建议使用该方法，可以参考Demo的使用方法
+     *
+     */
     public static CmsPlatformService getInstance(String region) throws Exception {
         ServiceInfo serviceInfo = CmsConfig.platformServiceInfoMap.get(region);
         if (serviceInfo == null) {

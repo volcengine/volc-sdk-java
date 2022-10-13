@@ -501,6 +501,20 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.GetWorkflowExecution, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetWorkflowExecution));
+                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
 
             // **********************************************************************
             // 视频编辑

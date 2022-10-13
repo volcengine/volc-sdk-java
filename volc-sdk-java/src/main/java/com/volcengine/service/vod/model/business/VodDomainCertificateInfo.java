@@ -356,7 +356,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object expiredAt_;
   /**
    * <pre>
-   * 证书过期时间
+   * 证书过期时间，格式为"yyyy-MM-dd HH:mm:ss"
    * </pre>
    *
    * <code>string ExpiredAt = 6;</code>
@@ -377,7 +377,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 证书过期时间
+   * 证书过期时间，格式为"yyyy-MM-dd HH:mm:ss"
    * </pre>
    *
    * <code>string ExpiredAt = 6;</code>
@@ -1268,7 +1268,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object expiredAt_ = "";
     /**
      * <pre>
-     * 证书过期时间
+     * 证书过期时间，格式为"yyyy-MM-dd HH:mm:ss"
      * </pre>
      *
      * <code>string ExpiredAt = 6;</code>
@@ -1288,7 +1288,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 证书过期时间
+     * 证书过期时间，格式为"yyyy-MM-dd HH:mm:ss"
      * </pre>
      *
      * <code>string ExpiredAt = 6;</code>
@@ -1309,7 +1309,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 证书过期时间
+     * 证书过期时间，格式为"yyyy-MM-dd HH:mm:ss"
      * </pre>
      *
      * <code>string ExpiredAt = 6;</code>
@@ -1328,7 +1328,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 证书过期时间
+     * 证书过期时间，格式为"yyyy-MM-dd HH:mm:ss"
      * </pre>
      *
      * <code>string ExpiredAt = 6;</code>
@@ -1342,7 +1342,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 证书过期时间
+     * 证书过期时间，格式为"yyyy-MM-dd HH:mm:ss"
      * </pre>
      *
      * <code>string ExpiredAt = 6;</code>

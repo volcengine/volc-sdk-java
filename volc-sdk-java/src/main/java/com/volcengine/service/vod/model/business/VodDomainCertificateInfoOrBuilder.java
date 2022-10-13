@@ -109,7 +109,7 @@ public interface VodDomainCertificateInfoOrBuilder extends
 
   /**
    * <pre>
-   * 证书过期时间
+   * 证书过期时间，格式为"yyyy-MM-dd HH:mm:ss"
    * </pre>
    *
    * <code>string ExpiredAt = 6;</code>
@@ -118,7 +118,7 @@ public interface VodDomainCertificateInfoOrBuilder extends
   java.lang.String getExpiredAt();
   /**
    * <pre>
-   * 证书过期时间
+   * 证书过期时间，格式为"yyyy-MM-dd HH:mm:ss"
    * </pre>
    *
    * <code>string ExpiredAt = 6;</code>

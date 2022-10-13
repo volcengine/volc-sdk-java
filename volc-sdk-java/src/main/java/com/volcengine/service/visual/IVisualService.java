@@ -198,5 +198,11 @@ public interface IVisualService extends IBaseService {
      */
     OCRVatInvoiceResponse vatInvoice(OCRVatInvoiceRequest request) throws Exception;
 
-
+    /**
+     * 多语种OCR
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    MultilangOCRResponse multilangOCR(MultilangOCRRequest request) throws Exception;
 }

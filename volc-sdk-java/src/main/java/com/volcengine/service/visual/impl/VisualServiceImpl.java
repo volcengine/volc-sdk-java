@@ -233,7 +233,6 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        System.out.println(new String(response.getData(), "UTF-8"));
         return JSON.parseObject(new String(response.getData(), "UTF-8"), OCRNormalResponse.class);
     }
 
@@ -289,6 +288,15 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
             throw response.getException();
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), OCRVatInvoiceResponse.class);
+    }
+
+    @Override
+    public MultilangOCRResponse multilangOCR(MultilangOCRRequest request) throws Exception {
+        RawResponse response = post(Const.MultilangOCR, null, convertNameValuePair(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), MultilangOCRResponse.class);
     }
 
     private List<NameValuePair> convertNameValuePair(Object obj)

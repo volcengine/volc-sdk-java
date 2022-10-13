@@ -310,4 +310,5 @@ public class Const {
     public static final String DrivingLicense = "DrivingLicense";
     public static final String VehicleLicense = "VehicleLicense";
     public static final String VatInvoice = "OcrVatInvoice";
+    public static final String MultilangOCR = "MultiLanguageOCR";
 }

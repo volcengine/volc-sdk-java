@@ -321,7 +321,7 @@ public class VisualConfig {
                     }
                 }
             ));
-            put(Const.BankCard, new ApiInfo(
+            put(Const.IDCard, new ApiInfo(
                 new HashMap<String, Object>() {
                     {
                         put(Const.Method, "POST");
@@ -376,6 +376,20 @@ public class VisualConfig {
                         });
                     }
                 }
+            ));
+            put(Const.MultilangOCR, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.MultilangOCR));
+                                    add(new BasicNameValuePair("Version", "2022-08-31"));
+                                }
+                            });
+                        }
+                    }
             ));
         }
     };

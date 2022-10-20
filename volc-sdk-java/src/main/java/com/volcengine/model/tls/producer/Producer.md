@@ -8,7 +8,7 @@ Producer 专用的异步发送log的类库，具有异步发送、高性能、�
 
 ```java
 // 获取producer默认配置 具体配置见ProducerConfig
-ProducerConfig producerConfig = new ProducerConfig("YourEndPoint","YourAccessKey","YourAccessSecret","YourToken","YourRegion");
+ProducerConfig producerConfig = new ProducerConfig("YourEndPoint","YourRegion","YourAccessKey","YourAccessSecret","YourToken");
 Producer producer=new ProducerImpl(producerConfig);
 
 //启动

@@ -46,8 +46,8 @@ public class ProducerImpl implements Producer {
                 successQueue, failureQueue);
     }
 
-    public static Producer defaultProducer(String endpoint, String accessKey, String accessSecret, String token, String region) throws LogException {
-        return new ProducerImpl(new ProducerConfig(endpoint, accessKey, accessSecret, token, region));
+    public static Producer defaultProducer(String endpoint, String region, String accessKey, String accessSecret, String token) throws LogException {
+        return new ProducerImpl(new ProducerConfig(endpoint, region, accessKey, accessSecret, token));
     }
 
     @Override

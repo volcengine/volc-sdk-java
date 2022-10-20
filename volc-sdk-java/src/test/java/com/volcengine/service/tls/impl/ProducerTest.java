@@ -29,7 +29,7 @@ public class ProducerTest extends BaseTest {
         try {
             //create project
             String projectName = prefix + separator + formatDate + separator + currentTimeMillis;
-            String region = "your-region";
+            String region = clientConfig.getRegion();
             String description = "test project";
             CreateProjectRequest project = new CreateProjectRequest(projectName, region, description);
             CreateProjectResponse createProjectResponse = client.createProject(project);
@@ -57,9 +57,10 @@ public class ProducerTest extends BaseTest {
                     addContents(logContent).build();
             String topicId = createTopicResponse.getTopicId();
             Producer producer = ProducerImpl.defaultProducer(
-                    clientConfig.getEndpoint(), clientConfig.getAccessKeyId(), clientConfig.getAccessKeySecret(),
-                    clientConfig.getSecurityToken(), clientConfig.getRegion());
+                    clientConfig.getEndpoint(), clientConfig.getRegion(), clientConfig.getAccessKeyId(), clientConfig.getAccessKeySecret(),
+                    clientConfig.getSecurityToken());
             producer.start();
+            // 如果不需要回调，callback参数传null即可
             CallBack callBack = new CallBack() {
                 @Override
                 public void onComplete(Result result) {
@@ -67,9 +68,6 @@ public class ProducerTest extends BaseTest {
                 }
             };
             producer.sendLog("", topicId, "test-source", "test-file", log, callBack);
-            Exception exception;
-            String expectedMessage = "Invalid argument key TopicId";
-            String actualMessage = "";
             // describe cursor
             DescribeCursorRequest describeCursorRequest =
                     new DescribeCursorRequest(topicId, 0, "1656604800");

@@ -54,10 +54,17 @@ public class ProducerDemo extends BaseDemo {
                     addContents(logContent).build();
             String topicId = createTopicResponse.getTopicId();
             Producer producer = ProducerImpl.defaultProducer(
-                    clientConfig.getEndpoint(), clientConfig.getAccessKeyId(), clientConfig.getAccessKeySecret(),
-                    clientConfig.getSecurityToken(), clientConfig.getRegion());
+                    clientConfig.getEndpoint(), clientConfig.getRegion(), clientConfig.getAccessKeyId(), clientConfig.getAccessKeySecret(),
+                    clientConfig.getSecurityToken());
             producer.start();
-            producer.sendLog("", topicId, "test-source", "test-file", log, null);
+            // 如果不需要回调，callback参数传null即可
+            CallBack callBack = new CallBack() {
+                @Override
+                public void onComplete(Result result) {
+                    System.out.println("producer result:" + result);
+                }
+            };
+            producer.sendLog("", topicId, "test-source", "test-file", log, callBack);
             // describe cursor
             DescribeCursorRequest describeCursorRequest =
                     new DescribeCursorRequest(topicId, 0, "1656604800");

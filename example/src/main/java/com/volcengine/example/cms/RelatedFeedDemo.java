@@ -5,15 +5,10 @@ import com.volcengine.model.beans.cms.Context;
 import com.volcengine.model.request.ArticleRelatedFeedRequest;
 import com.volcengine.model.response.ArticleRelatedFeedResponse;
 import com.volcengine.service.cms.CmsApiService;
-import com.volcengine.service.cms.impl.CmsApiServiceImpl;
 
 public class RelatedFeedDemo {
     public static void main(String[] args) {
-        CmsApiService apiService = CmsApiServiceImpl.getInstance();
-
-        // call below method if you don't set ak and sk in ～/.volc/config
-        apiService.setAccessKey("ak");
-        apiService.setSecretKey("sk");
+        CmsApiService apiService = Instance.getApiInstance();
 
         ArticleRelatedFeedRequest request = new ArticleRelatedFeedRequest();
 

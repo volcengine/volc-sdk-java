@@ -4,15 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.request.ArticleUploadDetailRequest;
 import com.volcengine.model.response.ArticleUploadDetailResponse;
 import com.volcengine.service.cms.CmsPlatformService;
-import com.volcengine.service.cms.impl.CmsPlatformServiceImpl;
 
 public class GetArticleUploadDetailDemo {
     public static void main(String[] args) {
-        CmsPlatformService articleService = CmsPlatformServiceImpl.getInstance();
-
-        // call below method if you dont set ak and sk in ～/.volc/config
-        articleService.setAccessKey("ak");
-        articleService.setSecretKey("sk");
+        CmsPlatformService articleService = Instance.getPlatformInstance();
 
         ArticleUploadDetailRequest request = new ArticleUploadDetailRequest();
         // set batchId

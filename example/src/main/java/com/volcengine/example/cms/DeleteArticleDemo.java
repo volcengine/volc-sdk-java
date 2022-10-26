@@ -4,14 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.request.ArticleDeleteRequest;
 import com.volcengine.model.response.ArticleDeleteResponse;
 import com.volcengine.service.cms.CmsPlatformService;
-import com.volcengine.service.cms.impl.CmsPlatformServiceImpl;
 
 public class DeleteArticleDemo {
     public static void main(String[] args) {
-        CmsPlatformService service = CmsPlatformServiceImpl.getInstance();
-        // call below method if you dont set ak and sk in ～/.volc/config
-        service.setAccessKey("ak");
-        service.setSecretKey("sk");
+        CmsPlatformService service = Instance.getPlatformInstance();
 
         ArticleDeleteRequest request = new ArticleDeleteRequest();
         // set article id here

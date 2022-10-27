@@ -5,6 +5,8 @@ import com.volcengine.service.IBaseService;
 
 public interface StreamService extends IBaseService {
 
+    void SetNeedMonitor(boolean open);
+
     /**
      *    获取accessToken
      * @param wapRegisterRequest
@@ -59,6 +61,7 @@ public interface StreamService extends IBaseService {
      * @return com.volcengine.model.stream.GetCollectionArticleResponse
      * @author zhangyuhang
     */
+    @Deprecated
     GetArticleResponse getArticle(GetArticleRequest getArticleRequest) throws Exception;
 
     /**
@@ -67,6 +70,7 @@ public interface StreamService extends IBaseService {
      * @return com.volcengine.model.stream.GetCollectionArticlesResponse
      * @author zhangyuhang
     */
+    @Deprecated
     GetArticlesResponse getArticles(GetArticlesRequest getArticlesRequest) throws Exception;
 
     /**
@@ -83,6 +87,7 @@ public interface StreamService extends IBaseService {
      * @return com.volcengine.model.stream.FollowResponse
      * @author zhangyuhang
     */
+    @Deprecated
     FollowResponse follow(FollowRequest followRequest) throws Exception;
 
     /**
@@ -91,6 +96,7 @@ public interface StreamService extends IBaseService {
      * @return com.volcengine.model.stream.UnfollowResponse
      * @author zhangyuhang
     */
+    @Deprecated
     UnfollowResponse unfollow(UnfollowRequest unfollowRequest) throws Exception;
 
     /**
@@ -99,6 +105,7 @@ public interface StreamService extends IBaseService {
      * @return com.volcengine.model.stream.CheckRelationResponse
      * @author zhangyuhang
     */
+    @Deprecated
     CheckRelationResponse checkRelation(CheckRelationRequest checkRelationRequest) throws Exception;
 
     /**
@@ -107,6 +114,7 @@ public interface StreamService extends IBaseService {
      * @return com.volcengine.model.stream.GetFollowingListResponse
      * @author zhangyuhang
     */
+    @Deprecated
     GetFollowingListResponse getFollowingList(GetFollowingListRequest getFollowingListRequest) throws Exception;
 
     /**
@@ -115,6 +123,7 @@ public interface StreamService extends IBaseService {
      * @return com.volcengine.model.stream.RelatedArticleResponse
      * @author zhangyuhang
     */
+    @Deprecated
     RefreshTipsResponse refreshTips(RefreshTipsRequest refreshTipsRequest) throws Exception;
 
     /**
@@ -123,6 +132,7 @@ public interface StreamService extends IBaseService {
      * @return com.volcengine.model.stream.FollowArticlesResponse
      * @author zhangyuhang
     */
+    @Deprecated
     FollowArticlesResponse getFollowArticles(FollowArticlesRequest followArticlesRequest) throws Exception;
 
     /**
@@ -170,6 +180,7 @@ public interface StreamService extends IBaseService {
      * @return com.volcengine.model.stream.GetVideoUrlResponse
      * @author zhangyuhang
      */
+    @Deprecated
     GetVideoUrlResponse getVideoUrl(GetVideoUrlRequest getVideoUrlRequest) throws Exception;
 
     /**

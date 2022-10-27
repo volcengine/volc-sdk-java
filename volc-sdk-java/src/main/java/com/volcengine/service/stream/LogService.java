@@ -4,7 +4,7 @@ import com.volcengine.model.stream.log.*;
 import com.volcengine.service.IBaseService;
 
 public interface LogService extends IBaseService {
-
+    void SetNeedMonitor(boolean open);
     /**
      *   点击上报
      * @param clickLogRequest

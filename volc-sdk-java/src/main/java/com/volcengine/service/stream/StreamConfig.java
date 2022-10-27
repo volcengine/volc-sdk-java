@@ -20,7 +20,7 @@ public class StreamConfig {
                 {
                     put(Const.CONNECTION_TIMEOUT, 5000);
                     put(Const.SOCKET_TIMEOUT, 5000);
-                    put(Const.Host, "open.volcengineapi.com");
+                    put(Const.Host, "mercury.volcengineapi.com");
                     put(Const.Header, new ArrayList<Header>() {
                         {
                             add(new BasicHeader("Accept", "application/json"));

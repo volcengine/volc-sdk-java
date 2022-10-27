@@ -189,6 +189,14 @@ public class Const {
     public static final String VideoUrl = "VideoUrl";
     public static final String UnionProduct = "UnionProduct";
     public static final String HotBoard = "HotBoard";
+    public static final String SdkMonitor = "SdkMonitor";
+    //new
+    public static final String FollowAction = "FollowAction";
+    public static final String UnfollowAction = "UnfollowAction";
+    public static final String FollowList = "FollowList";
+    public static final String FollowCheck = "FollowCheck";
+    public static final String SingleArticle = "SingleArticle";
+    public static final String MultiArticle = "MultiArticle";
     public static final String ContentVersion = "2021-01-01";
 
     //live

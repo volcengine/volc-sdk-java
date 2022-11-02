@@ -7,18 +7,23 @@ import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CommonReqeustDemo {
+/**
+ * 通用 API 调用例程
+ * 您可以在 <a href="https://www.volcengine.cn/docs/508/14106">火山引擎文档</a> 中查到 API 定义
+ */
+public class CommonRequest {
     public static void main(String[] args) {
-        // default region cn-north-1, for other region, call ImageXServiceImpl.getInstance(region)
+        // 默认 ImageX 实例为 `cn-north-1`，如果您想使用其他区域的实例，请使用 `ImageXServiceImpl.GetInstance(区域名)` 显式指定区域
         IImageXService service = ImageXServiceImpl.getInstance();
-
-        // call below method if you dont set ak and sk in ～/.volc/config
         service.setAccessKey("ak");
         service.setSecretKey("sk");
 
+        // 以 GetImageUploadFile 为例
+        // 这个 API 需要一个 GET 请求，查询参数需要包含 ServiceId 和 StoreUri
+
         Map<String, String> param = new HashMap<>();
-        param.put("ServiceId", "imagex service id");
-        param.put("StoreUri", "image uri");
+        param.put("ServiceId", "service id"); // 服务 ID
+        param.put("StoreUri", "store uri");   // 文件的 Store URI
 
         try {
             CommonResponse response = service.getImageX("GetImageUploadFile", param);

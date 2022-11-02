@@ -140,6 +140,14 @@ public class Utils {
         Map<String, Object> map = JSONObject.toJavaObject(JSONObject.parseObject(JSON.toJSONString(obj)), Map.class);
         Map<String, String> params = new HashMap<>();
         for (Map.Entry<String, Object> entry : map.entrySet()) {
+            if (entry.getValue() == null) {
+                continue;
+            }
+            Class<?> valueType = entry.getValue().getClass();
+            if (valueType == null) {
+                continue;
+            }
+
             if (entry.getValue().getClass() == Integer.class) {
                 params.put(entry.getKey(), ((Integer) entry.getValue()).toString());
             } else if (entry.getValue().getClass() == String.class) {
@@ -161,6 +169,14 @@ public class Utils {
         Map<String, Object> map = JSONObject.toJavaObject(JSONObject.parseObject(JSON.toJSONString(obj)), Map.class);
         List<NameValuePair> pairs = new ArrayList<>();
         for (Map.Entry<String, Object> entry : map.entrySet()) {
+            if (entry.getValue() == null) {
+                continue;
+            }
+            Class<?> valueType = entry.getValue().getClass();
+            if (valueType == null) {
+                continue;
+            }
+
             if (entry.getValue().getClass() == Integer.class) {
                 pairs.add(new BasicNameValuePair(entry.getKey(), ((Integer) entry.getValue()).toString()));
             } else if (entry.getValue().getClass() == String.class) {

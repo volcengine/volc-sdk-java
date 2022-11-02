@@ -9,12 +9,39 @@ public class EmbedImageHmRequest {
     String serviceId;
     @JSONField(name = "StoreUri")
     String storeUri;
+    @JSONField(name = "Algorithm")
+    String algorithm;
     @JSONField(name = "Info")
     String info;
     @JSONField(name = "OutFormat")
     String outFormat;
     @JSONField(name = "OutQuality")
-    int outQuality;
+    Integer outQuality;
     @JSONField(name = "Strength")
-    int strength;
+    String StrengthLevel;
+
+    public void setStrengthLevel(String strengthLevel) {
+        StrengthLevel = strengthLevel;
+    }
+
+    public void setStrengthLevel(StrengthLevel strengthLevel) {
+        StrengthLevel = strengthLevel.value;
+    }
+
+    public enum StrengthLevel {
+        LOW("low"),
+        MEDIUM("medium"),
+        STRONG("strong"),
+        ;
+
+        private final String value;
+
+        StrengthLevel(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+    }
 }

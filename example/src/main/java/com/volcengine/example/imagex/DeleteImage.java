@@ -8,21 +8,23 @@ import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DeleteImageDemo {
+/**
+ * 删除文件
+ */
+public class DeleteImage {
     public static void main(String[] args) {
-        // default region cn-north-1, for other region, call ImageXServiceImpl.getInstance(region)
+        // 默认 ImageX 实例为 `cn-north-1`，如果您想使用其他区域的实例，请使用 `ImageXServiceImpl.GetInstance(区域名)` 显式指定区域
         IImageXService service = ImageXServiceImpl.getInstance();
-
-        // call below method if you dont set ak and sk in ～/.volc/config
         service.setAccessKey("ak");
         service.setSecretKey("sk");
 
         List<String> uris = new ArrayList<>();
         uris.add("image uri 1");
         uris.add("image uri 2");
+
         DeleteImageReq req = new DeleteImageReq();
-        req.setServiceId("imagex service id");
-        req.setStoreUris(uris);
+        req.setServiceId("service id"); // 服务 ID
+        req.setStoreUris(uris);         // 想要删除的文件列表
 
         try {
             DeleteImageResp resp = service.deleteImages(req);

@@ -4,11 +4,10 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 @Data
-public class ExtractImageHmRequest {
+public class GetImageComicResultRequest {
     @JSONField(name = "ServiceId")
-    String serviceId;
+    private String serviceId;
+
     @JSONField(name = "StoreUri")
-    String storeUri;
-    @JSONField(name = "Algorithm")
-    String algorithm;
+    private String storeUri;
 }

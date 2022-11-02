@@ -4,25 +4,54 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 @Data
-public class GetImageSegmentRequest{
+public class GetImageSegmentRequest {
+    @JSONField(name = "ServiceId")
+    private String serviceId;
     @JSONField(name = "Class")
-    String classify;
+    private String classify;
     @JSONField(name = "Refine")
-    Boolean refine;
+    private Boolean refine;
     @JSONField(name = "StoreUri")
-    String storeUri;
+    private String storeUri;
     @JSONField(name = "OutFormat")
-    String outFormat;
+    private String outFormat;
     @JSONField(name = "TransBg")
-    Boolean transBg;
+    private Boolean transBg;
     @JSONField(name = "Contour")
-    Contour contour;
+    private Contour contour;
+
+    public void setClassify(String classify) {
+        this.classify = classify;
+    }
+
+    public void setClassify(Classify classify) {
+        this.classify = classify.getValue();
+    }
 
     @Data
-    public static class Contour{
+    public static class Contour {
         @JSONField(name = "Color")
-        String Color;
+        private String Color;
         @JSONField(name = "Size")
-        int Size;
+        private int Size;
+    }
+
+    public enum Classify {
+        GENERAL("general"),
+        HUMAN("human"),
+        PRODUCT("product"),
+        HUMAN_V2("humanv2"),
+        PRODUCT_V2("productv2"),
+        ;
+
+        final private String value;
+
+        Classify(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
     }
 }

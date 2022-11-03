@@ -3,6 +3,8 @@ package com.volcengine.model.request;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class GetImageEraseResultRequest {
     @JSONField(name = "ServiceId")
@@ -12,7 +14,7 @@ public class GetImageEraseResultRequest {
     @JSONField(name = "Model")
     String model;
     @JSONField(name = "BBox")
-    GetImageEraseResultRequest.BBox[] bbox;
+    List<BBox> bbox;
 
     @Data
     public static class BBox{

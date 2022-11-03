@@ -5,19 +5,20 @@ import com.volcengine.model.response.ExtractImageHmResponse;
 import com.volcengine.service.imagex.IImageXService;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 
-public class ExtractImageHm {
+/**
+ * 提取盲水印
+ */
+public class ExtensionExtractImageHm {
     public static void main(String[] args) {
-        // default region cn-north-1, for other region, call ImageXServiceImpl.getInstance(region)
+        // 默认 ImageX 实例为 `cn-north-1`，如果您想使用其他区域的实例，请使用 `ImageXServiceImpl.GetInstance(区域名)` 显式指定区域
         IImageXService service = ImageXServiceImpl.getInstance();
-
-        // call below method if you dont set ak and sk in ～/.volc/config
         service.setAccessKey("ak");
         service.setSecretKey("sk");
 
         ExtractImageHmRequest request = new ExtractImageHmRequest();
-        request.setServiceId("xx");
-        request.setStoreUri("uri");
-        request.setStrength(30); // 和添加时保持一致
+        request.setServiceId("service id"); // 服务 ID
+        request.setStoreUri("store uri");   // 文件的 Store URI
+        request.setAlgorithm("default");    // 算法模型
 
         try {
             ExtractImageHmResponse resp = service.extractImageHm(request);

@@ -100,7 +100,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         long endTime = System.currentTimeMillis();
         long cost = endTime - startTime;
         float avgSpeed = (float) imageData.length / (float) cost;
-        System.out.println(String.format("upload image cost {%d} ms, avgSpeed: {%f} KB/s", cost, avgSpeed));
+        System.out.printf("upload image cost {%d} ms, avgSpeed: {%f} KB/s%n", cost, avgSpeed);
     }
 
     @Override
@@ -184,8 +184,8 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         applyRes.add(String.format(ImageXConfig.RESOURCE_STORE_KEY_FORMAT, keyPtn));
 
         Policy inlinePolicy = new Policy();
-        Statement applyStatement = Sts2Utils.newAllowStatement(Arrays.asList("ImageX:ApplyImageUpload"), applyRes);
-        Statement commitStatement = Sts2Utils.newAllowStatement(Arrays.asList("ImageX:CommitImageUpload"), commitRes);
+        Statement applyStatement = Sts2Utils.newAllowStatement(Collections.singletonList("ImageX:ApplyImageUpload"), applyRes);
+        Statement commitStatement = Sts2Utils.newAllowStatement(Collections.singletonList("ImageX:CommitImageUpload"), commitRes);
         inlinePolicy.addStatement(applyStatement);
         inlinePolicy.addStatement(commitStatement);
         return signSts2(inlinePolicy, expire);
@@ -201,6 +201,36 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
             throw response.getException();
         }
         DeleteImageResp res = JSON.parseObject(response.getData(), DeleteImageResp.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("ImageX");
+        return res;
+    }
+
+    @Override
+    public GetImageUploadFileResponse getImageUploadFile(GetImageUploadFileRequest req) throws Exception {
+        RawResponse response = query("GetImageUploadFile", Utils.paramsToPair(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImageUploadFileResponse res = JSON.parseObject(response.getData(), GetImageUploadFileResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("ImageX");
+        return res;
+    }
+
+    @Override
+    public GetImageUploadFilesResponse getImageUploadFiles(GetImageUploadFilesRequest req) throws Exception {
+        RawResponse response = query("GetImageUploadFiles", Utils.paramsToPair(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImageUploadFilesResponse res = JSON.parseObject(response.getData(), GetImageUploadFilesResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
@@ -253,12 +283,22 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     @Override
-    public GetImageOCRResponse getImageOCR(Map<String, String> param) throws Exception {
-        RawResponse response = query("GetImageOCR", Utils.mapToPairList(param));
+    public GetImageOCRResponse<?> getImageOCR(GetImageOCRRequest param) throws Exception {
+        Class<?> type = null;
+        if (param.getScene().equals("license")) {
+            type = GetImageOCRLicenseResponse.class;
+        } else if (param.getScene().equals("general")) {
+            type = GetImageOCRGeneralResponse.class;
+        } else {
+            throw new IllegalArgumentException("scene now acceptable");
+        }
+
+        RawResponse response = query("GetImageOCR", Utils.paramsToPair(param));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        GetImageOCRResponse res = JSON.parseObject(response.getData(), GetImageOCRResponse.class);
+
+        GetImageOCRResponse<?> res = JSON.parseObject(response.getData(), type);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
@@ -268,7 +308,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
 
     @Override
     public EmbedImageHmResponse embedImageHm(EmbedImageHmRequest req) throws Exception {
-        RawResponse response = json("CreateImageHmEmbed",null, JSON.toJSONString(req));
+        RawResponse response = json("CreateImageHmEmbed", null, JSON.toJSONString(req));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -285,7 +325,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         Map<String, String> params = new HashMap<>();
         params.put("ServiceId", req.getServiceId());
         params.put("StoreUri", req.getStoreUri());
-        params.put("Strength", Integer.toString(req.getStrength()));
+        params.put("Algorithm", req.getAlgorithm());
         RawResponse response = query("CreateImageHmExtract", Utils.mapToPairList(params));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -299,8 +339,11 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     @Override
-    public GetImageSegmentResponse getImageSegment(Map<String, String> param, GetImageSegmentRequest req) throws Exception {
-        RawResponse response = json("GetSegmentImage", Utils.mapToPairList(param), JSON.toJSONString(req));
+    public GetImageSegmentResponse getImageSegment(GetImageSegmentRequest req) throws Exception {
+        Map<String, String> params = new HashMap<>();
+        params.put("ServiceId", req.getServiceId());
+
+        RawResponse response = json("GetSegmentImage", Utils.mapToPairList(params), JSON.toJSONString(req));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -313,7 +356,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     @Override
-    public GetImageEraseModelsResponse getImageEraseModels(GetImageEraseModelsRequest req)throws Exception{
+    public GetImageEraseModelsResponse getImageEraseModels(GetImageEraseModelsRequest req) throws Exception {
         RawResponse response = query("GetImageEraseModels", Utils.paramsToPair(req));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -327,12 +370,229 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     @Override
-    public GetImageEraseResultResponse getImageEraseResult(GetImageEraseResultRequest req)throws Exception{
-        RawResponse response = json("GetImageEraseResult",null, JSON.toJSONString(req));
+    public GetImageEraseResultResponse getImageEraseResult(GetImageEraseResultRequest req) throws Exception {
+        RawResponse response = json("GetImageEraseResult", null, JSON.toJSONString(req));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         GetImageEraseResultResponse res = JSON.parseObject(response.getData(), GetImageEraseResultResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
+    public GetImageQualityResponse getImageQuality(GetImageQualityRequest req) throws Exception {
+        Map<String, String> params = new HashMap<>();
+        params.put("ServiceId", req.getServiceId());
+        RawResponse response = json("GetImageQuality", Utils.mapToPairList(params), JSON.toJSONString(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImageQualityResponse res = JSON.parseObject(response.getData(), GetImageQualityResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
+    public GetImageBgFillResultResponse getImageBgFillResult(GetImageBgFillResultRequest req) throws Exception {
+        //noinspection unchecked
+        RawResponse response = json("GetImageBgFillResult", Collections.EMPTY_LIST, JSON.toJSONString(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImageBgFillResultResponse res = JSON.parseObject(response.getData(), GetImageBgFillResultResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
+    public GetImageDuplicateDetectionSyncResponse getImageDuplicateDetectionSync(GetImageDuplicateDetectionSyncRequest req) throws Exception {
+        Map<String, String> params = new HashMap<>();
+        params.put("ServiceId", req.getServiceId());
+        RawResponse response = json("GetImageDuplicateDetection", Utils.mapToPairList(params), JSON.toJSONString(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImageDuplicateDetectionSyncResponse res = JSON.parseObject(response.getData(), GetImageDuplicateDetectionSyncResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
+    public GetImageDuplicateDetectionAsyncResponse getImageDuplicateDetectionAsync(GetImageDuplicateDetectionAsyncRequest req) throws Exception {
+        Map<String, String> params = new HashMap<>();
+        params.put("ServiceId", req.getServiceId());
+        RawResponse response = json("GetImageDuplicateDetection", Utils.mapToPairList(params), JSON.toJSONString(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImageDuplicateDetectionAsyncResponse res = JSON.parseObject(response.getData(), GetImageDuplicateDetectionAsyncResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
+    public GetDeduplicateTaskStatusResponse getDeduplicateTaskStatus(GetDeduplicateTaskStatusRequest req) throws Exception {
+        RawResponse response = query("GetImageDuplicateDetection", Utils.paramsToPair(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetDeduplicateTaskStatusResponse res = JSON.parseObject(response.getData(), GetDeduplicateTaskStatusResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
+    public GetDenoisingImageResponse getDenoisingImage(GetDenoisingImageRequest req) throws Exception {
+        Map<String, String> params = new HashMap<>();
+        params.put("ServiceId", req.getServiceId());
+        RawResponse response = json("GetDenoisingImage", Utils.mapToPairList(params), JSON.toJSONString(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetDenoisingImageResponse res = JSON.parseObject(response.getData(), GetDenoisingImageResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
+    public GetImageComicResultResponse getImageComicResult(GetImageComicResultRequest req) throws Exception {
+        //noinspection unchecked
+        RawResponse response = json("GetImageComicResult", Collections.EMPTY_LIST, JSON.toJSONString(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImageComicResultResponse res = JSON.parseObject(response.getData(), GetImageComicResultResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
+    public GetImageSuperResolutionResultResponse getImageSuperResolutionResult(GetImageSuperResolutionResultRequest req) throws Exception {
+        //noinspection unchecked
+        RawResponse response = json("GetImageSuperResolutionResult", Collections.EMPTY_LIST, JSON.toJSONString(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImageSuperResolutionResultResponse res = JSON.parseObject(response.getData(), GetImageSuperResolutionResultResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
+    public GetImageSmartCropResultResponse getImageSmartCropResult(GetImageSmartCropResultRequest req) throws Exception {
+        //noinspection unchecked
+        RawResponse response = json("GetImageSmartCropResult", Collections.EMPTY_LIST, JSON.toJSONString(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImageSmartCropResultResponse res = JSON.parseObject(response.getData(), GetImageSmartCropResultResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
+    public GetLicensePlateDetectionResponse getLicensePlateDetection(GetLicensePlateDetectionRequest req) throws Exception {
+        Map<String, String> params = new HashMap<>();
+        params.put("ServiceId", req.getServiceId());
+        RawResponse response = json("GetLicensePlateDetection", Utils.mapToPairList(params), JSON.toJSONString(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetLicensePlateDetectionResponse res = JSON.parseObject(response.getData(), GetLicensePlateDetectionResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
+    public GetImagePSDetectionResponse getImagePSDetection(GetImagePSDetectionRequest req) throws Exception {
+        Map<String, String> params = new HashMap<>();
+        params.put("ServiceId", req.getServiceId());
+        RawResponse response = json("GetImagePSDetection", Utils.mapToPairList(params), JSON.toJSONString(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImagePSDetectionResponse res = JSON.parseObject(response.getData(), GetImagePSDetectionResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
+    public GetPrivateImageTypeResponse getPrivateImageType(GetPrivateImageTypeRequest req) throws Exception {
+        Map<String, String> params = new HashMap<>();
+        params.put("ServiceId", req.getServiceId());
+        RawResponse response = json("GetPrivateImageType", Utils.mapToPairList(params), JSON.toJSONString(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetPrivateImageTypeResponse res = JSON.parseObject(response.getData(), GetPrivateImageTypeResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
+    public GetImageEnhanceResultResponse getImageEnhanceResult(GetImageEnhanceResultRequest req) throws Exception {
+        //noinspection unchecked
+        RawResponse response = json("GetImageEnhanceResult", Collections.EMPTY_LIST, JSON.toJSONString(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImageEnhanceResultResponse res = JSON.parseObject(response.getData(), GetImageEnhanceResultResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
+    public GetImageStyleResultResponse getImageStyleResult(GetImageStyleResultRequest req) throws Exception {
+        Map<String, String> params = new HashMap<>();
+        params.put("ServiceId", req.getServiceId());
+        RawResponse response = json("GetImageStyleResult", Utils.mapToPairList(params), JSON.toJSONString(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImageStyleResultResponse res = JSON.parseObject(response.getData(), GetImageStyleResultResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());

@@ -15,6 +15,10 @@ public class ApplyImageUploadRequest {
     Integer uploadNum;
     @JSONField(name = "StoreKeys")
     List<String> storeKeys;
+    @JSONField(name = "FileExtension")
+    String fileExtension;
+    @JSONField(name = "Prefix")
+    String prefix;
     @JSONField(name = "-")
     CommitImageUploadRequest commitParam;
 }

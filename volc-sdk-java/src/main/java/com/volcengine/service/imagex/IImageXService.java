@@ -11,6 +11,7 @@ import java.util.Map;
 /**
  * The interface ImageX service.
  */
+@SuppressWarnings("unused")
 public interface IImageXService extends IBaseService {
 
     /**
@@ -90,6 +91,24 @@ public interface IImageXService extends IBaseService {
     DeleteImageResp deleteImages(DeleteImageReq req) throws Exception;
 
     /**
+     * Resource a file
+     *
+     * @param req request args
+     * @return file info
+     * @throws Exception the exception
+     */
+    GetImageUploadFileResponse getImageUploadFile(GetImageUploadFileRequest req) throws Exception;
+
+    /**
+     * List files
+     *
+     * @param req request args
+     * @return files info
+     * @throws Exception the exception
+     */
+    GetImageUploadFilesResponse getImageUploadFiles(GetImageUploadFilesRequest req) throws Exception;
+
+    /**
      * Update image urls.
      *
      * @param req update image urls req
@@ -123,7 +142,7 @@ public interface IImageXService extends IBaseService {
      * @return api response
      * @throws Exception the exception
      */
-    GetImageOCRResponse getImageOCR(Map<String, String> param) throws Exception;
+    GetImageOCRResponse<?> getImageOCR(GetImageOCRRequest param) throws Exception;
 
     /**
      * Request ImageX api with method POST.
@@ -147,7 +166,7 @@ public interface IImageXService extends IBaseService {
      * @return image store uri
      * @throws Exception the exception
      */
-    GetImageSegmentResponse getImageSegment(Map<String, String> param, GetImageSegmentRequest req) throws Exception;
+    GetImageSegmentResponse getImageSegment(GetImageSegmentRequest req) throws Exception;
 
     /**
      * Request ImageX api with method GET.
@@ -164,4 +183,130 @@ public interface IImageXService extends IBaseService {
      * @throws Exception the exception
      */
     GetImageEraseResultResponse getImageEraseResult(GetImageEraseResultRequest req) throws Exception;
+
+    /**
+     * Get image quality
+     *
+     * @param req req request args
+     * @return image quality metrics
+     * @throws Exception the exception
+     */
+    GetImageQualityResponse getImageQuality(GetImageQualityRequest req) throws Exception;
+
+    /**
+     * Extend image
+     *
+     * @param req req request args
+     * @return extended image
+     * @throws Exception the exception
+     */
+    GetImageBgFillResultResponse getImageBgFillResult(GetImageBgFillResultRequest req) throws Exception;
+
+    /**
+     * Detect duplicate image
+     *
+     * @param req req request args
+     * @return detection result
+     * @throws Exception the exception
+     */
+    GetImageDuplicateDetectionSyncResponse getImageDuplicateDetectionSync(GetImageDuplicateDetectionSyncRequest req) throws Exception;
+
+    /**
+     * Detect duplicate image
+     *
+     * @param req req request args
+     * @return detection task id
+     * @throws Exception the exception
+     */
+    GetImageDuplicateDetectionAsyncResponse getImageDuplicateDetectionAsync(GetImageDuplicateDetectionAsyncRequest req) throws Exception;
+
+    /**
+     * Retrieve duplicate detection task status
+     *
+     * @param req req request args
+     * @return detection status and result
+     * @throws Exception the exception
+     */
+    GetDeduplicateTaskStatusResponse getDeduplicateTaskStatus(GetDeduplicateTaskStatusRequest req) throws Exception;
+
+    /**
+     * Noise reduction
+     *
+     * @param req req request args
+     * @return result
+     * @throws Exception the exception
+     */
+    GetDenoisingImageResponse getDenoisingImage(GetDenoisingImageRequest req) throws Exception;
+
+    /**
+     * Comicize an image
+     *
+     * @param req req request args
+     * @return result
+     * @throws Exception the exception
+     */
+    GetImageComicResultResponse getImageComicResult(GetImageComicResultRequest req) throws Exception;
+
+    /**
+     * Super resolution
+     *
+     * @param req req request args
+     * @return result
+     * @throws Exception the exception
+     */
+    GetImageSuperResolutionResultResponse getImageSuperResolutionResult(GetImageSuperResolutionResultRequest req) throws Exception;
+
+    /**
+     * Smart crop
+     *
+     * @param req req request args
+     * @return result
+     * @throws Exception the exception
+     */
+    GetImageSmartCropResultResponse getImageSmartCropResult(GetImageSmartCropResultRequest req) throws Exception;
+
+    /**
+     * License plate detection
+     *
+     * @param req req request args
+     * @return result
+     * @throws Exception the exception
+     */
+    GetLicensePlateDetectionResponse getLicensePlateDetection(GetLicensePlateDetectionRequest req) throws Exception;
+
+    /**
+     * Image modified detection
+     *
+     * @param req req request args
+     * @return result
+     * @throws Exception the exception
+     */
+    GetImagePSDetectionResponse getImagePSDetection(GetImagePSDetectionRequest req) throws Exception;
+
+    /**
+     * Private content detection
+     *
+     * @param req req request args
+     * @return result
+     * @throws Exception the exception
+     */
+    GetPrivateImageTypeResponse getPrivateImageType(GetPrivateImageTypeRequest req) throws Exception;
+
+    /**
+     * Enhance image
+     *
+     * @param req req request args
+     * @return result
+     * @throws Exception the exception
+     */
+    GetImageEnhanceResultResponse getImageEnhanceResult(GetImageEnhanceResultRequest req) throws Exception;
+
+    /**
+     * Image style
+     *
+     * @param req req request args
+     * @return result
+     * @throws Exception the exception
+     */
+    GetImageStyleResultResponse getImageStyleResult(GetImageStyleResultRequest req) throws Exception;
 }

@@ -246,4 +246,78 @@ public interface VodSourceInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getQualityBytes();
+
+  /**
+   * <pre>
+   *动态范围，"HDR" or "SDR"
+   * </pre>
+   *
+   * <code>string DynamicRange = 16;</code>
+   * @return The dynamicRange.
+   */
+  java.lang.String getDynamicRange();
+  /**
+   * <pre>
+   *动态范围，"HDR" or "SDR"
+   * </pre>
+   *
+   * <code>string DynamicRange = 16;</code>
+   * @return The bytes for dynamicRange.
+   */
+  com.google.protobuf.ByteString
+      getDynamicRangeBytes();
+
+  /**
+   * <pre>
+   *视频流信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodVideoStreamMeta VideoStreamMeta = 17;</code>
+   * @return Whether the videoStreamMeta field is set.
+   */
+  boolean hasVideoStreamMeta();
+  /**
+   * <pre>
+   *视频流信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodVideoStreamMeta VideoStreamMeta = 17;</code>
+   * @return The videoStreamMeta.
+   */
+  com.volcengine.service.vod.model.business.VodVideoStreamMeta getVideoStreamMeta();
+  /**
+   * <pre>
+   *视频流信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodVideoStreamMeta VideoStreamMeta = 17;</code>
+   */
+  com.volcengine.service.vod.model.business.VodVideoStreamMetaOrBuilder getVideoStreamMetaOrBuilder();
+
+  /**
+   * <pre>
+   *音频流信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodAudioStreamMeta AudioStreamMeta = 18;</code>
+   * @return Whether the audioStreamMeta field is set.
+   */
+  boolean hasAudioStreamMeta();
+  /**
+   * <pre>
+   *音频流信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodAudioStreamMeta AudioStreamMeta = 18;</code>
+   * @return The audioStreamMeta.
+   */
+  com.volcengine.service.vod.model.business.VodAudioStreamMeta getAudioStreamMeta();
+  /**
+   * <pre>
+   *音频流信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodAudioStreamMeta AudioStreamMeta = 18;</code>
+   */
+  com.volcengine.service.vod.model.business.VodAudioStreamMetaOrBuilder getAudioStreamMetaOrBuilder();
 }

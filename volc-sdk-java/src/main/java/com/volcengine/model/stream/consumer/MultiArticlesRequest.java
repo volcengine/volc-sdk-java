@@ -11,11 +11,11 @@ public class MultiArticlesRequest {
     long timestamp;
     @JSONField(name = "Partner")
     String partner;
-    @JSONField(name = "Ouid")
-    String ouid;
     @JSONField(name = "GroupIDs")
     List<String> groupIds;
     @JSONField(name = "AccessToken")
     String accessToken;
+    @JSONField(name = "CustomVideoDefinition")
+    String customVideoDefinition;
 }
 

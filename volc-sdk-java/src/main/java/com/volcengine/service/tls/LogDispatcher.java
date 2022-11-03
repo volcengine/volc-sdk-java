@@ -158,8 +158,8 @@ public class LogDispatcher {
                 if (batchManager.fullAndSendBatchRequest()) {
                     batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue,
                             batchCount, retryManager);
-                    return;
                 }
+                return;
             } else
                 batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue,
                         batchCount, retryManager);

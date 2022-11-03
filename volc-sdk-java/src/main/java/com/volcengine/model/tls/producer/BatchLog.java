@@ -3,14 +3,15 @@ package com.volcengine.model.tls.producer;
 import com.google.common.collect.EvictingQueue;
 import com.google.common.collect.Iterables;
 import com.volcengine.model.tls.pb.PutLogRequest;
+import com.volcengine.service.tls.LogDispatcher;
 import com.volcengine.service.tls.SendBatchTask;
 import com.volcengine.service.tls.RetryManager;
 import com.volcengine.service.tls.TLSLogClient;
 import lombok.Data;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Delayed;
 import java.util.concurrent.ExecutorService;
@@ -28,6 +29,7 @@ public class BatchLog implements Delayed {
     EvictingQueue<Attempt> reservedAttempts;
     int attemptCount;
     long createMs;
+    private static final Log LOG = LogFactory.getLog(BatchLog.class);
 
     private BatchLog() {
     }
@@ -51,7 +53,11 @@ public class BatchLog implements Delayed {
             return false;
         }
         // add log group
-        this.logGroupList = this.logGroupList.toBuilder().addLogGroups(logGroup).build();
+        PutLogRequest.LogGroupList.Builder builder = PutLogRequest.LogGroupList.newBuilder().addLogGroups(logGroup);
+        if (this.logGroupList.getLogGroupsList().size() > 0) {
+            builder.addAllLogGroups(this.logGroupList.getLogGroupsList());
+        }
+        this.logGroupList = builder.build();
         if (callBack != null) {
             getCallBackList().add(callBack);
         }
@@ -66,13 +72,17 @@ public class BatchLog implements Delayed {
                 || currentBatchSize >= producerConfig.getMaxBatchSizeBytes();
     }
 
-    public void addAttempt(Attempt attempt) {
+    public synchronized void addAttempt(Attempt attempt) {
         reservedAttempts.add(attempt);
         attemptCount++;
     }
 
-    public void fireCallbacks() {
+    public synchronized void fireCallbacks() {
         List<Attempt> attempts = new ArrayList<>(reservedAttempts);
+        if (attempts.size() == 0) {
+            LOG.error(String.format("batch log %s fire call back failed ", batchKey.toString()));
+            return;
+        }
         Attempt attempt = Iterables.getLast(attempts);
         Result result = new Result(attempt.isSuccess(), attempts, attemptCount);
         fireCallbacks(result);

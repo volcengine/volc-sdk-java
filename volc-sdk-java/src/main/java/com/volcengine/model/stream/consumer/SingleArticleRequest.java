@@ -9,10 +9,10 @@ public class SingleArticleRequest {
     long timestamp;
     @JSONField(name = "Partner")
     String partner;
-    @JSONField(name = "Ouid")
-    String ouid;
     @JSONField(name = "GroupID")
     String groupId;
     @JSONField(name = "AccessToken")
     String accessToken;
+    @JSONField(name = "CustomVideoDefinition")
+    String customVideoDefinition;
 }

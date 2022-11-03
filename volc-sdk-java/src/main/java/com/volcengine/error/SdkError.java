@@ -49,4 +49,14 @@ public enum SdkError {
     public final int getNumber() {
         return this.value;
     }
+
+    public static final SdkError getError(int value) {
+        for (SdkError error : SdkError.values()) {
+            if (value == error.value) {
+                return error;
+            }
+        }
+        return UNKNOWN;
+    }
+
 }

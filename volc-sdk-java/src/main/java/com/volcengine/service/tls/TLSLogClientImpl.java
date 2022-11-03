@@ -1052,17 +1052,11 @@ public class TLSLogClientImpl implements TLSLogClient {
     }
 
     private String[] getError(RawResponse response) {
+        String code, message = "";
+        code = SdkError.getErrorDesc(SdkError.getError(response.getCode()));
         if (response.getException() != null) {
-            String message = response.getException().getMessage();
-            LogException logException = JSONObject.parseObject(message, LogException.class);
-            return new String[]{logException.getErrorCode(), logException.getErrorMessage()};
-        } else if (response.getCode() == SdkError.ENOAPI.getNumber()) {
-
-            return new String[]{"Request error", "Request Path Not Exist"};
-        } else if (response.getCode() == SdkError.ESIGN.getNumber()) {
-            return new String[]{"Request error", "Request Authorization Failed"};
-        } else {
-            return new String[]{"Request Error", "Request Error"};
+            message = response.getException().getMessage();
         }
+        return new String[]{code, message};
     }
 }

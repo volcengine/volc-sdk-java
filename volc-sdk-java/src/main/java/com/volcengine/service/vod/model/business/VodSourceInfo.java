@@ -25,6 +25,7 @@ private static final long serialVersionUID = 0L;
     definition_ = "";
     createTime_ = "";
     quality_ = "";
+    dynamicRange_ = "";
   }
 
   @java.lang.Override
@@ -139,6 +140,38 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             quality_ = s;
+            break;
+          }
+          case 130: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            dynamicRange_ = s;
+            break;
+          }
+          case 138: {
+            com.volcengine.service.vod.model.business.VodVideoStreamMeta.Builder subBuilder = null;
+            if (videoStreamMeta_ != null) {
+              subBuilder = videoStreamMeta_.toBuilder();
+            }
+            videoStreamMeta_ = input.readMessage(com.volcengine.service.vod.model.business.VodVideoStreamMeta.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(videoStreamMeta_);
+              videoStreamMeta_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 146: {
+            com.volcengine.service.vod.model.business.VodAudioStreamMeta.Builder subBuilder = null;
+            if (audioStreamMeta_ != null) {
+              subBuilder = audioStreamMeta_.toBuilder();
+            }
+            audioStreamMeta_ = input.readMessage(com.volcengine.service.vod.model.business.VodAudioStreamMeta.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(audioStreamMeta_);
+              audioStreamMeta_ = subBuilder.buildPartial();
+            }
+
             break;
           }
           default: {
@@ -677,6 +710,128 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int DYNAMICRANGE_FIELD_NUMBER = 16;
+  private volatile java.lang.Object dynamicRange_;
+  /**
+   * <pre>
+   *动态范围，"HDR" or "SDR"
+   * </pre>
+   *
+   * <code>string DynamicRange = 16;</code>
+   * @return The dynamicRange.
+   */
+  @java.lang.Override
+  public java.lang.String getDynamicRange() {
+    java.lang.Object ref = dynamicRange_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      dynamicRange_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *动态范围，"HDR" or "SDR"
+   * </pre>
+   *
+   * <code>string DynamicRange = 16;</code>
+   * @return The bytes for dynamicRange.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDynamicRangeBytes() {
+    java.lang.Object ref = dynamicRange_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      dynamicRange_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int VIDEOSTREAMMETA_FIELD_NUMBER = 17;
+  private com.volcengine.service.vod.model.business.VodVideoStreamMeta videoStreamMeta_;
+  /**
+   * <pre>
+   *视频流信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodVideoStreamMeta VideoStreamMeta = 17;</code>
+   * @return Whether the videoStreamMeta field is set.
+   */
+  @java.lang.Override
+  public boolean hasVideoStreamMeta() {
+    return videoStreamMeta_ != null;
+  }
+  /**
+   * <pre>
+   *视频流信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodVideoStreamMeta VideoStreamMeta = 17;</code>
+   * @return The videoStreamMeta.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodVideoStreamMeta getVideoStreamMeta() {
+    return videoStreamMeta_ == null ? com.volcengine.service.vod.model.business.VodVideoStreamMeta.getDefaultInstance() : videoStreamMeta_;
+  }
+  /**
+   * <pre>
+   *视频流信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodVideoStreamMeta VideoStreamMeta = 17;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodVideoStreamMetaOrBuilder getVideoStreamMetaOrBuilder() {
+    return getVideoStreamMeta();
+  }
+
+  public static final int AUDIOSTREAMMETA_FIELD_NUMBER = 18;
+  private com.volcengine.service.vod.model.business.VodAudioStreamMeta audioStreamMeta_;
+  /**
+   * <pre>
+   *音频流信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodAudioStreamMeta AudioStreamMeta = 18;</code>
+   * @return Whether the audioStreamMeta field is set.
+   */
+  @java.lang.Override
+  public boolean hasAudioStreamMeta() {
+    return audioStreamMeta_ != null;
+  }
+  /**
+   * <pre>
+   *音频流信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodAudioStreamMeta AudioStreamMeta = 18;</code>
+   * @return The audioStreamMeta.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodAudioStreamMeta getAudioStreamMeta() {
+    return audioStreamMeta_ == null ? com.volcengine.service.vod.model.business.VodAudioStreamMeta.getDefaultInstance() : audioStreamMeta_;
+  }
+  /**
+   * <pre>
+   *音频流信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodAudioStreamMeta AudioStreamMeta = 18;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodAudioStreamMetaOrBuilder getAudioStreamMetaOrBuilder() {
+    return getAudioStreamMeta();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -735,6 +890,15 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(quality_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 15, quality_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dynamicRange_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 16, dynamicRange_);
+    }
+    if (videoStreamMeta_ != null) {
+      output.writeMessage(17, getVideoStreamMeta());
+    }
+    if (audioStreamMeta_ != null) {
+      output.writeMessage(18, getAudioStreamMeta());
     }
     unknownFields.writeTo(output);
   }
@@ -796,6 +960,17 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(quality_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, quality_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dynamicRange_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, dynamicRange_);
+    }
+    if (videoStreamMeta_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(17, getVideoStreamMeta());
+    }
+    if (audioStreamMeta_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(18, getAudioStreamMeta());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -844,6 +1019,18 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCreateTime())) return false;
     if (!getQuality()
         .equals(other.getQuality())) return false;
+    if (!getDynamicRange()
+        .equals(other.getDynamicRange())) return false;
+    if (hasVideoStreamMeta() != other.hasVideoStreamMeta()) return false;
+    if (hasVideoStreamMeta()) {
+      if (!getVideoStreamMeta()
+          .equals(other.getVideoStreamMeta())) return false;
+    }
+    if (hasAudioStreamMeta() != other.hasAudioStreamMeta()) return false;
+    if (hasAudioStreamMeta()) {
+      if (!getAudioStreamMeta()
+          .equals(other.getAudioStreamMeta())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -888,6 +1075,16 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getCreateTime().hashCode();
     hash = (37 * hash) + QUALITY_FIELD_NUMBER;
     hash = (53 * hash) + getQuality().hashCode();
+    hash = (37 * hash) + DYNAMICRANGE_FIELD_NUMBER;
+    hash = (53 * hash) + getDynamicRange().hashCode();
+    if (hasVideoStreamMeta()) {
+      hash = (37 * hash) + VIDEOSTREAMMETA_FIELD_NUMBER;
+      hash = (53 * hash) + getVideoStreamMeta().hashCode();
+    }
+    if (hasAudioStreamMeta()) {
+      hash = (37 * hash) + AUDIOSTREAMMETA_FIELD_NUMBER;
+      hash = (53 * hash) + getAudioStreamMeta().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1051,6 +1248,20 @@ private static final long serialVersionUID = 0L;
 
       quality_ = "";
 
+      dynamicRange_ = "";
+
+      if (videoStreamMetaBuilder_ == null) {
+        videoStreamMeta_ = null;
+      } else {
+        videoStreamMeta_ = null;
+        videoStreamMetaBuilder_ = null;
+      }
+      if (audioStreamMetaBuilder_ == null) {
+        audioStreamMeta_ = null;
+      } else {
+        audioStreamMeta_ = null;
+        audioStreamMetaBuilder_ = null;
+      }
       return this;
     }
 
@@ -1092,6 +1303,17 @@ private static final long serialVersionUID = 0L;
       result.fps_ = fps_;
       result.createTime_ = createTime_;
       result.quality_ = quality_;
+      result.dynamicRange_ = dynamicRange_;
+      if (videoStreamMetaBuilder_ == null) {
+        result.videoStreamMeta_ = videoStreamMeta_;
+      } else {
+        result.videoStreamMeta_ = videoStreamMetaBuilder_.build();
+      }
+      if (audioStreamMetaBuilder_ == null) {
+        result.audioStreamMeta_ = audioStreamMeta_;
+      } else {
+        result.audioStreamMeta_ = audioStreamMetaBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -1193,6 +1415,16 @@ private static final long serialVersionUID = 0L;
       if (!other.getQuality().isEmpty()) {
         quality_ = other.quality_;
         onChanged();
+      }
+      if (!other.getDynamicRange().isEmpty()) {
+        dynamicRange_ = other.dynamicRange_;
+        onChanged();
+      }
+      if (other.hasVideoStreamMeta()) {
+        mergeVideoStreamMeta(other.getVideoStreamMeta());
+      }
+      if (other.hasAudioStreamMeta()) {
+        mergeAudioStreamMeta(other.getAudioStreamMeta());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2343,6 +2575,412 @@ private static final long serialVersionUID = 0L;
       quality_ = value;
       onChanged();
       return this;
+    }
+
+    private java.lang.Object dynamicRange_ = "";
+    /**
+     * <pre>
+     *动态范围，"HDR" or "SDR"
+     * </pre>
+     *
+     * <code>string DynamicRange = 16;</code>
+     * @return The dynamicRange.
+     */
+    public java.lang.String getDynamicRange() {
+      java.lang.Object ref = dynamicRange_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dynamicRange_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *动态范围，"HDR" or "SDR"
+     * </pre>
+     *
+     * <code>string DynamicRange = 16;</code>
+     * @return The bytes for dynamicRange.
+     */
+    public com.google.protobuf.ByteString
+        getDynamicRangeBytes() {
+      java.lang.Object ref = dynamicRange_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dynamicRange_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *动态范围，"HDR" or "SDR"
+     * </pre>
+     *
+     * <code>string DynamicRange = 16;</code>
+     * @param value The dynamicRange to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDynamicRange(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      dynamicRange_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *动态范围，"HDR" or "SDR"
+     * </pre>
+     *
+     * <code>string DynamicRange = 16;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDynamicRange() {
+      
+      dynamicRange_ = getDefaultInstance().getDynamicRange();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *动态范围，"HDR" or "SDR"
+     * </pre>
+     *
+     * <code>string DynamicRange = 16;</code>
+     * @param value The bytes for dynamicRange to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDynamicRangeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      dynamicRange_ = value;
+      onChanged();
+      return this;
+    }
+
+    private com.volcengine.service.vod.model.business.VodVideoStreamMeta videoStreamMeta_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodVideoStreamMeta, com.volcengine.service.vod.model.business.VodVideoStreamMeta.Builder, com.volcengine.service.vod.model.business.VodVideoStreamMetaOrBuilder> videoStreamMetaBuilder_;
+    /**
+     * <pre>
+     *视频流信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodVideoStreamMeta VideoStreamMeta = 17;</code>
+     * @return Whether the videoStreamMeta field is set.
+     */
+    public boolean hasVideoStreamMeta() {
+      return videoStreamMetaBuilder_ != null || videoStreamMeta_ != null;
+    }
+    /**
+     * <pre>
+     *视频流信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodVideoStreamMeta VideoStreamMeta = 17;</code>
+     * @return The videoStreamMeta.
+     */
+    public com.volcengine.service.vod.model.business.VodVideoStreamMeta getVideoStreamMeta() {
+      if (videoStreamMetaBuilder_ == null) {
+        return videoStreamMeta_ == null ? com.volcengine.service.vod.model.business.VodVideoStreamMeta.getDefaultInstance() : videoStreamMeta_;
+      } else {
+        return videoStreamMetaBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     *视频流信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodVideoStreamMeta VideoStreamMeta = 17;</code>
+     */
+    public Builder setVideoStreamMeta(com.volcengine.service.vod.model.business.VodVideoStreamMeta value) {
+      if (videoStreamMetaBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        videoStreamMeta_ = value;
+        onChanged();
+      } else {
+        videoStreamMetaBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *视频流信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodVideoStreamMeta VideoStreamMeta = 17;</code>
+     */
+    public Builder setVideoStreamMeta(
+        com.volcengine.service.vod.model.business.VodVideoStreamMeta.Builder builderForValue) {
+      if (videoStreamMetaBuilder_ == null) {
+        videoStreamMeta_ = builderForValue.build();
+        onChanged();
+      } else {
+        videoStreamMetaBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *视频流信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodVideoStreamMeta VideoStreamMeta = 17;</code>
+     */
+    public Builder mergeVideoStreamMeta(com.volcengine.service.vod.model.business.VodVideoStreamMeta value) {
+      if (videoStreamMetaBuilder_ == null) {
+        if (videoStreamMeta_ != null) {
+          videoStreamMeta_ =
+            com.volcengine.service.vod.model.business.VodVideoStreamMeta.newBuilder(videoStreamMeta_).mergeFrom(value).buildPartial();
+        } else {
+          videoStreamMeta_ = value;
+        }
+        onChanged();
+      } else {
+        videoStreamMetaBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *视频流信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodVideoStreamMeta VideoStreamMeta = 17;</code>
+     */
+    public Builder clearVideoStreamMeta() {
+      if (videoStreamMetaBuilder_ == null) {
+        videoStreamMeta_ = null;
+        onChanged();
+      } else {
+        videoStreamMeta_ = null;
+        videoStreamMetaBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *视频流信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodVideoStreamMeta VideoStreamMeta = 17;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodVideoStreamMeta.Builder getVideoStreamMetaBuilder() {
+      
+      onChanged();
+      return getVideoStreamMetaFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     *视频流信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodVideoStreamMeta VideoStreamMeta = 17;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodVideoStreamMetaOrBuilder getVideoStreamMetaOrBuilder() {
+      if (videoStreamMetaBuilder_ != null) {
+        return videoStreamMetaBuilder_.getMessageOrBuilder();
+      } else {
+        return videoStreamMeta_ == null ?
+            com.volcengine.service.vod.model.business.VodVideoStreamMeta.getDefaultInstance() : videoStreamMeta_;
+      }
+    }
+    /**
+     * <pre>
+     *视频流信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodVideoStreamMeta VideoStreamMeta = 17;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodVideoStreamMeta, com.volcengine.service.vod.model.business.VodVideoStreamMeta.Builder, com.volcengine.service.vod.model.business.VodVideoStreamMetaOrBuilder> 
+        getVideoStreamMetaFieldBuilder() {
+      if (videoStreamMetaBuilder_ == null) {
+        videoStreamMetaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.VodVideoStreamMeta, com.volcengine.service.vod.model.business.VodVideoStreamMeta.Builder, com.volcengine.service.vod.model.business.VodVideoStreamMetaOrBuilder>(
+                getVideoStreamMeta(),
+                getParentForChildren(),
+                isClean());
+        videoStreamMeta_ = null;
+      }
+      return videoStreamMetaBuilder_;
+    }
+
+    private com.volcengine.service.vod.model.business.VodAudioStreamMeta audioStreamMeta_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodAudioStreamMeta, com.volcengine.service.vod.model.business.VodAudioStreamMeta.Builder, com.volcengine.service.vod.model.business.VodAudioStreamMetaOrBuilder> audioStreamMetaBuilder_;
+    /**
+     * <pre>
+     *音频流信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodAudioStreamMeta AudioStreamMeta = 18;</code>
+     * @return Whether the audioStreamMeta field is set.
+     */
+    public boolean hasAudioStreamMeta() {
+      return audioStreamMetaBuilder_ != null || audioStreamMeta_ != null;
+    }
+    /**
+     * <pre>
+     *音频流信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodAudioStreamMeta AudioStreamMeta = 18;</code>
+     * @return The audioStreamMeta.
+     */
+    public com.volcengine.service.vod.model.business.VodAudioStreamMeta getAudioStreamMeta() {
+      if (audioStreamMetaBuilder_ == null) {
+        return audioStreamMeta_ == null ? com.volcengine.service.vod.model.business.VodAudioStreamMeta.getDefaultInstance() : audioStreamMeta_;
+      } else {
+        return audioStreamMetaBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     *音频流信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodAudioStreamMeta AudioStreamMeta = 18;</code>
+     */
+    public Builder setAudioStreamMeta(com.volcengine.service.vod.model.business.VodAudioStreamMeta value) {
+      if (audioStreamMetaBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        audioStreamMeta_ = value;
+        onChanged();
+      } else {
+        audioStreamMetaBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *音频流信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodAudioStreamMeta AudioStreamMeta = 18;</code>
+     */
+    public Builder setAudioStreamMeta(
+        com.volcengine.service.vod.model.business.VodAudioStreamMeta.Builder builderForValue) {
+      if (audioStreamMetaBuilder_ == null) {
+        audioStreamMeta_ = builderForValue.build();
+        onChanged();
+      } else {
+        audioStreamMetaBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *音频流信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodAudioStreamMeta AudioStreamMeta = 18;</code>
+     */
+    public Builder mergeAudioStreamMeta(com.volcengine.service.vod.model.business.VodAudioStreamMeta value) {
+      if (audioStreamMetaBuilder_ == null) {
+        if (audioStreamMeta_ != null) {
+          audioStreamMeta_ =
+            com.volcengine.service.vod.model.business.VodAudioStreamMeta.newBuilder(audioStreamMeta_).mergeFrom(value).buildPartial();
+        } else {
+          audioStreamMeta_ = value;
+        }
+        onChanged();
+      } else {
+        audioStreamMetaBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *音频流信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodAudioStreamMeta AudioStreamMeta = 18;</code>
+     */
+    public Builder clearAudioStreamMeta() {
+      if (audioStreamMetaBuilder_ == null) {
+        audioStreamMeta_ = null;
+        onChanged();
+      } else {
+        audioStreamMeta_ = null;
+        audioStreamMetaBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *音频流信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodAudioStreamMeta AudioStreamMeta = 18;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodAudioStreamMeta.Builder getAudioStreamMetaBuilder() {
+      
+      onChanged();
+      return getAudioStreamMetaFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     *音频流信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodAudioStreamMeta AudioStreamMeta = 18;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodAudioStreamMetaOrBuilder getAudioStreamMetaOrBuilder() {
+      if (audioStreamMetaBuilder_ != null) {
+        return audioStreamMetaBuilder_.getMessageOrBuilder();
+      } else {
+        return audioStreamMeta_ == null ?
+            com.volcengine.service.vod.model.business.VodAudioStreamMeta.getDefaultInstance() : audioStreamMeta_;
+      }
+    }
+    /**
+     * <pre>
+     *音频流信息
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodAudioStreamMeta AudioStreamMeta = 18;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodAudioStreamMeta, com.volcengine.service.vod.model.business.VodAudioStreamMeta.Builder, com.volcengine.service.vod.model.business.VodAudioStreamMetaOrBuilder> 
+        getAudioStreamMetaFieldBuilder() {
+      if (audioStreamMetaBuilder_ == null) {
+        audioStreamMetaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.VodAudioStreamMeta, com.volcengine.service.vod.model.business.VodAudioStreamMeta.Builder, com.volcengine.service.vod.model.business.VodAudioStreamMetaOrBuilder>(
+                getAudioStreamMeta(),
+                getParentForChildren(),
+                isClean());
+        audioStreamMeta_ = null;
+      }
+      return audioStreamMetaBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

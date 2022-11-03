@@ -230,4 +230,24 @@ public interface VodTranscodeInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getCreateTimeBytes();
+
+  /**
+   * <pre>
+   *动态范围，"HDR" or "SDR"
+   * </pre>
+   *
+   * <code>string DynamicRange = 13;</code>
+   * @return The dynamicRange.
+   */
+  java.lang.String getDynamicRange();
+  /**
+   * <pre>
+   *动态范围，"HDR" or "SDR"
+   * </pre>
+   *
+   * <code>string DynamicRange = 13;</code>
+   * @return The bytes for dynamicRange.
+   */
+  com.google.protobuf.ByteString
+      getDynamicRangeBytes();
 }

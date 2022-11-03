@@ -149,7 +149,7 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.ApplyUploadInfo));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new BasicNameValuePair("Version", "2022-01-01"));
                                 }
                             });
                         }
@@ -163,7 +163,7 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.CommitUploadInfo));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new BasicNameValuePair("Version", "2022-01-01"));
                                 }
                             });
                             put(com.volcengine.helper.Const.CONNECTION_TIMEOUT, 8000);

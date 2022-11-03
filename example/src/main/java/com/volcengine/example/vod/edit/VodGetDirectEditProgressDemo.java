@@ -4,6 +4,7 @@
 
 package com.volcengine.example.vod.edit;
 
+import com.google.protobuf.util.JsonFormat;
 import com.volcengine.service.vod.IVodService;
 import com.volcengine.service.vod.impl.VodServiceImpl;
 import com.volcengine.service.vod.model.request.VodGetDirectEditProgressRequest;
@@ -26,7 +27,7 @@ public class VodGetDirectEditProgressDemo {
                 System.out.println(vodGetDirectEditProgressResponse.getResponseMetadata().getError());
                 System.exit(-1);
             }
-            System.out.println(vodGetDirectEditProgressResponse.toString()); // 如有汉字，请采用UTF8编码方式
+            System.out.println(JsonFormat.printer().includingDefaultValueFields().print(vodGetDirectEditProgressResponse));// 如有汉字，请采用UTF8编码方式
             System.out.println(vodGetDirectEditProgressResponse.getResponseMetadata().getRequestId());
         } catch (Exception e) {
             e.printStackTrace();

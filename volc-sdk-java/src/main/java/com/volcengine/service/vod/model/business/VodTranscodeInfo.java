@@ -23,6 +23,7 @@ private static final long serialVersionUID = 0L;
     format_ = "";
     storeUri_ = "";
     createTime_ = "";
+    dynamicRange_ = "";
   }
 
   @java.lang.Override
@@ -136,6 +137,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             createTime_ = s;
+            break;
+          }
+          case 106: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            dynamicRange_ = s;
             break;
           }
           default: {
@@ -613,6 +620,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int DYNAMICRANGE_FIELD_NUMBER = 13;
+  private volatile java.lang.Object dynamicRange_;
+  /**
+   * <pre>
+   *动态范围，"HDR" or "SDR"
+   * </pre>
+   *
+   * <code>string DynamicRange = 13;</code>
+   * @return The dynamicRange.
+   */
+  @java.lang.Override
+  public java.lang.String getDynamicRange() {
+    java.lang.Object ref = dynamicRange_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      dynamicRange_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *动态范围，"HDR" or "SDR"
+   * </pre>
+   *
+   * <code>string DynamicRange = 13;</code>
+   * @return The bytes for dynamicRange.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDynamicRangeBytes() {
+    java.lang.Object ref = dynamicRange_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      dynamicRange_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -662,6 +715,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(createTime_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, createTime_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dynamicRange_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, dynamicRange_);
     }
     unknownFields.writeTo(output);
   }
@@ -713,6 +769,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(createTime_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, createTime_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dynamicRange_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, dynamicRange_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -760,6 +819,8 @@ private static final long serialVersionUID = 0L;
     }
     if (!getCreateTime()
         .equals(other.getCreateTime())) return false;
+    if (!getDynamicRange()
+        .equals(other.getDynamicRange())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -802,6 +863,8 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + CREATETIME_FIELD_NUMBER;
     hash = (53 * hash) + getCreateTime().hashCode();
+    hash = (37 * hash) + DYNAMICRANGE_FIELD_NUMBER;
+    hash = (53 * hash) + getDynamicRange().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -967,6 +1030,8 @@ private static final long serialVersionUID = 0L;
       }
       createTime_ = "";
 
+      dynamicRange_ = "";
+
       return this;
     }
 
@@ -1013,6 +1078,7 @@ private static final long serialVersionUID = 0L;
         result.audioStreamMeta_ = audioStreamMetaBuilder_.build();
       }
       result.createTime_ = createTime_;
+      result.dynamicRange_ = dynamicRange_;
       onBuilt();
       return result;
     }
@@ -1102,6 +1168,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCreateTime().isEmpty()) {
         createTime_ = other.createTime_;
+        onChanged();
+      }
+      if (!other.getDynamicRange().isEmpty()) {
+        dynamicRange_ = other.dynamicRange_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -2240,6 +2310,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       createTime_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object dynamicRange_ = "";
+    /**
+     * <pre>
+     *动态范围，"HDR" or "SDR"
+     * </pre>
+     *
+     * <code>string DynamicRange = 13;</code>
+     * @return The dynamicRange.
+     */
+    public java.lang.String getDynamicRange() {
+      java.lang.Object ref = dynamicRange_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dynamicRange_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *动态范围，"HDR" or "SDR"
+     * </pre>
+     *
+     * <code>string DynamicRange = 13;</code>
+     * @return The bytes for dynamicRange.
+     */
+    public com.google.protobuf.ByteString
+        getDynamicRangeBytes() {
+      java.lang.Object ref = dynamicRange_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dynamicRange_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *动态范围，"HDR" or "SDR"
+     * </pre>
+     *
+     * <code>string DynamicRange = 13;</code>
+     * @param value The dynamicRange to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDynamicRange(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      dynamicRange_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *动态范围，"HDR" or "SDR"
+     * </pre>
+     *
+     * <code>string DynamicRange = 13;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDynamicRange() {
+      
+      dynamicRange_ = getDefaultInstance().getDynamicRange();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *动态范围，"HDR" or "SDR"
+     * </pre>
+     *
+     * <code>string DynamicRange = 13;</code>
+     * @param value The bytes for dynamicRange to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDynamicRangeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      dynamicRange_ = value;
       onChanged();
       return this;
     }

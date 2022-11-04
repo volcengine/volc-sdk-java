@@ -12,13 +12,43 @@ Access Key（访问密钥）是访问火山引擎服务的安全凭证，包含A
 推荐通过Maven依赖使用火山引擎SDK for Java
 
 [![maven](https://img.shields.io/maven-central/v/com.volcengine/volc-sdk-java)](https://search.maven.org/artifact/com.volcengine/volc-sdk-java)
-```
+```xml
 <dependency>
     <groupId>com.volcengine</groupId>
     <artifactId>volc-sdk-java</artifactId>
     <version>最新版本</version>
 </dependency>
 ```
+
+### SNAPSHOT发布说明
+[版本号：2.0.1-SNAPSHOT](https://oss.sonatype.org/content/repositories/snapshots/com/volcengine/volc-sdk-java)
+
+*注意：SNAPSHOT版本可能存在潜在问题，源码分支为2.0.0-SNAPSHOT，如您有沟通需求，请提交[工单](https://console.volcengine.com/workorder/create)选择对应产品获得沟通*
+
+#### 变更说明
+1. 使用OkHttp作为底层数据交互的http组件库，可以兼容安卓手机端
+2. 解决大量凭证潜在的线程泄露问题
+3. 抽象部分与网络库相关的model，避免冲突
+4. 业务包基本不感知底层变更，理论上可以平滑迁移
+
+如何使用SNAPSHOT版本
+1. 添加SNAPSHOT的Maven仓库，SNAPSHOT策略配置请自行查阅文档
+```xml
+ <repository>
+    <id>snapshots-repo</id>
+    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+</repository>
+```
+2. 添加依赖
+```xml
+<dependency>
+    <groupId>com.volcengine</groupId>
+    <artifactId>volc-sdk-java</artifactId>
+    <version>2.0.1-SNAPSHOT</version>
+</dependency>
+
+```
+
 
 ## 相关配置
 ### 安全凭证配置

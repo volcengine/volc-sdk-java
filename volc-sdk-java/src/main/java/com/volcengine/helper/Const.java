@@ -278,6 +278,81 @@ public class Const {
     public static final String CancelKeyDeletion = "CancelKeyDeletion";
     public static final String KmsServiceVersion = "2021-02-18";
 
+
+    //video_aiot
+    public static final String VideoAIoTSDKVersion = "2021-01-01";
+    public static final String AIoTVideoCreateSpace = "CreateSpace";
+    public static final String AIoTVideoDeleteSpace = "DeleteSpace";
+    public static final String AIoTVideoGetSpace = "GetSpace";
+    public static final String AIoTVideoListSpace = "ListSpaces";
+    public static final String AIoTVideoUpdateSpace = "UpdateSpace";
+    public static final String AIoTVideoStartSpace = "StartSpace";
+    public static final String AIoTVideoStopSpace = "StopSpace";
+
+    //template
+    public static final String VideoAIoTCreateRecordTemplate = "CreateRecordTemplate";
+    public static final String VideoAIoTDeleteRecordTemplate = "DeleteRecordTemplate";
+    public static final String AIoTVideoGetDataProjectWithBindWidthAndFlow = "GetDataProjectWithBindWidthAndFlow";
+
+    public static final String AIoTVideoGetTotalData = "GetTotalData";
+
+    public static final String AIoTVideoSetSpaceTemplate = "SetSpaceTemplate";
+    public static final String AIoTVideoGetSpaceTemplate = "GetSpaceTemplate";
+    public static final String AIoTVideoCancelBindTemplate = "CancelBindTemplate";
+
+    public static final String AIoTVideoUpdateAuthInSpace = "UpdateAuthInSpace";
+
+    public static final String AIoTVideoDisableAuthInSpace = "DisableAuthInSpace";
+    public static final String AIoTVideoCreateDevice = "CreateDevice";
+    public static final String AIoTVideoStartDevice = "StartDevice";
+    public static final String AIoTVideoStopDevice = "StopDevice";
+    public static final String AIoTVideoListDevice = "ListDevices";
+    public static final String AIoTVideoUpdateDevice = "UpdateDevice";
+    public static final String AIoTVideoFreshDevice = "FreshDevice";
+    public static final String AIoTVideoDeleteDevice = "DeleteDevice";
+    public static final String AIoTVideoGetDevice = "GetDevice";
+    public static final String AIoTVideoGenSipID = "GenSipID";
+    public static final String AIoTVideoGetDeviceChannels = "GetDeviceChannels";
+
+    public static final String AIoTVideoListDeviceScreenshot = "ListDeviceScreenshots";
+    public static final String AIoTVideoListDeviceRecords = "ListDeviceRecords";
+    public static final String AIoTVideoCloudRecordPlay = "CloudRecordPlay";
+
+    public static final String AIoTVideoLocalMediaDownload = "LocalMediaDownload";
+
+    public static final String AIoTVideoSetAlarmGuard = "SetAlarmGuard";
+    public static final String AIoTVideoResetAlarm = "ResetAlarm";
+
+    public static final String AIoTVideoListAlarmNotify = "ListAlarmNotify";
+
+    public static final String AIoTVideoDeleteAlarmNotify = "DeleteAlarmNotify";
+
+    public static final String AIoTVideoDeleteAlarmNotifyAll = "DeleteAlarmNotifyAll";
+
+    public static final String AIoTVideoGetStream = "GetStream";
+    public static final String AIoTVideoListStreams = "ListStreams";
+    public static final String AIoTVideoStartStream = "StartStream";
+    public static final String AIoTVideoStopStream = "StopStream";
+    public static final String AIoTVideoUpdateStream = "UpdateStream";
+
+    public static final String AIoTVideoStreamLogs = "StreamLogs";
+
+    public static final String AIoTVideoCreateStream = "CreateStream";
+    public static final String AIoTVideoDeleteStream = "DeleteStream";
+    public static final String AIoTVideoCreateForward = "CreateForward";
+    public static final String AIoTVideoListForward = "ListForward";
+    public static final String AIoTVideoGetForward = "GetForward";
+    public static final String AIoTVideoStartForward = "StartForward";
+    public static final String AIoTVideoStopForward = "StopForward";
+    public static final String AIoTVideoDeleteForward = "DeleteForward";
+    public static final String AIoTVideoGetStreamData = "GetStreamData";
+
+    public static final String AIoTVideoForbidStream = "ForbidStream";
+
+    public static final String AIoTVideoUnforbidStream = "UnforbidStream";
+    public static final String AIoTVideoStartVoiceTalk = "StartVoiceTalk";
+    public static final String AIoTVideoStopVoiceTalk = "StopVoiceTalk";
+
     //request method
     public static final String GET = "GET";
     public static final String DELETE = "DELETE";
@@ -319,4 +394,5 @@ public class Const {
     public static final String VehicleLicense = "VehicleLicense";
     public static final String VatInvoice = "OcrVatInvoice";
     public static final String MultilangOCR = "MultiLanguageOCR";
+
 }

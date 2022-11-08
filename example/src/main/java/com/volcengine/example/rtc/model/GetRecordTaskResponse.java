@@ -12,7 +12,7 @@ public class GetRecordTaskResponse {
     ResponseMetadata ResponseMetadata;
 
     @Data
-    public class RecordFileList {
+    public static class RecordFileList {
         @JSONField(name = "Vid")
         public String vid;
         @JSONField(name = "Duration")
@@ -26,7 +26,7 @@ public class GetRecordTaskResponse {
     }
 
     @Data
-    public class RecordTask {
+    public static class RecordTask {
         @JSONField(name = "StartTime")
         public long startTime;
         @JSONField(name = "EndTime")
@@ -40,13 +40,13 @@ public class GetRecordTaskResponse {
     }
 
     @Data
-    public class Result {
+    public static class Result {
         @JSONField(name = "RecordTask")
         public RecordTask recordTask;
     }
 
     @Data
-    public class Root {
+    public static class Root {
         @JSONField(name = "Result")
         public Result result;
         @JSONField(name = "ResponseMetadata")
@@ -54,11 +54,10 @@ public class GetRecordTaskResponse {
     }
 
     @Data
-    public class StreamList {
+    public static class StreamList {
         @JSONField(name = "UserId")
         public String userId;
         @JSONField(name = "StreamType")
         public int streamType;
     }
-
 }

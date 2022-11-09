@@ -1,7 +1,10 @@
 package com.volcengine.example.videoaiot;
 
 import com.alibaba.fastjson.JSON;
+import com.volcengine.model.video_aiot.request.*;
+import com.volcengine.model.video_aiot.response.*;
 import com.volcengine.service.videoaiot.VideoAIoTService;
+import com.volcengine.service.videoaiot.impl.VideoAIoTServiceImpl;
 import junit.framework.TestCase;
 
 import java.util.ArrayList;

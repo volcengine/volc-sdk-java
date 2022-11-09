@@ -117,7 +117,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 
     @Override
     public String getSubtitleAuthToken(com.volcengine.service.vod.model.request.VodGetSubtitleInfoListRequest input, Long expireSeconds) throws Exception {
-        if(input.getVid() == "") {
+        if(StringUtils.isBlank(input.getVid())) {
             throw new Exception("传入的Vid为空");
         }
         Map<String, String> params = new HashMap<>();

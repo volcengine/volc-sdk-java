@@ -1,6 +1,8 @@
 package com.volcengine.service.imagex.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.github.rholder.retry.*;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
@@ -15,9 +17,17 @@ import com.volcengine.service.imagex.IImageXService;
 import com.volcengine.service.imagex.ImageXConfig;
 import com.volcengine.util.Sts2Utils;
 import com.volcengine.util.Time;
+import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
+import org.apache.http.util.EntityUtils;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.net.URI;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 
 public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService {
@@ -41,6 +51,21 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         }
         return new ImageXServiceImpl(serviceInfo);
     }
+
+    private final Retryer<Boolean> uploadRetryer = createUploadDefaultRetryer();
+
+    private final Retryer<HttpResponse> httpRetryer = createUploadDefaultRetryer();
+
+    static private <R> Retryer<R> createUploadDefaultRetryer() {
+        return RetryerBuilder.<R>newBuilder()
+                .retryIfException()
+                .retryIfResult(it -> Objects.equals(it, false))
+                .retryIfResult(Objects::isNull)
+                .withWaitStrategy(WaitStrategies.exponentialWait())
+                .withStopStrategy(StopStrategies.stopAfterAttempt(3))
+                .build();
+    }
+
 
     @Override
     public ApplyImageUploadResponse applyImageUpload(ApplyImageUploadRequest req) throws Exception {
@@ -78,8 +103,18 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         return res;
     }
 
+    private void doUpload(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, InputStream imageData) throws Exception {
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        int nRead;
+        byte[] data = new byte[16384];
+        while ((nRead = imageData.read(data, 0, data.length)) != -1) {
+            buffer.write(data, 0, nRead);
+        }
+        doUpload(host, storeInfo, buffer.toByteArray());
+    }
+
     private void doUpload(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, byte[] imageData) throws Exception {
-        long crc32 = com.volcengine.helper.Utils.crc32(imageData);
+        long crc32 = Utils.crc32(imageData);
         String checkSum = String.format("%08x", crc32);
         String url = String.format("https://%s/%s", host, storeInfo.getStoreUri());
         Map<String, String> headers = new HashMap<>();
@@ -87,20 +122,89 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         headers.put("Authorization", storeInfo.getAuth());
 
         long startTime = System.currentTimeMillis();
-        boolean uploadStatus = false;
-        for (int i = 0; i < 3; i++) {
-            uploadStatus = putData(url, imageData, headers);
-            if (uploadStatus) {
-                break;
-            }
-        }
-        if (!uploadStatus) {
-            throw new Exception(String.format("upload image %s msg %s", url, SdkError.getErrorDesc(SdkError.EUPLOAD)));
-        }
+        uploadRetryer.call(() -> putData(url, imageData, headers));
         long endTime = System.currentTimeMillis();
         long cost = endTime - startTime;
         float avgSpeed = (float) imageData.length / (float) cost;
         System.out.printf("upload image cost {%d} ms, avgSpeed: {%f} KB/s%n", cost, avgSpeed);
+    }
+
+    private void chunkUpload(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, InputStream content, Long size, boolean isLargeFile) throws Exception {
+        String uploadID = initUploadPart(host, storeInfo, isLargeFile);
+        byte[] data = new byte[ImageXConfig.MIN_CHUNK_SIZE];
+        List<String> parts = new ArrayList<>();
+        long num = size / ImageXConfig.MIN_CHUNK_SIZE;
+        long lastNum = num - 1;
+        long partNumber;
+        try (BufferedInputStream bis = new BufferedInputStream(content)) {
+            for (long i = 0; i < lastNum; i++) {
+                int readSize = bis.read(data);
+                if (readSize != ImageXConfig.MIN_CHUNK_SIZE) {
+                    throw new IllegalStateException(String.format("can not read a full chunk from content, %s expected but %s read", ImageXConfig.MIN_CHUNK_SIZE, readSize));
+                }
+                partNumber = isLargeFile ? i + 1 : i;
+                parts.add(uploadPart(host, storeInfo, uploadID, partNumber, data, isLargeFile));
+            }
+            long readCount = (long) ImageXConfig.MIN_CHUNK_SIZE * lastNum;
+            int len = (int) (size - readCount);
+            byte[] lastPart = new byte[len];
+            int readSize = bis.read(lastPart);
+            if (readSize != len) {
+                throw new IllegalStateException(String.format("can not read a full chunk from content, %s expected but %s read", len, readSize));
+            }
+            partNumber = isLargeFile ? lastNum + 1 : lastNum;
+            parts.add(uploadPart(host, storeInfo, uploadID, partNumber, lastPart, isLargeFile));
+        }
+        uploadMergePart(host, storeInfo, uploadID, parts.toArray(new String[0]), isLargeFile);
+    }
+
+    private String initUploadPart(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, boolean isLargeFile) throws Exception {
+        String url = new URI("https", null, host, -1, "/" + storeInfo.getStoreUri(), "uploads", null).toASCIIString();
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Authorization", storeInfo.getAuth());
+        if (isLargeFile) {
+            headers.put("X-Storage-Mode", "gateway");
+        }
+        HttpResponse httpResponse = httpRetryer.call(() -> putDataWithResponse(url, new byte[]{}, headers));
+        if (httpResponse == null) {
+            throw new RuntimeException("init part error, response is empty");
+        }
+        //noinspection DuplicatedCode
+        if (httpResponse.getStatusLine().getStatusCode() != 200) {
+            throw new RuntimeException("http code is " + httpResponse.getStatusLine().getStatusCode());
+        }
+        String entity = EntityUtils.toString(httpResponse.getEntity());
+        JSONObject result = JSONObject.parseObject(entity);
+        return result.getJSONObject("payload").getInnerMap().get("uploadID").toString();
+    }
+
+    private String uploadPart(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, String uploadID, long partNumber, byte[] data, boolean isLargeFile) throws Exception {
+        String query = String.format("partNumber=%d&uploadID=%s", partNumber, uploadID);
+        String url = new URI("https", null, host, -1, "/" + storeInfo.getStoreUri(), query, null).toASCIIString();
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Authorization", storeInfo.getAuth());
+        long crc32 = Utils.crc32(data);
+        String checkSum = String.format("%08x", crc32);
+        headers.put("Content-CRC32", checkSum);
+        if (isLargeFile) {
+            headers.put("X-Storage-Mode", "gateway");
+        }
+        uploadRetryer.call(() -> putData(url, data, headers));
+        return checkSum;
+    }
+
+    private void uploadMergePart(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, String uploadID, String[] checkSum, boolean isLargeFile) throws Exception {
+        String query = String.format("uploadID=%s", uploadID);
+        String url = new URI("https", null, host, -1, "/" + storeInfo.getStoreUri(), query, null).toASCIIString();
+        String body = IntStream.range(0, checkSum.length)
+                .mapToObj(i -> String.format("%d:%s", i, checkSum[i]))
+                .collect(Collectors.joining(",", "", ""));
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Authorization", storeInfo.getAuth());
+        if (isLargeFile) {
+            headers.put("X-Storage-Mode", "gateway");
+        }
+        uploadRetryer.call(() -> putData(url, body.getBytes(), headers));
     }
 
     @Override
@@ -111,18 +215,12 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         request.setUploadNum(imageDatas.size());
 
         // apply upload
+        //noinspection DuplicatedCode
         ApplyImageUploadResponse applyResp = applyImageUpload(request);
-        if (applyResp.getResult() == null) {
-            throw new Exception("apply upload result is null");
-        }
+        applyRespGuard(applyResp, imageDatas.size());
         ApplyImageUploadResponse.UploadAddressBean uploadAddr = applyResp.getResult().getUploadAddress();
-        if (uploadAddr == null || uploadAddr.getUploadHosts() == null || uploadAddr.getUploadHosts().size() == 0) {
-            throw new Exception("apply upload address is null");
-        }
         List<ApplyImageUploadResponse.StoreInfosBean> storeInfos = uploadAddr.getStoreInfos();
-        if (storeInfos.size() != imageDatas.size()) {
-            throw new Exception("apply upload get wrong store infos");
-        }
+
         String uploadHost = uploadAddr.getUploadHosts().get(0);
         String sessionKey = uploadAddr.getSessionKey();
 
@@ -132,6 +230,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         }
 
         // commit upload
+        //noinspection DuplicatedCode
         CommitImageUploadRequest commitRequest = new CommitImageUploadRequest();
         commitRequest.setServiceId(request.getServiceId());
         commitRequest.setSessionKey(sessionKey);
@@ -140,6 +239,80 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
             commitRequest.setOptionInfos(request.getCommitParam().getOptionInfos());
         }
         return commitImageUpload(commitRequest);
+    }
+
+    public CommitImageUploadResponse uploadImages(ApplyImageUploadRequest request, List<InputStream> content, List<Long> size) throws Exception {
+        if (size.size() != content.size()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "expect size.size() == content.size() but  size.size() = %d, content.size() = %d",
+                            size.size(), content.size()
+                    )
+            );
+        }
+
+        request.setUploadNum(size.size());
+
+        if (size.stream().anyMatch(it -> it == null || it <= 0)) {
+            throw new IllegalArgumentException(
+                    "please ensure all elements in `size` is greater than 0"
+            );
+        }
+
+        if (content.stream().anyMatch(Objects::isNull)) {
+            throw new IllegalArgumentException(
+                    "please ensure all elements in `content` not null"
+            );
+        }
+
+        // apply upload
+        //noinspection DuplicatedCode
+        ApplyImageUploadResponse applyResp = applyImageUpload(request);
+        applyRespGuard(applyResp, size.size());
+        ApplyImageUploadResponse.UploadAddressBean uploadAddr = applyResp.getResult().getUploadAddress();
+        List<ApplyImageUploadResponse.StoreInfosBean> storeInfos = uploadAddr.getStoreInfos();
+
+        String uploadHost = uploadAddr.getUploadHosts().get(0);
+        String sessionKey = uploadAddr.getSessionKey();
+
+        // upload
+        for (int i = 0; i < size.size(); i++) {
+            long fileSize = size.get(i);
+            InputStream fileContent = content.get(i);
+            ApplyImageUploadResponse.StoreInfosBean storeInfo = storeInfos.get(i);
+
+            if (fileSize <= ImageXConfig.MIN_CHUNK_SIZE) {
+                doUpload(uploadHost, storeInfo, fileContent);
+            } else {
+                boolean isLargeFile = fileSize > ImageXConfig.LARGE_FILE_SIZE;
+                chunkUpload(uploadHost, storeInfo, fileContent, fileSize, isLargeFile);
+            }
+        }
+
+        // commit upload
+        //noinspection DuplicatedCode
+        CommitImageUploadRequest commitRequest = new CommitImageUploadRequest();
+        commitRequest.setServiceId(request.getServiceId());
+        commitRequest.setSessionKey(sessionKey);
+        if (request.getCommitParam() != null) {
+            commitRequest.setFunctions(request.getCommitParam().getFunctions());
+            commitRequest.setOptionInfos(request.getCommitParam().getOptionInfos());
+        }
+        return commitImageUpload(commitRequest);
+    }
+
+    private void applyRespGuard(ApplyImageUploadResponse applyResp, int expectSize) {
+        if (applyResp.getResult() == null) {
+            throw new IllegalStateException("apply upload result is null");
+        }
+        ApplyImageUploadResponse.UploadAddressBean uploadAddr = applyResp.getResult().getUploadAddress();
+        if (uploadAddr == null || uploadAddr.getUploadHosts() == null || uploadAddr.getUploadHosts().size() == 0) {
+            throw new IllegalStateException("apply upload address is null");
+        }
+        List<ApplyImageUploadResponse.StoreInfosBean> storeInfos = uploadAddr.getStoreInfos();
+        if (storeInfos.size() != expectSize) {
+            throw new IllegalStateException("apply upload get wrong store infos");
+        }
     }
 
     @Override
@@ -284,7 +457,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
 
     @Override
     public GetImageOCRResponse<?> getImageOCR(GetImageOCRRequest param) throws Exception {
-        Class<?> type = null;
+        Class<?> type;
         if (param.getScene().equals("license")) {
             type = GetImageOCRLicenseResponse.class;
         } else if (param.getScene().equals("general")) {
@@ -416,6 +589,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
 
     @Override
     public GetImageDuplicateDetectionSyncResponse getImageDuplicateDetectionSync(GetImageDuplicateDetectionSyncRequest req) throws Exception {
+        //noinspection DuplicatedCode
         Map<String, String> params = new HashMap<>();
         params.put("ServiceId", req.getServiceId());
         RawResponse response = json("GetImageDuplicateDetection", Utils.mapToPairList(params), JSON.toJSONString(req));
@@ -432,6 +606,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
 
     @Override
     public GetImageDuplicateDetectionAsyncResponse getImageDuplicateDetectionAsync(GetImageDuplicateDetectionAsyncRequest req) throws Exception {
+        //noinspection DuplicatedCode
         Map<String, String> params = new HashMap<>();
         params.put("ServiceId", req.getServiceId());
         RawResponse response = json("GetImageDuplicateDetection", Utils.mapToPairList(params), JSON.toJSONString(req));

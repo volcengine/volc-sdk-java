@@ -17,6 +17,9 @@ public class ImageXConfig {
     public static final String RESOURCE_SERVICE_ID_FORMAT = "trn:ImageX:*:*:ServiceId/%s";
     public static final String RESOURCE_STORE_KEY_FORMAT = "trn:ImageX:*:*:StoreKeys/%s";
 
+    public static final int MIN_CHUNK_SIZE = 1024 * 1024 * 20;
+    public static final int LARGE_FILE_SIZE = 1024 * 1024 * 1024;
+
     public static Map<String, ServiceInfo> serviceInfoMap = new HashMap<String, ServiceInfo>() {
         {
             put(Const.REGION_CN_NORTH_1, new ServiceInfo(

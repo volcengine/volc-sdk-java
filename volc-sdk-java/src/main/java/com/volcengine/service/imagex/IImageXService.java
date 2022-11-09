@@ -5,6 +5,7 @@ import com.volcengine.model.response.*;
 import com.volcengine.model.sts2.SecurityToken2;
 import com.volcengine.service.IBaseService;
 
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
@@ -41,6 +42,17 @@ public interface IImageXService extends IBaseService {
      * @throws Exception the exception
      */
     CommitImageUploadResponse uploadImages(ApplyImageUploadRequest request, List<byte[]> imageDatas) throws Exception;
+
+    /**
+     * Upload image data.
+     *
+     * @param request upload request
+     * @param content image data
+     * @param size image size
+     * @return the commit upload response
+     * @throws Exception the exception
+     */
+    CommitImageUploadResponse uploadImages(ApplyImageUploadRequest request, List<InputStream> content, List<Long> size) throws Exception;
 
     /**
      * Get image upload token.

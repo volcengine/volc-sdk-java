@@ -4,7 +4,7 @@
 
 package com.volcengine.service.live.stream_manage;
 
-import com.volcengine.service.live.LiveService;
+import com.volcengine.service.live.ILiveService;
 import com.volcengine.service.live.impl.LiveServiceImpl;
 
 public class LiveDescribeForbiddenStreamInfoByPageDemo {

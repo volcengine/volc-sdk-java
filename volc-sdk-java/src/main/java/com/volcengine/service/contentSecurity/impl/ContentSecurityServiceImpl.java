@@ -164,4 +164,17 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
 
         return JSON.parseObject(response.getData(), GetAudioRiskResponse.class);
     }
+
+    @Override
+    public TextSliceRiskResponse TextSliceRisk(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.TextSliceRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        String str = new String(response.getData());
+        System.out.println(str);
+
+        return JSON.parseObject(response.getData(), TextSliceRiskResponse.class);
+    }
 }

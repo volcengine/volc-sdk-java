@@ -227,6 +227,20 @@ public class ContentSecurityConfig {
                         }
                     }
             ));
+            put(Const.TextSliceRisk, new ApiInfo (
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.TextSliceRisk));
+                                    add(new BasicNameValuePair("Version", "2022-11-07"));
+                                }
+                            });
+                        }
+                    }
+            ));
         };
     };
 }

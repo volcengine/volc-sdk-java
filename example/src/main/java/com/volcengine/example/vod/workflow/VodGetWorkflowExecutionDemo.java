@@ -6,6 +6,7 @@ package com.volcengine.example.vod.workflow;
 
 import com.volcengine.service.vod.IVodService;
 import com.volcengine.service.vod.impl.VodServiceImpl;
+
 public class VodGetWorkflowExecutionDemo {
 
     //获取转码工作流状态
@@ -15,13 +16,17 @@ public class VodGetWorkflowExecutionDemo {
         vodService.setSecretKey("your sk");
 
         try {
-            VodGetWorkflowExecutionStatusRequest vodGetWorkflowExecutionStatusRequest = VodGetWorkflowExecutionStatusRequest.newBuilder()
+            com.volcengine.service.vod.model.request.VodGetWorkflowExecutionStatusRequest vodGetWorkflowExecutionStatusRequest = com.volcengine.service.vod.model.request.VodGetWorkflowExecutionStatusRequest.newBuilder()
                     .setRunId("your RunId")
                     .build();
             com.volcengine.service.vod.model.response.VodGetWorkflowExecutionStatusResponse resp = vodService.GetWorkflowExecution(vodGetWorkflowExecutionStatusRequest);
-            Assert.assertFalse(resp.getResponseMetadata().hasError());
+            if (resp.getResponseMetadata().hasError()) {
+                System.out.println(resp.getResponseMetadata().getError());
+                System.exit(-1);
+            }
+            System.out.println(resp);
         } catch (Exception e) {
-            throw new IllegalArgumentException(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

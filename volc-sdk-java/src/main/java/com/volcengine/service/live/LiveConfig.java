@@ -890,6 +890,366 @@ public class LiveConfig {
                         }
                     }
             ));
+            put(Const.DescribeCDNSnapshotHistory, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeCDNSnapshotHistory));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeRecordTaskFileHistory, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeRecordTaskFileHistory));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeLiveStreamInfoByPage, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeLiveStreamInfoByPage));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.KillStream, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.KillStream));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeClosedStreamInfoByPage, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeClosedStreamInfoByPage));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeLiveStreamState, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeLiveStreamState));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeForbiddenStreamInfoByPage, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeForbiddenStreamInfoByPage));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateRelaySourceV2, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateRelaySourceV2));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DeleteRelaySourceV2, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DeleteRelaySourceV2));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeRelaySourceV2, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeRelaySourceV2));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.CreateVQScoreTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CreateVQScoreTask));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeVQScoreTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeVQScoreTask));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListVQScoreTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListVQScoreTask));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GeneratePlayURL, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GeneratePlayURL));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GeneratePushURL, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GeneratePushURL));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.CreatePullToPushTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CreatePullToPushTask));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListPullToPushTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListPullToPushTask));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdatePullToPushTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdatePullToPushTask));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.StopPullToPushTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.StopPullToPushTask));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.RestartPullToPushTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.RestartPullToPushTask));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DeletePullToPushTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DeletePullToPushTask));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateDenyConfig, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateDenyConfig));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeDenyConfig, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeDenyConfig));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DeleteDenyConfig, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DeleteDenyConfig));
+                                    add(new BasicNameValuePair("Version", Const.LiveSDKVersion));
+
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

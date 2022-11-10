@@ -1,6 +1,8 @@
 package com.volcengine.service.live.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.google.protobuf.util.JsonFormat;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
@@ -10,14 +12,17 @@ import com.volcengine.model.live.response.*;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.response.ResponseMetadata;
 import com.volcengine.service.BaseServiceImpl;
+import com.volcengine.service.live.ILiveService;
 import com.volcengine.service.live.LiveConfig;
-import com.volcengine.service.live.LiveService;
+import com.volcengine.service.live.model.request.UpdateRelaySourceRequest;
 import org.apache.http.HttpHost;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 
-public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
+public class LiveServiceImpl extends BaseServiceImpl implements ILiveService {
 
     private LiveServiceImpl() {
         super(LiveConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), LiveConfig.apiInfoList);
@@ -31,15 +36,16 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         super(serviceInfo, LiveConfig.apiInfoList);
     }
 
-    public static LiveService getInstance() {
+
+    public static ILiveService getInstance() {
         return new LiveServiceImpl();
     }
 
-    public static LiveService getInstance(HttpHost proxy) {
+    public static ILiveService getInstance2(HttpHost proxy) {
         return new LiveServiceImpl(proxy);
     }
 
-    public static LiveService getInstance(String region) throws Exception {
+    public static ILiveService getInstance(String region) throws Exception {
         ServiceInfo serviceInfo = LiveConfig.serviceInfoMap.get(region);
         if (serviceInfo == null) {
             throw new Exception("Live not support region " + region);
@@ -157,6 +163,26 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         }
         res.getResponseMetadata().setService("live");
         return res;
+    }
+
+    /**
+     * DescribeRecordTaskFileHistory.
+     *
+     * @param input com.volcengine.service.live.model.request.DescribeRecordTaskFileHistoryRequest
+     * @return com.volcengine.service.live.model.response.DescribeRecordTaskFileHistoryResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.DescribeRecordTaskFileHistoryResponse DescribeRecordTaskFileHistory(com.volcengine.service.live.model.request.DescribeRecordTaskFileHistoryRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DescribeRecordTaskFileHistory,null,JSON.toJSONString(input));
+
+
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.DescribeRecordTaskFileHistoryResponse.Builder responseBuilder = com.volcengine.service.live.model.response.DescribeRecordTaskFileHistoryResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
     }
 
     @Override
@@ -990,6 +1016,462 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         }
         res.getResponseMetadata().setService("live");
         return res;
+    }
+
+
+    /**
+     * DescribeCDNSnapshotHistory.
+     *
+     * @param input com.volcengine.service.live.model.request.DescribeCDNSnapshotHistoryRequest
+     * @return com.volcengine.service.live.model.response.DescribeCDNSnapshotHistoryResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.DescribeCDNSnapshotHistoryResponse DescribeCDNSnapshotHistory(com.volcengine.service.live.model.request.DescribeCDNSnapshotHistoryRequest input) throws Exception {
+//        com.volcengine.model.response.RawResponse response = query(com.volcengine.service.live.Const.DescribeCDNSnapshotHistory, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DescribeCDNSnapshotHistory,null,JSON.toJSONString(input));
+
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.DescribeCDNSnapshotHistoryResponse.Builder responseBuilder = com.volcengine.service.live.model.response.DescribeCDNSnapshotHistoryResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * DescribeLiveStreamInfoByPage.
+     *
+     * @param input com.volcengine.service.live.model.request.DescribeLiveStreamInfoByPageRequest
+     * @return com.volcengine.service.live.model.response.DescribeLiveStreamInfoByPageResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.DescribeLiveStreamInfoByPageResponse DescribeLiveStreamInfoByPage(com.volcengine.service.live.model.request.DescribeLiveStreamInfoByPageRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.service.live.Const.DescribeLiveStreamInfoByPage, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.DescribeLiveStreamInfoByPageResponse.Builder responseBuilder = com.volcengine.service.live.model.response.DescribeLiveStreamInfoByPageResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * KillStream.
+     *
+     * @param input com.volcengine.service.live.model.request.KillStreamRequest
+     * @return com.volcengine.service.live.model.response.KillStreamResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.KillStreamResponse KillStream(com.volcengine.service.live.model.request.KillStreamRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.KillStream,null,JSON.toJSONString(input));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.KillStreamResponse.Builder responseBuilder = com.volcengine.service.live.model.response.KillStreamResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+    /**
+     * DescribeClosedStreamInfoByPage.
+     *
+     * @param input com.volcengine.service.live.model.request.DescribeClosedStreamInfoByPageRequest
+     * @return com.volcengine.service.live.model.response.DescribeClosedStreamInfoByPageResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.DescribeClosedStreamInfoByPageResponse DescribeClosedStreamInfoByPage(com.volcengine.service.live.model.request.DescribeClosedStreamInfoByPageRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.service.live.Const.DescribeClosedStreamInfoByPage, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.DescribeClosedStreamInfoByPageResponse.Builder responseBuilder = com.volcengine.service.live.model.response.DescribeClosedStreamInfoByPageResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * DescribeLiveStreamState.
+     *
+     * @param input com.volcengine.service.live.model.request.DescribeLiveStreamInfoByPageRequest
+     * @return com.volcengine.service.live.model.response.DescribeLiveStreamStateResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.DescribeLiveStreamStateResponse DescribeLiveStreamState(com.volcengine.service.live.model.request.DescribeLiveStreamInfoByPageRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.service.live.Const.DescribeLiveStreamState, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.DescribeLiveStreamStateResponse.Builder responseBuilder = com.volcengine.service.live.model.response.DescribeLiveStreamStateResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * DescribeForbiddenStreamInfoByPage.
+     *
+     * @param input com.volcengine.service.live.model.request.DescribeForbiddenStreamInfoByPageRequest
+     * @return com.volcengine.service.live.model.response.DescribeForbiddenStreamInfoByPageResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.DescribeForbiddenStreamInfoByPageResponse DescribeForbiddenStreamInfoByPage(com.volcengine.service.live.model.request.DescribeForbiddenStreamInfoByPageRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(com.volcengine.service.live.Const.DescribeForbiddenStreamInfoByPage, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw getException(response);
+        }
+        com.volcengine.service.live.model.response.DescribeForbiddenStreamInfoByPageResponse.Builder responseBuilder = com.volcengine.service.live.model.response.DescribeForbiddenStreamInfoByPageResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+    private static Exception getException(RawResponse response) {
+        return response.getException();
+    }
+
+    /**
+     * updateRelaySourceV2.
+     *
+     * @param input com.volcengine.service.live.model.request.UpdateRelaySourceRequest
+     * @return com.volcengine.service.live.model.response.UpdateRelaySourceResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.UpdateRelaySourceResponse updateRelaySourceV2(UpdateRelaySourceRequest input) throws Exception {
+//        com.volcengine.model.response.RawResponse response = query(com.volcengine.service.live.Const.UpdateRelaySourceV2, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.UpdateRelaySourceV2,null,JSON.toJSONString(input));
+
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.UpdateRelaySourceResponse.Builder responseBuilder = com.volcengine.service.live.model.response.UpdateRelaySourceResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * deleteRelaySourceV2.
+     *
+     * @param input com.volcengine.service.live.model.request.DeleteRelaySourceRequest
+     * @return com.volcengine.service.live.model.response.DeleteRelaySourceResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.DeleteRelaySourceResponse deleteRelaySourceV2(com.volcengine.service.live.model.request.DeleteRelaySourceRequest input) throws Exception {
+//        com.volcengine.model.response.RawResponse response = query(com.volcengine.service.live.Const.DeleteRelaySourceV2, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DeleteRelaySourceV2,null,JSON.toJSONString(input));
+
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.DeleteRelaySourceResponse.Builder responseBuilder = com.volcengine.service.live.model.response.DeleteRelaySourceResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * describeRelaySourceV2.
+     *
+     * @param input com.volcengine.service.live.model.request.DescribeRelaySourceRequest
+     * @return com.volcengine.service.live.model.response.DescribeRelaySourceResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.DescribeRelaySourceResponse describeRelaySourceV2(com.volcengine.service.live.model.request.DescribeRelaySourceRequest input) throws Exception {
+//        com.volcengine.model.response.RawResponse response = query(com.volcengine.service.live.Const.DescribeRelaySourceV2, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DescribeRelaySourceV2,null,JSON.toJSONString(input));
+
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.DescribeRelaySourceResponse.Builder responseBuilder = com.volcengine.service.live.model.response.DescribeRelaySourceResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * createVQScoreTask.
+     *
+     * @param input com.volcengine.service.live.model.request.CreateVQScoreTaskRequest
+     * @return com.volcengine.service.live.model.response.CreateVQScoreTaskResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.CreateVQScoreTaskResponse createVQScoreTask(com.volcengine.service.live.model.request.CreateVQScoreTaskRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.CreateVQScoreTask,null,JSON.toJSONString(input));
+
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.CreateVQScoreTaskResponse.Builder responseBuilder = com.volcengine.service.live.model.response.CreateVQScoreTaskResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * describeVQScoreTask.
+     *
+     * @param input com.volcengine.service.live.model.request.DescribeVQScoreTaskRequest
+     * @return com.volcengine.service.live.model.response.DescribeVQScoreTaskResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.DescribeVQScoreTaskResponse describeVQScoreTask(com.volcengine.service.live.model.request.DescribeVQScoreTaskRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DescribeVQScoreTask,null,JSON.toJSONString(input));
+
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.DescribeVQScoreTaskResponse.Builder responseBuilder = com.volcengine.service.live.model.response.DescribeVQScoreTaskResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * listVQScoreTask.
+     *
+     * @param input com.volcengine.service.live.model.request.ListVQScoreTaskRequest
+     * @return com.volcengine.service.live.model.response.ListVQScoreTaskResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.ListVQScoreTaskResponse listVQScoreTask(com.volcengine.service.live.model.request.ListVQScoreTaskRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.ListVQScoreTask,null,JSON.toJSONString(input));
+
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.ListVQScoreTaskResponse.Builder responseBuilder = com.volcengine.service.live.model.response.ListVQScoreTaskResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+//
+//    public ListDomainDetailResponse listDomainDetail(ListDomainDetailRequest listDomainDetailRequest) throws Exception {
+//        RawResponse response = json(Const.ListDomainDetail, new ArrayList<>(), JSON.toJSONString(listDomainDetailRequest));
+//        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+//            throw response.getException();
+//        }
+//        ListDomainDetailResponse res = JSON.parseObject(response.getData(), ListDomainDetailResponse.class);
+//        if (res.getResponseMetadata().getError() != null) {
+//            ResponseMetadata meta = res.getResponseMetadata();
+////            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
+//        }
+//        res.getResponseMetadata().setService("live");
+//        return res;
+//    }
+
+    /**
+     * generatePlayURL.
+     *
+     * @param input com.volcengine.service.live.model.request.GeneratePlayURLRequest
+     * @return com.volcengine.service.live.model.response.GeneratePlayURLResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.GeneratePlayURLResponse generatePlayURL(com.volcengine.service.live.model.request.GeneratePlayURLRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.GeneratePlayURL,null,JSON.toJSONString(input));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.GeneratePlayURLResponse.Builder responseBuilder = com.volcengine.service.live.model.response.GeneratePlayURLResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * generatePushURL.
+     *
+     * @param input com.volcengine.service.live.model.request.GeneratePushURLRequest
+     * @return com.volcengine.service.live.model.response.GeneratePushURLResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.GeneratePushURLResponse generatePushURL(com.volcengine.service.live.model.request.GeneratePushURLRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.GeneratePushURL,null,JSON.toJSONString(input));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.GeneratePushURLResponse.Builder responseBuilder = com.volcengine.service.live.model.response.GeneratePushURLResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * createPullToPushTask.
+     *
+     * @param input com.volcengine.service.live.model.request.CreatePullToPushTaskRequest
+     * @return com.volcengine.service.live.model.response.CreatePullToPushTaskResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.CreatePullToPushTaskResponse createPullToPushTask(com.volcengine.service.live.model.request.CreatePullToPushTaskRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.CreatePullToPushTask,null,JSON.toJSONString(input));
+
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.CreatePullToPushTaskResponse.Builder responseBuilder = com.volcengine.service.live.model.response.CreatePullToPushTaskResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * listPullToPushTask.
+     *
+     * @param input com.volcengine.service.live.model.request.ListPullToPushTaskRequest
+     * @return com.volcengine.service.live.model.response.ListPullToPushTaskResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.ListPullToPushTaskResponse listPullToPushTask(com.volcengine.service.live.model.request.ListPullToPushTaskRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.ListPullToPushTask,null,JSON.toJSONString(input));
+
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.ListPullToPushTaskResponse.Builder responseBuilder = com.volcengine.service.live.model.response.ListPullToPushTaskResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * updatePullToPushTask.
+     *
+     * @param input com.volcengine.service.live.model.request.UpdatePullToPushTaskRequest
+     * @return com.volcengine.service.live.model.response.UpdatePullToPushTaskResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.UpdatePullToPushTaskResponse updatePullToPushTask(com.volcengine.service.live.model.request.UpdatePullToPushTaskRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.UpdatePullToPushTask,null,JSON.toJSONString(input));
+
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.UpdatePullToPushTaskResponse.Builder responseBuilder = com.volcengine.service.live.model.response.UpdatePullToPushTaskResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * stopPullToPushTask.
+     *
+     * @param input com.volcengine.service.live.model.request.StopPullToPushTaskRequest
+     * @return com.volcengine.service.live.model.response.StopPullToPushTaskResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.StopPullToPushTaskResponse stopPullToPushTask(com.volcengine.service.live.model.request.StopPullToPushTaskRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.StopPullToPushTask,null,JSON.toJSONString(input));
+
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.StopPullToPushTaskResponse.Builder responseBuilder = com.volcengine.service.live.model.response.StopPullToPushTaskResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * restartPullToPushTask.
+     *
+     * @param input com.volcengine.service.live.model.request.RestartPullToPushTaskRequest
+     * @return com.volcengine.service.live.model.response.RestartPullToPushTaskResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.RestartPullToPushTaskResponse restartPullToPushTask(com.volcengine.service.live.model.request.RestartPullToPushTaskRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.RestartPullToPushTask,null,JSON.toJSONString(input));
+
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.RestartPullToPushTaskResponse.Builder responseBuilder = com.volcengine.service.live.model.response.RestartPullToPushTaskResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * deletePullToPushTask.
+     *
+     * @param input com.volcengine.service.live.model.request.DeletePullToPushTaskRequest
+     * @return com.volcengine.service.live.model.response.DeletePullToPushTaskResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.DeletePullToPushTaskResponse deletePullToPushTask(com.volcengine.service.live.model.request.DeletePullToPushTaskRequest input) throws Exception {
+//        com.volcengine.model.response.RawResponse response = query(com.volcengine.service.live.Const.DeletePullToPushTask, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DeletePullToPushTask,null,JSON.toJSONString(input));
+
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.DeletePullToPushTaskResponse.Builder responseBuilder = com.volcengine.service.live.model.response.DeletePullToPushTaskResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * updateDenyConfig.
+     *
+     * @param input com.volcengine.service.live.model.request.UpdateDenyConfigRequest
+     * @return com.volcengine.service.live.model.response.UpdateDenyConfigResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.UpdateDenyConfigResponse updateDenyConfig(com.volcengine.service.live.model.request.UpdateDenyConfigRequest input) throws Exception {
+//        com.volcengine.model.response.RawResponse response = query(com.volcengine.service.live.Const.UpdateDenyConfig, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.UpdateDenyConfig,null,JSON.toJSONString(input));
+
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.UpdateDenyConfigResponse.Builder responseBuilder = com.volcengine.service.live.model.response.UpdateDenyConfigResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * describeDenyConfig.
+     *
+     * @param input com.volcengine.service.live.model.request.DescribeDenyConfigRequest
+     * @return com.volcengine.service.live.model.response.DescribeDenyConfigResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.live.model.response.DescribeDenyConfigResponse describeDenyConfig(com.volcengine.service.live.model.request.DescribeDenyConfigRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DescribeDenyConfig,null,JSON.toJSONString(input));
+
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.live.model.response.DescribeDenyConfigResponse.Builder responseBuilder = com.volcengine.service.live.model.response.DescribeDenyConfigResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
     }
 
 }

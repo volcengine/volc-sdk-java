@@ -260,6 +260,30 @@ public class Const {
     public static final String DeleteSnapshotAuditPreset = "DeleteSnapshotAuditPreset";
     public static final String ListVhostSnapshotAuditPreset = "ListVhostSnapshotAuditPreset";
     public static final String DescribeLiveAuditData = "DescribeLiveAuditData";
+    public static final String DescribeCDNSnapshotHistory = "DescribeCDNSnapshotHistory";
+    public static final String DescribeRecordTaskFileHistory = "DescribeRecordTaskFileHistory";
+    public static final String DescribeLiveStreamInfoByPage = "DescribeLiveStreamInfoByPage";
+    public static final String KillStream = "KillStream";
+    public static final String DescribeClosedStreamInfoByPage = "DescribeClosedStreamInfoByPage";
+    public static final String DescribeLiveStreamState = "DescribeLiveStreamState";
+    public static final String DescribeForbiddenStreamInfoByPage = "DescribeForbiddenStreamInfoByPage";
+    public static final String UpdateRelaySourceV2 = "UpdateRelaySourceV2";
+    public static final String DeleteRelaySourceV2 = "DeleteRelaySourceV2";
+    public static final String DescribeRelaySourceV2 = "DescribeRelaySourceV2";
+    public static final String CreateVQScoreTask = "CreateVQScoreTask";
+    public static final String DescribeVQScoreTask = "DescribeVQScoreTask";
+    public static final String ListVQScoreTask = "ListVQScoreTask";
+    public static final String GeneratePlayURL = "GeneratePlayURL";
+    public static final String GeneratePushURL = "GeneratePushURL";
+    public static final String CreatePullToPushTask = "CreatePullToPushTask";
+    public static final String ListPullToPushTask = "ListPullToPushTask";
+    public static final String UpdatePullToPushTask = "UpdatePullToPushTask";
+    public static final String StopPullToPushTask = "StopPullToPushTask";
+    public static final String RestartPullToPushTask = "RestartPullToPushTask";
+    public static final String DeletePullToPushTask = "DeletePullToPushTask";
+    public static final String UpdateDenyConfig = "UpdateDenyConfig";
+    public static final String DescribeDenyConfig = "DescribeDenyConfig";
+    public static final String DeleteDenyConfig = "DeleteDenyConfig";
 
     //kms
     public static final String CreateKeyring = "CreateKeyring";

@@ -72,6 +72,7 @@ public class Const {
     public static final String AsyncLiveVideoRisk = "AsyncLiveVideoRisk";
     public static final String GetAudioLiveResult = "GetAudioLiveResult";
     public static final String AsyncLiveAudioRisk = "AsyncLiveAudioRisk";
+    public static final String TextSliceRisk = "TextSliceRisk";
 
     // livesaas
 

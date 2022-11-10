@@ -11,8 +11,20 @@ public class ContentSecurityDemo {
         ContentSecurityService contentSecurityService = ContentSecurityServiceImpl.getInstance();
         // call below method if you dont set ak and sk in ～/.volc/config
 
-        contentSecurityService.setAccessKey("ak");
-        contentSecurityService.setSecretKey("sk");
+        contentSecurityService.setAccessKey("");
+        contentSecurityService.setSecretKey("");
+
+        try {
+            ImageRiskResultRequest request = new ImageRiskResultRequest();
+            request.setAppId(334361);
+            request.setService("audio_risk");
+            request.setDataId("70");
+
+            GetAudioRiskResponse riskResultResponse = contentSecurityService.AudioResult(request);
+            System.out.println(JSON.toJSONString(riskResultResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         try {
             ImageRiskResultRequest request = new ImageRiskResultRequest();
@@ -137,6 +149,19 @@ public class ContentSecurityDemo {
             request.setDataId("image123");
 
             GetAudioRiskResponse riskResultResponse = contentSecurityService.AudioLiveResult(request);
+            System.out.println(JSON.toJSONString(riskResultResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // text slice risk detection
+        try {
+            RiskDetectionRequest request = new RiskDetectionRequest();
+            request.setAppId(415493);
+            request.setService("text_risk");
+            request.setParameters("{}");
+
+            TextSliceRiskResponse riskResultResponse = contentSecurityService.TextSliceRisk(request);
             System.out.println(JSON.toJSONString(riskResultResponse));
         } catch (Exception e) {
             e.printStackTrace();

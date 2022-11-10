@@ -131,4 +131,13 @@ public interface ContentSecurityService extends IBaseService {
      * @throws Exception the exception
      */
     GetAudioRiskResponse AudioLiveResult(ImageRiskResultRequest audioRiskResultRequest) throws Exception;
+
+    /**
+     * Text Slice Risk.
+     *
+     * @param  riskDetectionRequest text risk detection request
+     * @return text risk detection response
+     * @throws Exception the exception
+     */
+    TextSliceRiskResponse TextSliceRisk(RiskDetectionRequest riskDetectionRequest) throws Exception;
 }

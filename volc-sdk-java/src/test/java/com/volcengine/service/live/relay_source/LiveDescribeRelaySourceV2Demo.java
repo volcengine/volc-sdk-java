@@ -4,7 +4,7 @@
 
 package com.volcengine.service.live.relay_source;
 
-import com.volcengine.service.live.LiveService;
+import com.volcengine.service.live.ILiveService;
 import com.volcengine.service.live.impl.LiveServiceImpl;
 
 public class LiveDescribeRelaySourceV2Demo {

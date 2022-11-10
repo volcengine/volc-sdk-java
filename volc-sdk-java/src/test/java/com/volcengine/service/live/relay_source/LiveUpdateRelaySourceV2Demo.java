@@ -4,7 +4,7 @@
 
 package com.volcengine.service.live.relay_source;
 
-import com.volcengine.service.live.LiveService;
+import com.volcengine.service.live.ILiveService;
 import com.volcengine.service.live.impl.LiveServiceImpl;
 
 public class LiveUpdateRelaySourceV2Demo {
@@ -19,10 +19,10 @@ public class LiveUpdateRelaySourceV2Demo {
 			reqBuilder.setVhost("your Vhost");
 			reqBuilder.setApp("your App");
 			reqBuilder.addRelaySourceDomainList("your RelaySourceDomainList");
-			com.volcengine.service.live.model.request.UpdateRelaySourceRequest.RelaySourceParamsEntry.Builder relaySourceParamsBuilder = com.volcengine.service.live.model.request.UpdateRelaySourceRequest.RelaySourceParamsEntry.newBuilder();
-			reqBuilder.addRelaySourceParams(relaySourceParamsBuilder);
-			reqBuilder.setRelaySourceProtocol("your RelaySourceProtocol");
-			
+//			com.volcengine.service.live.model.request.UpdateRelaySourceRequest.RelaySourceParamsEntry.Builder relaySourceParamsBuilder = com.volcengine.service.live.model.request.UpdateRelaySourceRequest.RelaySourceParamsEntry.newBuilder();
+//			reqBuilder.addRelaySourceParams(relaySourceParamsBuilder);
+//			reqBuilder.setRelaySourceProtocol("your RelaySourceProtocol");
+//
             com.volcengine.service.live.model.response.UpdateRelaySourceResponse resp = liveService.updateRelaySourceV2(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {
                 System.out.println(resp.getResponseMetadata().getError());

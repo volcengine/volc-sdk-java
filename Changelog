@@ -1,5 +1,10 @@
 Change log
 
+2022-11-10 Bumped to version v1.0.67
+- Added live service
+- Updated apis for security/vod/rtc
+- Moved android-demos to android-example
+
 2022-11-04 Bumped to version v1.0.66
 - Added video_aiot service
 - Updated apis for imagex/vod/stream

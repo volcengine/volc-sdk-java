@@ -25,7 +25,7 @@ public class UpdateImageUrls {
         UpdateImageFilesRequest req = new UpdateImageFilesRequest();
         req.setServiceId("service id"); // 服务 ID
         req.setAction(UpdateImageFilesRequest.Action.REFRESH); // 操作
-        req.setImageUrls(urls); // 欲操作的文件 Store URI
+        req.setImageUrls(urls); // 待更新的文件 URL 列表（可以通过浏览器访问的完整 URL）
 
         try {
             UpdateImageFilesResponse resp = service.updateImageUrls(req);

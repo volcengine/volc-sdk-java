@@ -4,11 +4,11 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import static com.volcengine.model.tls.Const.*;
-
-import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
+
+import static com.volcengine.model.tls.Const.LOGS;
+import static com.volcengine.model.tls.Const.SOURCE;
 
 @Data
 @NoArgsConstructor

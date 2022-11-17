@@ -1,6 +1,5 @@
 package com.volcengine.model.tls.request;
 
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.util.List;

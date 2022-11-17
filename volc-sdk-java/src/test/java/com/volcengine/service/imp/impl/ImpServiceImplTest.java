@@ -1,9 +1,13 @@
 package com.volcengine.service.imp.impl;
 
 import com.volcengine.service.imp.IImpService;
-import com.volcengine.service.imp.model.request.*;
-import com.volcengine.service.imp.model.business.*;
-import com.volcengine.service.imp.model.response.*;
+import com.volcengine.service.imp.model.business.InputPath;
+import com.volcengine.service.imp.model.request.ImpKillJobRequest;
+import com.volcengine.service.imp.model.request.ImpRetrieveJobRequest;
+import com.volcengine.service.imp.model.request.ImpSubmitJobRequest;
+import com.volcengine.service.imp.model.response.ImpKillJobResponse;
+import com.volcengine.service.imp.model.response.ImpRetrieveJobResponse;
+import com.volcengine.service.imp.model.response.ImpSubmitJobResponse;
 import junit.framework.TestCase;
 import org.junit.Test;
 

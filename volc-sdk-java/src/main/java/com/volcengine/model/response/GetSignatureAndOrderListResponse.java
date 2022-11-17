@@ -2,7 +2,6 @@ package com.volcengine.model.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.volcengine.model.beans.SmsSignatureInfo;
-import com.volcengine.model.beans.SmsTemplateInfo;
 import lombok.Data;
 
 import java.util.List;

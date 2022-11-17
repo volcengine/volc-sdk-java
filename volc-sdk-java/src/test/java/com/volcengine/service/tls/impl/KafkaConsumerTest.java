@@ -5,13 +5,13 @@ import com.volcengine.model.tls.FullTextInfo;
 import com.volcengine.model.tls.exception.LogException;
 import com.volcengine.model.tls.request.*;
 import com.volcengine.model.tls.response.*;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
 
 public class KafkaConsumerTest extends BaseTest {
     @Test

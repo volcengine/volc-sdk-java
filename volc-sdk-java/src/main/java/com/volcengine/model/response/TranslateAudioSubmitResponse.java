@@ -3,9 +3,6 @@ package com.volcengine.model.response;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
-import java.util.List;
-import java.util.Map;
-
 /**
  * 音视频翻译-提交任务响应
  *

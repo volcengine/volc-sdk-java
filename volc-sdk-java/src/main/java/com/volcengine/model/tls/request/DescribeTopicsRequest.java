@@ -1,6 +1,5 @@
 package com.volcengine.model.tls.request;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 @Data

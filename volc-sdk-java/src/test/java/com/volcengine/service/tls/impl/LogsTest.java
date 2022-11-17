@@ -13,7 +13,8 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static com.volcengine.model.tls.Const.LZ4;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
 
 public class LogsTest extends BaseTest {
     @Test

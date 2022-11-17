@@ -3,18 +3,16 @@ package com.volcengine.service.cloudtrail.impl;
 import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
-import com.volcengine.helper.Utils;
-import com.volcengine.model.request.cloudtrail.*;
-import com.volcengine.model.response.CommonResponse;
+import com.volcengine.model.request.cloudtrail.LookupEventsRequest;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.response.cloudtrail.LookupEventsResponse;
-
 import com.volcengine.service.BaseServiceImpl;
-import com.volcengine.service.cloudtrail.ICloudTrailService;
 import com.volcengine.service.cloudtrail.CloudTrailConfig;
+import com.volcengine.service.cloudtrail.ICloudTrailService;
 import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CloudTrailServiceImpl extends BaseServiceImpl implements ICloudTrailService {
 

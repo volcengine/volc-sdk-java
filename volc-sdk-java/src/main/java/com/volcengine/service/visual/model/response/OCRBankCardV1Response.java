@@ -1,8 +1,9 @@
 package com.volcengine.service.visual.model.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import java.util.List;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class OCRBankCardV1Response extends VisualBaseResponse {

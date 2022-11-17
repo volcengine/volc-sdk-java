@@ -1,7 +1,6 @@
 package com.volcengine.service.live.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.google.protobuf.util.JsonFormat;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
@@ -12,8 +11,8 @@ import com.volcengine.model.live.response.*;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.response.ResponseMetadata;
 import com.volcengine.service.BaseServiceImpl;
-import com.volcengine.service.live.LiveService;
 import com.volcengine.service.live.LiveConfig;
+import com.volcengine.service.live.LiveService;
 import com.volcengine.service.live.model.request.UpdateRelaySourceRequest;
 import org.apache.http.HttpHost;
 

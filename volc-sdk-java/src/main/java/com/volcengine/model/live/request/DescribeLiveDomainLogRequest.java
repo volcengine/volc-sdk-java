@@ -1,6 +1,6 @@
 package com.volcengine.model.live.request;
 
-import com.alibaba.fastjson.annotation.*;
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 @Data

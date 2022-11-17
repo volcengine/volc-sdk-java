@@ -1,7 +1,6 @@
 package com.volcengine.model.tls.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.Data;
 
 import static com.volcengine.model.tls.Const.*;

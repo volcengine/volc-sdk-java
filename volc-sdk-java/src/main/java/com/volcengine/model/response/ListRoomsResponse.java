@@ -1,7 +1,7 @@
 package com.volcengine.model.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.volcengine.model.beans.*;
+import com.volcengine.model.beans.Room;
 import lombok.Data;
 
 @Data

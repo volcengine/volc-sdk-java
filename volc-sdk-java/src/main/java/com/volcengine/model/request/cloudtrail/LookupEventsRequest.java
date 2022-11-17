@@ -2,6 +2,7 @@ package com.volcengine.model.request.cloudtrail;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
+
 import java.util.List;
 
 @Data

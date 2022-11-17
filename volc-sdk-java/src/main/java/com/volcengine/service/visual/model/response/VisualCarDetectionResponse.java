@@ -1,10 +1,9 @@
 package com.volcengine.service.visual.model.response;
 
-import java.util.List;
-
 import com.alibaba.fastjson.annotation.JSONField;
-
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class VisualCarDetectionResponse extends VisualBaseResponse {

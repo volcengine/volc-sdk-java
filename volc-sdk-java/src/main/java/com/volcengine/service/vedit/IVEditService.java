@@ -1,11 +1,11 @@
 package com.volcengine.service.vedit;
 
+import com.volcengine.model.request.GetDirectEditResultRequest;
 import com.volcengine.model.request.SubmitDirectEditTaskRequest;
 import com.volcengine.model.request.SubmitTemplateTaskRequest;
-import com.volcengine.model.request.GetDirectEditResultRequest;
+import com.volcengine.model.response.GetDirectEditResultResponse;
 import com.volcengine.model.response.SubmitDirectEditTaskAsyncResponse;
 import com.volcengine.model.response.SubmitTemplateTaskAsyncResponse;
-import com.volcengine.model.response.GetDirectEditResultResponse;
 import com.volcengine.service.IBaseService;
 
 /**

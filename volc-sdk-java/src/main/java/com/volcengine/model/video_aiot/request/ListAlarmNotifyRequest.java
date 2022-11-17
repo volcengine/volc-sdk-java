@@ -3,9 +3,6 @@ package com.volcengine.model.video_aiot.request;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Data
 public class ListAlarmNotifyRequest {
     @JSONField(name = "PageNumber")

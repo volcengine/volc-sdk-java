@@ -4,7 +4,6 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * type Space struct {

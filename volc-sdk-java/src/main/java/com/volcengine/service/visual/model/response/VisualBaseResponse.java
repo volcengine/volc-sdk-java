@@ -2,7 +2,6 @@ package com.volcengine.service.visual.model.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.volcengine.model.response.ResponseMetadata;
-
 import lombok.Data;
 
 @Data

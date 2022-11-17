@@ -1,7 +1,6 @@
 package com.volcengine.model.video_aiot.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.volcengine.model.video_aiot.response.Device;
 import lombok.Data;
 
 @Data

@@ -2,9 +2,7 @@ package com.volcengine.model.tls;
 
 import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
-import com.volcengine.model.tls.exception.LogException;
 import lombok.Data;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Header;
 import org.apache.http.message.BasicHeader;
 

@@ -1,12 +1,8 @@
 package com.volcengine.model.livesaas.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.volcengine.model.beans.ImageInfo;
-import com.volcengine.model.response.CommitImageUploadResponse;
 import com.volcengine.model.response.ResponseMetadata;
 import lombok.Data;
-
-import java.util.List;
 
 @Data
 public class CreateActivityAPIResponse {

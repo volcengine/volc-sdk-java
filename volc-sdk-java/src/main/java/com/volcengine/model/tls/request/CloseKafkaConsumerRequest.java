@@ -4,7 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import static com.volcengine.model.tls.Const.*;
+import static com.volcengine.model.tls.Const.TOPIC_ID;
 
 @Data
 @NoArgsConstructor

@@ -1,7 +1,6 @@
 package com.volcengine.model.stream;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import lombok.Builder;
 import lombok.Data;
 
 @Data

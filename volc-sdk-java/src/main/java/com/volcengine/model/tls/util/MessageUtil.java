@@ -2,9 +2,7 @@ package com.volcengine.model.tls.util;
 
 
 import com.volcengine.model.tls.exception.LogException;
-import org.apache.commons.lang3.StringUtils;
 
-import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 

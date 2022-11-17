@@ -3,7 +3,6 @@ package com.volcengine.model.tls.response;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.volcengine.model.tls.TaskInfo;
 import com.volcengine.model.tls.exception.LogException;
-import com.volcengine.model.tls.response.CommonResponse;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -11,7 +10,8 @@ import org.apache.http.Header;
 
 import java.util.List;
 
-import static com.volcengine.model.tls.Const.*;
+import static com.volcengine.model.tls.Const.TASKS;
+import static com.volcengine.model.tls.Const.TOTAL;
 
 @Data
 @ToString(callSuper = true)

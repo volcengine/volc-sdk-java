@@ -4,20 +4,17 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.model.ServiceInfo;
-import com.volcengine.model.request.SmsBatchSendRequest;
-import com.volcengine.model.request.SmsCheckVerifyCodeRequest;
-import com.volcengine.model.request.SmsSendRequest;
-import com.volcengine.model.request.SmsSendVerifyCodeRequest;
-import com.volcengine.model.response.RawResponse;
-import com.volcengine.model.response.ResponseMetadata;
-import com.volcengine.model.response.SmsCheckVerifyCodeResponse;
-import com.volcengine.model.response.SmsSendResponse;
+import com.volcengine.model.request.*;
+import com.volcengine.model.response.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.sms.SmsConfig;
 import com.volcengine.service.sms.SmsService;
+import com.volcengine.util.ConvertUtils;
 import org.apache.http.HttpHost;
+import org.apache.http.NameValuePair;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
 
@@ -85,6 +82,64 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         return getSmsCheckResponse(response);
     }
 
+    @Override
+    public ConversionResponse conversion(ConversionRequest conversionRequest) throws Exception {
+        RawResponse response = json("Conversion", new ArrayList<>(), JSON.toJSONString(conversionRequest));
+        return getConversionResponse(response);
+    }
+
+    @Override
+    public GetSubAccountListResponse getSubAccountList(GetSubAccountListRequest getSubAccountListRequest) throws Exception {
+        List<NameValuePair> urlParams = ConvertUtils.convertToPair(getSubAccountListRequest);
+        RawResponse response = json("GetSubAccountList", urlParams, "");
+        return getSubAccountListResponse(response);
+    }
+
+    @Override
+    public GetSubAccountDetailResponse getSubAccountDetail(SubAccountRequest subAccountRequest) throws Exception {
+        List<NameValuePair> urlParams = ConvertUtils.convertToPair(subAccountRequest);
+        RawResponse response = json("GetSubAccountDetail", urlParams, "");
+        return getSubAccountDetailResponse(response);
+    }
+
+    @Override
+    public GetSmsTemplateAndOrderListResponse getSmsTemplateAndOrderList(GetSmsTemplateAndOrderListRequest getSmsTemplateAndOrderListRequest) throws Exception {
+        List<NameValuePair> urlParams = ConvertUtils.convertToPair(getSmsTemplateAndOrderListRequest);
+        RawResponse response = json("GetSmsTemplateAndOrderList", urlParams, "");
+        return getSmsTemplateAndOrderListResponse(response);
+    }
+
+    @Override
+    public ApplySmsTemplateResponse applySmsTemplate(ApplySmsTemplateRequest applySmsTemplateRequest) throws Exception {
+        RawResponse response = json("ApplySmsTemplate", new ArrayList<>(), JSON.toJSONString(applySmsTemplateRequest));
+        return applySmsTemplateResponse(response);
+    }
+
+    @Override
+    public DeleteSmsTemplateResponse deleteSmsTemplate(DeleteSmsTemplateRequest deleteSmsTemplateRequest) throws Exception {
+        RawResponse response = json("DeleteSmsTemplate", new ArrayList<>(), JSON.toJSONString(deleteSmsTemplateRequest));
+        return deleteSmsTemplateResponse(response);
+    }
+
+    @Override
+    public GetSignatureAndOrderListResponse getSmsSignatureAndOrderList(GetSignatureAndOrderListRequest getSignatureAndOrderListRequest) throws Exception {
+        List<NameValuePair> urlParams = ConvertUtils.convertToPair(getSignatureAndOrderListRequest);
+        RawResponse response = json("GetSignatureAndOrderList", urlParams, "");
+        return getSignatureAndOrderListResponse(response);
+    }
+
+    @Override
+    public ApplySmsSignatureResponse applySmsSignature(ApplySmsSignatureRequest applySmsSignatureRequest) throws Exception {
+        RawResponse response = json("ApplySmsSignature", new ArrayList<>(), JSON.toJSONString(applySmsSignatureRequest));
+        return applySmsSignatureResponse(response);
+    }
+
+    @Override
+    public DeleteSignatureResponse deleteSmsSignature(DeleteSignatureRequest deleteSignatureRequest) throws Exception {
+        RawResponse response = json("DeleteSignature", new ArrayList<>(), JSON.toJSONString(deleteSignatureRequest));
+        return deleteSignatureResponse(response);
+    }
+
     private SmsSendResponse getSmsSendResponse(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -102,6 +157,123 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
             throw response.getException();
         }
         SmsCheckVerifyCodeResponse res = JSON.parseObject(response.getData(), SmsCheckVerifyCodeResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    private ConversionResponse getConversionResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ConversionResponse res = JSON.parseObject(response.getData(), ConversionResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    private GetSubAccountListResponse getSubAccountListResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetSubAccountListResponse res = JSON.parseObject(response.getData(), GetSubAccountListResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    private GetSubAccountDetailResponse getSubAccountDetailResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetSubAccountDetailResponse res = JSON.parseObject(response.getData(), GetSubAccountDetailResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    private GetSmsTemplateAndOrderListResponse getSmsTemplateAndOrderListResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetSmsTemplateAndOrderListResponse res = JSON.parseObject(response.getData(), GetSmsTemplateAndOrderListResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    private ApplySmsTemplateResponse applySmsTemplateResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ApplySmsTemplateResponse res = JSON.parseObject(response.getData(), ApplySmsTemplateResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    private DeleteSmsTemplateResponse deleteSmsTemplateResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteSmsTemplateResponse res = JSON.parseObject(response.getData(), DeleteSmsTemplateResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    private GetSignatureAndOrderListResponse getSignatureAndOrderListResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetSignatureAndOrderListResponse res = JSON.parseObject(response.getData(), GetSignatureAndOrderListResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    private ApplySmsSignatureResponse applySmsSignatureResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ApplySmsSignatureResponse res = JSON.parseObject(response.getData(), ApplySmsSignatureResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    private DeleteSignatureResponse deleteSignatureResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteSignatureResponse res = JSON.parseObject(response.getData(), DeleteSignatureResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());

@@ -1,11 +1,7 @@
 package com.volcengine.service.sms;
 
-import com.volcengine.model.request.SmsBatchSendRequest;
-import com.volcengine.model.request.SmsCheckVerifyCodeRequest;
-import com.volcengine.model.request.SmsSendRequest;
-import com.volcengine.model.request.SmsSendVerifyCodeRequest;
-import com.volcengine.model.response.SmsCheckVerifyCodeResponse;
-import com.volcengine.model.response.SmsSendResponse;
+import com.volcengine.model.request.*;
+import com.volcengine.model.response.*;
 import com.volcengine.service.IBaseService;
 
 public interface SmsService extends IBaseService {
@@ -44,4 +40,85 @@ public interface SmsService extends IBaseService {
      * @throws Exception the exception
      */
     SmsCheckVerifyCodeResponse checkVerifyCode(SmsCheckVerifyCodeRequest smsCheckVerifyCodeRequest) throws Exception;
+
+    /**
+     * Conversion
+     *
+     * @param conversionRequest
+     * @return
+     * @throws Exception
+     */
+    ConversionResponse conversion(ConversionRequest conversionRequest) throws Exception;
+
+    /**
+     * GetSubAccountList
+     *
+     * @param getSubAccountListRequest
+     * @return
+     * @throws Exception
+     */
+    GetSubAccountListResponse getSubAccountList(GetSubAccountListRequest getSubAccountListRequest) throws Exception;
+
+    /**
+     * GetSubAccountDetail
+     *
+     * @param subAccountRequest
+     * @return
+     * @throws Exception
+     */
+    GetSubAccountDetailResponse getSubAccountDetail(SubAccountRequest subAccountRequest) throws Exception;
+
+    /**
+     * GetSmsTemplateAndOrderList
+     *
+     * @param getSmsTemplateAndOrderListRequest
+     * @return
+     * @throws Exception
+     */
+    GetSmsTemplateAndOrderListResponse getSmsTemplateAndOrderList(GetSmsTemplateAndOrderListRequest getSmsTemplateAndOrderListRequest) throws Exception;
+
+    /**
+     * ApplySmsTemplate
+     *
+     * @param applySmsTemplateRequest
+     * @return
+     * @throws Exception
+     */
+    ApplySmsTemplateResponse applySmsTemplate(ApplySmsTemplateRequest applySmsTemplateRequest) throws Exception;
+
+    /**
+     * DeleteSmsTemplate
+     *
+     * @param deleteSmsTemplateRequest
+     * @return
+     * @throws Exception
+     */
+    DeleteSmsTemplateResponse deleteSmsTemplate(DeleteSmsTemplateRequest deleteSmsTemplateRequest) throws Exception;
+
+    /**
+     * GetSmsSignatureAndOrderList
+     *
+     * @param getSignatureAndOrderListRequest
+     * @return
+     * @throws Exception
+     */
+    GetSignatureAndOrderListResponse getSmsSignatureAndOrderList(GetSignatureAndOrderListRequest getSignatureAndOrderListRequest) throws Exception;
+
+    /**
+     * ApplySmsSignature
+     *
+     * @param applySmsSignatureRequest
+     * @return
+     * @throws Exception
+     */
+    ApplySmsSignatureResponse applySmsSignature(ApplySmsSignatureRequest applySmsSignatureRequest) throws Exception;
+
+    /**
+     * DeleteSmsSignature
+     *
+     * @param deleteSignatureRequest
+     * @return
+     * @throws Exception
+     */
+    DeleteSignatureResponse deleteSmsSignature(DeleteSignatureRequest deleteSignatureRequest) throws Exception;
 }

@@ -50,7 +50,7 @@ public class IndexTest extends BaseTest {
             });
             String expectedMessage = "Index already exist";
             String actualMessage = exception.getMessage();
-             assertEquals(expectedMessage, actualMessage);
+            assertEquals(expectedMessage, actualMessage);
 
             //describe index
             DescribeIndexRequest describeIndexRequest = new DescribeIndexRequest(createTopicResponse.getTopicId());
@@ -92,7 +92,7 @@ public class IndexTest extends BaseTest {
             });
             expectedMessage = "Index does not exist.";
             actualMessage = exception.getMessage();
-             assertEquals(expectedMessage, actualMessage);
+            assertEquals(expectedMessage, actualMessage);
             //delete topic and project
             DeleteTopicResponse deleteTopicResponse = client.deleteTopic(
                     new DeleteTopicRequest(createTopicResponse.getTopicId()));

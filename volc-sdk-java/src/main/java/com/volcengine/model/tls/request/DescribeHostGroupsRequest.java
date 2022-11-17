@@ -8,4 +8,5 @@ public class DescribeHostGroupsRequest {
     String hostGroupName;
     Integer pageNumber;
     Integer pageSize;
+    String hostIdentifier;
 }

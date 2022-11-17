@@ -21,4 +21,6 @@ public class Receiver {
     String startTime;
     @JSONField(name=END_TIME)
     String endTime;
+    @JSONField(name=WEBHOOK)
+    String webhook;
 }

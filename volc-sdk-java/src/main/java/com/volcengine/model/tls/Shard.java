@@ -21,4 +21,6 @@ public class Shard {
     String status;
     @JSONField(name = MODIFY_TIME)
     String modifyTime;
+    @JSONField(name = STOP_WRITE_TIME)
+    String stopWriteTime;
 }

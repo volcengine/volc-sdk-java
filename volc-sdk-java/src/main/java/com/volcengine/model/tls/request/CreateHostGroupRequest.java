@@ -21,4 +21,10 @@ public class CreateHostGroupRequest {
     List<String> hostIpList;
     @JSONField(name = HOST_IDENTIFIER)
     String hostIdentifier;
+    @JSONField(name = AUTO_UPDATE)
+    Boolean autoUpdate;
+    @JSONField(name = UPDATE_START_TIME)
+    String updateStartTime;
+    @JSONField(name = UPDATE_END_TIME)
+    String updateEndTime;
 }

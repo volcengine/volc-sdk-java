@@ -1,6 +1,7 @@
 package com.volcengine.model.tls.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.Data;
 
 import static com.volcengine.model.tls.Const.*;
@@ -15,4 +16,10 @@ public class ModifyTopicRequest {
     Integer ttl;
     @JSONField(name = DESCRIPTION)
     String description;
+    @JSONField(name = AUTO_SPLIT)
+    Boolean autoSplit;
+    @JSONField(name = MAX_SPLIT_SHARD)
+    Integer maxSplitShard;
+    @JSONField(name = ENABLE_TRACKING)
+    Boolean enableTracking;
 }

@@ -56,7 +56,10 @@ public class RuleTest extends BaseTest {
 
             createRuleRequest.setExcludePaths(Arrays.asList(new ExcludePath("File", "/data/nginx/log/*/*/exclude.log")));
             createRuleRequest.setLogSample("2018-05-22 15:35:53.850 INFO XXXX");
-            createRuleRequest.setUserDefineRule(new UserDefineRule(new ParsePathRule("/var/logs/instanceid_any_podname/test.log", "\\/test.log", Arrays.asList("instance-id"))));
+            UserDefineRule udr = new UserDefineRule(); {
+                udr.setParsePathRule(new ParsePathRule("/var/logs/instanceid_any_podname/test.log", "\\/test.log", Arrays.asList("instance-id")));
+            }
+            createRuleRequest.setUserDefineRule(udr);
             createRuleRequest.setInputType(2);
 
             ContainerRule containerRule = new ContainerRule();
@@ -101,7 +104,10 @@ public class RuleTest extends BaseTest {
 
             ruleInfo.setExcludePaths(Arrays.asList(new ExcludePath("File", "/data/nginx/log/*/*/exclude.log")));
             ruleInfo.setLogSample("2018-05-22 15:35:53.850 INFO XXXX");
-            ruleInfo.setUserDefineRule(new UserDefineRule(new ParsePathRule("/var/logs/instanceid_any_podname/test.log", "\\/test.log", Arrays.asList("instance-id"))));
+            udr = new UserDefineRule(); {
+                udr.setParsePathRule(new ParsePathRule("/var/logs/instanceid_any_podname/test.log", "\\/test.log", Arrays.asList("instance-id")));
+            }
+            ruleInfo.setUserDefineRule(udr);
             ruleInfo.setInputType(2);
 
             containerRule = new ContainerRule();

@@ -448,6 +448,106 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         }
                     }
             ));
+            put(com.volcengine.model.tls.Const.OPEN_KAFKA_CONSUMER, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.PUT);
+                            put(Const.Path, com.volcengine.model.tls.Const.OPEN_KAFKA_CONSUMER);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.CLOSE_KAFKA_CONSUMER, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.PUT);
+                            put(Const.Path, com.volcengine.model.tls.Const.CLOSE_KAFKA_CONSUMER);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_KAFKA_CONSUMER, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.GET);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_KAFKA_CONSUMER);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.CREATE_DOWNLOAD_TASK, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.CREATE_DOWNLOAD_TASK);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_DOWNLOAD_TASKS, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.GET);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_DOWNLOAD_TASKS);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_DOWNLOAD_URL, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.GET);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_DOWNLOAD_URL);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_HISTOGRAM, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_HISTOGRAM);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.MODIFY_HOST_GROUPS_AUTO_UPDATE, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.PUT);
+                            put(Const.Path, com.volcengine.model.tls.Const.MODIFY_HOST_GROUPS_AUTO_UPDATE);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_LOG_CONTEXT, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_LOG_CONTEXT);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.WEB_TRACKS, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.WEB_TRACKS);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
         }
     };
 

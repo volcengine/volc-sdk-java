@@ -11,7 +11,7 @@ import com.volcengine.model.live.response.*;
 /**
  * The interface Vod service.
  */
-public interface ILiveService extends com.volcengine.service.IBaseService {
+public interface LiveService extends com.volcengine.service.IBaseService {
 
 
 

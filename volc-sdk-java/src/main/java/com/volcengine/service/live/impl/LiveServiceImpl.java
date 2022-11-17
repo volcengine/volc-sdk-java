@@ -12,7 +12,7 @@ import com.volcengine.model.live.response.*;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.response.ResponseMetadata;
 import com.volcengine.service.BaseServiceImpl;
-import com.volcengine.service.live.ILiveService;
+import com.volcengine.service.live.LiveService;
 import com.volcengine.service.live.LiveConfig;
 import com.volcengine.service.live.model.request.UpdateRelaySourceRequest;
 import org.apache.http.HttpHost;
@@ -22,7 +22,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 
-public class LiveServiceImpl extends BaseServiceImpl implements ILiveService {
+public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
 
     private LiveServiceImpl() {
         super(LiveConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), LiveConfig.apiInfoList);
@@ -37,15 +37,15 @@ public class LiveServiceImpl extends BaseServiceImpl implements ILiveService {
     }
 
 
-    public static ILiveService getInstance() {
+    public static LiveService getInstance() {
         return new LiveServiceImpl();
     }
 
-    public static ILiveService getInstance2(HttpHost proxy) {
+    public static LiveService getInstance2(HttpHost proxy) {
         return new LiveServiceImpl(proxy);
     }
 
-    public static ILiveService getInstance(String region) throws Exception {
+    public static LiveService getInstance(String region) throws Exception {
         ServiceInfo serviceInfo = LiveConfig.serviceInfoMap.get(region);
         if (serviceInfo == null) {
             throw new Exception("Live not support region " + region);

@@ -4,13 +4,13 @@
 
 package com.volcengine.service.live.relay_source;
 
-import com.volcengine.service.live.ILiveService;
+import com.volcengine.service.live.LiveService;
 import com.volcengine.service.live.impl.LiveServiceImpl;
 
 public class LiveDescribeRelaySourceV2Demo {
 
     public static void main(String[] args) throws Exception {
-        ILiveService liveService = LiveServiceImpl.getInstance();
+        LiveService liveService = LiveServiceImpl.getInstance();
         liveService.setAccessKey("your ak");
         liveService.setSecretKey("your sk");
 

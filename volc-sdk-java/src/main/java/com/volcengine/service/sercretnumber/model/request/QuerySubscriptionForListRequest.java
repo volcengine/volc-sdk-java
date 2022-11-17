@@ -23,7 +23,9 @@ public class QuerySubscriptionForListRequest {
 
   private String subId;
 
-  private Integer Offset;
+  private String outId;
+
+  private Integer offset;
 
   private Integer limit;
 }

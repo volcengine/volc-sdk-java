@@ -101,6 +101,15 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
   }
 
   @Override
+  public SecretBindResponse selectNumberAndBindAXN(SelectNumberAndBindAXNRequest request) throws Exception {
+    RawResponse response = query("SelectNumberAndBindAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
+    if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+      throw response.getException();
+    }
+    return JSON.parseObject(response.getData(), SecretBindResponse.class);
+  }
+
+  @Override
   public OperationResponse updateAXN(UpdateAXNRequest request) throws Exception {
     RawResponse response = query("UpdateAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
     if (response.getCode() != SdkError.SUCCESS.getNumber()) {

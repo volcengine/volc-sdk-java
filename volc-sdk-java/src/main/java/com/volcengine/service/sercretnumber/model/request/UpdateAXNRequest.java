@@ -19,5 +19,17 @@ public class UpdateAXNRequest {
 
   private Long expireTime = -1L;
 
+  private String phoneNoA;
+
   private String phoneNoB;
+
+  private String phoneNoX;
+
+  private String idempotentId;
+
+  private String userData;
+
+  private Integer autoCreateFlag = -1;
+
+  public String outId;
 }

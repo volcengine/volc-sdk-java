@@ -150,6 +150,18 @@ public class SecretNumberConfig {
             }
           }
       ));
+        put("SelectNumberAndBindAXN", new ApiInfo(new HashMap<String, Object>() {
+            {
+                put(Const.Method, "POST");
+                put(Const.Path, "/");
+                put(Const.Query, new ArrayList<NameValuePair>() {
+                    {
+                        add(new BasicNameValuePair("Action", "SelectNumberAndBindAXN"));
+                        add(new BasicNameValuePair("Version", "2020-09-01"));
+                    }
+                });
+            }
+        }));
       put("UpdateAXN", new ApiInfo(
           new HashMap<String, Object>() {
             {

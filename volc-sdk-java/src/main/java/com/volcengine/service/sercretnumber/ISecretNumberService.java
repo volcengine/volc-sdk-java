@@ -25,6 +25,8 @@ public interface ISecretNumberService extends IBaseService {
 
   SecretBindResponse bindAXN(BindAXNRequest request) throws Exception;
 
+  SecretBindResponse selectNumberAndBindAXN(SelectNumberAndBindAXNRequest request) throws Exception;
+
   OperationResponse updateAXN(UpdateAXNRequest request) throws Exception;
 
   OperationResponse unbindAXN(SpecificSubIdRequest request) throws Exception;

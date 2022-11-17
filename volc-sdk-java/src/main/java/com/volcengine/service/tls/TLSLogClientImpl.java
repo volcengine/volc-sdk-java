@@ -12,15 +12,12 @@ import com.volcengine.model.tls.request.*;
 import com.volcengine.model.tls.response.*;
 import com.volcengine.model.tls.util.MessageUtil;
 import com.volcengine.model.tls.util.TimeUtil;
-import com.volcengine.util.EncodeUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Header;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
 
-import java.lang.reflect.Array;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

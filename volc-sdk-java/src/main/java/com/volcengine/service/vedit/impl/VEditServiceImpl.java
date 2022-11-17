@@ -4,13 +4,15 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.model.ServiceInfo;
-import com.volcengine.model.request.*;
+import com.volcengine.model.request.GetDirectEditResultRequest;
+import com.volcengine.model.request.SubmitDirectEditTaskRequest;
+import com.volcengine.model.request.SubmitTemplateTaskRequest;
 import com.volcengine.model.response.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.vedit.IVEditService;
 import com.volcengine.service.vedit.VEditConfig;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class VEditServiceImpl extends BaseServiceImpl implements IVEditService {
 

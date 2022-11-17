@@ -7,10 +7,7 @@ import org.apache.http.Header;
 import java.util.List;
 import java.util.Map;
 
-import static com.volcengine.helper.Const.CONNECTION_TIMEOUT;
-import static com.volcengine.helper.Const.Host;
-import static com.volcengine.helper.Const.SOCKET_TIMEOUT;
-import static com.volcengine.helper.Const.Scheme;
+import static com.volcengine.helper.Const.*;
 
 @Data
 public class ServiceInfo {

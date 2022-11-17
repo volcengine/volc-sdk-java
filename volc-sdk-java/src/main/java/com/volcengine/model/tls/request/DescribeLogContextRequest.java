@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 
 import static com.volcengine.model.tls.Const.*;
 
-import java.math.BigInteger;
-
 @Data
 @NoArgsConstructor
 public class DescribeLogContextRequest {

@@ -9,7 +9,8 @@ import com.volcengine.service.imagex.IImageXService;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 import junit.framework.TestCase;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignerV4ImplTest extends TestCase {
 

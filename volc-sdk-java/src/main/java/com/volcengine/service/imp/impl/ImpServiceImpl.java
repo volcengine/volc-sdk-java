@@ -6,7 +6,9 @@
 package com.volcengine.service.imp.impl;
 
 import com.google.protobuf.util.JsonFormat;
-import java.io.*;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStreamReader;
 
 public class ImpServiceImpl extends com.volcengine.service.BaseServiceImpl implements com.volcengine.service.imp.IImpService {
     	

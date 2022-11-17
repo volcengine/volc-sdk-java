@@ -2,9 +2,9 @@ package com.volcengine.model.tls;
 
 import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.tls.exception.LogException;
+import com.volcengine.service.tls.TLSHttpUtil;
 import com.volcengine.service.tls.TLSLogClient;
 import com.volcengine.service.tls.TLSLogClientImpl;
-import com.volcengine.service.tls.TLSHttpUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 

@@ -4,9 +4,8 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
-import static com.volcengine.model.tls.Const.*;
+import static com.volcengine.model.tls.Const.COUNT;
+import static com.volcengine.model.tls.Const.TIME;
 
 @Data
 @NoArgsConstructor

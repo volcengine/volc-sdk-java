@@ -54,7 +54,7 @@ public class RuleDemo extends BaseDemo {
 
             createRuleRequest.setExcludePaths(Arrays.asList(new ExcludePath("File", "/data/nginx/log/*/*/exclude.log")));
             createRuleRequest.setLogSample("2018-05-22 15:35:53.850 INFO XXXX");
-            createRuleRequest.setUserDefineRule(new UserDefineRule(new ParsePathRule("/var/logs/instanceid_any_podname/test.log", "\\/test.log", Arrays.asList("instance-id"))));
+            createRuleRequest.setUserDefineRule(new UserDefineRule(new ParsePathRule("/var/logs/instanceid_any_podname/test.log", "\\/test.log", Arrays.asList("instance-id")), new ShardHashKey(), Boolean.FALSE, new HashMap<>()));
             createRuleRequest.setInputType(2);
 
             ContainerRule containerRule = new ContainerRule();
@@ -99,7 +99,7 @@ public class RuleDemo extends BaseDemo {
 
             ruleInfo.setExcludePaths(Arrays.asList(new ExcludePath("File", "/data/nginx/log/*/*/exclude.log")));
             ruleInfo.setLogSample("2018-05-22 15:35:53.850 INFO XXXX");
-            ruleInfo.setUserDefineRule(new UserDefineRule(new ParsePathRule("/var/logs/instanceid_any_podname/test.log", "\\/test.log", Arrays.asList("instance-id"))));
+            ruleInfo.setUserDefineRule(new UserDefineRule(new ParsePathRule("/var/logs/instanceid_any_podname/test.log", "\\/test.log", Arrays.asList("instance-id")), new ShardHashKey(), Boolean.FALSE, new HashMap<>()));
             ruleInfo.setInputType(2);
 
             containerRule = new ContainerRule();

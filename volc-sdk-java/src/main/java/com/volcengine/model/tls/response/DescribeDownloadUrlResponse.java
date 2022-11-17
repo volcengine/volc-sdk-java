@@ -2,7 +2,6 @@ package com.volcengine.model.tls.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.volcengine.model.tls.exception.LogException;
-import com.volcengine.model.tls.response.CommonResponse;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;

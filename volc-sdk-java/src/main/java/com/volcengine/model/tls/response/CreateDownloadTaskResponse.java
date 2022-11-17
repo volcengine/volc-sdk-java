@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.apache.http.Header;
 
-import static com.volcengine.model.tls.Const.*;
+import static com.volcengine.model.tls.Const.TASK_ID;
 
 @Data
 @ToString(callSuper = true)

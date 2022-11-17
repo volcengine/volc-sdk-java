@@ -1,13 +1,15 @@
 package com.volcengine.model.tls.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.volcengine.model.tls.*;
+import com.volcengine.model.tls.ContainerRule;
+import com.volcengine.model.tls.ExcludePath;
+import com.volcengine.model.tls.ExtractRule;
+import com.volcengine.model.tls.UserDefineRule;
 import lombok.Data;
 
 import java.util.List;
 
 import static com.volcengine.model.tls.Const.*;
-import static com.volcengine.model.tls.Const.CONTAINER_RULE;
 
 @Data
 public class CreateRuleRequest {

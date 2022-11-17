@@ -1,7 +1,5 @@
 package com.volcengine.model.tls;
 
-import com.volcengine.model.Credentials;
-
 public class Const {
     //interface-project
     public static final String CREATE_PROJECT = "/CreateProject";

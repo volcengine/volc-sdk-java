@@ -1,6 +1,9 @@
 package com.volcengine.service.contentSecurity;
 
-import com.volcengine.model.request.*;
+import com.volcengine.model.request.CreateCustomContentsRequest;
+import com.volcengine.model.request.ImageRiskResultRequest;
+import com.volcengine.model.request.RiskDetectionRequest;
+import com.volcengine.model.request.UploadCustomContentsRequest;
 import com.volcengine.model.response.*;
 import com.volcengine.service.IBaseService;
 

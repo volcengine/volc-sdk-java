@@ -4,7 +4,6 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import java.math.BigInteger;
-import java.util.HashMap;
 import java.util.List;
 
 @Data

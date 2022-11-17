@@ -3,7 +3,6 @@ package com.volcengine.model.stream;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
-import java.util.HashMap;
 import java.util.List;
 
 @Data

@@ -3,6 +3,7 @@ package com.volcengine.model.livesaas.request;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.volcengine.model.beans.MenuMsgAPI;
 import lombok.Data;
+
 import java.util.List;
 
 @Data

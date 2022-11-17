@@ -2,8 +2,6 @@ package com.volcengine.model.video_aiot.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
-
-import java.util.List;
 @Data
 public class GetTotalDataResponse {
     @JSONField(name = "ResponseMetadata")

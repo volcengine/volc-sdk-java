@@ -2,7 +2,6 @@ package com.volcengine.model.live.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.volcengine.model.live.CallbackDetail;
-import com.volcengine.model.live.RecordTob;
 import lombok.Data;
 
 @Data

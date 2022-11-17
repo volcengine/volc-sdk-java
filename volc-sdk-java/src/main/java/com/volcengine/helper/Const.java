@@ -420,4 +420,6 @@ public class Const {
     public static final String VatInvoice = "OcrVatInvoice";
     public static final String MultilangOCR = "MultiLanguageOCR";
 
+    // cloudtrail
+    public static final String LookupEvents = "LookupEvents";
 }

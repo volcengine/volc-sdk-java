@@ -17,6 +17,9 @@ public class Const {
     public static final String DESCRIBE_TOPICS = "/DescribeTopics";
     public static final String DELETE_TOPIC = "/DeleteTopic";
     public static final String DESCRIBE_SHARDS = "/DescribeShards";
+    public static final String DESCRIBE_LOG_CONTEXT = "/DescribeLogContext";
+    public static final String WEB_TRACKS = "/WebTracks";
+    public static final String DESCRIBE_HISTOGRAM = "/DescribeHistogram";
 
     //interface-index
     public static final String CREATE_INDEX = "/CreateIndex";
@@ -43,6 +46,8 @@ public class Const {
     public static final String DESCRIBE_HOSTS = "/DescribeHosts";
     public static final String DELETE_HOST = "/DeleteHost";
     public static final String DESCRIBE_HOST_GROUP_RULES = "/DescribeHostGroupRules";
+    public static final String MODIFY_HOST_GROUPS_AUTO_UPDATE = "/ModifyHostGroupsAutoUpdate";
+
 
     //interface-logs
     public static final String PUT_LOGS = "/PutLogs";
@@ -58,6 +63,17 @@ public class Const {
     public static final String MODIFY_ALARM_NOTIFY_GROUP = "/ModifyAlarmNotifyGroup";
     public static final String DELETE_ALARM_NOTIFY_GROUP = "/DeleteAlarmNotifyGroup";
     public static final String DESCRIBE_ALARM_NOTIFY_GROUPS = "/DescribeAlarmNotifyGroups";
+
+    // kafka consumer
+    public static final String OPEN_KAFKA_CONSUMER = "/OpenKafkaConsumer";
+    public static final String CLOSE_KAFKA_CONSUMER = "/CloseKafkaConsumer";
+    public static final String DESCRIBE_KAFKA_CONSUMER = "/DescribeKafkaConsumer";
+
+    // download task
+    public static final String CREATE_DOWNLOAD_TASK = "/CreateDownloadTask";
+    public static final String DESCRIBE_DOWNLOAD_TASKS = "/DescribeDownloadTasks";
+    public static final String DESCRIBE_DOWNLOAD_URL = "/DescribeDownloadUrl";
+
     public static final String TLS = "TLS";
     public static final int CONNECTION_TIMEOUT_MS = 5000;
     public static final int SOCKET_TIMEOUT_MS = 5000;
@@ -87,12 +103,16 @@ public class Const {
     public static final String TOPIC_ID = "TopicId";
     public static final String TTL = "Ttl";
     public static final String SHARD_COUNT = "ShardCount";
+    public static final String AUTO_SPLIT = "AutoSplit";
+    public static final String MAX_SPLIT_SHARD = "MaxSplitShard";
+    public static final String ENABLE_TRACKING = "EnableTracking";
 
     //shard
     public static final String SHARDS = "Shards";
     public static final String SHARD_ID = "ShardId";
     public static final String INCLUSIVE_BEGIN_KEY = "InclusiveBeginKey";
     public static final String EXCLUSIVE_END_KEY = "ExclusiveEndKey";
+    public static final String STOP_WRITE_TIME = "StopWriteTime";
 
     //indexInfo
     public static final String FULL_TEXT = "FullText";
@@ -145,6 +165,13 @@ public class Const {
     public static final String PARSE_PATH_RULE = "ParsePathRule";
     public static final String PATH_SAMPLE = "PathSample";
     public static final String STREAM = "Stream";
+    public static final String HASH_KEY = "HashKey";
+    public static final String FORMAT = "Format";
+    public static final String SHARD_HASH_KEY = "ShardHashKey";
+    public static final String ENABLE_RAW_LOG = "EnableRawLog";
+    public static final String FIELDS = "Fields";
+    public static final String LOG_TEMPLATE = "LogTemplate";
+
 
     //hostGroupInfo
     public static final String HOST_GROUP_INFOS = "HostGroupInfos";
@@ -201,6 +228,12 @@ public class Const {
     public static final String X_TLS_HASHKEY = "x-tls-hashkey";
     public static final String X_TLS_COMPRESS_TYPE = "x-tls-compresstype";
     public static final String X_TLS_BODY_RAW_SIZE = "x-tls-bodyrawsize";
+    public static final String WEBHOOK = "Webhook";
+    public static final String CONSUME_TOPIC = "ConsumeTopic";
+    public static final String INTERVAL = "Interval";
+    public static final String TOTAL_COUNT = "TotalCount";
+    public static final String HISTOGRAM_INFOS = "HistogramInfos";
+    public static final String ALLOW_CONSUME = "AllowConsume";
 
     //log
     public static final String CURSOR = "Cursor";
@@ -225,6 +258,26 @@ public class Const {
     public static final String LZ4 = "lz4";
     public static final String MD5 = "MD5";
     public static final String HEADER_CONTENT_MD5 = "Content-MD5";
+    public static final String SOURCE = "Source";
+    public static final String PREV_OVER = "PrevOver";
+    public static final String NEXT_OVER = "NextOver";
+    public static final String LOG_CONTEXT_INFOS = "LogContextInfos";
+    public static final String CONTEXT_FLOW = "ContextFlow";
+    public static final String PACKAGE_OFFSET = "PackageOffset";
+    public static final String PREV_LOGS = "PrevLogs";
+    public static final String NEXT_LOGS = "NextLogs";
+
+    //download task
+    public static final String TASK_ID = "TaskId";
+    public static final String TASK_NAME = "TaskName";
+    public static final String DATA_FORMAT = "DataFormat";
+    public static final String TASK_STATUS = "TaskStatus";
+    public static final String LOG_SIZE = "LogSize";
+    public static final String LOG_COUNT = "LogCount";
+    public static final String DOWNLOAD_URL = "DownloadUrl";
+    public static final String TASKS = "Tasks";
+
+
     public static final String ERROR_CODE = "ErrorCode";
     public static final String ERROR_MESSAGE = "ErrorMessage";
     public static final int HTTP_STATUS_OK = 200;

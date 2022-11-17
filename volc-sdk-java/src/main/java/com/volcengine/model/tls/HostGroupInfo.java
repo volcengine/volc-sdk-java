@@ -27,4 +27,12 @@ public class HostGroupInfo {
     String createTime;
     @JSONField(name=MODIFY_TIME)
     String modifyTime;
+    @JSONField(name = AUTO_UPDATE)
+    Boolean autoUpdate;
+    @JSONField(name = UPDATE_START_TIME)
+    String updateStartTime;
+    @JSONField(name = UPDATE_END_TIME)
+    String updateEndTime;
+    @JSONField(name = AGENT_LATEST_VERSION)
+    String agentLatestVersion;
 }

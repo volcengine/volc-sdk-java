@@ -1,6 +1,7 @@
 package com.volcengine.model.tls;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -27,4 +28,10 @@ public class TopicInfo {
     int shardCount;
     @JSONField(name = DESCRIPTION)
     String description;
+    @JSONField(name = AUTO_SPLIT)
+    Boolean autoSplit;
+    @JSONField(name = MAX_SPLIT_SHARD)
+    Integer maxSplitShard;
+    @JSONField(name = ENABLE_TRACKING)
+    Boolean enableTracking;
 }

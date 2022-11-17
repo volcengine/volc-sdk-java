@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import static com.volcengine.model.tls.Const.PARSE_PATH_RULE;
+import java.util.Map;
+
+import static com.volcengine.model.tls.Const.*;
 
 @Data
 @NoArgsConstructor
@@ -13,4 +15,10 @@ import static com.volcengine.model.tls.Const.PARSE_PATH_RULE;
 public class UserDefineRule {
     @JSONField(name=PARSE_PATH_RULE)
     ParsePathRule parsePathRule;
+    @JSONField(name=SHARD_HASH_KEY)
+    ShardHashKey shardHashKey;
+    @JSONField(name=ENABLE_RAW_LOG)
+    Boolean enableRawLog;
+    @JSONField(name=FIELDS)
+    Map<String,String> fields;
 }

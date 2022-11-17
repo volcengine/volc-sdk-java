@@ -47,6 +47,12 @@ public class AlarmTest extends BaseTest {
             assertEquals(expectedMessage, actualMessage);
             System.out.println("create alarm notify group success,response:" + createAlarmNotifyGroupResponse);
 
+            exception = assertThrows(LogException.class, () -> {
+                createAlarmNotifyGroupRequest.setAlarmNotifyGroupName(prefix + separator + System.currentTimeMillis());
+                createAlarmNotifyGroupRequest.setReceivers(null);
+                client.createAlarmNotifyGroup(createAlarmNotifyGroupRequest);
+            });
+
             // describe alarm notify group
             final DescribeAlarmNotifyGroupsRequest describeAlarmNotifyGroupsRequest =
                     new DescribeAlarmNotifyGroupsRequest((createAlarmNotifyGroupResponse.getAlarmNotifyGroupId()));
@@ -54,6 +60,12 @@ public class AlarmTest extends BaseTest {
                     client.describeAlarmNotifyGroups(describeAlarmNotifyGroupsRequest);
             Assert.assertEquals(describeAlarmNotifyGroupsResponse.getAlarmNotifyGroups().get(0).
                     getAlarmNotifyGroupName(), createAlarmNotifyGroupRequest.getAlarmNotifyGroupName());
+
+            exception = assertThrows(LogException.class, () -> {
+                describeAlarmNotifyGroupsRequest.setAlarmNotifyGroupId(createAlarmNotifyGroupResponse.getAlarmNotifyGroupId());
+                describeAlarmNotifyGroupsRequest.setPageSize(0);
+                client.describeAlarmNotifyGroups(describeAlarmNotifyGroupsRequest);
+            });
 
             exception = assertThrows(LogException.class, () -> {
                 describeAlarmNotifyGroupsRequest.setAlarmNotifyGroupId("zsq_123");
@@ -96,6 +108,11 @@ public class AlarmTest extends BaseTest {
             assertTrue(actualMessage.contains(expectedMessage));
             System.out.println("modify alarm notify group success,response:" + modifyAlarmNotifyGroupResponse);
 
+            exception = assertThrows(LogException.class, () -> {
+               modifyAlarmNotifyGroupRequest.setAlarmNotifyGroupId(createAlarmNotifyGroupResponse.getAlarmNotifyGroupId());
+               modifyAlarmNotifyGroupRequest.setNotifyType(Arrays.asList("invalid"));
+               client.modifyAlarmNotifyGroup(modifyAlarmNotifyGroupRequest);
+            });
 
             // create project for alarm
             String projectName = prefix + "project" + separator + date + separator + System.currentTimeMillis();

@@ -10,11 +10,10 @@ import org.junit.Test;
 
 import java.math.BigInteger;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
 
 import static com.volcengine.model.tls.Const.LZ4;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class LogsTest extends BaseTest {
     @Test
@@ -41,7 +40,23 @@ public class LogsTest extends BaseTest {
             createTopicRequest.setProjectId(projectId);
             createTopicRequest.setTtl(500);
             CreateTopicResponse createTopicResponse = client.createTopic(createTopicRequest);
+            String topicId = createTopicResponse.getTopicId();
             System.out.println("create topic success,response:" + createTopicResponse);
+
+            // describeHistogram before creating index
+            {
+                Exception exception = assertThrows(LogException.class, () -> {
+                    DescribeHistogramRequest request = new DescribeHistogramRequest();
+                    {
+                        request.setQuery("*");
+                        request.setTopicId(topicId);
+                        request.setStartTime(BigInteger.valueOf(System.currentTimeMillis() - 1000 * 10));
+                        request.setEndTime(BigInteger.valueOf(System.currentTimeMillis()));
+                        request.setInterval(BigInteger.valueOf(1000));
+                    }
+                    client.describeHistogram(request);
+                });
+            }
 
             //create index
             CreateIndexRequest createIndexRequest = new CreateIndexRequest(createTopicResponse.getTopicId(),
@@ -58,7 +73,6 @@ public class LogsTest extends BaseTest {
                     setSource("test-source-" + currentTimeMillis).setFileName("test5.txt").addLogs(log).build();
             PutLogRequest.LogGroupList logGroupList = PutLogRequest.LogGroupList.newBuilder().
                     addLogGroups(logGroup).build();
-            String topicId = createTopicResponse.getTopicId();
             PutLogsRequest putLogsRequest = new PutLogsRequest(logGroupList, topicId);
             putLogsRequest.setCompressType(LZ4);
 //            putLogsRequest.setCompressType(null);
@@ -149,6 +163,63 @@ public class LogsTest extends BaseTest {
             assertTrue(actualMessage.contains(expectedMessage));
 
             System.out.println("search log success,response:" + searchLogsResponse);
+
+            // describeHistogram
+            {
+                DescribeHistogramRequest request = new DescribeHistogramRequest();
+                {
+                    request.setQuery("*");
+                    request.setTopicId(topicId);
+                    request.setStartTime(BigInteger.valueOf(System.currentTimeMillis() - 1000 * 10));
+                    request.setEndTime(BigInteger.valueOf(System.currentTimeMillis()));
+                    request.setInterval(BigInteger.valueOf(1000));
+                }
+                DescribeHistogramResponse response = client.describeHistogram(request);
+                System.out.println("describe histogram success, response: " + response);
+            }
+
+            // webtracks
+            {
+                WebTracksRequest request = new WebTracksRequest();
+                {
+                    request.setTopicId(topicId);
+                    request.setSource("test-source");
+                    request.setCompressType("lz4");
+                    request.setProjectId(projectId);
+                    List<Map<String, String>> testLogs = new ArrayList<>();
+                    {
+                        Map<String, String> testLog = new HashMap<>();
+                        testLog.put("testKey", "testValue");
+                        testLogs.add(testLog);
+                    }
+                    request.setLogs(testLogs);
+                }
+                WebTracksResponse response = client.webTracks(request);
+                System.out.println("webTracks success, response: " + response);
+
+                // invalid case
+                exception = assertThrows(LogException.class, () -> {
+                    request.setTopicId(null);
+                    client.webTracks(request);
+                });
+            }
+
+            // DescribeLogContext
+            {
+                exception = assertThrows(LogException.class, () -> {
+                    DescribeLogContextRequest request = new DescribeLogContextRequest();
+                    {
+                        request.setTopicId(topicId);
+                        request.setSource("test-source");
+                        request.setPrevLogs(10);
+                        request.setNextLogs(10);
+                        request.setPackageOffset(0);
+                        request.setContextFlow("test-flow");
+                    }
+                    DescribeLogContextResponse response = client.describeLogContext(request);
+                });
+            }
+
             // delete index topic project
             DeleteIndexRequest deleteIndexRequest = new DeleteIndexRequest(topicId);
             DeleteIndexResponse deleteIndexResponse = client.deleteIndex(deleteIndexRequest);

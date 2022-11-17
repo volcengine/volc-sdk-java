@@ -29,4 +29,6 @@ public class ExtractRule {
     boolean unMatchUpLoadSwitch;
     @JSONField(name=UN_MATCH_LOG_KEY)
     String unMatchLogKey;
+    @JSONField(name=LOG_TEMPLATE)
+    LogTemplate logTemplate;
 }

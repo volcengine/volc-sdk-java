@@ -12,12 +12,14 @@ import com.volcengine.model.tls.request.*;
 import com.volcengine.model.tls.response.*;
 import com.volcengine.model.tls.util.MessageUtil;
 import com.volcengine.model.tls.util.TimeUtil;
+import com.volcengine.util.EncodeUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Header;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
 
+import java.lang.reflect.Array;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -162,6 +164,81 @@ public class TLSLogClientImpl implements TLSLogClient {
         // 4、parse response
         return new DescribeShardsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 DescribeShardsResponse.class);
+    }
+
+    @Override
+    public DescribeLogContextResponse describeLogContext(DescribeLogContextRequest request)
+            throws LogException {
+        // 1. check params
+        if (request == null) {
+            throw new LogException("InvalidArgument", "Request is null", null);
+        }
+
+        // 2. prepare request
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 3. check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_LOG_CONTEXT, params, requestBody);
+
+        // 4. parse response
+        return new DescribeLogContextResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
+                DescribeLogContextResponse.class);
+    }
+
+    @Override
+    public WebTracksResponse webTracks(WebTracksRequest request)
+            throws LogException {
+        // 1、check params, topic id is required params
+        if (request == null) {
+            throw new LogException("InvalidArgument", "request is null", null);
+        }
+
+        // 2、prepare request
+        String compressType = request.getCompressType();
+        ArrayList<NameValuePair> params = new ArrayList<>(); {
+            if (StringUtils.isNotEmpty(request.getTopicId())) {
+                params.add(new BasicNameValuePair(TOPIC_ID, String.valueOf(request.getTopicId())));
+            }
+            if (StringUtils.isNotEmpty(request.getProjectId())) {
+                params.add(new BasicNameValuePair(PROJECT_ID, String.valueOf(request.getProjectId())));
+            }
+        }
+        String requestBody = JSONObject.toJSONString(request);
+        HashMap<String, String> headers = new HashMap<>(); {
+            headers.put("Content-Type", "application/json");
+            if (compressType != null) {
+                headers.put(X_TLS_COMPRESS_TYPE, compressType);
+                headers.put(X_TLS_BODY_RAW_SIZE, String.valueOf(requestBody.length()));
+            }
+        }
+
+        // 3、check sum and sendRequest
+        RawResponse rawResponse = doProtoRetryRequest(WEB_TRACKS, params, headers,
+            requestBody.getBytes(), compressType, maxRetryCount);
+
+        // 4、parse response
+        return new WebTracksResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public DescribeHistogramResponse describeHistogram(DescribeHistogramRequest request)
+            throws LogException {
+        // 1. check params
+        if (request == null) {
+            throw new LogException("InvalidArgument", "Request is null", null);
+        }
+
+        // 2. prepare request
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 3. check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_HISTOGRAM, params, requestBody);
+
+        // 4. parse response
+        return new DescribeHistogramResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
+                DescribeHistogramResponse.class);
     }
 
     /**
@@ -741,6 +818,9 @@ public class TLSLogClientImpl implements TLSLogClient {
         if (StringUtils.isNotEmpty(request.getHostGroupName())) {
             params.add(new BasicNameValuePair(HOST_GROUP_NAME, request.getHostGroupName()));
         }
+        if (StringUtils.isNotEmpty(request.getHostIdentifier())) {
+            params.add(new BasicNameValuePair(HOST_IDENTIFIER, request.getHostIdentifier()));
+        }
 
         // 3、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_HOST_GROUPS, params, Const.EMPTY_JSON);
@@ -827,6 +907,24 @@ public class TLSLogClientImpl implements TLSLogClient {
 
     }
 
+    @Override
+    public ModifyHostGroupsAutoUpdateResponse modifyHostGroupsAutoUpdate(ModifyHostGroupsAutoUpdateRequest request)
+            throws LogException {
+        // 1. check params
+        if (request == null) {
+            throw new LogException("InvalidArgument", "Request is null", null);
+        }
+
+        // 2. prepare request
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 3. check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(MODIFY_HOST_GROUPS_AUTO_UPDATE, params, requestBody);
+
+        // 4. parse response
+        return new ModifyHostGroupsAutoUpdateResponse(rawResponse.getHeaders());
+    }
 
     @Override
     public CreateAlarmResponse createAlarm(CreateAlarmRequest request) throws LogException {
@@ -1011,6 +1109,138 @@ public class TLSLogClientImpl implements TLSLogClient {
         // 4、parse response
         return new DescribeAlarmNotifyGroupsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 DescribeAlarmNotifyGroupsResponse.class);
+    }
+
+    @Override
+    public OpenKafkaConsumerResponse openKafkaConsumer(OpenKafkaConsumerRequest request)
+            throws LogException {
+        // 1. check params
+        if (request == null) {
+            throw new LogException("InvalidArgument", "Request is null", null);
+        }
+        // 2. prepare request
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 3. check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(OPEN_KAFKA_CONSUMER, params, requestBody);
+
+        // 4. parse response
+        return new OpenKafkaConsumerResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public CloseKafkaConsumerResponse closeKafkaConsumer(CloseKafkaConsumerRequest request)
+            throws LogException {
+        // 1. check params
+        if (request == null) {
+            throw new LogException("InvalidArgument", "Request is null", null);
+        }
+        // 2. prepare request
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 3. check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(CLOSE_KAFKA_CONSUMER, params, requestBody);
+
+        // 4. parse response
+        return new CloseKafkaConsumerResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public DescribeKafkaConsumerResponse describeKafkaConsumer(DescribeKafkaConsumerRequest request)
+            throws LogException {
+        // 1. check params
+        if (request == null) {
+            throw new LogException("InvalidArgument", "Request is null", null);
+        }
+        // 2. prepare request
+        ArrayList<NameValuePair> params = new ArrayList<>(); {
+            if (StringUtils.isNotEmpty(request.getTopicId())) {
+                params.add(new BasicNameValuePair(TOPIC_ID, String.valueOf(request.getTopicId())));
+            }
+        }
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 3. check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_KAFKA_CONSUMER, params, requestBody);
+
+        // 4. parse response
+        return new DescribeKafkaConsumerResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
+                DescribeKafkaConsumerResponse.class);
+    }
+
+    @Override
+    public CreateDownloadTaskResponse createDownloadTask(CreateDownloadTaskRequest request)
+            throws LogException {
+        // 1. check params
+        if (request == null) {
+            throw new LogException("InvalidArgument", "Request is null", null);
+        }
+
+        // 2. prepare request
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 3. check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(CREATE_DOWNLOAD_TASK, params, requestBody);
+
+        // 4. parse response
+        return new CreateDownloadTaskResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public DescribeDownloadTasksResponse describeDownloadTasks(DescribeDownloadTasksRequest request)
+            throws LogException {
+        // 1. check params
+        if (request == null) {
+            throw new LogException("InvalidArgument", "Request is null", null);
+        }
+
+        // 2. prepare request
+        ArrayList<NameValuePair> params = new ArrayList<>(); {
+            if (StringUtils.isNotEmpty(request.getTopicId())) {
+                params.add(new BasicNameValuePair(TOPIC_ID, String.valueOf(request.getTopicId())));
+            }
+            if (request.getPageNumber() != null) {
+                params.add(new BasicNameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
+            }
+            if (request.getPageSize() != null) {
+                params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
+            }
+        }
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 3. check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_DOWNLOAD_TASKS, params, requestBody);
+
+        // 4. parse response
+        return new DescribeDownloadTasksResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
+                DescribeDownloadTasksResponse.class);
+    }
+
+    @Override
+    public DescribeDownloadUrlResponse describeDownloadUrl(DescribeDownloadUrlRequest request)
+            throws LogException {
+        // 1. check params
+        if (request == null) {
+            throw new LogException("InvalidArgument", "Request is null", null);
+        }
+
+        // 2. prepare request
+        ArrayList<NameValuePair> params = new ArrayList<>(); {
+            if (StringUtils.isNotEmpty(request.getTaskId())) {
+                params.add(new BasicNameValuePair(TASK_ID, String.valueOf(request.getTaskId())));
+            }
+        }
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 3. check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_DOWNLOAD_URL, params, requestBody);
+
+        // 4. parse response
+        return new DescribeDownloadUrlResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
+                DescribeDownloadUrlResponse.class);
     }
 
     private RawResponse doProtoRetryRequest(String api, List<NameValuePair> params, Map<String, String> headers,

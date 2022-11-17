@@ -18,7 +18,7 @@ public interface TLSLogClient {
     void setTimeout(int socketTimeout,int connectionTimeout);
 
     /**
-     * 日志写入、读取
+     * 日志管理
      * @param request
      */
     PutLogsResponse putLogs(PutLogsRequest request) throws LogException;
@@ -31,6 +31,11 @@ public interface TLSLogClient {
 
     DescribeShardsResponse describeShards(DescribeShardsRequest request) throws LogException;
 
+    DescribeLogContextResponse describeLogContext(DescribeLogContextRequest request) throws LogException;
+
+    WebTracksResponse webTracks(WebTracksRequest request) throws LogException;
+
+    DescribeHistogramResponse describeHistogram(DescribeHistogramRequest request) throws LogException;
     /**
      * project
      * @param request
@@ -107,6 +112,8 @@ public interface TLSLogClient {
 
     DescribeHostGroupRulesResponse describeHostGroupRules(DescribeHostGroupRulesRequest request) throws LogException;
 
+    ModifyHostGroupsAutoUpdateResponse modifyHostGroupsAutoUpdate(ModifyHostGroupsAutoUpdateRequest request) throws LogException;
+
     /**
      * 告警
      */
@@ -126,4 +133,22 @@ public interface TLSLogClient {
     ModifyAlarmNotifyGroupResponse modifyAlarmNotifyGroup(ModifyAlarmNotifyGroupRequest request) throws LogException;
 
     DescribeAlarmNotifyGroupsResponse describeAlarmNotifyGroups(DescribeAlarmNotifyGroupsRequest request) throws LogException;
+
+    /**
+     * Kafka协议消费
+     */
+    OpenKafkaConsumerResponse openKafkaConsumer(OpenKafkaConsumerRequest request) throws LogException;
+
+    CloseKafkaConsumerResponse closeKafkaConsumer(CloseKafkaConsumerRequest request) throws LogException;
+
+    DescribeKafkaConsumerResponse describeKafkaConsumer(DescribeKafkaConsumerRequest request) throws LogException;
+
+    /**
+     * 日志下载
+     */
+    CreateDownloadTaskResponse createDownloadTask(CreateDownloadTaskRequest request) throws LogException;
+
+    DescribeDownloadTasksResponse describeDownloadTasks(DescribeDownloadTasksRequest request) throws LogException;
+
+    DescribeDownloadUrlResponse describeDownloadUrl(DescribeDownloadUrlRequest request) throws LogException;
 }

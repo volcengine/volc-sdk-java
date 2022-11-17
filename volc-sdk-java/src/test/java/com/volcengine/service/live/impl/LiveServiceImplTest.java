@@ -6,7 +6,7 @@ import com.volcengine.model.live.CertRSAData;
 import com.volcengine.model.live.RecordTob;
 import com.volcengine.model.live.request.*;
 import com.volcengine.model.live.response.*;
-import com.volcengine.service.live.ILiveService;
+import com.volcengine.service.live.LiveService;
 import junit.framework.TestCase;
 
 import java.util.HashMap;
@@ -17,15 +17,15 @@ public class LiveServiceImplTest extends TestCase {
     private final String accessKey = "";
     private final String secretKey = "";
 
-    private ILiveService getLiveService() {
-        ILiveService liveService = LiveServiceImpl.getInstance();
+    private LiveService getLiveService() {
+        LiveService liveService = LiveServiceImpl.getInstance();
         liveService.setAccessKey(accessKey);
         liveService.setSecretKey(secretKey);
         return liveService;
     }
 
     public void testUpdateCallback() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         UpdateCallbackRequest request = new UpdateCallbackRequest();
         request.setMessageType("record");
         request.setDomain("domain");
@@ -43,7 +43,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDescribeCallback() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         DescribeCallbackRequest request = new DescribeCallbackRequest();
         request.setMessageType("");
         request.setDomain("");
@@ -57,7 +57,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDeleteCallback() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         DeleteCallbackRequest request = new DeleteCallbackRequest();
         request.setMessageType("record");
         request.setVhost("vhost");
@@ -71,7 +71,7 @@ public class LiveServiceImplTest extends TestCase {
 
     //done
     public void testCreateDomain() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         CreateDomainRequest request = new CreateDomainRequest();
         String testDomain = "";
 //        String testDomain = "";
@@ -89,7 +89,7 @@ public class LiveServiceImplTest extends TestCase {
 
     //done
     public void testDeleteDomain() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         DeleteDomainRequest request = new DeleteDomainRequest();
         String testPushDomain = "";
         String testPullDomain = "";
@@ -104,7 +104,7 @@ public class LiveServiceImplTest extends TestCase {
 
     //done
     public void testListDomainDetail() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         ListDomainDetailRequest request = new ListDomainDetailRequest();
         request.setPageNum(1);
         request.setPageSize(10);
@@ -118,7 +118,7 @@ public class LiveServiceImplTest extends TestCase {
 
     //done
     public void testDescribeDomain() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         DescribeDomainRequest request = new DescribeDomainRequest();
         String testDomain = "";
         request.setDomainList(new String[]{""});
@@ -132,7 +132,7 @@ public class LiveServiceImplTest extends TestCase {
 
     //done
     public void testDisableDomain() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         DisableDomainRequest request = new DisableDomainRequest();
         String testDomain = "";
         String testPullDomain = "";
@@ -148,7 +148,7 @@ public class LiveServiceImplTest extends TestCase {
 
     //done
     public void testEnableDomain() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         EnableDomainRequest request = new EnableDomainRequest();
         String testDomain = "";
         request.setDomain(testDomain);
@@ -162,7 +162,7 @@ public class LiveServiceImplTest extends TestCase {
 
     //done
     public void testManagerPullPushDomainBind() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         ManagerPullPushDomainBindRequest request = new ManagerPullPushDomainBindRequest();
         String testPushDomain = "";
         String testPullDomain = "";
@@ -178,7 +178,7 @@ public class LiveServiceImplTest extends TestCase {
 
     //done
     public void testUpdateAuthKey() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         UpdateAuthKeyRequest request = new UpdateAuthKeyRequest();
         String testDomain = "";
         request.setDomain(testDomain);
@@ -197,7 +197,7 @@ public class LiveServiceImplTest extends TestCase {
 
     //done
 //    public void testEnableAuth() {
-//        ILiveService liveService = getLiveService();
+//        LiveService liveService = getLiveService();
 //        EnableAuthRequest request = new EnableAuthRequest();
 //        String testDomain = "";
 //        request.setDomain(testDomain);
@@ -212,7 +212,7 @@ public class LiveServiceImplTest extends TestCase {
 
     //done
 //    public void testDisableAuth() {
-//        ILiveService liveService = getLiveService();
+//        LiveService liveService = getLiveService();
 //        DisableAuthRequest request = new DisableAuthRequest();
 //        String testDomain = "";
 //        request.setDomain(testDomain);
@@ -227,7 +227,7 @@ public class LiveServiceImplTest extends TestCase {
 
     //done
     public void testDescribeAuth() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         DescribeAuthRequest request = new DescribeAuthRequest();
         String testDomain = "";
         request.setDomain(testDomain);
@@ -241,7 +241,7 @@ public class LiveServiceImplTest extends TestCase {
 
 
     public void testForbidStream() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         ForbidStreamRequest request = new ForbidStreamRequest();
         String testDomain = "";
         request.setDomain(testDomain);
@@ -256,7 +256,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testResumeStream() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         ResumeStreamRequest request = new ResumeStreamRequest();
         request.setDomain("domain");
         request.setApp("app");
@@ -271,7 +271,7 @@ public class LiveServiceImplTest extends TestCase {
 
     //done
     public void testListCert() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         ListCertRequest request = new ListCertRequest();
         String testDomain = "push-rtmp-testf5java.bytedance.com";
         request.setDomain(testDomain);
@@ -286,7 +286,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testCreateCert() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         CreateCertRequest request = new CreateCertRequest();
         request.setCertName("testCert");
         CertRSAData rsa = new CertRSAData();
@@ -304,7 +304,7 @@ public class LiveServiceImplTest extends TestCase {
 
     //done
 //    public void testDescribeCertDetailSecret() {
-//        ILiveService liveService = getLiveService();
+//        LiveService liveService = getLiveService();
 //        DescribeCertDetailSecretRequest request = new DescribeCertDetailSecretRequest();
 //        String chainID = "ff5e0a71dd4842ac9d251f4531919f73";
 //        request.setChainID(chainID);
@@ -317,7 +317,7 @@ public class LiveServiceImplTest extends TestCase {
 //    }
 
     public void testUpdateCert() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         UpdateCertRequest request = new UpdateCertRequest();
         CertRSAData rsa = new CertRSAData();
         rsa.setPubKey("pubKey");
@@ -336,7 +336,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testBindCert() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         BindCertRequest request = new BindCertRequest();
         request.setDomain("domain");
         request.setChainID("chainID");
@@ -350,7 +350,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testUnBindCert() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         UnbindCertRequest request = new UnbindCertRequest();
         request.setDomain("domain");
         try {
@@ -362,7 +362,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDeleteCert() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         DeleteCertRequest request = new DeleteCertRequest();
         request.setChainID("chainID");
         try {
@@ -374,7 +374,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testUpdateReferer() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         UpdateRefererRequest request = new UpdateRefererRequest();
         request.setDomain("domain");
         request.setApp("app");
@@ -398,7 +398,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDeleteReferer() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         DeleteRefererRequest request = new DeleteRefererRequest();
         request.setVhost("vhost");
         request.setDomain("domain");
@@ -412,7 +412,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDescribeReferer() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         DescribeRefererRequest request = new DescribeRefererRequest();
         request.setVhost("vhost");
         request.setDomain("domain");
@@ -426,7 +426,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testCreateRecordPreset() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         CreateRecordPresetRequest request = new CreateRecordPresetRequest();
         request.setVhost("vhost");
         request.setApp("app");
@@ -447,7 +447,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testUpdateRecordPreset() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         UpdateRecordPresetRequest request = new UpdateRecordPresetRequest();
         request.setPreset("preset1");
         request.setVhost("vhost");
@@ -470,7 +470,7 @@ public class LiveServiceImplTest extends TestCase {
 
 
     public void testDeleteRecordPreset() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         DeleteRecordPresetRequest request = new DeleteRecordPresetRequest();
         request.setVhost("vhost");
         request.setPreset("preset");
@@ -484,7 +484,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testListVhostRecordPreset() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         ListVhostRecordPresetRequest request = new ListVhostRecordPresetRequest();
         request.setVhost("vhost");
         try {
@@ -496,7 +496,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testCreateTranscodePreset() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         CreateTranscodePresetRequest request = new CreateTranscodePresetRequest();
         request.setVhost("vhost");
         request.setApp("app");
@@ -513,7 +513,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testUpdateTranscodePreset() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         UpdateTranscodePresetRequest request = new UpdateTranscodePresetRequest();
         request.setVhost("vhost");
         request.setApp("app");
@@ -528,7 +528,7 @@ public class LiveServiceImplTest extends TestCase {
 
 
     public void testDeleteTranscodePreset() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         DeleteTranscodePresetRequest request = new DeleteTranscodePresetRequest();
         request.setVhost("vhost");
         request.setApp("app");
@@ -542,7 +542,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testListVhostTransCodePreset() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         ListVhostTransCodePresetRequest request = new ListVhostTransCodePresetRequest();
         request.setVhost("vhost");
         try {
@@ -554,7 +554,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testListCommonTransPresetDetail() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         ListCommonTransPresetDetailRequest request = new ListCommonTransPresetDetailRequest();
         request.setPresetList(new String[]{"Preset1", "Preset1"});
         try {
@@ -566,7 +566,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testCreateSnapshotPreset() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         CreateSnapshotPresetRequest request = new CreateSnapshotPresetRequest();
         request.setVhost("vhost");
         request.setApp("app");
@@ -585,7 +585,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testUpdateSnapshotPreset() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         UpdateSnapshotPresetRequest request = new UpdateSnapshotPresetRequest();
         request.setVhost("vhost");
         request.setApp("app");
@@ -604,7 +604,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDeleteSnapshotPreset() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         DeleteSnapshotPresetRequest request = new DeleteSnapshotPresetRequest();
         request.setVhost("vhost");
         request.setApp("app");
@@ -618,7 +618,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testListVhostSnapshotPreset() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         ListVhostSnapshotPresetRequest request = new ListVhostSnapshotPresetRequest();
         request.setVhost("vhost");
         try {
@@ -631,7 +631,7 @@ public class LiveServiceImplTest extends TestCase {
 
 
     public void testDescribeLiveBandwidthData() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"DomainList\": [\"domain\"],\n" +
                 "    \"StartTime\": \"2021-04-13T00:00:00Z\",\n" +
@@ -649,7 +649,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDescribeLiveTrafficData() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"DomainList\": [],\n" +
                 "    \"StartTime\": \"2022-04-25T00:00:00Z\",\n" +
@@ -666,7 +666,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDescribeLiveP95PeakBandwidthData() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"StartTime\": \"2021-04-13T00:00:00Z\",\n" +
                 "    \"EndTime\": \"2021-04-14T00:00:00Z\",\n" +
@@ -682,7 +682,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDescribeTranscodeData() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"DomainList\":[\"example.com\",\"example2.com\"],\n" +
                 "    \"StartTime\": \"2022-03-07T00:00:00+08:00\",\n" +
@@ -699,7 +699,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDescribeSnapshotData() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"DomainList\":[\"example.com\",\"example2.com\"],\n" +
                 "    \"StartTime\": \"2022-03-07T00:00:00+08:00\",\n" +
@@ -716,7 +716,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDescribeRecordData() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"StartTime\": \"2021-04-13T00:00:00Z\",\n" +
                 "    \"EndTime\": \"2021-04-13T00:10:00Z\",\n" +
@@ -732,7 +732,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDescribeLiveTimeShiftData() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"Aggregation\": 86400,\n" +
                 "    \"EndTime\": \"2022-02-17T23:59:59+08:00\",\n" +
@@ -749,7 +749,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDescribePushStreamMetrics() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"Domain\": \"example.com\",\n" +
                 "    \"App\": \"example_app\",\n" +
@@ -768,7 +768,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDescribeLiveStreamSessions() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"DomainList\":[\"example.com\",\"example2.com\"],\n" +
                 "    \"App\": \"example\",\n" +
@@ -788,7 +788,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDescribePlayResponseStatusStat() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"DomainList\":[\"example.com\",\"example2.com\"],\n" +
                 "    \"StartTime\": \"2022-04-19T00:00:00Z\",\n" +
@@ -805,7 +805,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDescribeLiveDomainLog() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"Domain\":\"example.com\",\n" +
                 "    \"StartTime\": \"2022-04-19T00:00:00Z\",\n" +
@@ -821,7 +821,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDescribeLiveMetricTrafficData() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"DomainList\": [\"example.com\"],\n" +
                 "    \"ProtocolList\": [\"HTTP-FLV\", \"RTMP\"],\n" +
@@ -849,7 +849,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDescribeLiveMetricBandwidthData() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"DomainList\": [\"example.com\"],\n" +
                 "    \"ProtocolList\": [\"HTTP-FLV\", \"RTMP\"],\n" +
@@ -877,7 +877,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDescribePlayStreamList() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"Domain\":\"example.com\",\n" +
                 "    \"StartTime\": \"2022-04-19T00:00:00Z\",\n" +
@@ -894,7 +894,7 @@ public class LiveServiceImplTest extends TestCase {
 
 
     public void testDescribePullToPushBandwidthData() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"DomainList\": [\"example.com\"],\n" +
                 "    \"DstAddrTypeList\": [\"live\",\"Third\"],\n" +
@@ -913,7 +913,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testCreateSnapshotAuditPreset() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"Vhost\": \"vhost\",\n" +
                 "    \"App\": \"app\",\n" +
@@ -933,7 +933,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testUpdateSnapshotAuditPreset() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"Vhost\": \"vhost\",\n" +
                 "    \"App\": \"app\",\n" +
@@ -950,7 +950,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDeleteSnapshotAuditPreset() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"Vhost\": \"vhost\",\n" +
                 "    \"App\": \"app\",\n" +
@@ -966,7 +966,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testListVhostSnapshotAuditPreset() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"Vhost\": \"vhost\"\n" +
                 "}";
@@ -980,7 +980,7 @@ public class LiveServiceImplTest extends TestCase {
     }
 
     public void testDescribeLiveAuditData() {
-        ILiveService liveService = getLiveService();
+        LiveService liveService = getLiveService();
         String jsonStr = "{\n" +
                 "    \"DomainList\": [\"example.com\", \"example2.com\"],\n" +
                 "    \"DetailField\": [\"Domain\"],\n" +

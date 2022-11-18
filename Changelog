@@ -1,5 +1,9 @@
 Change log
 
+2022-11-18 Bumped to version v1.0.68
+- Added trail service
+- Updated apis for live/sms/secret/tls
+
 2022-11-10 Bumped to version v1.0.67
 - Added live service
 - Updated apis for security/vod/rtc

@@ -5,10 +5,10 @@ import lombok.Data;
 
 @Data
 public class OCRBankCardRequest {
-    
+
     @JSONField(name = "image_base64")
     String imageBase64;
 
-    @JSONField(name = "type")
-    String type = "v1";
+    @JSONField(name = "version")
+    String version = "v1";
 }

@@ -19,4 +19,7 @@ public class ApplySmsSignatureRequest {
 
     @JSONField(name = "UploadFileKey")
     String uploadFileKey;
+
+    @JSONField(name = "Domain")
+    String domain;
 }

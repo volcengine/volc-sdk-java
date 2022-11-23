@@ -9,18 +9,24 @@ public class SmsTemplateInfo {
     String id;
     @JSONField(name = "ApplyId")
     String applyId;
+    @JSONField(name = "TemplateId")
+    String templateId;
+    @JSONField(name = "ChannelType")
+    String channelType;
+    @JSONField(name = "ChannelTypeName")
+    String channelTypeName;
+    @JSONField(name = "Name")
+    String name;
     @JSONField(name = "Content")
     String content;
-    @JSONField(name = "Source")
-    String source;
-    @JSONField(name = "Application")
-    String application;
-    @JSONField(name = "CreatedTime")
-    long createTime;
-    @JSONField(name = "IsOrder")
-    boolean isOrder;
     @JSONField(name = "Status")
     int status;
+    @JSONField(name = "IsOrder")
+    boolean isOrder = true;
     @JSONField(name = "Reason")
     String reason;
+    @JSONField(name = "CreatedTime")
+    int createdTime;
+    @JSONField(name = "ShortUrlConfig")
+    ShortUrlConfig shortUrlConfig;
 }

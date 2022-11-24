@@ -11,21 +11,25 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class QuerySubscriptionForListRequest {
 
-  private String numberPoolNo;
+    private String numberPoolNo;
 
-  private String phoneNoX;
+    private String phoneNoX;
 
-  private String phoneNoA;
+    private String phoneNoA;
 
-  private String phoneNoB;
+    private String phoneNoB;
 
-  private Integer status;
+    private Integer status;
 
-  private String subId;
+    private String subId;
 
-  private String outId;
+    private String outId;
 
-  private Integer offset;
+    private Integer offset;
 
-  private Integer limit;
+    private Integer limit;
+
+    private String number;
+
+    private String phoneNoY;
 }

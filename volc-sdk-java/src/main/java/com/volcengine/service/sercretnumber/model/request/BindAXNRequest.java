@@ -11,17 +11,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class BindAXNRequest {
 
-  private String phoneNoA;
+    private String phoneNoA;
 
-  private String phoneNoB;
+    private String phoneNoB;
 
-  private String phoneNoX;
+    private String phoneNoX;
 
-  private String numberPoolNo;
+    private String numberPoolNo;
 
-  private Long expireTime;
+    private Long expireTime;
 
-  private Integer audioRecordFlag;
+    private Integer audioRecordFlag;
 
-  private String userData;
+    private String userData;
 }

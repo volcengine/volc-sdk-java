@@ -11,23 +11,27 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class SelectNumberAndBindAXBRequest {
 
-  private String phoneNoA;
+    private String phoneNoA;
 
-  private String phoneNoB;
+    private String phoneNoB;
 
-  private String numberPoolNo;
+    private String numberPoolNo;
 
-  private Long expireTime;
+    private Long expireTime;
 
-  private Integer audioRecordFlag;
+    private Integer audioRecordFlag;
 
-  private String cityCode;
+    private String cityCode;
 
-  private String cityCodeByPhoneNo;
+    private String cityCodeByPhoneNo;
 
-  private String degradeCityList;
+    private String degradeCityList;
 
-  private String userData;
+    private String userData;
 
-  private Integer randomFlag;
+    private Integer randomFlag;
+
+    private Integer callDisplayType;
+
+    private String outId;
 }

@@ -11,13 +11,23 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UpdateAXBRequest {
 
-  private String updateType;
+    private String updateType;
 
-  private String numberPoolNo;
+    private String numberPoolNo;
 
-  private String subId;
+    private String subId;
 
-  private Long expireTime = -1L;
+    private Long expireTime;
 
-  private String phoneNoB;
+    private String phoneNoB;
+
+    private String phoneNoA;
+
+    private String phoneNoX;
+
+    private String userData;
+
+    private Integer autoCreateFlag;
+
+    private String outId;
 }

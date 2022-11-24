@@ -11,11 +11,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UpgradeAXToAXBRequest {
 
-  private String numberPoolNo;
+    private String numberPoolNo;
 
-  private String subId;
+    private String subId;
 
-  private String phoneNoB;
+    private String phoneNoB;
 
-  private String userData;
+    private String userData;
+
+    private Integer callDisplayType;
+
+    private String outId;
 }

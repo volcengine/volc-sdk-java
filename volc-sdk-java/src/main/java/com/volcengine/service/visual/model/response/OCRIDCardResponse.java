@@ -14,10 +14,10 @@ public class OCRIDCardResponse extends VisualBaseResponse {
     @Data
     public static class IDCardData {
         
-        @JSONField(name = "front_info")
+        @JSONField(name = "card_front")
         FrontInfo frontInfo;
 
-        @JSONField(name = "back_info")
+        @JSONField(name = "card_back")
         BackInfo backInfo;
 
         @JSONField(name = "card_corners")

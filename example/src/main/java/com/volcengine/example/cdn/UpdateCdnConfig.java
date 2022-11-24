@@ -25,7 +25,7 @@ public class UpdateCdnConfig {
                         .setWeight("100")
                     )
                 ))));
-            CDN.EmptyResponse resp = service.updateCdnConfig(req);
+            CDN.UpdateCdnConfigResponse resp = service.updateCdnConfig(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();

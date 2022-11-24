@@ -13,7 +13,7 @@ public class StartCdnDomain {
         try {
             CDN.StartCdnDomainRequest req = new CDN.StartCdnDomainRequest()
                 .setDomain("example.com");
-            CDN.EmptyResponse resp = service.startCdnDomain(req);
+            CDN.StartCdnDomainResponse resp = service.startCdnDomain(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();

@@ -22,6 +22,7 @@ public class ApplySmsSignatureDemo {
         req.setSubAccount("subAccount");
         req.setContent("testContent");
         req.setSource("公司名称/公司缩写");
+        req.setDomain("网站域名"); // 非必填
 
         try {
             ApplySmsSignatureResponse response = smsService.applySmsSignature(req);

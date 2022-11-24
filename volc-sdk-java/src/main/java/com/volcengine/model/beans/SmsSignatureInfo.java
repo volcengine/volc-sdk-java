@@ -26,7 +26,7 @@ public class SmsSignatureInfo {
     @JSONField(name = "Reason")
     String reason;
     @JSONField(name = "CreatedTime")
-    int createdTime;
+    long createdTime;
     @JSONField(name = "ShortUrlConfig")
     ShortUrlConfig shortUrlConfig;
 }

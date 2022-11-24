@@ -28,7 +28,7 @@ public class AddCdnDomain {
                         .setWeight("100")
                     )
                 ))));
-            CDN.EmptyResponse resp = service.addCdnDomain(req);
+            CDN.AddCdnDomainResponse resp = service.addCdnDomain(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();

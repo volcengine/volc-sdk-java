@@ -13,7 +13,7 @@ public class DeleteCdnDomain {
         try {
             CDN.DeleteCdnDomainRequest req = new CDN.DeleteCdnDomainRequest()
             .setDomain("example.com");
-            CDN.EmptyResponse resp = service.deleteCdnDomain(req);
+            CDN.DeleteCdnDomainResponse resp = service.deleteCdnDomain(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();

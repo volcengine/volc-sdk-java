@@ -15,9 +15,9 @@ public class UpdateResourceTags {
         try {
             CDN.UpdateResourceTagsRequest req = new CDN.UpdateResourceTagsRequest()
                 .setResources(Arrays.asList("www.example.com", "www.example2.com"))
-                .setResourceTags(Arrays.asList(new CDN.ResourceTagEntry().setKey("userKey").setValue("userValue")));
+                .setResourceTags(Arrays.asList(new CDN.ResourceTag().setKey("userKey").setValue("userValue")));
 
-            CDN.EmptyResponse resp = service.updateResourceTags(req);
+            CDN.UpdateResourceTagsResponse resp = service.updateResourceTags(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();

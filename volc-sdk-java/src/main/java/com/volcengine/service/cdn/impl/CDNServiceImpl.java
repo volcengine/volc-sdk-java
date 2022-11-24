@@ -20,39 +20,39 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.EmptyResponse addCdnDomain(CDN.AddCdnDomainRequest request) throws Exception {
+    public CDN.AddCdnDomainResponse addCdnDomain(CDN.AddCdnDomainRequest request) throws Exception {
         RawResponse response = json("AddCdnDomain", null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        return JSON.parseObject(response.getData(), CDN.EmptyResponse.class);
+        return JSON.parseObject(response.getData(), CDN.AddCdnDomainResponse.class);
     }
 
     @Override
-    public CDN.EmptyResponse startCdnDomain(CDN.StartCdnDomainRequest request) throws Exception {
+    public CDN.StartCdnDomainResponse startCdnDomain(CDN.StartCdnDomainRequest request) throws Exception {
         RawResponse response = json("StartCdnDomain", null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        return JSON.parseObject(response.getData(), CDN.EmptyResponse.class);
+        return JSON.parseObject(response.getData(), CDN.StartCdnDomainResponse.class);
     }
 
     @Override
-    public CDN.EmptyResponse stopCdnDomain(CDN.StopCdnDomainRequest request) throws Exception {
+    public CDN.StopCdnDomainResponse stopCdnDomain(CDN.StopCdnDomainRequest request) throws Exception {
         RawResponse response = json("StopCdnDomain", null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        return JSON.parseObject(response.getData(), CDN.EmptyResponse.class);
+        return JSON.parseObject(response.getData(), CDN.StopCdnDomainResponse.class);
     }
 
     @Override
-    public CDN.EmptyResponse deleteCdnDomain(CDN.DeleteCdnDomainRequest request) throws Exception {
+    public CDN.DeleteCdnDomainResponse deleteCdnDomain(CDN.DeleteCdnDomainRequest request) throws Exception {
         RawResponse response = json("DeleteCdnDomain", null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        return JSON.parseObject(response.getData(), CDN.EmptyResponse.class);
+        return JSON.parseObject(response.getData(), CDN.DeleteCdnDomainResponse.class);
     }
 
     @Override
@@ -74,12 +74,12 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.EmptyResponse updateCdnConfig(CDN.UpdateCdnConfigRequest request) throws Exception {
+    public CDN.UpdateCdnConfigResponse updateCdnConfig(CDN.UpdateCdnConfigRequest request) throws Exception {
         RawResponse response = json("UpdateCdnConfig", null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        return JSON.parseObject(response.getData(), CDN.EmptyResponse.class);
+        return JSON.parseObject(response.getData(), CDN.UpdateCdnConfigResponse.class);
     }
 
     @Override
@@ -188,15 +188,6 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
             throw response.getException();
         }
         return JSON.parseObject(response.getData(), CDN.DescribeCdnRegionAndIspResponse.class);
-    }
-
-    @Override
-    public CDN.DescribeCdnDomainTopDataResponse describeCdnDomainTopData(CDN.DescribeCdnDomainTopDataRequest request) throws Exception {
-        RawResponse response = json("DescribeCdnDomainTopData", null, JSON.toJSONString(request));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-        return JSON.parseObject(response.getData(), CDN.DescribeCdnDomainTopDataResponse.class);
     }
 
     @Override
@@ -317,21 +308,21 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.EmptyResponse addResourceTags(CDN.AddResourceTagsRequest request) throws Exception {
+    public CDN.AddResourceTagsResponse addResourceTags(CDN.AddResourceTagsRequest request) throws Exception {
         RawResponse response = json("AddResourceTags", null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        return JSON.parseObject(response.getData(), CDN.EmptyResponse.class);
+        return JSON.parseObject(response.getData(), CDN.AddResourceTagsResponse.class);
     }
 
     @Override
-    public CDN.EmptyResponse updateResourceTags(CDN.UpdateResourceTagsRequest request) throws Exception {
+    public CDN.UpdateResourceTagsResponse updateResourceTags(CDN.UpdateResourceTagsRequest request) throws Exception {
         RawResponse response = json("UpdateResourceTags", null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        return JSON.parseObject(response.getData(), CDN.EmptyResponse.class);
+        return JSON.parseObject(response.getData(), CDN.UpdateResourceTagsResponse.class);
     }
 
     @Override
@@ -344,11 +335,56 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.EmptyResponse deleteResourceTags(CDN.DeleteResourceTagsRequest request) throws Exception {
+    public CDN.DeleteResourceTagsResponse deleteResourceTags(CDN.DeleteResourceTagsRequest request) throws Exception {
         RawResponse response = json("DeleteResourceTags", null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        return JSON.parseObject(response.getData(), CDN.EmptyResponse.class);
+        return JSON.parseObject(response.getData(), CDN.DeleteResourceTagsResponse.class);
+    }
+
+    @Override
+    public CDN.AddCdnCertificateResponse addCdnCertificate(CDN.AddCdnCertificateRequest request) throws Exception {
+        RawResponse response = json("AddCdnCertificate", null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.AddCdnCertificateResponse.class);
+    }
+
+    @Override
+    public CDN.ListCertInfoResponse listCertInfo(CDN.ListCertInfoRequest request) throws Exception {
+        RawResponse response = json("ListCertInfo", null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.ListCertInfoResponse.class);
+    }
+
+    @Override
+    public CDN.ListCdnCertInfoResponse listCdnCertInfo(CDN.ListCdnCertInfoRequest request) throws Exception {
+        RawResponse response = json("ListCdnCertInfo", null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.ListCdnCertInfoResponse.class);
+    }
+
+    @Override
+    public CDN.DescribeCertConfigResponse describeCertConfig(CDN.DescribeCertConfigRequest request) throws Exception {
+        RawResponse response = json("DescribeCertConfig", null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeCertConfigResponse.class);
+    }
+
+    @Override
+    public CDN.BatchDeployCertResponse batchDeployCert(CDN.BatchDeployCertRequest request) throws Exception {
+        RawResponse response = json("BatchDeployCert", null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.BatchDeployCertResponse.class);
     }
 }

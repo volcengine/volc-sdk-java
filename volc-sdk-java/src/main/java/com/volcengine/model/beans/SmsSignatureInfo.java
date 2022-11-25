@@ -14,13 +14,13 @@ public class SmsSignatureInfo {
     @JSONField(name = "Source")
     String source;
     @JSONField(name = "Application")
-    int application;
+    String application;
     @JSONField(name = "CreatedTime")
-    boolean createTime;
+    long createTime;
     @JSONField(name = "IsOrder")
-    String isOrder;
+    Boolean isOrder;
     @JSONField(name = "Status")
     int status;
     @JSONField(name = "Reason")
-    ShortUrlConfig reason;
+    String reason;
 }

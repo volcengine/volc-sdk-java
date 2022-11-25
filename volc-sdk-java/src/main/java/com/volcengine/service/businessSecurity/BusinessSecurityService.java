@@ -23,7 +23,7 @@ public interface BusinessSecurityService extends IBaseService {
     /**
      * Async Risk Detection.
      *
-     * @param  asyncRiskDetectionRequest async risk detection request
+     * @param asyncRiskDetectionRequest async risk detection request
      * @return async risk detection response
      * @throws Exception the exception
      */
@@ -41,7 +41,7 @@ public interface BusinessSecurityService extends IBaseService {
     /**
      * Data Report.
      *
-     * @param  dataReportRequest data report request
+     * @param dataReportRequest data report request
      * @return data report response
      * @throws Exception the exception
      */
@@ -50,25 +50,26 @@ public interface BusinessSecurityService extends IBaseService {
     /**
      * Account Risk
      *
-     * @param   riskDetectionRequest account risk request
+     * @param riskDetectionRequest account risk request
      * @return account risk response
      * @throws Exception the exception
      */
-   RiskDetectionResponse AccountRisk(RiskDetectionRequest riskDetectionRequest) throws Exception;
+    RiskDetectionResponse AccountRisk(RiskDetectionRequest riskDetectionRequest) throws Exception;
 
     /**
      * Mobile Status.
-     * @deprecated
-     * @param  riskDetectionRequest data report request
+     *
+     * @param riskDetectionRequest data report request
      * @return mobile status response
      * @throws Exception the exception
+     * @deprecated
      */
     MobileStatusResponse MobileStatus(RiskDetectionRequest riskDetectionRequest) throws Exception;
 
     /**
      * Mobile Status.
      *
-     * @param  riskDetectionRequest data report request v2
+     * @param riskDetectionRequest data report request v2
      * @return mobile status response
      * @throws Exception the exception
      */
@@ -76,19 +77,31 @@ public interface BusinessSecurityService extends IBaseService {
 
     /**
      * Element Verify.
-     * @deprecated
-     * @param  riskDetectionRequest element verify request
+     *
+     * @param riskDetectionRequest element verify request
      * @return element verify response
      * @throws Exception the exception
+     * @deprecated
      */
     ElementVerifyResponse ElementVerify(RiskDetectionRequest riskDetectionRequest) throws Exception;
 
     /**
      * Element Verify.
      *
-     * @param  riskDetectionRequest element verify request v2
+     * @param riskDetectionRequest element verify request v2
      * @return element verify response
      * @throws Exception the exception
      */
     ElementVerifyResponseV2 ElementVerifyV2(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+    /**
+     * Element Verify Encrypted.
+     *
+     * @param riskDetectionRequest element verify request v2
+     * @param key                  private key
+     * @param encryptedType        example: {@link com.volcengine.helper.Const#AES}
+     * @return element verify response
+     * @throws Exception the exception
+     */
+    ElementVerifyResponseV2 ElementVerifyEncrypted(String key, String encryptedType, RiskDetectionRequest riskDetectionRequest) throws Exception;
 }

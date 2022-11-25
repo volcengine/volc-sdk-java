@@ -1,5 +1,8 @@
 Change log
 
+2022-11-24 Bumped to version v1.0.71
+- Fixed models for sms
+
 2022-11-24 Bumped to version v1.0.70
 - Updated apis for sms/secret/cdn
 - Updated demos for visual

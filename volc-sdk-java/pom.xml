@@ -173,6 +173,7 @@
                 </executions>
                 <configuration>
                     <source>${jre.version}</source>
+                    <additionalOptions>-Xdoclint:none</additionalOptions>
                 </configuration>
             </plugin>
             <plugin>

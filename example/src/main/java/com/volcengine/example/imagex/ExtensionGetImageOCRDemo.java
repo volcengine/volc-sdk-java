@@ -19,6 +19,7 @@ public class ExtensionGetImageOCRDemo {
             GetImageOCRRequest params = new GetImageOCRRequest();
             params.setServiceId("service id"); // 服务 ID
             params.setStoreUri("store uri");   // 文件的 Store URI
+            params.setImageUrl("image url");   // 若 Store Uri 为空则访问 url
             params.setScene(GetImageOCRRequest.Scene.GENERAL);
             GetImageOCRResponse<?> response = service.getImageOCR(params);
 

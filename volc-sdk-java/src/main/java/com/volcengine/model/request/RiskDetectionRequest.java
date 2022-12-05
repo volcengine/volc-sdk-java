@@ -9,6 +9,8 @@ public class RiskDetectionRequest {
     Integer appId;
     @JSONField(name = "Service")
     String service;
+    @JSONField(name = "EncryptedType")
+    String EncryptedType;
     @JSONField(name = "Parameters")
     String parameters;
 }

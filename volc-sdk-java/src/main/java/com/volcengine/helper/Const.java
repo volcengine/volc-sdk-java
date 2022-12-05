@@ -22,6 +22,7 @@ public class Const {
     public static final String Path = "Path";
     public static final String Query = "Query";
     public static final String Form = "Form";
+    public static final String AES = "AES";
 
     // iam
     public static final String CreateUser = "CreateUser";
@@ -56,6 +57,7 @@ public class Const {
     public static final String ElementVerify = "ElementVerify";
     public static final String MobileStatusV2 = "MobileStatusV2";
     public static final String ElementVerifyV2 = "ElementVerifyV2";
+    public static final String ElementVerifyEncrypted = "ElementVerifyEncrypted";
 
     // content security
     public static final String ImageContentRisk = "ImageContentRisk";

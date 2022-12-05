@@ -12,6 +12,7 @@ import com.volcengine.model.response.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.businessSecurity.BusinessSecurityConfig;
 import com.volcengine.service.businessSecurity.BusinessSecurityService;
+import com.volcengine.util.AesUtil;
 
 import java.util.ArrayList;
 
@@ -110,6 +111,20 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
     @Override
     public ElementVerifyResponseV2 ElementVerifyV2(RiskDetectionRequest riskDetectionRequest) throws Exception {
         RawResponse response = json(Const.ElementVerifyV2, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ElementVerifyResponseV2.class);
+    }
+
+    @Override
+    public ElementVerifyResponseV2 ElementVerifyEncrypted(String key, String encryptedType, RiskDetectionRequest riskDetectionRequest) throws Exception {
+        String parameters = AesUtil.aesCBCEncryptWithBase64(riskDetectionRequest.getParameters(), key);
+        riskDetectionRequest.setParameters(parameters);
+        riskDetectionRequest.setEncryptedType(encryptedType);
+
+        RawResponse response = json(Const.ElementVerifyEncrypted, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }

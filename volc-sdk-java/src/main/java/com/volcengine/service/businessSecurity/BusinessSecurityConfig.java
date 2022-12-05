@@ -158,6 +158,20 @@ public class BusinessSecurityConfig {
                         }
                     }
             ));
+            put(Const.ElementVerifyEncrypted, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ElementVerifyEncrypted"));
+                                    add(new BasicNameValuePair("Version", "2022-11-24"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

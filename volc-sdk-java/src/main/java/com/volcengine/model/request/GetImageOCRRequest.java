@@ -11,6 +11,9 @@ public class GetImageOCRRequest {
     @JSONField(name = "StoreUri")
     String storeUri;
 
+    @JSONField(name = "ImageUrl")
+    String imageUrl;
+
     @JSONField(name = "Scene")
     String scene;
 

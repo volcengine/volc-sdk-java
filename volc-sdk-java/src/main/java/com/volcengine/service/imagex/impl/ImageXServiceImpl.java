@@ -293,7 +293,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
             throw new IllegalArgumentException("scene now acceptable");
         }
 
-        RawResponse response = query("GetImageOCR", Utils.paramsToPair(param));
+        RawResponse response = json("GetImageOCR", Utils.paramsToPair(param), JSON.toJSONString(param));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }

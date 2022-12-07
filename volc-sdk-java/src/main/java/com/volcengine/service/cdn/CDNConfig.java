@@ -224,6 +224,22 @@ public class CDNConfig {
                     }
             ));
 
+            // 获取多个域名的省份和运营商的细分数据: https://www.volcengine.com/docs/6454/145577
+            put("DescribeDistrictIspData", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeDistrictIspData"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
             // 获取独立访客的细分数据: https://www.volcengine.com/docs/6454/79321
             put("DescribeEdgeStatisticalData", new ApiInfo(
                     new HashMap<String, Object>() {
@@ -336,7 +352,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 查询账号计费方式: https://www.volcengine.com/docs/6454/78999
+            // 获取服务相关信息: https://www.volcengine.com/docs/6454/78999
             put("DescribeCdnService", new ApiInfo(
                     new HashMap<String, Object>() {
                         {

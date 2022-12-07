@@ -40,6 +40,9 @@ package com.volcengine.service.cdn;
         // 获取省份运营商的细分数据: https://www.volcengine.com/docs/6454/75159
         CDN.DescribeCdnDataDetailResponse describeCdnDataDetail(CDN.DescribeCdnDataDetailRequest request) throws Exception;
 
+        // 获取多个域名的省份和运营商的细分数据: https://www.volcengine.com/docs/6454/145577
+        CDN.DescribeDistrictIspDataResponse describeDistrictIspData(CDN.DescribeDistrictIspDataRequest request) throws Exception;
+
         // 获取独立访客的细分数据: https://www.volcengine.com/docs/6454/79321
         CDN.DescribeEdgeStatisticalDataResponse describeEdgeStatisticalData(CDN.DescribeEdgeStatisticalDataRequest request) throws Exception;
 
@@ -61,7 +64,7 @@ package com.volcengine.service.cdn;
         // 获取区域和 ISP 列表: https://www.volcengine.com/docs/6454/70445
         CDN.DescribeCdnRegionAndIspResponse describeCdnRegionAndIsp(CDN.DescribeCdnRegionAndIspRequest request) throws Exception;
 
-        // 查询账号计费方式: https://www.volcengine.com/docs/6454/78999
+        // 获取服务相关信息: https://www.volcengine.com/docs/6454/78999
         CDN.DescribeCdnServiceResponse describeCdnService() throws Exception;
 
         // 获取计费指标的细分数据: https://www.volcengine.com/docs/6454/96167

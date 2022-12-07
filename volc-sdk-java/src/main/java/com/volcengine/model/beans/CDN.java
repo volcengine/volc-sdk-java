@@ -108,6 +108,9 @@ public class CDN {
         @JSONField(name = "HTTPS")
         HTTPS HTTPS;
 
+        @JSONField(name = "HeaderLogging")
+        HeaderLog HeaderLogging;
+
         @JSONField(name = "HttpForcedRedirect")
         HttpForcedRedirect HttpForcedRedirect;
 
@@ -168,11 +171,11 @@ public class CDN {
         @JSONField(name = "RequestHeader")
         List<RequestHeaderRule> RequestHeader;
 
-        @JSONField(name = "ResponseHeader")
-        List<ResponseHeaderRule> ResponseHeader;
-
         @JSONField(name = "ResourceTags")
         List<ResourceTag> ResourceTags;
+
+        @JSONField(name = "ResponseHeader")
+        List<ResponseHeaderRule> ResponseHeader;
 
         @JSONField(name = "ServiceRegion")
         String ServiceRegion;
@@ -182,6 +185,9 @@ public class CDN {
 
         @JSONField(name = "SignedUrlAuth")
         SignedUrlAuth SignedUrlAuth;
+
+        @JSONField(name = "Sparrow")
+        Sparrow Sparrow;
 
         @JSONField(name = "UaAccessRule")
         UserAgentAccessRule UaAccessRule;
@@ -368,6 +374,9 @@ public class CDN {
 
         @JSONField(name = "Action")
         String Action;
+
+        @JSONField(name = "DefaultPolicy")
+        String DefaultPolicy;
 
         @JSONField(name = "IgnoreCase")
         Boolean IgnoreCase;
@@ -572,6 +581,28 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class CustomVariableInstance {
+
+        @JSONField(name = "Operator")
+        String Operator;
+
+        @JSONField(name = "Type")
+        String Type;
+
+        @JSONField(name = "Value")
+        String Value;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class CustomVariableRules {
+
+        @JSONField(name = "CustomVariableInstances")
+        List<CustomVariableInstance> CustomVariableInstances;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class DataPoint {
 
         @JSONField(name = "TimeStamp")
@@ -640,6 +671,9 @@ public class CDN {
 
         @JSONField(name = "Metric")
         String Metric;
+
+        @JSONField(name = "Project")
+        String Project;
 
         @JSONField(name = "Protocol")
         String Protocol;
@@ -833,6 +867,9 @@ public class CDN {
         @JSONField(name = "Metric")
         String Metric;
 
+        @JSONField(name = "Project")
+        String Project;
+
         @JSONField(name = "Protocol")
         String Protocol;
 
@@ -890,6 +927,9 @@ public class CDN {
         @JSONField(name = "Metric")
         String Metric;
 
+        @JSONField(name = "Project")
+        String Project;
+
         @JSONField(name = "StartTime")
         Long StartTime;
     }
@@ -919,6 +959,9 @@ public class CDN {
 
         @JSONField(name = "Area")
         String Area;
+
+        @JSONField(name = "Feature")
+        String Feature;
     }
 
     @Data
@@ -1207,6 +1250,54 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class DescribeDistrictIspDataRequest {
+
+        @JSONField(name = "Aggregate")
+        String Aggregate;
+
+        @JSONField(name = "Domain")
+        String Domain;
+
+        @JSONField(name = "EndTime")
+        Long EndTime;
+
+        @JSONField(name = "Interval")
+        String Interval;
+
+        @JSONField(name = "IpVersion")
+        String IpVersion;
+
+        @JSONField(name = "Metric")
+        String Metric;
+
+        @JSONField(name = "Protocol")
+        String Protocol;
+
+        @JSONField(name = "StartTime")
+        Long StartTime;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DescribeDistrictIspDataResponse {
+
+        @JSONField(name = "ResponseMetadata")
+        ResponseMetadata ResponseMetadata;
+
+        @JSONField(name = "Result")
+        DescribeDistrictIspDataResult Result;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DescribeDistrictIspDataResult {
+
+        @JSONField(name = "Resources")
+        List<DomainNrtDetailData> Resources;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class DescribeEdgeNrtDataSummaryRequest {
 
         @JSONField(name = "Aggregate")
@@ -1238,6 +1329,9 @@ public class CDN {
 
         @JSONField(name = "Metric")
         String Metric;
+
+        @JSONField(name = "Project")
+        String Project;
 
         @JSONField(name = "Protocol")
         String Protocol;
@@ -1340,6 +1434,9 @@ public class CDN {
 
         @JSONField(name = "Metric")
         String Metric;
+
+        @JSONField(name = "Project")
+        String Project;
 
         @JSONField(name = "StartTime")
         Long StartTime;
@@ -1445,6 +1542,9 @@ public class CDN {
 
         @JSONField(name = "Metric")
         String Metric;
+
+        @JSONField(name = "Project")
+        String Project;
 
         @JSONField(name = "StartTime")
         Long StartTime;
@@ -1567,6 +1667,9 @@ public class CDN {
         @JSONField(name = "Metric")
         String Metric;
 
+        @JSONField(name = "Project")
+        String Project;
+
         @JSONField(name = "Protocol")
         String Protocol;
 
@@ -1621,6 +1724,9 @@ public class CDN {
         @JSONField(name = "Metric")
         String Metric;
 
+        @JSONField(name = "Project")
+        String Project;
+
         @JSONField(name = "StartTime")
         Long StartTime;
     }
@@ -1674,6 +1780,9 @@ public class CDN {
 
         @JSONField(name = "Metric")
         String Metric;
+
+        @JSONField(name = "Project")
+        String Project;
 
         @JSONField(name = "StartTime")
         Long StartTime;
@@ -1757,6 +1866,17 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class DomainNrtDetailData {
+
+        @JSONField(name = "DataDetails")
+        List<NrtDataDetails> DataDetails;
+
+        @JSONField(name = "Name")
+        String Name;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class DomainVolcanoDetail {
 
         @JSONField(name = "AreaAccessRule")
@@ -1795,6 +1915,9 @@ public class CDN {
         @JSONField(name = "HTTPS")
         HTTPS HTTPS;
 
+        @JSONField(name = "HeaderLogging")
+        HeaderLog HeaderLogging;
+
         @JSONField(name = "HttpForcedRedirect")
         HttpForcedRedirect HttpForcedRedirect;
 
@@ -1809,6 +1932,9 @@ public class CDN {
 
         @JSONField(name = "IpSpeedLimit")
         IpSpeedLimit IpSpeedLimit;
+
+        @JSONField(name = "LockStatus")
+        String LockStatus;
 
         @JSONField(name = "MethodDeniedRule")
         MethodDeniedRule MethodDeniedRule;
@@ -1866,6 +1992,9 @@ public class CDN {
 
         @JSONField(name = "SignedUrlAuth")
         SignedUrlAuth SignedUrlAuth;
+
+        @JSONField(name = "Sparrow")
+        Sparrow Sparrow;
 
         @JSONField(name = "Status")
         String Status;
@@ -2015,6 +2144,17 @@ public class CDN {
 
         @JSONField(name = "TlsVersion")
         List<String> TlsVersion;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class HeaderLog {
+
+        @JSONField(name = "HeaderLogging")
+        String HeaderLogging;
+
+        @JSONField(name = "Switch")
+        Boolean Switch;
     }
 
     @Data
@@ -2828,6 +2968,9 @@ public class CDN {
     @Accessors(chain = true)
     public static class ResponseHeaderInstance {
 
+        @JSONField(name = "AccessOriginControl")
+        Boolean AccessOriginControl;
+
         @JSONField(name = "Action")
         String Action;
 
@@ -2893,6 +3036,9 @@ public class CDN {
         @JSONField(name = "BackupSecretKey")
         String BackupSecretKey;
 
+        @JSONField(name = "CustomVariableRules")
+        CustomVariableRules CustomVariableRules;
+
         @JSONField(name = "Duration")
         Long Duration;
 
@@ -2927,6 +3073,42 @@ public class CDN {
 
         @JSONField(name = "SignedUrlAuthAction")
         SignedUrlAuthAction SignedUrlAuthAction;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class Sparrow {
+
+        @JSONField(name = "SparrowRules")
+        List<SparrowRule> SparrowRules;
+
+        @JSONField(name = "Switch")
+        Boolean Switch;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class SparrowAction {
+
+        @JSONField(name = "Action")
+        String Action;
+
+        @JSONField(name = "IgnoreCase")
+        Boolean IgnoreCase;
+
+        @JSONField(name = "SparrowID")
+        String SparrowID;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class SparrowRule {
+
+        @JSONField(name = "Condition")
+        Condition Condition;
+
+        @JSONField(name = "SparrowAction")
+        SparrowAction SparrowAction;
     }
 
     @Data
@@ -3272,6 +3454,9 @@ public class CDN {
         @JSONField(name = "HTTPS")
         HTTPS HTTPS;
 
+        @JSONField(name = "HeaderLogging")
+        HeaderLog HeaderLogging;
+
         @JSONField(name = "HttpForcedRedirect")
         HttpForcedRedirect HttpForcedRedirect;
 
@@ -3340,6 +3525,9 @@ public class CDN {
 
         @JSONField(name = "SignedUrlAuth")
         SignedUrlAuth SignedUrlAuth;
+
+        @JSONField(name = "Sparrow")
+        Sparrow Sparrow;
 
         @JSONField(name = "UaAccessRule")
         UserAgentAccessRule UaAccessRule;

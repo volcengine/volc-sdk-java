@@ -128,6 +128,15 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
+    public CDN.DescribeDistrictIspDataResponse describeDistrictIspData(CDN.DescribeDistrictIspDataRequest request) throws Exception {
+        RawResponse response = json("DescribeDistrictIspData", null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeDistrictIspDataResponse.class);
+    }
+
+    @Override
     public CDN.DescribeEdgeStatisticalDataResponse describeEdgeStatisticalData(CDN.DescribeEdgeStatisticalDataRequest request) throws Exception {
         RawResponse response = json("DescribeEdgeStatisticalData", null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

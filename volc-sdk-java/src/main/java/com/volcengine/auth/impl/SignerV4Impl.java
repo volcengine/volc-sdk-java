@@ -324,9 +324,8 @@ public class SignerV4Impl implements ISignerV4 {
             if (result.length() > 0) {
                 result.append("&");
             }
-            result.append(encodedName);
+            result.append(encodedName).append("=");
             if (encodedValue != null) {
-                result.append("=");
                 result.append(encodedValue);
             }
         }

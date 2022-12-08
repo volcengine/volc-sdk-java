@@ -8,8 +8,8 @@ public class GetSignatureAndOrderListRequest {
     @JSONField(name = "SubAccount")
     String subAccount;
 
-    @JSONField(name = "Name")
-    String name;
+    @JSONField(name = "Signature")
+    String signature;
 
     @JSONField(name = "PageIndex")
     int pageIndex;

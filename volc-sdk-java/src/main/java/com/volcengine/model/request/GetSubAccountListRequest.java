@@ -8,6 +8,9 @@ public class GetSubAccountListRequest {
     @JSONField(name = "SubAccount")
     String subAccount;
 
+    @JSONField(name = "SubAccountName")
+    String subAccountName;
+
     @JSONField(name = "PageIndex")
     int pageIndex;
 

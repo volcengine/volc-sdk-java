@@ -1,20 +1,29 @@
 package com.volcengine.model.livesaas.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.beans.livesaas.SiteActivityTag;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class CreateActivityAPIRequest {
-    @JSONField(name = "Name")
-    String name;
     @JSONField(name = "LiveTime")
-    Long liveTime;
+    Long LiveTime;
+    @JSONField(name = "TemplateId")
+    Long TemplateId;
+    @JSONField(name = "SiteTags")
+    List<SiteActivityTag> SiteTags;
+    @JSONField(name = "TextSiteTags")
+    List<SiteActivityTag> TextSiteTags;
+    @JSONField(name = "Name")
+    String Name;
     @JSONField(name = "ViewUrlPath")
-    String viewUrlPath;
+    String ViewUrlPath;
     @JSONField(name = "CoverImage")
-    String coverImage;
+    String CoverImage;
     @JSONField(name = "OldId")
-    String oldId;
+    Long OldId;
     @JSONField(name = "CopyStream")
-    Boolean copyStream;
+    Boolean CopyStream;
 }

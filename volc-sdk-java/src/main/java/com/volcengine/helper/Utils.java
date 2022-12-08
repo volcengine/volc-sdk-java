@@ -175,6 +175,8 @@ public class Utils {
                 pairs.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
             } else if (entry.getValue().getClass() == Long.class) {
                 pairs.add(new BasicNameValuePair(entry.getKey(),((Long) entry.getValue()).toString()));
+            } else if (entry.getValue().getClass() == Boolean.class) {
+                pairs.add(new BasicNameValuePair(entry.getKey(),((Boolean) entry.getValue()).toString()));
             } else if (entry.getValue().getClass() == JSONArray.class) {
                 List<String> list = (List<String>) entry.getValue();
                 for (String item : list) {

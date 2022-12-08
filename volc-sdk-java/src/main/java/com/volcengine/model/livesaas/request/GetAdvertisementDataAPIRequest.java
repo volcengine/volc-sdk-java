@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class GetAdvertisementDataAPIRequest {
     @JSONField(name = "ActivityId")
-    Long activityId;
+    Long ActivityId;
     @JSONField(name = "Source")
-    Integer source;
+    Integer Source;
 }

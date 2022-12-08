@@ -1,43 +1,220 @@
 package com.volcengine.service.livesaas;
 
+
 import com.volcengine.model.livesaas.request.*;
 import com.volcengine.model.livesaas.response.*;
 import com.volcengine.service.IBaseService;
-
-/**
- * The interface Vedit service.
- */
 public interface LivesaasService extends IBaseService {
 
     /**
-     * createActivityAPI
+     * ListSiteTagAPIV2
      *
-     * @param createActivityAPIRequest CreateActivityAPIRequest
-     * @return CreateActivityAPIResponse
+     * @param defaultRequest DefaultRequest
+     * @return ListSiteTagAPIV2Response
      * @throws Exception the exception
      */
-    CreateActivityAPIResponse createActivityAPI(CreateActivityAPIRequest createActivityAPIRequest) throws Exception;
+    ListSiteTagAPIV2Response listSiteTagAPIV2(DefaultRequest defaultRequest) throws Exception;
 
     /**
-     * getActivityAPI
+     * UpdateSiteTagAPIV2
      *
-     * @param getActivityAPIRequest CommonAPIRequest
+     * @param updateSiteTagAPIVUpdateSiteTagAPIV2RequestRequest 2
+     * @return CommonStatusResponse
+     * @throws Exception the exception
+     */
+    CommonStatusResponse updateSiteTagAPIV2(UpdateSiteTagAPIV2Request updateSiteTagAPIV2Request) throws Exception;
+
+    /**
+     * GetPageWatchDataAPI
+     *
+     * @param getPageWatchDataAPIRequest GetPageWatchDataAPIRequest
+     * @return GetPageWatchDataAPIResponse
+     * @throws Exception the exception
+     */
+    GetPageWatchDataAPIResponse getPageWatchDataAPI(GetPageWatchDataAPIRequest getPageWatchDataAPIRequest) throws Exception;
+
+    /**
+     * ListUserBehaviorDataAPI
+     *
+     * @param getUserBehaviorListRequest GetUserBehaviorListRequest
+     * @return GetUserBehaviorListResponse
+     * @throws Exception the exception
+     */
+    GetUserBehaviorListResponse listUserBehaviorDataAPI(GetUserBehaviorListRequest getUserBehaviorListRequest) throws Exception;
+
+    /**
+     * CreateActivityAPIV2
+     *
+     * @param createActivityAPIRequest CreateActivityAPIRequest
+     * @return CommonResponse
+     * @throws Exception the exception
+     */
+    CommonResponse createActivityAPIV2(CreateActivityAPIRequest createActivityAPIRequest) throws Exception;
+
+    /**
+     * DeleteActivityAPI
+     *
+     * @param commonRequest CommonRequest
+     * @return CommonResponse
+     * @throws Exception the exception
+     */
+    CommonResponse deleteActivityAPI(CommonRequest commonRequest) throws Exception;
+
+    /**
+     * ListActivityAPI
+     *
+     * @param listActivityAPIRequest ListActivityAPIRequest
+     * @return ListActivityAPIResponse
+     * @throws Exception the exception
+     */
+    ListActivityAPIResponse listActivityAPI(ListActivityAPIRequest listActivityAPIRequest) throws Exception;
+
+    /**
+     * GetDownloadLiveClientAPI
+     *
+     * @param commonRequest CommonRequest
+     * @return GetDownloadLiveClientAPIResponse
+     * @throws Exception the exception
+     */
+    GetDownloadLiveClientAPIResponse getDownloadLiveClientAPI(CommonRequest commonRequest) throws Exception;
+
+    /**
+     * GetWebPushLiveClientAPI
+     *
+     * @param commonRequest CommonRequest
+     * @return GetWebPushLiveClientAPIResponse
+     * @throws Exception the exception
+     */
+    GetWebPushLiveClientAPIResponse getWebPushLiveClientAPI(CommonRequest commonRequest) throws Exception;
+
+    /**
+     * ListActivityByCacheAPI
+     *
+     * @param listActivityAPIRequest ListActivityAPIRequest
+     * @return ListActivityAPIResponse
+     * @throws Exception the exception
+     */
+    ListActivityAPIResponse listActivityByCacheAPI(ListActivityAPIRequest listActivityAPIRequest) throws Exception;
+
+    /**
+     * UpdateActivityStatusAPI
+     *
+     * @param updateActivityStatusAPIRequest UpdateActivityStatusAPIRequest
+     * @return DefaultResponse
+     * @throws Exception the exception
+     */
+    DefaultResponse updateActivityStatusAPI(UpdateActivityStatusAPIRequest updateActivityStatusAPIRequest) throws Exception;
+
+    /**
+     * UpdatePullToPushAPI
+     *
+     * @param updatePullToPushAPIRequest UpdatePullToPushAPIRequest
+     * @return DefaultResponse
+     * @throws Exception the exception
+     */
+    DefaultResponse updatePullToPushAPI(UpdatePullToPushAPIRequest updatePullToPushAPIRequest) throws Exception;
+
+    /**
+     * GetActivityAPI
+     *
+     * @param commonRequest CommonRequest
      * @return GetActivityAPIResponse
      * @throws Exception the exception
      */
-    GetActivityAPIResponse getActivityAPI(CommonAPIRequest getActivityAPIRequest) throws Exception;
+    GetActivityAPIResponse getActivityAPI(CommonRequest commonRequest) throws Exception;
 
     /**
-     * getStreamsAPI
+     * GetStreamsAPI
      *
-     * @param getStreamsAPIRequest CommonAPIRequest
+     * @param commonRequest CommonRequest
      * @return GetStreamsAPIResponse
      * @throws Exception the exception
      */
-    GetStreamsAPIResponse getStreamsAPI(CommonAPIRequest getStreamsAPIRequest) throws Exception;
+    GetStreamsAPIResponse getStreamsAPI(CommonRequest commonRequest) throws Exception;
 
     /**
-     * getAdvertisementDataAPI
+     * UpdateActivityBasicConfigAPI
+     *
+     * @param updateBasicConfigAPIRequest UpdateBasicConfigAPIRequest
+     * @return CommonResponse
+     * @throws Exception the exception
+     */
+    CommonResponse updateActivityBasicConfigAPI(UpdateBasicConfigAPIRequest updateBasicConfigAPIRequest) throws Exception;
+
+    /**
+     * GetActivityBasicConfigAPI
+     *
+     * @param commonRequest CommonRequest
+     * @return GetBasicConfigAPIResponse
+     * @throws Exception the exception
+     */
+    GetBasicConfigAPIResponse getActivityBasicConfigAPI(CommonRequest commonRequest) throws Exception;
+
+    /**
+     * UpdateLoopVideoAPI
+     *
+     * @param updateLoopVideoRequest UpdateLoopVideoRequest
+     * @return UpdateLoopVideoResponse
+     * @throws Exception the exception
+     */
+    UpdateLoopVideoResponse updateLoopVideoAPI(UpdateLoopVideoRequest updateLoopVideoRequest) throws Exception;
+
+    /**
+     * UpdateLoopVideoStatusAPI
+     *
+     * @param updateLoopVideoStatusAPIRequest UpdateLoopVideoStatusAPIRequest
+     * @return CommonStatusResponse
+     * @throws Exception the exception
+     */
+    CommonStatusResponse updateLoopVideoStatusAPI(UpdateLoopVideoStatusAPIRequest updateLoopVideoStatusAPIRequest) throws Exception;
+
+    /**
+     * GetTemporaryLoginTokenAPI
+     *
+     * @param commonRequest CommonRequest
+     * @return GetTemporaryLoginTokenResponse
+     * @throws Exception the exception
+     */
+    GetTemporaryLoginTokenResponse getTemporaryLoginTokenAPI(CommonRequest commonRequest) throws Exception;
+
+    /**
+     * GetCustomActMsgAPI
+     *
+     * @param getCustomActMsgAPIRequest GetCustomActMsgAPIRequest
+     * @return GetCustomActMsgAPIResponse
+     * @throws Exception the exception
+     */
+    GetCustomActMsgAPIResponse getCustomActMsgAPI(GetCustomActMsgAPIRequest getCustomActMsgAPIRequest) throws Exception;
+
+    /**
+     * UploadReplayAPI
+     *
+     * @param uploadMediaRequest UploadMediaRequest
+     * @return DefaultResponse
+     * @throws Exception the exception
+     */
+    DefaultResponse uploadReplayAPI(UploadMediaRequest uploadMediaRequest) throws Exception;
+
+    /**
+     * ListMediasAPI
+     *
+     * @param listMediasAPIRequest ListMediasAPIRequest
+     * @return ListMediasAPIResponse
+     * @throws Exception the exception
+     */
+    ListMediasAPIResponse listMediasAPI(ListMediasAPIRequest listMediasAPIRequest) throws Exception;
+
+    /**
+     * UpdateMediaOnlineStatusAPI
+     *
+     * @param updateMediaOnlineStatusAPIRequest UpdateMediaOnlineStatusAPIRequest
+     * @return DefaultResponse
+     * @throws Exception the exception
+     */
+    DefaultResponse updateMediaOnlineStatusAPI(UpdateMediaOnlineStatusAPIRequest updateMediaOnlineStatusAPIRequest) throws Exception;
+
+    /**
+     * GetAdvertisementDataAPI
      *
      * @param getAdvertisementDataAPIRequest GetAdvertisementDataAPIRequest
      * @return GetAdvertisementDataAPIResponse
@@ -46,91 +223,453 @@ public interface LivesaasService extends IBaseService {
     GetAdvertisementDataAPIResponse getAdvertisementDataAPI(GetAdvertisementDataAPIRequest getAdvertisementDataAPIRequest) throws Exception;
 
     /**
-     * getRealTimeOnlineNumberAPI
+     * ListQuestionnaireAnswerDataAPI
      *
-     * @param getRealTimeOnlineNumberAPIRequest GetRealTimeOnlineNumberAPIRequest
+     * @param listUserQuestionnaireRequest ListUserQuestionnaireRequest
+     * @return ListUserQuestionnaireResponse
+     * @throws Exception the exception
+     */
+    ListUserQuestionnaireResponse listQuestionnaireAnswerDataAPI(ListUserQuestionnaireRequest listUserQuestionnaireRequest) throws Exception;
+
+    /**
+     * ListQuestionnaireDataAPI
+     *
+     * @param listStatisticsQuestionnaireRequest ListStatisticsQuestionnaireRequest
+     * @return ListStatisticsQuestionnaireResponse
+     * @throws Exception the exception
+     */
+    ListStatisticsQuestionnaireResponse listQuestionnaireDataAPI(ListStatisticsQuestionnaireRequest listStatisticsQuestionnaireRequest) throws Exception;
+
+    /**
+     * GetRealTimeOnlineNumberAPI
+     *
+     * @param commonRequest CommonRequest
      * @return GetRealTimeOnlineNumberAPIResponse
      * @throws Exception the exception
      */
-    GetRealTimeOnlineNumberAPIResponse getRealTimeOnlineNumberAPI(CommonAPIRequest getRealTimeOnlineNumberAPIRequest) throws Exception;
+    GetRealTimeOnlineNumberAPIResponse getRealTimeOnlineNumberAPI(CommonRequest commonRequest) throws Exception;
 
     /**
-     * getActivityAPI
+     * ListAnActivityStartAndEndTimeAPI
      *
-     * @param deleteActivityAPIRequest CommonAPIRequest
-     * @return DeleteActivityAPIResponse
+     * @param commonRequest CommonRequest
+     * @return ListAnActivityStartAndEndTimeAPIResponse
      * @throws Exception the exception
      */
-    DeleteActivityAPIResponse deleteActivityAPI(CommonAPIRequest deleteActivityAPIRequest) throws Exception;
+    ListAnActivityStartAndEndTimeAPIResponse listAnActivityStartAndEndTimeAPI(CommonRequest commonRequest) throws Exception;
 
     /**
-     * getActivityBasicConfigAPI
+     * GetActivityReservationAPI
      *
-     * @param getActivityBasicConfigAPIRequest CommonAPIRequest
-     * @return GetActivityBasicConfigAPIResponse
+     * @param getActivityReservationRequest GetActivityReservationRequest
+     * @return GetActivityReservationResponse
      * @throws Exception the exception
      */
-    GetActivityBasicConfigAPIResponse getActivityBasicConfigAPI(CommonAPIRequest getActivityBasicConfigAPIRequest) throws Exception;
+    GetActivityReservationResponse getActivityReservationAPI(GetActivityReservationRequest getActivityReservationRequest) throws Exception;
 
     /**
-     * updateActivityBasicConfigAPI
+     * ListPosterInviteAPI
      *
-     * @param updateActivityBasicConfigAPIRequest UpdateActivityBasicConfigAPIRequest
-     * @return UpdateActivityBasicConfigAPIResponse
+     * @param listPosterInviteRequest ListPosterInviteRequest
+     * @return ListPosterInviteResponse
      * @throws Exception the exception
      */
-    UpdateActivityBasicConfigAPIResponse updateActivityBasicConfigAPI(UpdateActivityBasicConfigAPIRequest updateActivityBasicConfigAPIRequest) throws Exception;
+    ListPosterInviteResponse listPosterInviteAPI(ListPosterInviteRequest listPosterInviteRequest) throws Exception;
 
     /**
-     * UploadLibAPI
+     * PresenterChatAPI
      *
-     * @param uploadLibAPIRequest UploadLibAPIRequest
-     * @return UploadLibAPIResponse
+     * @param presenterChatRequest PresenterChatRequest
+     * @return CommonStatusResponse
      * @throws Exception the exception
      */
-    UploadLibAPIResponse uploadLibAPI(UploadLibAPIRequest uploadLibAPIRequest) throws Exception;
+    CommonStatusResponse presenterChatAPI(PresenterChatRequest presenterChatRequest) throws Exception;
 
     /**
-     * getActivityMenuAPI
+     * PollingChatAPI
      *
-     * @param getActivityMenuAPIRequest GetActivityMenuAPIRequest
+     * @param pollingChatAPIRequest PollingChatAPIRequest
+     * @return PollingChatAPIResponse
+     * @throws Exception the exception
+     */
+    PollingChatAPIResponse pollingChatAPI(PollingChatAPIRequest pollingChatAPIRequest) throws Exception;
+
+    /**
+     * GetHotChatAPI
+     *
+     * @param commonRequest CommonRequest
+     * @return GetHotChatAPIResponse
+     * @throws Exception the exception
+     */
+    GetHotChatAPIResponse getHotChatAPI(CommonRequest commonRequest) throws Exception;
+
+    /**
+     * GetTopChatAPI
+     *
+     * @param commonRequest CommonRequest
+     * @return GetTopChatAPIResponse
+     * @throws Exception the exception
+     */
+    GetTopChatAPIResponse getTopChatAPI(CommonRequest commonRequest) throws Exception;
+
+    /**
+     * DeleteChatAPI
+     *
+     * @param deleteChatAPIRequest DeleteChatAPIRequest
+     * @return CommonStatusResponse
+     * @throws Exception the exception
+     */
+    CommonStatusResponse deleteChatAPI(DeleteChatAPIRequest deleteChatAPIRequest) throws Exception;
+
+    /**
+     * LikeChatAPI
+     *
+     * @param likeChatAPIRequest LikeChatAPIRequest
+     * @return LikeChatAPIResponse
+     * @throws Exception the exception
+     */
+    LikeChatAPIResponse likeChatAPI(LikeChatAPIRequest likeChatAPIRequest) throws Exception;
+
+    /**
+     * TopChatAPI
+     *
+     * @param topChatAPIRequest TopChatAPIRequest
+     * @return CommonStatusResponse
+     * @throws Exception the exception
+     */
+    CommonStatusResponse topChatAPI(TopChatAPIRequest topChatAPIRequest) throws Exception;
+
+    /**
+     * EmptyChatAPI
+     *
+     * @param commonRequest CommonRequest
+     * @return EmptyMessageResponse
+     * @throws Exception the exception
+     */
+    EmptyMessageResponse emptyChatAPI(CommonRequest commonRequest) throws Exception;
+
+    /**
+     * UpdateChatReviewStatusAPI
+     *
+     * @param updateActivityChatReviewRequest UpdateActivityChatReviewRequest
+     * @return CommonStatusResponse
+     * @throws Exception the exception
+     */
+    CommonStatusResponse updateChatReviewStatusAPI(UpdateActivityChatReviewRequest updateActivityChatReviewRequest) throws Exception;
+
+    /**
+     * ConfirmReviewChatAPI
+     *
+     * @param confirmReviewChatAPIRequest ConfirmReviewChatAPIRequest
+     * @return CommonStatusResponse
+     * @throws Exception the exception
+     */
+    CommonStatusResponse confirmReviewChatAPI(ConfirmReviewChatAPIRequest confirmReviewChatAPIRequest) throws Exception;
+
+    /**
+     * SilenceUserAPI
+     *
+     * @param silenceUserAPIRequest SilenceUserAPIRequest
+     * @return CommonStatusResponse
+     * @throws Exception the exception
+     */
+    CommonStatusResponse silenceUserAPI(SilenceUserAPIRequest silenceUserAPIRequest) throws Exception;
+
+    /**
+     * GetSilenceUserListAPI
+     *
+     * @param commonRequest CommonRequest
+     * @return GetSilenceUserListAPIResponse
+     * @throws Exception the exception
+     */
+    GetSilenceUserListAPIResponse getSilenceUserListAPI(CommonRequest commonRequest) throws Exception;
+
+    /**
+     * GetActivityMenuAPI
+     *
+     * @param commonRequest CommonRequest
      * @return GetActivityMenuAPIResponse
      * @throws Exception the exception
      */
-    GetActivityMenuAPIResponse getActivityMenuAPI(GetActivityMenuAPIRequest getActivityMenuAPIRequest) throws Exception;
+    GetActivityMenuAPIResponse getActivityMenuAPI(CommonRequest commonRequest) throws Exception;
 
     /**
-     * updateActivityMenuAPI
+     * UpdateActivityMenuAPI
      *
      * @param updateActivityMenuAPIRequest UpdateActivityMenuAPIRequest
-     * @return UpdateActivityMenuAPIResponse
+     * @return CommonStatusResponse
      * @throws Exception the exception
      */
-    UpdateActivityMenuAPIResponse updateActivityMenuAPI(UpdateActivityMenuAPIRequest updateActivityMenuAPIRequest) throws Exception;
+    CommonStatusResponse updateActivityMenuAPI(UpdateActivityMenuAPIRequest updateActivityMenuAPIRequest) throws Exception;
 
     /**
-     * getActivityProductAPI
+     * GetActivityProductAPI
      *
-     * @param getActivityProductAPIRequest CommonAPIRequest
+     * @param commonRequest CommonRequest
      * @return GetActivityProductAPIResponse
      * @throws Exception the exception
      */
-    GetActivityProductAPIResponse getActivityProductAPI(CommonAPIRequest getActivityProductAPIRequest) throws Exception;
+    GetActivityProductAPIResponse getActivityProductAPI(CommonRequest commonRequest) throws Exception;
 
     /**
-     * updateActivityProductAPI
+     * UpdateActivityProductAPI
      *
-     * @param updateActivityProductAPIRequest UpdateActivityProductAPIRequest
-     * @return UpdateActivityProductAPIResponse
+     * @param updateActivityProductVUpdateActivityProductV2RequestRequest 2
+     * @return CommonStatusResponse
      * @throws Exception the exception
      */
-    UpdateActivityProductAPIResponse updateActivityProductAPI(UpdateActivityProductAPIRequest updateActivityProductAPIRequest) throws Exception;
+    CommonStatusResponse updateActivityProductAPI(UpdateActivityProductV2Request updateActivityProductV2Request) throws Exception;
+
 
     /**
+     * DeleteGraphicMessageAPI
      *
-     * @param listActivityDetailStatusAPIRequest ListActivityDetailStatusAPIRequest
-     * @return ListActivityDetailStatusAPIResponse
+     * @param deleteGraphicMessageAPIRequest DeleteGraphicMessageAPIRequest
+     * @return CommonStatusResponse
      * @throws Exception the exception
      */
-    ListActivityDetailStatusAPIResponse listActivityDetailStatusAPI(ListActivityDetailStatusAPIRequest listActivityDetailStatusAPIRequest) throws Exception;
+    CommonStatusResponse deleteGraphicMessageAPI(DeleteGraphicMessageAPIRequest deleteGraphicMessageAPIRequest) throws Exception;
+
+    /**
+     * UpdatePresenterNameAPI
+     *
+     * @param updatePresenterNameAPIRequest UpdatePresenterNameAPIRequest
+     * @return CommonStatusResponse
+     * @throws Exception the exception
+     */
+    CommonStatusResponse updatePresenterNameAPI(UpdatePresenterNameAPIRequest updatePresenterNameAPIRequest) throws Exception;
+
+    /**
+     * UpdateBulletScreensSwitchAPI
+     *
+     * @param updateBulletScreensSwitchAPIRequest UpdateBulletScreensSwitchAPIRequest
+     * @return CommonStatusResponse
+     * @throws Exception the exception
+     */
+    CommonStatusResponse updateBulletScreensSwitchAPI(UpdateBulletScreensSwitchAPIRequest updateBulletScreensSwitchAPIRequest) throws Exception;
+
+    /**
+     * EnableProductAPI
+     *
+     * @param enableProductRequest EnableProductRequest
+     * @return CommonStatusResponse
+     * @throws Exception the exception
+     */
+    CommonStatusResponse enableProductAPI(EnableProductRequest enableProductRequest) throws Exception;
+
+    /**
+     * ExplainProductAPI
+     *
+     * @param explainProductRequest ExplainProductRequest
+     * @return CommonStatusResponse
+     * @throws Exception the exception
+     */
+    CommonStatusResponse explainProductAPI(ExplainProductRequest explainProductRequest) throws Exception;
+
+    /**
+     * UpdateActivityEmbeddedUrlAPI
+     *
+     * @param updateActivityEmbeddedUrlAPIRequest UpdateActivityEmbeddedUrlAPIRequest
+     * @return UpdateActivityEmbeddedUrlAPIResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityEmbeddedUrlAPIResponse updateActivityEmbeddedUrlAPI(UpdateActivityEmbeddedUrlAPIRequest updateActivityEmbeddedUrlAPIRequest) throws Exception;
+
+    /**
+     * GetActivityEmbeddedUrlAPI
+     *
+     * @param commonRequest CommonRequest
+     * @return GetActivityEmbeddedUrlAPIResponse
+     * @throws Exception the exception
+     */
+    GetActivityEmbeddedUrlAPIResponse getActivityEmbeddedUrlAPI(CommonRequest commonRequest) throws Exception;
+
+    /**
+     * UpdateCustomizationViewPermissionAPI
+     *
+     * @param updateCustomizationViewPermissionAPIRequest UpdateCustomizationViewPermissionAPIRequest
+     * @return UpdateCustomizationViewPermissionAPIResponse
+     * @throws Exception the exception
+     */
+    UpdateCustomizationViewPermissionAPIResponse updateCustomizationViewPermissionAPI(UpdateCustomizationViewPermissionAPIRequest updateCustomizationViewPermissionAPIRequest) throws Exception;
+
+    /**
+     * ListLivePromotionsAPI
+     *
+     * @param commonRequest CommonRequest
+     * @return ListLivePromotionsAPIResponse
+     * @throws Exception the exception
+     */
+    ListLivePromotionsAPIResponse listLivePromotionsAPI(CommonRequest commonRequest) throws Exception;
+
+    /**
+     * AddLivePromotionsAPI
+     *
+     * @param addLivePromotionsAPIRequest AddLivePromotionsAPIRequest
+     * @return AddLivePromotionsAPIResponse
+     * @throws Exception the exception
+     */
+    AddLivePromotionsAPIResponse addLivePromotionsAPI(AddLivePromotionsAPIRequest addLivePromotionsAPIRequest) throws Exception;
+
+    /**
+     * UpdateLivePromotionsStatusAPI
+     *
+     * @param updateLivePromotionsStatusAPIRequest UpdateLivePromotionsStatusAPIRequest
+     * @return CommonResponse
+     * @throws Exception the exception
+     */
+    CommonResponse updateLivePromotionsStatusAPI(UpdateLivePromotionsStatusAPIRequest updateLivePromotionsStatusAPIRequest) throws Exception;
+
+    /**
+     * DeleteLivePromotionsAPI
+     *
+     * @param deleteLivePromotionsAPIRequest DeleteLivePromotionsAPIRequest
+     * @return CommonResponse
+     * @throws Exception the exception
+     */
+    CommonResponse deleteLivePromotionsAPI(DeleteLivePromotionsAPIRequest deleteLivePromotionsAPIRequest) throws Exception;
+
+    /**
+     * ListHostAccountAPI
+     *
+     * @param listHostAccountAPIRequest ListHostAccountAPIRequest
+     * @return ListHostAccountAPIResponse
+     * @throws Exception the exception
+     */
+    ListHostAccountAPIResponse listHostAccountAPI(ListHostAccountAPIRequest listHostAccountAPIRequest) throws Exception;
+
+    /**
+     * GetBusinessAccountInfoAPI
+     *
+     * @param commonRequest CommonRequest
+     * @return GetBusinessAccountInfoAPIResponse
+     * @throws Exception the exception
+     */
+    GetBusinessAccountInfoAPIResponse getBusinessAccountInfoAPI(CommonRequest commonRequest) throws Exception;
+
+    /**
+     * UploadMediaByURL
+     *
+     * @param uploadMediaByURLRequest UploadMediaByURLRequest
+     * @return UploadMediaByURLResponse
+     * @throws Exception the exception
+     */
+    UploadMediaByURLResponse uploadMediaByURL(UploadMediaByURLRequest uploadMediaByURLRequest) throws Exception;
+
+    /**
+     * QueryUploadMediaByURL
+     *
+     * @param queryUploadMediaByURLRequest QueryUploadMediaByURLRequest
+     * @return QueryUploadMediaByURLResponse
+     * @throws Exception the exception
+     */
+    QueryUploadMediaByURLResponse queryUploadMediaByURL(QueryUploadMediaByURLRequest queryUploadMediaByURLRequest) throws Exception;
+
+    /**
+     * TempToMediaActivityMediaAPI
+     *
+     * @param tempTemp2MediaAPIRequestMediaAPIRequest 2
+     * @return Temp2MediaAPIResponse
+     * @throws Exception the exception
+     */
+    Temp2MediaAPIResponse tempToMediaActivityMediaAPI(Temp2MediaAPIRequest temp2MediaAPIRequest) throws Exception;
+
+    /**
+     * ListActivityMediaAPI
+     *
+     * @param listActivityLibAPIRequest ListActivityLibAPIRequest
+     * @return ListActivityLibAPIResponse
+     * @throws Exception the exception
+     */
+    ListActivityLibAPIResponse listActivityMediaAPI(ListActivityLibAPIRequest listActivityLibAPIRequest) throws Exception;
+
+    /**
+     * ListUserSubmitEnterReviewAPI
+     *
+     * @param listUserSubmitEnterReviewRequest ListUserSubmitEnterReviewRequest
+     * @return ListUserSubmitEnterReviewResponse
+     * @throws Exception the exception
+     */
+    ListUserSubmitEnterReviewResponse listUserSubmitEnterReviewAPI(ListUserSubmitEnterReviewRequest listUserSubmitEnterReviewRequest) throws Exception;
+
+    /**
+     * ReviewUserEnterFormAPI
+     *
+     * @param reviewUserEnterFormRequest ReviewUserEnterFormRequest
+     * @return CommonStatusResponse
+     * @throws Exception the exception
+     */
+    CommonStatusResponse reviewUserEnterFormAPI(ReviewUserEnterFormRequest reviewUserEnterFormRequest) throws Exception;
+
+    /**
+     * GetActivityAntidirtAPI
+     *
+     * @param getActivityAntidirtRequest GetActivityAntidirtRequest
+     * @return GetActivityAntidirtResponse
+     * @throws Exception the exception
+     */
+    GetActivityAntidirtResponse getActivityAntidirtAPI(GetActivityAntidirtRequest getActivityAntidirtRequest) throws Exception;
+
+    /**
+     * AddActivityAntidirtAPI
+     *
+     * @param addActivityAntidirtRequest AddActivityAntidirtRequest
+     * @return CommonStatusResponse
+     * @throws Exception the exception
+     */
+    CommonStatusResponse addActivityAntidirtAPI(AddActivityAntidirtRequest addActivityAntidirtRequest) throws Exception;
+
+    /**
+     * DelActivityAntidirtAPI
+     *
+     * @param delActivityAntidirtRequest DelActivityAntidirtRequest
+     * @return CommonStatusResponse
+     * @throws Exception the exception
+     */
+    CommonStatusResponse delActivityAntidirtAPI(DelActivityAntidirtRequest delActivityAntidirtRequest) throws Exception;
+
+    /**
+     * SendCustomSystemMessageAPI
+     *
+     * @param sendCustomSystemMessageRequest SendCustomSystemMessageRequest
+     * @return CommonStatusResponse
+     * @throws Exception the exception
+     */
+    CommonStatusResponse sendCustomSystemMessageAPI(SendCustomSystemMessageRequest sendCustomSystemMessageRequest) throws Exception;
+
+    /**
+     * GetSDKTokenAPI
+     *
+     * @param getSDKTokenRequest GetSDKTokenRequest
+     * @return GetSDKTokenResponse
+     * @throws Exception the exception
+     */
+    GetSDKTokenResponse getSDKTokenAPI(GetSDKTokenRequest getSDKTokenRequest) throws Exception;
+
+    /**
+     * GetAllStreamPullInfoAPI
+     *
+     * @param commonRequest CommonRequest
+     * @return GetAllStreamPullInfoAPIResponse
+     * @throws Exception the exception
+     */
+    GetAllStreamPullInfoAPIResponse getAllStreamPullInfoAPI(CommonRequest commonRequest) throws Exception;
+
+    /**
+     * GetUserTaskAwardResultAPI
+     *
+     * @param getUserTaskAwardResultAPIRequest GetUserTaskAwardResultAPIRequest
+     * @return GetUserTaskAwardResultAPIResponse
+     * @throws Exception the exception
+     */
+    GetUserTaskAwardResultAPIResponse getUserTaskAwardResultAPI(GetUserTaskAwardResultAPIRequest getUserTaskAwardResultAPIRequest) throws Exception;
+
+    /**
+     * AnalysisUserBehaviorPeople
+     *
+     * @param analysisUserBehaviorPeopleRequest AnalysisUserBehaviorPeopleRequest
+     * @return AnalysisUserBehaviorPeopleResponse
+     * @throws Exception the exception
+     */
+    AnalysisUserBehaviorPeopleResponse analysisUserBehaviorPeople(AnalysisUserBehaviorPeopleRequest analysisUserBehaviorPeopleRequest) throws Exception;
 }

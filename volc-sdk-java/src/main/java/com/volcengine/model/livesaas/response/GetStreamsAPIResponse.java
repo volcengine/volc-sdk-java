@@ -5,49 +5,56 @@ import com.volcengine.model.response.ResponseMetadata;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Map;
 
 @Data
 public class GetStreamsAPIResponse {
     @JSONField(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
-    GetStreamsAPIResultBean result;
+    GetStreamsAPIResult result;
 
     @Data
-    public static class GetStreamsAPIResultBean {
+    public static class GetStreamsAPIResult {
         @JSONField(name = "LineDetails")
-        List<LineDetail> lineDetails;
+        List<GetStreamsAPILineDetail> LineDetails;
     }
 
     @Data
-    public static class LineDetail {
-        @JSONField(name = "LineId")
-        Long lineId;
-        @JSONField(name = "LineName")
-        String lineName;
-        @JSONField(name = "MainPushInfo")
-        MainPushInfo mainPushInfo;
+    public static class GetStreamsAPILineDetail {
         @JSONField(name = "ForwardInfo")
-        ForwardInfo forwardInfo;
+        ForwardInfoAPI ForwardInfo;
+        @JSONField(name = "LineName")
+        String LineName;
+        @JSONField(name = "BackupForwardInfo")
+        ForwardInfoAPI BackupForwardInfo;
+        @JSONField(name = "LineId")
+        Long LineId;
         @JSONField(name = "ExpireTime")
         Long ExpireTime;
+        @JSONField(name = "MainPushInfo")
+        PushInfoAPI MainPushInfo;
+        @JSONField(name = "BackPushInfo")
+        PushInfoAPI BackPushInfo;
     }
 
     @Data
-    public static class MainPushInfo {
-        @JSONField(name = "PushPath")
-        String pushPath;
-        @JSONField(name = "StreamingCode")
-        String streamingCode;
-    }
-
-    @Data
-    public static class ForwardInfo {
+    public static class ForwardInfoAPI {
         @JSONField(name = "PullStreamUrl")
-        String pullStreamUrl;
+        String PullStreamUrl;
         @JSONField(name = "PullStreamStatus")
-        Integer pullStreamStatus;
+        String PullStreamStatus;
         @JSONField(name = "PullStreamCheckStatus")
-        Integer pullStreamCheckStatus;
+        String PullStreamCheckStatus;
+    }
+
+    @Data
+    public static class PushInfoAPI {
+        @JSONField(name = "PushPath")
+        String PushPath;
+        @JSONField(name = "PushUrl")
+        String PushUrl;
+        @JSONField(name = "StreamingCode")
+        String StreamingCode;
     }
 }

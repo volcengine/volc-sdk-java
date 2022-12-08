@@ -1,31 +1,36 @@
 package com.volcengine.model.livesaas.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.volcengine.model.response.ResponseMetadata;
 import lombok.Data;
+import com.volcengine.model.response.ResponseMetadata;
+
+import java.util.List;
+import java.util.Map;
 
 @Data
 public class GetActivityAPIResponse {
     @JSONField(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
-    GetActivityAPIResultBean result;
+    GetActivityAPIBody result;
 
     @Data
-    public static class GetActivityAPIResultBean {
-        @JSONField(name = "Id")
-        Long id;
+    public static class GetActivityAPIBody {
         @JSONField(name = "Name")
-        String name;
+        String Name;
         @JSONField(name = "LiveTime")
-        Long liveTime;
-        @JSONField(name = "Status")
-        Integer status;
+        Long LiveTime;
         @JSONField(name = "ViewUrl")
-        String viewUrl;
-        @JSONField(name = "IsPageViewEnable")
-        Integer isPageViewEnable;
+        String ViewUrl;
+        @JSONField(name = "OwnerSubAccount")
+        String OwnerSubAccount;
+        @JSONField(name = "Status")
+        Integer Status;
+        @JSONField(name = "CoverImage")
+        String CoverImage;
         @JSONField(name = "IsLockPreview")
-        Integer isLockPreview;
+        Integer IsLockPreview;
+        @JSONField(name = "Id")
+        Long Id;
     }
 }

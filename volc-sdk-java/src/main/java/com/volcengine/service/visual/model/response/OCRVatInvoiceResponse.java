@@ -74,7 +74,7 @@ public class OCRVatInvoiceResponse extends VisualBaseResponse {
         @JSONField(name = "seller_name")
         String sellerName;
 
-        @JSONField(name = "seller_taxpayer")
+        @JSONField(name = "seller_taxpayer_no")
         String sellerTaxpayerNo;
 
         @JSONField(name = "seller_address_phone")

@@ -1,8 +1,8 @@
 package com.volcengine.example.livesaas;
 
 import com.alibaba.fastjson.JSON;
-import com.volcengine.model.livesaas.request.CommonAPIRequest;
-import com.volcengine.model.livesaas.response.DeleteActivityAPIResponse;
+import com.volcengine.model.livesaas.request.CommonRequest;
+import com.volcengine.model.livesaas.response.CommonResponse;
 import com.volcengine.service.livesaas.LivesaasService;
 import com.volcengine.service.livesaas.impl.LivesaasServiceImpl;
 
@@ -16,11 +16,11 @@ public class DeleteActivityAPI {
         livesaasService.setSecretKey("");
         // list users
         try {
-            CommonAPIRequest commonAPIRequest = new CommonAPIRequest();
+            CommonRequest commonAPIRequest = new CommonRequest();
             commonAPIRequest.setActivityId(123456L);
 
 
-            DeleteActivityAPIResponse deleteActivityAPIResponse = livesaasService.deleteActivityAPI(commonAPIRequest);
+            CommonResponse deleteActivityAPIResponse = livesaasService.deleteActivityAPI(commonAPIRequest);
             System.out.println(JSON.toJSONString(deleteActivityAPIResponse));
         } catch (Exception e) {
             e.printStackTrace();

@@ -77,35 +77,153 @@ public class Const {
     public static final String TextSliceRisk = "TextSliceRisk";
 
     // livesaas
+    public static final String ListSiteTagAPIV2 = "ListSiteTagAPIV2";
 
-    //创建直播间
-    public static final String CreateActivityAPI = "CreateActivityAPI";
-    //查询直播间
-    public static final String GetActivityAPI = "GetActivityAPI";
-    //获取直播流
-    public static final String GetStreamsAPI = "GetStreamsAPI";
-    //获取广告数据
-    public static final String GetAdvertisementDataAPI = "GetAdvertisementDataAPI";
-    //获取真实在线人数
-    public static final String GetRealTimeOnlineNumberAPI = "GetRealTimeOnlineNumberAPI";
-    //删除直播间
+    public static final String UpdateSiteTagAPIV2 = "UpdateSiteTagAPIV2";
+
+    public static final String GetPageWatchDataAPI = "GetPageWatchDataAPI";
+
+    public static final String ListUserBehaviorDataAPI = "ListUserBehaviorDataAPI";
+
+    public static final String CreateActivityAPIV2 = "CreateActivityAPIV2";
+
     public static final String DeleteActivityAPI = "DeleteActivityAPI";
-    //获取直播间基本信息与配置
+
+    public static final String ListActivityAPI = "ListActivityAPI";
+
+    public static final String GetDownloadLiveClientAPI = "GetDownloadLiveClientAPI";
+
+    public static final String GetWebPushLiveClientAPI = "GetWebPushLiveClientAPI";
+
+    public static final String ListActivityByCacheAPI = "ListActivityByCacheAPI";
+
+    public static final String UpdateActivityStatusAPI = "UpdateActivityStatusAPI";
+
+    public static final String UpdatePullToPushAPI = "UpdatePullToPushAPI";
+
+    public static final String GetActivityAPI = "GetActivityAPI";
+
+    public static final String GetStreamsAPI = "GetStreamsAPI";
+
     public static final String UpdateActivityBasicConfigAPI = "UpdateActivityBasicConfigAPI";
-    //更新直播间基本信息与配置
+
     public static final String GetActivityBasicConfigAPI = "GetActivityBasicConfigAPI";
-    //图片视频上传
-    public static final String UploadLibAPI = "UploadLibAPI";
-    //获取菜单栏
+
+    public static final String UpdateLoopVideoAPI = "UpdateLoopVideoAPI";
+
+    public static final String UpdateLoopVideoStatusAPI = "UpdateLoopVideoStatusAPI";
+
+    public static final String GetTemporaryLoginTokenAPI = "GetTemporaryLoginTokenAPI";
+
+    public static final String GetCustomActMsgAPI = "GetCustomActMsgAPI";
+
+    public static final String UploadReplayAPI = "UploadReplayAPI";
+
+    public static final String ListMediasAPI = "ListMediasAPI";
+
+    public static final String UpdateMediaOnlineStatusAPI = "UpdateMediaOnlineStatusAPI";
+
+    public static final String GetAdvertisementDataAPI = "GetAdvertisementDataAPI";
+
+    public static final String ListQuestionnaireAnswerDataAPI = "ListQuestionnaireAnswerDataAPI";
+
+    public static final String ListQuestionnaireDataAPI = "ListQuestionnaireDataAPI";
+
+    public static final String GetRealTimeOnlineNumberAPI = "GetRealTimeOnlineNumberAPI";
+
+    public static final String ListAnActivityStartAndEndTimeAPI = "ListAnActivityStartAndEndTimeAPI";
+
+    public static final String GetActivityReservationAPI = "GetActivityReservationAPI";
+
+    public static final String ListPosterInviteAPI = "ListPosterInviteAPI";
+
+    public static final String PresenterChatAPI = "PresenterChatAPI";
+
+    public static final String PollingChatAPI = "PollingChatAPI";
+
+    public static final String GetHotChatAPI = "GetHotChatAPI";
+
+    public static final String GetTopChatAPI = "GetTopChatAPI";
+
+    public static final String DeleteChatAPI = "DeleteChatAPI";
+
+    public static final String LikeChatAPI = "LikeChatAPI";
+
+    public static final String TopChatAPI = "TopChatAPI";
+
+    public static final String EmptyChatAPI = "EmptyChatAPI";
+
+    public static final String UpdateChatReviewStatusAPI = "UpdateChatReviewStatusAPI";
+
+    public static final String ConfirmReviewChatAPI = "ConfirmReviewChatAPI";
+
+    public static final String SilenceUserAPI = "SilenceUserAPI";
+
+    public static final String GetSilenceUserListAPI = "GetSilenceUserListAPI";
+
     public static final String GetActivityMenuAPI = "GetActivityMenuAPI";
-    //更新菜单栏
+
     public static final String UpdateActivityMenuAPI = "UpdateActivityMenuAPI";
-    //获取菜单栏商品
+
     public static final String GetActivityProductAPI = "GetActivityProductAPI";
-    //更新菜单栏商品
+
     public static final String UpdateActivityProductAPI = "UpdateActivityProductAPI";
-    //获取直播间列表的详细状态信息
-    public static final String ListActivityDetailStatusAPI = "ListActivityDetailStatusAPI";
+
+    public static final String DeleteGraphicMessageAPI = "DeleteGraphicMessageAPI";
+
+    public static final String UpdatePresenterNameAPI = "UpdatePresenterNameAPI";
+
+    public static final String UpdateBulletScreensSwitchAPI = "UpdateBulletScreensSwitchAPI";
+
+    public static final String EnableProductAPI = "EnableProductAPI";
+
+    public static final String ExplainProductAPI = "ExplainProductAPI";
+
+    public static final String UpdateActivityEmbeddedUrlAPI = "UpdateActivityEmbeddedUrlAPI";
+
+    public static final String GetActivityEmbeddedUrlAPI = "GetActivityEmbeddedUrlAPI";
+
+    public static final String UpdateCustomizationViewPermissionAPI = "UpdateCustomizationViewPermissionAPI";
+
+    public static final String ListLivePromotionsAPI = "ListLivePromotionsAPI";
+
+    public static final String AddLivePromotionsAPI = "AddLivePromotionsAPI";
+
+    public static final String UpdateLivePromotionsStatusAPI = "UpdateLivePromotionsStatusAPI";
+
+    public static final String DeleteLivePromotionsAPI = "DeleteLivePromotionsAPI";
+
+    public static final String ListHostAccountAPI = "ListHostAccountAPI";
+
+    public static final String GetBusinessAccountInfoAPI = "GetBusinessAccountInfoAPI";
+
+    public static final String UploadMediaByURL = "UploadMediaByURL";
+
+    public static final String QueryUploadMediaByURL = "QueryUploadMediaByURL";
+
+    public static final String TempToMediaActivityMediaAPI = "TempToMediaActivityMediaAPI";
+
+    public static final String ListActivityMediaAPI = "ListActivityMediaAPI";
+
+    public static final String ListUserSubmitEnterReviewAPI = "ListUserSubmitEnterReviewAPI";
+
+    public static final String ReviewUserEnterFormAPI = "ReviewUserEnterFormAPI";
+
+    public static final String GetActivityAntidirtAPI = "GetActivityAntidirtAPI";
+
+    public static final String AddActivityAntidirtAPI = "AddActivityAntidirtAPI";
+
+    public static final String DelActivityAntidirtAPI = "DelActivityAntidirtAPI";
+
+    public static final String SendCustomSystemMessageAPI = "SendCustomSystemMessageAPI";
+
+    public static final String GetSDKTokenAPI = "GetSDKTokenAPI";
+
+    public static final String GetAllStreamPullInfoAPI = "GetAllStreamPullInfoAPI";
+
+    public static final String GetUserTaskAwardResultAPI = "GetUserTaskAwardResultAPI";
+
+    public static final String AnalysisUserBehaviorPeople = "AnalysisUserBehaviorPeople";
 
     // translate
     public static final String LangDetect = "LangDetect";

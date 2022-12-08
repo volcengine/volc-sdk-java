@@ -1,49 +1,58 @@
 package com.volcengine.model.livesaas.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.volcengine.model.response.ResponseMetadata;
 import lombok.Data;
+import com.volcengine.model.response.ResponseMetadata;
 
 import java.util.List;
+import java.util.Map;
 
 @Data
 public class GetAdvertisementDataAPIResponse {
     @JSONField(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
-    GetAdvertisementDataAPIResultBean result;
+    GetAdvertisementDataAPIResponseBody result;
 
     @Data
-    public static class GetAdvertisementDataAPIResultBean {
+    public static class GetAdvertisementDataAPIResponseBody {
         @JSONField(name = "ActivityId")
-        Long activityId;
+        Long ActivityId;
         @JSONField(name = "AccountClicks")
-        ClicksData accountClicks;
+        TotalViewsForm AccountClicks;
         @JSONField(name = "AdvertisingClicks")
-        ClicksData advertisingClicks;
+        TotalViewsForm AdvertisingClicks;
         @JSONField(name = "AdInfo")
-        List<AdInfo> adInfo;
+        List<AdvertisementStatistics> AdInfo;
+        @JSONField(name = "ShowThumbUpNumber")
+        Long ShowThumbUpNumber;
+        @JSONField(name = "ActualThumbUpNumber")
+        Long ActualThumbUpNumber;
     }
 
     @Data
-    public static class ClicksData {
+    public static class TotalViewsForm {
         @JSONField(name = "PV")
-        Long pv;
+        Long PV;
         @JSONField(name = "UV")
-        Long uv;
+        Long UV;
+        @JSONField(name = "TotalTime")
+        Long TotalTime;
     }
 
     @Data
-    public static class AdInfo {
-        @JSONField(name = "AdType")
-        Integer adType;
+    public static class AdvertisementStatistics {
+        @JSONField(name = "UV")
+        Long UV;
+        @JSONField(name = "Title")
+        String Title;
+        @JSONField(name = "PageAdvertiseType")
+        Integer PageAdvertiseType;
         @JSONField(name = "Content")
-        String content;
+        String Content;
         @JSONField(name = "Link")
-        String link;
+        String Link;
         @JSONField(name = "PV")
-        Long pv;
-        @JSONField(name = "UV")
-        Long uv;
+        Long PV;
     }
 }

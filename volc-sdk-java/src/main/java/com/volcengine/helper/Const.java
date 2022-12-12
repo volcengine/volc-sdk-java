@@ -28,11 +28,40 @@ public class Const {
     public static final String CreateUser = "CreateUser";
     public static final String DeleteUser = "DeleteUser";
     public static final String ListUsers = "ListUsers";
+    public static final String UpdateUser = "UpdateUser";
+    public static final String GetUser = "GetUser";
+    public static String CreateLoginProfile = "CreateLoginProfile";
+    public static String GetLoginProfile = "GetLoginProfile";
+    public static String UpdateLoginProfile = "UpdateLoginProfile";
+    public static String DeleteLoginProfile = "DeleteLoginProfile";
     public static final String CreateRole = "CreateRole";
     public static final String GetRole = "GetRole";
     public static final String UpdateRole = "UpdateRole";
     public static final String ListRoles = "ListRoles";
     public static final String DeleteRole = "DeleteRole";
+    public static final String CreateServiceLinkedRole = "CreateServiceLinkedRole";
+    public static final String CreateAccessKey = "CreateAccessKey";
+    public static final String DeleteAccessKey = "DeleteAccessKey";
+    public static final String ListAccessKeys = "ListAccessKeys";
+    public static final String UpdateAccessKey = "UpdateAccessKey";
+    public static final String CreatePolicy = "CreatePolicy";
+    public static final String GetPolicy = "GetPolicy";
+    public static final String UpdatePolicy = "UpdatePolicy";
+    public static final String ListPolicies = "ListPolicies";
+    public static final String DeletePolicy = "DeletePolicy";
+    public static final String AttachUserPolicy = "AttachUserPolicy";
+    public static final String DetachUserPolicy = "DetachUserPolicy";
+    public static final String ListAttachedUserPolicies = "ListAttachedUserPolicies";
+    public static final String AttachRolePolicy = "AttachRolePolicy";
+    public static final String DetachRolePolicy = "DetachRolePolicy";
+    public static final String ListAttachedRolePolicies = "ListAttachedRolePolicies";
+    public static final String ListEntitiesForPolicy = "ListEntitiesForPolicy";
+    public static String CreateSAMLProvider="CreateSAMLProvider";
+    public static String DeleteSAMLProvider="DeleteSAMLProvider";
+    public static String GetSAMLProvider = "GetSAMLProvider";
+    public static String UpdateSAMLProvider="UpdateSAMLProvider";
+    public static String ListSAMLProviders = "ListSAMLProviders";
+
 
     // billing
     public static final String ListBill = "ListBill";

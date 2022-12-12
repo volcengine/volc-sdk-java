@@ -16,30 +16,4 @@ public class CreateUserResponse {
         @JSONField(name = "User")
         User user;
     }
-
-    @Data
-    public static class User {
-        @JSONField(name = "CreateDate")
-        String createDate;
-        @JSONField(name = "UpdateDate")
-        String updateDate;
-        @JSONField(name = "AccountId")
-        Long accountID;
-        @JSONField(name = "UserName")
-        String userName;
-        @JSONField(name = "Description")
-        String description;
-        @JSONField(name = "DisplayName")
-        String displayName;
-        @JSONField(name = "Email")
-        String email;
-        @JSONField(name = "EmailIsVerify")
-        Boolean emailIsVerify;
-        @JSONField(name = "MobilePhone")
-        String mobilePhone;
-        @JSONField(name = "MobilePhoneIsVerify")
-        Boolean mobilePhoneIsVerify;
-        @JSONField(name = "Trn")
-        String trn;
-    }
 }

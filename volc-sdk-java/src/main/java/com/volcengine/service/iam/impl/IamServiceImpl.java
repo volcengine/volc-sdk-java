@@ -54,6 +54,67 @@ public class IamServiceImpl extends BaseServiceImpl implements IIamService {
     }
 
     @Override
+    public GetUserResponse getUser(GetUserRequest getUserRequest) throws Exception {
+        RawResponse response = query(Const.GetUser, Utils.mapToPairList(Utils.paramsToMap(getUserRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), GetUserResponse.class);
+    }
+
+    @Override
+    public UpdateUserResponse updateUser(UpdateUserRequest updateUserRequest) throws Exception {
+        RawResponse response = query(Const.UpdateUser, Utils.mapToPairList(Utils.paramsToMap(updateUserRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), UpdateUserResponse.class);
+    }
+
+
+    @Override
+    public CreateLoginProfileResponse createLoginProfile(CreateLoginProfileRequest request) throws  Exception {
+        RawResponse response = query(Const.CreateLoginProfile, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), CreateLoginProfileResponse.class);
+    }
+
+    @Override
+    public GetLoginProfileResponse getLoginProfile(GetLoginProfileRequest request) throws  Exception {
+        RawResponse response = query(Const.GetLoginProfile, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), GetLoginProfileResponse.class);
+    }
+
+    @Override
+    public UpdateLoginProfileResponse updateLoginProfile(UpdateLoginProfileRequest request) throws  Exception {
+        RawResponse response = query(Const.UpdateLoginProfile, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), UpdateLoginProfileResponse.class);
+    }
+
+    @Override
+    public CommonResponse deleteLoginProfile(DeleteLoginProfileRequest request) throws  Exception {
+        RawResponse response = query(Const.DeleteLoginProfile, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), CommonResponse.class);
+    }
+
+    @Override
     public RoleGetResponse createRole(RoleCreateRequest roleCreateRequest) throws Exception {
         RawResponse response = query(Const.CreateRole, Utils.mapToPairList(Utils.paramsToMap(roleCreateRequest)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -101,5 +162,228 @@ public class IamServiceImpl extends BaseServiceImpl implements IIamService {
         }
 
         return JSON.parseObject(response.getData(), CommonResponse.class);
+    }
+
+    @Override
+    public CommonResponse createServiceLinkedRole(CreateServiceLinkedRoleRequest req) throws  Exception {
+        RawResponse response = query(Const.CreateServiceLinkedRole, Utils.mapToPairList(Utils.paramsToMap(req)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), CommonResponse.class);
+    }
+
+    @Override
+    public CreateAccessKeyResponse createAccessKey(CreateAccessKeyRequest createAccessKeyRequest) throws  Exception {
+        RawResponse response = query(Const.CreateAccessKey, Utils.mapToPairList(Utils.paramsToMap(createAccessKeyRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), CreateAccessKeyResponse.class);
+    }
+
+    @Override
+    public CommonResponse updateAccessKey(UpdateAccessKeyRequest updateAccessKeyRequest) throws  Exception {
+        RawResponse response = query(Const.UpdateAccessKey, Utils.mapToPairList(Utils.paramsToMap(updateAccessKeyRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), CommonResponse.class);
+    }
+
+    @Override
+    public CommonResponse deleteAccessKey(DeleteAccessKeyRequest deleteAccessKeyRequest) throws  Exception {
+        RawResponse response = query(Const.DeleteAccessKey, Utils.mapToPairList(Utils.paramsToMap(deleteAccessKeyRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), CommonResponse.class);
+    }
+
+
+    @Override
+    public ListAccessKeysResponse listAccessKeys(ListAccessKeysRequest listAccessKeysRequest) throws  Exception {
+        RawResponse response = query(Const.ListAccessKeys, Utils.mapToPairList(Utils.paramsToMap(listAccessKeysRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ListAccessKeysResponse.class);
+    }
+
+    @Override
+    public CreatePolicyResponse createPolicy(CreatePolicyRequest request) throws  Exception {
+        RawResponse response = query(Const.CreatePolicy, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), CreatePolicyResponse.class);
+    }
+
+    @Override
+    public GetPolicyResponse getPolicy(GetPolicyRequest request) throws  Exception {
+        RawResponse response = query(Const.GetPolicy, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), GetPolicyResponse.class);
+    }
+
+    @Override
+    public ListPoliciesResponse listPolicies(ListPoliciesRequest request) throws  Exception {
+        RawResponse response = query(Const.ListPolicies, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ListPoliciesResponse.class);
+    }
+
+    @Override
+    public UpdatePolicyResponse updatePolicy(UpdatePolicyRequest request) throws  Exception {
+        RawResponse response = query(Const.UpdatePolicy, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), UpdatePolicyResponse.class);
+    }
+
+    @Override
+    public CommonResponse deletePolicy(DeletePolicyRequest request) throws  Exception {
+        RawResponse response = query(Const.DeletePolicy, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), CommonResponse.class);
+    }
+
+    @Override
+    public CommonResponse attachUserPolicy(AttachUserPolicyRequest request) throws  Exception {
+        RawResponse response = query(Const.AttachUserPolicy, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), CommonResponse.class);
+    }
+
+    @Override
+    public CommonResponse detachUserPolicy(DetachUserPolicyRequest request) throws  Exception {
+        RawResponse response = query(Const.DetachUserPolicy, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), CommonResponse.class);
+    }
+
+    @Override
+    public ListAttachedUserPoliciesResponse listAttachedUserPolicies(ListAttachedUserPoliciesRequest request)
+            throws  Exception {
+        RawResponse response = query(Const.ListAttachedUserPolicies, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ListAttachedUserPoliciesResponse.class);
+    }
+
+    @Override
+    public CommonResponse attachRolePolicy(AttachRolePolicyRequest request) throws  Exception {
+        RawResponse response = query(Const.AttachRolePolicy, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), CommonResponse.class);
+    }
+
+    @Override
+    public CommonResponse detachRolePolicy(DetachRolePolicyRequest request) throws  Exception {
+        RawResponse response = query(Const.DetachRolePolicy, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), CommonResponse.class);
+    }
+
+    @Override
+    public ListAttachedRolePoliciesResponse listAttachedRolePolicies(ListAttachedRolePoliciesRequest request) throws  Exception {
+        RawResponse response = query(Const.ListAttachedRolePolicies, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ListAttachedRolePoliciesResponse.class);
+    }
+
+    @Override
+    public ListEntitiesForPolicyResponse listEntitiesForPolicy(ListEntitiesForPolicyRequest request) throws  Exception {
+        RawResponse response = query(Const.ListEntitiesForPolicy, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ListEntitiesForPolicyResponse.class);
+    }
+
+
+    @Override
+    public CreateSAMLProviderResponse createSAMLProvider(CreateSAMLProviderRequest request) throws Exception {
+        RawResponse response = post(Const.CreateSAMLProvider,null,Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), CreateSAMLProviderResponse.class);
+    }
+
+    @Override
+    public CommonResponse deleteSAMLProvider(DeleteSAMLProviderRequest request) throws Exception {
+        RawResponse response = query(Const.DeleteSAMLProvider, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), CommonResponse.class);
+    }
+
+    @Override
+    public GetSAMLProviderResponse getSAMLProvider(GetSAMLProviderRequest request) throws Exception {
+        RawResponse response = query(Const.GetSAMLProvider, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), GetSAMLProviderResponse.class);
+    }
+
+    @Override
+    public UpdateSAMLProviderResponse updateSAMLProvider(UpdateSAMLProviderRequest request) throws Exception {
+        RawResponse response = query(Const.UpdateSAMLProvider, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), UpdateSAMLProviderResponse.class);
+    }
+
+    @Override
+    public ListSAMLProvidersResponse listSAMLProviders(ListSAMLProvidersRequest request) throws Exception {
+        RawResponse response = query(Const.ListSAMLProviders, Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ListSAMLProvidersResponse.class);
     }
 }

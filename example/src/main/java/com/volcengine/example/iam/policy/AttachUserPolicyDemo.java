@@ -15,11 +15,10 @@ public class AttachUserPolicyDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            AttachUserPolicyRequest request = AttachUserPolicyRequest.builder().
-                    policyName("policy_name").
-                    userName("user1").
-                    policyType("Custom").
-                    build();
+            AttachUserPolicyRequest request = new AttachUserPolicyRequest();
+            request.setPolicyName("policy_name");
+            request.setUserName("user1");
+            request.setPolicyType("Custom");
 
             CommonResponse response = iamService.attachUserPolicy(request);
             System.out.println(JSON.toJSONString(response));

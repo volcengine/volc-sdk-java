@@ -16,7 +16,8 @@ public class DeleteUserDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            RoleDeleteRequest request = RoleDeleteRequest.builder().roleName("role_name").build();
+            RoleDeleteRequest request = new RoleDeleteRequest();
+            request.setRoleName("role_name");
 
             CommonResponse response = iamService.deleteRole(request);
             System.out.println(JSON.toJSONString(response));

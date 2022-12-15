@@ -16,11 +16,10 @@ public class DetachRolePolicyDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            DetachRolePolicyRequest request = DetachRolePolicyRequest.builder().
-                    policyName("policy_name").
-                    roleName("role_name").
-                    policyType("Custom").
-                    build();
+            DetachRolePolicyRequest request = new DetachRolePolicyRequest();
+            request.setPolicyName("policy_name");
+            request.setRoleName("role_name");
+            request.setPolicyType("Custom");
 
             CommonResponse response = iamService.detachRolePolicy(request);
             System.out.println(JSON.toJSONString(response));

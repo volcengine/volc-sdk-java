@@ -15,9 +15,8 @@ public class DeleteLoginProfileDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            DeleteLoginProfileRequest request = DeleteLoginProfileRequest.builder().
-                    userName("user_name").
-                    build();
+            DeleteLoginProfileRequest request = new DeleteLoginProfileRequest();
+            request.setUserName("user_name");
 
             CommonResponse response = iamService.deleteLoginProfile(request);
             System.out.println(JSON.toJSONString(response));

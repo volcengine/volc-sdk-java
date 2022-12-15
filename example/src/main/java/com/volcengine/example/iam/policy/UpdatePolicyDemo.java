@@ -16,12 +16,11 @@ public class UpdatePolicyDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            UpdatePolicyRequest request = UpdatePolicyRequest.builder().
-                    policyName("policy_name").
-                    newPolicyName("policy_name_new").
-                    newPolicyDocument("{\"Statement\":[{\"Effect\":\"Deny\",\"Action\":[\"*\"],\"Resource\":[\"*\"]}]}").
-                    newDescription("description_new").
-                    build();
+            UpdatePolicyRequest request = new UpdatePolicyRequest();
+            request.setPolicyName("policy_name");
+            request.setNewPolicyName("policy_name_new");
+            request.setNewPolicyDocument("{\"Statement\":[{\"Effect\":\"Deny\",\"Action\":[\"*\"],\"Resource\":[\"*\"]}]}");
+            request.setNewDescription("description_new");
 
             UpdatePolicyResponse response = iamService.updatePolicy(request);
             System.out.println(JSON.toJSONString(response));

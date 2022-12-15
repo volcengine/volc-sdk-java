@@ -16,10 +16,9 @@ public class GetUserDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            GetUserRequest request = GetUserRequest.builder().
-                    userName("user_sdk").
-                    withThirdPartyIdentity(true). //do not set any value include false if you don't need third party identity info
-                    build();
+            GetUserRequest request = new GetUserRequest();
+            request.setUserName("user_sdk");
+            request.setWithThirdPartyIdentity(true); //do not set any value include false if you don't need third party identity info
 
             GetUserResponse response = iamService.getUser(request);
             System.out.println(JSON.toJSONString(response));

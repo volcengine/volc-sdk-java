@@ -16,13 +16,12 @@ public class UpdateUserDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            UpdateUserRequest request = UpdateUserRequest.builder().
-                    userName("user_sdk").
-                    newDisplayName("new_user_display").
-                    newEmail("new_email@cc.com").
-                    newMobilePhone("+86-1300000001").
-                    newDescription("For sdk demo new").
-                    build();
+            UpdateUserRequest request = new UpdateUserRequest();
+            request.setUserName("user_sdk");
+            request.setNewDisplayName("new_user_display");
+            request.setNewEmail("new_email@cc.com");
+            request.setNewMobilePhone("+86-1300000001");
+            request.setNewDescription("For sdk demo new");
 
             UpdateUserResponse response = iamService.updateUser(request);
             System.out.println(JSON.toJSONString(response));

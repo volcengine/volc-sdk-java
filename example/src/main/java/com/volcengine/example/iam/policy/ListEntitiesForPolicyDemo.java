@@ -16,13 +16,12 @@ public class ListEntitiesForPolicyDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            ListEntitiesForPolicyRequest request = ListEntitiesForPolicyRequest.builder().
-                    policyName("policy_name").
-                    policyType("Custom").
-                    entityFilter("User").
-                    offset(0).
-                    limit(10).
-                    build();
+            ListEntitiesForPolicyRequest request = new ListEntitiesForPolicyRequest();
+            request.setPolicyName("policy_name");
+            request.setPolicyType("Custom");
+            request.setEntityFilter("User");
+            request.setOffset(0);
+            request.setLimit(10);
 
             ListEntitiesForPolicyResponse response = iamService.listEntitiesForPolicy(request);
             System.out.println(JSON.toJSONString(response));

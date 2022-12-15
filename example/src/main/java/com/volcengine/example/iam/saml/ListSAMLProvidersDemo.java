@@ -16,7 +16,9 @@ public class ListSAMLProvidersDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            ListSAMLProvidersRequest request = ListSAMLProvidersRequest.builder().offset(0).limit(10).build();
+            ListSAMLProvidersRequest request = new ListSAMLProvidersRequest();
+            request.setOffset(0);
+            request.setLimit(10);
 
             ListSAMLProvidersResponse listSAMLProvidersResponse = iamService.listSAMLProviders(request);
             System.out.println(JSON.toJSONString(listSAMLProvidersResponse));

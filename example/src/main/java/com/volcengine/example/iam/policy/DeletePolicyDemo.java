@@ -16,7 +16,8 @@ public class DeletePolicyDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            DeletePolicyRequest request = DeletePolicyRequest.builder().policyName("policy_name").build();
+            DeletePolicyRequest request = new DeletePolicyRequest();
+            request.setPolicyName("policy_name");
 
             CommonResponse response = iamService.deletePolicy(request);
             System.out.println(JSON.toJSONString(response));

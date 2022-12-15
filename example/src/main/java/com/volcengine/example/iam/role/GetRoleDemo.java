@@ -16,7 +16,8 @@ public class GetRoleDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            RoleGetRequest request = RoleGetRequest.builder().roleName("role_name").build();
+            RoleGetRequest request = new RoleGetRequest();
+            request.setRoleName("role_name");
 
             RoleGetResponse response = iamService.getRole(request);
             System.out.println(JSON.toJSONString(response));

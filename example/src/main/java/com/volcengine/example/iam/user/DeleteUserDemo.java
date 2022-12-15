@@ -16,9 +16,8 @@ public class DeleteUserDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            DeleteUserRequest request = DeleteUserRequest.builder().
-                    userName("user_sdk").
-                    build();
+            DeleteUserRequest request = new DeleteUserRequest();
+            request.setUserName("user_sdk");
 
             DeleteUserResponse response = iamService.deleteUser(request);
             System.out.println(JSON.toJSONString(response));

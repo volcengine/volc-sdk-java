@@ -16,7 +16,9 @@ public class ListRolesDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            RoleListRequest request= RoleListRequest.builder().roleName("role_name,role_name_2").limit(3).build();
+            RoleListRequest request= new RoleListRequest();
+            request.setRoleName("role_name,role_name_2");
+            request.setLimit(3);
 
             RoleListResponse response = iamService.listRoles(request);
             System.out.println(JSON.toJSONString(response));

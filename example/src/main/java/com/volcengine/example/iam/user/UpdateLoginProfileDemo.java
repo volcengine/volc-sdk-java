@@ -16,12 +16,11 @@ public class UpdateLoginProfileDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            UpdateLoginProfileRequest request = UpdateLoginProfileRequest.builder().
-                    userName("user_name").
-                    loginAllowed(false).
-                    password("Password11").
-                    passwordResetRequired(true).
-                    build();
+            UpdateLoginProfileRequest request = new UpdateLoginProfileRequest();
+            request.setUserName("user_name");
+            request.setLoginAllowed(false);
+            request.setPassword("Password11");
+            request.setPasswordResetRequired(true);
 
             UpdateLoginProfileResponse response = iamService.updateLoginProfile(request);
             System.out.println(JSON.toJSONString(response));

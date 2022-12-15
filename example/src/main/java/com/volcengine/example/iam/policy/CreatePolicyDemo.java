@@ -15,11 +15,10 @@ public class CreatePolicyDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            CreatePolicyRequest request = CreatePolicyRequest.builder()
-                    .policyName("policy_name").
-                    policyDocument("{\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"*\"],\"Resource\":[\"*\"]}]}").
-                    description("description").
-                    build();
+            CreatePolicyRequest request = new CreatePolicyRequest();
+            request.setPolicyName("policy_name");
+            request.setPolicyDocument("{\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"*\"],\"Resource\":[\"*\"]}]}");
+            request.setDescription("description");
 
             CreatePolicyResponse response = iamService.createPolicy(request);
             System.out.println(JSON.toJSONString(response));

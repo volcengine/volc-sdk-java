@@ -16,10 +16,10 @@ public class AttachRolePolicyDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            AttachRolePolicyRequest request = AttachRolePolicyRequest.builder().roleName("role_name").
-                    policyName("policy_name").
-                    policyType("Custom").
-                    build();
+            AttachRolePolicyRequest request = new AttachRolePolicyRequest();
+            request.setRoleName("role_name");
+            request.setPolicyName("policy_name");
+            request.setPolicyType("Custom");
 
             CommonResponse response = iamService.attachRolePolicy(request);
             System.out.println(JSON.toJSONString(response));

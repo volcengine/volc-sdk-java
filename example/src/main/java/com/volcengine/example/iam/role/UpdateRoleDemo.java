@@ -16,13 +16,12 @@ public class UpdateRoleDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            RoleUpdateRequest request = RoleUpdateRequest.builder().
-                    roleName("role_name").
-                    displayName("display_name_new").
-                    description("description_new").
-                    maxSessionDuration(4800).
-                    trustPolicyDocument("{\"Statement\":[{\"Effect\":\"Deny\",\"Action\":[\"sts:AssumeRole\"],\"Principal\":{\"Service\":[\"iam\"]}}]}").
-                    build();
+            RoleUpdateRequest request = new RoleUpdateRequest();
+            request.setRoleName("role_name");
+            request.setDisplayName("display_name_new");
+            request.setDescription("description_new");
+            request.setMaxSessionDuration(4800);
+            request.setTrustPolicyDocument("{\"Statement\":[{\"Effect\":\"Deny\",\"Action\":[\"sts:AssumeRole\"],\"Principal\":{\"Service\":[\"iam\"]}}]}");
 
             CommonResponse response = iamService.updateRole(request);
             System.out.println(JSON.toJSONString(response));

@@ -16,7 +16,8 @@ public class ListAttachedRolePoliciesDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            ListAttachedRolePoliciesRequest request = ListAttachedRolePoliciesRequest.builder().roleName("role_name").build();
+            ListAttachedRolePoliciesRequest request = new ListAttachedRolePoliciesRequest();
+            request.setRoleName("role_name");
 
             ListAttachedRolePoliciesResponse response = iamService.listAttachedRolePolicies(request);
             System.out.println(JSON.toJSONString(response));

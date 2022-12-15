@@ -16,12 +16,11 @@ public class CreateLoginProfileDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            CreateLoginProfileRequest request = CreateLoginProfileRequest.builder().
-                    userName("user_name").
-                    loginAllowed(true).
-                    password("Password11").
-                    passwordResetRequired(true).
-                    build();
+            CreateLoginProfileRequest request = new CreateLoginProfileRequest();
+            request.setUserName("user_name");
+            request.setLoginAllowed(true);
+            request.setPassword("Password11");
+            request.setPasswordResetRequired(true);
 
             CreateLoginProfileResponse response = iamService.createLoginProfile(request);
             System.out.println(JSON.toJSONString(response));

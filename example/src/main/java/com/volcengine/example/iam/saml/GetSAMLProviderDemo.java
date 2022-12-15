@@ -16,7 +16,8 @@ public class GetSAMLProviderDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            GetSAMLProviderRequest request = GetSAMLProviderRequest.builder().SAMLProviderName("provider_name").build();
+            GetSAMLProviderRequest request = new GetSAMLProviderRequest();
+            request.setSAMLProviderName("provider_name");
 
             GetSAMLProviderResponse response = iamService.getSAMLProvider(request);
             System.out.println(JSON.toJSONString(response));

@@ -16,7 +16,8 @@ public class ListAttachedUserPoliciesDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            ListAttachedUserPoliciesRequest request = ListAttachedUserPoliciesRequest.builder().userName("user1").build();
+            ListAttachedUserPoliciesRequest request =  new ListAttachedUserPoliciesRequest();
+            request.setUserName("user1");
 
             ListAttachedUserPoliciesResponse response = iamService.listAttachedUserPolicies(request);
             System.out.println(JSON.toJSONString(response));

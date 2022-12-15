@@ -39,29 +39,29 @@ public final class VodSpace {
   static {
     java.lang.String[] descriptorData = {
       "\n\034vod/business/vod_space.proto\022\036Volcengi" +
-      "ne.Vod.Models.Business\"\320\001\n\014VodSpaceInfo\022" +
+      "ne.Vod.Models.Business\"\347\001\n\014VodSpaceInfo\022" +
       "\021\n\tSpaceName\030\001 \001(\t\022\016\n\006Region\030\003 \001(\t\022\023\n\013Pr" +
       "ojectName\030\004 \001(\t\022\022\n\nBucketName\030\005 \001(\t\022\024\n\014B" +
       "ucketStatus\030\006 \001(\t\022\023\n\013Description\030\007 \001(\t\022\020" +
       "\n\010UserName\030\010 \001(\t\022\021\n\tCreatedAt\030\t \001(\t\022\014\n\004T" +
-      "ype\030\n \001(\t\022\026\n\016MediaSyncLevel\030\013 \001(\t\"/\n\016Vod" +
-      "StorageData\022\014\n\004Time\030\001 \001(\t\022\017\n\007Storage\030\002 \001" +
-      "(\003\"\344\001\n$VodDescribeVodSpaceStorageDataRes" +
-      "ult\022\021\n\tSpaceList\030\001 \003(\t\022\021\n\tStartTime\030\002 \001(" +
-      "\t\022\017\n\007EndTime\030\003 \001(\t\022\023\n\013Aggregation\030\004 \001(\005\022" +
-      "\014\n\004Type\030\005 \001(\t\022\031\n\021LatestStorageData\030\006 \001(\003" +
-      "\022G\n\017StorageDataList\030\007 \003(\0132..Volcengine.V" +
-      "od.Models.Business.VodStorageData*\243\001\n\027Vo" +
-      "dSpaceUploadConfigKey\022$\n UndefinedVodSpa" +
-      "ceUploadConfigKey\020\000\022/\n+CustomUploadFileP" +
-      "athVodSpaceUploadConfigKey\020\001\0221\n-AutoPubl" +
-      "ishAfterUploadVodSpaceUploadConfigKey\020\002B" +
-      "\314\001\n)com.volcengine.service.vod.model.bus" +
-      "inessB\010VodSpaceP\001ZAgithub.com/volcengine" +
-      "/volc-sdk-golang/service/vod/models/busi" +
-      "ness\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Models\\" +
-      "Business\342\002#Volc\\Service\\Vod\\Models\\GPBMe" +
-      "tadatab\006proto3"
+      "ype\030\n \001(\t\022\026\n\016MediaSyncLevel\030\013 \001(\t\022\025\n\rCan" +
+      "UseArchive\030\014 \001(\010\"/\n\016VodStorageData\022\014\n\004Ti" +
+      "me\030\001 \001(\t\022\017\n\007Storage\030\002 \001(\003\"\344\001\n$VodDescrib" +
+      "eVodSpaceStorageDataResult\022\021\n\tSpaceList\030" +
+      "\001 \003(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007EndTime\030\003 \001(" +
+      "\t\022\023\n\013Aggregation\030\004 \001(\005\022\014\n\004Type\030\005 \001(\t\022\031\n\021" +
+      "LatestStorageData\030\006 \001(\003\022G\n\017StorageDataLi" +
+      "st\030\007 \003(\0132..Volcengine.Vod.Models.Busines" +
+      "s.VodStorageData*\243\001\n\027VodSpaceUploadConfi" +
+      "gKey\022$\n UndefinedVodSpaceUploadConfigKey" +
+      "\020\000\022/\n+CustomUploadFilePathVodSpaceUpload" +
+      "ConfigKey\020\001\0221\n-AutoPublishAfterUploadVod" +
+      "SpaceUploadConfigKey\020\002B\314\001\n)com.volcengin" +
+      "e.service.vod.model.businessB\010VodSpaceP\001" +
+      "ZAgithub.com/volcengine/volc-sdk-golang/" +
+      "service/vod/models/business\240\001\001\330\001\001\302\002\000\312\002 V" +
+      "olc\\Service\\Vod\\Models\\Business\342\002#Volc\\S" +
+      "ervice\\Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -72,7 +72,7 @@ public final class VodSpace {
     internal_static_Volcengine_Vod_Models_Business_VodSpaceInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodSpaceInfo_descriptor,
-        new java.lang.String[] { "SpaceName", "Region", "ProjectName", "BucketName", "BucketStatus", "Description", "UserName", "CreatedAt", "Type", "MediaSyncLevel", });
+        new java.lang.String[] { "SpaceName", "Region", "ProjectName", "BucketName", "BucketStatus", "Description", "UserName", "CreatedAt", "Type", "MediaSyncLevel", "CanUseArchive", });
     internal_static_Volcengine_Vod_Models_Business_VodStorageData_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Volcengine_Vod_Models_Business_VodStorageData_fieldAccessorTable = new

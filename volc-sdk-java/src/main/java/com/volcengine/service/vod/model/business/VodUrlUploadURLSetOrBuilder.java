@@ -196,4 +196,14 @@ public interface VodUrlUploadURLSetOrBuilder extends
    * @return The classificationId.
    */
   long getClassificationId();
+
+  /**
+   * <pre>
+   * 设置存储类型 
+   * </pre>
+   *
+   * <code>int32 StorageClass = 11;</code>
+   * @return The storageClass.
+   */
+  int getStorageClass();
 }

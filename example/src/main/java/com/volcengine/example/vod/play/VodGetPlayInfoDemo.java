@@ -31,6 +31,7 @@ public class VodGetPlayInfoDemo {
 			reqBuilder.setPlayScene("your PlayScene");
 			reqBuilder.setDrmExpireTimestamp("your DrmExpireTimestamp");
 			reqBuilder.setQuality("your Quality");
+			reqBuilder.setPlayConfig("your PlayConfig");
 			
             com.volcengine.service.vod.model.response.VodGetPlayInfoResponse resp = vodService.getPlayInfo(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

@@ -332,4 +332,24 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getQualityBytes();
+
+  /**
+   * <pre>
+   *播放配置,可指定播放域名
+   * </pre>
+   *
+   * <code>string PlayConfig = 17;</code>
+   * @return The playConfig.
+   */
+  java.lang.String getPlayConfig();
+  /**
+   * <pre>
+   *播放配置,可指定播放域名
+   * </pre>
+   *
+   * <code>string PlayConfig = 17;</code>
+   * @return The bytes for playConfig.
+   */
+  com.google.protobuf.ByteString
+      getPlayConfigBytes();
 }

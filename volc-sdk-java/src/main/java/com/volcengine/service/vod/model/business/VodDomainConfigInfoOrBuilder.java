@@ -80,4 +80,24 @@ public interface VodDomainConfigInfoOrBuilder extends
    * <code>.Volcengine.Vod.Models.Business.VodDomainInstanceInfos ImageInstanceInfo = 3;</code>
    */
   com.volcengine.service.vod.model.business.VodDomainInstanceInfosOrBuilder getImageInstanceInfoOrBuilder();
+
+  /**
+   * <pre>
+   *默认播放域名
+   * </pre>
+   *
+   * <code>string DefaultPlayDomain = 4;</code>
+   * @return The defaultPlayDomain.
+   */
+  java.lang.String getDefaultPlayDomain();
+  /**
+   * <pre>
+   *默认播放域名
+   * </pre>
+   *
+   * <code>string DefaultPlayDomain = 4;</code>
+   * @return The bytes for defaultPlayDomain.
+   */
+  com.google.protobuf.ByteString
+      getDefaultPlayDomainBytes();
 }

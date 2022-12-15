@@ -206,4 +206,14 @@ public interface VodSpaceInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getMediaSyncLevelBytes();
+
+  /**
+   * <pre>
+   *是否可使用归档存储
+   * </pre>
+   *
+   * <code>bool CanUseArchive = 12;</code>
+   * @return The canUseArchive.
+   */
+  boolean getCanUseArchive();
 }

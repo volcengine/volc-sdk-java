@@ -193,4 +193,48 @@ public interface VodDomainoInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getRegionBytes();
+
+  /**
+   * <pre>
+   * 源站信息
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+   */
+  java.util.List<com.volcengine.service.vod.model.business.VodDomainSourceInfo> 
+      getSourcesList();
+  /**
+   * <pre>
+   * 源站信息
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+   */
+  com.volcengine.service.vod.model.business.VodDomainSourceInfo getSources(int index);
+  /**
+   * <pre>
+   * 源站信息
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+   */
+  int getSourcesCount();
+  /**
+   * <pre>
+   * 源站信息
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+   */
+  java.util.List<? extends com.volcengine.service.vod.model.business.VodDomainSourceInfoOrBuilder> 
+      getSourcesOrBuilderList();
+  /**
+   * <pre>
+   * 源站信息
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+   */
+  com.volcengine.service.vod.model.business.VodDomainSourceInfoOrBuilder getSourcesOrBuilder(
+      int index);
 }

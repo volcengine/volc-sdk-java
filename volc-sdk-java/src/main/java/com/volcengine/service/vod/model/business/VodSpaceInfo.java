@@ -118,6 +118,11 @@ private static final long serialVersionUID = 0L;
             mediaSyncLevel_ = s;
             break;
           }
+          case 96: {
+
+            canUseArchive_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -610,6 +615,21 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int CANUSEARCHIVE_FIELD_NUMBER = 12;
+  private boolean canUseArchive_;
+  /**
+   * <pre>
+   *是否可使用归档存储
+   * </pre>
+   *
+   * <code>bool CanUseArchive = 12;</code>
+   * @return The canUseArchive.
+   */
+  @java.lang.Override
+  public boolean getCanUseArchive() {
+    return canUseArchive_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -654,6 +674,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mediaSyncLevel_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 11, mediaSyncLevel_);
     }
+    if (canUseArchive_ != false) {
+      output.writeBool(12, canUseArchive_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -693,6 +716,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mediaSyncLevel_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, mediaSyncLevel_);
     }
+    if (canUseArchive_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(12, canUseArchive_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -728,6 +755,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getType())) return false;
     if (!getMediaSyncLevel()
         .equals(other.getMediaSyncLevel())) return false;
+    if (getCanUseArchive()
+        != other.getCanUseArchive()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -759,6 +788,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getType().hashCode();
     hash = (37 * hash) + MEDIASYNCLEVEL_FIELD_NUMBER;
     hash = (53 * hash) + getMediaSyncLevel().hashCode();
+    hash = (37 * hash) + CANUSEARCHIVE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getCanUseArchive());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -912,6 +944,8 @@ private static final long serialVersionUID = 0L;
 
       mediaSyncLevel_ = "";
 
+      canUseArchive_ = false;
+
       return this;
     }
 
@@ -948,6 +982,7 @@ private static final long serialVersionUID = 0L;
       result.createdAt_ = createdAt_;
       result.type_ = type_;
       result.mediaSyncLevel_ = mediaSyncLevel_;
+      result.canUseArchive_ = canUseArchive_;
       onBuilt();
       return result;
     }
@@ -1035,6 +1070,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getMediaSyncLevel().isEmpty()) {
         mediaSyncLevel_ = other.mediaSyncLevel_;
         onChanged();
+      }
+      if (other.getCanUseArchive() != false) {
+        setCanUseArchive(other.getCanUseArchive());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2021,6 +2059,49 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       mediaSyncLevel_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean canUseArchive_ ;
+    /**
+     * <pre>
+     *是否可使用归档存储
+     * </pre>
+     *
+     * <code>bool CanUseArchive = 12;</code>
+     * @return The canUseArchive.
+     */
+    @java.lang.Override
+    public boolean getCanUseArchive() {
+      return canUseArchive_;
+    }
+    /**
+     * <pre>
+     *是否可使用归档存储
+     * </pre>
+     *
+     * <code>bool CanUseArchive = 12;</code>
+     * @param value The canUseArchive to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCanUseArchive(boolean value) {
+      
+      canUseArchive_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *是否可使用归档存储
+     * </pre>
+     *
+     * <code>bool CanUseArchive = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCanUseArchive() {
+      
+      canUseArchive_ = false;
       onChanged();
       return this;
     }

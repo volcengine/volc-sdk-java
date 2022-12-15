@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private VodDomainConfigInfo() {
     spaceName_ = "";
+    defaultPlayDomain_ = "";
   }
 
   @java.lang.Override
@@ -79,6 +80,12 @@ private static final long serialVersionUID = 0L;
               imageInstanceInfo_ = subBuilder.buildPartial();
             }
 
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            defaultPlayDomain_ = s;
             break;
           }
           default: {
@@ -235,6 +242,52 @@ private static final long serialVersionUID = 0L;
     return getImageInstanceInfo();
   }
 
+  public static final int DEFAULTPLAYDOMAIN_FIELD_NUMBER = 4;
+  private volatile java.lang.Object defaultPlayDomain_;
+  /**
+   * <pre>
+   *默认播放域名
+   * </pre>
+   *
+   * <code>string DefaultPlayDomain = 4;</code>
+   * @return The defaultPlayDomain.
+   */
+  @java.lang.Override
+  public java.lang.String getDefaultPlayDomain() {
+    java.lang.Object ref = defaultPlayDomain_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      defaultPlayDomain_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *默认播放域名
+   * </pre>
+   *
+   * <code>string DefaultPlayDomain = 4;</code>
+   * @return The bytes for defaultPlayDomain.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDefaultPlayDomainBytes() {
+    java.lang.Object ref = defaultPlayDomain_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      defaultPlayDomain_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -258,6 +311,9 @@ private static final long serialVersionUID = 0L;
     if (imageInstanceInfo_ != null) {
       output.writeMessage(3, getImageInstanceInfo());
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultPlayDomain_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, defaultPlayDomain_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -277,6 +333,9 @@ private static final long serialVersionUID = 0L;
     if (imageInstanceInfo_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getImageInstanceInfo());
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultPlayDomain_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, defaultPlayDomain_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -305,6 +364,8 @@ private static final long serialVersionUID = 0L;
       if (!getImageInstanceInfo()
           .equals(other.getImageInstanceInfo())) return false;
     }
+    if (!getDefaultPlayDomain()
+        .equals(other.getDefaultPlayDomain())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -326,6 +387,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + IMAGEINSTANCEINFO_FIELD_NUMBER;
       hash = (53 * hash) + getImageInstanceInfo().hashCode();
     }
+    hash = (37 * hash) + DEFAULTPLAYDOMAIN_FIELD_NUMBER;
+    hash = (53 * hash) + getDefaultPlayDomain().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -473,6 +536,8 @@ private static final long serialVersionUID = 0L;
         imageInstanceInfo_ = null;
         imageInstanceInfoBuilder_ = null;
       }
+      defaultPlayDomain_ = "";
+
       return this;
     }
 
@@ -510,6 +575,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.imageInstanceInfo_ = imageInstanceInfoBuilder_.build();
       }
+      result.defaultPlayDomain_ = defaultPlayDomain_;
       onBuilt();
       return result;
     }
@@ -567,6 +633,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasImageInstanceInfo()) {
         mergeImageInstanceInfo(other.getImageInstanceInfo());
+      }
+      if (!other.getDefaultPlayDomain().isEmpty()) {
+        defaultPlayDomain_ = other.defaultPlayDomain_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1001,6 +1071,102 @@ private static final long serialVersionUID = 0L;
         imageInstanceInfo_ = null;
       }
       return imageInstanceInfoBuilder_;
+    }
+
+    private java.lang.Object defaultPlayDomain_ = "";
+    /**
+     * <pre>
+     *默认播放域名
+     * </pre>
+     *
+     * <code>string DefaultPlayDomain = 4;</code>
+     * @return The defaultPlayDomain.
+     */
+    public java.lang.String getDefaultPlayDomain() {
+      java.lang.Object ref = defaultPlayDomain_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        defaultPlayDomain_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *默认播放域名
+     * </pre>
+     *
+     * <code>string DefaultPlayDomain = 4;</code>
+     * @return The bytes for defaultPlayDomain.
+     */
+    public com.google.protobuf.ByteString
+        getDefaultPlayDomainBytes() {
+      java.lang.Object ref = defaultPlayDomain_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        defaultPlayDomain_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *默认播放域名
+     * </pre>
+     *
+     * <code>string DefaultPlayDomain = 4;</code>
+     * @param value The defaultPlayDomain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDefaultPlayDomain(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      defaultPlayDomain_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *默认播放域名
+     * </pre>
+     *
+     * <code>string DefaultPlayDomain = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDefaultPlayDomain() {
+      
+      defaultPlayDomain_ = getDefaultInstance().getDefaultPlayDomain();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *默认播放域名
+     * </pre>
+     *
+     * <code>string DefaultPlayDomain = 4;</code>
+     * @param value The bytes for defaultPlayDomain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDefaultPlayDomainBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      defaultPlayDomain_ = value;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

@@ -32,6 +32,7 @@ private static final long serialVersionUID = 0L;
     playScene_ = "";
     drmExpireTimestamp_ = "";
     quality_ = "";
+    playConfig_ = "";
   }
 
   @java.lang.Override
@@ -158,6 +159,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             quality_ = s;
+            break;
+          }
+          case 138: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            playConfig_ = s;
             break;
           }
           default: {
@@ -934,6 +941,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int PLAYCONFIG_FIELD_NUMBER = 17;
+  private volatile java.lang.Object playConfig_;
+  /**
+   * <pre>
+   *播放配置,可指定播放域名
+   * </pre>
+   *
+   * <code>string PlayConfig = 17;</code>
+   * @return The playConfig.
+   */
+  @java.lang.Override
+  public java.lang.String getPlayConfig() {
+    java.lang.Object ref = playConfig_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      playConfig_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *播放配置,可指定播放域名
+   * </pre>
+   *
+   * <code>string PlayConfig = 17;</code>
+   * @return The bytes for playConfig.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPlayConfigBytes() {
+    java.lang.Object ref = playConfig_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      playConfig_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -996,6 +1049,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(quality_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 16, quality_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playConfig_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 17, playConfig_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -1053,6 +1109,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(quality_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, quality_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playConfig_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, playConfig_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1100,6 +1159,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDrmExpireTimestamp())) return false;
     if (!getQuality()
         .equals(other.getQuality())) return false;
+    if (!getPlayConfig()
+        .equals(other.getPlayConfig())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1143,6 +1204,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getDrmExpireTimestamp().hashCode();
     hash = (37 * hash) + QUALITY_FIELD_NUMBER;
     hash = (53 * hash) + getQuality().hashCode();
+    hash = (37 * hash) + PLAYCONFIG_FIELD_NUMBER;
+    hash = (53 * hash) + getPlayConfig().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1308,6 +1371,8 @@ private static final long serialVersionUID = 0L;
 
       quality_ = "";
 
+      playConfig_ = "";
+
       return this;
     }
 
@@ -1350,6 +1415,7 @@ private static final long serialVersionUID = 0L;
       result.playScene_ = playScene_;
       result.drmExpireTimestamp_ = drmExpireTimestamp_;
       result.quality_ = quality_;
+      result.playConfig_ = playConfig_;
       onBuilt();
       return result;
     }
@@ -1460,6 +1526,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getQuality().isEmpty()) {
         quality_ = other.quality_;
+        onChanged();
+      }
+      if (!other.getPlayConfig().isEmpty()) {
+        playConfig_ = other.playConfig_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -3038,6 +3108,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       quality_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object playConfig_ = "";
+    /**
+     * <pre>
+     *播放配置,可指定播放域名
+     * </pre>
+     *
+     * <code>string PlayConfig = 17;</code>
+     * @return The playConfig.
+     */
+    public java.lang.String getPlayConfig() {
+      java.lang.Object ref = playConfig_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        playConfig_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *播放配置,可指定播放域名
+     * </pre>
+     *
+     * <code>string PlayConfig = 17;</code>
+     * @return The bytes for playConfig.
+     */
+    public com.google.protobuf.ByteString
+        getPlayConfigBytes() {
+      java.lang.Object ref = playConfig_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        playConfig_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *播放配置,可指定播放域名
+     * </pre>
+     *
+     * <code>string PlayConfig = 17;</code>
+     * @param value The playConfig to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPlayConfig(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      playConfig_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *播放配置,可指定播放域名
+     * </pre>
+     *
+     * <code>string PlayConfig = 17;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPlayConfig() {
+      
+      playConfig_ = getDefaultInstance().getPlayConfig();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *播放配置,可指定播放域名
+     * </pre>
+     *
+     * <code>string PlayConfig = 17;</code>
+     * @param value The bytes for playConfig to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPlayConfigBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      playConfig_ = value;
       onChanged();
       return this;
     }

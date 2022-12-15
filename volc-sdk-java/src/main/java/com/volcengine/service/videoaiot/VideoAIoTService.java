@@ -147,6 +147,14 @@ public interface VideoAIoTService extends IBaseService {
     RawResponse deleteAlarmNotify(String alarmNotifyID) throws Exception;
 
     RawResponse deleteAlarmNotifyAll(String apceID, String deviceNSID) throws Exception;
+
+    //device control
+    RawResponse cloudControl(DeviceCloudControlRequest deviceCloudControlRequest) throws Exception;
+
+    DeviceQueryPresetResponse queryPresetInfo(DeviceQueryPresetRequest queryPresetRequest) throws Exception;
+
+    RawResponse cruiseControl(DeviceCruiseControlRequest deviceCruiseControlRequest) throws Exception;
+
     ///流
     GetStreamResponse getStream(GetStreamRequest getStreamRequest) throws Exception;
 
@@ -162,7 +170,6 @@ public interface VideoAIoTService extends IBaseService {
 
     IDResponse deleteStream(StreamRequest deleteStream) throws Exception;
 
-//    //todo forwards
 //    RawResponse createForward(CreateForwardRequest createForwardRequest) throws Exception;
 //
 //    ListForwardResponse listForward(ListForwardRequest listForwardRequest) throws Exception;
@@ -195,5 +202,6 @@ public interface VideoAIoTService extends IBaseService {
 
     //语音对讲
     StartVoiceTalkResponse startVoiceTalk(StartVoiceTalkRequest startVoiceTalkRequest) throws Exception;
+
     RawResponse stopVoiceTalk(StopVoiceTalkRequest stopVoiceTalkRequest) throws Exception;
 }

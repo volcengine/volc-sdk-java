@@ -17,9 +17,10 @@ public class VideoAIoTImplTest extends TestCase {
     private static final String streamID = "021c4154-2e1a-4c2b-acd9-388f79d7ff30";
     private static final String screenTemplateID = "7e15a883-881a-49bd-a2e1-83b15243fe43";
 
+    private VideoAIoTService videoAIoTService = VideoAIoTServiceImpl.getInstance();
     private final String accessKey = "ak";
     private final String secretKey = "sk";
-    private VideoAIoTService videoAIoTService = VideoAIoTServiceImpl.getInstance();
+
     {
         videoAIoTService.setAccessKey(accessKey);
         videoAIoTService.setSecretKey(secretKey);
@@ -38,6 +39,22 @@ public class VideoAIoTImplTest extends TestCase {
             throw new RuntimeException(e);
         }
     }
+
+//    public void testCreateSpace() {
+//        CreateSpaceRequest createSpaceRequest = new CreateSpaceRequest();
+//        createSpaceRequest.setSpaceName("java-space");
+//        createSpaceRequest.setRegion("cn-beijing-a");
+//        createSpaceRequest.setCallback("");
+//        createSpaceRequest.setDescription("java-sdk-create");
+//        createSpaceRequest.setAccessType("rtmp");
+//        createSpaceRequest.setHLSLowLatency(false);
+//        try {
+//            IDResponse space = videoAIoTService.createSpace(createSpaceRequest);
+//            System.out.printf(JSON.toJSONString(space));
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     public void testCreateSpace() {
         CreateSpaceRequest createSpaceRequest = new CreateSpaceRequest();
@@ -570,12 +587,26 @@ public class VideoAIoTImplTest extends TestCase {
     public void testGetDataProjectWithBindWidthAndFlow() {
         GetDataProjectWithBindWidthAndFlowRequest dataRequest = new GetDataProjectWithBindWidthAndFlowRequest();
         dataRequest.setSpaceID("517ff7ec-7700-4862-b1e7-7967a492df79");
-        dataRequest.setStartTime("1662037702");
-        dataRequest.setEndTime("1662642502");
+        dataRequest.setStartTime("1663984753");
+        dataRequest.setEndTime("1664157570");
         dataRequest.setData("BindWidth"); //或者填 Flow
+        dataRequest.setStreamName(""); //不填的话，就是空间级别的流量带宽查询、填了就是流维度的
         try {
             GetDataProjectWithBindWidthAndFlowResponse dataResponse = videoAIoTService.getDataProjectWithBindWidthAndFlow(dataRequest);
             System.out.println(JSON.toJSONString(dataResponse));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        GetDataProjectWithBindWidthAndFlowRequest dataRequest1 = new GetDataProjectWithBindWidthAndFlowRequest();
+        dataRequest1.setSpaceID("517ff7ec-7700-4862-b1e7-7967a492df79");
+        dataRequest1.setStartTime("1663984753");
+        dataRequest1.setEndTime("1664157570");
+        dataRequest1.setData("Flow"); //或者填 Flow
+        dataRequest1.setStreamName("34020083991320916727_34020083991320916727"); //不填的话，就是空间级别的流量带宽查询、填了就是流维度的
+        try {
+            GetDataProjectWithBindWidthAndFlowResponse dataResponse1 = videoAIoTService.getDataProjectWithBindWidthAndFlow(dataRequest1);
+            System.out.println(JSON.toJSONString(dataResponse1));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -728,4 +759,114 @@ public class VideoAIoTImplTest extends TestCase {
             throw new RuntimeException(e);
         }
     }
+
+
+    public void testPTZ() throws InterruptedException {
+        DeviceCloudControlRequest deviceCloudControlRequest = new DeviceCloudControlRequest();
+        deviceCloudControlRequest.setDeviceNSID("34020008991180978871");
+        deviceCloudControlRequest.setAction(DeviceCloudControlRequest.ACTION_PTZ);
+        deviceCloudControlRequest.setChannelID("34020000001320000005");
+        deviceCloudControlRequest.setParam(51);
+        deviceCloudControlRequest.setCmd(DeviceCloudControlRequest.PtzCmdUp);
+        deviceCloudControlRequest.setSipID("34020000002000000001");
+        try {
+            RawResponse rawResponse = videoAIoTService.cloudControl(deviceCloudControlRequest);
+            System.out.println(JSON.toJSONString(rawResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Thread.sleep(2000);
+        deviceCloudControlRequest = new DeviceCloudControlRequest();
+        deviceCloudControlRequest.setDeviceNSID("34020008991180978871");
+        deviceCloudControlRequest.setAction(DeviceCloudControlRequest.ACTION_PTZ);
+        deviceCloudControlRequest.setChannelID("34020000001320000005");
+        deviceCloudControlRequest.setParam(51);
+        deviceCloudControlRequest.setCmd(DeviceCloudControlRequest.PtzCmdStop);
+        deviceCloudControlRequest.setSipID("34020000002000000001");
+        try {
+            RawResponse rawResponse = videoAIoTService.cloudControl(deviceCloudControlRequest);
+            System.out.println(JSON.toJSONString(rawResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void testFi() throws InterruptedException {
+        DeviceCloudControlRequest deviceCloudControlRequest = new DeviceCloudControlRequest();
+        deviceCloudControlRequest.setDeviceNSID("34020008991180978871");
+        deviceCloudControlRequest.setAction(DeviceCloudControlRequest.ACTION_FI);
+        deviceCloudControlRequest.setChannelID("34020000001320000005");
+        deviceCloudControlRequest.setParam(51);
+        deviceCloudControlRequest.setCmd(DeviceCloudControlRequest.FiCmdFocusFar);
+        deviceCloudControlRequest.setSipID("34020000002000000001");
+        try {
+            videoAIoTService.cloudControl(deviceCloudControlRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Thread.sleep(2000);
+        deviceCloudControlRequest = new DeviceCloudControlRequest();
+        deviceCloudControlRequest.setDeviceNSID("34020008991180978871");
+        deviceCloudControlRequest.setAction(DeviceCloudControlRequest.ACTION_FI);
+        deviceCloudControlRequest.setChannelID("34020000001320000005");
+        deviceCloudControlRequest.setParam(51);
+        deviceCloudControlRequest.setCmd(DeviceCloudControlRequest.FiCmdStop);
+        deviceCloudControlRequest.setSipID("34020000002000000001");
+        try {
+            RawResponse rawResponse = videoAIoTService.cloudControl(deviceCloudControlRequest);
+            System.out.println(JSON.toJSONString(rawResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    int presetID = 15;
+
+    public void testAddPreset() {
+        DeviceCloudControlRequest deviceCloudControlRequest = new DeviceCloudControlRequest();
+        deviceCloudControlRequest.setCmd(DeviceCloudControlRequest.PresetCmdSet);
+        deviceCloudControlRequest.setDeviceNSID("34020008991180978871");
+        deviceCloudControlRequest.setAction(DeviceCloudControlRequest.ACTION_PRESET);
+        deviceCloudControlRequest.setChannelID("34020000001320000005");
+        deviceCloudControlRequest.setParam(presetID);
+        deviceCloudControlRequest.setSipID("34020000002000000001");
+
+        try {
+            videoAIoTService.cloudControl(deviceCloudControlRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testRMPreset() {
+        DeviceCloudControlRequest deviceCloudControlRequest = new DeviceCloudControlRequest();
+        deviceCloudControlRequest.setCmd(DeviceCloudControlRequest.PresetCmdRemove);
+        deviceCloudControlRequest.setDeviceNSID("34020008991180978871");
+        deviceCloudControlRequest.setAction(DeviceCloudControlRequest.ACTION_PRESET);
+        deviceCloudControlRequest.setChannelID("34020000001320000005");
+        deviceCloudControlRequest.setParam(presetID);
+        deviceCloudControlRequest.setSipID("34020000002000000001");
+
+        try {
+            videoAIoTService.cloudControl(deviceCloudControlRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testQueryPreset() {
+        DeviceQueryPresetRequest request = new DeviceQueryPresetRequest();
+        request.setChannelID("34020000001320000005");
+        request.setSipID("34020000002000000001");
+        request.setTimeout(5);
+        request.setDeviceID("34020008991180978871");
+        try {
+            DeviceQueryPresetResponse deviceQueryPresetResponse = videoAIoTService.queryPresetInfo(request);
+            System.out.println(JSON.toJSONString(deviceQueryPresetResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

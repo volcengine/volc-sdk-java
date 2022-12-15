@@ -18,7 +18,6 @@ public class GetDataProjectWithBindWidthAndFlowResponse {
         int totalUp;
         @JSONField(name = "TotalDown")
         int totalDown;
-
         @JSONField(name = "DataUp")
         List<GetStreamDataResponse.DataProject> dataUp;
         @JSONField(name = "DataDown")

@@ -452,7 +452,6 @@ public class Const {
     public static final String CancelKeyDeletion = "CancelKeyDeletion";
     public static final String KmsServiceVersion = "2021-02-18";
 
-
     //video_aiot
     public static final String VideoAIoTSDKVersion = "2021-01-01";
     public static final String AIoTVideoCreateSpace = "CreateSpace";
@@ -502,6 +501,10 @@ public class Const {
     public static final String AIoTVideoDeleteAlarmNotify = "DeleteAlarmNotify";
 
     public static final String AIoTVideoDeleteAlarmNotifyAll = "DeleteAlarmNotifyAll";
+
+    public static final String AIoTVideoCloudControl = "CloudControl";
+    public static final String AIoTVideoQueryPresetInfo = "QueryPresetInfo";
+    public static final String AIoTVideoCruiseControl = "CruiseControl";
 
     public static final String AIoTVideoGetStream = "GetStream";
     public static final String AIoTVideoListStreams = "ListStreams";

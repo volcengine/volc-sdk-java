@@ -96,4 +96,14 @@ public interface VodApplyUploadInfoRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getFileNameBytes();
+
+  /**
+   * <pre>
+   * 上传的文件的存储类型，1-标准存储，2-归档存储，非必填参数，默认为标准存储 
+   * </pre>
+   *
+   * <code>int32 StorageClass = 6;</code>
+   * @return The storageClass.
+   */
+  int getStorageClass();
 }

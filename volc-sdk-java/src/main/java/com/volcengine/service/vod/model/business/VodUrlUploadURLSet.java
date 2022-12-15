@@ -116,6 +116,11 @@ private static final long serialVersionUID = 0L;
             classificationId_ = input.readInt64();
             break;
           }
+          case 88: {
+
+            storageClass_ = input.readInt32();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -577,6 +582,21 @@ private static final long serialVersionUID = 0L;
     return classificationId_;
   }
 
+  public static final int STORAGECLASS_FIELD_NUMBER = 11;
+  private int storageClass_;
+  /**
+   * <pre>
+   * 设置存储类型 
+   * </pre>
+   *
+   * <code>int32 StorageClass = 11;</code>
+   * @return The storageClass.
+   */
+  @java.lang.Override
+  public int getStorageClass() {
+    return storageClass_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -621,6 +641,9 @@ private static final long serialVersionUID = 0L;
     if (classificationId_ != 0L) {
       output.writeInt64(10, classificationId_);
     }
+    if (storageClass_ != 0) {
+      output.writeInt32(11, storageClass_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -661,6 +684,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(10, classificationId_);
     }
+    if (storageClass_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(11, storageClass_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -696,6 +723,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFileName())) return false;
     if (getClassificationId()
         != other.getClassificationId()) return false;
+    if (getStorageClass()
+        != other.getStorageClass()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -728,6 +757,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + CLASSIFICATIONID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getClassificationId());
+    hash = (37 * hash) + STORAGECLASS_FIELD_NUMBER;
+    hash = (53 * hash) + getStorageClass();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -881,6 +912,8 @@ private static final long serialVersionUID = 0L;
 
       classificationId_ = 0L;
 
+      storageClass_ = 0;
+
       return this;
     }
 
@@ -917,6 +950,7 @@ private static final long serialVersionUID = 0L;
       result.category_ = category_;
       result.fileName_ = fileName_;
       result.classificationId_ = classificationId_;
+      result.storageClass_ = storageClass_;
       onBuilt();
       return result;
     }
@@ -1003,6 +1037,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getClassificationId() != 0L) {
         setClassificationId(other.getClassificationId());
+      }
+      if (other.getStorageClass() != 0) {
+        setStorageClass(other.getStorageClass());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1936,6 +1973,49 @@ private static final long serialVersionUID = 0L;
     public Builder clearClassificationId() {
       
       classificationId_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private int storageClass_ ;
+    /**
+     * <pre>
+     * 设置存储类型 
+     * </pre>
+     *
+     * <code>int32 StorageClass = 11;</code>
+     * @return The storageClass.
+     */
+    @java.lang.Override
+    public int getStorageClass() {
+      return storageClass_;
+    }
+    /**
+     * <pre>
+     * 设置存储类型 
+     * </pre>
+     *
+     * <code>int32 StorageClass = 11;</code>
+     * @param value The storageClass to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStorageClass(int value) {
+      
+      storageClass_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 设置存储类型 
+     * </pre>
+     *
+     * <code>int32 StorageClass = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStorageClass() {
+      
+      storageClass_ = 0;
       onChanged();
       return this;
     }

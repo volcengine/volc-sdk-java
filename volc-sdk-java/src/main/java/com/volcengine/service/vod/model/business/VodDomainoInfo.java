@@ -24,6 +24,7 @@ private static final long serialVersionUID = 0L;
     createTime_ = "";
     updateTime_ = "";
     region_ = "";
+    sources_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -46,6 +47,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -117,6 +119,15 @@ private static final long serialVersionUID = 0L;
             region_ = s;
             break;
           }
+          case 82: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              sources_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodDomainSourceInfo>();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            sources_.add(
+                input.readMessage(com.volcengine.service.vod.model.business.VodDomainSourceInfo.parser(), extensionRegistry));
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -132,6 +143,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        sources_ = java.util.Collections.unmodifiableList(sources_);
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -555,6 +569,66 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int SOURCES_FIELD_NUMBER = 10;
+  private java.util.List<com.volcengine.service.vod.model.business.VodDomainSourceInfo> sources_;
+  /**
+   * <pre>
+   * 源站信息
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.volcengine.service.vod.model.business.VodDomainSourceInfo> getSourcesList() {
+    return sources_;
+  }
+  /**
+   * <pre>
+   * 源站信息
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.volcengine.service.vod.model.business.VodDomainSourceInfoOrBuilder> 
+      getSourcesOrBuilderList() {
+    return sources_;
+  }
+  /**
+   * <pre>
+   * 源站信息
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+   */
+  @java.lang.Override
+  public int getSourcesCount() {
+    return sources_.size();
+  }
+  /**
+   * <pre>
+   * 源站信息
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodDomainSourceInfo getSources(int index) {
+    return sources_.get(index);
+  }
+  /**
+   * <pre>
+   * 源站信息
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodDomainSourceInfoOrBuilder getSourcesOrBuilder(
+      int index) {
+    return sources_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -596,6 +670,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(region_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, region_);
     }
+    for (int i = 0; i < sources_.size(); i++) {
+      output.writeMessage(10, sources_.get(i));
+    }
     unknownFields.writeTo(output);
   }
 
@@ -633,6 +710,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(region_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, region_);
     }
+    for (int i = 0; i < sources_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(10, sources_.get(i));
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -669,6 +750,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getUpdateTime())) return false;
     if (!getRegion()
         .equals(other.getRegion())) return false;
+    if (!getSourcesList()
+        .equals(other.getSourcesList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -700,6 +783,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getUpdateTime().hashCode();
     hash = (37 * hash) + REGION_FIELD_NUMBER;
     hash = (53 * hash) + getRegion().hashCode();
+    if (getSourcesCount() > 0) {
+      hash = (37 * hash) + SOURCES_FIELD_NUMBER;
+      hash = (53 * hash) + getSourcesList().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -828,6 +915,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getSourcesFieldBuilder();
       }
     }
     @java.lang.Override
@@ -855,6 +943,12 @@ private static final long serialVersionUID = 0L;
 
       region_ = "";
 
+      if (sourcesBuilder_ == null) {
+        sources_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      } else {
+        sourcesBuilder_.clear();
+      }
       return this;
     }
 
@@ -881,6 +975,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.volcengine.service.vod.model.business.VodDomainoInfo buildPartial() {
       com.volcengine.service.vod.model.business.VodDomainoInfo result = new com.volcengine.service.vod.model.business.VodDomainoInfo(this);
+      int from_bitField0_ = bitField0_;
       result.domain_ = domain_;
       result.cname_ = cname_;
       result.configStatus_ = configStatus_;
@@ -894,6 +989,15 @@ private static final long serialVersionUID = 0L;
       result.createTime_ = createTime_;
       result.updateTime_ = updateTime_;
       result.region_ = region_;
+      if (sourcesBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          sources_ = java.util.Collections.unmodifiableList(sources_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.sources_ = sources_;
+      } else {
+        result.sources_ = sourcesBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -977,6 +1081,32 @@ private static final long serialVersionUID = 0L;
         region_ = other.region_;
         onChanged();
       }
+      if (sourcesBuilder_ == null) {
+        if (!other.sources_.isEmpty()) {
+          if (sources_.isEmpty()) {
+            sources_ = other.sources_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureSourcesIsMutable();
+            sources_.addAll(other.sources_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.sources_.isEmpty()) {
+          if (sourcesBuilder_.isEmpty()) {
+            sourcesBuilder_.dispose();
+            sourcesBuilder_ = null;
+            sources_ = other.sources_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            sourcesBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getSourcesFieldBuilder() : null;
+          } else {
+            sourcesBuilder_.addAllMessages(other.sources_);
+          }
+        }
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -1005,6 +1135,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object domain_ = "";
     /**
@@ -1927,6 +2058,318 @@ private static final long serialVersionUID = 0L;
       region_ = value;
       onChanged();
       return this;
+    }
+
+    private java.util.List<com.volcengine.service.vod.model.business.VodDomainSourceInfo> sources_ =
+      java.util.Collections.emptyList();
+    private void ensureSourcesIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        sources_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodDomainSourceInfo>(sources_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodDomainSourceInfo, com.volcengine.service.vod.model.business.VodDomainSourceInfo.Builder, com.volcengine.service.vod.model.business.VodDomainSourceInfoOrBuilder> sourcesBuilder_;
+
+    /**
+     * <pre>
+     * 源站信息
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.VodDomainSourceInfo> getSourcesList() {
+      if (sourcesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(sources_);
+      } else {
+        return sourcesBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * 源站信息
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+     */
+    public int getSourcesCount() {
+      if (sourcesBuilder_ == null) {
+        return sources_.size();
+      } else {
+        return sourcesBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * 源站信息
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodDomainSourceInfo getSources(int index) {
+      if (sourcesBuilder_ == null) {
+        return sources_.get(index);
+      } else {
+        return sourcesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * 源站信息
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+     */
+    public Builder setSources(
+        int index, com.volcengine.service.vod.model.business.VodDomainSourceInfo value) {
+      if (sourcesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSourcesIsMutable();
+        sources_.set(index, value);
+        onChanged();
+      } else {
+        sourcesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站信息
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+     */
+    public Builder setSources(
+        int index, com.volcengine.service.vod.model.business.VodDomainSourceInfo.Builder builderForValue) {
+      if (sourcesBuilder_ == null) {
+        ensureSourcesIsMutable();
+        sources_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        sourcesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站信息
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+     */
+    public Builder addSources(com.volcengine.service.vod.model.business.VodDomainSourceInfo value) {
+      if (sourcesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSourcesIsMutable();
+        sources_.add(value);
+        onChanged();
+      } else {
+        sourcesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站信息
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+     */
+    public Builder addSources(
+        int index, com.volcengine.service.vod.model.business.VodDomainSourceInfo value) {
+      if (sourcesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSourcesIsMutable();
+        sources_.add(index, value);
+        onChanged();
+      } else {
+        sourcesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站信息
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+     */
+    public Builder addSources(
+        com.volcengine.service.vod.model.business.VodDomainSourceInfo.Builder builderForValue) {
+      if (sourcesBuilder_ == null) {
+        ensureSourcesIsMutable();
+        sources_.add(builderForValue.build());
+        onChanged();
+      } else {
+        sourcesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站信息
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+     */
+    public Builder addSources(
+        int index, com.volcengine.service.vod.model.business.VodDomainSourceInfo.Builder builderForValue) {
+      if (sourcesBuilder_ == null) {
+        ensureSourcesIsMutable();
+        sources_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        sourcesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站信息
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+     */
+    public Builder addAllSources(
+        java.lang.Iterable<? extends com.volcengine.service.vod.model.business.VodDomainSourceInfo> values) {
+      if (sourcesBuilder_ == null) {
+        ensureSourcesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, sources_);
+        onChanged();
+      } else {
+        sourcesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站信息
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+     */
+    public Builder clearSources() {
+      if (sourcesBuilder_ == null) {
+        sources_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+      } else {
+        sourcesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站信息
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+     */
+    public Builder removeSources(int index) {
+      if (sourcesBuilder_ == null) {
+        ensureSourcesIsMutable();
+        sources_.remove(index);
+        onChanged();
+      } else {
+        sourcesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站信息
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodDomainSourceInfo.Builder getSourcesBuilder(
+        int index) {
+      return getSourcesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * 源站信息
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodDomainSourceInfoOrBuilder getSourcesOrBuilder(
+        int index) {
+      if (sourcesBuilder_ == null) {
+        return sources_.get(index);  } else {
+        return sourcesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * 源站信息
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+     */
+    public java.util.List<? extends com.volcengine.service.vod.model.business.VodDomainSourceInfoOrBuilder> 
+         getSourcesOrBuilderList() {
+      if (sourcesBuilder_ != null) {
+        return sourcesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(sources_);
+      }
+    }
+    /**
+     * <pre>
+     * 源站信息
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodDomainSourceInfo.Builder addSourcesBuilder() {
+      return getSourcesFieldBuilder().addBuilder(
+          com.volcengine.service.vod.model.business.VodDomainSourceInfo.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * 源站信息
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodDomainSourceInfo.Builder addSourcesBuilder(
+        int index) {
+      return getSourcesFieldBuilder().addBuilder(
+          index, com.volcengine.service.vod.model.business.VodDomainSourceInfo.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * 源站信息
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodDomainSourceInfo Sources = 10;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.VodDomainSourceInfo.Builder> 
+         getSourcesBuilderList() {
+      return getSourcesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodDomainSourceInfo, com.volcengine.service.vod.model.business.VodDomainSourceInfo.Builder, com.volcengine.service.vod.model.business.VodDomainSourceInfoOrBuilder> 
+        getSourcesFieldBuilder() {
+      if (sourcesBuilder_ == null) {
+        sourcesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.service.vod.model.business.VodDomainSourceInfo, com.volcengine.service.vod.model.business.VodDomainSourceInfo.Builder, com.volcengine.service.vod.model.business.VodDomainSourceInfoOrBuilder>(
+                sources_,
+                ((bitField0_ & 0x00000001) != 0),
+                getParentForChildren(),
+                isClean());
+        sources_ = null;
+      }
+      return sourcesBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

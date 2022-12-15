@@ -81,6 +81,11 @@ private static final long serialVersionUID = 0L;
             fileName_ = s;
             break;
           }
+          case 48: {
+
+            storageClass_ = input.readInt32();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -312,6 +317,21 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int STORAGECLASS_FIELD_NUMBER = 6;
+  private int storageClass_;
+  /**
+   * <pre>
+   * 上传的文件的存储类型，1-标准存储，2-归档存储，非必填参数，默认为标准存储 
+   * </pre>
+   *
+   * <code>int32 StorageClass = 6;</code>
+   * @return The storageClass.
+   */
+  @java.lang.Override
+  public int getStorageClass() {
+    return storageClass_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -341,6 +361,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, fileName_);
     }
+    if (storageClass_ != 0) {
+      output.writeInt32(6, storageClass_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -365,6 +388,10 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, fileName_);
+    }
+    if (storageClass_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(6, storageClass_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -392,6 +419,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFileType())) return false;
     if (!getFileName()
         .equals(other.getFileName())) return false;
+    if (getStorageClass()
+        != other.getStorageClass()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -414,6 +443,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFileType().hashCode();
     hash = (37 * hash) + FILENAME_FIELD_NUMBER;
     hash = (53 * hash) + getFileName().hashCode();
+    hash = (37 * hash) + STORAGECLASS_FIELD_NUMBER;
+    hash = (53 * hash) + getStorageClass();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -557,6 +588,8 @@ private static final long serialVersionUID = 0L;
 
       fileName_ = "";
 
+      storageClass_ = 0;
+
       return this;
     }
 
@@ -588,6 +621,7 @@ private static final long serialVersionUID = 0L;
       result.fileSize_ = fileSize_;
       result.fileType_ = fileType_;
       result.fileName_ = fileName_;
+      result.storageClass_ = storageClass_;
       onBuilt();
       return result;
     }
@@ -654,6 +688,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getFileName().isEmpty()) {
         fileName_ = other.fileName_;
         onChanged();
+      }
+      if (other.getStorageClass() != 0) {
+        setStorageClass(other.getStorageClass());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1107,6 +1144,49 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       fileName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int storageClass_ ;
+    /**
+     * <pre>
+     * 上传的文件的存储类型，1-标准存储，2-归档存储，非必填参数，默认为标准存储 
+     * </pre>
+     *
+     * <code>int32 StorageClass = 6;</code>
+     * @return The storageClass.
+     */
+    @java.lang.Override
+    public int getStorageClass() {
+      return storageClass_;
+    }
+    /**
+     * <pre>
+     * 上传的文件的存储类型，1-标准存储，2-归档存储，非必填参数，默认为标准存储 
+     * </pre>
+     *
+     * <code>int32 StorageClass = 6;</code>
+     * @param value The storageClass to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStorageClass(int value) {
+      
+      storageClass_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 上传的文件的存储类型，1-标准存储，2-归档存储，非必填参数，默认为标准存储 
+     * </pre>
+     *
+     * <code>int32 StorageClass = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStorageClass() {
+      
+      storageClass_ = 0;
       onChanged();
       return this;
     }

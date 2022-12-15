@@ -20,6 +20,7 @@ public class VodApplyUploadInfoDemo {
 			reqBuilder.setFileSize(0);
 			reqBuilder.setFileType("your FileType");
 			reqBuilder.setFileName("your FileName");
+			reqBuilder.setStorageClass(0);
 			
             com.volcengine.service.vod.model.response.VodApplyUploadInfoResponse resp = vodService.applyUploadInfo(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

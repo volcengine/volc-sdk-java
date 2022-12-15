@@ -320,4 +320,24 @@ public interface VodSourceInfoOrBuilder extends
    * <code>.Volcengine.Vod.Models.Business.VodAudioStreamMeta AudioStreamMeta = 18;</code>
    */
   com.volcengine.service.vod.model.business.VodAudioStreamMetaOrBuilder getAudioStreamMetaOrBuilder();
+
+  /**
+   * <pre>
+   *存储类型，STANDARD or ARCHIVE
+   * </pre>
+   *
+   * <code>string TosStorageClass = 19;</code>
+   * @return The tosStorageClass.
+   */
+  java.lang.String getTosStorageClass();
+  /**
+   * <pre>
+   *存储类型，STANDARD or ARCHIVE
+   * </pre>
+   *
+   * <code>string TosStorageClass = 19;</code>
+   * @return The bytes for tosStorageClass.
+   */
+  com.google.protobuf.ByteString
+      getTosStorageClassBytes();
 }

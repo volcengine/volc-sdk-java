@@ -8,24 +8,23 @@ package com.volcengine.service.vod.impl;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
-import com.github.rholder.retry.*;
-import com.google.common.base.Predicates;
 import com.google.protobuf.util.JsonFormat;
-import org.apache.commons.codec.binary.Hex;
-import org.apache.commons.lang3.StringUtils;
+import com.google.common.base.Predicates;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import com.github.rholder.retry.*;
+import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.lang3.StringUtils;
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 
 
 public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl implements com.volcengine.service.vod.IVodService {
@@ -118,7 +117,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 
     @Override
     public String getSubtitleAuthToken(com.volcengine.service.vod.model.request.VodGetSubtitleInfoListRequest input, Long expireSeconds) throws Exception {
-        if(StringUtils.isBlank(input.getVid())) {
+        if(input.getVid() == "") {
             throw new Exception("传入的Vid为空");
         }
         Map<String, String> params = new HashMap<>();

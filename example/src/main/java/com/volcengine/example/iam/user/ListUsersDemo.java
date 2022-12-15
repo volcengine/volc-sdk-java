@@ -1,4 +1,4 @@
-package com.volcengine.example.iam;
+package com.volcengine.example.iam.user;
 
 import com.alibaba.fastjson.JSON;
 import com.volcengine.model.request.iam.ListUsersRequest;

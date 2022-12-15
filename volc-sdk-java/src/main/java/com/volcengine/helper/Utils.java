@@ -144,6 +144,8 @@ public class Utils {
                 params.put(entry.getKey(), ((Integer) entry.getValue()).toString());
             } else if (entry.getValue().getClass() == String.class) {
                 params.put(entry.getKey(), (String) entry.getValue());
+            }else if (entry.getValue().getClass() == Boolean.class) {
+                params.put(entry.getKey(), ((Boolean) entry.getValue()).toString());
             } else if (entry.getValue().getClass() == JSONArray.class) {
                 List<String> list = (List<String>) entry.getValue();
                 try {

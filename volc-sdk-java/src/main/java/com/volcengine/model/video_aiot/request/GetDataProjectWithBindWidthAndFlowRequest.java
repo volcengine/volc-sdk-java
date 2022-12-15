@@ -11,6 +11,9 @@ public class GetDataProjectWithBindWidthAndFlowRequest {
     String startTime;
     @JSONField(name = "EndTime")
     String endTime;
-    @JSONField(name= "Data")
+    @JSONField(name = "Data")
     String data;
+
+    @JSONField(name = "StreamName")
+    String streamName;
 }

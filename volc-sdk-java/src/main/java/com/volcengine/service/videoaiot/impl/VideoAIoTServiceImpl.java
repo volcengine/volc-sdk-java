@@ -107,6 +107,7 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
                 add(new BasicNameValuePair("StartTime", getDataProjectWithBindWidthAndFlow.getStartTime()));
                 add(new BasicNameValuePair("EndTime", getDataProjectWithBindWidthAndFlow.getEndTime()));
                 add(new BasicNameValuePair("Data", getDataProjectWithBindWidthAndFlow.getData()));
+                add(new BasicNameValuePair("StreamName", getDataProjectWithBindWidthAndFlow.getStreamName()));
             }
         }, "");
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -243,6 +244,8 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
 //
 //    }
 
+
+    @Override
     public RawResponse updateAuthInSpace(UpdateAuthInSpaceRequest updateAuthInSpace) throws Exception {
         com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoUpdateAuthInSpace, new ArrayList<NameValuePair>() {
         }, JSON.toJSONString(updateAuthInSpace));
@@ -528,6 +531,36 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
                 add(new BasicNameValuePair("DeviceID", deviceNSID));
             }
         }, "");
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), RawResponse.class);
+    }
+
+    @Override
+    public RawResponse cloudControl(DeviceCloudControlRequest deviceCloudControlRequest) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoCloudControl, new ArrayList<NameValuePair>() {
+        }, JSON.toJSONString(deviceCloudControlRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), RawResponse.class);
+    }
+
+    @Override
+    public DeviceQueryPresetResponse queryPresetInfo(DeviceQueryPresetRequest queryPresetRequest) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoQueryPresetInfo, new ArrayList<NameValuePair>() {
+        }, JSON.toJSONString(queryPresetRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), DeviceQueryPresetResponse.class);
+    }
+
+    @Override
+    public RawResponse cruiseControl(DeviceCruiseControlRequest deviceCruiseControlRequest) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoCruiseControl, new ArrayList<NameValuePair>() {
+        }, JSON.toJSONString(deviceCruiseControlRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }

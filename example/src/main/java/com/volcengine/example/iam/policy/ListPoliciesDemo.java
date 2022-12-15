@@ -16,8 +16,12 @@ public class ListPoliciesDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            ListPoliciesRequest request = ListPoliciesRequest.builder().
-                    scope("Custom").query("policy_name").status("active").limit(1).offset(0).build();
+            ListPoliciesRequest request = new ListPoliciesRequest();
+            request.setScope("Custom");
+            request.setQuery("policy_name");
+            request.setStatus("active");
+            request.setLimit(1);
+            request.setOffset(0);
 
             ListPoliciesResponse response = iamService.listPolicies(request);
             System.out.println(JSON.toJSONString(response));

@@ -15,15 +15,14 @@ public class CreateRoleDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            RoleCreateRequest req = RoleCreateRequest.builder().
-                    roleName("role_name").
-                    description("description").
-                    maxSessionDuration("3600").
-                    displayName("displayName").
-                    trustPolicyDocument("{\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"sts:AssumeRole\"],\"Principal\":{\"Service\":[\"iam\"]}}]}").
-                    build();
+            RoleCreateRequest request = new RoleCreateRequest();
+            request.setRoleName("role_name");
+            request.setDescription("description");
+            request.setMaxSessionDuration("3600");
+            request.setDisplayName("displayName");
+            request.setTrustPolicyDocument("{\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"sts:AssumeRole\"],\"Principal\":{\"Service\":[\"iam\"]}}]}");
 
-            RoleGetResponse response = iamService.createRole(req);
+            RoleGetResponse response = iamService.createRole(request);
             System.out.println(JSON.toJSONString(response));
         } catch (Exception e) {
             e.printStackTrace();

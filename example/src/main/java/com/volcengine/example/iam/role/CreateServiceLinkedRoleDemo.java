@@ -15,9 +15,8 @@ public class CreateServiceLinkedRoleDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            CreateServiceLinkedRoleRequest request = CreateServiceLinkedRoleRequest.builder().
-                    serviceName("service_test").
-                    build();
+            CreateServiceLinkedRoleRequest request = new CreateServiceLinkedRoleRequest();
+            request.setServiceName("service_test");
 
             CommonResponse response = iamService.createServiceLinkedRole(request);
             System.out.println(JSON.toJSONString(response));

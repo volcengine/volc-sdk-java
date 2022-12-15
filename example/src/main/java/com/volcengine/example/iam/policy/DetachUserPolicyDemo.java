@@ -16,11 +16,10 @@ public class DetachUserPolicyDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            DetachUserPolicyRequest request = DetachUserPolicyRequest.builder().
-                    policyName("policy_name").
-                    userName("user1").
-                    policyType("Custom").
-                    build();
+            DetachUserPolicyRequest request = new DetachUserPolicyRequest();
+            request.setPolicyName("policy_name");
+            request.setUserName("user1");
+            request.setPolicyType("Custom");
 
             CommonResponse response = iamService.detachUserPolicy(request);
             System.out.println(JSON.toJSONString(response));

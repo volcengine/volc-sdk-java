@@ -16,13 +16,12 @@ public class CreateUserDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            CreateUserRequest request = CreateUserRequest.builder().
-                    userName("user_sdk").
-                    displayName("user_display").
-                    email("email@cc.com").
-                    mobilePhone("+86-1300000000").
-                    description("For sdk demo").
-                    build();
+            CreateUserRequest request = new CreateUserRequest();
+            request.setUserName("user_sdk");
+            request.setDisplayName("user_display");
+            request.setEmail("email@cc.com");
+            request.setMobilePhone("+86-1300000000");
+            request.setDescription("For sdk demo");
 
             CreateUserResponse response = iamService.createUser(request);
             System.out.println(JSON.toJSONString(response));

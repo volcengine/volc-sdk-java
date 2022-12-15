@@ -16,9 +16,8 @@ public class DeleteSAMLProviderDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            DeleteSAMLProviderRequest request = DeleteSAMLProviderRequest.builder().
-                    SAMLProviderName("provider_name").
-                    build();
+            DeleteSAMLProviderRequest request = new DeleteSAMLProviderRequest();
+            request.setSAMLProviderName("provider_name");
 
             CommonResponse response = iamService.deleteSAMLProvider(request);
             System.out.println(JSON.toJSONString(response));

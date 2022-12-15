@@ -16,7 +16,9 @@ public class GetPolicyDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            GetPolicyRequest request = GetPolicyRequest.builder().policyName("policy_name").policyType("Custom").build();
+            GetPolicyRequest request = new GetPolicyRequest();
+            request.setPolicyName("policy_name");
+            request.setPolicyType("Custom");
 
             GetPolicyResponse response = iamService.getPolicy(request);
             System.out.println(JSON.toJSONString(response));

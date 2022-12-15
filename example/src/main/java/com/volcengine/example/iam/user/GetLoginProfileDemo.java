@@ -15,9 +15,8 @@ public class GetLoginProfileDemo {
         iamService.setSecretKey("Your SK");
         // list users
         try {
-            GetLoginProfileRequest request = GetLoginProfileRequest.builder().
-                    userName("user_name").
-                    build();
+            GetLoginProfileRequest request = new GetLoginProfileRequest();
+            request.setUserName("user_name");
 
             GetLoginProfileResponse response = iamService.getLoginProfile(request);
             System.out.println(JSON.toJSONString(response));

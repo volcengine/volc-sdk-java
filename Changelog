@@ -1,5 +1,8 @@
 Change log
 
+2022-12-15 Bumped to version v1.0.75
+- Updated apis for video_aiot/iam/vod/cdn
+
 2022-12-12 Bumped to version v1.0.74
 - Updated config for livesaas
 

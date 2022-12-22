@@ -27,7 +27,9 @@ public class LiveCreatePullToPushTaskDemo {
 			reqBuilder.addSrcAddrS("your SrcAddrS");
 			
             com.volcengine.service.live.model.response.CreatePullToPushTaskResponse resp = liveService.createPullToPushTask(reqBuilder.build());
+
             if (resp.getResponseMetadata().hasError()) {
+                System.out.println(resp);
                 System.out.println(resp.getResponseMetadata().getError());
                 System.exit(-1);
             }

@@ -501,7 +501,7 @@ public interface LiveService extends com.volcengine.service.IBaseService {
      * @return com.volcengine.service.live.model.response.DescribeLiveStreamStateResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.live.model.response.DescribeLiveStreamStateResponse DescribeLiveStreamState(com.volcengine.service.live.model.request.DescribeLiveStreamInfoByPageRequest input) throws Exception;
+	com.volcengine.service.live.model.response.DescribeLiveStreamStateResponse DescribeLiveStreamState(com.volcengine.service.live.model.request.DescribeLiveStreamStateRequest input) throws Exception;
 	
 	/**
      * DescribeForbiddenStreamInfoByPage.

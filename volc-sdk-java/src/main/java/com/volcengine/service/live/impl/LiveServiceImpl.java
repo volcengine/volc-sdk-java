@@ -1,6 +1,7 @@
 package com.volcengine.service.live.impl;
 
 import com.alibaba.fastjson.JSON;
+
 import com.google.protobuf.util.JsonFormat;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
@@ -22,7 +23,10 @@ import java.util.ArrayList;
 
 
 public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
-
+    public static final com.googlecode.protobuf.format.JsonFormat jsonFormat;
+    static {
+        jsonFormat = new com.googlecode.protobuf.format.JsonFormat();
+    }
     private LiveServiceImpl() {
         super(LiveConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), LiveConfig.apiInfoList);
     }
@@ -173,7 +177,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.DescribeRecordTaskFileHistoryResponse DescribeRecordTaskFileHistory(com.volcengine.service.live.model.request.DescribeRecordTaskFileHistoryRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DescribeRecordTaskFileHistory,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DescribeRecordTaskFileHistory,null,jsonFormat.printToString(input));
 
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
@@ -1027,8 +1031,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.DescribeCDNSnapshotHistoryResponse DescribeCDNSnapshotHistory(com.volcengine.service.live.model.request.DescribeCDNSnapshotHistoryRequest input) throws Exception {
-//        com.volcengine.model.response.RawResponse response = query(com.volcengine.service.live.Const.DescribeCDNSnapshotHistory, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DescribeCDNSnapshotHistory,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DescribeCDNSnapshotHistory,null,jsonFormat.printToString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -1067,7 +1070,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.KillStreamResponse KillStream(com.volcengine.service.live.model.request.KillStreamRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.KillStream,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.KillStream,null,jsonFormat.printToString(input));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -1103,7 +1106,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      * @throws Exception the exception
      */
     @Override
-    public com.volcengine.service.live.model.response.DescribeLiveStreamStateResponse DescribeLiveStreamState(com.volcengine.service.live.model.request.DescribeLiveStreamInfoByPageRequest input) throws Exception {
+    public com.volcengine.service.live.model.response.DescribeLiveStreamStateResponse DescribeLiveStreamState(com.volcengine.service.live.model.request.DescribeLiveStreamStateRequest input) throws Exception {
         com.volcengine.model.response.RawResponse response = query(com.volcengine.service.live.Const.DescribeLiveStreamState, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -1147,7 +1150,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
     public com.volcengine.service.live.model.response.UpdateRelaySourceResponse updateRelaySourceV2(UpdateRelaySourceRequest input) throws Exception {
 //        com.volcengine.model.response.RawResponse response = query(com.volcengine.service.live.Const.UpdateRelaySourceV2, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
 
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.UpdateRelaySourceV2,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.UpdateRelaySourceV2,null,jsonFormat.printToString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -1168,7 +1171,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
     @Override
     public com.volcengine.service.live.model.response.DeleteRelaySourceResponse deleteRelaySourceV2(com.volcengine.service.live.model.request.DeleteRelaySourceRequest input) throws Exception {
 //        com.volcengine.model.response.RawResponse response = query(com.volcengine.service.live.Const.DeleteRelaySourceV2, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DeleteRelaySourceV2,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DeleteRelaySourceV2,null,jsonFormat.printToString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -1189,7 +1192,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
     @Override
     public com.volcengine.service.live.model.response.DescribeRelaySourceResponse describeRelaySourceV2(com.volcengine.service.live.model.request.DescribeRelaySourceRequest input) throws Exception {
 //        com.volcengine.model.response.RawResponse response = query(com.volcengine.service.live.Const.DescribeRelaySourceV2, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DescribeRelaySourceV2,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DescribeRelaySourceV2,null,jsonFormat.printToString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -1209,7 +1212,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.CreateVQScoreTaskResponse createVQScoreTask(com.volcengine.service.live.model.request.CreateVQScoreTaskRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.CreateVQScoreTask,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.CreateVQScoreTask,null,jsonFormat.printToString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -1229,7 +1232,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.DescribeVQScoreTaskResponse describeVQScoreTask(com.volcengine.service.live.model.request.DescribeVQScoreTaskRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DescribeVQScoreTask,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DescribeVQScoreTask,null,jsonFormat.printToString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -1249,7 +1252,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.ListVQScoreTaskResponse listVQScoreTask(com.volcengine.service.live.model.request.ListVQScoreTaskRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.ListVQScoreTask,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.ListVQScoreTask,null,jsonFormat.printToString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -1283,7 +1286,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.GeneratePlayURLResponse generatePlayURL(com.volcengine.service.live.model.request.GeneratePlayURLRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.GeneratePlayURL,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.GeneratePlayURL,null,jsonFormat.printToString(input));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -1302,7 +1305,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.GeneratePushURLResponse generatePushURL(com.volcengine.service.live.model.request.GeneratePushURLRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.GeneratePushURL,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.GeneratePushURL,null,jsonFormat.printToString(input));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -1321,7 +1324,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.CreatePullToPushTaskResponse createPullToPushTask(com.volcengine.service.live.model.request.CreatePullToPushTaskRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.CreatePullToPushTask,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.CreatePullToPushTask,null, jsonFormat.printToString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -1341,7 +1344,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.ListPullToPushTaskResponse listPullToPushTask(com.volcengine.service.live.model.request.ListPullToPushTaskRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.ListPullToPushTask,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.ListPullToPushTask,null,jsonFormat.printToString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -1361,7 +1364,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.UpdatePullToPushTaskResponse updatePullToPushTask(com.volcengine.service.live.model.request.UpdatePullToPushTaskRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.UpdatePullToPushTask,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.UpdatePullToPushTask,null,jsonFormat.printToString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -1381,7 +1384,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.StopPullToPushTaskResponse stopPullToPushTask(com.volcengine.service.live.model.request.StopPullToPushTaskRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.StopPullToPushTask,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.StopPullToPushTask,null,jsonFormat.printToString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -1401,7 +1404,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.RestartPullToPushTaskResponse restartPullToPushTask(com.volcengine.service.live.model.request.RestartPullToPushTaskRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.RestartPullToPushTask,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.RestartPullToPushTask,null,jsonFormat.printToString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -1422,7 +1425,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
     @Override
     public com.volcengine.service.live.model.response.DeletePullToPushTaskResponse deletePullToPushTask(com.volcengine.service.live.model.request.DeletePullToPushTaskRequest input) throws Exception {
 //        com.volcengine.model.response.RawResponse response = query(com.volcengine.service.live.Const.DeletePullToPushTask, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DeletePullToPushTask,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DeletePullToPushTask,null,jsonFormat.printToString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -1443,7 +1446,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
     @Override
     public com.volcengine.service.live.model.response.UpdateDenyConfigResponse updateDenyConfig(com.volcengine.service.live.model.request.UpdateDenyConfigRequest input) throws Exception {
 //        com.volcengine.model.response.RawResponse response = query(com.volcengine.service.live.Const.UpdateDenyConfig, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.UpdateDenyConfig,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.UpdateDenyConfig,null,jsonFormat.printToString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -1463,7 +1466,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.DescribeDenyConfigResponse describeDenyConfig(com.volcengine.service.live.model.request.DescribeDenyConfigRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DescribeDenyConfig,null,JSON.toJSONString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.DescribeDenyConfig,null,jsonFormat.printToString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();

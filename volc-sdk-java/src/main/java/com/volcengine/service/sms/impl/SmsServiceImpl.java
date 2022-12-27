@@ -1,6 +1,7 @@
 package com.volcengine.service.sms.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.google.common.base.Strings;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.model.ServiceInfo;
@@ -14,6 +15,7 @@ import org.apache.http.HttpHost;
 import org.apache.http.NameValuePair;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
@@ -63,6 +65,15 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     }
 
     @Override
+    public SmsSendResponse sendV2(SmsSendRequest smsSendRequest) throws Exception {
+        RawResponse response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
+        if(response.getCode() == SdkError.EHTTP.getNumber()){
+            response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
+        }
+        return getSmsSendResponseV2(response);
+    }
+
+    @Override
     public SmsSendResponse batchSend(SmsBatchSendRequest smsBatchSendRequest) throws Exception {
         RawResponse response = json("SendBatchSms", new ArrayList<>(), JSON.toJSONString(smsBatchSendRequest));
         if(response.getCode() == SdkError.EHTTP.getNumber()){
@@ -70,10 +81,25 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         }
         return getSmsSendResponse(response);
     }
+
+    @Override
+    public SmsSendResponse batchSendV2(SmsBatchSendRequest smsBatchSendRequest) throws Exception {
+        RawResponse response = json("SendBatchSms", new ArrayList<>(), JSON.toJSONString(smsBatchSendRequest));
+        if(response.getCode() == SdkError.EHTTP.getNumber()){
+            response = json("SendBatchSms", new ArrayList<>(), JSON.toJSONString(smsBatchSendRequest));
+        }
+        return getSmsSendResponseV2(response);
+    }
     @Override
     public SmsSendResponse sendVerifyCode(SmsSendVerifyCodeRequest smsSendVerifyCodeRequest) throws Exception {
         RawResponse response = json("SendSmsVerifyCode", new ArrayList<>(), JSON.toJSONString(smsSendVerifyCodeRequest));
         return getSmsSendResponse(response);
+    }
+
+    @Override
+    public SmsSendResponse sendVerifyCodeV2(SmsSendVerifyCodeRequest smsSendVerifyCodeRequest) throws Exception {
+        RawResponse response = json("SendSmsVerifyCode", new ArrayList<>(), JSON.toJSONString(smsSendVerifyCodeRequest));
+        return getSmsSendResponseV2(response);
     }
 
     @Override
@@ -148,6 +174,22 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    private SmsSendResponse getSmsSendResponseV2(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            if (response.getException()!=null){
+                return new SmsSendResponse(String.valueOf(response.getCode()), response.getException().getMessage());
+            }
+            return new SmsSendResponse(String.valueOf(response.getCode()), Arrays.toString(response.getData()));
+        }
+        SmsSendResponse res = JSON.parseObject(response.getData(), SmsSendResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            return new SmsSendResponse(meta.getError().getCode(), meta.getError().getMessage());
         }
         res.getResponseMetadata().setService("volcSMS");
         return res;

@@ -18,5 +18,7 @@ public class GetUnionProductResponse {
         String productId;
         @JSONField(name = "UnionReason")
         String unionReason;
+        @JSONField(name = "ProductExtra")
+        String productExtra;
     }
 }

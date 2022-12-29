@@ -30,6 +30,7 @@ protobuf-java : BSD 3-clause "New" or "Revised" License
 Protocol Buffer Java Util Package : BSD 3-clause "New" or "Revised" License
 vcloud-sdk-java : Apache License 2.0
 volc-sdk-java : Apache License 2.0
+protobuf-java-format : BSD 3-clause "New" or "Revised" License
 
 License:
 
@@ -254,7 +255,7 @@ DAMAGE
 ---
 
 BSD 3-clause "New" or "Revised" License
-(protobuf-java, Protocol Buffer Java Util Package)
+(protobuf-java, Protocol Buffer Java Util Package, protobuf-java-format)
 
 Copyright (c) <YEAR>, <OWNER>
 All rights reserved.

@@ -36,7 +36,7 @@ public interface IImageXService extends IBaseService {
     /**
      * Upload image data.
      *
-     * @param request the apply upload request
+     * @param request    the apply upload request
      * @param imageDatas image data array
      * @return the commit upload response
      * @throws Exception the exception
@@ -48,11 +48,20 @@ public interface IImageXService extends IBaseService {
      *
      * @param request upload request
      * @param content image data
-     * @param size image size
+     * @param size    image size
      * @return the commit upload response
      * @throws Exception the exception
      */
     CommitImageUploadResponse uploadImages(ApplyImageUploadRequest request, List<InputStream> content, List<Long> size) throws Exception;
+
+    /**
+     * Fetch Image
+     *
+     * @param request url to fetch
+     * @return result
+     * @throws Exception the exception
+     */
+    FetchImageUrlResponse fetchImageUrl(FetchImageUrlRequest request) throws Exception;
 
     /**
      * Get image upload token.
@@ -76,7 +85,7 @@ public interface IImageXService extends IBaseService {
      * Get image upload sts2 auth.
      *
      * @param serviceIds service id list allowed to upload image to
-     * @param expire expire time in milliseconds
+     * @param expire     expire time in milliseconds
      * @return the upload sts2 auth
      * @throws Exception the exception
      */
@@ -86,8 +95,8 @@ public interface IImageXService extends IBaseService {
      * Get image upload sts2 auth.
      *
      * @param serviceIds service id list allowed to upload image to
-     * @param expire expire time in milliseconds
-     * @param keyPtn upload store key pattern, * for no restriction. default to empty.
+     * @param expire     expire time in milliseconds
+     * @param keyPtn     upload store key pattern, * for no restriction. default to empty.
      * @return the upload sts2 auth
      * @throws Exception the exception
      */
@@ -105,7 +114,7 @@ public interface IImageXService extends IBaseService {
     /**
      * Resource a file
      *
-     * @param req request args
+     * @param req args
      * @return file info
      * @throws Exception the exception
      */
@@ -114,7 +123,7 @@ public interface IImageXService extends IBaseService {
     /**
      * List files
      *
-     * @param req request args
+     * @param req args
      * @return files info
      * @throws Exception the exception
      */
@@ -131,8 +140,9 @@ public interface IImageXService extends IBaseService {
 
     /**
      * Request ImageX api with method GET.
+     *
      * @param action api action name
-     * @param param api query param
+     * @param param  api query param
      * @return api response
      * @throws Exception the exception
      */
@@ -140,9 +150,10 @@ public interface IImageXService extends IBaseService {
 
     /**
      * Request ImageX api with method POST.
+     *
      * @param action api action name
-     * @param param api query param
-     * @param req api json param
+     * @param param  api query param
+     * @param req    api json param
      * @return api response
      * @throws Exception the exception
      */
@@ -150,6 +161,7 @@ public interface IImageXService extends IBaseService {
 
     /**
      * Request ImageX api with method POST.
+     *
      * @param param api query param
      * @return api response
      * @throws Exception the exception
@@ -158,6 +170,7 @@ public interface IImageXService extends IBaseService {
 
     /**
      * Request ImageX api with method POST.
+     *
      * @param req embed image hm request
      * @return image store uri
      * @throws Exception the exception
@@ -166,6 +179,7 @@ public interface IImageXService extends IBaseService {
 
     /**
      * Request ImageX api with method POST.
+     *
      * @param req extract hidden mark from image
      * @return embedded info
      * @throws Exception the exception
@@ -174,6 +188,7 @@ public interface IImageXService extends IBaseService {
 
     /**
      * Request ImageX api with method POST.
+     *
      * @param req get image segment request
      * @return image store uri
      * @throws Exception the exception
@@ -182,6 +197,7 @@ public interface IImageXService extends IBaseService {
 
     /**
      * Request ImageX api with method GET.
+     *
      * @param req get image erase models request
      * @return models array
      * @throws Exception the exception
@@ -190,6 +206,7 @@ public interface IImageXService extends IBaseService {
 
     /**
      * Request ImageX api with method POST.
+     *
      * @param req get image erase result
      * @return image store uri
      * @throws Exception the exception
@@ -199,7 +216,7 @@ public interface IImageXService extends IBaseService {
     /**
      * Get image quality
      *
-     * @param req req request args
+     * @param req request args
      * @return image quality metrics
      * @throws Exception the exception
      */
@@ -208,7 +225,7 @@ public interface IImageXService extends IBaseService {
     /**
      * Extend image
      *
-     * @param req req request args
+     * @param req request args
      * @return extended image
      * @throws Exception the exception
      */
@@ -217,7 +234,7 @@ public interface IImageXService extends IBaseService {
     /**
      * Detect duplicate image
      *
-     * @param req req request args
+     * @param req request args
      * @return detection result
      * @throws Exception the exception
      */
@@ -226,7 +243,7 @@ public interface IImageXService extends IBaseService {
     /**
      * Detect duplicate image
      *
-     * @param req req request args
+     * @param req request args
      * @return detection task id
      * @throws Exception the exception
      */
@@ -235,7 +252,7 @@ public interface IImageXService extends IBaseService {
     /**
      * Retrieve duplicate detection task status
      *
-     * @param req req request args
+     * @param req request args
      * @return detection status and result
      * @throws Exception the exception
      */
@@ -244,7 +261,7 @@ public interface IImageXService extends IBaseService {
     /**
      * Noise reduction
      *
-     * @param req req request args
+     * @param req request args
      * @return result
      * @throws Exception the exception
      */
@@ -253,7 +270,7 @@ public interface IImageXService extends IBaseService {
     /**
      * Comicize an image
      *
-     * @param req req request args
+     * @param req request args
      * @return result
      * @throws Exception the exception
      */
@@ -262,7 +279,7 @@ public interface IImageXService extends IBaseService {
     /**
      * Super resolution
      *
-     * @param req req request args
+     * @param req request args
      * @return result
      * @throws Exception the exception
      */
@@ -271,7 +288,7 @@ public interface IImageXService extends IBaseService {
     /**
      * Smart crop
      *
-     * @param req req request args
+     * @param req request args
      * @return result
      * @throws Exception the exception
      */
@@ -280,7 +297,7 @@ public interface IImageXService extends IBaseService {
     /**
      * License plate detection
      *
-     * @param req req request args
+     * @param req request args
      * @return result
      * @throws Exception the exception
      */
@@ -289,7 +306,7 @@ public interface IImageXService extends IBaseService {
     /**
      * Image modified detection
      *
-     * @param req req request args
+     * @param req request args
      * @return result
      * @throws Exception the exception
      */
@@ -298,7 +315,7 @@ public interface IImageXService extends IBaseService {
     /**
      * Private content detection
      *
-     * @param req req request args
+     * @param req request args
      * @return result
      * @throws Exception the exception
      */
@@ -307,7 +324,7 @@ public interface IImageXService extends IBaseService {
     /**
      * Enhance image
      *
-     * @param req req request args
+     * @param req request args
      * @return result
      * @throws Exception the exception
      */
@@ -316,7 +333,7 @@ public interface IImageXService extends IBaseService {
     /**
      * Image style
      *
-     * @param req req request args
+     * @param req request args
      * @return result
      * @throws Exception the exception
      */

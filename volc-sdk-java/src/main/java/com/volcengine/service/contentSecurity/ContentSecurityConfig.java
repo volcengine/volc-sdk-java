@@ -59,6 +59,20 @@ public class ContentSecurityConfig {
                         }
                     }
             ));
+            put(Const.AsyncImageRiskV2, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "AsyncImageRisk"));
+                                    add(new BasicNameValuePair("Version", "2022-08-26"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.GetImageResult, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -73,7 +87,21 @@ public class ContentSecurityConfig {
                         }
                     }
             ));
-            put(Const.AsyncVideoRisk, new ApiInfo (
+            put(Const.GetImageResultV2, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ImageResult"));
+                                    add(new BasicNameValuePair("Version", "2022-08-26"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.AsyncVideoRisk, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
@@ -115,7 +143,7 @@ public class ContentSecurityConfig {
                         }
                     }
             ));
-            put(Const.AsyncAudioRisk, new ApiInfo (
+            put(Const.AsyncAudioRisk, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
@@ -171,7 +199,7 @@ public class ContentSecurityConfig {
                         }
                     }
             ));
-            put(Const.AsyncLiveVideoRisk, new ApiInfo (
+            put(Const.AsyncLiveVideoRisk, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
@@ -199,7 +227,7 @@ public class ContentSecurityConfig {
                         }
                     }
             ));
-            put(Const.AsyncLiveAudioRisk, new ApiInfo (
+            put(Const.AsyncLiveAudioRisk, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
@@ -227,7 +255,7 @@ public class ContentSecurityConfig {
                         }
                     }
             ));
-            put(Const.TextSliceRisk, new ApiInfo (
+            put(Const.TextSliceRisk, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
@@ -241,6 +269,8 @@ public class ContentSecurityConfig {
                         }
                     }
             ));
-        };
+        }
+
+        ;
     };
 }

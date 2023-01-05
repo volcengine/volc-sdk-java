@@ -11,6 +11,7 @@ import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.sms.SmsConfig;
 import com.volcengine.service.sms.SmsService;
 import com.volcengine.util.ConvertUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpHost;
 import org.apache.http.NameValuePair;
 
@@ -19,6 +20,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
+
+    public static final String SourceTypeText = "text/string";
 
     private SmsServiceImpl() {
         super(SmsConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), SmsConfig.apiInfoList);
@@ -66,6 +69,15 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
 
     @Override
     public SmsSendResponse sendV2(SmsSendRequest smsSendRequest) throws Exception {
+        RawResponse response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
+        if(response.getCode() == SdkError.EHTTP.getNumber()){
+            response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
+        }
+        return getSmsSendResponseV2(response);
+    }
+
+    @Override
+    public SmsSendResponse sendVms(SmsSendRequest smsSendRequest) throws Exception {
         RawResponse response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
         if(response.getCode() == SdkError.EHTTP.getNumber()){
             response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
@@ -140,6 +152,40 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         RawResponse response = json("ApplySmsTemplate", new ArrayList<>(), JSON.toJSONString(applySmsTemplateRequest));
         return applySmsTemplateResponse(response);
     }
+
+    @Override
+    public ApplySmsTemplateResponse ApplyVmsTemplate(ApplyVmsTemplateRequest req) throws Exception {
+        if (req.getContents() == null || req.getContents().size() == 0) {
+            throw new Exception("should contain contents");
+        }
+        boolean containText = isContainText(req);
+        if (!containText) {
+            throw new Exception("should contain text in contents");
+        }
+        if (StringUtils.isBlank(req.getChannelType())) {
+            req.setChannelType("CN_VMS");
+        }
+        req.setCaller("sdk");
+        RawResponse response = json("ApplyVmsTemplate", new ArrayList<>(), JSON.toJSONString(req));
+        return applySmsTemplateResponse(response);
+    }
+
+    private static boolean isContainText(ApplyVmsTemplateRequest req) {
+        boolean containText = false;
+        for (VmsElement element : req.getContents()) {
+            if (element.getSourceType() == SourceTypeText) {
+                containText = true;
+            }
+        }
+        return containText;
+    }
+
+    @Override
+    public ApplySmsTemplateResponse GetVmsTemplateStatus(GetVmsTemplateStatusRequest req) throws Exception{
+        RawResponse response = json("GetVmsTemplateStatus", new ArrayList<>(), JSON.toJSONString(req));
+        return applySmsTemplateResponse(response);
+    }
+
 
     @Override
     public DeleteSmsTemplateResponse deleteSmsTemplate(DeleteSmsTemplateRequest deleteSmsTemplateRequest) throws Exception {

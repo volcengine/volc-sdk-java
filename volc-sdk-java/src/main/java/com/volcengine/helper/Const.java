@@ -56,10 +56,10 @@ public class Const {
     public static final String DetachRolePolicy = "DetachRolePolicy";
     public static final String ListAttachedRolePolicies = "ListAttachedRolePolicies";
     public static final String ListEntitiesForPolicy = "ListEntitiesForPolicy";
-    public static String CreateSAMLProvider="CreateSAMLProvider";
-    public static String DeleteSAMLProvider="DeleteSAMLProvider";
+    public static String CreateSAMLProvider = "CreateSAMLProvider";
+    public static String DeleteSAMLProvider = "DeleteSAMLProvider";
     public static String GetSAMLProvider = "GetSAMLProvider";
-    public static String UpdateSAMLProvider="UpdateSAMLProvider";
+    public static String UpdateSAMLProvider = "UpdateSAMLProvider";
     public static String ListSAMLProviders = "ListSAMLProviders";
 
 
@@ -91,8 +91,10 @@ public class Const {
     // content security
     public static final String ImageContentRisk = "ImageContentRisk";
     public static final String AsyncImageRisk = "AsyncImageRisk";
+    public static final String AsyncImageRiskV2 = "AsyncImageRiskV2";
     public static final String VideoResult = "VideoResult";
     public static final String GetImageResult = "GetImageResult";
+    public static final String GetImageResultV2 = "GetImageResultV2";
     public static final String AsyncVideoRisk = "AsyncVideoRisk";
     public static final String TextRisk = "TextRisk";
     public static final String CreateCustomContents = "CreateCustomContents";

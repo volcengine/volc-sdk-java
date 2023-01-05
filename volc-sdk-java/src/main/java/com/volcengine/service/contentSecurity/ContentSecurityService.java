@@ -14,7 +14,7 @@ public interface ContentSecurityService extends IBaseService {
     /**
      * Image Risk Detection.
      *
-     * @param  riskDetectionRequest image risk detection request
+     * @param riskDetectionRequest image risk detection request
      * @return image risk detection response
      * @throws Exception the exception
      */
@@ -23,25 +23,45 @@ public interface ContentSecurityService extends IBaseService {
     /**
      * Async Image Risk Detection.
      *
-     * @param  riskDetectionRequest image risk detection request
+     * @param riskDetectionRequest image risk detection request
      * @return async image risk detection response
      * @throws Exception the exception
      */
     AsyncRiskDetectionResponse AsyncImageRisk(RiskDetectionRequest riskDetectionRequest) throws Exception;
 
     /**
+     * Async Image Risk Detection.
+     *
+     * @param riskDetectionRequest image risk detection request
+     * @return async image risk detection response
+     * @throws Exception the exception
+     */
+    AsyncRiskDetectionResponse AsyncImageRiskV2(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+
+    /**
      * Image Risk Result.
      *
-     * @param  imageRiskResultRequest image risk result request
+     * @param imageRiskResultRequest image risk result request
      * @return image risk result response
      * @throws Exception the exception
      */
     ImageRiskDetectionResponse ImageRiskResult(ImageRiskResultRequest imageRiskResultRequest) throws Exception;
 
     /**
+     * Image Risk Result.
+     *
+     * @param imageRiskResultRequest image risk result request
+     * @return image risk result response
+     * @throws Exception the exception
+     */
+    ImageRiskDetectionResponse ImageRiskResultV2(ImageRiskResultRequest imageRiskResultRequest) throws Exception;
+
+
+    /**
      * Async Video Risk Detection.
      *
-     * @param  riskDetectionRequest video risk detection request
+     * @param riskDetectionRequest video risk detection request
      * @return async video risk detection response
      * @throws Exception the exception
      */
@@ -50,7 +70,7 @@ public interface ContentSecurityService extends IBaseService {
     /**
      * Video Risk Result.
      *
-     * @param  videoRiskResultRequest video risk detection request
+     * @param videoRiskResultRequest video risk detection request
      * @return async video risk detection response
      * @throws Exception the exception
      */
@@ -59,7 +79,7 @@ public interface ContentSecurityService extends IBaseService {
     /**
      * Text Risk Result.
      *
-     * @param  riskDetectionRequest video risk detection request
+     * @param riskDetectionRequest video risk detection request
      * @return text risk detection response
      * @throws Exception the exception
      */
@@ -67,7 +87,8 @@ public interface ContentSecurityService extends IBaseService {
 
     /**
      * Create Custom Contents
-     * @param  request create custom contents request
+     *
+     * @param request create custom contents request
      * @return create custom contents response
      * @throws Exception the exception
      */
@@ -75,7 +96,8 @@ public interface ContentSecurityService extends IBaseService {
 
     /**
      * Upload Custom Contents
-     * @param  request upload custom contents request
+     *
+     * @param request upload custom contents request
      * @return upload custom contents response
      * @throws Exception the exception
      */
@@ -84,7 +106,7 @@ public interface ContentSecurityService extends IBaseService {
     /**
      * Async Audio Risk Detection.
      *
-     * @param  riskDetectionRequest audip risk detection request
+     * @param riskDetectionRequest audip risk detection request
      * @return async audio risk detection response
      * @throws Exception the exception
      */
@@ -93,7 +115,7 @@ public interface ContentSecurityService extends IBaseService {
     /**
      * Audio Risk Result.
      *
-     * @param  audioRiskResultRequest video risk detection request
+     * @param audioRiskResultRequest video risk detection request
      * @return async video risk detection response
      * @throws Exception the exception
      */
@@ -102,7 +124,7 @@ public interface ContentSecurityService extends IBaseService {
     /**
      * Async Video live Risk Detection.
      *
-     * @param  riskDetectionRequest video risk detection request
+     * @param riskDetectionRequest video risk detection request
      * @return async video risk detection response
      * @throws Exception the exception
      */
@@ -111,7 +133,7 @@ public interface ContentSecurityService extends IBaseService {
     /**
      * Video Live Risk Result.
      *
-     * @param  videoRiskResultRequest video risk detection request
+     * @param videoRiskResultRequest video risk detection request
      * @return async video risk detection response
      * @throws Exception the exception
      */
@@ -120,7 +142,7 @@ public interface ContentSecurityService extends IBaseService {
     /**
      * Async Audio Live Risk Detection.
      *
-     * @param  riskDetectionRequest audip risk detection request
+     * @param riskDetectionRequest audip risk detection request
      * @return async audio risk detection response
      * @throws Exception the exception
      */
@@ -129,7 +151,7 @@ public interface ContentSecurityService extends IBaseService {
     /**
      * Audio Live Risk Result.
      *
-     * @param  audioRiskResultRequest video risk detection request
+     * @param audioRiskResultRequest video risk detection request
      * @return async video risk detection response
      * @throws Exception the exception
      */
@@ -138,7 +160,7 @@ public interface ContentSecurityService extends IBaseService {
     /**
      * Text Slice Risk.
      *
-     * @param  riskDetectionRequest text risk detection request
+     * @param riskDetectionRequest text risk detection request
      * @return text risk detection response
      * @throws Exception the exception
      */

@@ -2,7 +2,10 @@ package com.volcengine.service.imagex.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.github.rholder.retry.*;
+import com.github.rholder.retry.Retryer;
+import com.github.rholder.retry.RetryerBuilder;
+import com.github.rholder.retry.StopStrategies;
+import com.github.rholder.retry.WaitStrategies;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
@@ -76,7 +79,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         ApplyImageUploadResponse res = JSON.parseObject(response.getData(), ApplyImageUploadResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         res.getResponseMetadata().setService("ImageX");
         return res;
@@ -97,7 +100,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         CommitImageUploadResponse res = JSON.parseObject(response.getData(), CommitImageUploadResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         res.getResponseMetadata().setService("ImageX");
         return res;
@@ -376,7 +379,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         DeleteImageResp res = JSON.parseObject(response.getData(), DeleteImageResp.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         res.getResponseMetadata().setService("ImageX");
         return res;
@@ -391,7 +394,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetImageUploadFileResponse res = JSON.parseObject(response.getData(), GetImageUploadFileResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         res.getResponseMetadata().setService("ImageX");
         return res;
@@ -406,7 +409,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetImageUploadFilesResponse res = JSON.parseObject(response.getData(), GetImageUploadFilesResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         res.getResponseMetadata().setService("ImageX");
         return res;
@@ -424,7 +427,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         UpdateImageFilesResponse res = JSON.parseObject(response.getData(), UpdateImageFilesResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         res.getResponseMetadata().setService("ImageX");
         return res;
@@ -449,9 +452,24 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         CommonResponse res = JSON.parseObject(response.getData(), CommonResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         res.getResponseMetadata().setService("ImageX");
+        return res;
+    }
+
+    @Override
+    public FetchImageUrlResponse fetchImageUrl(FetchImageUrlRequest request) throws Exception {
+        RawResponse response = json("FetchImageUrl", null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        FetchImageUrlResponse res = JSON.parseObject(response.getData(), FetchImageUrlResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
+        }
         return res;
     }
 
@@ -474,7 +492,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetImageOCRResponse<?> res = JSON.parseObject(response.getData(), type);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -488,7 +506,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         EmbedImageHmResponse res = JSON.parseObject(response.getData(), EmbedImageHmResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -506,7 +524,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         ExtractImageHmResponse res = JSON.parseObject(response.getData(), ExtractImageHmResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -523,7 +541,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetImageSegmentResponse res = JSON.parseObject(response.getData(), GetImageSegmentResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -537,7 +555,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetImageEraseModelsResponse res = JSON.parseObject(response.getData(), GetImageEraseModelsResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -551,7 +569,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetImageEraseResultResponse res = JSON.parseObject(response.getData(), GetImageEraseResultResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -567,7 +585,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetImageQualityResponse res = JSON.parseObject(response.getData(), GetImageQualityResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -582,7 +600,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetImageBgFillResultResponse res = JSON.parseObject(response.getData(), GetImageBgFillResultResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -599,7 +617,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetImageDuplicateDetectionSyncResponse res = JSON.parseObject(response.getData(), GetImageDuplicateDetectionSyncResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -616,7 +634,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetImageDuplicateDetectionAsyncResponse res = JSON.parseObject(response.getData(), GetImageDuplicateDetectionAsyncResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -630,7 +648,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetDeduplicateTaskStatusResponse res = JSON.parseObject(response.getData(), GetDeduplicateTaskStatusResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -646,7 +664,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetDenoisingImageResponse res = JSON.parseObject(response.getData(), GetDenoisingImageResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -661,7 +679,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetImageComicResultResponse res = JSON.parseObject(response.getData(), GetImageComicResultResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -676,7 +694,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetImageSuperResolutionResultResponse res = JSON.parseObject(response.getData(), GetImageSuperResolutionResultResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -691,7 +709,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetImageSmartCropResultResponse res = JSON.parseObject(response.getData(), GetImageSmartCropResultResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -707,7 +725,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetLicensePlateDetectionResponse res = JSON.parseObject(response.getData(), GetLicensePlateDetectionResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -723,7 +741,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetImagePSDetectionResponse res = JSON.parseObject(response.getData(), GetImagePSDetectionResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -739,7 +757,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetPrivateImageTypeResponse res = JSON.parseObject(response.getData(), GetPrivateImageTypeResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -754,7 +772,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetImageEnhanceResultResponse res = JSON.parseObject(response.getData(), GetImageEnhanceResultResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }
@@ -770,7 +788,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         GetImageStyleResultResponse res = JSON.parseObject(response.getData(), GetImageStyleResultResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
         }
         return res;
     }

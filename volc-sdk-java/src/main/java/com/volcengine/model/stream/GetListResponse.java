@@ -82,6 +82,8 @@ public class GetListResponse {
         List<List<String>> articleClassification;
         @JSONField(name = "BizLog")
         String bizLog;
+        @JSONField(name = "ProductUnion")
+        List<GetUnionProductResponse.Result> productUnion;
     }
 
     @Data

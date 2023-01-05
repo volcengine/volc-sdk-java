@@ -38,5 +38,13 @@ public class ElementVerifyResponseV2 {
         private String cardType;
         @JSONField(name = "CardCategory")
         private String cardCategory;
+        @JSONField(name = "EnterpriseCode")
+        private String enterpriseCode;
+        @JSONField(name = "EnterpriseName")
+        private String EnterpriseName;
+        @JSONField(name = "IdCardNo")
+        private String IdCardNo;
+        @JSONField(name = "IdCardName")
+        private String IdCardName;
     }
 }

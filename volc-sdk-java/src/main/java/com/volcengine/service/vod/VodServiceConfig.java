@@ -203,6 +203,20 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.UpdateMediaStorageClass, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateMediaStorageClass));
+                                    add(new BasicNameValuePair("Version", "2022-10-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.GetMediaInfos, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -852,6 +866,79 @@ public class VodServiceConfig {
                                 {
                                     add(new BasicNameValuePair("Action", Const.SetCallbackEvent));
                                     add(new BasicNameValuePair("Version", "2022-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            // **********************************************************************
+            // 计量计费
+            // **********************************************************************
+            put(Const.DescribeVodSpaceTranscodeData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeVodSpaceTranscodeData));
+                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeVodSpaceAIStatisData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeVodSpaceAIStatisData));
+                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeVodSpaceSubtitleStatisData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeVodSpaceSubtitleStatisData));
+                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeVodSpaceDetectStatisData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeVodSpaceDetectStatisData));
+                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeVodSnapshotData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeVodSnapshotData));
+                                    add(new BasicNameValuePair("Version", "2020-08-01"));
                                 }
                             });
                         }

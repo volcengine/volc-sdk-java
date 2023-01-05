@@ -209,6 +209,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodUpdateMediaPublishStatusResponse updateMediaPublishStatus(com.volcengine.service.vod.model.request.VodUpdateMediaPublishStatusRequest input) throws Exception;
+
+	/**
+     * updateMediaStorageClass.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodUpdateMediaStorageClassRequest
+     * @return com.volcengine.service.vod.model.response.VodUpdateMediaStorageClassResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodUpdateMediaStorageClassResponse updateMediaStorageClass(com.volcengine.service.vod.model.request.VodUpdateMediaStorageClassRequest input) throws Exception;
 	
 	/**
      * getMediaInfos.
@@ -380,6 +389,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodListSnapshotsResponse listSnapshots(com.volcengine.service.vod.model.request.VodListSnapshotsRequest input) throws Exception;
+	
+	/**
+     * extractMediaMetaTask.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodExtractMediaMetaTaskRequest
+     * @return com.volcengine.service.vod.model.response.VodExtractMediaMetaTaskResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodExtractMediaMetaTaskResponse extractMediaMetaTask(com.volcengine.service.vod.model.request.VodExtractMediaMetaTaskRequest input) throws Exception;
 	
 	/**
      * startWorkflow.
@@ -569,7 +587,7 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse listCdnPvData(com.volcengine.service.vod.model.request.VodListCdnPvDataRequest input) throws Exception;
-	
+
 	/**
      * addCallbackSubscription.
      *
@@ -605,5 +623,50 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodGetAppInfoResponse getAppInfo(com.volcengine.service.vod.model.request.VodGetAppInfoRequest input) throws Exception;
+	
+	/**
+     * describeVodSpaceTranscodeData.
+     *
+     * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceTranscodeDataRequest
+     * @return com.volcengine.service.vod.model.response.DescribeVodSpaceTranscodeDataResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.DescribeVodSpaceTranscodeDataResponse describeVodSpaceTranscodeData(com.volcengine.service.vod.model.request.DescribeVodSpaceTranscodeDataRequest input) throws Exception;
+	
+	/**
+     * describeVodSpaceAIStatisData.
+     *
+     * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceAIStatisDataRequest
+     * @return com.volcengine.service.vod.model.response.DescribeVodSpaceAIStatisDataResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.DescribeVodSpaceAIStatisDataResponse describeVodSpaceAIStatisData(com.volcengine.service.vod.model.request.DescribeVodSpaceAIStatisDataRequest input) throws Exception;
+	
+	/**
+     * describeVodSpaceSubtitleStatisData.
+     *
+     * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceSubtitleStatisDataRequest
+     * @return com.volcengine.service.vod.model.response.DescribeVodSpaceSubtitleStatisDataResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.DescribeVodSpaceSubtitleStatisDataResponse describeVodSpaceSubtitleStatisData(com.volcengine.service.vod.model.request.DescribeVodSpaceSubtitleStatisDataRequest input) throws Exception;
+	
+	/**
+     * describeVodSpaceDetectStatisData.
+     *
+     * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceDetectStatisDataRequest
+     * @return com.volcengine.service.vod.model.response.DescribeVodSpaceDetectStatisDataResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.DescribeVodSpaceDetectStatisDataResponse describeVodSpaceDetectStatisData(com.volcengine.service.vod.model.request.DescribeVodSpaceDetectStatisDataRequest input) throws Exception;
+	
+	/**
+     * describeVodSnapshotData.
+     *
+     * @param input com.volcengine.service.vod.model.request.DescribeVodSnapshotDataRequest
+     * @return com.volcengine.service.vod.model.response.DescribeVodSnapshotDataResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.DescribeVodSnapshotDataResponse describeVodSnapshotData(com.volcengine.service.vod.model.request.DescribeVodSnapshotDataRequest input) throws Exception;
 	
 }  // end of service interface

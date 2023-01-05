@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private VodGetWorkflowExecutionStatusRequest() {
     runId_ = "";
+    needTasksDetail_ = "";
   }
 
   @java.lang.Override
@@ -53,6 +54,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             runId_ = s;
+            break;
+          }
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            needTasksDetail_ = s;
             break;
           }
           default: {
@@ -133,6 +140,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int NEEDTASKSDETAIL_FIELD_NUMBER = 2;
+  private volatile java.lang.Object needTasksDetail_;
+  /**
+   * <pre>
+   * 是否需要子任务详情: true/false
+   * </pre>
+   *
+   * <code>string NeedTasksDetail = 2;</code>
+   * @return The needTasksDetail.
+   */
+  @java.lang.Override
+  public java.lang.String getNeedTasksDetail() {
+    java.lang.Object ref = needTasksDetail_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      needTasksDetail_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 是否需要子任务详情: true/false
+   * </pre>
+   *
+   * <code>string NeedTasksDetail = 2;</code>
+   * @return The bytes for needTasksDetail.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getNeedTasksDetailBytes() {
+    java.lang.Object ref = needTasksDetail_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      needTasksDetail_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -150,6 +203,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(runId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, runId_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(needTasksDetail_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, needTasksDetail_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -161,6 +217,9 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(runId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, runId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(needTasksDetail_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, needTasksDetail_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -179,6 +238,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getRunId()
         .equals(other.getRunId())) return false;
+    if (!getNeedTasksDetail()
+        .equals(other.getNeedTasksDetail())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -192,6 +253,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + RUNID_FIELD_NUMBER;
     hash = (53 * hash) + getRunId().hashCode();
+    hash = (37 * hash) + NEEDTASKSDETAIL_FIELD_NUMBER;
+    hash = (53 * hash) + getNeedTasksDetail().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -327,6 +390,8 @@ private static final long serialVersionUID = 0L;
       super.clear();
       runId_ = "";
 
+      needTasksDetail_ = "";
+
       return this;
     }
 
@@ -354,6 +419,7 @@ private static final long serialVersionUID = 0L;
     public com.volcengine.service.vod.model.request.VodGetWorkflowExecutionStatusRequest buildPartial() {
       com.volcengine.service.vod.model.request.VodGetWorkflowExecutionStatusRequest result = new com.volcengine.service.vod.model.request.VodGetWorkflowExecutionStatusRequest(this);
       result.runId_ = runId_;
+      result.needTasksDetail_ = needTasksDetail_;
       onBuilt();
       return result;
     }
@@ -404,6 +470,10 @@ private static final long serialVersionUID = 0L;
       if (other == com.volcengine.service.vod.model.request.VodGetWorkflowExecutionStatusRequest.getDefaultInstance()) return this;
       if (!other.getRunId().isEmpty()) {
         runId_ = other.runId_;
+        onChanged();
+      }
+      if (!other.getNeedTasksDetail().isEmpty()) {
+        needTasksDetail_ = other.needTasksDetail_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -527,6 +597,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       runId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object needTasksDetail_ = "";
+    /**
+     * <pre>
+     * 是否需要子任务详情: true/false
+     * </pre>
+     *
+     * <code>string NeedTasksDetail = 2;</code>
+     * @return The needTasksDetail.
+     */
+    public java.lang.String getNeedTasksDetail() {
+      java.lang.Object ref = needTasksDetail_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        needTasksDetail_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 是否需要子任务详情: true/false
+     * </pre>
+     *
+     * <code>string NeedTasksDetail = 2;</code>
+     * @return The bytes for needTasksDetail.
+     */
+    public com.google.protobuf.ByteString
+        getNeedTasksDetailBytes() {
+      java.lang.Object ref = needTasksDetail_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        needTasksDetail_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 是否需要子任务详情: true/false
+     * </pre>
+     *
+     * <code>string NeedTasksDetail = 2;</code>
+     * @param value The needTasksDetail to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNeedTasksDetail(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      needTasksDetail_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 是否需要子任务详情: true/false
+     * </pre>
+     *
+     * <code>string NeedTasksDetail = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNeedTasksDetail() {
+      
+      needTasksDetail_ = getDefaultInstance().getNeedTasksDetail();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 是否需要子任务详情: true/false
+     * </pre>
+     *
+     * <code>string NeedTasksDetail = 2;</code>
+     * @param value The bytes for needTasksDetail to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNeedTasksDetailBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      needTasksDetail_ = value;
       onChanged();
       return this;
     }

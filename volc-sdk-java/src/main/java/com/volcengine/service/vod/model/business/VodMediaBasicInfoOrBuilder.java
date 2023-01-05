@@ -214,4 +214,24 @@ public interface VodMediaBasicInfoOrBuilder extends
    * <code>.Volcengine.Vod.Models.Business.VodClassification Classification = 9;</code>
    */
   com.volcengine.service.vod.model.business.VodClassificationOrBuilder getClassificationOrBuilder();
+
+  /**
+   * <pre>
+   * Tos存储类型:STANDARD, ARCHIVE
+   * </pre>
+   *
+   * <code>string TosStorageClass = 10;</code>
+   * @return The tosStorageClass.
+   */
+  java.lang.String getTosStorageClass();
+  /**
+   * <pre>
+   * Tos存储类型:STANDARD, ARCHIVE
+   * </pre>
+   *
+   * <code>string TosStorageClass = 10;</code>
+   * @return The bytes for tosStorageClass.
+   */
+  com.google.protobuf.ByteString
+      getTosStorageClassBytes();
 }

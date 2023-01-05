@@ -129,6 +129,11 @@ public final class VodWorkflow {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_StageDetail_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_TaskDetail_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_TaskDetail_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -196,7 +201,7 @@ public final class VodWorkflow {
       "rkflowExecutionResult\022?\n\004Data\030\001 \003(\01321.Vo" +
       "lcengine.Vod.Models.Business.WorkflowExe" +
       "cution\022\022\n\nTotalCount\030\002 \001(\005\022\020\n\010PageSize\030\003" +
-      " \001(\005\022\016\n\006Offset\030\004 \001(\005\"\261\003\n\021WorkflowExecuti" +
+      " \001(\005\022\016\n\006Offset\030\004 \001(\005\"\362\003\n\021WorkflowExecuti" +
       "on\022\r\n\005RunId\030\001 \001(\t\022\013\n\003Vid\030\002 \001(\t\022\022\n\nTempla" +
       "teId\030\003 \001(\t\022\024\n\014TemplateName\030\004 \001(\t\022\021\n\tSpac" +
       "eName\030\005 \001(\t\022\016\n\006Status\030\006 \001(\t\022\022\n\nTaskListI" +
@@ -207,37 +212,44 @@ public final class VodWorkflow {
       "\014 \001(\0132\032.google.protobuf.Timestamp\022=\n\005Inp" +
       "ut\030\r \001(\0132..Volcengine.Vod.Models.Busines" +
       "s.WorkflowParams\022\020\n\010Priority\030\016 \001(\005\022\024\n\014Ca" +
-      "llbackArgs\030\017 \001(\t\"\206\003\n#VodGetWorkflowExecu" +
-      "tionDetailResult\022\r\n\005RunId\030\001 \001(\t\022\013\n\003Vid\030\002" +
-      " \001(\t\022\022\n\nTemplateId\030\003 \001(\t\022\021\n\tSpaceName\030\004 " +
-      "\001(\t\022\016\n\006Status\030\006 \001(\t\022\022\n\nTaskListId\030\007 \001(\t\022" +
-      "\031\n\021EnableLowPriority\030\010 \001(\010\022\021\n\tJobSource\030" +
-      "\t \001(\t\022>\n\006Stages\030\n \003(\0132..Volcengine.Vod.M" +
-      "odels.Business.ExecutionStage\022.\n\nCreateT" +
-      "ime\030\013 \001(\0132\032.google.protobuf.Timestamp\022-\n" +
-      "\tStartTime\030\014 \001(\0132\032.google.protobuf.Times" +
-      "tamp\022+\n\007EndTime\030\r \001(\0132\032.google.protobuf." +
-      "Timestamp\"\303\001\n\016ExecutionStage\022\023\n\013DisplayN" +
-      "ame\030\001 \001(\t\022@\n\013StageDetail\030\002 \003(\0132+.Volceng" +
-      "ine.Vod.Models.Business.StageDetail\022-\n\tS" +
-      "tartTime\030\003 \001(\0132\032.google.protobuf.Timesta" +
-      "mp\022+\n\007EndTime\030\004 \001(\0132\032.google.protobuf.Ti" +
-      "mestamp\"\215\002\n\013StageDetail\022\n\n\002Id\030\001 \001(\t\022\023\n\013D" +
-      "isplayName\030\002 \001(\t\022\014\n\004Type\030\003 \001(\t\022\022\n\nTempla" +
-      "teId\030\004 \001(\t\022;\n\006Status\030\005 \001(\0162+.Volcengine." +
-      "Vod.Models.Business.StageStatus\022\021\n\tError" +
-      "Code\030\006 \001(\003\022\017\n\007Message\030\007 \001(\t\022-\n\tStartTime" +
-      "\030\010 \001(\0132\032.google.protobuf.Timestamp\022+\n\007En" +
-      "dTime\030\t \001(\0132\032.google.protobuf.Timestamp*" +
-      "z\n\013StageStatus\022\013\n\007Unknown\020\000\022\r\n\tScheduled" +
-      "\020\001\022\013\n\007Running\020\002\022\014\n\010Canceled\020\003\022\014\n\010TimedOu" +
-      "t\020\004\022\013\n\007Skipped\020\005\022\r\n\tCompleted\020\006\022\n\n\006Faile" +
-      "d\020\007B\314\001\n)com.volcengine.service.vod.model" +
-      ".businessB\013VodWorkflowP\001ZAgithub.com/vol" +
-      "cengine/volc-sdk-golang/service/vod/mode" +
-      "ls/business\240\001\001\330\001\001\312\002 Volc\\Service\\Vod\\Mod" +
-      "els\\Business\342\002#Volc\\Service\\Vod\\Models\\G" +
-      "PBMetadatab\006proto3"
+      "llbackArgs\030\017 \001(\t\022?\n\013TasksDetail\030\020 \003(\0132*." +
+      "Volcengine.Vod.Models.Business.TaskDetai" +
+      "l\"\206\003\n#VodGetWorkflowExecutionDetailResul" +
+      "t\022\r\n\005RunId\030\001 \001(\t\022\013\n\003Vid\030\002 \001(\t\022\022\n\nTemplat" +
+      "eId\030\003 \001(\t\022\021\n\tSpaceName\030\004 \001(\t\022\016\n\006Status\030\006" +
+      " \001(\t\022\022\n\nTaskListId\030\007 \001(\t\022\031\n\021EnableLowPri" +
+      "ority\030\010 \001(\010\022\021\n\tJobSource\030\t \001(\t\022>\n\006Stages" +
+      "\030\n \003(\0132..Volcengine.Vod.Models.Business." +
+      "ExecutionStage\022.\n\nCreateTime\030\013 \001(\0132\032.goo" +
+      "gle.protobuf.Timestamp\022-\n\tStartTime\030\014 \001(" +
+      "\0132\032.google.protobuf.Timestamp\022+\n\007EndTime" +
+      "\030\r \001(\0132\032.google.protobuf.Timestamp\"\303\001\n\016E" +
+      "xecutionStage\022\023\n\013DisplayName\030\001 \001(\t\022@\n\013St" +
+      "ageDetail\030\002 \003(\0132+.Volcengine.Vod.Models." +
+      "Business.StageDetail\022-\n\tStartTime\030\003 \001(\0132" +
+      "\032.google.protobuf.Timestamp\022+\n\007EndTime\030\004" +
+      " \001(\0132\032.google.protobuf.Timestamp\"\215\002\n\013Sta" +
+      "geDetail\022\n\n\002Id\030\001 \001(\t\022\023\n\013DisplayName\030\002 \001(" +
+      "\t\022\014\n\004Type\030\003 \001(\t\022\022\n\nTemplateId\030\004 \001(\t\022;\n\006S" +
+      "tatus\030\005 \001(\0162+.Volcengine.Vod.Models.Busi" +
+      "ness.StageStatus\022\021\n\tErrorCode\030\006 \001(\003\022\017\n\007M" +
+      "essage\030\007 \001(\t\022-\n\tStartTime\030\010 \001(\0132\032.google" +
+      ".protobuf.Timestamp\022+\n\007EndTime\030\t \001(\0132\032.g" +
+      "oogle.protobuf.Timestamp\"\340\001\n\nTaskDetail\022" +
+      "\023\n\013DisplayName\030\002 \001(\t\022\022\n\nTemplateId\030\004 \001(\t" +
+      "\022;\n\006Status\030\005 \001(\0162+.Volcengine.Vod.Models" +
+      ".Business.StageStatus\022\020\n\010Progress\030\010 \001(\005\022" +
+      "-\n\tStartTime\030\t \001(\0132\032.google.protobuf.Tim" +
+      "estamp\022+\n\007EndTime\030\n \001(\0132\032.google.protobu" +
+      "f.Timestamp*z\n\013StageStatus\022\013\n\007Unknown\020\000\022" +
+      "\r\n\tScheduled\020\001\022\013\n\007Running\020\002\022\014\n\010Canceled\020" +
+      "\003\022\014\n\010TimedOut\020\004\022\013\n\007Skipped\020\005\022\r\n\tComplete" +
+      "d\020\006\022\n\n\006Failed\020\007B\314\001\n)com.volcengine.servi" +
+      "ce.vod.model.businessB\013VodWorkflowP\001ZAgi" +
+      "thub.com/volcengine/volc-sdk-golang/serv" +
+      "ice/vod/models/business\240\001\001\330\001\001\312\002 Volc\\Ser" +
+      "vice\\Vod\\Models\\Business\342\002#Volc\\Service\\" +
+      "Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -363,7 +375,7 @@ public final class VodWorkflow {
     internal_static_Volcengine_Vod_Models_Business_WorkflowExecution_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_WorkflowExecution_descriptor,
-        new java.lang.String[] { "RunId", "Vid", "TemplateId", "TemplateName", "SpaceName", "Status", "TaskListId", "EnableLowPriority", "JobSource", "CreateTime", "StartTime", "EndTime", "Input", "Priority", "CallbackArgs", });
+        new java.lang.String[] { "RunId", "Vid", "TemplateId", "TemplateName", "SpaceName", "Status", "TaskListId", "EnableLowPriority", "JobSource", "CreateTime", "StartTime", "EndTime", "Input", "Priority", "CallbackArgs", "TasksDetail", });
     internal_static_Volcengine_Vod_Models_Business_VodGetWorkflowExecutionDetailResult_descriptor =
       getDescriptor().getMessageTypes().get(17);
     internal_static_Volcengine_Vod_Models_Business_VodGetWorkflowExecutionDetailResult_fieldAccessorTable = new
@@ -382,6 +394,12 @@ public final class VodWorkflow {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_StageDetail_descriptor,
         new java.lang.String[] { "Id", "DisplayName", "Type", "TemplateId", "Status", "ErrorCode", "Message", "StartTime", "EndTime", });
+    internal_static_Volcengine_Vod_Models_Business_TaskDetail_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_Volcengine_Vod_Models_Business_TaskDetail_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_TaskDetail_descriptor,
+        new java.lang.String[] { "DisplayName", "TemplateId", "Status", "Progress", "StartTime", "EndTime", });
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 

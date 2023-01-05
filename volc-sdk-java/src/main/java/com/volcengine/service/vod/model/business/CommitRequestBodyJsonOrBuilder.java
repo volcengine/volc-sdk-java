@@ -54,4 +54,16 @@ public interface CommitRequestBodyJsonOrBuilder extends
    */
   com.google.protobuf.ByteString
       getFunctionsBytes();
+
+  /**
+   * <code>string GetMetaMode = 5;</code>
+   * @return The getMetaMode.
+   */
+  java.lang.String getGetMetaMode();
+  /**
+   * <code>string GetMetaMode = 5;</code>
+   * @return The bytes for getMetaMode.
+   */
+  com.google.protobuf.ByteString
+      getGetMetaModeBytes();
 }

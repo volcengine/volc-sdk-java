@@ -314,4 +314,48 @@ public interface WorkflowExecutionOrBuilder extends
    */
   com.google.protobuf.ByteString
       getCallbackArgsBytes();
+
+  /**
+   * <pre>
+   * 子任务详情
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+   */
+  java.util.List<com.volcengine.service.vod.model.business.TaskDetail> 
+      getTasksDetailList();
+  /**
+   * <pre>
+   * 子任务详情
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+   */
+  com.volcengine.service.vod.model.business.TaskDetail getTasksDetail(int index);
+  /**
+   * <pre>
+   * 子任务详情
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+   */
+  int getTasksDetailCount();
+  /**
+   * <pre>
+   * 子任务详情
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+   */
+  java.util.List<? extends com.volcengine.service.vod.model.business.TaskDetailOrBuilder> 
+      getTasksDetailOrBuilderList();
+  /**
+   * <pre>
+   * 子任务详情
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+   */
+  com.volcengine.service.vod.model.business.TaskDetailOrBuilder getTasksDetailOrBuilder(
+      int index);
 }

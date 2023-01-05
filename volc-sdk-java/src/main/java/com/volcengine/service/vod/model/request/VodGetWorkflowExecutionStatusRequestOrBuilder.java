@@ -26,4 +26,24 @@ public interface VodGetWorkflowExecutionStatusRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getRunIdBytes();
+
+  /**
+   * <pre>
+   * 是否需要子任务详情: true/false
+   * </pre>
+   *
+   * <code>string NeedTasksDetail = 2;</code>
+   * @return The needTasksDetail.
+   */
+  java.lang.String getNeedTasksDetail();
+  /**
+   * <pre>
+   * 是否需要子任务详情: true/false
+   * </pre>
+   *
+   * <code>string NeedTasksDetail = 2;</code>
+   * @return The bytes for needTasksDetail.
+   */
+  com.google.protobuf.ByteString
+      getNeedTasksDetailBytes();
 }

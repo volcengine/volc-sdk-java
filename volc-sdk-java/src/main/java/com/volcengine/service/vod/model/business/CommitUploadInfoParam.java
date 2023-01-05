@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     callbackArgs_ = "";
     sessionKey_ = "";
     functions_ = java.util.Collections.emptyList();
+    getMetaMode_ = "";
   }
 
   @java.lang.Override
@@ -78,6 +79,12 @@ private static final long serialVersionUID = 0L;
             }
             functions_.add(
                 input.readMessage(com.volcengine.service.vod.model.business.VodUploadFunction.parser(), extensionRegistry));
+            break;
+          }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            getMetaMode_ = s;
             break;
           }
           default: {
@@ -269,6 +276,44 @@ private static final long serialVersionUID = 0L;
     return functions_.get(index);
   }
 
+  public static final int GETMETAMODE_FIELD_NUMBER = 5;
+  private volatile java.lang.Object getMetaMode_;
+  /**
+   * <code>string GetMetaMode = 5;</code>
+   * @return The getMetaMode.
+   */
+  @java.lang.Override
+  public java.lang.String getGetMetaMode() {
+    java.lang.Object ref = getMetaMode_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      getMetaMode_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string GetMetaMode = 5;</code>
+   * @return The bytes for getMetaMode.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getGetMetaModeBytes() {
+    java.lang.Object ref = getMetaMode_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      getMetaMode_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -295,6 +340,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < functions_.size(); i++) {
       output.writeMessage(4, functions_.get(i));
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(getMetaMode_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, getMetaMode_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -316,6 +364,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < functions_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, functions_.get(i));
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(getMetaMode_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, getMetaMode_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -340,6 +391,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSessionKey())) return false;
     if (!getFunctionsList()
         .equals(other.getFunctionsList())) return false;
+    if (!getGetMetaMode()
+        .equals(other.getGetMetaMode())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -361,6 +414,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FUNCTIONS_FIELD_NUMBER;
       hash = (53 * hash) + getFunctionsList().hashCode();
     }
+    hash = (37 * hash) + GETMETAMODE_FIELD_NUMBER;
+    hash = (53 * hash) + getGetMetaMode().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -507,6 +562,8 @@ private static final long serialVersionUID = 0L;
       } else {
         functionsBuilder_.clear();
       }
+      getMetaMode_ = "";
+
       return this;
     }
 
@@ -546,6 +603,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.functions_ = functionsBuilder_.build();
       }
+      result.getMetaMode_ = getMetaMode_;
       onBuilt();
       return result;
     }
@@ -631,6 +689,10 @@ private static final long serialVersionUID = 0L;
             functionsBuilder_.addAllMessages(other.functions_);
           }
         }
+      }
+      if (!other.getGetMetaMode().isEmpty()) {
+        getMetaMode_ = other.getMetaMode_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1128,6 +1190,82 @@ private static final long serialVersionUID = 0L;
         functions_ = null;
       }
       return functionsBuilder_;
+    }
+
+    private java.lang.Object getMetaMode_ = "";
+    /**
+     * <code>string GetMetaMode = 5;</code>
+     * @return The getMetaMode.
+     */
+    public java.lang.String getGetMetaMode() {
+      java.lang.Object ref = getMetaMode_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        getMetaMode_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string GetMetaMode = 5;</code>
+     * @return The bytes for getMetaMode.
+     */
+    public com.google.protobuf.ByteString
+        getGetMetaModeBytes() {
+      java.lang.Object ref = getMetaMode_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        getMetaMode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string GetMetaMode = 5;</code>
+     * @param value The getMetaMode to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGetMetaMode(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      getMetaMode_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string GetMetaMode = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearGetMetaMode() {
+      
+      getMetaMode_ = getDefaultInstance().getGetMetaMode();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string GetMetaMode = 5;</code>
+     * @param value The bytes for getMetaMode to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGetMetaModeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      getMetaMode_ = value;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

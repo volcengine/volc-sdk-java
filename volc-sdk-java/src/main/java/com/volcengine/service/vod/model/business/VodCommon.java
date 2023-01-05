@@ -94,7 +94,7 @@ public final class VodCommon {
   static {
     java.lang.String[] descriptorData = {
       "\n\035vod/business/vod_common.proto\022\036Volceng" +
-      "ine.Vod.Models.Business\"\316\003\n\rVodSourceInf" +
+      "ine.Vod.Models.Business\"\340\003\n\rVodSourceInf" +
       "o\022\016\n\006FileId\030\001 \001(\t\022\013\n\003Md5\030\002 \001(\t\022\020\n\010FileTy" +
       "pe\030\003 \001(\t\022\r\n\005Codec\030\004 \001(\t\022\016\n\006Height\030\005 \001(\005\022" +
       "\r\n\005Width\030\006 \001(\005\022\016\n\006Format\030\007 \001(\t\022\020\n\010Durati" +
@@ -106,91 +106,92 @@ public final class VodCommon {
       "usiness.VodVideoStreamMeta\022K\n\017AudioStrea" +
       "mMeta\030\022 \001(\01322.Volcengine.Vod.Models.Busi" +
       "ness.VodAudioStreamMeta\022\027\n\017TosStorageCla" +
-      "ss\030\023 \001(\t\"k\n\022VodAudioStreamMeta\022\r\n\005Codec\030" +
-      "\001 \001(\t\022\020\n\010Duration\030\002 \001(\002\022\022\n\nSampleRate\030\003 " +
-      "\001(\005\022\017\n\007Bitrate\030\004 \001(\005\022\017\n\007Quality\030\005 \001(\t\"\206\001" +
-      "\n\022VodVideoStreamMeta\022\r\n\005Codec\030\001 \001(\t\022\016\n\006H" +
-      "eight\030\002 \001(\005\022\r\n\005Width\030\003 \001(\005\022\020\n\010Duration\030\004" +
-      " \001(\002\022\022\n\nDefinition\030\005 \001(\t\022\017\n\007Bitrate\030\006 \001(" +
-      "\005\022\013\n\003Fps\030\007 \001(\002\"\352\002\n\020VodTranscodeInfo\022\016\n\006F" +
-      "ileId\030\001 \001(\t\022\013\n\003Md5\030\002 \001(\t\022\020\n\010FileType\030\003 \001" +
-      "(\t\022\020\n\010LogoType\030\004 \001(\t\022\017\n\007Encrypt\030\005 \001(\010\022\016\n" +
-      "\006Format\030\006 \001(\t\022\020\n\010Duration\030\007 \001(\002\022\014\n\004Size\030" +
-      "\010 \001(\001\022\020\n\010StoreUri\030\t \001(\t\022K\n\017VideoStreamMe" +
-      "ta\030\n \001(\01322.Volcengine.Vod.Models.Busines" +
-      "s.VodVideoStreamMeta\022K\n\017AudioStreamMeta\030" +
-      "\013 \001(\01322.Volcengine.Vod.Models.Business.V" +
-      "odAudioStreamMeta\022\022\n\nCreateTime\030\014 \001(\t\022\024\n" +
-      "\014DynamicRange\030\r \001(\t\"S\n\017VodAdaptiveInfo\022\023" +
-      "\n\013MainPlayUrl\030\001 \001(\t\022\025\n\rBackupPlayUrl\030\002 \001" +
-      "(\t\022\024\n\014AdaptiveType\030\003 \001(\t\"\343\003\n\013VodPlayInfo" +
-      "\022\016\n\006FileId\030\001 \001(\t\022\013\n\003Md5\030\002 \001(\t\022\020\n\010FileTyp" +
-      "e\030\003 \001(\t\022\016\n\006Format\030\004 \001(\t\022\r\n\005Codec\030\005 \001(\t\022\022" +
-      "\n\nDefinition\030\006 \001(\t\022\023\n\013MainPlayUrl\030\007 \001(\t\022" +
-      "\025\n\rBackupPlayUrl\030\010 \001(\t\022\017\n\007Bitrate\030\t \001(\005\022" +
-      "\r\n\005Width\030\n \001(\005\022\016\n\006Height\030\013 \001(\005\022\014\n\004Size\030\014" +
-      " \001(\001\022\021\n\tCheckInfo\030\r \001(\t\022\022\n\nIndexRange\030\016 " +
-      "\001(\t\022\021\n\tInitRange\030\017 \001(\t\022\020\n\010PlayAuth\030\020 \001(\t" +
-      "\022\022\n\nPlayAuthId\030\021 \001(\t\022\020\n\010LogoType\030\022 \001(\t\022\017" +
-      "\n\007Quality\030\023 \001(\t\022\031\n\021BarrageMaskOffset\030\024 \001" +
-      "(\t\022\020\n\010Duration\030\025 \001(\002\022\031\n\021KeyFrameAlignmen" +
-      "t\030\026 \001(\t\022=\n\006Volume\030\027 \001(\0132-.Volcengine.Vod" +
-      ".Models.Business.VodVolumeInfo\"/\n\rVodVol" +
-      "umeInfo\022\020\n\010Loudness\030\001 \001(\001\022\014\n\004Peak\030\002 \001(\001\"" +
-      "\240\001\n\014VodThumbInfo\022\022\n\nCaptureNum\030\001 \001(\005\022\021\n\t" +
-      "StoreUrls\030\002 \003(\t\022\021\n\tCellWidth\030\003 \001(\005\022\022\n\nCe" +
-      "llHeight\030\004 \001(\005\022\017\n\007ImgXLen\030\005 \001(\005\022\017\n\007ImgYL" +
-      "en\030\006 \001(\005\022\020\n\010Interval\030\007 \001(\001\022\016\n\006Format\030\010 \001" +
-      "(\t\"\200\002\n\017VodSubtitleInfo\022\013\n\003Vid\030\001 \001(\t\022\016\n\006F" +
-      "ileId\030\002 \001(\t\022\020\n\010Language\030\003 \001(\t\022\022\n\nLanguag" +
-      "eId\030\004 \001(\005\022\016\n\006Format\030\005 \001(\t\022\022\n\nSubtitleId\030" +
-      "\006 \001(\t\022\r\n\005Title\030\007 \001(\t\022\013\n\003Tag\030\010 \001(\t\022\016\n\006Sta" +
-      "tus\030\t \001(\t\022\016\n\006Source\030\n \001(\t\022\020\n\010StoreUri\030\013 " +
-      "\001(\t\022\023\n\013SubtitleUrl\030\014 \001(\t\022\022\n\nCreateTime\030\r" +
-      " \001(\t\022\017\n\007Version\030\016 \001(\t\"A\n\023VodCommonConfig" +
-      "Info\022\016\n\006Module\030\001 \001(\t\022\013\n\003Key\030\002 \001(\t\022\r\n\005Val" +
-      "ue\030\003 \001(\t\"\216\004\n\020VodPlayInfoModel\022H\n\007Version" +
-      "\030\n \001(\01627.Volcengine.Vod.Models.Business." +
-      "VodPlayInfoModelVersion\022\013\n\003Vid\030\001 \001(\t\022\016\n\006" +
-      "Status\030\002 \001(\005\022\021\n\tPosterUrl\030\003 \001(\t\022\020\n\010Durat" +
-      "ion\030\004 \001(\002\022\020\n\010FileType\030\005 \001(\t\022\026\n\016EnableAda" +
-      "ptive\030\006 \001(\010\022\022\n\nTotalCount\030\007 \001(\005\022E\n\014Adapt" +
-      "iveInfo\030\010 \001(\0132/.Volcengine.Vod.Models.Bu" +
-      "siness.VodAdaptiveInfo\022A\n\014PlayInfoList\030\t" +
-      " \003(\0132+.Volcengine.Vod.Models.Business.Vo" +
-      "dPlayInfo\022C\n\rThumbInfoList\030\013 \003(\0132,.Volce" +
-      "ngine.Vod.Models.Business.VodThumbInfo\022\026" +
-      "\n\016BarrageMaskUrl\030\014 \001(\t\022I\n\020SubtitleInfoLi" +
-      "st\030\r \003(\0132/.Volcengine.Vod.Models.Busines" +
-      "s.VodSubtitleInfo\",\n\010VodPoint\022\021\n\tTimesta" +
-      "mp\030\001 \001(\001\022\r\n\005Value\030\002 \001(\001\"\226\001\n\024VodAllPlayIn" +
-      "foResult\022T\n\027VodAllPlayInfoModelList\030\001 \003(" +
-      "\01323.Volcengine.Vod.Models.Business.VodAl" +
-      "lPlayInfoModel\022\022\n\nTotalCount\030\002 \001(\005\022\024\n\014No" +
-      "tFoundVids\030\003 \003(\t\"\366\003\n\023VodAllPlayInfoModel" +
-      "\022\013\n\003Vid\030\001 \001(\t\022\016\n\006Status\030\002 \001(\005\022\021\n\tPosterU" +
-      "rl\030\003 \001(\t\022\022\n\nTotalCount\030\004 \001(\005\022\026\n\016EnableAd" +
-      "aptive\030\005 \001(\010\022I\n\024VodTranscodePlayInfo\030\006 \003" +
-      "(\0132+.Volcengine.Vod.Models.Business.VodP" +
-      "layInfo\022F\n\021VodSourcePlayInfo\030\007 \001(\0132+.Vol" +
-      "cengine.Vod.Models.Business.VodPlayInfo\022" +
-      "H\n\007Version\030\010 \001(\01627.Volcengine.Vod.Models" +
-      ".Business.VodPlayInfoModelVersion\022C\n\rThu" +
-      "mbInfoList\030\t \003(\0132,.Volcengine.Vod.Models" +
-      ".Business.VodThumbInfo\022\026\n\016BarrageMaskUrl" +
-      "\030\n \001(\t\022I\n\020SubtitleInfoList\030\013 \003(\0132/.Volce" +
-      "ngine.Vod.Models.Business.VodSubtitleInf" +
-      "o*\326\001\n\027VodPlayInfoModelVersion\022$\n Undefin" +
-      "edVodPlayInfoModelVersion\020\000\022%\n!InternalV" +
-      "1VodPlayInfoModelVersion\020\001\022%\n!InternalV2" +
-      "VodPlayInfoModelVersion\020\002\022%\n!InternalV3V" +
-      "odPlayInfoModelVersion\020\003\022 \n\034ToBV1VodPlay" +
-      "InfoModelVersion\020\004B\315\001\n)com.volcengine.se" +
-      "rvice.vod.model.businessB\tVodCommonP\001ZAg" +
-      "ithub.com/volcengine/volc-sdk-golang/ser" +
-      "vice/vod/models/business\240\001\001\330\001\001\302\002\000\312\002 Volc" +
-      "\\Service\\Vod\\Models\\Business\342\002#Volc\\Serv" +
-      "ice\\Vod\\Models\\GPBMetadatab\006proto3"
+      "ss\030\023 \001(\t\022\020\n\010FileName\030\024 \001(\t\"k\n\022VodAudioSt" +
+      "reamMeta\022\r\n\005Codec\030\001 \001(\t\022\020\n\010Duration\030\002 \001(" +
+      "\002\022\022\n\nSampleRate\030\003 \001(\005\022\017\n\007Bitrate\030\004 \001(\005\022\017" +
+      "\n\007Quality\030\005 \001(\t\"\206\001\n\022VodVideoStreamMeta\022\r" +
+      "\n\005Codec\030\001 \001(\t\022\016\n\006Height\030\002 \001(\005\022\r\n\005Width\030\003" +
+      " \001(\005\022\020\n\010Duration\030\004 \001(\002\022\022\n\nDefinition\030\005 \001" +
+      "(\t\022\017\n\007Bitrate\030\006 \001(\005\022\013\n\003Fps\030\007 \001(\002\"\203\003\n\020Vod" +
+      "TranscodeInfo\022\016\n\006FileId\030\001 \001(\t\022\013\n\003Md5\030\002 \001" +
+      "(\t\022\020\n\010FileType\030\003 \001(\t\022\020\n\010LogoType\030\004 \001(\t\022\017" +
+      "\n\007Encrypt\030\005 \001(\010\022\016\n\006Format\030\006 \001(\t\022\020\n\010Durat" +
+      "ion\030\007 \001(\002\022\014\n\004Size\030\010 \001(\001\022\020\n\010StoreUri\030\t \001(" +
+      "\t\022K\n\017VideoStreamMeta\030\n \001(\01322.Volcengine." +
+      "Vod.Models.Business.VodVideoStreamMeta\022K" +
+      "\n\017AudioStreamMeta\030\013 \001(\01322.Volcengine.Vod" +
+      ".Models.Business.VodAudioStreamMeta\022\022\n\nC" +
+      "reateTime\030\014 \001(\t\022\024\n\014DynamicRange\030\r \001(\t\022\027\n" +
+      "\017TosStorageClass\030\016 \001(\t\"S\n\017VodAdaptiveInf" +
+      "o\022\023\n\013MainPlayUrl\030\001 \001(\t\022\025\n\rBackupPlayUrl\030" +
+      "\002 \001(\t\022\024\n\014AdaptiveType\030\003 \001(\t\"\343\003\n\013VodPlayI" +
+      "nfo\022\016\n\006FileId\030\001 \001(\t\022\013\n\003Md5\030\002 \001(\t\022\020\n\010File" +
+      "Type\030\003 \001(\t\022\016\n\006Format\030\004 \001(\t\022\r\n\005Codec\030\005 \001(" +
+      "\t\022\022\n\nDefinition\030\006 \001(\t\022\023\n\013MainPlayUrl\030\007 \001" +
+      "(\t\022\025\n\rBackupPlayUrl\030\010 \001(\t\022\017\n\007Bitrate\030\t \001" +
+      "(\005\022\r\n\005Width\030\n \001(\005\022\016\n\006Height\030\013 \001(\005\022\014\n\004Siz" +
+      "e\030\014 \001(\001\022\021\n\tCheckInfo\030\r \001(\t\022\022\n\nIndexRange" +
+      "\030\016 \001(\t\022\021\n\tInitRange\030\017 \001(\t\022\020\n\010PlayAuth\030\020 " +
+      "\001(\t\022\022\n\nPlayAuthId\030\021 \001(\t\022\020\n\010LogoType\030\022 \001(" +
+      "\t\022\017\n\007Quality\030\023 \001(\t\022\031\n\021BarrageMaskOffset\030" +
+      "\024 \001(\t\022\020\n\010Duration\030\025 \001(\002\022\031\n\021KeyFrameAlign" +
+      "ment\030\026 \001(\t\022=\n\006Volume\030\027 \001(\0132-.Volcengine." +
+      "Vod.Models.Business.VodVolumeInfo\"/\n\rVod" +
+      "VolumeInfo\022\020\n\010Loudness\030\001 \001(\001\022\014\n\004Peak\030\002 \001" +
+      "(\001\"\240\001\n\014VodThumbInfo\022\022\n\nCaptureNum\030\001 \001(\005\022" +
+      "\021\n\tStoreUrls\030\002 \003(\t\022\021\n\tCellWidth\030\003 \001(\005\022\022\n" +
+      "\nCellHeight\030\004 \001(\005\022\017\n\007ImgXLen\030\005 \001(\005\022\017\n\007Im" +
+      "gYLen\030\006 \001(\005\022\020\n\010Interval\030\007 \001(\001\022\016\n\006Format\030" +
+      "\010 \001(\t\"\200\002\n\017VodSubtitleInfo\022\013\n\003Vid\030\001 \001(\t\022\016" +
+      "\n\006FileId\030\002 \001(\t\022\020\n\010Language\030\003 \001(\t\022\022\n\nLang" +
+      "uageId\030\004 \001(\005\022\016\n\006Format\030\005 \001(\t\022\022\n\nSubtitle" +
+      "Id\030\006 \001(\t\022\r\n\005Title\030\007 \001(\t\022\013\n\003Tag\030\010 \001(\t\022\016\n\006" +
+      "Status\030\t \001(\t\022\016\n\006Source\030\n \001(\t\022\020\n\010StoreUri" +
+      "\030\013 \001(\t\022\023\n\013SubtitleUrl\030\014 \001(\t\022\022\n\nCreateTim" +
+      "e\030\r \001(\t\022\017\n\007Version\030\016 \001(\t\"A\n\023VodCommonCon" +
+      "figInfo\022\016\n\006Module\030\001 \001(\t\022\013\n\003Key\030\002 \001(\t\022\r\n\005" +
+      "Value\030\003 \001(\t\"\216\004\n\020VodPlayInfoModel\022H\n\007Vers" +
+      "ion\030\n \001(\01627.Volcengine.Vod.Models.Busine" +
+      "ss.VodPlayInfoModelVersion\022\013\n\003Vid\030\001 \001(\t\022" +
+      "\016\n\006Status\030\002 \001(\005\022\021\n\tPosterUrl\030\003 \001(\t\022\020\n\010Du" +
+      "ration\030\004 \001(\002\022\020\n\010FileType\030\005 \001(\t\022\026\n\016Enable" +
+      "Adaptive\030\006 \001(\010\022\022\n\nTotalCount\030\007 \001(\005\022E\n\014Ad" +
+      "aptiveInfo\030\010 \001(\0132/.Volcengine.Vod.Models" +
+      ".Business.VodAdaptiveInfo\022A\n\014PlayInfoLis" +
+      "t\030\t \003(\0132+.Volcengine.Vod.Models.Business" +
+      ".VodPlayInfo\022C\n\rThumbInfoList\030\013 \003(\0132,.Vo" +
+      "lcengine.Vod.Models.Business.VodThumbInf" +
+      "o\022\026\n\016BarrageMaskUrl\030\014 \001(\t\022I\n\020SubtitleInf" +
+      "oList\030\r \003(\0132/.Volcengine.Vod.Models.Busi" +
+      "ness.VodSubtitleInfo\",\n\010VodPoint\022\021\n\tTime" +
+      "stamp\030\001 \001(\001\022\r\n\005Value\030\002 \001(\001\"\226\001\n\024VodAllPla" +
+      "yInfoResult\022T\n\027VodAllPlayInfoModelList\030\001" +
+      " \003(\01323.Volcengine.Vod.Models.Business.Vo" +
+      "dAllPlayInfoModel\022\022\n\nTotalCount\030\002 \001(\005\022\024\n" +
+      "\014NotFoundVids\030\003 \003(\t\"\366\003\n\023VodAllPlayInfoMo" +
+      "del\022\013\n\003Vid\030\001 \001(\t\022\016\n\006Status\030\002 \001(\005\022\021\n\tPost" +
+      "erUrl\030\003 \001(\t\022\022\n\nTotalCount\030\004 \001(\005\022\026\n\016Enabl" +
+      "eAdaptive\030\005 \001(\010\022I\n\024VodTranscodePlayInfo\030" +
+      "\006 \003(\0132+.Volcengine.Vod.Models.Business.V" +
+      "odPlayInfo\022F\n\021VodSourcePlayInfo\030\007 \001(\0132+." +
+      "Volcengine.Vod.Models.Business.VodPlayIn" +
+      "fo\022H\n\007Version\030\010 \001(\01627.Volcengine.Vod.Mod" +
+      "els.Business.VodPlayInfoModelVersion\022C\n\r" +
+      "ThumbInfoList\030\t \003(\0132,.Volcengine.Vod.Mod" +
+      "els.Business.VodThumbInfo\022\026\n\016BarrageMask" +
+      "Url\030\n \001(\t\022I\n\020SubtitleInfoList\030\013 \003(\0132/.Vo" +
+      "lcengine.Vod.Models.Business.VodSubtitle" +
+      "Info*\326\001\n\027VodPlayInfoModelVersion\022$\n Unde" +
+      "finedVodPlayInfoModelVersion\020\000\022%\n!Intern" +
+      "alV1VodPlayInfoModelVersion\020\001\022%\n!Interna" +
+      "lV2VodPlayInfoModelVersion\020\002\022%\n!Internal" +
+      "V3VodPlayInfoModelVersion\020\003\022 \n\034ToBV1VodP" +
+      "layInfoModelVersion\020\004B\315\001\n)com.volcengine" +
+      ".service.vod.model.businessB\tVodCommonP\001" +
+      "ZAgithub.com/volcengine/volc-sdk-golang/" +
+      "service/vod/models/business\240\001\001\330\001\001\302\002\000\312\002 V" +
+      "olc\\Service\\Vod\\Models\\Business\342\002#Volc\\S" +
+      "ervice\\Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -201,7 +202,7 @@ public final class VodCommon {
     internal_static_Volcengine_Vod_Models_Business_VodSourceInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodSourceInfo_descriptor,
-        new java.lang.String[] { "FileId", "Md5", "FileType", "Codec", "Height", "Width", "Format", "Duration", "Size", "StoreUri", "Definition", "Bitrate", "Fps", "CreateTime", "Quality", "DynamicRange", "VideoStreamMeta", "AudioStreamMeta", "TosStorageClass", });
+        new java.lang.String[] { "FileId", "Md5", "FileType", "Codec", "Height", "Width", "Format", "Duration", "Size", "StoreUri", "Definition", "Bitrate", "Fps", "CreateTime", "Quality", "DynamicRange", "VideoStreamMeta", "AudioStreamMeta", "TosStorageClass", "FileName", });
     internal_static_Volcengine_Vod_Models_Business_VodAudioStreamMeta_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Volcengine_Vod_Models_Business_VodAudioStreamMeta_fieldAccessorTable = new
@@ -219,7 +220,7 @@ public final class VodCommon {
     internal_static_Volcengine_Vod_Models_Business_VodTranscodeInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodTranscodeInfo_descriptor,
-        new java.lang.String[] { "FileId", "Md5", "FileType", "LogoType", "Encrypt", "Format", "Duration", "Size", "StoreUri", "VideoStreamMeta", "AudioStreamMeta", "CreateTime", "DynamicRange", });
+        new java.lang.String[] { "FileId", "Md5", "FileType", "LogoType", "Encrypt", "Format", "Duration", "Size", "StoreUri", "VideoStreamMeta", "AudioStreamMeta", "CreateTime", "DynamicRange", "TosStorageClass", });
     internal_static_Volcengine_Vod_Models_Business_VodAdaptiveInfo_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_Volcengine_Vod_Models_Business_VodAdaptiveInfo_fieldAccessorTable = new

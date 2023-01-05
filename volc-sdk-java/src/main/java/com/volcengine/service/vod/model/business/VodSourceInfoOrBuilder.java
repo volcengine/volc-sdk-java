@@ -340,4 +340,24 @@ public interface VodSourceInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTosStorageClassBytes();
+
+  /**
+   * <pre>
+   *文件名
+   * </pre>
+   *
+   * <code>string FileName = 20;</code>
+   * @return The fileName.
+   */
+  java.lang.String getFileName();
+  /**
+   * <pre>
+   *文件名
+   * </pre>
+   *
+   * <code>string FileName = 20;</code>
+   * @return The bytes for fileName.
+   */
+  com.google.protobuf.ByteString
+      getFileNameBytes();
 }

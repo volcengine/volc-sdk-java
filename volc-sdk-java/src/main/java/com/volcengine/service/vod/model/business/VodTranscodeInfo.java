@@ -24,6 +24,7 @@ private static final long serialVersionUID = 0L;
     storeUri_ = "";
     createTime_ = "";
     dynamicRange_ = "";
+    tosStorageClass_ = "";
   }
 
   @java.lang.Override
@@ -143,6 +144,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             dynamicRange_ = s;
+            break;
+          }
+          case 114: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            tosStorageClass_ = s;
             break;
           }
           default: {
@@ -666,6 +673,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int TOSSTORAGECLASS_FIELD_NUMBER = 14;
+  private volatile java.lang.Object tosStorageClass_;
+  /**
+   * <pre>
+   * Tos存储类型:STANDARD, ARCHIVE
+   * </pre>
+   *
+   * <code>string TosStorageClass = 14;</code>
+   * @return The tosStorageClass.
+   */
+  @java.lang.Override
+  public java.lang.String getTosStorageClass() {
+    java.lang.Object ref = tosStorageClass_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      tosStorageClass_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Tos存储类型:STANDARD, ARCHIVE
+   * </pre>
+   *
+   * <code>string TosStorageClass = 14;</code>
+   * @return The bytes for tosStorageClass.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTosStorageClassBytes() {
+    java.lang.Object ref = tosStorageClass_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      tosStorageClass_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -718,6 +771,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dynamicRange_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 13, dynamicRange_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tosStorageClass_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 14, tosStorageClass_);
     }
     unknownFields.writeTo(output);
   }
@@ -772,6 +828,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dynamicRange_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, dynamicRange_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tosStorageClass_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, tosStorageClass_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -821,6 +880,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCreateTime())) return false;
     if (!getDynamicRange()
         .equals(other.getDynamicRange())) return false;
+    if (!getTosStorageClass()
+        .equals(other.getTosStorageClass())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -865,6 +926,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getCreateTime().hashCode();
     hash = (37 * hash) + DYNAMICRANGE_FIELD_NUMBER;
     hash = (53 * hash) + getDynamicRange().hashCode();
+    hash = (37 * hash) + TOSSTORAGECLASS_FIELD_NUMBER;
+    hash = (53 * hash) + getTosStorageClass().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1032,6 +1095,8 @@ private static final long serialVersionUID = 0L;
 
       dynamicRange_ = "";
 
+      tosStorageClass_ = "";
+
       return this;
     }
 
@@ -1079,6 +1144,7 @@ private static final long serialVersionUID = 0L;
       }
       result.createTime_ = createTime_;
       result.dynamicRange_ = dynamicRange_;
+      result.tosStorageClass_ = tosStorageClass_;
       onBuilt();
       return result;
     }
@@ -1172,6 +1238,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDynamicRange().isEmpty()) {
         dynamicRange_ = other.dynamicRange_;
+        onChanged();
+      }
+      if (!other.getTosStorageClass().isEmpty()) {
+        tosStorageClass_ = other.tosStorageClass_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -2406,6 +2476,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       dynamicRange_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object tosStorageClass_ = "";
+    /**
+     * <pre>
+     * Tos存储类型:STANDARD, ARCHIVE
+     * </pre>
+     *
+     * <code>string TosStorageClass = 14;</code>
+     * @return The tosStorageClass.
+     */
+    public java.lang.String getTosStorageClass() {
+      java.lang.Object ref = tosStorageClass_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        tosStorageClass_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Tos存储类型:STANDARD, ARCHIVE
+     * </pre>
+     *
+     * <code>string TosStorageClass = 14;</code>
+     * @return The bytes for tosStorageClass.
+     */
+    public com.google.protobuf.ByteString
+        getTosStorageClassBytes() {
+      java.lang.Object ref = tosStorageClass_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        tosStorageClass_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Tos存储类型:STANDARD, ARCHIVE
+     * </pre>
+     *
+     * <code>string TosStorageClass = 14;</code>
+     * @param value The tosStorageClass to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTosStorageClass(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      tosStorageClass_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Tos存储类型:STANDARD, ARCHIVE
+     * </pre>
+     *
+     * <code>string TosStorageClass = 14;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTosStorageClass() {
+      
+      tosStorageClass_ = getDefaultInstance().getTosStorageClass();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Tos存储类型:STANDARD, ARCHIVE
+     * </pre>
+     *
+     * <code>string TosStorageClass = 14;</code>
+     * @param value The bytes for tosStorageClass to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTosStorageClassBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      tosStorageClass_ = value;
       onChanged();
       return this;
     }

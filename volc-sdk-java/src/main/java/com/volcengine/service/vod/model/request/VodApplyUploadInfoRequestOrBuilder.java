@@ -106,4 +106,24 @@ public interface VodApplyUploadInfoRequestOrBuilder extends
    * @return The storageClass.
    */
   int getStorageClass();
+
+  /**
+   * <pre>
+   * 上传中文件的文件后缀 
+   * </pre>
+   *
+   * <code>string FileExtension = 7;</code>
+   * @return The fileExtension.
+   */
+  java.lang.String getFileExtension();
+  /**
+   * <pre>
+   * 上传中文件的文件后缀 
+   * </pre>
+   *
+   * <code>string FileExtension = 7;</code>
+   * @return The bytes for fileExtension.
+   */
+  com.google.protobuf.ByteString
+      getFileExtensionBytes();
 }

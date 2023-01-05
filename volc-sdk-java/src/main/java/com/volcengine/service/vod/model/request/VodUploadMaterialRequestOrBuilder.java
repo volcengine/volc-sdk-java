@@ -126,4 +126,24 @@ public interface VodUploadMaterialRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getFileNameBytes();
+
+  /**
+   * <pre>
+   * 上传中文件的文件后缀 
+   * </pre>
+   *
+   * <code>string FileExtension = 7;</code>
+   * @return The fileExtension.
+   */
+  java.lang.String getFileExtension();
+  /**
+   * <pre>
+   * 上传中文件的文件后缀 
+   * </pre>
+   *
+   * <code>string FileExtension = 7;</code>
+   * @return The bytes for fileExtension.
+   */
+  com.google.protobuf.ByteString
+      getFileExtensionBytes();
 }

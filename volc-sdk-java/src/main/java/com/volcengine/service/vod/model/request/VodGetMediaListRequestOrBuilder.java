@@ -206,4 +206,24 @@ public interface VodGetMediaListRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getClassificationIdsBytes();
+
+  /**
+   * <pre>
+   * tos存储类型(Standard, Archive)，多个用","隔开
+   * </pre>
+   *
+   * <code>string TosStorageClasses = 11;</code>
+   * @return The tosStorageClasses.
+   */
+  java.lang.String getTosStorageClasses();
+  /**
+   * <pre>
+   * tos存储类型(Standard, Archive)，多个用","隔开
+   * </pre>
+   *
+   * <code>string TosStorageClasses = 11;</code>
+   * @return The bytes for tosStorageClasses.
+   */
+  com.google.protobuf.ByteString
+      getTosStorageClassesBytes();
 }

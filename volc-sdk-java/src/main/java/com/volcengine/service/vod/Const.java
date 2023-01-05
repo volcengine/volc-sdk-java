@@ -10,8 +10,6 @@ public class Const {
     public static final String FORMAT_ORIGINAL = "image";
 
     public static final int MinChunkSize = 1024 * 1024 * 20;
-    public static final int LargeFileSize = 1024 * 1024 * 1024;
-
 
     public static final String DSAHmacSha1 = "HMAC-SHA1";
     public static final String DSAHmacSha256 = "HMAC-SHA256";
@@ -57,6 +55,7 @@ public class Const {
     // vod-media
     public static final String UpdateMediaInfo = "UpdateMediaInfo";
     public static final String UpdateMediaPublishStatus = "UpdateMediaPublishStatus";
+    public static final String UpdateMediaStorageClass = "UpdateMediaStorageClass";
     public static final String GetMediaInfos = "GetMediaInfos";
     public static final String GetRecommendedPoster = "GetRecommendedPoster";
     public static final String DeleteMedia = "DeleteMedia";
@@ -116,5 +115,13 @@ public class Const {
 
     // vod-appid
     public static final String GetAppInfo = "GetAppInfo";
+
+    // vod-measure
+    public static final String DescribeVodSpaceTranscodeData = "DescribeVodSpaceTranscodeData";
+    public static final String DescribeVodSpaceAIStatisData = "DescribeVodSpaceAIStatisData";
+    public static final String DescribeVodSpaceSubtitleStatisData = "DescribeVodSpaceSubtitleStatisData";
+    public static final String DescribeVodSpaceDetectStatisData = "DescribeVodSpaceDetectStatisData";
+    public static final String DescribeVodSnapshotData = "DescribeVodSnapshotData";
+    public static final String ExtractMediaMetaTask = "ExtractMediaMetaTask";
 
 }

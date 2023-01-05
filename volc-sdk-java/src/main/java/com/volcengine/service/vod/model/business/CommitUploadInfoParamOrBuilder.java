@@ -66,4 +66,16 @@ public interface CommitUploadInfoParamOrBuilder extends
    */
   com.volcengine.service.vod.model.business.VodUploadFunctionOrBuilder getFunctionsOrBuilder(
       int index);
+
+  /**
+   * <code>string GetMetaMode = 5;</code>
+   * @return The getMetaMode.
+   */
+  java.lang.String getGetMetaMode();
+  /**
+   * <code>string GetMetaMode = 5;</code>
+   * @return The bytes for getMetaMode.
+   */
+  com.google.protobuf.ByteString
+      getGetMetaModeBytes();
 }

@@ -206,4 +206,24 @@ public interface VodUrlUploadURLSetOrBuilder extends
    * @return The storageClass.
    */
   int getStorageClass();
+
+  /**
+   * <pre>
+   * 设置文件后缀 
+   * </pre>
+   *
+   * <code>string FileExtension = 12;</code>
+   * @return The fileExtension.
+   */
+  java.lang.String getFileExtension();
+  /**
+   * <pre>
+   * 设置文件后缀 
+   * </pre>
+   *
+   * <code>string FileExtension = 12;</code>
+   * @return The bytes for fileExtension.
+   */
+  com.google.protobuf.ByteString
+      getFileExtensionBytes();
 }

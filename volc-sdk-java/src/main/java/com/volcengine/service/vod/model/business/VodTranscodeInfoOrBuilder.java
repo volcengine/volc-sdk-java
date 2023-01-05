@@ -250,4 +250,24 @@ public interface VodTranscodeInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getDynamicRangeBytes();
+
+  /**
+   * <pre>
+   * Tos存储类型:STANDARD, ARCHIVE
+   * </pre>
+   *
+   * <code>string TosStorageClass = 14;</code>
+   * @return The tosStorageClass.
+   */
+  java.lang.String getTosStorageClass();
+  /**
+   * <pre>
+   * Tos存储类型:STANDARD, ARCHIVE
+   * </pre>
+   *
+   * <code>string TosStorageClass = 14;</code>
+   * @return The bytes for tosStorageClass.
+   */
+  com.google.protobuf.ByteString
+      getTosStorageClassBytes();
 }

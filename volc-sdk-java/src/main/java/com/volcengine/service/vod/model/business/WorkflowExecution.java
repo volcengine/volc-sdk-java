@@ -25,6 +25,7 @@ private static final long serialVersionUID = 0L;
     taskListId_ = "";
     jobSource_ = "";
     callbackArgs_ = "";
+    tasksDetail_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -47,6 +48,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -173,6 +175,15 @@ private static final long serialVersionUID = 0L;
             callbackArgs_ = s;
             break;
           }
+          case 130: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              tasksDetail_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.TaskDetail>();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            tasksDetail_.add(
+                input.readMessage(com.volcengine.service.vod.model.business.TaskDetail.parser(), extensionRegistry));
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -188,6 +199,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        tasksDetail_ = java.util.Collections.unmodifiableList(tasksDetail_);
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -801,6 +815,66 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int TASKSDETAIL_FIELD_NUMBER = 16;
+  private java.util.List<com.volcengine.service.vod.model.business.TaskDetail> tasksDetail_;
+  /**
+   * <pre>
+   * 子任务详情
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.volcengine.service.vod.model.business.TaskDetail> getTasksDetailList() {
+    return tasksDetail_;
+  }
+  /**
+   * <pre>
+   * 子任务详情
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.volcengine.service.vod.model.business.TaskDetailOrBuilder> 
+      getTasksDetailOrBuilderList() {
+    return tasksDetail_;
+  }
+  /**
+   * <pre>
+   * 子任务详情
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+   */
+  @java.lang.Override
+  public int getTasksDetailCount() {
+    return tasksDetail_.size();
+  }
+  /**
+   * <pre>
+   * 子任务详情
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.TaskDetail getTasksDetail(int index) {
+    return tasksDetail_.get(index);
+  }
+  /**
+   * <pre>
+   * 子任务详情
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.TaskDetailOrBuilder getTasksDetailOrBuilder(
+      int index) {
+    return tasksDetail_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -859,6 +933,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackArgs_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 15, callbackArgs_);
+    }
+    for (int i = 0; i < tasksDetail_.size(); i++) {
+      output.writeMessage(16, tasksDetail_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -920,6 +997,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackArgs_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, callbackArgs_);
     }
+    for (int i = 0; i < tasksDetail_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(16, tasksDetail_.get(i));
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -977,6 +1058,8 @@ private static final long serialVersionUID = 0L;
         != other.getPriority()) return false;
     if (!getCallbackArgs()
         .equals(other.getCallbackArgs())) return false;
+    if (!getTasksDetailList()
+        .equals(other.getTasksDetailList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1027,6 +1110,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPriority();
     hash = (37 * hash) + CALLBACKARGS_FIELD_NUMBER;
     hash = (53 * hash) + getCallbackArgs().hashCode();
+    if (getTasksDetailCount() > 0) {
+      hash = (37 * hash) + TASKSDETAIL_FIELD_NUMBER;
+      hash = (53 * hash) + getTasksDetailList().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1155,6 +1242,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getTasksDetailFieldBuilder();
       }
     }
     @java.lang.Override
@@ -1206,6 +1294,12 @@ private static final long serialVersionUID = 0L;
 
       callbackArgs_ = "";
 
+      if (tasksDetailBuilder_ == null) {
+        tasksDetail_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      } else {
+        tasksDetailBuilder_.clear();
+      }
       return this;
     }
 
@@ -1232,6 +1326,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.volcengine.service.vod.model.business.WorkflowExecution buildPartial() {
       com.volcengine.service.vod.model.business.WorkflowExecution result = new com.volcengine.service.vod.model.business.WorkflowExecution(this);
+      int from_bitField0_ = bitField0_;
       result.runId_ = runId_;
       result.vid_ = vid_;
       result.templateId_ = templateId_;
@@ -1263,6 +1358,15 @@ private static final long serialVersionUID = 0L;
       }
       result.priority_ = priority_;
       result.callbackArgs_ = callbackArgs_;
+      if (tasksDetailBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          tasksDetail_ = java.util.Collections.unmodifiableList(tasksDetail_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.tasksDetail_ = tasksDetail_;
+      } else {
+        result.tasksDetail_ = tasksDetailBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -1365,6 +1469,32 @@ private static final long serialVersionUID = 0L;
         callbackArgs_ = other.callbackArgs_;
         onChanged();
       }
+      if (tasksDetailBuilder_ == null) {
+        if (!other.tasksDetail_.isEmpty()) {
+          if (tasksDetail_.isEmpty()) {
+            tasksDetail_ = other.tasksDetail_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureTasksDetailIsMutable();
+            tasksDetail_.addAll(other.tasksDetail_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.tasksDetail_.isEmpty()) {
+          if (tasksDetailBuilder_.isEmpty()) {
+            tasksDetailBuilder_.dispose();
+            tasksDetailBuilder_ = null;
+            tasksDetail_ = other.tasksDetail_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            tasksDetailBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getTasksDetailFieldBuilder() : null;
+          } else {
+            tasksDetailBuilder_.addAllMessages(other.tasksDetail_);
+          }
+        }
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -1393,6 +1523,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object runId_ = "";
     /**
@@ -2962,6 +3093,318 @@ private static final long serialVersionUID = 0L;
       callbackArgs_ = value;
       onChanged();
       return this;
+    }
+
+    private java.util.List<com.volcengine.service.vod.model.business.TaskDetail> tasksDetail_ =
+      java.util.Collections.emptyList();
+    private void ensureTasksDetailIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        tasksDetail_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.TaskDetail>(tasksDetail_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.TaskDetail, com.volcengine.service.vod.model.business.TaskDetail.Builder, com.volcengine.service.vod.model.business.TaskDetailOrBuilder> tasksDetailBuilder_;
+
+    /**
+     * <pre>
+     * 子任务详情
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.TaskDetail> getTasksDetailList() {
+      if (tasksDetailBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(tasksDetail_);
+      } else {
+        return tasksDetailBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * 子任务详情
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+     */
+    public int getTasksDetailCount() {
+      if (tasksDetailBuilder_ == null) {
+        return tasksDetail_.size();
+      } else {
+        return tasksDetailBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * 子任务详情
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+     */
+    public com.volcengine.service.vod.model.business.TaskDetail getTasksDetail(int index) {
+      if (tasksDetailBuilder_ == null) {
+        return tasksDetail_.get(index);
+      } else {
+        return tasksDetailBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * 子任务详情
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+     */
+    public Builder setTasksDetail(
+        int index, com.volcengine.service.vod.model.business.TaskDetail value) {
+      if (tasksDetailBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTasksDetailIsMutable();
+        tasksDetail_.set(index, value);
+        onChanged();
+      } else {
+        tasksDetailBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 子任务详情
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+     */
+    public Builder setTasksDetail(
+        int index, com.volcengine.service.vod.model.business.TaskDetail.Builder builderForValue) {
+      if (tasksDetailBuilder_ == null) {
+        ensureTasksDetailIsMutable();
+        tasksDetail_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        tasksDetailBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 子任务详情
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+     */
+    public Builder addTasksDetail(com.volcengine.service.vod.model.business.TaskDetail value) {
+      if (tasksDetailBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTasksDetailIsMutable();
+        tasksDetail_.add(value);
+        onChanged();
+      } else {
+        tasksDetailBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 子任务详情
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+     */
+    public Builder addTasksDetail(
+        int index, com.volcengine.service.vod.model.business.TaskDetail value) {
+      if (tasksDetailBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTasksDetailIsMutable();
+        tasksDetail_.add(index, value);
+        onChanged();
+      } else {
+        tasksDetailBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 子任务详情
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+     */
+    public Builder addTasksDetail(
+        com.volcengine.service.vod.model.business.TaskDetail.Builder builderForValue) {
+      if (tasksDetailBuilder_ == null) {
+        ensureTasksDetailIsMutable();
+        tasksDetail_.add(builderForValue.build());
+        onChanged();
+      } else {
+        tasksDetailBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 子任务详情
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+     */
+    public Builder addTasksDetail(
+        int index, com.volcengine.service.vod.model.business.TaskDetail.Builder builderForValue) {
+      if (tasksDetailBuilder_ == null) {
+        ensureTasksDetailIsMutable();
+        tasksDetail_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        tasksDetailBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 子任务详情
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+     */
+    public Builder addAllTasksDetail(
+        java.lang.Iterable<? extends com.volcengine.service.vod.model.business.TaskDetail> values) {
+      if (tasksDetailBuilder_ == null) {
+        ensureTasksDetailIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tasksDetail_);
+        onChanged();
+      } else {
+        tasksDetailBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 子任务详情
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+     */
+    public Builder clearTasksDetail() {
+      if (tasksDetailBuilder_ == null) {
+        tasksDetail_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+      } else {
+        tasksDetailBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 子任务详情
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+     */
+    public Builder removeTasksDetail(int index) {
+      if (tasksDetailBuilder_ == null) {
+        ensureTasksDetailIsMutable();
+        tasksDetail_.remove(index);
+        onChanged();
+      } else {
+        tasksDetailBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 子任务详情
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+     */
+    public com.volcengine.service.vod.model.business.TaskDetail.Builder getTasksDetailBuilder(
+        int index) {
+      return getTasksDetailFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * 子任务详情
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+     */
+    public com.volcengine.service.vod.model.business.TaskDetailOrBuilder getTasksDetailOrBuilder(
+        int index) {
+      if (tasksDetailBuilder_ == null) {
+        return tasksDetail_.get(index);  } else {
+        return tasksDetailBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * 子任务详情
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+     */
+    public java.util.List<? extends com.volcengine.service.vod.model.business.TaskDetailOrBuilder> 
+         getTasksDetailOrBuilderList() {
+      if (tasksDetailBuilder_ != null) {
+        return tasksDetailBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(tasksDetail_);
+      }
+    }
+    /**
+     * <pre>
+     * 子任务详情
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+     */
+    public com.volcengine.service.vod.model.business.TaskDetail.Builder addTasksDetailBuilder() {
+      return getTasksDetailFieldBuilder().addBuilder(
+          com.volcengine.service.vod.model.business.TaskDetail.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * 子任务详情
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+     */
+    public com.volcengine.service.vod.model.business.TaskDetail.Builder addTasksDetailBuilder(
+        int index) {
+      return getTasksDetailFieldBuilder().addBuilder(
+          index, com.volcengine.service.vod.model.business.TaskDetail.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * 子任务详情
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.TaskDetail TasksDetail = 16;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.TaskDetail.Builder> 
+         getTasksDetailBuilderList() {
+      return getTasksDetailFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.TaskDetail, com.volcengine.service.vod.model.business.TaskDetail.Builder, com.volcengine.service.vod.model.business.TaskDetailOrBuilder> 
+        getTasksDetailFieldBuilder() {
+      if (tasksDetailBuilder_ == null) {
+        tasksDetailBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.service.vod.model.business.TaskDetail, com.volcengine.service.vod.model.business.TaskDetail.Builder, com.volcengine.service.vod.model.business.TaskDetailOrBuilder>(
+                tasksDetail_,
+                ((bitField0_ & 0x00000001) != 0),
+                getParentForChildren(),
+                isClean());
+        tasksDetail_ = null;
+      }
+      return tasksDetailBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

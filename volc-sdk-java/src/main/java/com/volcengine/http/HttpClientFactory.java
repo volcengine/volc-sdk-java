@@ -1,5 +1,7 @@
 package com.volcengine.http;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.apache.http.*;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.HttpRequestRetryHandler;
@@ -47,7 +49,7 @@ public class HttpClientFactory {
     };
     private static ConnectionKeepAliveStrategy connectionKeepAliveStrategy;
 
-    public static HttpClient create(ClientConfiguration configuration, HttpHost proxy) {
+    public static ClientInstance create(ClientConfiguration configuration, HttpHost proxy) {
         PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
         int maxCon = configuration.getMaxConnections();
         int maxConPerRoute = configuration.getMaxConPerRoute();
@@ -70,10 +72,11 @@ public class HttpClientFactory {
                 .setProxy(proxy)
                 .build();
 
-        Thread deamonThread = new Thread(new IdleConnectionMonitorThread(connectionManager));
-        deamonThread.setDaemon(true);
-        deamonThread.start();
-        return httpClient;
+        Thread daemonThread = new Thread(new IdleConnectionMonitorThread(connectionManager));
+        daemonThread.setDaemon(true);
+        daemonThread.start();
+
+        return new ClientInstance(httpClient, daemonThread);
     }
 
     public static ConnectionKeepAliveStrategy getConnectionKeepAliveStrategy() {
@@ -98,5 +101,12 @@ public class HttpClientFactory {
 
     public static void setConnectionKeepAliveStrategy(ConnectionKeepAliveStrategy connectionKeepAliveStrategy) {
         HttpClientFactory.connectionKeepAliveStrategy = connectionKeepAliveStrategy;
+    }
+
+    @Getter
+    @AllArgsConstructor
+    public static class ClientInstance{
+        private HttpClient httpClient;
+        private Thread daemonThread;
     }
 }

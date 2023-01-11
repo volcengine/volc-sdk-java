@@ -201,4 +201,9 @@ public interface IBaseService {
      * @return
      */
     RawResponse proto(String api, List<NameValuePair> params, Map<String, String> header, byte[] body, String compressType);
+
+    /**
+     * Free monitor thread
+     */
+    void destroy();
 }

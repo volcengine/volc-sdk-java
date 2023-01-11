@@ -77,5 +77,11 @@ iamService.setSecretKey("Your SK");
     }
   ```
 
+### 释放资源
+当您调用完成后，通过显式的调用destroy来释放守护线程
+```java
+iamService.destroy()
+```
+
 ##其它资源
 示例参见[example](./example)

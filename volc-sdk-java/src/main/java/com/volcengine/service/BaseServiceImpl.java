@@ -54,6 +54,8 @@ public abstract class BaseServiceImpl implements IBaseService {
     private int socketTimeout;
     private int connectionTimeout;
 
+    private Thread monitorThread;
+
 
     private BaseServiceImpl() {
     }
@@ -63,19 +65,28 @@ public abstract class BaseServiceImpl implements IBaseService {
         this.apiInfoList = apiInfoList;
         this.ISigner = new SignerV4Impl();
 
-        this.httpClient = HttpClientFactory.create(new ClientConfiguration(), proxy);
+        HttpClientFactory.ClientInstance clientInstance = HttpClientFactory.create(new ClientConfiguration(), proxy);
+        this.httpClient = clientInstance.getHttpClient();
+        this.monitorThread = clientInstance.getDaemonThread();
 
         init(info);
     }
 
     public BaseServiceImpl(ServiceInfo info, Map<String, ApiInfo> apiInfoList) {
-        this.serviceInfo = info;
-        this.apiInfoList = apiInfoList;
-        this.ISigner = new SignerV4Impl();
+        this(info, null, apiInfoList);
+    }
 
-        this.httpClient = HttpClientFactory.create(new ClientConfiguration(), null);
-
-        init(info);
+    public void destroy() {
+        if (monitorThread == null) {
+            return;
+        }
+        try {
+            monitorThread.stop();
+        }catch (Error e) {
+            LOG.error("Try to destroy monitor thread failed", e);
+        } finally {
+            monitorThread = null;
+        }
     }
 
 

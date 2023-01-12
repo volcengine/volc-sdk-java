@@ -264,6 +264,22 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         return JSON.parseObject(new String(response.getData(), "UTF-8"), MultilangOCRResponse.class);
     }
 
+    @Override
+    public String ocrApi(String actionName, JSONObject jsonObject) throws Exception {
+        List<NameValuePair> list = new ArrayList<NameValuePair>();
+        for (String key : jsonObject.keySet()) {
+            NameValuePair nameValuePair = new BasicNameValuePair(key, jsonObject.get(key).toString());
+            list.add(nameValuePair);
+        }
+
+        RawResponse response = post(actionName, null, list);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return new String(response.getData(), "UTF-8");
+    }
+
     private List<NameValuePair> convertNameValuePair(Object obj)
             throws IllegalArgumentException, IllegalAccessException {
         JSONObject jsonObject = (JSONObject) JSON.toJSON(obj);

@@ -1,11 +1,12 @@
 package com.volcengine.service.visual;
 
+import com.alibaba.fastjson.JSONObject;
 import com.volcengine.service.IBaseService;
 import com.volcengine.service.visual.model.request.*;
 import com.volcengine.service.visual.model.response.*;
 
 public interface IVisualService extends IBaseService {
-    
+
     /**
      * 天空分割
      * @param request
@@ -205,4 +206,13 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     MultilangOCRResponse multilangOCR(MultilangOCRRequest request) throws Exception;
+
+    /**
+     * 通用的实现
+     * @param actionName: 每个能力的Action取值
+     * @param jsonObject: 入参JSON对象
+     * @return
+     * @throws Exception
+     */
+    String ocrApi(String actionName, JSONObject jsonObject) throws Exception;
 }

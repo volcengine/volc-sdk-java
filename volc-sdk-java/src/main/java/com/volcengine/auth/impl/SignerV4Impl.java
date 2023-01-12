@@ -59,6 +59,10 @@ public class SignerV4Impl implements ISignerV4 {
             builder.setPath(builder.getPath() + "/");
         }
 
+        if (request.getFirstHeader(Const.ContentType) == null) {
+            request.setHeader(Const.ContentType, Const.ContentTypeValue);
+        }
+
         RequestParam requestParam = RequestParam.builder().isSignUrl(false)
                 .body(request.getEntity() == null ? new byte[0] : EntityUtils.toByteArray(request.getEntity()))
                 .host(request.getUriBuilder().getHost())
@@ -147,15 +151,12 @@ public class SignerV4Impl implements ISignerV4 {
             for (Header header : requestParam.getHeaders()) {
                 requestSignMap.put(header.getName(), header.getValue());
             }
-            if (requestSignMap.get(Const.ContentType) == null) {
-                signRequest.setContentType(Const.ContentTypeValue);
-            } else {
+            if (requestSignMap.get(Const.ContentType) != null) {
                 signRequest.setContentType(requestSignMap.get(Const.ContentType));
             }
 
             requestSignMap.put(Const.XDate, formatDate);
             requestSignMap.put(Const.Host, requestParam.getHost());
-            requestSignMap.putIfAbsent(Const.ContentType, Const.ContentTypeValue);
             bodyHash = Utils.hashSHA256(requestParam.getBody() == null ? new byte[0] : requestParam.getBody());
             requestSignMap.put(Const.XContentSha256, bodyHash);
 

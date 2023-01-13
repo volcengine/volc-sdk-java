@@ -4,6 +4,8 @@ import com.volcengine.service.IBaseService;
 import com.volcengine.service.notify.model.request.*;
 import com.volcengine.service.notify.model.response.*;
 
+import java.util.List;
+
 /**
  * notify service interface
  */
@@ -137,4 +139,29 @@ public interface NotifyService extends IBaseService {
      * @throws Exception
      */
     CommonResponse<BasicResourceResult> commitVoiceResourceUpload(UploadVoiceResourceRequest request) throws Exception;
+
+    /**
+     * update resource name
+     * @param resourceKey
+     * @param name
+     * @return
+     * @throws Exception
+     */
+    CommonResponse<BasicResourceResult> openUpdateResource(String resourceKey, String name) throws Exception;
+
+    /**
+     * query usable resource
+     * @param type
+     * @return
+     * @throws Exception
+     */
+    CommonResponse<List<ResourceResult>> queryUsableResource(Integer type) throws Exception;
+
+    /**
+     * query resource by form
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    CommonResponse<QueryOpenGetResourceResult> queryOpenGetResource(QueryResourceRequest request) throws Exception;
 }

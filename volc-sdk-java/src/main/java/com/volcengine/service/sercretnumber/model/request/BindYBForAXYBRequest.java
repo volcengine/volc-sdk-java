@@ -5,19 +5,24 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author huangxing
+ * @Date 2023/1/5
+ */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SelectNumberAndBindAXBRequest {
-
-    private String phoneNoA;
+public class BindYBForAXYBRequest {
+    private String parentSubId;
 
     private String phoneNoB;
 
+    private String phoneNoY;
+
     private String numberPoolNo;
 
-    private Long expireTime;
+    private Integer enableDuration;
 
     private Integer audioRecordFlag;
 
@@ -28,14 +33,4 @@ public class SelectNumberAndBindAXBRequest {
     private String degradeCityList;
 
     private String userData;
-
-    private Integer randomFlag;
-
-    private Integer callDisplayType;
-
-    private Integer axConflictAxbFlag;
-
-    private String outId;
-
-    private Integer verifyFlag;
 }

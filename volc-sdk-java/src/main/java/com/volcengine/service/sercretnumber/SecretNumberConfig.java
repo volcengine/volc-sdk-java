@@ -219,6 +219,118 @@ public class SecretNumberConfig {
                 }
             }
       ));
+        put("BindAXNE", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "BindAXNE"));
+                                add(new BasicNameValuePair("Version", "2020-09-01"));
+                            }
+                        });
+                    }
+                }
+        ));
+        put("UnbindAXNE", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "UnbindAXNE"));
+                                add(new BasicNameValuePair("Version", "2020-09-01"));
+                            }
+                        });
+                    }
+                }
+        ));
+        put("UpdateAXNE", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "UpdateAXNE"));
+                                add(new BasicNameValuePair("Version", "2020-09-01"));
+                            }
+                        });
+                    }
+                }
+        ));
+        put("BindAXBForAXNE", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "BindAXBForAXNE"));
+                                add(new BasicNameValuePair("Version", "2020-09-01"));
+                            }
+                        });
+                    }
+                }
+        ));
+        put("BindAXYB", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "BindAXYB"));
+                                add(new BasicNameValuePair("Version", "2020-09-01"));
+                            }
+                        });
+                    }
+                }
+        ));
+        put("BindYBForAXYB", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "BindYBForAXYB"));
+                                add(new BasicNameValuePair("Version", "2020-09-01"));
+                            }
+                        });
+                    }
+                }
+        ));
+        put("UnbindAXYB", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "UnbindAXYB"));
+                                add(new BasicNameValuePair("Version", "2020-09-01"));
+                            }
+                        });
+                    }
+                }
+        ));
+        put("UpdateAXYB", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "UpdateAXYB"));
+                                add(new BasicNameValuePair("Version", "2020-09-01"));
+                            }
+                        });
+                    }
+                }
+        ));
     }
   };
 }

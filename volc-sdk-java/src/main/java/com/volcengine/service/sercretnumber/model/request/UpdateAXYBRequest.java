@@ -5,29 +5,31 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author huangxing
+ * @Date 2023/1/5
+ */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BindAXBRequest {
+public class UpdateAXYBRequest {
 
-    private String phoneNoA;
-
-    private String phoneNoB;
-
-    private String phoneNoX;
+    private String updateType;
 
     private String numberPoolNo;
 
-    private Long expireTime;
+    private String subId;
 
-    private Integer audioRecordFlag;
+    private String phoneNoB;
+
+    private String phoneNoA;
+
+    private String phoneNoX;
+
+    private Long expireTime;
 
     private String userData;
 
-    private Integer callDisplayType;
-
-    private String outId;
-
-    private Integer verifyFlag;
+    private Integer autoCreateFlag;
 }

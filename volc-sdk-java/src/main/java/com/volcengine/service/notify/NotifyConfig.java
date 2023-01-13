@@ -238,6 +238,51 @@ public class NotifyConfig {
                         }
                     }
             ));
+
+            put("OpenUpdateResource", new ApiInfo(
+                    new HashMap<String, Object>(){
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "OpenUpdateResource"));
+                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put("QueryUsableResource", new ApiInfo(
+                    new HashMap<String, Object>(){
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "QueryUsableResource"));
+                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put("QueryOpenGetResource", new ApiInfo(
+                    new HashMap<String, Object>(){
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "QueryOpenGetResource"));
+                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

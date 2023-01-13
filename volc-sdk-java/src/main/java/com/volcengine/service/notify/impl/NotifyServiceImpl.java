@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class NotifyServiceImpl extends BaseServiceImpl implements NotifyService {
 
@@ -123,5 +124,21 @@ public class NotifyServiceImpl extends BaseServiceImpl implements NotifyService 
     @Override
     public CommonResponse<BasicResourceResult> commitVoiceResourceUpload(UploadVoiceResourceRequest request) throws Exception {
         return doJson("CommitResourceUpload", request, new TypeReference<CommonResponse<BasicResourceResult>>(){});
+    }
+
+    @Override
+    public CommonResponse<BasicResourceResult> openUpdateResource(String resourceKey, String name) throws Exception {
+        return doQuery("OpenUpdateResource", Arrays.asList(new BasicNameValuePair("ResourceKey",resourceKey), new BasicNameValuePair("Name",name)),
+                new TypeReference<CommonResponse<BasicResourceResult>>() {});
+    }
+
+    @Override
+    public CommonResponse<List<ResourceResult>> queryUsableResource(Integer type) throws Exception {
+        return doQuery("QueryUsableResource", Arrays.asList(new BasicNameValuePair("Type", String.valueOf(type))), new TypeReference<CommonResponse<List<ResourceResult>>>() {});
+    }
+
+    @Override
+    public CommonResponse<QueryOpenGetResourceResult> queryOpenGetResource(QueryResourceRequest request) throws Exception {
+        return doJson("QueryOpenGetResource", request, new TypeReference<CommonResponse<QueryOpenGetResourceResult>>() {});
     }
 }

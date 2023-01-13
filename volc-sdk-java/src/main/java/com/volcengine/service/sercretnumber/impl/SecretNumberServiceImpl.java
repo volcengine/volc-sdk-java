@@ -144,4 +144,77 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
     }
     return JSON.parseObject(response.getData(), OperationResponse.class);
   }
+
+    @Override
+    public SecretBindResponse bindAXNE(BindAXNERequest request) throws Exception {
+        RawResponse response = query("BindAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), SecretBindResponse.class);
+    }
+
+    @Override
+    public OperationResponse unbindAXNE(SpecificSubIdRequest request) throws Exception {
+        RawResponse response = query("UnbindAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), OperationResponse.class);
+    }
+
+    @Override
+    public OperationResponse updateAXNE(UpdateAXNERequest request) throws Exception {
+        RawResponse response = query("UpdateAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), OperationResponse.class);
+    }
+
+    @Override
+    public SecretBindResponse bindAXBForAXNE(BindAXBForAXNERequest request) throws Exception {
+        RawResponse response = query("BindAXBForAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), SecretBindResponse.class);
+    }
+
+    @Override
+    public SecretBindResponse bindAXYB(BindAXYBRequest request) throws Exception {
+        RawResponse response = query("BindAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), SecretBindResponse.class);
+    }
+
+    @Override
+    public SecretBindResponse bindYBForAXYB(BindYBForAXYBRequest request) throws Exception {
+        RawResponse response = query("BindYBForAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), SecretBindResponse.class);
+    }
+
+    @Override
+    public OperationResponse unbindAXYB(SpecificSubIdRequest request) throws Exception {
+        RawResponse response = query("UnbindAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), OperationResponse.class);
+    }
+
+    @Override
+    public OperationResponse updateAXYB(UpdateAXYBRequest request) throws Exception {
+        RawResponse response = query("UpdateAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), OperationResponse.class);
+    }
+
 }

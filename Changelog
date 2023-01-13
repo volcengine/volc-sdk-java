@@ -1,5 +1,10 @@
 Change log
 
+2023-01-13 Bumped to version v1.0.79
+- Updated apis for vod/secretnumber
+- Added destroy method for client to free daemon thread
+- Moved default content-type from sign method to request method
+
 2023-01-05 Bumped to version v1.0.78
 - Updated apis for vod/stream/imagex/security
 

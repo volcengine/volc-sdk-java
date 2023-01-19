@@ -56,6 +56,8 @@ public abstract class BaseServiceImpl implements IBaseService {
 
     private Thread monitorThread;
 
+    private Credentials credentials;
+
 
     private BaseServiceImpl() {
     }
@@ -68,6 +70,12 @@ public abstract class BaseServiceImpl implements IBaseService {
         HttpClientFactory.ClientInstance clientInstance = HttpClientFactory.create(new ClientConfiguration(), proxy);
         this.httpClient = clientInstance.getHttpClient();
         this.monitorThread = clientInstance.getDaemonThread();
+        this.credentials = new Credentials();
+        this.credentials.setService(info.getCredentials().getService());
+        this.credentials.setRegion(info.getCredentials().getRegion());
+        this.credentials.setAccessKeyID(info.getCredentials().getAccessKeyID());
+        this.credentials.setSecretAccessKey(info.getCredentials().getSecretAccessKey());
+        this.credentials.setSessionToken(info.getCredentials().getSessionToken());
 
         init(info);
     }
@@ -95,8 +103,8 @@ public abstract class BaseServiceImpl implements IBaseService {
         String secretKey = System.getenv(Const.SECRET_KEY);
 
         if (accessKey != null && !accessKey.equals("") && secretKey != null && !secretKey.equals("")) {
-            info.getCredentials().setAccessKeyID(accessKey);
-            info.getCredentials().setSecretAccessKey(secretKey);
+            this.credentials.setAccessKeyID(accessKey);
+            this.credentials.setSecretAccessKey(secretKey);
         } else {
             File file = new File(System.getenv("HOME") + "/.volc/config");
             if (file.exists()) {
@@ -108,10 +116,10 @@ public abstract class BaseServiceImpl implements IBaseService {
                     in.close();
                     Credentials credentials = JSON.parseObject(content, Credentials.class);
                     if (credentials.getAccessKeyID() != null) {
-                        info.getCredentials().setAccessKeyID(credentials.getAccessKeyID());
+                        this.credentials.setAccessKeyID(credentials.getAccessKeyID());
                     }
                     if (credentials.getSecretAccessKey() != null) {
-                        info.getCredentials().setSecretAccessKey(credentials.getSecretAccessKey());
+                        this.credentials.setSecretAccessKey(credentials.getSecretAccessKey());
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -149,7 +157,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         builder.setPath(apiInfo.getPath());
         builder.setParameters(mergedNV);
 
-        return ISigner.signUrl(request, serviceInfo.getCredentials());
+        return ISigner.signUrl(request, this.credentials);
     }
 
     @Override
@@ -269,7 +277,7 @@ public abstract class BaseServiceImpl implements IBaseService {
 
     private RawResponse makeRequest(String api, SignableRequest request) {
         try {
-            ISigner.sign(request, serviceInfo.getCredentials());
+            ISigner.sign(request, this.credentials);
         } catch (Exception e) {
             e.printStackTrace();
             return new RawResponse(null, SdkError.ESIGN.getNumber(), e);
@@ -392,43 +400,43 @@ public abstract class BaseServiceImpl implements IBaseService {
 
     @Override
     public String getAccessKey() {
-        return serviceInfo.getCredentials().getAccessKeyID();
+        return this.credentials.getAccessKeyID();
     }
 
     @Override
     public void setAccessKey(String accessKey) {
-        serviceInfo.getCredentials().setAccessKeyID(accessKey);
+        this.credentials.setAccessKeyID(accessKey);
     }
 
     @Override
     public String getSecretKey() {
-        return serviceInfo.getCredentials().getSecretAccessKey();
+        return this.credentials.getSecretAccessKey();
     }
 
     @Override
     public void setSecretKey(String secretKey) {
-        serviceInfo.getCredentials().setSecretAccessKey(secretKey);
+        this.credentials.setSecretAccessKey(secretKey);
     }
 
     @Override
     public String getSessionToken() {
-        return serviceInfo.getCredentials().getSessionToken();
+        return this.credentials.getSessionToken();
     }
 
     @Override
     public void setSessionToken(String sessionToken) {
-        serviceInfo.getCredentials().setSessionToken(sessionToken);
+        this.credentials.setSessionToken(sessionToken);
     }
 
     @Override
     public void setRegion(String region) {
-        serviceInfo.getCredentials().setRegion(region);
+        this.credentials.setRegion(region);
     }
 
 
     @Override
     public String getRegion() {
-        return serviceInfo.getCredentials().getRegion();
+        return this.credentials.getRegion();
     }
 
     @Override
@@ -488,7 +496,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         sts2.setCurrentTime(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX").format(now));
         sts2.setExpiredTime(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX").format(expireTime));
 
-        InnerToken innerToken = Sts2Utils.createInnerToken(serviceInfo.getCredentials(), sts2, inlinePolicy, expireTime.getTime() / 1000);
+        InnerToken innerToken = Sts2Utils.createInnerToken(this.credentials, sts2, inlinePolicy, expireTime.getTime() / 1000);
 
         String sessionToken = "STS2" + Base64.encodeBase64String(JSON.toJSONString(innerToken).getBytes());
         sts2.setSessionToken(sessionToken);

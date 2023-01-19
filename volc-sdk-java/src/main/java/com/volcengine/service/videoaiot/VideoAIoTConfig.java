@@ -624,6 +624,48 @@ public class VideoAIoTConfig {
                         }
                     }
             ));
+            put(Const.AIoTVideoStreamStartRecord, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AIoTVideoStreamStartRecord));
+                                    add(new BasicNameValuePair("Version", Const.VideoAIoTSDKVersion));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.AIoTVideoStreamStopRecord, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AIoTVideoStreamStopRecord));
+                                    add(new BasicNameValuePair("Version", Const.VideoAIoTSDKVersion));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.AIoTVideoGetStreamRecord, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AIoTVideoGetStreamRecord));
+                                    add(new BasicNameValuePair("Version", Const.VideoAIoTSDKVersion));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.AIoTVideoUpdateStream, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

@@ -170,6 +170,12 @@ public interface VideoAIoTService extends IBaseService {
 
     IDResponse deleteStream(StreamRequest deleteStream) throws Exception;
 
+    IDResponse streamStartRecord(StreamStartRecordRequest streamStartRecordRequest) throws Exception;
+
+    RawResponse streamStopRecord(String recordID) throws Exception;
+
+    GetStreamRecordResponse getStreamRecord(String recordID) throws Exception;
+
 //    RawResponse createForward(CreateForwardRequest createForwardRequest) throws Exception;
 //
 //    ListForwardResponse listForward(ListForwardRequest listForwardRequest) throws Exception;

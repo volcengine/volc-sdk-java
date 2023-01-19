@@ -1,8 +1,11 @@
 package com.volcengine.service.videoaiot.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.volcengine.helper.Const;
+import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.video_aiot.request.*;
 import com.volcengine.model.video_aiot.response.*;
+import com.volcengine.service.videoaiot.VideoAIoTConfig;
 import com.volcengine.service.videoaiot.VideoAIoTService;
 import junit.framework.TestCase;
 
@@ -864,6 +867,49 @@ public class VideoAIoTImplTest extends TestCase {
         try {
             DeviceQueryPresetResponse deviceQueryPresetResponse = videoAIoTService.queryPresetInfo(request);
             System.out.println(JSON.toJSONString(deviceQueryPresetResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void testStartStreamRecord() {
+        StreamStartRecordRequest streamStartRecordRequest = new StreamStartRecordRequest();
+        streamStartRecordRequest.setStreamID("ee9a49ea-916c-4c2f-aced-333e409414df");
+        streamStartRecordRequest.setRecordTime(100);
+        streamStartRecordRequest.setTimeout(10);
+        streamStartRecordRequest.setExpire(0);
+        streamStartRecordRequest.setAutoPull(true);
+
+        try {
+            IDResponse idResponse = videoAIoTService.streamStartRecord(streamStartRecordRequest);
+            System.out.println(JSON.toJSONString(idResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testStop() {
+//        VideoAIoTConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1).setHost("volcengineapi-boe-stable.byted.org");
+//        videoAIoTService.setAccessKey("");
+//        videoAIoTService.setSecretKey("");
+
+        try {
+            RawResponse idResponse = videoAIoTService.streamStopRecord("record0x7df8ud0");
+            System.out.println(JSON.toJSONString(idResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testGet() {
+//        VideoAIoTConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1).setHost("volcengineapi-boe-stable.byted.org");
+//        videoAIoTService.setAccessKey("ak");
+//        videoAIoTService.setSecretKey("sk==");
+
+        try {
+            GetStreamRecordResponse idResponse = videoAIoTService.getStreamRecord("record0kvldcqr1");
+            System.out.println(JSON.toJSONString(idResponse));
         } catch (Exception e) {
             e.printStackTrace();
         }

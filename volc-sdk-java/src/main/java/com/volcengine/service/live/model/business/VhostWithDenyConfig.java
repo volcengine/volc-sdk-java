@@ -19,7 +19,7 @@ private static final long serialVersionUID = 0L;
     vhost_ = "";
     domain_ = "";
     app_ = "";
-    denyConfig_ = java.util.Collections.emptyList();
+    denyConfigDetail_ = java.util.Collections.emptyList();
   }
 
   @Override
@@ -73,10 +73,10 @@ private static final long serialVersionUID = 0L;
           }
           case 34: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              denyConfig_ = new java.util.ArrayList<DenyConfigDetail>();
+              denyConfigDetail_ = new java.util.ArrayList<DenyConfigDetail>();
               mutable_bitField0_ |= 0x00000001;
             }
-            denyConfig_.add(
+            denyConfigDetail_.add(
                 input.readMessage(DenyConfigDetail.parser(), extensionRegistry));
             break;
           }
@@ -96,7 +96,7 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        denyConfig_ = java.util.Collections.unmodifiableList(denyConfig_);
+        denyConfigDetail_ = java.util.Collections.unmodifiableList(denyConfigDetail_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -253,64 +253,64 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int DENYCONFIG_FIELD_NUMBER = 4;
-  private java.util.List<DenyConfigDetail> denyConfig_;
+  public static final int DENYCONFIGDETAIL_FIELD_NUMBER = 4;
+  private java.util.List<DenyConfigDetail> denyConfigDetail_;
   /**
    * <pre>
    *配置详情列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
    */
   @Override
-  public java.util.List<DenyConfigDetail> getDenyConfigList() {
-    return denyConfig_;
+  public java.util.List<DenyConfigDetail> getDenyConfigDetailList() {
+    return denyConfigDetail_;
   }
   /**
    * <pre>
    *配置详情列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
    */
   @Override
   public java.util.List<? extends DenyConfigDetailOrBuilder>
-      getDenyConfigOrBuilderList() {
-    return denyConfig_;
+      getDenyConfigDetailOrBuilderList() {
+    return denyConfigDetail_;
   }
   /**
    * <pre>
    *配置详情列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
    */
   @Override
-  public int getDenyConfigCount() {
-    return denyConfig_.size();
+  public int getDenyConfigDetailCount() {
+    return denyConfigDetail_.size();
   }
   /**
    * <pre>
    *配置详情列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
    */
   @Override
-  public DenyConfigDetail getDenyConfig(int index) {
-    return denyConfig_.get(index);
+  public DenyConfigDetail getDenyConfigDetail(int index) {
+    return denyConfigDetail_.get(index);
   }
   /**
    * <pre>
    *配置详情列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
    */
   @Override
-  public DenyConfigDetailOrBuilder getDenyConfigOrBuilder(
+  public DenyConfigDetailOrBuilder getDenyConfigDetailOrBuilder(
       int index) {
-    return denyConfig_.get(index);
+    return denyConfigDetail_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -336,8 +336,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(app_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, app_);
     }
-    for (int i = 0; i < denyConfig_.size(); i++) {
-      output.writeMessage(4, denyConfig_.get(i));
+    for (int i = 0; i < denyConfigDetail_.size(); i++) {
+      output.writeMessage(4, denyConfigDetail_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -357,9 +357,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(app_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, app_);
     }
-    for (int i = 0; i < denyConfig_.size(); i++) {
+    for (int i = 0; i < denyConfigDetail_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, denyConfig_.get(i));
+        .computeMessageSize(4, denyConfigDetail_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -382,8 +382,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDomain())) return false;
     if (!getApp()
         .equals(other.getApp())) return false;
-    if (!getDenyConfigList()
-        .equals(other.getDenyConfigList())) return false;
+    if (!getDenyConfigDetailList()
+        .equals(other.getDenyConfigDetailList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -401,9 +401,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getDomain().hashCode();
     hash = (37 * hash) + APP_FIELD_NUMBER;
     hash = (53 * hash) + getApp().hashCode();
-    if (getDenyConfigCount() > 0) {
-      hash = (37 * hash) + DENYCONFIG_FIELD_NUMBER;
-      hash = (53 * hash) + getDenyConfigList().hashCode();
+    if (getDenyConfigDetailCount() > 0) {
+      hash = (37 * hash) + DENYCONFIGDETAIL_FIELD_NUMBER;
+      hash = (53 * hash) + getDenyConfigDetailList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -533,7 +533,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getDenyConfigFieldBuilder();
+        getDenyConfigDetailFieldBuilder();
       }
     }
     @Override
@@ -545,11 +545,11 @@ private static final long serialVersionUID = 0L;
 
       app_ = "";
 
-      if (denyConfigBuilder_ == null) {
-        denyConfig_ = java.util.Collections.emptyList();
+      if (denyConfigDetailBuilder_ == null) {
+        denyConfigDetail_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
       } else {
-        denyConfigBuilder_.clear();
+        denyConfigDetailBuilder_.clear();
       }
       return this;
     }
@@ -581,14 +581,14 @@ private static final long serialVersionUID = 0L;
       result.vhost_ = vhost_;
       result.domain_ = domain_;
       result.app_ = app_;
-      if (denyConfigBuilder_ == null) {
+      if (denyConfigDetailBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
-          denyConfig_ = java.util.Collections.unmodifiableList(denyConfig_);
+          denyConfigDetail_ = java.util.Collections.unmodifiableList(denyConfigDetail_);
           bitField0_ = (bitField0_ & ~0x00000001);
         }
-        result.denyConfig_ = denyConfig_;
+        result.denyConfigDetail_ = denyConfigDetail_;
       } else {
-        result.denyConfig_ = denyConfigBuilder_.build();
+        result.denyConfigDetail_ = denyConfigDetailBuilder_.build();
       }
       onBuilt();
       return result;
@@ -650,29 +650,29 @@ private static final long serialVersionUID = 0L;
         app_ = other.app_;
         onChanged();
       }
-      if (denyConfigBuilder_ == null) {
-        if (!other.denyConfig_.isEmpty()) {
-          if (denyConfig_.isEmpty()) {
-            denyConfig_ = other.denyConfig_;
+      if (denyConfigDetailBuilder_ == null) {
+        if (!other.denyConfigDetail_.isEmpty()) {
+          if (denyConfigDetail_.isEmpty()) {
+            denyConfigDetail_ = other.denyConfigDetail_;
             bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            ensureDenyConfigIsMutable();
-            denyConfig_.addAll(other.denyConfig_);
+            ensureDenyConfigDetailIsMutable();
+            denyConfigDetail_.addAll(other.denyConfigDetail_);
           }
           onChanged();
         }
       } else {
-        if (!other.denyConfig_.isEmpty()) {
-          if (denyConfigBuilder_.isEmpty()) {
-            denyConfigBuilder_.dispose();
-            denyConfigBuilder_ = null;
-            denyConfig_ = other.denyConfig_;
+        if (!other.denyConfigDetail_.isEmpty()) {
+          if (denyConfigDetailBuilder_.isEmpty()) {
+            denyConfigDetailBuilder_.dispose();
+            denyConfigDetailBuilder_ = null;
+            denyConfigDetail_ = other.denyConfigDetail_;
             bitField0_ = (bitField0_ & ~0x00000001);
-            denyConfigBuilder_ = 
+            denyConfigDetailBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getDenyConfigFieldBuilder() : null;
+                 getDenyConfigDetailFieldBuilder() : null;
           } else {
-            denyConfigBuilder_.addAllMessages(other.denyConfig_);
+            denyConfigDetailBuilder_.addAllMessages(other.denyConfigDetail_);
           }
         }
       }
@@ -994,30 +994,30 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.util.List<DenyConfigDetail> denyConfig_ =
+    private java.util.List<DenyConfigDetail> denyConfigDetail_ =
       java.util.Collections.emptyList();
-    private void ensureDenyConfigIsMutable() {
+    private void ensureDenyConfigDetailIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        denyConfig_ = new java.util.ArrayList<DenyConfigDetail>(denyConfig_);
+        denyConfigDetail_ = new java.util.ArrayList<DenyConfigDetail>(denyConfigDetail_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        DenyConfigDetail, DenyConfigDetail.Builder, DenyConfigDetailOrBuilder> denyConfigBuilder_;
+        DenyConfigDetail, DenyConfigDetail.Builder, DenyConfigDetailOrBuilder> denyConfigDetailBuilder_;
 
     /**
      * <pre>
      *配置详情列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
      */
-    public java.util.List<DenyConfigDetail> getDenyConfigList() {
-      if (denyConfigBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(denyConfig_);
+    public java.util.List<DenyConfigDetail> getDenyConfigDetailList() {
+      if (denyConfigDetailBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(denyConfigDetail_);
       } else {
-        return denyConfigBuilder_.getMessageList();
+        return denyConfigDetailBuilder_.getMessageList();
       }
     }
     /**
@@ -1025,13 +1025,13 @@ private static final long serialVersionUID = 0L;
      *配置详情列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
      */
-    public int getDenyConfigCount() {
-      if (denyConfigBuilder_ == null) {
-        return denyConfig_.size();
+    public int getDenyConfigDetailCount() {
+      if (denyConfigDetailBuilder_ == null) {
+        return denyConfigDetail_.size();
       } else {
-        return denyConfigBuilder_.getCount();
+        return denyConfigDetailBuilder_.getCount();
       }
     }
     /**
@@ -1039,13 +1039,13 @@ private static final long serialVersionUID = 0L;
      *配置详情列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
      */
-    public DenyConfigDetail getDenyConfig(int index) {
-      if (denyConfigBuilder_ == null) {
-        return denyConfig_.get(index);
+    public DenyConfigDetail getDenyConfigDetail(int index) {
+      if (denyConfigDetailBuilder_ == null) {
+        return denyConfigDetail_.get(index);
       } else {
-        return denyConfigBuilder_.getMessage(index);
+        return denyConfigDetailBuilder_.getMessage(index);
       }
     }
     /**
@@ -1053,19 +1053,19 @@ private static final long serialVersionUID = 0L;
      *配置详情列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
      */
-    public Builder setDenyConfig(
+    public Builder setDenyConfigDetail(
         int index, DenyConfigDetail value) {
-      if (denyConfigBuilder_ == null) {
+      if (denyConfigDetailBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureDenyConfigIsMutable();
-        denyConfig_.set(index, value);
+        ensureDenyConfigDetailIsMutable();
+        denyConfigDetail_.set(index, value);
         onChanged();
       } else {
-        denyConfigBuilder_.setMessage(index, value);
+        denyConfigDetailBuilder_.setMessage(index, value);
       }
       return this;
     }
@@ -1074,16 +1074,16 @@ private static final long serialVersionUID = 0L;
      *配置详情列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
      */
-    public Builder setDenyConfig(
+    public Builder setDenyConfigDetail(
         int index, DenyConfigDetail.Builder builderForValue) {
-      if (denyConfigBuilder_ == null) {
-        ensureDenyConfigIsMutable();
-        denyConfig_.set(index, builderForValue.build());
+      if (denyConfigDetailBuilder_ == null) {
+        ensureDenyConfigDetailIsMutable();
+        denyConfigDetail_.set(index, builderForValue.build());
         onChanged();
       } else {
-        denyConfigBuilder_.setMessage(index, builderForValue.build());
+        denyConfigDetailBuilder_.setMessage(index, builderForValue.build());
       }
       return this;
     }
@@ -1092,18 +1092,18 @@ private static final long serialVersionUID = 0L;
      *配置详情列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
      */
-    public Builder addDenyConfig(DenyConfigDetail value) {
-      if (denyConfigBuilder_ == null) {
+    public Builder addDenyConfigDetail(DenyConfigDetail value) {
+      if (denyConfigDetailBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureDenyConfigIsMutable();
-        denyConfig_.add(value);
+        ensureDenyConfigDetailIsMutable();
+        denyConfigDetail_.add(value);
         onChanged();
       } else {
-        denyConfigBuilder_.addMessage(value);
+        denyConfigDetailBuilder_.addMessage(value);
       }
       return this;
     }
@@ -1112,19 +1112,19 @@ private static final long serialVersionUID = 0L;
      *配置详情列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
      */
-    public Builder addDenyConfig(
+    public Builder addDenyConfigDetail(
         int index, DenyConfigDetail value) {
-      if (denyConfigBuilder_ == null) {
+      if (denyConfigDetailBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureDenyConfigIsMutable();
-        denyConfig_.add(index, value);
+        ensureDenyConfigDetailIsMutable();
+        denyConfigDetail_.add(index, value);
         onChanged();
       } else {
-        denyConfigBuilder_.addMessage(index, value);
+        denyConfigDetailBuilder_.addMessage(index, value);
       }
       return this;
     }
@@ -1133,16 +1133,16 @@ private static final long serialVersionUID = 0L;
      *配置详情列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
      */
-    public Builder addDenyConfig(
+    public Builder addDenyConfigDetail(
         DenyConfigDetail.Builder builderForValue) {
-      if (denyConfigBuilder_ == null) {
-        ensureDenyConfigIsMutable();
-        denyConfig_.add(builderForValue.build());
+      if (denyConfigDetailBuilder_ == null) {
+        ensureDenyConfigDetailIsMutable();
+        denyConfigDetail_.add(builderForValue.build());
         onChanged();
       } else {
-        denyConfigBuilder_.addMessage(builderForValue.build());
+        denyConfigDetailBuilder_.addMessage(builderForValue.build());
       }
       return this;
     }
@@ -1151,16 +1151,16 @@ private static final long serialVersionUID = 0L;
      *配置详情列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
      */
-    public Builder addDenyConfig(
+    public Builder addDenyConfigDetail(
         int index, DenyConfigDetail.Builder builderForValue) {
-      if (denyConfigBuilder_ == null) {
-        ensureDenyConfigIsMutable();
-        denyConfig_.add(index, builderForValue.build());
+      if (denyConfigDetailBuilder_ == null) {
+        ensureDenyConfigDetailIsMutable();
+        denyConfigDetail_.add(index, builderForValue.build());
         onChanged();
       } else {
-        denyConfigBuilder_.addMessage(index, builderForValue.build());
+        denyConfigDetailBuilder_.addMessage(index, builderForValue.build());
       }
       return this;
     }
@@ -1169,17 +1169,17 @@ private static final long serialVersionUID = 0L;
      *配置详情列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
      */
-    public Builder addAllDenyConfig(
+    public Builder addAllDenyConfigDetail(
         Iterable<? extends DenyConfigDetail> values) {
-      if (denyConfigBuilder_ == null) {
-        ensureDenyConfigIsMutable();
+      if (denyConfigDetailBuilder_ == null) {
+        ensureDenyConfigDetailIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, denyConfig_);
+            values, denyConfigDetail_);
         onChanged();
       } else {
-        denyConfigBuilder_.addAllMessages(values);
+        denyConfigDetailBuilder_.addAllMessages(values);
       }
       return this;
     }
@@ -1188,15 +1188,15 @@ private static final long serialVersionUID = 0L;
      *配置详情列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
      */
-    public Builder clearDenyConfig() {
-      if (denyConfigBuilder_ == null) {
-        denyConfig_ = java.util.Collections.emptyList();
+    public Builder clearDenyConfigDetail() {
+      if (denyConfigDetailBuilder_ == null) {
+        denyConfigDetail_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
-        denyConfigBuilder_.clear();
+        denyConfigDetailBuilder_.clear();
       }
       return this;
     }
@@ -1205,15 +1205,15 @@ private static final long serialVersionUID = 0L;
      *配置详情列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
      */
-    public Builder removeDenyConfig(int index) {
-      if (denyConfigBuilder_ == null) {
-        ensureDenyConfigIsMutable();
-        denyConfig_.remove(index);
+    public Builder removeDenyConfigDetail(int index) {
+      if (denyConfigDetailBuilder_ == null) {
+        ensureDenyConfigDetailIsMutable();
+        denyConfigDetail_.remove(index);
         onChanged();
       } else {
-        denyConfigBuilder_.remove(index);
+        denyConfigDetailBuilder_.remove(index);
       }
       return this;
     }
@@ -1222,24 +1222,24 @@ private static final long serialVersionUID = 0L;
      *配置详情列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
      */
-    public DenyConfigDetail.Builder getDenyConfigBuilder(
+    public DenyConfigDetail.Builder getDenyConfigDetailBuilder(
         int index) {
-      return getDenyConfigFieldBuilder().getBuilder(index);
+      return getDenyConfigDetailFieldBuilder().getBuilder(index);
     }
     /**
      * <pre>
      *配置详情列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
      */
-    public DenyConfigDetailOrBuilder getDenyConfigOrBuilder(
+    public DenyConfigDetailOrBuilder getDenyConfigDetailOrBuilder(
         int index) {
-      if (denyConfigBuilder_ == null) {
-        return denyConfig_.get(index);  } else {
-        return denyConfigBuilder_.getMessageOrBuilder(index);
+      if (denyConfigDetailBuilder_ == null) {
+        return denyConfigDetail_.get(index);  } else {
+        return denyConfigDetailBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
@@ -1247,14 +1247,14 @@ private static final long serialVersionUID = 0L;
      *配置详情列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
      */
     public java.util.List<? extends DenyConfigDetailOrBuilder>
-         getDenyConfigOrBuilderList() {
-      if (denyConfigBuilder_ != null) {
-        return denyConfigBuilder_.getMessageOrBuilderList();
+         getDenyConfigDetailOrBuilderList() {
+      if (denyConfigDetailBuilder_ != null) {
+        return denyConfigDetailBuilder_.getMessageOrBuilderList();
       } else {
-        return java.util.Collections.unmodifiableList(denyConfig_);
+        return java.util.Collections.unmodifiableList(denyConfigDetail_);
       }
     }
     /**
@@ -1262,10 +1262,10 @@ private static final long serialVersionUID = 0L;
      *配置详情列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
      */
-    public DenyConfigDetail.Builder addDenyConfigBuilder() {
-      return getDenyConfigFieldBuilder().addBuilder(
+    public DenyConfigDetail.Builder addDenyConfigDetailBuilder() {
+      return getDenyConfigDetailFieldBuilder().addBuilder(
           DenyConfigDetail.getDefaultInstance());
     }
     /**
@@ -1273,11 +1273,11 @@ private static final long serialVersionUID = 0L;
      *配置详情列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
      */
-    public DenyConfigDetail.Builder addDenyConfigBuilder(
+    public DenyConfigDetail.Builder addDenyConfigDetailBuilder(
         int index) {
-      return getDenyConfigFieldBuilder().addBuilder(
+      return getDenyConfigDetailFieldBuilder().addBuilder(
           index, DenyConfigDetail.getDefaultInstance());
     }
     /**
@@ -1285,25 +1285,25 @@ private static final long serialVersionUID = 0L;
      *配置详情列表
      * </pre>
      *
-     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+     * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
      */
     public java.util.List<DenyConfigDetail.Builder>
-         getDenyConfigBuilderList() {
-      return getDenyConfigFieldBuilder().getBuilderList();
+         getDenyConfigDetailBuilderList() {
+      return getDenyConfigDetailFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
         DenyConfigDetail, DenyConfigDetail.Builder, DenyConfigDetailOrBuilder>
-        getDenyConfigFieldBuilder() {
-      if (denyConfigBuilder_ == null) {
-        denyConfigBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+        getDenyConfigDetailFieldBuilder() {
+      if (denyConfigDetailBuilder_ == null) {
+        denyConfigDetailBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             DenyConfigDetail, DenyConfigDetail.Builder, DenyConfigDetailOrBuilder>(
-                denyConfig_,
+                denyConfigDetail_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
-        denyConfig_ = null;
+        denyConfigDetail_ = null;
       }
-      return denyConfigBuilder_;
+      return denyConfigDetailBuilder_;
     }
     @Override
     public final Builder setUnknownFields(

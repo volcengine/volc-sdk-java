@@ -6,27 +6,27 @@ package com.volcengine.service.live.pull_to_push_task;
 
 import com.volcengine.service.live.LiveService;
 import com.volcengine.service.live.impl.LiveServiceImpl;
+import com.volcengine.service.live.model.request.CreatePullToPushTaskRequest;
 
 public class LiveCreatePullToPushTaskDemo {
 
     public static void main(String[] args) throws Exception {
         LiveService liveService = LiveServiceImpl.getInstance();
-        liveService.setAccessKey("your ak");
-        liveService.setSecretKey("your sk");
+        liveService.setAccessKey("");
+        liveService.setSecretKey("");
 
         try {
-            com.volcengine.service.live.model.request.CreatePullToPushTaskRequest.Builder reqBuilder = com.volcengine.service.live.model.request.CreatePullToPushTaskRequest.newBuilder();
-			reqBuilder.setTitle("your Title");
-			reqBuilder.setStartTime(0);
-			reqBuilder.setEndTime(0);
-			reqBuilder.setCallbackURL("your CallbackURL");
-			reqBuilder.setType(0);
-			reqBuilder.setCycleMode(0);
-			reqBuilder.setDstAddr("your DstAddr");
-			reqBuilder.setSrcAddr("your SrcAddr");
-			reqBuilder.addSrcAddrS("your SrcAddrS");
-			
-            com.volcengine.service.live.model.response.CreatePullToPushTaskResponse resp = liveService.createPullToPushTask(reqBuilder.build());
+            CreatePullToPushTaskRequest cp = new CreatePullToPushTaskRequest();
+            cp.setTitle("");
+            cp.setStartTime(0l);
+            cp.setEndTime(0l);
+            cp.setCallbackURL("");
+            cp.setType(0);
+            cp.setCycleMode(0);
+            cp.setDstAddr("");
+            cp.setSrcAddr("");
+            cp.setSrcAddrS(new String[]{""});
+            com.volcengine.service.live.model.response.CreatePullToPushTaskResponse resp = liveService.createPullToPushTask(cp);
 
             if (resp.getResponseMetadata().hasError()) {
                 System.out.println(resp);

@@ -46,16 +46,16 @@ public final class DenyConfig {
       "\022\020\n\010DenyList\030\010 \003(\t\022\021\n\tAllowList\030\t \003(\t\"b\n" +
       "\030DescribeDenyConfigResult\022F\n\010DenyList\030\001 " +
       "\003(\01324.Volcengine.Live.Models.Business.Vh" +
-      "ostWithDenyConfig\"\210\001\n\023VhostWithDenyConfi" +
+      "ostWithDenyConfig\"\216\001\n\023VhostWithDenyConfi" +
       "g\022\r\n\005Vhost\030\001 \001(\t\022\016\n\006Domain\030\002 \001(\t\022\013\n\003App\030" +
-      "\003 \001(\t\022E\n\nDenyConfig\030\004 \003(\01321.Volcengine.L" +
-      "ive.Models.Business.DenyConfigDetailB\322\001\n" +
-      "*com.volcengine.service.live.model.busin" +
-      "essB\nDenyConfigP\001ZBgithub.com/volcengine" +
-      "/volc-sdk-golang/service/live/models/bus" +
-      "iness\240\001\001\330\001\001\302\002\000\312\002!Volc\\Service\\Live\\Model" +
-      "s\\Business\342\002$Volc\\Service\\Live\\Models\\GP" +
-      "BMetadatab\006proto3"
+      "\003 \001(\t\022K\n\020DenyConfigDetail\030\004 \003(\01321.Volcen" +
+      "gine.Live.Models.Business.DenyConfigDeta" +
+      "ilB\322\001\n*com.volcengine.service.live.model" +
+      ".businessB\nDenyConfigP\001ZBgithub.com/volc" +
+      "engine/volc-sdk-golang/service/live/mode" +
+      "ls/business\240\001\001\330\001\001\302\002\000\312\002!Volc\\Service\\Live" +
+      "\\Models\\Business\342\002$Volc\\Service\\Live\\Mod" +
+      "els\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -78,7 +78,7 @@ public final class DenyConfig {
     internal_static_Volcengine_Live_Models_Business_VhostWithDenyConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Live_Models_Business_VhostWithDenyConfig_descriptor,
-        new String[] { "Vhost", "Domain", "App", "DenyConfig", });
+        new String[] { "Vhost", "Domain", "App", "DenyConfigDetail", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

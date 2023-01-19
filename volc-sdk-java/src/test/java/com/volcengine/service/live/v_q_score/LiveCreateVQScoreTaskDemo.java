@@ -6,24 +6,28 @@ package com.volcengine.service.live.v_q_score;
 
 import com.volcengine.service.live.LiveService;
 import com.volcengine.service.live.impl.LiveServiceImpl;
+import com.volcengine.service.live.model.request.CreatePullToPushTaskRequest;
+import com.volcengine.service.live.model.request.CreateVQScoreTaskRequest;
 
 public class LiveCreateVQScoreTaskDemo {
 
     public static void main(String[] args) throws Exception {
         LiveService liveService = LiveServiceImpl.getInstance();
-        liveService.setAccessKey("your ak");
-        liveService.setSecretKey("your sk");
+        liveService.setAccessKey("");
+        liveService.setSecretKey("");
 
         try {
-            com.volcengine.service.live.model.request.CreateVQScoreTaskRequest.Builder reqBuilder = com.volcengine.service.live.model.request.CreateVQScoreTaskRequest.newBuilder();
-			reqBuilder.setMainAddr("your MainAddr");
-			reqBuilder.setContrastAddr("your ContrastAddr");
-			reqBuilder.setFrameInterval(0);
-			reqBuilder.setDuration(0);
-			reqBuilder.setAlgorithm("your Algorithm");
-			
-            com.volcengine.service.live.model.response.CreateVQScoreTaskResponse resp = liveService.createVQScoreTask(reqBuilder.build());
+            CreateVQScoreTaskRequest req = new CreateVQScoreTaskRequest();
+			req.setMainAddr("");
+			req.setContrastAddr("");
+			req.setFrameInterval(0);
+			req.setAlgorithm("");
+
+            com.volcengine.service.live.model.response.CreateVQScoreTaskResponse resp = liveService.createVQScoreTask(req);
+
             if (resp.getResponseMetadata().hasError()) {
+
+                System.out.println(resp);
                 System.out.println(resp.getResponseMetadata().getError());
                 System.exit(-1);
             }

@@ -6,6 +6,7 @@ package com.volcengine.service.live.v_q_score;
 
 import com.volcengine.service.live.LiveService;
 import com.volcengine.service.live.impl.LiveServiceImpl;
+import com.volcengine.service.live.model.request.ListVQScoreTaskRequest;
 
 public class LiveListVQScoreTaskDemo {
 
@@ -15,14 +16,14 @@ public class LiveListVQScoreTaskDemo {
         liveService.setSecretKey("your sk");
 
         try {
-            com.volcengine.service.live.model.request.ListVQScoreTaskRequest.Builder reqBuilder = com.volcengine.service.live.model.request.ListVQScoreTaskRequest.newBuilder();
-			reqBuilder.setStartTime("your StartTime");
-			reqBuilder.setEndTime("your EndTime");
-			reqBuilder.setPageNum(0);
-			reqBuilder.setPageSize(0);
-			reqBuilder.setStatus(0);
+             ListVQScoreTaskRequest req = new ListVQScoreTaskRequest();
+            req.setStartTime("your StartTime");
+			req.setEndTime("your EndTime");
+			req.setPageNum(0);
+			req.setPageSize(0);
+			req.setStatus(0);
 			
-            com.volcengine.service.live.model.response.ListVQScoreTaskResponse resp = liveService.listVQScoreTask(reqBuilder.build());
+            com.volcengine.service.live.model.response.ListVQScoreTaskResponse resp = liveService.listVQScoreTask(req);
             if (resp.getResponseMetadata().hasError()) {
                 System.out.println(resp.getResponseMetadata().getError());
                 System.exit(-1);

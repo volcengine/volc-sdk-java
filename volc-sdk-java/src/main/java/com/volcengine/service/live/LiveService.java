@@ -7,6 +7,7 @@ package com.volcengine.service.live;
 
 import com.volcengine.model.live.request.*;
 import com.volcengine.model.live.response.*;
+import com.volcengine.service.live.model.request.CreatePullToPushTaskRequest;
 
 /**
  * The interface Vod service.
@@ -591,7 +592,7 @@ public interface LiveService extends com.volcengine.service.IBaseService {
      * @return com.volcengine.service.live.model.response.CreatePullToPushTaskResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.live.model.response.CreatePullToPushTaskResponse createPullToPushTask(com.volcengine.service.live.model.request.CreatePullToPushTaskRequest input) throws Exception;
+	com.volcengine.service.live.model.response.CreatePullToPushTaskResponse createPullToPushTask(CreatePullToPushTaskRequest input) throws Exception;
 	
 	/**
      * listPullToPushTask.

@@ -6,27 +6,31 @@ package com.volcengine.service.live.addr;
 
 import com.volcengine.service.live.LiveService;
 import com.volcengine.service.live.impl.LiveServiceImpl;
+import com.volcengine.service.live.model.request.GeneratePlayURLRequest;
 
 public class LiveGeneratePlayURLDemo {
 
     public static void main(String[] args) throws Exception {
         LiveService liveService = LiveServiceImpl.getInstance();
-        liveService.setAccessKey("your ak");
-        liveService.setSecretKey("your sk");
+        liveService.setAccessKey("");
+        liveService.setSecretKey("");
 
         try {
-            com.volcengine.service.live.model.request.GeneratePlayURLRequest.Builder reqBuilder = com.volcengine.service.live.model.request.GeneratePlayURLRequest.newBuilder();
-            reqBuilder.setVhost("your Vhost");
-            reqBuilder.setDomain("your Domain");
-            reqBuilder.setApp("your App");
-            reqBuilder.setStream("your Stream");
-            reqBuilder.setSuffix("your Suffix");
-            reqBuilder.setType("your Type");
-            reqBuilder.setValidDuration(0);
-            reqBuilder.setExpiredTime("your ExpiredTime");
+            GeneratePlayURLRequest req = new GeneratePlayURLRequest();
 
-            com.volcengine.service.live.model.response.GeneratePlayURLResponse resp = liveService.generatePlayURL(reqBuilder.build());
+            req.setVhost("");
+            req.setDomain("");
+            req.setApp("");
+            req.setStream("");
+            req.setSuffix("");
+            req.setType("");
+            req.setExpiredTime("");
+
+            com.volcengine.service.live.model.response.GeneratePlayURLResponse resp = liveService.generatePlayURL(req);
+
             if (resp.getResponseMetadata().hasError()) {
+
+                System.out.println(resp);
                 System.out.println(resp.getResponseMetadata().getError());
                 System.exit(-1);
             }

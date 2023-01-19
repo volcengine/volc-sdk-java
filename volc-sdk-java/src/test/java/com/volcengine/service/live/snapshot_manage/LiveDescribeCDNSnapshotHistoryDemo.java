@@ -16,15 +16,17 @@ public class LiveDescribeCDNSnapshotHistoryDemo {
 
         try {
             com.volcengine.service.live.model.request.DescribeCDNSnapshotHistoryRequest.Builder reqBuilder = com.volcengine.service.live.model.request.DescribeCDNSnapshotHistoryRequest.newBuilder();
-			reqBuilder.setVhost("your Vhost");
-			reqBuilder.setApp("your App");
-			reqBuilder.setStream("your Stream");
-			reqBuilder.setDateFrom("your DateFrom");
-			reqBuilder.setDateTo("your DateTo");
+			reqBuilder.setVhost("");
+			reqBuilder.setApp("");
+			reqBuilder.setStream("");
+			reqBuilder.setDateFrom("");
+			reqBuilder.setDateTo("");
 			reqBuilder.setPageNum(0);
 			reqBuilder.setPageSize(0);
-			reqBuilder.setType("your Type");
-			
+			reqBuilder.setType("");
+
+            System.out.println(reqBuilder.build());
+
             com.volcengine.service.live.model.response.DescribeCDNSnapshotHistoryResponse resp = liveService.DescribeCDNSnapshotHistory(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {
                 System.out.println(resp.getResponseMetadata().getError());

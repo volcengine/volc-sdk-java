@@ -72,42 +72,42 @@ public interface VhostWithDenyConfigOrBuilder extends
    *配置详情列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
    */
   java.util.List<DenyConfigDetail>
-      getDenyConfigList();
+      getDenyConfigDetailList();
   /**
    * <pre>
    *配置详情列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
    */
-  DenyConfigDetail getDenyConfig(int index);
+  DenyConfigDetail getDenyConfigDetail(int index);
   /**
    * <pre>
    *配置详情列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
    */
-  int getDenyConfigCount();
+  int getDenyConfigDetailCount();
   /**
    * <pre>
    *配置详情列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
    */
   java.util.List<? extends DenyConfigDetailOrBuilder>
-      getDenyConfigOrBuilderList();
+      getDenyConfigDetailOrBuilderList();
   /**
    * <pre>
    *配置详情列表
    * </pre>
    *
-   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfig = 4;</code>
+   * <code>repeated .Volcengine.Live.Models.Business.DenyConfigDetail DenyConfigDetail = 4;</code>
    */
-  DenyConfigDetailOrBuilder getDenyConfigOrBuilder(
+  DenyConfigDetailOrBuilder getDenyConfigDetailOrBuilder(
       int index);
 }

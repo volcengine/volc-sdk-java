@@ -2,6 +2,7 @@ package com.volcengine.service.live.impl;
 
 import com.alibaba.fastjson.JSON;
 
+import com.alibaba.fastjson.JSONObject;
 import com.google.protobuf.util.JsonFormat;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
@@ -14,6 +15,7 @@ import com.volcengine.model.response.ResponseMetadata;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.live.LiveConfig;
 import com.volcengine.service.live.LiveService;
+import com.volcengine.service.live.model.request.CreatePullToPushTaskRequest;
 import com.volcengine.service.live.model.request.UpdateRelaySourceRequest;
 import org.apache.http.HttpHost;
 
@@ -1212,7 +1214,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.CreateVQScoreTaskResponse createVQScoreTask(com.volcengine.service.live.model.request.CreateVQScoreTaskRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.CreateVQScoreTask,null,jsonFormat.printToString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.CreateVQScoreTask,null,JSONObject.toJSONString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -1252,7 +1254,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.ListVQScoreTaskResponse listVQScoreTask(com.volcengine.service.live.model.request.ListVQScoreTaskRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.ListVQScoreTask,null,jsonFormat.printToString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.ListVQScoreTask,null,JSONObject.toJSONString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -1261,21 +1263,6 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
     }
-//
-//    public ListDomainDetailResponse listDomainDetail(ListDomainDetailRequest listDomainDetailRequest) throws Exception {
-//        RawResponse response = json(Const.ListDomainDetail, new ArrayList<>(), JSON.toJSONString(listDomainDetailRequest));
-//        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-//            throw response.getException();
-//        }
-//        ListDomainDetailResponse res = JSON.parseObject(response.getData(), ListDomainDetailResponse.class);
-//        if (res.getResponseMetadata().getError() != null) {
-//            ResponseMetadata meta = res.getResponseMetadata();
-////            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-//            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage() + JSON.toJSONString(res));
-//        }
-//        res.getResponseMetadata().setService("live");
-//        return res;
-//    }
 
     /**
      * generatePlayURL.
@@ -1286,7 +1273,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.GeneratePlayURLResponse generatePlayURL(com.volcengine.service.live.model.request.GeneratePlayURLRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.GeneratePlayURL,null,jsonFormat.printToString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.GeneratePlayURL,null, JSONObject.toJSONString(input));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -1305,7 +1292,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.GeneratePushURLResponse generatePushURL(com.volcengine.service.live.model.request.GeneratePushURLRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.GeneratePushURL,null,jsonFormat.printToString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.GeneratePushURL,null,JSONObject.toJSONString(input));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -1323,8 +1310,8 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      * @throws Exception the exception
      */
     @Override
-    public com.volcengine.service.live.model.response.CreatePullToPushTaskResponse createPullToPushTask(com.volcengine.service.live.model.request.CreatePullToPushTaskRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.CreatePullToPushTask,null, jsonFormat.printToString(input));
+    public com.volcengine.service.live.model.response.CreatePullToPushTaskResponse createPullToPushTask(CreatePullToPushTaskRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.CreatePullToPushTask,null, JSONObject.toJSONString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -1364,7 +1351,7 @@ public class LiveServiceImpl extends BaseServiceImpl implements LiveService {
      */
     @Override
     public com.volcengine.service.live.model.response.UpdatePullToPushTaskResponse updatePullToPushTask(com.volcengine.service.live.model.request.UpdatePullToPushTaskRequest input) throws Exception {
-        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.UpdatePullToPushTask,null,jsonFormat.printToString(input));
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.live.Const.UpdatePullToPushTask,null, JSONObject.toJSONString(input));
 
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();

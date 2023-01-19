@@ -1,5 +1,9 @@
 Change log
 
+2023-01-19 Bumped to version v1.0.81
+- Updated apis for live/video_aiot
+- Fixed the credential error when use multi instances.
+
 2023-01-13 Bumped to version v1.0.79
 - Updated apis for vod/secretnumber
 - Added destroy method for client to free daemon thread

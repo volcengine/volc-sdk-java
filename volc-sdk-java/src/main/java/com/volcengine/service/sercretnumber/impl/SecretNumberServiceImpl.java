@@ -10,6 +10,10 @@ import com.volcengine.service.sercretnumber.ISecretNumberService;
 import com.volcengine.service.sercretnumber.SecretNumberConfig;
 import com.volcengine.service.sercretnumber.model.request.*;
 import com.volcengine.service.sercretnumber.model.response.*;
+import org.apache.http.NameValuePair;
+
+import java.util.Collections;
+import java.util.List;
 
 public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretNumberService {
 
@@ -24,7 +28,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
 
   @Override
   public SecretBindResponse bindAXB(BindAXBRequest request) throws Exception {
-    RawResponse response = query("BindAXB", Utils.mapToPairList(Utils.paramsToMap(request)));
+    RawResponse response = formPost("BindAXB", Utils.mapToPairList(Utils.paramsToMap(request)));
     if (response.getCode() != SdkError.SUCCESS.getNumber()) {
       throw response.getException();
     }
@@ -34,7 +38,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
   @Override
   public SecretBindResponse selectNumberAndBindAXB(SelectNumberAndBindAXBRequest request)
       throws Exception {
-    RawResponse response = query("SelectNumberAndBindAXB",
+    RawResponse response = formPost("SelectNumberAndBindAXB",
         Utils.mapToPairList(Utils.paramsToMap(request)));
     if (response.getCode() != SdkError.SUCCESS.getNumber()) {
       throw response.getException();
@@ -44,7 +48,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
 
   @Override
   public OperationResponse unbindAXB(SpecificSubIdRequest request) throws Exception {
-    RawResponse response = query("UnbindAXB", Utils.mapToPairList(Utils.paramsToMap(request)));
+    RawResponse response = formPost("UnbindAXB", Utils.mapToPairList(Utils.paramsToMap(request)));
     if (response.getCode() != SdkError.SUCCESS.getNumber()) {
       throw response.getException();
     }
@@ -54,7 +58,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
   @Override
   public QuerySubscriptionResponse querySubscription(SpecificSubIdRequest request)
       throws Exception {
-    RawResponse response = query("QuerySubscription",
+    RawResponse response = formPost("QuerySubscription",
         Utils.mapToPairList(Utils.paramsToMap(request)));
     if (response.getCode() != SdkError.SUCCESS.getNumber()) {
       throw response.getException();
@@ -65,7 +69,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
   @Override
   public QuerySubscriptionForListResponse querySubscriptionForList(
       QuerySubscriptionForListRequest request) throws Exception {
-    RawResponse response = query("QuerySubscriptionForList",
+    RawResponse response = formPost("QuerySubscriptionForList",
         Utils.mapToPairList(Utils.paramsToMap(request)));
     if (response.getCode() != SdkError.SUCCESS.getNumber()) {
       throw response.getException();
@@ -75,7 +79,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
 
   @Override
   public SecretBindResponse upgradeAXToAXB(UpgradeAXToAXBRequest request) throws Exception {
-    RawResponse response = query("UpgradeAXToAXB", Utils.mapToPairList(Utils.paramsToMap(request)));
+    RawResponse response = formPost("UpgradeAXToAXB", Utils.mapToPairList(Utils.paramsToMap(request)));
     if (response.getCode() != SdkError.SUCCESS.getNumber()) {
       throw response.getException();
     }
@@ -84,7 +88,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
 
   @Override
   public OperationResponse updateAXB(UpdateAXBRequest request) throws Exception {
-    RawResponse response = query("UpdateAXB", Utils.mapToPairList(Utils.paramsToMap(request)));
+    RawResponse response = formPost("UpdateAXB", Utils.mapToPairList(Utils.paramsToMap(request)));
     if (response.getCode() != SdkError.SUCCESS.getNumber()) {
       throw response.getException();
     }
@@ -93,7 +97,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
 
   @Override
   public SecretBindResponse bindAXN(BindAXNRequest request) throws Exception {
-    RawResponse response = query("BindAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
+    RawResponse response = formPost("BindAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
     if (response.getCode() != SdkError.SUCCESS.getNumber()) {
       throw response.getException();
     }
@@ -102,7 +106,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
 
   @Override
   public SecretBindResponse selectNumberAndBindAXN(SelectNumberAndBindAXNRequest request) throws Exception {
-    RawResponse response = query("SelectNumberAndBindAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
+    RawResponse response = formPost("SelectNumberAndBindAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
     if (response.getCode() != SdkError.SUCCESS.getNumber()) {
       throw response.getException();
     }
@@ -111,7 +115,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
 
   @Override
   public OperationResponse updateAXN(UpdateAXNRequest request) throws Exception {
-    RawResponse response = query("UpdateAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
+    RawResponse response = formPost("UpdateAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
     if (response.getCode() != SdkError.SUCCESS.getNumber()) {
       throw response.getException();
     }
@@ -120,7 +124,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
 
   @Override
   public OperationResponse unbindAXN(SpecificSubIdRequest request) throws Exception {
-    RawResponse response = query("UnbindAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
+    RawResponse response = formPost("UnbindAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
     if (response.getCode() != SdkError.SUCCESS.getNumber()) {
       throw response.getException();
     }
@@ -129,7 +133,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
 
   @Override
   public Click2CallResponse click2Call(Click2CallRequest request) throws Exception {
-    RawResponse response = query("Click2Call", Utils.mapToPairList(Utils.paramsToMap(request)));
+    RawResponse response = formPost("Click2Call", Utils.mapToPairList(Utils.paramsToMap(request)));
     if (response.getCode() != SdkError.SUCCESS.getNumber()) {
       throw response.getException();
     }
@@ -138,7 +142,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
 
   @Override
   public OperationResponse cancelClick2Call(CancelClick2CallRequest request) throws Exception {
-    RawResponse response = query("CancelClick2Call", Utils.mapToPairList(Utils.paramsToMap(request)));
+    RawResponse response = formPost("CancelClick2Call", Utils.mapToPairList(Utils.paramsToMap(request)));
     if (response.getCode() != SdkError.SUCCESS.getNumber()) {
       throw response.getException();
     }
@@ -147,7 +151,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
 
     @Override
     public SecretBindResponse bindAXNE(BindAXNERequest request) throws Exception {
-        RawResponse response = query("BindAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPost("BindAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -156,7 +160,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
 
     @Override
     public OperationResponse unbindAXNE(SpecificSubIdRequest request) throws Exception {
-        RawResponse response = query("UnbindAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPost("UnbindAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -165,7 +169,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
 
     @Override
     public OperationResponse updateAXNE(UpdateAXNERequest request) throws Exception {
-        RawResponse response = query("UpdateAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPost("UpdateAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -174,7 +178,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
 
     @Override
     public SecretBindResponse bindAXBForAXNE(BindAXBForAXNERequest request) throws Exception {
-        RawResponse response = query("BindAXBForAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPost("BindAXBForAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -183,7 +187,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
 
     @Override
     public SecretBindResponse bindAXYB(BindAXYBRequest request) throws Exception {
-        RawResponse response = query("BindAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPost("BindAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -192,7 +196,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
 
     @Override
     public SecretBindResponse bindYBForAXYB(BindYBForAXYBRequest request) throws Exception {
-        RawResponse response = query("BindYBForAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPost("BindYBForAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -201,7 +205,7 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
 
     @Override
     public OperationResponse unbindAXYB(SpecificSubIdRequest request) throws Exception {
-        RawResponse response = query("UnbindAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPost("UnbindAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -210,11 +214,14 @@ public class SecretNumberServiceImpl extends BaseServiceImpl implements ISecretN
 
     @Override
     public OperationResponse updateAXYB(UpdateAXYBRequest request) throws Exception {
-        RawResponse response = query("UpdateAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPost("UpdateAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         return JSON.parseObject(response.getData(), OperationResponse.class);
     }
 
+    private RawResponse formPost(String api, List<NameValuePair> nameValuePairs) {
+        return post(api, Collections.emptyList(), nameValuePairs);
+    }
 }

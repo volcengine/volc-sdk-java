@@ -20,7 +20,7 @@ public class VideoAIoTImplTest extends TestCase {
 
     private VideoAIoTService videoAIoTService = VideoAIoTServiceImpl.getInstance();
     private final String accessKey = "ak";
-    private final String secretKey = "sk";
+    private final String secretKey = "sk==";
 
     {
         videoAIoTService.setAccessKey(accessKey);
@@ -710,6 +710,159 @@ public class VideoAIoTImplTest extends TestCase {
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+
+
+
+    public void testPTZ() throws InterruptedException {
+        DeviceCloudControlRequest deviceCloudControlRequest = new DeviceCloudControlRequest();
+        deviceCloudControlRequest.setDeviceNSID("34020008991180978871");
+        deviceCloudControlRequest.setAction(DeviceCloudControlRequest.ACTION_PTZ);
+        deviceCloudControlRequest.setChannelID("34020000001320000005");
+        deviceCloudControlRequest.setParam(51);
+        deviceCloudControlRequest.setCmd(DeviceCloudControlRequest.PtzCmdUp);
+        deviceCloudControlRequest.setSipID("34020000002000000001");
+        try {
+            RawResponse rawResponse = videoAIoTService.cloudControl(deviceCloudControlRequest);
+            System.out.println(JSON.toJSONString(rawResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Thread.sleep(2000);
+        deviceCloudControlRequest = new DeviceCloudControlRequest();
+        deviceCloudControlRequest.setDeviceNSID("34020008991180978871");
+        deviceCloudControlRequest.setAction(DeviceCloudControlRequest.ACTION_PTZ);
+        deviceCloudControlRequest.setChannelID("34020000001320000005");
+        deviceCloudControlRequest.setParam(51);
+        deviceCloudControlRequest.setCmd(DeviceCloudControlRequest.PtzCmdStop);
+        deviceCloudControlRequest.setSipID("34020000002000000001");
+        try {
+            RawResponse rawResponse = videoAIoTService.cloudControl(deviceCloudControlRequest);
+            System.out.println(JSON.toJSONString(rawResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void testFi() throws InterruptedException {
+        DeviceCloudControlRequest deviceCloudControlRequest = new DeviceCloudControlRequest();
+        deviceCloudControlRequest.setDeviceNSID("34020008991180978871");
+        deviceCloudControlRequest.setAction(DeviceCloudControlRequest.ACTION_FI);
+        deviceCloudControlRequest.setChannelID("34020000001320000005");
+        deviceCloudControlRequest.setParam(51);
+        deviceCloudControlRequest.setCmd(DeviceCloudControlRequest.FiCmdFocusFar);
+        deviceCloudControlRequest.setSipID("34020000002000000001");
+        try {
+            videoAIoTService.cloudControl(deviceCloudControlRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Thread.sleep(2000);
+        deviceCloudControlRequest = new DeviceCloudControlRequest();
+        deviceCloudControlRequest.setDeviceNSID("34020008991180978871");
+        deviceCloudControlRequest.setAction(DeviceCloudControlRequest.ACTION_FI);
+        deviceCloudControlRequest.setChannelID("34020000001320000005");
+        deviceCloudControlRequest.setParam(51);
+        deviceCloudControlRequest.setCmd(DeviceCloudControlRequest.FiCmdStop);
+        deviceCloudControlRequest.setSipID("34020000002000000001");
+        try {
+            RawResponse rawResponse = videoAIoTService.cloudControl(deviceCloudControlRequest);
+            System.out.println(JSON.toJSONString(rawResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    int presetID = 15;
+
+    public void testAddPreset() {
+        DeviceCloudControlRequest deviceCloudControlRequest = new DeviceCloudControlRequest();
+        deviceCloudControlRequest.setCmd(DeviceCloudControlRequest.PresetCmdSet);
+        deviceCloudControlRequest.setDeviceNSID("34020008991180978871");
+        deviceCloudControlRequest.setAction(DeviceCloudControlRequest.ACTION_PRESET);
+        deviceCloudControlRequest.setChannelID("34020000001320000005");
+        deviceCloudControlRequest.setParam(presetID);
+        deviceCloudControlRequest.setSipID("34020000002000000001");
+
+        try {
+            videoAIoTService.cloudControl(deviceCloudControlRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testRMPreset() {
+        DeviceCloudControlRequest deviceCloudControlRequest = new DeviceCloudControlRequest();
+        deviceCloudControlRequest.setCmd(DeviceCloudControlRequest.PresetCmdRemove);
+        deviceCloudControlRequest.setDeviceNSID("34020008991180978871");
+        deviceCloudControlRequest.setAction(DeviceCloudControlRequest.ACTION_PRESET);
+        deviceCloudControlRequest.setChannelID("34020000001320000005");
+        deviceCloudControlRequest.setParam(presetID);
+        deviceCloudControlRequest.setSipID("34020000002000000001");
+
+        try {
+            videoAIoTService.cloudControl(deviceCloudControlRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testQueryPreset() {
+        DeviceQueryPresetRequest request = new DeviceQueryPresetRequest();
+        request.setChannelID("34020000001320000005");
+        request.setSipID("34020000002000000001");
+        request.setTimeout(5);
+        request.setDeviceID("34020008991180978871");
+        try {
+            DeviceQueryPresetResponse deviceQueryPresetResponse = videoAIoTService.queryPresetInfo(request);
+            System.out.println(JSON.toJSONString(deviceQueryPresetResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void testStartStreamRecord() {
+        StreamStartRecordRequest streamStartRecordRequest = new StreamStartRecordRequest();
+        streamStartRecordRequest.setStreamID("00dfc04b-8775-4728-b8f6-4e84130d4074");
+        streamStartRecordRequest.setRecordTime(100);
+        streamStartRecordRequest.setTimeout(10);
+        streamStartRecordRequest.setExpire(0);
+        streamStartRecordRequest.setAutoPull(true);
+
+        try {
+            IDResponse idResponse = videoAIoTService.streamStartRecord(streamStartRecordRequest);
+            System.out.println(JSON.toJSONString(idResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testStop() {
+//        VideoAIoTConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1).setHost("volcengineapi-boe-stable.byted.org");
+//        videoAIoTService.setAccessKey("");
+//        videoAIoTService.setSecretKey("");
+
+        try {
+            RawResponse idResponse = videoAIoTService.streamStopRecord("record0kripz9qx");
+            System.out.println(JSON.toJSONString(idResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testGet() {
+//        VideoAIoTConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1).setHost("volcengineapi-boe-stable.byted.org");
+//        videoAIoTService.setAccessKey("ak");
+//        videoAIoTService.setSecretKey("sk==");
+
+        try {
+            GetStreamRecordResponse idResponse = videoAIoTService.getStreamRecord("record0kripz9qx");
+            System.out.println(JSON.toJSONString(idResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

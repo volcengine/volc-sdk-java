@@ -1,5 +1,8 @@
 Change log
 
+2023-02-02 Bumped to version v1.0.82
+- Updated apis for vms/ocr/livesaas/sms
+
 2023-01-19 Bumped to version v1.0.81
 - Updated apis for live/video_aiot
 - Fixed the credential error when use multi instances.

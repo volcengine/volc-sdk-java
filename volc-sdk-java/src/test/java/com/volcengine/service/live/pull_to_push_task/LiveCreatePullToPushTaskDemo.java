@@ -16,19 +16,20 @@ public class LiveCreatePullToPushTaskDemo {
         liveService.setSecretKey("");
 
         try {
-            CreatePullToPushTaskRequest cp = new CreatePullToPushTaskRequest();
-            cp.setTitle("");
-            cp.setStartTime(0l);
-            cp.setEndTime(0l);
-            cp.setCallbackURL("");
-            cp.setType(0);
-            cp.setCycleMode(0);
-            cp.setDstAddr("");
-            cp.setSrcAddr("");
-            cp.setSrcAddrS(new String[]{""});
+             CreatePullToPushTaskRequest cp = new CreatePullToPushTaskRequest();
+             cp.setTitle("");
+             cp.setStartTime(0l);
+             cp.setEndTime(0l);
+             cp.setCallbackURL("");
+             cp.setType(0);
+             cp.setCycleMode(0);
+             cp.setDstAddr("");
+             cp.setSrcAddr("");
+             cp.setSrcAddrS(new String[]{""});
             com.volcengine.service.live.model.response.CreatePullToPushTaskResponse resp = liveService.createPullToPushTask(cp);
 
             if (resp.getResponseMetadata().hasError()) {
+
                 System.out.println(resp);
                 System.out.println(resp.getResponseMetadata().getError());
                 System.exit(-1);

@@ -13,10 +13,10 @@ public class ListVQScoreTaskRequest {
   private String EndTime;
 
   @JSONField(name = "PageNum")
-  private long PageNum;
+  private Long PageNum;
 
   @JSONField(name = "PageSize")
-  private long PageSize;
+  private Long PageSize;
 
   @JSONField(name = "Status")
   private Integer Status;

@@ -4,13 +4,14 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Map;
 
 @Data
-public class DelActivityAntidirtRequest {
+public class ListRedPacketDataAPIRequest {
     @JSONField(name = "ActivityId")
     Long ActivityId;
-    @JSONField(name = "WordList")
-    List<String> WordList;
-    @JSONField(name = "DeleteAll")
-    Boolean DeleteAll;
+    @JSONField(name = "PageNo")
+    Integer PageNo;
+    @JSONField(name = "PageItemCount")
+    Integer PageItemCount;
 }

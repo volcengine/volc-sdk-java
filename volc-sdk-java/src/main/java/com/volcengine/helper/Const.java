@@ -256,6 +256,38 @@ public class Const {
 
     public static final String AnalysisUserBehaviorPeople = "AnalysisUserBehaviorPeople";
 
+    public static final String GetAwardRecordStatisticsAPI = "GetAwardRecordStatisticsAPI";
+
+    public static final String ListQuizRecordAPI = "ListQuizRecordAPI";
+
+    public static final String ListQuizStatisticsAPI = "ListQuizStatisticsAPI";
+
+    public static final String GetQuizDataAPI = "GetQuizDataAPI";
+
+    public static final String GetTaskAwardItemListAPI = "GetTaskAwardItemListAPI";
+
+    public static final String GetTaskAwardRecordStatisticsAPI = "GetTaskAwardRecordStatisticsAPI";
+
+    public static final String GetCheckInListAPI = "GetCheckInListAPI";
+
+    public static final String GetCheckInRecordStatisticsAPI = "GetCheckInRecordStatisticsAPI";
+
+    public static final String ListRedPacketDataAPI = "ListRedPacketDataAPI";
+
+    public static final String ListRedPacketRecordAPI = "ListRedPacketRecordAPI";
+
+    public static final String GetAwardConfigListAPI = "GetAwardConfigListAPI";
+
+    public static final String GetVoteListAPI = "GetVoteListAPI";
+
+    public static final String GetVoteStatisticsAPI = "GetVoteStatisticsAPI";
+
+    public static final String GetAccountTemplateAPI = "GetAccountTemplateAPI";
+
+    public static final String UpdateAccountTemplateStatusAPI = "UpdateAccountTemplateStatusAPI";
+
+    public static final String UpdateDefaultTemplateStatusAPI = "UpdateDefaultTemplateStatusAPI";
+
     // translate
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";

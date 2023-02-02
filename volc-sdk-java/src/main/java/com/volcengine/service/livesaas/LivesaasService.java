@@ -672,4 +672,148 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     AnalysisUserBehaviorPeopleResponse analysisUserBehaviorPeople(AnalysisUserBehaviorPeopleRequest analysisUserBehaviorPeopleRequest) throws Exception;
+
+    /**
+     * GetAwardRecordStatisticsAPI
+     *
+     * @param getAwardRecordStatisticsAPIRequest GetAwardRecordStatisticsAPIRequest
+     * @return GetAwardRecordStatisticsAPIResponse
+     * @throws Exception the exception
+     */
+    GetAwardRecordStatisticsAPIResponse getAwardRecordStatisticsAPI(GetAwardRecordStatisticsAPIRequest getAwardRecordStatisticsAPIRequest) throws Exception;
+
+    /**
+     * ListQuizRecordAPI
+     *
+     * @param listQuizRecordAPIRequest ListQuizRecordAPIRequest
+     * @return ListQuizRecordAPIResponse
+     * @throws Exception the exception
+     */
+    ListQuizRecordAPIResponse listQuizRecordAPI(ListQuizRecordAPIRequest listQuizRecordAPIRequest) throws Exception;
+
+    /**
+     * ListQuizStatisticsAPI
+     *
+     * @param listQuizStatisticsAPIRequest ListQuizStatisticsAPIRequest
+     * @return ListQuizStatisticsAPIResponse
+     * @throws Exception the exception
+     */
+    ListQuizStatisticsAPIResponse listQuizStatisticsAPI(ListQuizStatisticsAPIRequest listQuizStatisticsAPIRequest) throws Exception;
+
+    /**
+     * GetQuizDataAPI
+     *
+     * @param getQuizDataAPIRequest GetQuizDataAPIRequest
+     * @return GetQuizDataAPIResponse
+     * @throws Exception the exception
+     */
+    GetQuizDataAPIResponse getQuizDataAPI(GetQuizDataAPIRequest getQuizDataAPIRequest) throws Exception;
+
+    /**
+     * GetTaskAwardItemListAPI
+     *
+     * @param getTaskAwardItemListAPIRequest GetTaskAwardItemListAPIRequest
+     * @return GetTaskAwardItemListAPIResponse
+     * @throws Exception the exception
+     */
+    GetTaskAwardItemListAPIResponse getTaskAwardItemListAPI(GetTaskAwardItemListAPIRequest getTaskAwardItemListAPIRequest) throws Exception;
+
+    /**
+     * GetTaskAwardRecordStatisticsAPI
+     *
+     * @param getTaskAwardRecordStatisticsAPIRequest GetTaskAwardRecordStatisticsAPIRequest
+     * @return GetTaskAwardRecordStatisticsAPIResponse
+     * @throws Exception the exception
+     */
+    GetTaskAwardRecordStatisticsAPIResponse getTaskAwardRecordStatisticsAPI(GetTaskAwardRecordStatisticsAPIRequest getTaskAwardRecordStatisticsAPIRequest) throws Exception;
+
+    /**
+     * GetCheckInListAPI
+     *
+     * @param getCheckInListAPIRequest GetCheckInListAPIRequest
+     * @return GetCheckInListAPIResponse
+     * @throws Exception the exception
+     */
+    GetCheckInListAPIResponse getCheckInListAPI(GetCheckInListAPIRequest getCheckInListAPIRequest) throws Exception;
+
+    /**
+     * GetCheckInRecordStatisticsAPI
+     *
+     * @param getCheckInRecordStatisticsAPIRequest GetCheckInRecordStatisticsAPIRequest
+     * @return GetCheckInRecordStatisticsAPIResponse
+     * @throws Exception the exception
+     */
+    GetCheckInRecordStatisticsAPIResponse getCheckInRecordStatisticsAPI(GetCheckInRecordStatisticsAPIRequest getCheckInRecordStatisticsAPIRequest) throws Exception;
+
+    /**
+     * ListRedPacketDataAPI
+     *
+     * @param listRedPacketDataAPIRequest ListRedPacketDataAPIRequest
+     * @return ListRedPacketDataAPIResponse
+     * @throws Exception the exception
+     */
+    ListRedPacketDataAPIResponse listRedPacketDataAPI(ListRedPacketDataAPIRequest listRedPacketDataAPIRequest) throws Exception;
+
+    /**
+     * ListRedPacketRecordAPI
+     *
+     * @param listRedPacketRecordAPIRequest ListRedPacketRecordAPIRequest
+     * @return ListRedPacketRecordAPIResponse
+     * @throws Exception the exception
+     */
+    ListRedPacketRecordAPIResponse listRedPacketRecordAPI(ListRedPacketRecordAPIRequest listRedPacketRecordAPIRequest) throws Exception;
+
+    /**
+     * GetAwardConfigListAPI
+     *
+     * @param getAwardConfigListAPIRequest GetAwardConfigListAPIRequest
+     * @return GetAwardConfigListAPIResponse
+     * @throws Exception the exception
+     */
+    GetAwardConfigListAPIResponse getAwardConfigListAPI(GetAwardConfigListAPIRequest getAwardConfigListAPIRequest) throws Exception;
+
+    /**
+     * GetVoteListAPI
+     *
+     * @param getVoteListAPIRequest GetVoteListAPIRequest
+     * @return GetVoteListAPIResponse
+     * @throws Exception the exception
+     */
+    GetVoteListAPIResponse getVoteListAPI(GetVoteListAPIRequest getVoteListAPIRequest) throws Exception;
+
+    /**
+     * GetVoteStatisticsAPI
+     *
+     * @param getVoteStatisticsAPIRequest GetVoteStatisticsAPIRequest
+     * @return GetVoteStatisticsAPIResponse
+     * @throws Exception the exception
+     */
+    GetVoteStatisticsAPIResponse getVoteStatisticsAPI(GetVoteStatisticsAPIRequest getVoteStatisticsAPIRequest) throws Exception;
+
+    /**
+     * GetAccountTemplateAPI
+     *
+     * @param getAccountTemplateAPIRequest GetAccountTemplateAPIRequest
+     * @return GetAccountTemplateAPIResponse
+     * @throws Exception the exception
+     */
+    GetAccountTemplateAPIResponse getAccountTemplateAPI(GetAccountTemplateAPIRequest getAccountTemplateAPIRequest) throws Exception;
+
+    /**
+     * UpdateAccountTemplateStatusAPI
+     *
+     * @param updateAccountTemplateStatusAPIRequest UpdateAccountTemplateStatusAPIRequest
+     * @return UpdateAccountTemplateStatusAPIResponse
+     * @throws Exception the exception
+     */
+    UpdateAccountTemplateStatusAPIResponse updateAccountTemplateStatusAPI(UpdateAccountTemplateStatusAPIRequest updateAccountTemplateStatusAPIRequest) throws Exception;
+
+    /**
+     * UpdateDefaultTemplateStatusAPI
+     *
+     * @param updateDefaultTemplateStatusAPIRequest UpdateDefaultTemplateStatusAPIRequest
+     * @return UpdateDefaultTemplateStatusAPIResponse
+     * @throws Exception the exception
+     */
+    UpdateDefaultTemplateStatusAPIResponse updateDefaultTemplateStatusAPI(UpdateDefaultTemplateStatusAPIRequest updateDefaultTemplateStatusAPIRequest) throws Exception;
 }

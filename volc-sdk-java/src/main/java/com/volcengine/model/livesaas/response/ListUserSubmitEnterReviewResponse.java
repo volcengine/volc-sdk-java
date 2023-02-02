@@ -28,19 +28,35 @@ public class ListUserSubmitEnterReviewResponse {
 
     @Data
     public static class UserFormRecord {
+        @JSONField(name = "ReviewStatus")
+        Integer ReviewStatus;
         @JSONField(name = "UserFormID")
         Long UserFormID;
+        @JSONField(name = "UserAgent")
+        String UserAgent;
         @JSONField(name = "EnterName")
         String EnterName;
         @JSONField(name = "EnterTel")
         String EnterTel;
-        @JSONField(name = "ReviewStatus")
-        Integer ReviewStatus;
-        @JSONField(name = "UserId")
-        Long UserId;
+        @JSONField(name = "IsWatchLive")
+        Integer IsWatchLive;
+        @JSONField(name = "WatchActivityTime")
+        Long WatchActivityTime;
+        @JSONField(name = "UserTel")
+        String UserTel;
         @JSONField(name = "NickName")
         String NickName;
         @JSONField(name = "EnterTime")
         Long EnterTime;
+        @JSONField(name = "ExternalId")
+        String ExternalId;
+        @JSONField(name = "Ip")
+        String Ip;
+        @JSONField(name = "UserId")
+        Long UserId;
+        @JSONField(name = "Extra")
+        String Extra;
+        @JSONField(name = "Email")
+        String Email;
     }
 }

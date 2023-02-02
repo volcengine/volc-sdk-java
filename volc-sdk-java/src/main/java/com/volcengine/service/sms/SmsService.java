@@ -16,6 +16,8 @@ public interface SmsService extends IBaseService {
 
     SmsSendResponse sendV2(SmsSendRequest smsSendRequest) throws Exception;
 
+    SmsSendResponse sendVms(SmsSendRequest smsSendRequest) throws Exception;
+
 
     /**
      * SmsBatchSend.
@@ -94,6 +96,12 @@ public interface SmsService extends IBaseService {
      */
     ApplySmsTemplateResponse applySmsTemplate(ApplySmsTemplateRequest applySmsTemplateRequest) throws Exception;
 
+    ApplySmsTemplateResponse ApplyVmsTemplate(ApplyVmsTemplateRequest applyVmsTemplateRequest) throws Exception;
+
+
+    ApplySmsTemplateResponse GetVmsTemplateStatus(GetVmsTemplateStatusRequest applyVmsTemplateRequest) throws Exception;
+
+
     /**
      * DeleteSmsTemplate
      *
@@ -129,4 +137,6 @@ public interface SmsService extends IBaseService {
      * @throws Exception
      */
     DeleteSignatureResponse deleteSmsSignature(DeleteSignatureRequest deleteSignatureRequest) throws Exception;
+
+
 }

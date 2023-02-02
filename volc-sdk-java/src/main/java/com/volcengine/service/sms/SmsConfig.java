@@ -137,6 +137,20 @@ public class SmsConfig {
                         }
                     }
             ));
+            put("GetVmsTemplateStatus", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetVmsTemplateStatus"));
+                                    add(new BasicNameValuePair("Version", "2021-01-11"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put("ApplySmsTemplate", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -145,6 +159,20 @@ public class SmsConfig {
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", "ApplySmsTemplate"));
+                                    add(new BasicNameValuePair("Version", "2021-01-11"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("ApplyVmsTemplate", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ApplyVmsTemplate"));
                                     add(new BasicNameValuePair("Version", "2021-01-11"));
                                 }
                             });

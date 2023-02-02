@@ -1162,4 +1162,244 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public GetAwardRecordStatisticsAPIResponse getAwardRecordStatisticsAPI(GetAwardRecordStatisticsAPIRequest getAwardRecordStatisticsAPIRequest) throws Exception {
+        RawResponse response = query(Const.GetAwardRecordStatisticsAPI, Utils.paramsToPair(getAwardRecordStatisticsAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetAwardRecordStatisticsAPIResponse res = JSON.parseObject(response.getData(), GetAwardRecordStatisticsAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListQuizRecordAPIResponse listQuizRecordAPI(ListQuizRecordAPIRequest listQuizRecordAPIRequest) throws Exception {
+        RawResponse response = query(Const.ListQuizRecordAPI, Utils.paramsToPair(listQuizRecordAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListQuizRecordAPIResponse res = JSON.parseObject(response.getData(), ListQuizRecordAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListQuizStatisticsAPIResponse listQuizStatisticsAPI(ListQuizStatisticsAPIRequest listQuizStatisticsAPIRequest) throws Exception {
+        RawResponse response = query(Const.ListQuizStatisticsAPI, Utils.paramsToPair(listQuizStatisticsAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListQuizStatisticsAPIResponse res = JSON.parseObject(response.getData(), ListQuizStatisticsAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetQuizDataAPIResponse getQuizDataAPI(GetQuizDataAPIRequest getQuizDataAPIRequest) throws Exception {
+        RawResponse response = query(Const.GetQuizDataAPI, Utils.paramsToPair(getQuizDataAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetQuizDataAPIResponse res = JSON.parseObject(response.getData(), GetQuizDataAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetTaskAwardItemListAPIResponse getTaskAwardItemListAPI(GetTaskAwardItemListAPIRequest getTaskAwardItemListAPIRequest) throws Exception {
+        RawResponse response = query(Const.GetTaskAwardItemListAPI, Utils.paramsToPair(getTaskAwardItemListAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetTaskAwardItemListAPIResponse res = JSON.parseObject(response.getData(), GetTaskAwardItemListAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetTaskAwardRecordStatisticsAPIResponse getTaskAwardRecordStatisticsAPI(GetTaskAwardRecordStatisticsAPIRequest getTaskAwardRecordStatisticsAPIRequest) throws Exception {
+        RawResponse response = query(Const.GetTaskAwardRecordStatisticsAPI, Utils.paramsToPair(getTaskAwardRecordStatisticsAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetTaskAwardRecordStatisticsAPIResponse res = JSON.parseObject(response.getData(), GetTaskAwardRecordStatisticsAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetCheckInListAPIResponse getCheckInListAPI(GetCheckInListAPIRequest getCheckInListAPIRequest) throws Exception {
+        RawResponse response = query(Const.GetCheckInListAPI, Utils.paramsToPair(getCheckInListAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetCheckInListAPIResponse res = JSON.parseObject(response.getData(), GetCheckInListAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetCheckInRecordStatisticsAPIResponse getCheckInRecordStatisticsAPI(GetCheckInRecordStatisticsAPIRequest getCheckInRecordStatisticsAPIRequest) throws Exception {
+        RawResponse response = query(Const.GetCheckInRecordStatisticsAPI, Utils.paramsToPair(getCheckInRecordStatisticsAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetCheckInRecordStatisticsAPIResponse res = JSON.parseObject(response.getData(), GetCheckInRecordStatisticsAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListRedPacketDataAPIResponse listRedPacketDataAPI(ListRedPacketDataAPIRequest listRedPacketDataAPIRequest) throws Exception {
+        RawResponse response = query(Const.ListRedPacketDataAPI, Utils.paramsToPair(listRedPacketDataAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListRedPacketDataAPIResponse res = JSON.parseObject(response.getData(), ListRedPacketDataAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListRedPacketRecordAPIResponse listRedPacketRecordAPI(ListRedPacketRecordAPIRequest listRedPacketRecordAPIRequest) throws Exception {
+        RawResponse response = query(Const.ListRedPacketRecordAPI, Utils.paramsToPair(listRedPacketRecordAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListRedPacketRecordAPIResponse res = JSON.parseObject(response.getData(), ListRedPacketRecordAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetAwardConfigListAPIResponse getAwardConfigListAPI(GetAwardConfigListAPIRequest getAwardConfigListAPIRequest) throws Exception {
+        RawResponse response = query(Const.GetAwardConfigListAPI, Utils.paramsToPair(getAwardConfigListAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetAwardConfigListAPIResponse res = JSON.parseObject(response.getData(), GetAwardConfigListAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetVoteListAPIResponse getVoteListAPI(GetVoteListAPIRequest getVoteListAPIRequest) throws Exception {
+        RawResponse response = query(Const.GetVoteListAPI, Utils.paramsToPair(getVoteListAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetVoteListAPIResponse res = JSON.parseObject(response.getData(), GetVoteListAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetVoteStatisticsAPIResponse getVoteStatisticsAPI(GetVoteStatisticsAPIRequest getVoteStatisticsAPIRequest) throws Exception {
+        RawResponse response = query(Const.GetVoteStatisticsAPI, Utils.paramsToPair(getVoteStatisticsAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetVoteStatisticsAPIResponse res = JSON.parseObject(response.getData(), GetVoteStatisticsAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetAccountTemplateAPIResponse getAccountTemplateAPI(GetAccountTemplateAPIRequest getAccountTemplateAPIRequest) throws Exception {
+        RawResponse response = query(Const.GetAccountTemplateAPI, Utils.paramsToPair(getAccountTemplateAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetAccountTemplateAPIResponse res = JSON.parseObject(response.getData(), GetAccountTemplateAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateAccountTemplateStatusAPIResponse updateAccountTemplateStatusAPI(UpdateAccountTemplateStatusAPIRequest updateAccountTemplateStatusAPIRequest) throws Exception {
+        RawResponse response = json(Const.UpdateAccountTemplateStatusAPI, new ArrayList<>(), JSON.toJSONString(updateAccountTemplateStatusAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateAccountTemplateStatusAPIResponse res = JSON.parseObject(response.getData(), UpdateAccountTemplateStatusAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateDefaultTemplateStatusAPIResponse updateDefaultTemplateStatusAPI(UpdateDefaultTemplateStatusAPIRequest updateDefaultTemplateStatusAPIRequest) throws Exception {
+        RawResponse response = json(Const.UpdateDefaultTemplateStatusAPI, new ArrayList<>(), JSON.toJSONString(updateDefaultTemplateStatusAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateDefaultTemplateStatusAPIResponse res = JSON.parseObject(response.getData(), UpdateDefaultTemplateStatusAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

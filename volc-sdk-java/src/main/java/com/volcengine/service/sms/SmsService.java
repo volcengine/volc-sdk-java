@@ -70,6 +70,33 @@ public interface SmsService extends IBaseService {
     GetSubAccountListResponse getSubAccountList(GetSubAccountListRequest getSubAccountListRequest) throws Exception;
 
     /**
+     * EditMultiReplyConfig
+     *
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    EditMultiReplyConfigResponse editMultiReplyConfig(EditMultiReplyConfigRequest request) throws Exception;
+
+    /**
+     * GetRelyConfig
+     *
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    GetRelyConfigResponse getRelyConfig(GetRelyConfigRequest request) throws Exception;
+
+    /**
+     * InsertSubAccount
+     *
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    InsertSubAccountResponse insertSubAccount(InsertSubAccountRequest request) throws Exception;
+
+    /**
      * GetSubAccountDetail
      *
      * @param subAccountRequest
@@ -85,7 +112,8 @@ public interface SmsService extends IBaseService {
      * @return
      * @throws Exception
      */
-    GetSmsTemplateAndOrderListResponse getSmsTemplateAndOrderList(GetSmsTemplateAndOrderListRequest getSmsTemplateAndOrderListRequest) throws Exception;
+    GetSmsTemplateAndOrderListResponse getSmsTemplateAndOrderList(
+        GetSmsTemplateAndOrderListRequest getSmsTemplateAndOrderListRequest) throws Exception;
 
     /**
      * ApplySmsTemplate
@@ -118,7 +146,8 @@ public interface SmsService extends IBaseService {
      * @return
      * @throws Exception
      */
-    GetSignatureAndOrderListResponse getSmsSignatureAndOrderList(GetSignatureAndOrderListRequest getSignatureAndOrderListRequest) throws Exception;
+    GetSignatureAndOrderListResponse getSmsSignatureAndOrderList(
+        GetSignatureAndOrderListRequest getSignatureAndOrderListRequest) throws Exception;
 
     /**
      * ApplySmsSignature

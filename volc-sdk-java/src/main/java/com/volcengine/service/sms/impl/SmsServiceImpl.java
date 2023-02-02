@@ -26,6 +26,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     private SmsServiceImpl() {
         super(SmsConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), SmsConfig.apiInfoList);
     }
+
     private SmsServiceImpl(ServiceInfo serviceInfo) {
         super(serviceInfo, SmsConfig.apiInfoList);
     }
@@ -61,7 +62,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     @Override
     public SmsSendResponse send(SmsSendRequest smsSendRequest) throws Exception {
         RawResponse response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
-        if(response.getCode() == SdkError.EHTTP.getNumber()){
+        if (response.getCode() == SdkError.EHTTP.getNumber()) {
             response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
         }
         return getSmsSendResponse(response);
@@ -88,11 +89,12 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     @Override
     public SmsSendResponse batchSend(SmsBatchSendRequest smsBatchSendRequest) throws Exception {
         RawResponse response = json("SendBatchSms", new ArrayList<>(), JSON.toJSONString(smsBatchSendRequest));
-        if(response.getCode() == SdkError.EHTTP.getNumber()){
+        if (response.getCode() == SdkError.EHTTP.getNumber()) {
             response = json("SendBatchSms", new ArrayList<>(), JSON.toJSONString(smsBatchSendRequest));
         }
         return getSmsSendResponse(response);
     }
+
 
     @Override
     public SmsSendResponse batchSendV2(SmsBatchSendRequest smsBatchSendRequest) throws Exception {
@@ -104,7 +106,8 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     }
     @Override
     public SmsSendResponse sendVerifyCode(SmsSendVerifyCodeRequest smsSendVerifyCodeRequest) throws Exception {
-        RawResponse response = json("SendSmsVerifyCode", new ArrayList<>(), JSON.toJSONString(smsSendVerifyCodeRequest));
+        RawResponse response =
+            json("SendSmsVerifyCode", new ArrayList<>(), JSON.toJSONString(smsSendVerifyCodeRequest));
         return getSmsSendResponse(response);
     }
 
@@ -115,8 +118,10 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     }
 
     @Override
-    public SmsCheckVerifyCodeResponse checkVerifyCode(SmsCheckVerifyCodeRequest smsCheckVerifyCodeRequest) throws Exception {
-        RawResponse response = json("CheckSmsVerifyCode", new ArrayList<>(), JSON.toJSONString(smsCheckVerifyCodeRequest));
+    public SmsCheckVerifyCodeResponse checkVerifyCode(SmsCheckVerifyCodeRequest smsCheckVerifyCodeRequest)
+        throws Exception {
+        RawResponse response =
+            json("CheckSmsVerifyCode", new ArrayList<>(), JSON.toJSONString(smsCheckVerifyCodeRequest));
         return getSmsCheckResponse(response);
     }
 
@@ -127,10 +132,30 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     }
 
     @Override
-    public GetSubAccountListResponse getSubAccountList(GetSubAccountListRequest getSubAccountListRequest) throws Exception {
+    public GetSubAccountListResponse getSubAccountList(GetSubAccountListRequest getSubAccountListRequest)
+        throws Exception {
         List<NameValuePair> urlParams = ConvertUtils.convertToPair(getSubAccountListRequest);
         RawResponse response = json("GetSubAccountList", urlParams, "");
         return getSubAccountListResponse(response);
+    }
+
+    @Override
+    public EditMultiReplyConfigResponse editMultiReplyConfig(EditMultiReplyConfigRequest request) throws Exception {
+        RawResponse response = json("EditMultiReplyConfig", new ArrayList<>(), JSON.toJSONString(request));
+        return editMultiReplyConfigResponse(response);
+    }
+
+    @Override
+    public GetRelyConfigResponse getRelyConfig(GetRelyConfigRequest request) throws Exception {
+        List<NameValuePair> urlParams = ConvertUtils.convertToPair(request);
+        RawResponse response = json("GetRelyConfig", urlParams, "");
+        return getRelyConfigResponse(response);
+    }
+
+    @Override
+    public InsertSubAccountResponse insertSubAccount(InsertSubAccountRequest request) throws Exception {
+        RawResponse response = json("InsertSubAccount", new ArrayList<>(), JSON.toJSONString(request));
+        return insertSubAccountResponse(response);
     }
 
     @Override
@@ -141,7 +166,8 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     }
 
     @Override
-    public GetSmsTemplateAndOrderListResponse getSmsTemplateAndOrderList(GetSmsTemplateAndOrderListRequest getSmsTemplateAndOrderListRequest) throws Exception {
+    public GetSmsTemplateAndOrderListResponse getSmsTemplateAndOrderList(
+        GetSmsTemplateAndOrderListRequest getSmsTemplateAndOrderListRequest) throws Exception {
         List<NameValuePair> urlParams = ConvertUtils.convertToPair(getSmsTemplateAndOrderListRequest);
         RawResponse response = json("GetSmsTemplateAndOrderList", urlParams, "");
         return getSmsTemplateAndOrderListResponse(response);
@@ -188,21 +214,26 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
 
 
     @Override
-    public DeleteSmsTemplateResponse deleteSmsTemplate(DeleteSmsTemplateRequest deleteSmsTemplateRequest) throws Exception {
-        RawResponse response = json("DeleteSmsTemplate", new ArrayList<>(), JSON.toJSONString(deleteSmsTemplateRequest));
+    public DeleteSmsTemplateResponse deleteSmsTemplate(DeleteSmsTemplateRequest deleteSmsTemplateRequest)
+        throws Exception {
+        RawResponse response =
+            json("DeleteSmsTemplate", new ArrayList<>(), JSON.toJSONString(deleteSmsTemplateRequest));
         return deleteSmsTemplateResponse(response);
     }
 
     @Override
-    public GetSignatureAndOrderListResponse getSmsSignatureAndOrderList(GetSignatureAndOrderListRequest getSignatureAndOrderListRequest) throws Exception {
+    public GetSignatureAndOrderListResponse getSmsSignatureAndOrderList(
+        GetSignatureAndOrderListRequest getSignatureAndOrderListRequest) throws Exception {
         List<NameValuePair> urlParams = ConvertUtils.convertToPair(getSignatureAndOrderListRequest);
         RawResponse response = json("GetSignatureAndOrderList", urlParams, "");
         return getSignatureAndOrderListResponse(response);
     }
 
     @Override
-    public ApplySmsSignatureResponse applySmsSignature(ApplySmsSignatureRequest applySmsSignatureRequest) throws Exception {
-        RawResponse response = json("ApplySmsSignature", new ArrayList<>(), JSON.toJSONString(applySmsSignatureRequest));
+    public ApplySmsSignatureResponse applySmsSignature(ApplySmsSignatureRequest applySmsSignatureRequest)
+        throws Exception {
+        RawResponse response =
+            json("ApplySmsSignature", new ArrayList<>(), JSON.toJSONString(applySmsSignatureRequest));
         return applySmsSignatureResponse(response);
     }
 
@@ -240,6 +271,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         res.getResponseMetadata().setService("volcSMS");
         return res;
     }
+
     private SmsCheckVerifyCodeResponse getSmsCheckResponse(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -292,11 +324,13 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         return res;
     }
 
-    private GetSmsTemplateAndOrderListResponse getSmsTemplateAndOrderListResponse(RawResponse response) throws Exception {
+    private GetSmsTemplateAndOrderListResponse getSmsTemplateAndOrderListResponse(RawResponse response)
+        throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        GetSmsTemplateAndOrderListResponse res = JSON.parseObject(response.getData(), GetSmsTemplateAndOrderListResponse.class);
+        GetSmsTemplateAndOrderListResponse res =
+            JSON.parseObject(response.getData(), GetSmsTemplateAndOrderListResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
@@ -335,7 +369,8 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        GetSignatureAndOrderListResponse res = JSON.parseObject(response.getData(), GetSignatureAndOrderListResponse.class);
+        GetSignatureAndOrderListResponse res =
+            JSON.parseObject(response.getData(), GetSignatureAndOrderListResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
@@ -362,6 +397,45 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
             throw response.getException();
         }
         DeleteSignatureResponse res = JSON.parseObject(response.getData(), DeleteSignatureResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    private EditMultiReplyConfigResponse editMultiReplyConfigResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        EditMultiReplyConfigResponse res = JSON.parseObject(response.getData(), EditMultiReplyConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    private InsertSubAccountResponse insertSubAccountResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        InsertSubAccountResponse res = JSON.parseObject(response.getData(), InsertSubAccountResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    private GetRelyConfigResponse getRelyConfigResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetRelyConfigResponse res = JSON.parseObject(response.getData(), GetRelyConfigResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());

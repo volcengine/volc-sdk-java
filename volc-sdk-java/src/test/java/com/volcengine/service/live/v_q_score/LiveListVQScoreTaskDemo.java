@@ -19,8 +19,8 @@ public class LiveListVQScoreTaskDemo {
              ListVQScoreTaskRequest req = new ListVQScoreTaskRequest();
             req.setStartTime("your StartTime");
 			req.setEndTime("your EndTime");
-			req.setPageNum(0);
-			req.setPageSize(0);
+			req.setPageNum(0L);
+			req.setPageSize(0L);
 			req.setStatus(0);
 			
             com.volcengine.service.live.model.response.ListVQScoreTaskResponse resp = liveService.listVQScoreTask(req);

@@ -1,6 +1,7 @@
-package com.volcengine.model.response;
+package com.volcengine.model.response.translate;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.response.ResponseMetadata;
 import lombok.Data;
 
 /**

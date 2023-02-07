@@ -101,6 +101,20 @@ public class TranslateConfig {
                         }
                     }
             ));
+            put(Const.GlossaryPublish, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GlossaryPublish));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

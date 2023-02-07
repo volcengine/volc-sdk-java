@@ -1,4 +1,4 @@
-package com.volcengine.model.request;
+package com.volcengine.model.request.translate;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;

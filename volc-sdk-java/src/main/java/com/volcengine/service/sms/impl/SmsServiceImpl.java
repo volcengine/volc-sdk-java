@@ -23,6 +23,8 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
 
     public static final String SourceTypeText = "text/string";
 
+    private static volatile SmsServiceImpl smsServiceImpl;
+
     private SmsServiceImpl() {
         super(SmsConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), SmsConfig.apiInfoList);
     }
@@ -35,8 +37,23 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         super(SmsConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), proxy, SmsConfig.apiInfoList);
     }
 
+    /**
+     * 此方法不是单例，使用的时候需要注意
+     * @return
+     */
     public static SmsService getInstance() {
         return new SmsServiceImpl();
+    }
+
+    public static SmsService getInstanceV2() {
+        if (smsServiceImpl==null){
+            synchronized (SmsServiceImpl.class){
+                if(smsServiceImpl==null){
+                    smsServiceImpl = new SmsServiceImpl();
+                }
+            }
+        }
+        return smsServiceImpl;
     }
 
     public static SmsService getInstance(String region) throws Exception {

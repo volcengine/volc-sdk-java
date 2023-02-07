@@ -1,10 +1,10 @@
 package com.volcengine.example.translate;
 
 import com.alibaba.fastjson.JSON;
-import com.volcengine.model.request.LangDetectRequest;
-import com.volcengine.model.request.TranslateTextRequest;
-import com.volcengine.model.response.LangDetectResponse;
-import com.volcengine.model.response.TranslateTextResponse;
+import com.volcengine.model.request.translate.LangDetectRequest;
+import com.volcengine.model.request.translate.TranslateTextRequest;
+import com.volcengine.model.response.translate.LangDetectResponse;
+import com.volcengine.model.response.translate.TranslateTextResponse;
 import com.volcengine.service.translate.ITranslateService;
 import com.volcengine.service.translate.impl.TranslateServiceImpl;
 

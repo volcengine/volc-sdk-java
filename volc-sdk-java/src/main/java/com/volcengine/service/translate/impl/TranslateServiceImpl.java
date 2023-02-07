@@ -3,8 +3,9 @@ package com.volcengine.service.translate.impl;
 import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
-import com.volcengine.model.request.*;
+import com.volcengine.model.request.translate.*;
 import com.volcengine.model.response.*;
+import com.volcengine.model.response.translate.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.translate.ITranslateService;
 import com.volcengine.service.translate.TranslateConfig;
@@ -89,5 +90,14 @@ public class TranslateServiceImpl extends BaseServiceImpl implements ITranslateS
             throw response.getException();
         }
         return JSON.parseObject(response.getData(), TranslateAudioQueryResponse.class);
+    }
+
+    @Override
+    public GlossaryPublishResponse glossaryPublish(GlossaryPublishRequest glossaryPublishRequest) throws Exception {
+        RawResponse response = json(Const.GlossaryPublish, null, JSON.toJSONString(glossaryPublishRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), GlossaryPublishResponse.class);
     }
 }

@@ -1,7 +1,7 @@
 package com.volcengine.service.translate;
 
-import com.volcengine.model.request.*;
-import com.volcengine.model.response.*;
+import com.volcengine.model.request.translate.*;
+import com.volcengine.model.response.translate.*;
 import com.volcengine.service.IBaseService;
 
 /**
@@ -45,4 +45,12 @@ public interface ITranslateService extends IBaseService {
      * @throws Exception the exception
      */
     TranslateAudioQueryResponse translateAudioQuery(TranslateAudioQueryRequest translateAudioQueryRequest) throws Exception;
+
+    /**
+     *
+     * @param GlossaryPublishRequest glossaryPublish
+     * @return GlossaryPublishResponse
+     * @throws Exception the exception
+     */
+    GlossaryPublishResponse glossaryPublish(GlossaryPublishRequest glossaryPublishRequest) throws Exception;
 }

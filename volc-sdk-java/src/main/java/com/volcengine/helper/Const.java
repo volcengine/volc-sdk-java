@@ -294,6 +294,7 @@ public class Const {
     public static final String TranslateImage = "TranslateImage";
     public static final String TranslateAudioSubmit = "SubmitAudio";
     public static final String TranslateAudioQuery = "QueryAudio";
+    public static final String GlossaryPublish = "GlossaryPublish";
 
     //sign
     public static final String XDate = "X-Date";

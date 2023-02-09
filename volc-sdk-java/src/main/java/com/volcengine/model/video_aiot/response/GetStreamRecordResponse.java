@@ -3,6 +3,8 @@ package com.volcengine.model.video_aiot.response;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
+import java.util.Map;
+
 @Data
 public class GetStreamRecordResponse {
     @JSONField(name = "ResponseMetadata")
@@ -34,5 +36,9 @@ public class GetStreamRecordResponse {
         String url;
         @JSONField(name = "RemuxUrl")
         String remuxUrl;
+        //VideoSize Integer/video size
+        //VideoDuration Integer/video duration
+        @JSONField(name = "Extra")
+        Map<String, Object> extra;
     }
 }

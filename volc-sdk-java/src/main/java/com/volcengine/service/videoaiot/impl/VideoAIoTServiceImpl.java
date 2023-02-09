@@ -720,6 +720,20 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
     }
 
     @Override
+    public DeleteStreamRecordResponse deleteStreamRecord(String recordID) throws Exception {
+        ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>() {
+            {
+                add(new BasicNameValuePair("RecordID", recordID));
+            }
+        };
+        com.volcengine.model.response.RawResponse response = query(Const.AIoTVideoDeleteStreamRecord, nameValuePairs);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), DeleteStreamRecordResponse.class);
+    }
+
+    @Override
     public GetStreamDataResponse getStreamData(GetStreamDataRequest getStreamData) throws Exception {
         com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoGetStreamData, new ArrayList<NameValuePair>() {
             {

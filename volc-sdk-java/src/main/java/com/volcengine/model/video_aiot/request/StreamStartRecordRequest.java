@@ -7,7 +7,7 @@ import lombok.Data;
 public class StreamStartRecordRequest {
     @JSONField(name = "StreamID")
     String streamID;
-    @JSONField(name = "")
+    @JSONField(name = "AutoPull")
     boolean autoPull;
     @JSONField(name = "Timeout")
     int timeout;

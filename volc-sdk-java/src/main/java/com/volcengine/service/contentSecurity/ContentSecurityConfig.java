@@ -269,6 +269,36 @@ public class ContentSecurityConfig {
                         }
                     }
             ));
+
+            put(Const.CloseAudioLiveRisk, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "CloseAudioLive"));
+                                    add(new BasicNameValuePair("Version", "2022-04-25"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put(Const.CloseVideoLiveRisk, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "CloseVideoLive"));
+                                    add(new BasicNameValuePair("Version", "2022-04-25"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
 
         ;

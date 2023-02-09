@@ -165,4 +165,22 @@ public interface ContentSecurityService extends IBaseService {
      * @throws Exception the exception
      */
     TextSliceRiskResponse TextSliceRisk(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+    /**
+     * Close Audio Live
+     *
+     * @param closeAudioLiveRequest text risk detection request
+     * @return code response
+     * @throws Exception the exception
+     */
+    AsyncRiskDetectionResponse CloseAudioLiveRisk(ImageRiskResultRequest closeAudioLiveRequest) throws Exception;
+
+    /**
+     * Close Video Live
+     *
+     * @param closeVideoLiveRequest text risk detection request
+     * @return code response
+     * @throws Exception the exception
+     */
+    AsyncRiskDetectionResponse CloseVideoLiveRisk(ImageRiskResultRequest closeVideoLiveRequest) throws Exception;
 }

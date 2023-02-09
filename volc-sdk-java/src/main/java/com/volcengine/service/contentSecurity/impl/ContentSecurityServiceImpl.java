@@ -200,4 +200,30 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
 
         return JSON.parseObject(response.getData(), TextSliceRiskResponse.class);
     }
+
+    @Override
+    public AsyncRiskDetectionResponse CloseAudioLiveRisk(ImageRiskResultRequest closeAudioLiveRequest) throws Exception {
+        RawResponse response = json(Const.CloseAudioLiveRisk, new ArrayList<>(), JSON.toJSONString(closeAudioLiveRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        String str = new String(response.getData());
+        System.out.println(str);
+
+        return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
+    }
+
+    @Override
+    public AsyncRiskDetectionResponse CloseVideoLiveRisk(ImageRiskResultRequest closeVideoLiveRequest) throws Exception {
+        RawResponse response = json(Const.CloseVideoLiveRisk, new ArrayList<>(), JSON.toJSONString(closeVideoLiveRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        String str = new String(response.getData());
+        System.out.println(str);
+
+        return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
+    }
 }

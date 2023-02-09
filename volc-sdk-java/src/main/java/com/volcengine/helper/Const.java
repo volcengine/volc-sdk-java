@@ -107,6 +107,10 @@ public class Const {
     public static final String AsyncLiveAudioRisk = "AsyncLiveAudioRisk";
     public static final String TextSliceRisk = "TextSliceRisk";
 
+    public static final String CloseVideoLiveRisk = "CloseVideoLiveRisk";
+
+    public static final String CloseAudioLiveRisk = "CloseAudioLiveRisk";
+
     // livesaas
     public static final String ListSiteTagAPIV2 = "ListSiteTagAPIV2";
 

@@ -562,6 +562,7 @@ public class Const {
     public static final String AIoTVideoStreamStartRecord = "StreamStartRecord";
     public static final String AIoTVideoStreamStopRecord = "StreamStopRecord";
     public static final String AIoTVideoGetStreamRecord = "GetStreamRecord";
+    public static final String AIoTVideoDeleteStreamRecord = "DeleteStreamRecord";
 
     public static final String AIoTVideoForbidStream = "ForbidStream";
 

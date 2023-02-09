@@ -666,6 +666,20 @@ public class VideoAIoTConfig {
                         }
                     }
             ));
+            put(Const.AIoTVideoDeleteStreamRecord, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AIoTVideoDeleteStreamRecord));
+                                    add(new BasicNameValuePair("Version", Const.VideoAIoTSDKVersion));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.AIoTVideoUpdateStream, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

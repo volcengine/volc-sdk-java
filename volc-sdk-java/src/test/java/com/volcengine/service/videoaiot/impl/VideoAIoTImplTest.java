@@ -915,4 +915,15 @@ public class VideoAIoTImplTest extends TestCase {
         }
     }
 
+    public void testDelete() {
+//        VideoAIoTConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1).setHost("volcengineapi-boe-stable.byted.org");
+
+        try {
+            DeleteStreamRecordResponse idResponse = videoAIoTService.deleteStreamRecord("record0p30r99xf");
+            System.out.println(JSON.toJSONString(idResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

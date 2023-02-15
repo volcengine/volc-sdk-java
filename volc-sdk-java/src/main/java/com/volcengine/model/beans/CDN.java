@@ -63,15 +63,7 @@ public class CDN {
         ResponseMetadata ResponseMetadata;
 
         @JSONField(name = "Result")
-        AddCdnCertificateResult Result;
-    }
-
-    @Data
-    @Accessors(chain = true)
-    public static class AddCdnCertificateResult {
-
-        @JSONField(name = "AddCdnCertificateResult")
-        String AddCdnCertificateResult;
+        String Result;
     }
 
     @Data
@@ -188,6 +180,9 @@ public class CDN {
 
         @JSONField(name = "Sparrow")
         Sparrow Sparrow;
+
+        @JSONField(name = "Timeout")
+        TimeoutArg Timeout;
 
         @JSONField(name = "UaAccessRule")
         UserAgentAccessRule UaAccessRule;
@@ -1166,11 +1161,17 @@ public class CDN {
     @Accessors(chain = true)
     public static class DescribeContentQuotaResult {
 
+        @JSONField(name = "PreloadLimit")
+        Long PreloadLimit;
+
         @JSONField(name = "PreloadQuota")
         Long PreloadQuota;
 
         @JSONField(name = "PreloadRemain")
         Long PreloadRemain;
+
+        @JSONField(name = "RefreshDirLimit")
+        Long RefreshDirLimit;
 
         @JSONField(name = "RefreshDirQuota")
         Long RefreshDirQuota;
@@ -1180,6 +1181,9 @@ public class CDN {
 
         @JSONField(name = "RefreshQuota")
         Long RefreshQuota;
+
+        @JSONField(name = "RefreshQuotaLimit")
+        Long RefreshQuotaLimit;
 
         @JSONField(name = "RefreshRemain")
         Long RefreshRemain;
@@ -1999,6 +2003,9 @@ public class CDN {
         @JSONField(name = "Status")
         String Status;
 
+        @JSONField(name = "Timeout")
+        TimeoutArg Timeout;
+
         @JSONField(name = "UaAccessRule")
         UserAgentAccessRule UaAccessRule;
 
@@ -2584,6 +2591,9 @@ public class CDN {
         @JSONField(name = "Action")
         String Action;
 
+        @JSONField(name = "IgnoreCase")
+        Boolean IgnoreCase;
+
         @JSONField(name = "StatusCode")
         String StatusCode;
 
@@ -2716,6 +2726,9 @@ public class CDN {
         @JSONField(name = "PrivateBucketAccess")
         Boolean PrivateBucketAccess;
 
+        @JSONField(name = "PrivateBucketAuth")
+        PrivateBucketAuth PrivateBucketAuth;
+
         @JSONField(name = "Weight")
         String Weight;
     }
@@ -2740,6 +2753,31 @@ public class CDN {
 
         @JSONField(name = "Switch")
         Boolean Switch;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class OriginTimeoutAction {
+
+        @JSONField(name = "HttpTimeout")
+        Long HttpTimeout;
+
+        @JSONField(name = "TcpTimeout")
+        Long TcpTimeout;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class PrivateBucketAuth {
+
+        @JSONField(name = "AuthType")
+        String AuthType;
+
+        @JSONField(name = "Switch")
+        Boolean Switch;
+
+        @JSONField(name = "TosAuthInformation")
+        TosAuthInformation TosAuthInformation;
     }
 
     @Data
@@ -3309,6 +3347,28 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class TimeoutArg {
+
+        @JSONField(name = "Switch")
+        Boolean Switch;
+
+        @JSONField(name = "TimeoutRules")
+        List<TimeoutRule> TimeoutRules;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class TimeoutRule {
+
+        @JSONField(name = "Condition")
+        Condition Condition;
+
+        @JSONField(name = "TimeoutAction")
+        OriginTimeoutAction TimeoutAction;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class TimestampValue {
 
         @JSONField(name = "Timestamp")
@@ -3422,6 +3482,23 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class TosAuthInformation {
+
+        @JSONField(name = "RoleAccountId")
+        String RoleAccountId;
+
+        @JSONField(name = "RoleName")
+        String RoleName;
+
+        @JSONField(name = "RolePassAccountId")
+        String RolePassAccountId;
+
+        @JSONField(name = "RolePassName")
+        String RolePassName;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class UpdateCdnConfigRequest {
 
         @JSONField(name = "AreaAccessRule")
@@ -3528,6 +3605,9 @@ public class CDN {
 
         @JSONField(name = "Sparrow")
         Sparrow Sparrow;
+
+        @JSONField(name = "Timeout")
+        TimeoutArg Timeout;
 
         @JSONField(name = "UaAccessRule")
         UserAgentAccessRule UaAccessRule;

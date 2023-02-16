@@ -306,6 +306,20 @@ public class VisualConfig {
                     }
                 }
             ));
+            put(Const.MultilangOCR, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.MultilangOCR));
+                                    add(new BasicNameValuePair("Version", "2022-08-31"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.BankCard, new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -362,29 +376,267 @@ public class VisualConfig {
                     }
                 }
             ));
-            put(Const.VatInvoice, new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", Const.VatInvoice));
-                                add(new BasicNameValuePair("Version", "2020-08-26"));
-                            }
-                        });
-                    }
-                }
-            ));
-            put(Const.MultilangOCR, new ApiInfo(
+            put(Const.OcrTaibao, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", Const.MultilangOCR));
-                                    add(new BasicNameValuePair("Version", "2022-08-31"));
+                                    add(new BasicNameValuePair("Action", Const.OcrTaibao));
+                                    add(new BasicNameValuePair("Version", "2021-08-23"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.OcrVatInvoice, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.OcrVatInvoice));
+                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.OcrTaxiInvoice, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.OcrTaxiInvoice));
+                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.OcrQuotaInvoice, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.OcrQuotaInvoice));
+                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.OcrTrainTicket, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.OcrTrainTicket));
+                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.OcrFlightInvoice, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.OcrFlightInvoice));
+                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.OcrFinance, new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", Const.OcrFinance));
+                                add(new BasicNameValuePair("Version", "2021-08-23"));
+                            }
+                        });
+                    }
+                }
+            ));
+            put(Const.OcrRollInvoice, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.OcrRollInvoice));
+                                    add(new BasicNameValuePair("Version", "2021-08-23"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.OcrPassInvoice, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.OcrPassInvoice));
+                                    add(new BasicNameValuePair("Version", "2021-08-23"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.OcrFoodProduction, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.OcrFoodProduction));
+                                    add(new BasicNameValuePair("Version", "2021-08-23"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.OcrFoodBusiness, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.OcrFoodBusiness));
+                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.OcrClueLicense, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.OcrClueLicense));
+                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.OCRTrade, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.OCRTrade));
+                                    add(new BasicNameValuePair("Version", "2020-12-21"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.OCRRuanzhu, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.OCRRuanzhu));
+                                    add(new BasicNameValuePair("Version", "2020-12-21"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.OCRCosmeticProduct, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.OCRCosmeticProduct));
+                                    add(new BasicNameValuePair("Version", "2020-12-21"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.OcrSeal, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.OcrSeal));
+                                    add(new BasicNameValuePair("Version", "2021-08-23"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.OcrTextAlignment, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.OcrTextAlignment));
+                                    add(new BasicNameValuePair("Version", "2021-08-23"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.OCRPdf, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.OCRPdf));
+                                    add(new BasicNameValuePair("Version", "2021-08-23"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.OCRTable, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.OCRTable));
+                                    add(new BasicNameValuePair("Version", "2021-08-23"));
                                 }
                             });
                         }

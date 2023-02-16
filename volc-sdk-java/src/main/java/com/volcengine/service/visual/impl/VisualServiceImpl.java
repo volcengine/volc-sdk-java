@@ -248,7 +248,7 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
 
     @Override
     public OCRVatInvoiceResponse vatInvoice(OCRVatInvoiceRequest request) throws Exception {
-        RawResponse response = post(Const.VatInvoice, null, convertNameValuePair(request));
+        RawResponse response = post(Const.OcrVatInvoice, null, convertNameValuePair(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }

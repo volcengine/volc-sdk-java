@@ -816,4 +816,76 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     UpdateDefaultTemplateStatusAPIResponse updateDefaultTemplateStatusAPI(UpdateDefaultTemplateStatusAPIRequest updateDefaultTemplateStatusAPIRequest) throws Exception;
+
+    /**
+     * GetPageWatchDataAPIV2
+     *
+     * @param getPageWatchDataAPIV2Request GetPageWatchDataAPIV2Request
+     * @return GetPageWatchDataAPIV2Response
+     * @throws Exception the exception
+     */
+    GetPageWatchDataAPIV2Response getPageWatchDataAPIV2(GetPageWatchDataAPIV2Request getPageWatchDataAPIV2Request) throws Exception;
+
+    /**
+     * GetActivityReservationAPIV2
+     *
+     * @param getActivityReservationAPIV2Request GetActivityReservationAPIV2Request
+     * @return GetActivityReservationAPIV2Response
+     * @throws Exception the exception
+     */
+    GetActivityReservationAPIV2Response getActivityReservationAPIV2(GetActivityReservationAPIV2Request getActivityReservationAPIV2Request) throws Exception;
+
+    /**
+     * ListStatisticsQuestionnaireAPIV2
+     *
+     * @param listStatisticsQuestionnaireAPIV2Request ListStatisticsQuestionnaireAPIV2Request
+     * @return ListStatisticsQuestionnaireAPIV2Response
+     * @throws Exception the exception
+     */
+    ListStatisticsQuestionnaireAPIV2Response ListQuestionnaireDataAPIV2(ListStatisticsQuestionnaireAPIV2Request listStatisticsQuestionnaireAPIV2Request) throws Exception;
+
+    /**
+     * ListUserQuestionnaireAPIV2
+     *
+     * @param listUserQuestionnaireAPIV2Request ListUserQuestionnaireAPIV2Request
+     * @return ListUserQuestionnaireAPIV2Response
+     * @throws Exception the exception
+     */
+    ListUserQuestionnaireAPIV2Response ListQuestionnaireAnswerDataAPIV2(ListUserQuestionnaireAPIV2Request listUserQuestionnaireAPIV2Request) throws Exception;
+
+    /**
+     * AnalysisUserBehaviorPeopleV2
+     *
+     * @param analysisUserBehaviorPeopleV2Request AnalysisUserBehaviorPeopleV2Request
+     * @return AnalysisUserBehaviorPeopleV2Response
+     * @throws Exception the exception
+     */
+    AnalysisUserBehaviorPeopleV2Response analysisUserBehaviorPeopleV2(AnalysisUserBehaviorPeopleV2Request analysisUserBehaviorPeopleV2Request) throws Exception;
+
+    /**
+     * GetAdvertisementDataAPIV2
+     *
+     * @param getAdvertisementDataAPIV2Request GetAdvertisementDataAPIV2Request
+     * @return GetAdvertisementDataAPIV2Response
+     * @throws Exception the exception
+     */
+    GetAdvertisementDataAPIV2Response getAdvertisementDataAPIV2(GetAdvertisementDataAPIV2Request getAdvertisementDataAPIV2Request) throws Exception;
+
+    /**
+     * GetUserBehaviorListAPIV2
+     *
+     * @param getUserBehaviorListAPIV2Request GetUserBehaviorListRequestAPIV2
+     * @return GetUserBehaviorListAPIV2Response
+     * @throws Exception the exception
+     */
+    GetUserBehaviorListResponseAPIV2 ListUserBehaviorDataAPIV2(GetUserBehaviorListRequestAPIV2 getUserBehaviorListAPIV2Request) throws Exception;
+
+    /**
+     * ListChannelAPI
+     *
+     * @param listChannelAPIRequest ListChannelAPIRequest
+     * @return ListChannelAPIResponse
+     * @throws Exception the exception
+     */
+    ListChannelAPIResponse listChannelAPI(ListChannelAPIRequest listChannelAPIRequest) throws Exception;
 }

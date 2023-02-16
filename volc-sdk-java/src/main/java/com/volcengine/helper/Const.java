@@ -292,6 +292,22 @@ public class Const {
 
     public static final String UpdateDefaultTemplateStatusAPI = "UpdateDefaultTemplateStatusAPI";
 
+    public static final String GetPageWatchDataAPIV2 = "GetPageWatchDataAPIV2";
+
+    public static final String GetActivityReservationAPIV2 = "GetActivityReservationAPIV2";
+
+    public static final String ListQuestionnaireDataAPIV2 = "ListQuestionnaireDataAPIV2";
+
+    public static final String ListQuestionnaireAnswerDataAPIV2 = "ListQuestionnaireAnswerDataAPIV2";
+
+    public static final String AnalysisUserBehaviorPeopleV2 = "AnalysisUserBehaviorPeopleV2";
+
+    public static final String GetAdvertisementDataAPIV2 = "GetAdvertisementDataAPIV2";
+
+    public static final String ListUserBehaviorDataAPIV2 = "ListUserBehaviorDataAPIV2";
+
+    public static final String ListChannelAPI = "ListChannelAPI";
+
     // translate
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";

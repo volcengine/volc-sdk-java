@@ -608,13 +608,33 @@ public class Const {
     public static final String DistortionFree = "DistortionFree";
     public static final String EnhancePhoto = "EnhancePhoto";
     public static final String ConvertPhoto = "ConvertPhoto";
+
+    // ocr
     public static final String OCRNormal = "OCRNormal";
+    public static final String MultilangOCR = "MultiLanguageOCR";
     public static final String BankCard = "BankCard";
     public static final String IDCard = "IDCard";
     public static final String DrivingLicense = "DrivingLicense";
     public static final String VehicleLicense = "VehicleLicense";
-    public static final String VatInvoice = "OcrVatInvoice";
-    public static final String MultilangOCR = "MultiLanguageOCR";
+    public static final String OcrTaibao = "OcrTaibao";
+    public static final String OcrVatInvoice = "OcrVatInvoice";
+    public static final String OcrTaxiInvoice = "OcrTaxiInvoice";
+    public static final String OcrQuotaInvoice = "OcrQuotaInvoice";
+    public static final String OcrTrainTicket = "OcrTrainTicket";
+    public static final String OcrFlightInvoice = "OcrFlightInvoice";
+    public static final String OcrFinance = "OcrFinance";
+    public static final String OcrRollInvoice = "OcrRollInvoice";
+    public static final String OcrPassInvoice = "OcrPassInvoice";
+    public static final String OcrFoodProduction = "OcrFoodProduction";
+    public static final String OcrFoodBusiness = "OcrFoodBusiness";
+    public static final String OcrClueLicense = "OcrClueLicense";
+    public static final String OCRTrade = "OCRTrade";
+    public static final String OCRRuanzhu = "OCRRuanzhu";
+    public static final String OcrSeal = "OcrSeal";
+    public static final String OcrTextAlignment = "OcrTextAlignment";
+    public static final String OCRPdf = "OCRPdf";
+    public static final String OCRTable = "OCRTable";
+    public static final String OCRCosmeticProduct = "OCRCosmeticProduct";
 
     public static final String SmsChannelTypeCnOTP = "CN_OTP";
     public static final String SmsChannelTypeCnNTC = "CN_NTC";

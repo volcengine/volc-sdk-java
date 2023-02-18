@@ -17,7 +17,7 @@ public class UpdateAccessKeyDemo {
         // list users
         try {
             UpdateAccessKeyRequest request = new UpdateAccessKeyRequest();
-            request.setAccessKeyId("***REMOVED***");
+            request.setAccessKeyId("AK*********Example**********");
             request.setStatus("inactive"); // active、inactive
 
             CommonResponse response = iamService.updateAccessKey(request);

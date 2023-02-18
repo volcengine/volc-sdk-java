@@ -17,7 +17,7 @@ public class DeleteAccessKeyDemo {
         // list users
         try {
             DeleteAccessKeyRequest request = new DeleteAccessKeyRequest();
-            request.setAccessKeyId("***REMOVED***");
+            request.setAccessKeyId("AK******example********");
 
             CommonResponse response = iamService.deleteAccessKey(request);
             System.out.println(JSON.toJSONString(response));

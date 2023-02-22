@@ -135,6 +135,19 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(com.volcengine.service.vod.model.business.VodSubtitleInfo.parser(), extensionRegistry));
             break;
           }
+          case 98: {
+            com.volcengine.service.vod.model.business.BarrageMaskInfo.Builder subBuilder = null;
+            if (barrageMaskInfo_ != null) {
+              subBuilder = barrageMaskInfo_.toBuilder();
+            }
+            barrageMaskInfo_ = input.readMessage(com.volcengine.service.vod.model.business.BarrageMaskInfo.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(barrageMaskInfo_);
+              barrageMaskInfo_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -604,6 +617,44 @@ private static final long serialVersionUID = 0L;
     return subtitleInfoList_.get(index);
   }
 
+  public static final int BARRAGEMASKINFO_FIELD_NUMBER = 12;
+  private com.volcengine.service.vod.model.business.BarrageMaskInfo barrageMaskInfo_;
+  /**
+   * <pre>
+   * 弹幕蒙板
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.BarrageMaskInfo BarrageMaskInfo = 12;</code>
+   * @return Whether the barrageMaskInfo field is set.
+   */
+  @java.lang.Override
+  public boolean hasBarrageMaskInfo() {
+    return barrageMaskInfo_ != null;
+  }
+  /**
+   * <pre>
+   * 弹幕蒙板
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.BarrageMaskInfo BarrageMaskInfo = 12;</code>
+   * @return The barrageMaskInfo.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.BarrageMaskInfo getBarrageMaskInfo() {
+    return barrageMaskInfo_ == null ? com.volcengine.service.vod.model.business.BarrageMaskInfo.getDefaultInstance() : barrageMaskInfo_;
+  }
+  /**
+   * <pre>
+   * 弹幕蒙板
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.BarrageMaskInfo BarrageMaskInfo = 12;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.BarrageMaskInfoOrBuilder getBarrageMaskInfoOrBuilder() {
+    return getBarrageMaskInfo();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -650,6 +701,9 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < subtitleInfoList_.size(); i++) {
       output.writeMessage(11, subtitleInfoList_.get(i));
+    }
+    if (barrageMaskInfo_ != null) {
+      output.writeMessage(12, getBarrageMaskInfo());
     }
     unknownFields.writeTo(output);
   }
@@ -701,6 +755,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, subtitleInfoList_.get(i));
     }
+    if (barrageMaskInfo_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(12, getBarrageMaskInfo());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -740,6 +798,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getBarrageMaskUrl())) return false;
     if (!getSubtitleInfoListList()
         .equals(other.getSubtitleInfoListList())) return false;
+    if (hasBarrageMaskInfo() != other.hasBarrageMaskInfo()) return false;
+    if (hasBarrageMaskInfo()) {
+      if (!getBarrageMaskInfo()
+          .equals(other.getBarrageMaskInfo())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -781,6 +844,10 @@ private static final long serialVersionUID = 0L;
     if (getSubtitleInfoListCount() > 0) {
       hash = (37 * hash) + SUBTITLEINFOLIST_FIELD_NUMBER;
       hash = (53 * hash) + getSubtitleInfoListList().hashCode();
+    }
+    if (hasBarrageMaskInfo()) {
+      hash = (37 * hash) + BARRAGEMASKINFO_FIELD_NUMBER;
+      hash = (53 * hash) + getBarrageMaskInfo().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -956,6 +1023,12 @@ private static final long serialVersionUID = 0L;
       } else {
         subtitleInfoListBuilder_.clear();
       }
+      if (barrageMaskInfoBuilder_ == null) {
+        barrageMaskInfo_ = null;
+      } else {
+        barrageMaskInfo_ = null;
+        barrageMaskInfoBuilder_ = null;
+      }
       return this;
     }
 
@@ -1021,6 +1094,11 @@ private static final long serialVersionUID = 0L;
         result.subtitleInfoList_ = subtitleInfoList_;
       } else {
         result.subtitleInfoList_ = subtitleInfoListBuilder_.build();
+      }
+      if (barrageMaskInfoBuilder_ == null) {
+        result.barrageMaskInfo_ = barrageMaskInfo_;
+      } else {
+        result.barrageMaskInfo_ = barrageMaskInfoBuilder_.build();
       }
       onBuilt();
       return result;
@@ -1174,6 +1252,9 @@ private static final long serialVersionUID = 0L;
             subtitleInfoListBuilder_.addAllMessages(other.subtitleInfoList_);
           }
         }
+      }
+      if (other.hasBarrageMaskInfo()) {
+        mergeBarrageMaskInfo(other.getBarrageMaskInfo());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2785,6 +2866,161 @@ private static final long serialVersionUID = 0L;
         subtitleInfoList_ = null;
       }
       return subtitleInfoListBuilder_;
+    }
+
+    private com.volcengine.service.vod.model.business.BarrageMaskInfo barrageMaskInfo_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.BarrageMaskInfo, com.volcengine.service.vod.model.business.BarrageMaskInfo.Builder, com.volcengine.service.vod.model.business.BarrageMaskInfoOrBuilder> barrageMaskInfoBuilder_;
+    /**
+     * <pre>
+     * 弹幕蒙板
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.BarrageMaskInfo BarrageMaskInfo = 12;</code>
+     * @return Whether the barrageMaskInfo field is set.
+     */
+    public boolean hasBarrageMaskInfo() {
+      return barrageMaskInfoBuilder_ != null || barrageMaskInfo_ != null;
+    }
+    /**
+     * <pre>
+     * 弹幕蒙板
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.BarrageMaskInfo BarrageMaskInfo = 12;</code>
+     * @return The barrageMaskInfo.
+     */
+    public com.volcengine.service.vod.model.business.BarrageMaskInfo getBarrageMaskInfo() {
+      if (barrageMaskInfoBuilder_ == null) {
+        return barrageMaskInfo_ == null ? com.volcengine.service.vod.model.business.BarrageMaskInfo.getDefaultInstance() : barrageMaskInfo_;
+      } else {
+        return barrageMaskInfoBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * 弹幕蒙板
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.BarrageMaskInfo BarrageMaskInfo = 12;</code>
+     */
+    public Builder setBarrageMaskInfo(com.volcengine.service.vod.model.business.BarrageMaskInfo value) {
+      if (barrageMaskInfoBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        barrageMaskInfo_ = value;
+        onChanged();
+      } else {
+        barrageMaskInfoBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 弹幕蒙板
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.BarrageMaskInfo BarrageMaskInfo = 12;</code>
+     */
+    public Builder setBarrageMaskInfo(
+        com.volcengine.service.vod.model.business.BarrageMaskInfo.Builder builderForValue) {
+      if (barrageMaskInfoBuilder_ == null) {
+        barrageMaskInfo_ = builderForValue.build();
+        onChanged();
+      } else {
+        barrageMaskInfoBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 弹幕蒙板
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.BarrageMaskInfo BarrageMaskInfo = 12;</code>
+     */
+    public Builder mergeBarrageMaskInfo(com.volcengine.service.vod.model.business.BarrageMaskInfo value) {
+      if (barrageMaskInfoBuilder_ == null) {
+        if (barrageMaskInfo_ != null) {
+          barrageMaskInfo_ =
+            com.volcengine.service.vod.model.business.BarrageMaskInfo.newBuilder(barrageMaskInfo_).mergeFrom(value).buildPartial();
+        } else {
+          barrageMaskInfo_ = value;
+        }
+        onChanged();
+      } else {
+        barrageMaskInfoBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 弹幕蒙板
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.BarrageMaskInfo BarrageMaskInfo = 12;</code>
+     */
+    public Builder clearBarrageMaskInfo() {
+      if (barrageMaskInfoBuilder_ == null) {
+        barrageMaskInfo_ = null;
+        onChanged();
+      } else {
+        barrageMaskInfo_ = null;
+        barrageMaskInfoBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 弹幕蒙板
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.BarrageMaskInfo BarrageMaskInfo = 12;</code>
+     */
+    public com.volcengine.service.vod.model.business.BarrageMaskInfo.Builder getBarrageMaskInfoBuilder() {
+      
+      onChanged();
+      return getBarrageMaskInfoFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * 弹幕蒙板
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.BarrageMaskInfo BarrageMaskInfo = 12;</code>
+     */
+    public com.volcengine.service.vod.model.business.BarrageMaskInfoOrBuilder getBarrageMaskInfoOrBuilder() {
+      if (barrageMaskInfoBuilder_ != null) {
+        return barrageMaskInfoBuilder_.getMessageOrBuilder();
+      } else {
+        return barrageMaskInfo_ == null ?
+            com.volcengine.service.vod.model.business.BarrageMaskInfo.getDefaultInstance() : barrageMaskInfo_;
+      }
+    }
+    /**
+     * <pre>
+     * 弹幕蒙板
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.BarrageMaskInfo BarrageMaskInfo = 12;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.BarrageMaskInfo, com.volcengine.service.vod.model.business.BarrageMaskInfo.Builder, com.volcengine.service.vod.model.business.BarrageMaskInfoOrBuilder> 
+        getBarrageMaskInfoFieldBuilder() {
+      if (barrageMaskInfoBuilder_ == null) {
+        barrageMaskInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.BarrageMaskInfo, com.volcengine.service.vod.model.business.BarrageMaskInfo.Builder, com.volcengine.service.vod.model.business.BarrageMaskInfoOrBuilder>(
+                getBarrageMaskInfo(),
+                getParentForChildren(),
+                isClean());
+        barrageMaskInfo_ = null;
+      }
+      return barrageMaskInfoBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

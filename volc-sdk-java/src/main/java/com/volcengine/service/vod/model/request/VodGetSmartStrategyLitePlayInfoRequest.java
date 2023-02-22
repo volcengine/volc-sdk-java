@@ -630,7 +630,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * HDR清晰度，默认不查询，支持：all,
-   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k, od, oe
    * </pre>
    *
    * <code>string HDRDefinition = 11;</code>
@@ -652,7 +652,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * HDR清晰度，默认不查询，支持：all,
-   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+   * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k, od, oe
    * </pre>
    *
    * <code>string HDRDefinition = 11;</code>
@@ -2120,7 +2120,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * HDR清晰度，默认不查询，支持：all,
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k, od, oe
      * </pre>
      *
      * <code>string HDRDefinition = 11;</code>
@@ -2141,7 +2141,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * HDR清晰度，默认不查询，支持：all,
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k, od, oe
      * </pre>
      *
      * <code>string HDRDefinition = 11;</code>
@@ -2163,7 +2163,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * HDR清晰度，默认不查询，支持：all,
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k, od, oe
      * </pre>
      *
      * <code>string HDRDefinition = 11;</code>
@@ -2183,7 +2183,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * HDR清晰度，默认不查询，支持：all,
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k, od, oe
      * </pre>
      *
      * <code>string HDRDefinition = 11;</code>
@@ -2198,7 +2198,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * HDR清晰度，默认不查询，支持：all,
-     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k
+     * 240p，360p, 420p，480p，540p，720p，1080p, 2k, 4k, od, oe
      * </pre>
      *
      * <code>string HDRDefinition = 11;</code>

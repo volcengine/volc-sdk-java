@@ -237,4 +237,24 @@ public interface VodDomainoInfoOrBuilder extends
    */
   com.volcengine.service.vod.model.business.VodDomainSourceInfoOrBuilder getSourcesOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   *是否锁定，可否配置
+   * </pre>
+   *
+   * <code>string LockStatus = 11;</code>
+   * @return The lockStatus.
+   */
+  java.lang.String getLockStatus();
+  /**
+   * <pre>
+   *是否锁定，可否配置
+   * </pre>
+   *
+   * <code>string LockStatus = 11;</code>
+   * @return The bytes for lockStatus.
+   */
+  com.google.protobuf.ByteString
+      getLockStatusBytes();
 }

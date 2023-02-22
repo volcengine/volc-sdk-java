@@ -358,4 +358,19 @@ public interface WorkflowExecutionOrBuilder extends
    */
   com.volcengine.service.vod.model.business.TaskDetailOrBuilder getTasksDetailOrBuilder(
       int index);
+
+  /**
+   * <code>.Volcengine.Vod.Models.Business.DirectUrl DirectUrl = 17;</code>
+   * @return Whether the directUrl field is set.
+   */
+  boolean hasDirectUrl();
+  /**
+   * <code>.Volcengine.Vod.Models.Business.DirectUrl DirectUrl = 17;</code>
+   * @return The directUrl.
+   */
+  com.volcengine.service.vod.model.business.DirectUrl getDirectUrl();
+  /**
+   * <code>.Volcengine.Vod.Models.Business.DirectUrl DirectUrl = 17;</code>
+   */
+  com.volcengine.service.vod.model.business.DirectUrlOrBuilder getDirectUrlOrBuilder();
 }

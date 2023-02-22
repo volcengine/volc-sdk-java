@@ -50,6 +50,11 @@ public final class VodCommon {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodVolumeInfo_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_BarrageMaskInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_BarrageMaskInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Vod_Models_Business_VodThumbInfo_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -138,37 +143,43 @@ public final class VodCommon {
       "ment\030\026 \001(\t\022=\n\006Volume\030\027 \001(\0132-.Volcengine." +
       "Vod.Models.Business.VodVolumeInfo\"/\n\rVod" +
       "VolumeInfo\022\020\n\010Loudness\030\001 \001(\001\022\014\n\004Peak\030\002 \001" +
-      "(\001\"\240\001\n\014VodThumbInfo\022\022\n\nCaptureNum\030\001 \001(\005\022" +
-      "\021\n\tStoreUrls\030\002 \003(\t\022\021\n\tCellWidth\030\003 \001(\005\022\022\n" +
-      "\nCellHeight\030\004 \001(\005\022\017\n\007ImgXLen\030\005 \001(\005\022\017\n\007Im" +
-      "gYLen\030\006 \001(\005\022\020\n\010Interval\030\007 \001(\001\022\016\n\006Format\030" +
-      "\010 \001(\t\"\200\002\n\017VodSubtitleInfo\022\013\n\003Vid\030\001 \001(\t\022\016" +
-      "\n\006FileId\030\002 \001(\t\022\020\n\010Language\030\003 \001(\t\022\022\n\nLang" +
-      "uageId\030\004 \001(\005\022\016\n\006Format\030\005 \001(\t\022\022\n\nSubtitle" +
-      "Id\030\006 \001(\t\022\r\n\005Title\030\007 \001(\t\022\013\n\003Tag\030\010 \001(\t\022\016\n\006" +
-      "Status\030\t \001(\t\022\016\n\006Source\030\n \001(\t\022\020\n\010StoreUri" +
-      "\030\013 \001(\t\022\023\n\013SubtitleUrl\030\014 \001(\t\022\022\n\nCreateTim" +
-      "e\030\r \001(\t\022\017\n\007Version\030\016 \001(\t\"A\n\023VodCommonCon" +
-      "figInfo\022\016\n\006Module\030\001 \001(\t\022\013\n\003Key\030\002 \001(\t\022\r\n\005" +
-      "Value\030\003 \001(\t\"\216\004\n\020VodPlayInfoModel\022H\n\007Vers" +
-      "ion\030\n \001(\01627.Volcengine.Vod.Models.Busine" +
-      "ss.VodPlayInfoModelVersion\022\013\n\003Vid\030\001 \001(\t\022" +
-      "\016\n\006Status\030\002 \001(\005\022\021\n\tPosterUrl\030\003 \001(\t\022\020\n\010Du" +
-      "ration\030\004 \001(\002\022\020\n\010FileType\030\005 \001(\t\022\026\n\016Enable" +
-      "Adaptive\030\006 \001(\010\022\022\n\nTotalCount\030\007 \001(\005\022E\n\014Ad" +
-      "aptiveInfo\030\010 \001(\0132/.Volcengine.Vod.Models" +
-      ".Business.VodAdaptiveInfo\022A\n\014PlayInfoLis" +
-      "t\030\t \003(\0132+.Volcengine.Vod.Models.Business" +
-      ".VodPlayInfo\022C\n\rThumbInfoList\030\013 \003(\0132,.Vo" +
-      "lcengine.Vod.Models.Business.VodThumbInf" +
-      "o\022\026\n\016BarrageMaskUrl\030\014 \001(\t\022I\n\020SubtitleInf" +
-      "oList\030\r \003(\0132/.Volcengine.Vod.Models.Busi" +
-      "ness.VodSubtitleInfo\",\n\010VodPoint\022\021\n\tTime" +
+      "(\001\"\243\001\n\017BarrageMaskInfo\022\017\n\007Version\030\001 \001(\t\022" +
+      "\026\n\016BarrageMaskUrl\030\002 \001(\t\022\016\n\006FileId\030\003 \001(\t\022" +
+      "\020\n\010FileSize\030\004 \001(\001\022\020\n\010FileHash\030\005 \001(\t\022\021\n\tU" +
+      "pdatedAt\030\006 \001(\t\022\017\n\007Bitrate\030\007 \001(\005\022\017\n\007HeadL" +
+      "en\030\010 \001(\001\"\240\001\n\014VodThumbInfo\022\022\n\nCaptureNum\030" +
+      "\001 \001(\005\022\021\n\tStoreUrls\030\002 \003(\t\022\021\n\tCellWidth\030\003 " +
+      "\001(\005\022\022\n\nCellHeight\030\004 \001(\005\022\017\n\007ImgXLen\030\005 \001(\005" +
+      "\022\017\n\007ImgYLen\030\006 \001(\005\022\020\n\010Interval\030\007 \001(\001\022\016\n\006F" +
+      "ormat\030\010 \001(\t\"\200\002\n\017VodSubtitleInfo\022\013\n\003Vid\030\001" +
+      " \001(\t\022\016\n\006FileId\030\002 \001(\t\022\020\n\010Language\030\003 \001(\t\022\022" +
+      "\n\nLanguageId\030\004 \001(\005\022\016\n\006Format\030\005 \001(\t\022\022\n\nSu" +
+      "btitleId\030\006 \001(\t\022\r\n\005Title\030\007 \001(\t\022\013\n\003Tag\030\010 \001" +
+      "(\t\022\016\n\006Status\030\t \001(\t\022\016\n\006Source\030\n \001(\t\022\020\n\010St" +
+      "oreUri\030\013 \001(\t\022\023\n\013SubtitleUrl\030\014 \001(\t\022\022\n\nCre" +
+      "ateTime\030\r \001(\t\022\017\n\007Version\030\016 \001(\t\"A\n\023VodCom" +
+      "monConfigInfo\022\016\n\006Module\030\001 \001(\t\022\013\n\003Key\030\002 \001" +
+      "(\t\022\r\n\005Value\030\003 \001(\t\"\330\004\n\020VodPlayInfoModel\022H" +
+      "\n\007Version\030\n \001(\01627.Volcengine.Vod.Models." +
+      "Business.VodPlayInfoModelVersion\022\013\n\003Vid\030" +
+      "\001 \001(\t\022\016\n\006Status\030\002 \001(\005\022\021\n\tPosterUrl\030\003 \001(\t" +
+      "\022\020\n\010Duration\030\004 \001(\002\022\020\n\010FileType\030\005 \001(\t\022\026\n\016" +
+      "EnableAdaptive\030\006 \001(\010\022\022\n\nTotalCount\030\007 \001(\005" +
+      "\022E\n\014AdaptiveInfo\030\010 \001(\0132/.Volcengine.Vod." +
+      "Models.Business.VodAdaptiveInfo\022A\n\014PlayI" +
+      "nfoList\030\t \003(\0132+.Volcengine.Vod.Models.Bu" +
+      "siness.VodPlayInfo\022C\n\rThumbInfoList\030\013 \003(" +
+      "\0132,.Volcengine.Vod.Models.Business.VodTh" +
+      "umbInfo\022\026\n\016BarrageMaskUrl\030\014 \001(\t\022I\n\020Subti" +
+      "tleInfoList\030\r \003(\0132/.Volcengine.Vod.Model" +
+      "s.Business.VodSubtitleInfo\022H\n\017BarrageMas" +
+      "kInfo\030\016 \001(\0132/.Volcengine.Vod.Models.Busi" +
+      "ness.BarrageMaskInfo\",\n\010VodPoint\022\021\n\tTime" +
       "stamp\030\001 \001(\001\022\r\n\005Value\030\002 \001(\001\"\226\001\n\024VodAllPla" +
       "yInfoResult\022T\n\027VodAllPlayInfoModelList\030\001" +
       " \003(\01323.Volcengine.Vod.Models.Business.Vo" +
       "dAllPlayInfoModel\022\022\n\nTotalCount\030\002 \001(\005\022\024\n" +
-      "\014NotFoundVids\030\003 \003(\t\"\366\003\n\023VodAllPlayInfoMo" +
+      "\014NotFoundVids\030\003 \003(\t\"\300\004\n\023VodAllPlayInfoMo" +
       "del\022\013\n\003Vid\030\001 \001(\t\022\016\n\006Status\030\002 \001(\005\022\021\n\tPost" +
       "erUrl\030\003 \001(\t\022\022\n\nTotalCount\030\004 \001(\005\022\026\n\016Enabl" +
       "eAdaptive\030\005 \001(\010\022I\n\024VodTranscodePlayInfo\030" +
@@ -181,17 +192,19 @@ public final class VodCommon {
       "els.Business.VodThumbInfo\022\026\n\016BarrageMask" +
       "Url\030\n \001(\t\022I\n\020SubtitleInfoList\030\013 \003(\0132/.Vo" +
       "lcengine.Vod.Models.Business.VodSubtitle" +
-      "Info*\326\001\n\027VodPlayInfoModelVersion\022$\n Unde" +
-      "finedVodPlayInfoModelVersion\020\000\022%\n!Intern" +
-      "alV1VodPlayInfoModelVersion\020\001\022%\n!Interna" +
-      "lV2VodPlayInfoModelVersion\020\002\022%\n!Internal" +
-      "V3VodPlayInfoModelVersion\020\003\022 \n\034ToBV1VodP" +
-      "layInfoModelVersion\020\004B\315\001\n)com.volcengine" +
-      ".service.vod.model.businessB\tVodCommonP\001" +
-      "ZAgithub.com/volcengine/volc-sdk-golang/" +
-      "service/vod/models/business\240\001\001\330\001\001\302\002\000\312\002 V" +
-      "olc\\Service\\Vod\\Models\\Business\342\002#Volc\\S" +
-      "ervice\\Vod\\Models\\GPBMetadatab\006proto3"
+      "Info\022H\n\017BarrageMaskInfo\030\014 \001(\0132/.Volcengi" +
+      "ne.Vod.Models.Business.BarrageMaskInfo*\326" +
+      "\001\n\027VodPlayInfoModelVersion\022$\n UndefinedV" +
+      "odPlayInfoModelVersion\020\000\022%\n!InternalV1Vo" +
+      "dPlayInfoModelVersion\020\001\022%\n!InternalV2Vod" +
+      "PlayInfoModelVersion\020\002\022%\n!InternalV3VodP" +
+      "layInfoModelVersion\020\003\022 \n\034ToBV1VodPlayInf" +
+      "oModelVersion\020\004B\315\001\n)com.volcengine.servi" +
+      "ce.vod.model.businessB\tVodCommonP\001ZAgith" +
+      "ub.com/volcengine/volc-sdk-golang/servic" +
+      "e/vod/models/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Se" +
+      "rvice\\Vod\\Models\\Business\342\002#Volc\\Service" +
+      "\\Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -239,48 +252,54 @@ public final class VodCommon {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodVolumeInfo_descriptor,
         new java.lang.String[] { "Loudness", "Peak", });
-    internal_static_Volcengine_Vod_Models_Business_VodThumbInfo_descriptor =
+    internal_static_Volcengine_Vod_Models_Business_BarrageMaskInfo_descriptor =
       getDescriptor().getMessageTypes().get(7);
+    internal_static_Volcengine_Vod_Models_Business_BarrageMaskInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_BarrageMaskInfo_descriptor,
+        new java.lang.String[] { "Version", "BarrageMaskUrl", "FileId", "FileSize", "FileHash", "UpdatedAt", "Bitrate", "HeadLen", });
+    internal_static_Volcengine_Vod_Models_Business_VodThumbInfo_descriptor =
+      getDescriptor().getMessageTypes().get(8);
     internal_static_Volcengine_Vod_Models_Business_VodThumbInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodThumbInfo_descriptor,
         new java.lang.String[] { "CaptureNum", "StoreUrls", "CellWidth", "CellHeight", "ImgXLen", "ImgYLen", "Interval", "Format", });
     internal_static_Volcengine_Vod_Models_Business_VodSubtitleInfo_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_Volcengine_Vod_Models_Business_VodSubtitleInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodSubtitleInfo_descriptor,
         new java.lang.String[] { "Vid", "FileId", "Language", "LanguageId", "Format", "SubtitleId", "Title", "Tag", "Status", "Source", "StoreUri", "SubtitleUrl", "CreateTime", "Version", });
     internal_static_Volcengine_Vod_Models_Business_VodCommonConfigInfo_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_Volcengine_Vod_Models_Business_VodCommonConfigInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodCommonConfigInfo_descriptor,
         new java.lang.String[] { "Module", "Key", "Value", });
     internal_static_Volcengine_Vod_Models_Business_VodPlayInfoModel_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_Volcengine_Vod_Models_Business_VodPlayInfoModel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodPlayInfoModel_descriptor,
-        new java.lang.String[] { "Version", "Vid", "Status", "PosterUrl", "Duration", "FileType", "EnableAdaptive", "TotalCount", "AdaptiveInfo", "PlayInfoList", "ThumbInfoList", "BarrageMaskUrl", "SubtitleInfoList", });
+        new java.lang.String[] { "Version", "Vid", "Status", "PosterUrl", "Duration", "FileType", "EnableAdaptive", "TotalCount", "AdaptiveInfo", "PlayInfoList", "ThumbInfoList", "BarrageMaskUrl", "SubtitleInfoList", "BarrageMaskInfo", });
     internal_static_Volcengine_Vod_Models_Business_VodPoint_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_Volcengine_Vod_Models_Business_VodPoint_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodPoint_descriptor,
         new java.lang.String[] { "Timestamp", "Value", });
     internal_static_Volcengine_Vod_Models_Business_VodAllPlayInfoResult_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_Volcengine_Vod_Models_Business_VodAllPlayInfoResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodAllPlayInfoResult_descriptor,
         new java.lang.String[] { "VodAllPlayInfoModelList", "TotalCount", "NotFoundVids", });
     internal_static_Volcengine_Vod_Models_Business_VodAllPlayInfoModel_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_Volcengine_Vod_Models_Business_VodAllPlayInfoModel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodAllPlayInfoModel_descriptor,
-        new java.lang.String[] { "Vid", "Status", "PosterUrl", "TotalCount", "EnableAdaptive", "VodTranscodePlayInfo", "VodSourcePlayInfo", "Version", "ThumbInfoList", "BarrageMaskUrl", "SubtitleInfoList", });
+        new java.lang.String[] { "Vid", "Status", "PosterUrl", "TotalCount", "EnableAdaptive", "VodTranscodePlayInfo", "VodSourcePlayInfo", "Version", "ThumbInfoList", "BarrageMaskUrl", "SubtitleInfoList", "BarrageMaskInfo", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

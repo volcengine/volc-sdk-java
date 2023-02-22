@@ -69,7 +69,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k.默认返回全部
+   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe.默认返回全部
    * </pre>
    *
    * <code>string Definition = 4;</code>
@@ -78,7 +78,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getDefinition();
   /**
    * <pre>
-   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k.默认返回全部
+   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe.默认返回全部
    * </pre>
    *
    * <code>string Definition = 4;</code>

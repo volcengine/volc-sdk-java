@@ -26,6 +26,7 @@ private static final long serialVersionUID = 0L;
     category_ = "";
     fileName_ = "";
     fileExtension_ = "";
+    urlEncryptionAlgorithm_ = "";
   }
 
   @java.lang.Override
@@ -126,6 +127,17 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             fileExtension_ = s;
+            break;
+          }
+          case 106: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            urlEncryptionAlgorithm_ = s;
+            break;
+          }
+          case 112: {
+
+            enableLowPriority_ = input.readBool();
             break;
           }
           default: {
@@ -650,6 +662,67 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int URLENCRYPTIONALGORITHM_FIELD_NUMBER = 13;
+  private volatile java.lang.Object urlEncryptionAlgorithm_;
+  /**
+   * <pre>
+   * URL加密算法 
+   * </pre>
+   *
+   * <code>string UrlEncryptionAlgorithm = 13;</code>
+   * @return The urlEncryptionAlgorithm.
+   */
+  @java.lang.Override
+  public java.lang.String getUrlEncryptionAlgorithm() {
+    java.lang.Object ref = urlEncryptionAlgorithm_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      urlEncryptionAlgorithm_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * URL加密算法 
+   * </pre>
+   *
+   * <code>string UrlEncryptionAlgorithm = 13;</code>
+   * @return The bytes for urlEncryptionAlgorithm.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUrlEncryptionAlgorithmBytes() {
+    java.lang.Object ref = urlEncryptionAlgorithm_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      urlEncryptionAlgorithm_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ENABLELOWPRIORITY_FIELD_NUMBER = 14;
+  private boolean enableLowPriority_;
+  /**
+   * <pre>
+   * 是否闲时转码 
+   * </pre>
+   *
+   * <code>bool EnableLowPriority = 14;</code>
+   * @return The enableLowPriority.
+   */
+  @java.lang.Override
+  public boolean getEnableLowPriority() {
+    return enableLowPriority_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -700,6 +773,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileExtension_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, fileExtension_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(urlEncryptionAlgorithm_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, urlEncryptionAlgorithm_);
+    }
+    if (enableLowPriority_ != false) {
+      output.writeBool(14, enableLowPriority_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -747,6 +826,13 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileExtension_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, fileExtension_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(urlEncryptionAlgorithm_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, urlEncryptionAlgorithm_);
+    }
+    if (enableLowPriority_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(14, enableLowPriority_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -786,6 +872,10 @@ private static final long serialVersionUID = 0L;
         != other.getStorageClass()) return false;
     if (!getFileExtension()
         .equals(other.getFileExtension())) return false;
+    if (!getUrlEncryptionAlgorithm()
+        .equals(other.getUrlEncryptionAlgorithm())) return false;
+    if (getEnableLowPriority()
+        != other.getEnableLowPriority()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -822,6 +912,11 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getStorageClass();
     hash = (37 * hash) + FILEEXTENSION_FIELD_NUMBER;
     hash = (53 * hash) + getFileExtension().hashCode();
+    hash = (37 * hash) + URLENCRYPTIONALGORITHM_FIELD_NUMBER;
+    hash = (53 * hash) + getUrlEncryptionAlgorithm().hashCode();
+    hash = (37 * hash) + ENABLELOWPRIORITY_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getEnableLowPriority());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -979,6 +1074,10 @@ private static final long serialVersionUID = 0L;
 
       fileExtension_ = "";
 
+      urlEncryptionAlgorithm_ = "";
+
+      enableLowPriority_ = false;
+
       return this;
     }
 
@@ -1017,6 +1116,8 @@ private static final long serialVersionUID = 0L;
       result.classificationId_ = classificationId_;
       result.storageClass_ = storageClass_;
       result.fileExtension_ = fileExtension_;
+      result.urlEncryptionAlgorithm_ = urlEncryptionAlgorithm_;
+      result.enableLowPriority_ = enableLowPriority_;
       onBuilt();
       return result;
     }
@@ -1110,6 +1211,13 @@ private static final long serialVersionUID = 0L;
       if (!other.getFileExtension().isEmpty()) {
         fileExtension_ = other.fileExtension_;
         onChanged();
+      }
+      if (!other.getUrlEncryptionAlgorithm().isEmpty()) {
+        urlEncryptionAlgorithm_ = other.urlEncryptionAlgorithm_;
+        onChanged();
+      }
+      if (other.getEnableLowPriority() != false) {
+        setEnableLowPriority(other.getEnableLowPriority());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2182,6 +2290,145 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       fileExtension_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object urlEncryptionAlgorithm_ = "";
+    /**
+     * <pre>
+     * URL加密算法 
+     * </pre>
+     *
+     * <code>string UrlEncryptionAlgorithm = 13;</code>
+     * @return The urlEncryptionAlgorithm.
+     */
+    public java.lang.String getUrlEncryptionAlgorithm() {
+      java.lang.Object ref = urlEncryptionAlgorithm_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        urlEncryptionAlgorithm_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * URL加密算法 
+     * </pre>
+     *
+     * <code>string UrlEncryptionAlgorithm = 13;</code>
+     * @return The bytes for urlEncryptionAlgorithm.
+     */
+    public com.google.protobuf.ByteString
+        getUrlEncryptionAlgorithmBytes() {
+      java.lang.Object ref = urlEncryptionAlgorithm_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        urlEncryptionAlgorithm_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * URL加密算法 
+     * </pre>
+     *
+     * <code>string UrlEncryptionAlgorithm = 13;</code>
+     * @param value The urlEncryptionAlgorithm to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUrlEncryptionAlgorithm(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      urlEncryptionAlgorithm_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * URL加密算法 
+     * </pre>
+     *
+     * <code>string UrlEncryptionAlgorithm = 13;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUrlEncryptionAlgorithm() {
+      
+      urlEncryptionAlgorithm_ = getDefaultInstance().getUrlEncryptionAlgorithm();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * URL加密算法 
+     * </pre>
+     *
+     * <code>string UrlEncryptionAlgorithm = 13;</code>
+     * @param value The bytes for urlEncryptionAlgorithm to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUrlEncryptionAlgorithmBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      urlEncryptionAlgorithm_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean enableLowPriority_ ;
+    /**
+     * <pre>
+     * 是否闲时转码 
+     * </pre>
+     *
+     * <code>bool EnableLowPriority = 14;</code>
+     * @return The enableLowPriority.
+     */
+    @java.lang.Override
+    public boolean getEnableLowPriority() {
+      return enableLowPriority_;
+    }
+    /**
+     * <pre>
+     * 是否闲时转码 
+     * </pre>
+     *
+     * <code>bool EnableLowPriority = 14;</code>
+     * @param value The enableLowPriority to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEnableLowPriority(boolean value) {
+      
+      enableLowPriority_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 是否闲时转码 
+     * </pre>
+     *
+     * <code>bool EnableLowPriority = 14;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEnableLowPriority() {
+      
+      enableLowPriority_ = false;
       onChanged();
       return this;
     }

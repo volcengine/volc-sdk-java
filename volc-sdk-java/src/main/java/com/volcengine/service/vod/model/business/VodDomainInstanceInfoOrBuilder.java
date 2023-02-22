@@ -9,7 +9,7 @@ public interface VodDomainInstanceInfoOrBuilder extends
 
   /**
    * <pre>
-   *实例ID
+   *实例ID，废弃
    * </pre>
    *
    * <code>string InstanceId = 1;</code>
@@ -18,7 +18,7 @@ public interface VodDomainInstanceInfoOrBuilder extends
   java.lang.String getInstanceId();
   /**
    * <pre>
-   *实例ID
+   *实例ID，废弃
    * </pre>
    *
    * <code>string InstanceId = 1;</code>
@@ -73,7 +73,7 @@ public interface VodDomainInstanceInfoOrBuilder extends
 
   /**
    * <pre>
-   *是否可自助配置
+   *是否可自助配置，废弃
    * </pre>
    *
    * <code>bool CanSelfEditing = 3;</code>
@@ -83,7 +83,7 @@ public interface VodDomainInstanceInfoOrBuilder extends
 
   /**
    * <pre>
-   *实例配置状态
+   *实例配置状态，废弃
    * </pre>
    *
    * <code>string ConfigStatus = 4;</code>
@@ -92,7 +92,7 @@ public interface VodDomainInstanceInfoOrBuilder extends
   java.lang.String getConfigStatus();
   /**
    * <pre>
-   *实例配置状态
+   *实例配置状态，废弃
    * </pre>
    *
    * <code>string ConfigStatus = 4;</code>

@@ -79,6 +79,7 @@ public class Const {
     public static final String StartWorkflow = "StartWorkflow";
     public static final String RetrieveTranscodeResult = "RetrieveTranscodeResult";
     public static final String GetWorkflowExecution = "GetWorkflowExecution";
+    public static final String GetWorkflowExecutionResult = "GetWorkflowExecutionResult";
     //vod-edit
     public static final String SubmitDirectEditTaskAsync = "SubmitDirectEditTaskAsync";
     public static final String GetDirectEditResult = "GetDirectEditResult";

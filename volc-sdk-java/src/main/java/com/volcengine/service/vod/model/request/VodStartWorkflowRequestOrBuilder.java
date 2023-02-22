@@ -113,4 +113,31 @@ public interface VodStartWorkflowRequestOrBuilder extends
    * @return The enableLowPriority.
    */
   boolean getEnableLowPriority();
+
+  /**
+   * <pre>
+   * DirectUrl输入
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.DirectUrl DirectUrl = 7;</code>
+   * @return Whether the directUrl field is set.
+   */
+  boolean hasDirectUrl();
+  /**
+   * <pre>
+   * DirectUrl输入
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.DirectUrl DirectUrl = 7;</code>
+   * @return The directUrl.
+   */
+  com.volcengine.service.vod.model.business.DirectUrl getDirectUrl();
+  /**
+   * <pre>
+   * DirectUrl输入
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.DirectUrl DirectUrl = 7;</code>
+   */
+  com.volcengine.service.vod.model.business.DirectUrlOrBuilder getDirectUrlOrBuilder();
 }

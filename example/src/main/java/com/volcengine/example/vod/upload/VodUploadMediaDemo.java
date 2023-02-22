@@ -34,6 +34,7 @@ public class VodUploadMediaDemo {
                 .setFilePath(filePath)
                 .setFileName("hello/vod/video")
                 .setFunctions(JSON.toJSONString(functionsList))
+                .setStorageClass(0)
                 .build();
         try {
             VodCommitUploadInfoResponse vodCommitUploadInfoResponse = vodService.uploadMedia(vodUploadMediaRequest);

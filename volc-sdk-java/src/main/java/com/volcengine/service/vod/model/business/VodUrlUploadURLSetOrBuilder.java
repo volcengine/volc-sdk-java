@@ -226,4 +226,34 @@ public interface VodUrlUploadURLSetOrBuilder extends
    */
   com.google.protobuf.ByteString
       getFileExtensionBytes();
+
+  /**
+   * <pre>
+   * URL加密算法 
+   * </pre>
+   *
+   * <code>string UrlEncryptionAlgorithm = 13;</code>
+   * @return The urlEncryptionAlgorithm.
+   */
+  java.lang.String getUrlEncryptionAlgorithm();
+  /**
+   * <pre>
+   * URL加密算法 
+   * </pre>
+   *
+   * <code>string UrlEncryptionAlgorithm = 13;</code>
+   * @return The bytes for urlEncryptionAlgorithm.
+   */
+  com.google.protobuf.ByteString
+      getUrlEncryptionAlgorithmBytes();
+
+  /**
+   * <pre>
+   * 是否闲时转码 
+   * </pre>
+   *
+   * <code>bool EnableLowPriority = 14;</code>
+   * @return The enableLowPriority.
+   */
+  boolean getEnableLowPriority();
 }

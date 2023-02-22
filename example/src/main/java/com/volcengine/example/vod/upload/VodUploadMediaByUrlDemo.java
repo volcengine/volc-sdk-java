@@ -17,7 +17,9 @@ public class VodUploadMediaByUrlDemo {
             com.volcengine.service.vod.model.request.VodUrlUploadRequest.Builder reqBuilder = com.volcengine.service.vod.model.request.VodUrlUploadRequest.newBuilder();
 			reqBuilder.setSpaceName("your SpaceName");
 			com.volcengine.service.vod.model.business.VodUrlUploadURLSet.Builder uRLSetsBuilder = com.volcengine.service.vod.model.business.VodUrlUploadURLSet.newBuilder();
-			reqBuilder.addURLSets(uRLSetsBuilder);
+			uRLSetsBuilder.setSourceUrl("");
+            uRLSetsBuilder.setStorageClass(0);
+            reqBuilder.addURLSets(uRLSetsBuilder);
 			
             com.volcengine.service.vod.model.response.VodUrlUploadResponse resp = vodService.uploadMediaByUrl(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

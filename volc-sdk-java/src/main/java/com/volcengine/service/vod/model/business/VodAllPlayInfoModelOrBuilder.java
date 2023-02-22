@@ -274,4 +274,31 @@ public interface VodAllPlayInfoModelOrBuilder extends
    */
   com.volcengine.service.vod.model.business.VodSubtitleInfoOrBuilder getSubtitleInfoListOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * 弹幕蒙板
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.BarrageMaskInfo BarrageMaskInfo = 12;</code>
+   * @return Whether the barrageMaskInfo field is set.
+   */
+  boolean hasBarrageMaskInfo();
+  /**
+   * <pre>
+   * 弹幕蒙板
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.BarrageMaskInfo BarrageMaskInfo = 12;</code>
+   * @return The barrageMaskInfo.
+   */
+  com.volcengine.service.vod.model.business.BarrageMaskInfo getBarrageMaskInfo();
+  /**
+   * <pre>
+   * 弹幕蒙板
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.BarrageMaskInfo BarrageMaskInfo = 12;</code>
+   */
+  com.volcengine.service.vod.model.business.BarrageMaskInfoOrBuilder getBarrageMaskInfoOrBuilder();
 }

@@ -117,7 +117,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object instanceId_;
   /**
    * <pre>
-   *实例ID
+   *实例ID，废弃
    * </pre>
    *
    * <code>string InstanceId = 1;</code>
@@ -138,7 +138,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *实例ID
+   *实例ID，废弃
    * </pre>
    *
    * <code>string InstanceId = 1;</code>
@@ -223,7 +223,7 @@ private static final long serialVersionUID = 0L;
   private boolean canSelfEditing_;
   /**
    * <pre>
-   *是否可自助配置
+   *是否可自助配置，废弃
    * </pre>
    *
    * <code>bool CanSelfEditing = 3;</code>
@@ -238,7 +238,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object configStatus_;
   /**
    * <pre>
-   *实例配置状态
+   *实例配置状态，废弃
    * </pre>
    *
    * <code>string ConfigStatus = 4;</code>
@@ -259,7 +259,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *实例配置状态
+   *实例配置状态，废弃
    * </pre>
    *
    * <code>string ConfigStatus = 4;</code>
@@ -677,7 +677,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object instanceId_ = "";
     /**
      * <pre>
-     *实例ID
+     *实例ID，废弃
      * </pre>
      *
      * <code>string InstanceId = 1;</code>
@@ -697,7 +697,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *实例ID
+     *实例ID，废弃
      * </pre>
      *
      * <code>string InstanceId = 1;</code>
@@ -718,7 +718,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *实例ID
+     *实例ID，废弃
      * </pre>
      *
      * <code>string InstanceId = 1;</code>
@@ -737,7 +737,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *实例ID
+     *实例ID，废弃
      * </pre>
      *
      * <code>string InstanceId = 1;</code>
@@ -751,7 +751,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *实例ID
+     *实例ID，废弃
      * </pre>
      *
      * <code>string InstanceId = 1;</code>
@@ -1085,7 +1085,7 @@ private static final long serialVersionUID = 0L;
     private boolean canSelfEditing_ ;
     /**
      * <pre>
-     *是否可自助配置
+     *是否可自助配置，废弃
      * </pre>
      *
      * <code>bool CanSelfEditing = 3;</code>
@@ -1097,7 +1097,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *是否可自助配置
+     *是否可自助配置，废弃
      * </pre>
      *
      * <code>bool CanSelfEditing = 3;</code>
@@ -1112,7 +1112,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *是否可自助配置
+     *是否可自助配置，废弃
      * </pre>
      *
      * <code>bool CanSelfEditing = 3;</code>
@@ -1128,7 +1128,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object configStatus_ = "";
     /**
      * <pre>
-     *实例配置状态
+     *实例配置状态，废弃
      * </pre>
      *
      * <code>string ConfigStatus = 4;</code>
@@ -1148,7 +1148,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *实例配置状态
+     *实例配置状态，废弃
      * </pre>
      *
      * <code>string ConfigStatus = 4;</code>
@@ -1169,7 +1169,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *实例配置状态
+     *实例配置状态，废弃
      * </pre>
      *
      * <code>string ConfigStatus = 4;</code>
@@ -1188,7 +1188,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *实例配置状态
+     *实例配置状态，废弃
      * </pre>
      *
      * <code>string ConfigStatus = 4;</code>
@@ -1202,7 +1202,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *实例配置状态
+     *实例配置状态，废弃
      * </pre>
      *
      * <code>string ConfigStatus = 4;</code>

@@ -209,7 +209,7 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodUpdateMediaPublishStatusResponse updateMediaPublishStatus(com.volcengine.service.vod.model.request.VodUpdateMediaPublishStatusRequest input) throws Exception;
-
+	
 	/**
      * updateMediaStorageClass.
      *
@@ -425,6 +425,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodGetWorkflowExecutionStatusResponse GetWorkflowExecution(com.volcengine.service.vod.model.request.VodGetWorkflowExecutionStatusRequest input) throws Exception;
+	
+	/**
+     * GetWorkflowExecutionResult.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetWorkflowResultRequest
+     * @return com.volcengine.service.vod.model.response.VodGetWorkflowResultResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodGetWorkflowResultResponse GetWorkflowExecutionResult(com.volcengine.service.vod.model.request.VodGetWorkflowResultRequest input) throws Exception;
 	
 	/**
      * createSpace.

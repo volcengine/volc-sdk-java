@@ -185,4 +185,19 @@ public interface VodGetWorkflowExecutionDetailResultOrBuilder extends
    * <code>.google.protobuf.Timestamp EndTime = 13;</code>
    */
   com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder();
+
+  /**
+   * <code>.Volcengine.Vod.Models.Business.DirectUrl DirectUrl = 14;</code>
+   * @return Whether the directUrl field is set.
+   */
+  boolean hasDirectUrl();
+  /**
+   * <code>.Volcengine.Vod.Models.Business.DirectUrl DirectUrl = 14;</code>
+   * @return The directUrl.
+   */
+  com.volcengine.service.vod.model.business.DirectUrl getDirectUrl();
+  /**
+   * <code>.Volcengine.Vod.Models.Business.DirectUrl DirectUrl = 14;</code>
+   */
+  com.volcengine.service.vod.model.business.DirectUrlOrBuilder getDirectUrlOrBuilder();
 }

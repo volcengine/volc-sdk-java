@@ -25,6 +25,7 @@ private static final long serialVersionUID = 0L;
     updateTime_ = "";
     region_ = "";
     sources_ = java.util.Collections.emptyList();
+    lockStatus_ = "";
   }
 
   @java.lang.Override
@@ -126,6 +127,12 @@ private static final long serialVersionUID = 0L;
             }
             sources_.add(
                 input.readMessage(com.volcengine.service.vod.model.business.VodDomainSourceInfo.parser(), extensionRegistry));
+            break;
+          }
+          case 90: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            lockStatus_ = s;
             break;
           }
           default: {
@@ -629,6 +636,52 @@ private static final long serialVersionUID = 0L;
     return sources_.get(index);
   }
 
+  public static final int LOCKSTATUS_FIELD_NUMBER = 11;
+  private volatile java.lang.Object lockStatus_;
+  /**
+   * <pre>
+   *是否锁定，可否配置
+   * </pre>
+   *
+   * <code>string LockStatus = 11;</code>
+   * @return The lockStatus.
+   */
+  @java.lang.Override
+  public java.lang.String getLockStatus() {
+    java.lang.Object ref = lockStatus_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      lockStatus_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *是否锁定，可否配置
+   * </pre>
+   *
+   * <code>string LockStatus = 11;</code>
+   * @return The bytes for lockStatus.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getLockStatusBytes() {
+    java.lang.Object ref = lockStatus_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      lockStatus_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -673,6 +726,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < sources_.size(); i++) {
       output.writeMessage(10, sources_.get(i));
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lockStatus_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, lockStatus_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -714,6 +770,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, sources_.get(i));
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lockStatus_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, lockStatus_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -752,6 +811,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getRegion())) return false;
     if (!getSourcesList()
         .equals(other.getSourcesList())) return false;
+    if (!getLockStatus()
+        .equals(other.getLockStatus())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -787,6 +848,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SOURCES_FIELD_NUMBER;
       hash = (53 * hash) + getSourcesList().hashCode();
     }
+    hash = (37 * hash) + LOCKSTATUS_FIELD_NUMBER;
+    hash = (53 * hash) + getLockStatus().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -949,6 +1012,8 @@ private static final long serialVersionUID = 0L;
       } else {
         sourcesBuilder_.clear();
       }
+      lockStatus_ = "";
+
       return this;
     }
 
@@ -998,6 +1063,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.sources_ = sourcesBuilder_.build();
       }
+      result.lockStatus_ = lockStatus_;
       onBuilt();
       return result;
     }
@@ -1106,6 +1172,10 @@ private static final long serialVersionUID = 0L;
             sourcesBuilder_.addAllMessages(other.sources_);
           }
         }
+      }
+      if (!other.getLockStatus().isEmpty()) {
+        lockStatus_ = other.lockStatus_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2370,6 +2440,102 @@ private static final long serialVersionUID = 0L;
         sources_ = null;
       }
       return sourcesBuilder_;
+    }
+
+    private java.lang.Object lockStatus_ = "";
+    /**
+     * <pre>
+     *是否锁定，可否配置
+     * </pre>
+     *
+     * <code>string LockStatus = 11;</code>
+     * @return The lockStatus.
+     */
+    public java.lang.String getLockStatus() {
+      java.lang.Object ref = lockStatus_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        lockStatus_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *是否锁定，可否配置
+     * </pre>
+     *
+     * <code>string LockStatus = 11;</code>
+     * @return The bytes for lockStatus.
+     */
+    public com.google.protobuf.ByteString
+        getLockStatusBytes() {
+      java.lang.Object ref = lockStatus_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        lockStatus_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *是否锁定，可否配置
+     * </pre>
+     *
+     * <code>string LockStatus = 11;</code>
+     * @param value The lockStatus to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLockStatus(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      lockStatus_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *是否锁定，可否配置
+     * </pre>
+     *
+     * <code>string LockStatus = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLockStatus() {
+      
+      lockStatus_ = getDefaultInstance().getLockStatus();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *是否锁定，可否配置
+     * </pre>
+     *
+     * <code>string LockStatus = 11;</code>
+     * @param value The bytes for lockStatus to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLockStatusBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      lockStatus_ = value;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

@@ -341,7 +341,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object definition_;
   /**
    * <pre>
-   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k.默认返回全部
+   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe.默认返回全部
    * </pre>
    *
    * <code>string Definition = 4;</code>
@@ -362,7 +362,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k.默认返回全部
+   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe.默认返回全部
    * </pre>
    *
    * <code>string Definition = 4;</code>
@@ -1852,7 +1852,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object definition_ = "";
     /**
      * <pre>
-     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k.默认返回全部
+     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe.默认返回全部
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -1872,7 +1872,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k.默认返回全部
+     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe.默认返回全部
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -1893,7 +1893,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k.默认返回全部
+     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe.默认返回全部
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -1912,7 +1912,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k.默认返回全部
+     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe.默认返回全部
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -1926,7 +1926,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k.默认返回全部
+     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe.默认返回全部
      * </pre>
      *
      * <code>string Definition = 4;</code>

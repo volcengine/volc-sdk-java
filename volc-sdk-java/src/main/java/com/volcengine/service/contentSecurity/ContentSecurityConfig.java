@@ -300,5 +300,7 @@ public class ContentSecurityConfig {
                     }
             ));
         }
+
+        ;
     };
 }

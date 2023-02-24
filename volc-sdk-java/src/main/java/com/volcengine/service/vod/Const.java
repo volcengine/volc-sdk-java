@@ -106,6 +106,12 @@ public class Const {
 
     public static final String ListCdnPvData = "ListCdnPvData";
 
+    public static final String CreateDomain = "CreateDomain";
+
+    public static final String UpdateDomainExpire = "UpdateDomainExpire";
+
+    public static final String UpdateDomainAuthConfig = "UpdateDomainAuthConfig";
+
 
     //vod-callback
     public static final String AddCallbackSubscription = "AddCallbackSubscription";

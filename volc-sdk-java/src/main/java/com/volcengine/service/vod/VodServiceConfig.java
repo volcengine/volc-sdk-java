@@ -868,6 +868,51 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.CreateDomain, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CreateDomain));
+                                    add(new BasicNameValuePair("Version", "2023-02-01"));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateDomainExpire, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateDomainExpire));
+                                    add(new BasicNameValuePair("Version", "2023-02-01"));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateDomainAuthConfig, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateDomainAuthConfig));
+                                    add(new BasicNameValuePair("Version", "2023-02-01"));
+
+                                }
+                            });
+                        }
+                    }
+            ));
             // **********************************************************************
             // 回调管理
             // **********************************************************************

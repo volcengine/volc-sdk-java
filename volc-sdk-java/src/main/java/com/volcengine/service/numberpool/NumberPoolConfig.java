@@ -60,6 +60,54 @@ public class NumberPoolConfig {
                     });
                 }
             }));
+            put("CreateNumberPool", new ApiInfo(new HashMap<String, Object>() {
+                {
+                    put(Const.Method, "POST");
+                    put(Const.Path, "/");
+                    put(Const.Query, new ArrayList<NameValuePair>() {
+                        {
+                            add(new BasicNameValuePair("Action", "CreateNumberPool"));
+                            add(new BasicNameValuePair("Version", "2020-09-01"));
+                        }
+                    });
+                }
+            }));
+            put("UpdateNumberPool", new ApiInfo(new HashMap<String, Object>() {
+                {
+                    put(Const.Method, "POST");
+                    put(Const.Path, "/");
+                    put(Const.Query, new ArrayList<NameValuePair>() {
+                        {
+                            add(new BasicNameValuePair("Action", "UpdateNumberPool"));
+                            add(new BasicNameValuePair("Version", "2020-09-01"));
+                        }
+                    });
+                }
+            }));
+            put("EnableOrDisableNumber", new ApiInfo(new HashMap<String, Object>() {
+                {
+                    put(Const.Method, "POST");
+                    put(Const.Path, "/");
+                    put(Const.Query, new ArrayList<NameValuePair>() {
+                        {
+                            add(new BasicNameValuePair("Action", "EnableOrDisableNumber"));
+                            add(new BasicNameValuePair("Version", "2021-01-01"));
+                        }
+                    });
+                }
+            }));
+            put("SelectNumber", new ApiInfo(new HashMap<String, Object>() {
+                {
+                    put(Const.Method, "GET");
+                    put(Const.Path, "/");
+                    put(Const.Query, new ArrayList<NameValuePair>() {
+                        {
+                            add(new BasicNameValuePair("Action", "SelectNumber"));
+                            add(new BasicNameValuePair("Version", "2021-01-01"));
+                        }
+                    });
+                }
+            }));
         }
     };
 }

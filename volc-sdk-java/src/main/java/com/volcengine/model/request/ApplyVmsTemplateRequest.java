@@ -19,6 +19,4 @@ public class ApplyVmsTemplateRequest {
     String signature;
     @JSONField(name = "Contents")
     List<VmsElement> contents;
-    @JSONField(name = "Caller")
-    String caller;
 }

@@ -104,6 +104,15 @@ public interface ContentSecurityService extends IBaseService {
     AsyncRiskDetectionResponse UploadCustomContents(UploadCustomContentsRequest request) throws Exception;
 
     /**
+     * Delete Custom Contents
+     *
+     * @param request delete custom contents request
+     * @return delete custom contents response
+     * @throws Exception the exception
+     */
+    AsyncRiskDetectionResponse DeleteCustomContents(UploadCustomContentsRequest request) throws Exception;
+
+    /**
      * Async Audio Risk Detection.
      *
      * @param riskDetectionRequest audip risk detection request

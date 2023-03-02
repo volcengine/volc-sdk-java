@@ -129,6 +129,16 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
     }
 
     @Override
+    public AsyncRiskDetectionResponse DeleteCustomContents(UploadCustomContentsRequest request) throws Exception {
+        RawResponse response = json(Const.DeleteCustomContents, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
+    }
+
+    @Override
     public AsyncRiskDetectionResponse AsyncAudioRisk(RiskDetectionRequest riskDetectionRequest) throws Exception {
         RawResponse response = json(Const.AsyncAudioRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -195,8 +205,6 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
             throw response.getException();
         }
 
-        String str = new String(response.getData());
-
         return JSON.parseObject(response.getData(), TextSliceRiskResponse.class);
     }
 
@@ -207,8 +215,6 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
             throw response.getException();
         }
 
-        String str = new String(response.getData());
-
         return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
     }
 
@@ -218,8 +224,6 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-
-        String str = new String(response.getData());
 
         return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
     }

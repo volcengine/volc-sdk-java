@@ -23,7 +23,8 @@ public class UploadImageByStream {
         service.setSecretKey("sk");
 
         ApplyImageUploadRequest request = new ApplyImageUploadRequest();
-        request.setServiceId("service id"); ; // 服务 ID
+        request.setServiceId("service id");
+        // 服务 ID
 //        request.setStoreKeys(new ArrayList<>());
 
         try {
@@ -43,7 +44,7 @@ public class UploadImageByStream {
 
     @SneakyThrows
     private static void addFile(ApplyImageUploadRequest request, List<InputStream> files, List<Long> sizeArr, String storeKey, String filePath) {
-        // 读取文件
+        // 读取文件f
         File file = new File(filePath);
         if (request.getStoreKeys() != null) {
             request.getStoreKeys().add(storeKey);

@@ -5,8 +5,6 @@ import com.volcengine.model.response.GetImageEnhanceResultResponse;
 import com.volcengine.service.imagex.IImageXService;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 
-import java.util.Collections;
-
 /**
  * 画质增强
  */

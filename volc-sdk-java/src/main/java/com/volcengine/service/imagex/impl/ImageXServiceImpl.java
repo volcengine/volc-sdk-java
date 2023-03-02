@@ -2,6 +2,7 @@ package com.volcengine.service.imagex.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.util.ParameterizedTypeImpl;
 import com.github.rholder.retry.Retryer;
 import com.github.rholder.retry.RetryerBuilder;
 import com.github.rholder.retry.StopStrategies;
@@ -27,6 +28,8 @@ import org.apache.http.util.EntityUtils;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.net.URI;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -34,6 +37,9 @@ import java.util.stream.IntStream;
 
 
 public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService {
+
+    private final Retryer<Boolean> uploadRetryer = createUploadDefaultRetryer();
+    private final Retryer<HttpResponse> httpRetryer = createUploadDefaultRetryer();
 
     private ImageXServiceImpl() {
         super(ImageXConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), ImageXConfig.apiInfoList);
@@ -54,10 +60,6 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         }
         return new ImageXServiceImpl(serviceInfo);
     }
-
-    private final Retryer<Boolean> uploadRetryer = createUploadDefaultRetryer();
-
-    private final Retryer<HttpResponse> httpRetryer = createUploadDefaultRetryer();
 
     static private <R> Retryer<R> createUploadDefaultRetryer() {
         return RetryerBuilder.<R>newBuilder()
@@ -450,6 +452,33 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
             throw response.getException();
         }
         CommonResponse res = JSON.parseObject(response.getData(), CommonResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("ImageX");
+        return res;
+    }
+
+    @Override
+    public <T> GenericCommonResponse<T> getImageX(String action, Map<String, String> param, Class<T> respType) throws Exception {
+        RawResponse response = query(action, Utils.mapToPairList(param));
+        return parseRawResToGeneric(response, respType);
+    }
+
+    @Override
+    public <T> GenericCommonResponse<T> postImageX(String action, Map<String, String> param, Object req, Class<T> respType) throws Exception {
+        RawResponse response = json(action, Utils.mapToPairList(param), JSON.toJSONString(req));
+        return parseRawResToGeneric(response, respType);
+    }
+
+    private <T> GenericCommonResponse<T> parseRawResToGeneric(RawResponse response, Class<T> respType) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        ParameterizedType type = new ParameterizedTypeImpl(new Type[]{respType}, null, GenericCommonResponse.class);
+        GenericCommonResponse<T> res = JSON.parseObject(response.getData(), type);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());

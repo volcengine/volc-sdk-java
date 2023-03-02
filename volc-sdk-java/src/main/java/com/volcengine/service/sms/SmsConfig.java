@@ -136,7 +136,7 @@ public class SmsConfig {
             put("GetVmsTemplateStatus", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
-                            put(Const.Method, "GET");
+                            put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {

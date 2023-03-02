@@ -2,9 +2,7 @@ package com.volcengine.example.sms;
 
 import com.alibaba.fastjson.JSON;
 import com.volcengine.model.request.*;
-import com.volcengine.model.response.ApplySmsTemplateResponse;
-import com.volcengine.model.response.GetSmsTemplateAndOrderListResponse;
-import com.volcengine.model.response.SmsSendResponse;
+import com.volcengine.model.response.*;
 import com.volcengine.service.base.model.base.Base;
 import com.volcengine.service.sms.SmsService;
 import com.volcengine.service.sms.SourceType;
@@ -62,7 +60,7 @@ public class SendSmsDemo {
         sources.add(s2);
         req.setContents(sources);
         try {
-            ApplySmsTemplateResponse response = smsService.ApplyVmsTemplate(req);
+            ApplyVmsTemplateResponse response = smsService.ApplyVmsTemplate(req);
             System.out.println(JSON.toJSONString(response));
         } catch (Exception e) {
             e.printStackTrace();
@@ -74,7 +72,7 @@ public class SendSmsDemo {
         req.setSubAccount("subaccount");
         req.setTemplateId("template");
         try {
-            ApplySmsTemplateResponse response = smsService.GetVmsTemplateStatus(req);
+            GetVmsTemplateResponse response = smsService.GetVmsTemplateStatus(req);
             System.out.println(JSON.toJSONString(response));
         } catch (Exception e) {
             e.printStackTrace();

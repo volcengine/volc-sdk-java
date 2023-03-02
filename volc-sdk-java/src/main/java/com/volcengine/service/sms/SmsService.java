@@ -124,10 +124,10 @@ public interface SmsService extends IBaseService {
      */
     ApplySmsTemplateResponse applySmsTemplate(ApplySmsTemplateRequest applySmsTemplateRequest) throws Exception;
 
-    ApplySmsTemplateResponse ApplyVmsTemplate(ApplyVmsTemplateRequest applyVmsTemplateRequest) throws Exception;
+    ApplyVmsTemplateResponse ApplyVmsTemplate(ApplyVmsTemplateRequest applyVmsTemplateRequest) throws Exception;
 
 
-    ApplySmsTemplateResponse GetVmsTemplateStatus(GetVmsTemplateStatusRequest applyVmsTemplateRequest) throws Exception;
+    GetVmsTemplateResponse GetVmsTemplateStatus(GetVmsTemplateStatusRequest applyVmsTemplateRequest) throws Exception;
 
 
     /**

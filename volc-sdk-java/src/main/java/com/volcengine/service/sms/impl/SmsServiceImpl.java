@@ -1,7 +1,6 @@
 package com.volcengine.service.sms.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.google.common.base.Strings;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.model.ServiceInfo;
@@ -197,7 +196,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     }
 
     @Override
-    public ApplySmsTemplateResponse ApplyVmsTemplate(ApplyVmsTemplateRequest req) throws Exception {
+    public ApplyVmsTemplateResponse ApplyVmsTemplate(ApplyVmsTemplateRequest req) throws Exception {
         if (req.getContents() == null || req.getContents().size() == 0) {
             throw new Exception("should contain contents");
         }
@@ -208,9 +207,8 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         if (StringUtils.isBlank(req.getChannelType())) {
             req.setChannelType("CN_VMS");
         }
-        req.setCaller("sdk");
         RawResponse response = json("ApplyVmsTemplate", new ArrayList<>(), JSON.toJSONString(req));
-        return applySmsTemplateResponse(response);
+        return applyVmsTemplateResponse(response);
     }
 
     private static boolean isContainText(ApplyVmsTemplateRequest req) {
@@ -224,9 +222,9 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     }
 
     @Override
-    public ApplySmsTemplateResponse GetVmsTemplateStatus(GetVmsTemplateStatusRequest req) throws Exception{
+    public GetVmsTemplateResponse GetVmsTemplateStatus(GetVmsTemplateStatusRequest req) throws Exception{
         RawResponse response = json("GetVmsTemplateStatus", new ArrayList<>(), JSON.toJSONString(req));
-        return applySmsTemplateResponse(response);
+        return getVmsTemplateResponse(response);
     }
 
 
@@ -361,6 +359,32 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
             throw response.getException();
         }
         ApplySmsTemplateResponse res = JSON.parseObject(response.getData(), ApplySmsTemplateResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    private ApplyVmsTemplateResponse applyVmsTemplateResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ApplyVmsTemplateResponse res = JSON.parseObject(response.getData(), ApplyVmsTemplateResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    private GetVmsTemplateResponse getVmsTemplateResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetVmsTemplateResponse res = JSON.parseObject(response.getData(), GetVmsTemplateResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());

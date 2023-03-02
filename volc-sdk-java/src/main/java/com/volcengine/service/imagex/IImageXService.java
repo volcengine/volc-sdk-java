@@ -160,6 +160,29 @@ public interface IImageXService extends IBaseService {
     CommonResponse postImageX(String action, Map<String, String> param, Object req) throws Exception;
 
     /**
+     * Request ImageX api with method GET.
+     *
+     * @param action   api action name
+     * @param param    api query param
+     * @param respType return type
+     * @return api response
+     * @throws Exception the exception
+     */
+    <T> GenericCommonResponse<T> getImageX(String action, Map<String, String> param, Class<T> respType) throws Exception;
+
+    /**
+     * Request ImageX api with method POST.
+     *
+     * @param action   api action name
+     * @param param    api query param
+     * @param req      api json param
+     * @param respType return type
+     * @return api response
+     * @throws Exception the exception
+     */
+    <T> GenericCommonResponse<T> postImageX(String action, Map<String, String> param, Object req, Class<T> respType) throws Exception;
+
+    /**
      * Request ImageX api with method POST.
      *
      * @param param api query param

@@ -15,4 +15,8 @@ public class ProductAPIs  {
     Boolean EnableUA;
     @JSONField(name = "UAAddress")
     java.lang.String UAAddress;
+    @JSONField(name = "EnableMiniApp")
+    Boolean EnableMiniApp;
+    @JSONField(name = "MiniAppId")
+    String MiniAppId;
 }

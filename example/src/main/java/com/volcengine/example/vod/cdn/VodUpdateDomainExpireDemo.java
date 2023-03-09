@@ -15,11 +15,11 @@ public class VodUpdateDomainExpireDemo {
 
         try {
             com.volcengine.service.vod.model.request.VodUpdateDomainExpireV2Request.Builder reqBuilder = com.volcengine.service.vod.model.request.VodUpdateDomainExpireV2Request.newBuilder();
-            reqBuilder.setSpaceName("your SpaceName");
-            reqBuilder.setDomainType("your DomainType");
-            reqBuilder.setDomain("your Domain");
-            reqBuilder.setExpire(0);
-
+			reqBuilder.setSpaceName("your SpaceName");
+			reqBuilder.setDomainType("your DomainType");
+			reqBuilder.setDomain("your Domain");
+			reqBuilder.setExpire(0);
+			
             com.volcengine.service.vod.model.response.VodUpdateDomainExpireV2Response resp = vodService.updateDomainExpire(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {
                 System.out.println(resp.getResponseMetadata().getError());

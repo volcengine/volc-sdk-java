@@ -12,6 +12,7 @@ import com.google.protobuf.util.JsonFormat;
 import com.google.common.base.Predicates;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -20,11 +21,14 @@ import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
 import com.github.rholder.retry.*;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringUtils;
+
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
+
 public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl implements com.volcengine.service.vod.IVodService {
 
     // 静态字段引用唯一实例:
@@ -115,7 +119,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 
     @Override
     public String getSubtitleAuthToken(com.volcengine.service.vod.model.request.VodGetSubtitleInfoListRequest input, Long expireSeconds) throws Exception {
-        if(input.getVid() == "") {
+        if (input.getVid() == "") {
             throw new Exception("传入的Vid为空");
         }
         Map<String, String> params = new HashMap<>();
@@ -179,7 +183,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
     }
 
     private com.volcengine.model.beans.UploadCompleteInfo uploadToB(String spaceName, String filePath, String fileType, String fileName, String fileExtension, int storageClass) throws Exception {
-        java.io.File file = new java.io.File(filePath);
+        File file = new File(filePath);
         if (!(file.isFile() && file.exists())) {
             throw new Exception(com.volcengine.error.SdkError.getErrorDesc(com.volcengine.error.SdkError.ENOFILE));
         }
@@ -250,22 +254,28 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         long num = file.length() / com.volcengine.service.vod.Const.MinChunkSize;
         long lastNum = num - 1;
         long partNumber;
+        String objectContentType = "";
         try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file))) {
             for (long i = 0; i < lastNum; i++) {
                 bis.read(data);
                 partNumber = isLargeFile ? i + 1 : i;
-                parts.add(uploadPart(host, oid, auth, uploadID, partNumber, data, isLargeFile, retryer, storageClass));
+                UploadPartResponse uploadPartResponse = uploadPart(host, oid, auth, uploadID, partNumber, data, isLargeFile, retryer, storageClass);
+                parts.add(uploadPartResponse.getCheckSum());
+                if (partNumber == 1) {
+                    objectContentType = uploadPartResponse.getObjectContentType();
+                }
             }
             long readCount = (long) com.volcengine.service.vod.Const.MinChunkSize * lastNum;
             int len = (int) (file.length() - readCount);
             byte[] lastPart = new byte[len];
             bis.read(lastPart);
             partNumber = isLargeFile ? lastNum + 1 : lastNum;
-            parts.add(uploadPart(host, oid, auth, uploadID, partNumber, lastPart, isLargeFile, retryer, storageClass));
+            UploadPartResponse uploadPartResponse = uploadPart(host, oid, auth, uploadID, partNumber, lastPart, isLargeFile, retryer, storageClass);
+            parts.add(uploadPartResponse.getCheckSum());
         } catch (Exception e) {
             throw e;
         }
-        uploadMergePart(host, oid, auth, uploadID, parts.stream().toArray(String[]::new), isLargeFile, retryer, storageClass);
+        uploadMergePart(host, oid, auth, uploadID, parts.stream().toArray(String[]::new), isLargeFile, retryer, storageClass, objectContentType);
     }
 
     private String initUploadPart(String host, String oid, String auth, boolean isLargeFile, List<com.volcengine.service.vod.model.business.VodHeaderPair> uploadHeaderList, Retryer retryer, int storageClass) throws ExecutionException, RetryException, IOException {
@@ -292,7 +302,14 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         return result.getJSONObject("payload").getInnerMap().get("uploadID").toString();
     }
 
-    private String uploadPart(String host, String oid, String auth, String uploadID, long partNumber, byte[] data, boolean isLargeFile, Retryer retryer, int storageClass) throws Exception {
+    @lombok.Builder
+    @lombok.Data
+    static class UploadPartResponse {
+        private String checkSum;
+        private String objectContentType;
+    }
+
+    private UploadPartResponse uploadPart(String host, String oid, String auth, String uploadID, long partNumber, byte[] data, boolean isLargeFile, Retryer retryer, int storageClass) throws Exception {
         String oidEncode = StringUtils.replace(oid, " ", "%20");
         String url = String.format("http://%s/%s?partNumber=%d&uploadID=%s", host, oidEncode, partNumber, uploadID);
         Map<String, String> headers = new HashMap<>();
@@ -306,13 +323,25 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         if (storageClass == com.volcengine.service.vod.model.business.StorageClassType.Archive_VALUE) {
             headers.put("X-Upload-Storage-Class", "archive");
         }
-        retryer.call(() -> putData(url, data, headers));
-        return checkSum;
+
+        HttpResponse httpResponse = (HttpResponse) (retryer.call(() -> putDataWithResponse(url, data, headers)));
+        if (httpResponse == null) {
+            throw new RuntimeException("init part error,response is empty");
+        }
+        if (httpResponse.getStatusLine().getStatusCode() != 200) {
+            throw new RuntimeException("http code is " + httpResponse.getStatusLine().getStatusCode());
+        }
+        String entity = EntityUtils.toString(httpResponse.getEntity());
+        JSONObject result = JSONObject.parseObject(entity);
+        return UploadPartResponse.builder()
+                .checkSum(checkSum)
+                .objectContentType(result.getJSONObject("payload").getJSONObject("meta").getString("ObjectContentType"))
+                .build();
     }
 
-    private void uploadMergePart(String host, String oid, String auth, String uploadID, String[] checkSum, boolean isLargeFile, Retryer retryer, int storageClass) throws ExecutionException, RetryException {
+    private void uploadMergePart(String host, String oid, String auth, String uploadID, String[] checkSum, boolean isLargeFile, Retryer retryer, int storageClass, String objectContentType) throws ExecutionException, RetryException {
         String oidEncode = StringUtils.replace(oid, " ", "%20");
-        String url = String.format("http://%s/%s?uploadID=%s", host, oidEncode, uploadID);
+        String url = String.format("http://%s/%s?uploadID=%s&ObjectContentType=%s", host, oidEncode, uploadID, objectContentType);
         String body = IntStream.range(0, checkSum.length).mapToObj(i -> String.format("%d:%s", i, checkSum[i])).collect(Collectors.joining(",", "", ""));
         Map<String, String> headers = new HashMap<>();
         headers.put("Authorization", auth);
@@ -325,9 +354,10 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         retryer.call(() -> putData(url, body.getBytes(), headers));
     }
 
+
     @Override
     public com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadMaterial(com.volcengine.service.vod.model.request.VodUploadMaterialRequest vodUploadMaterialRequest) throws Exception {
-        com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = uploadToB(vodUploadMaterialRequest.getSpaceName(), vodUploadMaterialRequest.getFilePath(), vodUploadMaterialRequest.getFileType(), vodUploadMaterialRequest.getFileName(),vodUploadMaterialRequest.getFileExtension(), 0);
+        com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = uploadToB(vodUploadMaterialRequest.getSpaceName(), vodUploadMaterialRequest.getFilePath(), vodUploadMaterialRequest.getFileType(), vodUploadMaterialRequest.getFileName(), vodUploadMaterialRequest.getFileExtension(), 0);
 
         com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest vodCommitUploadInfoRequest = com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest.newBuilder()
                 .setSpaceName(vodUploadMaterialRequest.getSpaceName())
@@ -379,9 +409,9 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        VodServiceImpl.VodGetDirectEditResultResponse resp = JSON.parseObject(response.getData(), VodServiceImpl.VodGetDirectEditResultResponse.class);
+        VodGetDirectEditResultResponse resp = JSON.parseObject(response.getData(), VodGetDirectEditResultResponse.class);
         if (resp.result != null) {
-            for ( int i = 0; i < resp.result.size(); i++) {
+            for (int i = 0; i < resp.result.size(); i++) {
                 Map<String, Object> value = resp.result.get(i);
                 if (value.containsKey("EditParam")) {
                     Object editParam = value.get("EditParam");
@@ -400,7 +430,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         @JSONField(name = "ResponseMetadata")
         public Map<String, Object> responseMetadata;
         @JSONField(name = "Result")
-        public java.util.List<Map<String, Object>> result;
+        public List<Map<String, Object>> result;
     }
 
     /**
@@ -416,8 +446,8 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        VodServiceImpl.VodGetDirectEditProgressResponse resp = JSON.parseObject(response.getData(), VodServiceImpl.VodGetDirectEditProgressResponse.class);
-        if (resp.result!=null){
+        VodGetDirectEditProgressResponse resp = JSON.parseObject(response.getData(), VodGetDirectEditProgressResponse.class);
+        if (resp.result != null) {
             Result res = new Result();
             res.result = (Integer) resp.result;
             resp.result = res;
@@ -426,13 +456,15 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(JSON.toJSONBytes(resp))), responseBuilder);
         return responseBuilder.build();
     }
+
     static class VodGetDirectEditProgressResponse {
         @JSONField(name = "ResponseMetadata")
         public Map<String, Object> responseMetadata;
         @JSONField(name = "Result")
         public Object result;
     }
-    static class Result{
+
+    static class Result {
         @JSONField(name = "Result")
         public Integer result;
     }
@@ -1459,6 +1491,44 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * submitBlockTasks.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest
+     * @return com.volcengine.service.vod.model.response.VodSubmitBlockTasksResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.vod.model.response.VodSubmitBlockTasksResponse submitBlockTasks(com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.SubmitBlockTasks, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodSubmitBlockTasksResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodSubmitBlockTasksResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+
+    /**
+     * getContentBlockTasks.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetContentBlockTasksRequest
+     * @return com.volcengine.service.vod.model.response.VodGetContentBlockTasksResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.vod.model.response.VodGetContentBlockTasksResponse getContentBlockTasks(com.volcengine.service.vod.model.request.VodGetContentBlockTasksRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.GetContentBlockTasks, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodGetContentBlockTasksResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetContentBlockTasksResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
     }

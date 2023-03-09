@@ -106,6 +106,9 @@ public class Const {
 
     public static final String ListCdnPvData = "ListCdnPvData";
 
+    public static final String SubmitBlockTasks = "SubmitBlockTasks";
+    public static final String GetContentBlockTasks = "GetContentBlockTasks";
+
     public static final String CreateDomain = "CreateDomain";
 
     public static final String UpdateDomainExpire = "UpdateDomainExpire";

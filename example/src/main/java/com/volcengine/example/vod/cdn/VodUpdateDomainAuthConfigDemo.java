@@ -15,13 +15,13 @@ public class VodUpdateDomainAuthConfigDemo {
 
         try {
             com.volcengine.service.vod.model.request.VodUpdateDomainAuthConfigV2Request.Builder reqBuilder = com.volcengine.service.vod.model.request.VodUpdateDomainAuthConfigV2Request.newBuilder();
-            reqBuilder.setSpaceName("your SpaceName");
-            reqBuilder.setDomainType("your DomainType");
-            reqBuilder.setDomain("your Domain");
-            reqBuilder.setMainKey("your MainKey");
-            reqBuilder.setBackupKey("your BackupKey");
-            reqBuilder.setStatus("your Status");
-
+			reqBuilder.setSpaceName("your SpaceName");
+			reqBuilder.setDomainType("your DomainType");
+			reqBuilder.setDomain("your Domain");
+			reqBuilder.setMainKey("your MainKey");
+			reqBuilder.setBackupKey("your BackupKey");
+			reqBuilder.setStatus("your Status");
+			
             com.volcengine.service.vod.model.response.VodUpdateDomainAuthConfigV2Response resp = vodService.updateDomainAuthConfig(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {
                 System.out.println(resp.getResponseMetadata().getError());

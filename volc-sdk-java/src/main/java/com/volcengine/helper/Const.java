@@ -625,6 +625,12 @@ public class Const {
     public static final String DistortionFree = "DistortionFree";
     public static final String EnhancePhoto = "EnhancePhoto";
     public static final String ConvertPhoto = "ConvertPhoto";
+    public static final String PotraitEffect = "PotraitEffect";
+    public static final String  CertToken= "CertToken";
+    public static final String  CertVerifyQuery= "CertVerifyQuery";
+    public static final String  CertConfigInit= "CertConfigInit";
+    public static final String  CertConfigGet= "CertConfigGet";
+    public static final String  Img2Video3D= "Img2Video3D";
 
     // ocr
     public static final String OCRNormal = "OCRNormal";

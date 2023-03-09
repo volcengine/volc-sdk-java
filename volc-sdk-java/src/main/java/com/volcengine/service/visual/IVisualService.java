@@ -144,6 +144,51 @@ public interface IVisualService extends IBaseService {
     VisualConvertPhotoResponse convertPhoto(VisualConvertPhotoRequest request) throws Exception;
 
     /**
+     * 人像特效
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualPotraitEffectResponse potraitEffect(VisualPotraitEffectRequest request) throws Exception;
+
+    /**
+     * 身份认证Token服务
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualCertTokenResponse certToken(VisualCertTokenRequest request) throws Exception;
+    /**
+     * 身份认证Query服务
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualCertVerifyQueryResponse certVerifyQuery(VisualCertVerifyQueryRequest request) throws Exception;
+    /**
+     * 身份认证ConfigInit服务
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualCertConfigInitResponse certConfigInit(VisualCertConfigInitRequest request) throws Exception;
+    /**
+     * 身份认证ConfigGet服务
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualCertConfigGetResponse certConfigGet(VisualCertConfigGetRequest request) throws Exception;
+    /**
+     * 希区柯克V2(3D运镜)
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualImg2Video3DResponse img2Video3D(VisualImg2Video3DRequest request) throws Exception;
+
+
+    /**
      * 通用文字识别
      * @param request
      * @return

@@ -596,6 +596,24 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	 * @throws Exception the exception
 	 */
 	com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse listCdnPvData(com.volcengine.service.vod.model.request.VodListCdnPvDataRequest input) throws Exception;
+	
+	/**
+     * submitBlockTasks.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest
+     * @return com.volcengine.service.vod.model.response.VodSubmitBlockTasksResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodSubmitBlockTasksResponse submitBlockTasks(com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest input) throws Exception;
+	
+	/**
+     * getContentBlockTasks.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetContentBlockTasksRequest
+     * @return com.volcengine.service.vod.model.response.VodGetContentBlockTasksResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodGetContentBlockTasksResponse getContentBlockTasks(com.volcengine.service.vod.model.request.VodGetContentBlockTasksRequest input) throws Exception;
 
 	/**
 	 * createDomain.

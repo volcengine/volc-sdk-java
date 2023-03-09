@@ -25,6 +25,10 @@ public class GetActivityProductAPIResponse {
         Boolean EnableUA;
         @JSONField(name = "UAAddress")
         String UAAddress;
+        @JSONField(name = "EnableMiniApp")
+        Boolean EnableMiniApp;
+        @JSONField(name = "MiniAppId")
+        String MiniAppId;
     }
 
     @Data
@@ -57,5 +61,7 @@ public class GetActivityProductAPIResponse {
         Integer ExplainStatus;
         @JSONField(name = "Remark")
         String Remark;
+        @JSONField(name = "MiniAppDirectUrl")
+        String MiniAppDirectUrl;
     }
 }

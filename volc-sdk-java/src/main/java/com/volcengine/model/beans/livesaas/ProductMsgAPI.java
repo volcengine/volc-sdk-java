@@ -27,4 +27,6 @@ public class ProductMsgAPI  {
     java.lang.String RedirectUrl;
     @JSONField(name = "EnableStatus")
     Integer EnableStatus;
+    @JSONField(name = "MiniAppDirectUrl")
+    String MiniAppDirectUrl;
 }

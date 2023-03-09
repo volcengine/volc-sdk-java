@@ -20,4 +20,6 @@ public class GetSDKTokenRequest {
     String AvatarUrl;
     @JSONField(name = "ActivityId")
     Long ActivityId;
+    @JSONField(name = "CustomComment")
+    String CustomComment;
 }

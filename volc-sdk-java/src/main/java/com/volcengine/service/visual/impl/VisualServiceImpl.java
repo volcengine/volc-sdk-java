@@ -193,6 +193,55 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
     }
 
     @Override
+    public VisualPotraitEffectResponse potraitEffect(VisualPotraitEffectRequest request) throws Exception {
+        RawResponse response = post(Const.PotraitEffect, null, convertNameValuePair(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualPotraitEffectResponse.class);
+    }
+
+    public VisualCertTokenResponse certToken(VisualCertTokenRequest request) throws Exception {
+        RawResponse response = json(Const.CertToken, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertTokenResponse.class);
+    }
+
+    public VisualCertVerifyQueryResponse certVerifyQuery(VisualCertVerifyQueryRequest request) throws Exception {
+        RawResponse response = json(Const.CertVerifyQuery, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertVerifyQueryResponse.class);
+    }
+
+    public VisualCertConfigInitResponse certConfigInit(VisualCertConfigInitRequest request) throws Exception {
+        RawResponse response = json(Const.CertConfigInit, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertConfigInitResponse.class);
+    }
+
+    public VisualCertConfigGetResponse certConfigGet(VisualCertConfigGetRequest request) throws Exception {
+        RawResponse response = json(Const.CertConfigGet, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertConfigGetResponse.class);
+    }
+
+    public VisualImg2Video3DResponse img2Video3D(VisualImg2Video3DRequest request) throws Exception {
+        RawResponse response = json(Const.Img2Video3D, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualImg2Video3DResponse.class);
+    }
+
+    @Override
     public OCRNormalResponse ocrNormal(OCRNormalRequest request) throws Exception {
         RawResponse response = post(Const.OCRNormal, null, convertNameValuePair(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

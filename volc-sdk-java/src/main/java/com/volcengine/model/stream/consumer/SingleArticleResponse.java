@@ -51,6 +51,8 @@ public class SingleArticleResponse {
         long coverMode;
         @JSONField(name = "CoverImageList")
         List<CommonPo.Image> coverImageList;
+        @JSONField(name = "ContentImageList")
+        List<CommonPo.Image> contentImageList;
         @JSONField(alternateNames = {"VideoDetail", "Video"})
         VideoDetail videoDetail;
         @JSONField(name = "UserInfo")

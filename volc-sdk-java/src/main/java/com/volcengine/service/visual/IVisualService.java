@@ -186,6 +186,27 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     VisualImg2Video3DResponse img2Video3D(VisualImg2Video3DRequest request) throws Exception;
+    /**
+     * 智能绘图（文本转图片通用版）
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualT2ILDMResponse t2ILDM(VisualT2ILDMRequest request) throws Exception;
+    /**
+     * 智能绘图（名画版）
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualImg2ImgStyleResponse img2ImgStyle(VisualImg2ImgStyleRequest request) throws Exception;
+    /**
+     * 智能绘图（漫画版）
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualImg2ImgAnimeResponse img2ImgAnime(VisualImg2ImgAnimeRequest request) throws Exception;
 
 
     /**

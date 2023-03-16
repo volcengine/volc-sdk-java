@@ -241,6 +241,30 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualImg2Video3DResponse.class);
     }
 
+    public VisualT2ILDMResponse t2ILDM(VisualT2ILDMRequest request) throws Exception {
+        RawResponse response = json(Const.T2ILDM, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualT2ILDMResponse.class);
+    }
+
+    public VisualImg2ImgStyleResponse img2ImgStyle(VisualImg2ImgStyleRequest request) throws Exception {
+        RawResponse response = json(Const.Img2ImgStyle, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualImg2ImgStyleResponse.class);
+    }
+
+    public VisualImg2ImgAnimeResponse img2ImgAnime(VisualImg2ImgAnimeRequest request) throws Exception {
+        RawResponse response = json(Const.Img2Video3D, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualImg2ImgAnimeResponse.class);
+    }
+
     @Override
     public OCRNormalResponse ocrNormal(OCRNormalRequest request) throws Exception {
         RawResponse response = post(Const.OCRNormal, null, convertNameValuePair(request));

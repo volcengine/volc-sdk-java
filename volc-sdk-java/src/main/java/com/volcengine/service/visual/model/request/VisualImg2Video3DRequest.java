@@ -18,15 +18,15 @@ public class VisualImg2Video3DRequest {
     @Data
     public static class RenderSpec {
         @JSONField(name = "mode")
-        Integer mode;
+        Integer mode = 0;
         @JSONField(name = "long_side")
-        Integer longSide;
+        Integer longSide = 960;
         @JSONField(name = "frame_num")
-        Integer frameNum;
+        Integer frameNum = 90;
         @JSONField(name = "fps")
-        Integer fps;
+        Integer fps = 30;
         @JSONField(name = "use_flow")
-        Integer useFlow;
+        Integer useFlow = -1;
         @JSONField(name = "speed_shift")
         ArrayList<Float> speedShift;
     }

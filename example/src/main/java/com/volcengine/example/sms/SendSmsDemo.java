@@ -58,7 +58,7 @@ public class SendSmsDemo {
         reader.read(bytes);
 
         List<VmsElement> sources = new ArrayList<>();
-        VmsElement s1 = new VmsElement(SourceType.SourceTypeText.getType(), "火山引擎，企业做好的伙伴");
+        VmsElement s1 = new VmsElement(SourceType.SourceTypeText.getType(), "火山引擎，企业最好的伙伴");
 
         VmsElement s2 = new VmsElement(SourceType.SourceTypeVideo.getType(), Base64.getEncoder().encodeToString(bytes));
         sources.add(s1);

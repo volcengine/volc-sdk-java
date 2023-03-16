@@ -1,16 +1,22 @@
 package com.volcengine.example.sms;
 
 import com.alibaba.fastjson.JSON;
-import com.volcengine.model.request.*;
-import com.volcengine.model.response.*;
-import com.volcengine.service.base.model.base.Base;
+import com.volcengine.model.request.ApplyVmsTemplateRequest;
+import com.volcengine.model.request.GetVmsTemplateStatusRequest;
+import com.volcengine.model.request.SmsSendRequest;
+import com.volcengine.model.request.VmsElement;
+import com.volcengine.model.response.ApplyVmsTemplateResponse;
+import com.volcengine.model.response.GetVmsTemplateResponse;
+import com.volcengine.model.response.SmsSendResponse;
 import com.volcengine.service.sms.SmsService;
 import com.volcengine.service.sms.SourceType;
 import com.volcengine.service.sms.impl.SmsServiceImpl;
-import sun.misc.BASE64Encoder;
 
-import java.io.*;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 public class SendSmsDemo {
@@ -52,10 +58,9 @@ public class SendSmsDemo {
         reader.read(bytes);
 
         List<VmsElement> sources = new ArrayList<>();
-        VmsElement s1 = new VmsElement(SourceType.SourceTypeText.getType(),"火山引擎，企业做好的伙伴");
+        VmsElement s1 = new VmsElement(SourceType.SourceTypeText.getType(), "火山引擎，企业做好的伙伴");
 
-        BASE64Encoder encode = new BASE64Encoder();
-        VmsElement s2 = new VmsElement(SourceType.SourceTypeVideo.getType(),encode.encode(bytes));
+        VmsElement s2 = new VmsElement(SourceType.SourceTypeVideo.getType(), Base64.getEncoder().encodeToString(bytes));
         sources.add(s1);
         sources.add(s2);
         req.setContents(sources);
@@ -78,6 +83,7 @@ public class SendSmsDemo {
             e.printStackTrace();
         }
     }
+
     private static void SendVms(SmsService smsService) throws IOException {
         SmsSendRequest req = new SmsSendRequest();
         req.setPhoneNumbers("188888888");

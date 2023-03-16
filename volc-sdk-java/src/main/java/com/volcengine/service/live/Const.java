@@ -2,7 +2,8 @@ package com.volcengine.service.live;
 
 public class Const {
     //live
-    public static final String LiveSDKVersion = "2020-08-01";
+    public static final String LiveSDKVersion2020 = "2020-08-01";
+    public static final String LiveSDKVersion2023 = "2023-01-01";
     public static final String ListCommonTransPresetDetail = "ListCommonTransPresetDetail";
     public static final String UpdateCallback = "UpdateCallback";
     public static final String DescribeCallback = "DescribeCallback";

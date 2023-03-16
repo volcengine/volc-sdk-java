@@ -888,4 +888,13 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     ListChannelAPIResponse listChannelAPI(ListChannelAPIRequest listChannelAPIRequest) throws Exception;
+
+    /**
+     * GetCustomViewingRestrictionInfoAPI
+     *
+     * @param getCustomViewingRestrictionInfoAPIRequest GetCustomViewingRestrictionInfoAPIRequest
+     * @return GetCustomViewingRestrictionInfoAPIResponse
+     * @throws Exception the exception
+     */
+    GetCustomViewingRestrictionInfoAPIResponse getCustomViewingRestrictionInfoAPI(GetCustomViewingRestrictionInfoAPIRequest getCustomViewingRestrictionInfoAPIRequest) throws Exception;
 }

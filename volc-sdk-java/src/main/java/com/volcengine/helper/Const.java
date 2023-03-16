@@ -309,6 +309,8 @@ public class Const {
 
     public static final String ListChannelAPI = "ListChannelAPI";
 
+    public static final String GetCustomViewingRestrictionInfoAPI = "GetCustomViewingRestrictionInfoAPI";
+
     // translate
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";

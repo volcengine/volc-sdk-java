@@ -11,6 +11,7 @@ import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
 import com.volcengine.model.ServiceInfo;
+import com.volcengine.model.imagex.*;
 import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
 import com.volcengine.model.sts2.Policy;
@@ -418,21 +419,18 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     @Override
-    public UpdateImageFilesResponse updateImageUrls(UpdateImageFilesRequest req) throws Exception {
-        Map<String, String> params = new HashMap<>();
-        params.put("ServiceId", req.getServiceId());
+    public CreateImageContentTaskResp createImageContentTask(CreateImageContentTaskReq req) throws Exception {
+        return postImageX("CreateImageContentTask", Collections.singletonMap("ServiceId", req.getServiceId()), req, CreateImageContentTaskResp.class).getResult();
+    }
 
-        RawResponse response = json("UpdateImageUploadFiles", Utils.mapToPairList(params), JSON.toJSONString(req));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-        UpdateImageFilesResponse res = JSON.parseObject(response.getData(), UpdateImageFilesResponse.class);
-        if (res.getResponseMetadata().getError() != null) {
-            ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
-        }
-        res.getResponseMetadata().setService("ImageX");
-        return res;
+    @Override
+    public GetImageContentTaskDetailResp getImageContentTaskDetail(GetImageContentTaskDetailReq req) throws Exception {
+        return postImageX("GetImageContentTaskDetail", Collections.singletonMap("ServiceId", req.getServiceId()), req, GetImageContentTaskDetailResp.class).getResult();
+    }
+
+    @Override
+    public GetImageContentBlockListResp getImageContentBlockList(GetImageContentBlockListReq req) throws Exception {
+        return postImageX("GetImageContentBlockList", Collections.singletonMap("ServiceId", req.getServiceId()), req, GetImageContentBlockListResp.class).getResult();
     }
 
     @Override

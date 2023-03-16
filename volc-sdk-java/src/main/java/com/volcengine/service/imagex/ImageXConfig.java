@@ -495,14 +495,42 @@ public class ImageXConfig {
                         }
                     }
             ));
-            put("UpdateImageUploadFiles", new ApiInfo(
+            put("CreateImageContentTask", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "UpdateImageUploadFiles"));
+                                    add(new BasicNameValuePair("Action", "CreateImageContentTask"));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("GetImageContentTaskDetail", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetImageContentTaskDetail"));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("GetImageContentBlockList", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetImageContentBlockList"));
                                     add(new BasicNameValuePair("Version", "2018-08-01"));
                                 }
                             });

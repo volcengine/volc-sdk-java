@@ -1,5 +1,6 @@
 package com.volcengine.service.imagex;
 
+import com.volcengine.model.imagex.*;
 import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
 import com.volcengine.model.sts2.SecurityToken2;
@@ -130,13 +131,31 @@ public interface IImageXService extends IBaseService {
     GetImageUploadFilesResponse getImageUploadFiles(GetImageUploadFilesRequest req) throws Exception;
 
     /**
-     * Update image urls.
+     * create image content task
      *
      * @param req update image urls req
      * @return udpate image urls resp
      * @throws Exception the exception
      */
-    UpdateImageFilesResponse updateImageUrls(UpdateImageFilesRequest req) throws Exception;
+    CreateImageContentTaskResp createImageContentTask(CreateImageContentTaskReq req) throws Exception;
+
+    /**
+     * get image content task detail
+     *
+     * @param req update image urls req
+     * @return udpate image urls resp
+     * @throws Exception the exception
+     */
+    GetImageContentTaskDetailResp getImageContentTaskDetail(GetImageContentTaskDetailReq req) throws Exception;
+
+    /**
+     * get image content block list
+     *
+     * @param req update image urls req
+     * @return udpate image urls resp
+     * @throws Exception the exception
+     */
+    GetImageContentBlockListResp getImageContentBlockList(GetImageContentBlockListReq req) throws Exception;
 
     /**
      * Request ImageX api with method GET.

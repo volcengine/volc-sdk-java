@@ -6,13 +6,14 @@ import lombok.Data;
 import java.util.ArrayList;
 
 @Data
-public class VisualCertTokenResponse extends VisualBaseResponse {
+public class VisualT2ILDMResponse extends VisualBaseResponse {
     
     @JSONField(name = "data")
-    CertTokenData data;
+    T2ILDMData data;
 
     @Data
-    public static class CertTokenData {
+    public static class T2ILDMData {
+        
         @JSONField(name = "algorithm_base_resp")
         AlgorithmBaseResp algorithmBaseResp;
         @Data
@@ -21,15 +22,10 @@ public class VisualCertTokenResponse extends VisualBaseResponse {
             Integer statusCode;
             @JSONField(name = "status_message")
             String statusMessage;
+
         }
 
         @JSONField(name = "binary_data_base64")
         ArrayList<String> binaryDataBase64;
-        
-        @JSONField(name = "byted_token")
-        String bytedToken;
-
-        @JSONField(name = "client_config")
-        String clientConfig;
     }
 }

@@ -43,7 +43,7 @@ public class VisualCertTokenRequest {
     ArrayList<String> fixedMotionList = new ArrayList<>();
 
     @JSONField(name = "motion_count")
-    Integer motionCount = 10;
+    Integer motionCount = 2;
 
     @JSONField(name = "max_liveness_trial")
     Integer maxLivenessTrial = 10;

@@ -68,6 +68,8 @@ public class GetDeviceChannelResponse {
         private String status;
         @JSONField(name = "CatalogItemInfo")
         private CatalogItemInfo catalogItemInfo;
+        @JSONField(name = "Name")
+        private String name;
     }
 
     @Data

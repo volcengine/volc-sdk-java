@@ -13,7 +13,7 @@ public class ImageRiskDetectionResponse {
     ImageDetectionResult result;
 
     @Data
-    public static class ImageDetectionResult  {
+    public static class ImageDetectionResult {
         @JSONField(name = "RequestId")
         private String requestId;
         @JSONField(name = "Code")
@@ -45,6 +45,14 @@ public class ImageRiskDetectionResponse {
         @JSONField(name = "Decision")
         private String decision;
         @JSONField(name = "Frames")
-        private List<Object> frames;
+        private List<ImageFramesResult> frames;
+    }
+
+    @Data
+    public static class ImageFramesResult {
+        @JSONField(name = "url")
+        private String url;
+        @JSONField(name = "id")
+        private Double id;
     }
 }

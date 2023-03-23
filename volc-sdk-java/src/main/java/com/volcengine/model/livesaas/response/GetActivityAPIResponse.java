@@ -32,5 +32,9 @@ public class GetActivityAPIResponse {
         Integer IsLockPreview;
         @JSONField(name = "Id")
         Long Id;
+        @JSONField(name = "LiveReviewStatus")
+        Integer LiveReviewStatus;
+        @JSONField(name = "LiveMode")
+        Integer LiveMode;
     }
 }

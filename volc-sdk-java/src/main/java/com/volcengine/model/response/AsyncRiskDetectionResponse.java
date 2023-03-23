@@ -11,6 +11,7 @@ public class AsyncRiskDetectionResponse {
     @JSONField(name = "Result")
     AsyncRiskDetectionResult result;
 
+
     @Data
     public static class AsyncRiskDetectionResult {
         @JSONField(name = "RequestId")
@@ -19,5 +20,13 @@ public class AsyncRiskDetectionResponse {
         private Integer code;
         @JSONField(name = "Message")
         private String message;
+        @JSONField(name = "data")
+        AsyncRequestData data;
+    }
+
+    @Data
+    public static class AsyncRequestData {
+        @JSONField(name = "PassThrough")
+        private Object passThrough;
     }
 }

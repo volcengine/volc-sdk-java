@@ -190,7 +190,7 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
 
     @Override
     public GetAudioRiskResponse AudioLiveResult(ImageRiskResultRequest audioRiskResultRequest) throws Exception {
-        RawResponse response = query(Const.AsyncLiveAudioRisk, Utils.mapToPairList(Utils.paramsToMap(audioRiskResultRequest)));
+        RawResponse response = query(Const.GetAudioLiveResult, Utils.mapToPairList(Utils.paramsToMap(audioRiskResultRequest)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }

@@ -13,7 +13,7 @@ public class GetAudioRiskResponse {
     AudioRiskDetectionResult result;
 
     @Data
-    public static class AudioRiskDetectionResult  {
+    public static class AudioRiskDetectionResult {
         @JSONField(name = "RequestId")
         private String requestId;
         @JSONField(name = "Code")
@@ -32,13 +32,16 @@ public class GetAudioRiskResponse {
         private List<AudioDetail> details;
         @JSONField(name = "DataId")
         private String dataId;
+        @JSONField(name = "PassThrough")
+        private Object passThrough;
     }
 
-    @Data public static class AudioDetail {
+    @Data
+    public static class AudioDetail {
         @JSONField(name = "StartTime")
-        private Float startTime;
+        private Integer startTime;
         @JSONField(name = "EndTime")
-        private Float endTime;
+        private Integer endTime;
         @JSONField(name = "FrameUrl")
         private String frameUrl;
         @JSONField(name = "AudioText")
@@ -49,7 +52,8 @@ public class GetAudioRiskResponse {
         private List<FrameResult> frameResults;
     }
 
-    @Data public static class FrameResult {
+    @Data
+    public static class FrameResult {
         @JSONField(name = "Label")
         private String label;
         @JSONField(name = "SubLabel")

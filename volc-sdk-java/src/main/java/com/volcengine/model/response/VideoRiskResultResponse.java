@@ -13,7 +13,7 @@ public class VideoRiskResultResponse {
     VideoDetectionResult result;
 
     @Data
-    public static class VideoDetectionResult  {
+    public static class VideoDetectionResult {
         @JSONField(name = "RequestId")
         private String requestId;
         @JSONField(name = "Code")
@@ -32,6 +32,8 @@ public class VideoRiskResultResponse {
         private GetAudioRiskResponse.AudioResult audioResults;
         @JSONField(name = "DataId")
         private String dataId;
+        @JSONField(name = "PassThrough")
+        private Object passThrough;
     }
 
     @Data

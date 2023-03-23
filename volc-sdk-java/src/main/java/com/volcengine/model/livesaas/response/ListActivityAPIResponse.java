@@ -53,6 +53,10 @@ public class ListActivityAPIResponse {
         Long LiveTime;
         @JSONField(name = "StreamStartTime")
         Long StreamStartTime;
+        @JSONField(name = "LiveReviewStatus")
+        Integer LiveReviewStatus;
+        @JSONField(name = "LiveMode")
+        Integer LiveMode;
     }
 
     @Data

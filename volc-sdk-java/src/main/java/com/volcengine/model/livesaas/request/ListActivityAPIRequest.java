@@ -26,4 +26,8 @@ public class ListActivityAPIRequest {
     String Name;
     @JSONField(name = "Status")
     Integer Status;
+    @JSONField(name = "LiveReviewStatus")
+    Integer LiveReviewStatus;
+    @JSONField(name = "LiveMode")
+    Integer LiveMode;
 }

@@ -26,4 +26,6 @@ public class CreateActivityAPIRequest {
     Long OldId;
     @JSONField(name = "CopyStream")
     Boolean CopyStream;
+    @JSONField(name = "LiveMode")
+    Integer LiveMode;
 }

@@ -33,7 +33,7 @@ public class GetAudioRiskResponse {
         @JSONField(name = "DataId")
         private String dataId;
         @JSONField(name = "PassThrough")
-        private Object passThrough;
+        private String passThrough;
     }
 
     @Data

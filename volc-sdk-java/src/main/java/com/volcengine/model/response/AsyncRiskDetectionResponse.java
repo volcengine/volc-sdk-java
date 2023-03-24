@@ -27,6 +27,6 @@ public class AsyncRiskDetectionResponse {
     @Data
     public static class AsyncRequestData {
         @JSONField(name = "PassThrough")
-        private Object passThrough;
+        private String passThrough;
     }
 }

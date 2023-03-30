@@ -65,7 +65,7 @@ public interface TranscodeAudioOverrideOrBuilder extends
 
   /**
    * <pre>
-   * FileName
+   * 文件名
    * </pre>
    *
    * <code>string FileName = 3;</code>
@@ -74,7 +74,7 @@ public interface TranscodeAudioOverrideOrBuilder extends
   java.lang.String getFileName();
   /**
    * <pre>
-   * FileName
+   * 文件名
    * </pre>
    *
    * <code>string FileName = 3;</code>

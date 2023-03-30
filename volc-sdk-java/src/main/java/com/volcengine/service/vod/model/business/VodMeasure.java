@@ -94,6 +94,36 @@ public final class VodMeasure {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_DescribeVodSnapshotDataResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowTranscodeInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowTranscodeInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowSnapshotInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowSnapshotInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowEnhanceExecInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowEnhanceExecInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowVideoAIInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowVideoAIInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowDetail_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowDetail_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowDetailDataResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowDetailDataResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -190,12 +220,45 @@ public final class VodMeasure {
       "dels.Business.DescribeVodSnapshotDataIte" +
       "m\022]\n\026SnapshotDetailDataList\030\n \003(\0132=.Volc" +
       "engine.Vod.Models.Business.DescribeVodSn" +
-      "apshotDataDetailB\313\001\n)com.volcengine.serv" +
-      "ice.vod.model.businessB\nVodMeasureP\001ZAgi" +
-      "thub.com/volcengine/volc-sdk-golang/serv" +
-      "ice/vod/models/business\240\001\001\330\001\001\312\002 Volc\\Ser" +
-      "vice\\Vod\\Models\\Business\342\002#Volc\\Service\\" +
-      "Vod\\Models\\GPBMetadatab\006proto3"
+      "apshotDataDetail\"\330\001\n%DescribeVodSpaceWor" +
+      "kflowTranscodeInfo\022\024\n\014TemplateType\030\001 \001(\t" +
+      "\022\020\n\010FileType\030\002 \001(\t\022\020\n\010Duration\030\003 \001(\003\022\r\n\005" +
+      "Codec\030\004 \001(\t\022\r\n\005Remux\030\005 \001(\010\022\022\n\nDefinition" +
+      "\030\006 \001(\t\022\r\n\005Width\030\007 \001(\003\022\016\n\006Height\030\010 \001(\003\022\r\n" +
+      "\005Slice\030\t \001(\010\022\025\n\rIsLowPriority\030\n \001(\010\"c\n$D" +
+      "escribeVodSpaceWorkflowSnapshotInfo\022\024\n\014T" +
+      "emplateType\030\001 \001(\t\022\016\n\006Number\030\002 \001(\003\022\025\n\rIsL" +
+      "owPriority\030\003 \001(\010\"h\n\'DescribeVodSpaceWork" +
+      "flowEnhanceExecInfo\022\024\n\014TemplateType\030\001 \001(" +
+      "\t\022\020\n\010Duration\030\002 \001(\003\022\025\n\rIsLowPriority\030\003 \001" +
+      "(\010\"t\n#DescribeVodSpaceWorkflowVideoAIInf" +
+      "o\022\024\n\014TemplateType\030\001 \001(\t\022\020\n\010Duration\030\002 \001(" +
+      "\003\022\016\n\006Number\030\003 \001(\003\022\025\n\rIsLowPriority\030\004 \001(\010" +
+      "\"\215\004\n\036DescribeVodSpaceWorkflowDetail\022\r\n\005R" +
+      "unId\030\001 \001(\t\022\013\n\003Vid\030\002 \001(\t\022\022\n\nTemplateId\030\003 " +
+      "\001(\t\022\021\n\tSpaceName\030\004 \001(\t\022\016\n\006Status\030\005 \001(\t\022\021" +
+      "\n\tStartTime\030\006 \001(\t\022\017\n\007EndTime\030\007 \001(\t\022\\\n\rTr" +
+      "anscodeInfo\030\010 \001(\0132E.Volcengine.Vod.Model" +
+      "s.Business.DescribeVodSpaceWorkflowTrans" +
+      "codeInfo\022Z\n\014SnapshotInfo\030\t \001(\0132D.Volceng" +
+      "ine.Vod.Models.Business.DescribeVodSpace" +
+      "WorkflowSnapshotInfo\022`\n\017EnhanceExecInfo\030" +
+      "\n \001(\0132G.Volcengine.Vod.Models.Business.D" +
+      "escribeVodSpaceWorkflowEnhanceExecInfo\022X" +
+      "\n\013VideoAIInfo\030\013 \001(\0132C.Volcengine.Vod.Mod" +
+      "els.Business.DescribeVodSpaceWorkflowVid" +
+      "eoAIInfo\"\373\001\n(DescribeVodSpaceWorkflowDet" +
+      "ailDataResult\022\016\n\006Region\030\001 \001(\t\022\r\n\005Space\030\002" +
+      " \001(\t\022\021\n\tStartTime\030\003 \001(\t\022\017\n\007EndTime\030\004 \001(\t" +
+      "\022\020\n\010PageSize\030\005 \001(\003\022\017\n\007PageNum\030\006 \001(\003\022\r\n\005T" +
+      "otal\030\007 \001(\003\022Z\n\022WorkflowDetailData\030\010 \003(\0132>" +
+      ".Volcengine.Vod.Models.Business.Describe" +
+      "VodSpaceWorkflowDetailB\313\001\n)com.volcengin" +
+      "e.service.vod.model.businessB\nVodMeasure" +
+      "P\001ZAgithub.com/volcengine/volc-sdk-golan" +
+      "g/service/vod/models/business\240\001\001\330\001\001\312\002 Vo" +
+      "lc\\Service\\Vod\\Models\\Business\342\002#Volc\\Se" +
+      "rvice\\Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -297,6 +360,42 @@ public final class VodMeasure {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_DescribeVodSnapshotDataResult_descriptor,
         new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "SnapshotType", "TaskStageList", "Aggregation", "DetailFieldList", "TotalSnapshotData", "SnapshotDataList", "SnapshotDetailDataList", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowTranscodeInfo_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowTranscodeInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowTranscodeInfo_descriptor,
+        new java.lang.String[] { "TemplateType", "FileType", "Duration", "Codec", "Remux", "Definition", "Width", "Height", "Slice", "IsLowPriority", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowSnapshotInfo_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowSnapshotInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowSnapshotInfo_descriptor,
+        new java.lang.String[] { "TemplateType", "Number", "IsLowPriority", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowEnhanceExecInfo_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowEnhanceExecInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowEnhanceExecInfo_descriptor,
+        new java.lang.String[] { "TemplateType", "Duration", "IsLowPriority", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowVideoAIInfo_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowVideoAIInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowVideoAIInfo_descriptor,
+        new java.lang.String[] { "TemplateType", "Duration", "Number", "IsLowPriority", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowDetail_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowDetail_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowDetail_descriptor,
+        new java.lang.String[] { "RunId", "Vid", "TemplateId", "SpaceName", "Status", "StartTime", "EndTime", "TranscodeInfo", "SnapshotInfo", "EnhanceExecInfo", "VideoAIInfo", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowDetailDataResult_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowDetailDataResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowDetailDataResult_descriptor,
+        new java.lang.String[] { "Region", "Space", "StartTime", "EndTime", "PageSize", "PageNum", "Total", "WorkflowDetailData", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

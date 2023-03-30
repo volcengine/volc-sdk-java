@@ -160,7 +160,7 @@ public interface VodPlayInfoModelOrBuilder extends
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
    */
-  java.util.List<com.volcengine.service.vod.model.business.VodPlayInfo>
+  java.util.List<com.volcengine.service.vod.model.business.VodPlayInfo> 
       getPlayInfoListList();
   /**
    * <pre>
@@ -185,7 +185,7 @@ public interface VodPlayInfoModelOrBuilder extends
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodPlayInfo PlayInfoList = 9;</code>
    */
-  java.util.List<? extends com.volcengine.service.vod.model.business.VodPlayInfoOrBuilder>
+  java.util.List<? extends com.volcengine.service.vod.model.business.VodPlayInfoOrBuilder> 
       getPlayInfoListOrBuilderList();
   /**
    * <pre>
@@ -204,7 +204,7 @@ public interface VodPlayInfoModelOrBuilder extends
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
    */
-  java.util.List<com.volcengine.service.vod.model.business.VodThumbInfo>
+  java.util.List<com.volcengine.service.vod.model.business.VodThumbInfo> 
       getThumbInfoListList();
   /**
    * <pre>
@@ -229,7 +229,7 @@ public interface VodPlayInfoModelOrBuilder extends
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodThumbInfo ThumbInfoList = 11;</code>
    */
-  java.util.List<? extends com.volcengine.service.vod.model.business.VodThumbInfoOrBuilder>
+  java.util.List<? extends com.volcengine.service.vod.model.business.VodThumbInfoOrBuilder> 
       getThumbInfoListOrBuilderList();
   /**
    * <pre>
@@ -268,7 +268,7 @@ public interface VodPlayInfoModelOrBuilder extends
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
    */
-  java.util.List<com.volcengine.service.vod.model.business.VodSubtitleInfo>
+  java.util.List<com.volcengine.service.vod.model.business.VodSubtitleInfo> 
       getSubtitleInfoListList();
   /**
    * <pre>
@@ -293,7 +293,7 @@ public interface VodPlayInfoModelOrBuilder extends
    *
    * <code>repeated .Volcengine.Vod.Models.Business.VodSubtitleInfo SubtitleInfoList = 13;</code>
    */
-  java.util.List<? extends com.volcengine.service.vod.model.business.VodSubtitleInfoOrBuilder>
+  java.util.List<? extends com.volcengine.service.vod.model.business.VodSubtitleInfoOrBuilder> 
       getSubtitleInfoListOrBuilderList();
   /**
    * <pre>

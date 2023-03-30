@@ -211,7 +211,7 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.UpdateMediaStorageClass));
-                                    add(new BasicNameValuePair("Version", "2022-10-01"));
+                                    add(new BasicNameValuePair("Version", "2022-12-01"));
                                 }
                             });
                         }
@@ -1047,6 +1047,20 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.DescribeVodSpaceWorkflowDetailData, new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(com.volcengine.helper.Const.Method, "GET");
+                        put(com.volcengine.helper.Const.Path, "/");
+                        put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", Const.DescribeVodSpaceWorkflowDetailData));
+                                add(new BasicNameValuePair("Version", "2022-12-01"));
+                            }
+                        });
+                    }
+                }
+        ));
 
         }
     };

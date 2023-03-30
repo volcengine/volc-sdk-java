@@ -19,6 +19,7 @@ private static final long serialVersionUID = 0L;
     vids_ = "";
     storageClass_ = "";
     callbackArgs_ = "";
+    fileIds_ = "";
   }
 
   @java.lang.Override
@@ -67,6 +68,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             callbackArgs_ = s;
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            fileIds_ = s;
             break;
           }
           default: {
@@ -239,6 +246,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int FILEIDS_FIELD_NUMBER = 4;
+  private volatile java.lang.Object fileIds_;
+  /**
+   * <pre>
+   *转码视频ID列表,多个用英文逗号分隔，最多支持20个，传入该参数时，Vids只允许传一个视频ID
+   * </pre>
+   *
+   * <code>string FileIds = 4;</code>
+   * @return The fileIds.
+   */
+  @java.lang.Override
+  public java.lang.String getFileIds() {
+    java.lang.Object ref = fileIds_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      fileIds_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *转码视频ID列表,多个用英文逗号分隔，最多支持20个，传入该参数时，Vids只允许传一个视频ID
+   * </pre>
+   *
+   * <code>string FileIds = 4;</code>
+   * @return The bytes for fileIds.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getFileIdsBytes() {
+    java.lang.Object ref = fileIds_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      fileIds_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -262,6 +315,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackArgs_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, callbackArgs_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileIds_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, fileIds_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -279,6 +335,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackArgs_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, callbackArgs_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileIds_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, fileIds_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -301,6 +360,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getStorageClass())) return false;
     if (!getCallbackArgs()
         .equals(other.getCallbackArgs())) return false;
+    if (!getFileIds()
+        .equals(other.getFileIds())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -318,6 +379,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getStorageClass().hashCode();
     hash = (37 * hash) + CALLBACKARGS_FIELD_NUMBER;
     hash = (53 * hash) + getCallbackArgs().hashCode();
+    hash = (37 * hash) + FILEIDS_FIELD_NUMBER;
+    hash = (53 * hash) + getFileIds().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -457,6 +520,8 @@ private static final long serialVersionUID = 0L;
 
       callbackArgs_ = "";
 
+      fileIds_ = "";
+
       return this;
     }
 
@@ -486,6 +551,7 @@ private static final long serialVersionUID = 0L;
       result.vids_ = vids_;
       result.storageClass_ = storageClass_;
       result.callbackArgs_ = callbackArgs_;
+      result.fileIds_ = fileIds_;
       onBuilt();
       return result;
     }
@@ -544,6 +610,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCallbackArgs().isEmpty()) {
         callbackArgs_ = other.callbackArgs_;
+        onChanged();
+      }
+      if (!other.getFileIds().isEmpty()) {
+        fileIds_ = other.fileIds_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -859,6 +929,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       callbackArgs_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object fileIds_ = "";
+    /**
+     * <pre>
+     *转码视频ID列表,多个用英文逗号分隔，最多支持20个，传入该参数时，Vids只允许传一个视频ID
+     * </pre>
+     *
+     * <code>string FileIds = 4;</code>
+     * @return The fileIds.
+     */
+    public java.lang.String getFileIds() {
+      java.lang.Object ref = fileIds_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fileIds_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *转码视频ID列表,多个用英文逗号分隔，最多支持20个，传入该参数时，Vids只允许传一个视频ID
+     * </pre>
+     *
+     * <code>string FileIds = 4;</code>
+     * @return The bytes for fileIds.
+     */
+    public com.google.protobuf.ByteString
+        getFileIdsBytes() {
+      java.lang.Object ref = fileIds_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileIds_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *转码视频ID列表,多个用英文逗号分隔，最多支持20个，传入该参数时，Vids只允许传一个视频ID
+     * </pre>
+     *
+     * <code>string FileIds = 4;</code>
+     * @param value The fileIds to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFileIds(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      fileIds_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *转码视频ID列表,多个用英文逗号分隔，最多支持20个，传入该参数时，Vids只允许传一个视频ID
+     * </pre>
+     *
+     * <code>string FileIds = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFileIds() {
+      
+      fileIds_ = getDefaultInstance().getFileIds();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *转码视频ID列表,多个用英文逗号分隔，最多支持20个，传入该参数时，Vids只允许传一个视频ID
+     * </pre>
+     *
+     * <code>string FileIds = 4;</code>
+     * @param value The bytes for fileIds to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFileIdsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      fileIds_ = value;
       onChanged();
       return this;
     }

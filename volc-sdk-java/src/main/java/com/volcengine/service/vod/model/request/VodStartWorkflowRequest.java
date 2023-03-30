@@ -25,6 +25,7 @@ private static final long serialVersionUID = 0L;
     vid_ = "";
     templateId_ = "";
     callbackArgs_ = "";
+    taskListId_ = "";
   }
 
   @java.lang.Override
@@ -109,6 +110,12 @@ private static final long serialVersionUID = 0L;
               directUrl_ = subBuilder.buildPartial();
             }
 
+            break;
+          }
+          case 66: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            taskListId_ = s;
             break;
           }
           default: {
@@ -387,6 +394,44 @@ private static final long serialVersionUID = 0L;
     return getDirectUrl();
   }
 
+  public static final int TASKLISTID_FIELD_NUMBER = 8;
+  private volatile java.lang.Object taskListId_;
+  /**
+   * <code>string TaskListId = 8;</code>
+   * @return The taskListId.
+   */
+  @java.lang.Override
+  public java.lang.String getTaskListId() {
+    java.lang.Object ref = taskListId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      taskListId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string TaskListId = 8;</code>
+   * @return The bytes for taskListId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTaskListIdBytes() {
+    java.lang.Object ref = taskListId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      taskListId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -422,6 +467,9 @@ private static final long serialVersionUID = 0L;
     if (directUrl_ != null) {
       output.writeMessage(7, getDirectUrl());
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(taskListId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, taskListId_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -455,6 +503,9 @@ private static final long serialVersionUID = 0L;
     if (directUrl_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getDirectUrl());
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(taskListId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, taskListId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -491,6 +542,8 @@ private static final long serialVersionUID = 0L;
       if (!getDirectUrl()
           .equals(other.getDirectUrl())) return false;
     }
+    if (!getTaskListId()
+        .equals(other.getTaskListId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -521,6 +574,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DIRECTURL_FIELD_NUMBER;
       hash = (53 * hash) + getDirectUrl().hashCode();
     }
+    hash = (37 * hash) + TASKLISTID_FIELD_NUMBER;
+    hash = (53 * hash) + getTaskListId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -682,6 +737,8 @@ private static final long serialVersionUID = 0L;
         directUrl_ = null;
         directUrlBuilder_ = null;
       }
+      taskListId_ = "";
+
       return this;
     }
 
@@ -723,6 +780,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.directUrl_ = directUrlBuilder_.build();
       }
+      result.taskListId_ = taskListId_;
       onBuilt();
       return result;
     }
@@ -794,6 +852,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasDirectUrl()) {
         mergeDirectUrl(other.getDirectUrl());
+      }
+      if (!other.getTaskListId().isEmpty()) {
+        taskListId_ = other.taskListId_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1506,6 +1568,82 @@ private static final long serialVersionUID = 0L;
         directUrl_ = null;
       }
       return directUrlBuilder_;
+    }
+
+    private java.lang.Object taskListId_ = "";
+    /**
+     * <code>string TaskListId = 8;</code>
+     * @return The taskListId.
+     */
+    public java.lang.String getTaskListId() {
+      java.lang.Object ref = taskListId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        taskListId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string TaskListId = 8;</code>
+     * @return The bytes for taskListId.
+     */
+    public com.google.protobuf.ByteString
+        getTaskListIdBytes() {
+      java.lang.Object ref = taskListId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        taskListId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string TaskListId = 8;</code>
+     * @param value The taskListId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTaskListId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      taskListId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string TaskListId = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTaskListId() {
+      
+      taskListId_ = getDefaultInstance().getTaskListId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string TaskListId = 8;</code>
+     * @param value The bytes for taskListId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTaskListIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      taskListId_ = value;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

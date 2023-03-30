@@ -9,5 +9,5 @@ import java.util.List;
 @Data
 public class DescribeImageXDomainTrafficDataResp {
     @JSONField(name = "TrafficData")
-    private List<ServiceDomainDataItem> TrafficData;
+    private List<ServiceDomainDataItem> trafficData;
 }

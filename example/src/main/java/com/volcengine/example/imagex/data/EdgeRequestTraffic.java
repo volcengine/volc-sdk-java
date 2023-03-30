@@ -4,13 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.imagex.data.DescribeImageXEdgeRequestTrafficReq;
 import com.volcengine.model.imagex.data.DescribeImageXEdgeRequestTrafficResp;
 import com.volcengine.service.imagex.IImageXService;
-import com.volcengine.service.imagex.extension.DataModule;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 
 public class EdgeRequestTraffic {
     public static void main(String[] args) {
-        DataModule.AddDataModule();
-
         IImageXService service = ImageXServiceImpl.getInstance();
         service.setAccessKey("ak");
         service.setSecretKey("sk");
@@ -21,7 +18,7 @@ public class EdgeRequestTraffic {
         req.setInterval("300");
 
         try {
-            DescribeImageXEdgeRequestTrafficResp resp = DataModule.describeImageXEdgeRequestTraffic(service, req);
+            DescribeImageXEdgeRequestTrafficResp resp = service.describeImageXEdgeRequestTraffic(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();

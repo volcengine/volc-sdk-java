@@ -4,13 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.imagex.data.DescribeImageXMirrorRequestHttpCodeOverviewReq;
 import com.volcengine.model.imagex.data.DescribeImageXMirrorRequestHttpCodeOverviewResp;
 import com.volcengine.service.imagex.IImageXService;
-import com.volcengine.service.imagex.extension.DataModule;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 
 public class MirrorRequestHttpCodeOverview {
     public static void main(String[] args) {
-        DataModule.AddDataModule();
-
         IImageXService service = ImageXServiceImpl.getInstance();
         service.setAccessKey("ak");
         service.setSecretKey("sk");
@@ -22,7 +19,7 @@ public class MirrorRequestHttpCodeOverview {
         req.setAggregateCode("false");
 
         try {
-            DescribeImageXMirrorRequestHttpCodeOverviewResp resp = DataModule.describeImageXMirrorRequestHttpCodeOverview(service, req);
+            DescribeImageXMirrorRequestHttpCodeOverviewResp resp = service.describeImageXMirrorRequestHttpCodeOverview(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();

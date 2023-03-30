@@ -4,13 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.imagex.data.DescribeImageXCompressUsageReq;
 import com.volcengine.model.imagex.data.DescribeImageXCompressUsageResp;
 import com.volcengine.service.imagex.IImageXService;
-import com.volcengine.service.imagex.extension.DataModule;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 
 public class CompressUsage {
     public static void main(String[] args) {
-        DataModule.AddDataModule();
-
         IImageXService service = ImageXServiceImpl.getInstance();
         service.setAccessKey("ak");
         service.setSecretKey("sk");
@@ -21,7 +18,7 @@ public class CompressUsage {
         req.setInterval("300");
 
         try {
-            DescribeImageXCompressUsageResp resp = DataModule.describeImageXCompressUsage(service, req);
+            DescribeImageXCompressUsageResp resp = service.describeImageXCompressUsage(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();

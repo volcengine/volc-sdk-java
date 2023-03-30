@@ -4,13 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.imagex.data.DescribeImageXHitRateTrafficDataReq;
 import com.volcengine.model.imagex.data.DescribeImageXHitRateTrafficDataResp;
 import com.volcengine.service.imagex.IImageXService;
-import com.volcengine.service.imagex.extension.DataModule;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 
 public class HitRateTrafficData {
     public static void main(String[] args) {
-        DataModule.AddDataModule();
-
         IImageXService service = ImageXServiceImpl.getInstance();
         service.setAccessKey("ak");
         service.setSecretKey("sk");
@@ -21,7 +18,7 @@ public class HitRateTrafficData {
         req.setInterval("300");
 
         try {
-            DescribeImageXHitRateTrafficDataResp resp = DataModule.describeImageXHitRateTrafficData(service, req);
+            DescribeImageXHitRateTrafficDataResp resp = service.describeImageXHitRateTrafficData(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();

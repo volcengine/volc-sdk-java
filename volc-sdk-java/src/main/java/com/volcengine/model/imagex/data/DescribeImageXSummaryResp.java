@@ -10,9 +10,9 @@ public class DescribeImageXSummaryResp {
     @JSONField(name = "CdnBandwidthData")
     private SummaryFloatItem cdnBandwidthData;
     @JSONField(name = "cdnTrafficData")
-    private SummaryIntItem CdnTrafficData;
+    private SummaryIntItem cdnTrafficData;
     @JSONField(name = "requestCntData")
-    private SummaryIntItem RequestCntData;
+    private SummaryIntItem requestCntData;
     @JSONField(name = "BaseOpData")
     private SummaryIntItem baseOpData;
 }

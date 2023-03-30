@@ -12,6 +12,7 @@ import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
 import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.imagex.*;
+import com.volcengine.model.imagex.data.*;
 import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
 import com.volcengine.model.sts2.Policy;
@@ -38,6 +39,7 @@ import java.util.stream.IntStream;
 
 
 public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService {
+    public final static Map<String, String> EMPTY_STRING_STRING_MAP = Collections.emptyMap();
 
     private final Retryer<Boolean> uploadRetryer = createUploadDefaultRetryer();
     private final Retryer<HttpResponse> httpRetryer = createUploadDefaultRetryer();
@@ -50,11 +52,11 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         super(serviceInfo, ImageXConfig.apiInfoList);
     }
 
-    public static IImageXService getInstance() {
+    static public IImageXService getInstance() {
         return new ImageXServiceImpl();
     }
 
-    public static IImageXService getInstance(String region) throws Exception {
+    static public IImageXService getInstance(String region) throws Exception {
         ServiceInfo serviceInfo = ImageXConfig.serviceInfoMap.get(region);
         if (serviceInfo == null) {
             throw new Exception("ImageX not support region " + region);
@@ -63,13 +65,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     static private <R> Retryer<R> createUploadDefaultRetryer() {
-        return RetryerBuilder.<R>newBuilder()
-                .retryIfException()
-                .retryIfResult(it -> Objects.equals(it, false))
-                .retryIfResult(Objects::isNull)
-                .withWaitStrategy(WaitStrategies.exponentialWait())
-                .withStopStrategy(StopStrategies.stopAfterAttempt(3))
-                .build();
+        return RetryerBuilder.<R>newBuilder().retryIfException().retryIfResult(it -> Objects.equals(it, false)).retryIfResult(Objects::isNull).withWaitStrategy(WaitStrategies.exponentialWait()).withStopStrategy(StopStrategies.stopAfterAttempt(3)).build();
     }
 
 
@@ -202,9 +198,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     private void uploadMergePart(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, String uploadID, String[] checkSum, boolean isLargeFile) throws Exception {
         String query = String.format("uploadID=%s", uploadID);
         String url = new URI("https", null, host, -1, "/" + storeInfo.getStoreUri(), query, null).toASCIIString();
-        String body = IntStream.range(0, checkSum.length)
-                .mapToObj(i -> String.format("%d:%s", i, checkSum[i]))
-                .collect(Collectors.joining(",", "", ""));
+        String body = IntStream.range(0, checkSum.length).mapToObj(i -> String.format("%d:%s", i, checkSum[i])).collect(Collectors.joining(",", "", ""));
         Map<String, String> headers = new HashMap<>();
         headers.put("Authorization", storeInfo.getAuth());
         if (isLargeFile) {
@@ -249,26 +243,17 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
 
     public CommitImageUploadResponse uploadImages(ApplyImageUploadRequest request, List<InputStream> content, List<Long> size) throws Exception {
         if (size.size() != content.size()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "expect size.size() == content.size() but  size.size() = %d, content.size() = %d",
-                            size.size(), content.size()
-                    )
-            );
+            throw new IllegalArgumentException(String.format("expect size.size() == content.size() but  size.size() = %d, content.size() = %d", size.size(), content.size()));
         }
 
         request.setUploadNum(size.size());
 
         if (size.stream().anyMatch(it -> it == null || it <= 0)) {
-            throw new IllegalArgumentException(
-                    "please ensure all elements in `size` is greater than 0"
-            );
+            throw new IllegalArgumentException("please ensure all elements in `size` is greater than 0");
         }
 
         if (content.stream().anyMatch(Objects::isNull)) {
-            throw new IllegalArgumentException(
-                    "please ensure all elements in `content` not null"
-            );
+            throw new IllegalArgumentException("please ensure all elements in `content` not null");
         }
 
         // apply upload
@@ -819,4 +804,321 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         }
         return res;
     }
+
+
+    @Override
+    public DescribeImageXDomainTrafficDataResp describeImageXDomainTrafficData(DescribeImageXDomainTrafficDataReq req) throws Exception {
+        return this.getImageX("DescribeImageXDomainTrafficData", Utils.paramsToMap(req), DescribeImageXDomainTrafficDataResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXDomainBandwidthDataResp describeImageXDomainBandwidthData(DescribeImageXDomainBandwidthDataReq req) throws Exception {
+        return this.getImageX("DescribeImageXDomainBandwidthData", Utils.paramsToMap(req), DescribeImageXDomainBandwidthDataResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXBucketUsageResp describeImageXBucketUsage(DescribeImageXBucketUsageReq req) throws Exception {
+        return this.getImageX("DescribeImageXBucketUsage", Utils.paramsToMap(req), DescribeImageXBucketUsageResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXRequestCntUsageResp describeImageXRequestCntUsage(DescribeImageXRequestCntUsageReq req) throws Exception {
+        return this.getImageX("DescribeImageXRequestCntUsage", Utils.paramsToMap(req), DescribeImageXRequestCntUsageResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXBaseOpUsageResp describeImageXBaseOpUsage(DescribeImageXBaseOpUsageReq req) throws Exception {
+        return this.getImageX("DescribeImageXBaseOpUsage", Utils.paramsToMap(req), DescribeImageXBaseOpUsageResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXCompressUsageResp describeImageXCompressUsage(DescribeImageXCompressUsageReq req) throws Exception {
+        return this.getImageX("DescribeImageXCompressUsage", Utils.paramsToMap(req), DescribeImageXCompressUsageResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXEdgeRequestResp describeImageXEdgeRequest(DescribeImageXEdgeRequestReq req) throws Exception {
+        return this.getImageX("DescribeImageXEdgeRequest", Utils.paramsToMap(req), DescribeImageXEdgeRequestResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXHitRateTrafficDataResp describeImageXHitRateTrafficData(DescribeImageXHitRateTrafficDataReq req) throws Exception {
+        return this.getImageX("DescribeImageXHitRateTrafficData", Utils.paramsToMap(req), DescribeImageXHitRateTrafficDataResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXHitRateRequestDataResp describeImageXHitRateRequestData(DescribeImageXHitRateRequestDataReq req) throws Exception {
+        return this.getImageX("DescribeImageXHitRateRequestData", Utils.paramsToMap(req), DescribeImageXHitRateRequestDataResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXCDNTopRequestDataResp describeImageXCDNTopRequestData(DescribeImageXCDNTopRequestDataReq req) throws Exception {
+        return this.getImageX("DescribeImageXCDNTopRequestData", Utils.paramsToMap(req), DescribeImageXCDNTopRequestDataResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXSummaryResp describeImageXSummary(DescribeImageXSummaryReq req) throws Exception {
+        return this.getImageX("DescribeImageXSummary", Utils.paramsToMap(req), DescribeImageXSummaryResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXEdgeRequestBandwidthResp describeImageXEdgeRequestBandwidth(DescribeImageXEdgeRequestBandwidthReq req) throws Exception {
+        return this.getImageX("DescribeImageXEdgeRequestBandwidth", Utils.paramsToMap(req), DescribeImageXEdgeRequestBandwidthResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXEdgeRequestTrafficResp describeImageXEdgeRequestTraffic(DescribeImageXEdgeRequestTrafficReq req) throws Exception {
+        return this.getImageX("DescribeImageXEdgeRequestTraffic", Utils.paramsToMap(req), DescribeImageXEdgeRequestTrafficResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXEdgeRequestRegionsResp describeImageXEdgeRequestRegions(DescribeImageXEdgeRequestRegionsReq req) throws Exception {
+        return this.getImageX("DescribeImageXEdgeRequestRegions", Utils.paramsToMap(req), DescribeImageXEdgeRequestRegionsResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXServiceQualityResp describeImageXServiceQuality(DescribeImageXServiceQualityReq req) throws Exception {
+        return this.getImageX("DescribeImageXServiceQuality", Utils.paramsToMap(req), DescribeImageXServiceQualityResp.class).getResult();
+    }
+
+    @Override
+    public GetImageXQueryAppsResp getImageXQueryApps(GetImageXQueryAppsReq req) throws Exception {
+        return this.getImageX("GetImageXQueryApps", Utils.paramsToMap(req), GetImageXQueryAppsResp.class).getResult();
+    }
+
+    @Override
+    public GetImageXQueryRegionsResp getImageXQueryRegions(GetImageXQueryRegionsReq req) throws Exception {
+        return this.getImageX("GetImageXQueryRegions", Utils.paramsToMap(req), GetImageXQueryRegionsResp.class).getResult();
+    }
+
+    @Override
+    public GetImageXQueryDimsResp getImageXQueryDims(GetImageXQueryDimsReq req) throws Exception {
+        return this.getImageX("GetImageXQueryDims", Utils.paramsToMap(req), GetImageXQueryDimsResp.class).getResult();
+    }
+
+    @Override
+    public GetImageXQueryValsResp getImageXQueryVals(GetImageXQueryValsReq req) throws Exception {
+        return this.getImageX("GetImageXQueryVals", Utils.paramsToMap(req), GetImageXQueryValsResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXMirrorRequestTrafficResp describeImageXMirrorRequestTraffic(DescribeImageXMirrorRequestTrafficReq req) throws Exception {
+        return this.postImageX("DescribeImageXMirrorRequestTraffic", EMPTY_STRING_STRING_MAP, req, DescribeImageXMirrorRequestTrafficResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXMirrorRequestBandwidthResp describeImageXMirrorRequestBandwidth(DescribeImageXMirrorRequestBandwidthReq req) throws Exception {
+        return this.postImageX("DescribeImageXMirrorRequestBandwidth", EMPTY_STRING_STRING_MAP, req, DescribeImageXMirrorRequestBandwidthResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXMirrorRequestHttpCodeByTimeResp describeImageXMirrorRequestHttpCodeByTime(DescribeImageXMirrorRequestHttpCodeByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXMirrorRequestHttpCodeByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXMirrorRequestHttpCodeByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXMirrorRequestHttpCodeOverviewResp describeImageXMirrorRequestHttpCodeOverview(DescribeImageXMirrorRequestHttpCodeOverviewReq req) throws Exception {
+        return this.postImageX("DescribeImageXMirrorRequestHttpCodeOverview", EMPTY_STRING_STRING_MAP, req, DescribeImageXMirrorRequestHttpCodeOverviewResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXUploadSuccessRateByTimeResp describeImageXUploadSuccessRateByTime(DescribeImageXUploadSuccessRateByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXUploadSuccessRateByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXUploadSuccessRateByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXUploadErrorCodeAllResp describeImageXUploadErrorCodeAll(DescribeImageXUploadErrorCodeAllReq req) throws Exception {
+        return this.postImageX("DescribeImageXUploadErrorCodeAll", EMPTY_STRING_STRING_MAP, req, DescribeImageXUploadErrorCodeAllResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXUploadErrorCodeByTimeResp describeImageXUploadErrorCodeByTime(DescribeImageXUploadErrorCodeByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXUploadErrorCodeByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXUploadErrorCodeByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXUploadCountByTimeResp describeImageXUploadCountByTime(DescribeImageXUploadCountByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXUploadCountByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXUploadCountByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXUploadFileSizeResp describeImageXUploadFileSize(DescribeImageXUploadFileSizeReq req) throws Exception {
+        return this.postImageX("DescribeImageXUploadFileSize", EMPTY_STRING_STRING_MAP, req, DescribeImageXUploadFileSizeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXUploadSpeedResp describeImageXUploadSpeed(DescribeImageXUploadSpeedReq req) throws Exception {
+        return this.postImageX("DescribeImageXUploadSpeed", EMPTY_STRING_STRING_MAP, req, DescribeImageXUploadSpeedResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXUploadDurationResp describeImageXUploadDuration(DescribeImageXUploadDurationReq req) throws Exception {
+        return this.postImageX("DescribeImageXUploadDuration", EMPTY_STRING_STRING_MAP, req, DescribeImageXUploadDurationResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXUploadSegmentSpeedByTimeResp describeImageXUploadSegmentSpeedByTime(DescribeImageXUploadSegmentSpeedByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXUploadSegmentSpeedByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXUploadSegmentSpeedByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXCdnSuccessRateByTimeResp describeImageXCdnSuccessRateByTime(DescribeImageXCdnSuccessRateByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXCdnSuccessRateByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXCdnSuccessRateByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXCdnSuccessRateAllResp describeImageXCdnSuccessRateAll(DescribeImageXCdnSuccessRateAllReq req) throws Exception {
+        return this.postImageX("DescribeImageXCdnSuccessRateAll", EMPTY_STRING_STRING_MAP, req, DescribeImageXCdnSuccessRateAllResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXCdnErrorCodeByTimeResp describeImageXCdnErrorCodeByTime(DescribeImageXCdnErrorCodeByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXCdnErrorCodeByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXCdnErrorCodeByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXCdnErrorCodeAllResp describeImageXCdnErrorCodeAll(DescribeImageXCdnErrorCodeAllReq req) throws Exception {
+        return this.postImageX("DescribeImageXCdnErrorCodeAll", EMPTY_STRING_STRING_MAP, req, DescribeImageXCdnErrorCodeAllResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXCdnDurationDetailByTimeResp describeImageXCdnDurationDetailByTime(DescribeImageXCdnDurationDetailByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXCdnDurationDetailByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXCdnDurationDetailByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXCdnDurationAllResp describeImageXCdnDurationAll(DescribeImageXCdnDurationAllReq req) throws Exception {
+        return this.postImageX("DescribeImageXCdnDurationAll", EMPTY_STRING_STRING_MAP, req, DescribeImageXCdnDurationAllResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXCdnReuseRateByTimeResp describeImageXCdnReuseRateByTime(DescribeImageXCdnReuseRateByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXCdnReuseRateByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXCdnReuseRateByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXCdnReuseRateAllResp describeImageXCdnReuseRateAll(DescribeImageXCdnReuseRateAllReq req) throws Exception {
+        return this.postImageX("DescribeImageXCdnReuseRateAll", EMPTY_STRING_STRING_MAP, req, DescribeImageXCdnReuseRateAllResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXCdnProtocolRateByTimeResp describeImageXCdnProtocolRateByTime(DescribeImageXCdnProtocolRateByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXCdnProtocolRateByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXCdnProtocolRateByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXClientErrorCodeAllResp describeImageXClientErrorCodeAll(DescribeImageXClientErrorCodeAllReq req) throws Exception {
+        return this.postImageX("DescribeImageXClientErrorCodeAll", EMPTY_STRING_STRING_MAP, req, DescribeImageXClientErrorCodeAllResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXClientErrorCodeByTimeResp describeImageXClientErrorCodeByTime(DescribeImageXClientErrorCodeByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXClientErrorCodeByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXClientErrorCodeByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXClientDecodeSuccessRateByTimeResp describeImageXClientDecodeSuccessRateByTime(DescribeImageXClientDecodeSuccessRateByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXClientDecodeSuccessRateByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXClientDecodeSuccessRateByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXClientDecodeDurationByTimeResp describeImageXClientDecodeDurationByTime(DescribeImageXClientDecodeDurationByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXClientDecodeDurationByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXClientDecodeDurationByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXClientQueueDurationByTimeResp describeImageXClientQueueDurationByTime(DescribeImageXClientQueueDurationByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXClientQueueDurationByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXClientQueueDurationByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXClientLoadDurationAllResp describeImageXClientLoadDurationAll(DescribeImageXClientLoadDurationAllReq req) throws Exception {
+        return this.postImageX("DescribeImageXClientLoadDurationAll", EMPTY_STRING_STRING_MAP, req, DescribeImageXClientLoadDurationAllResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXClientLoadDurationResp describeImageXClientLoadDuration(DescribeImageXClientLoadDurationReq req) throws Exception {
+        return this.postImageX("DescribeImageXClientLoadDuration", EMPTY_STRING_STRING_MAP, req, DescribeImageXClientLoadDurationResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXClientFailureRateResp describeImageXClientFailureRate(DescribeImageXClientFailureRateReq req) throws Exception {
+        return this.postImageX("DescribeImageXClientFailureRate", EMPTY_STRING_STRING_MAP, req, DescribeImageXClientFailureRateResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXClientSdkVerByTimeResp describeImageXClientSdkVerByTime(DescribeImageXClientSdkVerByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXClientSdkVerByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXClientSdkVerByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXClientFileSizeResp describeImageXClientFileSize(DescribeImageXClientFileSizeReq req) throws Exception {
+        return this.postImageX("DescribeImageXClientFileSize", EMPTY_STRING_STRING_MAP, req, DescribeImageXClientFileSizeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXClientTopFileSizeResp describeImageXClientTopFileSize(DescribeImageXClientTopFileSizeReq req) throws Exception {
+        return this.postImageX("DescribeImageXClientTopFileSize", EMPTY_STRING_STRING_MAP, req, DescribeImageXClientTopFileSizeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXClientCountByTimeResp describeImageXClientCountByTime(DescribeImageXClientCountByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXClientCountByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXClientCountByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXClientScoreByTimeResp describeImageXClientScoreByTime(DescribeImageXClientScoreByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXClientScoreByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXClientScoreByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXClientDemotionRateByTimeResp describeImageXClientDemotionRateByTime(DescribeImageXClientDemotionRateByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXClientDemotionRateByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXClientDemotionRateByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXClientTopDemotionURLResp describeImageXClientTopDemotionURL(DescribeImageXClientTopDemotionURLReq req) throws Exception {
+        return this.postImageX("DescribeImageXClientTopDemotionURL", EMPTY_STRING_STRING_MAP, req, DescribeImageXClientTopDemotionURLResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXClientQualityRateByTimeResp describeImageXClientQualityRateByTime(DescribeImageXClientQualityRateByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXClientQualityRateByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXClientQualityRateByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXClientTopQualityURLResp describeImageXClientTopQualityURL(DescribeImageXClientTopQualityURLReq req) throws Exception {
+        return this.postImageX("DescribeImageXClientTopQualityURL", EMPTY_STRING_STRING_MAP, req, DescribeImageXClientTopQualityURLResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXSensibleCountByTimeResp describeImageXSensibleCountByTime(DescribeImageXSensibleCountByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXSensibleCountByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXSensibleCountByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXSensibleCacheHitRateByTimeResp describeImageXSensibleCacheHitRateByTime(DescribeImageXSensibleCacheHitRateByTimeReq req) throws Exception {
+        return this.postImageX("DescribeImageXSensibleCacheHitRateByTime", EMPTY_STRING_STRING_MAP, req, DescribeImageXSensibleCacheHitRateByTimeResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXSensibleTopSizeURLResp describeImageXSensibleTopSizeURL(DescribeImageXSensibleTopSizeURLReq req) throws Exception {
+        return this.postImageX("DescribeImageXSensibleTopSizeURL", EMPTY_STRING_STRING_MAP, req, DescribeImageXSensibleTopSizeURLResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXSensibleTopRamURLResp describeImageXSensibleTopRamURL(DescribeImageXSensibleTopRamURLReq req) throws Exception {
+        return this.postImageX("DescribeImageXSensibleTopRamURL", EMPTY_STRING_STRING_MAP, req, DescribeImageXSensibleTopRamURLResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXSensibleTopResolutionURLResp describeImageXSensibleTopResolutionURL(DescribeImageXSensibleTopResolutionURLReq req) throws Exception {
+        return this.postImageX("DescribeImageXSensibleTopResolutionURL", EMPTY_STRING_STRING_MAP, req, DescribeImageXSensibleTopResolutionURLResp.class).getResult();
+    }
+
+    @Override
+    public DescribeImageXSensibleTopUnknownURLResp describeImageXSensibleTopUnknownURL(DescribeImageXSensibleTopUnknownURLReq req) throws Exception {
+        return this.postImageX("DescribeImageXSensibleTopUnknownURL", EMPTY_STRING_STRING_MAP, req, DescribeImageXSensibleTopUnknownURLResp.class).getResult();
+    }
+
 }

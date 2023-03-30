@@ -4,13 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.imagex.data.DescribeImageXEdgeRequestBandwidthReq;
 import com.volcengine.model.imagex.data.DescribeImageXEdgeRequestBandwidthResp;
 import com.volcengine.service.imagex.IImageXService;
-import com.volcengine.service.imagex.extension.DataModule;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 
 public class EdgeRequestBandwidth {
     public static void main(String[] args) {
-        DataModule.AddDataModule();
-
         IImageXService service = ImageXServiceImpl.getInstance();
         service.setAccessKey("ak");
         service.setSecretKey("sk");
@@ -21,7 +18,7 @@ public class EdgeRequestBandwidth {
         req.setInterval("300");
 
         try {
-            DescribeImageXEdgeRequestBandwidthResp resp = DataModule.describeImageXEdgeRequestBandwidth(service, req);
+            DescribeImageXEdgeRequestBandwidthResp resp = service.describeImageXEdgeRequestBandwidth(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();

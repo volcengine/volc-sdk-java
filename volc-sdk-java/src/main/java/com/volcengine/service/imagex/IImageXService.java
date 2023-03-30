@@ -1,6 +1,7 @@
 package com.volcengine.service.imagex;
 
 import com.volcengine.model.imagex.*;
+import com.volcengine.model.imagex.data.*;
 import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
 import com.volcengine.model.sts2.SecurityToken2;
@@ -380,4 +381,130 @@ public interface IImageXService extends IBaseService {
      * @throws Exception the exception
      */
     GetImageStyleResultResponse getImageStyleResult(GetImageStyleResultRequest req) throws Exception;
+
+    public DescribeImageXDomainTrafficDataResp describeImageXDomainTrafficData(DescribeImageXDomainTrafficDataReq req) throws Exception;
+
+    public DescribeImageXDomainBandwidthDataResp describeImageXDomainBandwidthData(DescribeImageXDomainBandwidthDataReq req) throws Exception;
+
+    public DescribeImageXBucketUsageResp describeImageXBucketUsage(DescribeImageXBucketUsageReq req) throws Exception;
+
+    public DescribeImageXRequestCntUsageResp describeImageXRequestCntUsage(DescribeImageXRequestCntUsageReq req) throws Exception;
+
+    public DescribeImageXBaseOpUsageResp describeImageXBaseOpUsage(DescribeImageXBaseOpUsageReq req) throws Exception;
+
+    public DescribeImageXCompressUsageResp describeImageXCompressUsage(DescribeImageXCompressUsageReq req) throws Exception;
+
+    public DescribeImageXEdgeRequestResp describeImageXEdgeRequest(DescribeImageXEdgeRequestReq req) throws Exception;
+
+    public DescribeImageXHitRateTrafficDataResp describeImageXHitRateTrafficData(DescribeImageXHitRateTrafficDataReq req) throws Exception;
+
+    public DescribeImageXHitRateRequestDataResp describeImageXHitRateRequestData(DescribeImageXHitRateRequestDataReq req) throws Exception;
+
+    public DescribeImageXCDNTopRequestDataResp describeImageXCDNTopRequestData(DescribeImageXCDNTopRequestDataReq req) throws Exception;
+
+    public DescribeImageXSummaryResp describeImageXSummary(DescribeImageXSummaryReq req) throws Exception;
+
+    public DescribeImageXEdgeRequestBandwidthResp describeImageXEdgeRequestBandwidth(DescribeImageXEdgeRequestBandwidthReq req) throws Exception;
+
+    public DescribeImageXEdgeRequestTrafficResp describeImageXEdgeRequestTraffic(DescribeImageXEdgeRequestTrafficReq req) throws Exception;
+
+    public DescribeImageXEdgeRequestRegionsResp describeImageXEdgeRequestRegions(DescribeImageXEdgeRequestRegionsReq req) throws Exception;
+
+    public DescribeImageXServiceQualityResp describeImageXServiceQuality(DescribeImageXServiceQualityReq req) throws Exception;
+
+    public GetImageXQueryAppsResp getImageXQueryApps(GetImageXQueryAppsReq req) throws Exception;
+
+    public GetImageXQueryRegionsResp getImageXQueryRegions(GetImageXQueryRegionsReq req) throws Exception;
+
+    public GetImageXQueryDimsResp getImageXQueryDims(GetImageXQueryDimsReq req) throws Exception;
+
+    public GetImageXQueryValsResp getImageXQueryVals(GetImageXQueryValsReq req) throws Exception;
+
+    public DescribeImageXMirrorRequestTrafficResp describeImageXMirrorRequestTraffic(DescribeImageXMirrorRequestTrafficReq req) throws Exception;
+
+    public DescribeImageXMirrorRequestBandwidthResp describeImageXMirrorRequestBandwidth(DescribeImageXMirrorRequestBandwidthReq req) throws Exception;
+
+    public DescribeImageXMirrorRequestHttpCodeByTimeResp describeImageXMirrorRequestHttpCodeByTime(DescribeImageXMirrorRequestHttpCodeByTimeReq req) throws Exception;
+
+    public DescribeImageXMirrorRequestHttpCodeOverviewResp describeImageXMirrorRequestHttpCodeOverview(DescribeImageXMirrorRequestHttpCodeOverviewReq req) throws Exception;
+
+    public DescribeImageXUploadSuccessRateByTimeResp describeImageXUploadSuccessRateByTime(DescribeImageXUploadSuccessRateByTimeReq req) throws Exception;
+
+    public DescribeImageXUploadErrorCodeAllResp describeImageXUploadErrorCodeAll(DescribeImageXUploadErrorCodeAllReq req) throws Exception;
+
+    public DescribeImageXUploadErrorCodeByTimeResp describeImageXUploadErrorCodeByTime(DescribeImageXUploadErrorCodeByTimeReq req) throws Exception;
+
+    public DescribeImageXUploadCountByTimeResp describeImageXUploadCountByTime(DescribeImageXUploadCountByTimeReq req) throws Exception;
+
+    public DescribeImageXUploadFileSizeResp describeImageXUploadFileSize(DescribeImageXUploadFileSizeReq req) throws Exception;
+
+    public DescribeImageXUploadSpeedResp describeImageXUploadSpeed(DescribeImageXUploadSpeedReq req) throws Exception;
+
+    public DescribeImageXUploadDurationResp describeImageXUploadDuration(DescribeImageXUploadDurationReq req) throws Exception;
+
+    public DescribeImageXUploadSegmentSpeedByTimeResp describeImageXUploadSegmentSpeedByTime(DescribeImageXUploadSegmentSpeedByTimeReq req) throws Exception;
+
+    public DescribeImageXCdnSuccessRateByTimeResp describeImageXCdnSuccessRateByTime(DescribeImageXCdnSuccessRateByTimeReq req) throws Exception;
+
+    public DescribeImageXCdnSuccessRateAllResp describeImageXCdnSuccessRateAll(DescribeImageXCdnSuccessRateAllReq req) throws Exception;
+
+    public DescribeImageXCdnErrorCodeByTimeResp describeImageXCdnErrorCodeByTime(DescribeImageXCdnErrorCodeByTimeReq req) throws Exception;
+
+    public DescribeImageXCdnErrorCodeAllResp describeImageXCdnErrorCodeAll(DescribeImageXCdnErrorCodeAllReq req) throws Exception;
+
+    public DescribeImageXCdnDurationDetailByTimeResp describeImageXCdnDurationDetailByTime(DescribeImageXCdnDurationDetailByTimeReq req) throws Exception;
+
+    public DescribeImageXCdnDurationAllResp describeImageXCdnDurationAll(DescribeImageXCdnDurationAllReq req) throws Exception;
+
+    public DescribeImageXCdnReuseRateByTimeResp describeImageXCdnReuseRateByTime(DescribeImageXCdnReuseRateByTimeReq req) throws Exception;
+
+    public DescribeImageXCdnReuseRateAllResp describeImageXCdnReuseRateAll(DescribeImageXCdnReuseRateAllReq req) throws Exception;
+
+    public DescribeImageXCdnProtocolRateByTimeResp describeImageXCdnProtocolRateByTime(DescribeImageXCdnProtocolRateByTimeReq req) throws Exception;
+
+    public DescribeImageXClientErrorCodeAllResp describeImageXClientErrorCodeAll(DescribeImageXClientErrorCodeAllReq req) throws Exception;
+
+    public DescribeImageXClientErrorCodeByTimeResp describeImageXClientErrorCodeByTime(DescribeImageXClientErrorCodeByTimeReq req) throws Exception;
+
+    public DescribeImageXClientDecodeSuccessRateByTimeResp describeImageXClientDecodeSuccessRateByTime(DescribeImageXClientDecodeSuccessRateByTimeReq req) throws Exception;
+
+    public DescribeImageXClientDecodeDurationByTimeResp describeImageXClientDecodeDurationByTime(DescribeImageXClientDecodeDurationByTimeReq req) throws Exception;
+
+    public DescribeImageXClientQueueDurationByTimeResp describeImageXClientQueueDurationByTime(DescribeImageXClientQueueDurationByTimeReq req) throws Exception;
+
+    public DescribeImageXClientLoadDurationAllResp describeImageXClientLoadDurationAll(DescribeImageXClientLoadDurationAllReq req) throws Exception;
+
+    public DescribeImageXClientLoadDurationResp describeImageXClientLoadDuration(DescribeImageXClientLoadDurationReq req) throws Exception;
+
+    public DescribeImageXClientFailureRateResp describeImageXClientFailureRate(DescribeImageXClientFailureRateReq req) throws Exception;
+
+    public DescribeImageXClientSdkVerByTimeResp describeImageXClientSdkVerByTime(DescribeImageXClientSdkVerByTimeReq req) throws Exception;
+
+    public DescribeImageXClientFileSizeResp describeImageXClientFileSize(DescribeImageXClientFileSizeReq req) throws Exception;
+
+    public DescribeImageXClientTopFileSizeResp describeImageXClientTopFileSize(DescribeImageXClientTopFileSizeReq req) throws Exception;
+
+    public DescribeImageXClientCountByTimeResp describeImageXClientCountByTime(DescribeImageXClientCountByTimeReq req) throws Exception;
+
+    public DescribeImageXClientScoreByTimeResp describeImageXClientScoreByTime(DescribeImageXClientScoreByTimeReq req) throws Exception;
+
+    public DescribeImageXClientDemotionRateByTimeResp describeImageXClientDemotionRateByTime(DescribeImageXClientDemotionRateByTimeReq req) throws Exception;
+
+    public DescribeImageXClientTopDemotionURLResp describeImageXClientTopDemotionURL(DescribeImageXClientTopDemotionURLReq req) throws Exception;
+
+    public DescribeImageXClientQualityRateByTimeResp describeImageXClientQualityRateByTime(DescribeImageXClientQualityRateByTimeReq req) throws Exception;
+
+    public DescribeImageXClientTopQualityURLResp describeImageXClientTopQualityURL(DescribeImageXClientTopQualityURLReq req) throws Exception;
+
+    public DescribeImageXSensibleCountByTimeResp describeImageXSensibleCountByTime(DescribeImageXSensibleCountByTimeReq req) throws Exception;
+
+    public DescribeImageXSensibleCacheHitRateByTimeResp describeImageXSensibleCacheHitRateByTime(DescribeImageXSensibleCacheHitRateByTimeReq req) throws Exception;
+
+    public DescribeImageXSensibleTopSizeURLResp describeImageXSensibleTopSizeURL(DescribeImageXSensibleTopSizeURLReq req) throws Exception;
+
+    public DescribeImageXSensibleTopRamURLResp describeImageXSensibleTopRamURL(DescribeImageXSensibleTopRamURLReq req) throws Exception;
+
+    public DescribeImageXSensibleTopResolutionURLResp describeImageXSensibleTopResolutionURL(DescribeImageXSensibleTopResolutionURLReq req) throws Exception;
+
+    public DescribeImageXSensibleTopUnknownURLResp describeImageXSensibleTopUnknownURL(DescribeImageXSensibleTopUnknownURLReq req) throws Exception;
 }

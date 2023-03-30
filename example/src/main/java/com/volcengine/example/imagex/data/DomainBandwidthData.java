@@ -4,13 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.imagex.data.DescribeImageXDomainBandwidthDataReq;
 import com.volcengine.model.imagex.data.DescribeImageXDomainBandwidthDataResp;
 import com.volcengine.service.imagex.IImageXService;
-import com.volcengine.service.imagex.extension.DataModule;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 
 public class DomainBandwidthData {
     public static void main(String[] args) {
-        DataModule.AddDataModule();
-
         IImageXService service = ImageXServiceImpl.getInstance();
         service.setAccessKey("ak");
         service.setSecretKey("sk");
@@ -21,7 +18,7 @@ public class DomainBandwidthData {
         req.setInterval("300");
 
         try {
-            DescribeImageXDomainBandwidthDataResp resp = DataModule.describeImageXDomainBandwidthData(service, req);
+            DescribeImageXDomainBandwidthDataResp resp = service.describeImageXDomainBandwidthData(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();

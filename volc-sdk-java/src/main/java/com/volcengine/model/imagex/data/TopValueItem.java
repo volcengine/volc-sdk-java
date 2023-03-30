@@ -8,5 +8,5 @@ public class TopValueItem {
     @JSONField(name = "Key")
     private String key;
     @JSONField(name = "value")
-    private Double Value;
+    private Double value;
 }

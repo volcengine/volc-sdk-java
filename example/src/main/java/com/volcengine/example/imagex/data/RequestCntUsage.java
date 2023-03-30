@@ -4,13 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.imagex.data.DescribeImageXRequestCntUsageReq;
 import com.volcengine.model.imagex.data.DescribeImageXRequestCntUsageResp;
 import com.volcengine.service.imagex.IImageXService;
-import com.volcengine.service.imagex.extension.DataModule;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 
 public class RequestCntUsage {
     public static void main(String[] args) {
-        DataModule.AddDataModule();
-
         IImageXService service = ImageXServiceImpl.getInstance();
         service.setAccessKey("ak");
         service.setSecretKey("sk");
@@ -22,7 +19,7 @@ public class RequestCntUsage {
         req.setInterval("300");
 
         try {
-            DescribeImageXRequestCntUsageResp resp = DataModule.describeImageXRequestCntUsage(service, req);
+            DescribeImageXRequestCntUsageResp resp = service.describeImageXRequestCntUsage(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();

@@ -10,7 +10,7 @@ public class DescribeImageXCDNTopRequestDataResp {
     @JSONField(name = "Count")
     private Long count;
     @JSONField(name = "topValue")
-    private List<TopValueItem> TopValue;
+    private List<TopValueItem> topValue;
     @JSONField(name = "TotalValue")
     private Double totalValue;
 }

@@ -4,13 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.imagex.data.DescribeImageXEdgeRequestRegionsReq;
 import com.volcengine.model.imagex.data.DescribeImageXEdgeRequestRegionsResp;
 import com.volcengine.service.imagex.IImageXService;
-import com.volcengine.service.imagex.extension.DataModule;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 
 public class EdgeRequestRegion {
     public static void main(String[] args) {
-        DataModule.AddDataModule();
-
         IImageXService service = ImageXServiceImpl.getInstance();
         service.setAccessKey("ak");
         service.setSecretKey("sk");
@@ -20,7 +17,7 @@ public class EdgeRequestRegion {
         req.setEndTime("2023-01-28T00:00:00+08:00");
 
         try {
-            DescribeImageXEdgeRequestRegionsResp resp = DataModule.describeImageXEdgeRequestRegions(service, req);
+            DescribeImageXEdgeRequestRegionsResp resp = service.describeImageXEdgeRequestRegions(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();

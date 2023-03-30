@@ -4,13 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.imagex.data.DescribeImageXDomainTrafficDataReq;
 import com.volcengine.model.imagex.data.DescribeImageXDomainTrafficDataResp;
 import com.volcengine.service.imagex.IImageXService;
-import com.volcengine.service.imagex.extension.DataModule;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 
 public class DomainTrafficData {
     public static void main(String[] args) {
-        DataModule.AddDataModule();
-
         IImageXService service = ImageXServiceImpl.getInstance();
         service.setAccessKey("ak");
         service.setSecretKey("sk");
@@ -21,7 +18,7 @@ public class DomainTrafficData {
         req.setInterval("300");
 
         try {
-            DescribeImageXDomainTrafficDataResp resp = DataModule.describeImageXDomainTrafficData(service, req);
+            DescribeImageXDomainTrafficDataResp resp = service.describeImageXDomainTrafficData(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();

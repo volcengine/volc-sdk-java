@@ -832,5 +832,105 @@ public class ImageXConfig {
                     }
             ));
         }
+
+        {
+            new ArrayList<String>() {
+                {
+                    add("DescribeImageXDomainTrafficData");
+                    add("DescribeImageXDomainBandwidthData");
+                    add("DescribeImageXBucketUsage");
+                    add("DescribeImageXRequestCntUsage");
+                    add("DescribeImageXBaseOpUsage");
+                    add("DescribeImageXCompressUsage");
+                    add("DescribeImageXEdgeRequest");
+                    add("DescribeImageXHitRateTrafficData");
+                    add("DescribeImageXHitRateRequestData");
+                    add("DescribeImageXCDNTopRequestData");
+                    add("DescribeImageXSummary");
+                    add("DescribeImageXEdgeRequestBandwidth");
+                    add("DescribeImageXEdgeRequestTraffic");
+                    add("DescribeImageXEdgeRequestRegions");
+                    add("DescribeImageXServiceQuality");
+                    add("GetImageXQueryApps");
+                    add("GetImageXQueryRegions");
+                    add("GetImageXQueryDims");
+                    add("GetImageXQueryVals");
+                }
+            }.forEach(it -> put(it, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", it));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            )));
+            new ArrayList<String>() {
+                {
+                    add("DescribeImageXMirrorRequestTraffic");
+                    add("DescribeImageXMirrorRequestBandwidth");
+                    add("DescribeImageXMirrorRequestHttpCodeByTime");
+                    add("DescribeImageXMirrorRequestHttpCodeOverview");
+                    add("DescribeImageXUploadSuccessRateByTime");
+                    add("DescribeImageXUploadErrorCodeAll");
+                    add("DescribeImageXUploadErrorCodeByTime");
+                    add("DescribeImageXUploadCountByTime");
+                    add("DescribeImageXUploadFileSize");
+                    add("DescribeImageXUploadSpeed");
+                    add("DescribeImageXUploadDuration");
+                    add("DescribeImageXUploadSegmentSpeedByTime");
+                    add("DescribeImageXCdnSuccessRateByTime");
+                    add("DescribeImageXCdnSuccessRateAll");
+                    add("DescribeImageXCdnErrorCodeByTime");
+                    add("DescribeImageXCdnErrorCodeAll");
+                    add("DescribeImageXCdnDurationDetailByTime");
+                    add("DescribeImageXCdnDurationAll");
+                    add("DescribeImageXCdnReuseRateByTime");
+                    add("DescribeImageXCdnReuseRateAll");
+                    add("DescribeImageXCdnProtocolRateByTime");
+                    add("DescribeImageXClientErrorCodeAll");
+                    add("DescribeImageXClientErrorCodeByTime");
+                    add("DescribeImageXClientDecodeSuccessRateByTime");
+                    add("DescribeImageXClientDecodeDurationByTime");
+                    add("DescribeImageXClientQueueDurationByTime");
+                    add("DescribeImageXClientLoadDurationAll");
+                    add("DescribeImageXClientLoadDuration");
+                    add("DescribeImageXClientFailureRate");
+                    add("DescribeImageXClientSdkVerByTime");
+                    add("DescribeImageXClientFileSize");
+                    add("DescribeImageXClientTopFileSize");
+                    add("DescribeImageXClientCountByTime");
+                    add("DescribeImageXClientScoreByTime");
+                    add("DescribeImageXClientDemotionRateByTime");
+                    add("DescribeImageXClientTopDemotionURL");
+                    add("DescribeImageXClientQualityRateByTime");
+                    add("DescribeImageXClientTopQualityURL");
+                    add("DescribeImageXSensibleCountByTime");
+                    add("DescribeImageXSensibleCacheHitRateByTime");
+                    add("DescribeImageXSensibleTopSizeURL");
+                    add("DescribeImageXSensibleTopRamURL");
+                    add("DescribeImageXSensibleTopResolutionURL");
+                    add("DescribeImageXSensibleTopUnknownURL");
+                }
+            }.forEach(it -> put(it, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", it));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            )));
+        }
     };
 }

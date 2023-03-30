@@ -4,13 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.imagex.data.DescribeImageXBaseOpUsageReq;
 import com.volcengine.model.imagex.data.DescribeImageXBaseOpUsageResp;
 import com.volcengine.service.imagex.IImageXService;
-import com.volcengine.service.imagex.extension.DataModule;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 
 public class BucketBaseOpUsage {
     public static void main(String[] args) {
-        DataModule.AddDataModule();
-
         IImageXService service = ImageXServiceImpl.getInstance();
         service.setAccessKey("ak");
         service.setSecretKey("sk");
@@ -21,7 +18,7 @@ public class BucketBaseOpUsage {
         req.setInterval("300");
 
         try {
-            DescribeImageXBaseOpUsageResp resp = DataModule.describeImageXBaseOpUsage(service, req);
+            DescribeImageXBaseOpUsageResp resp = service.describeImageXBaseOpUsage(req);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();

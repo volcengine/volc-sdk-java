@@ -66,4 +66,24 @@ public interface VodUpdateMediaStorageClassRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getCallbackArgsBytes();
+
+  /**
+   * <pre>
+   *转码视频ID列表,多个用英文逗号分隔，最多支持20个，传入该参数时，Vids只允许传一个视频ID
+   * </pre>
+   *
+   * <code>string FileIds = 4;</code>
+   * @return The fileIds.
+   */
+  java.lang.String getFileIds();
+  /**
+   * <pre>
+   *转码视频ID列表,多个用英文逗号分隔，最多支持20个，传入该参数时，Vids只允许传一个视频ID
+   * </pre>
+   *
+   * <code>string FileIds = 4;</code>
+   * @return The bytes for fileIds.
+   */
+  com.google.protobuf.ByteString
+      getFileIdsBytes();
 }

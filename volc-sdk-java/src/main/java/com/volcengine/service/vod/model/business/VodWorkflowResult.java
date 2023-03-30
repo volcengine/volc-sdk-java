@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private VodWorkflowResult() {
+    vid_ = "";
     runId_ = "";
     spaceName_ = "";
     templateId_ = "";
@@ -67,6 +68,12 @@ private static final long serialVersionUID = 0L;
               directUrl_ = subBuilder.buildPartial();
             }
 
+            break;
+          }
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            vid_ = s;
             break;
           }
           case 26: {
@@ -179,6 +186,44 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public com.volcengine.service.vod.model.business.DirectUrlOrBuilder getDirectUrlOrBuilder() {
     return getDirectUrl();
+  }
+
+  public static final int VID_FIELD_NUMBER = 2;
+  private volatile java.lang.Object vid_;
+  /**
+   * <code>string Vid = 2;</code>
+   * @return The vid.
+   */
+  @java.lang.Override
+  public java.lang.String getVid() {
+    java.lang.Object ref = vid_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      vid_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string Vid = 2;</code>
+   * @return The bytes for vid.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getVidBytes() {
+    java.lang.Object ref = vid_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      vid_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   public static final int RUNID_FIELD_NUMBER = 3;
@@ -468,6 +513,9 @@ private static final long serialVersionUID = 0L;
     if (directUrl_ != null) {
       output.writeMessage(1, getDirectUrl());
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vid_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, vid_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(runId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, runId_);
     }
@@ -501,6 +549,9 @@ private static final long serialVersionUID = 0L;
     if (directUrl_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getDirectUrl());
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vid_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, vid_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(runId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, runId_);
@@ -545,6 +596,8 @@ private static final long serialVersionUID = 0L;
       if (!getDirectUrl()
           .equals(other.getDirectUrl())) return false;
     }
+    if (!getVid()
+        .equals(other.getVid())) return false;
     if (!getRunId()
         .equals(other.getRunId())) return false;
     if (!getSpaceName()
@@ -574,6 +627,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DIRECTURL_FIELD_NUMBER;
       hash = (53 * hash) + getDirectUrl().hashCode();
     }
+    hash = (37 * hash) + VID_FIELD_NUMBER;
+    hash = (53 * hash) + getVid().hashCode();
     hash = (37 * hash) + RUNID_FIELD_NUMBER;
     hash = (53 * hash) + getRunId().hashCode();
     hash = (37 * hash) + SPACENAME_FIELD_NUMBER;
@@ -733,6 +788,8 @@ private static final long serialVersionUID = 0L;
         directUrl_ = null;
         directUrlBuilder_ = null;
       }
+      vid_ = "";
+
       runId_ = "";
 
       spaceName_ = "";
@@ -787,6 +844,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.directUrl_ = directUrlBuilder_.build();
       }
+      result.vid_ = vid_;
       result.runId_ = runId_;
       result.spaceName_ = spaceName_;
       result.templateId_ = templateId_;
@@ -860,6 +918,10 @@ private static final long serialVersionUID = 0L;
       if (other == com.volcengine.service.vod.model.business.VodWorkflowResult.getDefaultInstance()) return this;
       if (other.hasDirectUrl()) {
         mergeDirectUrl(other.getDirectUrl());
+      }
+      if (!other.getVid().isEmpty()) {
+        vid_ = other.vid_;
+        onChanged();
       }
       if (!other.getRunId().isEmpty()) {
         runId_ = other.runId_;
@@ -1080,6 +1142,82 @@ private static final long serialVersionUID = 0L;
         directUrl_ = null;
       }
       return directUrlBuilder_;
+    }
+
+    private java.lang.Object vid_ = "";
+    /**
+     * <code>string Vid = 2;</code>
+     * @return The vid.
+     */
+    public java.lang.String getVid() {
+      java.lang.Object ref = vid_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        vid_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string Vid = 2;</code>
+     * @return The bytes for vid.
+     */
+    public com.google.protobuf.ByteString
+        getVidBytes() {
+      java.lang.Object ref = vid_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        vid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string Vid = 2;</code>
+     * @param value The vid to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVid(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      vid_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string Vid = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVid() {
+      
+      vid_ = getDefaultInstance().getVid();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string Vid = 2;</code>
+     * @param value The bytes for vid to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVidBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      vid_ = value;
+      onChanged();
+      return this;
     }
 
     private java.lang.Object runId_ = "";

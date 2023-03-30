@@ -182,4 +182,31 @@ public interface OverrideParamsOrBuilder extends
    */
   com.volcengine.service.vod.model.business.SnapshotOverrideOrBuilder getSnapshotOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * 增强覆盖参数
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.EnhanceOverride Enhance = 5;</code>
+   * @return Whether the enhance field is set.
+   */
+  boolean hasEnhance();
+  /**
+   * <pre>
+   * 增强覆盖参数
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.EnhanceOverride Enhance = 5;</code>
+   * @return The enhance.
+   */
+  com.volcengine.service.vod.model.business.EnhanceOverride getEnhance();
+  /**
+   * <pre>
+   * 增强覆盖参数
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.EnhanceOverride Enhance = 5;</code>
+   */
+  com.volcengine.service.vod.model.business.EnhanceOverrideOrBuilder getEnhanceOrBuilder();
 }

@@ -106,7 +106,7 @@ public interface TranscodeVideoOverrideOrBuilder extends
 
   /**
    * <pre>
-   * FileName
+   * 文件名
    * </pre>
    *
    * <code>string FileName = 4;</code>
@@ -115,7 +115,7 @@ public interface TranscodeVideoOverrideOrBuilder extends
   java.lang.String getFileName();
   /**
    * <pre>
-   * FileName
+   * 文件名
    * </pre>
    *
    * <code>string FileName = 4;</code>

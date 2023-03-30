@@ -23,6 +23,18 @@ public interface VodWorkflowResultOrBuilder extends
   com.volcengine.service.vod.model.business.DirectUrlOrBuilder getDirectUrlOrBuilder();
 
   /**
+   * <code>string Vid = 2;</code>
+   * @return The vid.
+   */
+  java.lang.String getVid();
+  /**
+   * <code>string Vid = 2;</code>
+   * @return The bytes for vid.
+   */
+  com.google.protobuf.ByteString
+      getVidBytes();
+
+  /**
    * <code>string RunId = 3;</code>
    * @return The runId.
    */

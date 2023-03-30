@@ -86,4 +86,24 @@ public interface SnapshotOverrideOrBuilder extends
    * @return The offsetTimeList at the given index.
    */
   int getOffsetTimeList(int index);
+
+  /**
+   * <pre>
+   * 文件名
+   * </pre>
+   *
+   * <code>string FileName = 4;</code>
+   * @return The fileName.
+   */
+  java.lang.String getFileName();
+  /**
+   * <pre>
+   * 文件名
+   * </pre>
+   *
+   * <code>string FileName = 4;</code>
+   * @return The bytes for fileName.
+   */
+  com.google.protobuf.ByteString
+      getFileNameBytes();
 }

@@ -140,4 +140,16 @@ public interface VodStartWorkflowRequestOrBuilder extends
    * <code>.Volcengine.Vod.Models.Business.DirectUrl DirectUrl = 7;</code>
    */
   com.volcengine.service.vod.model.business.DirectUrlOrBuilder getDirectUrlOrBuilder();
+
+  /**
+   * <code>string TaskListId = 8;</code>
+   * @return The taskListId.
+   */
+  java.lang.String getTaskListId();
+  /**
+   * <code>string TaskListId = 8;</code>
+   * @return The bytes for taskListId.
+   */
+  com.google.protobuf.ByteString
+      getTaskListIdBytes();
 }

@@ -89,6 +89,19 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(com.volcengine.service.vod.model.business.SnapshotOverride.parser(), extensionRegistry));
             break;
           }
+          case 42: {
+            com.volcengine.service.vod.model.business.EnhanceOverride.Builder subBuilder = null;
+            if (enhance_ != null) {
+              subBuilder = enhance_.toBuilder();
+            }
+            enhance_ = input.readMessage(com.volcengine.service.vod.model.business.EnhanceOverride.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(enhance_);
+              enhance_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -373,6 +386,44 @@ private static final long serialVersionUID = 0L;
     return snapshot_.get(index);
   }
 
+  public static final int ENHANCE_FIELD_NUMBER = 5;
+  private com.volcengine.service.vod.model.business.EnhanceOverride enhance_;
+  /**
+   * <pre>
+   * 增强覆盖参数
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.EnhanceOverride Enhance = 5;</code>
+   * @return Whether the enhance field is set.
+   */
+  @java.lang.Override
+  public boolean hasEnhance() {
+    return enhance_ != null;
+  }
+  /**
+   * <pre>
+   * 增强覆盖参数
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.EnhanceOverride Enhance = 5;</code>
+   * @return The enhance.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.EnhanceOverride getEnhance() {
+    return enhance_ == null ? com.volcengine.service.vod.model.business.EnhanceOverride.getDefaultInstance() : enhance_;
+  }
+  /**
+   * <pre>
+   * 增强覆盖参数
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.EnhanceOverride Enhance = 5;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.EnhanceOverrideOrBuilder getEnhanceOrBuilder() {
+    return getEnhance();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -399,6 +450,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < snapshot_.size(); i++) {
       output.writeMessage(4, snapshot_.get(i));
     }
+    if (enhance_ != null) {
+      output.writeMessage(5, getEnhance());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -424,6 +478,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, snapshot_.get(i));
     }
+    if (enhance_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getEnhance());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -447,6 +505,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTranscodeAudioList())) return false;
     if (!getSnapshotList()
         .equals(other.getSnapshotList())) return false;
+    if (hasEnhance() != other.hasEnhance()) return false;
+    if (hasEnhance()) {
+      if (!getEnhance()
+          .equals(other.getEnhance())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -473,6 +536,10 @@ private static final long serialVersionUID = 0L;
     if (getSnapshotCount() > 0) {
       hash = (37 * hash) + SNAPSHOT_FIELD_NUMBER;
       hash = (53 * hash) + getSnapshotList().hashCode();
+    }
+    if (hasEnhance()) {
+      hash = (37 * hash) + ENHANCE_FIELD_NUMBER;
+      hash = (53 * hash) + getEnhance().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -635,6 +702,12 @@ private static final long serialVersionUID = 0L;
       } else {
         snapshotBuilder_.clear();
       }
+      if (enhanceBuilder_ == null) {
+        enhance_ = null;
+      } else {
+        enhance_ = null;
+        enhanceBuilder_ = null;
+      }
       return this;
     }
 
@@ -697,6 +770,11 @@ private static final long serialVersionUID = 0L;
         result.snapshot_ = snapshot_;
       } else {
         result.snapshot_ = snapshotBuilder_.build();
+      }
+      if (enhanceBuilder_ == null) {
+        result.enhance_ = enhance_;
+      } else {
+        result.enhance_ = enhanceBuilder_.build();
       }
       onBuilt();
       return result;
@@ -849,6 +927,9 @@ private static final long serialVersionUID = 0L;
             snapshotBuilder_.addAllMessages(other.snapshot_);
           }
         }
+      }
+      if (other.hasEnhance()) {
+        mergeEnhance(other.getEnhance());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2126,6 +2207,161 @@ private static final long serialVersionUID = 0L;
         snapshot_ = null;
       }
       return snapshotBuilder_;
+    }
+
+    private com.volcengine.service.vod.model.business.EnhanceOverride enhance_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.EnhanceOverride, com.volcengine.service.vod.model.business.EnhanceOverride.Builder, com.volcengine.service.vod.model.business.EnhanceOverrideOrBuilder> enhanceBuilder_;
+    /**
+     * <pre>
+     * 增强覆盖参数
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.EnhanceOverride Enhance = 5;</code>
+     * @return Whether the enhance field is set.
+     */
+    public boolean hasEnhance() {
+      return enhanceBuilder_ != null || enhance_ != null;
+    }
+    /**
+     * <pre>
+     * 增强覆盖参数
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.EnhanceOverride Enhance = 5;</code>
+     * @return The enhance.
+     */
+    public com.volcengine.service.vod.model.business.EnhanceOverride getEnhance() {
+      if (enhanceBuilder_ == null) {
+        return enhance_ == null ? com.volcengine.service.vod.model.business.EnhanceOverride.getDefaultInstance() : enhance_;
+      } else {
+        return enhanceBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * 增强覆盖参数
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.EnhanceOverride Enhance = 5;</code>
+     */
+    public Builder setEnhance(com.volcengine.service.vod.model.business.EnhanceOverride value) {
+      if (enhanceBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        enhance_ = value;
+        onChanged();
+      } else {
+        enhanceBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 增强覆盖参数
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.EnhanceOverride Enhance = 5;</code>
+     */
+    public Builder setEnhance(
+        com.volcengine.service.vod.model.business.EnhanceOverride.Builder builderForValue) {
+      if (enhanceBuilder_ == null) {
+        enhance_ = builderForValue.build();
+        onChanged();
+      } else {
+        enhanceBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 增强覆盖参数
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.EnhanceOverride Enhance = 5;</code>
+     */
+    public Builder mergeEnhance(com.volcengine.service.vod.model.business.EnhanceOverride value) {
+      if (enhanceBuilder_ == null) {
+        if (enhance_ != null) {
+          enhance_ =
+            com.volcengine.service.vod.model.business.EnhanceOverride.newBuilder(enhance_).mergeFrom(value).buildPartial();
+        } else {
+          enhance_ = value;
+        }
+        onChanged();
+      } else {
+        enhanceBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 增强覆盖参数
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.EnhanceOverride Enhance = 5;</code>
+     */
+    public Builder clearEnhance() {
+      if (enhanceBuilder_ == null) {
+        enhance_ = null;
+        onChanged();
+      } else {
+        enhance_ = null;
+        enhanceBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 增强覆盖参数
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.EnhanceOverride Enhance = 5;</code>
+     */
+    public com.volcengine.service.vod.model.business.EnhanceOverride.Builder getEnhanceBuilder() {
+      
+      onChanged();
+      return getEnhanceFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * 增强覆盖参数
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.EnhanceOverride Enhance = 5;</code>
+     */
+    public com.volcengine.service.vod.model.business.EnhanceOverrideOrBuilder getEnhanceOrBuilder() {
+      if (enhanceBuilder_ != null) {
+        return enhanceBuilder_.getMessageOrBuilder();
+      } else {
+        return enhance_ == null ?
+            com.volcengine.service.vod.model.business.EnhanceOverride.getDefaultInstance() : enhance_;
+      }
+    }
+    /**
+     * <pre>
+     * 增强覆盖参数
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.EnhanceOverride Enhance = 5;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.EnhanceOverride, com.volcengine.service.vod.model.business.EnhanceOverride.Builder, com.volcengine.service.vod.model.business.EnhanceOverrideOrBuilder> 
+        getEnhanceFieldBuilder() {
+      if (enhanceBuilder_ == null) {
+        enhanceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.EnhanceOverride, com.volcengine.service.vod.model.business.EnhanceOverride.Builder, com.volcengine.service.vod.model.business.EnhanceOverrideOrBuilder>(
+                getEnhance(),
+                getParentForChildren(),
+                isClean());
+        enhance_ = null;
+      }
+      return enhanceBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

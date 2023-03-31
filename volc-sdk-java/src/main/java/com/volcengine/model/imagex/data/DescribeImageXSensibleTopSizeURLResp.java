@@ -1,7 +1,6 @@
 package com.volcengine.model.imagex.data;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.volcengine.model.imagex.data.SensibleSizeItem;
 import lombok.Data;
 
 import java.util.List;

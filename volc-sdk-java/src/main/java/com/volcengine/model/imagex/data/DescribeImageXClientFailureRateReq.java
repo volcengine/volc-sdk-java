@@ -1,7 +1,6 @@
 package com.volcengine.model.imagex.data;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.volcengine.model.imagex.data.ExtraDim;
 import lombok.Data;
 
 import java.util.List;
@@ -13,7 +12,7 @@ public class DescribeImageXClientFailureRateReq {
     @JSONField(name = "AppVer")
     private List<String> appVer;
     @JSONField(name = "OS")
-    private String oS;
+    private String os;
     @JSONField(name = "SdkVer")
     private List<String> sdkVer;
     @JSONField(name = "Country")

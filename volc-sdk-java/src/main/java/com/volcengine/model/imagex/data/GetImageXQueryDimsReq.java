@@ -10,5 +10,5 @@ public class GetImageXQueryDimsReq {
     @JSONField(name = "Appid")
     private String appid;
     @JSONField(name = "OS")
-    private String oS;
+    private String os;
 }

@@ -8,6 +8,7 @@ import com.volcengine.model.sts2.SecurityToken2;
 import com.volcengine.service.IBaseService;
 
 import java.io.InputStream;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -382,6 +383,7 @@ public interface IImageXService extends IBaseService {
      */
     GetImageStyleResultResponse getImageStyleResult(GetImageStyleResultRequest req) throws Exception;
 
+
     public DescribeImageXDomainTrafficDataResp describeImageXDomainTrafficData(DescribeImageXDomainTrafficDataReq req) throws Exception;
 
     public DescribeImageXDomainBandwidthDataResp describeImageXDomainBandwidthData(DescribeImageXDomainBandwidthDataReq req) throws Exception;
@@ -507,4 +509,7 @@ public interface IImageXService extends IBaseService {
     public DescribeImageXSensibleTopResolutionURLResp describeImageXSensibleTopResolutionURL(DescribeImageXSensibleTopResolutionURLReq req) throws Exception;
 
     public DescribeImageXSensibleTopUnknownURLResp describeImageXSensibleTopUnknownURL(DescribeImageXSensibleTopUnknownURLReq req) throws Exception;
+
+
+    public DescribeImageVolcCdnAccessLogResp describeImageVolcCdnAccessLog(DescribeImageVolcCdnAccessLogReq req) throws Exception;
 }

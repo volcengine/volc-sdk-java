@@ -17,9 +17,33 @@ public class FetchImageUrlRequest {
     @JSONField(name = "StoreKey")
     String storeKey;
 
+    @JSONField(name = "RequestHeader")
+    Map<String, List<String>> requestHeader;
+
     @JSONField(name = "TimeOut")
     Integer timeOut;
 
-    @JSONField(name = "RequestHeader")
-    Map<String, List<String>> requestHeader;
+    @JSONField(name = "Async")
+    Boolean async;
+
+    @JSONField(name = "Callback")
+    String callback;
+
+    @JSONField(name = "Host")
+    String host;
+
+    @JSONField(name = "MD5")
+    String md5;
+
+    @JSONField(name = "CallbackBodyType")
+    String callbackBodyType;
+
+    @JSONField(name = "CallbackBody")
+    String callbackBody;
+
+    @JSONField(name = "CallbackHost")
+    String callbackHost;
+
+    @JSONField(name = "IgnoreSameKey")
+    Boolean ignoreSameKey;
 }

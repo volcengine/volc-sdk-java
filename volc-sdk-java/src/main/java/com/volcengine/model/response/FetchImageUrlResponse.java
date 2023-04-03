@@ -36,5 +36,8 @@ public class FetchImageUrlResponse {
 
         @JSONField(name = "ImageFormat")
         private String imageFormat;
+
+        @JSONField(name = "TaskId")
+        private String taskId;
     }
 }

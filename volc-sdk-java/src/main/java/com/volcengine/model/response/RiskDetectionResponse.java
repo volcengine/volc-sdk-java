@@ -33,5 +33,15 @@ public class RiskDetectionResponse {
         private List<Integer> tags;
         @JSONField(name = "Detail")
         private String detail;
+        @JSONField(name = "DeviceInfo")
+        private DeviceInfo deviceInfo;
+    }
+
+    @Data
+    public static class DeviceInfo {
+        @JSONField(name = "DevSecID")
+        private String devSecId;
+        @JSONField(name = "TokenCreateTs")
+        private Integer tokenCreateTs;
     }
 }

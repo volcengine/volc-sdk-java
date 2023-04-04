@@ -19,9 +19,9 @@ public class RiskDetectionDemo {
         // risk detection
         try {
             RiskDetectionRequest riskDetectionRequest = new RiskDetectionRequest();
-            riskDetectionRequest.setAppId(216455);
-            riskDetectionRequest.setService("register");
-            riskDetectionRequest.setParameters("{\"operate_time\": 1617960951}");
+            riskDetectionRequest.setAppId(413814);
+            riskDetectionRequest.setService("login");
+            riskDetectionRequest.setParameters("{\"operate_time\": 1617960951, \"ip\": \"127.0.0.9\", \"did\":1357924680, \"dev_token\":\"BgiblrsEiq7-CgoqCu31y3h-jqXcLwAUIesAkxpxX3a-TTSh2WilYQKJJP-UCPV3hkbU8D6GfE6EF4y0PhXchIC5qeAu7W-mrMGUKIrw19-cudT3pvJPCNCKK7onZCGzkhDWCvqfpwtSflQbH0UctgFXHdD9Ak*\"}");
 
             RiskDetectionResponse riskDetectionResponse = businessSecurityService.RiskDetection(riskDetectionRequest);
             System.out.println(JSON.toJSONString(riskDetectionResponse));

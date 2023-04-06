@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
     functions_ = "";
     fileName_ = "";
     fileExtension_ = "";
+    vodUploadSource_ = "";
   }
 
   @java.lang.Override
@@ -93,6 +94,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             fileExtension_ = s;
+            break;
+          }
+          case 66: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            vodUploadSource_ = s;
             break;
           }
           default: {
@@ -418,6 +425,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int VODUPLOADSOURCE_FIELD_NUMBER = 8;
+  private volatile java.lang.Object vodUploadSource_;
+  /**
+   * <pre>
+   * 上传中文件的来源 
+   * </pre>
+   *
+   * <code>string VodUploadSource = 8;</code>
+   * @return The vodUploadSource.
+   */
+  @java.lang.Override
+  public java.lang.String getVodUploadSource() {
+    java.lang.Object ref = vodUploadSource_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      vodUploadSource_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 上传中文件的来源 
+   * </pre>
+   *
+   * <code>string VodUploadSource = 8;</code>
+   * @return The bytes for vodUploadSource.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getVodUploadSourceBytes() {
+    java.lang.Object ref = vodUploadSource_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      vodUploadSource_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -453,6 +506,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileExtension_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, fileExtension_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vodUploadSource_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, vodUploadSource_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -484,6 +540,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileExtension_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, fileExtension_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vodUploadSource_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, vodUploadSource_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -513,6 +572,8 @@ private static final long serialVersionUID = 0L;
         != other.getStorageClass()) return false;
     if (!getFileExtension()
         .equals(other.getFileExtension())) return false;
+    if (!getVodUploadSource()
+        .equals(other.getVodUploadSource())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -538,6 +599,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getStorageClass();
     hash = (37 * hash) + FILEEXTENSION_FIELD_NUMBER;
     hash = (53 * hash) + getFileExtension().hashCode();
+    hash = (37 * hash) + VODUPLOADSOURCE_FIELD_NUMBER;
+    hash = (53 * hash) + getVodUploadSource().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -685,6 +748,8 @@ private static final long serialVersionUID = 0L;
 
       fileExtension_ = "";
 
+      vodUploadSource_ = "";
+
       return this;
     }
 
@@ -718,6 +783,7 @@ private static final long serialVersionUID = 0L;
       result.fileName_ = fileName_;
       result.storageClass_ = storageClass_;
       result.fileExtension_ = fileExtension_;
+      result.vodUploadSource_ = vodUploadSource_;
       onBuilt();
       return result;
     }
@@ -791,6 +857,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getFileExtension().isEmpty()) {
         fileExtension_ = other.fileExtension_;
+        onChanged();
+      }
+      if (!other.getVodUploadSource().isEmpty()) {
+        vodUploadSource_ = other.vodUploadSource_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1437,6 +1507,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       fileExtension_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object vodUploadSource_ = "";
+    /**
+     * <pre>
+     * 上传中文件的来源 
+     * </pre>
+     *
+     * <code>string VodUploadSource = 8;</code>
+     * @return The vodUploadSource.
+     */
+    public java.lang.String getVodUploadSource() {
+      java.lang.Object ref = vodUploadSource_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        vodUploadSource_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 上传中文件的来源 
+     * </pre>
+     *
+     * <code>string VodUploadSource = 8;</code>
+     * @return The bytes for vodUploadSource.
+     */
+    public com.google.protobuf.ByteString
+        getVodUploadSourceBytes() {
+      java.lang.Object ref = vodUploadSource_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        vodUploadSource_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 上传中文件的来源 
+     * </pre>
+     *
+     * <code>string VodUploadSource = 8;</code>
+     * @param value The vodUploadSource to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVodUploadSource(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      vodUploadSource_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 上传中文件的来源 
+     * </pre>
+     *
+     * <code>string VodUploadSource = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVodUploadSource() {
+      
+      vodUploadSource_ = getDefaultInstance().getVodUploadSource();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 上传中文件的来源 
+     * </pre>
+     *
+     * <code>string VodUploadSource = 8;</code>
+     * @param value The bytes for vodUploadSource to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVodUploadSourceBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      vodUploadSource_ = value;
       onChanged();
       return this;
     }

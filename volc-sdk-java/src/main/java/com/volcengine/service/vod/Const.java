@@ -133,6 +133,7 @@ public class Const {
     public static final String DescribeVodSpaceDetectStatisData = "DescribeVodSpaceDetectStatisData";
     public static final String DescribeVodSnapshotData = "DescribeVodSnapshotData";
     public static final String DescribeVodSpaceWorkflowDetailData = "DescribeVodSpaceWorkflowDetailData";
+    public static final String DescribeVodSpaceEditDetailData = "DescribeVodSpaceEditDetailData";
 
 
     public static final String ExtractMediaMetaTask = "ExtractMediaMetaTask";

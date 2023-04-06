@@ -136,4 +136,24 @@ public interface VodUploadMediaRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getFileExtensionBytes();
+
+  /**
+   * <pre>
+   * 上传中文件的来源 
+   * </pre>
+   *
+   * <code>string VodUploadSource = 8;</code>
+   * @return The vodUploadSource.
+   */
+  java.lang.String getVodUploadSource();
+  /**
+   * <pre>
+   * 上传中文件的来源 
+   * </pre>
+   *
+   * <code>string VodUploadSource = 8;</code>
+   * @return The bytes for vodUploadSource.
+   */
+  com.google.protobuf.ByteString
+      getVodUploadSourceBytes();
 }

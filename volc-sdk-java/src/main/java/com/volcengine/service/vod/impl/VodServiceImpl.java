@@ -1756,6 +1756,25 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 	
 	
 	/**
+     * describeVodSpaceEditDetailData.
+     *
+     * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest
+     * @return com.volcengine.service.vod.model.response.DescribeVodSpaceEditDetailDataResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.DescribeVodSpaceEditDetailDataResponse describeVodSpaceEditDetailData(com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.DescribeVodSpaceEditDetailData, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.DescribeVodSpaceEditDetailDataResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.DescribeVodSpaceEditDetailDataResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
      * describeVodSnapshotData.
      *
      * @param input com.volcengine.service.vod.model.request.DescribeVodSnapshotDataRequest

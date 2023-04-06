@@ -4,30 +4,33 @@
 package com.volcengine.service.vod.model.request;
 
 /**
- * Protobuf type {@code Volcengine.Vod.Models.Request.VodCommitUploadInfoRequest}
+ * <pre>
+ * 点播编辑明细
+ * </pre>
+ *
+ * Protobuf type {@code Volcengine.Vod.Models.Request.DescribeVodSpaceEditDetailDataRequest}
  */
-public final class VodCommitUploadInfoRequest extends
+public final class DescribeVodSpaceEditDetailDataRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Request.VodCommitUploadInfoRequest)
-    VodCommitUploadInfoRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Request.DescribeVodSpaceEditDetailDataRequest)
+    DescribeVodSpaceEditDetailDataRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use VodCommitUploadInfoRequest.newBuilder() to construct.
-  private VodCommitUploadInfoRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use DescribeVodSpaceEditDetailDataRequest.newBuilder() to construct.
+  private DescribeVodSpaceEditDetailDataRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private VodCommitUploadInfoRequest() {
-    spaceName_ = "";
-    sessionKey_ = "";
-    callbackArgs_ = "";
-    functions_ = "";
-    vodUploadSource_ = "";
+  private DescribeVodSpaceEditDetailDataRequest() {
+    region_ = "";
+    space_ = "";
+    startTime_ = "";
+    endTime_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new VodCommitUploadInfoRequest();
+    return new DescribeVodSpaceEditDetailDataRequest();
   }
 
   @java.lang.Override
@@ -35,7 +38,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VodCommitUploadInfoRequest(
+  private DescribeVodSpaceEditDetailDataRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -56,31 +59,35 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            spaceName_ = s;
+            region_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            sessionKey_ = s;
+            space_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            callbackArgs_ = s;
+            startTime_ = s;
             break;
           }
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            functions_ = s;
+            endTime_ = s;
             break;
           }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 40: {
 
-            vodUploadSource_ = s;
+            pageSize_ = input.readInt64();
+            break;
+          }
+          case 48: {
+
+            pageNum_ = input.readInt64();
             break;
           }
           default: {
@@ -104,245 +111,229 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodCommitUploadInfoRequest_descriptor;
+    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_DescribeVodSpaceEditDetailDataRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodCommitUploadInfoRequest_fieldAccessorTable
+    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_DescribeVodSpaceEditDetailDataRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest.class, com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest.Builder.class);
+            com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest.class, com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest.Builder.class);
   }
 
-  public static final int SPACENAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object spaceName_;
+  public static final int REGION_FIELD_NUMBER = 1;
+  private volatile java.lang.Object region_;
   /**
    * <pre>
-   * 上传的空间名 
+   *地区，如：cn-north-1
    * </pre>
    *
-   * <code>string SpaceName = 1;</code>
-   * @return The spaceName.
+   * <code>string Region = 1;</code>
+   * @return The region.
    */
   @java.lang.Override
-  public java.lang.String getSpaceName() {
-    java.lang.Object ref = spaceName_;
+  public java.lang.String getRegion() {
+    java.lang.Object ref = region_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      spaceName_ = s;
+      region_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * 上传的空间名 
+   *地区，如：cn-north-1
    * </pre>
    *
-   * <code>string SpaceName = 1;</code>
-   * @return The bytes for spaceName.
+   * <code>string Region = 1;</code>
+   * @return The bytes for region.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getSpaceNameBytes() {
-    java.lang.Object ref = spaceName_;
+      getRegionBytes() {
+    java.lang.Object ref = region_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      spaceName_ = b;
+      region_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int SESSIONKEY_FIELD_NUMBER = 2;
-  private volatile java.lang.Object sessionKey_;
+  public static final int SPACE_FIELD_NUMBER = 2;
+  private volatile java.lang.Object space_;
   /**
    * <pre>
-   * 上传 1005 阶段需要带上 1001 的 Session 
+   * 空间
    * </pre>
    *
-   * <code>string SessionKey = 2;</code>
-   * @return The sessionKey.
+   * <code>string Space = 2;</code>
+   * @return The space.
    */
   @java.lang.Override
-  public java.lang.String getSessionKey() {
-    java.lang.Object ref = sessionKey_;
+  public java.lang.String getSpace() {
+    java.lang.Object ref = space_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      sessionKey_ = s;
+      space_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * 上传 1005 阶段需要带上 1001 的 Session 
+   * 空间
    * </pre>
    *
-   * <code>string SessionKey = 2;</code>
-   * @return The bytes for sessionKey.
+   * <code>string Space = 2;</code>
+   * @return The bytes for space.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getSessionKeyBytes() {
-    java.lang.Object ref = sessionKey_;
+      getSpaceBytes() {
+    java.lang.Object ref = space_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      sessionKey_ = b;
+      space_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int CALLBACKARGS_FIELD_NUMBER = 3;
-  private volatile java.lang.Object callbackArgs_;
+  public static final int STARTTIME_FIELD_NUMBER = 3;
+  private volatile java.lang.Object startTime_;
   /**
    * <pre>
-   * 业务希望上传透传的信息，会在上传成功时返回给用户 
+   * 查询的起始时间, rfc3339
    * </pre>
    *
-   * <code>string CallbackArgs = 3;</code>
-   * @return The callbackArgs.
+   * <code>string StartTime = 3;</code>
+   * @return The startTime.
    */
   @java.lang.Override
-  public java.lang.String getCallbackArgs() {
-    java.lang.Object ref = callbackArgs_;
+  public java.lang.String getStartTime() {
+    java.lang.Object ref = startTime_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      callbackArgs_ = s;
+      startTime_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * 业务希望上传透传的信息，会在上传成功时返回给用户 
+   * 查询的起始时间, rfc3339
    * </pre>
    *
-   * <code>string CallbackArgs = 3;</code>
-   * @return The bytes for callbackArgs.
+   * <code>string StartTime = 3;</code>
+   * @return The bytes for startTime.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getCallbackArgsBytes() {
-    java.lang.Object ref = callbackArgs_;
+      getStartTimeBytes() {
+    java.lang.Object ref = startTime_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      callbackArgs_ = b;
+      startTime_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int FUNCTIONS_FIELD_NUMBER = 4;
-  private volatile java.lang.Object functions_;
+  public static final int ENDTIME_FIELD_NUMBER = 4;
+  private volatile java.lang.Object endTime_;
   /**
    * <pre>
-   * 上传的功能函数 
+   * 查询的结束时间, rfc3339；起止时间间隔不超过1天
    * </pre>
    *
-   * <code>string Functions = 4;</code>
-   * @return The functions.
+   * <code>string EndTime = 4;</code>
+   * @return The endTime.
    */
   @java.lang.Override
-  public java.lang.String getFunctions() {
-    java.lang.Object ref = functions_;
+  public java.lang.String getEndTime() {
+    java.lang.Object ref = endTime_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      functions_ = s;
+      endTime_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * 上传的功能函数 
+   * 查询的结束时间, rfc3339；起止时间间隔不超过1天
    * </pre>
    *
-   * <code>string Functions = 4;</code>
-   * @return The bytes for functions.
+   * <code>string EndTime = 4;</code>
+   * @return The bytes for endTime.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getFunctionsBytes() {
-    java.lang.Object ref = functions_;
+      getEndTimeBytes() {
+    java.lang.Object ref = endTime_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      functions_ = b;
+      endTime_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int VODUPLOADSOURCE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object vodUploadSource_;
+  public static final int PAGESIZE_FIELD_NUMBER = 5;
+  private long pageSize_;
   /**
    * <pre>
-   * 上传中文件的来源 
+   * 分页查询的页大小，默认100
    * </pre>
    *
-   * <code>string VodUploadSource = 5;</code>
-   * @return The vodUploadSource.
+   * <code>int64 PageSize = 5;</code>
+   * @return The pageSize.
    */
   @java.lang.Override
-  public java.lang.String getVodUploadSource() {
-    java.lang.Object ref = vodUploadSource_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      vodUploadSource_ = s;
-      return s;
-    }
+  public long getPageSize() {
+    return pageSize_;
   }
+
+  public static final int PAGENUM_FIELD_NUMBER = 6;
+  private long pageNum_;
   /**
    * <pre>
-   * 上传中文件的来源 
+   * 分页查询的页号，默认1
    * </pre>
    *
-   * <code>string VodUploadSource = 5;</code>
-   * @return The bytes for vodUploadSource.
+   * <code>int64 PageNum = 6;</code>
+   * @return The pageNum.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getVodUploadSourceBytes() {
-    java.lang.Object ref = vodUploadSource_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      vodUploadSource_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public long getPageNum() {
+    return pageNum_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -359,20 +350,23 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(spaceName_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, spaceName_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(region_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, region_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sessionKey_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, sessionKey_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(space_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, space_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackArgs_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, callbackArgs_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(startTime_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, startTime_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(functions_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, functions_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endTime_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, endTime_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vodUploadSource_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, vodUploadSource_);
+    if (pageSize_ != 0L) {
+      output.writeInt64(5, pageSize_);
+    }
+    if (pageNum_ != 0L) {
+      output.writeInt64(6, pageNum_);
     }
     unknownFields.writeTo(output);
   }
@@ -383,20 +377,25 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(spaceName_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, spaceName_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(region_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, region_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sessionKey_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, sessionKey_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(space_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, space_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackArgs_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, callbackArgs_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(startTime_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, startTime_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(functions_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, functions_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endTime_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, endTime_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vodUploadSource_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, vodUploadSource_);
+    if (pageSize_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(5, pageSize_);
+    }
+    if (pageNum_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(6, pageNum_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -408,21 +407,23 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest)) {
+    if (!(obj instanceof com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest)) {
       return super.equals(obj);
     }
-    com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest other = (com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest) obj;
+    com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest other = (com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest) obj;
 
-    if (!getSpaceName()
-        .equals(other.getSpaceName())) return false;
-    if (!getSessionKey()
-        .equals(other.getSessionKey())) return false;
-    if (!getCallbackArgs()
-        .equals(other.getCallbackArgs())) return false;
-    if (!getFunctions()
-        .equals(other.getFunctions())) return false;
-    if (!getVodUploadSource()
-        .equals(other.getVodUploadSource())) return false;
+    if (!getRegion()
+        .equals(other.getRegion())) return false;
+    if (!getSpace()
+        .equals(other.getSpace())) return false;
+    if (!getStartTime()
+        .equals(other.getStartTime())) return false;
+    if (!getEndTime()
+        .equals(other.getEndTime())) return false;
+    if (getPageSize()
+        != other.getPageSize()) return false;
+    if (getPageNum()
+        != other.getPageNum()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -434,84 +435,88 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + SPACENAME_FIELD_NUMBER;
-    hash = (53 * hash) + getSpaceName().hashCode();
-    hash = (37 * hash) + SESSIONKEY_FIELD_NUMBER;
-    hash = (53 * hash) + getSessionKey().hashCode();
-    hash = (37 * hash) + CALLBACKARGS_FIELD_NUMBER;
-    hash = (53 * hash) + getCallbackArgs().hashCode();
-    hash = (37 * hash) + FUNCTIONS_FIELD_NUMBER;
-    hash = (53 * hash) + getFunctions().hashCode();
-    hash = (37 * hash) + VODUPLOADSOURCE_FIELD_NUMBER;
-    hash = (53 * hash) + getVodUploadSource().hashCode();
+    hash = (37 * hash) + REGION_FIELD_NUMBER;
+    hash = (53 * hash) + getRegion().hashCode();
+    hash = (37 * hash) + SPACE_FIELD_NUMBER;
+    hash = (53 * hash) + getSpace().hashCode();
+    hash = (37 * hash) + STARTTIME_FIELD_NUMBER;
+    hash = (53 * hash) + getStartTime().hashCode();
+    hash = (37 * hash) + ENDTIME_FIELD_NUMBER;
+    hash = (53 * hash) + getEndTime().hashCode();
+    hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getPageSize());
+    hash = (37 * hash) + PAGENUM_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getPageNum());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest parseFrom(byte[] data)
+  public static com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest parseFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest parseDelimitedFrom(
+  public static com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -524,7 +529,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest prototype) {
+  public static Builder newBuilder(com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -540,26 +545,30 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code Volcengine.Vod.Models.Request.VodCommitUploadInfoRequest}
+   * <pre>
+   * 点播编辑明细
+   * </pre>
+   *
+   * Protobuf type {@code Volcengine.Vod.Models.Request.DescribeVodSpaceEditDetailDataRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Request.VodCommitUploadInfoRequest)
-      com.volcengine.service.vod.model.request.VodCommitUploadInfoRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Request.DescribeVodSpaceEditDetailDataRequest)
+      com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodCommitUploadInfoRequest_descriptor;
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_DescribeVodSpaceEditDetailDataRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodCommitUploadInfoRequest_fieldAccessorTable
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_DescribeVodSpaceEditDetailDataRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest.class, com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest.Builder.class);
+              com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest.class, com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest.Builder.class);
     }
 
-    // Construct using com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest.newBuilder()
+    // Construct using com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -577,15 +586,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      spaceName_ = "";
+      region_ = "";
 
-      sessionKey_ = "";
+      space_ = "";
 
-      callbackArgs_ = "";
+      startTime_ = "";
 
-      functions_ = "";
+      endTime_ = "";
 
-      vodUploadSource_ = "";
+      pageSize_ = 0L;
+
+      pageNum_ = 0L;
 
       return this;
     }
@@ -593,17 +604,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodCommitUploadInfoRequest_descriptor;
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_DescribeVodSpaceEditDetailDataRequest_descriptor;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest getDefaultInstanceForType() {
-      return com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest.getDefaultInstance();
+    public com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest getDefaultInstanceForType() {
+      return com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest build() {
-      com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest result = buildPartial();
+    public com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest build() {
+      com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -611,13 +622,14 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest buildPartial() {
-      com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest result = new com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest(this);
-      result.spaceName_ = spaceName_;
-      result.sessionKey_ = sessionKey_;
-      result.callbackArgs_ = callbackArgs_;
-      result.functions_ = functions_;
-      result.vodUploadSource_ = vodUploadSource_;
+    public com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest buildPartial() {
+      com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest result = new com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest(this);
+      result.region_ = region_;
+      result.space_ = space_;
+      result.startTime_ = startTime_;
+      result.endTime_ = endTime_;
+      result.pageSize_ = pageSize_;
+      result.pageNum_ = pageNum_;
       onBuilt();
       return result;
     }
@@ -656,35 +668,37 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest) {
-        return mergeFrom((com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest)other);
+      if (other instanceof com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest) {
+        return mergeFrom((com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest other) {
-      if (other == com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest.getDefaultInstance()) return this;
-      if (!other.getSpaceName().isEmpty()) {
-        spaceName_ = other.spaceName_;
+    public Builder mergeFrom(com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest other) {
+      if (other == com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest.getDefaultInstance()) return this;
+      if (!other.getRegion().isEmpty()) {
+        region_ = other.region_;
         onChanged();
       }
-      if (!other.getSessionKey().isEmpty()) {
-        sessionKey_ = other.sessionKey_;
+      if (!other.getSpace().isEmpty()) {
+        space_ = other.space_;
         onChanged();
       }
-      if (!other.getCallbackArgs().isEmpty()) {
-        callbackArgs_ = other.callbackArgs_;
+      if (!other.getStartTime().isEmpty()) {
+        startTime_ = other.startTime_;
         onChanged();
       }
-      if (!other.getFunctions().isEmpty()) {
-        functions_ = other.functions_;
+      if (!other.getEndTime().isEmpty()) {
+        endTime_ = other.endTime_;
         onChanged();
       }
-      if (!other.getVodUploadSource().isEmpty()) {
-        vodUploadSource_ = other.vodUploadSource_;
-        onChanged();
+      if (other.getPageSize() != 0L) {
+        setPageSize(other.getPageSize());
+      }
+      if (other.getPageNum() != 0L) {
+        setPageNum(other.getPageNum());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -701,11 +715,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest parsedMessage = null;
+      com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -715,22 +729,22 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object spaceName_ = "";
+    private java.lang.Object region_ = "";
     /**
      * <pre>
-     * 上传的空间名 
+     *地区，如：cn-north-1
      * </pre>
      *
-     * <code>string SpaceName = 1;</code>
-     * @return The spaceName.
+     * <code>string Region = 1;</code>
+     * @return The region.
      */
-    public java.lang.String getSpaceName() {
-      java.lang.Object ref = spaceName_;
+    public java.lang.String getRegion() {
+      java.lang.Object ref = region_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        spaceName_ = s;
+        region_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -738,20 +752,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传的空间名 
+     *地区，如：cn-north-1
      * </pre>
      *
-     * <code>string SpaceName = 1;</code>
-     * @return The bytes for spaceName.
+     * <code>string Region = 1;</code>
+     * @return The bytes for region.
      */
     public com.google.protobuf.ByteString
-        getSpaceNameBytes() {
-      java.lang.Object ref = spaceName_;
+        getRegionBytes() {
+      java.lang.Object ref = region_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        spaceName_ = b;
+        region_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -759,74 +773,74 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传的空间名 
+     *地区，如：cn-north-1
      * </pre>
      *
-     * <code>string SpaceName = 1;</code>
-     * @param value The spaceName to set.
+     * <code>string Region = 1;</code>
+     * @param value The region to set.
      * @return This builder for chaining.
      */
-    public Builder setSpaceName(
+    public Builder setRegion(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      spaceName_ = value;
+      region_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 上传的空间名 
+     *地区，如：cn-north-1
      * </pre>
      *
-     * <code>string SpaceName = 1;</code>
+     * <code>string Region = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearSpaceName() {
+    public Builder clearRegion() {
       
-      spaceName_ = getDefaultInstance().getSpaceName();
+      region_ = getDefaultInstance().getRegion();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 上传的空间名 
+     *地区，如：cn-north-1
      * </pre>
      *
-     * <code>string SpaceName = 1;</code>
-     * @param value The bytes for spaceName to set.
+     * <code>string Region = 1;</code>
+     * @param value The bytes for region to set.
      * @return This builder for chaining.
      */
-    public Builder setSpaceNameBytes(
+    public Builder setRegionBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      spaceName_ = value;
+      region_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object sessionKey_ = "";
+    private java.lang.Object space_ = "";
     /**
      * <pre>
-     * 上传 1005 阶段需要带上 1001 的 Session 
+     * 空间
      * </pre>
      *
-     * <code>string SessionKey = 2;</code>
-     * @return The sessionKey.
+     * <code>string Space = 2;</code>
+     * @return The space.
      */
-    public java.lang.String getSessionKey() {
-      java.lang.Object ref = sessionKey_;
+    public java.lang.String getSpace() {
+      java.lang.Object ref = space_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        sessionKey_ = s;
+        space_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -834,20 +848,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传 1005 阶段需要带上 1001 的 Session 
+     * 空间
      * </pre>
      *
-     * <code>string SessionKey = 2;</code>
-     * @return The bytes for sessionKey.
+     * <code>string Space = 2;</code>
+     * @return The bytes for space.
      */
     public com.google.protobuf.ByteString
-        getSessionKeyBytes() {
-      java.lang.Object ref = sessionKey_;
+        getSpaceBytes() {
+      java.lang.Object ref = space_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        sessionKey_ = b;
+        space_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -855,74 +869,74 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传 1005 阶段需要带上 1001 的 Session 
+     * 空间
      * </pre>
      *
-     * <code>string SessionKey = 2;</code>
-     * @param value The sessionKey to set.
+     * <code>string Space = 2;</code>
+     * @param value The space to set.
      * @return This builder for chaining.
      */
-    public Builder setSessionKey(
+    public Builder setSpace(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      sessionKey_ = value;
+      space_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 上传 1005 阶段需要带上 1001 的 Session 
+     * 空间
      * </pre>
      *
-     * <code>string SessionKey = 2;</code>
+     * <code>string Space = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearSessionKey() {
+    public Builder clearSpace() {
       
-      sessionKey_ = getDefaultInstance().getSessionKey();
+      space_ = getDefaultInstance().getSpace();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 上传 1005 阶段需要带上 1001 的 Session 
+     * 空间
      * </pre>
      *
-     * <code>string SessionKey = 2;</code>
-     * @param value The bytes for sessionKey to set.
+     * <code>string Space = 2;</code>
+     * @param value The bytes for space to set.
      * @return This builder for chaining.
      */
-    public Builder setSessionKeyBytes(
+    public Builder setSpaceBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      sessionKey_ = value;
+      space_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object callbackArgs_ = "";
+    private java.lang.Object startTime_ = "";
     /**
      * <pre>
-     * 业务希望上传透传的信息，会在上传成功时返回给用户 
+     * 查询的起始时间, rfc3339
      * </pre>
      *
-     * <code>string CallbackArgs = 3;</code>
-     * @return The callbackArgs.
+     * <code>string StartTime = 3;</code>
+     * @return The startTime.
      */
-    public java.lang.String getCallbackArgs() {
-      java.lang.Object ref = callbackArgs_;
+    public java.lang.String getStartTime() {
+      java.lang.Object ref = startTime_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        callbackArgs_ = s;
+        startTime_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -930,20 +944,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 业务希望上传透传的信息，会在上传成功时返回给用户 
+     * 查询的起始时间, rfc3339
      * </pre>
      *
-     * <code>string CallbackArgs = 3;</code>
-     * @return The bytes for callbackArgs.
+     * <code>string StartTime = 3;</code>
+     * @return The bytes for startTime.
      */
     public com.google.protobuf.ByteString
-        getCallbackArgsBytes() {
-      java.lang.Object ref = callbackArgs_;
+        getStartTimeBytes() {
+      java.lang.Object ref = startTime_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        callbackArgs_ = b;
+        startTime_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -951,74 +965,74 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 业务希望上传透传的信息，会在上传成功时返回给用户 
+     * 查询的起始时间, rfc3339
      * </pre>
      *
-     * <code>string CallbackArgs = 3;</code>
-     * @param value The callbackArgs to set.
+     * <code>string StartTime = 3;</code>
+     * @param value The startTime to set.
      * @return This builder for chaining.
      */
-    public Builder setCallbackArgs(
+    public Builder setStartTime(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      callbackArgs_ = value;
+      startTime_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 业务希望上传透传的信息，会在上传成功时返回给用户 
+     * 查询的起始时间, rfc3339
      * </pre>
      *
-     * <code>string CallbackArgs = 3;</code>
+     * <code>string StartTime = 3;</code>
      * @return This builder for chaining.
      */
-    public Builder clearCallbackArgs() {
+    public Builder clearStartTime() {
       
-      callbackArgs_ = getDefaultInstance().getCallbackArgs();
+      startTime_ = getDefaultInstance().getStartTime();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 业务希望上传透传的信息，会在上传成功时返回给用户 
+     * 查询的起始时间, rfc3339
      * </pre>
      *
-     * <code>string CallbackArgs = 3;</code>
-     * @param value The bytes for callbackArgs to set.
+     * <code>string StartTime = 3;</code>
+     * @param value The bytes for startTime to set.
      * @return This builder for chaining.
      */
-    public Builder setCallbackArgsBytes(
+    public Builder setStartTimeBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      callbackArgs_ = value;
+      startTime_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object functions_ = "";
+    private java.lang.Object endTime_ = "";
     /**
      * <pre>
-     * 上传的功能函数 
+     * 查询的结束时间, rfc3339；起止时间间隔不超过1天
      * </pre>
      *
-     * <code>string Functions = 4;</code>
-     * @return The functions.
+     * <code>string EndTime = 4;</code>
+     * @return The endTime.
      */
-    public java.lang.String getFunctions() {
-      java.lang.Object ref = functions_;
+    public java.lang.String getEndTime() {
+      java.lang.Object ref = endTime_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        functions_ = s;
+        endTime_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -1026,20 +1040,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传的功能函数 
+     * 查询的结束时间, rfc3339；起止时间间隔不超过1天
      * </pre>
      *
-     * <code>string Functions = 4;</code>
-     * @return The bytes for functions.
+     * <code>string EndTime = 4;</code>
+     * @return The bytes for endTime.
      */
     public com.google.protobuf.ByteString
-        getFunctionsBytes() {
-      java.lang.Object ref = functions_;
+        getEndTimeBytes() {
+      java.lang.Object ref = endTime_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        functions_ = b;
+        endTime_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1047,150 +1061,140 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 上传的功能函数 
+     * 查询的结束时间, rfc3339；起止时间间隔不超过1天
      * </pre>
      *
-     * <code>string Functions = 4;</code>
-     * @param value The functions to set.
+     * <code>string EndTime = 4;</code>
+     * @param value The endTime to set.
      * @return This builder for chaining.
      */
-    public Builder setFunctions(
+    public Builder setEndTime(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      functions_ = value;
+      endTime_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 上传的功能函数 
+     * 查询的结束时间, rfc3339；起止时间间隔不超过1天
      * </pre>
      *
-     * <code>string Functions = 4;</code>
+     * <code>string EndTime = 4;</code>
      * @return This builder for chaining.
      */
-    public Builder clearFunctions() {
+    public Builder clearEndTime() {
       
-      functions_ = getDefaultInstance().getFunctions();
+      endTime_ = getDefaultInstance().getEndTime();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 上传的功能函数 
+     * 查询的结束时间, rfc3339；起止时间间隔不超过1天
      * </pre>
      *
-     * <code>string Functions = 4;</code>
-     * @param value The bytes for functions to set.
+     * <code>string EndTime = 4;</code>
+     * @param value The bytes for endTime to set.
      * @return This builder for chaining.
      */
-    public Builder setFunctionsBytes(
+    public Builder setEndTimeBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      functions_ = value;
+      endTime_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object vodUploadSource_ = "";
+    private long pageSize_ ;
     /**
      * <pre>
-     * 上传中文件的来源 
+     * 分页查询的页大小，默认100
      * </pre>
      *
-     * <code>string VodUploadSource = 5;</code>
-     * @return The vodUploadSource.
+     * <code>int64 PageSize = 5;</code>
+     * @return The pageSize.
      */
-    public java.lang.String getVodUploadSource() {
-      java.lang.Object ref = vodUploadSource_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        vodUploadSource_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override
+    public long getPageSize() {
+      return pageSize_;
     }
     /**
      * <pre>
-     * 上传中文件的来源 
+     * 分页查询的页大小，默认100
      * </pre>
      *
-     * <code>string VodUploadSource = 5;</code>
-     * @return The bytes for vodUploadSource.
-     */
-    public com.google.protobuf.ByteString
-        getVodUploadSourceBytes() {
-      java.lang.Object ref = vodUploadSource_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        vodUploadSource_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 上传中文件的来源 
-     * </pre>
-     *
-     * <code>string VodUploadSource = 5;</code>
-     * @param value The vodUploadSource to set.
+     * <code>int64 PageSize = 5;</code>
+     * @param value The pageSize to set.
      * @return This builder for chaining.
      */
-    public Builder setVodUploadSource(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      vodUploadSource_ = value;
+    public Builder setPageSize(long value) {
+      
+      pageSize_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 上传中文件的来源 
+     * 分页查询的页大小，默认100
      * </pre>
      *
-     * <code>string VodUploadSource = 5;</code>
+     * <code>int64 PageSize = 5;</code>
      * @return This builder for chaining.
      */
-    public Builder clearVodUploadSource() {
+    public Builder clearPageSize() {
       
-      vodUploadSource_ = getDefaultInstance().getVodUploadSource();
+      pageSize_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long pageNum_ ;
+    /**
+     * <pre>
+     * 分页查询的页号，默认1
+     * </pre>
+     *
+     * <code>int64 PageNum = 6;</code>
+     * @return The pageNum.
+     */
+    @java.lang.Override
+    public long getPageNum() {
+      return pageNum_;
+    }
+    /**
+     * <pre>
+     * 分页查询的页号，默认1
+     * </pre>
+     *
+     * <code>int64 PageNum = 6;</code>
+     * @param value The pageNum to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPageNum(long value) {
+      
+      pageNum_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 上传中文件的来源 
+     * 分页查询的页号，默认1
      * </pre>
      *
-     * <code>string VodUploadSource = 5;</code>
-     * @param value The bytes for vodUploadSource to set.
+     * <code>int64 PageNum = 6;</code>
      * @return This builder for chaining.
      */
-    public Builder setVodUploadSourceBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+    public Builder clearPageNum() {
       
-      vodUploadSource_ = value;
+      pageNum_ = 0L;
       onChanged();
       return this;
     }
@@ -1207,41 +1211,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Request.VodCommitUploadInfoRequest)
+    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Request.DescribeVodSpaceEditDetailDataRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Request.VodCommitUploadInfoRequest)
-  private static final com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Request.DescribeVodSpaceEditDetailDataRequest)
+  private static final com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest();
+    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest();
   }
 
-  public static com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest getDefaultInstance() {
+  public static com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<VodCommitUploadInfoRequest>
-      PARSER = new com.google.protobuf.AbstractParser<VodCommitUploadInfoRequest>() {
+  private static final com.google.protobuf.Parser<DescribeVodSpaceEditDetailDataRequest>
+      PARSER = new com.google.protobuf.AbstractParser<DescribeVodSpaceEditDetailDataRequest>() {
     @java.lang.Override
-    public VodCommitUploadInfoRequest parsePartialFrom(
+    public DescribeVodSpaceEditDetailDataRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VodCommitUploadInfoRequest(input, extensionRegistry);
+      return new DescribeVodSpaceEditDetailDataRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<VodCommitUploadInfoRequest> parser() {
+  public static com.google.protobuf.Parser<DescribeVodSpaceEditDetailDataRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<VodCommitUploadInfoRequest> getParserForType() {
+  public com.google.protobuf.Parser<DescribeVodSpaceEditDetailDataRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest getDefaultInstanceForType() {
+  public com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

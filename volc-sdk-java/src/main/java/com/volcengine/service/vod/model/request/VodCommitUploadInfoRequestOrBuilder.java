@@ -86,4 +86,24 @@ public interface VodCommitUploadInfoRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getFunctionsBytes();
+
+  /**
+   * <pre>
+   * 上传中文件的来源 
+   * </pre>
+   *
+   * <code>string VodUploadSource = 5;</code>
+   * @return The vodUploadSource.
+   */
+  java.lang.String getVodUploadSource();
+  /**
+   * <pre>
+   * 上传中文件的来源 
+   * </pre>
+   *
+   * <code>string VodUploadSource = 5;</code>
+   * @return The bytes for vodUploadSource.
+   */
+  com.google.protobuf.ByteString
+      getVodUploadSourceBytes();
 }

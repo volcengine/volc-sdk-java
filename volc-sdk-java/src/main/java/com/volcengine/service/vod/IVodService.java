@@ -724,6 +724,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.DescribeVodSpaceWorkflowDetailDataResponse describeVodSpaceWorkflowDetailData(com.volcengine.service.vod.model.request.DescribeVodSpaceWorkflowDetailDataRequest input) throws Exception;
 	
 	/**
+     * describeVodSpaceEditDetailData.
+     *
+     * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest
+     * @return com.volcengine.service.vod.model.response.DescribeVodSpaceEditDetailDataResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.DescribeVodSpaceEditDetailDataResponse describeVodSpaceEditDetailData(com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest input) throws Exception;
+	
+	/**
      * describeVodSnapshotData.
      *
      * @param input com.volcengine.service.vod.model.request.DescribeVodSnapshotDataRequest

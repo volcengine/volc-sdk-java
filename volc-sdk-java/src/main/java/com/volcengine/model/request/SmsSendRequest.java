@@ -1,7 +1,10 @@
 package com.volcengine.model.request;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
+
+import java.util.Map;
 
 @Data
 public class SmsSendRequest {
@@ -19,4 +22,11 @@ public class SmsSendRequest {
     String tag;
     @JSONField(name = "UserExtCode")
     String userExtCode;
+
+    public void SetTemplateParamByMap(Map<String,String> paramMap){
+        if (paramMap==null|| paramMap.isEmpty()){
+            return;
+        }
+        this.templateParam = JSON.toJSONString(paramMap);
+    }
 }

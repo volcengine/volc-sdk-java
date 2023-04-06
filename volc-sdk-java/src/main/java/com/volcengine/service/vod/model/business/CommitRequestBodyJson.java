@@ -21,6 +21,7 @@ private static final long serialVersionUID = 0L;
     callbackArgs_ = "";
     functions_ = "";
     getMetaMode_ = "";
+    vodUploadSource_ = "";
   }
 
   @java.lang.Override
@@ -81,6 +82,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             getMetaMode_ = s;
+            break;
+          }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            vodUploadSource_ = s;
             break;
           }
           default: {
@@ -305,6 +312,44 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int VODUPLOADSOURCE_FIELD_NUMBER = 6;
+  private volatile java.lang.Object vodUploadSource_;
+  /**
+   * <code>string VodUploadSource = 6;</code>
+   * @return The vodUploadSource.
+   */
+  @java.lang.Override
+  public java.lang.String getVodUploadSource() {
+    java.lang.Object ref = vodUploadSource_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      vodUploadSource_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string VodUploadSource = 6;</code>
+   * @return The bytes for vodUploadSource.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getVodUploadSourceBytes() {
+    java.lang.Object ref = vodUploadSource_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      vodUploadSource_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -334,6 +379,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(getMetaMode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, getMetaMode_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vodUploadSource_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, vodUploadSource_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -357,6 +405,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(getMetaMode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, getMetaMode_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vodUploadSource_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, vodUploadSource_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -383,6 +434,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFunctions())) return false;
     if (!getGetMetaMode()
         .equals(other.getGetMetaMode())) return false;
+    if (!getVodUploadSource()
+        .equals(other.getVodUploadSource())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -404,6 +457,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFunctions().hashCode();
     hash = (37 * hash) + GETMETAMODE_FIELD_NUMBER;
     hash = (53 * hash) + getGetMetaMode().hashCode();
+    hash = (37 * hash) + VODUPLOADSOURCE_FIELD_NUMBER;
+    hash = (53 * hash) + getVodUploadSource().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -547,6 +602,8 @@ private static final long serialVersionUID = 0L;
 
       getMetaMode_ = "";
 
+      vodUploadSource_ = "";
+
       return this;
     }
 
@@ -578,6 +635,7 @@ private static final long serialVersionUID = 0L;
       result.callbackArgs_ = callbackArgs_;
       result.functions_ = functions_;
       result.getMetaMode_ = getMetaMode_;
+      result.vodUploadSource_ = vodUploadSource_;
       onBuilt();
       return result;
     }
@@ -644,6 +702,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getGetMetaMode().isEmpty()) {
         getMetaMode_ = other.getMetaMode_;
+        onChanged();
+      }
+      if (!other.getVodUploadSource().isEmpty()) {
+        vodUploadSource_ = other.vodUploadSource_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1051,6 +1113,82 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       getMetaMode_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object vodUploadSource_ = "";
+    /**
+     * <code>string VodUploadSource = 6;</code>
+     * @return The vodUploadSource.
+     */
+    public java.lang.String getVodUploadSource() {
+      java.lang.Object ref = vodUploadSource_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        vodUploadSource_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string VodUploadSource = 6;</code>
+     * @return The bytes for vodUploadSource.
+     */
+    public com.google.protobuf.ByteString
+        getVodUploadSourceBytes() {
+      java.lang.Object ref = vodUploadSource_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        vodUploadSource_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string VodUploadSource = 6;</code>
+     * @param value The vodUploadSource to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVodUploadSource(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      vodUploadSource_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string VodUploadSource = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVodUploadSource() {
+      
+      vodUploadSource_ = getDefaultInstance().getVodUploadSource();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string VodUploadSource = 6;</code>
+     * @param value The bytes for vodUploadSource to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVodUploadSourceBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      vodUploadSource_ = value;
       onChanged();
       return this;
     }

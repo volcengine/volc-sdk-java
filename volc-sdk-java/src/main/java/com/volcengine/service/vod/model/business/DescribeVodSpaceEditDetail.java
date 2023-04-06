@@ -5,23 +5,24 @@ package com.volcengine.service.vod.model.business;
 
 /**
  * <pre>
- * 点播工作流用量明细
+ * 点播编辑用量明细
  * </pre>
  *
- * Protobuf type {@code Volcengine.Vod.Models.Business.DescribeVodSpaceWorkflowTranscodeInfo}
+ * Protobuf type {@code Volcengine.Vod.Models.Business.DescribeVodSpaceEditDetail}
  */
-public final class DescribeVodSpaceWorkflowTranscodeInfo extends
+public final class DescribeVodSpaceEditDetail extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Business.DescribeVodSpaceWorkflowTranscodeInfo)
-    DescribeVodSpaceWorkflowTranscodeInfoOrBuilder {
+    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Business.DescribeVodSpaceEditDetail)
+    DescribeVodSpaceEditDetailOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use DescribeVodSpaceWorkflowTranscodeInfo.newBuilder() to construct.
-  private DescribeVodSpaceWorkflowTranscodeInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use DescribeVodSpaceEditDetail.newBuilder() to construct.
+  private DescribeVodSpaceEditDetail(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private DescribeVodSpaceWorkflowTranscodeInfo() {
-    templateType_ = "";
-    fileType_ = "";
+  private DescribeVodSpaceEditDetail() {
+    time_ = "";
+    outputVid_ = "";
+    space_ = "";
     codec_ = "";
     definition_ = "";
   }
@@ -30,7 +31,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new DescribeVodSpaceWorkflowTranscodeInfo();
+    return new DescribeVodSpaceEditDetail();
   }
 
   @java.lang.Override
@@ -38,7 +39,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DescribeVodSpaceWorkflowTranscodeInfo(
+  private DescribeVodSpaceEditDetail(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -59,18 +60,19 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            templateType_ = s;
+            time_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            fileType_ = s;
+            outputVid_ = s;
             break;
           }
-          case 24: {
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            duration_ = input.readInt64();
+            space_ = s;
             break;
           }
           case 34: {
@@ -79,35 +81,15 @@ private static final long serialVersionUID = 0L;
             codec_ = s;
             break;
           }
-          case 40: {
-
-            remux_ = input.readBool();
-            break;
-          }
-          case 50: {
+          case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
             definition_ = s;
             break;
           }
-          case 56: {
+          case 48: {
 
-            width_ = input.readInt64();
-            break;
-          }
-          case 64: {
-
-            height_ = input.readInt64();
-            break;
-          }
-          case 72: {
-
-            slice_ = input.readBool();
-            break;
-          }
-          case 80: {
-
-            isLowPriority_ = input.readBool();
+            duration_ = input.readInt64();
             break;
           }
           default: {
@@ -131,102 +113,129 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.volcengine.service.vod.model.business.VodMeasure.internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowTranscodeInfo_descriptor;
+    return com.volcengine.service.vod.model.business.VodMeasure.internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditDetail_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.volcengine.service.vod.model.business.VodMeasure.internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowTranscodeInfo_fieldAccessorTable
+    return com.volcengine.service.vod.model.business.VodMeasure.internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditDetail_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo.class, com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo.Builder.class);
+            com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail.class, com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail.Builder.class);
   }
 
-  public static final int TEMPLATETYPE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object templateType_;
+  public static final int TIME_FIELD_NUMBER = 1;
+  private volatile java.lang.Object time_;
   /**
-   * <code>string TemplateType = 1;</code>
-   * @return The templateType.
+   * <code>string Time = 1;</code>
+   * @return The time.
    */
   @java.lang.Override
-  public java.lang.String getTemplateType() {
-    java.lang.Object ref = templateType_;
+  public java.lang.String getTime() {
+    java.lang.Object ref = time_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      templateType_ = s;
+      time_ = s;
       return s;
     }
   }
   /**
-   * <code>string TemplateType = 1;</code>
-   * @return The bytes for templateType.
+   * <code>string Time = 1;</code>
+   * @return The bytes for time.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getTemplateTypeBytes() {
-    java.lang.Object ref = templateType_;
+      getTimeBytes() {
+    java.lang.Object ref = time_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      templateType_ = b;
+      time_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int FILETYPE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object fileType_;
+  public static final int OUTPUTVID_FIELD_NUMBER = 2;
+  private volatile java.lang.Object outputVid_;
   /**
-   * <code>string FileType = 2;</code>
-   * @return The fileType.
+   * <code>string OutputVid = 2;</code>
+   * @return The outputVid.
    */
   @java.lang.Override
-  public java.lang.String getFileType() {
-    java.lang.Object ref = fileType_;
+  public java.lang.String getOutputVid() {
+    java.lang.Object ref = outputVid_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      fileType_ = s;
+      outputVid_ = s;
       return s;
     }
   }
   /**
-   * <code>string FileType = 2;</code>
-   * @return The bytes for fileType.
+   * <code>string OutputVid = 2;</code>
+   * @return The bytes for outputVid.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getFileTypeBytes() {
-    java.lang.Object ref = fileType_;
+      getOutputVidBytes() {
+    java.lang.Object ref = outputVid_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      fileType_ = b;
+      outputVid_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int DURATION_FIELD_NUMBER = 3;
-  private long duration_;
+  public static final int SPACE_FIELD_NUMBER = 3;
+  private volatile java.lang.Object space_;
   /**
-   * <code>int64 Duration = 3;</code>
-   * @return The duration.
+   * <code>string Space = 3;</code>
+   * @return The space.
    */
   @java.lang.Override
-  public long getDuration() {
-    return duration_;
+  public java.lang.String getSpace() {
+    java.lang.Object ref = space_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      space_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string Space = 3;</code>
+   * @return The bytes for space.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getSpaceBytes() {
+    java.lang.Object ref = space_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      space_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   public static final int CODEC_FIELD_NUMBER = 4;
@@ -267,21 +276,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int REMUX_FIELD_NUMBER = 5;
-  private boolean remux_;
-  /**
-   * <code>bool Remux = 5;</code>
-   * @return The remux.
-   */
-  @java.lang.Override
-  public boolean getRemux() {
-    return remux_;
-  }
-
-  public static final int DEFINITION_FIELD_NUMBER = 6;
+  public static final int DEFINITION_FIELD_NUMBER = 5;
   private volatile java.lang.Object definition_;
   /**
-   * <code>string Definition = 6;</code>
+   * <code>string Definition = 5;</code>
    * @return The definition.
    */
   @java.lang.Override
@@ -298,7 +296,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string Definition = 6;</code>
+   * <code>string Definition = 5;</code>
    * @return The bytes for definition.
    */
   @java.lang.Override
@@ -316,48 +314,15 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int WIDTH_FIELD_NUMBER = 7;
-  private long width_;
+  public static final int DURATION_FIELD_NUMBER = 6;
+  private long duration_;
   /**
-   * <code>int64 Width = 7;</code>
-   * @return The width.
+   * <code>int64 Duration = 6;</code>
+   * @return The duration.
    */
   @java.lang.Override
-  public long getWidth() {
-    return width_;
-  }
-
-  public static final int HEIGHT_FIELD_NUMBER = 8;
-  private long height_;
-  /**
-   * <code>int64 Height = 8;</code>
-   * @return The height.
-   */
-  @java.lang.Override
-  public long getHeight() {
-    return height_;
-  }
-
-  public static final int SLICE_FIELD_NUMBER = 9;
-  private boolean slice_;
-  /**
-   * <code>bool Slice = 9;</code>
-   * @return The slice.
-   */
-  @java.lang.Override
-  public boolean getSlice() {
-    return slice_;
-  }
-
-  public static final int ISLOWPRIORITY_FIELD_NUMBER = 10;
-  private boolean isLowPriority_;
-  /**
-   * <code>bool IsLowPriority = 10;</code>
-   * @return The isLowPriority.
-   */
-  @java.lang.Override
-  public boolean getIsLowPriority() {
-    return isLowPriority_;
+  public long getDuration() {
+    return duration_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -374,35 +339,23 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(templateType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, templateType_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(time_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, time_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, fileType_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(outputVid_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, outputVid_);
     }
-    if (duration_ != 0L) {
-      output.writeInt64(3, duration_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(space_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, space_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codec_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, codec_);
     }
-    if (remux_ != false) {
-      output.writeBool(5, remux_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(definition_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, definition_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, definition_);
     }
-    if (width_ != 0L) {
-      output.writeInt64(7, width_);
-    }
-    if (height_ != 0L) {
-      output.writeInt64(8, height_);
-    }
-    if (slice_ != false) {
-      output.writeBool(9, slice_);
-    }
-    if (isLowPriority_ != false) {
-      output.writeBool(10, isLowPriority_);
+    if (duration_ != 0L) {
+      output.writeInt64(6, duration_);
     }
     unknownFields.writeTo(output);
   }
@@ -413,41 +366,24 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(templateType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, templateType_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(time_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, time_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, fileType_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(outputVid_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, outputVid_);
     }
-    if (duration_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, duration_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(space_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, space_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codec_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, codec_);
     }
-    if (remux_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(5, remux_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(definition_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, definition_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, definition_);
     }
-    if (width_ != 0L) {
+    if (duration_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(7, width_);
-    }
-    if (height_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(8, height_);
-    }
-    if (slice_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(9, slice_);
-    }
-    if (isLowPriority_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(10, isLowPriority_);
+        .computeInt64Size(6, duration_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -459,31 +395,23 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo)) {
+    if (!(obj instanceof com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail)) {
       return super.equals(obj);
     }
-    com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo other = (com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo) obj;
+    com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail other = (com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail) obj;
 
-    if (!getTemplateType()
-        .equals(other.getTemplateType())) return false;
-    if (!getFileType()
-        .equals(other.getFileType())) return false;
-    if (getDuration()
-        != other.getDuration()) return false;
+    if (!getTime()
+        .equals(other.getTime())) return false;
+    if (!getOutputVid()
+        .equals(other.getOutputVid())) return false;
+    if (!getSpace()
+        .equals(other.getSpace())) return false;
     if (!getCodec()
         .equals(other.getCodec())) return false;
-    if (getRemux()
-        != other.getRemux()) return false;
     if (!getDefinition()
         .equals(other.getDefinition())) return false;
-    if (getWidth()
-        != other.getWidth()) return false;
-    if (getHeight()
-        != other.getHeight()) return false;
-    if (getSlice()
-        != other.getSlice()) return false;
-    if (getIsLowPriority()
-        != other.getIsLowPriority()) return false;
+    if (getDuration()
+        != other.getDuration()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -495,100 +423,87 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + TEMPLATETYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getTemplateType().hashCode();
-    hash = (37 * hash) + FILETYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getFileType().hashCode();
+    hash = (37 * hash) + TIME_FIELD_NUMBER;
+    hash = (53 * hash) + getTime().hashCode();
+    hash = (37 * hash) + OUTPUTVID_FIELD_NUMBER;
+    hash = (53 * hash) + getOutputVid().hashCode();
+    hash = (37 * hash) + SPACE_FIELD_NUMBER;
+    hash = (53 * hash) + getSpace().hashCode();
+    hash = (37 * hash) + CODEC_FIELD_NUMBER;
+    hash = (53 * hash) + getCodec().hashCode();
+    hash = (37 * hash) + DEFINITION_FIELD_NUMBER;
+    hash = (53 * hash) + getDefinition().hashCode();
     hash = (37 * hash) + DURATION_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getDuration());
-    hash = (37 * hash) + CODEC_FIELD_NUMBER;
-    hash = (53 * hash) + getCodec().hashCode();
-    hash = (37 * hash) + REMUX_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getRemux());
-    hash = (37 * hash) + DEFINITION_FIELD_NUMBER;
-    hash = (53 * hash) + getDefinition().hashCode();
-    hash = (37 * hash) + WIDTH_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getWidth());
-    hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getHeight());
-    hash = (37 * hash) + SLICE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getSlice());
-    hash = (37 * hash) + ISLOWPRIORITY_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getIsLowPriority());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo parseFrom(
+  public static com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo parseFrom(
+  public static com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo parseFrom(
+  public static com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo parseFrom(
+  public static com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo parseFrom(byte[] data)
+  public static com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo parseFrom(
+  public static com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo parseFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo parseFrom(
+  public static com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo parseDelimitedFrom(
+  public static com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo parseFrom(
+  public static com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo parseFrom(
+  public static com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -601,7 +516,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo prototype) {
+  public static Builder newBuilder(com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -618,29 +533,29 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 点播工作流用量明细
+   * 点播编辑用量明细
    * </pre>
    *
-   * Protobuf type {@code Volcengine.Vod.Models.Business.DescribeVodSpaceWorkflowTranscodeInfo}
+   * Protobuf type {@code Volcengine.Vod.Models.Business.DescribeVodSpaceEditDetail}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Business.DescribeVodSpaceWorkflowTranscodeInfo)
-      com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfoOrBuilder {
+      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Business.DescribeVodSpaceEditDetail)
+      com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetailOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.volcengine.service.vod.model.business.VodMeasure.internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowTranscodeInfo_descriptor;
+      return com.volcengine.service.vod.model.business.VodMeasure.internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditDetail_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.volcengine.service.vod.model.business.VodMeasure.internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowTranscodeInfo_fieldAccessorTable
+      return com.volcengine.service.vod.model.business.VodMeasure.internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditDetail_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo.class, com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo.Builder.class);
+              com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail.class, com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail.Builder.class);
     }
 
-    // Construct using com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo.newBuilder()
+    // Construct using com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -658,25 +573,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      templateType_ = "";
+      time_ = "";
 
-      fileType_ = "";
+      outputVid_ = "";
 
-      duration_ = 0L;
+      space_ = "";
 
       codec_ = "";
 
-      remux_ = false;
-
       definition_ = "";
 
-      width_ = 0L;
-
-      height_ = 0L;
-
-      slice_ = false;
-
-      isLowPriority_ = false;
+      duration_ = 0L;
 
       return this;
     }
@@ -684,17 +591,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.volcengine.service.vod.model.business.VodMeasure.internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowTranscodeInfo_descriptor;
+      return com.volcengine.service.vod.model.business.VodMeasure.internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditDetail_descriptor;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo getDefaultInstanceForType() {
-      return com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo.getDefaultInstance();
+    public com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail getDefaultInstanceForType() {
+      return com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo build() {
-      com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo result = buildPartial();
+    public com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail build() {
+      com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -702,18 +609,14 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo buildPartial() {
-      com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo result = new com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo(this);
-      result.templateType_ = templateType_;
-      result.fileType_ = fileType_;
-      result.duration_ = duration_;
+    public com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail buildPartial() {
+      com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail result = new com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail(this);
+      result.time_ = time_;
+      result.outputVid_ = outputVid_;
+      result.space_ = space_;
       result.codec_ = codec_;
-      result.remux_ = remux_;
       result.definition_ = definition_;
-      result.width_ = width_;
-      result.height_ = height_;
-      result.slice_ = slice_;
-      result.isLowPriority_ = isLowPriority_;
+      result.duration_ = duration_;
       onBuilt();
       return result;
     }
@@ -752,49 +655,38 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo) {
-        return mergeFrom((com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo)other);
+      if (other instanceof com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail) {
+        return mergeFrom((com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo other) {
-      if (other == com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo.getDefaultInstance()) return this;
-      if (!other.getTemplateType().isEmpty()) {
-        templateType_ = other.templateType_;
+    public Builder mergeFrom(com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail other) {
+      if (other == com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail.getDefaultInstance()) return this;
+      if (!other.getTime().isEmpty()) {
+        time_ = other.time_;
         onChanged();
       }
-      if (!other.getFileType().isEmpty()) {
-        fileType_ = other.fileType_;
+      if (!other.getOutputVid().isEmpty()) {
+        outputVid_ = other.outputVid_;
         onChanged();
       }
-      if (other.getDuration() != 0L) {
-        setDuration(other.getDuration());
+      if (!other.getSpace().isEmpty()) {
+        space_ = other.space_;
+        onChanged();
       }
       if (!other.getCodec().isEmpty()) {
         codec_ = other.codec_;
         onChanged();
       }
-      if (other.getRemux() != false) {
-        setRemux(other.getRemux());
-      }
       if (!other.getDefinition().isEmpty()) {
         definition_ = other.definition_;
         onChanged();
       }
-      if (other.getWidth() != 0L) {
-        setWidth(other.getWidth());
-      }
-      if (other.getHeight() != 0L) {
-        setHeight(other.getHeight());
-      }
-      if (other.getSlice() != false) {
-        setSlice(other.getSlice());
-      }
-      if (other.getIsLowPriority() != false) {
-        setIsLowPriority(other.getIsLowPriority());
+      if (other.getDuration() != 0L) {
+        setDuration(other.getDuration());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -811,11 +703,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo parsedMessage = null;
+      com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -825,185 +717,230 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object templateType_ = "";
+    private java.lang.Object time_ = "";
     /**
-     * <code>string TemplateType = 1;</code>
-     * @return The templateType.
+     * <code>string Time = 1;</code>
+     * @return The time.
      */
-    public java.lang.String getTemplateType() {
-      java.lang.Object ref = templateType_;
+    public java.lang.String getTime() {
+      java.lang.Object ref = time_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        templateType_ = s;
+        time_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string TemplateType = 1;</code>
-     * @return The bytes for templateType.
+     * <code>string Time = 1;</code>
+     * @return The bytes for time.
      */
     public com.google.protobuf.ByteString
-        getTemplateTypeBytes() {
-      java.lang.Object ref = templateType_;
+        getTimeBytes() {
+      java.lang.Object ref = time_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        templateType_ = b;
+        time_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string TemplateType = 1;</code>
-     * @param value The templateType to set.
+     * <code>string Time = 1;</code>
+     * @param value The time to set.
      * @return This builder for chaining.
      */
-    public Builder setTemplateType(
+    public Builder setTime(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      templateType_ = value;
+      time_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string TemplateType = 1;</code>
+     * <code>string Time = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearTemplateType() {
+    public Builder clearTime() {
       
-      templateType_ = getDefaultInstance().getTemplateType();
+      time_ = getDefaultInstance().getTime();
       onChanged();
       return this;
     }
     /**
-     * <code>string TemplateType = 1;</code>
-     * @param value The bytes for templateType to set.
+     * <code>string Time = 1;</code>
+     * @param value The bytes for time to set.
      * @return This builder for chaining.
      */
-    public Builder setTemplateTypeBytes(
+    public Builder setTimeBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      templateType_ = value;
+      time_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object fileType_ = "";
+    private java.lang.Object outputVid_ = "";
     /**
-     * <code>string FileType = 2;</code>
-     * @return The fileType.
+     * <code>string OutputVid = 2;</code>
+     * @return The outputVid.
      */
-    public java.lang.String getFileType() {
-      java.lang.Object ref = fileType_;
+    public java.lang.String getOutputVid() {
+      java.lang.Object ref = outputVid_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        fileType_ = s;
+        outputVid_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string FileType = 2;</code>
-     * @return The bytes for fileType.
+     * <code>string OutputVid = 2;</code>
+     * @return The bytes for outputVid.
      */
     public com.google.protobuf.ByteString
-        getFileTypeBytes() {
-      java.lang.Object ref = fileType_;
+        getOutputVidBytes() {
+      java.lang.Object ref = outputVid_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        fileType_ = b;
+        outputVid_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string FileType = 2;</code>
-     * @param value The fileType to set.
+     * <code>string OutputVid = 2;</code>
+     * @param value The outputVid to set.
      * @return This builder for chaining.
      */
-    public Builder setFileType(
+    public Builder setOutputVid(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      fileType_ = value;
+      outputVid_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string FileType = 2;</code>
+     * <code>string OutputVid = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearFileType() {
+    public Builder clearOutputVid() {
       
-      fileType_ = getDefaultInstance().getFileType();
+      outputVid_ = getDefaultInstance().getOutputVid();
       onChanged();
       return this;
     }
     /**
-     * <code>string FileType = 2;</code>
-     * @param value The bytes for fileType to set.
+     * <code>string OutputVid = 2;</code>
+     * @param value The bytes for outputVid to set.
      * @return This builder for chaining.
      */
-    public Builder setFileTypeBytes(
+    public Builder setOutputVidBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      fileType_ = value;
+      outputVid_ = value;
       onChanged();
       return this;
     }
 
-    private long duration_ ;
+    private java.lang.Object space_ = "";
     /**
-     * <code>int64 Duration = 3;</code>
-     * @return The duration.
+     * <code>string Space = 3;</code>
+     * @return The space.
      */
-    @java.lang.Override
-    public long getDuration() {
-      return duration_;
+    public java.lang.String getSpace() {
+      java.lang.Object ref = space_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        space_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>int64 Duration = 3;</code>
-     * @param value The duration to set.
+     * <code>string Space = 3;</code>
+     * @return The bytes for space.
+     */
+    public com.google.protobuf.ByteString
+        getSpaceBytes() {
+      java.lang.Object ref = space_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        space_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string Space = 3;</code>
+     * @param value The space to set.
      * @return This builder for chaining.
      */
-    public Builder setDuration(long value) {
-      
-      duration_ = value;
+    public Builder setSpace(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      space_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 Duration = 3;</code>
+     * <code>string Space = 3;</code>
      * @return This builder for chaining.
      */
-    public Builder clearDuration() {
+    public Builder clearSpace() {
       
-      duration_ = 0L;
+      space_ = getDefaultInstance().getSpace();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string Space = 3;</code>
+     * @param value The bytes for space to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSpaceBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      space_ = value;
       onChanged();
       return this;
     }
@@ -1084,40 +1021,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean remux_ ;
-    /**
-     * <code>bool Remux = 5;</code>
-     * @return The remux.
-     */
-    @java.lang.Override
-    public boolean getRemux() {
-      return remux_;
-    }
-    /**
-     * <code>bool Remux = 5;</code>
-     * @param value The remux to set.
-     * @return This builder for chaining.
-     */
-    public Builder setRemux(boolean value) {
-      
-      remux_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool Remux = 5;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearRemux() {
-      
-      remux_ = false;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object definition_ = "";
     /**
-     * <code>string Definition = 6;</code>
+     * <code>string Definition = 5;</code>
      * @return The definition.
      */
     public java.lang.String getDefinition() {
@@ -1133,7 +1039,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string Definition = 6;</code>
+     * <code>string Definition = 5;</code>
      * @return The bytes for definition.
      */
     public com.google.protobuf.ByteString
@@ -1150,7 +1056,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string Definition = 6;</code>
+     * <code>string Definition = 5;</code>
      * @param value The definition to set.
      * @return This builder for chaining.
      */
@@ -1165,7 +1071,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string Definition = 6;</code>
+     * <code>string Definition = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearDefinition() {
@@ -1175,7 +1081,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string Definition = 6;</code>
+     * <code>string Definition = 5;</code>
      * @param value The bytes for definition to set.
      * @return This builder for chaining.
      */
@@ -1191,126 +1097,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long width_ ;
+    private long duration_ ;
     /**
-     * <code>int64 Width = 7;</code>
-     * @return The width.
+     * <code>int64 Duration = 6;</code>
+     * @return The duration.
      */
     @java.lang.Override
-    public long getWidth() {
-      return width_;
+    public long getDuration() {
+      return duration_;
     }
     /**
-     * <code>int64 Width = 7;</code>
-     * @param value The width to set.
+     * <code>int64 Duration = 6;</code>
+     * @param value The duration to set.
      * @return This builder for chaining.
      */
-    public Builder setWidth(long value) {
+    public Builder setDuration(long value) {
       
-      width_ = value;
+      duration_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 Width = 7;</code>
+     * <code>int64 Duration = 6;</code>
      * @return This builder for chaining.
      */
-    public Builder clearWidth() {
+    public Builder clearDuration() {
       
-      width_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private long height_ ;
-    /**
-     * <code>int64 Height = 8;</code>
-     * @return The height.
-     */
-    @java.lang.Override
-    public long getHeight() {
-      return height_;
-    }
-    /**
-     * <code>int64 Height = 8;</code>
-     * @param value The height to set.
-     * @return This builder for chaining.
-     */
-    public Builder setHeight(long value) {
-      
-      height_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 Height = 8;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearHeight() {
-      
-      height_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private boolean slice_ ;
-    /**
-     * <code>bool Slice = 9;</code>
-     * @return The slice.
-     */
-    @java.lang.Override
-    public boolean getSlice() {
-      return slice_;
-    }
-    /**
-     * <code>bool Slice = 9;</code>
-     * @param value The slice to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSlice(boolean value) {
-      
-      slice_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool Slice = 9;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSlice() {
-      
-      slice_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean isLowPriority_ ;
-    /**
-     * <code>bool IsLowPriority = 10;</code>
-     * @return The isLowPriority.
-     */
-    @java.lang.Override
-    public boolean getIsLowPriority() {
-      return isLowPriority_;
-    }
-    /**
-     * <code>bool IsLowPriority = 10;</code>
-     * @param value The isLowPriority to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIsLowPriority(boolean value) {
-      
-      isLowPriority_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool IsLowPriority = 10;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearIsLowPriority() {
-      
-      isLowPriority_ = false;
+      duration_ = 0L;
       onChanged();
       return this;
     }
@@ -1327,41 +1140,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Business.DescribeVodSpaceWorkflowTranscodeInfo)
+    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Business.DescribeVodSpaceEditDetail)
   }
 
-  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Business.DescribeVodSpaceWorkflowTranscodeInfo)
-  private static final com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Business.DescribeVodSpaceEditDetail)
+  private static final com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo();
+    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail();
   }
 
-  public static com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo getDefaultInstance() {
+  public static com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<DescribeVodSpaceWorkflowTranscodeInfo>
-      PARSER = new com.google.protobuf.AbstractParser<DescribeVodSpaceWorkflowTranscodeInfo>() {
+  private static final com.google.protobuf.Parser<DescribeVodSpaceEditDetail>
+      PARSER = new com.google.protobuf.AbstractParser<DescribeVodSpaceEditDetail>() {
     @java.lang.Override
-    public DescribeVodSpaceWorkflowTranscodeInfo parsePartialFrom(
+    public DescribeVodSpaceEditDetail parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DescribeVodSpaceWorkflowTranscodeInfo(input, extensionRegistry);
+      return new DescribeVodSpaceEditDetail(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<DescribeVodSpaceWorkflowTranscodeInfo> parser() {
+  public static com.google.protobuf.Parser<DescribeVodSpaceEditDetail> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<DescribeVodSpaceWorkflowTranscodeInfo> getParserForType() {
+  public com.google.protobuf.Parser<DescribeVodSpaceEditDetail> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.volcengine.service.vod.model.business.DescribeVodSpaceWorkflowTranscodeInfo getDefaultInstanceForType() {
+  public com.volcengine.service.vod.model.business.DescribeVodSpaceEditDetail getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

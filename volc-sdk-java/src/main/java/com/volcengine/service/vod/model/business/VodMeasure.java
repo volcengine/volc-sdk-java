@@ -124,6 +124,16 @@ public final class VodMeasure {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowDetailDataResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditDetail_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditDetail_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditDetailDataResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditDetailDataResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -253,12 +263,22 @@ public final class VodMeasure {
       "\022\020\n\010PageSize\030\005 \001(\003\022\017\n\007PageNum\030\006 \001(\003\022\r\n\005T" +
       "otal\030\007 \001(\003\022Z\n\022WorkflowDetailData\030\010 \003(\0132>" +
       ".Volcengine.Vod.Models.Business.Describe" +
-      "VodSpaceWorkflowDetailB\313\001\n)com.volcengin" +
-      "e.service.vod.model.businessB\nVodMeasure" +
-      "P\001ZAgithub.com/volcengine/volc-sdk-golan" +
-      "g/service/vod/models/business\240\001\001\330\001\001\312\002 Vo" +
-      "lc\\Service\\Vod\\Models\\Business\342\002#Volc\\Se" +
-      "rvice\\Vod\\Models\\GPBMetadatab\006proto3"
+      "VodSpaceWorkflowDetail\"\201\001\n\032DescribeVodSp" +
+      "aceEditDetail\022\014\n\004Time\030\001 \001(\t\022\021\n\tOutputVid" +
+      "\030\002 \001(\t\022\r\n\005Space\030\003 \001(\t\022\r\n\005Codec\030\004 \001(\t\022\022\n\n" +
+      "Definition\030\005 \001(\t\022\020\n\010Duration\030\006 \001(\003\"\357\001\n$D" +
+      "escribeVodSpaceEditDetailDataResult\022\016\n\006R" +
+      "egion\030\001 \001(\t\022\r\n\005Space\030\002 \001(\t\022\021\n\tStartTime\030" +
+      "\003 \001(\t\022\017\n\007EndTime\030\004 \001(\t\022\020\n\010PageSize\030\005 \001(\003" +
+      "\022\017\n\007PageNum\030\006 \001(\003\022\r\n\005Total\030\007 \001(\003\022R\n\016Edit" +
+      "DetailData\030\010 \003(\0132:.Volcengine.Vod.Models" +
+      ".Business.DescribeVodSpaceEditDetailB\313\001\n" +
+      ")com.volcengine.service.vod.model.busine" +
+      "ssB\nVodMeasureP\001ZAgithub.com/volcengine/" +
+      "volc-sdk-golang/service/vod/models/busin" +
+      "ess\240\001\001\330\001\001\312\002 Volc\\Service\\Vod\\Models\\Busi" +
+      "ness\342\002#Volc\\Service\\Vod\\Models\\GPBMetada" +
+      "tab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -396,6 +416,18 @@ public final class VodMeasure {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowDetailDataResult_descriptor,
         new java.lang.String[] { "Region", "Space", "StartTime", "EndTime", "PageSize", "PageNum", "Total", "WorkflowDetailData", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditDetail_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditDetail_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditDetail_descriptor,
+        new java.lang.String[] { "Time", "OutputVid", "Space", "Codec", "Definition", "Duration", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditDetailDataResult_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditDetailDataResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditDetailDataResult_descriptor,
+        new java.lang.String[] { "Region", "Space", "StartTime", "EndTime", "PageSize", "PageNum", "Total", "EditDetailData", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

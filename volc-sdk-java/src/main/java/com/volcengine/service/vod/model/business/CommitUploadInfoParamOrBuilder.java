@@ -78,4 +78,16 @@ public interface CommitUploadInfoParamOrBuilder extends
    */
   com.google.protobuf.ByteString
       getGetMetaModeBytes();
+
+  /**
+   * <code>string VodUploadSource = 6;</code>
+   * @return The vodUploadSource.
+   */
+  java.lang.String getVodUploadSource();
+  /**
+   * <code>string VodUploadSource = 6;</code>
+   * @return The bytes for vodUploadSource.
+   */
+  com.google.protobuf.ByteString
+      getVodUploadSourceBytes();
 }

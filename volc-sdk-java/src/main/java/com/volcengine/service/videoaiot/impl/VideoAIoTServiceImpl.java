@@ -775,6 +775,55 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
     }
 
     @Override
+    public GetRecordResponse getRecordList(GetRecordListRequest request) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoGetRecordList, new ArrayList<NameValuePair>() {
+            {
+            }
+        }, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), GetRecordResponse.class);
+    }
+
+    @Override
+    public PlaybackStartResponse playbackStart(PlaybackStartRequest request) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoPlaybackStart, new ArrayList<NameValuePair>() {
+            {
+            }
+        }, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), PlaybackStartResponse.class);
+    }
+
+    @Override
+    public IDResponse playbackStop(String playbackStreamID) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(Const.AIoTVideoPlaybackStop, new ArrayList<NameValuePair>() {
+            {
+                add(new BasicNameValuePair("StreamID", playbackStreamID));
+            }
+        });
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), IDResponse.class);
+    }
+
+    @Override
+    public IDResponse playbackControl(PlaybackControlRequest request) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoPlaybackControl, new ArrayList<NameValuePair>() {
+            {
+            }
+        }, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), IDResponse.class);
+    }
+
+    @Override
     public StartVoiceTalkResponse startVoiceTalk(StartVoiceTalkRequest startVoiceTalkRequest) throws Exception {
         com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoStartVoiceTalk, new ArrayList<NameValuePair>() {
             {

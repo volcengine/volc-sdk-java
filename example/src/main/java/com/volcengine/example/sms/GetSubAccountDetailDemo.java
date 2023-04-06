@@ -1,8 +1,10 @@
 package com.volcengine.example.sms;
 
 import com.alibaba.fastjson.JSON;
+import com.volcengine.model.request.InsertSubAccountRequest;
 import com.volcengine.model.request.SubAccountRequest;
 import com.volcengine.model.response.GetSubAccountDetailResponse;
+import com.volcengine.model.response.InsertSubAccountResponse;
 import com.volcengine.service.sms.SmsService;
 import com.volcengine.service.sms.impl.SmsServiceImpl;
 
@@ -22,6 +24,24 @@ public class GetSubAccountDetailDemo {
 
         try{
             GetSubAccountDetailResponse response = smsService.getSubAccountDetail(req);
+            System.out.println(JSON.toJSONString(response));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void TestInsertSubAccount(){
+        SmsService smsService = SmsServiceImpl.getInstance();
+
+        // call below method if you dont set ak and sk in ～/.vcloud/config
+        smsService.setAccessKey("ak");
+        smsService.setSecretKey("sk");
+
+        InsertSubAccountRequest req = new InsertSubAccountRequest();
+        req.setSubAccountName("subAccountName");
+
+        try{
+            InsertSubAccountResponse response = smsService.insertSubAccount(req);
             System.out.println(JSON.toJSONString(response));
         } catch (Exception e) {
             e.printStackTrace();

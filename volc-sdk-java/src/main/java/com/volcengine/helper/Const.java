@@ -642,6 +642,9 @@ public class Const {
     public static final String  T2ILDM= "T2ILDM";
     public static final String  Img2ImgStyle= "Img2ImgStyle";
     public static final String  Img2ImgAnime= "Img2ImgAnime";
+    public static final String  FaceFusionMovieSubmitTask= "FaceFusionMovieSubmitTask";
+    public static final String  FaceFusionMovieGetResult= "FaceFusionMovieGetResult";
+    public static final String  FaceFusionMovieSync= "FaceFusionMovie";
 
     // ocr
     public static final String OCRNormal = "OCRNormal";

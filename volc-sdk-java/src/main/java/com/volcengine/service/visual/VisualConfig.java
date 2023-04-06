@@ -21,7 +21,7 @@ public class VisualConfig {
                     new HashMap<String, Object>() {
                         {
                             put(Const.CONNECTION_TIMEOUT, 5000);
-                            put(Const.SOCKET_TIMEOUT, 5000);
+                            put(Const.SOCKET_TIMEOUT, 5000 * 12);
                             put(Const.Scheme, "https");
                             put(Const.Host, "visual.volcengineapi.com");
                             put(Const.Header, new ArrayList<Header>() {
@@ -412,6 +412,48 @@ public class VisualConfig {
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.Img2ImgAnime));
+                                    add(new BasicNameValuePair("Version", "2022-08-31"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.FaceFusionMovieSubmitTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.FaceFusionMovieSubmitTask));
+                                    add(new BasicNameValuePair("Version", "2022-08-31"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.FaceFusionMovieGetResult, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.FaceFusionMovieGetResult));
+                                    add(new BasicNameValuePair("Version", "2022-08-31"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.FaceFusionMovieSync, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.FaceFusionMovieSync));
                                     add(new BasicNameValuePair("Version", "2022-08-31"));
                                 }
                             });

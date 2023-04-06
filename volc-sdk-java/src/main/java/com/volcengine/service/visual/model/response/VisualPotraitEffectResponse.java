@@ -7,10 +7,10 @@ import lombok.Data;
 public class VisualPotraitEffectResponse extends VisualBaseResponse {
     
     @JSONField(name = "data")
-    ConvertPhotoData data;
+    PotraitEffectData data;
 
     @Data
-    public static class ConvertPhotoData {
+    public static class PotraitEffectData {
         
         @JSONField(name = "image")
         String image;

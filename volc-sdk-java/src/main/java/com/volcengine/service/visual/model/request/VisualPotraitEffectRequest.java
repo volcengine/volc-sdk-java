@@ -7,14 +7,14 @@ import lombok.Data;
 public class VisualPotraitEffectRequest {
     
     @JSONField(name = "image_base64")
-    String imageBase64;
+    String imageBase64 = "";
 
     @JSONField(name = "image_url")
-    String imageUrl;
+    String imageUrl = "";
 
     @JSONField(name = "type")
-    String type;
+    String type = "pixar";
 
     @JSONField(name = "return_type")
-    Integer returnType;
+    Integer returnType = 0;
 }

@@ -265,6 +265,29 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualImg2ImgAnimeResponse.class);
     }
 
+    public VisualFaceFusionMovieSubmitTaskResponse faceFusionMovieSubmitTask(VisualFaceFusionMovieSubmitTaskRequest request) throws Exception {
+        RawResponse response = json(Const.FaceFusionMovieSubmitTask, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualFaceFusionMovieSubmitTaskResponse.class);
+    }
+
+    public VisualFaceFusionMovieGetResultResponse faceFusionMovieGetResult(VisualFaceFusionMovieGetResultRequest request) throws Exception {
+        RawResponse response = json(Const.FaceFusionMovieGetResult, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualFaceFusionMovieGetResultResponse.class);
+    }
+    public VisualFaceFusionMovieSyncResponse faceFusionMovieSync(VisualFaceFusionMovieSyncRequest request) throws Exception {
+        RawResponse response = json(Const.FaceFusionMovieSync, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualFaceFusionMovieSyncResponse.class);
+    }
+
     @Override
     public OCRNormalResponse ocrNormal(OCRNormalRequest request) throws Exception {
         RawResponse response = post(Const.OCRNormal, null, convertNameValuePair(request));

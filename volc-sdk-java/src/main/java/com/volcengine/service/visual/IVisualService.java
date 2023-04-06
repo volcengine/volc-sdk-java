@@ -207,7 +207,27 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     VisualImg2ImgAnimeResponse img2ImgAnime(VisualImg2ImgAnimeRequest request) throws Exception;
-
+    /**
+     * 视频人脸融合-提交任务
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualFaceFusionMovieSubmitTaskResponse faceFusionMovieSubmitTask(VisualFaceFusionMovieSubmitTaskRequest request) throws Exception;
+    /**
+     * 视频人脸融合-查询任务
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualFaceFusionMovieGetResultResponse faceFusionMovieGetResult(VisualFaceFusionMovieGetResultRequest request) throws Exception;
+    /**
+     * 视频人脸融合-同步
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualFaceFusionMovieSyncResponse faceFusionMovieSync(VisualFaceFusionMovieSyncRequest request) throws Exception;
 
     /**
      * 通用文字识别

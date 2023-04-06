@@ -61,5 +61,31 @@ public class GetAwardConfigListAPIResponse {
         Byte ShowPeopleNumber;
         @JSONField(name = "Name")
         String Name;
+        @JSONField(name = "AwardItemType")
+        Integer AwardItemType;
+        @JSONField(name = "AwardItemIcon")
+        String AwardItemIcon;
+        @JSONField(name = "AwardItemNum")
+        String AwardItemNum;
+        @JSONField(name = "AwardCondition")
+        AwardCondition AwardCondition;
+        @JSONField(name = "AwardItemAmounts")
+        Long AwardItemAmounts;
+        @JSONField(name = "AwardLotteryTicketAddr")
+        String AwardLotteryTicketAddr;
+    }
+
+    @Data
+    public static class AwardCondition {
+        @JSONField(name = "CheckIn")
+        String CheckIn;
+        @JSONField(name = "Vote")
+        String Vote;
+        @JSONField(name = "RightQuiz")
+        String RightQuiz;
+        @JSONField(name = "Quiz")
+        String Quiz;
+        @JSONField(name = "Questionnaire")
+        String Questionnaire;
     }
 }

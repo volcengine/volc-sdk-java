@@ -5,7 +5,6 @@ import lombok.Data;
 import com.volcengine.model.response.ResponseMetadata;
 
 import java.util.List;
-import java.util.Map;
 
 @Data
 public class GetTaskAwardItemListAPIResponse {
@@ -40,5 +39,11 @@ public class GetTaskAwardItemListAPIResponse {
         Integer PeopleCount;
         @JSONField(name = "AwardCount")
         Integer AwardCount;
+        @JSONField(name = "AwardItemAmounts")
+        Long AwardItemAmounts;
+        @JSONField(name = "TaskAwardIcon")
+        String TaskAwardIcon;
+        @JSONField(name = "AwardItemNum")
+        String AwardItemNum;
     }
 }

@@ -5,7 +5,6 @@ import lombok.Data;
 import com.volcengine.model.response.ResponseMetadata;
 
 import java.util.List;
-import java.util.Map;
 
 @Data
 public class GetAwardRecordStatisticsAPIResponse {
@@ -62,5 +61,7 @@ public class GetAwardRecordStatisticsAPIResponse {
         String ReceiverName;
         @JSONField(name = "ReceiverTel")
         String ReceiverTel;
+        @JSONField(name = "IsPriorityUser")
+        Integer IsPriorityUser;
     }
 }

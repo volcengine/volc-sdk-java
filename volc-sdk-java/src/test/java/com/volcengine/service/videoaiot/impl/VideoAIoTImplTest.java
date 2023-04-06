@@ -29,7 +29,6 @@ public class VideoAIoTImplTest extends TestCase {
         videoAIoTService.setSecretKey(secretKey);
     }
 
-
     public void testListSpace() {
         ListSpaceRequest listSpaceRequest = new ListSpaceRequest();
         listSpaceRequest.setPageSize(10);
@@ -890,10 +889,6 @@ public class VideoAIoTImplTest extends TestCase {
     }
 
     public void testStop() {
-//        VideoAIoTConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1).setHost("volcengineapi-boe-stable.byted.org");
-//        videoAIoTService.setAccessKey("");
-//        videoAIoTService.setSecretKey("");
-
         try {
             RawResponse idResponse = videoAIoTService.streamStopRecord("record0x7df8ud0");
             System.out.println(JSON.toJSONString(idResponse));
@@ -903,10 +898,6 @@ public class VideoAIoTImplTest extends TestCase {
     }
 
     public void testGet() {
-//        VideoAIoTConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1).setHost("volcengineapi-boe-stable.byted.org");
-//        videoAIoTService.setAccessKey("ak");
-//        videoAIoTService.setSecretKey("sk==");
-
         try {
             GetStreamRecordResponse idResponse = videoAIoTService.getStreamRecord("record0kvldcqr1");
             System.out.println(JSON.toJSONString(idResponse));
@@ -916,11 +907,28 @@ public class VideoAIoTImplTest extends TestCase {
     }
 
     public void testDelete() {
-//        VideoAIoTConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1).setHost("volcengineapi-boe-stable.byted.org");
-
         try {
             DeleteStreamRecordResponse idResponse = videoAIoTService.deleteStreamRecord("record0p30r99xf");
             System.out.println(JSON.toJSONString(idResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void testGetRecordList() {
+//        setBOE();
+        try {
+            GetRecordListRequest request = new GetRecordListRequest();
+            request.setRecordType("all");
+            request.setDeviceNSID("34020081991180247837");
+            request.setStartTime(1680451200);
+            request.setEndTime(1680537599);
+            request.setOrder(true);
+            request.setTimeoutSec(20);
+            request.setChannelID("98880000001320000000");
+            GetRecordResponse resp = videoAIoTService.getRecordList(request);
+            System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();
         }

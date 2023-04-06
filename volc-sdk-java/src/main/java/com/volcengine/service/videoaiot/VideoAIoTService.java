@@ -198,6 +198,15 @@ public interface VideoAIoTService extends IBaseService {
 
     IDResponse unForbidStream(String streamID) throws Exception;
 
+    //录像
+    GetRecordResponse getRecordList(GetRecordListRequest request) throws Exception;
+
+    PlaybackStartResponse playbackStart(PlaybackStartRequest request) throws Exception;
+
+    IDResponse playbackStop(String playbackStreamID) throws Exception;
+
+    IDResponse playbackControl(PlaybackControlRequest request) throws Exception;
+
     //模板
 
     //ai库

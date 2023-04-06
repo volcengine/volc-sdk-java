@@ -588,6 +588,11 @@ public class Const {
     public static final String AIoTVideoGetStreamRecord = "GetStreamRecord";
     public static final String AIoTVideoDeleteStreamRecord = "DeleteStreamRecord";
 
+    public static final String AIoTVideoGetRecordList = "GetRecordList";
+    public static final String AIoTVideoPlaybackStart = "PlaybackStart";
+    public static final String AIoTVideoPlaybackStop = "PlaybackStop";
+    public static final String AIoTVideoPlaybackControl = "PlayBackControl";
+
     public static final String AIoTVideoForbidStream = "ForbidStream";
 
     public static final String AIoTVideoUnforbidStream = "UnforbidStream";

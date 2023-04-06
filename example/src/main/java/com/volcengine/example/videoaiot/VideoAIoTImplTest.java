@@ -1,8 +1,10 @@
 package com.volcengine.example.videoaiot;
 
 import com.alibaba.fastjson.JSON;
+import com.volcengine.helper.Const;
 import com.volcengine.model.video_aiot.request.*;
 import com.volcengine.model.video_aiot.response.*;
+import com.volcengine.service.videoaiot.VideoAIoTConfig;
 import com.volcengine.service.videoaiot.VideoAIoTService;
 import com.volcengine.service.videoaiot.impl.VideoAIoTServiceImpl;
 import junit.framework.TestCase;
@@ -20,7 +22,7 @@ public class VideoAIoTImplTest extends TestCase {
 
     private VideoAIoTService videoAIoTService = VideoAIoTServiceImpl.getInstance();
     private final String accessKey = "ak";
-    private final String secretKey = "sk==";
+    private final String secretKey = "sk";
 
     {
         videoAIoTService.setAccessKey(accessKey);
@@ -55,6 +57,25 @@ public class VideoAIoTImplTest extends TestCase {
 //            throw new RuntimeException(e);
 //        }
 //    }
+
+    public void testCreateSpace() {
+        CreateSpaceRequest createSpaceRequest = new CreateSpaceRequest();
+        createSpaceRequest.setSpaceName("java-space");
+        createSpaceRequest.setRegion("cn-beijing-a");
+        createSpaceRequest.setCallback("");
+        createSpaceRequest.setDescription("java-sdk-create");
+        createSpaceRequest.setAccessType("gb28181");
+        createSpaceRequest.setHLSLowLatency(false);
+        CreateSpaceRequest.GBOptions gbOptions = new CreateSpaceRequest.GBOptions();
+        gbOptions.setPullOnDemand(true);
+        createSpaceRequest.setGbOptions(gbOptions);
+        try {
+            IDResponse space = videoAIoTService.createSpace(createSpaceRequest);
+            System.out.printf(JSON.toJSONString(space));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public void testUpdateSpace() {
         UpdateSpaceRequest updateSpaceRequest = new UpdateSpaceRequest();
@@ -99,14 +120,14 @@ public class VideoAIoTImplTest extends TestCase {
         }
     }
 
-//    public void testDelSpace() {
-//        try {
-//            IDResponse rawResp = videoAIoTService.deleteSpace("f979653a-d656-4ded-bb87-35191e08604f");
-//            System.out.printf(JSON.toJSONString(rawResp));
-//        } catch (Exception e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+    public void testDelSpace() {
+        try {
+            IDResponse rawResp = videoAIoTService.deleteSpace("f979653a-d656-4ded-bb87-35191e08604f");
+            System.out.printf(JSON.toJSONString(rawResp));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 //    public void testCreateRecordTemplate() throws Exception {
 //        CreateTemplateRequest createTemplateRequest = new CreateTemplateRequest();
@@ -194,6 +215,7 @@ public class VideoAIoTImplTest extends TestCase {
     public void do_testUpdateDevice(String spaceID, String deviceID) {
         UpdateDeviceRequest updateDeviceRequest = new UpdateDeviceRequest();
         updateDeviceRequest.setDeviceID(deviceID);
+        updateDeviceRequest.setUserName("user-name");
         updateDeviceRequest.setDeviceName("java-sdk-update" + System.currentTimeMillis());
         updateDeviceRequest.setDescription("desc" + System.currentTimeMillis());
         updateDeviceRequest.setSpaceID(spaceID);
@@ -388,6 +410,26 @@ public class VideoAIoTImplTest extends TestCase {
         }
     }
 
+    public void testSetSpaceTemplate() {
+        SetSpaceTemplateRequest setSpaceTemplateRequest = new SetSpaceTemplateRequest();
+        setSpaceTemplateRequest.setSpaceID("");
+        setSpaceTemplateRequest.setTemplateID("");
+        setSpaceTemplateRequest.setTemplateType("screenshot");
+        try {
+            videoAIoTService.setSpaceTemplate(setSpaceTemplateRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testunSetSpaceTemplate() {
+        try {
+            videoAIoTService.unsetSpaceTemplate("spaceid", "screenshot");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void testUpdateStream() {
         UpdateStreamRequest updateStreamRequest = new UpdateStreamRequest();
         updateStreamRequest.setStreamID(streamID);
@@ -411,12 +453,6 @@ public class VideoAIoTImplTest extends TestCase {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-//        try {
-//            IDResp idResp = videoAIoTService.startStream(streamArg);
-//            System.out.println(JSON.toJSONString(idResp));
-//        } catch (Exception e) {
-//            throw new RuntimeException(e);
-//        }
     }
 
     public void testLocalMediaDownload() {
@@ -493,7 +529,6 @@ public class VideoAIoTImplTest extends TestCase {
     }
 
     public void testCreateTmpl() {
-
     }
 
 
@@ -554,12 +589,26 @@ public class VideoAIoTImplTest extends TestCase {
     public void testGetDataProjectWithBindWidthAndFlow() {
         GetDataProjectWithBindWidthAndFlowRequest dataRequest = new GetDataProjectWithBindWidthAndFlowRequest();
         dataRequest.setSpaceID("517ff7ec-7700-4862-b1e7-7967a492df79");
-        dataRequest.setStartTime("1662037702");
-        dataRequest.setEndTime("1662642502");
+        dataRequest.setStartTime("1663984753");
+        dataRequest.setEndTime("1664157570");
         dataRequest.setData("BindWidth"); //或者填 Flow
+        dataRequest.setStreamName(""); //不填的话，就是空间级别的流量带宽查询、填了就是流维度的
         try {
             GetDataProjectWithBindWidthAndFlowResponse dataResponse = videoAIoTService.getDataProjectWithBindWidthAndFlow(dataRequest);
             System.out.println(JSON.toJSONString(dataResponse));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        GetDataProjectWithBindWidthAndFlowRequest dataRequest1 = new GetDataProjectWithBindWidthAndFlowRequest();
+        dataRequest1.setSpaceID("517ff7ec-7700-4862-b1e7-7967a492df79");
+        dataRequest1.setStartTime("1663984753");
+        dataRequest1.setEndTime("1664157570");
+        dataRequest1.setData("Flow"); //或者填 Flow
+        dataRequest1.setStreamName("34020083991320916727_34020083991320916727"); //不填的话，就是空间级别的流量带宽查询、填了就是流维度的
+        try {
+            GetDataProjectWithBindWidthAndFlowResponse dataResponse1 = videoAIoTService.getDataProjectWithBindWidthAndFlow(dataRequest1);
+            System.out.println(JSON.toJSONString(dataResponse1));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -714,7 +763,6 @@ public class VideoAIoTImplTest extends TestCase {
     }
 
 
-
     public void testPTZ() throws InterruptedException {
         DeviceCloudControlRequest deviceCloudControlRequest = new DeviceCloudControlRequest();
         deviceCloudControlRequest.setDeviceNSID("34020008991180978871");
@@ -826,7 +874,7 @@ public class VideoAIoTImplTest extends TestCase {
 
     public void testStartStreamRecord() {
         StreamStartRecordRequest streamStartRecordRequest = new StreamStartRecordRequest();
-        streamStartRecordRequest.setStreamID("00dfc04b-8775-4728-b8f6-4e84130d4074");
+        streamStartRecordRequest.setStreamID("ee9a49ea-916c-4c2f-aced-333e409414df");
         streamStartRecordRequest.setRecordTime(100);
         streamStartRecordRequest.setTimeout(10);
         streamStartRecordRequest.setExpire(0);
@@ -841,12 +889,8 @@ public class VideoAIoTImplTest extends TestCase {
     }
 
     public void testStop() {
-//        VideoAIoTConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1).setHost("volcengineapi-boe-stable.byted.org");
-//        videoAIoTService.setAccessKey("");
-//        videoAIoTService.setSecretKey("");
-
         try {
-            RawResponse idResponse = videoAIoTService.streamStopRecord("record0kripz9qx");
+            RawResponse idResponse = videoAIoTService.streamStopRecord("record0x7df8ud0");
             System.out.println(JSON.toJSONString(idResponse));
         } catch (Exception e) {
             e.printStackTrace();
@@ -854,15 +898,82 @@ public class VideoAIoTImplTest extends TestCase {
     }
 
     public void testGet() {
-//        VideoAIoTConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1).setHost("volcengineapi-boe-stable.byted.org");
-//        videoAIoTService.setAccessKey("ak");
-//        videoAIoTService.setSecretKey("sk==");
-
         try {
-            GetStreamRecordResponse idResponse = videoAIoTService.getStreamRecord("record0kripz9qx");
+            GetStreamRecordResponse idResponse = videoAIoTService.getStreamRecord("record0kvldcqr1");
             System.out.println(JSON.toJSONString(idResponse));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    public void testDelete() {
+        try {
+            DeleteStreamRecordResponse idResponse = videoAIoTService.deleteStreamRecord("record0p30r99xf");
+            System.out.println(JSON.toJSONString(idResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void testGetRecordList() {
+//        setBOE();
+        try {
+            GetRecordListRequest request = new GetRecordListRequest();
+            request.setRecordType("all");
+            request.setDeviceNSID("34020049991320235775");
+            request.setStartTime(1680451200);
+            request.setEndTime(1680537599);
+            request.setOrder(true);
+            request.setTimeoutSec(20);
+            request.setChannelID("");
+            GetRecordResponse resp = videoAIoTService.getRecordList(request);
+            System.out.println(JSON.toJSONString(resp));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testPlaybackStart() {
+//        setBOE();
+        try {
+            PlaybackStartRequest request = new PlaybackStartRequest();
+            request.setStartTime(1680459621);
+            request.setEndTime(1680460203);
+            request.setChannelID("34020000001310000002");
+            request.setDeviceNSID("34020066991180632869");
+            PlaybackStartResponse resp = videoAIoTService.playbackStart(request);
+            System.out.println(JSON.toJSONString(resp));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void testPlaybackStop() {
+//        setBOE();
+        try {
+            String id = "cb59e752-c363-44d6-b0cb-39c20266f9c1";
+            IDResponse resp = videoAIoTService.playbackStop(id);
+            System.out.println(JSON.toJSONString(resp));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testPlaybackControl() {
+//        setBOE();
+        try {
+            PlaybackControlRequest request = new PlaybackControlRequest();
+            request.setStreamID("5d844cb5-10e2-4113-b642-fea8597fb6c9");
+            request.setCmd(0);
+            request.setNtp(String.valueOf(1));//
+            request.setScale(1);
+            IDResponse resp = videoAIoTService.playbackControl(request);
+            System.out.println(JSON.toJSONString(resp));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

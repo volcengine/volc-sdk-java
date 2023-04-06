@@ -12,6 +12,7 @@ import org.apache.http.message.BasicNameValuePair;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public class ImageXConfig {
     public static final String RESOURCE_SERVICE_ID_FORMAT = "trn:ImageX:*:*:ServiceId/%s";
@@ -856,20 +857,8 @@ public class ImageXConfig {
                     add("GetImageXQueryDims");
                     add("GetImageXQueryVals");
                 }
-            }.forEach(it -> put(it, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "GET");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", it));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
-                                }
-                            });
-                        }
-                    }
-            )));
+            }.forEach(ImageXConfig.addApi(this, "GET"));
+
             new ArrayList<String>() {
                 {
                     add("DescribeImageXMirrorRequestTraffic");
@@ -917,20 +906,30 @@ public class ImageXConfig {
                     add("DescribeImageXSensibleTopResolutionURL");
                     add("DescribeImageXSensibleTopUnknownURL");
                 }
-            }.forEach(it -> put(it, new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "POST");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action", it));
-                                    add(new BasicNameValuePair("Version", "2018-08-01"));
-                                }
-                            });
-                        }
-                    }
-            )));
+            }.forEach(ImageXConfig.addApi(this, "POST"));
+        }
+
+        {
+            new ArrayList<String>() {
+                {
+                    add("DescribeImageVolcCdnAccessLog");
+                }
+            }.forEach(ImageXConfig.addApi(this, "POST"));
         }
     };
+
+    private static Consumer<String> addApi(HashMap<String, ApiInfo> apiInfoList, String method) {
+        return it -> apiInfoList.put(it, new ApiInfo(new HashMap<String, Object>() {
+            {
+                put(Const.Method, method);
+                put(Const.Path, "/");
+                put(Const.Query, new ArrayList<NameValuePair>() {
+                    {
+                        add(new BasicNameValuePair("Action", it));
+                        add(new BasicNameValuePair("Version", "2018-08-01"));
+                    }
+                });
+            }
+        }));
+    }
 }

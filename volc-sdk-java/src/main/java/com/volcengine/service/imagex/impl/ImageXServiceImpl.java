@@ -1121,4 +1121,8 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         return this.postImageX("DescribeImageXSensibleTopUnknownURL", EMPTY_STRING_STRING_MAP, req, DescribeImageXSensibleTopUnknownURLResp.class).getResult();
     }
 
+    @Override
+    public DescribeImageVolcCdnAccessLogResp describeImageVolcCdnAccessLog(DescribeImageVolcCdnAccessLogReq req) throws Exception {
+        return this.postImageX("DescribeImageVolcCdnAccessLog", Utils.paramsToMap(req), req, DescribeImageVolcCdnAccessLogResp.class).getResult();
+    }
 }

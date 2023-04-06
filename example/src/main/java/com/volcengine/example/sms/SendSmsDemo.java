@@ -15,9 +15,7 @@ import com.volcengine.service.sms.impl.SmsServiceImpl;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.List;
+import java.util.*;
 
 public class SendSmsDemo {
 
@@ -34,6 +32,10 @@ public class SendSmsDemo {
         req.setPhoneNumbers("phoneNo");
         req.setTemplateId("templateId");
         req.setTemplateParam("param");//{"code":"1234"}
+        //如果想使用map添加模版参数，使用下线注释掉的这段demo
+        /*Map<String,String> paramMap = new HashMap<>();
+        paramMap.put("content","第一行\n第二行");
+        req.SetTemplateParamByMap(paramMap);*/
         req.setTag("tag");
         try {
             SmsSendResponse response = smsService.send(req);

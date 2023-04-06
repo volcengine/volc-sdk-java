@@ -67,6 +67,15 @@ public interface IImageXService extends IBaseService {
     FetchImageUrlResponse fetchImageUrl(FetchImageUrlRequest request) throws Exception;
 
     /**
+     * Fetch Image
+     *
+     * @param request url to fetch
+     * @return result
+     * @throws Exception the exception
+     */
+    GetUrlFetchTaskResponse getUrlFetchTask(GetUrlFetchTaskRequest request) throws Exception;
+
+    /**
      * Get image upload token.
      *
      * @param params the params

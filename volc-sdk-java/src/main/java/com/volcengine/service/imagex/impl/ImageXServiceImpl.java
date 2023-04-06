@@ -486,6 +486,11 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     @Override
+    public GetUrlFetchTaskResponse getUrlFetchTask(GetUrlFetchTaskRequest req) throws Exception {
+        return this.getImageX("GetUrlFetchTask", Utils.paramsToMap(req), GetUrlFetchTaskResponse.class).getResult();
+    }
+
+    @Override
     public GetImageOCRResponse<?> getImageOCR(GetImageOCRRequest param) throws Exception {
         Class<?> type;
         if (param.getScene().equals("license")) {

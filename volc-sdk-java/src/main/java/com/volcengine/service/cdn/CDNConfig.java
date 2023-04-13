@@ -704,6 +704,22 @@ public class CDNConfig {
                     }
             ));
 
+            // 查询计费结果数据: 
+            put("DescribeAccountingSummary", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeAccountingSummary"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
 
         }
     };

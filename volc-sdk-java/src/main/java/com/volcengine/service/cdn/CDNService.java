@@ -130,4 +130,7 @@ package com.volcengine.service.cdn;
         // 批量关联证书: https://www.volcengine.com/docs/6454/125712
         CDN.BatchDeployCertResponse batchDeployCert(CDN.BatchDeployCertRequest request) throws Exception;
 
+        // 查询计费结果数据: 
+        CDN.DescribeAccountingSummaryResponse describeAccountingSummary(CDN.DescribeAccountingSummaryRequest request) throws Exception;
+
 }

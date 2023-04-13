@@ -35,6 +35,26 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class AccountingSummary {
+
+        @JSONField(name = "BillingCode")
+        String BillingCode;
+
+        @JSONField(name = "Name")
+        String Name;
+
+        @JSONField(name = "TimeStamp")
+        Long TimeStamp;
+
+        @JSONField(name = "Value")
+        Double Value;
+
+        @JSONField(name = "Values")
+        List<DataPoint> Values;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class AddCdnCertInfo {
 
         @JSONField(name = "Desc")
@@ -73,8 +93,14 @@ public class CDN {
         @JSONField(name = "AreaAccessRule")
         AreaAccessRule AreaAccessRule;
 
+        @JSONField(name = "AutoRotate")
+        AutoRotate AutoRotate;
+
         @JSONField(name = "BandwidthLimit")
         BandwidthLimit BandwidthLimit;
+
+        @JSONField(name = "BrowserCache")
+        List<BrowserCacheControlRule> BrowserCache;
 
         @JSONField(name = "Cache")
         List<CacheControlRule> Cache;
@@ -115,8 +141,8 @@ public class CDN {
         @JSONField(name = "IpFreqLimit")
         IpFreqLimit IpFreqLimit;
 
-        @JSONField(name = "IpSpeedLimit")
-        IpSpeedLimit IpSpeedLimit;
+        @JSONField(name = "MassCompression")
+        MassCompression MassCompression;
 
         @JSONField(name = "MethodDeniedRule")
         MethodDeniedRule MethodDeniedRule;
@@ -141,6 +167,9 @@ public class CDN {
 
         @JSONField(name = "OriginRange")
         Boolean OriginRange;
+
+        @JSONField(name = "OriginRewrite")
+        OriginRewrite OriginRewrite;
 
         @JSONField(name = "OriginSni")
         OriginSni OriginSni;
@@ -189,6 +218,9 @@ public class CDN {
 
         @JSONField(name = "VideoDrag")
         VideoDrag VideoDrag;
+
+        @JSONField(name = "WebpAdaptive")
+        WebpAdaptive WebpAdaptive;
     }
 
     @Data
@@ -299,6 +331,14 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class AutoRotate {
+
+        @JSONField(name = "Switch")
+        Boolean Switch;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class BandwidthLimit {
 
         @JSONField(name = "BandwidthLimitRule")
@@ -361,6 +401,17 @@ public class CDN {
 
         @JSONField(name = "DeployResult")
         List<DomainCertDeployStatus> DeployResult;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class BrowserCacheControlRule {
+
+        @JSONField(name = "CacheAction")
+        CacheAction CacheAction;
+
+        @JSONField(name = "Condition")
+        Condition Condition;
     }
 
     @Data
@@ -544,6 +595,9 @@ public class CDN {
         @JSONField(name = "CreateTime")
         Long CreateTime;
 
+        @JSONField(name = "Delete")
+        Boolean Delete;
+
         @JSONField(name = "Process")
         String Process;
 
@@ -694,6 +748,51 @@ public class CDN {
 
         @JSONField(name = "Resources")
         List<AccountingDataDetail> Resources;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DescribeAccountingSummaryRequest {
+
+        @JSONField(name = "Aggregate")
+        String Aggregate;
+
+        @JSONField(name = "BillingCode")
+        String BillingCode;
+
+        @JSONField(name = "BillingRegion")
+        String BillingRegion;
+
+        @JSONField(name = "Domain")
+        String Domain;
+
+        @JSONField(name = "EndTime")
+        Long EndTime;
+
+        @JSONField(name = "Project")
+        String Project;
+
+        @JSONField(name = "StartTime")
+        Long StartTime;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DescribeAccountingSummaryResponse {
+
+        @JSONField(name = "ResponseMetadata")
+        ResponseMetadata ResponseMetadata;
+
+        @JSONField(name = "Result")
+        DescribeAccountingSummaryResult Result;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DescribeAccountingSummaryResult {
+
+        @JSONField(name = "Resources")
+        List<AccountingSummary> Resources;
     }
 
     @Data
@@ -1184,6 +1283,15 @@ public class CDN {
 
         @JSONField(name = "RefreshQuotaLimit")
         Long RefreshQuotaLimit;
+
+        @JSONField(name = "RefreshRegexLimit")
+        Long RefreshRegexLimit;
+
+        @JSONField(name = "RefreshRegexQuota")
+        Long RefreshRegexQuota;
+
+        @JSONField(name = "RefreshRegexRemain")
+        Long RefreshRegexRemain;
 
         @JSONField(name = "RefreshRemain")
         Long RefreshRemain;
@@ -1886,8 +1994,14 @@ public class CDN {
         @JSONField(name = "AreaAccessRule")
         AreaAccessRule AreaAccessRule;
 
+        @JSONField(name = "AutoRotate")
+        AutoRotate AutoRotate;
+
         @JSONField(name = "BandwidthLimit")
         BandwidthLimit BandwidthLimit;
+
+        @JSONField(name = "BrowserCache")
+        List<BrowserCacheControlRule> BrowserCache;
 
         @JSONField(name = "Cache")
         List<CacheControlRule> Cache;
@@ -1934,11 +2048,11 @@ public class CDN {
         @JSONField(name = "IpFreqLimit")
         IpFreqLimit IpFreqLimit;
 
-        @JSONField(name = "IpSpeedLimit")
-        IpSpeedLimit IpSpeedLimit;
-
         @JSONField(name = "LockStatus")
         String LockStatus;
+
+        @JSONField(name = "MassCompression")
+        MassCompression MassCompression;
 
         @JSONField(name = "MethodDeniedRule")
         MethodDeniedRule MethodDeniedRule;
@@ -1963,6 +2077,9 @@ public class CDN {
 
         @JSONField(name = "OriginRange")
         Boolean OriginRange;
+
+        @JSONField(name = "OriginRewrite")
+        OriginRewrite OriginRewrite;
 
         @JSONField(name = "OriginSni")
         OriginSni OriginSni;
@@ -2014,6 +2131,9 @@ public class CDN {
 
         @JSONField(name = "VideoDrag")
         VideoDrag VideoDrag;
+
+        @JSONField(name = "WebpAdaptive")
+        WebpAdaptive WebpAdaptive;
     }
 
     @Data
@@ -2143,6 +2263,9 @@ public class CDN {
         @JSONField(name = "HTTP2")
         Boolean HTTP2;
 
+        @JSONField(name = "Hsts")
+        Hsts Hsts;
+
         @JSONField(name = "OCSP")
         Boolean OCSP;
 
@@ -2162,6 +2285,20 @@ public class CDN {
 
         @JSONField(name = "Switch")
         Boolean Switch;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class Hsts {
+
+        @JSONField(name = "Subdomain")
+        String Subdomain;
+
+        @JSONField(name = "Switch")
+        Boolean Switch;
+
+        @JSONField(name = "Ttl")
+        Long Ttl;
     }
 
     @Data
@@ -2252,36 +2389,6 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
-    public static class IpSpeedLimit {
-
-        @JSONField(name = "IpSpeedLimitRules")
-        List<IpSpeedLimitRule> IpSpeedLimitRules;
-
-        @JSONField(name = "Switch")
-        Boolean Switch;
-    }
-
-    @Data
-    @Accessors(chain = true)
-    public static class IpSpeedLimitAction {
-
-        @JSONField(name = "SpeedLimitRate")
-        Long SpeedLimitRate;
-    }
-
-    @Data
-    @Accessors(chain = true)
-    public static class IpSpeedLimitRule {
-
-        @JSONField(name = "Condition")
-        Condition Condition;
-
-        @JSONField(name = "IpSpeedLimitAction")
-        IpSpeedLimitAction IpSpeedLimitAction;
-    }
-
-    @Data
-    @Accessors(chain = true)
     public static class ListCdnCertInfoRequest {
 
         @JSONField(name = "CertId")
@@ -2364,6 +2471,9 @@ public class CDN {
 
         @JSONField(name = "PrimaryOrigin")
         List<String> PrimaryOrigin;
+
+        @JSONField(name = "Project")
+        String Project;
 
         @JSONField(name = "ResourceTags")
         List<ResourceTag> ResourceTags;
@@ -2527,6 +2637,44 @@ public class CDN {
 
         @JSONField(name = "ResourceTags")
         List<ResourceTag> ResourceTags;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class MassCompression {
+
+        @JSONField(name = "MassCompressionRule")
+        List<MassCompressionRule> MassCompressionRule;
+
+        @JSONField(name = "Switch")
+        Boolean Switch;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class MassCompressionAction {
+
+        @JSONField(name = "CompressionRatio")
+        Long CompressionRatio;
+
+        @JSONField(name = "CompressionType")
+        String CompressionType;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class MassCompressionCondition {
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class MassCompressionRule {
+
+        @JSONField(name = "CompressionAction")
+        MassCompressionAction CompressionAction;
+
+        @JSONField(name = "Condition")
+        MassCompressionCondition Condition;
     }
 
     @Data
@@ -2731,6 +2879,39 @@ public class CDN {
 
         @JSONField(name = "Weight")
         String Weight;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class OriginRewrite {
+
+        @JSONField(name = "OriginRewriteRule")
+        List<OriginRewriteRule> OriginRewriteRule;
+
+        @JSONField(name = "Switch")
+        Boolean Switch;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class OriginRewriteAction {
+
+        @JSONField(name = "SourcePath")
+        String SourcePath;
+
+        @JSONField(name = "TargetPath")
+        String TargetPath;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class OriginRewriteRule {
+
+        @JSONField(name = "Condition")
+        Condition Condition;
+
+        @JSONField(name = "OriginRewriteAction")
+        OriginRewriteAction OriginRewriteAction;
     }
 
     @Data
@@ -3270,6 +3451,9 @@ public class CDN {
     @Accessors(chain = true)
     public static class SubmitRefreshTaskRequest {
 
+        @JSONField(name = "Delete")
+        Boolean Delete;
+
         @JSONField(name = "Type")
         String Type;
 
@@ -3484,6 +3668,12 @@ public class CDN {
     @Accessors(chain = true)
     public static class TosAuthInformation {
 
+        @JSONField(name = "AccessKeyId")
+        String AccessKeyId;
+
+        @JSONField(name = "AccessKeySecret")
+        String AccessKeySecret;
+
         @JSONField(name = "RoleAccountId")
         String RoleAccountId;
 
@@ -3504,8 +3694,14 @@ public class CDN {
         @JSONField(name = "AreaAccessRule")
         AreaAccessRule AreaAccessRule;
 
+        @JSONField(name = "AutoRotate")
+        AutoRotate AutoRotate;
+
         @JSONField(name = "BandwidthLimit")
         BandwidthLimit BandwidthLimit;
+
+        @JSONField(name = "BrowserCache")
+        List<BrowserCacheControlRule> BrowserCache;
 
         @JSONField(name = "Cache")
         List<CacheControlRule> Cache;
@@ -3546,8 +3742,8 @@ public class CDN {
         @JSONField(name = "IpFreqLimit")
         IpFreqLimit IpFreqLimit;
 
-        @JSONField(name = "IpSpeedLimit")
-        IpSpeedLimit IpSpeedLimit;
+        @JSONField(name = "MassCompression")
+        MassCompression MassCompression;
 
         @JSONField(name = "MethodDeniedRule")
         MethodDeniedRule MethodDeniedRule;
@@ -3572,6 +3768,9 @@ public class CDN {
 
         @JSONField(name = "OriginRange")
         Boolean OriginRange;
+
+        @JSONField(name = "OriginRewrite")
+        OriginRewrite OriginRewrite;
 
         @JSONField(name = "OriginSni")
         OriginSni OriginSni;
@@ -3614,6 +3813,9 @@ public class CDN {
 
         @JSONField(name = "VideoDrag")
         VideoDrag VideoDrag;
+
+        @JSONField(name = "WebpAdaptive")
+        WebpAdaptive WebpAdaptive;
     }
 
     @Data
@@ -3663,6 +3865,14 @@ public class CDN {
     @Data
     @Accessors(chain = true)
     public static class VideoDrag {
+
+        @JSONField(name = "Switch")
+        Boolean Switch;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class WebpAdaptive {
 
         @JSONField(name = "Switch")
         Boolean Switch;

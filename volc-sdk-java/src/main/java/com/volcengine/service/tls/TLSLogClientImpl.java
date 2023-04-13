@@ -1183,7 +1183,8 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(CREATE_DOWNLOAD_TASK, params, requestBody);
 
         // 4. parse response
-        return new CreateDownloadTaskResponse(rawResponse.getHeaders());
+        return new CreateDownloadTaskResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
+                CreateDownloadTaskResponse.class);
     }
 
     @Override

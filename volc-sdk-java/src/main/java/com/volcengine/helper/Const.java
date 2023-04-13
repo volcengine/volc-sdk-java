@@ -645,6 +645,9 @@ public class Const {
     public static final String  FaceFusionMovieSubmitTask= "FaceFusionMovieSubmitTask";
     public static final String  FaceFusionMovieGetResult= "FaceFusionMovieGetResult";
     public static final String  FaceFusionMovieSync= "FaceFusionMovie";
+    public static final String  VideoOverResolutionSubmitTaskV2= "VideoOverResolutionSubmitTaskV2";
+    public static final String  VideoOverResolutionQueryTaskV2= "VideoOverResolutionQueryTaskV2";
+
 
     // ocr
     public static final String OCRNormal = "OCRNormal";

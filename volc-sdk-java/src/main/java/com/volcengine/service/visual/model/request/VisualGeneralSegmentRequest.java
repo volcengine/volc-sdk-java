@@ -8,4 +8,6 @@ public class VisualGeneralSegmentRequest {
     
     @JSONField(name = "image_base64")
     String imageBase64;
+    @JSONField(name = "return_foreground_image")
+    Integer returnForegroundImage = 0;
 }

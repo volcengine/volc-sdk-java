@@ -17,6 +17,7 @@ public class GeneralSegmentDemo {
 
         VisualGeneralSegmentRequest req = new VisualGeneralSegmentRequest();
         req.setImageBase64("image_base64");
+        req.setReturnForegroundImage(1);
 
         try {
             VisualGeneralSegmentResponse response = visualService.generalSegment(req);

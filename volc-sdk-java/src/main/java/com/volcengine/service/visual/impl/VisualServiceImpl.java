@@ -201,6 +201,7 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualPotraitEffectResponse.class);
     }
 
+    @Override
     public VisualCertTokenResponse certToken(VisualCertTokenRequest request) throws Exception {
         RawResponse response = json(Const.CertToken, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -209,6 +210,7 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertTokenResponse.class);
     }
 
+    @Override
     public VisualCertVerifyQueryResponse certVerifyQuery(VisualCertVerifyQueryRequest request) throws Exception {
         RawResponse response = json(Const.CertVerifyQuery, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -217,6 +219,7 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertVerifyQueryResponse.class);
     }
 
+    @Override
     public VisualCertConfigInitResponse certConfigInit(VisualCertConfigInitRequest request) throws Exception {
         RawResponse response = json(Const.CertConfigInit, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -225,6 +228,7 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertConfigInitResponse.class);
     }
 
+    @Override
     public VisualCertConfigGetResponse certConfigGet(VisualCertConfigGetRequest request) throws Exception {
         RawResponse response = json(Const.CertConfigGet, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -233,6 +237,7 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertConfigGetResponse.class);
     }
 
+    @Override
     public VisualImg2Video3DResponse img2Video3D(VisualImg2Video3DRequest request) throws Exception {
         RawResponse response = json(Const.Img2Video3D, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -241,6 +246,7 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualImg2Video3DResponse.class);
     }
 
+    @Override
     public VisualT2ILDMResponse t2ILDM(VisualT2ILDMRequest request) throws Exception {
         RawResponse response = json(Const.T2ILDM, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -249,6 +255,7 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualT2ILDMResponse.class);
     }
 
+    @Override
     public VisualImg2ImgStyleResponse img2ImgStyle(VisualImg2ImgStyleRequest request) throws Exception {
         RawResponse response = json(Const.Img2ImgStyle, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -257,6 +264,7 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualImg2ImgStyleResponse.class);
     }
 
+    @Override
     public VisualImg2ImgAnimeResponse img2ImgAnime(VisualImg2ImgAnimeRequest request) throws Exception {
         RawResponse response = json(Const.Img2Video3D, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -265,6 +273,7 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualImg2ImgAnimeResponse.class);
     }
 
+    @Override
     public VisualFaceFusionMovieSubmitTaskResponse faceFusionMovieSubmitTask(VisualFaceFusionMovieSubmitTaskRequest request) throws Exception {
         RawResponse response = json(Const.FaceFusionMovieSubmitTask, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -273,6 +282,7 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualFaceFusionMovieSubmitTaskResponse.class);
     }
 
+    @Override
     public VisualFaceFusionMovieGetResultResponse faceFusionMovieGetResult(VisualFaceFusionMovieGetResultRequest request) throws Exception {
         RawResponse response = json(Const.FaceFusionMovieGetResult, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -280,12 +290,32 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualFaceFusionMovieGetResultResponse.class);
     }
+
+    @Override
     public VisualFaceFusionMovieSyncResponse faceFusionMovieSync(VisualFaceFusionMovieSyncRequest request) throws Exception {
         RawResponse response = json(Const.FaceFusionMovieSync, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualFaceFusionMovieSyncResponse.class);
+    }
+
+    @Override
+    public VisualVideoOverResolutionSubmitTaskV2Response videoOverResolutionSubmitTaskV2(VisualVideoOverResolutionSubmitTaskV2Request request) throws Exception {
+        RawResponse response = json(Const.FaceFusionMovieSubmitTask, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualVideoOverResolutionSubmitTaskV2Response.class);
+    }
+
+    @Override
+    public VisualVideoOverResolutionQueryTaskV2Response videoOverResolutionQueryTaskV2(VisualVideoOverResolutionQueryTaskV2Request request) throws Exception {
+        RawResponse response = json(Const.FaceFusionMovieGetResult, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualVideoOverResolutionQueryTaskV2Response.class);
     }
 
     @Override

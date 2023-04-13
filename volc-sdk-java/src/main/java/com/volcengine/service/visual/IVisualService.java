@@ -228,6 +228,20 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     VisualFaceFusionMovieSyncResponse faceFusionMovieSync(VisualFaceFusionMovieSyncRequest request) throws Exception;
+    /**
+     * 视频超分辨率-提交任务
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualVideoOverResolutionSubmitTaskV2Response videoOverResolutionSubmitTaskV2(VisualVideoOverResolutionSubmitTaskV2Request request) throws Exception;
+    /**
+     * 视频超分辨率-查询任务
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualVideoOverResolutionQueryTaskV2Response videoOverResolutionQueryTaskV2(VisualVideoOverResolutionQueryTaskV2Request request) throws Exception;
 
     /**
      * 通用文字识别

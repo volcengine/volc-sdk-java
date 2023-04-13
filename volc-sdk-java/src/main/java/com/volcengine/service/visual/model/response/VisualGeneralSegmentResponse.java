@@ -14,5 +14,8 @@ public class VisualGeneralSegmentResponse extends VisualBaseResponse {
         
         @JSONField(name = "mask")
         String image;
+
+        @JSONField(name = "foreground_image")
+        String foregroundImage;
     }
 }

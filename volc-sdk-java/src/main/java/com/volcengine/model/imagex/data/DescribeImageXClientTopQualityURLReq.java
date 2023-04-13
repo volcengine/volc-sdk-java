@@ -8,7 +8,7 @@ public class DescribeImageXClientTopQualityURLReq {
     @JSONField(name = "Appid")
     private String appid;
     @JSONField(name = "OS")
-    private String oS;
+    private String os;
     @JSONField(name = "QualityType")
     private String qualityType;
     @JSONField(name = "StartTime")

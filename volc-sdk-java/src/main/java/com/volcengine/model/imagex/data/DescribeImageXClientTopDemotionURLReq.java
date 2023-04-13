@@ -8,7 +8,7 @@ public class DescribeImageXClientTopDemotionURLReq {
     @JSONField(name = "Appid")
     private String appid;
     @JSONField(name = "OS")
-    private String oS;
+    private String os;
     @JSONField(name = "DemotionType")
     private String demotionType;
     @JSONField(name = "StartTime")

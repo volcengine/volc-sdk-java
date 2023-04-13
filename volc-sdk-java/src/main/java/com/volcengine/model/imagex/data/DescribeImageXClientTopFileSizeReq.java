@@ -8,7 +8,7 @@ public class DescribeImageXClientTopFileSizeReq {
     @JSONField(name = "Appid")
     private String appid;
     @JSONField(name = "OS")
-    private String oS;
+    private String os;
     @JSONField(name = "StartTime")
     private String startTime;
     @JSONField(name = "EndTime")

@@ -20,23 +20,22 @@ import java.io.IOException;
 import java.util.*;
 
 public class SendSmsDemo {
+    private static SmsService smsService = SmsServiceImpl.getInstance(new SmsServiceInfoConfig("ak", "sk"));
 
     public static void main(String[] args) throws IOException {
-        SmsServiceInfoConfig config = new SmsServiceInfoConfig("ak", "sk");
-
 
         SmsSendRequest req = new SmsSendRequest();
-        req.setPhoneNumbers("188888888");
+        req.setPhoneNumbers("136XX08XXXX");
         req.setSmsAccount("subaccount");
         req.setTemplateId("templateid");
+        req.setSign("signature");
 
         Map<String,String> param = new HashMap<>();
         param.put("content","第一行\n第二行");
         req.setTemplateParamByMap(param);
 
-        SmsService service = SmsServiceImpl.getInstance(config);
         try {
-            SmsSendResponse response = service.send(req);
+            SmsSendResponse response = smsService.sendV2(req);
             System.out.println(JSON.toJSONString(response));
         } catch (Exception e) {
             e.printStackTrace();

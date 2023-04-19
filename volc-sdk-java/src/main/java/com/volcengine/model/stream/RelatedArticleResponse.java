@@ -36,6 +36,8 @@ public class RelatedArticleResponse {
         UserInfo userInfo;
         @JSONField(name = "HasVideo")
         boolean hasVideo;
+        @JSONField(name = "VideoDetail")
+        VideoDetail videoDetail;
         @JSONField(name = "BuryCount")
         long buryCount;
         @JSONField(name = "CommentCount")
@@ -85,5 +87,61 @@ public class RelatedArticleResponse {
         String name;
         @JSONField(name = "UserId")
         String userId;
+    }
+
+    @Data
+    public static class VideoDetail {
+        @JSONField(name = "Status")
+        int status;
+        @JSONField(name = "VideoDuration")
+        int videoDuration;
+        @JSONField(name = "PosterUrl")
+        String posterUrl;
+        @JSONField(name = "VideoId")
+        String videoId;
+        @JSONField(name = "VideoList")
+        List<VideoList> videoList;
+    }
+
+    @Data
+    public static class VideoList {
+        @JSONField(name = "MainUrl")
+        String mainUrl;
+        @JSONField(name = "MainHttpUrl")
+        String mainHttpUrl;
+        @JSONField(name = "BackupUrl1")
+        String backupUrl1;
+        @JSONField(name = "BackupHttpUrl")
+        String backupHttpUrl;
+        @JSONField(name = "UrlExpire")
+        long urlExpire;
+        @JSONField(name = "FileId")
+        String fileId;
+        @JSONField(name = "Bitrate")
+        int bitrate;
+        @JSONField(name = "CodecType")
+        String codecType;
+        @JSONField(name = "LogoType")
+        String logoType;
+        @JSONField(name = "Size")
+        int size;
+        @JSONField(name = "FPS")
+        int fps;
+        @JSONField(name = "Quality")
+        String quality;
+        @JSONField(name = "Encrypt")
+        boolean encrypt;
+        @JSONField(name = "FileHash")
+        String fileHash;
+        @JSONField(name = "Vheight")
+        int vHeight;
+        @JSONField(name = "Vwidth")
+        int vWidth;
+        @JSONField(name = "Vtype")
+        String vType;
+        @JSONField(name = "Definition")
+        String definition;
+        @JSONField(name = "Redirect")
+        boolean redirect;
     }
 }

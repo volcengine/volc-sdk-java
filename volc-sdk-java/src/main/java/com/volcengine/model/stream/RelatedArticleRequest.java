@@ -15,4 +15,6 @@ public class RelatedArticleRequest {
     String count;
     @JSONField(name = "GroupId")
     String groupId;
+    @JSONField(name = "NeedVideoDetail")
+    String needVideoDetail;
 }

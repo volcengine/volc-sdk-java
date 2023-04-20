@@ -19,5 +19,6 @@ public class ListCdnDomains {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

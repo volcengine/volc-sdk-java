@@ -19,5 +19,6 @@ public class BatchDeployCert {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

@@ -18,5 +18,6 @@ public class ListResourceTags {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

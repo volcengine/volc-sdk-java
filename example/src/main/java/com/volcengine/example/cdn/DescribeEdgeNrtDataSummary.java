@@ -21,5 +21,6 @@ public class DescribeEdgeNrtDataSummary {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

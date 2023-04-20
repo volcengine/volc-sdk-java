@@ -20,5 +20,6 @@ public class DescribeOriginTopNrtData {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

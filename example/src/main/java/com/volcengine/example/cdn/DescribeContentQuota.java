@@ -16,5 +16,6 @@ public class DescribeContentQuota {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

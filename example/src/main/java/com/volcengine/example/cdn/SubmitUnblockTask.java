@@ -18,5 +18,6 @@ public class SubmitUnblockTask {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

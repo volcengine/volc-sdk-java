@@ -18,5 +18,6 @@ public class DescribeIPListInfo {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

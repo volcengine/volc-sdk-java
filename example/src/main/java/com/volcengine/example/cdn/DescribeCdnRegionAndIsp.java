@@ -19,5 +19,6 @@ public class DescribeCdnRegionAndIsp {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

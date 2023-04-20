@@ -23,5 +23,6 @@ public class AddCdnCertificate {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

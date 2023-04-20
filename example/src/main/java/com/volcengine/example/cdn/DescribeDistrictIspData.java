@@ -23,5 +23,6 @@ public class DescribeDistrictIspData {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

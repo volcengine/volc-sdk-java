@@ -18,5 +18,6 @@ public class SubmitRefreshTask {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

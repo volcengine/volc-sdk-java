@@ -17,5 +17,6 @@ public class ListCdnCertInfo {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

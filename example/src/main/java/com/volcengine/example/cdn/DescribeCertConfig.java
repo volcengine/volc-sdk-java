@@ -18,5 +18,6 @@ public class DescribeCertConfig {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

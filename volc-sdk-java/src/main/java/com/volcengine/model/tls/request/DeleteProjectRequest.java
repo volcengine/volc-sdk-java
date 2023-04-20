@@ -12,5 +12,10 @@ public class DeleteProjectRequest {
     @JSONField(name = PROJECT_ID)
     private String projectId;
 
-
+    public boolean CheckValidation() {
+        if (this.projectId == null) {
+            return false;
+        }
+        return true;
+    }
 }

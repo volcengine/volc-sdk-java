@@ -8,8 +8,10 @@ import com.volcengine.model.tls.ClientConfig;
 import com.volcengine.model.tls.Const;
 import com.volcengine.model.tls.DescribeRulesRequest;
 import com.volcengine.model.tls.exception.LogException;
+import com.volcengine.model.tls.pb.PutLogRequest;
 import com.volcengine.model.tls.request.*;
 import com.volcengine.model.tls.response.*;
+import com.volcengine.model.tls.util.AdaptorUtil;
 import com.volcengine.model.tls.util.MessageUtil;
 import com.volcengine.model.tls.util.TimeUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -22,21 +24,50 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.volcengine.model.tls.Const.*;
 import static com.volcengine.model.tls.producer.ProducerConfig.EXTERNAL_ERROR;
 import static com.volcengine.model.tls.producer.ProducerConfig.TOO_MANY_REQUEST_ERROR;
 
 public class TLSLogClientImpl implements TLSLogClient {
-    public static final int DEFAULT_RETRY_CNT = 5;
+
+    public static int DEFAULT_RETRY_INTERVAL_MS = 100;
+    public static int DEFAULT_REQUEST_TIMEOUT_MS = 30 * 1000;
+    public static int DEFAULT_RETRY_COUNTER_MAXIMUM = 50;
+
+    private static AtomicInteger DEFAULT_RETRY_COUNTER = new AtomicInteger(0);
     private ClientConfig config;
     private final TLSHttpUtil httpRequest;
-    private final int maxRetryCount = DEFAULT_RETRY_CNT;
-
 
     public TLSLogClientImpl(TLSHttpUtil util, ClientConfig config) {
         this.httpRequest = util;
-//        util.
+    }
+
+    private static void increaseCounterByOne() {
+        while (true) {
+            int v = DEFAULT_RETRY_COUNTER.get();
+            if (v >= DEFAULT_RETRY_COUNTER_MAXIMUM) {
+                break;
+            }
+            boolean cas = DEFAULT_RETRY_COUNTER.compareAndSet(v, v+1);
+            if (cas) {
+                break;
+            }
+        }
+    }
+
+    private static void decreaseCounterByOne() {
+        while (true) {
+            int v = DEFAULT_RETRY_COUNTER.get();
+            if (v <= 0) {
+                break;
+            }
+            boolean cas = DEFAULT_RETRY_COUNTER.compareAndSet(v, v-1);
+            if (cas) {
+                break;
+            }
+        }
     }
 
     @Override
@@ -60,15 +91,16 @@ public class TLSLogClientImpl implements TLSLogClient {
     public void setTimeout(int socketTimeout, int connectionTimeout) {
         httpRequest.setSocketTimeout(socketTimeout);
         httpRequest.setConnectionTimeout(connectionTimeout);
+        DEFAULT_REQUEST_TIMEOUT_MS = socketTimeout;
     }
 
     @Override
     public PutLogsResponse putLogs(PutLogsRequest request) throws LogException {
-        // 1、check params, topic id is required params
-        if (request == null || StringUtils.isEmpty(request.getTopicId()) || request.getLogGroupList() == null) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
         HashMap<String, String> headers = new HashMap<>();
@@ -80,27 +112,53 @@ public class TLSLogClientImpl implements TLSLogClient {
             headers.put(X_TLS_COMPRESS_TYPE, compressType);
             headers.put(X_TLS_BODY_RAW_SIZE, String.valueOf(request.getLogGroupList().toByteArray().length));
         }
+        // 2、check sum and sendRequest
+        RawResponse rawResponse = doProtoRetryRequest(PUT_LOGS, params, headers,
+                request.getLogGroupList().toByteArray(), compressType);
+        // 3、parse response
+        return new PutLogsResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public PutLogsResponse putLogsV2(PutLogsRequestV2 request) throws LogException {
+        // 1、check params, topic id is required params
+        if (request == null || StringUtils.isEmpty(request.getTopicId()) || request.getLogs() == null) {
+            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        }
+        // 2、prepare request
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
+        HashMap<String, String> headers = new HashMap<>();
+        if (request.getHashKey() != null) {
+            headers.put(X_TLS_HASHKEY, request.getHashKey());
+        }
+        PutLogRequest.LogGroupList logGroupList = AdaptorUtil.logItems2PbGroupList(request.getPath(), request.getSource(), request.getLogs());
+        String compressType = request.getCompressType();
+        if (compressType != null) {
+            headers.put(X_TLS_COMPRESS_TYPE, compressType);
+            headers.put(X_TLS_BODY_RAW_SIZE, String.valueOf(logGroupList.toByteArray().length));
+        }
         // 3、check sum and sendRequest
         RawResponse rawResponse = doProtoRetryRequest(PUT_LOGS, params, headers,
-                request.getLogGroupList().toByteArray(), compressType, maxRetryCount);
+                logGroupList.toByteArray(), compressType);
         // 4、parse response
         return new PutLogsResponse(rawResponse.getHeaders());
     }
 
     @Override
     public DescribeCursorResponse describeCursor(DescribeCursorRequest request) throws LogException {
-        // 1、check params, topic id is required params
-        if (request == null || StringUtils.isEmpty(request.getTopicId()) || request.getShardId() == null) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
         params.add(new BasicNameValuePair(SHARD_ID, String.valueOf(request.getShardId())));
         String requestBody = JSONObject.toJSONString(request);
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_CURSOR, params, requestBody);
-        // 4、parse response
+        // 3、parse response
         return new DescribeCursorResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 DescribeCursorResponse.class);
 
@@ -108,46 +166,45 @@ public class TLSLogClientImpl implements TLSLogClient {
 
     @Override
     public ConsumeLogsResponse consumeLogs(ConsumeLogsRequest request) throws LogException {
-        // 1、check params, topic id is required params
-        if (request == null || StringUtils.isEmpty(request.getTopicId()) || request.getShardId() == null) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
         params.add(new BasicNameValuePair(SHARD_ID, String.valueOf(request.getShardId())));
         String requestBody = JSONObject.toJSONString(request);
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(CONSUME_LOGS, params, requestBody);
-        // 4、parse response
+        // 3、parse response
         return new ConsumeLogsResponse(rawResponse.getHeaders(),
                 request.getCompression()).deSerialize(rawResponse.getData(), ConsumeLogsResponse.class);
     }
 
     @Override
     public SearchLogsResponse searchLogs(SearchLogsRequest request) throws LogException {
-        // 1、check params, topic id、query、start time and end time are required params
-        if (request == null || StringUtils.isEmpty(request.getTopicId()) || StringUtils.isEmpty(request.getQuery())
-                || request.getStartTime() == null || request.getEndTime() == null) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         String requestBody = JSONObject.toJSONString(request);
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(SEARCH_LOGS, params, requestBody);
-        // 4、parse response
+        // 3、parse response
         return new SearchLogsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 SearchLogsResponse.class);
     }
 
     @Override
     public DescribeShardsResponse describeShards(DescribeShardsRequest request) throws LogException {
-        // 1、check params, topic id is required params
-        if (request == null || StringUtils.isEmpty(request.getTopicId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
         if (request.getPageNumber() != null) {
@@ -156,9 +213,9 @@ public class TLSLogClientImpl implements TLSLogClient {
         if (request.getPageSize() != null) {
             params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
         }
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_SHARDS, params, Const.EMPTY_JSON);
-        // 4、parse response
+        // 3、parse response
         return new DescribeShardsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 DescribeShardsResponse.class);
     }
@@ -166,19 +223,18 @@ public class TLSLogClientImpl implements TLSLogClient {
     @Override
     public DescribeLogContextResponse describeLogContext(DescribeLogContextRequest request)
             throws LogException {
-        // 1. check params
-        if (request == null) {
-            throw new LogException("InvalidArgument", "Request is null", null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
 
-        // 2. prepare request
+        // 1. prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3. check sum and sendRequest
+        // 2. check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_LOG_CONTEXT, params, requestBody);
 
-        // 4. parse response
+        // 3. parse response
         return new DescribeLogContextResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 DescribeLogContextResponse.class);
     }
@@ -186,12 +242,11 @@ public class TLSLogClientImpl implements TLSLogClient {
     @Override
     public WebTracksResponse webTracks(WebTracksRequest request)
             throws LogException {
-        // 1、check params, topic id is required params
-        if (request == null) {
-            throw new LogException("InvalidArgument", "request is null", null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
 
-        // 2、prepare request
+        // 1、prepare request
         String compressType = request.getCompressType();
         ArrayList<NameValuePair> params = new ArrayList<>(); {
             if (StringUtils.isNotEmpty(request.getTopicId())) {
@@ -210,30 +265,29 @@ public class TLSLogClientImpl implements TLSLogClient {
             }
         }
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = doProtoRetryRequest(WEB_TRACKS, params, headers,
-            requestBody.getBytes(), compressType, maxRetryCount);
+            requestBody.getBytes(), compressType);
 
-        // 4、parse response
+        // 3、parse response
         return new WebTracksResponse(rawResponse.getHeaders());
     }
 
     @Override
     public DescribeHistogramResponse describeHistogram(DescribeHistogramRequest request)
             throws LogException {
-        // 1. check params
-        if (request == null) {
-            throw new LogException("InvalidArgument", "Request is null", null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
 
-        // 2. prepare request
+        // 1. prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3. check sum and sendRequest
+        // 2. check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_HISTOGRAM, params, requestBody);
 
-        // 4. parse response
+        // 3. parse response
         return new DescribeHistogramResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 DescribeHistogramResponse.class);
     }
@@ -245,18 +299,17 @@ public class TLSLogClientImpl implements TLSLogClient {
      */
     @Override
     public CreateProjectResponse createProject(CreateProjectRequest request) throws LogException {
-        // 1、check params, projectName and region are required params
-        if (request == null || StringUtils.isEmpty(request.getProjectName()) ||
-                StringUtils.isEmpty(request.getRegion())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(Const.CREATE_PROJECT, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new CreateProjectResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 CreateProjectResponse.class);
     }
@@ -264,7 +317,7 @@ public class TLSLogClientImpl implements TLSLogClient {
     private RawResponse sendJsonRequest(String path, ArrayList<NameValuePair> params, String requestBody)
             throws LogException {
         checkMd5(path, requestBody.getBytes());
-        RawResponse rawResponse = doRetryRequest(path, params, requestBody, maxRetryCount);
+        RawResponse rawResponse = doRetryRequest(path, params, requestBody);
 
         if (rawResponse.getCode() != SdkError.SUCCESS.getNumber()) {
             String[] error = getError(rawResponse);
@@ -274,19 +327,26 @@ public class TLSLogClientImpl implements TLSLogClient {
         return rawResponse;
     }
 
-    private RawResponse doRetryRequest(String path, ArrayList<NameValuePair> params, String requestBody,
-                                       int maxRetryCount) throws LogException {
+    private RawResponse doRetryRequest(String path, ArrayList<NameValuePair> params, String requestBody) throws LogException {
         RawResponse rawResponse = null;
+        long expectedQuitTimestamp = System.currentTimeMillis() + DEFAULT_REQUEST_TIMEOUT_MS;
+        int tryCount = 0;
         // retry
-        for (int i = 0; i <= maxRetryCount; i++) {
+        while (true) {
             rawResponse = httpRequest.json(path, params, requestBody);
-            // return if request succeed
-            if (rawResponse.getCode() == SdkError.SUCCESS.getNumber() || !needRetryStatus(rawResponse.getHttpCode())) {
+            tryCount += 1;
+            // return if request succeed or tryCount >= 5
+            if (tryCount >= 5 || rawResponse.getCode() == SdkError.SUCCESS.getNumber() || !needRetryStatus(rawResponse.getHttpCode())) {
+                decreaseCounterByOne();
                 break;
             }
+            increaseCounterByOne();
             try {
-                long sleepMs = TimeUtil.calDefaultBackOffMs(i);
-                Thread.sleep(sleepMs);
+                long sleepMs = TimeUtil.calcDefaultBackOffMs(
+                        DEFAULT_RETRY_COUNTER.get(), DEFAULT_RETRY_INTERVAL_MS, expectedQuitTimestamp);
+                if (sleepMs > 0) {
+                    Thread.sleep(sleepMs);
+                }
             } catch (InterruptedException e) {
                 throw new LogException("sdk error", "retry thread interrupt exception", null);
             }
@@ -300,7 +360,6 @@ public class TLSLogClientImpl implements TLSLogClient {
         return rawResponse;
     }
 
-
     //429 or 5xx error retry
     private boolean needRetryStatus(int httpCode) {
         return httpCode == TOO_MANY_REQUEST_ERROR || httpCode >= EXTERNAL_ERROR;
@@ -313,17 +372,17 @@ public class TLSLogClientImpl implements TLSLogClient {
      */
     @Override
     public DeleteProjectResponse deleteProject(DeleteProjectRequest request) throws LogException {
-        // 1、check params, projectName and region are required params
-        if (request == null || StringUtils.isEmpty(request.getProjectId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DELETE_PROJECT, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new DeleteProjectResponse(rawResponse.getHeaders());
     }
 
@@ -334,17 +393,17 @@ public class TLSLogClientImpl implements TLSLogClient {
      */
     @Override
     public ModifyProjectResponse modifyProject(ModifyProjectRequest request) throws LogException {
-        // 1、check params, projectId and request are required params
-        if (request == null || StringUtils.isEmpty(request.getProjectId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(MODIFY_PROJECT, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new ModifyProjectResponse(rawResponse.getHeaders());
     }
 
@@ -355,18 +414,18 @@ public class TLSLogClientImpl implements TLSLogClient {
      */
     @Override
     public DescribeProjectResponse describeProject(DescribeProjectRequest request) throws LogException {
-        // 1、check params, projectId is required params
-        if (request == null || StringUtils.isEmpty(request.getProjectId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair(PROJECT_ID, request.getProjectId()));
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_PROJECT, params, Const.EMPTY_JSON);
 
-        // 4、parse response
+        // 3、parse response
         return new DescribeProjectResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 DescribeProjectResponse.class);
     }
@@ -380,11 +439,11 @@ public class TLSLogClientImpl implements TLSLogClient {
      */
     @Override
     public DescribeProjectsResponse describeProjects(DescribeProjectsRequest request) throws LogException {
-        // 1、check params, request is required params
-        if (request == null) {
-            throw new LogException("InvalidArgument", "Request is null", null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         if (request.getIsFullName() != null)
             params.add(new BasicNameValuePair(IS_FULL_NAME, String.valueOf(request.getIsFullName())));
@@ -401,10 +460,10 @@ public class TLSLogClientImpl implements TLSLogClient {
             params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
         }
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(Const.DESCRIBE_PROJECTS, params, Const.EMPTY_JSON);
 
-        // 4、parse response
+        // 3、parse response
         return new DescribeProjectsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 DescribeProjectsResponse.class);
 
@@ -413,18 +472,17 @@ public class TLSLogClientImpl implements TLSLogClient {
 
     @Override
     public CreateTopicResponse createTopic(CreateTopicRequest request) throws LogException {
-        // 1、check params, projectId 、topicName and ttl are required params
-        if (request == null || StringUtils.isEmpty(request.getProjectId())
-                || StringUtils.isEmpty(request.getTopicName()) || request.getTtl() == null) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(CREATE_TOPIC, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new CreateTopicResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 CreateTopicResponse.class);
 
@@ -432,50 +490,50 @@ public class TLSLogClientImpl implements TLSLogClient {
 
     @Override
     public DeleteTopicResponse deleteTopic(DeleteTopicRequest request) throws LogException {
-        // 1、check params,topicId is required params
-        if (request == null || StringUtils.isEmpty(request.getTopicId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DELETE_TOPIC, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new DeleteTopicResponse(rawResponse.getHeaders());
     }
 
     @Override
     public ModifyTopicResponse modifyTopic(ModifyTopicRequest request) throws LogException {
-        // 1、check params, request and topicId are required params
-        if (request == null || StringUtils.isEmpty(request.getTopicId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(MODIFY_TOPIC, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new ModifyTopicResponse(rawResponse.getHeaders());
     }
 
     @Override
     public DescribeTopicResponse describeTopic(DescribeTopicRequest request) throws LogException {
-        // 1、check params, projectId is required params
-        if (request == null || StringUtils.isEmpty(request.getTopicId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_TOPIC, params, Const.EMPTY_JSON);
 
-        // 4、parse response
+        // 3、parse response
         return new DescribeTopicResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 DescribeTopicResponse.class);
 
@@ -483,11 +541,11 @@ public class TLSLogClientImpl implements TLSLogClient {
 
     @Override
     public DescribeTopicsResponse describeTopics(DescribeTopicsRequest request) throws LogException {
-        // 1、check params, request and projectId required params
-        if (request == null || StringUtils.isEmpty(request.getProjectId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair(PROJECT_ID, request.getProjectId()));
         if (request.getIsFullName() != null)
@@ -505,10 +563,10 @@ public class TLSLogClientImpl implements TLSLogClient {
             params.add(new BasicNameValuePair(TOPIC_NAME, request.getTopicName()));
         }
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(Const.DESCRIBE_TOPICS, params, Const.EMPTY_JSON);
 
-        // 4、parse response
+        // 3、parse response
         return new DescribeTopicsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 DescribeTopicsResponse.class);
 
@@ -517,68 +575,68 @@ public class TLSLogClientImpl implements TLSLogClient {
 
     @Override
     public CreateIndexResponse createIndex(CreateIndexRequest request) throws LogException {
-        // 1、check params, topicId and request are required params
-        if (request == null || StringUtils.isEmpty(request.getTopicId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(Const.CREATE_INDEX, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new CreateIndexResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 CreateIndexResponse.class);
     }
 
     @Override
     public DeleteIndexResponse deleteIndex(DeleteIndexRequest request) throws LogException {
-        // 1、check params,topicId is required params
-        if (request == null || StringUtils.isEmpty(request.getTopicId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DELETE_INDEX, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new DeleteIndexResponse(rawResponse.getHeaders());
 
     }
 
     @Override
     public ModifyIndexResponse modifyIndex(ModifyIndexRequest request) throws LogException {
-        // 1、check params, request and topicId are required params
-        if (request == null || StringUtils.isEmpty(request.getTopicId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(MODIFY_INDEX, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new ModifyIndexResponse(rawResponse.getHeaders());
     }
 
     @Override
     public DescribeIndexResponse describeIndex(DescribeIndexRequest request) throws LogException {
-        // 1、check params, projectId is required params
-        if (request == null || StringUtils.isEmpty(request.getTopicId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_INDEX, params, Const.EMPTY_JSON);
 
-        // 4、parse response
+        // 3、parse response
         return new DescribeIndexResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 DescribeIndexResponse.class);
 
@@ -586,18 +644,17 @@ public class TLSLogClientImpl implements TLSLogClient {
 
     @Override
     public CreateRuleResponse createRule(CreateRuleRequest request) throws LogException {
-        // 1、check params, ruleInfo 、topicId and ruleName are required params
-        if (request == null || StringUtils.isEmpty(request.getTopicId())
-                || StringUtils.isEmpty(request.getRuleName())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(CREATE_RULE, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new CreateRuleResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 CreateRuleResponse.class);
 
@@ -605,50 +662,50 @@ public class TLSLogClientImpl implements TLSLogClient {
 
     @Override
     public DeleteRuleResponse deleteRule(DeleteRuleRequest request) throws LogException {
-        // 1、check params,ruleId is required params
-        if (request == null || StringUtils.isEmpty(request.getRuleId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DELETE_RULE, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new DeleteRuleResponse(rawResponse.getHeaders());
     }
 
     @Override
     public ModifyRuleResponse modifyRule(ModifyRuleRequest request) throws LogException {
-        // 1、check params, request and ruleId are required params
-        if (request == null || StringUtils.isEmpty(request.getRuleId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(MODIFY_RULE, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new ModifyRuleResponse(rawResponse.getHeaders());
     }
 
     @Override
     public DescribeRuleResponse describeRule(DescribeRuleRequest request) throws LogException {
-        // 1、check params, ruleId is required params
-        if (request == null || StringUtils.isEmpty(request.getRuleId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair(RULE_ID, request.getRuleId()));
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_RULE, params, Const.EMPTY_JSON);
 
-        // 4、parse response
+        // 3、parse response
         return new DescribeRuleResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 DescribeRuleResponse.class);
 
@@ -656,11 +713,11 @@ public class TLSLogClientImpl implements TLSLogClient {
 
     @Override
     public DescribeRulesResponse describeRules(DescribeRulesRequest request) throws LogException {
-        // 1、check params, request and projectId required params
-        if (request == null || StringUtils.isEmpty(request.getProjectId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair(PROJECT_ID, request.getProjectId()));
         if (request.getPageNumber() != null) {
@@ -682,10 +739,10 @@ public class TLSLogClientImpl implements TLSLogClient {
             params.add(new BasicNameValuePair(TOPIC_NAME, request.getTopicName()));
         }
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_RULES, params, Const.EMPTY_JSON);
 
-        // 4、parse response
+        // 3、parse response
         return new DescribeRulesResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 DescribeRulesResponse.class);
     }
@@ -694,51 +751,50 @@ public class TLSLogClientImpl implements TLSLogClient {
     @Override
     public ApplyRuleToHostGroupsResponse applyRuleToHostGroups(ApplyRuleToHostGroupsRequest request)
             throws LogException {
-        // 1、check params, hostGroupId and ruleId are required params
-        if (request == null || StringUtils.isEmpty(request.getRuleId()) || request.getHostGroupIds() == null) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(APPLY_RULE_TO_HOES_GROUPS, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new ApplyRuleToHostGroupsResponse(rawResponse.getHeaders());
     }
 
     @Override
     public DeleteRuleFromHostGroupsResponse deleteRuleFromHostGroups(DeleteRuleFromHostGroupsRequest request)
             throws LogException {
-        // 1、check params, hostGroupId and ruleId are required params
-        if (request == null || StringUtils.isEmpty(request.getRuleId()) || request.getHostGroupIds() == null) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DELETE_RULE_FROM_HOST_GROUPS, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new DeleteRuleFromHostGroupsResponse(rawResponse.getHeaders());
     }
 
     @Override
     public CreateHostGroupResponse createHostGroup(CreateHostGroupRequest request) throws LogException {
-        // 1、check params,hostGroupName and hostGroupTYpe are required params
-        if (request == null || StringUtils.isEmpty(request.getHostGroupName()) ||
-                StringUtils.isEmpty(request.getHostGroupType())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(CREATE_HOST_GROUP, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new CreateHostGroupResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 CreateHostGroupResponse.class);
 
@@ -746,61 +802,61 @@ public class TLSLogClientImpl implements TLSLogClient {
 
     @Override
     public DeleteHostGroupResponse deleteHostGroup(DeleteHostGroupRequest request) throws LogException {
-        // 1、check params,hostGroupId is required params
-        if (request == null || StringUtils.isEmpty(request.getHostGroupId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DELETE_HOST_GROUP, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new DeleteHostGroupResponse(rawResponse.getHeaders());
 
     }
 
     @Override
     public ModifyHostGroupResponse modifyHostGroup(ModifyHostGroupRequest request) throws LogException {
-        // 1、check params, request and hostGroupId are required params
-        if (request == null || StringUtils.isEmpty(request.getHostGroupId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(MODIFY_HOST_GROUP, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new ModifyHostGroupResponse(rawResponse.getHeaders());
     }
 
     @Override
     public DescribeHostGroupResponse describeHostGroup(DescribeHostGroupRequest request) throws LogException {
-        // 1、check params, hostGroupId is required params
-        if (request == null || StringUtils.isEmpty(request.getHostGroupId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair(HOST_GROUP_ID, request.getHostGroupId()));
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_HOST_GROUP, params, Const.EMPTY_JSON);
 
-        // 4、parse response
+        // 3、parse response
         return new DescribeHostGroupResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 DescribeHostGroupResponse.class);
     }
 
     @Override
     public DescribeHostGroupsResponse describeHostGroups(DescribeHostGroupsRequest request) throws LogException {
-        // 1、check params, request is required params
-        if (request == null) {
-            throw new LogException("InvalidArgument", "Request is null", null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
+
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         if (request.getPageNumber() != null) {
@@ -831,10 +887,10 @@ public class TLSLogClientImpl implements TLSLogClient {
 
     @Override
     public DescribeHostsResponse describeHosts(DescribeHostsRequest request) throws LogException {
-        // 1、check params, request is required params
-        if (request == null) {
-            throw new LogException("InvalidArgument", "Request is null", null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
+
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         if (request.getPageNumber() != null) {
@@ -863,17 +919,17 @@ public class TLSLogClientImpl implements TLSLogClient {
 
     @Override
     public DeleteHostResponse deleteHost(DeleteHostRequest request) throws LogException {
-        // 1、check params,hostGroupId is required params
-        if (request == null || StringUtils.isEmpty(request.getHostGroupId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DELETE_HOST, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new DeleteHostResponse(rawResponse.getHeaders());
 
     }
@@ -881,11 +937,11 @@ public class TLSLogClientImpl implements TLSLogClient {
     @Override
     public DescribeHostGroupRulesResponse describeHostGroupRules(DescribeHostGroupRulesRequest request)
             throws LogException {
-        // 1、check params, request is required params
-        if (request == null || request.getHostGroupId() == null) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair(HOST_GROUP_ID, request.getHostGroupId()));
         if (request.getPageNumber() > 0) {
@@ -895,10 +951,10 @@ public class TLSLogClientImpl implements TLSLogClient {
             params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
         }
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_HOST_GROUP_RULES, params, Const.EMPTY_JSON);
 
-        // 4、parse response
+        // 3、parse response
         return new DescribeHostGroupRulesResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 DescribeHostGroupRulesResponse.class);
 
@@ -907,9 +963,8 @@ public class TLSLogClientImpl implements TLSLogClient {
     @Override
     public ModifyHostGroupsAutoUpdateResponse modifyHostGroupsAutoUpdate(ModifyHostGroupsAutoUpdateRequest request)
             throws LogException {
-        // 1. check params
-        if (request == null) {
-            throw new LogException("InvalidArgument", "Request is null", null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
 
         // 2. prepare request
@@ -925,65 +980,61 @@ public class TLSLogClientImpl implements TLSLogClient {
 
     @Override
     public CreateAlarmResponse createAlarm(CreateAlarmRequest request) throws LogException {
-        // 1、check params,alarmName 、projectId、queryResult、requestCycle、condition
-        // alarmPeriod and alarmNotifyGroup are required params
-        if (request == null || StringUtils.isEmpty(request.getAlarmName()) || request.getProjectId() == null
-                || request.getQueryRequest() == null || request.getRequestCycle() == null
-                || request.getCondition() == null || request.getAlarmPeriod() == null
-                || request.getAlarmNotifyGroup() == null) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(CREATE_ALARM, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new CreateAlarmResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 CreateAlarmResponse.class);
     }
 
     @Override
     public DeleteAlarmResponse deleteAlarm(DeleteAlarmRequest request) throws LogException {
-        // 1、check params,alarmId is required params
-        if (request == null || StringUtils.isEmpty(request.getAlarmId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DELETE_ALARM, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new DeleteAlarmResponse(rawResponse.getHeaders());
     }
 
     @Override
     public ModifyAlarmResponse modifyAlarm(ModifyAlarmRequest request) throws LogException {
-        // 1、check params,alarmId is required params
-        if (request == null || StringUtils.isEmpty(request.getAlarmId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(MODIFY_ALARM, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new ModifyAlarmResponse(rawResponse.getHeaders());
 
     }
 
     @Override
     public DescribeAlarmsResponse describeAlarms(DescribeAlarmsRequest request) throws LogException {
-        // 1、check params, projectId is required params
-        if (request == null || request.getProjectId() == null) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         if (request.getPageNumber() != null) {
             params.add(new BasicNameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
@@ -1008,10 +1059,10 @@ public class TLSLogClientImpl implements TLSLogClient {
             params.add(new BasicNameValuePair(STATUS, String.valueOf(request.getStatus())));
         }
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_ALARMS, params, Const.EMPTY_JSON);
 
-        // 4、parse response
+        // 3、parse response
         return new DescribeAlarmsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 DescribeAlarmsResponse.class);
 
@@ -1020,18 +1071,17 @@ public class TLSLogClientImpl implements TLSLogClient {
     @Override
     public CreateAlarmNotifyGroupResponse createAlarmNotifyGroup(CreateAlarmNotifyGroupRequest request)
             throws LogException {
-        // 1、check params,alarmGroupName 、notifyType、Receivers are required params
-        if (request == null || StringUtils.isEmpty(request.getAlarmNotifyGroupName()) || request.getNotifyType() == null
-                || request.getReceivers() == null) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(CREATE_ALARM_NOTIFY_GROUP, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new CreateAlarmNotifyGroupResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
                 CreateAlarmNotifyGroupResponse.class);
     }
@@ -1039,44 +1089,42 @@ public class TLSLogClientImpl implements TLSLogClient {
     @Override
     public DeleteAlarmNotifyGroupResponse deleteAlarmNotifyGroup(DeleteAlarmNotifyGroupRequest request)
             throws LogException {
-        // 1、check params,alarmId is required params
-        if (request == null || StringUtils.isEmpty(request.getAlarmNotifyGroupId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DELETE_ALARM_NOTIFY_GROUP, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new DeleteAlarmNotifyGroupResponse(rawResponse.getHeaders());
     }
 
     @Override
     public ModifyAlarmNotifyGroupResponse modifyAlarmNotifyGroup(ModifyAlarmNotifyGroupRequest request)
             throws LogException {
-        // 1、check params,alarmId is required params
-        if (request == null || StringUtils.isEmpty(request.getAlarmNotifyGroupId())) {
-            throw new LogException("InvalidArgument", "Request is:" + request, null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
-        // 2、prepare request
+
+        // 1、prepare request
         String requestBody = JSONObject.toJSONString(request);
 
-        // 3、check sum and sendRequest
+        // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(MODIFY_ALARM_NOTIFY_GROUP, new ArrayList<>(), requestBody);
 
-        // 4、parse response
+        // 3、parse response
         return new ModifyAlarmNotifyGroupResponse(rawResponse.getHeaders());
     }
 
     @Override
     public DescribeAlarmNotifyGroupsResponse describeAlarmNotifyGroups(DescribeAlarmNotifyGroupsRequest request)
             throws LogException {
-
-        // 1、check params, projectId is required params
-        if (request == null) {
-            throw new LogException("InvalidArgument", "Request is null", null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
         // 2、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
@@ -1111,10 +1159,10 @@ public class TLSLogClientImpl implements TLSLogClient {
     @Override
     public OpenKafkaConsumerResponse openKafkaConsumer(OpenKafkaConsumerRequest request)
             throws LogException {
-        // 1. check params
-        if (request == null) {
-            throw new LogException("InvalidArgument", "Request is null", null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
+
         // 2. prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         String requestBody = JSONObject.toJSONString(request);
@@ -1129,10 +1177,10 @@ public class TLSLogClientImpl implements TLSLogClient {
     @Override
     public CloseKafkaConsumerResponse closeKafkaConsumer(CloseKafkaConsumerRequest request)
             throws LogException {
-        // 1. check params
-        if (request == null) {
-            throw new LogException("InvalidArgument", "Request is null", null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
+
         // 2. prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         String requestBody = JSONObject.toJSONString(request);
@@ -1147,10 +1195,10 @@ public class TLSLogClientImpl implements TLSLogClient {
     @Override
     public DescribeKafkaConsumerResponse describeKafkaConsumer(DescribeKafkaConsumerRequest request)
             throws LogException {
-        // 1. check params
-        if (request == null) {
-            throw new LogException("InvalidArgument", "Request is null", null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
+
         // 2. prepare request
         ArrayList<NameValuePair> params = new ArrayList<>(); {
             if (StringUtils.isNotEmpty(request.getTopicId())) {
@@ -1170,9 +1218,8 @@ public class TLSLogClientImpl implements TLSLogClient {
     @Override
     public CreateDownloadTaskResponse createDownloadTask(CreateDownloadTaskRequest request)
             throws LogException {
-        // 1. check params
-        if (request == null) {
-            throw new LogException("InvalidArgument", "Request is null", null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
 
         // 2. prepare request
@@ -1190,9 +1237,8 @@ public class TLSLogClientImpl implements TLSLogClient {
     @Override
     public DescribeDownloadTasksResponse describeDownloadTasks(DescribeDownloadTasksRequest request)
             throws LogException {
-        // 1. check params
-        if (request == null) {
-            throw new LogException("InvalidArgument", "Request is null", null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
 
         // 2. prepare request
@@ -1220,9 +1266,8 @@ public class TLSLogClientImpl implements TLSLogClient {
     @Override
     public DescribeDownloadUrlResponse describeDownloadUrl(DescribeDownloadUrlRequest request)
             throws LogException {
-        // 1. check params
-        if (request == null) {
-            throw new LogException("InvalidArgument", "Request is null", null);
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
 
         // 2. prepare request
@@ -1242,18 +1287,26 @@ public class TLSLogClientImpl implements TLSLogClient {
     }
 
     private RawResponse doProtoRetryRequest(String api, List<NameValuePair> params, Map<String, String> headers,
-                                            byte[] body, String compressType, int maxRetryCount) throws LogException {
+                                            byte[] body, String compressType) throws LogException {
         RawResponse rawResponse = null;
+        long expectedQuitTimestamp = System.currentTimeMillis() + DEFAULT_REQUEST_TIMEOUT_MS;
+        int tryCount = 0;
         // retry
-        for (int i = 0; i <= maxRetryCount; i++) {
+        while (true) {
             rawResponse = httpRequest.proto(api, params, headers, body, compressType);
+            tryCount += 1;
             // return if request succeed
-            if (rawResponse.getCode() == SdkError.SUCCESS.getNumber() || !needRetryStatus(rawResponse.getHttpCode())) {
+            if (tryCount >= 5 || rawResponse.getCode() == SdkError.SUCCESS.getNumber() || !needRetryStatus(rawResponse.getHttpCode())) {
+                decreaseCounterByOne();
                 break;
             }
+            increaseCounterByOne();
             try {
-                long sleepMs = TimeUtil.calDefaultBackOffMs(i);
-                Thread.sleep(sleepMs);
+                long sleepMs = TimeUtil.calcDefaultBackOffMs(
+                        DEFAULT_RETRY_COUNTER.get(), DEFAULT_RETRY_INTERVAL_MS, expectedQuitTimestamp);
+                if (sleepMs > 0) {
+                    Thread.sleep(sleepMs);
+                }
             } catch (InterruptedException e) {
                 throw new LogException("sdk error", "retry thread interrupt exception", null);
             }

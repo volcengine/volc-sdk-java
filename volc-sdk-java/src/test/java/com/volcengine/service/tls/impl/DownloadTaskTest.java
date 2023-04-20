@@ -7,7 +7,6 @@ import com.volcengine.model.tls.request.*;
 import com.volcengine.model.tls.response.*;
 import org.junit.Test;
 
-import java.math.BigInteger;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -67,8 +66,8 @@ public class DownloadTaskTest extends BaseTest {
                     request.setCompression("gzip");
                     request.setTopicId(topicId);
                     request.setQuery("*");
-                    request.setStartTime(BigInteger.valueOf(System.currentTimeMillis() - 1000));
-                    request.setEndTime(BigInteger.valueOf(System.currentTimeMillis()));
+                    request.setStartTime(System.currentTimeMillis() - 1000);
+                    request.setEndTime(System.currentTimeMillis());
                     request.setDataFormat("csv");
                     request.setSort("desc");
                     request.setLimit(100);

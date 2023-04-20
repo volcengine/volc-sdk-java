@@ -27,4 +27,11 @@ public class CreateHostGroupRequest {
     String updateStartTime;
     @JSONField(name = UPDATE_END_TIME)
     String updateEndTime;
+
+    public boolean CheckValidation() {
+        if (this.hostGroupName == null || this.hostGroupType == null) {
+            return false;
+        }
+        return true;
+    }
 }

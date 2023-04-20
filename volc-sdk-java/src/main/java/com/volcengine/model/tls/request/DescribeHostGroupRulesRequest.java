@@ -25,4 +25,11 @@ public class DescribeHostGroupRulesRequest {
     public int getPageSize() {
         return pageSize;
     }
+
+    public boolean CheckValidation() {
+        if (this.hostGroupId == null) {
+            return false;
+        }
+        return true;
+    }
 }

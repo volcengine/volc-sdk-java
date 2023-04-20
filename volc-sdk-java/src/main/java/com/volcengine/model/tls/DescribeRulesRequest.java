@@ -11,4 +11,11 @@ public class DescribeRulesRequest {
     String topicName;
     Integer pageNumber;
     Integer pageSize;
+
+    public boolean CheckValidation() {
+        if (this.projectId == null) {
+            return false;
+        }
+        return true;
+    }
 }

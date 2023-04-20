@@ -9,4 +9,11 @@ public class DeleteRuleFromHostGroupsRequest extends ApplyRuleToHostGroupsReques
     public DeleteRuleFromHostGroupsRequest(String ruleId, List<String> hostGroupIds) {
         super(ruleId, hostGroupIds);
     }
+
+    public boolean CheckValidation() {
+        if (this.ruleId == null || this.hostGroupIds == null) {
+            return false;
+        }
+        return true;
+    }
 }

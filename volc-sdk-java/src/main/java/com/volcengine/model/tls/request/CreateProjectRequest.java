@@ -16,4 +16,10 @@ public class CreateProjectRequest {
     @JSONField(name = DESCRIPTION)
     private String description;
 
+    public boolean CheckValidation() {
+        if (this.projectName == null || this.region == null) {
+            return false;
+        }
+        return true;
+    }
 }

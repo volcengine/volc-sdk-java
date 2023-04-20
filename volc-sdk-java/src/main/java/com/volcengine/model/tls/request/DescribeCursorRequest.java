@@ -23,4 +23,10 @@ public class DescribeCursorRequest {
         this.from = from;
     }
 
+    public boolean CheckValidation() {
+        if (this.topicId == null || this.shardId == null || this.from == null) {
+            return false;
+        }
+        return true;
+    }
 }

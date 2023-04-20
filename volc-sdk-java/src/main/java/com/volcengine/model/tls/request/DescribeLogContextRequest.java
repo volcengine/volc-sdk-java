@@ -26,4 +26,11 @@ public class DescribeLogContextRequest {
 
     @JSONField(name = NEXT_LOGS)
     Integer nextLogs;
+
+    public boolean CheckValidation() {
+        if (this.topicId == null || this.contextFlow == null || this.packageOffset == null || this.source == null) {
+            return false;
+        }
+        return true;
+    }
 }

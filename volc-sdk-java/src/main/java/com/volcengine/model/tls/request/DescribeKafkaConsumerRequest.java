@@ -9,4 +9,11 @@ import lombok.NoArgsConstructor;
 public class DescribeKafkaConsumerRequest {
     @JSONField(serialize = false)
     String topicId;
+
+    public boolean CheckValidation() {
+        if (this.topicId == null) {
+            return false;
+        }
+        return true;
+    }
 }

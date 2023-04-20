@@ -33,4 +33,11 @@ public class CreateRuleRequest {
     int inputType;
     @JSONField(name = CONTAINER_RULE)
     ContainerRule containerRule;
+
+    public boolean CheckValidation() {
+        if (this.topicId == null || this.ruleName == null) {
+            return false;
+        }
+        return true;
+    }
 }

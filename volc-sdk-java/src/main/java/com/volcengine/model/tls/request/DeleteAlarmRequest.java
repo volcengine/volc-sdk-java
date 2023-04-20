@@ -12,4 +12,10 @@ public class DeleteAlarmRequest {
     @JSONField(name = ALARM_ID)
     private String alarmId;
 
+    public boolean CheckValidation() {
+        if (this.alarmId == null) {
+            return false;
+        }
+        return true;
+    }
 }

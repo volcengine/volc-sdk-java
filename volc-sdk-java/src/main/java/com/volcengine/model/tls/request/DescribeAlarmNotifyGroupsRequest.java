@@ -23,4 +23,8 @@ public class DescribeAlarmNotifyGroupsRequest {
     public DescribeAlarmNotifyGroupsRequest(String alarmNotifyGroupId) {
         this.alarmNotifyGroupId = alarmNotifyGroupId;
     }
+
+    public boolean CheckValidation() {
+        return true;
+    }
 }

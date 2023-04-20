@@ -23,4 +23,11 @@ public class CreateTopicRequest {
     Integer maxSplitShard;
     @JSONField(name = ENABLE_TRACKING)
     Boolean enableTracking;
+
+    public boolean CheckValidation() {
+        if (this.topicName == null || this.projectId == null) {
+            return false;
+        }
+        return true;
+    }
 }

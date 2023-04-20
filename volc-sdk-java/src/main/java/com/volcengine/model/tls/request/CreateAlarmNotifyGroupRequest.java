@@ -19,4 +19,10 @@ public class CreateAlarmNotifyGroupRequest {
     @JSONField(name=RECEIVERS)
     List<Receiver> receivers;
 
+    public boolean CheckValidation() {
+        if (this.alarmNotifyGroupName == null || this.notifyType == null || this.receivers == null) {
+            return false;
+        }
+        return true;
+    }
 }

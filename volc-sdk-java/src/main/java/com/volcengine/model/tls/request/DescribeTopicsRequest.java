@@ -10,4 +10,11 @@ public class DescribeTopicsRequest {
     Boolean IsFullName;
     String topicName;
     String topicId;
+
+    public boolean CheckValidation() {
+        if (this.projectId == null) {
+            return false;
+        }
+        return true;
+    }
 }

@@ -18,4 +18,11 @@ public class ApplyRuleToHostGroupsRequest {
     String ruleId;
     @JSONField(name=HOST_GROUP_IDS)
     List<String> hostGroupIds;
+
+    public boolean CheckValidation() {
+        if (this.ruleId == null || this.hostGroupIds == null) {
+            return false;
+        }
+        return true;
+    }
 }

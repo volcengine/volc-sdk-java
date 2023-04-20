@@ -3,22 +3,19 @@ package com.volcengine.model.tls.util;
 import com.google.common.math.LongMath;
 
 public class TimeUtil {
-    public static final int BASE_RETRY_MS = 100;
-    public static final int MAX_RETRY_MS = 50 * 1000;
-
     private TimeUtil() {
     }
 
-    //
-    public static long calBackOffMs(long baseBackOff, long maxBackOff, int retry) {
-        long retryBackoffMs = baseBackOff * LongMath.pow(2, retry);
-        if (retryBackoffMs <= 0) {
-            retryBackoffMs = maxBackOff;
-        }
-        return Math.min(retryBackoffMs, maxBackOff);
-    }
+    // 计算重试应该等待的时间间隔
+    public static long calcDefaultBackOffMs(int counter, int baseRetryMs, long expectedQuitTimestamp) throws InterruptedException {
+        long currentTime = System.currentTimeMillis();
+        int randomNum = (int) (Math.random() * counter);
+        long sleepTime = (long) randomNum * baseRetryMs;
 
-    public static long calDefaultBackOffMs(int retry) {
-        return calBackOffMs(BASE_RETRY_MS, MAX_RETRY_MS, retry);
+        if (currentTime + sleepTime < expectedQuitTimestamp) {
+            return sleepTime;
+        } else {
+            return expectedQuitTimestamp - currentTime;
+        }
     }
 }

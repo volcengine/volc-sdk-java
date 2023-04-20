@@ -1,15 +1,19 @@
 package com.volcengine.service.tls;
 
 import com.volcengine.model.tls.Const;
+import com.volcengine.model.tls.LogItem;
 import com.volcengine.model.tls.exception.LogException;
 import com.volcengine.model.tls.pb.PutLogRequest;
 import com.volcengine.model.tls.producer.BatchLog;
 import com.volcengine.model.tls.producer.CallBack;
 import com.volcengine.model.tls.producer.ProducerConfig;
+import com.volcengine.model.tls.util.AdaptorUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.Semaphore;
@@ -49,6 +53,10 @@ public class ProducerImpl implements Producer {
         return new ProducerImpl(new ProducerConfig(endpoint, region, accessKey, accessSecret, token));
     }
 
+    @Deprecated
+    /*
+        use sendLogV2 instead
+     */
     @Override
     public void sendLog(String hashKey, String topicId, String source, String filename,
                         PutLogRequest.Log log, CallBack callBack) throws InterruptedException, LogException {
@@ -61,6 +69,10 @@ public class ProducerImpl implements Producer {
         sendLogGroup(hashKey, topicId, source, filename, logGroup, callBack);
     }
 
+    @Deprecated
+    /*
+        use sendLogsV2 instead
+     */
     @Override
     public void sendLogGroup(String hashKey, String topicId, String source, String filename,
                              PutLogRequest.LogGroup logGroup, CallBack callBack)
@@ -81,6 +93,37 @@ public class ProducerImpl implements Producer {
 
         // 2 create batch log and add to dispatcher
         dispatcher.addBatch(hashKey, topicId, source, filename, logGroup, callBack);
+    }
+
+    @Override
+    public void sendLogV2(String hashKey, String topicId, String source, String filename, LogItem log, CallBack callBack)
+            throws InterruptedException, LogException {
+        List<LogItem> items = new ArrayList<>();
+        if (log == null) {
+            return;
+        }
+        items.add(log);
+        this.sendLogsV2(hashKey, topicId, source, filename, items, callBack);
+    }
+
+    @Override
+    public void sendLogsV2(String hashKey, String topicId, String source, String filename, List<LogItem> logs,
+                           CallBack callBack) throws InterruptedException, LogException {
+        // 1 check params
+        if (topicId == null || logs == null || logs.size() == 0) {
+            throw new LogException("InvalidArgument", String.format("topic id:%s,log group:%s", topicId, logs),
+                    null);
+        }
+
+        // check batch count
+        if (logs.size() > producerConfig.getMaxBatchCount()) {
+            throw new LogException("InvalidArgument", String.format("log list size %d is  greater than threshold %d",
+                    logs.size(), producerConfig.getMaxBatchCount()), null);
+        }
+
+        // 2 create batch log and add to dispatcher
+        dispatcher.addBatch(hashKey, topicId, source, filename, AdaptorUtil.logItems2PbGroup(filename, source, logs),
+                callBack);
     }
 
 

@@ -22,6 +22,8 @@ public interface TLSLogClient {
      */
     PutLogsResponse putLogs(PutLogsRequest request) throws LogException;
 
+    PutLogsResponse putLogsV2(PutLogsRequestV2 request) throws LogException;
+
     DescribeCursorResponse describeCursor(DescribeCursorRequest request) throws LogException;
 
     ConsumeLogsResponse consumeLogs(ConsumeLogsRequest request) throws LogException;

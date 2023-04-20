@@ -10,4 +10,10 @@ import lombok.NoArgsConstructor;
 public class DescribeRuleRequest {
     private String ruleId;
 
+    public boolean CheckValidation() {
+        if (this.ruleId == null) {
+            return false;
+        }
+        return true;
+    }
 }

@@ -21,4 +21,11 @@ public class CreateIndexRequest {
     FullTextInfo fullTextInfo;
     @JSONField(name = KEY_VALUE)
     List<KeyValueInfo> keyValue;
+
+    public boolean CheckValidation() {
+        if (this.topicId == null) {
+            return false;
+        }
+        return true;
+    }
 }

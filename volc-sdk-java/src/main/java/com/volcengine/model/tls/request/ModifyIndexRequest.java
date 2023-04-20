@@ -37,4 +37,11 @@ public class ModifyIndexRequest {
     public List<KeyValueInfo> getKeyValue() {
         return keyValue;
     }
+
+    public boolean CheckValidation() {
+        if (this.topicId == null) {
+            return false;
+        }
+        return true;
+    }
 }

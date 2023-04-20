@@ -9,4 +9,8 @@ public class DescribeHostGroupsRequest {
     Integer pageNumber;
     Integer pageSize;
     String hostIdentifier;
+
+    public boolean CheckValidation() {
+        return true;
+    }
 }

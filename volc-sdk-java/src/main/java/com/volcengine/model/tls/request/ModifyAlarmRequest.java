@@ -33,4 +33,11 @@ public class ModifyAlarmRequest {
     List<String> alarmNotifyGroup;
     @JSONField(name=USER_DEFINE_MSG)
     String userDefineMsg;
+
+    public boolean CheckValidation() {
+        if (this.alarmId == null) {
+            return false;
+        }
+        return true;
+    }
 }

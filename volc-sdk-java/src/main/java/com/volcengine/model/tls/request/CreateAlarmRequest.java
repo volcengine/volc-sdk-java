@@ -33,4 +33,13 @@ public class CreateAlarmRequest {
     List<String> alarmNotifyGroup;
     @JSONField(name=USER_DEFINE_MSG)
     String userDefineMsg;
+
+    public boolean CheckValidation() {
+        if (this.alarmName == null || this.projectId == null || this.queryRequest == null ||
+            this.requestCycle == null || this.condition == null || this.alarmPeriod == null ||
+            this.alarmNotifyGroup == null) {
+            return false;
+        }
+        return true;
+    }
 }

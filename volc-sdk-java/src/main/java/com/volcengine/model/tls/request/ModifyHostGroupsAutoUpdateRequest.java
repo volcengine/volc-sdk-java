@@ -20,4 +20,11 @@ public class ModifyHostGroupsAutoUpdateRequest {
 
     @JSONField(name = UPDATE_END_TIME)
     String updateEndTime;
+
+    public boolean CheckValidation() {
+        if (this.hostGroupIds == null) {
+            return false;
+        }
+        return true;
+    }
 }

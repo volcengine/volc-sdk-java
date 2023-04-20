@@ -202,6 +202,15 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
     }
 
     @Override
+    public VisualDollyZoomResponse dollyZoom(VisualDollyZoomRequest request) throws Exception {
+        RawResponse response = post(Const.DollyZoom, null, convertNameValuePair(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualDollyZoomResponse.class);
+    }
+
+    @Override
     public VisualCertTokenResponse certToken(VisualCertTokenRequest request) throws Exception {
         RawResponse response = json(Const.CertToken, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -235,6 +244,33 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
             throw response.getException();
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertConfigGetResponse.class);
+    }
+
+    @Override
+    public VisualCertTokenProResponse certTokenPro(VisualCertTokenProRequest request) throws Exception {
+        RawResponse response = json(Const.CertToken, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertTokenProResponse.class);
+    }
+
+    @Override
+    public VisualCertVerifyProResponse certVerifyPro(VisualCertVerifyProRequest request) throws Exception {
+        RawResponse response = json(Const.CertToken, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertVerifyProResponse.class);
+    }
+
+    @Override
+    public VisualCertQueryProResponse certQueryPro(VisualCertQueryProRequest request) throws Exception {
+        RawResponse response = json(Const.CertToken, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertQueryProResponse.class);
     }
 
     @Override

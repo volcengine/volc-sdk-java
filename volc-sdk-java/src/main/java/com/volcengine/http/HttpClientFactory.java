@@ -7,7 +7,6 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.HttpRequestRetryHandler;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.protocol.HttpClientContext;
-import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.conn.ConnectionKeepAliveStrategy;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
@@ -35,9 +34,6 @@ public class HttpClientFactory {
                 return false;
             }
             if (exception instanceof UnknownHostException) {
-                return false;
-            }
-            if (exception instanceof ConnectTimeoutException) {
                 return false;
             }
             HttpClientContext clientContext = HttpClientContext
@@ -72,7 +68,7 @@ public class HttpClientFactory {
                 .setProxy(proxy)
                 .build();
 
-        Thread daemonThread = new Thread(new IdleConnectionMonitorThread(connectionManager));
+        IdleConnectionMonitorThread daemonThread = new IdleConnectionMonitorThread(connectionManager);
         daemonThread.setDaemon(true);
         daemonThread.start();
 
@@ -107,6 +103,6 @@ public class HttpClientFactory {
     @AllArgsConstructor
     public static class ClientInstance{
         private HttpClient httpClient;
-        private Thread daemonThread;
+        private IdleConnectionMonitorThread daemonThread;
     }
 }

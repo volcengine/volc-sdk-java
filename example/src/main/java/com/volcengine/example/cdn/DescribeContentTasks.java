@@ -20,5 +20,6 @@ public class DescribeContentTasks {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

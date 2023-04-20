@@ -16,5 +16,6 @@ public class DescribeCdnService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

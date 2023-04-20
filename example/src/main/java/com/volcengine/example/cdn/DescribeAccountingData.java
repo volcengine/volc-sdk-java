@@ -21,5 +21,6 @@ public class DescribeAccountingData {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

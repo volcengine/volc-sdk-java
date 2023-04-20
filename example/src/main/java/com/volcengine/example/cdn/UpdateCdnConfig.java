@@ -30,5 +30,6 @@ public class UpdateCdnConfig {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

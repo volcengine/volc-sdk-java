@@ -18,5 +18,6 @@ public class DescribeCdnUpperIp {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

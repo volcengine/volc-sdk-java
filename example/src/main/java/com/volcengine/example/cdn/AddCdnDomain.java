@@ -33,5 +33,6 @@ public class AddCdnDomain {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

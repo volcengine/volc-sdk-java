@@ -18,5 +18,6 @@ public class SubmitPreloadTask {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

@@ -20,5 +20,6 @@ public class DescribeAccountingSummary {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

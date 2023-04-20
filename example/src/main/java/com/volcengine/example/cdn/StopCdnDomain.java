@@ -18,5 +18,6 @@ public class StopCdnDomain {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

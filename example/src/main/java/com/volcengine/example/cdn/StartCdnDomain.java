@@ -18,5 +18,6 @@ public class StartCdnDomain {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

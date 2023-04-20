@@ -22,5 +22,6 @@ public class DescribeCdnDataDetail {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

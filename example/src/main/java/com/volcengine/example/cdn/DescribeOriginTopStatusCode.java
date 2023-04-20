@@ -20,5 +20,6 @@ public class DescribeOriginTopStatusCode {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

@@ -22,5 +22,6 @@ public class DescribeCdnAccessLog {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

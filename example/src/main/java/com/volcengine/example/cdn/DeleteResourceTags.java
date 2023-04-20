@@ -22,5 +22,6 @@ public class DeleteResourceTags {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

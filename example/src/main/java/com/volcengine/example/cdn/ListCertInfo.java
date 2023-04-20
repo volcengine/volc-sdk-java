@@ -18,5 +18,6 @@ public class ListCertInfo {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

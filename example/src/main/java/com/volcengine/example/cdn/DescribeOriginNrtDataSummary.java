@@ -21,5 +21,6 @@ public class DescribeOriginNrtDataSummary {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

@@ -20,5 +20,6 @@ public class DescribeEdgeTopStatusCode {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

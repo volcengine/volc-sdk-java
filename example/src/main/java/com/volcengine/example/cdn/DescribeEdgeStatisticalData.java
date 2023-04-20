@@ -22,5 +22,6 @@ public class DescribeEdgeStatisticalData {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        service.destroy();
     }
 }

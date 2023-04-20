@@ -638,6 +638,7 @@ public class Const {
     public static final String EnhancePhoto = "EnhancePhoto";
     public static final String ConvertPhoto = "ConvertPhoto";
     public static final String PotraitEffect = "PotraitEffect";
+    public static final String DollyZoom = "DollyZoom";
     public static final String  CertToken= "CertToken";
     public static final String  CertVerifyQuery= "CertVerifyQuery";
     public static final String  CertConfigInit= "CertConfigInit";

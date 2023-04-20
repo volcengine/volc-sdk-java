@@ -306,6 +306,20 @@ public class VisualConfig {
                         }
                     }
             ));
+            put(Const.DollyZoom, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DollyZoom));
+                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.CertToken, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

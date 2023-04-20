@@ -152,6 +152,14 @@ public interface IVisualService extends IBaseService {
     VisualPotraitEffectResponse potraitEffect(VisualPotraitEffectRequest request) throws Exception;
 
     /**
+     * 希区柯克V1版本
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualDollyZoomResponse dollyZoom(VisualDollyZoomRequest request) throws Exception;
+
+    /**
      * 身份认证Token服务
      * @param request
      * @return
@@ -179,6 +187,27 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     VisualCertConfigGetResponse certConfigGet(VisualCertConfigGetRequest request) throws Exception;
+    /**
+     * 身份认证TokenPro服务
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualCertTokenProResponse certTokenPro(VisualCertTokenProRequest request) throws Exception;
+    /**
+     * 身份认证VerifyPro服务
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualCertVerifyProResponse certVerifyPro(VisualCertVerifyProRequest request) throws Exception;
+    /**
+     * 身份认证QueryPro服务
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualCertQueryProResponse certQueryPro(VisualCertQueryProRequest request) throws Exception;
     /**
      * 希区柯克V2(3D运镜)
      * @param request

@@ -1152,7 +1152,9 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     public AnalysisUserBehaviorPeopleResponse analysisUserBehaviorPeople(AnalysisUserBehaviorPeopleRequest analysisUserBehaviorPeopleRequest) throws Exception {
         RawResponse response = query(Const.AnalysisUserBehaviorPeople, Utils.paramsToPair(analysisUserBehaviorPeopleRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
+            // throw response.getException();
+            String message = GetErrorMessage(response);
+            throw new Exception(message);
         }
         AnalysisUserBehaviorPeopleResponse res = JSON.parseObject(response.getData(), AnalysisUserBehaviorPeopleResponse.class);
         if (res.getResponseMetadata().getError() != null) {
@@ -1536,5 +1538,21 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         }
         res.getResponseMetadata().setService("livesaas");
         return res;
+    }
+
+    private String GetErrorMessage(RawResponse response) {
+        String message = "Error:";
+        if (response.getException() != null) {
+            message += response.getException().getMessage();
+        }
+        if (response.getHttpCode() != 0) {
+            message += ", httpCode:" + response.getHttpCode();
+        }
+        if (response.getHeaders() != null) {
+            message += ", logid:" + response.getFirstHeader("X-Tt-Logid");
+        } else {
+            message += " without logid";
+        }
+        return message;
     }
 }

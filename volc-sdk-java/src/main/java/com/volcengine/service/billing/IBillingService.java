@@ -1,11 +1,7 @@
 package com.volcengine.service.billing;
 
-import com.volcengine.model.request.billing.ListBillDetailRequest;
-import com.volcengine.model.request.billing.ListBillOverviewByProdRequest;
-import com.volcengine.model.request.billing.ListBillRequest;
-import com.volcengine.model.response.billing.ListBillDetailResponse;
-import com.volcengine.model.response.billing.ListBillOverviewByProdResponse;
-import com.volcengine.model.response.billing.ListBillResponse;
+import com.volcengine.model.request.billing.*;
+import com.volcengine.model.response.billing.*;
 import com.volcengine.service.IBaseService;
 
 /**
@@ -38,4 +34,22 @@ public interface IBillingService extends IBaseService {
      * @throws Exception the exception
      */
     ListBillOverviewByProdResponse listBillOverviewByProd(ListBillOverviewByProdRequest listBillOverviewByProdRequest) throws Exception;
+
+    /**
+     * List AmortizedCostBillDetail.
+     *
+     * @param listAmortizedCostBillDetailRequest the list cost bill detail request
+     * @return the list cost bill detail response
+     * @throws Exception the exception
+     */
+    ListAmortizedCostBillDetailResponse listAmortizedCostBillDetail(ListAmortizedCostBillDetailRequest listAmortizedCostBillDetailRequest) throws Exception;
+
+    /**
+     * List AmortizedCostBillMonthly.
+     *
+     * @param listAmortizedCostBillMonthlyRequest the list cost bill monthly request
+     * @return the list cost bill monthly response
+     * @throws Exception the exception
+     */
+    ListAmortizedCostBillMonthlyResponse listAmortizedCostBillMonthly(ListAmortizedCostBillMonthlyRequest listAmortizedCostBillMonthlyRequest) throws Exception;
 }

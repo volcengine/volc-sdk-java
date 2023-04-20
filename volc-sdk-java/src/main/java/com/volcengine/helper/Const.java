@@ -68,6 +68,10 @@ public class Const {
     public static final String ListBillDetail = "ListBillDetail";
     public static final String ListBillOverviewByProd = "ListBillOverviewByProd";
 
+    public static final String ListAmortizedCostBillDetail = "ListAmortizedCostBillDetail";
+
+    public static final String ListAmortizedCostBillMonthly = "ListAmortizedCostBillMonthly";
+
 
     // sts
     public static final String AssumeRole = "AssumeRole";

@@ -4,13 +4,9 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
-import com.volcengine.model.request.billing.ListBillDetailRequest;
-import com.volcengine.model.request.billing.ListBillOverviewByProdRequest;
-import com.volcengine.model.request.billing.ListBillRequest;
+import com.volcengine.model.request.billing.*;
 import com.volcengine.model.response.RawResponse;
-import com.volcengine.model.response.billing.ListBillDetailResponse;
-import com.volcengine.model.response.billing.ListBillOverviewByProdResponse;
-import com.volcengine.model.response.billing.ListBillResponse;
+import com.volcengine.model.response.billing.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.billing.BillingConfig;
 import com.volcengine.service.billing.IBillingService;
@@ -54,5 +50,25 @@ public class BillingServiceImpl extends BaseServiceImpl implements IBillingServi
         }
 
         return JSON.parseObject(response.getData(), ListBillOverviewByProdResponse.class);
+    }
+
+    @Override
+    public ListAmortizedCostBillDetailResponse listAmortizedCostBillDetail(ListAmortizedCostBillDetailRequest listAmortizedCostBillDetailRequest) throws Exception {
+        RawResponse response = query(Const.ListAmortizedCostBillDetail, Utils.mapToPairList(Utils.paramsToMap(listAmortizedCostBillDetailRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ListAmortizedCostBillDetailResponse.class);
+    }
+
+    @Override
+    public ListAmortizedCostBillMonthlyResponse listAmortizedCostBillMonthly(ListAmortizedCostBillMonthlyRequest listAmortizedCostBillMonthlyRequest) throws Exception {
+        RawResponse response = query(Const.ListAmortizedCostBillMonthly, Utils.mapToPairList(Utils.paramsToMap(listAmortizedCostBillMonthlyRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ListAmortizedCostBillMonthlyResponse.class);
     }
 }

@@ -11,4 +11,11 @@ public class PutLogsOriginRequest {
     String hashKey;
     List<LogBody> logBody;
     String compressType;
+
+    public boolean CheckValidation() {
+        if (this.topicId == null || this.logBody == null) {
+            return false;
+        }
+        return true;
+    }
 }

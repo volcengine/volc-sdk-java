@@ -14,4 +14,10 @@ public class DeleteAlarmNotifyGroupRequest {
     @JSONField(name = ALARM_NOTIFY_GROUP_ID)
     private String alarmNotifyGroupId;
 
+    public boolean CheckValidation() {
+        if (this.alarmNotifyGroupId == null) {
+            return false;
+        }
+        return true;
+    }
 }

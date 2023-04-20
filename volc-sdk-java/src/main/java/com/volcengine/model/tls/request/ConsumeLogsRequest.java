@@ -21,4 +21,11 @@ public class ConsumeLogsRequest {
     String topicId;
     @JSONField(serialize = false)
     Integer shardId;
+
+    public boolean CheckValidation() {
+        if (this.topicId == null || this.shardId == null || this.cursor == null) {
+            return false;
+        }
+        return true;
+    }
 }

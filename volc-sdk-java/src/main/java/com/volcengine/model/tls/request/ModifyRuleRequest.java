@@ -35,4 +35,11 @@ public class ModifyRuleRequest {
     int inputType;
     @JSONField(name = CONTAINER_RULE)
     ContainerRule containerRule;
+
+    public boolean CheckValidation() {
+        if (this.ruleId == null) {
+            return false;
+        }
+        return true;
+    }
 }

@@ -18,4 +18,10 @@ public class ModifyProjectRequest {
     @JSONField(name = DESCRIPTION)
     private String description;
 
+    public boolean CheckValidation() {
+        if (this.projectId == null) {
+            return false;
+        }
+        return true;
+    }
 }

@@ -51,8 +51,8 @@ public class LogsTest extends BaseTest {
                     {
                         request.setQuery("*");
                         request.setTopicId(topicId);
-                        request.setStartTime(BigInteger.valueOf(System.currentTimeMillis() - 1000 * 10));
-                        request.setEndTime(BigInteger.valueOf(System.currentTimeMillis()));
+                        request.setStartTime(System.currentTimeMillis() - 1000 * 10);
+                        request.setEndTime(System.currentTimeMillis());
                         request.setInterval(BigInteger.valueOf(1000));
                     }
                     client.describeHistogram(request);
@@ -150,8 +150,8 @@ public class LogsTest extends BaseTest {
             searchLogsRequest.setTopicId(topicId);
             searchLogsRequest.setQuery("test");
             //开始时间20220701
-            searchLogsRequest.setStartTime(BigInteger.valueOf(1656604800000L));
-            searchLogsRequest.setEndTime(BigInteger.valueOf(System.currentTimeMillis()));
+            searchLogsRequest.setStartTime(1656604800000L);
+            searchLogsRequest.setEndTime(System.currentTimeMillis());
             SearchLogsResponse searchLogsResponse = client.searchLogs(searchLogsRequest);
             assertTrue(searchLogsResponse.getLogs().size() > 0);
 
@@ -171,8 +171,8 @@ public class LogsTest extends BaseTest {
                 {
                     request.setQuery("*");
                     request.setTopicId(topicId);
-                    request.setStartTime(BigInteger.valueOf(System.currentTimeMillis() - 1000 * 10));
-                    request.setEndTime(BigInteger.valueOf(System.currentTimeMillis()));
+                    request.setStartTime(System.currentTimeMillis() - 1000 * 10);
+                    request.setEndTime(System.currentTimeMillis());
                     request.setInterval(BigInteger.valueOf(1000));
                 }
                 DescribeHistogramResponse response = client.describeHistogram(request);

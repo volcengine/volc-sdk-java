@@ -12,4 +12,11 @@ public class DescribeAlarmsRequest {
     Boolean status;
     Integer pageNumber;
     Integer pageSize;
+
+    public boolean CheckValidation() {
+        if (this.projectId == null) {
+            return false;
+        }
+        return true;
+    }
 }

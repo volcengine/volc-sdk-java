@@ -17,4 +17,10 @@ public class DescribeShardsRequest {
     public DescribeShardsRequest() {
     }
 
+    public boolean CheckValidation() {
+        if (this.topicId == null) {
+            return false;
+        }
+        return true;
+    }
 }

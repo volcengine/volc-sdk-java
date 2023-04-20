@@ -10,4 +10,11 @@ public class DescribeHostGroupRequest {
     public String getHostGroupId() {
         return hostGroupId;
     }
+
+    public boolean CheckValidation() {
+        if (this.hostGroupId == null) {
+            return false;
+        }
+        return true;
+    }
 }

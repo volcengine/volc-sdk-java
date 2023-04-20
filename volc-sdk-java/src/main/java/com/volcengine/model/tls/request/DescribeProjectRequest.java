@@ -10,4 +10,11 @@ public class DescribeProjectRequest {
     public String getProjectId() {
         return projectId;
     }
+
+    public boolean CheckValidation() {
+        if (this.projectId == null) {
+            return false;
+        }
+        return true;
+    }
 }

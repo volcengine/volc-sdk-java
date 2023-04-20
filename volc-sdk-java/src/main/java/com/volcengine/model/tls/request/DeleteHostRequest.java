@@ -17,4 +17,10 @@ public class DeleteHostRequest {
     @JSONField(name = IP)
     private String ip;
 
+    public boolean CheckValidation() {
+        if (this.hostGroupId == null || this.ip == null) {
+            return false;
+        }
+        return true;
+    }
 }

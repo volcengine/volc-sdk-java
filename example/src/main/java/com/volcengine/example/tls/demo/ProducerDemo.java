@@ -11,7 +11,9 @@ import com.volcengine.service.tls.Producer;
 import com.volcengine.service.tls.ProducerImpl;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
@@ -64,7 +66,13 @@ public class ProducerDemo extends BaseDemo {
                     System.out.println("producer result:" + result);
                 }
             };
-            producer.sendLog("", topicId, "test-source", "test-file", log, callBack);
+            List<LogItem> logs = new ArrayList<>();
+            currentTimeMillis = System.currentTimeMillis();
+            LogItem item = new LogItem(currentTimeMillis);
+            item.addContent("index", "" + 1);
+            item.addContent("test-key", "test-value");
+            logs.add(item);
+            producer.sendLogsV2("",topicId,"test-source", "test-file", logs, callBack);
             // describe cursor
             DescribeCursorRequest describeCursorRequest =
                     new DescribeCursorRequest(topicId, 0, "1656604800");

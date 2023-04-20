@@ -27,4 +27,11 @@ public class WebTracksRequest {
 
     @JSONField(name = SOURCE)
     String source;
+
+    public boolean CheckValidation() {
+        if (this.topicId == null || this.projectId == null || this.logs == null) {
+            return false;
+        }
+        return true;
+    }
 }

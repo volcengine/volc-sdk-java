@@ -17,4 +17,11 @@ public class ModifyAlarmNotifyGroupRequest {
     List<String> notifyType;
     @JSONField(name=RECEIVERS)
     List<Receiver> receivers;
+
+    public boolean CheckValidation() {
+        if (this.alarmNotifyGroupId == null) {
+            return false;
+        }
+        return true;
+    }
 }

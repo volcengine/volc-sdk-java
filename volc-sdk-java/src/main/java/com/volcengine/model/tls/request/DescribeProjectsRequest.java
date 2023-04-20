@@ -19,4 +19,8 @@ public class DescribeProjectsRequest {
      * false means fuzzy match
      */
     Boolean isFullName;
+
+    public boolean CheckValidation() {
+        return true;
+    }
 }

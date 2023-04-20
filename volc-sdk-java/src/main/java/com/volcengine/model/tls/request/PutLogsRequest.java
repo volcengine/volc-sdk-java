@@ -24,4 +24,11 @@ public class PutLogsRequest {
         this.hashKey = hashKey;
         this.compressType = compressType;
     }
+
+    public boolean CheckValidation() {
+        if (this.topicId == null || this.logGroupList == null) {
+            return false;
+        }
+        return true;
+    }
 }

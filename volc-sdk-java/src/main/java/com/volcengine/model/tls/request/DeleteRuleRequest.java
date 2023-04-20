@@ -13,4 +13,11 @@ import static com.volcengine.model.tls.Const.RULE_ID;
 public class DeleteRuleRequest {
     @JSONField(name = RULE_ID)
     private String ruleId;
+
+    public boolean CheckValidation() {
+        if (this.ruleId == null) {
+            return false;
+        }
+        return true;
+    }
 }

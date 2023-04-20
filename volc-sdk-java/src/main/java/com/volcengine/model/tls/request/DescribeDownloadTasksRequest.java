@@ -15,4 +15,11 @@ public class DescribeDownloadTasksRequest {
 
 	@JSONField(serialize = false)
 	Integer pageSize;
+
+	public boolean CheckValidation() {
+		if (this.topicId == null) {
+			return false;
+		}
+		return true;
+	}
 }

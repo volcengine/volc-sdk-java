@@ -18,11 +18,36 @@ public class DescribeHistogramRequest {
     String query;
 
     @JSONField(name = START_TIME)
-    BigInteger startTime;
+    Long startTime;
 
     @JSONField(name = END_TIME)
-    BigInteger endTime;
+    Long endTime;
 
     @JSONField(name = INTERVAL)
     BigInteger interval;
+
+    public boolean CheckValidation() {
+        if (this.topicId == null || this.query == null || this.startTime == null || this.endTime == null) {
+            return false;
+        }
+        return true;
+    }
+
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
+    }
+
+    public void setEndTime(long endTime) {
+        this.endTime = endTime;
+    }
+
+    @Deprecated
+    public void setStartTime(BigInteger startTime) {
+        this.startTime = startTime.longValue();
+    }
+
+    @Deprecated
+    public void setEndTime(BigInteger endTime) {
+        this.endTime = endTime.longValue();
+    }
 }

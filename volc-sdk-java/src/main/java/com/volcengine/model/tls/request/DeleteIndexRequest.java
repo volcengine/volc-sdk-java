@@ -15,4 +15,11 @@ public class DeleteIndexRequest {
     public String getTopicId() {
         return topicId;
     }
+
+    public boolean CheckValidation() {
+        if (this.topicId == null) {
+            return false;
+        }
+        return true;
+    }
 }

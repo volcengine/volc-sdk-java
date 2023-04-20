@@ -9,4 +9,11 @@ public class DescribeHostsRequest {
     Integer heartbeatStatus;
     Integer pageNumber;
     Integer pageSize;
+
+    public boolean CheckValidation() {
+        if (this.hostGroupId == null) {
+            return false;
+        }
+        return true;
+    }
 }

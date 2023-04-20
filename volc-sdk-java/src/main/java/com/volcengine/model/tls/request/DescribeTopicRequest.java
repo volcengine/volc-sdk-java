@@ -14,4 +14,10 @@ public class DescribeTopicRequest {
         this.topicId = topicId;
     }
 
+    public boolean CheckValidation() {
+        if (this.topicId == null) {
+            return false;
+        }
+        return true;
+    }
 }

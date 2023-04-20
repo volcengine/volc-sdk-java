@@ -19,4 +19,6 @@ public class GetImageContentTaskDetailRespData {
     Long updateTime;
     @JSONField(name = "Msg")
     String msg;
+    @JSONField(name = "TaskId")
+    String taskId;
 }

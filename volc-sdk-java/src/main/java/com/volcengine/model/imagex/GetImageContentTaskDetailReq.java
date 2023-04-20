@@ -9,6 +9,8 @@ public class GetImageContentTaskDetailReq {
     String serviceId;
     @JSONField(name = "TaskType")
     String taskType;
+    @JSONField(name = "TaskId")
+    String taskId;
     @JSONField(name = "State")
     String state;
     @JSONField(name = "Order")

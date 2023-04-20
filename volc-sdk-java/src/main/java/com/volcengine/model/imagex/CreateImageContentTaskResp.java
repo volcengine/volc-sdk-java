@@ -7,4 +7,6 @@ import lombok.Data;
 public class CreateImageContentTaskResp {
     @JSONField(name = "Msg")
     String msg;
+    @JSONField(name = "TaskId")
+    String taskId;
 }

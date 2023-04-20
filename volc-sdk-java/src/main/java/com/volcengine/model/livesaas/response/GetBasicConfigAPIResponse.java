@@ -147,6 +147,8 @@ public class GetBasicConfigAPIResponse {
         String ShareIconUrlDefault;
         @JSONField(name = "ConfigVersion")
         Integer ConfigVersion;
+        @JSONField(name = "VerticalCoverImageUrl")
+        String VerticalCoverImageUrl;
     }
 
     @Data

@@ -28,4 +28,6 @@ public class CreateActivityAPIRequest {
     Boolean CopyStream;
     @JSONField(name = "LiveMode")
     Integer LiveMode;
+    @JSONField(name = "VerticalCoverImage")
+    String VerticalCoverImage;
 }

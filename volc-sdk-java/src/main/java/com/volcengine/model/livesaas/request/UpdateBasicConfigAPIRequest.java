@@ -136,6 +136,8 @@ public class UpdateBasicConfigAPIRequest {
     String PreviewVideoCoverImage;
     @JSONField(name = "RiskWarningSetting")
     RiskWarningSetting RiskWarningSetting;
+    @JSONField(name = "VerticalCoverImageUrl")
+    String VerticalCoverImageUrl;
 
     @Data
     public static class RiskWarningSetting {

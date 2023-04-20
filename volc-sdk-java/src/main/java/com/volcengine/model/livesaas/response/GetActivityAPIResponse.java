@@ -36,5 +36,7 @@ public class GetActivityAPIResponse {
         Integer LiveReviewStatus;
         @JSONField(name = "LiveMode")
         Integer LiveMode;
+        @JSONField(name = "VerticalCoverImage")
+        String VerticalCoverImage;
     }
 }

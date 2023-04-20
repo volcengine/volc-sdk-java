@@ -1,5 +1,9 @@
 Change log
 
+2023-04-20 Bumped to version v1.0.96
+- Updated client's destroy method and fix ct equal methon
+- Updated apis for livesaas/sms/stream/tls/cdn/visual/billing/imagex
+
 2023-04-13 Bumped to version v1.0.95
 - Updated apis for visual/imagex/cdn
 

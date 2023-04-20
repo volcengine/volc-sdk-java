@@ -9,6 +9,8 @@ import com.volcengine.model.response.ApplyVmsTemplateResponse;
 import com.volcengine.model.response.GetVmsTemplateResponse;
 import com.volcengine.model.response.SmsSendResponse;
 import com.volcengine.service.sms.SmsService;
+import com.volcengine.service.sms.SmsServiceInfo;
+import com.volcengine.service.sms.SmsServiceInfoConfig;
 import com.volcengine.service.sms.SourceType;
 import com.volcengine.service.sms.impl.SmsServiceImpl;
 
@@ -20,25 +22,21 @@ import java.util.*;
 public class SendSmsDemo {
 
     public static void main(String[] args) throws IOException {
-        SmsService smsService = SmsServiceImpl.getInstance();
+        SmsServiceInfoConfig config = new SmsServiceInfoConfig("ak", "sk");
 
-        // call below method if you dont set ak and sk in ～/.vcloud/config
-        smsService.setAccessKey("ak");
-        smsService.setSecretKey("sk");
 
         SmsSendRequest req = new SmsSendRequest();
-        req.setSign("signature");
-        req.setSmsAccount("smsAccount");
-        req.setPhoneNumbers("phoneNo");
-        req.setTemplateId("templateId");
-        req.setTemplateParam("param");//{"code":"1234"}
-        //如果想使用map添加模版参数，使用下线注释掉的这段demo
-        /*Map<String,String> paramMap = new HashMap<>();
-        paramMap.put("content","第一行\n第二行");
-        req.SetTemplateParamByMap(paramMap);*/
-        req.setTag("tag");
+        req.setPhoneNumbers("188888888");
+        req.setSmsAccount("subaccount");
+        req.setTemplateId("templateid");
+
+        Map<String,String> param = new HashMap<>();
+        param.put("content","第一行\n第二行");
+        req.setTemplateParamByMap(param);
+
+        SmsService service = SmsServiceImpl.getInstance(config);
         try {
-            SmsSendResponse response = smsService.send(req);
+            SmsSendResponse response = service.send(req);
             System.out.println(JSON.toJSONString(response));
         } catch (Exception e) {
             e.printStackTrace();

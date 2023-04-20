@@ -9,6 +9,8 @@ import com.volcengine.model.response.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.sms.SmsConfig;
 import com.volcengine.service.sms.SmsService;
+import com.volcengine.service.sms.SmsServiceInfo;
+import com.volcengine.service.sms.SmsServiceInfoConfig;
 import com.volcengine.util.ConvertUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpHost;
@@ -17,12 +19,14 @@ import org.apache.http.NameValuePair;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
 
-    public static final String SourceTypeText = "text/string";
+    //用户多账户时使用
+    private static final ConcurrentHashMap<String,SmsService> instanceMap = new ConcurrentHashMap<>();
 
-    private static volatile SmsServiceImpl smsServiceImpl;
+    public static final String SourceTypeText = "text/string";
 
     private SmsServiceImpl() {
         super(SmsConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), SmsConfig.apiInfoList);
@@ -36,25 +40,43 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         super(SmsConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), proxy, SmsConfig.apiInfoList);
     }
 
+    private SmsServiceImpl(ServiceInfo serviceInfo, HttpHost proxy) {
+        super(serviceInfo, proxy, SmsConfig.apiInfoList);
+    }
+
     /**
      * 此方法不是单例，使用的时候需要注意
      * @return
      */
+
+    @Deprecated
     public static SmsService getInstance() {
         return new SmsServiceImpl();
     }
 
-    public static SmsService getInstanceV2() {
-        if (smsServiceImpl==null){
-            synchronized (SmsServiceImpl.class){
-                if(smsServiceImpl==null){
-                    smsServiceImpl = new SmsServiceImpl();
+
+    public static SmsService getInstance(SmsServiceInfoConfig config) {
+        String key = config.getAccessKey();
+        if (instanceMap.get(key) == null) {
+            ServiceInfo serviceInfo = new SmsServiceInfo(config).GetServiceInfo();
+            synchronized (instanceMap) {
+                if (instanceMap.get(key) == null) {
+                    if (config.getProxy() == null) {
+                        SmsService smsService = new SmsServiceImpl(serviceInfo);
+                        instanceMap.putIfAbsent(key, smsService);
+                    } else {
+                        SmsService smsService = new SmsServiceImpl(serviceInfo, config.getProxy());
+                        instanceMap.putIfAbsent(key, smsService);
+                    }
+
                 }
             }
         }
-        return smsServiceImpl;
+        return instanceMap.get(key);
     }
 
+
+    @Deprecated
     public static SmsService getInstance(String region) throws Exception {
         ServiceInfo serviceInfo = SmsConfig.serviceInfoMap.get(region);
         if (serviceInfo == null) {
@@ -63,6 +85,8 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         return new SmsServiceImpl(serviceInfo);
     }
 
+
+    @Deprecated
     public static SmsService getInstance(HttpHost proxy) {
         return new SmsServiceImpl(proxy);
     }

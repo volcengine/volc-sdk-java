@@ -149,10 +149,11 @@ public class SignerV4Impl implements ISignerV4 {
             bodyHash = Utils.hashSHA256(new byte[0]);
         } else {
             for (Header header : requestParam.getHeaders()) {
+                if (header.getName().equalsIgnoreCase(Const.ContentType)) {
+                    signRequest.setContentType(header.getValue());
+                }
+
                 requestSignMap.put(header.getName(), header.getValue());
-            }
-            if (requestSignMap.get(Const.ContentType) != null) {
-                signRequest.setContentType(requestSignMap.get(Const.ContentType));
             }
 
             requestSignMap.put(Const.XDate, formatDate);

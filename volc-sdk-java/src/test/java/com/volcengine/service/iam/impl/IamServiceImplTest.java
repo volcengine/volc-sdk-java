@@ -2,16 +2,14 @@ package com.volcengine.service.iam.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.volcengine.model.request.iam.CreateUserRequest;
-import com.volcengine.model.request.iam.DeleteUserRequest;
 import com.volcengine.model.request.iam.ListUsersRequest;
 import com.volcengine.model.response.iam.CreateUserResponse;
-import com.volcengine.model.response.iam.DeleteUserResponse;
 import com.volcengine.model.response.iam.ListUsersResponse;
 import com.volcengine.service.iam.IIamService;
-import junit.framework.TestCase;
+import org.junit.After;
 import org.junit.Test;
 
-public class IamServiceImplTest extends TestCase {
+public class IamServiceImplTest {
     IIamService svc = IamServiceImpl.getInstance();
 
     {
@@ -37,18 +35,6 @@ public class IamServiceImplTest extends TestCase {
     }
 
     @Test
-    public void testDeleteUser() {
-        DeleteUserRequest request = new DeleteUserRequest();
-        request.setUserName("C");
-
-        try {
-            DeleteUserResponse response = svc.deleteUser(request);
-            System.out.println(JSON.toJSONString(response));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public void testMultiInstance() throws Exception {
         ListUsersRequest request = new ListUsersRequest();
         request.setLimit(100);
@@ -72,7 +58,10 @@ public class IamServiceImplTest extends TestCase {
 
         instance1.destroy();
         instance2.destroy();
-
     }
 
+    @After
+    public void clean() {
+        svc.destroy();
+    }
 }

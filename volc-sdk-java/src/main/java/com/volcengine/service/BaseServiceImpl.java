@@ -7,6 +7,7 @@ import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.http.ClientConfiguration;
 import com.volcengine.http.HttpClientFactory;
+import com.volcengine.http.IdleConnectionMonitorThread;
 import com.volcengine.model.ApiInfo;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
@@ -54,7 +55,7 @@ public abstract class BaseServiceImpl implements IBaseService {
     private int socketTimeout;
     private int connectionTimeout;
 
-    private Thread monitorThread;
+    private IdleConnectionMonitorThread monitorThread;
 
     private Credentials credentials;
 
@@ -89,7 +90,7 @@ public abstract class BaseServiceImpl implements IBaseService {
             return;
         }
         try {
-            monitorThread.stop();
+            monitorThread.shutdown();
         }catch (Error e) {
             LOG.error("Try to destroy monitor thread failed", e);
         } finally {

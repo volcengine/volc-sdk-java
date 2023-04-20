@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 import static com.volcengine.helper.Const.*;
-
 @Data
 public class ServiceInfo {
 

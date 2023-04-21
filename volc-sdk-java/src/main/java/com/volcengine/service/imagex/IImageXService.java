@@ -8,7 +8,6 @@ import com.volcengine.model.sts2.SecurityToken2;
 import com.volcengine.service.IBaseService;
 
 import java.io.InputStream;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -140,6 +139,15 @@ public interface IImageXService extends IBaseService {
      * @throws Exception the exception
      */
     GetImageUploadFilesResponse getImageUploadFiles(GetImageUploadFilesRequest req) throws Exception;
+
+    /**
+     * Update storage ttl
+     *
+     * @param req args
+     * @return update result
+     * @throws Exception the exception
+     */
+    UpdateImageStorageTTLResponse updateImageStorageTTL(UpdateImageStorageTTLRequest req) throws Exception;
 
     /**
      * create image content task

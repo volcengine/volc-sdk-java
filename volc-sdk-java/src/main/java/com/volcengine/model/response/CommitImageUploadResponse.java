@@ -28,6 +28,8 @@ public class CommitImageUploadResponse {
     public static class UploadImageResultBean {
         @JSONField(name = "Uri")
         String uri;
+        @JSONField(name = "UriStatus")
+        Integer uriStatus;
         @JSONField(name = "Encryption")
         EncryptionBean encryption;
     }

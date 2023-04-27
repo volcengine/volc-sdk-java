@@ -658,7 +658,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
 
     @Override
     public GetDeduplicateTaskStatusResponse getDeduplicateTaskStatus(GetDeduplicateTaskStatusRequest req) throws Exception {
-        RawResponse response = query("GetImageDuplicateDetection", Utils.paramsToPair(req));
+        RawResponse response = query("GetDedupTaskStatus", Utils.paramsToPair(req));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }

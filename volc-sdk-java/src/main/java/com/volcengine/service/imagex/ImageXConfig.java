@@ -678,6 +678,20 @@ public class ImageXConfig {
                         }
                     }
             ));
+            put("GetDedupTaskStatus", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetDedupTaskStatus"));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put("GetDenoisingImage", new ApiInfo(
                     new HashMap<String, Object>() {
                         {

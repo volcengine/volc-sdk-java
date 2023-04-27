@@ -227,7 +227,7 @@ public interface IImageXService extends IBaseService {
      * @return api response
      * @throws Exception the exception
      */
-    GetImageOCRResponse<?> getImageOCR(GetImageOCRRequest param) throws Exception;
+    GetImageOCRResponse getImageOCRV2(GetImageOCRRequest param) throws Exception;
 
     /**
      * Request ImageX api with method POST.

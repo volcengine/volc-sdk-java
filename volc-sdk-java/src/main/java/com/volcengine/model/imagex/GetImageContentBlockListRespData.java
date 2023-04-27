@@ -20,3 +20,4 @@ public class GetImageContentBlockListRespData {
     @JSONField(name = "Msg")
     String msg;
 }
+

@@ -404,6 +404,11 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     @Override
+    public UpdateImageStorageTTLResponse updateImageStorageTTL(UpdateImageStorageTTLRequest req) throws Exception {
+        return postImageX("UpdateImageStorageTTL", EMPTY_STRING_STRING_MAP, req, UpdateImageStorageTTLResponse.class).getResult();
+    }
+
+    @Override
     public CreateImageContentTaskResp createImageContentTask(CreateImageContentTaskReq req) throws Exception {
         return postImageX("CreateImageContentTask", Collections.singletonMap("ServiceId", req.getServiceId()), req, CreateImageContentTaskResp.class).getResult();
     }

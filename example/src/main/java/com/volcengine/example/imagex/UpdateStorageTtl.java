@@ -1,31 +1,26 @@
 package com.volcengine.example.imagex;
 
-import com.volcengine.model.imagex.DescribeImageVolcCdnAccessLogReq;
-import com.volcengine.model.imagex.DescribeImageVolcCdnAccessLogResp;
+import com.volcengine.model.imagex.UpdateImageStorageTTLRequest;
+import com.volcengine.model.imagex.UpdateImageStorageTTLResponse;
 import com.volcengine.service.imagex.IImageXService;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 
 /**
- * 查询离线日志下载地址
+ * 更新存储有效期
  */
-public class DescribeImageVolcCdnAccessLogDemo {
+public class UpdateStorageTtl {
     public static void main(String[] args) {
         // 默认 ImageX 实例为 `cn-north-1`，如果您想使用其他区域的实例，请使用 `ImageXServiceImpl.GetInstance(区域名)` 显式指定区域
         IImageXService service = ImageXServiceImpl.getInstance();
         service.setAccessKey("ak");
         service.setSecretKey("sk");
 
-        DescribeImageVolcCdnAccessLogReq req = new DescribeImageVolcCdnAccessLogReq();
+        UpdateImageStorageTTLRequest req = new UpdateImageStorageTTLRequest();
+        req.setTtl(86400);
         req.setServiceId("service id");
-        req.setStartTime(1680500000L);
-        req.setEndTime(1680515000L);
-        req.setDomain("example.com");
-        req.setRegion("global");
-        req.setPageNum(1);
-        req.setPageSize(10);
 
         try {
-            DescribeImageVolcCdnAccessLogResp resp = service.describeImageVolcCdnAccessLog(req);
+            UpdateImageStorageTTLResponse resp = service.updateImageStorageTTL(req);
             System.out.println(resp);
         } catch (Exception e) {
             e.printStackTrace();

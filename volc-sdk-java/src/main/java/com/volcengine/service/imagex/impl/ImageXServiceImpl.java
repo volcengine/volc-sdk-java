@@ -496,22 +496,12 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     @Override
-    public GetImageOCRResponse<?> getImageOCR(GetImageOCRRequest param) throws Exception {
-        Class<?> type;
-        if (param.getScene().equals("license")) {
-            type = GetImageOCRLicenseResponse.class;
-        } else if (param.getScene().equals("general")) {
-            type = GetImageOCRGeneralResponse.class;
-        } else {
-            throw new IllegalArgumentException("scene now acceptable");
-        }
-
-        RawResponse response = json("GetImageOCR", Utils.paramsToPair(param), JSON.toJSONString(param));
+    public GetImageOCRResponse getImageOCRV2(GetImageOCRRequest param) throws Exception {
+        RawResponse response = json("GetImageOCRV2", Utils.paramsToPair(param), JSON.toJSONString(param));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-
-        GetImageOCRResponse<?> res = JSON.parseObject(response.getData(), type);
+        GetImageOCRResponse res = JSON.parseObject(response.getData(), GetImageOCRResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());

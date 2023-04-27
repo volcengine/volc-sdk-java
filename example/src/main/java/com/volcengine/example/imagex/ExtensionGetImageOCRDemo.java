@@ -1,7 +1,7 @@
 package com.volcengine.example.imagex;
 
+import com.volcengine.model.imagex.GetImageOCRResponse;
 import com.volcengine.model.request.GetImageOCRRequest;
-import com.volcengine.model.response.GetImageOCRResponse;
 import com.volcengine.service.imagex.IImageXService;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 
@@ -21,7 +21,7 @@ public class ExtensionGetImageOCRDemo {
             params.setStoreUri("store uri");   // 文件的 Store URI
             params.setImageUrl("image url");   // 若 Store Uri 为空则访问 url
             params.setScene(GetImageOCRRequest.Scene.GENERAL);
-            GetImageOCRResponse<?> response = service.getImageOCR(params);
+            GetImageOCRResponse response = service.getImageOCRV2(params);
 
             // if (response instanceof GetImageOCRGeneralResponse) {
             //     GetImageOCRGeneralResponse result = (GetImageOCRGeneralResponse) response;

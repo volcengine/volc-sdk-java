@@ -16,13 +16,13 @@ public class GetImagePSDetectionResponse {
     @Data
     static public class GetImagePSDetectionResponseBean {
         @JSONField(name = "ElaImage")
-        private List<Byte> elaImage;
+        private String elaImage;
 
         @JSONField(name = "NaImage")
-        private List<Byte> naImage;
+        private String naImage;
 
         @JSONField(name = "HeImage")
-        private List<Byte> heImage;
+        private String heImage;
 
         @JSONField(name = "Score")
         private Double score;

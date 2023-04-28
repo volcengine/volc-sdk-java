@@ -1,6 +1,8 @@
 package com.volcengine.example.vod.upload;
 
 import com.alibaba.fastjson.JSON;
+import com.volcengine.helper.VodUploadMediaProcessListener;
+import com.volcengine.helper.VodUploadProgressListener;
 import com.volcengine.model.beans.Functions;
 import com.volcengine.service.vod.IVodService;
 import com.volcengine.service.vod.impl.VodServiceImpl;
@@ -32,12 +34,15 @@ public class VodUploadMediaDemo {
         VodUploadMediaRequest vodUploadMediaRequest = VodUploadMediaRequest.newBuilder()
                 .setSpaceName(space)
                 .setFilePath(filePath)
-                .setFileName("hello/vod/video")
+                .setFileName("hello/vod/video.mp4")
                 .setFunctions(JSON.toJSONString(functionsList))
                 .setStorageClass(0)
                 .build();
+        // 需要进度条功能时添加相应 listener，如无需求，传 null 值即可
+        VodUploadProgressListener listener = new VodUploadMediaProcessListener();
+
         try {
-            VodCommitUploadInfoResponse vodCommitUploadInfoResponse = vodService.uploadMedia(vodUploadMediaRequest);
+            VodCommitUploadInfoResponse vodCommitUploadInfoResponse = vodService.uploadMedia(vodUploadMediaRequest, listener);
             if (vodCommitUploadInfoResponse.getResponseMetadata().hasError()) {
                 System.out.println(vodCommitUploadInfoResponse.getResponseMetadata().getError());
                 System.exit(-1);

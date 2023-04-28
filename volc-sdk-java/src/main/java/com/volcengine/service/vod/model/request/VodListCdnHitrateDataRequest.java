@@ -4,21 +4,20 @@
 package com.volcengine.service.vod.model.request;
 
 /**
- * Protobuf type {@code Volcengine.Vod.Models.Request.VodListCdnUsageDataRequest}
+ * Protobuf type {@code Volcengine.Vod.Models.Request.VodListCdnHitrateDataRequest}
  */
-public final class VodListCdnUsageDataRequest extends
+public final class VodListCdnHitrateDataRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Request.VodListCdnUsageDataRequest)
-    VodListCdnUsageDataRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Request.VodListCdnHitrateDataRequest)
+    VodListCdnHitrateDataRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use VodListCdnUsageDataRequest.newBuilder() to construct.
-  private VodListCdnUsageDataRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use VodListCdnHitrateDataRequest.newBuilder() to construct.
+  private VodListCdnHitrateDataRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private VodListCdnUsageDataRequest() {
+  private VodListCdnHitrateDataRequest() {
     domains_ = "";
     interval_ = "";
-    dataType_ = "";
     metric_ = "";
   }
 
@@ -26,7 +25,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new VodListCdnUsageDataRequest();
+    return new VodListCdnHitrateDataRequest();
   }
 
   @java.lang.Override
@@ -34,7 +33,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VodListCdnUsageDataRequest(
+  private VodListCdnHitrateDataRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -77,16 +76,10 @@ private static final long serialVersionUID = 0L;
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            dataType_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
             metric_ = s;
             break;
           }
-          case 56: {
+          case 48: {
 
             needDetail_ = input.readBool();
             break;
@@ -112,15 +105,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodListCdnUsageDataRequest_descriptor;
+    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodListCdnHitrateDataRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodListCdnUsageDataRequest_fieldAccessorTable
+    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodListCdnHitrateDataRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest.class, com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest.Builder.class);
+            com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest.class, com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest.Builder.class);
   }
 
   public static final int DOMAINS_FIELD_NUMBER = 1;
@@ -173,7 +166,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object interval_;
   /**
    * <pre>
-   * 聚合度 
+   * 聚合度,可选：auto,5min,hour,day 
    * </pre>
    *
    * <code>string Interval = 2;</code>
@@ -194,7 +187,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 聚合度 
+   * 聚合度,可选：auto,5min,hour,day 
    * </pre>
    *
    * <code>string Interval = 2;</code>
@@ -245,60 +238,14 @@ private static final long serialVersionUID = 0L;
     return endTimestamp_;
   }
 
-  public static final int DATATYPE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object dataType_;
-  /**
-   * <pre>
-   * 统计数据类别 
-   * </pre>
-   *
-   * <code>string DataType = 5;</code>
-   * @return The dataType.
-   */
-  @java.lang.Override
-  public java.lang.String getDataType() {
-    java.lang.Object ref = dataType_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      dataType_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * 统计数据类别 
-   * </pre>
-   *
-   * <code>string DataType = 5;</code>
-   * @return The bytes for dataType.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getDataTypeBytes() {
-    java.lang.Object ref = dataType_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      dataType_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int METRIC_FIELD_NUMBER = 6;
+  public static final int METRIC_FIELD_NUMBER = 5;
   private volatile java.lang.Object metric_;
   /**
    * <pre>
    * 指标类别 
    * </pre>
    *
-   * <code>string Metric = 6;</code>
+   * <code>string Metric = 5;</code>
    * @return The metric.
    */
   @java.lang.Override
@@ -319,7 +266,7 @@ private static final long serialVersionUID = 0L;
    * 指标类别 
    * </pre>
    *
-   * <code>string Metric = 6;</code>
+   * <code>string Metric = 5;</code>
    * @return The bytes for metric.
    */
   @java.lang.Override
@@ -337,10 +284,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int NEEDDETAIL_FIELD_NUMBER = 7;
+  public static final int NEEDDETAIL_FIELD_NUMBER = 6;
   private boolean needDetail_;
   /**
-   * <code>bool NeedDetail = 7;</code>
+   * <code>bool NeedDetail = 6;</code>
    * @return The needDetail.
    */
   @java.lang.Override
@@ -374,14 +321,11 @@ private static final long serialVersionUID = 0L;
     if (endTimestamp_ != 0L) {
       output.writeInt64(4, endTimestamp_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dataType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, dataType_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(metric_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, metric_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, metric_);
     }
     if (needDetail_ != false) {
-      output.writeBool(7, needDetail_);
+      output.writeBool(6, needDetail_);
     }
     unknownFields.writeTo(output);
   }
@@ -406,15 +350,12 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(4, endTimestamp_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dataType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, dataType_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(metric_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, metric_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, metric_);
     }
     if (needDetail_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(7, needDetail_);
+        .computeBoolSize(6, needDetail_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -426,10 +367,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest)) {
+    if (!(obj instanceof com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest)) {
       return super.equals(obj);
     }
-    com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest other = (com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest) obj;
+    com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest other = (com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest) obj;
 
     if (!getDomains()
         .equals(other.getDomains())) return false;
@@ -439,8 +380,6 @@ private static final long serialVersionUID = 0L;
         != other.getStartTimestamp()) return false;
     if (getEndTimestamp()
         != other.getEndTimestamp()) return false;
-    if (!getDataType()
-        .equals(other.getDataType())) return false;
     if (!getMetric()
         .equals(other.getMetric())) return false;
     if (getNeedDetail()
@@ -466,8 +405,6 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ENDTIMESTAMP_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getEndTimestamp());
-    hash = (37 * hash) + DATATYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getDataType().hashCode();
     hash = (37 * hash) + METRIC_FIELD_NUMBER;
     hash = (53 * hash) + getMetric().hashCode();
     hash = (37 * hash) + NEEDDETAIL_FIELD_NUMBER;
@@ -478,69 +415,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest parseFrom(byte[] data)
+  public static com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest parseFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest parseDelimitedFrom(
+  public static com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -553,7 +490,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest prototype) {
+  public static Builder newBuilder(com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -569,26 +506,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code Volcengine.Vod.Models.Request.VodListCdnUsageDataRequest}
+   * Protobuf type {@code Volcengine.Vod.Models.Request.VodListCdnHitrateDataRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Request.VodListCdnUsageDataRequest)
-      com.volcengine.service.vod.model.request.VodListCdnUsageDataRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Request.VodListCdnHitrateDataRequest)
+      com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodListCdnUsageDataRequest_descriptor;
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodListCdnHitrateDataRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodListCdnUsageDataRequest_fieldAccessorTable
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodListCdnHitrateDataRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest.class, com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest.Builder.class);
+              com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest.class, com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest.Builder.class);
     }
 
-    // Construct using com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest.newBuilder()
+    // Construct using com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -614,8 +551,6 @@ private static final long serialVersionUID = 0L;
 
       endTimestamp_ = 0L;
 
-      dataType_ = "";
-
       metric_ = "";
 
       needDetail_ = false;
@@ -626,17 +561,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodListCdnUsageDataRequest_descriptor;
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodListCdnHitrateDataRequest_descriptor;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest getDefaultInstanceForType() {
-      return com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest.getDefaultInstance();
+    public com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest getDefaultInstanceForType() {
+      return com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest build() {
-      com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest result = buildPartial();
+    public com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest build() {
+      com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -644,13 +579,12 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest buildPartial() {
-      com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest result = new com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest(this);
+    public com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest buildPartial() {
+      com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest result = new com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest(this);
       result.domains_ = domains_;
       result.interval_ = interval_;
       result.startTimestamp_ = startTimestamp_;
       result.endTimestamp_ = endTimestamp_;
-      result.dataType_ = dataType_;
       result.metric_ = metric_;
       result.needDetail_ = needDetail_;
       onBuilt();
@@ -691,16 +625,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest) {
-        return mergeFrom((com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest)other);
+      if (other instanceof com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest) {
+        return mergeFrom((com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest other) {
-      if (other == com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest other) {
+      if (other == com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest.getDefaultInstance()) return this;
       if (!other.getDomains().isEmpty()) {
         domains_ = other.domains_;
         onChanged();
@@ -714,10 +648,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getEndTimestamp() != 0L) {
         setEndTimestamp(other.getEndTimestamp());
-      }
-      if (!other.getDataType().isEmpty()) {
-        dataType_ = other.dataType_;
-        onChanged();
       }
       if (!other.getMetric().isEmpty()) {
         metric_ = other.metric_;
@@ -741,11 +671,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest parsedMessage = null;
+      com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -854,7 +784,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object interval_ = "";
     /**
      * <pre>
-     * 聚合度 
+     * 聚合度,可选：auto,5min,hour,day 
      * </pre>
      *
      * <code>string Interval = 2;</code>
@@ -874,7 +804,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 聚合度 
+     * 聚合度,可选：auto,5min,hour,day 
      * </pre>
      *
      * <code>string Interval = 2;</code>
@@ -895,7 +825,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 聚合度 
+     * 聚合度,可选：auto,5min,hour,day 
      * </pre>
      *
      * <code>string Interval = 2;</code>
@@ -914,7 +844,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 聚合度 
+     * 聚合度,可选：auto,5min,hour,day 
      * </pre>
      *
      * <code>string Interval = 2;</code>
@@ -928,7 +858,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 聚合度 
+     * 聚合度,可选：auto,5min,hour,day 
      * </pre>
      *
      * <code>string Interval = 2;</code>
@@ -1033,109 +963,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object dataType_ = "";
-    /**
-     * <pre>
-     * 统计数据类别 
-     * </pre>
-     *
-     * <code>string DataType = 5;</code>
-     * @return The dataType.
-     */
-    public java.lang.String getDataType() {
-      java.lang.Object ref = dataType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        dataType_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 统计数据类别 
-     * </pre>
-     *
-     * <code>string DataType = 5;</code>
-     * @return The bytes for dataType.
-     */
-    public com.google.protobuf.ByteString
-        getDataTypeBytes() {
-      java.lang.Object ref = dataType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        dataType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 统计数据类别 
-     * </pre>
-     *
-     * <code>string DataType = 5;</code>
-     * @param value The dataType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDataType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      dataType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 统计数据类别 
-     * </pre>
-     *
-     * <code>string DataType = 5;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDataType() {
-      
-      dataType_ = getDefaultInstance().getDataType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 统计数据类别 
-     * </pre>
-     *
-     * <code>string DataType = 5;</code>
-     * @param value The bytes for dataType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDataTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      dataType_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object metric_ = "";
     /**
      * <pre>
      * 指标类别 
      * </pre>
      *
-     * <code>string Metric = 6;</code>
+     * <code>string Metric = 5;</code>
      * @return The metric.
      */
     public java.lang.String getMetric() {
@@ -1155,7 +989,7 @@ private static final long serialVersionUID = 0L;
      * 指标类别 
      * </pre>
      *
-     * <code>string Metric = 6;</code>
+     * <code>string Metric = 5;</code>
      * @return The bytes for metric.
      */
     public com.google.protobuf.ByteString
@@ -1176,7 +1010,7 @@ private static final long serialVersionUID = 0L;
      * 指标类别 
      * </pre>
      *
-     * <code>string Metric = 6;</code>
+     * <code>string Metric = 5;</code>
      * @param value The metric to set.
      * @return This builder for chaining.
      */
@@ -1195,7 +1029,7 @@ private static final long serialVersionUID = 0L;
      * 指标类别 
      * </pre>
      *
-     * <code>string Metric = 6;</code>
+     * <code>string Metric = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearMetric() {
@@ -1209,7 +1043,7 @@ private static final long serialVersionUID = 0L;
      * 指标类别 
      * </pre>
      *
-     * <code>string Metric = 6;</code>
+     * <code>string Metric = 5;</code>
      * @param value The bytes for metric to set.
      * @return This builder for chaining.
      */
@@ -1227,7 +1061,7 @@ private static final long serialVersionUID = 0L;
 
     private boolean needDetail_ ;
     /**
-     * <code>bool NeedDetail = 7;</code>
+     * <code>bool NeedDetail = 6;</code>
      * @return The needDetail.
      */
     @java.lang.Override
@@ -1235,7 +1069,7 @@ private static final long serialVersionUID = 0L;
       return needDetail_;
     }
     /**
-     * <code>bool NeedDetail = 7;</code>
+     * <code>bool NeedDetail = 6;</code>
      * @param value The needDetail to set.
      * @return This builder for chaining.
      */
@@ -1246,7 +1080,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool NeedDetail = 7;</code>
+     * <code>bool NeedDetail = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearNeedDetail() {
@@ -1268,41 +1102,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Request.VodListCdnUsageDataRequest)
+    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Request.VodListCdnHitrateDataRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Request.VodListCdnUsageDataRequest)
-  private static final com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Request.VodListCdnHitrateDataRequest)
+  private static final com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest();
+    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest();
   }
 
-  public static com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest getDefaultInstance() {
+  public static com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<VodListCdnUsageDataRequest>
-      PARSER = new com.google.protobuf.AbstractParser<VodListCdnUsageDataRequest>() {
+  private static final com.google.protobuf.Parser<VodListCdnHitrateDataRequest>
+      PARSER = new com.google.protobuf.AbstractParser<VodListCdnHitrateDataRequest>() {
     @java.lang.Override
-    public VodListCdnUsageDataRequest parsePartialFrom(
+    public VodListCdnHitrateDataRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VodListCdnUsageDataRequest(input, extensionRegistry);
+      return new VodListCdnHitrateDataRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<VodListCdnUsageDataRequest> parser() {
+  public static com.google.protobuf.Parser<VodListCdnHitrateDataRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<VodListCdnUsageDataRequest> getParserForType() {
+  public com.google.protobuf.Parser<VodListCdnHitrateDataRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest getDefaultInstanceForType() {
+  public com.volcengine.service.vod.model.request.VodListCdnHitrateDataRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

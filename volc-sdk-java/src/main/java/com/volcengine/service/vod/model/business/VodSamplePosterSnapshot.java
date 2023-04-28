@@ -19,6 +19,9 @@ private static final long serialVersionUID = 0L;
     storeUris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     format_ = "";
     urls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    largeSnapshotUri_ = "";
+    largeSnapshotDownloadUrl_ = "";
+    largeSnapshotFillType_ = "";
   }
 
   @java.lang.Override
@@ -99,6 +102,24 @@ private static final long serialVersionUID = 0L;
               mutable_bitField0_ |= 0x00000002;
             }
             urls_.add(s);
+            break;
+          }
+          case 74: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            largeSnapshotUri_ = s;
+            break;
+          }
+          case 82: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            largeSnapshotDownloadUrl_ = s;
+            break;
+          }
+          case 90: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            largeSnapshotFillType_ = s;
             break;
           }
           default: {
@@ -362,6 +383,144 @@ private static final long serialVersionUID = 0L;
     return urls_.getByteString(index);
   }
 
+  public static final int LARGESNAPSHOTURI_FIELD_NUMBER = 9;
+  private volatile java.lang.Object largeSnapshotUri_;
+  /**
+   * <pre>
+   *大量截图结果文件uri
+   * </pre>
+   *
+   * <code>string LargeSnapshotUri = 9;</code>
+   * @return The largeSnapshotUri.
+   */
+  @java.lang.Override
+  public java.lang.String getLargeSnapshotUri() {
+    java.lang.Object ref = largeSnapshotUri_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      largeSnapshotUri_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *大量截图结果文件uri
+   * </pre>
+   *
+   * <code>string LargeSnapshotUri = 9;</code>
+   * @return The bytes for largeSnapshotUri.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getLargeSnapshotUriBytes() {
+    java.lang.Object ref = largeSnapshotUri_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      largeSnapshotUri_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int LARGESNAPSHOTDOWNLOADURL_FIELD_NUMBER = 10;
+  private volatile java.lang.Object largeSnapshotDownloadUrl_;
+  /**
+   * <pre>
+   *大量截图结果文件下载地址
+   * </pre>
+   *
+   * <code>string LargeSnapshotDownloadUrl = 10;</code>
+   * @return The largeSnapshotDownloadUrl.
+   */
+  @java.lang.Override
+  public java.lang.String getLargeSnapshotDownloadUrl() {
+    java.lang.Object ref = largeSnapshotDownloadUrl_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      largeSnapshotDownloadUrl_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *大量截图结果文件下载地址
+   * </pre>
+   *
+   * <code>string LargeSnapshotDownloadUrl = 10;</code>
+   * @return The bytes for largeSnapshotDownloadUrl.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getLargeSnapshotDownloadUrlBytes() {
+    java.lang.Object ref = largeSnapshotDownloadUrl_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      largeSnapshotDownloadUrl_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int LARGESNAPSHOTFILLTYPE_FIELD_NUMBER = 11;
+  private volatile java.lang.Object largeSnapshotFillType_;
+  /**
+   * <pre>
+   *大量截图结果处理模版
+   * </pre>
+   *
+   * <code>string LargeSnapshotFillType = 11;</code>
+   * @return The largeSnapshotFillType.
+   */
+  @java.lang.Override
+  public java.lang.String getLargeSnapshotFillType() {
+    java.lang.Object ref = largeSnapshotFillType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      largeSnapshotFillType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *大量截图结果处理模版
+   * </pre>
+   *
+   * <code>string LargeSnapshotFillType = 11;</code>
+   * @return The bytes for largeSnapshotFillType.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getLargeSnapshotFillTypeBytes() {
+    java.lang.Object ref = largeSnapshotFillType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      largeSnapshotFillType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -399,6 +558,15 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < urls_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, urls_.getRaw(i));
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(largeSnapshotUri_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, largeSnapshotUri_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(largeSnapshotDownloadUrl_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, largeSnapshotDownloadUrl_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(largeSnapshotFillType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, largeSnapshotFillType_);
     }
     unknownFields.writeTo(output);
   }
@@ -448,6 +616,15 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getUrlsList().size();
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(largeSnapshotUri_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, largeSnapshotUri_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(largeSnapshotDownloadUrl_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, largeSnapshotDownloadUrl_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(largeSnapshotFillType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, largeSnapshotFillType_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -481,6 +658,12 @@ private static final long serialVersionUID = 0L;
             other.getDuration())) return false;
     if (!getUrlsList()
         .equals(other.getUrlsList())) return false;
+    if (!getLargeSnapshotUri()
+        .equals(other.getLargeSnapshotUri())) return false;
+    if (!getLargeSnapshotDownloadUrl()
+        .equals(other.getLargeSnapshotDownloadUrl())) return false;
+    if (!getLargeSnapshotFillType()
+        .equals(other.getLargeSnapshotFillType())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -514,6 +697,12 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + URLS_FIELD_NUMBER;
       hash = (53 * hash) + getUrlsList().hashCode();
     }
+    hash = (37 * hash) + LARGESNAPSHOTURI_FIELD_NUMBER;
+    hash = (53 * hash) + getLargeSnapshotUri().hashCode();
+    hash = (37 * hash) + LARGESNAPSHOTDOWNLOADURL_FIELD_NUMBER;
+    hash = (53 * hash) + getLargeSnapshotDownloadUrl().hashCode();
+    hash = (37 * hash) + LARGESNAPSHOTFILLTYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getLargeSnapshotFillType().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -663,6 +852,12 @@ private static final long serialVersionUID = 0L;
 
       urls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
+      largeSnapshotUri_ = "";
+
+      largeSnapshotDownloadUrl_ = "";
+
+      largeSnapshotFillType_ = "";
+
       return this;
     }
 
@@ -706,6 +901,9 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.urls_ = urls_;
+      result.largeSnapshotUri_ = largeSnapshotUri_;
+      result.largeSnapshotDownloadUrl_ = largeSnapshotDownloadUrl_;
+      result.largeSnapshotFillType_ = largeSnapshotFillType_;
       onBuilt();
       return result;
     }
@@ -791,6 +989,18 @@ private static final long serialVersionUID = 0L;
           ensureUrlsIsMutable();
           urls_.addAll(other.urls_);
         }
+        onChanged();
+      }
+      if (!other.getLargeSnapshotUri().isEmpty()) {
+        largeSnapshotUri_ = other.largeSnapshotUri_;
+        onChanged();
+      }
+      if (!other.getLargeSnapshotDownloadUrl().isEmpty()) {
+        largeSnapshotDownloadUrl_ = other.largeSnapshotDownloadUrl_;
+        onChanged();
+      }
+      if (!other.getLargeSnapshotFillType().isEmpty()) {
+        largeSnapshotFillType_ = other.largeSnapshotFillType_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1422,6 +1632,294 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       ensureUrlsIsMutable();
       urls_.add(value);
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object largeSnapshotUri_ = "";
+    /**
+     * <pre>
+     *大量截图结果文件uri
+     * </pre>
+     *
+     * <code>string LargeSnapshotUri = 9;</code>
+     * @return The largeSnapshotUri.
+     */
+    public java.lang.String getLargeSnapshotUri() {
+      java.lang.Object ref = largeSnapshotUri_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        largeSnapshotUri_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *大量截图结果文件uri
+     * </pre>
+     *
+     * <code>string LargeSnapshotUri = 9;</code>
+     * @return The bytes for largeSnapshotUri.
+     */
+    public com.google.protobuf.ByteString
+        getLargeSnapshotUriBytes() {
+      java.lang.Object ref = largeSnapshotUri_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        largeSnapshotUri_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *大量截图结果文件uri
+     * </pre>
+     *
+     * <code>string LargeSnapshotUri = 9;</code>
+     * @param value The largeSnapshotUri to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLargeSnapshotUri(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      largeSnapshotUri_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *大量截图结果文件uri
+     * </pre>
+     *
+     * <code>string LargeSnapshotUri = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLargeSnapshotUri() {
+      
+      largeSnapshotUri_ = getDefaultInstance().getLargeSnapshotUri();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *大量截图结果文件uri
+     * </pre>
+     *
+     * <code>string LargeSnapshotUri = 9;</code>
+     * @param value The bytes for largeSnapshotUri to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLargeSnapshotUriBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      largeSnapshotUri_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object largeSnapshotDownloadUrl_ = "";
+    /**
+     * <pre>
+     *大量截图结果文件下载地址
+     * </pre>
+     *
+     * <code>string LargeSnapshotDownloadUrl = 10;</code>
+     * @return The largeSnapshotDownloadUrl.
+     */
+    public java.lang.String getLargeSnapshotDownloadUrl() {
+      java.lang.Object ref = largeSnapshotDownloadUrl_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        largeSnapshotDownloadUrl_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *大量截图结果文件下载地址
+     * </pre>
+     *
+     * <code>string LargeSnapshotDownloadUrl = 10;</code>
+     * @return The bytes for largeSnapshotDownloadUrl.
+     */
+    public com.google.protobuf.ByteString
+        getLargeSnapshotDownloadUrlBytes() {
+      java.lang.Object ref = largeSnapshotDownloadUrl_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        largeSnapshotDownloadUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *大量截图结果文件下载地址
+     * </pre>
+     *
+     * <code>string LargeSnapshotDownloadUrl = 10;</code>
+     * @param value The largeSnapshotDownloadUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLargeSnapshotDownloadUrl(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      largeSnapshotDownloadUrl_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *大量截图结果文件下载地址
+     * </pre>
+     *
+     * <code>string LargeSnapshotDownloadUrl = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLargeSnapshotDownloadUrl() {
+      
+      largeSnapshotDownloadUrl_ = getDefaultInstance().getLargeSnapshotDownloadUrl();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *大量截图结果文件下载地址
+     * </pre>
+     *
+     * <code>string LargeSnapshotDownloadUrl = 10;</code>
+     * @param value The bytes for largeSnapshotDownloadUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLargeSnapshotDownloadUrlBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      largeSnapshotDownloadUrl_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object largeSnapshotFillType_ = "";
+    /**
+     * <pre>
+     *大量截图结果处理模版
+     * </pre>
+     *
+     * <code>string LargeSnapshotFillType = 11;</code>
+     * @return The largeSnapshotFillType.
+     */
+    public java.lang.String getLargeSnapshotFillType() {
+      java.lang.Object ref = largeSnapshotFillType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        largeSnapshotFillType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *大量截图结果处理模版
+     * </pre>
+     *
+     * <code>string LargeSnapshotFillType = 11;</code>
+     * @return The bytes for largeSnapshotFillType.
+     */
+    public com.google.protobuf.ByteString
+        getLargeSnapshotFillTypeBytes() {
+      java.lang.Object ref = largeSnapshotFillType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        largeSnapshotFillType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *大量截图结果处理模版
+     * </pre>
+     *
+     * <code>string LargeSnapshotFillType = 11;</code>
+     * @param value The largeSnapshotFillType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLargeSnapshotFillType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      largeSnapshotFillType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *大量截图结果处理模版
+     * </pre>
+     *
+     * <code>string LargeSnapshotFillType = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLargeSnapshotFillType() {
+      
+      largeSnapshotFillType_ = getDefaultInstance().getLargeSnapshotFillType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *大量截图结果处理模版
+     * </pre>
+     *
+     * <code>string LargeSnapshotFillType = 11;</code>
+     * @param value The bytes for largeSnapshotFillType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLargeSnapshotFillTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      largeSnapshotFillType_ = value;
       onChanged();
       return this;
     }

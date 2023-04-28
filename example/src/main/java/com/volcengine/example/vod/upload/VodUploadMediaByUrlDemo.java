@@ -15,12 +15,14 @@ public class VodUploadMediaByUrlDemo {
 
         try {
             com.volcengine.service.vod.model.request.VodUrlUploadRequest.Builder reqBuilder = com.volcengine.service.vod.model.request.VodUrlUploadRequest.newBuilder();
-			reqBuilder.setSpaceName("your SpaceName");
+			reqBuilder.setSpaceName("your space");
 			com.volcengine.service.vod.model.business.VodUrlUploadURLSet.Builder uRLSetsBuilder = com.volcengine.service.vod.model.business.VodUrlUploadURLSet.newBuilder();
 			uRLSetsBuilder.setSourceUrl("");
             uRLSetsBuilder.setStorageClass(0);
+            uRLSetsBuilder.setFileExtension(".mp4");
+            uRLSetsBuilder.setCallbackArgs("my java callback args");
             reqBuilder.addURLSets(uRLSetsBuilder);
-			
+
             com.volcengine.service.vod.model.response.VodUrlUploadResponse resp = vodService.uploadMediaByUrl(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {
                 System.out.println(resp.getResponseMetadata().getError());

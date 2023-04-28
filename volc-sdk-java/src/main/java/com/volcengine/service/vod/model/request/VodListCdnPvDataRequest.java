@@ -79,6 +79,11 @@ private static final long serialVersionUID = 0L;
             dataType_ = s;
             break;
           }
+          case 48: {
+
+            needDetail_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -279,6 +284,17 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int NEEDDETAIL_FIELD_NUMBER = 6;
+  private boolean needDetail_;
+  /**
+   * <code>bool NeedDetail = 6;</code>
+   * @return The needDetail.
+   */
+  @java.lang.Override
+  public boolean getNeedDetail() {
+    return needDetail_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -308,6 +324,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dataType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, dataType_);
     }
+    if (needDetail_ != false) {
+      output.writeBool(6, needDetail_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -334,6 +353,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dataType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, dataType_);
     }
+    if (needDetail_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(6, needDetail_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -359,6 +382,8 @@ private static final long serialVersionUID = 0L;
         != other.getEndTimestamp()) return false;
     if (!getDataType()
         .equals(other.getDataType())) return false;
+    if (getNeedDetail()
+        != other.getNeedDetail()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -382,6 +407,9 @@ private static final long serialVersionUID = 0L;
         getEndTimestamp());
     hash = (37 * hash) + DATATYPE_FIELD_NUMBER;
     hash = (53 * hash) + getDataType().hashCode();
+    hash = (37 * hash) + NEEDDETAIL_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getNeedDetail());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -525,6 +553,8 @@ private static final long serialVersionUID = 0L;
 
       dataType_ = "";
 
+      needDetail_ = false;
+
       return this;
     }
 
@@ -556,6 +586,7 @@ private static final long serialVersionUID = 0L;
       result.startTimestamp_ = startTimestamp_;
       result.endTimestamp_ = endTimestamp_;
       result.dataType_ = dataType_;
+      result.needDetail_ = needDetail_;
       onBuilt();
       return result;
     }
@@ -621,6 +652,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getDataType().isEmpty()) {
         dataType_ = other.dataType_;
         onChanged();
+      }
+      if (other.getNeedDetail() != false) {
+        setNeedDetail(other.getNeedDetail());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1021,6 +1055,37 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       dataType_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean needDetail_ ;
+    /**
+     * <code>bool NeedDetail = 6;</code>
+     * @return The needDetail.
+     */
+    @java.lang.Override
+    public boolean getNeedDetail() {
+      return needDetail_;
+    }
+    /**
+     * <code>bool NeedDetail = 6;</code>
+     * @param value The needDetail to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNeedDetail(boolean value) {
+      
+      needDetail_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool NeedDetail = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNeedDetail() {
+      
+      needDetail_ = false;
       onChanged();
       return this;
     }

@@ -643,6 +643,7 @@ public class Const {
     public static final String  CertVerifyQuery= "CertVerifyQuery";
     public static final String  CertConfigInit= "CertConfigInit";
     public static final String  CertConfigGet= "CertConfigGet";
+    public static final String  CertVerifyPro= "CertVerify";
     public static final String  Img2Video3D= "Img2Video3D";
     public static final String  T2ILDM= "T2ILDM";
     public static final String  Img2ImgStyle= "Img2ImgStyle";

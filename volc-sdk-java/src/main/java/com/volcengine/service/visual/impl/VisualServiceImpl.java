@@ -257,7 +257,7 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
 
     @Override
     public VisualCertVerifyProResponse certVerifyPro(VisualCertVerifyProRequest request) throws Exception {
-        RawResponse response = json(Const.CertToken, null, JSON.toJSONString(request));
+        RawResponse response = json(Const.CertVerifyPro, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -266,7 +266,7 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
 
     @Override
     public VisualCertQueryProResponse certQueryPro(VisualCertQueryProRequest request) throws Exception {
-        RawResponse response = json(Const.CertToken, null, JSON.toJSONString(request));
+        RawResponse response = json(Const.CertVerifyQuery, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }

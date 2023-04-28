@@ -234,4 +234,24 @@ public interface VodMediaBasicInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTosStorageClassBytes();
+
+  /**
+   * <pre>
+   * 音视频来源
+   * </pre>
+   *
+   * <code>string VodUploadSource = 11;</code>
+   * @return The vodUploadSource.
+   */
+  java.lang.String getVodUploadSource();
+  /**
+   * <pre>
+   * 音视频来源
+   * </pre>
+   *
+   * <code>string VodUploadSource = 11;</code>
+   * @return The bytes for vodUploadSource.
+   */
+  com.google.protobuf.ByteString
+      getVodUploadSourceBytes();
 }

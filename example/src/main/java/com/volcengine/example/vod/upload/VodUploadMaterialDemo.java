@@ -41,7 +41,7 @@ public class VodUploadMaterialDemo {
                 .build();
 
         try {
-            VodCommitUploadInfoResponse vodCommitUploadInfoResponse = vodService.uploadMaterial(vodUploadMaterialRequest);
+            VodCommitUploadInfoResponse vodCommitUploadInfoResponse = vodService.uploadMaterial(vodUploadMaterialRequest, null);
             if (vodCommitUploadInfoResponse.getResponseMetadata().hasError()) {
                 System.out.println(vodCommitUploadInfoResponse.getResponseMetadata().getError());
                 System.exit(-1);
@@ -79,12 +79,12 @@ public class VodUploadMaterialDemo {
 //                .setSpaceName(space)
 //                .setFilePath(filePath)
 //                .setFileType(Const.FileTypeImage)
-//                .setFileName("hello/vod/image")
+//                .setFileName("hello/vod/image.jpg")
 //                .setFunctions(JSON.toJSONString(functionsList))
 //                .build();
 //
 //        try {
-//            VodCommitUploadInfoResponse vodCommitUploadInfoResponse = vodService.uploadMaterial(vodUploadMaterialRequest);
+//            VodCommitUploadInfoResponse vodCommitUploadInfoResponse = vodService.uploadMaterial(vodUploadMaterialRequest,null);
 //            if (vodCommitUploadInfoResponse.getResponseMetadata().hasError()) {
 //                System.out.println(vodCommitUploadInfoResponse.getResponseMetadata().getError());
 //                System.exit(-1);
@@ -122,12 +122,12 @@ public class VodUploadMaterialDemo {
 //                .setSpaceName(space)
 //                .setFilePath(filePath)
 //                .setFileType(Const.FileTypeObject)
-//                .setFileName("hello/vod/object")
+//                .setFileName("hello/vod/object.vtt")
 //                .setFunctions(JSON.toJSONString(functionsList))
 //                .build();
 //
 //        try {
-//            VodCommitUploadInfoResponse vodCommitUploadInfoResponse = vodService.uploadMaterial(vodUploadMaterialRequest);
+//            VodCommitUploadInfoResponse vodCommitUploadInfoResponse = vodService.uploadMaterial(vodUploadMaterialRequest,null);
 //            if (vodCommitUploadInfoResponse.getResponseMetadata().hasError()) {
 //                System.out.println(vodCommitUploadInfoResponse.getResponseMetadata().getError());
 //                System.exit(-1);

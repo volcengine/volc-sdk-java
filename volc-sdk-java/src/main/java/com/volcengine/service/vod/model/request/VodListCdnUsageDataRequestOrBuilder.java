@@ -106,4 +106,10 @@ public interface VodListCdnUsageDataRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getMetricBytes();
+
+  /**
+   * <code>bool NeedDetail = 7;</code>
+   * @return The needDetail.
+   */
+  boolean getNeedDetail();
 }

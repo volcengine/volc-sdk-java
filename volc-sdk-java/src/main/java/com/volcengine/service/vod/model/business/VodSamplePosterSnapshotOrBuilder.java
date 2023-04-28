@@ -158,4 +158,64 @@ public interface VodSamplePosterSnapshotOrBuilder extends
    */
   com.google.protobuf.ByteString
       getUrlsBytes(int index);
+
+  /**
+   * <pre>
+   *大量截图结果文件uri
+   * </pre>
+   *
+   * <code>string LargeSnapshotUri = 9;</code>
+   * @return The largeSnapshotUri.
+   */
+  java.lang.String getLargeSnapshotUri();
+  /**
+   * <pre>
+   *大量截图结果文件uri
+   * </pre>
+   *
+   * <code>string LargeSnapshotUri = 9;</code>
+   * @return The bytes for largeSnapshotUri.
+   */
+  com.google.protobuf.ByteString
+      getLargeSnapshotUriBytes();
+
+  /**
+   * <pre>
+   *大量截图结果文件下载地址
+   * </pre>
+   *
+   * <code>string LargeSnapshotDownloadUrl = 10;</code>
+   * @return The largeSnapshotDownloadUrl.
+   */
+  java.lang.String getLargeSnapshotDownloadUrl();
+  /**
+   * <pre>
+   *大量截图结果文件下载地址
+   * </pre>
+   *
+   * <code>string LargeSnapshotDownloadUrl = 10;</code>
+   * @return The bytes for largeSnapshotDownloadUrl.
+   */
+  com.google.protobuf.ByteString
+      getLargeSnapshotDownloadUrlBytes();
+
+  /**
+   * <pre>
+   *大量截图结果处理模版
+   * </pre>
+   *
+   * <code>string LargeSnapshotFillType = 11;</code>
+   * @return The largeSnapshotFillType.
+   */
+  java.lang.String getLargeSnapshotFillType();
+  /**
+   * <pre>
+   *大量截图结果处理模版
+   * </pre>
+   *
+   * <code>string LargeSnapshotFillType = 11;</code>
+   * @return The bytes for largeSnapshotFillType.
+   */
+  com.google.protobuf.ByteString
+      getLargeSnapshotFillTypeBytes();
 }

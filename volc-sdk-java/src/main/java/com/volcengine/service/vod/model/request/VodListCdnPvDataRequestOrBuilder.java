@@ -86,4 +86,10 @@ public interface VodListCdnPvDataRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getDataTypeBytes();
+
+  /**
+   * <code>bool NeedDetail = 6;</code>
+   * @return The needDetail.
+   */
+  boolean getNeedDetail();
 }

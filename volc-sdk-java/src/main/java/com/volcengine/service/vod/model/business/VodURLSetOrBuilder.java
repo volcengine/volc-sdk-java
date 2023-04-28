@@ -173,4 +173,24 @@ public interface VodURLSetOrBuilder extends
    * <code>.Volcengine.Vod.Models.Business.VodSourceInfo SourceInfo = 8;</code>
    */
   com.volcengine.service.vod.model.business.VodSourceInfoOrBuilder getSourceInfoOrBuilder();
+
+  /**
+   * <pre>
+   * 用户透传信息 
+   * </pre>
+   *
+   * <code>string CallbackArgs = 9;</code>
+   * @return The callbackArgs.
+   */
+  java.lang.String getCallbackArgs();
+  /**
+   * <pre>
+   * 用户透传信息 
+   * </pre>
+   *
+   * <code>string CallbackArgs = 9;</code>
+   * @return The bytes for callbackArgs.
+   */
+  com.google.protobuf.ByteString
+      getCallbackArgsBytes();
 }

@@ -3,8 +3,8 @@
 
 package com.volcengine.service.vod.model.request;
 
-public interface VodListCdnStatusDataRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:Volcengine.Vod.Models.Request.VodListCdnStatusDataRequest)
+public interface VodListCdnHitrateDataRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:Volcengine.Vod.Models.Request.VodListCdnHitrateDataRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -29,7 +29,7 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
 
   /**
    * <pre>
-   * 聚合度 
+   * 聚合度,可选：auto,5min,hour,day 
    * </pre>
    *
    * <code>string Interval = 2;</code>
@@ -38,7 +38,7 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
   java.lang.String getInterval();
   /**
    * <pre>
-   * 聚合度 
+   * 聚合度,可选：auto,5min,hour,day 
    * </pre>
    *
    * <code>string Interval = 2;</code>
@@ -69,30 +69,10 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
 
   /**
    * <pre>
-   * 统计数据类别 
-   * </pre>
-   *
-   * <code>string DataType = 5;</code>
-   * @return The dataType.
-   */
-  java.lang.String getDataType();
-  /**
-   * <pre>
-   * 统计数据类别 
-   * </pre>
-   *
-   * <code>string DataType = 5;</code>
-   * @return The bytes for dataType.
-   */
-  com.google.protobuf.ByteString
-      getDataTypeBytes();
-
-  /**
-   * <pre>
    * 指标类别 
    * </pre>
    *
-   * <code>string Metric = 6;</code>
+   * <code>string Metric = 5;</code>
    * @return The metric.
    */
   java.lang.String getMetric();
@@ -101,14 +81,14 @@ public interface VodListCdnStatusDataRequestOrBuilder extends
    * 指标类别 
    * </pre>
    *
-   * <code>string Metric = 6;</code>
+   * <code>string Metric = 5;</code>
    * @return The bytes for metric.
    */
   com.google.protobuf.ByteString
       getMetricBytes();
 
   /**
-   * <code>bool NeedDetail = 7;</code>
+   * <code>bool NeedDetail = 6;</code>
    * @return The needDetail.
    */
   boolean getNeedDetail();

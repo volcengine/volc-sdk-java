@@ -18,6 +18,7 @@ private static final long serialVersionUID = 0L;
   private SnapshotParamsSample() {
     format_ = "";
     storeUris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    indexUri_ = "";
   }
 
   @java.lang.Override
@@ -89,6 +90,12 @@ private static final long serialVersionUID = 0L;
           case 61: {
 
             duration_ = input.readFloat();
+            break;
+          }
+          case 66: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            indexUri_ = s;
             break;
           }
           default: {
@@ -254,6 +261,44 @@ private static final long serialVersionUID = 0L;
     return duration_;
   }
 
+  public static final int INDEXURI_FIELD_NUMBER = 8;
+  private volatile java.lang.Object indexUri_;
+  /**
+   * <code>string IndexUri = 8;</code>
+   * @return The indexUri.
+   */
+  @java.lang.Override
+  public java.lang.String getIndexUri() {
+    java.lang.Object ref = indexUri_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      indexUri_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string IndexUri = 8;</code>
+   * @return The bytes for indexUri.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getIndexUriBytes() {
+    java.lang.Object ref = indexUri_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      indexUri_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -288,6 +333,9 @@ private static final long serialVersionUID = 0L;
     }
     if (java.lang.Float.floatToRawIntBits(duration_) != 0) {
       output.writeFloat(7, duration_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(indexUri_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, indexUri_);
     }
     unknownFields.writeTo(output);
   }
@@ -329,6 +377,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(7, duration_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(indexUri_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, indexUri_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -360,6 +411,8 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Float.floatToIntBits(getDuration())
         != java.lang.Float.floatToIntBits(
             other.getDuration())) return false;
+    if (!getIndexUri()
+        .equals(other.getIndexUri())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -389,6 +442,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + DURATION_FIELD_NUMBER;
     hash = (53 * hash) + java.lang.Float.floatToIntBits(
         getDuration());
+    hash = (37 * hash) + INDEXURI_FIELD_NUMBER;
+    hash = (53 * hash) + getIndexUri().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -536,6 +591,8 @@ private static final long serialVersionUID = 0L;
 
       duration_ = 0F;
 
+      indexUri_ = "";
+
       return this;
     }
 
@@ -574,6 +631,7 @@ private static final long serialVersionUID = 0L;
       result.interval_ = interval_;
       result.captureNum_ = captureNum_;
       result.duration_ = duration_;
+      result.indexUri_ = indexUri_;
       onBuilt();
       return result;
     }
@@ -650,6 +708,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getDuration() != 0F) {
         setDuration(other.getDuration());
+      }
+      if (!other.getIndexUri().isEmpty()) {
+        indexUri_ = other.indexUri_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1018,6 +1080,82 @@ private static final long serialVersionUID = 0L;
     public Builder clearDuration() {
       
       duration_ = 0F;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object indexUri_ = "";
+    /**
+     * <code>string IndexUri = 8;</code>
+     * @return The indexUri.
+     */
+    public java.lang.String getIndexUri() {
+      java.lang.Object ref = indexUri_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        indexUri_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string IndexUri = 8;</code>
+     * @return The bytes for indexUri.
+     */
+    public com.google.protobuf.ByteString
+        getIndexUriBytes() {
+      java.lang.Object ref = indexUri_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        indexUri_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string IndexUri = 8;</code>
+     * @param value The indexUri to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIndexUri(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      indexUri_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string IndexUri = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIndexUri() {
+      
+      indexUri_ = getDefaultInstance().getIndexUri();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string IndexUri = 8;</code>
+     * @param value The bytes for indexUri to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIndexUriBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      indexUri_ = value;
       onChanged();
       return this;
     }

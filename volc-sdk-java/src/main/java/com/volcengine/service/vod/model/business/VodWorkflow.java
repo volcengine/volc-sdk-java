@@ -313,40 +313,40 @@ public final class VodWorkflow {
       "at\030\001 \001(\t\022\021\n\tStoreUris\030\002 \003(\t\022\021\n\tCellWidth" +
       "\030\003 \001(\005\022\022\n\nCellHeight\030\004 \001(\005\022\017\n\007ImgXLen\030\005 " +
       "\001(\005\022\017\n\007ImgYLen\030\006 \001(\005\022\020\n\010Interval\030\007 \001(\002\022\022" +
-      "\n\nCaptureNum\030\010 \001(\005\"\220\001\n\024SnapshotParamsSam" +
+      "\n\nCaptureNum\030\010 \001(\005\"\242\001\n\024SnapshotParamsSam" +
       "ple\022\016\n\006Format\030\001 \001(\t\022\021\n\tStoreUris\030\002 \003(\t\022\r" +
       "\n\005Width\030\003 \001(\005\022\016\n\006Height\030\004 \001(\005\022\020\n\010Interva" +
       "l\030\005 \001(\002\022\022\n\nCaptureNum\030\006 \001(\005\022\020\n\010Duration\030" +
-      "\007 \001(\002\"\370\003\n\016SnapshotResult\022\014\n\004Type\030\001 \001(\t\022F" +
-      "\n\006Poster\030\002 \001(\01324.Volcengine.Vod.Models.B" +
-      "usiness.SnapshotParamsPosterH\000\022H\n\007Dynpos" +
-      "t\030\003 \001(\01325.Volcengine.Vod.Models.Business" +
-      ".SnapshotParamsDynpostH\000\022V\n\016AnimatedPost" +
-      "er\030\004 \001(\0132<.Volcengine.Vod.Models.Busines" +
-      "s.SnapshotParamsAnimatedPosterH\000\022L\n\tAIDy" +
-      "npost\030\005 \001(\01327.Volcengine.Vod.Models.Busi" +
-      "ness.SnapshotParamsAIDynpostH\000\022F\n\006Sprite" +
-      "\030\006 \001(\01324.Volcengine.Vod.Models.Business." +
-      "SnapshotParamsSpriteH\000\022F\n\006Sample\030\007 \001(\01324" +
-      ".Volcengine.Vod.Models.Business.Snapshot" +
-      "ParamsSampleH\000B\020\n\016SnapshotParams\"\307\002\n\021Vod" +
-      "WorkflowResult\022<\n\tDirectUrl\030\001 \001(\0132).Volc" +
-      "engine.Vod.Models.Business.DirectUrl\022\013\n\003" +
-      "Vid\030\002 \001(\t\022\r\n\005RunId\030\003 \001(\t\022\021\n\tSpaceName\030\004 " +
-      "\001(\t\022\022\n\nTemplateId\030\005 \001(\t\022\024\n\014CallbackArgs\030" +
-      "\006 \001(\t\022\016\n\006Status\030\007 \001(\t\022H\n\016TranscodeInfos\030" +
-      "\010 \003(\01320.Volcengine.Vod.Models.Business.V" +
-      "odTranscodeInfo\022A\n\tSnapshots\030\t \003(\0132..Vol" +
-      "cengine.Vod.Models.Business.SnapshotResu" +
-      "lt*z\n\013StageStatus\022\013\n\007Unknown\020\000\022\r\n\tSchedu" +
-      "led\020\001\022\013\n\007Running\020\002\022\014\n\010Canceled\020\003\022\014\n\010Time" +
-      "dOut\020\004\022\013\n\007Skipped\020\005\022\r\n\tCompleted\020\006\022\n\n\006Fa" +
-      "iled\020\007B\314\001\n)com.volcengine.service.vod.mo" +
-      "del.businessB\013VodWorkflowP\001ZAgithub.com/" +
-      "volcengine/volc-sdk-golang/service/vod/m" +
-      "odels/business\240\001\001\330\001\001\312\002 Volc\\Service\\Vod\\" +
-      "Models\\Business\342\002#Volc\\Service\\Vod\\Model" +
-      "s\\GPBMetadatab\006proto3"
+      "\007 \001(\002\022\020\n\010IndexUri\030\010 \001(\t\"\370\003\n\016SnapshotResu" +
+      "lt\022\014\n\004Type\030\001 \001(\t\022F\n\006Poster\030\002 \001(\01324.Volce" +
+      "ngine.Vod.Models.Business.SnapshotParams" +
+      "PosterH\000\022H\n\007Dynpost\030\003 \001(\01325.Volcengine.V" +
+      "od.Models.Business.SnapshotParamsDynpost" +
+      "H\000\022V\n\016AnimatedPoster\030\004 \001(\0132<.Volcengine." +
+      "Vod.Models.Business.SnapshotParamsAnimat" +
+      "edPosterH\000\022L\n\tAIDynpost\030\005 \001(\01327.Volcengi" +
+      "ne.Vod.Models.Business.SnapshotParamsAID" +
+      "ynpostH\000\022F\n\006Sprite\030\006 \001(\01324.Volcengine.Vo" +
+      "d.Models.Business.SnapshotParamsSpriteH\000" +
+      "\022F\n\006Sample\030\007 \001(\01324.Volcengine.Vod.Models" +
+      ".Business.SnapshotParamsSampleH\000B\020\n\016Snap" +
+      "shotParams\"\307\002\n\021VodWorkflowResult\022<\n\tDire" +
+      "ctUrl\030\001 \001(\0132).Volcengine.Vod.Models.Busi" +
+      "ness.DirectUrl\022\013\n\003Vid\030\002 \001(\t\022\r\n\005RunId\030\003 \001" +
+      "(\t\022\021\n\tSpaceName\030\004 \001(\t\022\022\n\nTemplateId\030\005 \001(" +
+      "\t\022\024\n\014CallbackArgs\030\006 \001(\t\022\016\n\006Status\030\007 \001(\t\022" +
+      "H\n\016TranscodeInfos\030\010 \003(\01320.Volcengine.Vod" +
+      ".Models.Business.VodTranscodeInfo\022A\n\tSna" +
+      "pshots\030\t \003(\0132..Volcengine.Vod.Models.Bus" +
+      "iness.SnapshotResult*z\n\013StageStatus\022\013\n\007U" +
+      "nknown\020\000\022\r\n\tScheduled\020\001\022\013\n\007Running\020\002\022\014\n\010" +
+      "Canceled\020\003\022\014\n\010TimedOut\020\004\022\013\n\007Skipped\020\005\022\r\n" +
+      "\tCompleted\020\006\022\n\n\006Failed\020\007B\314\001\n)com.volceng" +
+      "ine.service.vod.model.businessB\013VodWorkf" +
+      "lowP\001ZAgithub.com/volcengine/volc-sdk-go" +
+      "lang/service/vod/models/business\240\001\001\330\001\001\312\002" +
+      " Volc\\Service\\Vod\\Models\\Business\342\002#Volc" +
+      "\\Service\\Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -545,7 +545,7 @@ public final class VodWorkflow {
     internal_static_Volcengine_Vod_Models_Business_SnapshotParamsSample_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_SnapshotParamsSample_descriptor,
-        new java.lang.String[] { "Format", "StoreUris", "Width", "Height", "Interval", "CaptureNum", "Duration", });
+        new java.lang.String[] { "Format", "StoreUris", "Width", "Height", "Interval", "CaptureNum", "Duration", "IndexUri", });
     internal_static_Volcengine_Vod_Models_Business_SnapshotResult_descriptor =
       getDescriptor().getMessageTypes().get(29);
     internal_static_Volcengine_Vod_Models_Business_SnapshotResult_fieldAccessorTable = new

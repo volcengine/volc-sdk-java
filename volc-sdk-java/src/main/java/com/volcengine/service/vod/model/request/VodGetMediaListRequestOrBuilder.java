@@ -226,4 +226,24 @@ public interface VodGetMediaListRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTosStorageClassesBytes();
+
+  /**
+   * <pre>
+   * 音视频上传来源，多个用","隔开
+   * </pre>
+   *
+   * <code>string VodUploadSources = 12;</code>
+   * @return The vodUploadSources.
+   */
+  java.lang.String getVodUploadSources();
+  /**
+   * <pre>
+   * 音视频上传来源，多个用","隔开
+   * </pre>
+   *
+   * <code>string VodUploadSources = 12;</code>
+   * @return The bytes for vodUploadSources.
+   */
+  com.google.protobuf.ByteString
+      getVodUploadSourcesBytes();
 }

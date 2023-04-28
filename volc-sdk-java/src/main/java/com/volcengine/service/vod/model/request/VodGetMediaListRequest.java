@@ -27,6 +27,7 @@ private static final long serialVersionUID = 0L;
     pageSize_ = "";
     classificationIds_ = "";
     tosStorageClasses_ = "";
+    vodUploadSources_ = "";
   }
 
   @java.lang.Override
@@ -123,6 +124,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             tosStorageClasses_ = s;
+            break;
+          }
+          case 98: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            vodUploadSources_ = s;
             break;
           }
           default: {
@@ -663,6 +670,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int VODUPLOADSOURCES_FIELD_NUMBER = 12;
+  private volatile java.lang.Object vodUploadSources_;
+  /**
+   * <pre>
+   * 音视频上传来源，多个用","隔开
+   * </pre>
+   *
+   * <code>string VodUploadSources = 12;</code>
+   * @return The vodUploadSources.
+   */
+  @java.lang.Override
+  public java.lang.String getVodUploadSources() {
+    java.lang.Object ref = vodUploadSources_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      vodUploadSources_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 音视频上传来源，多个用","隔开
+   * </pre>
+   *
+   * <code>string VodUploadSources = 12;</code>
+   * @return The bytes for vodUploadSources.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getVodUploadSourcesBytes() {
+    java.lang.Object ref = vodUploadSources_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      vodUploadSources_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -710,6 +763,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tosStorageClasses_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 11, tosStorageClasses_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vodUploadSources_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, vodUploadSources_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -752,6 +808,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tosStorageClasses_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, tosStorageClasses_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vodUploadSources_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, vodUploadSources_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -789,6 +848,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getClassificationIds())) return false;
     if (!getTosStorageClasses()
         .equals(other.getTosStorageClasses())) return false;
+    if (!getVodUploadSources()
+        .equals(other.getVodUploadSources())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -822,6 +883,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getClassificationIds().hashCode();
     hash = (37 * hash) + TOSSTORAGECLASSES_FIELD_NUMBER;
     hash = (53 * hash) + getTosStorageClasses().hashCode();
+    hash = (37 * hash) + VODUPLOADSOURCES_FIELD_NUMBER;
+    hash = (53 * hash) + getVodUploadSources().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -977,6 +1040,8 @@ private static final long serialVersionUID = 0L;
 
       tosStorageClasses_ = "";
 
+      vodUploadSources_ = "";
+
       return this;
     }
 
@@ -1014,6 +1079,7 @@ private static final long serialVersionUID = 0L;
       result.pageSize_ = pageSize_;
       result.classificationIds_ = classificationIds_;
       result.tosStorageClasses_ = tosStorageClasses_;
+      result.vodUploadSources_ = vodUploadSources_;
       onBuilt();
       return result;
     }
@@ -1104,6 +1170,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTosStorageClasses().isEmpty()) {
         tosStorageClasses_ = other.tosStorageClasses_;
+        onChanged();
+      }
+      if (!other.getVodUploadSources().isEmpty()) {
+        vodUploadSources_ = other.vodUploadSources_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -2187,6 +2257,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       tosStorageClasses_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object vodUploadSources_ = "";
+    /**
+     * <pre>
+     * 音视频上传来源，多个用","隔开
+     * </pre>
+     *
+     * <code>string VodUploadSources = 12;</code>
+     * @return The vodUploadSources.
+     */
+    public java.lang.String getVodUploadSources() {
+      java.lang.Object ref = vodUploadSources_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        vodUploadSources_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 音视频上传来源，多个用","隔开
+     * </pre>
+     *
+     * <code>string VodUploadSources = 12;</code>
+     * @return The bytes for vodUploadSources.
+     */
+    public com.google.protobuf.ByteString
+        getVodUploadSourcesBytes() {
+      java.lang.Object ref = vodUploadSources_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        vodUploadSources_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 音视频上传来源，多个用","隔开
+     * </pre>
+     *
+     * <code>string VodUploadSources = 12;</code>
+     * @param value The vodUploadSources to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVodUploadSources(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      vodUploadSources_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 音视频上传来源，多个用","隔开
+     * </pre>
+     *
+     * <code>string VodUploadSources = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVodUploadSources() {
+      
+      vodUploadSources_ = getDefaultInstance().getVodUploadSources();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 音视频上传来源，多个用","隔开
+     * </pre>
+     *
+     * <code>string VodUploadSources = 12;</code>
+     * @param value The bytes for vodUploadSources to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVodUploadSourcesBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      vodUploadSources_ = value;
       onChanged();
       return this;
     }

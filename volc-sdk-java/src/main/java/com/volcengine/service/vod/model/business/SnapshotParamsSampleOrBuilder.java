@@ -73,4 +73,16 @@ public interface SnapshotParamsSampleOrBuilder extends
    * @return The duration.
    */
   float getDuration();
+
+  /**
+   * <code>string IndexUri = 8;</code>
+   * @return The indexUri.
+   */
+  java.lang.String getIndexUri();
+  /**
+   * <code>string IndexUri = 8;</code>
+   * @return The bytes for indexUri.
+   */
+  com.google.protobuf.ByteString
+      getIndexUriBytes();
 }

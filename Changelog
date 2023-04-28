@@ -1,5 +1,9 @@
 Change log
 
+2023-04-28 Bumped to version v1.0.97
+- Upgrade dependencies
+- Updated apis for iamgex/vod/tls/sms
+
 2023-04-20 Bumped to version v1.0.96
 - Updated client's destroy method and fix ct equal methon
 - Updated apis for livesaas/sms/stream/tls/cdn/visual/billing/imagex

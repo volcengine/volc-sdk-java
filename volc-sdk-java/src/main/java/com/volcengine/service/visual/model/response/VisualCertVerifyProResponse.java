@@ -141,6 +141,13 @@ public class VisualCertVerifyProResponse extends VisualBaseResponse {
         }
 
         @JSONField(name = "req_measure_info")
-        Boolean reqMeasureInfo;
+        ReqMeasureInfo reqMeasureInfo;
+        @Data
+        public static class ReqMeasureInfo {
+            @JSONField(name = "measure_type")
+            String measureType;
+            @JSONField(name = "value")
+            Integer value;
+        }
     }
 }

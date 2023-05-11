@@ -6,7 +6,6 @@ import com.volcengine.model.response.ResponseMetadata;
 
 
 import java.util.List;
-import java.util.Map;
 
 @Data
 public class GetBasicConfigAPIResponse {
@@ -149,6 +148,10 @@ public class GetBasicConfigAPIResponse {
         Integer ConfigVersion;
         @JSONField(name = "VerticalCoverImageUrl")
         String VerticalCoverImageUrl;
+        @JSONField(name = "MobileLoginBackgroundImageUrl")
+        String MobileLoginBackgroundImageUrl;
+        @JSONField(name = "PcLoginBackgroundImageUrl")
+        String PcLoginBackgroundImageUrl;
     }
 
     @Data

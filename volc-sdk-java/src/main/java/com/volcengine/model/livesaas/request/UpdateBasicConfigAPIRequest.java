@@ -138,6 +138,10 @@ public class UpdateBasicConfigAPIRequest {
     RiskWarningSetting RiskWarningSetting;
     @JSONField(name = "VerticalCoverImageUrl")
     String VerticalCoverImageUrl;
+    @JSONField(name = "PcLoginBackgroundImageUrl")
+    String PcLoginBackgroundImageUrl;
+    @JSONField(name = "MobileLoginBackgroundImageUrl")
+    String MobileLoginBackgroundImageUrl;
 
     @Data
     public static class RiskWarningSetting {

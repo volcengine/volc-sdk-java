@@ -36,21 +36,38 @@ public class CertVerifyProDemo {
         // call below method if you don't set ak and sk in ～/.vcloud/config
         visualService.setAccessKey("your-ak");
         visualService.setSecretKey("your-sk");
-        visualService.setSessionToken("your-sts_token");
+//        visualService.setSessionToken("123123123");
 
 //        certTokenPro调用示例
         VisualCertTokenProRequest req = new VisualCertTokenProRequest();
         req.setReqKey("cert_pro_token");
-        req.setStsToken("your-sts_token");
+        req.setStsToken("123123123");
 //        req.setTosInfo();
-        req.setRefSource("1");
-        req.setIdcardName("test");
-        req.setIdcardNo("11111111111111111");
+        req.setRefSource("1");  // 0：无源，1：有源
+        req.setIdcardName("xxx");
+        req.setIdcardNo("xxx");
+
+//        VisualCertTokenProRequest.RiskMotionList riskMotionList = new VisualCertTokenProRequest.RiskMotionList();
+//        ArrayList<String> freeList = new ArrayList<>(Arrays.asList("0", "1"));
+//        riskMotionList.setFree(freeList);
+//        ArrayList<String> lowList = new ArrayList<>(Arrays.asList("0", "1", "2", "3"));
+//        riskMotionList.setFree(freeList);
+//        ArrayList<String> mediumList = new ArrayList<>(Arrays.asList("0", "1", "2", "3"));
+//        riskMotionList.setFree(freeList);
+//        ArrayList<String> highList = new ArrayList<>(Arrays.asList("0", "1", "2", "3"));
+//        riskMotionList.setFree(freeList);
+//        riskMotionList.setLow(lowList);
+//        riskMotionList.setMedium(mediumList);
+//        riskMotionList.setHigh(highList);
+//
+//        req.setRiskMotionList(riskMotionList);
 //        req.setRefImage("/9xx");
 //        req.setMaxLivenessTrial(10);
 //        req.setLivenessTimeout(10);
 
 //        req.setCallBackInfo();
+
+        System.out.println(req.getRiskMotionCount());
 
         try {
             VisualCertTokenProResponse response = visualService.certTokenPro(req);
@@ -60,12 +77,12 @@ public class CertVerifyProDemo {
         }
     }
 
-//        VerifyPro接口请求示例
+////        VerifyPro接口请求示例
 //        VisualCertVerifyProRequest req = new VisualCertVerifyProRequest();
 //        req.setReqKey("cert_pro_src_verify");
-//        req.setBytedToken("");
-//        req.setSdkData("");
-//        req.setRiskInfo("");
+//        req.setBytedToken("20230506135020D02A036A32BD74A4E9BF");
+//        req.setRiskInfo("xxx");
+//        req.setSdkData("xx");
 //
 //        try {
 //            VisualCertVerifyProResponse response = visualService.certVerifyPro(req);
@@ -78,7 +95,7 @@ public class CertVerifyProDemo {
 //        QueryPro接口请求示例
 //        VisualCertQueryProRequest req = new VisualCertQueryProRequest();
 //        req.setReqKey("cert_verify_query");
-//        req.setBytedToken("202303031539536D3FBEF9B4F8220E743E");
+//        req.setBytedToken("202305052223121E819D0179C229AFFA52");
 //        req.setOmitData(false);
 ////        req.setOmitImageData(false);
 ////        req.setOmitVideoData(false);

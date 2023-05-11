@@ -30,7 +30,7 @@ public class VisualCertTokenProRequest {
     Integer livenessTimeout = 10;
 
     @JSONField(name = "risk_liveness_type")
-    RiskLivenessType riskLivenessType;
+    RiskLivenessType riskLivenessType = new RiskLivenessType();
 
     @Data
     public static class RiskLivenessType {
@@ -45,8 +45,7 @@ public class VisualCertTokenProRequest {
     }
 
     @JSONField(name = "risk_motion_count")
-    RiskMotionCount riskMotionCount;
-
+    RiskMotionCount riskMotionCount = new RiskMotionCount();
     @Data
     public static class RiskMotionCount {
         @JSONField(name = "free")
@@ -60,35 +59,35 @@ public class VisualCertTokenProRequest {
     }
 
     @JSONField(name = "risk_motion_list")
-    RiskMotionList riskMotionList;
+    RiskMotionList riskMotionList = new RiskMotionList();
     @Data
     public static class RiskMotionList {
         @JSONField(name = "free")
-        ArrayList<String> free = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
+        ArrayList<String> free = new ArrayList<>(Arrays.asList("0", "1", "2", "3"));
         @JSONField(name = "low")
-        ArrayList<String> low = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
+        ArrayList<String> low = new ArrayList<>(Arrays.asList("0", "1", "2", "3"));
         @JSONField(name = "medium")
-        ArrayList<String> medium = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
+        ArrayList<String> medium = new ArrayList<>(Arrays.asList("0", "1", "2", "3"));
         @JSONField(name = "high")
-        ArrayList<String> high = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
+        ArrayList<String> high = new ArrayList<>(Arrays.asList("0", "1", "2", "3"));
     }
 
     @JSONField(name = "risk_fixed_motion_list")
-    RiskFixedMotionList riskFixedMotionList;
+    RiskFixedMotionList riskFixedMotionList = new RiskFixedMotionList();
     @Data
     public static class RiskFixedMotionList {
         @JSONField(name = "free")
-        ArrayList<String> free = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
+        ArrayList<String> free;
         @JSONField(name = "low")
-        ArrayList<String> low = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
+        ArrayList<String> low;
         @JSONField(name = "medium")
-        ArrayList<String> medium = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
+        ArrayList<String> medium;
         @JSONField(name = "high")
-        ArrayList<String> high = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
+        ArrayList<String> high;
     }
 
     @JSONField(name = "callback_info")
-    CallBackInfo callBackInfo;
+    CallBackInfo callBackInfo = new CallBackInfo();
     @Data
     public static class CallBackInfo {
         @JSONField(name = "switch")

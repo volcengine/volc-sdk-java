@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 @Data
 public class VisualCertVerifyProResponse extends VisualBaseResponse {
-    
+
     @JSONField(name = "data")
     CertVerifyProData data;
 
@@ -18,6 +18,9 @@ public class VisualCertVerifyProResponse extends VisualBaseResponse {
 
         @JSONField(name = "result")
         Boolean result;
+
+        @JSONField(name = "risk_result")
+        String riskResult;
 
         @JSONField(name = "images")
         Images images;
@@ -51,83 +54,13 @@ public class VisualCertVerifyProResponse extends VisualBaseResponse {
             }
 
             @JSONField(name = "image_face_detail")
-            ImageFaceDetail imageFaceDetail;
-            @Data
-            public static class ImageFaceDetail {
-                @JSONField(name = "comprehensive_score")
-                Float comprehensiveScore;
-                @JSONField(name = "face_clarity")
-                Float faceClarity;
-                @JSONField(name = "brightness")
-                Float brightness;
-                @JSONField(name = "exposure")
-                Float exposure;
-                @JSONField(name = "pose_pitch")
-                Float posePitch;
-                @JSONField(name = "pose_yaw")
-                Float poseYaw;
-                @JSONField(name = "pose_roll")
-                Float poseRoll;
-                @JSONField(name = "mouth_occlude")
-                Float mouthOcclude;
-                @JSONField(name = "left_eye_occlude")
-                Float leftEyeOcclude;
-                @JSONField(name = "right_eye_occlude")
-                Float rightEyeOcclude;
-                @JSONField(name = "have_cap")
-                Float haveCap;
-            }
+            String imageFaceDetail;
 
             @JSONField(name = "image_env_detail")
-            ImageEnvDetail imageEnvDetail;
-            @Data
-            public static class ImageEnvDetail {
-                @JSONField(name = "comprehensive_score")
-                Float comprehensiveScore;
-                @JSONField(name = "face_clarity")
-                Float faceClarity;
-                @JSONField(name = "brightness")
-                Float brightness;
-                @JSONField(name = "exposure")
-                Float exposure;
-                @JSONField(name = "pose_pitch")
-                Float posePitch;
-                @JSONField(name = "pose_yaw")
-                Float poseYaw;
-                @JSONField(name = "pose_roll")
-                Float poseRoll;
-                @JSONField(name = "mouth_occlude")
-                Float mouthOcclude;
-                @JSONField(name = "left_eye_occlude")
-                Float leftEyeOcclude;
-                @JSONField(name = "right_eye_occlude")
-                Float rightEyeOcclude;
-                @JSONField(name = "have_cap")
-                Float haveCap;
-            }
+            String imageEnvDetail;
 
             @JSONField(name = "alive")
             Boolean alive;
-
-            @JSONField(name = "risk_result")
-            CertVerifyProData.RiskResult riskResult;
-            @Data
-            public static class RiskResult {
-                @JSONField(name = "score")
-                String score;
-                @JSONField(name = "tags")
-                ArrayList<String> tags;
-            }
-        }
-
-        @JSONField(name = "risk_result")
-        RiskResult riskResult;
-        @Data
-        public static class RiskResult {
-            @JSONField(name = "score")
-            String score;
-            @JSONField(name = "tags")
-            ArrayList<String> tags;
         }
 
         @JSONField(name = "algorithm_base_resp")

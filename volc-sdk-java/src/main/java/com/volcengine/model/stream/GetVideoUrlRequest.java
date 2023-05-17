@@ -19,4 +19,6 @@ public class GetVideoUrlRequest {
     String scene;
     @JSONField(name = "video_id")
     String videoId;
+    @JSONField(name = "CustomVideoDefinition")
+    String customVideoDefinition;
 }

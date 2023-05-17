@@ -41,4 +41,6 @@ public class GetListRequest {
     String district;
     @JSONField(name = "OffPersonalRec")
     int offPersonalRec;
+    @JSONField(name = "CustomVideoDefinition")
+    String customVideoDefinition;
 }

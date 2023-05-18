@@ -19,6 +19,7 @@ public class VodCommitUploadInfoDemo {
 			reqBuilder.setSessionKey("your SessionKey");
 			reqBuilder.setCallbackArgs("your CallbackArgs");
 			reqBuilder.setFunctions("your Functions");
+			reqBuilder.setVodUploadSource("your VodUploadSource");
 			
             com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse resp = vodService.commitUploadInfo(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

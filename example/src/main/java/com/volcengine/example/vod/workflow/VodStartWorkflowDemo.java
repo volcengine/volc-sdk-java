@@ -24,6 +24,7 @@ public class VodStartWorkflowDemo {
 			reqBuilder.setEnableLowPriority(false);
 			com.volcengine.service.vod.model.business.DirectUrl.Builder directUrlBuilder = com.volcengine.service.vod.model.business.DirectUrl.newBuilder();
 			reqBuilder.setDirectUrl(directUrlBuilder);
+			reqBuilder.setTaskListId("your TaskListId");
 			
             com.volcengine.service.vod.model.response.VodStartWorkflowResponse resp = vodService.startWorkflow(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

@@ -17,7 +17,8 @@ public class VodUpdateMediaStorageClassDemo {
             com.volcengine.service.vod.model.request.VodUpdateMediaStorageClassRequest.Builder reqBuilder = com.volcengine.service.vod.model.request.VodUpdateMediaStorageClassRequest.newBuilder();
 			reqBuilder.setVids("your Vids");
 			reqBuilder.setStorageClass("your StorageClass");
-            reqBuilder.setCallbackArgs("your CallbackArgs");
+			reqBuilder.setCallbackArgs("your CallbackArgs");
+			reqBuilder.setFileIds("your FileIds");
 			
             com.volcengine.service.vod.model.response.VodUpdateMediaStorageClassResponse resp = vodService.updateMediaStorageClass(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

@@ -100,4 +100,24 @@ public interface VodDomainConfigInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getDefaultPlayDomainBytes();
+
+  /**
+   * <pre>
+   *符合要求的域名总数
+   * </pre>
+   *
+   * <code>int64 Total = 5;</code>
+   * @return The total.
+   */
+  long getTotal();
+
+  /**
+   * <pre>
+   *已显示多少条域名
+   * </pre>
+   *
+   * <code>int64 Offset = 6;</code>
+   * @return The offset.
+   */
+  long getOffset();
 }

@@ -134,6 +134,16 @@ public final class VodMeasure {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditDetailDataResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayFileLogByDomainItem_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayFileLogByDomainItem_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayFileLogByDomainResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayFileLogByDomainResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -272,13 +282,20 @@ public final class VodMeasure {
       "\003 \001(\t\022\017\n\007EndTime\030\004 \001(\t\022\020\n\010PageSize\030\005 \001(\003" +
       "\022\017\n\007PageNum\030\006 \001(\003\022\r\n\005Total\030\007 \001(\003\022R\n\016Edit" +
       "DetailData\030\010 \003(\0132:.Volcengine.Vod.Models" +
-      ".Business.DescribeVodSpaceEditDetailB\313\001\n" +
-      ")com.volcengine.service.vod.model.busine" +
-      "ssB\nVodMeasureP\001ZAgithub.com/volcengine/" +
-      "volc-sdk-golang/service/vod/models/busin" +
-      "ess\240\001\001\330\001\001\312\002 Volc\\Service\\Vod\\Models\\Busi" +
-      "ness\342\002#Volc\\Service\\Vod\\Models\\GPBMetada" +
-      "tab\006proto3"
+      ".Business.DescribeVodSpaceEditDetail\"W\n\"" +
+      "DescribeVodPlayFileLogByDomainItem\022\014\n\004Da" +
+      "te\030\001 \001(\t\022\016\n\006Domain\030\002 \001(\t\022\023\n\013DownloadUrl\030" +
+      "\003 \001(\t\"\264\001\n$DescribeVodPlayFileLogByDomain" +
+      "Result\022\021\n\tStartTime\030\001 \001(\t\022\017\n\007EndTime\030\002 \001" +
+      "(\t\022\022\n\nDomainList\030\003 \003(\t\022T\n\010FileList\030\004 \003(\013" +
+      "2B.Volcengine.Vod.Models.Business.Descri" +
+      "beVodPlayFileLogByDomainItemB\313\001\n)com.vol" +
+      "cengine.service.vod.model.businessB\nVodM" +
+      "easureP\001ZAgithub.com/volcengine/volc-sdk" +
+      "-golang/service/vod/models/business\240\001\001\330\001" +
+      "\001\312\002 Volc\\Service\\Vod\\Models\\Business\342\002#V" +
+      "olc\\Service\\Vod\\Models\\GPBMetadatab\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -428,6 +445,18 @@ public final class VodMeasure {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditDetailDataResult_descriptor,
         new java.lang.String[] { "Region", "Space", "StartTime", "EndTime", "PageSize", "PageNum", "Total", "EditDetailData", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayFileLogByDomainItem_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayFileLogByDomainItem_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayFileLogByDomainItem_descriptor,
+        new java.lang.String[] { "Date", "Domain", "DownloadUrl", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayFileLogByDomainResult_descriptor =
+      getDescriptor().getMessageTypes().get(25);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayFileLogByDomainResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayFileLogByDomainResult_descriptor,
+        new java.lang.String[] { "StartTime", "EndTime", "DomainList", "FileList", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

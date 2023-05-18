@@ -45,6 +45,20 @@ public class ContentSecurityConfig {
                         }
                     }
             ));
+            put(Const.ImageContentRiskV2, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ImageContentRiskV2));
+                                    add(new BasicNameValuePair("Version", "2021-11-29"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.AsyncImageRisk, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

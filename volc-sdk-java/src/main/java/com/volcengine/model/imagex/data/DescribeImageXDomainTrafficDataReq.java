@@ -9,6 +9,8 @@ public class DescribeImageXDomainTrafficDataReq {
     private String serviceIds;  // 传入多个用英文逗号分隔
     @JSONField(name = "DomainNames")
     private String domainNames; // 传入多个用英文逗号分隔
+    @JSONField(name = "BillingRegion")
+    private String billingRegion; // 传入多个用英文逗号分隔
     @JSONField(name = "GroupBy")
     private String groupBy;   // 维度拆分的维度值。不传表示不拆分维度。传入多个用英文逗号分隔。支持ServiceId,DomainName
     @JSONField(name = "StartTime")

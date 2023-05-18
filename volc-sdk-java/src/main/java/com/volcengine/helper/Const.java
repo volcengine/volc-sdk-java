@@ -94,6 +94,7 @@ public class Const {
 
     // content security
     public static final String ImageContentRisk = "ImageContentRisk";
+    public static final String ImageContentRiskV2 = "ImageContentRiskV2";
     public static final String AsyncImageRisk = "AsyncImageRisk";
     public static final String AsyncImageRiskV2 = "AsyncImageRiskV2";
     public static final String VideoResult = "VideoResult";

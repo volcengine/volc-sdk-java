@@ -21,6 +21,15 @@ public interface ContentSecurityService extends IBaseService {
     ImageRiskDetectionResponse ImageRiskDetection(RiskDetectionRequest riskDetectionRequest) throws Exception;
 
     /**
+     * Image Risk Detection V3.
+     *
+     * @param riskDetectionRequest image risk detection request
+     * @return image risk detection response
+     * @throws Exception the exception
+     */
+    ImageRiskDetectionResponse ImageRiskDetectionV2(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+    /**
      * Async Image Risk Detection.
      *
      * @param riskDetectionRequest image risk detection request

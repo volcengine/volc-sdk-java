@@ -37,6 +37,16 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
     }
 
     @Override
+    public ImageRiskDetectionResponse ImageRiskDetectionV2(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.ImageContentRiskV2, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ImageRiskDetectionResponse.class);
+    }
+
+    @Override
     public AsyncRiskDetectionResponse AsyncImageRisk(RiskDetectionRequest riskDetectionRequest) throws Exception {
         RawResponse response = json(Const.AsyncImageRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

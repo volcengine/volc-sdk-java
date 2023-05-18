@@ -160,6 +160,14 @@ public interface IVisualService extends IBaseService {
     VisualDollyZoomResponse dollyZoom(VisualDollyZoomRequest request) throws Exception;
 
     /**
+     * 图片裁剪
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualImageCutResponse imageCut(VisualImageCutRequest request) throws Exception;
+
+    /**
      * 身份认证Token服务
      * @param request
      * @return
@@ -257,6 +265,14 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     VisualFaceFusionMovieSyncResponse faceFusionMovieSync(VisualFaceFusionMovieSyncRequest request) throws Exception;
+    /**
+     * 图像增强V2版本
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualEnhancePhotoV2Response enhancePhotoV2(VisualEnhancePhotoV2Request request) throws Exception;
+
     /**
      * 视频超分辨率-提交任务
      * @param request

@@ -211,6 +211,15 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
     }
 
     @Override
+    public VisualImageCutResponse imageCut(VisualImageCutRequest request) throws Exception {
+        RawResponse response = post(Const.ImageCut, null, convertNameValuePair(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualImageCutResponse.class);
+    }
+
+    @Override
     public VisualCertTokenResponse certToken(VisualCertTokenRequest request) throws Exception {
         RawResponse response = json(Const.CertToken, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -334,6 +343,15 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
             throw response.getException();
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualFaceFusionMovieSyncResponse.class);
+    }
+
+    @Override
+    public VisualEnhancePhotoV2Response enhancePhotoV2(VisualEnhancePhotoV2Request request) throws Exception {
+        RawResponse response = json(Const.EnhancePhotoV2, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualEnhancePhotoV2Response.class);
     }
 
     @Override

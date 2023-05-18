@@ -20,6 +20,7 @@ public class VodListCdnPvDataDemo {
 			reqBuilder.setStartTimestamp(0);
 			reqBuilder.setEndTimestamp(0);
 			reqBuilder.setDataType("your DataType");
+			reqBuilder.setNeedDetail(false);
 			
             com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse resp = vodService.listCdnPvData(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

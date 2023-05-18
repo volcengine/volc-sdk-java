@@ -26,6 +26,7 @@ public class VodGetMediaListDemo {
 			reqBuilder.setPageSize("your PageSize");
 			reqBuilder.setClassificationIds("your ClassificationIds");
 			reqBuilder.setTosStorageClasses("your TosStorageClasses");
+			reqBuilder.setVodUploadSources("your VodUploadSources");
 			
             com.volcengine.service.vod.model.response.VodGetMediaListResponse resp = vodService.getMediaList(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

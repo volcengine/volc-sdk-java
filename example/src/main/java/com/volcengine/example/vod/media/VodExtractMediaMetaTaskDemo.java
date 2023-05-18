@@ -15,8 +15,8 @@ public class VodExtractMediaMetaTaskDemo {
 
         try {
             com.volcengine.service.vod.model.request.VodExtractMediaMetaTaskRequest.Builder reqBuilder = com.volcengine.service.vod.model.request.VodExtractMediaMetaTaskRequest.newBuilder();
-            reqBuilder.setVid("your Vid");
-
+			reqBuilder.setVid("your Vid");
+			
             com.volcengine.service.vod.model.response.VodExtractMediaMetaTaskResponse resp = vodService.extractMediaMetaTask(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {
                 System.out.println(resp.getResponseMetadata().getError());

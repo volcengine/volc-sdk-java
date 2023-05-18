@@ -21,6 +21,7 @@ public class VodListCdnStatusDataDemo {
 			reqBuilder.setEndTimestamp(0);
 			reqBuilder.setDataType("your DataType");
 			reqBuilder.setMetric("your Metric");
+			reqBuilder.setNeedDetail(false);
 			
             com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse resp = vodService.listCdnStatusData(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

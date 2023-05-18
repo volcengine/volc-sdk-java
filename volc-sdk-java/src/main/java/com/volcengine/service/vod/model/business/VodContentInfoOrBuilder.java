@@ -116,4 +116,24 @@ public interface VodContentInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTaskIdBytes();
+
+  /**
+   * <pre>
+   *任务信息
+   * </pre>
+   *
+   * <code>string Message = 7;</code>
+   * @return The message.
+   */
+  java.lang.String getMessage();
+  /**
+   * <pre>
+   *任务信息
+   * </pre>
+   *
+   * <code>string Message = 7;</code>
+   * @return The bytes for message.
+   */
+  com.google.protobuf.ByteString
+      getMessageBytes();
 }

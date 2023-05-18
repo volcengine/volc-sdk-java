@@ -395,6 +395,11 @@ public final class VodResponse {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceEditDetailDataResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Response_DescribeVodPlayFileLogByDomainResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Response_DescribeVodPlayFileLogByDomainResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Vod_Models_Response_VodSubmitBlockMediaTaskResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -752,27 +757,32 @@ public final class VodResponse {
       "sponseMetadata\030\001 \001(\0132-.Volcengine.Base.M" +
       "odels.Base.ResponseMetadata\022T\n\006Result\030\002 " +
       "\001(\0132D.Volcengine.Vod.Models.Business.Des" +
-      "cribeVodSpaceEditDetailDataResult\"\271\001\n\037Vo" +
-      "dSubmitBlockMediaTaskResponse\022G\n\020Respons" +
-      "eMetadata\030\001 \001(\0132-.Volcengine.Base.Models" +
-      ".Base.ResponseMetadata\022M\n\006Result\030\002 \001(\0132=" +
-      ".Volcengine.Vod.Models.Business.VodSubmi" +
-      "tBlockMediaTaskResult\"\275\001\n!VodSubmitUnblo" +
-      "ckMediaTaskResponse\022G\n\020ResponseMetadata\030" +
-      "\001 \001(\0132-.Volcengine.Base.Models.Base.Resp" +
-      "onseMetadata\022O\n\006Result\030\002 \001(\0132?.Volcengin" +
-      "e.Vod.Models.Business.VodSubmitUnblockMe" +
-      "diaTaskResult\"\273\001\n VodQueryMediaBlockStat" +
-      "usResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.V" +
-      "olcengine.Base.Models.Base.ResponseMetad" +
-      "ata\022N\n\006Result\030\002 \001(\0132>.Volcengine.Vod.Mod" +
-      "els.Business.VodQueryMediaBlockStatusRes" +
-      "ultB\314\001\n)com.volcengine.service.vod.model" +
-      ".responseB\013VodResponseP\001ZAgithub.com/vol" +
-      "cengine/volc-sdk-golang/service/vod/mode" +
-      "ls/response\240\001\001\330\001\001\312\002 Volc\\Service\\Vod\\Mod" +
-      "els\\Response\342\002#Volc\\Service\\Vod\\Models\\G" +
-      "PBMetadatab\006proto3"
+      "cribeVodSpaceEditDetailDataResult\"\307\001\n&De" +
+      "scribeVodPlayFileLogByDomainResponse\022G\n\020" +
+      "ResponseMetadata\030\001 \001(\0132-.Volcengine.Base" +
+      ".Models.Base.ResponseMetadata\022T\n\006Result\030" +
+      "\002 \001(\0132D.Volcengine.Vod.Models.Business.D" +
+      "escribeVodPlayFileLogByDomainResult\"\271\001\n\037" +
+      "VodSubmitBlockMediaTaskResponse\022G\n\020Respo" +
+      "nseMetadata\030\001 \001(\0132-.Volcengine.Base.Mode" +
+      "ls.Base.ResponseMetadata\022M\n\006Result\030\002 \001(\013" +
+      "2=.Volcengine.Vod.Models.Business.VodSub" +
+      "mitBlockMediaTaskResult\"\275\001\n!VodSubmitUnb" +
+      "lockMediaTaskResponse\022G\n\020ResponseMetadat" +
+      "a\030\001 \001(\0132-.Volcengine.Base.Models.Base.Re" +
+      "sponseMetadata\022O\n\006Result\030\002 \001(\0132?.Volceng" +
+      "ine.Vod.Models.Business.VodSubmitUnblock" +
+      "MediaTaskResult\"\273\001\n VodQueryMediaBlockSt" +
+      "atusResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-" +
+      ".Volcengine.Base.Models.Base.ResponseMet" +
+      "adata\022N\n\006Result\030\002 \001(\0132>.Volcengine.Vod.M" +
+      "odels.Business.VodQueryMediaBlockStatusR" +
+      "esultB\314\001\n)com.volcengine.service.vod.mod" +
+      "el.responseB\013VodResponseP\001ZAgithub.com/v" +
+      "olcengine/volc-sdk-golang/service/vod/mo" +
+      "dels/response\240\001\001\330\001\001\312\002 Volc\\Service\\Vod\\M" +
+      "odels\\Response\342\002#Volc\\Service\\Vod\\Models" +
+      "\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1246,20 +1256,26 @@ public final class VodResponse {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceEditDetailDataResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
-    internal_static_Volcengine_Vod_Models_Response_VodSubmitBlockMediaTaskResponse_descriptor =
+    internal_static_Volcengine_Vod_Models_Response_DescribeVodPlayFileLogByDomainResponse_descriptor =
       getDescriptor().getMessageTypes().get(76);
+    internal_static_Volcengine_Vod_Models_Response_DescribeVodPlayFileLogByDomainResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Response_DescribeVodPlayFileLogByDomainResponse_descriptor,
+        new java.lang.String[] { "ResponseMetadata", "Result", });
+    internal_static_Volcengine_Vod_Models_Response_VodSubmitBlockMediaTaskResponse_descriptor =
+      getDescriptor().getMessageTypes().get(77);
     internal_static_Volcengine_Vod_Models_Response_VodSubmitBlockMediaTaskResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodSubmitBlockMediaTaskResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_VodSubmitUnblockMediaTaskResponse_descriptor =
-      getDescriptor().getMessageTypes().get(77);
+      getDescriptor().getMessageTypes().get(78);
     internal_static_Volcengine_Vod_Models_Response_VodSubmitUnblockMediaTaskResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodSubmitUnblockMediaTaskResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_VodQueryMediaBlockStatusResponse_descriptor =
-      getDescriptor().getMessageTypes().get(78);
+      getDescriptor().getMessageTypes().get(79);
     internal_static_Volcengine_Vod_Models_Response_VodQueryMediaBlockStatusResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodQueryMediaBlockStatusResponse_descriptor,

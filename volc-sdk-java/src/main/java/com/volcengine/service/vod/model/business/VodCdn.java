@@ -155,111 +155,112 @@ public final class VodCdn {
     java.lang.String[] descriptorData = {
       "\n\032vod/business/vod_cdn.proto\022\036Volcengine" +
       ".Vod.Models.Business\032\035vod/business/vod_c" +
-      "ommon.proto\"\350\001\n\023VodDomainConfigInfo\022\021\n\tS" +
+      "ommon.proto\"\207\002\n\023VodDomainConfigInfo\022\021\n\tS" +
       "paceName\030\001 \001(\t\022P\n\020PlayInstanceInfo\030\002 \001(\013" +
       "26.Volcengine.Vod.Models.Business.VodDom" +
       "ainInstanceInfos\022Q\n\021ImageInstanceInfo\030\003 " +
       "\001(\01326.Volcengine.Vod.Models.Business.Vod" +
       "DomainInstanceInfos\022\031\n\021DefaultPlayDomain" +
-      "\030\004 \001(\t\"\265\001\n\026VodDomainInstanceInfos\022L\n\rByt" +
-      "eInstances\030\001 \003(\01325.Volcengine.Vod.Models" +
-      ".Business.VodDomainInstanceInfo\022M\n\016Other" +
-      "Instances\030\002 \003(\01325.Volcengine.Vod.Models." +
-      "Business.VodDomainInstanceInfo\"\232\001\n\025VodDo" +
-      "mainInstanceInfo\022\022\n\nInstanceId\030\001 \001(\t\022?\n\007" +
-      "Domains\030\002 \003(\0132..Volcengine.Vod.Models.Bu" +
-      "siness.VodDomainoInfo\022\026\n\016CanSelfEditing\030" +
-      "\003 \001(\010\022\024\n\014ConfigStatus\030\004 \001(\t\"\313\002\n\016VodDomai" +
-      "noInfo\022\016\n\006Domain\030\001 \001(\t\022\r\n\005Cname\030\002 \001(\t\022\024\n" +
-      "\014ConfigStatus\030\003 \001(\t\022\023\n\013CnameStatus\030\004 \001(\t" +
-      "\022\016\n\006Status\030\005 \001(\t\022M\n\013Certificate\030\006 \001(\01328." +
-      "Volcengine.Vod.Models.Business.VodDomain" +
-      "CertificateInfo\022\022\n\nCreateTime\030\007 \001(\t\022\022\n\nU" +
-      "pdateTime\030\010 \001(\t\022\016\n\006Region\030\t \001(\t\022D\n\007Sourc" +
-      "es\030\n \003(\01323.Volcengine.Vod.Models.Busines" +
-      "s.VodDomainSourceInfo\022\022\n\nLockStatus\030\013 \001(" +
-      "\t\"\242\001\n\030VodDomainCertificateInfo\022\025\n\rCertif" +
-      "icateId\030\001 \001(\t\022\027\n\017CertificateName\030\002 \001(\t\022\026" +
-      "\n\016CertificatePub\030\003 \001(\t\022\026\n\016CertificatePri" +
-      "\030\004 \001(\t\022\023\n\013HttpsStatus\030\005 \001(\t\022\021\n\tExpiredAt" +
-      "\030\006 \001(\t\"(\n\026VodCreateCdnTaskResult\022\016\n\006Task" +
-      "Id\030\001 \001(\t\"x\n\016VodContentInfo\022\016\n\006ItemId\030\001 \001" +
-      "(\t\022\013\n\003Url\030\002 \001(\t\022\016\n\006Status\030\003 \001(\t\022\020\n\010TaskT" +
-      "ype\030\004 \001(\t\022\027\n\017CreateTimestamp\030\005 \001(\005\022\016\n\006Ta" +
-      "skId\030\006 \001(\t\"\217\001\n\020VodCdnTaskResult\022\022\n\nTotal" +
-      "Count\030\001 \001(\005\022\017\n\007PageNum\030\002 \001(\005\022\020\n\010PageSize" +
-      "\030\003 \001(\005\022D\n\014ContentInfos\030\004 \003(\0132..Volcengin" +
-      "e.Vod.Models.Business.VodContentInfo\"\177\n\026" +
-      "VodCdnAccessLogElement\022\023\n\013DownloadUrl\030\001 " +
-      "\001(\t\022\020\n\010FileSize\030\002 \001(\003\022\020\n\010FileName\030\003 \001(\t\022" +
-      "\026\n\016StartTimestamp\030\004 \001(\005\022\024\n\014EndTimestamp\030" +
-      "\005 \001(\005\"n\n\023VodCdnAccessLogInfo\022\016\n\006Domain\030\001" +
-      " \001(\t\022G\n\007LogList\030\002 \003(\01326.Volcengine.Vod.M" +
-      "odels.Business.VodCdnAccessLogElement\"^\n" +
-      "\031VodListCdnAccessLogResult\022A\n\004Logs\030\001 \003(\013" +
-      "23.Volcengine.Vod.Models.Business.VodCdn" +
-      "AccessLogInfo\"B\n\031VodCdnTopAccessUrlEleme" +
-      "nt\022\013\n\003Url\030\001 \001(\t\022\n\n\002Pv\030\002 \001(\003\022\014\n\004Flux\030\003 \001(" +
-      "\003\"k\n\034VodListCdnTopAccessUrlResult\022K\n\010Url" +
-      "Infos\030\001 \003(\01329.Volcengine.Vod.Models.Busi" +
-      "ness.VodCdnTopAccessUrlElement\"3\n\020VodBan" +
-      "dwidthData\022\014\n\004Time\030\001 \001(\t\022\021\n\tBandwidth\030\002 " +
-      "\001(\001\"\214\002\n\'VodDescribeVodDomainBandwidthDat" +
-      "aResult\022\022\n\nDomainList\030\001 \003(\t\022\021\n\tStartTime" +
-      "\030\002 \001(\t\022\017\n\007EndTime\030\003 \001(\t\022\023\n\013Aggregation\030\004" +
-      " \001(\005\022\025\n\rBandwidthType\030\005 \001(\t\022\025\n\rPeakBandw" +
-      "idth\030\006 \001(\001\022\031\n\021PeakBandwidthTime\030\007 \001(\t\022K\n" +
-      "\021BandwidthDataList\030\010 \003(\01320.Volcengine.Vo" +
-      "d.Models.Business.VodBandwidthData\"\200\001\n\024V" +
-      "odCdnStatisticsData\022\014\n\004Name\030\001 \001(\t\022\016\n\006Met" +
-      "ric\030\002 \001(\t\022\020\n\010DataType\030\003 \001(\t\0228\n\006Points\030\004 " +
-      "\003(\0132(.Volcengine.Vod.Models.Business.Vod" +
-      "Point\"\200\001\n\034VodCdnStatisticsCommonResult\022C" +
-      "\n\005Datas\030\001 \003(\01324.Volcengine.Vod.Models.Bu" +
-      "siness.VodCdnStatisticsData\022\033\n\023NoPermiss" +
-      "ionDomains\030\002 \003(\t\"H\n\014VodCdnIpInfo\022\n\n\002Ip\030\001" +
-      " \001(\t\022\r\n\005CdnIp\030\002 \001(\010\022\020\n\010Location\030\003 \001(\t\022\013\n" +
-      "\003Isp\030\004 \001(\t\"V\n\027VodDescribeIpInfoResult\022;\n" +
-      "\005Infos\030\001 \003(\0132,.Volcengine.Vod.Models.Bus" +
-      "iness.VodCdnIpInfo\"/\n\016VodTrafficData\022\014\n\004" +
-      "Time\030\001 \001(\t\022\017\n\007Traffic\030\002 \001(\001\"\350\001\n%VodDescr" +
-      "ibeVodDomainTrafficDataResult\022\022\n\nDomainL" +
-      "ist\030\001 \003(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007EndTime\030" +
-      "\003 \001(\t\022\023\n\013Aggregation\030\004 \001(\005\022\023\n\013TrafficTyp" +
-      "e\030\005 \001(\t\022\024\n\014TotalTraffic\030\006 \001(\001\022G\n\017Traffic" +
-      "DataList\030\007 \003(\0132..Volcengine.Vod.Models.B" +
-      "usiness.VodTrafficData\"\254\002\n\023VodDomainSour" +
-      "ceInfo\022U\n\021SourceStationType\030\001 \001(\0162:.Volc" +
-      "engine.Vod.Models.Business.VodDomainSour" +
-      "ceStationType\022c\n\030SourceStationAddressTyp" +
-      "e\030\002 \001(\0162A.Volcengine.Vod.Models.Business" +
-      ".VodDomainSourceStationAddressType\022\016\n\006Or" +
-      "igin\030\003 \001(\t\022I\n\006Bucket\030\004 \001(\01329.Volcengine." +
-      "Vod.Models.Business.VodDomainOriginBucke" +
-      "tInfo\"_\n\031VodDomainOriginBucketInfo\022\022\n\nBu" +
-      "cketName\030\001 \001(\t\022\030\n\020BucketSourceType\030\002 \001(\t" +
-      "\022\024\n\014BucketRegion\030\003 \001(\t\"+\n\031VodSubmitBlock" +
-      "TasksResult\022\016\n\006TaskID\030\001 \001(\t\"\214\001\n\035VodGetCo" +
-      "ntentBlockTasksResult\022\r\n\005Total\030\001 \001(\003\022\017\n\007" +
-      "PageNum\030\002 \001(\003\022\020\n\010PageSize\030\003 \001(\003\0229\n\004Data\030" +
-      "\004 \003(\0132+.Volcengine.Vod.Models.Business.C" +
-      "ontentTask\"`\n\013ContentTask\022\013\n\003Url\030\001 \001(\t\022\016" +
-      "\n\006Status\030\002 \001(\t\022\020\n\010TaskType\030\003 \001(\t\022\022\n\nCrea" +
-      "teTime\030\004 \001(\003\022\016\n\006TaskID\030\005 \001(\t*\222\001\n\032VodDoma" +
-      "inSourceStationType\022\'\n#UndefinedVodDomai" +
-      "nSourceStationType\020\000\022!\n\035VodVodDomainSour" +
-      "ceStationType\020\001\022(\n$ThirdPartyVodDomainSo" +
-      "urceStationType\020\002*\251\001\n!VodDomainSourceSta" +
-      "tionAddressType\022.\n*UndefinedVodDomainSou" +
-      "rceStationAddressType\020\000\022+\n\'DomainVodDoma" +
-      "inSourceStationAddressType\020\001\022\'\n#IPVodDom" +
-      "ainSourceStationAddressType\020\002B\312\001\n)com.vo" +
-      "lcengine.service.vod.model.businessB\006Vod" +
-      "CdnP\001ZAgithub.com/volcengine/volc-sdk-go" +
-      "lang/service/vod/models/business\240\001\001\330\001\001\302\002" +
-      "\000\312\002 Volc\\Service\\Vod\\Models\\Business\342\002#V" +
-      "olc\\Service\\Vod\\Models\\GPBMetadatab\006prot" +
-      "o3"
+      "\030\004 \001(\t\022\r\n\005Total\030\005 \001(\003\022\016\n\006Offset\030\006 \001(\003\"\265\001" +
+      "\n\026VodDomainInstanceInfos\022L\n\rByteInstance" +
+      "s\030\001 \003(\01325.Volcengine.Vod.Models.Business" +
+      ".VodDomainInstanceInfo\022M\n\016OtherInstances" +
+      "\030\002 \003(\01325.Volcengine.Vod.Models.Business." +
+      "VodDomainInstanceInfo\"\232\001\n\025VodDomainInsta" +
+      "nceInfo\022\022\n\nInstanceId\030\001 \001(\t\022?\n\007Domains\030\002" +
+      " \003(\0132..Volcengine.Vod.Models.Business.Vo" +
+      "dDomainoInfo\022\026\n\016CanSelfEditing\030\003 \001(\010\022\024\n\014" +
+      "ConfigStatus\030\004 \001(\t\"\313\002\n\016VodDomainoInfo\022\016\n" +
+      "\006Domain\030\001 \001(\t\022\r\n\005Cname\030\002 \001(\t\022\024\n\014ConfigSt" +
+      "atus\030\003 \001(\t\022\023\n\013CnameStatus\030\004 \001(\t\022\016\n\006Statu" +
+      "s\030\005 \001(\t\022M\n\013Certificate\030\006 \001(\01328.Volcengin" +
+      "e.Vod.Models.Business.VodDomainCertifica" +
+      "teInfo\022\022\n\nCreateTime\030\007 \001(\t\022\022\n\nUpdateTime" +
+      "\030\010 \001(\t\022\016\n\006Region\030\t \001(\t\022D\n\007Sources\030\n \003(\0132" +
+      "3.Volcengine.Vod.Models.Business.VodDoma" +
+      "inSourceInfo\022\022\n\nLockStatus\030\013 \001(\t\"\242\001\n\030Vod" +
+      "DomainCertificateInfo\022\025\n\rCertificateId\030\001" +
+      " \001(\t\022\027\n\017CertificateName\030\002 \001(\t\022\026\n\016Certifi" +
+      "catePub\030\003 \001(\t\022\026\n\016CertificatePri\030\004 \001(\t\022\023\n" +
+      "\013HttpsStatus\030\005 \001(\t\022\021\n\tExpiredAt\030\006 \001(\t\"(\n" +
+      "\026VodCreateCdnTaskResult\022\016\n\006TaskId\030\001 \001(\t\"" +
+      "\211\001\n\016VodContentInfo\022\016\n\006ItemId\030\001 \001(\t\022\013\n\003Ur" +
+      "l\030\002 \001(\t\022\016\n\006Status\030\003 \001(\t\022\020\n\010TaskType\030\004 \001(" +
+      "\t\022\027\n\017CreateTimestamp\030\005 \001(\005\022\016\n\006TaskId\030\006 \001" +
+      "(\t\022\017\n\007Message\030\007 \001(\t\"\217\001\n\020VodCdnTaskResult" +
+      "\022\022\n\nTotalCount\030\001 \001(\005\022\017\n\007PageNum\030\002 \001(\005\022\020\n" +
+      "\010PageSize\030\003 \001(\005\022D\n\014ContentInfos\030\004 \003(\0132.." +
+      "Volcengine.Vod.Models.Business.VodConten" +
+      "tInfo\"\177\n\026VodCdnAccessLogElement\022\023\n\013Downl" +
+      "oadUrl\030\001 \001(\t\022\020\n\010FileSize\030\002 \001(\003\022\020\n\010FileNa" +
+      "me\030\003 \001(\t\022\026\n\016StartTimestamp\030\004 \001(\005\022\024\n\014EndT" +
+      "imestamp\030\005 \001(\005\"n\n\023VodCdnAccessLogInfo\022\016\n" +
+      "\006Domain\030\001 \001(\t\022G\n\007LogList\030\002 \003(\01326.Volceng" +
+      "ine.Vod.Models.Business.VodCdnAccessLogE" +
+      "lement\"^\n\031VodListCdnAccessLogResult\022A\n\004L" +
+      "ogs\030\001 \003(\01323.Volcengine.Vod.Models.Busine" +
+      "ss.VodCdnAccessLogInfo\"B\n\031VodCdnTopAcces" +
+      "sUrlElement\022\013\n\003Url\030\001 \001(\t\022\n\n\002Pv\030\002 \001(\003\022\014\n\004" +
+      "Flux\030\003 \001(\003\"k\n\034VodListCdnTopAccessUrlResu" +
+      "lt\022K\n\010UrlInfos\030\001 \003(\01329.Volcengine.Vod.Mo" +
+      "dels.Business.VodCdnTopAccessUrlElement\"" +
+      "3\n\020VodBandwidthData\022\014\n\004Time\030\001 \001(\t\022\021\n\tBan" +
+      "dwidth\030\002 \001(\001\"\214\002\n\'VodDescribeVodDomainBan" +
+      "dwidthDataResult\022\022\n\nDomainList\030\001 \003(\t\022\021\n\t" +
+      "StartTime\030\002 \001(\t\022\017\n\007EndTime\030\003 \001(\t\022\023\n\013Aggr" +
+      "egation\030\004 \001(\005\022\025\n\rBandwidthType\030\005 \001(\t\022\025\n\r" +
+      "PeakBandwidth\030\006 \001(\001\022\031\n\021PeakBandwidthTime" +
+      "\030\007 \001(\t\022K\n\021BandwidthDataList\030\010 \003(\01320.Volc" +
+      "engine.Vod.Models.Business.VodBandwidthD" +
+      "ata\"\200\001\n\024VodCdnStatisticsData\022\014\n\004Name\030\001 \001" +
+      "(\t\022\016\n\006Metric\030\002 \001(\t\022\020\n\010DataType\030\003 \001(\t\0228\n\006" +
+      "Points\030\004 \003(\0132(.Volcengine.Vod.Models.Bus" +
+      "iness.VodPoint\"\200\001\n\034VodCdnStatisticsCommo" +
+      "nResult\022C\n\005Datas\030\001 \003(\01324.Volcengine.Vod." +
+      "Models.Business.VodCdnStatisticsData\022\033\n\023" +
+      "NoPermissionDomains\030\002 \003(\t\"H\n\014VodCdnIpInf" +
+      "o\022\n\n\002Ip\030\001 \001(\t\022\r\n\005CdnIp\030\002 \001(\010\022\020\n\010Location" +
+      "\030\003 \001(\t\022\013\n\003Isp\030\004 \001(\t\"V\n\027VodDescribeIpInfo" +
+      "Result\022;\n\005Infos\030\001 \003(\0132,.Volcengine.Vod.M" +
+      "odels.Business.VodCdnIpInfo\"/\n\016VodTraffi" +
+      "cData\022\014\n\004Time\030\001 \001(\t\022\017\n\007Traffic\030\002 \001(\001\"\350\001\n" +
+      "%VodDescribeVodDomainTrafficDataResult\022\022" +
+      "\n\nDomainList\030\001 \003(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n" +
+      "\007EndTime\030\003 \001(\t\022\023\n\013Aggregation\030\004 \001(\005\022\023\n\013T" +
+      "rafficType\030\005 \001(\t\022\024\n\014TotalTraffic\030\006 \001(\001\022G" +
+      "\n\017TrafficDataList\030\007 \003(\0132..Volcengine.Vod" +
+      ".Models.Business.VodTrafficData\"\254\002\n\023VodD" +
+      "omainSourceInfo\022U\n\021SourceStationType\030\001 \001" +
+      "(\0162:.Volcengine.Vod.Models.Business.VodD" +
+      "omainSourceStationType\022c\n\030SourceStationA" +
+      "ddressType\030\002 \001(\0162A.Volcengine.Vod.Models" +
+      ".Business.VodDomainSourceStationAddressT" +
+      "ype\022\016\n\006Origin\030\003 \001(\t\022I\n\006Bucket\030\004 \001(\01329.Vo" +
+      "lcengine.Vod.Models.Business.VodDomainOr" +
+      "iginBucketInfo\"_\n\031VodDomainOriginBucketI" +
+      "nfo\022\022\n\nBucketName\030\001 \001(\t\022\030\n\020BucketSourceT" +
+      "ype\030\002 \001(\t\022\024\n\014BucketRegion\030\003 \001(\t\"+\n\031VodSu" +
+      "bmitBlockTasksResult\022\016\n\006TaskID\030\001 \001(\t\"\214\001\n" +
+      "\035VodGetContentBlockTasksResult\022\r\n\005Total\030" +
+      "\001 \001(\003\022\017\n\007PageNum\030\002 \001(\003\022\020\n\010PageSize\030\003 \001(\003" +
+      "\0229\n\004Data\030\004 \003(\0132+.Volcengine.Vod.Models.B" +
+      "usiness.ContentTask\"`\n\013ContentTask\022\013\n\003Ur" +
+      "l\030\001 \001(\t\022\016\n\006Status\030\002 \001(\t\022\020\n\010TaskType\030\003 \001(" +
+      "\t\022\022\n\nCreateTime\030\004 \001(\003\022\016\n\006TaskID\030\005 \001(\t*\222\001" +
+      "\n\032VodDomainSourceStationType\022\'\n#Undefine" +
+      "dVodDomainSourceStationType\020\000\022!\n\035VodVodD" +
+      "omainSourceStationType\020\001\022(\n$ThirdPartyVo" +
+      "dDomainSourceStationType\020\002*\251\001\n!VodDomain" +
+      "SourceStationAddressType\022.\n*UndefinedVod" +
+      "DomainSourceStationAddressType\020\000\022+\n\'Doma" +
+      "inVodDomainSourceStationAddressType\020\001\022\'\n" +
+      "#IPVodDomainSourceStationAddressType\020\002B\312" +
+      "\001\n)com.volcengine.service.vod.model.busi" +
+      "nessB\006VodCdnP\001ZAgithub.com/volcengine/vo" +
+      "lc-sdk-golang/service/vod/models/busines" +
+      "s\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Models\\Bus" +
+      "iness\342\002#Volc\\Service\\Vod\\Models\\GPBMetad" +
+      "atab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -271,7 +272,7 @@ public final class VodCdn {
     internal_static_Volcengine_Vod_Models_Business_VodDomainConfigInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainConfigInfo_descriptor,
-        new java.lang.String[] { "SpaceName", "PlayInstanceInfo", "ImageInstanceInfo", "DefaultPlayDomain", });
+        new java.lang.String[] { "SpaceName", "PlayInstanceInfo", "ImageInstanceInfo", "DefaultPlayDomain", "Total", "Offset", });
     internal_static_Volcengine_Vod_Models_Business_VodDomainInstanceInfos_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Volcengine_Vod_Models_Business_VodDomainInstanceInfos_fieldAccessorTable = new
@@ -307,7 +308,7 @@ public final class VodCdn {
     internal_static_Volcengine_Vod_Models_Business_VodContentInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodContentInfo_descriptor,
-        new java.lang.String[] { "ItemId", "Url", "Status", "TaskType", "CreateTimestamp", "TaskId", });
+        new java.lang.String[] { "ItemId", "Url", "Status", "TaskType", "CreateTimestamp", "TaskId", "Message", });
     internal_static_Volcengine_Vod_Models_Business_VodCdnTaskResult_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_Volcengine_Vod_Models_Business_VodCdnTaskResult_fieldAccessorTable = new

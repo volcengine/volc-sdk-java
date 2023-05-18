@@ -16,6 +16,9 @@ public class VodListDomainDemo {
         try {
             com.volcengine.service.vod.model.request.VodListDomainRequest.Builder reqBuilder = com.volcengine.service.vod.model.request.VodListDomainRequest.newBuilder();
 			reqBuilder.setSpaceName("your SpaceName");
+			reqBuilder.setDomainType("your DomainType");
+			reqBuilder.setSourceStationType(0);
+			reqBuilder.setOffset(0);
 			
             com.volcengine.service.vod.model.response.VodListDomainResponse resp = vodService.listDomain(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

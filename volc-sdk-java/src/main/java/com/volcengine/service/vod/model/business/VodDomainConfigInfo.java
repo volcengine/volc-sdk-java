@@ -88,6 +88,16 @@ private static final long serialVersionUID = 0L;
             defaultPlayDomain_ = s;
             break;
           }
+          case 40: {
+
+            total_ = input.readInt64();
+            break;
+          }
+          case 48: {
+
+            offset_ = input.readInt64();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -288,6 +298,36 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int TOTAL_FIELD_NUMBER = 5;
+  private long total_;
+  /**
+   * <pre>
+   *符合要求的域名总数
+   * </pre>
+   *
+   * <code>int64 Total = 5;</code>
+   * @return The total.
+   */
+  @java.lang.Override
+  public long getTotal() {
+    return total_;
+  }
+
+  public static final int OFFSET_FIELD_NUMBER = 6;
+  private long offset_;
+  /**
+   * <pre>
+   *已显示多少条域名
+   * </pre>
+   *
+   * <code>int64 Offset = 6;</code>
+   * @return The offset.
+   */
+  @java.lang.Override
+  public long getOffset() {
+    return offset_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -314,6 +354,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultPlayDomain_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, defaultPlayDomain_);
     }
+    if (total_ != 0L) {
+      output.writeInt64(5, total_);
+    }
+    if (offset_ != 0L) {
+      output.writeInt64(6, offset_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -336,6 +382,14 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultPlayDomain_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, defaultPlayDomain_);
+    }
+    if (total_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(5, total_);
+    }
+    if (offset_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(6, offset_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -366,6 +420,10 @@ private static final long serialVersionUID = 0L;
     }
     if (!getDefaultPlayDomain()
         .equals(other.getDefaultPlayDomain())) return false;
+    if (getTotal()
+        != other.getTotal()) return false;
+    if (getOffset()
+        != other.getOffset()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -389,6 +447,12 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + DEFAULTPLAYDOMAIN_FIELD_NUMBER;
     hash = (53 * hash) + getDefaultPlayDomain().hashCode();
+    hash = (37 * hash) + TOTAL_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getTotal());
+    hash = (37 * hash) + OFFSET_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getOffset());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -538,6 +602,10 @@ private static final long serialVersionUID = 0L;
       }
       defaultPlayDomain_ = "";
 
+      total_ = 0L;
+
+      offset_ = 0L;
+
       return this;
     }
 
@@ -576,6 +644,8 @@ private static final long serialVersionUID = 0L;
         result.imageInstanceInfo_ = imageInstanceInfoBuilder_.build();
       }
       result.defaultPlayDomain_ = defaultPlayDomain_;
+      result.total_ = total_;
+      result.offset_ = offset_;
       onBuilt();
       return result;
     }
@@ -637,6 +707,12 @@ private static final long serialVersionUID = 0L;
       if (!other.getDefaultPlayDomain().isEmpty()) {
         defaultPlayDomain_ = other.defaultPlayDomain_;
         onChanged();
+      }
+      if (other.getTotal() != 0L) {
+        setTotal(other.getTotal());
+      }
+      if (other.getOffset() != 0L) {
+        setOffset(other.getOffset());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1165,6 +1241,92 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       defaultPlayDomain_ = value;
+      onChanged();
+      return this;
+    }
+
+    private long total_ ;
+    /**
+     * <pre>
+     *符合要求的域名总数
+     * </pre>
+     *
+     * <code>int64 Total = 5;</code>
+     * @return The total.
+     */
+    @java.lang.Override
+    public long getTotal() {
+      return total_;
+    }
+    /**
+     * <pre>
+     *符合要求的域名总数
+     * </pre>
+     *
+     * <code>int64 Total = 5;</code>
+     * @param value The total to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTotal(long value) {
+      
+      total_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *符合要求的域名总数
+     * </pre>
+     *
+     * <code>int64 Total = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTotal() {
+      
+      total_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long offset_ ;
+    /**
+     * <pre>
+     *已显示多少条域名
+     * </pre>
+     *
+     * <code>int64 Offset = 6;</code>
+     * @return The offset.
+     */
+    @java.lang.Override
+    public long getOffset() {
+      return offset_;
+    }
+    /**
+     * <pre>
+     *已显示多少条域名
+     * </pre>
+     *
+     * <code>int64 Offset = 6;</code>
+     * @param value The offset to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOffset(long value) {
+      
+      offset_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *已显示多少条域名
+     * </pre>
+     *
+     * <code>int64 Offset = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOffset() {
+      
+      offset_ = 0L;
       onChanged();
       return this;
     }

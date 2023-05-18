@@ -1,25 +1,45 @@
 package com.volcengine.model.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.sms.PurposeType;
+import com.volcengine.model.sms.SignAuthFile;
+import com.volcengine.model.sms.SignSourceType;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class ApplySmsSignatureRequest {
-    @JSONField(name = "SubAccount")
+    @JSONField(name = "subAccount")
     String subAccount;
 
-    @JSONField(name = "Content")
+    @JSONField(name = "content")
     String content;
 
-    @JSONField(name = "Source")
-    String source;
+    @JSONField(name = "source")
+    SignSourceType source;
 
-    @JSONField(name = "Desc")
+    @JSONField(name = "desc")
     String desc;
 
-    @JSONField(name = "UploadFileKey")
+    @JSONField(name = "uploadFileKey")
     String uploadFileKey;
 
-    @JSONField(name = "Domain")
+    @JSONField(name = "domain")
     String domain;
+
+    /**
+     * 1.自用，2.他用
+     */
+    @JSONField(name = "purpose")
+    PurposeType purpose;
+
+    @JSONField(name = "uploadFileList")
+    List<SignAuthFile> uploadFileList;
+
+    /**
+     * 火山控制台使用，传vconsole
+     */
+    @JSONField(name = "from")
+    String from;
 }

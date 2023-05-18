@@ -5,7 +5,6 @@ import lombok.Data;
 import com.volcengine.model.response.ResponseMetadata;
 
 import java.util.List;
-import java.util.Map;
 
 @Data
 public class GetCustomViewingRestrictionInfoAPIResponse {
@@ -36,5 +35,7 @@ public class GetCustomViewingRestrictionInfoAPIResponse {
         String SecretKey;
         @JSONField(name = "ViewingRestrictionType")
         Integer ViewingRestrictionType;
+        @JSONField(name = "ErrorRedirectUrl")
+        String ErrorRedirectUrl;
     }
 }

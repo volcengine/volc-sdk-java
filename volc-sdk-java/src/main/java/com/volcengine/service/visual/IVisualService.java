@@ -168,6 +168,22 @@ public interface IVisualService extends IBaseService {
     VisualImageCutResponse imageCut(VisualImageCutRequest request) throws Exception;
 
     /**
+     * 智能变美
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualFacePrettyResponse facePretty(VisualFacePrettyRequest request) throws Exception;
+
+    /**
+     * 发型编辑
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualHairStyleResponse hairStyle(VisualHairStyleRequest request) throws Exception;
+
+    /**
      * 身份认证Token服务
      * @param request
      * @return
@@ -272,7 +288,13 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     VisualEnhancePhotoV2Response enhancePhotoV2(VisualEnhancePhotoV2Request request) throws Exception;
-
+    /**
+     * 人像年龄变换
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualAllAgeGenerationResponse allAgeGeneration(VisualAllAgeGenerationRequest request) throws Exception;
     /**
      * 视频超分辨率-提交任务
      * @param request

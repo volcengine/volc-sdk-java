@@ -641,6 +641,8 @@ public class Const {
     public static final String PotraitEffect = "PotraitEffect";
     public static final String DollyZoom = "DollyZoom";
     public static final String ImageCut = "ImageCut";
+    public static final String FacePretty = "FacePretty";
+    public static final String HairStyle = "HairStyle";
     public static final String  CertToken= "CertToken";
     public static final String  CertVerifyQuery= "CertVerifyQuery";
     public static final String  CertConfigInit= "CertConfigInit";
@@ -654,6 +656,7 @@ public class Const {
     public static final String  FaceFusionMovieGetResult= "FaceFusionMovieGetResult";
     public static final String  FaceFusionMovieSync= "FaceFusionMovie";
     public static final String  EnhancePhotoV2= "EnhancePhotoV2";
+    public static final String  AllAgeGeneration= "AllAgeGeneration";
     public static final String  VideoOverResolutionSubmitTaskV2= "VideoOverResolutionSubmitTaskV2";
     public static final String  VideoOverResolutionQueryTaskV2= "VideoOverResolutionQueryTaskV2";
 

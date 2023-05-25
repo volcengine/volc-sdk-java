@@ -4,17 +4,15 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 @Data
-public class VisualJPCartoonRequest {
+public class VisualHairStyleRequest {
     
     @JSONField(name = "image_base64")
-    String imageBase64;
+    String imageBase64 = "";
 
-    @JSONField(name = "cartoon_type")
-    String cartoonType;
-
-    @JSONField(name = "rotation")
-    Integer rotation = 0;
+    @JSONField(name = "hair_type")
+    String hairType = "0";
 
     @JSONField(name = "do_risk")
     Boolean doRisk;
+
 }

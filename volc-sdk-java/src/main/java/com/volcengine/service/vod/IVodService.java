@@ -74,6 +74,29 @@ public interface IVodService extends com.volcengine.service.IBaseService {
     com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadMedia(com.volcengine.service.vod.model.request.VodUploadMediaRequest vodUploadMediaRequest, com.volcengine.helper.VodUploadProgressListener listener) throws Exception;
 
     /**
+     * uploadObject
+     *
+     * @param vodUploadMediaRequest
+     * @param listener
+     * @return
+     * @throws Exception
+     */
+     com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadObject(com.volcengine.service.vod.model.request.VodUploadMediaRequest vodUploadMediaRequest, com.volcengine.helper.VodUploadProgressListener listener) throws Exception;
+
+     /**
+      * uploadLocalM3u8
+      *
+      * @param vodUploadMediaRequest
+      * @param tsFilePaths
+      * @param tsFileNames
+      * @param listener
+      * @return
+      * @throws Exception
+      */
+      com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadLocalM3u8(com.volcengine.service.vod.model.request.VodUploadMediaRequest vodUploadMediaRequest, java.util.List<String> tsFilePaths, java.util.List<String> tsFileNames, com.volcengine.helper.VodUploadProgressListener listener) throws Exception;
+
+
+    /**
 	 * uploadMaterial
 	 *
 	 * @param vodUploadMaterialRequest

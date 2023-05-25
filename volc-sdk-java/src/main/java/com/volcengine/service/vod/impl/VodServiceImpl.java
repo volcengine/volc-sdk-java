@@ -182,54 +182,129 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
             return vodCommitUploadInfoResponse;
     }
 
-    private com.volcengine.model.beans.UploadCompleteInfo uploadToB(String spaceName, String filePath, String fileType, String fileName, String fileExtension, int storageClass, com.volcengine.helper.VodUploadProgressListener listener) throws Exception {
+    @Override
+    public com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadLocalM3u8(com.volcengine.service.vod.model.request.VodUploadMediaRequest vodUploadM3u8Request, List<String> tsFilePaths, List<String> tsFileNames, com.volcengine.helper.VodUploadProgressListener listener) throws Exception {
+        if (tsFileNames != null && tsFilePaths.size() != tsFileNames.size()) {
+            throw new RuntimeException("ts 可以不设置 FileName，如设置，列表长度必须与 ts 文件路径一一对应");
+        }
+        Map<String, Long> fileSizeMap = new HashMap<>();
+        long totalM3u8TsSize = checkAndGetFileSize(vodUploadM3u8Request.getFilePath());
+        fileSizeMap.put(vodUploadM3u8Request.getFilePath(), totalM3u8TsSize);
+        for (String tsFilePath : tsFilePaths) {
+            long tsSize = checkAndGetFileSize(tsFilePath);
+            fileSizeMap.put(tsFilePath, tsSize);
+            totalM3u8TsSize += tsSize;
+        }
+        com.volcengine.helper.VodUploadProgressListenerHelper.sendVodUploadEvent(listener, com.volcengine.helper.VodUploadProgressEventType.FILE_SIZE_EVENT, totalM3u8TsSize);
+
+        for (int i = 0; i < tsFilePaths.size(); i++) {
+            List<com.volcengine.model.beans.Functions> functionsList = new ArrayList<>();
+            com.volcengine.model.beans.Functions getMetaFunc = com.volcengine.model.beans.Functions.GetMetaFunction();
+            functionsList.add(getMetaFunc);
+
+            com.volcengine.service.vod.model.request.VodUploadMediaRequest.Builder builder = com.volcengine.service.vod.model.request.VodUploadMediaRequest.newBuilder()
+                    .setSpaceName(vodUploadM3u8Request.getSpaceName())
+                    .setFilePath(tsFilePaths.get(i))
+                    .setFunctions(JSON.toJSONString(functionsList));
+            if (tsFileNames != null) {
+                builder.setFileName(tsFileNames.get(i));
+            }
+            com.volcengine.service.vod.model.request.VodUploadMediaRequest vodUploadTsRequest = builder.build();
+            com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse vodCommitUploadInfoResponse = uploadObject(vodUploadTsRequest, null);
+            if (vodCommitUploadInfoResponse.getResponseMetadata().hasError()) {
+                return vodCommitUploadInfoResponse;
+            }
+            com.volcengine.helper.VodUploadProgressListenerHelper.sendVodUploadEvent(listener, com.volcengine.helper.VodUploadProgressEventType.UPLOAD_BYTES_EVENT, fileSizeMap.get(tsFilePaths.get(i)));
+        }
+
+        com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = uploadToB(vodUploadM3u8Request.getSpaceName(), vodUploadM3u8Request.getFilePath(), "media", vodUploadM3u8Request.getFileName(), vodUploadM3u8Request.getFileExtension(), vodUploadM3u8Request.getStorageClass(), null);
+        com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest vodCommitUploadInfoRequest = com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest.newBuilder()
+                .setSpaceName(vodUploadM3u8Request.getSpaceName())
+                .setSessionKey(uploadCompleteInfo.getSessionKey())
+                .setFunctions(vodUploadM3u8Request.getFunctions())
+                .setCallbackArgs(vodUploadM3u8Request.getCallbackArgs())
+                .build();
+
+        com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse vodCommitUploadInfoResponse = commitUploadInfo(vodCommitUploadInfoRequest);
+        if (!vodCommitUploadInfoResponse.getResponseMetadata().hasError()) {
+            com.volcengine.helper.VodUploadProgressListenerHelper.sendVodUploadEvent(listener, com.volcengine.helper.VodUploadProgressEventType.UPLOAD_BYTES_EVENT, fileSizeMap.get(vodUploadM3u8Request.getFilePath()));
+        }
+        return vodCommitUploadInfoResponse;
+    }
+
+    private long checkAndGetFileSize(String filePath) throws Exception {
             java.io.File file = new java.io.File(filePath);
             if (!(file.isFile() && file.exists())) {
                 throw new Exception(com.volcengine.error.SdkError.getErrorDesc(com.volcengine.error.SdkError.ENOFILE));
             }
+            return file.length();
+    }
 
-            com.volcengine.helper.VodUploadProgressListenerHelper.sendVodUploadEvent(listener, com.volcengine.helper.VodUploadProgressEventType.FILE_SIZE_EVENT, file.length());
+    @Override
+    public com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadObject(com.volcengine.service.vod.model.request.VodUploadMediaRequest vodUploadMediaRequest, com.volcengine.helper.VodUploadProgressListener listener) throws Exception {
+        com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = uploadToB(vodUploadMediaRequest.getSpaceName(), vodUploadMediaRequest.getFilePath(), "object", vodUploadMediaRequest.getFileName(), vodUploadMediaRequest.getFileExtension(), vodUploadMediaRequest.getStorageClass(), listener);
+        com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest vodCommitUploadInfoRequest = com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest.newBuilder()
+                .setSpaceName(vodUploadMediaRequest.getSpaceName())
+                .setSessionKey(uploadCompleteInfo.getSessionKey())
+                .setFunctions(vodUploadMediaRequest.getFunctions())
+                .setCallbackArgs(vodUploadMediaRequest.getCallbackArgs())
+                .build();
 
-            com.volcengine.service.vod.model.request.VodApplyUploadInfoRequest vodApplyUploadInfoRequest = com.volcengine.service.vod.model.request.VodApplyUploadInfoRequest.newBuilder()
-                    .setSpaceName(spaceName)
-                    .setFileName(fileName)
-                    .setFileType(fileType)
-                    .setFileExtension(fileExtension)
-                    .setStorageClass(storageClass)
-                    .build();
+        com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse vodCommitUploadInfoResponse = commitUploadInfo(vodCommitUploadInfoRequest);
+        if (!vodCommitUploadInfoResponse.getResponseMetadata().hasError()) {
+            com.volcengine.helper.VodUploadProgressListenerHelper.sendVodUploadEvent(listener, com.volcengine.helper.VodUploadProgressEventType.UPLOAD_BYTES_EVENT, 1);
+        }
+        return vodCommitUploadInfoResponse;
+    }
 
-            com.volcengine.service.vod.model.response.VodApplyUploadInfoResponse vodApplyUploadInfoResponse = applyUploadInfo(vodApplyUploadInfoRequest);
-            if (vodApplyUploadInfoResponse.getResponseMetadata().hasError()) {
-                throw new Exception(vodApplyUploadInfoResponse.getResponseMetadata().getError().getMessage());
-            }
-            com.volcengine.service.vod.model.business.VodUploadAddress vodUploadAddress = vodApplyUploadInfoResponse.getResult().getData().getUploadAddress();
-            if (!vodApplyUploadInfoResponse.hasResult() || vodUploadAddress.getStoreInfosCount() == 0) {
-                throw new Exception("apply upload result is null");
-            }
+    private com.volcengine.model.beans.UploadCompleteInfo uploadToB(String spaceName, String filePath, String fileType, String fileName, String fileExtension, int storageClass, com.volcengine.helper.VodUploadProgressListener listener) throws Exception {
+        java.io.File file = new java.io.File(filePath);
+        if (!(file.isFile() && file.exists())) {
+            throw new Exception(com.volcengine.error.SdkError.getErrorDesc(com.volcengine.error.SdkError.ENOFILE));
+        }
 
-            String oid = vodUploadAddress.getStoreInfos(0).getStoreUri();
-            String sessionKey = vodUploadAddress.getSessionKey();
-            String auth = vodUploadAddress.getStoreInfos(0).getAuth();
-            String host = vodUploadAddress.getUploadHosts(0);
-            List<com.volcengine.service.vod.model.business.VodHeaderPair> uploadHeaderList = vodUploadAddress.getUploadHeaderList();
+        com.volcengine.helper.VodUploadProgressListenerHelper.sendVodUploadEvent(listener, com.volcengine.helper.VodUploadProgressEventType.FILE_SIZE_EVENT, file.length());
 
-            Retryer retryer = RetryerBuilder.newBuilder()
-                    .retryIfException()
-                    .retryIfResult(Predicates.equalTo(false))
-                    .retryIfResult(Predicates.isNull())
-                    .withWaitStrategy(WaitStrategies.exponentialWait())
-                    .withStopStrategy(StopStrategies.stopAfterAttempt(3))
-                    .build();
+        com.volcengine.service.vod.model.request.VodApplyUploadInfoRequest vodApplyUploadInfoRequest = com.volcengine.service.vod.model.request.VodApplyUploadInfoRequest.newBuilder()
+                .setSpaceName(spaceName)
+                .setFileName(fileName)
+                .setFileType(fileType)
+                .setFileExtension(fileExtension)
+                .setStorageClass(storageClass)
+                .build();
+
+        com.volcengine.service.vod.model.response.VodApplyUploadInfoResponse vodApplyUploadInfoResponse = applyUploadInfo(vodApplyUploadInfoRequest);
+        if (vodApplyUploadInfoResponse.getResponseMetadata().hasError()) {
+            throw new Exception(vodApplyUploadInfoResponse.getResponseMetadata().getError().getMessage());
+        }
+        com.volcengine.service.vod.model.business.VodUploadAddress vodUploadAddress = vodApplyUploadInfoResponse.getResult().getData().getUploadAddress();
+        if (!vodApplyUploadInfoResponse.hasResult() || vodUploadAddress.getStoreInfosCount() == 0) {
+            throw new Exception("apply upload result is null");
+        }
+
+        String oid = vodUploadAddress.getStoreInfos(0).getStoreUri();
+        String sessionKey = vodUploadAddress.getSessionKey();
+        String auth = vodUploadAddress.getStoreInfos(0).getAuth();
+        String host = vodUploadAddress.getUploadHosts(0);
+        List<com.volcengine.service.vod.model.business.VodHeaderPair> uploadHeaderList = vodUploadAddress.getUploadHeaderList();
+
+        Retryer retryer = RetryerBuilder.newBuilder()
+                .retryIfException()
+                .retryIfResult(Predicates.equalTo(false))
+                .retryIfResult(Predicates.isNull())
+                .withWaitStrategy(WaitStrategies.exponentialWait())
+                .withStopStrategy(StopStrategies.stopAfterAttempt(3))
+                .build();
 
 
-            if (file.length() < com.volcengine.service.vod.Const.MinChunkSize) {
-                directUpload(host, oid, auth, uploadHeaderList, file, retryer, storageClass, listener);
-            } else {
-                chunkUpload(host, oid, auth, uploadHeaderList, file, true, retryer, storageClass, listener);
-            }
+        if (file.length() < com.volcengine.service.vod.Const.MinChunkSize) {
+            directUpload(host, oid, auth, uploadHeaderList, file, retryer, storageClass, listener);
+        } else {
+            chunkUpload(host, oid, auth, uploadHeaderList, file, true, retryer, storageClass, listener);
+        }
 
-            com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = new com.volcengine.model.beans.UploadCompleteInfo(oid, sessionKey);
-            return uploadCompleteInfo;
+        com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = new com.volcengine.model.beans.UploadCompleteInfo(oid, sessionKey);
+        return uploadCompleteInfo;
      }
 
     private void directUpload(String host, String oid, String auth, List<com.volcengine.service.vod.model.business.VodHeaderPair> uploadHeaderList, File file, Retryer retryer, int storageClass, com.volcengine.helper.VodUploadProgressListener listener) throws Exception {

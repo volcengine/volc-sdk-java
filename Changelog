@@ -1,5 +1,8 @@
 Change log
 
+2023-05-25 Bumped to version v1.0.101
+- Updated apis for vms/visual/vod
+
 2023-05-18 Bumped to version v1.0.100
 - Updated apis for sms/livesaas/stream/imagex/vod/security/visual
 

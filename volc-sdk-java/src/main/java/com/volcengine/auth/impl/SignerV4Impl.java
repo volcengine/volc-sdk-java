@@ -197,7 +197,7 @@ public class SignerV4Impl implements ISignerV4 {
     }
 
     private String signatureV4(byte[] signingKey, String stringToSign) throws Exception {
-        return Hex.encodeHexString(Utils.hmacSHA256(signingKey, stringToSign));
+        return new String(Hex.encodeHex(Utils.hmacSHA256(signingKey, stringToSign)));
     }
 
     private byte[] genSigningSecretKeyV4(String secretKey, String date, String region, String service) throws Exception {

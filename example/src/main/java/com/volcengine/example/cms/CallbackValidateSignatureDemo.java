@@ -26,7 +26,7 @@ public class CallbackValidateSignatureDemo {
 
     private static boolean validate(String timestamp, String nonce, String payload, String secureKey, String signature) throws Exception {
         String content = timestamp + nonce + payload;
-        String generateSignature = Hex.encodeHexString(Utils.hmacSHA256(secureKey.getBytes(StandardCharsets.UTF_8), content));
+        String generateSignature = new String(Hex.encodeHex(Utils.hmacSHA256(secureKey.getBytes(StandardCharsets.UTF_8), content)));
         return generateSignature.equals(signature);
     }
 

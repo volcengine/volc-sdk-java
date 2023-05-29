@@ -42,7 +42,7 @@ public class Utils {
     public static String hashSHA256(byte[] content) throws Exception {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
-            return Hex.encodeHexString(md.digest(content));
+            return new String(Hex.encodeHex(md.digest(content)));
         } catch (Exception e) {
             throw new Exception(
                     "Unable to compute hash while signing request: "
@@ -165,7 +165,7 @@ public class Utils {
             } else if (entry.getValue().getClass() == String.class) {
                 pairs.add(new NameValuePair(entry.getKey(), (String) entry.getValue()));
             } else if (entry.getValue().getClass() == Long.class) {
-                pairs.add(new NameValuePair(entry.getKey(),((Long) entry.getValue()).toString()));
+                pairs.add(new NameValuePair(entry.getKey(), ((Long) entry.getValue()).toString()));
             } else if (entry.getValue().getClass() == JSONArray.class) {
                 List<String> list = (List<String>) entry.getValue();
                 for (String item : list) {

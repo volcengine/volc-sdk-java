@@ -19,7 +19,7 @@ public class GetImageQualityResponse {
         private String vqType;
 
         @JSONField(name = "NrScores")
-        private List<NrScores> nrScores;
+        private NrScores nrScores;
     }
 
     @Data

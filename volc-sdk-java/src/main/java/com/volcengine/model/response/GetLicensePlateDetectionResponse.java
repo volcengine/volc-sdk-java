@@ -3,6 +3,8 @@ package com.volcengine.model.response;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class GetLicensePlateDetectionResponse {
     @JSONField(name = "ResponseMetadata")
@@ -14,7 +16,7 @@ public class GetLicensePlateDetectionResponse {
     @Data
     static public class GetLicensePlateDetectionResponseBean {
         @JSONField(name = "Locations")
-        private Location locations;
+        private List<Location> locations;
     }
 
     @Data

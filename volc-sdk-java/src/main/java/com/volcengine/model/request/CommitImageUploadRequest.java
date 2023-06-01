@@ -13,8 +13,12 @@ public class CommitImageUploadRequest {
     String serviceId;
     @JSONField(name = "SessionKey")
     String sessionKey;
+    @JSONField(name = "SuccessOids")
+    List<String> successOids;
     @JSONField(name = "Functions")
     List<Functions> functions;
     @JSONField(name = "OptionInfos")
     List<ImageOption> optionInfos;
+    @JSONField(name = "SkipMeta")
+    Boolean skipMeta;
 }

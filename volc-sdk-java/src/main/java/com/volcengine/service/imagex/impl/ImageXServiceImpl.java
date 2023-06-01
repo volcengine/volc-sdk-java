@@ -34,11 +34,15 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.net.URI;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 
 public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService {
+    private static Logger LOG = Logger.getLogger("ImageXLogger");
+
     public final static Map<String, String> EMPTY_STRING_STRING_MAP = Collections.emptyMap();
 
     private final Retryer<Boolean> uploadRetryer = createUploadDefaultRetryer();
@@ -88,6 +92,12 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     public CommitImageUploadResponse commitImageUpload(CommitImageUploadRequest req) throws Exception {
         Map<String, String> params = new HashMap<>();
         params.put("ServiceId", req.getServiceId());
+        Boolean skipMeta = req.getSkipMeta();
+        if (Objects.equals(skipMeta, Boolean.TRUE)) {
+            params.put("SkipMeta", "true");
+        } else if (Objects.equals(skipMeta, Boolean.FALSE)) {
+            params.put("SkipMeta", "false");
+        }
         CommitImageUploadRequestBody reqBody = new CommitImageUploadRequestBody();
         reqBody.setSessionKey(req.getSessionKey());
         reqBody.setOptionInfos(req.getOptionInfos());
@@ -207,6 +217,27 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         uploadRetryer.call(() -> putData(url, body.getBytes(), headers));
     }
 
+
+    private CommitImageUploadResponse generateSkipCommitResponse(List<ApplyImageUploadResponse.StoreInfosBean> storeInfos, List<String> successOids) {
+        List<CommitImageUploadResponse.UploadImageResultBean> imageResults = new ArrayList<CommitImageUploadResponse.UploadImageResultBean>();
+        for (ApplyImageUploadResponse.StoreInfosBean item : storeInfos) {
+            CommitImageUploadResponse.UploadImageResultBean itemResult = new CommitImageUploadResponse.UploadImageResultBean();
+            itemResult.setUri(item.getStoreUri());
+            if (successOids.stream().anyMatch(it -> it.equals(item.getStoreUri()))) {
+                itemResult.setUriStatus(2000);
+            } else {
+                itemResult.setUriStatus(2001);
+            }
+            imageResults.add(itemResult);
+        }
+        CommitImageUploadResponse.CommitImageUploadResultBean result = new CommitImageUploadResponse.CommitImageUploadResultBean();
+        result.setResults(imageResults);
+        CommitImageUploadResponse ret = new CommitImageUploadResponse();
+        ret.setResponseMetadata(new ResponseMetadata());
+        ret.setResult(result);
+        return ret;
+    }
+
     @Override
     public CommitImageUploadResponse uploadImages(ApplyImageUploadRequest request, List<byte[]> imageDatas) throws Exception {
         if (imageDatas.size() == 0) {
@@ -215,7 +246,6 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         request.setUploadNum(imageDatas.size());
 
         // apply upload
-        //noinspection DuplicatedCode
         ApplyImageUploadResponse applyResp = applyImageUpload(request);
         applyRespGuard(applyResp, imageDatas.size());
         ApplyImageUploadResponse.UploadAddressBean uploadAddr = applyResp.getResult().getUploadAddress();
@@ -225,15 +255,26 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         String sessionKey = uploadAddr.getSessionKey();
 
         // upload
+        List<String> successOids = new ArrayList<String>();
         for (int i = 0; i < imageDatas.size(); i++) {
-            doUpload(uploadHost, storeInfos.get(i), imageDatas.get(i));
+            try {
+                ApplyImageUploadResponse.StoreInfosBean storeInfo = storeInfos.get(i);
+                doUpload(uploadHost, storeInfo, imageDatas.get(i));
+                successOids.add(storeInfo.getStoreUri());
+            } catch (Exception e) {
+                LOG.log(Level.WARNING, e, e::getMessage);
+            }
         }
 
         // commit upload
-        //noinspection DuplicatedCode
+        if (Objects.equals(Boolean.TRUE, request.getSkipCommit())) {
+            return generateSkipCommitResponse(storeInfos, successOids);
+        }
         CommitImageUploadRequest commitRequest = new CommitImageUploadRequest();
         commitRequest.setServiceId(request.getServiceId());
         commitRequest.setSessionKey(sessionKey);
+        commitRequest.setSuccessOids(successOids);
+        commitRequest.setSkipMeta(request.getSkipMeta());
         if (request.getCommitParam() != null) {
             commitRequest.setFunctions(request.getCommitParam().getFunctions());
             commitRequest.setOptionInfos(request.getCommitParam().getOptionInfos());
@@ -257,7 +298,6 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         }
 
         // apply upload
-        //noinspection DuplicatedCode
         ApplyImageUploadResponse applyResp = applyImageUpload(request);
         applyRespGuard(applyResp, size.size());
         ApplyImageUploadResponse.UploadAddressBean uploadAddr = applyResp.getResult().getUploadAddress();
@@ -267,24 +307,33 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         String sessionKey = uploadAddr.getSessionKey();
 
         // upload
+        List<String> successOids = new ArrayList<String>();
         for (int i = 0; i < size.size(); i++) {
             long fileSize = size.get(i);
             InputStream fileContent = content.get(i);
             ApplyImageUploadResponse.StoreInfosBean storeInfo = storeInfos.get(i);
-
-            if (fileSize <= ImageXConfig.MIN_CHUNK_SIZE) {
-                doUpload(uploadHost, storeInfo, fileContent);
-            } else {
-                boolean isLargeFile = fileSize > ImageXConfig.LARGE_FILE_SIZE;
-                chunkUpload(uploadHost, storeInfo, fileContent, fileSize, isLargeFile);
+            try {
+                if (fileSize <= ImageXConfig.MIN_CHUNK_SIZE) {
+                    doUpload(uploadHost, storeInfo, fileContent);
+                } else {
+                    boolean isLargeFile = fileSize > ImageXConfig.LARGE_FILE_SIZE;
+                    chunkUpload(uploadHost, storeInfo, fileContent, fileSize, isLargeFile);
+                }
+                successOids.add(storeInfo.getStoreUri());
+            } catch (Exception e) {
+                LOG.log(Level.WARNING, e, e::getMessage);
             }
         }
 
         // commit upload
-        //noinspection DuplicatedCode
+        if (Objects.equals(Boolean.TRUE, request.getSkipCommit())) {
+            return generateSkipCommitResponse(storeInfos, successOids);
+        }
         CommitImageUploadRequest commitRequest = new CommitImageUploadRequest();
         commitRequest.setServiceId(request.getServiceId());
         commitRequest.setSessionKey(sessionKey);
+        commitRequest.setSuccessOids(successOids);
+        commitRequest.setSkipMeta(request.getSkipMeta());
         if (request.getCommitParam() != null) {
             commitRequest.setFunctions(request.getCommitParam().getFunctions());
             commitRequest.setOptionInfos(request.getCommitParam().getOptionInfos());

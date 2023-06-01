@@ -19,6 +19,11 @@ public class ApplyImageUploadRequest {
     String fileExtension;
     @JSONField(name = "Prefix")
     String prefix;
-    @JSONField(name = "-")
+
+    @JSONField(serialize = false)
+    Boolean skipCommit;
+    @JSONField(serialize = false)
+    Boolean skipMeta;
+    @JSONField(serialize = false)
     CommitImageUploadRequest commitParam;
 }

@@ -7,4 +7,7 @@ import lombok.Data;
 public class GetUrlFetchTaskRequest {
     @JSONField(name = "Id")
     String id;
+
+    @JSONField(name = "ServiceId")
+    String serviceId;
 }

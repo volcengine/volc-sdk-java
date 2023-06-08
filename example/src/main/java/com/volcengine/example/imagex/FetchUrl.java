@@ -31,13 +31,14 @@ public class FetchUrl {
             throw e;
         }
 
-        if (!req1.getAsync()) {
+        if (!Boolean.TRUE.equals(req1.getAsync())) {
             return;
         }
 
         try {
             GetUrlFetchTaskRequest req2 = new GetUrlFetchTaskRequest();
             req2.setId(resp1.getResult().getTaskId());
+            req2.setServiceId(req1.getServiceId());
             GetUrlFetchTaskResponse resp2 = service.getUrlFetchTask(req2);
             System.out.println(resp2);
         } catch (Exception e) {

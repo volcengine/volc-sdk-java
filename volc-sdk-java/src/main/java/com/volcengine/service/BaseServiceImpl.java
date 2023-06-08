@@ -310,7 +310,7 @@ public abstract class BaseServiceImpl implements IBaseService {
             if (response != null) {
                 EntityUtils.consumeQuietly(response.getEntity());
             }
-            return new RawResponse(null, SdkError.EHTTP.getNumber(), new Exception(SdkError.getErrorDesc(SdkError.EHTTP)));
+            return new RawResponse(null, SdkError.EHTTP.getNumber(), new Exception(SdkError.getErrorDesc(SdkError.EHTTP), e));
         }
     }
 

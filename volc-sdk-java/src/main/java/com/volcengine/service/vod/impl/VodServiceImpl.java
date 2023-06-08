@@ -8,23 +8,24 @@ package com.volcengine.service.vod.impl;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
-import com.google.protobuf.util.JsonFormat;
+import com.github.rholder.retry.*;
 import com.google.common.base.Predicates;
+import com.google.protobuf.util.JsonFormat;
+import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
-import java.io.*;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import com.github.rholder.retry.*;
-import org.apache.commons.codec.binary.Hex;
-import org.apache.commons.lang3.StringUtils;
-import java.text.SimpleDateFormat;
-import java.text.DateFormat;
 public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl implements com.volcengine.service.vod.IVodService {
 	
     // 静态字段引用唯一实例:
@@ -308,7 +309,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         return uploadCompleteInfo;
     }
 
-    private String initUploadPart(String host, String oid, String auth, boolean isLargeFile, List<com.volcengine.service.vod.model.business.VodHeaderPair> uploadHeaderList, Retryer retryer, int storageClass) throws ExecutionException, RetryException, IOException {
+    public String initUploadPart(String host, String oid, String auth, boolean isLargeFile, List<com.volcengine.service.vod.model.business.VodHeaderPair> uploadHeaderList, Retryer retryer, int storageClass) throws ExecutionException, RetryException, IOException {
         String oidEncode = StringUtils.replace(oid, " ", "%20");
         String url = String.format("http://%s/%s?uploads", host, oidEncode);
         Map<String, String> headers = new HashMap<>();
@@ -334,12 +335,12 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 
         @lombok.Builder
         @lombok.Data
-        static class UploadPartResponse {
+        public static class UploadPartResponse {
             private String checkSum;
             private String objectContentType;
         }
 
-        private void uploadMergePart(String host, String oid, String auth, String uploadID, String[] checkSum, boolean isLargeFile, Retryer retryer, int storageClass, String objectContentType) throws ExecutionException, RetryException {
+        public void uploadMergePart(String host, String oid, String auth, String uploadID, String[] checkSum, boolean isLargeFile, Retryer retryer, int storageClass, String objectContentType) throws ExecutionException, RetryException {
             String oidEncode = StringUtils.replace(oid, " ", "%20");
             String url = String.format("http://%s/%s?uploadID=%s&ObjectContentType=%s", host, oidEncode, uploadID, objectContentType);
             String body = IntStream.range(0, checkSum.length).mapToObj(i -> String.format("%d:%s", i, checkSum[i])).collect(Collectors.joining(",", "", ""));

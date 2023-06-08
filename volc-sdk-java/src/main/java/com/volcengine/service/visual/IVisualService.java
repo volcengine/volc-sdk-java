@@ -184,6 +184,14 @@ public interface IVisualService extends IBaseService {
     VisualHairStyleResponse hairStyle(VisualHairStyleRequest request) throws Exception;
 
     /**
+     * 活照片
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualImageAnimationResponse imageAnimation(VisualImageAnimationRequest request) throws Exception;
+
+    /**
      * 身份认证Token服务
      * @param request
      * @return
@@ -232,6 +240,7 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     VisualCertQueryProResponse certQueryPro(VisualCertQueryProRequest request) throws Exception;
+
     /**
      * 希区柯克V2(3D运镜)
      * @param request
@@ -239,6 +248,7 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     VisualImg2Video3DResponse img2Video3D(VisualImg2Video3DRequest request) throws Exception;
+
     /**
      * 智能绘图（文本转图片通用版）
      * @param request
@@ -246,6 +256,7 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     VisualT2ILDMResponse t2ILDM(VisualT2ILDMRequest request) throws Exception;
+
     /**
      * 智能绘图（名画版）
      * @param request
@@ -253,6 +264,7 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     VisualImg2ImgStyleResponse img2ImgStyle(VisualImg2ImgStyleRequest request) throws Exception;
+
     /**
      * 智能绘图（漫画版）
      * @param request
@@ -260,6 +272,7 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     VisualImg2ImgAnimeResponse img2ImgAnime(VisualImg2ImgAnimeRequest request) throws Exception;
+
     /**
      * 视频人脸融合-提交任务
      * @param request
@@ -274,6 +287,7 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     VisualFaceFusionMovieGetResultResponse faceFusionMovieGetResult(VisualFaceFusionMovieGetResultRequest request) throws Exception;
+
     /**
      * 视频人脸融合-同步
      * @param request
@@ -281,6 +295,7 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     VisualFaceFusionMovieSyncResponse faceFusionMovieSync(VisualFaceFusionMovieSyncRequest request) throws Exception;
+
     /**
      * 图像增强V2版本
      * @param request
@@ -288,6 +303,7 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     VisualEnhancePhotoV2Response enhancePhotoV2(VisualEnhancePhotoV2Request request) throws Exception;
+
     /**
      * 人像年龄变换
      * @param request
@@ -295,6 +311,31 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     VisualAllAgeGenerationResponse allAgeGeneration(VisualAllAgeGenerationRequest request) throws Exception;
+
+    /**
+     * 老照片修复V2
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualConvertPhotoV2Response convertPhotoV2(VisualConvertPhotoV2Request request) throws Exception;
+
+    /**
+     * 视频画质评分V2-提交
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualLensVidaVideoSubmitTaskV2Response lensVidaVideoSubmitTaskV2(VisualLensVidaVideoSubmitTaskV2Request request) throws Exception;
+
+    /**
+     * 视频画质评分V2-查询
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualLensVidaVideoGetResultV2Response lensVidaVideoGetResultV2(VisualLensVidaVideoGetResultV2Request request) throws Exception;
+
     /**
      * 视频超分辨率-提交任务
      * @param request

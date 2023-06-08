@@ -238,6 +238,15 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
     }
 
     @Override
+    public VisualImageAnimationResponse imageAnimation(VisualImageAnimationRequest request) throws Exception {
+        RawResponse response = post(Const.ImageAnimation, null, convertNameValuePair(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualImageAnimationResponse.class);
+    }
+
+    @Override
     public VisualCertTokenResponse certToken(VisualCertTokenRequest request) throws Exception {
         RawResponse response = json(Const.CertToken, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -379,6 +388,33 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
             throw response.getException();
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualAllAgeGenerationResponse.class);
+    }
+
+    @Override
+    public VisualConvertPhotoV2Response convertPhotoV2(VisualConvertPhotoV2Request request) throws Exception {
+        RawResponse response = json(Const.ConvertPhotoV2, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualConvertPhotoV2Response.class);
+    }
+
+    @Override
+    public VisualLensVidaVideoSubmitTaskV2Response lensVidaVideoSubmitTaskV2(VisualLensVidaVideoSubmitTaskV2Request request) throws Exception {
+        RawResponse response = json(Const.LensVidaVideoSubmitTaskV2, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualLensVidaVideoSubmitTaskV2Response.class);
+    }
+
+    @Override
+    public VisualLensVidaVideoGetResultV2Response lensVidaVideoGetResultV2(VisualLensVidaVideoGetResultV2Request request) throws Exception {
+        RawResponse response = json(Const.LensVidaVideoGetResultV2, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualLensVidaVideoGetResultV2Response.class);
     }
 
     @Override

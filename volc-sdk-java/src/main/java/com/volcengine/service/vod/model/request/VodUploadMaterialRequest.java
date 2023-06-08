@@ -97,6 +97,16 @@ private static final long serialVersionUID = 0L;
             fileExtension_ = s;
             break;
           }
+          case 64: {
+
+            uploadStrategy_ = input.readInt32();
+            break;
+          }
+          case 72: {
+
+            parallelNum_ = input.readInt32();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -451,6 +461,36 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int UPLOADSTRATEGY_FIELD_NUMBER = 8;
+  private int uploadStrategy_;
+  /**
+   * <pre>
+   * 上传策略 
+   * </pre>
+   *
+   * <code>int32 UploadStrategy = 8;</code>
+   * @return The uploadStrategy.
+   */
+  @java.lang.Override
+  public int getUploadStrategy() {
+    return uploadStrategy_;
+  }
+
+  public static final int PARALLELNUM_FIELD_NUMBER = 9;
+  private int parallelNum_;
+  /**
+   * <pre>
+   * 分片并发数 
+   * </pre>
+   *
+   * <code>int32 ParallelNum = 9;</code>
+   * @return The parallelNum.
+   */
+  @java.lang.Override
+  public int getParallelNum() {
+    return parallelNum_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -486,6 +526,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileExtension_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, fileExtension_);
     }
+    if (uploadStrategy_ != 0) {
+      output.writeInt32(8, uploadStrategy_);
+    }
+    if (parallelNum_ != 0) {
+      output.writeInt32(9, parallelNum_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -516,6 +562,14 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileExtension_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, fileExtension_);
     }
+    if (uploadStrategy_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(8, uploadStrategy_);
+    }
+    if (parallelNum_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(9, parallelNum_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -545,6 +599,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFileName())) return false;
     if (!getFileExtension()
         .equals(other.getFileExtension())) return false;
+    if (getUploadStrategy()
+        != other.getUploadStrategy()) return false;
+    if (getParallelNum()
+        != other.getParallelNum()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -570,6 +628,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFileName().hashCode();
     hash = (37 * hash) + FILEEXTENSION_FIELD_NUMBER;
     hash = (53 * hash) + getFileExtension().hashCode();
+    hash = (37 * hash) + UPLOADSTRATEGY_FIELD_NUMBER;
+    hash = (53 * hash) + getUploadStrategy();
+    hash = (37 * hash) + PARALLELNUM_FIELD_NUMBER;
+    hash = (53 * hash) + getParallelNum();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -717,6 +779,10 @@ private static final long serialVersionUID = 0L;
 
       fileExtension_ = "";
 
+      uploadStrategy_ = 0;
+
+      parallelNum_ = 0;
+
       return this;
     }
 
@@ -750,6 +816,8 @@ private static final long serialVersionUID = 0L;
       result.fileType_ = fileType_;
       result.fileName_ = fileName_;
       result.fileExtension_ = fileExtension_;
+      result.uploadStrategy_ = uploadStrategy_;
+      result.parallelNum_ = parallelNum_;
       onBuilt();
       return result;
     }
@@ -825,6 +893,12 @@ private static final long serialVersionUID = 0L;
       if (!other.getFileExtension().isEmpty()) {
         fileExtension_ = other.fileExtension_;
         onChanged();
+      }
+      if (other.getUploadStrategy() != 0) {
+        setUploadStrategy(other.getUploadStrategy());
+      }
+      if (other.getParallelNum() != 0) {
+        setParallelNum(other.getParallelNum());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1523,6 +1597,92 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       fileExtension_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int uploadStrategy_ ;
+    /**
+     * <pre>
+     * 上传策略 
+     * </pre>
+     *
+     * <code>int32 UploadStrategy = 8;</code>
+     * @return The uploadStrategy.
+     */
+    @java.lang.Override
+    public int getUploadStrategy() {
+      return uploadStrategy_;
+    }
+    /**
+     * <pre>
+     * 上传策略 
+     * </pre>
+     *
+     * <code>int32 UploadStrategy = 8;</code>
+     * @param value The uploadStrategy to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUploadStrategy(int value) {
+      
+      uploadStrategy_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 上传策略 
+     * </pre>
+     *
+     * <code>int32 UploadStrategy = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUploadStrategy() {
+      
+      uploadStrategy_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int parallelNum_ ;
+    /**
+     * <pre>
+     * 分片并发数 
+     * </pre>
+     *
+     * <code>int32 ParallelNum = 9;</code>
+     * @return The parallelNum.
+     */
+    @java.lang.Override
+    public int getParallelNum() {
+      return parallelNum_;
+    }
+    /**
+     * <pre>
+     * 分片并发数 
+     * </pre>
+     *
+     * <code>int32 ParallelNum = 9;</code>
+     * @param value The parallelNum to set.
+     * @return This builder for chaining.
+     */
+    public Builder setParallelNum(int value) {
+      
+      parallelNum_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 分片并发数 
+     * </pre>
+     *
+     * <code>int32 ParallelNum = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearParallelNum() {
+      
+      parallelNum_ = 0;
       onChanged();
       return this;
     }

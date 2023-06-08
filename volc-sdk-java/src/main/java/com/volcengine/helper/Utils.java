@@ -6,6 +6,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageOrBuilder;
 import com.google.protobuf.util.JsonFormat;
+import com.volcengine.model.beans.PartInputStream;
+import com.volcengine.model.beans.ReUsePartFileInputStream;
+import com.volcengine.model.beans.ReUseFileInputStream;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.NameValuePair;
@@ -13,7 +16,7 @@ import org.apache.http.message.BasicNameValuePair;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.util.*;
@@ -127,6 +130,55 @@ public class Utils {
         return crc.getValue();
     }
 
+    public static long crc32(InputStream inputStream) throws Exception {
+        byte[] buffer = new byte[4096];
+        CRC32 crc = new CRC32();
+        crc.reset();
+        int n = 0;
+        while (-1 != (n = inputStream.read(buffer))) {
+            crc.update(buffer, 0, n);
+        }
+        return crc.getValue();
+    }
+
+    public static InputStream newRepeatableInputStream(PartInputStream original) throws IOException {
+        InputStream repeatable = null;
+        if (!original.markSupported()) {
+            if (original.getWrappedInputStream() instanceof FileInputStream) {
+                repeatable = new ReUsePartFileInputStream(original);
+            } else {
+                repeatable = new BufferedInputStream(original, 524288);
+            }
+        } else {
+            repeatable = original;
+        }
+
+        return (InputStream) repeatable;
+    }
+
+    public static InputStream newRepeatableInputStream(InputStream original) throws IOException {
+        InputStream repeatable = null;
+        if (!original.markSupported()) {
+            if (original instanceof FileInputStream) {
+                repeatable = new ReUseFileInputStream((FileInputStream) original);
+            } else {
+                repeatable = new BufferedInputStream(original, 524288);
+            }
+        } else {
+            repeatable = original;
+        }
+
+        return (InputStream) repeatable;
+    }
+
+    public static IVodUploadStrategy getVodUploadCoreInstance(int uploadStrategy) {
+        if (uploadStrategy == 1) {
+            return new VodUploadByStream();
+        }
+        return new VodUploadByBytesArray();
+    }
+
+
     // 对于List类型entry，逗号连接生成string value
     public static Map<String, String> paramsToMap(Object obj) {
         Map<String, Object> map = JSONObject.toJavaObject(JSONObject.parseObject(JSON.toJSONString(obj)), Map.class);
@@ -144,7 +196,7 @@ public class Utils {
                 params.put(entry.getKey(), ((Integer) entry.getValue()).toString());
             } else if (entry.getValue().getClass() == String.class) {
                 params.put(entry.getKey(), (String) entry.getValue());
-            }else if (entry.getValue().getClass() == Boolean.class) {
+            } else if (entry.getValue().getClass() == Boolean.class) {
                 params.put(entry.getKey(), ((Boolean) entry.getValue()).toString());
             } else if (entry.getValue().getClass() == JSONArray.class) {
                 List<String> list = (List<String>) entry.getValue();
@@ -176,9 +228,9 @@ public class Utils {
             } else if (entry.getValue().getClass() == String.class) {
                 pairs.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
             } else if (entry.getValue().getClass() == Long.class) {
-                pairs.add(new BasicNameValuePair(entry.getKey(),((Long) entry.getValue()).toString()));
+                pairs.add(new BasicNameValuePair(entry.getKey(), ((Long) entry.getValue()).toString()));
             } else if (entry.getValue().getClass() == Boolean.class) {
-                pairs.add(new BasicNameValuePair(entry.getKey(),((Boolean) entry.getValue()).toString()));
+                pairs.add(new BasicNameValuePair(entry.getKey(), ((Boolean) entry.getValue()).toString()));
             } else if (entry.getValue().getClass() == JSONArray.class) {
                 List<String> list = (List<String>) entry.getValue();
                 for (String item : list) {

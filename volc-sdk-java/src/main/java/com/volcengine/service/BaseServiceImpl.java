@@ -29,6 +29,7 @@ import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.entity.FileEntity;
+import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
@@ -36,6 +37,7 @@ import org.apache.http.util.EntityUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -187,6 +189,39 @@ public abstract class BaseServiceImpl implements IBaseService {
     public HttpResponse putDataWithResponse(String url, byte[] data, Map<String, String> headers) {
         HttpPut httpPut = new HttpPut(url);
         HttpEntity httpEntity = new ByteArrayEntity(data);
+        if (headers != null && headers.size() > 0) {
+            for (Map.Entry<String, String> entry : headers.entrySet()) {
+                httpPut.setHeader(entry.getKey(), entry.getValue());
+            }
+        }
+        httpPut.setEntity(httpEntity);
+        HttpResponse response = null;
+        try {
+            HttpClient client;
+            if (getHttpClient() != null) {
+                client = getHttpClient();
+            } else {
+                client = HttpClients.createDefault();
+            }
+            return client.execute(httpPut);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (response != null) {
+                EntityUtils.consumeQuietly(response.getEntity());
+            }
+        }
+        return null;
+    }
+
+    public boolean putData(String url, InputStream inputStream, Map<String, String> headers) {
+        HttpEntity httpEntity = new InputStreamEntity(inputStream);
+        return doPut(url, httpEntity, headers);
+    }
+
+    public HttpResponse putDataWithResponse(String url, InputStream inputStream, Map<String, String> headers) {
+        HttpPut httpPut = new HttpPut(url);
+        HttpEntity httpEntity = new InputStreamEntity(inputStream);
         if (headers != null && headers.size() > 0) {
             for (Map.Entry<String, String> entry : headers.entrySet()) {
                 httpPut.setHeader(entry.getKey(), entry.getValue());

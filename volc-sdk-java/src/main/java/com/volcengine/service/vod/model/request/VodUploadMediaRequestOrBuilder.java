@@ -156,4 +156,24 @@ public interface VodUploadMediaRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getVodUploadSourceBytes();
+
+  /**
+   * <pre>
+   * 上传策略 
+   * </pre>
+   *
+   * <code>int32 UploadStrategy = 9;</code>
+   * @return The uploadStrategy.
+   */
+  int getUploadStrategy();
+
+  /**
+   * <pre>
+   * 分片并发数 
+   * </pre>
+   *
+   * <code>int32 ParallelNum = 10;</code>
+   * @return The parallelNum.
+   */
+  int getParallelNum();
 }

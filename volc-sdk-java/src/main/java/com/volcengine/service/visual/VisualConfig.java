@@ -362,6 +362,20 @@ public class VisualConfig {
                         }
                     }
             ));
+            put(Const.ImageAnimation, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ImageAnimation));
+                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.CertToken, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -552,6 +566,48 @@ public class VisualConfig {
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.AllAgeGeneration));
+                                    add(new BasicNameValuePair("Version", "2022-08-31"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ConvertPhotoV2, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ConvertPhotoV2));
+                                    add(new BasicNameValuePair("Version", "2022-08-31"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.LensVidaVideoSubmitTaskV2, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.LensVidaVideoSubmitTaskV2));
+                                    add(new BasicNameValuePair("Version", "2022-08-31"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.LensVidaVideoGetResultV2, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.LensVidaVideoGetResultV2));
                                     add(new BasicNameValuePair("Version", "2022-08-31"));
                                 }
                             });

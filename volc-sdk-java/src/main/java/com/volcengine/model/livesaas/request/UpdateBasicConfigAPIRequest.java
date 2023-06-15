@@ -56,6 +56,10 @@ public class UpdateBasicConfigAPIRequest {
     Integer IsAutoStartEnable;
     @JSONField(name = "TextSiteTags")
     List<SiteActivityTag> TextSiteTags;
+    @JSONField(name = "IsReservationSmsEnable")
+    Integer IsReservationSmsEnable;
+    @JSONField(name = "AutoReservationWindowEnable")
+    Integer AutoReservationWindowEnable;
     @JSONField(name = "ActivityId")
     Long ActivityId;
     @JSONField(name = "LiveTime")

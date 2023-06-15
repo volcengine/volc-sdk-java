@@ -1,8 +1,8 @@
 package com.volcengine.example.vms;
 
 import com.alibaba.fastjson.JSON;
-import com.volcengine.service.vms.ISecretNumberService;
-import com.volcengine.service.vms.impl.SecretNumberServiceImpl;
+import com.volcengine.service.vms.VmsService;
+import com.volcengine.service.vms.impl.VmsServiceImpl;
 import com.volcengine.service.vms.request.UpdateAXNERequest;
 import com.volcengine.service.vms.response.OperationResponse;
 
@@ -12,10 +12,10 @@ import com.volcengine.service.vms.response.OperationResponse;
  */
 public class UpdateAXNEDemo {
     public static void main(String[] args) {
-        ISecretNumberService secretNumberService = SecretNumberServiceImpl.getInstance();
 
-        secretNumberService.setAccessKey("your ak");
-        secretNumberService.setSecretKey("your sk");
+        VmsService vmsService = VmsServiceImpl.getInstance();
+        vmsService.setAccessKey("your ak");
+        vmsService.setSecretKey("your sk");
 
         try {
             UpdateAXNERequest request = new UpdateAXNERequest();
@@ -23,7 +23,7 @@ public class UpdateAXNEDemo {
             request.setSubId("S16722090689534a63c75c");
             request.setUpdateType("updatePhoneNoB");
             request.setPhoneNoB("18916266831");
-            OperationResponse response = secretNumberService.updateAXNE(request);
+            OperationResponse response = vmsService.updateAXNE(request);
             System.out.println(JSON.toJSONString(response));
         } catch (Exception exception) {
             exception.printStackTrace();

@@ -1,11 +1,11 @@
 package com.volcengine.example.vms;
 
 import com.alibaba.fastjson.JSON;
-import com.volcengine.service.notify.NotifyService;
-import com.volcengine.service.notify.impl.NotifyServiceImpl;
-import com.volcengine.service.notify.model.request.CreateTaskRequest;
-import com.volcengine.service.notify.model.request.PhoneParam;
-import com.volcengine.service.notify.model.response.CommonResponse;
+import com.volcengine.service.vms.VmsService;
+import com.volcengine.service.vms.impl.VmsServiceImpl;
+import com.volcengine.service.vms.request.CreateTaskRequest;
+import com.volcengine.service.vms.request.PhoneParam;
+import com.volcengine.service.vms.response.CommonResponse;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -14,13 +14,13 @@ import java.util.Map;
 
 public class TaskDemo {
     public static void main(String[] args) {
-        NotifyService notifyService = NotifyServiceImpl.getInstance();
 
-        notifyService.setAccessKey("your ak");
-        notifyService.setSecretKey("you sk");
+        VmsService vmsService = VmsServiceImpl.getInstance();
+        vmsService.setAccessKey("your ak");
+        vmsService.setSecretKey("your sk");
 
         try {
-            CommonResponse operationResponse = notifyService.pauseTask("cc4cc383f8464066851b6283838cb569");
+            CommonResponse operationResponse = vmsService.pauseTask("cc4cc383f8464066851b6283838cb569");
 
             System.out.println(JSON.toJSONString(operationResponse));
 
@@ -30,7 +30,7 @@ public class TaskDemo {
                     .numberPoolNo("NP162215338604095636").numberList(Arrays.asList("075561169508")).selectNumberType(0)
                     .startTime(new Date()).endTime(new Date(System.currentTimeMillis() + 600 * 1000)).phoneList(Arrays.asList(phoneParam)).build();
 
-            operationResponse = notifyService.createTask(createTaskRequest);
+            operationResponse = vmsService.createTask(createTaskRequest);
             System.out.println(JSON.toJSONString(operationResponse));
 
             //tts模板任务
@@ -42,7 +42,7 @@ public class TaskDemo {
                     .numberPoolNo("NP162215338604095636").numberList(Arrays.asList("075561169508")).selectNumberType(0)
                     .startTime(new Date()).endTime(new Date(System.currentTimeMillis() + 600 * 1000)).phoneList(Arrays.asList(phoneParam2)).build();
 
-            operationResponse = notifyService.createTask(createTaskRequest2);
+            operationResponse = vmsService.createTask(createTaskRequest2);
             System.out.println(JSON.toJSONString(operationResponse));
         } catch (Exception e) {
             e.printStackTrace();

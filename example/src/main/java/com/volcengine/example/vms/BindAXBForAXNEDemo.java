@@ -1,8 +1,8 @@
 package com.volcengine.example.vms;
 
 import com.alibaba.fastjson.JSON;
-import com.volcengine.service.vms.ISecretNumberService;
-import com.volcengine.service.vms.impl.SecretNumberServiceImpl;
+import com.volcengine.service.vms.VmsService;
+import com.volcengine.service.vms.impl.VmsServiceImpl;
 import com.volcengine.service.vms.request.BindAXBForAXNERequest;
 import com.volcengine.service.vms.response.SecretBindResponse;
 
@@ -12,10 +12,10 @@ import com.volcengine.service.vms.response.SecretBindResponse;
  */
 public class BindAXBForAXNEDemo {
     public static void main(String[] args) {
-        ISecretNumberService secretNumberService = SecretNumberServiceImpl.getInstance();
 
-        secretNumberService.setAccessKey("your ak");
-        secretNumberService.setSecretKey("your sk");
+        VmsService vmsService = VmsServiceImpl.getInstance();
+        vmsService.setAccessKey("your ak");
+        vmsService.setSecretKey("your sk");
 
         try {
             BindAXBForAXNERequest request = new BindAXBForAXNERequest();
@@ -25,7 +25,7 @@ public class BindAXBForAXNEDemo {
             request.setEnableDuration(360);
             request.setOutId("123");
             request.setUserData("test");
-            SecretBindResponse response = secretNumberService.bindAXBForAXNE(request);
+            SecretBindResponse response = vmsService.bindAXBForAXNE(request);
             System.out.println(JSON.toJSONString(response));
         } catch (Exception exception) {
             exception.printStackTrace();

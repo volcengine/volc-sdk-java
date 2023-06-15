@@ -8,6 +8,7 @@ import com.volcengine.model.request.AsyncRiskDetectionRequest;
 import com.volcengine.model.request.DataReportRequest;
 import com.volcengine.model.request.RiskDetectionRequest;
 import com.volcengine.model.request.RiskResultRequest;
+import com.volcengine.model.request.RiskStatRequest;
 import com.volcengine.model.response.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.businessSecurity.BusinessSecurityConfig;
@@ -20,11 +21,19 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
     private BusinessSecurityServiceImpl() {
         super(BusinessSecurityConfig.serviceInfo, BusinessSecurityConfig.apiInfoList);
     }
+    private BusinessSecurityServiceImpl(String service) {
+        super(BusinessSecurityConfig.serviceInfoMapping.get(service), BusinessSecurityConfig.apiInfoList);
+    } 
 
     private static final BusinessSecurityServiceImpl businessSecurityInstance = new BusinessSecurityServiceImpl();
+    private static final BusinessSecurityServiceImpl businessSecurityOpenapiInstance = new BusinessSecurityServiceImpl("risk_console");
 
     public static BusinessSecurityService getInstance() {
         return businessSecurityInstance;
+    }
+
+    public static BusinessSecurityService getInstanceOpenapi() {
+        return businessSecurityOpenapiInstance;
     }
 
     @Override
@@ -130,5 +139,25 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
         }
 
         return JSON.parseObject(response.getData(), ElementVerifyResponseV2.class);
+    }
+
+    @Override
+    public RiskStatResponse.CommonRiskStatResponse SimpleRiskStat(RiskStatRequest.CommonProductStatisticsReq commonProductStatisticsReq) throws Exception {
+        RawResponse response = json(Const.SimpleRiskStat, new ArrayList<>(), JSON.toJSONString(commonProductStatisticsReq));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), RiskStatResponse.CommonRiskStatResponse.class);
+    }
+
+    @Override
+    public RiskStatResponse.CommonRiskStatResponse ContentRiskStat(RiskStatRequest.CommonProductStatisticsReq commonProductStatisticsReq) throws Exception {
+        RawResponse response = json(Const.ContentRiskStat, new ArrayList<>(), JSON.toJSONString(commonProductStatisticsReq));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), RiskStatResponse.CommonRiskStatResponse.class);
     }
 }

@@ -19,6 +19,9 @@ public abstract class VodUploadAbstractStrategy implements IVodUploadStrategy {
         if (storageClass == com.volcengine.service.vod.model.business.StorageClassType.Archive_VALUE) {
             headers.put("X-Upload-Storage-Class", "archive");
         }
+        if (storageClass == com.volcengine.service.vod.model.business.StorageClassType.IA_VALUE) {
+            headers.put("X-Upload-Storage-Class", "ia");
+        }
     }
 
     public void fillPartUploadCommonHeaders(Map<String, String> headers, String auth, String checkSum, boolean isLargeFile, int storageClass) {
@@ -29,6 +32,9 @@ public abstract class VodUploadAbstractStrategy implements IVodUploadStrategy {
         }
         if (storageClass == com.volcengine.service.vod.model.business.StorageClassType.Archive_VALUE) {
             headers.put("X-Upload-Storage-Class", "archive");
+        }
+        if (storageClass == com.volcengine.service.vod.model.business.StorageClassType.IA_VALUE) {
+            headers.put("X-Upload-Storage-Class", "ia");
         }
     }
 

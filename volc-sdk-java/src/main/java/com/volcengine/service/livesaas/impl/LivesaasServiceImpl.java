@@ -1555,4 +1555,34 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         }
         return message;
     }
+
+    @Override
+    public UpdateActivityViewPermissionAPIResponse updateActivityViewPermissionAPI(UpdateActivityViewPermissionAPIRequest updateActivityViewPermissionAPIRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityViewPermissionAPI, new ArrayList<>(), JSON.toJSONString(updateActivityViewPermissionAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateActivityViewPermissionAPIResponse res = JSON.parseObject(response.getData(), UpdateActivityViewPermissionAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteMediaLibraryVideoAPIResponse deleteMediaLibraryVideoAPI(DeleteMediaLibraryVideoAPIRequest deleteMediaLibraryVideoAPIRequest) throws Exception {
+        RawResponse response = json(Const.DeleteMediaLibraryVideoAPI, new ArrayList<>(), JSON.toJSONString(deleteMediaLibraryVideoAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteMediaLibraryVideoAPIResponse res = JSON.parseObject(response.getData(), DeleteMediaLibraryVideoAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

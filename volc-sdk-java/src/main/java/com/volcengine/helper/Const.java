@@ -316,6 +316,10 @@ public class Const {
 
     public static final String GetCustomViewingRestrictionInfoAPI = "GetCustomViewingRestrictionInfoAPI";
 
+    public static final String UpdateActivityViewPermissionAPI = "UpdateActivityViewPermissionAPI";
+
+    public static final String DeleteMediaLibraryVideoAPI = "DeleteMediaLibraryVideoAPI";
+
     // translate
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";

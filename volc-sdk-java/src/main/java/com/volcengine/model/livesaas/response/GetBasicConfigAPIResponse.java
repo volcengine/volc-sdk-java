@@ -56,6 +56,10 @@ public class GetBasicConfigAPIResponse {
         Integer IsCountdownEnable;
         @JSONField(name = "IsAutoStartEnable")
         Integer IsAutoStartEnable;
+        @JSONField(name = "IsReservationSmsEnable")
+        Integer IsReservationSmsEnable;
+        @JSONField(name = "AutoReservationWindowEnable")
+        Integer AutoReservationWindowEnable;
         @JSONField(name = "TextSiteTags")
         List<SiteActivityTag> TextSiteTags;
         @JSONField(name = "Announcement")

@@ -897,4 +897,22 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetCustomViewingRestrictionInfoAPIResponse getCustomViewingRestrictionInfoAPI(GetCustomViewingRestrictionInfoAPIRequest getCustomViewingRestrictionInfoAPIRequest) throws Exception;
+
+    /**
+     * UpdateActivityViewPermissionAPI
+     *
+     * @param updateActivityViewPermissionAPIRequest UpdateActivityViewPermissionAPIRequest
+     * @return UpdateActivityViewPermissionAPIResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityViewPermissionAPIResponse updateActivityViewPermissionAPI(UpdateActivityViewPermissionAPIRequest updateActivityViewPermissionAPIRequest) throws Exception;
+
+    /**
+     * DeleteMediaLibraryVideoAPI
+     *
+     * @param deleteMediaLibraryVideoAPIRequest DeleteMediaLibraryVideoAPIRequest
+     * @return DeleteMediaLibraryVideoAPIResponse
+     * @throws Exception the exception
+     */
+    DeleteMediaLibraryVideoAPIResponse deleteMediaLibraryVideoAPI(DeleteMediaLibraryVideoAPIRequest deleteMediaLibraryVideoAPIRequest) throws Exception;
 }

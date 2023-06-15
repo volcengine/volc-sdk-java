@@ -225,7 +225,7 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.GetMediaInfos));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new BasicNameValuePair("Version", "2022-12-01"));
                                 }
                             });
                         }
@@ -281,7 +281,7 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.GetMediaList));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new BasicNameValuePair("Version", "2022-12-01"));
                                 }
                             });
                         }

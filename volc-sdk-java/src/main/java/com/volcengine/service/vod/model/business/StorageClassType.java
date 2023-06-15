@@ -32,6 +32,14 @@ public enum StorageClassType
    * <code>Archive = 2;</code>
    */
   Archive(2),
+  /**
+   * <pre>
+   * 低频存储
+   * </pre>
+   *
+   * <code>IA = 3;</code>
+   */
+  IA(3),
   UNRECOGNIZED(-1),
   ;
 
@@ -59,6 +67,14 @@ public enum StorageClassType
    * <code>Archive = 2;</code>
    */
   public static final int Archive_VALUE = 2;
+  /**
+   * <pre>
+   * 低频存储
+   * </pre>
+   *
+   * <code>IA = 3;</code>
+   */
+  public static final int IA_VALUE = 3;
 
 
   public final int getNumber() {
@@ -88,6 +104,7 @@ public enum StorageClassType
       case 0: return Default;
       case 1: return Standard;
       case 2: return Archive;
+      case 3: return IA;
       default: return null;
     }
   }

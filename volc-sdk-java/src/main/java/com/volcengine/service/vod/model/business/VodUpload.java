@@ -274,14 +274,14 @@ public final class VodUpload {
       "engine.Vod.Models.Business.UploadAddress" +
       "\022L\n\021FlushUploadResult\030\002 \001(\01321.Volcengine" +
       ".Vod.Models.Business.FlushUploadResult\022\020" +
-      "\n\010SDKParam\030\003 \001(\t*:\n\020StorageClassType\022\013\n\007" +
-      "Default\020\000\022\014\n\010Standard\020\001\022\013\n\007Archive\020\002B\315\001\n" +
-      ")com.volcengine.service.vod.model.busine" +
-      "ssB\tVodUploadP\001ZAgithub.com/volcengine/v" +
-      "olc-sdk-golang/service/vod/models/busine" +
-      "ss\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Models\\Bu" +
-      "siness\342\002#Volc\\Service\\Vod\\Models\\GPBMeta" +
-      "datab\006proto3"
+      "\n\010SDKParam\030\003 \001(\t*B\n\020StorageClassType\022\013\n\007" +
+      "Default\020\000\022\014\n\010Standard\020\001\022\013\n\007Archive\020\002\022\006\n\002" +
+      "IA\020\003B\315\001\n)com.volcengine.service.vod.mode" +
+      "l.businessB\tVodUploadP\001ZAgithub.com/volc" +
+      "engine/volc-sdk-golang/service/vod/model" +
+      "s/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\M" +
+      "odels\\Business\342\002#Volc\\Service\\Vod\\Models" +
+      "\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

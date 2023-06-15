@@ -91,6 +91,8 @@ public class Const {
     public static final String MobileStatusV2 = "MobileStatusV2";
     public static final String ElementVerifyV2 = "ElementVerifyV2";
     public static final String ElementVerifyEncrypted = "ElementVerifyEncrypted";
+    public static final String SimpleRiskStat = "SimpleRiskStat";
+    public static final String ContentRiskStat = "ContentRiskStat";
 
     // content security
     public static final String ImageContentRisk = "ImageContentRisk";

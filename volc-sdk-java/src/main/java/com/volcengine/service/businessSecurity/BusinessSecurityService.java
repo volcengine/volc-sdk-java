@@ -4,6 +4,7 @@ import com.volcengine.model.request.AsyncRiskDetectionRequest;
 import com.volcengine.model.request.DataReportRequest;
 import com.volcengine.model.request.RiskDetectionRequest;
 import com.volcengine.model.request.RiskResultRequest;
+import com.volcengine.model.request.RiskStatRequest;
 import com.volcengine.model.response.*;
 import com.volcengine.service.IBaseService;
 
@@ -104,4 +105,22 @@ public interface BusinessSecurityService extends IBaseService {
      * @throws Exception the exception
      */
     ElementVerifyResponseV2 ElementVerifyEncrypted(String key, String encryptedType, RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+    /**
+     * Simple Risk Stat.
+     *
+     * @param commonProductStatisticsReq risk stat req
+     * @return SimpleRiskStatResponse
+     * @throws Exception the exception
+     */
+    RiskStatResponse.CommonRiskStatResponse SimpleRiskStat(RiskStatRequest.CommonProductStatisticsReq commonProductStatisticsReq) throws Exception;
+
+    /**
+     * Content Risk Stat.
+     *
+     * @param commonProductStatisticsReq risk stat req
+     * @return ContentRiskStatResponse
+     * @throws Exception the exception
+     */
+    RiskStatResponse.CommonRiskStatResponse ContentRiskStat(RiskStatRequest.CommonProductStatisticsReq commonProductStatisticsReq) throws Exception;
 }

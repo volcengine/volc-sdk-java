@@ -14,6 +14,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BusinessSecurityConfig {
+    private static ArrayList<BasicHeader> headers = new ArrayList<BasicHeader>();
+    
     public static ServiceInfo serviceInfo = new ServiceInfo(
             new HashMap<String, Object>() {
                 {
@@ -29,6 +31,27 @@ public class BusinessSecurityConfig {
                 }
             }
     );
+    public static ServiceInfo serviceInfoOpenApi = new ServiceInfo(
+            new HashMap<String, Object>() {
+                {
+                    put(Const.CONNECTION_TIMEOUT, 5000);
+                    put(Const.SOCKET_TIMEOUT, 10000);
+                    put(Const.Host, "riskcontrol.volcengineapi.com");
+                    put(Const.Header, new ArrayList<Header>() {
+                        {
+                            add(new BasicHeader("Accept", "application/json"));
+                        }
+                    });
+                    put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "risk_console"));
+                }
+            }
+    );
+    public static HashMap<String, ServiceInfo> serviceInfoMapping = new HashMap<String, ServiceInfo>() {
+        {
+            put("risk_console", serviceInfoOpenApi);
+            put("BusinessSecurity", serviceInfo);
+        }
+    };
     public static Map<String, ApiInfo> apiInfoList = new HashMap<String, ApiInfo>() {
         {
             put(Const.RiskDetection, new ApiInfo(
@@ -172,6 +195,40 @@ public class BusinessSecurityConfig {
                         }
                     }
             ));
+            put(Const.SimpleRiskStat, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "SimpleRiskStat"));
+                                    add(new BasicNameValuePair("Version", "2022-12-23"));
+                                }
+                            });
+                            put(Const.Header, headers);
+                        }
+                    }
+            ));
+            put(Const.ContentRiskStat, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ContentRiskStat"));
+                                    add(new BasicNameValuePair("Version", "2022-12-23"));
+                                }
+                            });
+                            put(Const.Header, headers);
+                        }
+                    }
+            ));
         }
     };
+
+    public static void init() {
+        
+    }
 }

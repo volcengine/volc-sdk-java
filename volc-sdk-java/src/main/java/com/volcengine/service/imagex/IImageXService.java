@@ -400,6 +400,24 @@ public interface IImageXService extends IBaseService {
      */
     GetImageStyleResultResponse getImageStyleResult(GetImageStyleResultRequest req) throws Exception;
 
+    /**
+     * Image Migrate
+     *
+     * @param req request args
+     * @return result
+     * @throws Exception the exception
+     */
+    CreateImageMigrateTaskResp createImageMigrateTask(CreateImageMigrateTaskReq req) throws Exception;
+
+    /**
+     * Image Migrate
+     *
+     * @param req request args
+     * @return result
+     * @throws Exception the exception
+     */
+    GetImageMigrateTasksResp getImageMigrateTask(GetImageMigrateTasksReq req) throws Exception;
+
 
     public DescribeImageXDomainTrafficDataResp describeImageXDomainTrafficData(DescribeImageXDomainTrafficDataReq req) throws Exception;
 

@@ -874,6 +874,34 @@ public class ImageXConfig {
                         }
                     }
             ));
+            put("CreateImageMigrateTask", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "CreateImageMigrateTask"));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("GetImageMigrateTasks", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetImageMigrateTasks"));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
 
         {

@@ -17,7 +17,7 @@ package com.volcengine.service.cdn;
         CDN.DeleteCdnDomainResponse deleteCdnDomain(CDN.DeleteCdnDomainRequest request) throws Exception;
 
         // 获取域名列表: https://www.volcengine.com/docs/6454/75269
-        CDN.ListCdnDomainsResponse listCdnDomains(CDN.ListCdnDomainsRequest request) throws Exception;
+        CDN.ListCdnDomainsResponse listCdnDomains(CDN.ListCdnDomainsRequest request, String... args) throws Exception;
 
         // 获取域名配置详情: https://www.volcengine.com/docs/6454/80320
         CDN.DescribeCdnConfigResponse describeCdnConfig(CDN.DescribeCdnConfigRequest request) throws Exception;
@@ -26,43 +26,43 @@ package com.volcengine.service.cdn;
         CDN.UpdateCdnConfigResponse updateCdnConfig(CDN.UpdateCdnConfigRequest request) throws Exception;
 
         // 获取访问统计的细分数据: https://www.volcengine.com/docs/6454/70442
-        CDN.DescribeCdnDataResponse describeCdnData(CDN.DescribeCdnDataRequest request) throws Exception;
+        CDN.DescribeCdnDataResponse describeCdnData(CDN.DescribeCdnDataRequest request, String... args) throws Exception;
 
         // 获取访问统计的汇总数据: https://www.volcengine.com/docs/6454/96132
-        CDN.DescribeEdgeNrtDataSummaryResponse describeEdgeNrtDataSummary(CDN.DescribeEdgeNrtDataSummaryRequest request) throws Exception;
+        CDN.DescribeEdgeNrtDataSummaryResponse describeEdgeNrtDataSummary(CDN.DescribeEdgeNrtDataSummaryRequest request, String... args) throws Exception;
 
         // 获取回源统计的细分数据: https://www.volcengine.com/docs/6454/70443
-        CDN.DescribeCdnOriginDataResponse describeCdnOriginData(CDN.DescribeCdnOriginDataRequest request) throws Exception;
+        CDN.DescribeCdnOriginDataResponse describeCdnOriginData(CDN.DescribeCdnOriginDataRequest request, String... args) throws Exception;
 
         // 获取回源统计的汇总数据: https://www.volcengine.com/docs/6454/96133
-        CDN.DescribeOriginNrtDataSummaryResponse describeOriginNrtDataSummary(CDN.DescribeOriginNrtDataSummaryRequest request) throws Exception;
+        CDN.DescribeOriginNrtDataSummaryResponse describeOriginNrtDataSummary(CDN.DescribeOriginNrtDataSummaryRequest request, String... args) throws Exception;
 
         // 获取省份运营商的细分数据: https://www.volcengine.com/docs/6454/75159
-        CDN.DescribeCdnDataDetailResponse describeCdnDataDetail(CDN.DescribeCdnDataDetailRequest request) throws Exception;
+        CDN.DescribeCdnDataDetailResponse describeCdnDataDetail(CDN.DescribeCdnDataDetailRequest request, String... args) throws Exception;
 
         // 获取多个域名的省份和运营商的细分数据: https://www.volcengine.com/docs/6454/145577
-        CDN.DescribeDistrictIspDataResponse describeDistrictIspData(CDN.DescribeDistrictIspDataRequest request) throws Exception;
+        CDN.DescribeDistrictIspDataResponse describeDistrictIspData(CDN.DescribeDistrictIspDataRequest request, String... args) throws Exception;
 
         // 获取独立访客的细分数据: https://www.volcengine.com/docs/6454/79321
-        CDN.DescribeEdgeStatisticalDataResponse describeEdgeStatisticalData(CDN.DescribeEdgeStatisticalDataRequest request) throws Exception;
+        CDN.DescribeEdgeStatisticalDataResponse describeEdgeStatisticalData(CDN.DescribeEdgeStatisticalDataRequest request, String... args) throws Exception;
 
         // 获取访问统计的排行数据: https://www.volcengine.com/docs/6454/96145
-        CDN.DescribeEdgeTopNrtDataResponse describeEdgeTopNrtData(CDN.DescribeEdgeTopNrtDataRequest request) throws Exception;
+        CDN.DescribeEdgeTopNrtDataResponse describeEdgeTopNrtData(CDN.DescribeEdgeTopNrtDataRequest request, String... args) throws Exception;
 
         // 获取回源数据的统计排序: https://www.volcengine.com/docs/6454/104892
-        CDN.DescribeOriginTopNrtDataResponse describeOriginTopNrtData(CDN.DescribeOriginTopNrtDataRequest request) throws Exception;
+        CDN.DescribeOriginTopNrtDataResponse describeOriginTopNrtData(CDN.DescribeOriginTopNrtDataRequest request, String... args) throws Exception;
 
         // 获取访问状态码的统计排序: https://www.volcengine.com/docs/6454/104888
-        CDN.DescribeEdgeTopStatusCodeResponse describeEdgeTopStatusCode(CDN.DescribeEdgeTopStatusCodeRequest request) throws Exception;
+        CDN.DescribeEdgeTopStatusCodeResponse describeEdgeTopStatusCode(CDN.DescribeEdgeTopStatusCodeRequest request, String... args) throws Exception;
 
         // 获取回源状态码的统计排序: https://www.volcengine.com/docs/6454/104891
-        CDN.DescribeOriginTopStatusCodeResponse describeOriginTopStatusCode(CDN.DescribeOriginTopStatusCodeRequest request) throws Exception;
+        CDN.DescribeOriginTopStatusCodeResponse describeOriginTopStatusCode(CDN.DescribeOriginTopStatusCodeRequest request, String... args) throws Exception;
 
         // 获取热点及访客排行数据: https://www.volcengine.com/docs/6454/79322
-        CDN.DescribeEdgeTopStatisticalDataResponse describeEdgeTopStatisticalData(CDN.DescribeEdgeTopStatisticalDataRequest request) throws Exception;
+        CDN.DescribeEdgeTopStatisticalDataResponse describeEdgeTopStatisticalData(CDN.DescribeEdgeTopStatisticalDataRequest request, String... args) throws Exception;
 
         // 获取区域和 ISP 列表: https://www.volcengine.com/docs/6454/70445
-        CDN.DescribeCdnRegionAndIspResponse describeCdnRegionAndIsp(CDN.DescribeCdnRegionAndIspRequest request) throws Exception;
+        CDN.DescribeCdnRegionAndIspResponse describeCdnRegionAndIsp(CDN.DescribeCdnRegionAndIspRequest request, String... args) throws Exception;
 
         // 获取服务相关信息: https://www.volcengine.com/docs/6454/78999
         CDN.DescribeCdnServiceResponse describeCdnService() throws Exception;
@@ -80,7 +80,7 @@ package com.volcengine.service.cdn;
         CDN.DescribeContentTasksResponse describeContentTasks(CDN.DescribeContentTasksRequest request) throws Exception;
 
         // 获取刷新预热配额信息: https://www.volcengine.com/docs/6454/70439
-        CDN.DescribeContentQuotaResponse describeContentQuota() throws Exception;
+        CDN.DescribeContentQuotaResponse describeContentQuota(String... args) throws Exception;
 
         // 提交封禁任务: https://www.volcengine.com/docs/6454/79890
         CDN.SubmitBlockTaskResponse submitBlockTask(CDN.SubmitBlockTaskRequest request) throws Exception;
@@ -92,7 +92,7 @@ package com.volcengine.service.cdn;
         CDN.DescribeContentBlockTasksResponse describeContentBlockTasks(CDN.DescribeContentBlockTasksRequest request) throws Exception;
 
         // 获取访问日志下载链接: https://www.volcengine.com/docs/6454/70446
-        CDN.DescribeCdnAccessLogResponse describeCdnAccessLog(CDN.DescribeCdnAccessLogRequest request) throws Exception;
+        CDN.DescribeCdnAccessLogResponse describeCdnAccessLog(CDN.DescribeCdnAccessLogRequest request, String... args) throws Exception;
 
         // 获取 IP 归属信息: https://www.volcengine.com/docs/6454/75233
         CDN.DescribeIPInfoResponse describeIPInfo(CDN.DescribeIPInfoRequest request) throws Exception;

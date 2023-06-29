@@ -2,6 +2,7 @@ package com.volcengine.service.cdn.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
+import com.volcengine.helper.Utils;
 import com.volcengine.model.beans.CDN;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.service.BaseServiceImpl;
@@ -18,10 +19,33 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     public static CDNService getInstance() {
         return new CDNServiceImpl();
     }
+    
+    public static String useGet() {return "GET";}
+
+    public static String usePost() {return "POST";}
+    
+    public RawResponse requestProxy(String api, Object body, String... args) {
+        RawResponse response;
+        boolean isUseGet = false;
+        if (args.length > 0) {
+            String arg = args[0];
+            if (useGet().equals(arg)) {
+                isUseGet = true;
+                apiInfoList.get(api).setMethod(useGet());
+            }
+        }
+        if (isUseGet) {
+            response = query(api, Utils.mapToPairList(Utils.paramsToMap(body)));
+            apiInfoList.get(api).setMethod(usePost());
+        } else {
+            response = json(api, null, JSON.toJSONString(body));
+        }
+        return response;
+    }
 
     @Override
     public CDN.AddCdnDomainResponse addCdnDomain(CDN.AddCdnDomainRequest request) throws Exception {
-        RawResponse response = json("AddCdnDomain", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("AddCdnDomain", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -30,7 +54,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.StartCdnDomainResponse startCdnDomain(CDN.StartCdnDomainRequest request) throws Exception {
-        RawResponse response = json("StartCdnDomain", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("StartCdnDomain", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -39,7 +63,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.StopCdnDomainResponse stopCdnDomain(CDN.StopCdnDomainRequest request) throws Exception {
-        RawResponse response = json("StopCdnDomain", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("StopCdnDomain", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -48,7 +72,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.DeleteCdnDomainResponse deleteCdnDomain(CDN.DeleteCdnDomainRequest request) throws Exception {
-        RawResponse response = json("DeleteCdnDomain", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("DeleteCdnDomain", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -56,8 +80,8 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.ListCdnDomainsResponse listCdnDomains(CDN.ListCdnDomainsRequest request) throws Exception {
-        RawResponse response = json("ListCdnDomains", null, JSON.toJSONString(request));
+    public CDN.ListCdnDomainsResponse listCdnDomains(CDN.ListCdnDomainsRequest request, String... args) throws Exception {
+        RawResponse response = requestProxy("ListCdnDomains", request, args);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -66,7 +90,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.DescribeCdnConfigResponse describeCdnConfig(CDN.DescribeCdnConfigRequest request) throws Exception {
-        RawResponse response = json("DescribeCdnConfig", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("DescribeCdnConfig", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -75,7 +99,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.UpdateCdnConfigResponse updateCdnConfig(CDN.UpdateCdnConfigRequest request) throws Exception {
-        RawResponse response = json("UpdateCdnConfig", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("UpdateCdnConfig", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -83,8 +107,8 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.DescribeCdnDataResponse describeCdnData(CDN.DescribeCdnDataRequest request) throws Exception {
-        RawResponse response = json("DescribeCdnData", null, JSON.toJSONString(request));
+    public CDN.DescribeCdnDataResponse describeCdnData(CDN.DescribeCdnDataRequest request, String... args) throws Exception {
+        RawResponse response = requestProxy("DescribeCdnData", request, args);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -92,8 +116,8 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.DescribeEdgeNrtDataSummaryResponse describeEdgeNrtDataSummary(CDN.DescribeEdgeNrtDataSummaryRequest request) throws Exception {
-        RawResponse response = json("DescribeEdgeNrtDataSummary", null, JSON.toJSONString(request));
+    public CDN.DescribeEdgeNrtDataSummaryResponse describeEdgeNrtDataSummary(CDN.DescribeEdgeNrtDataSummaryRequest request, String... args) throws Exception {
+        RawResponse response = requestProxy("DescribeEdgeNrtDataSummary", request, args);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -101,8 +125,8 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.DescribeCdnOriginDataResponse describeCdnOriginData(CDN.DescribeCdnOriginDataRequest request) throws Exception {
-        RawResponse response = json("DescribeCdnOriginData", null, JSON.toJSONString(request));
+    public CDN.DescribeCdnOriginDataResponse describeCdnOriginData(CDN.DescribeCdnOriginDataRequest request, String... args) throws Exception {
+        RawResponse response = requestProxy("DescribeCdnOriginData", request, args);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -110,8 +134,8 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.DescribeOriginNrtDataSummaryResponse describeOriginNrtDataSummary(CDN.DescribeOriginNrtDataSummaryRequest request) throws Exception {
-        RawResponse response = json("DescribeOriginNrtDataSummary", null, JSON.toJSONString(request));
+    public CDN.DescribeOriginNrtDataSummaryResponse describeOriginNrtDataSummary(CDN.DescribeOriginNrtDataSummaryRequest request, String... args) throws Exception {
+        RawResponse response = requestProxy("DescribeOriginNrtDataSummary", request, args);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -119,8 +143,8 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.DescribeCdnDataDetailResponse describeCdnDataDetail(CDN.DescribeCdnDataDetailRequest request) throws Exception {
-        RawResponse response = json("DescribeCdnDataDetail", null, JSON.toJSONString(request));
+    public CDN.DescribeCdnDataDetailResponse describeCdnDataDetail(CDN.DescribeCdnDataDetailRequest request, String... args) throws Exception {
+        RawResponse response = requestProxy("DescribeCdnDataDetail", request, args);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -128,8 +152,8 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.DescribeDistrictIspDataResponse describeDistrictIspData(CDN.DescribeDistrictIspDataRequest request) throws Exception {
-        RawResponse response = json("DescribeDistrictIspData", null, JSON.toJSONString(request));
+    public CDN.DescribeDistrictIspDataResponse describeDistrictIspData(CDN.DescribeDistrictIspDataRequest request, String... args) throws Exception {
+        RawResponse response = requestProxy("DescribeDistrictIspData", request, args);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -137,8 +161,8 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.DescribeEdgeStatisticalDataResponse describeEdgeStatisticalData(CDN.DescribeEdgeStatisticalDataRequest request) throws Exception {
-        RawResponse response = json("DescribeEdgeStatisticalData", null, JSON.toJSONString(request));
+    public CDN.DescribeEdgeStatisticalDataResponse describeEdgeStatisticalData(CDN.DescribeEdgeStatisticalDataRequest request, String... args) throws Exception {
+        RawResponse response = requestProxy("DescribeEdgeStatisticalData", request, args);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -146,8 +170,8 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.DescribeEdgeTopNrtDataResponse describeEdgeTopNrtData(CDN.DescribeEdgeTopNrtDataRequest request) throws Exception {
-        RawResponse response = json("DescribeEdgeTopNrtData", null, JSON.toJSONString(request));
+    public CDN.DescribeEdgeTopNrtDataResponse describeEdgeTopNrtData(CDN.DescribeEdgeTopNrtDataRequest request, String... args) throws Exception {
+        RawResponse response = requestProxy("DescribeEdgeTopNrtData", request, args);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -155,8 +179,8 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.DescribeOriginTopNrtDataResponse describeOriginTopNrtData(CDN.DescribeOriginTopNrtDataRequest request) throws Exception {
-        RawResponse response = json("DescribeOriginTopNrtData", null, JSON.toJSONString(request));
+    public CDN.DescribeOriginTopNrtDataResponse describeOriginTopNrtData(CDN.DescribeOriginTopNrtDataRequest request, String... args) throws Exception {
+        RawResponse response = requestProxy("DescribeOriginTopNrtData", request, args);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -164,8 +188,8 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.DescribeEdgeTopStatusCodeResponse describeEdgeTopStatusCode(CDN.DescribeEdgeTopStatusCodeRequest request) throws Exception {
-        RawResponse response = json("DescribeEdgeTopStatusCode", null, JSON.toJSONString(request));
+    public CDN.DescribeEdgeTopStatusCodeResponse describeEdgeTopStatusCode(CDN.DescribeEdgeTopStatusCodeRequest request, String... args) throws Exception {
+        RawResponse response = requestProxy("DescribeEdgeTopStatusCode", request, args);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -173,8 +197,8 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.DescribeOriginTopStatusCodeResponse describeOriginTopStatusCode(CDN.DescribeOriginTopStatusCodeRequest request) throws Exception {
-        RawResponse response = json("DescribeOriginTopStatusCode", null, JSON.toJSONString(request));
+    public CDN.DescribeOriginTopStatusCodeResponse describeOriginTopStatusCode(CDN.DescribeOriginTopStatusCodeRequest request, String... args) throws Exception {
+        RawResponse response = requestProxy("DescribeOriginTopStatusCode", request, args);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -182,8 +206,8 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.DescribeEdgeTopStatisticalDataResponse describeEdgeTopStatisticalData(CDN.DescribeEdgeTopStatisticalDataRequest request) throws Exception {
-        RawResponse response = json("DescribeEdgeTopStatisticalData", null, JSON.toJSONString(request));
+    public CDN.DescribeEdgeTopStatisticalDataResponse describeEdgeTopStatisticalData(CDN.DescribeEdgeTopStatisticalDataRequest request, String... args) throws Exception {
+        RawResponse response = requestProxy("DescribeEdgeTopStatisticalData", request, args);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -191,8 +215,8 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.DescribeCdnRegionAndIspResponse describeCdnRegionAndIsp(CDN.DescribeCdnRegionAndIspRequest request) throws Exception {
-        RawResponse response = json("DescribeCdnRegionAndIsp", null, JSON.toJSONString(request));
+    public CDN.DescribeCdnRegionAndIspResponse describeCdnRegionAndIsp(CDN.DescribeCdnRegionAndIspRequest request, String... args) throws Exception {
+        RawResponse response = requestProxy("DescribeCdnRegionAndIsp", request, args);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -201,7 +225,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.DescribeCdnServiceResponse describeCdnService() throws Exception {
-        RawResponse response = json("DescribeCdnService", null, "");
+        RawResponse response = requestProxy("DescribeCdnService", new Object());
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -210,7 +234,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.DescribeAccountingDataResponse describeAccountingData(CDN.DescribeAccountingDataRequest request) throws Exception {
-        RawResponse response = json("DescribeAccountingData", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("DescribeAccountingData", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -219,7 +243,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.SubmitRefreshTaskResponse submitRefreshTask(CDN.SubmitRefreshTaskRequest request) throws Exception {
-        RawResponse response = json("SubmitRefreshTask", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("SubmitRefreshTask", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -228,7 +252,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.SubmitPreloadTaskResponse submitPreloadTask(CDN.SubmitPreloadTaskRequest request) throws Exception {
-        RawResponse response = json("SubmitPreloadTask", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("SubmitPreloadTask", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -237,7 +261,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.DescribeContentTasksResponse describeContentTasks(CDN.DescribeContentTasksRequest request) throws Exception {
-        RawResponse response = json("DescribeContentTasks", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("DescribeContentTasks", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -245,8 +269,8 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.DescribeContentQuotaResponse describeContentQuota() throws Exception {
-        RawResponse response = json("DescribeContentQuota", null, "");
+    public CDN.DescribeContentQuotaResponse describeContentQuota(String... args) throws Exception {
+        RawResponse response = requestProxy("DescribeContentQuota", new Object(), args);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -255,7 +279,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.SubmitBlockTaskResponse submitBlockTask(CDN.SubmitBlockTaskRequest request) throws Exception {
-        RawResponse response = json("SubmitBlockTask", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("SubmitBlockTask", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -264,7 +288,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.SubmitUnblockTaskResponse submitUnblockTask(CDN.SubmitUnblockTaskRequest request) throws Exception {
-        RawResponse response = json("SubmitUnblockTask", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("SubmitUnblockTask", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -273,7 +297,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.DescribeContentBlockTasksResponse describeContentBlockTasks(CDN.DescribeContentBlockTasksRequest request) throws Exception {
-        RawResponse response = json("DescribeContentBlockTasks", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("DescribeContentBlockTasks", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -281,8 +305,8 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
-    public CDN.DescribeCdnAccessLogResponse describeCdnAccessLog(CDN.DescribeCdnAccessLogRequest request) throws Exception {
-        RawResponse response = json("DescribeCdnAccessLog", null, JSON.toJSONString(request));
+    public CDN.DescribeCdnAccessLogResponse describeCdnAccessLog(CDN.DescribeCdnAccessLogRequest request, String... args) throws Exception {
+        RawResponse response = requestProxy("DescribeCdnAccessLog", request, args);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -291,7 +315,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.DescribeIPInfoResponse describeIPInfo(CDN.DescribeIPInfoRequest request) throws Exception {
-        RawResponse response = json("DescribeIPInfo", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("DescribeIPInfo", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -300,7 +324,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.DescribeIPListInfoResponse describeIPListInfo(CDN.DescribeIPListInfoRequest request) throws Exception {
-        RawResponse response = json("DescribeIPListInfo", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("DescribeIPListInfo", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -309,7 +333,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.DescribeCdnUpperIpResponse describeCdnUpperIp(CDN.DescribeCdnUpperIpRequest request) throws Exception {
-        RawResponse response = json("DescribeCdnUpperIp", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("DescribeCdnUpperIp", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -318,7 +342,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.AddResourceTagsResponse addResourceTags(CDN.AddResourceTagsRequest request) throws Exception {
-        RawResponse response = json("AddResourceTags", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("AddResourceTags", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -327,7 +351,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.UpdateResourceTagsResponse updateResourceTags(CDN.UpdateResourceTagsRequest request) throws Exception {
-        RawResponse response = json("UpdateResourceTags", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("UpdateResourceTags", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -336,7 +360,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.ListResourceTagsResponse listResourceTags() throws Exception {
-        RawResponse response = json("ListResourceTags", null, "");
+        RawResponse response = requestProxy("ListResourceTags", new Object());
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -345,7 +369,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.DeleteResourceTagsResponse deleteResourceTags(CDN.DeleteResourceTagsRequest request) throws Exception {
-        RawResponse response = json("DeleteResourceTags", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("DeleteResourceTags", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -354,7 +378,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.AddCdnCertificateResponse addCdnCertificate(CDN.AddCdnCertificateRequest request) throws Exception {
-        RawResponse response = json("AddCdnCertificate", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("AddCdnCertificate", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -363,7 +387,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.ListCertInfoResponse listCertInfo(CDN.ListCertInfoRequest request) throws Exception {
-        RawResponse response = json("ListCertInfo", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("ListCertInfo", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -372,7 +396,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.ListCdnCertInfoResponse listCdnCertInfo(CDN.ListCdnCertInfoRequest request) throws Exception {
-        RawResponse response = json("ListCdnCertInfo", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("ListCdnCertInfo", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -381,7 +405,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.DescribeCertConfigResponse describeCertConfig(CDN.DescribeCertConfigRequest request) throws Exception {
-        RawResponse response = json("DescribeCertConfig", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("DescribeCertConfig", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -390,7 +414,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.BatchDeployCertResponse batchDeployCert(CDN.BatchDeployCertRequest request) throws Exception {
-        RawResponse response = json("BatchDeployCert", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("BatchDeployCert", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -399,7 +423,7 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
 
     @Override
     public CDN.DescribeAccountingSummaryResponse describeAccountingSummary(CDN.DescribeAccountingSummaryRequest request) throws Exception {
-        RawResponse response = json("DescribeAccountingSummary", null, JSON.toJSONString(request));
+        RawResponse response = requestProxy("DescribeAccountingSummary", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }

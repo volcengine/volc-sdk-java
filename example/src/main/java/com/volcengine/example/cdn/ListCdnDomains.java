@@ -15,6 +15,9 @@ public class ListCdnDomains {
                 .setPageNum(Long.valueOf(1))
                 .setPageSize(Long.valueOf(10));
             CDN.ListCdnDomainsResponse resp = service.listCdnDomains(req);
+            // use method get
+            // CDN.ListCdnDomainsResponse resp = service.listCdnDomains(req, CDNServiceImpl.useGet());
+
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();

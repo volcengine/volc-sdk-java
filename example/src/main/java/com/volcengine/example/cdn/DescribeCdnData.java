@@ -17,6 +17,9 @@ public class DescribeCdnData {
                     .setMetric("flux");
 
             CDN.DescribeCdnDataResponse resp = service.describeCdnData(req);
+            // use get method
+            // CDN.DescribeCdnDataResponse resp = service.describeCdnData(req, CDNServiceImpl.useGet());
+
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();

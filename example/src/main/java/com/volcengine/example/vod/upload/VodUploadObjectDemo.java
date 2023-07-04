@@ -38,13 +38,13 @@ public class VodUploadObjectDemo {
         VodUploadProgressListener listener = new VodUploadMediaProcessListener();
 
         try {
-            VodCommitUploadInfoResponse vodCommitUploadInfoResponse = vodService.uploadMedia(vodUploadMediaRequest, listener);
+            VodCommitUploadInfoResponse vodCommitUploadInfoResponse = vodService.uploadObject(vodUploadMediaRequest, listener);
             if (vodCommitUploadInfoResponse.getResponseMetadata().hasError()) {
                 System.out.println(vodCommitUploadInfoResponse.getResponseMetadata().getError());
                 System.exit(-1);
             }
             System.out.println(vodCommitUploadInfoResponse.toString());
-            System.out.println(vodCommitUploadInfoResponse.getResult().getData().getVid());
+            System.out.println(vodCommitUploadInfoResponse.getResult().getData().getSourceInfo().getStoreUri());
             System.out.println(vodCommitUploadInfoResponse.getResponseMetadata().getRequestId());
         } catch (Exception e) {
             e.printStackTrace();

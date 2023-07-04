@@ -15,14 +15,20 @@ public class VodListCdnUsageDataDemo {
 
         try {
             com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest.Builder reqBuilder = com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest.newBuilder();
-			reqBuilder.setDomains("your Domains");
-			reqBuilder.setInterval("your Interval");
-			reqBuilder.setStartTimestamp(0);
-			reqBuilder.setEndTimestamp(0);
-			reqBuilder.setDataType("your DataType");
-			reqBuilder.setMetric("your Metric");
-			reqBuilder.setNeedDetail(false);
-			
+            reqBuilder.setDomains("your Domains");
+            reqBuilder.setInterval("your Interval");
+            reqBuilder.setStartTimestamp(0);
+            reqBuilder.setEndTimestamp(0);
+            reqBuilder.setDataType("your DataType");
+            reqBuilder.setMetric("your Metric");
+            reqBuilder.setNeedDetail(false);
+            reqBuilder.setArea("your Area");
+            reqBuilder.setRegion("your Region");
+            reqBuilder.setIsp("your Isp");
+            reqBuilder.setProtocol("your Protocol");
+            reqBuilder.setIpVersion("your IpVersion");
+            reqBuilder.setBillingRegion("your BillingRegion");
+
             com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse resp = vodService.listCdnUsageData(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {
                 System.out.println(resp.getResponseMetadata().getError());

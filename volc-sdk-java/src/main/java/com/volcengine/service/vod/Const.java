@@ -75,6 +75,7 @@ public class Const {
     public static final String DeleteVideoClassification = "DeleteVideoClassification";
     public static final String ListVideoClassifications = "ListVideoClassifications";
     public static final String ListSnapshots = "ListSnapshots";
+    public static final String DeleteMediaTosFile = "DeleteMediaTosFile";
     //vod-transcode
     public static final String StartWorkflow = "StartWorkflow";
     public static final String RetrieveTranscodeResult = "RetrieveTranscodeResult";
@@ -137,5 +138,4 @@ public class Const {
 
 
     public static final String ExtractMediaMetaTask = "ExtractMediaMetaTask";
-
 }

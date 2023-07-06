@@ -322,6 +322,12 @@ public class Const {
 
     public static final String DeleteMediaLibraryVideoAPI = "DeleteMediaLibraryVideoAPI";
 
+    public static final String MediasMergeAPI = "MediasMergeAPI";
+
+    public static final String GetPopularitySettingsAPI = "GetPopularitySettingsAPI";
+
+    public static final String UpdatePopularitySettingsAPI = "UpdatePopularitySettingsAPI";
+
     // translate
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";

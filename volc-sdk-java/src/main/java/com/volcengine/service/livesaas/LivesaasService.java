@@ -915,4 +915,31 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     DeleteMediaLibraryVideoAPIResponse deleteMediaLibraryVideoAPI(DeleteMediaLibraryVideoAPIRequest deleteMediaLibraryVideoAPIRequest) throws Exception;
+
+    /**
+     * MediasMerge
+     *
+     * @param mediasMergeRequest MediasMergeRequest
+     * @return MediasMergeResponse
+     * @throws Exception the exception
+     */
+    MediasMergeResponse mediasMerge(MediasMergeRequest mediasMergeRequest) throws Exception;
+
+    /**
+     * GetPopularitySettings
+     *
+     * @param getPopularitySettingsRequest GetPopularitySettingsRequest
+     * @return GetPopularitySettingsResponse
+     * @throws Exception the exception
+     */
+    GetPopularitySettingsResponse getPopularitySettings(GetPopularitySettingsRequest getPopularitySettingsRequest) throws Exception;
+
+    /**
+     * UpdatePopularitySettings
+     *
+     * @param updatePopularitySettingsRequest UpdatePopularitySettingsRequest
+     * @return UpdatePopularitySettingsResponse
+     * @throws Exception the exception
+     */
+    UpdatePopularitySettingsResponse updatePopularitySettings(UpdatePopularitySettingsRequest updatePopularitySettingsRequest) throws Exception;
 }

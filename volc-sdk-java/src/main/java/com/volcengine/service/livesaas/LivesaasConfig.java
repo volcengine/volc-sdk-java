@@ -1451,6 +1451,48 @@ public class LivesaasConfig {
                         }
                     }
             ));
+            put(Const.MediasMergeAPI, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.MediasMergeAPI));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetPopularitySettingsAPI, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetPopularitySettingsAPI));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdatePopularitySettingsAPI, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdatePopularitySettingsAPI));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

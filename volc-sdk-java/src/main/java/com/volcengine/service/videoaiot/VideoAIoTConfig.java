@@ -454,6 +454,20 @@ public class VideoAIoTConfig {
                         }
                     }
             ));
+            put(Const.AIoTVideoGetDeviceChannelsV2, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AIoTVideoGetDeviceChannelsV2));
+                                    add(new BasicNameValuePair("Version", Const.VideoAIoTSDKVersion));
+                                }
+                            });
+                        }
+                    }
+            ));
             //stream
             put(Const.AIoTVideoGetStream, new ApiInfo(
                     new HashMap<String, Object>() {
@@ -816,6 +830,20 @@ public class VideoAIoTConfig {
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.AIoTVideoGetRecordList));
+                                    add(new BasicNameValuePair("Version", Const.VideoAIoTSDKVersion));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.AIoTVideoGetRecordListV2, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AIoTVideoGetRecordListV2));
                                     add(new BasicNameValuePair("Version", Const.VideoAIoTSDKVersion));
                                 }
                             });

@@ -17,4 +17,15 @@ public class ListDeviceRecordsRequest {
     int pageNumber;
     @JSONField(name = "PageSize")
     int pageSize;
+
+    @JSONField(name = "DeviceNSID")
+    String deviceNSID;
+    @JSONField(name = "ChannelID")
+    String channelID;
+    @JSONField(name = "StreamingIndex")
+    int streamingIndex;
+    @JSONField(name = "Resolution")
+    String resolution;
+    @JSONField(name = "ReqType")
+    String reqType;
 }

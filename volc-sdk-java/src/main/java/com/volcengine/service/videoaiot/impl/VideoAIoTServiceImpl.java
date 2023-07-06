@@ -15,6 +15,7 @@ import org.apache.http.HttpHost;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -417,12 +418,21 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
 
     @Override
     public ListDeviceRecordsResponse listDeviceRecords(ListDeviceRecordsRequest listDeviceRecordsRequest) throws Exception {
+        if (listDeviceRecordsRequest.getReqType() == null) {
+            listDeviceRecordsRequest.setReqType("");
+        }
         com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoListDeviceRecords, new ArrayList<NameValuePair>() {
             {
                 add(new BasicNameValuePair("SpaceID", listDeviceRecordsRequest.getSpaceID()));
                 add(new BasicNameValuePair("StreamID", listDeviceRecordsRequest.getStreamID()));
                 add(new BasicNameValuePair("PageNumber", Integer.toString(listDeviceRecordsRequest.getPageNumber())));
                 add(new BasicNameValuePair("PageSize", Integer.toString(listDeviceRecordsRequest.getPageSize())));
+
+                add(new BasicNameValuePair("DeviceNSID", listDeviceRecordsRequest.getDeviceNSID()));
+                add(new BasicNameValuePair("ChannelID", listDeviceRecordsRequest.getChannelID()));
+                add(new BasicNameValuePair("StreamingIndex", Integer.toString(listDeviceRecordsRequest.getStreamingIndex())));
+                add(new BasicNameValuePair("Resolution", listDeviceRecordsRequest.getResolution()));
+                add(new BasicNameValuePair("ReqType", listDeviceRecordsRequest.getReqType()));
             }
         }, JSON.toJSONString(listDeviceRecordsRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -433,6 +443,12 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
 
     @Override
     public CloudPlayResponse cloudRecordPlay(CloudRecordPlayRequest cloudRecordPlayArgs) throws Exception {
+        if ((cloudRecordPlayArgs.getStartTs().getClass() != Integer.class) && (cloudRecordPlayArgs.getStartTs().getClass() != String.class)) {
+            throw new InvalidParameterException("startTs object type " + cloudRecordPlayArgs.getStartTs().getClass().getName() + " is not allowed, Integer or String is allowed");
+        }
+        if ((cloudRecordPlayArgs.getEndTs().getClass() != Integer.class) && (cloudRecordPlayArgs.getEndTs().getClass() != String.class)) {
+            throw new InvalidParameterException("endTs object type " + cloudRecordPlayArgs.getStartTs().getClass().getName() + " is not allowed, Integer or String is allowed");
+        }
         com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoCloudRecordPlay, new ArrayList<NameValuePair>() {
         }, JSON.toJSONString(cloudRecordPlayArgs));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -466,6 +482,19 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
             throw response.getException();
         }
         return JSON.parseObject(response.getData(), GetDeviceChannelResponse.class);
+    }
+
+    @Override
+    public GetDeviceChannelV2Response getDeviceChannelsV2(GetDeviceChannelV2Request getDeviceChannelRequest) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(Const.AIoTVideoGetDeviceChannelsV2, new ArrayList<NameValuePair>() {
+            {
+                add(new BasicNameValuePair("DeviceID", getDeviceChannelRequest.getDeviceID()));
+            }
+        });
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), GetDeviceChannelV2Response.class);
     }
 
 
@@ -784,6 +813,18 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
             throw response.getException();
         }
         return JSON.parseObject(response.getData(), GetRecordResponse.class);
+    }
+
+    @Override
+    public GetRecordV2Response getRecordListV2(GetRecordListV2Request request) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoGetRecordListV2, new ArrayList<NameValuePair>() {
+            {
+            }
+        }, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), GetRecordV2Response.class);
     }
 
     @Override

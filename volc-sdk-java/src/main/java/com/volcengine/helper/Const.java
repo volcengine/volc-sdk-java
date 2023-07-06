@@ -562,7 +562,7 @@ public class Const {
     public static final String AIoTVideoGetDevice = "GetDevice";
     public static final String AIoTVideoGenSipID = "GenSipID";
     public static final String AIoTVideoGetDeviceChannels = "GetDeviceChannels";
-
+    public static final String AIoTVideoGetDeviceChannelsV2 = "GetDeviceChannelsV2";
     public static final String AIoTVideoListDeviceScreenshot = "ListDeviceScreenshots";
     public static final String AIoTVideoListDeviceRecords = "ListDeviceRecords";
     public static final String AIoTVideoCloudRecordPlay = "CloudRecordPlay";
@@ -606,6 +606,7 @@ public class Const {
     public static final String AIoTVideoDeleteStreamRecord = "DeleteStreamRecord";
 
     public static final String AIoTVideoGetRecordList = "GetRecordList";
+    public static final String AIoTVideoGetRecordListV2 = "GetRecordListV2";
     public static final String AIoTVideoPlaybackStart = "PlaybackStart";
     public static final String AIoTVideoPlaybackStop = "PlaybackStop";
     public static final String AIoTVideoPlaybackControl = "PlayBackControl";
@@ -656,25 +657,25 @@ public class Const {
     public static final String FacePretty = "FacePretty";
     public static final String HairStyle = "HairStyle";
     public static final String ImageAnimation = "ImageAnimation";
-    public static final String  CertToken= "CertToken";
-    public static final String  CertVerifyQuery= "CertVerifyQuery";
-    public static final String  CertConfigInit= "CertConfigInit";
-    public static final String  CertConfigGet= "CertConfigGet";
-    public static final String  CertVerifyPro= "CertVerify";
-    public static final String  Img2Video3D= "Img2Video3D";
-    public static final String  T2ILDM= "T2ILDM";
-    public static final String  Img2ImgStyle= "Img2ImgStyle";
-    public static final String  Img2ImgAnime= "Img2ImgAnime";
-    public static final String  FaceFusionMovieSubmitTask= "FaceFusionMovieSubmitTask";
-    public static final String  FaceFusionMovieGetResult= "FaceFusionMovieGetResult";
-    public static final String  FaceFusionMovieSync= "FaceFusionMovie";
-    public static final String  EnhancePhotoV2= "EnhancePhotoV2";
-    public static final String  AllAgeGeneration= "AllAgeGeneration";
-    public static final String  ConvertPhotoV2= "ConvertPhotoV2";
-    public static final String  LensVidaVideoSubmitTaskV2= "LensVidaVideoSubmitTaskV2";
-    public static final String  LensVidaVideoGetResultV2= "LensVidaVideoGetResultV2";
-    public static final String  VideoOverResolutionSubmitTaskV2= "VideoOverResolutionSubmitTaskV2";
-    public static final String  VideoOverResolutionQueryTaskV2= "VideoOverResolutionQueryTaskV2";
+    public static final String CertToken = "CertToken";
+    public static final String CertVerifyQuery = "CertVerifyQuery";
+    public static final String CertConfigInit = "CertConfigInit";
+    public static final String CertConfigGet = "CertConfigGet";
+    public static final String CertVerifyPro = "CertVerify";
+    public static final String Img2Video3D = "Img2Video3D";
+    public static final String T2ILDM = "T2ILDM";
+    public static final String Img2ImgStyle = "Img2ImgStyle";
+    public static final String Img2ImgAnime = "Img2ImgAnime";
+    public static final String FaceFusionMovieSubmitTask = "FaceFusionMovieSubmitTask";
+    public static final String FaceFusionMovieGetResult = "FaceFusionMovieGetResult";
+    public static final String FaceFusionMovieSync = "FaceFusionMovie";
+    public static final String EnhancePhotoV2 = "EnhancePhotoV2";
+    public static final String AllAgeGeneration = "AllAgeGeneration";
+    public static final String ConvertPhotoV2 = "ConvertPhotoV2";
+    public static final String LensVidaVideoSubmitTaskV2 = "LensVidaVideoSubmitTaskV2";
+    public static final String LensVidaVideoGetResultV2 = "LensVidaVideoGetResultV2";
+    public static final String VideoOverResolutionSubmitTaskV2 = "VideoOverResolutionSubmitTaskV2";
+    public static final String VideoOverResolutionQueryTaskV2 = "VideoOverResolutionQueryTaskV2";
 
 
     // ocr

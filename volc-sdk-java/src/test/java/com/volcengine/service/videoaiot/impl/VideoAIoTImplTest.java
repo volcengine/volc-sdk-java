@@ -21,13 +21,6 @@ public class VideoAIoTImplTest extends TestCase {
     private static final String screenTemplateID = "7e15a883-881a-49bd-a2e1-83b15243fe43";
 
     private VideoAIoTService videoAIoTService = VideoAIoTServiceImpl.getInstance();
-    private final String accessKey = "ak";
-    private final String secretKey = "sk";
-
-    {
-        videoAIoTService.setAccessKey(accessKey);
-        videoAIoTService.setSecretKey(secretKey);
-    }
 
     public void testListSpace() {
         ListSpaceRequest listSpaceRequest = new ListSpaceRequest();
@@ -325,12 +318,14 @@ public class VideoAIoTImplTest extends TestCase {
     }
 
     public void testListDeviceRecords() {
+        setTest();
         ListDeviceRecordsRequest listDeviceRecords = new ListDeviceRecordsRequest();
-        listDeviceRecords.setSpaceID("1d02923f-d5ce-40f2-ac90-fea4a55e04f5");
-        listDeviceRecords.setStreamID("fcc2adaf-93b8-44e1-800a-6fa4c485b492");
-        listDeviceRecords.setStartTs("2022-08-25T16:29:39+08:00");
-        listDeviceRecords.setEndTs("2022-08-26T16:29:39+08:00");
-        listDeviceRecords.setPageSize(2);
+        listDeviceRecords.setSpaceID("0ad84bbc-21fb-4a84-b2c1-c90c269b071b");
+        listDeviceRecords.setDeviceNSID("34020027991180820747");
+        listDeviceRecords.setChannelID("98880000001320000002");
+        listDeviceRecords.setStartTs("2023-07-04T16:29:39+08:00");
+        listDeviceRecords.setEndTs("2023-07-05T16:29:39+08:00");
+        listDeviceRecords.setPageSize(20);
         listDeviceRecords.setPageNumber(1);
         try {
             ListDeviceRecordsResponse resp = videoAIoTService.listDeviceRecords(listDeviceRecords);
@@ -341,10 +336,11 @@ public class VideoAIoTImplTest extends TestCase {
     }
 
     public void testCloudRecordPlay() {
+        setTest();
         CloudRecordPlayRequest cloudRecordPlayRequest = new CloudRecordPlayRequest();
-        cloudRecordPlayRequest.setStreamID("4dba59d1-87f8-47f0-805a-c39a1bf451a4");
-        cloudRecordPlayRequest.setStartTs(1663916290);
-        cloudRecordPlayRequest.setEndTs(1663916410);
+        cloudRecordPlayRequest.setStreamID("441a5430-75ad-487d-bcca-0210196598d5");
+        cloudRecordPlayRequest.setStartTs("2023-07-04T16:29:39+08:00");
+        cloudRecordPlayRequest.setEndTs("2023-07-04T16:39:39+08:00");
         cloudRecordPlayRequest.setTokenValid(3600);
         try {
             CloudPlayResponse resp = videoAIoTService.cloudRecordPlay(cloudRecordPlayRequest);
@@ -932,6 +928,40 @@ public class VideoAIoTImplTest extends TestCase {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void testGetDeviceRecordListV2() {
+        setTest();
+        try {
+            GetRecordListV2Request request = new GetRecordListV2Request();
+            request.setRecordType("all");
+            request.setDeviceNSID("34020027991180820747");
+            request.setStartTime(1688572800);
+            request.setEndTime(1688659199);
+            request.setOrder(true);
+            request.setTimeoutInSec(20);
+            request.setChannelID("98880000001320000000");
+            GetRecordV2Response resp = videoAIoTService.getRecordListV2(request);
+            System.out.println(JSON.toJSONString(resp));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testGetDeviceChannnelV2() {
+        setTest();
+        try {
+            GetDeviceChannelV2Request request = new GetDeviceChannelV2Request();
+            request.setDeviceID("1de7d7db-8bb4-41a3-9f0f-d258a914c39c");
+            GetDeviceChannelV2Response resp = videoAIoTService.getDeviceChannelsV2(request);
+            System.out.println(JSON.toJSONString(resp));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setTest(){
+
     }
 
 }

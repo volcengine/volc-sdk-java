@@ -1585,4 +1585,50 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+
+    @Override
+    public MediasMergeResponse mediasMerge(MediasMergeRequest mediasMergeRequest) throws Exception {
+        RawResponse response = json(Const.MediasMergeAPI, new ArrayList<>(), JSON.toJSONString(mediasMergeRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        MediasMergeResponse res = JSON.parseObject(response.getData(), MediasMergeResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetPopularitySettingsResponse getPopularitySettings(GetPopularitySettingsRequest getPopularitySettingsRequest) throws Exception {
+        RawResponse response = query(Const.GetPopularitySettingsAPI, Utils.paramsToPair(getPopularitySettingsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetPopularitySettingsResponse res = JSON.parseObject(response.getData(), GetPopularitySettingsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdatePopularitySettingsResponse updatePopularitySettings(UpdatePopularitySettingsRequest updatePopularitySettingsRequest) throws Exception {
+        RawResponse response = json(Const.UpdatePopularitySettingsAPI, new ArrayList<>(), JSON.toJSONString(updatePopularitySettingsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdatePopularitySettingsResponse res = JSON.parseObject(response.getData(), UpdatePopularitySettingsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

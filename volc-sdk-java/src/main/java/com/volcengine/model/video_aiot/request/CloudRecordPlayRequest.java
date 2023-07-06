@@ -8,10 +8,18 @@ public class CloudRecordPlayRequest {
     @JSONField(name = "StreamID")
     String streamID;
     @JSONField(name = "StartTs")
-    int startTs;
+    Object startTs;
     @JSONField(name = "EndTs")
-    int endTs;
+    Object endTs;
     @JSONField(name = "TokenValid")
     int tokenValid;
 
+    @JSONField(name = "DeviceNSID")
+    String deviceNSID;
+    @JSONField(name = "ChannelID")
+    String channelID;
+    @JSONField(name = "StreamingIndex")
+    int streamingIndex;
+    @JSONField(name = "Resolution")
+    String resolution;
 }

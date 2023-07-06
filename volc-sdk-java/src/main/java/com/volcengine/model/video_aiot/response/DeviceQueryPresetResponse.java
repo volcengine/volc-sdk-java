@@ -25,7 +25,7 @@ public class DeviceQueryPresetResponse {
 
     public static class PresetItem {
         @JSONField(name = "PresetID")
-        public String presetID;
+        public Integer presetID;
         @JSONField(name = "PresetName")
         public String presetName;
     }

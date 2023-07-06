@@ -6,6 +6,7 @@ import com.volcengine.service.IBaseService;
 
 public interface VideoAIoTService extends IBaseService {
     ///空间相关API
+
     /**
      * @param createSpaceRequest create space arguments
      * @return created space id
@@ -43,6 +44,7 @@ public interface VideoAIoTService extends IBaseService {
 
     /**
      * delete the space and release resources in the space
+     *
      * @param spaceID
      * @return deleted space id
      * @throws Exception
@@ -51,6 +53,7 @@ public interface VideoAIoTService extends IBaseService {
 
     /**
      * update space by spaceID
+     *
      * @param updateSpaceRequest
      * @return changed space id
      * @throws Exception
@@ -59,6 +62,7 @@ public interface VideoAIoTService extends IBaseService {
 
     /**
      * set space template, snapshot/record/ai
+     *
      * @param setSpaceTemplateRequest
      * @return
      * @throws Exception
@@ -67,6 +71,7 @@ public interface VideoAIoTService extends IBaseService {
 
     /**
      * cancel space template
+     *
      * @param spaceID
      * @param templateType
      * @return
@@ -80,6 +85,7 @@ public interface VideoAIoTService extends IBaseService {
 
     /**
      * get space binded template by spaceID
+     *
      * @param spaceID
      * @return
      * @throws Exception
@@ -120,6 +126,7 @@ public interface VideoAIoTService extends IBaseService {
 
     /**
      * real time m3u8 file
+     *
      * @param cloudRecordPlayRequest
      * @return
      * @throws Exception
@@ -137,6 +144,8 @@ public interface VideoAIoTService extends IBaseService {
     IDResponse genSipID(String sipServerID, String deviceType) throws Exception;
 
     GetDeviceChannelResponse getDeviceChannels(GetDeviceChannelRequest getDeviceChannelRequest) throws Exception;
+
+    GetDeviceChannelV2Response getDeviceChannelsV2(GetDeviceChannelV2Request getDeviceChannelRequest) throws Exception;
 
     RawResponse setAlarmGuard(SetAlarmGuardRequest setAlarmGuardRequest) throws Exception;
 
@@ -178,7 +187,7 @@ public interface VideoAIoTService extends IBaseService {
 
     DeleteStreamRecordResponse deleteStreamRecord(String recordID) throws Exception;
 
-//    RawResponse createForward(CreateForwardRequest createForwardRequest) throws Exception;
+    //    RawResponse createForward(CreateForwardRequest createForwardRequest) throws Exception;
 //
 //    ListForwardResponse listForward(ListForwardRequest listForwardRequest) throws Exception;
 //
@@ -200,6 +209,8 @@ public interface VideoAIoTService extends IBaseService {
 
     //录像
     GetRecordResponse getRecordList(GetRecordListRequest request) throws Exception;
+
+    GetRecordV2Response getRecordListV2(GetRecordListV2Request request) throws Exception;
 
     PlaybackStartResponse playbackStart(PlaybackStartRequest request) throws Exception;
 

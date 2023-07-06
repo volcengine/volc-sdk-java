@@ -19,18 +19,18 @@ public class ListDeviceRecordsResponse {
         @JSONField(name = "Path")
         String path;
 
-        @JSONField(name = "ScreenResult")
-        ScreenResult screenResult;
-        @JSONField(name = "RecordResult")
-        RecordResult recordResult;
+        @JSONField(name = "Screenshot")
+        Screenshot screenResult;
+        @JSONField(name = "Record")
+        Record recordResult;
     }
 
     @Data
-    public static class ScreenResult {
+    public static class Screenshot {
     }
 
     @Data
-    public static class RecordResult {
+    public static class Record {
         @JSONField(name = "StartTs")
         String startTs;
         @JSONField(name = "EndTs")
@@ -41,5 +41,20 @@ public class ListDeviceRecordsResponse {
         String cover;
         @JSONField(name = "Format")
         String format;
+    }
+    @Data
+    public static class RecordMeta {
+        @JSONField(name = "StartTs")
+        String startTs;
+        @JSONField(name = "EndTs")
+        String endTs;
+        @JSONField(name = "Duration")
+        float duration;
+        @JSONField(name = "Cover")
+        String cover;
+        @JSONField(name = "Format")
+        String format;
+        @JSONField(name = "Bucket")
+        String bucket;
     }
 }

@@ -53,13 +53,13 @@ public abstract class BaseServiceImpl implements IBaseService {
     protected ServiceInfo serviceInfo;
     protected Map<String, ApiInfo> apiInfoList;
     private HttpClient httpClient;
-    private ISignerV4 ISigner;
+    protected ISignerV4 ISigner;
     private int socketTimeout;
     private int connectionTimeout;
 
     private IdleConnectionMonitorThread monitorThread;
 
-    private Credentials credentials;
+    protected Credentials credentials;
 
 
     private BaseServiceImpl() {
@@ -349,7 +349,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         }
     }
 
-    private SignableRequest prepareRequest(String api, List<NameValuePair> params) {
+    protected SignableRequest prepareRequest(String api, List<NameValuePair> params) {
         ApiInfo apiInfo = apiInfoList.get(api);
 
         int socketTimeout = getSocketTimeout(serviceInfo.getSocketTimeout(), apiInfo.getSocketTimeout());

@@ -705,6 +705,13 @@ public class Const {
     public static final String OCRTable = "OCRTable";
     public static final String OCRCosmeticProduct = "OCRCosmeticProduct";
 
+    // maas
+    public static final String MaasApiChat = "chat";
+
+    public static final String MaasChatRoleOfUser      = "user";
+    public static final String MaasChatRoleOfAssistant = "assistant";
+    public static final String MaasChatRoleOfSystem    = "system";
+
     public static final String SmsChannelTypeCnOTP = "CN_OTP";
     public static final String SmsChannelTypeCnNTC = "CN_NTC";
     public static final String SmsChannelTypeCnMKT = "CN_MKT";

@@ -38,6 +38,8 @@ public class BindAXNERequest {
 
     private String outId;
 
+    private Integer randomFlag;
+
     private Integer autoCreateFlag;
 
     private String axbNumberPoolNo;

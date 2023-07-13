@@ -10,8 +10,7 @@ import java.util.stream.Stream;
 
 public class ChatDemo {
     public static void main(String[] args) {
-        MaasService maasService = MaasServiceImpl
-                .getInstance("maas-api.ml-platform-cn-beijing.volces.com", "cn-beijing");
+        MaasService maasService = new MaasServiceImpl("maas-api.ml-platform-cn-beijing.volces.com", "cn-beijing");
 
         // fetch ak&sk from environmental variables
         maasService.setAccessKey(System.getenv("VOLC_ACCESSKEY"));

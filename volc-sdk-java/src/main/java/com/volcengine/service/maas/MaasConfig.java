@@ -12,11 +12,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MaasConfig {
-    public static ServiceInfo getServiceInfo(String host, String region) {
+    public static ServiceInfo getServiceInfo(String host, String region, int connectionTimeout, int socketTimeout) {
         return new ServiceInfo(new HashMap<String, Object>() {
             {
-                put(Const.CONNECTION_TIMEOUT, 60_000);
-                put(Const.SOCKET_TIMEOUT, 60_000);
+                put(Const.CONNECTION_TIMEOUT, connectionTimeout);
+                put(Const.SOCKET_TIMEOUT, socketTimeout);
                 put(Const.Scheme, Const.HTTPS);
                 put(Const.Host, host);
                 put(Const.Header, new ArrayList<Header>() {
@@ -29,14 +29,16 @@ public class MaasConfig {
         });
     }
 
-    public static Map<String, ApiInfo> apiInfoList = new HashMap<String, ApiInfo>() {
-        {
-            put(Const.MaasApiChat, new ApiInfo(new HashMap<String, Object>() {
-                {
-                    put(Const.Method, "post");
-                    put(Const.Path, "/api/v1/chat");
-                }
-            }));
-        }
-    };
+    public static Map<String, ApiInfo> getApiInfoList() {
+        return new HashMap<String, ApiInfo>() {
+            {
+                put(Const.MaasApiChat, new ApiInfo(new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "post");
+                        put(Const.Path, "/api/v1/chat");
+                    }
+                }));
+            }
+        };
+    }
 }

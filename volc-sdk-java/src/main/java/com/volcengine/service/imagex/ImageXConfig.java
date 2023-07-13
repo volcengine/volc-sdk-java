@@ -902,6 +902,20 @@ public class ImageXConfig {
                         }
                     }
             ));
+            put("CreateImageTranscodeTask", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "CreateImageTranscodeTask"));
+                                    add(new BasicNameValuePair("Version", "2018-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
 
         {

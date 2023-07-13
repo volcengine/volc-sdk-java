@@ -41,10 +41,8 @@ import java.util.stream.IntStream;
 
 
 public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService {
-    private static Logger LOG = Logger.getLogger("ImageXLogger");
-
     public final static Map<String, String> EMPTY_STRING_STRING_MAP = Collections.emptyMap();
-
+    private static Logger LOG = Logger.getLogger("ImageXLogger");
     private final Retryer<Boolean> uploadRetryer = createUploadDefaultRetryer();
     private final Retryer<HttpResponse> httpRetryer = createUploadDefaultRetryer();
 
@@ -856,13 +854,18 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
 
 
     @Override
-    public CreateImageMigrateTaskResp createImageMigrateTask(CreateImageMigrateTaskReq req) throws Exception{
+    public CreateImageMigrateTaskResp createImageMigrateTask(CreateImageMigrateTaskReq req) throws Exception {
         return this.postImageX("CreateImageMigrateTask", EMPTY_STRING_STRING_MAP, req, CreateImageMigrateTaskResp.class).getResult();
     }
 
     @Override
-    public GetImageMigrateTasksResp getImageMigrateTask(GetImageMigrateTasksReq req) throws Exception{
+    public GetImageMigrateTasksResp getImageMigrateTask(GetImageMigrateTasksReq req) throws Exception {
         return this.getImageX("GetImageMigrateTasks", Utils.paramsToMap(req), GetImageMigrateTasksResp.class).getResult();
+    }
+
+    @Override
+    public CreateImageTranscodeTaskResp createImageTranscodeTask(CreateImageTranscodeTaskReq req) throws Exception {
+        return this.postImageX("CreateImageTranscodeTask", EMPTY_STRING_STRING_MAP, req,CreateImageTranscodeTaskResp.class).getResult();
     }
 
 

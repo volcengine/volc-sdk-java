@@ -608,6 +608,7 @@ public class Const {
     public static final String AIoTVideoGetRecordList = "GetRecordList";
     public static final String AIoTVideoGetRecordListV2 = "GetRecordListV2";
     public static final String AIoTVideoPlaybackStart = "PlaybackStart";
+    public static final String AIoTVideoPlaybackStat = "PlayBackStat";
     public static final String AIoTVideoPlaybackStop = "PlaybackStop";
     public static final String AIoTVideoPlaybackControl = "PlayBackControl";
 
@@ -708,9 +709,9 @@ public class Const {
     // maas
     public static final String MaasApiChat = "chat";
 
-    public static final String MaasChatRoleOfUser      = "user";
+    public static final String MaasChatRoleOfUser = "user";
     public static final String MaasChatRoleOfAssistant = "assistant";
-    public static final String MaasChatRoleOfSystem    = "system";
+    public static final String MaasChatRoleOfSystem = "system";
 
     public static final String SmsChannelTypeCnOTP = "CN_OTP";
     public static final String SmsChannelTypeCnNTC = "CN_NTC";

@@ -419,6 +419,16 @@ public interface IImageXService extends IBaseService {
     GetImageMigrateTasksResp getImageMigrateTask(GetImageMigrateTasksReq req) throws Exception;
 
 
+    /**
+     * Image Transcode
+     *
+     * @param req request args
+     * @return result
+     * @throws Exception the exception
+     */
+    CreateImageTranscodeTaskResp createImageTranscodeTask(CreateImageTranscodeTaskReq req) throws Exception;
+
+
     public DescribeImageXDomainTrafficDataResp describeImageXDomainTrafficData(DescribeImageXDomainTrafficDataReq req) throws Exception;
 
     public DescribeImageXDomainBandwidthDataResp describeImageXDomainBandwidthData(DescribeImageXDomainBandwidthDataReq req) throws Exception;

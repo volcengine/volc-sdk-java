@@ -146,6 +146,10 @@ public class UpdateBasicConfigAPIRequest {
     String PcLoginBackgroundImageUrl;
     @JSONField(name = "MobileLoginBackgroundImageUrl")
     String MobileLoginBackgroundImageUrl;
+    @JSONField(name = "ThumbUpEffectUrls")
+    List<String> ThumbUpEffectUrls;
+    @JSONField(name = "UseDefaultThumbUpEffect")
+    Integer UseDefaultThumbUpEffect;
 
     @Data
     public static class RiskWarningSetting {

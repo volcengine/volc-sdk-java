@@ -113,7 +113,6 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
         }
 
         String str = new String(response.getData());
-        System.out.println(str);
 
         return JSON.parseObject(response.getData(), TextRiskResponse.class);
     }

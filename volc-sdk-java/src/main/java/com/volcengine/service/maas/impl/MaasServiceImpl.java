@@ -12,7 +12,7 @@ import com.volcengine.service.maas.MaasConfig;
 import com.volcengine.service.maas.MaasException;
 import com.volcengine.service.maas.MaasService;
 import org.apache.http.HttpResponse;
-import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.ByteArrayEntity;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,31 +23,20 @@ import java.util.stream.Stream;
 public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
     private static final String CHAT_TERMINATOR = "[DONE]";
 
-    private MaasServiceImpl(String host, String region) {
-        super(MaasConfig.getServiceInfo(host, region), MaasConfig.apiInfoList);
+    public MaasServiceImpl(String host, String region) {
+        this(host, region, 60_000, 60_000);
     }
 
-    // 单例
-    private volatile static MaasServiceImpl maasServiceImplInstance = null;
-
-    public static MaasService getInstance(String host, String region) {
-        if (maasServiceImplInstance == null) {
-            synchronized (MaasServiceImpl.class) {
-                if (maasServiceImplInstance == null) {
-                    maasServiceImplInstance = new MaasServiceImpl(host, region);
-                }
-            }
-        }
-        return maasServiceImplInstance;
+    public MaasServiceImpl(String host, String region, int connectionTimeout, int socketTimeout) {
+        super(MaasConfig.getServiceInfo(host, region, connectionTimeout, socketTimeout), MaasConfig.getApiInfoList());
     }
+
 
     @Override
     public Api.ChatResp chat(Api.ChatReq req) throws MaasException {
         req = req.toBuilder().setStream(false).build();
 
-        String body = convertChatReqToJsonStr(req);
-
-        RawResponse response = this.json(Const.MaasApiChat, null, body);
+        RawResponse response = this.proto(Const.MaasApiChat, null, null, req.toByteArray(), null);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             Api.ChatResp resp;
             try {
@@ -65,12 +54,9 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
     public Stream<Api.ChatResp> streamChat(Api.ChatReq req) throws MaasException {
         req = req.toBuilder().setStream(true).build();
 
-        String body = convertChatReqToJsonStr(req);
-
         SignableRequest request = prepareRequest(Const.MaasApiChat, null);
-        request.setHeader("Content-Type", "application/json");
-        request.setEntity(new StringEntity(body, "utf-8"));
-
+        request.setHeader(Const.CONTENT_TYPE, Const.APPLICATION_X_PROTOBUF);
+        request.setEntity(new ByteArrayEntity(req.toByteArray()));
         try {
             ISigner.sign(request, this.credentials);
         } catch (Exception e) {
@@ -110,14 +96,6 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
 
                     return resp;
                 }).filter(Objects::nonNull);
-    }
-
-    private static String convertChatReqToJsonStr(Api.ChatReq req) throws MaasException {
-        try {
-            return JsonFormat.printer().omittingInsignificantWhitespace().print(req);
-        } catch (InvalidProtocolBufferException e) {
-            throw new MaasException(e);
-        }
     }
 
     private static Api.ChatResp convertJsonBytesToChatResp(byte[] data) throws MaasException {

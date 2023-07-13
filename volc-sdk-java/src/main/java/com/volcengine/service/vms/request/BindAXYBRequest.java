@@ -34,6 +34,8 @@ public class BindAXYBRequest {
 
     private String userData;
 
+    private Integer randomFlag;
+
     private Integer autoCreateFlag;
 
     private String phoneNoY;
@@ -51,4 +53,6 @@ public class BindAXYBRequest {
     private String yCityCodeByPhoneNo;
 
     private List<String> yDegradeCityList;
+
+    private Integer randomFlagY;
 }

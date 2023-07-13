@@ -840,6 +840,19 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
     }
 
     @Override
+    public PlaybackStatResponse playbackStat(String playbackStreamID) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(Const.AIoTVideoPlaybackStat, new ArrayList<NameValuePair>() {
+            {
+                add(new BasicNameValuePair("StreamID", playbackStreamID));
+            }
+        });
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), PlaybackStatResponse.class);
+    }
+
+    @Override
     public IDResponse playbackStop(String playbackStreamID) throws Exception {
         com.volcengine.model.response.RawResponse response = query(Const.AIoTVideoPlaybackStop, new ArrayList<NameValuePair>() {
             {

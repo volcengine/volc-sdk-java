@@ -274,13 +274,49 @@ public class VideoAIoTImplTest extends TestCase {
     }
 
     public void testGetDeviceChannels() {
+        setTest();
         GetDeviceChannelRequest request = new GetDeviceChannelRequest();
-        request.setDeviceID(deviceID);
+        request.setDeviceID("34571879-8fc2-433d-9ad0-ee1d71bf16b6");
         try {
             GetDeviceChannelResponse resp = videoAIoTService.getDeviceChannels(request);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void testPlayback() throws Exception {
+        setTest();
+        PlaybackStartRequest start = new PlaybackStartRequest();
+        start.setDeviceNSID("34020027991180820747");
+        start.setChannelID("98880000001320000000");
+        start.setStartTime(1689177600);
+        start.setEndTime(1689263999);
+        PlaybackStartResponse playbackStartResponse = videoAIoTService.playbackStart(start);
+        System.out.println(JSON.toJSONString(playbackStartResponse));
+        String sid = playbackStartResponse.getResult().getStreamID();
+        for (int i = 0; ; i++) {
+            PlaybackStatResponse playbackStatResponse = videoAIoTService.playbackStat(sid);
+            System.out.println(JSON.toJSONString(playbackStatResponse));
+            if (playbackStatResponse.getResult().getStatus().equals("deleted")) {
+                break;
+            }
+            Thread.sleep(5000);
+        }
+        IDResponse idResponse = videoAIoTService.playbackStop(sid);
+        System.out.println(JSON.toJSONString(idResponse));
+    }
+
+    public void testPlaybackStat() throws Exception {
+        setTest();
+        String sid = "3ad6c029-5153-40ca-904f-7810641d7b0f";
+        for (int i = 0; ; i++) {
+            PlaybackStatResponse playbackStatResponse = videoAIoTService.playbackStat(sid);
+            System.out.println(JSON.toJSONString(playbackStatResponse));
+            if (playbackStatResponse.getResult().getStatus().equals("deleted")) {
+                break;
+            }
+            Thread.sleep(1000);
         }
     }
 
@@ -952,7 +988,7 @@ public class VideoAIoTImplTest extends TestCase {
         setTest();
         try {
             GetDeviceChannelV2Request request = new GetDeviceChannelV2Request();
-            request.setDeviceID("1de7d7db-8bb4-41a3-9f0f-d258a914c39c");
+            request.setDeviceID("34571879-8fc2-433d-9ad0-ee1d71bf16b6");
             GetDeviceChannelV2Response resp = videoAIoTService.getDeviceChannelsV2(request);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
@@ -960,7 +996,7 @@ public class VideoAIoTImplTest extends TestCase {
         }
     }
 
-    public void setTest(){
+    public void setTest() {
 
     }
 

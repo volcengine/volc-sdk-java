@@ -850,6 +850,20 @@ public class VideoAIoTConfig {
                         }
                     }
             ));
+            put(Const.AIoTVideoPlaybackStat, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AIoTVideoPlaybackStat));
+                                    add(new BasicNameValuePair("Version", Const.VideoAIoTSDKVersion));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.AIoTVideoPlaybackStart, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

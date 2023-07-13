@@ -214,6 +214,8 @@ public interface VideoAIoTService extends IBaseService {
 
     PlaybackStartResponse playbackStart(PlaybackStartRequest request) throws Exception;
 
+    PlaybackStatResponse playbackStat(String playbackStreamID) throws Exception;
+
     IDResponse playbackStop(String playbackStreamID) throws Exception;
 
     IDResponse playbackControl(PlaybackControlRequest request) throws Exception;

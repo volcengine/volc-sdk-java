@@ -30,6 +30,8 @@ public class TextSliceRiskResponse {
         private int textCount;
         @JSONField(name = "Decision")
         private String decision;
+        @JSONField(name = "DecisionDetail")
+        private String decisionDetail;
         @JSONField(name = "FinalLabel")
         private String finalLabel;
         @JSONField(name = "Results")

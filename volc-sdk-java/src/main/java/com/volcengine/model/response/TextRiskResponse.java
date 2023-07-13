@@ -28,6 +28,8 @@ public class TextRiskResponse {
     public static class DecisionData {
         @JSONField(name = "Decision")
         private String decision;
+        @JSONField(name = "DecisionDetail")
+        private String decisionDetail;
         @JSONField(name = "Result")
         private List<Result> result;
     }

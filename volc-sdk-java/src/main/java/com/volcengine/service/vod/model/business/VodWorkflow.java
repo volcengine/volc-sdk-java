@@ -184,6 +184,211 @@ public final class VodWorkflow {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodWorkflowResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_TaskTemplate_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_TaskTemplate_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_TranscodeVideoTaskParams_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_TranscodeVideoTaskParams_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_ByteHDTaskParams_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_ByteHDTaskParams_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_TranscodeAudioTaskParams_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_TranscodeAudioTaskParams_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_SnapshotTaskParams_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_SnapshotTaskParams_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_PosterSnapshotParams_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_PosterSnapshotParams_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DynpostSnapshotParams_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DynpostSnapshotParams_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_AnimatedPosterSnapshotParams_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_AnimatedPosterSnapshotParams_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_SpriteSnapshotParams_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_SpriteSnapshotParams_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_SampleSnapshotParams_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_SampleSnapshotParams_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodTaskTemplateResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodTaskTemplateResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodListTaskTemplateResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodListTaskTemplateResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_WorkflowTemplate_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_WorkflowTemplate_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_Activity_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_Activity_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_EnhanceParams_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_EnhanceParams_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_LogoParams_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_LogoParams_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_SubtitleParams_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_SubtitleParams_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_SnapshotActivity_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_SnapshotActivity_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_EndActivity_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_EndActivity_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodWorkflowTemplateResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodWorkflowTemplateResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodListWorkflowTemplateResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodListWorkflowTemplateResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_LogoTemplate_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_LogoTemplate_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_AdaptLogo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_AdaptLogo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_AnchorSize_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_AnchorSize_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_ImageLogoDefinition_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_ImageLogoDefinition_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VideoLogoDefinition_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VideoLogoDefinition_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_TextLogoDefinition_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_TextLogoDefinition_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_LogoDefinition_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_LogoDefinition_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_FontShadow_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_FontShadow_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_AdaptConcat_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_AdaptConcat_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_ConcatDefinition_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_ConcatDefinition_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_HiddenWatermarkAdd_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_HiddenWatermarkAdd_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodListWatermarkResponseResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodListWatermarkResponseResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_Video_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_Video_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_Audio_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_Audio_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_Segment_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_Segment_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_Condition_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_Condition_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_ParallelParams_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_ParallelParams_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_Encryption_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_Encryption_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_Volume_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_Volume_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -339,15 +544,207 @@ public final class VodWorkflow {
       "\022H\n\016TranscodeInfos\030\010 \003(\01320.Volcengine.Vo" +
       "d.Models.Business.VodTranscodeInfo\022A\n\tSn" +
       "apshots\030\t \003(\0132..Volcengine.Vod.Models.Bu" +
-      "siness.SnapshotResult*z\n\013StageStatus\022\013\n\007" +
-      "Unknown\020\000\022\r\n\tScheduled\020\001\022\013\n\007Running\020\002\022\014\n" +
-      "\010Canceled\020\003\022\014\n\010TimedOut\020\004\022\013\n\007Skipped\020\005\022\r" +
-      "\n\tCompleted\020\006\022\n\n\006Failed\020\007B\314\001\n)com.volcen" +
-      "gine.service.vod.model.businessB\013VodWork" +
-      "flowP\001ZAgithub.com/volcengine/volc-sdk-g" +
-      "olang/service/vod/models/business\240\001\001\330\001\001\312" +
-      "\002 Volc\\Service\\Vod\\Models\\Business\342\002#Vol" +
-      "c\\Service\\Vod\\Models\\GPBMetadatab\006proto3"
+      "siness.SnapshotResult\"\312\004\n\014TaskTemplate\022\022" +
+      "\n\nTemplateId\030\001 \001(\t\022\021\n\tSpaceName\030\002 \001(\t\022\014\n" +
+      "\004Name\030\003 \001(\t\022\023\n\013Description\030\004 \001(\t\022\014\n\004Type" +
+      "\030\006 \001(\t\022\020\n\010CommitId\030\t \001(\t\022\014\n\004Hash\030\013 \001(\t\022-" +
+      "\n\tCreatedAt\030\014 \001(\0132\032.google.protobuf.Time" +
+      "stamp\022-\n\tUpdatedAt\030\r \001(\0132\032.google.protob" +
+      "uf.Timestamp\022\020\n\010TaskType\030\016 \001(\t\022Z\n\030Transc" +
+      "odeVideoTaskParams\030\017 \001(\01328.Volcengine.Vo" +
+      "d.Models.Business.TranscodeVideoTaskPara" +
+      "ms\022J\n\020ByteHDTaskParams\030\022 \001(\01320.Volcengin" +
+      "e.Vod.Models.Business.ByteHDTaskParams\022Z" +
+      "\n\030TranscodeAudioTaskParams\030\023 \001(\01328.Volce" +
+      "ngine.Vod.Models.Business.TranscodeAudio" +
+      "TaskParams\022N\n\022SnapshotTaskParams\030\024 \001(\01322" +
+      ".Volcengine.Vod.Models.Business.Snapshot" +
+      "TaskParams\"\304\003\n\030TranscodeVideoTaskParams\022" +
+      "\035\n\025TranscodeTemplateType\030\001 \001(\t\022\021\n\tContai" +
+      "ner\030\002 \001(\t\0224\n\005Video\030\003 \001(\0132%.Volcengine.Vo" +
+      "d.Models.Business.Video\0224\n\005Audio\030\004 \001(\0132%" +
+      ".Volcengine.Vod.Models.Business.Audio\022\024\n" +
+      "\014DisableAudio\030\005 \001(\010\022\017\n\007Quality\030\006 \001(\t\022\017\n\007" +
+      "Vladder\030\007 \001(\t\022\017\n\007UserTag\030\010 \001(\t\022\017\n\007Encryp" +
+      "t\030\t \001(\010\022>\n\nEncryption\030\n \001(\0132*.Volcengine" +
+      ".Vod.Models.Business.Encryption\0228\n\007Segme" +
+      "nt\030\013 \001(\0132\'.Volcengine.Vod.Models.Busines" +
+      "s.Segment\0226\n\006Volume\030\014 \001(\0132&.Volcengine.V" +
+      "od.Models.Business.Volume\"\235\003\n\020ByteHDTask" +
+      "Params\022\021\n\tContainer\030\001 \001(\t\0224\n\005Video\030\002 \001(\013" +
+      "2%.Volcengine.Vod.Models.Business.Video\022" +
+      "4\n\005Audio\030\003 \001(\0132%.Volcengine.Vod.Models.B" +
+      "usiness.Audio\022\024\n\014DisableAudio\030\004 \001(\010\022\017\n\007Q" +
+      "uality\030\005 \001(\t\022\017\n\007Vladder\030\006 \001(\t\022\017\n\007UserTag" +
+      "\030\007 \001(\t\022\017\n\007Encrypt\030\010 \001(\010\022>\n\nEncryption\030\t " +
+      "\001(\0132*.Volcengine.Vod.Models.Business.Enc" +
+      "ryption\0228\n\007Segment\030\n \001(\0132\'.Volcengine.Vo" +
+      "d.Models.Business.Segment\0226\n\006Volume\030\013 \001(" +
+      "\0132&.Volcengine.Vod.Models.Business.Volum" +
+      "e\"\310\002\n\030TranscodeAudioTaskParams\022\021\n\tContai" +
+      "ner\030\001 \001(\t\0224\n\005Audio\030\002 \001(\0132%.Volcengine.Vo" +
+      "d.Models.Business.Audio\022\017\n\007Quality\030\003 \001(\t" +
+      "\022\017\n\007UserTag\030\004 \001(\t\022\017\n\007Encrypt\030\005 \001(\010\022>\n\nEn" +
+      "cryption\030\006 \001(\0132*.Volcengine.Vod.Models.B" +
+      "usiness.Encryption\0228\n\007Segment\030\007 \001(\0132\'.Vo" +
+      "lcengine.Vod.Models.Business.Segment\0226\n\006" +
+      "Volume\030\010 \001(\0132&.Volcengine.Vod.Models.Bus" +
+      "iness.Volume\"\330\003\n\022SnapshotTaskParams\022\014\n\004T" +
+      "ype\030\001 \001(\t\022R\n\024PosterSnapshotParams\030\002 \001(\0132" +
+      "4.Volcengine.Vod.Models.Business.PosterS" +
+      "napshotParams\022T\n\025DynpostSnapshotParams\030\003" +
+      " \001(\01325.Volcengine.Vod.Models.Business.Dy" +
+      "npostSnapshotParams\022b\n\034AnimatedPosterSna" +
+      "pshotParams\030\004 \001(\0132<.Volcengine.Vod.Model" +
+      "s.Business.AnimatedPosterSnapshotParams\022" +
+      "R\n\024SpriteSnapshotParams\030\005 \001(\01324.Volcengi" +
+      "ne.Vod.Models.Business.SpriteSnapshotPar" +
+      "ams\022R\n\024SampleSnapshotParams\030\007 \001(\01324.Volc" +
+      "engine.Vod.Models.Business.SampleSnapsho" +
+      "tParams\"}\n\024PosterSnapshotParams\022\016\n\006Forma" +
+      "t\030\001 \001(\t\022\020\n\010ResAdapt\030\002 \001(\010\022\020\n\010ResLimit\030\003 " +
+      "\001(\005\022\r\n\005Width\030\004 \001(\005\022\016\n\006Height\030\005 \001(\005\022\022\n\nOf" +
+      "fsetTime\030\006 \001(\005\"\263\001\n\025DynpostSnapshotParams" +
+      "\022\016\n\006Format\030\001 \001(\t\022\020\n\010ResAdapt\030\002 \001(\010\022\020\n\010Re" +
+      "sLimit\030\003 \001(\005\022\r\n\005Width\030\004 \001(\005\022\016\n\006Height\030\005 " +
+      "\001(\005\022\022\n\nOffsetTime\030\006 \001(\005\022\020\n\010Duration\030\007 \001(" +
+      "\005\022\022\n\nCaptureFps\030\010 \001(\002\022\r\n\005Speed\030\t \001(\002\"\255\001\n" +
+      "\034AnimatedPosterSnapshotParams\022\016\n\006Format\030" +
+      "\001 \001(\t\022\020\n\010ResAdapt\030\002 \001(\010\022\020\n\010ResLimit\030\003 \001(" +
+      "\005\022\r\n\005Width\030\004 \001(\005\022\016\n\006Height\030\005 \001(\005\022\022\n\nOffs" +
+      "etTime\030\006 \001(\005\022\022\n\nCaptureFps\030\007 \001(\002\022\022\n\nCapt" +
+      "ureNum\030\010 \001(\005\"\251\001\n\024SpriteSnapshotParams\022\016\n" +
+      "\006Format\030\001 \001(\t\022\021\n\tCellWidth\030\002 \001(\005\022\022\n\nCell" +
+      "Height\030\003 \001(\005\022\017\n\007ImgXLen\030\004 \001(\005\022\017\n\007ImgYLen" +
+      "\030\005 \001(\005\022\020\n\010Interval\030\006 \001(\005\022\022\n\nOffsetTime\030\007" +
+      " \001(\005\022\022\n\nCaptureNum\030\010 \001(\005\"\307\001\n\024SampleSnaps" +
+      "hotParams\022\016\n\006Format\030\001 \001(\t\022\020\n\010ResAdapt\030\002 " +
+      "\001(\010\022\020\n\010ResLimit\030\003 \001(\005\022\r\n\005Width\030\004 \001(\005\022\016\n\006" +
+      "Height\030\005 \001(\005\022\022\n\nCaptureNum\030\006 \001(\005\022\023\n\013Capt" +
+      "ureMode\030\007 \001(\005\022\020\n\010Interval\030\010 \001(\001\022\017\n\007OutMo" +
+      "de\030\t \001(\t\022\020\n\010FillType\030\n \001(\t\"[\n\025VodTaskTem" +
+      "plateResult\022B\n\014TaskTemplate\030\002 \001(\0132,.Volc" +
+      "engine.Vod.Models.Business.TaskTemplate\"" +
+      "\205\001\n\031VodListTaskTemplateResult\022\r\n\005Limit\030\001" +
+      " \001(\005\022\016\n\006Offset\030\002 \001(\005\022\r\n\005Total\030\003 \001(\003\022:\n\004D" +
+      "ata\030\004 \003(\0132,.Volcengine.Vod.Models.Busine" +
+      "ss.TaskTemplate\"\230\002\n\020WorkflowTemplate\022\022\n\n" +
+      "TemplateId\030\001 \001(\t\022\021\n\tSpaceName\030\002 \001(\t\022\014\n\004N" +
+      "ame\030\003 \001(\t\022\023\n\013Description\030\004 \001(\t\022\014\n\004Type\030\006" +
+      " \001(\t\022-\n\tCreatedAt\030\014 \001(\0132\032.google.protobu" +
+      "f.Timestamp\022-\n\tUpdatedAt\030\r \001(\0132\032.google." +
+      "protobuf.Timestamp\022\020\n\010CommitId\030\016 \001(\t\022<\n\n" +
+      "Activities\030\023 \003(\0132(.Volcengine.Vod.Models" +
+      ".Business.Activity\"\253\002\n\010Activity\022\022\n\nActiv" +
+      "ityId\030\001 \001(\t\022\014\n\004Name\030\002 \001(\t\022\023\n\013Description" +
+      "\030\003 \001(\t\022\014\n\004Type\030\004 \001(\t\022J\n\020SnapshotActivity" +
+      "\030\014 \001(\01320.Volcengine.Vod.Models.Business." +
+      "SnapshotActivity\022@\n\013EndActivity\030\023 \001(\0132+." +
+      "Volcengine.Vod.Models.Business.EndActivi" +
+      "ty\022L\n\021TranscodeActivity\030\027 \001(\01321.Volcengi" +
+      "ne.Vod.Models.Business.TranscodeActivity" +
+      "\"\345\003\n\021TranscodeActivity\022\022\n\nTemplateId\030\001 \001" +
+      "(\t\022P\n\007Enhance\030\002 \001(\0132?.Volcengine.Vod.Mod" +
+      "els.Business.TranscodeActivity.EnhancePa" +
+      "rams\022J\n\004Logo\030\003 \001(\0132<.Volcengine.Vod.Mode" +
+      "ls.Business.TranscodeActivity.LogoParams" +
+      "\022\020\n\010FileName\030\005 \001(\t\022@\n\010Parallel\030\006 \001(\0132..V" +
+      "olcengine.Vod.Models.Business.ParallelPa" +
+      "rams\022<\n\tCondition\030\007 \001(\0132).Volcengine.Vod" +
+      ".Models.Business.Condition\0324\n\rEnhancePar" +
+      "ams\022\022\n\nTemplateId\030\001 \001(\t\022\017\n\007Version\030\002 \001(\t" +
+      "\032 \n\nLogoParams\022\022\n\nTemplateId\030\001 \001(\t\0324\n\016Su" +
+      "btitleParams\022\020\n\010Language\030\001 \001(\t\022\020\n\010FontTy" +
+      "pe\030\002 \001(\t\"v\n\020SnapshotActivity\022\022\n\nTemplate" +
+      "Id\030\001 \001(\t\022\020\n\010FileName\030\002 \001(\t\022<\n\tCondition\030" +
+      "\003 \001(\0132).Volcengine.Vod.Models.Business.C" +
+      "ondition\"%\n\013EndActivity\022\026\n\016TranscodeEven" +
+      "t\030\001 \001(\t\"g\n\031VodWorkflowTemplateResult\022J\n\020" +
+      "WorkflowTemplate\030\002 \001(\01320.Volcengine.Vod." +
+      "Models.Business.WorkflowTemplate\"\215\001\n\035Vod" +
+      "ListWorkflowTemplateResult\022\r\n\005Limit\030\001 \001(" +
+      "\005\022\016\n\006Offset\030\002 \001(\005\022\r\n\005Total\030\003 \001(\003\022>\n\004Data" +
+      "\030\004 \003(\01320.Volcengine.Vod.Models.Business." +
+      "WorkflowTemplate\"\251\003\n\014LogoTemplate\022\022\n\nTem" +
+      "plateId\030\001 \001(\t\022\021\n\tSpaceName\030\002 \001(\t\022\014\n\004Name" +
+      "\030\003 \001(\t\022\023\n\013Description\030\004 \001(\t\022\014\n\004Type\030\006 \001(" +
+      "\t\022-\n\tCreatedAt\030\t \001(\0132\032.google.protobuf.T" +
+      "imestamp\022-\n\tUpdatedAt\030\n \001(\0132\032.google.pro" +
+      "tobuf.Timestamp\022\014\n\004Hash\030\013 \001(\t\022\020\n\010LogoTyp" +
+      "e\030\014 \001(\t\0228\n\005Logos\030\r \003(\0132).Volcengine.Vod." +
+      "Models.Business.AdaptLogo\022<\n\007Concats\030\016 \003" +
+      "(\0132+.Volcengine.Vod.Models.Business.Adap" +
+      "tConcat\022K\n\017HiddenWatermark\030\017 \001(\01322.Volce" +
+      "ngine.Vod.Models.Business.HiddenWatermar" +
+      "kAdd\"\212\001\n\tAdaptLogo\022>\n\nAnchorSize\030\001 \001(\0132*" +
+      ".Volcengine.Vod.Models.Business.AnchorSi" +
+      "ze\022=\n\005Logos\030\002 \003(\0132..Volcengine.Vod.Model" +
+      "s.Business.LogoDefinition\"+\n\nAnchorSize\022" +
+      "\r\n\005Width\030\001 \001(\005\022\016\n\006Height\030\002 \001(\005\"\220\001\n\023Image" +
+      "LogoDefinition\022\013\n\003Mid\030\001 \001(\t\022\021\n\tStartTime" +
+      "\030\002 \001(\005\022\017\n\007EndTime\030\003 \001(\005\022\016\n\006Locate\030\004 \001(\t\022" +
+      "\014\n\004PosX\030\005 \001(\005\022\014\n\004PosY\030\006 \001(\005\022\r\n\005SizeX\030\007 \001" +
+      "(\005\022\r\n\005sizeY\030\010 \001(\005\"\267\001\n\023VideoLogoDefinitio" +
+      "n\022\013\n\003Mid\030\001 \001(\t\022\021\n\tStartTime\030\002 \001(\005\022\017\n\007End" +
+      "Time\030\003 \001(\005\022\021\n\tLoopTimes\030\004 \001(\005\022\022\n\nRepeatL" +
+      "ast\030\005 \001(\010\022\016\n\006Locate\030\006 \001(\t\022\014\n\004PosX\030\007 \001(\005\022" +
+      "\014\n\004PosY\030\010 \001(\005\022\r\n\005SizeX\030\t \001(\005\022\r\n\005sizeY\030\n " +
+      "\001(\005\"\312\001\n\022TextLogoDefinition\022\017\n\007Content\030\001 " +
+      "\001(\t\022\020\n\010FontType\030\002 \001(\t\022\020\n\010FontSize\030\003 \001(\005\022" +
+      "\021\n\tFontColor\030\004 \001(\t\022\021\n\tStartTime\030\005 \001(\005\022\017\n" +
+      "\007EndTime\030\006 \001(\005\022\016\n\006Locate\030\007 \001(\t\022\014\n\004PosX\030\010" +
+      " \001(\005\022\014\n\004PosY\030\t \001(\005\022\r\n\005SizeX\030\n \001(\005\022\r\n\005siz" +
+      "eY\030\013 \001(\005\"\222\002\n\016LogoDefinition\022\014\n\004Type\030\001 \001(" +
+      "\t\022P\n\023ImageLogoDefinition\030\002 \001(\01323.Volceng" +
+      "ine.Vod.Models.Business.ImageLogoDefinit" +
+      "ion\022P\n\023VideoLogoDefinition\030\003 \001(\01323.Volce" +
+      "ngine.Vod.Models.Business.VideoLogoDefin" +
+      "ition\022N\n\022TextLogoDefinition\030\004 \001(\01322.Volc" +
+      "engine.Vod.Models.Business.TextLogoDefin" +
+      "ition\"=\n\nFontShadow\022\r\n\005Color\030\001 \001(\t\022\017\n\007Of" +
+      "fsetX\030\002 \001(\005\022\017\n\007OffsetY\030\003 \001(\005\"\220\001\n\013AdaptCo" +
+      "ncat\022>\n\nAnchorSize\030\001 \001(\0132*.Volcengine.Vo" +
+      "d.Models.Business.AnchorSize\022A\n\007Concats\030" +
+      "\002 \003(\01320.Volcengine.Vod.Models.Business.C" +
+      "oncatDefinition\"?\n\020ConcatDefinition\022\014\n\004T" +
+      "ype\030\001 \001(\t\022\013\n\003Mid\030\002 \001(\t\022\020\n\010Position\030\004 \001(\t" +
+      "\"3\n\022HiddenWatermarkAdd\022\017\n\007Content\030\001 \001(\t\022" +
+      "\014\n\004Type\030\003 \001(\t\"\212\001\n\036VodListWatermarkRespon" +
+      "seResult\022\r\n\005Limit\030\001 \001(\005\022\016\n\006Offset\030\002 \001(\005\022" +
+      "\r\n\005Total\030\003 \001(\003\022:\n\004Data\030\004 \003(\0132,.Volcengin" +
+      "e.Vod.Models.Business.LogoTemplate\"\241\002\n\005V" +
+      "ideo\022\013\n\003Res\030\001 \001(\t\022\021\n\tScaleType\030\004 \001(\005\022\021\n\t" +
+      "ScaleMode\030\026 \001(\005\022\022\n\nScaleWidth\030\005 \001(\005\022\023\n\013S" +
+      "caleHeight\030\006 \001(\005\022\022\n\nScaleShort\030\007 \001(\005\022\021\n\t" +
+      "ScaleLong\030\010 \001(\005\022\r\n\005Codec\030\t \001(\t\022\027\n\017RateCo" +
+      "ntrolMode\030\n \001(\t\022\022\n\nMaxBitrate\030\013 \001(\005\022\017\n\007B" +
+      "itrate\030\014 \001(\005\022\013\n\003Crf\030\r \001(\002\022\016\n\006MaxFps\030\017 \001(" +
+      "\005\022\r\n\005Vsync\030\020 \001(\t\022\013\n\003Fps\030\021 \001(\002\022\017\n\007HDRMode" +
+      "\030\025 \001(\005\"\231\001\n\005Audio\022\r\n\005Codec\030\001 \001(\t\022\022\n\nSampl" +
+      "eRate\030\002 \001(\005\022\027\n\017RateControlMode\030\003 \001(\t\022\017\n\007" +
+      "Bitrate\030\004 \001(\005\022\017\n\007MinRate\030\005 \001(\005\022\017\n\007MaxRat" +
+      "e\030\006 \001(\005\022\020\n\010Channels\030\007 \001(\005\022\017\n\007Profile\030\010 \001" +
+      "(\t\"9\n\007Segment\022\016\n\006Format\030\001 \001(\t\022\014\n\004Type\030\002 " +
+      "\001(\t\022\020\n\010Duration\030\003 \001(\005\"\204\002\n\tCondition\022\020\n\010R" +
+      "esRange\030\001 \001(\t\022\024\n\014LongResRange\030\002 \001(\t\022\025\n\rD" +
+      "urationRange\030\003 \001(\t\022\020\n\010FpsRange\030\004 \001(\t\022\024\n\014" +
+      "BitrateRange\030\005 \001(\t\022\031\n\021AudioBitrateRange\030" +
+      "\006 \001(\t\022\020\n\010FileType\030\007 \001(\t\022\024\n\014VQScoreRange\030" +
+      "\010 \001(\t\022\032\n\022VideoDurationRange\030\t \001(\t\022\032\n\022Aud" +
+      "ioDurationRange\030\n \001(\t\022\025\n\rUserCondition\030\013" +
+      " \001(\t\"!\n\016ParallelParams\022\017\n\007Enabled\030\001 \001(\010\"" +
+      "\034\n\nEncryption\022\016\n\006Vendor\030\001 \001(\t\"j\n\006Volume\022" +
+      "\016\n\006Method\030\001 \001(\t\022\032\n\022IntegratedLoudness\030\002 " +
+      "\001(\001\022\020\n\010TruePeak\030\003 \001(\001\022\016\n\006Volume\030\004 \001(\001\022\022\n" +
+      "\nVolumeTime\030\005 \001(\001*z\n\013StageStatus\022\013\n\007Unkn" +
+      "own\020\000\022\r\n\tScheduled\020\001\022\013\n\007Running\020\002\022\014\n\010Can" +
+      "celed\020\003\022\014\n\010TimedOut\020\004\022\013\n\007Skipped\020\005\022\r\n\tCo" +
+      "mpleted\020\006\022\n\n\006Failed\020\007B\314\001\n)com.volcengine" +
+      ".service.vod.model.businessB\013VodWorkflow" +
+      "P\001ZAgithub.com/volcengine/volc-sdk-golan" +
+      "g/service/vod/models/business\240\001\001\330\001\001\312\002 Vo" +
+      "lc\\Service\\Vod\\Models\\Business\342\002#Volc\\Se" +
+      "rvice\\Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -559,6 +956,252 @@ public final class VodWorkflow {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodWorkflowResult_descriptor,
         new java.lang.String[] { "DirectUrl", "Vid", "RunId", "SpaceName", "TemplateId", "CallbackArgs", "Status", "TranscodeInfos", "Snapshots", });
+    internal_static_Volcengine_Vod_Models_Business_TaskTemplate_descriptor =
+      getDescriptor().getMessageTypes().get(31);
+    internal_static_Volcengine_Vod_Models_Business_TaskTemplate_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_TaskTemplate_descriptor,
+        new java.lang.String[] { "TemplateId", "SpaceName", "Name", "Description", "Type", "CommitId", "Hash", "CreatedAt", "UpdatedAt", "TaskType", "TranscodeVideoTaskParams", "ByteHDTaskParams", "TranscodeAudioTaskParams", "SnapshotTaskParams", });
+    internal_static_Volcengine_Vod_Models_Business_TranscodeVideoTaskParams_descriptor =
+      getDescriptor().getMessageTypes().get(32);
+    internal_static_Volcengine_Vod_Models_Business_TranscodeVideoTaskParams_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_TranscodeVideoTaskParams_descriptor,
+        new java.lang.String[] { "TranscodeTemplateType", "Container", "Video", "Audio", "DisableAudio", "Quality", "Vladder", "UserTag", "Encrypt", "Encryption", "Segment", "Volume", });
+    internal_static_Volcengine_Vod_Models_Business_ByteHDTaskParams_descriptor =
+      getDescriptor().getMessageTypes().get(33);
+    internal_static_Volcengine_Vod_Models_Business_ByteHDTaskParams_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_ByteHDTaskParams_descriptor,
+        new java.lang.String[] { "Container", "Video", "Audio", "DisableAudio", "Quality", "Vladder", "UserTag", "Encrypt", "Encryption", "Segment", "Volume", });
+    internal_static_Volcengine_Vod_Models_Business_TranscodeAudioTaskParams_descriptor =
+      getDescriptor().getMessageTypes().get(34);
+    internal_static_Volcengine_Vod_Models_Business_TranscodeAudioTaskParams_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_TranscodeAudioTaskParams_descriptor,
+        new java.lang.String[] { "Container", "Audio", "Quality", "UserTag", "Encrypt", "Encryption", "Segment", "Volume", });
+    internal_static_Volcengine_Vod_Models_Business_SnapshotTaskParams_descriptor =
+      getDescriptor().getMessageTypes().get(35);
+    internal_static_Volcengine_Vod_Models_Business_SnapshotTaskParams_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_SnapshotTaskParams_descriptor,
+        new java.lang.String[] { "Type", "PosterSnapshotParams", "DynpostSnapshotParams", "AnimatedPosterSnapshotParams", "SpriteSnapshotParams", "SampleSnapshotParams", });
+    internal_static_Volcengine_Vod_Models_Business_PosterSnapshotParams_descriptor =
+      getDescriptor().getMessageTypes().get(36);
+    internal_static_Volcengine_Vod_Models_Business_PosterSnapshotParams_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_PosterSnapshotParams_descriptor,
+        new java.lang.String[] { "Format", "ResAdapt", "ResLimit", "Width", "Height", "OffsetTime", });
+    internal_static_Volcengine_Vod_Models_Business_DynpostSnapshotParams_descriptor =
+      getDescriptor().getMessageTypes().get(37);
+    internal_static_Volcengine_Vod_Models_Business_DynpostSnapshotParams_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DynpostSnapshotParams_descriptor,
+        new java.lang.String[] { "Format", "ResAdapt", "ResLimit", "Width", "Height", "OffsetTime", "Duration", "CaptureFps", "Speed", });
+    internal_static_Volcengine_Vod_Models_Business_AnimatedPosterSnapshotParams_descriptor =
+      getDescriptor().getMessageTypes().get(38);
+    internal_static_Volcengine_Vod_Models_Business_AnimatedPosterSnapshotParams_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_AnimatedPosterSnapshotParams_descriptor,
+        new java.lang.String[] { "Format", "ResAdapt", "ResLimit", "Width", "Height", "OffsetTime", "CaptureFps", "CaptureNum", });
+    internal_static_Volcengine_Vod_Models_Business_SpriteSnapshotParams_descriptor =
+      getDescriptor().getMessageTypes().get(39);
+    internal_static_Volcengine_Vod_Models_Business_SpriteSnapshotParams_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_SpriteSnapshotParams_descriptor,
+        new java.lang.String[] { "Format", "CellWidth", "CellHeight", "ImgXLen", "ImgYLen", "Interval", "OffsetTime", "CaptureNum", });
+    internal_static_Volcengine_Vod_Models_Business_SampleSnapshotParams_descriptor =
+      getDescriptor().getMessageTypes().get(40);
+    internal_static_Volcengine_Vod_Models_Business_SampleSnapshotParams_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_SampleSnapshotParams_descriptor,
+        new java.lang.String[] { "Format", "ResAdapt", "ResLimit", "Width", "Height", "CaptureNum", "CaptureMode", "Interval", "OutMode", "FillType", });
+    internal_static_Volcengine_Vod_Models_Business_VodTaskTemplateResult_descriptor =
+      getDescriptor().getMessageTypes().get(41);
+    internal_static_Volcengine_Vod_Models_Business_VodTaskTemplateResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodTaskTemplateResult_descriptor,
+        new java.lang.String[] { "TaskTemplate", });
+    internal_static_Volcengine_Vod_Models_Business_VodListTaskTemplateResult_descriptor =
+      getDescriptor().getMessageTypes().get(42);
+    internal_static_Volcengine_Vod_Models_Business_VodListTaskTemplateResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodListTaskTemplateResult_descriptor,
+        new java.lang.String[] { "Limit", "Offset", "Total", "Data", });
+    internal_static_Volcengine_Vod_Models_Business_WorkflowTemplate_descriptor =
+      getDescriptor().getMessageTypes().get(43);
+    internal_static_Volcengine_Vod_Models_Business_WorkflowTemplate_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_WorkflowTemplate_descriptor,
+        new java.lang.String[] { "TemplateId", "SpaceName", "Name", "Description", "Type", "CreatedAt", "UpdatedAt", "CommitId", "Activities", });
+    internal_static_Volcengine_Vod_Models_Business_Activity_descriptor =
+      getDescriptor().getMessageTypes().get(44);
+    internal_static_Volcengine_Vod_Models_Business_Activity_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_Activity_descriptor,
+        new java.lang.String[] { "ActivityId", "Name", "Description", "Type", "SnapshotActivity", "EndActivity", "TranscodeActivity", });
+    internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_descriptor =
+      getDescriptor().getMessageTypes().get(45);
+    internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_descriptor,
+        new java.lang.String[] { "TemplateId", "Enhance", "Logo", "FileName", "Parallel", "Condition", });
+    internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_EnhanceParams_descriptor =
+      internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_descriptor.getNestedTypes().get(0);
+    internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_EnhanceParams_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_EnhanceParams_descriptor,
+        new java.lang.String[] { "TemplateId", "Version", });
+    internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_LogoParams_descriptor =
+      internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_descriptor.getNestedTypes().get(1);
+    internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_LogoParams_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_LogoParams_descriptor,
+        new java.lang.String[] { "TemplateId", });
+    internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_SubtitleParams_descriptor =
+      internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_descriptor.getNestedTypes().get(2);
+    internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_SubtitleParams_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_TranscodeActivity_SubtitleParams_descriptor,
+        new java.lang.String[] { "Language", "FontType", });
+    internal_static_Volcengine_Vod_Models_Business_SnapshotActivity_descriptor =
+      getDescriptor().getMessageTypes().get(46);
+    internal_static_Volcengine_Vod_Models_Business_SnapshotActivity_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_SnapshotActivity_descriptor,
+        new java.lang.String[] { "TemplateId", "FileName", "Condition", });
+    internal_static_Volcengine_Vod_Models_Business_EndActivity_descriptor =
+      getDescriptor().getMessageTypes().get(47);
+    internal_static_Volcengine_Vod_Models_Business_EndActivity_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_EndActivity_descriptor,
+        new java.lang.String[] { "TranscodeEvent", });
+    internal_static_Volcengine_Vod_Models_Business_VodWorkflowTemplateResult_descriptor =
+      getDescriptor().getMessageTypes().get(48);
+    internal_static_Volcengine_Vod_Models_Business_VodWorkflowTemplateResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodWorkflowTemplateResult_descriptor,
+        new java.lang.String[] { "WorkflowTemplate", });
+    internal_static_Volcengine_Vod_Models_Business_VodListWorkflowTemplateResult_descriptor =
+      getDescriptor().getMessageTypes().get(49);
+    internal_static_Volcengine_Vod_Models_Business_VodListWorkflowTemplateResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodListWorkflowTemplateResult_descriptor,
+        new java.lang.String[] { "Limit", "Offset", "Total", "Data", });
+    internal_static_Volcengine_Vod_Models_Business_LogoTemplate_descriptor =
+      getDescriptor().getMessageTypes().get(50);
+    internal_static_Volcengine_Vod_Models_Business_LogoTemplate_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_LogoTemplate_descriptor,
+        new java.lang.String[] { "TemplateId", "SpaceName", "Name", "Description", "Type", "CreatedAt", "UpdatedAt", "Hash", "LogoType", "Logos", "Concats", "HiddenWatermark", });
+    internal_static_Volcengine_Vod_Models_Business_AdaptLogo_descriptor =
+      getDescriptor().getMessageTypes().get(51);
+    internal_static_Volcengine_Vod_Models_Business_AdaptLogo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_AdaptLogo_descriptor,
+        new java.lang.String[] { "AnchorSize", "Logos", });
+    internal_static_Volcengine_Vod_Models_Business_AnchorSize_descriptor =
+      getDescriptor().getMessageTypes().get(52);
+    internal_static_Volcengine_Vod_Models_Business_AnchorSize_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_AnchorSize_descriptor,
+        new java.lang.String[] { "Width", "Height", });
+    internal_static_Volcengine_Vod_Models_Business_ImageLogoDefinition_descriptor =
+      getDescriptor().getMessageTypes().get(53);
+    internal_static_Volcengine_Vod_Models_Business_ImageLogoDefinition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_ImageLogoDefinition_descriptor,
+        new java.lang.String[] { "Mid", "StartTime", "EndTime", "Locate", "PosX", "PosY", "SizeX", "SizeY", });
+    internal_static_Volcengine_Vod_Models_Business_VideoLogoDefinition_descriptor =
+      getDescriptor().getMessageTypes().get(54);
+    internal_static_Volcengine_Vod_Models_Business_VideoLogoDefinition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VideoLogoDefinition_descriptor,
+        new java.lang.String[] { "Mid", "StartTime", "EndTime", "LoopTimes", "RepeatLast", "Locate", "PosX", "PosY", "SizeX", "SizeY", });
+    internal_static_Volcengine_Vod_Models_Business_TextLogoDefinition_descriptor =
+      getDescriptor().getMessageTypes().get(55);
+    internal_static_Volcengine_Vod_Models_Business_TextLogoDefinition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_TextLogoDefinition_descriptor,
+        new java.lang.String[] { "Content", "FontType", "FontSize", "FontColor", "StartTime", "EndTime", "Locate", "PosX", "PosY", "SizeX", "SizeY", });
+    internal_static_Volcengine_Vod_Models_Business_LogoDefinition_descriptor =
+      getDescriptor().getMessageTypes().get(56);
+    internal_static_Volcengine_Vod_Models_Business_LogoDefinition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_LogoDefinition_descriptor,
+        new java.lang.String[] { "Type", "ImageLogoDefinition", "VideoLogoDefinition", "TextLogoDefinition", });
+    internal_static_Volcengine_Vod_Models_Business_FontShadow_descriptor =
+      getDescriptor().getMessageTypes().get(57);
+    internal_static_Volcengine_Vod_Models_Business_FontShadow_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_FontShadow_descriptor,
+        new java.lang.String[] { "Color", "OffsetX", "OffsetY", });
+    internal_static_Volcengine_Vod_Models_Business_AdaptConcat_descriptor =
+      getDescriptor().getMessageTypes().get(58);
+    internal_static_Volcengine_Vod_Models_Business_AdaptConcat_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_AdaptConcat_descriptor,
+        new java.lang.String[] { "AnchorSize", "Concats", });
+    internal_static_Volcengine_Vod_Models_Business_ConcatDefinition_descriptor =
+      getDescriptor().getMessageTypes().get(59);
+    internal_static_Volcengine_Vod_Models_Business_ConcatDefinition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_ConcatDefinition_descriptor,
+        new java.lang.String[] { "Type", "Mid", "Position", });
+    internal_static_Volcengine_Vod_Models_Business_HiddenWatermarkAdd_descriptor =
+      getDescriptor().getMessageTypes().get(60);
+    internal_static_Volcengine_Vod_Models_Business_HiddenWatermarkAdd_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_HiddenWatermarkAdd_descriptor,
+        new java.lang.String[] { "Content", "Type", });
+    internal_static_Volcengine_Vod_Models_Business_VodListWatermarkResponseResult_descriptor =
+      getDescriptor().getMessageTypes().get(61);
+    internal_static_Volcengine_Vod_Models_Business_VodListWatermarkResponseResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodListWatermarkResponseResult_descriptor,
+        new java.lang.String[] { "Limit", "Offset", "Total", "Data", });
+    internal_static_Volcengine_Vod_Models_Business_Video_descriptor =
+      getDescriptor().getMessageTypes().get(62);
+    internal_static_Volcengine_Vod_Models_Business_Video_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_Video_descriptor,
+        new java.lang.String[] { "Res", "ScaleType", "ScaleMode", "ScaleWidth", "ScaleHeight", "ScaleShort", "ScaleLong", "Codec", "RateControlMode", "MaxBitrate", "Bitrate", "Crf", "MaxFps", "Vsync", "Fps", "HDRMode", });
+    internal_static_Volcengine_Vod_Models_Business_Audio_descriptor =
+      getDescriptor().getMessageTypes().get(63);
+    internal_static_Volcengine_Vod_Models_Business_Audio_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_Audio_descriptor,
+        new java.lang.String[] { "Codec", "SampleRate", "RateControlMode", "Bitrate", "MinRate", "MaxRate", "Channels", "Profile", });
+    internal_static_Volcengine_Vod_Models_Business_Segment_descriptor =
+      getDescriptor().getMessageTypes().get(64);
+    internal_static_Volcengine_Vod_Models_Business_Segment_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_Segment_descriptor,
+        new java.lang.String[] { "Format", "Type", "Duration", });
+    internal_static_Volcengine_Vod_Models_Business_Condition_descriptor =
+      getDescriptor().getMessageTypes().get(65);
+    internal_static_Volcengine_Vod_Models_Business_Condition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_Condition_descriptor,
+        new java.lang.String[] { "ResRange", "LongResRange", "DurationRange", "FpsRange", "BitrateRange", "AudioBitrateRange", "FileType", "VQScoreRange", "VideoDurationRange", "AudioDurationRange", "UserCondition", });
+    internal_static_Volcengine_Vod_Models_Business_ParallelParams_descriptor =
+      getDescriptor().getMessageTypes().get(66);
+    internal_static_Volcengine_Vod_Models_Business_ParallelParams_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_ParallelParams_descriptor,
+        new java.lang.String[] { "Enabled", });
+    internal_static_Volcengine_Vod_Models_Business_Encryption_descriptor =
+      getDescriptor().getMessageTypes().get(67);
+    internal_static_Volcengine_Vod_Models_Business_Encryption_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_Encryption_descriptor,
+        new java.lang.String[] { "Vendor", });
+    internal_static_Volcengine_Vod_Models_Business_Volume_descriptor =
+      getDescriptor().getMessageTypes().get(68);
+    internal_static_Volcengine_Vod_Models_Business_Volume_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_Volume_descriptor,
+        new java.lang.String[] { "Method", "IntegratedLoudness", "TruePeak", "Volume", "VolumeTime", });
     com.google.protobuf.TimestampProto.getDescriptor();
     com.volcengine.service.vod.model.business.VodCommon.getDescriptor();
   }

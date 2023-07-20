@@ -1181,6 +1181,291 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 	
 	
 	/**
+     * CreateTaskTemplate.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodCreateTaskTemplateRequest
+     * @return com.volcengine.service.vod.model.response.VodCreateTaskTemplateResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodCreateTaskTemplateResponse CreateTaskTemplate(com.volcengine.service.vod.model.request.VodCreateTaskTemplateRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.CreateTaskTemplate, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodCreateTaskTemplateResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodCreateTaskTemplateResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * UpdateTaskTemplate.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodUpdateTaskTemplateRequest
+     * @return com.volcengine.service.vod.model.response.VodUpdateTaskTemplateResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodUpdateTaskTemplateResponse UpdateTaskTemplate(com.volcengine.service.vod.model.request.VodUpdateTaskTemplateRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.UpdateTaskTemplate, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodUpdateTaskTemplateResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodUpdateTaskTemplateResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * GetTaskTemplate.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetTaskTemplateRequest
+     * @return com.volcengine.service.vod.model.response.VodGetTaskTemplateResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodGetTaskTemplateResponse GetTaskTemplate(com.volcengine.service.vod.model.request.VodGetTaskTemplateRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.GetTaskTemplate, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodGetTaskTemplateResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetTaskTemplateResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * ListTaskTemplate.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodListTaskTemplateRequest
+     * @return com.volcengine.service.vod.model.response.VodListTaskTemplateResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodListTaskTemplateResponse ListTaskTemplate(com.volcengine.service.vod.model.request.VodListTaskTemplateRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.ListTaskTemplate, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodListTaskTemplateResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodListTaskTemplateResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * DeleteTaskTemplate.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDeleteTaskTemplateRequest
+     * @return com.volcengine.service.vod.model.response.VodDeleteTaskTemplateResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodDeleteTaskTemplateResponse DeleteTaskTemplate(com.volcengine.service.vod.model.request.VodDeleteTaskTemplateRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.DeleteTaskTemplate, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodDeleteTaskTemplateResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodDeleteTaskTemplateResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * CreateWorkflowTemplate.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodCreateWorkflowTemplateRequest
+     * @return com.volcengine.service.vod.model.response.VodCreateWorkflowTemplateResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodCreateWorkflowTemplateResponse CreateWorkflowTemplate(com.volcengine.service.vod.model.request.VodCreateWorkflowTemplateRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.CreateWorkflowTemplate, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodCreateWorkflowTemplateResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodCreateWorkflowTemplateResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * UpdateWorkflowTemplate.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodUpdateWorkflowTemplateRequest
+     * @return com.volcengine.service.vod.model.response.VodUpdateWorkflowTemplateResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodUpdateWorkflowTemplateResponse UpdateWorkflowTemplate(com.volcengine.service.vod.model.request.VodUpdateWorkflowTemplateRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.UpdateWorkflowTemplate, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodUpdateWorkflowTemplateResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodUpdateWorkflowTemplateResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * GetWorkflowTemplate.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetWorkflowTemplateRequest
+     * @return com.volcengine.service.vod.model.response.VodGetWorkflowTemplateResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodGetWorkflowTemplateResponse GetWorkflowTemplate(com.volcengine.service.vod.model.request.VodGetWorkflowTemplateRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.GetWorkflowTemplate, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodGetWorkflowTemplateResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetWorkflowTemplateResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * ListWorkflowTemplate.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodListWorkflowTemplateRequest
+     * @return com.volcengine.service.vod.model.response.VodListWorkflowTemplateResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodListWorkflowTemplateResponse ListWorkflowTemplate(com.volcengine.service.vod.model.request.VodListWorkflowTemplateRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.ListWorkflowTemplate, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodListWorkflowTemplateResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodListWorkflowTemplateResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * DeleteWorkflowTemplate.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDeleteWorkflowTemplateRequest
+     * @return com.volcengine.service.vod.model.response.VodDeleteWorkflowTemplateResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodDeleteWorkflowTemplateResponse DeleteWorkflowTemplate(com.volcengine.service.vod.model.request.VodDeleteWorkflowTemplateRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.DeleteWorkflowTemplate, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodDeleteWorkflowTemplateResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodDeleteWorkflowTemplateResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * CreateWatermarkTemplate.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodCreateWatermarkRequest
+     * @return com.volcengine.service.vod.model.response.VodCreateWatermarkResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodCreateWatermarkResponse CreateWatermarkTemplate(com.volcengine.service.vod.model.request.VodCreateWatermarkRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.CreateWatermarkTemplate, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodCreateWatermarkResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodCreateWatermarkResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * UpdateWatermarkTemplate.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodUpdateWatermarkRequest
+     * @return com.volcengine.service.vod.model.response.VodUpdateWatermarkResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodUpdateWatermarkResponse UpdateWatermarkTemplate(com.volcengine.service.vod.model.request.VodUpdateWatermarkRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.UpdateWatermarkTemplate, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodUpdateWatermarkResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodUpdateWatermarkResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * GetWatermarkTemplate.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetWatermarkRequest
+     * @return com.volcengine.service.vod.model.response.VodGetWatermarkResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodGetWatermarkResponse GetWatermarkTemplate(com.volcengine.service.vod.model.request.VodGetWatermarkRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.GetWatermarkTemplate, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodGetWatermarkResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetWatermarkResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * ListWatermarkTemplate.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodListWatermarkRequest
+     * @return com.volcengine.service.vod.model.response.VodListWatermarkResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodListWatermarkResponse ListWatermarkTemplate(com.volcengine.service.vod.model.request.VodListWatermarkRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.ListWatermarkTemplate, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodListWatermarkResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodListWatermarkResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * DeleteWatermarkTemplate.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDeleteWatermarkRequest
+     * @return com.volcengine.service.vod.model.response.VodDeleteWatermarkResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodDeleteWatermarkResponse DeleteWatermarkTemplate(com.volcengine.service.vod.model.request.VodDeleteWatermarkRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.DeleteWatermarkTemplate, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodDeleteWatermarkResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodDeleteWatermarkResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
      * createSpace.
      *
      * @param input com.volcengine.service.vod.model.request.VodCreateSpaceRequest
@@ -1569,7 +1854,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
      */
 	@Override
 	public com.volcengine.service.vod.model.response.VodCreateDomainV2Response createDomain(com.volcengine.service.vod.model.request.VodCreateDomainV2Request input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.CreateDomain, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+		com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.CreateDomain, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -1588,7 +1873,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
      */
 	@Override
 	public com.volcengine.service.vod.model.response.VodUpdateDomainExpireV2Response updateDomainExpire(com.volcengine.service.vod.model.request.VodUpdateDomainExpireV2Request input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.UpdateDomainExpire, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+		com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.UpdateDomainExpire, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -1607,7 +1892,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
      */
 	@Override
 	public com.volcengine.service.vod.model.response.VodUpdateDomainAuthConfigV2Response updateDomainAuthConfig(com.volcengine.service.vod.model.request.VodUpdateDomainAuthConfigV2Request input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.UpdateDomainAuthConfig, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+		com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.UpdateDomainAuthConfig, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }

@@ -27,6 +27,8 @@ public class ListDeviceRecordsResponse {
 
     @Data
     public static class Screenshot {
+        @JSONField(name = "BornTs")
+        String bornTs;
     }
 
     @Data

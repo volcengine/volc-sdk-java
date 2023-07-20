@@ -338,13 +338,14 @@ public class VideoAIoTImplTest extends TestCase {
     }
 
     public void testListDeviceScreenshot() {
+        setTest();
         ListDeviceRecordsRequest listDeviceRecords = new ListDeviceRecordsRequest();
-        listDeviceRecords.setSpaceID("517ff7ec-7700-4862-b1e7-7967a492df79");
-        listDeviceRecords.setStreamID("2a772f0b-753c-4496-b535-a8df0f896dc9");
-        listDeviceRecords.setStartTs("2022-08-25T16:22:17+08:00");
-        listDeviceRecords.setEndTs("2022-08-26T16:22:17+08:00");
-        listDeviceRecords.setPageSize(2);
-        listDeviceRecords.setPageNumber(100);
+        listDeviceRecords.setSpaceID("c9c49a21-485b-4205-9a52-26f01446c9e4");
+        listDeviceRecords.setStreamID("9734d86b-1e5a-4f12-9dd2-61e096d2a4b4");
+        listDeviceRecords.setStartTs("2023-07-18T11:55:10+08:00");
+        listDeviceRecords.setEndTs("2023-07-19T11:55:10+08:00");
+        listDeviceRecords.setPageSize(10);
+        listDeviceRecords.setPageNumber(1);
         try {
             ListDeviceRecordsResponse resp = videoAIoTService.listDeviceScreenshots(listDeviceRecords);
             System.out.println(JSON.toJSONString(resp));
@@ -356,11 +357,11 @@ public class VideoAIoTImplTest extends TestCase {
     public void testListDeviceRecords() {
         setTest();
         ListDeviceRecordsRequest listDeviceRecords = new ListDeviceRecordsRequest();
-        listDeviceRecords.setSpaceID("0ad84bbc-21fb-4a84-b2c1-c90c269b071b");
-        listDeviceRecords.setDeviceNSID("34020027991180820747");
-        listDeviceRecords.setChannelID("98880000001320000002");
-        listDeviceRecords.setStartTs("2023-07-04T16:29:39+08:00");
-        listDeviceRecords.setEndTs("2023-07-05T16:29:39+08:00");
+        listDeviceRecords.setSpaceID("c9c49a21-485b-4205-9a52-26f01446c9e4");
+        listDeviceRecords.setDeviceNSID("34020002991180609844");
+        listDeviceRecords.setChannelID("98880000001320000000");
+        listDeviceRecords.setStartTs("2023-07-18T11:55:10+08:00");
+        listDeviceRecords.setEndTs("2023-07-19T11:55:10+08:00");
         listDeviceRecords.setPageSize(20);
         listDeviceRecords.setPageNumber(1);
         try {

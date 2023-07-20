@@ -65,6 +65,9 @@ public class VodUploadByStream extends VodUploadAbstractStrategy {
                 partNumber = isLargeFile ? lastNum + 1 : lastNum;
                 VodServiceImpl.UploadPartResponse uploadPartResponse = uploadPart(vodService, host, oid, auth, uploadID, partNumber, inputStream, isLargeFile, retryer, storageClass);
                 parts.add(uploadPartResponse.getCheckSum());
+                if (partNumber == 1) {
+                    objectContentType = uploadPartResponse.getObjectContentType();
+                }
                 com.volcengine.helper.VodUploadProgressListenerHelper.sendVodUploadEvent(listener, com.volcengine.helper.VodUploadProgressEventType.UPLOAD_BYTES_EVENT, len - 1);
             } catch (Exception e) {
                 throw e;

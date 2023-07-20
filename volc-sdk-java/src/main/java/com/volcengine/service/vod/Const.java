@@ -81,6 +81,21 @@ public class Const {
     public static final String RetrieveTranscodeResult = "RetrieveTranscodeResult";
     public static final String GetWorkflowExecution = "GetWorkflowExecution";
     public static final String GetWorkflowExecutionResult = "GetWorkflowExecutionResult";
+    public static final String GetTaskTemplate = "GetTaskTemplate";
+    public static final String CreateTaskTemplate = "CreateTaskTemplate";
+    public static final String UpdateTaskTemplate = "UpdateTaskTemplate";
+    public static final String ListTaskTemplate = "ListTaskTemplate";
+    public static final String DeleteTaskTemplate = "DeleteTaskTemplate";
+    public static final String GetWorkflowTemplate = "GetWorkflowTemplate";
+    public static final String CreateWorkflowTemplate = "CreateWorkflowTemplate";
+    public static final String UpdateWorkflowTemplate = "UpdateWorkflowTemplate";
+    public static final String ListWorkflowTemplate = "ListWorkflowTemplate";
+    public static final String DeleteWorkflowTemplate = "DeleteWorkflowTemplate";
+    public static final String GetWatermarkTemplate = "GetWatermarkTemplate";
+    public static final String CreateWatermarkTemplate = "CreateWatermarkTemplate";
+    public static final String UpdateWatermarkTemplate = "UpdateWatermarkTemplate";
+    public static final String ListWatermarkTemplate = "ListWatermarkTemplate";
+    public static final String DeleteWatermarkTemplate = "DeleteWatermarkTemplate";
     //vod-edit
     public static final String SubmitDirectEditTaskAsync = "SubmitDirectEditTaskAsync";
     public static final String GetDirectEditResult = "GetDirectEditResult";

@@ -79,5 +79,7 @@ public class ListBillResponse {
         private String currency;
         @JSONField(name = "PayStatus")
         private String payStatus;
+        @JSONField(name = "SettlementType")
+        private String settlementType;
     }
 }

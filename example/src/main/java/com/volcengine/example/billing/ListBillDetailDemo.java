@@ -14,7 +14,6 @@ public class ListBillDetailDemo {
         IBillingService billingService = BillingServiceImpl.getInstance();
         billingService.setAccessKey(testAk);
         billingService.setSecretKey(testSk);
-        // list users
         try {
             ListBillDetailRequest listBillDetailRequest = new ListBillDetailRequest();
             listBillDetailRequest.setBillPeriod("2022-01");

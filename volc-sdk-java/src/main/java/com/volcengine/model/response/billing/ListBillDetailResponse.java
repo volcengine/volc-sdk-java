@@ -107,5 +107,15 @@ public class ListBillDetailResponse {
         private String unpaidAmount;
         @JSONField(name = "Currency")
         private String currency;
+        @JSONField(name = "SettlementType")
+        private String settlementType;
+        @JSONField(name = "Project")
+        private String project;
+        @JSONField(name = "Tag")
+        private String tag;
+        @JSONField(name = "SellingMode")
+        private String sellingMode;
+        @JSONField(name = "SolutionZh")
+        private String solutionZh;
     }
 }

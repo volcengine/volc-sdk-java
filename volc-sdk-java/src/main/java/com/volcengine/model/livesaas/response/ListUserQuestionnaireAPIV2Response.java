@@ -87,5 +87,7 @@ public class ListUserQuestionnaireAPIV2Response {
         String Extra;
         @JSONField(name = "Telephone")
         String Telephone;
+        @JSONField(name = "ExternalId")
+        String ExternalId;
     }
 }

@@ -45,5 +45,9 @@ public class GetTaskAwardItemListAPIResponse {
         String TaskAwardIcon;
         @JSONField(name = "AwardItemNum")
         String AwardItemNum;
+        @JSONField(name = "AwardStartTime")
+        Long AwardStartTime;
+        @JSONField(name = "AwardEndTime")
+        Long AwardEndTime;
     }
 }

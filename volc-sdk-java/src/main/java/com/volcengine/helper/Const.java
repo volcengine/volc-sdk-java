@@ -679,6 +679,18 @@ public class Const {
     public static final String VideoOverResolutionQueryTaskV2 = "VideoOverResolutionQueryTaskV2";
 
 
+    // ipaas
+    public static final String IPaasSDKService = "ipaas";
+    public static final String IPaasSDKVersion20201025 = "2020-10-25";
+    public static final String IPaasSDKVersion20220630 = "2022-06-30";
+
+    // host
+    public static final String IPaasListHost = "ListHost";
+
+    // instance
+    public static final String IPaasListInstance = "ListInstance";
+    public static final String IPaasDetailInstance = "DetailInstance";
+
     // ocr
     public static final String OCRNormal = "OCRNormal";
     public static final String MultilangOCR = "MultiLanguageOCR";

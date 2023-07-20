@@ -88,5 +88,7 @@ public class ListUserQuestionnaireResponse {
         String Email;
         @JSONField(name = "Country")
         String Country;
+        @JSONField(name = "ExternalId")
+        String ExternalId;
     }
 }

@@ -73,6 +73,8 @@ public class GetAwardConfigListAPIResponse {
         Long AwardItemAmounts;
         @JSONField(name = "AwardLotteryTicketAddr")
         String AwardLotteryTicketAddr;
+        @JSONField(name = "AwardTheme")
+        String AwardTheme;
     }
 
     @Data

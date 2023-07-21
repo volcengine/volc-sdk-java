@@ -1,5 +1,9 @@
 Change log
 
+2023-07-20 Bumped to version v1.0.109
+- Updated apis for Vod/video_aiot/billing/livesaas
+- Added service ipaas
+
 2023-07-13 Bumped to version v1.0.108
 - Updated apis for maas/video_aiot/security/imagex/secretnumber/livesaas
 

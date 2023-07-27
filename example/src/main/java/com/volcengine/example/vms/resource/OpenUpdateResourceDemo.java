@@ -11,12 +11,16 @@ import com.volcengine.service.vms.response.CommonResponse;
  * @Date 2023/1/9
  */
 public class OpenUpdateResourceDemo {
-    public static void main(String[] args) {
+    // Make sure only get instance once throughout the entire running program.
+    // We suggest using Singleton design model to get the instance.
+    // And using the Singleton instance to call functions
+    private static VmsService vmsService = VmsServiceImpl.getInstance();
 
-        VmsService vmsService = VmsServiceImpl.getInstance();
+    static {
         vmsService.setAccessKey("your ak");
         vmsService.setSecretKey("your sk");
-
+    }
+    public static void main(String[] args) {
         try {
             CommonResponse<BasicResourceResult> commonResponse = vmsService.openUpdateResource("1ca08a45a937411ebd78e572cef87086", "12345.mp3");
             System.out.println(JSON.toJSONString(commonResponse));

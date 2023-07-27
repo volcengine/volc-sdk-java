@@ -13,12 +13,16 @@ import java.util.List;
  * @Date 2023/1/9
  */
 public class QueryUsableResourceDemo {
-    public static void main(String[] args) {
+    // Make sure only get instance once throughout the entire running program.
+    // We suggest using Singleton design model to get the instance.
+    // And using the Singleton instance to call functions
+    private static VmsService vmsService = VmsServiceImpl.getInstance();
 
-        VmsService vmsService = VmsServiceImpl.getInstance();
+    static {
         vmsService.setAccessKey("your ak");
         vmsService.setSecretKey("your sk");
-
+    }
+    public static void main(String[] args) {
         try {
             CommonResponse<List<ResourceResult>> commonResponse = vmsService.queryUsableResource(0);
             System.out.println(JSON.toJSONString(commonResponse));

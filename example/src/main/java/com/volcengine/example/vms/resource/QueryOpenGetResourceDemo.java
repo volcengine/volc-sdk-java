@@ -12,12 +12,16 @@ import com.volcengine.service.vms.response.QueryOpenGetResourceResult;
  * @Date 2023/1/9
  */
 public class QueryOpenGetResourceDemo {
-    public static void main(String[] args) {
+    // Make sure only get instance once throughout the entire running program.
+    // We suggest using Singleton design model to get the instance.
+    // And using the Singleton instance to call functions
+    private static VmsService vmsService = VmsServiceImpl.getInstance();
 
-        VmsService vmsService = VmsServiceImpl.getInstance();
+    static {
         vmsService.setAccessKey("your ak");
         vmsService.setSecretKey("your sk");
-
+    }
+    public static void main(String[] args) {
         try {
             QueryResourceRequest request = new QueryResourceRequest();
             request.setType(0);

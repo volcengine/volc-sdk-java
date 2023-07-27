@@ -13,12 +13,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TaskDemo {
-    public static void main(String[] args) {
+    // Make sure only get instance once throughout the entire running program.
+    // We suggest using Singleton design model to get the instance.
+    // And using the Singleton instance to call functions
+    private static VmsService vmsService = VmsServiceImpl.getInstance();
 
-        VmsService vmsService = VmsServiceImpl.getInstance();
+    static {
         vmsService.setAccessKey("your ak");
         vmsService.setSecretKey("your sk");
-
+    }
+    public static void main(String[] args) {
         try {
             CommonResponse operationResponse = vmsService.pauseTask("cc4cc383f8464066851b6283838cb569");
 

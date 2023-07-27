@@ -17,7 +17,7 @@ public class EmbedImageHmRequest {
     String outFormat;
     @JSONField(name = "OutQuality")
     Integer outQuality;
-    @JSONField(name = "Strength")
+    @JSONField(name = "StrengthLevel")
     String StrengthLevel;
 
     public void setStrengthLevel(String strengthLevel) {

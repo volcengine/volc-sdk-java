@@ -11,12 +11,16 @@ import com.volcengine.service.vms.response.SecretBindResponse;
  * @Date 2023/1/10
  */
 public class BindYBForAXYBDemo {
-    public static void main(String[] args) {
+    // Make sure only get instance once throughout the entire running program.
+    // We suggest using Singleton design model to get the instance.
+    // And using the Singleton instance to call functions
+    private static VmsService vmsService = VmsServiceImpl.getInstance();
 
-        VmsService vmsService = VmsServiceImpl.getInstance();
+    static {
         vmsService.setAccessKey("your ak");
         vmsService.setSecretKey("your sk");
-
+    }
+    public static void main(String[] args) {
         try {
             BindYBForAXYBRequest request = new BindYBForAXYBRequest();
             request.setNumberPoolNo("NP163573566110906243");

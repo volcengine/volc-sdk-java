@@ -1,11 +1,8 @@
 package com.volcengine.service.videoaiot.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.volcengine.helper.Const;
-import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.video_aiot.request.*;
 import com.volcengine.model.video_aiot.response.*;
-import com.volcengine.service.videoaiot.VideoAIoTConfig;
 import com.volcengine.service.videoaiot.VideoAIoTService;
 import junit.framework.TestCase;
 
@@ -19,8 +16,8 @@ public class VideoAIoTImplTest extends TestCase {
     private static final String deviceID = "8f551529-0a60-431f-81f9-e87bac0e3428";
     private static final String streamID = "021c4154-2e1a-4c2b-acd9-388f79d7ff30";
     private static final String screenTemplateID = "7e15a883-881a-49bd-a2e1-83b15243fe43";
-
-    private VideoAIoTService videoAIoTService = VideoAIoTServiceImpl.getInstance();
+    private final VideoAIoTService videoAIoTService = VideoAIoTServiceImpl.getInstance();
+    int presetID = 15;
 
     public void testListSpace() {
         ListSpaceRequest listSpaceRequest = new ListSpaceRequest();
@@ -34,7 +31,7 @@ public class VideoAIoTImplTest extends TestCase {
             throw new RuntimeException(e);
         }
     }
-
+    
 //    public void testCreateSpace() {
 //        CreateSpaceRequest createSpaceRequest = new CreateSpaceRequest();
 //        createSpaceRequest.setSpaceName("java-space");
@@ -94,7 +91,6 @@ public class VideoAIoTImplTest extends TestCase {
         }
     }
 
-
     public void testStopSpace() {
         try {
             IDResponse rawResponse = videoAIoTService.stopSpace(rtmpSpaceID);
@@ -137,7 +133,6 @@ public class VideoAIoTImplTest extends TestCase {
 //        System.out.printf(JSON.toJSONString(rawResponse));
 //    }
 
-
     public void testSetSpaceTmpl() {
         SetSpaceTemplateRequest setSpaceTemplateRequest = new SetSpaceTemplateRequest();
         setSpaceTemplateRequest.setSpaceID(rtmpSpaceID);
@@ -150,7 +145,6 @@ public class VideoAIoTImplTest extends TestCase {
             throw new RuntimeException(e);
         }
     }
-
 
     public void testUnsetSpaceTmpl() {
         try {
@@ -199,7 +193,6 @@ public class VideoAIoTImplTest extends TestCase {
             throw new RuntimeException(e);
         }
     }
-
 
     public void testUpdateDevice() {
         do_testUpdateDevice("3c207531-6c25-43bf-a192-0011e742e4e1", "43932980-f513-4aae-bc4c-c14eaec040b5");
@@ -323,7 +316,6 @@ public class VideoAIoTImplTest extends TestCase {
     public void testDelDevice() {
         do_TestDeleteDevice("2db38a3a-2a9d-4bf7-afd9-7cdc1347e9ad", "fb58fc32-1dd7-4ed4-a26c-1b6f5112fb11");
     }
-
 
     public void do_TestDeleteDevice(String spaceID, String deviceID) {
         DeviceRequest request = new DeviceRequest();
@@ -564,7 +556,6 @@ public class VideoAIoTImplTest extends TestCase {
     public void testCreateTmpl() {
     }
 
-
 //    public void testCreateForward() {
 //        CreateForwardRequest request = new CreateForwardRequest();
 //        request.setStart(Boolean.TRUE);
@@ -658,7 +649,6 @@ public class VideoAIoTImplTest extends TestCase {
     }
 
     //报警相关测试
-
     public void testSetAlarmGuard() {
         SetAlarmGuardRequest dataRequest = new SetAlarmGuardRequest();
         dataRequest.setDeviceNSID("34020046991320828916");
@@ -795,7 +785,6 @@ public class VideoAIoTImplTest extends TestCase {
         }
     }
 
-
     public void testPTZ() throws InterruptedException {
         DeviceCloudControlRequest deviceCloudControlRequest = new DeviceCloudControlRequest();
         deviceCloudControlRequest.setDeviceNSID("34020008991180978871");
@@ -826,7 +815,6 @@ public class VideoAIoTImplTest extends TestCase {
         }
     }
 
-
     public void testFi() throws InterruptedException {
         DeviceCloudControlRequest deviceCloudControlRequest = new DeviceCloudControlRequest();
         deviceCloudControlRequest.setDeviceNSID("34020008991180978871");
@@ -856,8 +844,6 @@ public class VideoAIoTImplTest extends TestCase {
         }
     }
 
-    int presetID = 15;
-
     public void testAddPreset() {
         DeviceCloudControlRequest deviceCloudControlRequest = new DeviceCloudControlRequest();
         deviceCloudControlRequest.setCmd(DeviceCloudControlRequest.PresetCmdSet);
@@ -874,7 +860,7 @@ public class VideoAIoTImplTest extends TestCase {
         }
     }
 
-    public void testRMPreset() {
+    public void testRemovePreset() {
         DeviceCloudControlRequest deviceCloudControlRequest = new DeviceCloudControlRequest();
         deviceCloudControlRequest.setCmd(DeviceCloudControlRequest.PresetCmdRemove);
         deviceCloudControlRequest.setDeviceNSID("34020008991180978871");
@@ -891,11 +877,12 @@ public class VideoAIoTImplTest extends TestCase {
     }
 
     public void testQueryPreset() {
+        setTest();
         DeviceQueryPresetRequest request = new DeviceQueryPresetRequest();
-        request.setChannelID("34020000001320000005");
-        request.setSipID("34020000002000000001");
+        request.setDeviceID("34020029991180914107");
+        request.setChannelID("98880000001320000000");
+        request.setSipID("34020000002000000003");
         request.setTimeout(5);
-        request.setDeviceID("34020008991180978871");
         try {
             DeviceQueryPresetResponse deviceQueryPresetResponse = videoAIoTService.queryPresetInfo(request);
             System.out.println(JSON.toJSONString(deviceQueryPresetResponse));
@@ -904,6 +891,128 @@ public class VideoAIoTImplTest extends TestCase {
         }
     }
 
+    public void testCruiseControl() {
+        setTest();
+        DeviceCruiseControlRequest request = new DeviceCruiseControlRequest();
+        request.setDeviceNSID("34020029991180914107");
+        request.setChannelID("98880000001320000000");
+
+        // add
+        request.setAction(DeviceCruiseControlRequest.Action_Add);
+        request.setTrackID(1);
+        request.setPresetID(2);
+        try {
+            RawResponse cruiseControlResponse = videoAIoTService.cruiseControl(request);
+            System.out.println(JSON.toJSONString(cruiseControlResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // set stay time and speed
+        request.setAction(DeviceCruiseControlRequest.Action_SetSpeed);
+        request.setSpeed(500);
+        request.setStaySeconds(5);
+        try {
+            RawResponse cruiseControlResponse = videoAIoTService.cruiseControl(request);
+            System.out.println(JSON.toJSONString(cruiseControlResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // start cruise track
+        request.setAction(DeviceCruiseControlRequest.Action_Start);
+        request.setTrackID(1);
+        try {
+            RawResponse cruiseControlResponse = videoAIoTService.cruiseControl(request);
+            System.out.println(JSON.toJSONString(cruiseControlResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testCruiseTrack() {
+        setTest();
+
+        // add cruise track
+        SetCruiseTrackRequest setRequest = new SetCruiseTrackRequest();
+        setRequest.setDeviceNSID("34020029991180914107");
+        setRequest.setChannelID("98880000001320000000");
+        setRequest.setTrackID(1);
+        setRequest.setSpeed(400);
+        setRequest.setStaySeconds(20);
+
+        List<SetCruiseTrackRequest.CruisePoint> trackList = new ArrayList<>();
+        SetCruiseTrackRequest.CruisePoint cruisePoint = new SetCruiseTrackRequest.CruisePoint();
+        cruisePoint.setPresetID(1);
+        cruisePoint.setPresetName("preset-1");
+        trackList.add(cruisePoint);
+        setRequest.setTrackList(trackList);
+
+        try {
+            RawResponse setCruiseTrackResponse = videoAIoTService.setCruiseTrack(setRequest);
+            System.out.println(JSON.toJSONString(setCruiseTrackResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // get cruise track
+        GetCruiseTrackRequest getRequest = new GetCruiseTrackRequest();
+        getRequest.setDeviceNSID("34020029991180914107");
+        getRequest.setChannelID("98880000001320000000");
+        getRequest.setTrackID(1);
+        try {
+            GetCruiseTrackResponse getCruiseTrackResponse = videoAIoTService.getCruiseTrack(getRequest);
+            System.out.println(JSON.toJSONString(getCruiseTrackResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // list cruise track
+        ListCruiseTracksRequest listRequest = new ListCruiseTracksRequest();
+        listRequest.setDeviceNSID("34020029991180914107");
+        listRequest.setChannelID("98880000001320000000");
+        try {
+            ListCruiseTracksResponse listCruiseTracksResponse = videoAIoTService.listCruiseTracks(listRequest);
+            System.out.println(JSON.toJSONString(listCruiseTracksResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // start cruise track
+        StartCruiseTrackRequest startRequest = new StartCruiseTrackRequest();
+        startRequest.setDeviceNSID("34020029991180914107");
+        startRequest.setChannelID("98880000001320000000");
+        startRequest.setTrackID(1);
+        try {
+            RawResponse startCruiseTrackResponse = videoAIoTService.startCruiseTrack(startRequest);
+            System.out.println(JSON.toJSONString(startCruiseTrackResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // stop cruise track
+        StopCruiseTrackRequest stopRequest = new StopCruiseTrackRequest();
+        stopRequest.setDeviceNSID("34020029991180914107");
+        stopRequest.setChannelID("98880000001320000000");
+        try {
+            RawResponse stopCruiseTrackResponse = videoAIoTService.stopCruiseTrack(stopRequest);
+            System.out.println(JSON.toJSONString(stopCruiseTrackResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // delete cruise track
+        DeleteCruiseTrackRequest deleteRequest = new DeleteCruiseTrackRequest();
+        deleteRequest.setDeviceNSID("34020029991180914107");
+        deleteRequest.setChannelID("98880000001320000000");
+        deleteRequest.setTrackID(1);
+        try {
+            RawResponse deleteCruiseTrackResponse = videoAIoTService.deleteCruiseTrack(deleteRequest);
+            System.out.println(JSON.toJSONString(deleteCruiseTrackResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public void testStartStreamRecord() {
         StreamStartRecordRequest streamStartRecordRequest = new StreamStartRecordRequest();
@@ -950,7 +1059,6 @@ public class VideoAIoTImplTest extends TestCase {
 
 
     public void testGetRecordList() {
-//        setBOE();
         try {
             GetRecordListRequest request = new GetRecordListRequest();
             request.setRecordType("all");
@@ -985,7 +1093,7 @@ public class VideoAIoTImplTest extends TestCase {
         }
     }
 
-    public void testGetDeviceChannnelV2() {
+    public void testGetDeviceChannelV2() {
         setTest();
         try {
             GetDeviceChannelV2Request request = new GetDeviceChannelV2Request();
@@ -1000,5 +1108,4 @@ public class VideoAIoTImplTest extends TestCase {
     public void setTest() {
 
     }
-
 }

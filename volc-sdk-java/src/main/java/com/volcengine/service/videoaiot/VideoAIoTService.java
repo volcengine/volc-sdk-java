@@ -164,6 +164,18 @@ public interface VideoAIoTService extends IBaseService {
 
     RawResponse cruiseControl(DeviceCruiseControlRequest deviceCruiseControlRequest) throws Exception;
 
+    RawResponse setCruiseTrack(SetCruiseTrackRequest setCruiseTrackRequest) throws Exception;
+
+    GetCruiseTrackResponse getCruiseTrack(GetCruiseTrackRequest getCruiseTrackRequest) throws Exception;
+
+    ListCruiseTracksResponse listCruiseTracks(ListCruiseTracksRequest listCruiseTracksRequest) throws Exception;
+
+    RawResponse deleteCruiseTrack(DeleteCruiseTrackRequest deleteCruiseTrackRequest) throws Exception;
+
+    RawResponse startCruiseTrack(StartCruiseTrackRequest startCruiseTrackRequest) throws Exception;
+
+    RawResponse stopCruiseTrack(StopCruiseTrackRequest stopCruiseTrackRequest) throws Exception;
+
     ///流
     GetStreamResponse getStream(GetStreamRequest getStreamRequest) throws Exception;
 

@@ -581,6 +581,12 @@ public class Const {
     public static final String AIoTVideoCloudControl = "CloudControl";
     public static final String AIoTVideoQueryPresetInfo = "QueryPresetInfo";
     public static final String AIoTVideoCruiseControl = "CruiseControl";
+    public static final String AIoTVideoSetCruiseTrack = "SetCruiseTrack";
+    public static final String AIoTVideoGetCruiseTrack = "GetCruiseTrack";
+    public static final String AIoTVideoListCruiseTracks = "ListCruiseTracks";
+    public static final String AIoTVideoDeleteCruiseTrack = "DeleteCruiseTrack";
+    public static final String AIoTVideoStartCruiseTrack = "StartCruiseTrack";
+    public static final String AIoTVideoStopCruiseTrack = "StopCruiseTrack";
 
     public static final String AIoTVideoGetStream = "GetStream";
     public static final String AIoTVideoListStreams = "ListStreams";

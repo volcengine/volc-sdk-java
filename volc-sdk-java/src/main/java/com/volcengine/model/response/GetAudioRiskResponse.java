@@ -50,6 +50,10 @@ public class GetAudioRiskResponse {
         private Integer frameId;
         @JSONField(name = "FrameResults")
         private List<FrameResult> frameResults;
+        @JSONField(name = "UserId")
+        private String UserId;
+        @JSONField(name = "SliceId")
+        private String SliceId;
     }
 
     @Data

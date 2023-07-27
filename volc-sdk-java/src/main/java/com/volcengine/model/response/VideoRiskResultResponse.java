@@ -50,6 +50,10 @@ public class VideoRiskResultResponse {
         private String url;
         @JSONField(name = "Offset")
         private float offset;
+        @JSONField(name = "UserId")
+        private String UserId;
+        @JSONField(name = "SliceId")
+        private String SliceId;
         @JSONField(name = "Results")
         private List<FrameResult> results;
     }

@@ -423,4 +423,44 @@ public interface VodPlayInfoOrBuilder extends
    * <code>.Volcengine.Vod.Models.Business.VodVolumeInfo Volume = 23;</code>
    */
   com.volcengine.service.vod.model.business.VodVolumeInfoOrBuilder getVolumeOrBuilder();
+
+  /**
+   * <pre>
+   * MainPlayUrl的过期时间
+   * </pre>
+   *
+   * <code>string MainUrlExpire = 24;</code>
+   * @return The mainUrlExpire.
+   */
+  java.lang.String getMainUrlExpire();
+  /**
+   * <pre>
+   * MainPlayUrl的过期时间
+   * </pre>
+   *
+   * <code>string MainUrlExpire = 24;</code>
+   * @return The bytes for mainUrlExpire.
+   */
+  com.google.protobuf.ByteString
+      getMainUrlExpireBytes();
+
+  /**
+   * <pre>
+   * BackupPlayUrl的过期时间
+   * </pre>
+   *
+   * <code>string BackupUrlExpire = 25;</code>
+   * @return The backupUrlExpire.
+   */
+  java.lang.String getBackupUrlExpire();
+  /**
+   * <pre>
+   * BackupPlayUrl的过期时间
+   * </pre>
+   *
+   * <code>string BackupUrlExpire = 25;</code>
+   * @return The bytes for backupUrlExpire.
+   */
+  com.google.protobuf.ByteString
+      getBackupUrlExpireBytes();
 }

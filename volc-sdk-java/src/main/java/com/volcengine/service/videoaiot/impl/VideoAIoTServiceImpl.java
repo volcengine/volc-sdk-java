@@ -596,6 +596,75 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
         return JSON.parseObject(response.getData(), RawResponse.class);
     }
 
+    @Override
+    public RawResponse setCruiseTrack(SetCruiseTrackRequest setCruiseTrackRequest) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoSetCruiseTrack, new ArrayList<NameValuePair>() {
+        }, JSON.toJSONString(setCruiseTrackRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), RawResponse.class);
+    }
+
+    @Override
+    public GetCruiseTrackResponse getCruiseTrack(GetCruiseTrackRequest getCruiseTrackRequest) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(Const.AIoTVideoGetCruiseTrack, new ArrayList<NameValuePair>() {
+            {
+                add(new BasicNameValuePair("DeviceNSID", getCruiseTrackRequest.getDeviceNSID()));
+                add(new BasicNameValuePair("ChannelID", getCruiseTrackRequest.getChannelID()));
+                add(new BasicNameValuePair("TrackID", Integer.toString(getCruiseTrackRequest.getTrackID())));
+            }
+        });
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), GetCruiseTrackResponse.class);
+    }
+
+    @Override
+    public ListCruiseTracksResponse listCruiseTracks(ListCruiseTracksRequest listCruiseTracksRequest) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(Const.AIoTVideoListCruiseTracks, new ArrayList<NameValuePair>() {
+            {
+                add(new BasicNameValuePair("DeviceNSID", listCruiseTracksRequest.getDeviceNSID()));
+                add(new BasicNameValuePair("ChannelID", listCruiseTracksRequest.getChannelID()));
+            }
+        });
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), ListCruiseTracksResponse.class);
+    }
+
+    @Override
+    public RawResponse deleteCruiseTrack(DeleteCruiseTrackRequest deleteCruiseTrackRequest) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoDeleteCruiseTrack, new ArrayList<NameValuePair>() {
+        }, JSON.toJSONString(deleteCruiseTrackRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), RawResponse.class);
+    }
+
+    @Override
+    public RawResponse startCruiseTrack(StartCruiseTrackRequest startCruiseTrackRequest) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoStartCruiseTrack, new ArrayList<NameValuePair>() {
+        }, JSON.toJSONString(startCruiseTrackRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), RawResponse.class);
+    }
+
+    @Override
+    public RawResponse stopCruiseTrack(StopCruiseTrackRequest stopCruiseTrackRequest) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoStopCruiseTrack, new ArrayList<NameValuePair>() {
+        }, JSON.toJSONString(stopCruiseTrackRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), RawResponse.class);
+    }
+
     //流相关
     @Override
     public GetStreamResponse getStream(GetStreamRequest getStreamRequest) throws Exception {

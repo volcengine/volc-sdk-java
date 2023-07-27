@@ -596,6 +596,91 @@ public class VideoAIoTConfig {
                         }
                     }
             ));
+            put(Const.AIoTVideoSetCruiseTrack, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AIoTVideoSetCruiseTrack));
+                                    add(new BasicNameValuePair("Version", Const.VideoAIoTSDKVersion));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.AIoTVideoGetCruiseTrack, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AIoTVideoGetCruiseTrack));
+                                    add(new BasicNameValuePair("Version", Const.VideoAIoTSDKVersion));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.AIoTVideoListCruiseTracks, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AIoTVideoListCruiseTracks));
+                                    add(new BasicNameValuePair("Version", Const.VideoAIoTSDKVersion));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.AIoTVideoDeleteCruiseTrack, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AIoTVideoDeleteCruiseTrack));
+                                    add(new BasicNameValuePair("Version", Const.VideoAIoTSDKVersion));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.AIoTVideoStartCruiseTrack, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AIoTVideoStartCruiseTrack));
+                                    add(new BasicNameValuePair("Version", Const.VideoAIoTSDKVersion));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.AIoTVideoStopCruiseTrack, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AIoTVideoStopCruiseTrack));
+                                    add(new BasicNameValuePair("Version", Const.VideoAIoTSDKVersion));
+                                }
+                            });
+                        }
+                    }
+            ));
+
             put(Const.AIoTVideoListStreams, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

@@ -33,6 +33,8 @@ private static final long serialVersionUID = 0L;
     quality_ = "";
     barrageMaskOffset_ = "";
     keyFrameAlignment_ = "";
+    mainUrlExpire_ = "";
+    backupUrlExpire_ = "";
   }
 
   @java.lang.Override
@@ -203,6 +205,18 @@ private static final long serialVersionUID = 0L;
               volume_ = subBuilder.buildPartial();
             }
 
+            break;
+          }
+          case 194: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            mainUrlExpire_ = s;
+            break;
+          }
+          case 202: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            backupUrlExpire_ = s;
             break;
           }
           default: {
@@ -1132,6 +1146,98 @@ private static final long serialVersionUID = 0L;
     return getVolume();
   }
 
+  public static final int MAINURLEXPIRE_FIELD_NUMBER = 24;
+  private volatile java.lang.Object mainUrlExpire_;
+  /**
+   * <pre>
+   * MainPlayUrl的过期时间
+   * </pre>
+   *
+   * <code>string MainUrlExpire = 24;</code>
+   * @return The mainUrlExpire.
+   */
+  @java.lang.Override
+  public java.lang.String getMainUrlExpire() {
+    java.lang.Object ref = mainUrlExpire_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      mainUrlExpire_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * MainPlayUrl的过期时间
+   * </pre>
+   *
+   * <code>string MainUrlExpire = 24;</code>
+   * @return The bytes for mainUrlExpire.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getMainUrlExpireBytes() {
+    java.lang.Object ref = mainUrlExpire_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      mainUrlExpire_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int BACKUPURLEXPIRE_FIELD_NUMBER = 25;
+  private volatile java.lang.Object backupUrlExpire_;
+  /**
+   * <pre>
+   * BackupPlayUrl的过期时间
+   * </pre>
+   *
+   * <code>string BackupUrlExpire = 25;</code>
+   * @return The backupUrlExpire.
+   */
+  @java.lang.Override
+  public java.lang.String getBackupUrlExpire() {
+    java.lang.Object ref = backupUrlExpire_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      backupUrlExpire_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * BackupPlayUrl的过期时间
+   * </pre>
+   *
+   * <code>string BackupUrlExpire = 25;</code>
+   * @return The bytes for backupUrlExpire.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getBackupUrlExpireBytes() {
+    java.lang.Object ref = backupUrlExpire_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      backupUrlExpire_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1214,6 +1320,12 @@ private static final long serialVersionUID = 0L;
     }
     if (volume_ != null) {
       output.writeMessage(23, getVolume());
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mainUrlExpire_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 24, mainUrlExpire_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(backupUrlExpire_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 25, backupUrlExpire_);
     }
     unknownFields.writeTo(output);
   }
@@ -1299,6 +1411,12 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(23, getVolume());
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mainUrlExpire_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(24, mainUrlExpire_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(backupUrlExpire_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(25, backupUrlExpire_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1365,6 +1483,10 @@ private static final long serialVersionUID = 0L;
       if (!getVolume()
           .equals(other.getVolume())) return false;
     }
+    if (!getMainUrlExpire()
+        .equals(other.getMainUrlExpire())) return false;
+    if (!getBackupUrlExpire()
+        .equals(other.getBackupUrlExpire())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1426,6 +1548,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + VOLUME_FIELD_NUMBER;
       hash = (53 * hash) + getVolume().hashCode();
     }
+    hash = (37 * hash) + MAINURLEXPIRE_FIELD_NUMBER;
+    hash = (53 * hash) + getMainUrlExpire().hashCode();
+    hash = (37 * hash) + BACKUPURLEXPIRE_FIELD_NUMBER;
+    hash = (53 * hash) + getBackupUrlExpire().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1609,6 +1735,10 @@ private static final long serialVersionUID = 0L;
         volume_ = null;
         volumeBuilder_ = null;
       }
+      mainUrlExpire_ = "";
+
+      backupUrlExpire_ = "";
+
       return this;
     }
 
@@ -1662,6 +1792,8 @@ private static final long serialVersionUID = 0L;
       } else {
         result.volume_ = volumeBuilder_.build();
       }
+      result.mainUrlExpire_ = mainUrlExpire_;
+      result.backupUrlExpire_ = backupUrlExpire_;
       onBuilt();
       return result;
     }
@@ -1795,6 +1927,14 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasVolume()) {
         mergeVolume(other.getVolume());
+      }
+      if (!other.getMainUrlExpire().isEmpty()) {
+        mainUrlExpire_ = other.mainUrlExpire_;
+        onChanged();
+      }
+      if (!other.getBackupUrlExpire().isEmpty()) {
+        backupUrlExpire_ = other.backupUrlExpire_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -3825,6 +3965,198 @@ private static final long serialVersionUID = 0L;
         volume_ = null;
       }
       return volumeBuilder_;
+    }
+
+    private java.lang.Object mainUrlExpire_ = "";
+    /**
+     * <pre>
+     * MainPlayUrl的过期时间
+     * </pre>
+     *
+     * <code>string MainUrlExpire = 24;</code>
+     * @return The mainUrlExpire.
+     */
+    public java.lang.String getMainUrlExpire() {
+      java.lang.Object ref = mainUrlExpire_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        mainUrlExpire_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * MainPlayUrl的过期时间
+     * </pre>
+     *
+     * <code>string MainUrlExpire = 24;</code>
+     * @return The bytes for mainUrlExpire.
+     */
+    public com.google.protobuf.ByteString
+        getMainUrlExpireBytes() {
+      java.lang.Object ref = mainUrlExpire_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        mainUrlExpire_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * MainPlayUrl的过期时间
+     * </pre>
+     *
+     * <code>string MainUrlExpire = 24;</code>
+     * @param value The mainUrlExpire to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMainUrlExpire(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      mainUrlExpire_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * MainPlayUrl的过期时间
+     * </pre>
+     *
+     * <code>string MainUrlExpire = 24;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMainUrlExpire() {
+      
+      mainUrlExpire_ = getDefaultInstance().getMainUrlExpire();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * MainPlayUrl的过期时间
+     * </pre>
+     *
+     * <code>string MainUrlExpire = 24;</code>
+     * @param value The bytes for mainUrlExpire to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMainUrlExpireBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      mainUrlExpire_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object backupUrlExpire_ = "";
+    /**
+     * <pre>
+     * BackupPlayUrl的过期时间
+     * </pre>
+     *
+     * <code>string BackupUrlExpire = 25;</code>
+     * @return The backupUrlExpire.
+     */
+    public java.lang.String getBackupUrlExpire() {
+      java.lang.Object ref = backupUrlExpire_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        backupUrlExpire_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * BackupPlayUrl的过期时间
+     * </pre>
+     *
+     * <code>string BackupUrlExpire = 25;</code>
+     * @return The bytes for backupUrlExpire.
+     */
+    public com.google.protobuf.ByteString
+        getBackupUrlExpireBytes() {
+      java.lang.Object ref = backupUrlExpire_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        backupUrlExpire_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * BackupPlayUrl的过期时间
+     * </pre>
+     *
+     * <code>string BackupUrlExpire = 25;</code>
+     * @param value The backupUrlExpire to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBackupUrlExpire(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      backupUrlExpire_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * BackupPlayUrl的过期时间
+     * </pre>
+     *
+     * <code>string BackupUrlExpire = 25;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBackupUrlExpire() {
+      
+      backupUrlExpire_ = getDefaultInstance().getBackupUrlExpire();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * BackupPlayUrl的过期时间
+     * </pre>
+     *
+     * <code>string BackupUrlExpire = 25;</code>
+     * @param value The bytes for backupUrlExpire to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBackupUrlExpireBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      backupUrlExpire_ = value;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

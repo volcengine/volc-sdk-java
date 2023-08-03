@@ -1,5 +1,8 @@
 Change log
 
+2023-08-03 Bumped to version v1.0.111
+- Updated apis for vod/video_aiot/livesaas/visual/stream
+
 2023-07-27 Bumped to version v1.0.110
 - Updated apis for vod/video_aiot/vms/imagex/security
 

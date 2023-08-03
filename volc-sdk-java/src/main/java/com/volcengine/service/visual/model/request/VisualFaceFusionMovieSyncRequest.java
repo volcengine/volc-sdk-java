@@ -9,12 +9,22 @@ import java.util.ArrayList;
 public class VisualFaceFusionMovieSyncRequest {
     @JSONField(name = "req_key")
     String reqKey;
+
     @JSONField(name = "binary_data_base64")
     ArrayList<String> binaryDataBase64;
+
     @JSONField(name = "image_url")
     String image_url;
+
     @JSONField(name = "video_url")
     String video_url;
+
     @JSONField(name = "enable_face_beautify")
     Boolean enableFaceBeautify;
+
+    @JSONField(name = "ref_img_url")
+    String refImgUrl;
+
+    @JSONField(name = "source_similarity")
+    String sourceSimilarity;
 }

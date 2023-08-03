@@ -400,6 +400,15 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
     }
 
     @Override
+    public VisualAIGufengResponse aiGufeng(VisualAIGufengRequest request) throws Exception {
+        RawResponse response = json(Const.AIGufeng, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualAIGufengResponse.class);
+    }
+
+    @Override
     public VisualLensVidaVideoSubmitTaskV2Response lensVidaVideoSubmitTaskV2(VisualLensVidaVideoSubmitTaskV2Request request) throws Exception {
         RawResponse response = json(Const.LensVidaVideoSubmitTaskV2, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -528,7 +537,7 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         JSONObject jsonObject = (JSONObject) JSON.toJSON(obj);
         List<NameValuePair> list = new ArrayList<NameValuePair>();
         for (String key : jsonObject.keySet()) {
-            NameValuePair nameValuePair = new BasicNameValuePair(key, jsonObject.get(key).toString());
+            NameValuePair nameValuePair = new BasicNameValuePair(key, String.valueOf(jsonObject.get(key)));
             list.add(nameValuePair);
         }
         return list;

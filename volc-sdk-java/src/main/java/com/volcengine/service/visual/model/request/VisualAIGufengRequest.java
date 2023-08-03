@@ -6,14 +6,14 @@ import lombok.Data;
 import java.util.ArrayList;
 
 @Data
-public class VisualConvertPhotoV2Request {
+public class VisualAIGufengRequest {
 
     @JSONField(name = "req_key")
-    String reqKey = "lens_opr";
+    String reqKey = "ai_gufeng";
 
     @JSONField(name = "binary_data_base64")
     ArrayList<String> binaryDataBase64;
 
-    @JSONField(name = "if_color")
-    Integer ifColor = 1;
+    @JSONField(name = "image_urls")
+    ArrayList<String> image_urls;
 }

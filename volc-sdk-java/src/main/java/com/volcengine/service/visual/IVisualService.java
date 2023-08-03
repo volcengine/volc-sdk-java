@@ -321,6 +321,14 @@ public interface IVisualService extends IBaseService {
     VisualConvertPhotoV2Response convertPhotoV2(VisualConvertPhotoV2Request request) throws Exception;
 
     /**
+     * AI仙侠
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualAIGufengResponse aiGufeng(VisualAIGufengRequest request) throws Exception;
+
+    /**
      * 视频画质评分V2-提交
      * @param request
      * @return

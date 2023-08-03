@@ -1694,6 +1694,25 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 	
 	
 	/**
+     * listCdnTopAccess.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodListCdnTopAccessRequest
+     * @return com.volcengine.service.vod.model.response.VodListCdnTopAccessResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodListCdnTopAccessResponse listCdnTopAccess(com.volcengine.service.vod.model.request.VodListCdnTopAccessRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.ListCdnTopAccess, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodListCdnTopAccessResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodListCdnTopAccessResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
      * describeVodDomainBandwidthData.
      *
      * @param input com.volcengine.service.vod.model.request.VodDescribeVodDomainBandwidthDataRequest

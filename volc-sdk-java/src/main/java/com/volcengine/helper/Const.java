@@ -679,6 +679,7 @@ public class Const {
     public static final String EnhancePhotoV2 = "EnhancePhotoV2";
     public static final String AllAgeGeneration = "AllAgeGeneration";
     public static final String ConvertPhotoV2 = "ConvertPhotoV2";
+    public static final String AIGufeng = "AIGufeng";
     public static final String LensVidaVideoSubmitTaskV2 = "LensVidaVideoSubmitTaskV2";
     public static final String LensVidaVideoGetResultV2 = "LensVidaVideoGetResultV2";
     public static final String VideoOverResolutionSubmitTaskV2 = "VideoOverResolutionSubmitTaskV2";

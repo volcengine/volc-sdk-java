@@ -114,6 +114,7 @@ public class Const {
     public static final String ListCdnTasks = "ListCdnTasks";
     public static final String ListCdnAccessLog = "ListCdnAccessLog";
     public static final String ListCdnTopAccessUrl = "ListCdnTopAccessUrl";
+    public static final String ListCdnTopAccess = "ListCdnTopAccess";
     public static final String DescribeVodDomainBandwidthData = "DescribeVodDomainBandwidthData";
     public static final String ListCdnUsageData = "ListCdnUsageData";
     public static final String ListCdnStatusData = "ListCdnStatusData";

@@ -6,9 +6,6 @@ package com.volcengine.example.vod.media;
 
 import com.volcengine.service.vod.IVodService;
 import com.volcengine.service.vod.impl.VodServiceImpl;
-
-import java.util.Arrays;
-
 public class VodDeleteMediaTosFileDemo {
 
     public static void main(String[] args) throws Exception {
@@ -19,9 +16,7 @@ public class VodDeleteMediaTosFileDemo {
         try {
             com.volcengine.service.vod.model.request.VodDeleteMediaTosFileRequest.Builder reqBuilder = com.volcengine.service.vod.model.request.VodDeleteMediaTosFileRequest.newBuilder();
 			reqBuilder.setSpaceName("your SpaceName");
-            reqBuilder.addFileNames("your fileName1");
-            reqBuilder.addFileNames("your fileName2");
-
+			
             com.volcengine.service.vod.model.response.VodDeleteMediaTosFileResponse resp = vodService.deleteMediaTosFile(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {
                 System.out.println(resp.getResponseMetadata().getError());

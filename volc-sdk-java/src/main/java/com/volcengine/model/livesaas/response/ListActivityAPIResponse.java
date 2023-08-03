@@ -15,48 +15,50 @@ public class ListActivityAPIResponse {
 
     @Data
     public static class ListActivityAPIResp {
+        @JSONField(name = "PageNo")
+        Integer PageNo;
         @JSONField(name = "PageItemCount")
         Integer PageItemCount;
         @JSONField(name = "TotalItemCount")
         Integer TotalItemCount;
         @JSONField(name = "Activities")
         List<ListActivityAPIForm> Activities;
-        @JSONField(name = "PageNo")
-        Integer PageNo;
     }
 
     @Data
     public static class ListActivityAPIForm {
-        @JSONField(name = "SiteTags")
-        List<SiteActivityTag> SiteTags;
-        @JSONField(name = "IsLockPreview")
-        Integer IsLockPreview;
-        @JSONField(name = "HostAccountId")
-        Long HostAccountId;
-        @JSONField(name = "TextSiteTags")
-        List<SiteActivityTag> TextSiteTags;
         @JSONField(name = "Id")
         Long Id;
-        @JSONField(name = "Name")
-        String Name;
         @JSONField(name = "CoverImage")
         String CoverImage;
-        @JSONField(name = "CreateTime")
-        Long CreateTime;
-        @JSONField(name = "HostAccountName")
-        String HostAccountName;
-        @JSONField(name = "ViewUrl")
-        String ViewUrl;
-        @JSONField(name = "Status")
-        Integer Status;
         @JSONField(name = "LiveTime")
         Long LiveTime;
         @JSONField(name = "StreamStartTime")
         Long StreamStartTime;
-        @JSONField(name = "LiveReviewStatus")
-        Integer LiveReviewStatus;
+        @JSONField(name = "HostAccountId")
+        Long HostAccountId;
+        @JSONField(name = "TextSiteTags")
+        List<SiteActivityTag> TextSiteTags;
+        @JSONField(name = "VerticalCoverImage")
+        String VerticalCoverImage;
+        @JSONField(name = "Status")
+        Integer Status;
+        @JSONField(name = "CreateTime")
+        Long CreateTime;
+        @JSONField(name = "SiteTags")
+        List<SiteActivityTag> SiteTags;
         @JSONField(name = "LiveMode")
         Integer LiveMode;
+        @JSONField(name = "ViewUrl")
+        String ViewUrl;
+        @JSONField(name = "IsLockPreview")
+        Integer IsLockPreview;
+        @JSONField(name = "HostAccountName")
+        String HostAccountName;
+        @JSONField(name = "Name")
+        String Name;
+        @JSONField(name = "LiveReviewStatus")
+        Integer LiveReviewStatus;
     }
 
     @Data

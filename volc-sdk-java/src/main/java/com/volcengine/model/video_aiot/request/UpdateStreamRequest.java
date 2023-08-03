@@ -20,4 +20,6 @@ public class UpdateStreamRequest {
     Stream.StreamTemplate Record;
     @JSONField(name = "Status")
     String status;
+    @JSONField(name = "IgnoreAudio")
+    boolean ignoreAudio;
 }

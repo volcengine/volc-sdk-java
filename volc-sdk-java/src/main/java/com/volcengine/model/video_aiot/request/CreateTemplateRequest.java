@@ -1,9 +1,11 @@
 package com.volcengine.model.video_aiot.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.video_aiot.common;
 import lombok.Data;
 
 import java.util.HashMap;
+import java.util.List;
 
 @Data
 public class CreateTemplateRequest {
@@ -13,7 +15,8 @@ public class CreateTemplateRequest {
     Record record;
     @JSONField(name = "Screenshot")
     Screenshot screenshot;
-
+    @JSONField(name = "AI")
+    AI ai;
 
     @Data
     public static class Screenshot {
@@ -22,7 +25,7 @@ public class CreateTemplateRequest {
         @JSONField(name = "Type")
         String[] type;
         @JSONField(name = "TemplateTTLConfig")
-        TemplateTTLConfig templateTTLConfig;
+        common.TemplateTTLConfig templateTTLConfig;
     }
 
     @Data
@@ -32,7 +35,11 @@ public class CreateTemplateRequest {
         @JSONField(name = "Format")
         String format;  //mp4/hls
         @JSONField(name = "TemplateTTLConfig")
-        TemplateTTLConfig templateTTLConfig;
+        common.TemplateTTLConfig templateTTLConfig;
+        @JSONField(name = "Bucket")
+        TemplateBucketConfig templateBucketConfig;
+        @JSONField(name = "EnableTimes")
+        List<common.EnableTime> enableTimeList;
     }
 
     @Data
@@ -60,20 +67,18 @@ public class CreateTemplateRequest {
         @JSONField(name = "GrabStrategy")
         String grabStrategy;
         @JSONField(name = "EnableTimes")
-        EnableTime[] enableTimes;
+        common.EnableTime[] enableTimes;
     }
-
-    public static class EnableTime {
-        @JSONField(name = "EnableFrom")
-        String enableFrom;
-        @JSONField(name = "EnableTo")
-        String enableTo;
-    }
-
 
     @Data
-    public static class TemplateTTLConfig {
-        @JSONField(name = "Days")
-        int days;
+    public static class TemplateBucketConfig {
+        @JSONField(name = "Endpoint")
+        String endpoint;
+        @JSONField(name = "Region")
+        String region;
+        @JSONField(name = "Name")
+        String name;
+        @JSONField(name = "UploadType")
+        String uploadType;
     }
 }

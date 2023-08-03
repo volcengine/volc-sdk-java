@@ -135,6 +135,7 @@ public interface VideoAIoTService extends IBaseService {
 
     LocalMediaDownloadResponse localMediaDownload(LocalMediaDownloadRequest localMediaDownloadRequest) throws Exception;
 
+    GetLocalMediaDownloadResponse getLocalDownload(String id) throws Exception;
     /**
      * @param sipServerID sip server id
      * @param deviceType  IPC/NVR
@@ -183,7 +184,7 @@ public interface VideoAIoTService extends IBaseService {
 
     IDResponse updateStream(UpdateStreamRequest updateStreamRequest) throws Exception;
 
-    IDResponse startStream(StreamRequest startStream) throws Exception;
+    StartStreamResponse startStream(StreamRequest startStream) throws Exception;
 
     IDResponse stopStream(StreamRequest stopStream) throws Exception;
 
@@ -232,7 +233,12 @@ public interface VideoAIoTService extends IBaseService {
 
     IDResponse playbackControl(PlaybackControlRequest request) throws Exception;
 
-    //模板
+    //录制模板
+//    IDResponse createTemplate(CreateTemplateRequest createTemplateRequest, String templateType) throws Exception;
+//
+//    Template getTemplate(String templateID, String templateType) throws Exception;
+//
+//    IDResponse deleteTemplate(String templateID, String templateType) throws Exception;
 
     //ai库
 
@@ -246,4 +252,17 @@ public interface VideoAIoTService extends IBaseService {
     StartVoiceTalkResponse startVoiceTalk(StartVoiceTalkRequest startVoiceTalkRequest) throws Exception;
 
     RawResponse stopVoiceTalk(StopVoiceTalkRequest stopVoiceTalkRequest) throws Exception;
+
+    //录像计划
+    IDResponse createRecordPlan(CreateRecordPlanRequest createRecordPlanRequest) throws Exception;
+
+    IDResponse updateRecordPlan(UpdateRecordPlanRequest updateRecordPlanRequest) throws Exception;
+
+    IDResponse deleteRecordPlan(String planID) throws Exception;
+
+    RecordPlanResponse getRecordPlan(String planID) throws Exception;
+
+    ListRecordPlansResponse listRecordPlans(ListRecordPlansRequest listRecordPlansRequest) throws Exception;
+
+    ListRecordPlanChannelsResponse listRecordPlanChannels(String planID) throws Exception;
 }

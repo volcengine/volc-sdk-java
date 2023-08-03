@@ -569,6 +569,7 @@ public class Const {
 
     public static final String AIoTVideoLocalMediaDownload = "LocalMediaDownload";
 
+    public static final String AIoTVideoGetLocalDownload = "GetLocalDownload";
     public static final String AIoTVideoSetAlarmGuard = "SetAlarmGuard";
     public static final String AIoTVideoResetAlarm = "ResetAlarm";
 
@@ -623,6 +624,13 @@ public class Const {
     public static final String AIoTVideoUnforbidStream = "UnforbidStream";
     public static final String AIoTVideoStartVoiceTalk = "StartVoiceTalk";
     public static final String AIoTVideoStopVoiceTalk = "StopVoiceTalk";
+
+    public static final String AIoTVideoCreateRecordPlan = "CreateRecordPlan";
+    public static final String AIoTVideoUpdateRecordPlan = "UpdateRecordPlan";
+    public static final String AIoTVideoDeleteRecordPlan = "DeleteRecordPlan";
+    public static final String AIoTVideoListRecordPlans = "ListRecordPlans";
+    public static final String AIoTVideoGetRecordPlan = "GetRecordPlan";
+    public static final String AIoTVideoListRecordPlanChannels = "ListRecordPlanChannels";
 
     //request method
     public static final String GET = "GET";

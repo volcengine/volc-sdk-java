@@ -330,6 +330,19 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
         return JSON.parseObject(response.getData(), LocalMediaDownloadResponse.class);
     }
 
+    @Override
+    public GetLocalMediaDownloadResponse getLocalDownload(String id) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoGetLocalDownload, new ArrayList<NameValuePair>() {
+            {
+                add(new BasicNameValuePair("ID", id));
+            }
+        }, "");
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), GetLocalMediaDownloadResponse.class);
+    }
+
     public IDResponse freshDevice(DeviceRequest freshDeviceRequest) throws Exception {
         com.volcengine.model.response.RawResponse response = query(Const.AIoTVideoFreshDevice, new ArrayList<NameValuePair>() {
             {
@@ -713,7 +726,7 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
     }
 
     @Override
-    public IDResponse startStream(StreamRequest startStream) throws Exception {
+    public StartStreamResponse startStream(StreamRequest startStream) throws Exception {
         com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoStartStream, new ArrayList<NameValuePair>() {
             {
                 add(new BasicNameValuePair("StreamID", startStream.getStreamID()));
@@ -722,7 +735,7 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        return JSON.parseObject(response.getData(), IDResponse.class);
+        return JSON.parseObject(response.getData(), StartStreamResponse.class);
     }
 
     @Override
@@ -946,6 +959,21 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
         return JSON.parseObject(response.getData(), IDResponse.class);
     }
 
+//    @Override
+//    public IDResponse createTemplate(CreateTemplateRequest createTemplateRequest, String templateType) throws Exception {
+//        return null;
+//    }
+//
+//    @Override
+//    public Template getTemplate(String templateID, String templateType) throws Exception {
+//        return null;
+//    }
+//
+//    @Override
+//    public IDResponse deleteTemplate(String templateID, String templateType) throws Exception {
+//        return null;
+//    }
+
     @Override
     public StartVoiceTalkResponse startVoiceTalk(StartVoiceTalkRequest startVoiceTalkRequest) throws Exception {
         com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoStartVoiceTalk, new ArrayList<NameValuePair>() {
@@ -973,5 +1001,77 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
             throw response.getException();
         }
         return JSON.parseObject(response.getData(), RawResponse.class);
+    }
+
+    @Override
+    public IDResponse createRecordPlan(CreateRecordPlanRequest createRecordPlanRequest) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoCreateRecordPlan, new ArrayList<NameValuePair>() {
+        }, JSON.toJSONString(createRecordPlanRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), IDResponse.class);
+    }
+
+    @Override
+    public IDResponse updateRecordPlan(UpdateRecordPlanRequest updateRecordPlanRequest) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoUpdateRecordPlan, new ArrayList<NameValuePair>() {
+        }, JSON.toJSONString(updateRecordPlanRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), IDResponse.class);
+    }
+
+    @Override
+    public IDResponse deleteRecordPlan(String planID) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoDeleteRecordPlan, new ArrayList<NameValuePair>() {
+            {
+                add(new BasicNameValuePair("PlanID", planID));
+            }
+        }, "");
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), IDResponse.class);
+    }
+
+    @Override
+    public RecordPlanResponse getRecordPlan(String planID) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(Const.AIoTVideoGetRecordPlan, new ArrayList<NameValuePair>() {
+            {
+                add(new BasicNameValuePair("PlanID", planID));
+            }
+        });
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), RecordPlanResponse.class);
+    }
+
+    @Override
+    public ListRecordPlansResponse listRecordPlans(ListRecordPlansRequest listRecordPlansRequest) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(Const.AIoTVideoListRecordPlans, new ArrayList<NameValuePair>() {
+            {
+                add(new BasicNameValuePair("FilterName", listRecordPlansRequest.getFilterName()));
+            }
+        });
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), ListRecordPlansResponse.class);
+    }
+
+    @Override
+    public ListRecordPlanChannelsResponse listRecordPlanChannels(String planID) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(Const.AIoTVideoListRecordPlanChannels, new ArrayList<NameValuePair>() {
+            {
+                add(new BasicNameValuePair("PlanID", planID));
+            }
+        });
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), ListRecordPlanChannelsResponse.class);
     }
 }

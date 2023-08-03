@@ -23,6 +23,8 @@ public class ListDeviceRecordsResponse {
         Screenshot screenResult;
         @JSONField(name = "Record")
         Record recordResult;
+        @JSONField(name = "RecordMeta")
+        RecordMeta recordMeta;
     }
 
     @Data
@@ -44,6 +46,7 @@ public class ListDeviceRecordsResponse {
         @JSONField(name = "Format")
         String format;
     }
+
     @Data
     public static class RecordMeta {
         @JSONField(name = "StartTs")

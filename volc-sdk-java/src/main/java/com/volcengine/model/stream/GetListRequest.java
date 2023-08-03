@@ -29,6 +29,8 @@ public class GetListRequest {
     String clientVersion;
     @JSONField(name = "AllowStick")
     int allowStick;
+    @JSONField(name = "AllowForceInsert")
+    int allowForceInsert;
     @JSONField(name = "StressTest")
     int stressTest;
     @JSONField(name = "Ip")

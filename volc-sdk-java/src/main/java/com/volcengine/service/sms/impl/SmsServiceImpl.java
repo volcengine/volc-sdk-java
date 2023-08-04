@@ -1,6 +1,7 @@
 package com.volcengine.service.sms.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.google.common.base.Strings;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.model.ServiceInfo;
@@ -27,6 +28,10 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     private static final ConcurrentHashMap<String,SmsService> instanceMap = new ConcurrentHashMap<>();
 
     public static final String SourceTypeText = "text/string";
+
+    public static final String DefaultErrorCode = "-1";
+    public static final String DefaultErrorMsg = "未知错误";
+
 
     private SmsServiceImpl() {
         super(SmsConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), SmsConfig.apiInfoList);
@@ -116,6 +121,16 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         }
         return getSmsSendResponseV2(response);
     }
+
+    @Override
+    public SmsSendResponse sendStandard(SmsSendRequest smsSendRequest) throws Exception {
+        RawResponse response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
+        if(response.getCode() == SdkError.EHTTP.getNumber()){
+            response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
+        }
+        return getSmsSendResponseStandard(response);
+    }
+
 
     @Override
     public SmsSendResponse sendVms(SmsSendRequest smsSendRequest) throws Exception {
@@ -309,6 +324,30 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         }
         res.getResponseMetadata().setService("volcSMS");
         return res;
+    }
+
+    private SmsSendResponse getSmsSendResponseStandard(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            if (response.getException() != null) {
+                return new SmsSendResponse(DefaultErrorCode,response.getException().getMessage());
+            }
+            return new SmsSendResponse(String.valueOf(response.getCode()), Arrays.toString(response.getData()));
+        }
+        SmsSendResponse res = JSON.parseObject(response.getData(), SmsSendResponse.class);
+        if (res == null) {
+            return new SmsSendResponse(DefaultErrorCode, DefaultErrorMsg);
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    private static ResponseMetadata GetResponseData(String code, String msg) {
+        ResponseMetadata resp = new ResponseMetadata();
+        ResponseMetadata.Error defaultErr = new ResponseMetadata.Error();
+        defaultErr.setMessage(msg);
+        defaultErr.setCode(code);
+        resp.setError(defaultErr);
+        return resp;
     }
 
     private SmsCheckVerifyCodeResponse getSmsCheckResponse(RawResponse response) throws Exception {

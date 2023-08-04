@@ -7,9 +7,9 @@ import com.volcengine.model.request.SmsSendRequest;
 import com.volcengine.model.request.VmsElement;
 import com.volcengine.model.response.ApplyVmsTemplateResponse;
 import com.volcengine.model.response.GetVmsTemplateResponse;
+import com.volcengine.model.response.ResponseMetadata;
 import com.volcengine.model.response.SmsSendResponse;
 import com.volcengine.service.sms.SmsService;
-import com.volcengine.service.sms.SmsServiceInfo;
 import com.volcengine.service.sms.SmsServiceInfoConfig;
 import com.volcengine.service.sms.SourceType;
 import com.volcengine.service.sms.impl.SmsServiceImpl;
@@ -25,19 +25,21 @@ public class SendSmsDemo {
     public static void main(String[] args) throws IOException {
 
         SmsSendRequest req = new SmsSendRequest();
-        req.setPhoneNumbers("136XX08XXXX");
+        req.setPhoneNumbers("136XXXXXXXX");
         req.setSmsAccount("subaccount");
-        req.setTemplateId("templateid");
+        req.setTemplateId("templateId");
         req.setSign("signature");
 
         Map<String,String> param = new HashMap<>();
-        param.put("content","第一行\n第二行");
+        param.put("code","测试信息");
         req.setTemplateParamByMap(param);
 
         try {
-            SmsSendResponse response = smsService.sendV2(req);
+            SmsSendResponse response = smsService.sendStandard(req);
             System.out.println(JSON.toJSONString(response));
         } catch (Exception e) {
+            System.out.println(e.getMessage());
+
             e.printStackTrace();
         }
     }

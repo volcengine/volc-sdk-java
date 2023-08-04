@@ -15,6 +15,7 @@ public interface SmsService extends IBaseService {
     SmsSendResponse send(SmsSendRequest smsSendRequest) throws Exception;
 
     SmsSendResponse sendV2(SmsSendRequest smsSendRequest) throws Exception;
+    SmsSendResponse sendStandard(SmsSendRequest smsSendRequest) throws Exception;
 
     SmsSendResponse sendVms(SmsSendRequest smsSendRequest) throws Exception;
 

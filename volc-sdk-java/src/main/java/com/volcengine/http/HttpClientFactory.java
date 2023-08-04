@@ -58,7 +58,6 @@ public class HttpClientFactory {
         } else {
             strategy = getConnectionKeepAliveStrategy();
         }
-
         HttpClient httpClient;
         httpClient = HttpClients.custom()
                 .setConnectionManager(connectionManager)

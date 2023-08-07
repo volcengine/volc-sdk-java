@@ -31,7 +31,7 @@ public class RtcServiceImpl extends BaseServiceImpl implements RtcService {
 
     @Override
     public StopRecordResponse stopRecord(StopRecordRequest stopRecordRequest) throws Exception {
-        RawResponse response = json("StopRecord",null, JSON.toJSONString(Utils.paramsToMap(stopRecordRequest)));
+        RawResponse response = json("StopRecord",null, JSON.toJSONString(stopRecordRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }

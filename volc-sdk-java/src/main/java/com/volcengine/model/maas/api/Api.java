@@ -3,8 +3,6 @@
 
 package com.volcengine.model.maas.api;
 
-import com.volcengine.model.maas.Base;
-
 public final class Api {
   private Api() {}
   public static void registerAllExtensions(
@@ -427,7 +425,7 @@ public final class Api {
                 com.volcengine.model.maas.api.Api.Message.class, com.volcengine.model.maas.api.Api.Message.Builder.class);
       }
 
-      // Construct using com.volcengine.service.maas.models.api.Api.Message.newBuilder()
+      // Construct using com.volcengine.model.maas.api.Api.Message.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1217,7 +1215,7 @@ public final class Api {
                 com.volcengine.model.maas.api.Api.Model.class, com.volcengine.model.maas.api.Api.Model.Builder.class);
       }
 
-      // Construct using com.volcengine.service.maas.models.api.Api.Model.newBuilder()
+      // Construct using com.volcengine.model.maas.api.Api.Model.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2008,7 +2006,7 @@ public final class Api {
                 com.volcengine.model.maas.api.Api.Error.class, com.volcengine.model.maas.api.Api.Error.Builder.class);
       }
 
-      // Construct using com.volcengine.service.maas.models.api.Api.Error.newBuilder()
+      // Construct using com.volcengine.model.maas.api.Api.Error.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2766,7 +2764,7 @@ public final class Api {
                 com.volcengine.model.maas.api.Api.ErrorResp.class, com.volcengine.model.maas.api.Api.ErrorResp.Builder.class);
       }
 
-      // Construct using com.volcengine.service.maas.models.api.Api.ErrorResp.newBuilder()
+      // Construct using com.volcengine.model.maas.api.Api.ErrorResp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3014,7 +3012,7 @@ public final class Api {
        * <code>.api.Error error = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.volcengine.model.maas.api.Api.Error, com.volcengine.model.maas.api.Api.Error.Builder, com.volcengine.model.maas.api.Api.ErrorOrBuilder>
+          com.volcengine.model.maas.api.Api.Error, com.volcengine.model.maas.api.Api.Error.Builder, com.volcengine.model.maas.api.Api.ErrorOrBuilder> 
           getErrorFieldBuilder() {
         if (errorBuilder_ == null) {
           errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -3605,7 +3603,7 @@ public final class Api {
                 com.volcengine.model.maas.api.Api.Choice.class, com.volcengine.model.maas.api.Api.Choice.Builder.class);
       }
 
-      // Construct using com.volcengine.service.maas.models.api.Api.Choice.newBuilder()
+      // Construct using com.volcengine.model.maas.api.Api.Choice.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3896,7 +3894,7 @@ public final class Api {
        * <code>.api.Message message = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.volcengine.model.maas.api.Api.Message, com.volcengine.model.maas.api.Api.Message.Builder, com.volcengine.model.maas.api.Api.MessageOrBuilder>
+          com.volcengine.model.maas.api.Api.Message, com.volcengine.model.maas.api.Api.Message.Builder, com.volcengine.model.maas.api.Api.MessageOrBuilder> 
           getMessageFieldBuilder() {
         if (messageBuilder_ == null) {
           messageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -4077,7 +4075,16 @@ public final class Api {
      * Exponential scaling output probability distribution
      * </pre>
      *
-     * <code>float temperature = 1;</code>
+     * <code>optional float temperature = 1;</code>
+     * @return Whether the temperature field is set.
+     */
+    boolean hasTemperature();
+    /**
+     * <pre>
+     * Exponential scaling output probability distribution
+     * </pre>
+     *
+     * <code>optional float temperature = 1;</code>
      * @return The temperature.
      */
     float getTemperature();
@@ -4087,7 +4094,16 @@ public final class Api {
      * The maximum number of tokens to generate in the char completion.
      * </pre>
      *
-     * <code>int64 max_tokens = 2;</code>
+     * <code>optional int64 max_tokens = 2;</code>
+     * @return Whether the maxTokens field is set.
+     */
+    boolean hasMaxTokens();
+    /**
+     * <pre>
+     * The maximum number of tokens to generate in the char completion.
+     * </pre>
+     *
+     * <code>optional int64 max_tokens = 2;</code>
      * @return The maxTokens.
      */
     long getMaxTokens();
@@ -4099,7 +4115,18 @@ public final class Api {
      * mass
      * </pre>
      *
-     * <code>float top_p = 3;</code>
+     * <code>optional float top_p = 3;</code>
+     * @return Whether the topP field is set.
+     */
+    boolean hasTopP();
+    /**
+     * <pre>
+     * An alternative to sampling with temperature, called nucleus sampling,
+     * where the model considers the results of the tokens with top_p probability
+     * mass
+     * </pre>
+     *
+     * <code>optional float top_p = 3;</code>
      * @return The topP.
      */
     float getTopP();
@@ -4111,7 +4138,18 @@ public final class Api {
      * likelihood to talk about new topics.
      * </pre>
      *
-     * <code>float presence_penalty = 4;</code>
+     * <code>optional float presence_penalty = 4;</code>
+     * @return Whether the presencePenalty field is set.
+     */
+    boolean hasPresencePenalty();
+    /**
+     * <pre>
+     * Number between -2.0 and 2.0. Positive values penalize new tokens based
+     * on whether they appear in the text so far, increasing the model's
+     * likelihood to talk about new topics.
+     * </pre>
+     *
+     * <code>optional float presence_penalty = 4;</code>
      * @return The presencePenalty.
      */
     float getPresencePenalty();
@@ -4123,7 +4161,18 @@ public final class Api {
      * likelihood to repeat the same line verbatim.
      * </pre>
      *
-     * <code>float frequency_penalty = 5;</code>
+     * <code>optional float frequency_penalty = 5;</code>
+     * @return Whether the frequencyPenalty field is set.
+     */
+    boolean hasFrequencyPenalty();
+    /**
+     * <pre>
+     * Number between -2.0 and 2.0. Positive values penalize new tokens based on
+     * their existing frequency in the text so far, decreasing the model's
+     * likelihood to repeat the same line verbatim.
+     * </pre>
+     *
+     * <code>optional float frequency_penalty = 5;</code>
      * @return The frequencyPenalty.
      */
     float getFrequencyPenalty();
@@ -4134,7 +4183,17 @@ public final class Api {
      * the prompt
      * </pre>
      *
-     * <code>int64 max_new_tokens = 6;</code>
+     * <code>optional int64 max_new_tokens = 6;</code>
+     * @return Whether the maxNewTokens field is set.
+     */
+    boolean hasMaxNewTokens();
+    /**
+     * <pre>
+     * The maximum number of tokens to generate, ignoring the number of tokens in
+     * the prompt
+     * </pre>
+     *
+     * <code>optional int64 max_new_tokens = 6;</code>
      * @return The maxNewTokens.
      */
     long getMaxNewTokens();
@@ -4144,7 +4203,16 @@ public final class Api {
      * The parameter for repetition penalty, from [1.0, 2.0]
      * </pre>
      *
-     * <code>float repetition_penalty = 7;</code>
+     * <code>optional float repetition_penalty = 7;</code>
+     * @return Whether the repetitionPenalty field is set.
+     */
+    boolean hasRepetitionPenalty();
+    /**
+     * <pre>
+     * The parameter for repetition penalty, from [1.0, 2.0]
+     * </pre>
+     *
+     * <code>optional float repetition_penalty = 7;</code>
      * @return The repetitionPenalty.
      */
     float getRepetitionPenalty();
@@ -4155,7 +4223,17 @@ public final class Api {
      * false
      * </pre>
      *
-     * <code>bool do_sample = 8;</code>
+     * <code>optional bool do_sample = 8;</code>
+     * @return Whether the doSample field is set.
+     */
+    boolean hasDoSample();
+    /**
+     * <pre>
+     * Whether or not to use sampling, use greedy decoding otherwise. Default to
+     * false
+     * </pre>
+     *
+     * <code>optional bool do_sample = 8;</code>
      * @return The doSample.
      */
     boolean getDoSample();
@@ -4166,10 +4244,39 @@ public final class Api {
      * top-k-filtering.
      * </pre>
      *
-     * <code>int64 top_k = 9;</code>
+     * <code>optional int64 top_k = 9;</code>
+     * @return Whether the topK field is set.
+     */
+    boolean hasTopK();
+    /**
+     * <pre>
+     * The number of highest probability vocabulary tokens to keep for
+     * top-k-filtering.
+     * </pre>
+     *
+     * <code>optional int64 top_k = 9;</code>
      * @return The topK.
      */
     long getTopK();
+
+    /**
+     * <pre>
+     * the minimum number of tokens to generate
+     * </pre>
+     *
+     * <code>optional int64 min_new_tokens = 10;</code>
+     * @return Whether the minNewTokens field is set.
+     */
+    boolean hasMinNewTokens();
+    /**
+     * <pre>
+     * the minimum number of tokens to generate
+     * </pre>
+     *
+     * <code>optional int64 min_new_tokens = 10;</code>
+     * @return The minNewTokens.
+     */
+    long getMinNewTokens();
   }
   /**
    * Protobuf type {@code api.Parameters}
@@ -4206,6 +4313,7 @@ public final class Api {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -4217,48 +4325,53 @@ public final class Api {
               done = true;
               break;
             case 13: {
-
+              bitField0_ |= 0x00000001;
               temperature_ = input.readFloat();
               break;
             }
             case 16: {
-
+              bitField0_ |= 0x00000002;
               maxTokens_ = input.readInt64();
               break;
             }
             case 29: {
-
+              bitField0_ |= 0x00000004;
               topP_ = input.readFloat();
               break;
             }
             case 37: {
-
+              bitField0_ |= 0x00000008;
               presencePenalty_ = input.readFloat();
               break;
             }
             case 45: {
-
+              bitField0_ |= 0x00000010;
               frequencyPenalty_ = input.readFloat();
               break;
             }
             case 48: {
-
+              bitField0_ |= 0x00000020;
               maxNewTokens_ = input.readInt64();
               break;
             }
             case 61: {
-
+              bitField0_ |= 0x00000040;
               repetitionPenalty_ = input.readFloat();
               break;
             }
             case 64: {
-
+              bitField0_ |= 0x00000080;
               doSample_ = input.readBool();
               break;
             }
             case 72: {
-
+              bitField0_ |= 0x00000100;
               topK_ = input.readInt64();
+              break;
+            }
+            case 80: {
+              bitField0_ |= 0x00000200;
+              minNewTokens_ = input.readInt64();
               break;
             }
             default: {
@@ -4293,6 +4406,7 @@ public final class Api {
               com.volcengine.model.maas.api.Api.Parameters.class, com.volcengine.model.maas.api.Api.Parameters.Builder.class);
     }
 
+    private int bitField0_;
     public static final int TEMPERATURE_FIELD_NUMBER = 1;
     private float temperature_;
     /**
@@ -4300,7 +4414,19 @@ public final class Api {
      * Exponential scaling output probability distribution
      * </pre>
      *
-     * <code>float temperature = 1;</code>
+     * <code>optional float temperature = 1;</code>
+     * @return Whether the temperature field is set.
+     */
+    @java.lang.Override
+    public boolean hasTemperature() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * Exponential scaling output probability distribution
+     * </pre>
+     *
+     * <code>optional float temperature = 1;</code>
      * @return The temperature.
      */
     @java.lang.Override
@@ -4315,7 +4441,19 @@ public final class Api {
      * The maximum number of tokens to generate in the char completion.
      * </pre>
      *
-     * <code>int64 max_tokens = 2;</code>
+     * <code>optional int64 max_tokens = 2;</code>
+     * @return Whether the maxTokens field is set.
+     */
+    @java.lang.Override
+    public boolean hasMaxTokens() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * The maximum number of tokens to generate in the char completion.
+     * </pre>
+     *
+     * <code>optional int64 max_tokens = 2;</code>
      * @return The maxTokens.
      */
     @java.lang.Override
@@ -4332,7 +4470,21 @@ public final class Api {
      * mass
      * </pre>
      *
-     * <code>float top_p = 3;</code>
+     * <code>optional float top_p = 3;</code>
+     * @return Whether the topP field is set.
+     */
+    @java.lang.Override
+    public boolean hasTopP() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * An alternative to sampling with temperature, called nucleus sampling,
+     * where the model considers the results of the tokens with top_p probability
+     * mass
+     * </pre>
+     *
+     * <code>optional float top_p = 3;</code>
      * @return The topP.
      */
     @java.lang.Override
@@ -4349,7 +4501,21 @@ public final class Api {
      * likelihood to talk about new topics.
      * </pre>
      *
-     * <code>float presence_penalty = 4;</code>
+     * <code>optional float presence_penalty = 4;</code>
+     * @return Whether the presencePenalty field is set.
+     */
+    @java.lang.Override
+    public boolean hasPresencePenalty() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <pre>
+     * Number between -2.0 and 2.0. Positive values penalize new tokens based
+     * on whether they appear in the text so far, increasing the model's
+     * likelihood to talk about new topics.
+     * </pre>
+     *
+     * <code>optional float presence_penalty = 4;</code>
      * @return The presencePenalty.
      */
     @java.lang.Override
@@ -4366,7 +4532,21 @@ public final class Api {
      * likelihood to repeat the same line verbatim.
      * </pre>
      *
-     * <code>float frequency_penalty = 5;</code>
+     * <code>optional float frequency_penalty = 5;</code>
+     * @return Whether the frequencyPenalty field is set.
+     */
+    @java.lang.Override
+    public boolean hasFrequencyPenalty() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <pre>
+     * Number between -2.0 and 2.0. Positive values penalize new tokens based on
+     * their existing frequency in the text so far, decreasing the model's
+     * likelihood to repeat the same line verbatim.
+     * </pre>
+     *
+     * <code>optional float frequency_penalty = 5;</code>
      * @return The frequencyPenalty.
      */
     @java.lang.Override
@@ -4382,7 +4562,20 @@ public final class Api {
      * the prompt
      * </pre>
      *
-     * <code>int64 max_new_tokens = 6;</code>
+     * <code>optional int64 max_new_tokens = 6;</code>
+     * @return Whether the maxNewTokens field is set.
+     */
+    @java.lang.Override
+    public boolean hasMaxNewTokens() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <pre>
+     * The maximum number of tokens to generate, ignoring the number of tokens in
+     * the prompt
+     * </pre>
+     *
+     * <code>optional int64 max_new_tokens = 6;</code>
      * @return The maxNewTokens.
      */
     @java.lang.Override
@@ -4397,7 +4590,19 @@ public final class Api {
      * The parameter for repetition penalty, from [1.0, 2.0]
      * </pre>
      *
-     * <code>float repetition_penalty = 7;</code>
+     * <code>optional float repetition_penalty = 7;</code>
+     * @return Whether the repetitionPenalty field is set.
+     */
+    @java.lang.Override
+    public boolean hasRepetitionPenalty() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <pre>
+     * The parameter for repetition penalty, from [1.0, 2.0]
+     * </pre>
+     *
+     * <code>optional float repetition_penalty = 7;</code>
      * @return The repetitionPenalty.
      */
     @java.lang.Override
@@ -4413,7 +4618,20 @@ public final class Api {
      * false
      * </pre>
      *
-     * <code>bool do_sample = 8;</code>
+     * <code>optional bool do_sample = 8;</code>
+     * @return Whether the doSample field is set.
+     */
+    @java.lang.Override
+    public boolean hasDoSample() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <pre>
+     * Whether or not to use sampling, use greedy decoding otherwise. Default to
+     * false
+     * </pre>
+     *
+     * <code>optional bool do_sample = 8;</code>
      * @return The doSample.
      */
     @java.lang.Override
@@ -4429,12 +4647,52 @@ public final class Api {
      * top-k-filtering.
      * </pre>
      *
-     * <code>int64 top_k = 9;</code>
+     * <code>optional int64 top_k = 9;</code>
+     * @return Whether the topK field is set.
+     */
+    @java.lang.Override
+    public boolean hasTopK() {
+      return ((bitField0_ & 0x00000100) != 0);
+    }
+    /**
+     * <pre>
+     * The number of highest probability vocabulary tokens to keep for
+     * top-k-filtering.
+     * </pre>
+     *
+     * <code>optional int64 top_k = 9;</code>
      * @return The topK.
      */
     @java.lang.Override
     public long getTopK() {
       return topK_;
+    }
+
+    public static final int MIN_NEW_TOKENS_FIELD_NUMBER = 10;
+    private long minNewTokens_;
+    /**
+     * <pre>
+     * the minimum number of tokens to generate
+     * </pre>
+     *
+     * <code>optional int64 min_new_tokens = 10;</code>
+     * @return Whether the minNewTokens field is set.
+     */
+    @java.lang.Override
+    public boolean hasMinNewTokens() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <pre>
+     * the minimum number of tokens to generate
+     * </pre>
+     *
+     * <code>optional int64 min_new_tokens = 10;</code>
+     * @return The minNewTokens.
+     */
+    @java.lang.Override
+    public long getMinNewTokens() {
+      return minNewTokens_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4451,32 +4709,35 @@ public final class Api {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (temperature_ != 0F) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeFloat(1, temperature_);
       }
-      if (maxTokens_ != 0L) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeInt64(2, maxTokens_);
       }
-      if (topP_ != 0F) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeFloat(3, topP_);
       }
-      if (presencePenalty_ != 0F) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         output.writeFloat(4, presencePenalty_);
       }
-      if (frequencyPenalty_ != 0F) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         output.writeFloat(5, frequencyPenalty_);
       }
-      if (maxNewTokens_ != 0L) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         output.writeInt64(6, maxNewTokens_);
       }
-      if (repetitionPenalty_ != 0F) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         output.writeFloat(7, repetitionPenalty_);
       }
-      if (doSample_ != false) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         output.writeBool(8, doSample_);
       }
-      if (topK_ != 0L) {
+      if (((bitField0_ & 0x00000100) != 0)) {
         output.writeInt64(9, topK_);
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        output.writeInt64(10, minNewTokens_);
       }
       unknownFields.writeTo(output);
     }
@@ -4487,41 +4748,45 @@ public final class Api {
       if (size != -1) return size;
 
       size = 0;
-      if (temperature_ != 0F) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(1, temperature_);
       }
-      if (maxTokens_ != 0L) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, maxTokens_);
       }
-      if (topP_ != 0F) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(3, topP_);
       }
-      if (presencePenalty_ != 0F) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(4, presencePenalty_);
       }
-      if (frequencyPenalty_ != 0F) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(5, frequencyPenalty_);
       }
-      if (maxNewTokens_ != 0L) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(6, maxNewTokens_);
       }
-      if (repetitionPenalty_ != 0F) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(7, repetitionPenalty_);
       }
-      if (doSample_ != false) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(8, doSample_);
       }
-      if (topK_ != 0L) {
+      if (((bitField0_ & 0x00000100) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(9, topK_);
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(10, minNewTokens_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4538,29 +4803,61 @@ public final class Api {
       }
       com.volcengine.model.maas.api.Api.Parameters other = (com.volcengine.model.maas.api.Api.Parameters) obj;
 
-      if (java.lang.Float.floatToIntBits(getTemperature())
-          != java.lang.Float.floatToIntBits(
-              other.getTemperature())) return false;
-      if (getMaxTokens()
-          != other.getMaxTokens()) return false;
-      if (java.lang.Float.floatToIntBits(getTopP())
-          != java.lang.Float.floatToIntBits(
-              other.getTopP())) return false;
-      if (java.lang.Float.floatToIntBits(getPresencePenalty())
-          != java.lang.Float.floatToIntBits(
-              other.getPresencePenalty())) return false;
-      if (java.lang.Float.floatToIntBits(getFrequencyPenalty())
-          != java.lang.Float.floatToIntBits(
-              other.getFrequencyPenalty())) return false;
-      if (getMaxNewTokens()
-          != other.getMaxNewTokens()) return false;
-      if (java.lang.Float.floatToIntBits(getRepetitionPenalty())
-          != java.lang.Float.floatToIntBits(
-              other.getRepetitionPenalty())) return false;
-      if (getDoSample()
-          != other.getDoSample()) return false;
-      if (getTopK()
-          != other.getTopK()) return false;
+      if (hasTemperature() != other.hasTemperature()) return false;
+      if (hasTemperature()) {
+        if (java.lang.Float.floatToIntBits(getTemperature())
+            != java.lang.Float.floatToIntBits(
+                other.getTemperature())) return false;
+      }
+      if (hasMaxTokens() != other.hasMaxTokens()) return false;
+      if (hasMaxTokens()) {
+        if (getMaxTokens()
+            != other.getMaxTokens()) return false;
+      }
+      if (hasTopP() != other.hasTopP()) return false;
+      if (hasTopP()) {
+        if (java.lang.Float.floatToIntBits(getTopP())
+            != java.lang.Float.floatToIntBits(
+                other.getTopP())) return false;
+      }
+      if (hasPresencePenalty() != other.hasPresencePenalty()) return false;
+      if (hasPresencePenalty()) {
+        if (java.lang.Float.floatToIntBits(getPresencePenalty())
+            != java.lang.Float.floatToIntBits(
+                other.getPresencePenalty())) return false;
+      }
+      if (hasFrequencyPenalty() != other.hasFrequencyPenalty()) return false;
+      if (hasFrequencyPenalty()) {
+        if (java.lang.Float.floatToIntBits(getFrequencyPenalty())
+            != java.lang.Float.floatToIntBits(
+                other.getFrequencyPenalty())) return false;
+      }
+      if (hasMaxNewTokens() != other.hasMaxNewTokens()) return false;
+      if (hasMaxNewTokens()) {
+        if (getMaxNewTokens()
+            != other.getMaxNewTokens()) return false;
+      }
+      if (hasRepetitionPenalty() != other.hasRepetitionPenalty()) return false;
+      if (hasRepetitionPenalty()) {
+        if (java.lang.Float.floatToIntBits(getRepetitionPenalty())
+            != java.lang.Float.floatToIntBits(
+                other.getRepetitionPenalty())) return false;
+      }
+      if (hasDoSample() != other.hasDoSample()) return false;
+      if (hasDoSample()) {
+        if (getDoSample()
+            != other.getDoSample()) return false;
+      }
+      if (hasTopK() != other.hasTopK()) return false;
+      if (hasTopK()) {
+        if (getTopK()
+            != other.getTopK()) return false;
+      }
+      if (hasMinNewTokens() != other.hasMinNewTokens()) return false;
+      if (hasMinNewTokens()) {
+        if (getMinNewTokens()
+            != other.getMinNewTokens()) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4572,33 +4869,56 @@ public final class Api {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + TEMPERATURE_FIELD_NUMBER;
-      hash = (53 * hash) + java.lang.Float.floatToIntBits(
-          getTemperature());
-      hash = (37 * hash) + MAX_TOKENS_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getMaxTokens());
-      hash = (37 * hash) + TOP_P_FIELD_NUMBER;
-      hash = (53 * hash) + java.lang.Float.floatToIntBits(
-          getTopP());
-      hash = (37 * hash) + PRESENCE_PENALTY_FIELD_NUMBER;
-      hash = (53 * hash) + java.lang.Float.floatToIntBits(
-          getPresencePenalty());
-      hash = (37 * hash) + FREQUENCY_PENALTY_FIELD_NUMBER;
-      hash = (53 * hash) + java.lang.Float.floatToIntBits(
-          getFrequencyPenalty());
-      hash = (37 * hash) + MAX_NEW_TOKENS_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getMaxNewTokens());
-      hash = (37 * hash) + REPETITION_PENALTY_FIELD_NUMBER;
-      hash = (53 * hash) + java.lang.Float.floatToIntBits(
-          getRepetitionPenalty());
-      hash = (37 * hash) + DO_SAMPLE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getDoSample());
-      hash = (37 * hash) + TOP_K_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getTopK());
+      if (hasTemperature()) {
+        hash = (37 * hash) + TEMPERATURE_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getTemperature());
+      }
+      if (hasMaxTokens()) {
+        hash = (37 * hash) + MAX_TOKENS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getMaxTokens());
+      }
+      if (hasTopP()) {
+        hash = (37 * hash) + TOP_P_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getTopP());
+      }
+      if (hasPresencePenalty()) {
+        hash = (37 * hash) + PRESENCE_PENALTY_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getPresencePenalty());
+      }
+      if (hasFrequencyPenalty()) {
+        hash = (37 * hash) + FREQUENCY_PENALTY_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getFrequencyPenalty());
+      }
+      if (hasMaxNewTokens()) {
+        hash = (37 * hash) + MAX_NEW_TOKENS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getMaxNewTokens());
+      }
+      if (hasRepetitionPenalty()) {
+        hash = (37 * hash) + REPETITION_PENALTY_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getRepetitionPenalty());
+      }
+      if (hasDoSample()) {
+        hash = (37 * hash) + DO_SAMPLE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getDoSample());
+      }
+      if (hasTopK()) {
+        hash = (37 * hash) + TOP_K_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTopK());
+      }
+      if (hasMinNewTokens()) {
+        hash = (37 * hash) + MIN_NEW_TOKENS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getMinNewTokens());
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4714,7 +5034,7 @@ public final class Api {
                 com.volcengine.model.maas.api.Api.Parameters.class, com.volcengine.model.maas.api.Api.Parameters.Builder.class);
       }
 
-      // Construct using com.volcengine.service.maas.models.api.Api.Parameters.newBuilder()
+      // Construct using com.volcengine.model.maas.api.Api.Parameters.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4733,23 +5053,25 @@ public final class Api {
       public Builder clear() {
         super.clear();
         temperature_ = 0F;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         maxTokens_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         topP_ = 0F;
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         presencePenalty_ = 0F;
-
+        bitField0_ = (bitField0_ & ~0x00000008);
         frequencyPenalty_ = 0F;
-
+        bitField0_ = (bitField0_ & ~0x00000010);
         maxNewTokens_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000020);
         repetitionPenalty_ = 0F;
-
+        bitField0_ = (bitField0_ & ~0x00000040);
         doSample_ = false;
-
+        bitField0_ = (bitField0_ & ~0x00000080);
         topK_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000100);
+        minNewTokens_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000200);
         return this;
       }
 
@@ -4776,15 +5098,49 @@ public final class Api {
       @java.lang.Override
       public com.volcengine.model.maas.api.Api.Parameters buildPartial() {
         com.volcengine.model.maas.api.Api.Parameters result = new com.volcengine.model.maas.api.Api.Parameters(this);
-        result.temperature_ = temperature_;
-        result.maxTokens_ = maxTokens_;
-        result.topP_ = topP_;
-        result.presencePenalty_ = presencePenalty_;
-        result.frequencyPenalty_ = frequencyPenalty_;
-        result.maxNewTokens_ = maxNewTokens_;
-        result.repetitionPenalty_ = repetitionPenalty_;
-        result.doSample_ = doSample_;
-        result.topK_ = topK_;
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.temperature_ = temperature_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.maxTokens_ = maxTokens_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.topP_ = topP_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.presencePenalty_ = presencePenalty_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.frequencyPenalty_ = frequencyPenalty_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.maxNewTokens_ = maxNewTokens_;
+          to_bitField0_ |= 0x00000020;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.repetitionPenalty_ = repetitionPenalty_;
+          to_bitField0_ |= 0x00000040;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.doSample_ = doSample_;
+          to_bitField0_ |= 0x00000080;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.topK_ = topK_;
+          to_bitField0_ |= 0x00000100;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.minNewTokens_ = minNewTokens_;
+          to_bitField0_ |= 0x00000200;
+        }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -4833,32 +5189,35 @@ public final class Api {
 
       public Builder mergeFrom(com.volcengine.model.maas.api.Api.Parameters other) {
         if (other == com.volcengine.model.maas.api.Api.Parameters.getDefaultInstance()) return this;
-        if (other.getTemperature() != 0F) {
+        if (other.hasTemperature()) {
           setTemperature(other.getTemperature());
         }
-        if (other.getMaxTokens() != 0L) {
+        if (other.hasMaxTokens()) {
           setMaxTokens(other.getMaxTokens());
         }
-        if (other.getTopP() != 0F) {
+        if (other.hasTopP()) {
           setTopP(other.getTopP());
         }
-        if (other.getPresencePenalty() != 0F) {
+        if (other.hasPresencePenalty()) {
           setPresencePenalty(other.getPresencePenalty());
         }
-        if (other.getFrequencyPenalty() != 0F) {
+        if (other.hasFrequencyPenalty()) {
           setFrequencyPenalty(other.getFrequencyPenalty());
         }
-        if (other.getMaxNewTokens() != 0L) {
+        if (other.hasMaxNewTokens()) {
           setMaxNewTokens(other.getMaxNewTokens());
         }
-        if (other.getRepetitionPenalty() != 0F) {
+        if (other.hasRepetitionPenalty()) {
           setRepetitionPenalty(other.getRepetitionPenalty());
         }
-        if (other.getDoSample() != false) {
+        if (other.hasDoSample()) {
           setDoSample(other.getDoSample());
         }
-        if (other.getTopK() != 0L) {
+        if (other.hasTopK()) {
           setTopK(other.getTopK());
+        }
+        if (other.hasMinNewTokens()) {
+          setMinNewTokens(other.getMinNewTokens());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4888,6 +5247,7 @@ public final class Api {
         }
         return this;
       }
+      private int bitField0_;
 
       private float temperature_ ;
       /**
@@ -4895,7 +5255,19 @@ public final class Api {
        * Exponential scaling output probability distribution
        * </pre>
        *
-       * <code>float temperature = 1;</code>
+       * <code>optional float temperature = 1;</code>
+       * @return Whether the temperature field is set.
+       */
+      @java.lang.Override
+      public boolean hasTemperature() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * Exponential scaling output probability distribution
+       * </pre>
+       *
+       * <code>optional float temperature = 1;</code>
        * @return The temperature.
        */
       @java.lang.Override
@@ -4907,12 +5279,12 @@ public final class Api {
        * Exponential scaling output probability distribution
        * </pre>
        *
-       * <code>float temperature = 1;</code>
+       * <code>optional float temperature = 1;</code>
        * @param value The temperature to set.
        * @return This builder for chaining.
        */
       public Builder setTemperature(float value) {
-        
+        bitField0_ |= 0x00000001;
         temperature_ = value;
         onChanged();
         return this;
@@ -4922,11 +5294,11 @@ public final class Api {
        * Exponential scaling output probability distribution
        * </pre>
        *
-       * <code>float temperature = 1;</code>
+       * <code>optional float temperature = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearTemperature() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         temperature_ = 0F;
         onChanged();
         return this;
@@ -4938,7 +5310,19 @@ public final class Api {
        * The maximum number of tokens to generate in the char completion.
        * </pre>
        *
-       * <code>int64 max_tokens = 2;</code>
+       * <code>optional int64 max_tokens = 2;</code>
+       * @return Whether the maxTokens field is set.
+       */
+      @java.lang.Override
+      public boolean hasMaxTokens() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * The maximum number of tokens to generate in the char completion.
+       * </pre>
+       *
+       * <code>optional int64 max_tokens = 2;</code>
        * @return The maxTokens.
        */
       @java.lang.Override
@@ -4950,12 +5334,12 @@ public final class Api {
        * The maximum number of tokens to generate in the char completion.
        * </pre>
        *
-       * <code>int64 max_tokens = 2;</code>
+       * <code>optional int64 max_tokens = 2;</code>
        * @param value The maxTokens to set.
        * @return This builder for chaining.
        */
       public Builder setMaxTokens(long value) {
-        
+        bitField0_ |= 0x00000002;
         maxTokens_ = value;
         onChanged();
         return this;
@@ -4965,11 +5349,11 @@ public final class Api {
        * The maximum number of tokens to generate in the char completion.
        * </pre>
        *
-       * <code>int64 max_tokens = 2;</code>
+       * <code>optional int64 max_tokens = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearMaxTokens() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         maxTokens_ = 0L;
         onChanged();
         return this;
@@ -4983,7 +5367,21 @@ public final class Api {
        * mass
        * </pre>
        *
-       * <code>float top_p = 3;</code>
+       * <code>optional float top_p = 3;</code>
+       * @return Whether the topP field is set.
+       */
+      @java.lang.Override
+      public boolean hasTopP() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <pre>
+       * An alternative to sampling with temperature, called nucleus sampling,
+       * where the model considers the results of the tokens with top_p probability
+       * mass
+       * </pre>
+       *
+       * <code>optional float top_p = 3;</code>
        * @return The topP.
        */
       @java.lang.Override
@@ -4997,12 +5395,12 @@ public final class Api {
        * mass
        * </pre>
        *
-       * <code>float top_p = 3;</code>
+       * <code>optional float top_p = 3;</code>
        * @param value The topP to set.
        * @return This builder for chaining.
        */
       public Builder setTopP(float value) {
-        
+        bitField0_ |= 0x00000004;
         topP_ = value;
         onChanged();
         return this;
@@ -5014,11 +5412,11 @@ public final class Api {
        * mass
        * </pre>
        *
-       * <code>float top_p = 3;</code>
+       * <code>optional float top_p = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearTopP() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         topP_ = 0F;
         onChanged();
         return this;
@@ -5032,7 +5430,21 @@ public final class Api {
        * likelihood to talk about new topics.
        * </pre>
        *
-       * <code>float presence_penalty = 4;</code>
+       * <code>optional float presence_penalty = 4;</code>
+       * @return Whether the presencePenalty field is set.
+       */
+      @java.lang.Override
+      public boolean hasPresencePenalty() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <pre>
+       * Number between -2.0 and 2.0. Positive values penalize new tokens based
+       * on whether they appear in the text so far, increasing the model's
+       * likelihood to talk about new topics.
+       * </pre>
+       *
+       * <code>optional float presence_penalty = 4;</code>
        * @return The presencePenalty.
        */
       @java.lang.Override
@@ -5046,12 +5458,12 @@ public final class Api {
        * likelihood to talk about new topics.
        * </pre>
        *
-       * <code>float presence_penalty = 4;</code>
+       * <code>optional float presence_penalty = 4;</code>
        * @param value The presencePenalty to set.
        * @return This builder for chaining.
        */
       public Builder setPresencePenalty(float value) {
-        
+        bitField0_ |= 0x00000008;
         presencePenalty_ = value;
         onChanged();
         return this;
@@ -5063,11 +5475,11 @@ public final class Api {
        * likelihood to talk about new topics.
        * </pre>
        *
-       * <code>float presence_penalty = 4;</code>
+       * <code>optional float presence_penalty = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearPresencePenalty() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         presencePenalty_ = 0F;
         onChanged();
         return this;
@@ -5081,7 +5493,21 @@ public final class Api {
        * likelihood to repeat the same line verbatim.
        * </pre>
        *
-       * <code>float frequency_penalty = 5;</code>
+       * <code>optional float frequency_penalty = 5;</code>
+       * @return Whether the frequencyPenalty field is set.
+       */
+      @java.lang.Override
+      public boolean hasFrequencyPenalty() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <pre>
+       * Number between -2.0 and 2.0. Positive values penalize new tokens based on
+       * their existing frequency in the text so far, decreasing the model's
+       * likelihood to repeat the same line verbatim.
+       * </pre>
+       *
+       * <code>optional float frequency_penalty = 5;</code>
        * @return The frequencyPenalty.
        */
       @java.lang.Override
@@ -5095,12 +5521,12 @@ public final class Api {
        * likelihood to repeat the same line verbatim.
        * </pre>
        *
-       * <code>float frequency_penalty = 5;</code>
+       * <code>optional float frequency_penalty = 5;</code>
        * @param value The frequencyPenalty to set.
        * @return This builder for chaining.
        */
       public Builder setFrequencyPenalty(float value) {
-        
+        bitField0_ |= 0x00000010;
         frequencyPenalty_ = value;
         onChanged();
         return this;
@@ -5112,11 +5538,11 @@ public final class Api {
        * likelihood to repeat the same line verbatim.
        * </pre>
        *
-       * <code>float frequency_penalty = 5;</code>
+       * <code>optional float frequency_penalty = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearFrequencyPenalty() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         frequencyPenalty_ = 0F;
         onChanged();
         return this;
@@ -5129,7 +5555,20 @@ public final class Api {
        * the prompt
        * </pre>
        *
-       * <code>int64 max_new_tokens = 6;</code>
+       * <code>optional int64 max_new_tokens = 6;</code>
+       * @return Whether the maxNewTokens field is set.
+       */
+      @java.lang.Override
+      public boolean hasMaxNewTokens() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <pre>
+       * The maximum number of tokens to generate, ignoring the number of tokens in
+       * the prompt
+       * </pre>
+       *
+       * <code>optional int64 max_new_tokens = 6;</code>
        * @return The maxNewTokens.
        */
       @java.lang.Override
@@ -5142,12 +5581,12 @@ public final class Api {
        * the prompt
        * </pre>
        *
-       * <code>int64 max_new_tokens = 6;</code>
+       * <code>optional int64 max_new_tokens = 6;</code>
        * @param value The maxNewTokens to set.
        * @return This builder for chaining.
        */
       public Builder setMaxNewTokens(long value) {
-        
+        bitField0_ |= 0x00000020;
         maxNewTokens_ = value;
         onChanged();
         return this;
@@ -5158,11 +5597,11 @@ public final class Api {
        * the prompt
        * </pre>
        *
-       * <code>int64 max_new_tokens = 6;</code>
+       * <code>optional int64 max_new_tokens = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearMaxNewTokens() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         maxNewTokens_ = 0L;
         onChanged();
         return this;
@@ -5174,7 +5613,19 @@ public final class Api {
        * The parameter for repetition penalty, from [1.0, 2.0]
        * </pre>
        *
-       * <code>float repetition_penalty = 7;</code>
+       * <code>optional float repetition_penalty = 7;</code>
+       * @return Whether the repetitionPenalty field is set.
+       */
+      @java.lang.Override
+      public boolean hasRepetitionPenalty() {
+        return ((bitField0_ & 0x00000040) != 0);
+      }
+      /**
+       * <pre>
+       * The parameter for repetition penalty, from [1.0, 2.0]
+       * </pre>
+       *
+       * <code>optional float repetition_penalty = 7;</code>
        * @return The repetitionPenalty.
        */
       @java.lang.Override
@@ -5186,12 +5637,12 @@ public final class Api {
        * The parameter for repetition penalty, from [1.0, 2.0]
        * </pre>
        *
-       * <code>float repetition_penalty = 7;</code>
+       * <code>optional float repetition_penalty = 7;</code>
        * @param value The repetitionPenalty to set.
        * @return This builder for chaining.
        */
       public Builder setRepetitionPenalty(float value) {
-        
+        bitField0_ |= 0x00000040;
         repetitionPenalty_ = value;
         onChanged();
         return this;
@@ -5201,11 +5652,11 @@ public final class Api {
        * The parameter for repetition penalty, from [1.0, 2.0]
        * </pre>
        *
-       * <code>float repetition_penalty = 7;</code>
+       * <code>optional float repetition_penalty = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearRepetitionPenalty() {
-        
+        bitField0_ = (bitField0_ & ~0x00000040);
         repetitionPenalty_ = 0F;
         onChanged();
         return this;
@@ -5218,7 +5669,20 @@ public final class Api {
        * false
        * </pre>
        *
-       * <code>bool do_sample = 8;</code>
+       * <code>optional bool do_sample = 8;</code>
+       * @return Whether the doSample field is set.
+       */
+      @java.lang.Override
+      public boolean hasDoSample() {
+        return ((bitField0_ & 0x00000080) != 0);
+      }
+      /**
+       * <pre>
+       * Whether or not to use sampling, use greedy decoding otherwise. Default to
+       * false
+       * </pre>
+       *
+       * <code>optional bool do_sample = 8;</code>
        * @return The doSample.
        */
       @java.lang.Override
@@ -5231,12 +5695,12 @@ public final class Api {
        * false
        * </pre>
        *
-       * <code>bool do_sample = 8;</code>
+       * <code>optional bool do_sample = 8;</code>
        * @param value The doSample to set.
        * @return This builder for chaining.
        */
       public Builder setDoSample(boolean value) {
-        
+        bitField0_ |= 0x00000080;
         doSample_ = value;
         onChanged();
         return this;
@@ -5247,11 +5711,11 @@ public final class Api {
        * false
        * </pre>
        *
-       * <code>bool do_sample = 8;</code>
+       * <code>optional bool do_sample = 8;</code>
        * @return This builder for chaining.
        */
       public Builder clearDoSample() {
-        
+        bitField0_ = (bitField0_ & ~0x00000080);
         doSample_ = false;
         onChanged();
         return this;
@@ -5264,7 +5728,20 @@ public final class Api {
        * top-k-filtering.
        * </pre>
        *
-       * <code>int64 top_k = 9;</code>
+       * <code>optional int64 top_k = 9;</code>
+       * @return Whether the topK field is set.
+       */
+      @java.lang.Override
+      public boolean hasTopK() {
+        return ((bitField0_ & 0x00000100) != 0);
+      }
+      /**
+       * <pre>
+       * The number of highest probability vocabulary tokens to keep for
+       * top-k-filtering.
+       * </pre>
+       *
+       * <code>optional int64 top_k = 9;</code>
        * @return The topK.
        */
       @java.lang.Override
@@ -5277,12 +5754,12 @@ public final class Api {
        * top-k-filtering.
        * </pre>
        *
-       * <code>int64 top_k = 9;</code>
+       * <code>optional int64 top_k = 9;</code>
        * @param value The topK to set.
        * @return This builder for chaining.
        */
       public Builder setTopK(long value) {
-        
+        bitField0_ |= 0x00000100;
         topK_ = value;
         onChanged();
         return this;
@@ -5293,12 +5770,67 @@ public final class Api {
        * top-k-filtering.
        * </pre>
        *
-       * <code>int64 top_k = 9;</code>
+       * <code>optional int64 top_k = 9;</code>
        * @return This builder for chaining.
        */
       public Builder clearTopK() {
-        
+        bitField0_ = (bitField0_ & ~0x00000100);
         topK_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long minNewTokens_ ;
+      /**
+       * <pre>
+       * the minimum number of tokens to generate
+       * </pre>
+       *
+       * <code>optional int64 min_new_tokens = 10;</code>
+       * @return Whether the minNewTokens field is set.
+       */
+      @java.lang.Override
+      public boolean hasMinNewTokens() {
+        return ((bitField0_ & 0x00000200) != 0);
+      }
+      /**
+       * <pre>
+       * the minimum number of tokens to generate
+       * </pre>
+       *
+       * <code>optional int64 min_new_tokens = 10;</code>
+       * @return The minNewTokens.
+       */
+      @java.lang.Override
+      public long getMinNewTokens() {
+        return minNewTokens_;
+      }
+      /**
+       * <pre>
+       * the minimum number of tokens to generate
+       * </pre>
+       *
+       * <code>optional int64 min_new_tokens = 10;</code>
+       * @param value The minNewTokens to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMinNewTokens(long value) {
+        bitField0_ |= 0x00000200;
+        minNewTokens_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * the minimum number of tokens to generate
+       * </pre>
+       *
+       * <code>optional int64 min_new_tokens = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMinNewTokens() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        minNewTokens_ = 0L;
         onChanged();
         return this;
       }
@@ -5726,7 +6258,7 @@ public final class Api {
                 com.volcengine.model.maas.api.Api.Usage.class, com.volcengine.model.maas.api.Api.Usage.Builder.class);
       }
 
-      // Construct using com.volcengine.service.maas.models.api.Api.Usage.newBuilder()
+      // Construct using com.volcengine.model.maas.api.Api.Usage.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6079,16 +6611,16 @@ public final class Api {
 
     /**
      * <pre>
-     * User inputed prompt
+     * User input prompt
      * </pre>
      *
      * <code>repeated .api.Message messages = 2;</code>
      */
-    java.util.List<com.volcengine.model.maas.api.Api.Message>
+    java.util.List<com.volcengine.model.maas.api.Api.Message> 
         getMessagesList();
     /**
      * <pre>
-     * User inputed prompt
+     * User input prompt
      * </pre>
      *
      * <code>repeated .api.Message messages = 2;</code>
@@ -6096,7 +6628,7 @@ public final class Api {
     com.volcengine.model.maas.api.Api.Message getMessages(int index);
     /**
      * <pre>
-     * User inputed prompt
+     * User input prompt
      * </pre>
      *
      * <code>repeated .api.Message messages = 2;</code>
@@ -6104,16 +6636,16 @@ public final class Api {
     int getMessagesCount();
     /**
      * <pre>
-     * User inputed prompt
+     * User input prompt
      * </pre>
      *
      * <code>repeated .api.Message messages = 2;</code>
      */
-    java.util.List<? extends com.volcengine.model.maas.api.Api.MessageOrBuilder>
+    java.util.List<? extends com.volcengine.model.maas.api.Api.MessageOrBuilder> 
         getMessagesOrBuilderList();
     /**
      * <pre>
-     * User inputed prompt
+     * User input prompt
      * </pre>
      *
      * <code>repeated .api.Message messages = 2;</code>
@@ -6179,6 +6711,28 @@ public final class Api {
      */
     com.google.protobuf.ByteString
         getReqIdBytes();
+
+    /**
+     * <pre>
+     * optional symmetric key to encrypt messages, the key itself is encrypted
+     * with model's public key.
+     * </pre>
+     *
+     * <code>string crypto_token = 6 [(.api.header) = "Ml-Maas-Crypto-Token"];</code>
+     * @return The cryptoToken.
+     */
+    java.lang.String getCryptoToken();
+    /**
+     * <pre>
+     * optional symmetric key to encrypt messages, the key itself is encrypted
+     * with model's public key.
+     * </pre>
+     *
+     * <code>string crypto_token = 6 [(.api.header) = "Ml-Maas-Crypto-Token"];</code>
+     * @return The bytes for cryptoToken.
+     */
+    com.google.protobuf.ByteString
+        getCryptoTokenBytes();
   }
   /**
    * Protobuf type {@code api.ChatReq}
@@ -6195,6 +6749,7 @@ public final class Api {
     private ChatReq() {
       messages_ = java.util.Collections.emptyList();
       reqId_ = "";
+      cryptoToken_ = "";
     }
 
     @java.lang.Override
@@ -6274,6 +6829,12 @@ public final class Api {
               reqId_ = s;
               break;
             }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              cryptoToken_ = s;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -6351,7 +6912,7 @@ public final class Api {
     private java.util.List<com.volcengine.model.maas.api.Api.Message> messages_;
     /**
      * <pre>
-     * User inputed prompt
+     * User input prompt
      * </pre>
      *
      * <code>repeated .api.Message messages = 2;</code>
@@ -6362,19 +6923,19 @@ public final class Api {
     }
     /**
      * <pre>
-     * User inputed prompt
+     * User input prompt
      * </pre>
      *
      * <code>repeated .api.Message messages = 2;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends com.volcengine.model.maas.api.Api.MessageOrBuilder>
+    public java.util.List<? extends com.volcengine.model.maas.api.Api.MessageOrBuilder> 
         getMessagesOrBuilderList() {
       return messages_;
     }
     /**
      * <pre>
-     * User inputed prompt
+     * User input prompt
      * </pre>
      *
      * <code>repeated .api.Message messages = 2;</code>
@@ -6385,7 +6946,7 @@ public final class Api {
     }
     /**
      * <pre>
-     * User inputed prompt
+     * User input prompt
      * </pre>
      *
      * <code>repeated .api.Message messages = 2;</code>
@@ -6396,7 +6957,7 @@ public final class Api {
     }
     /**
      * <pre>
-     * User inputed prompt
+     * User input prompt
      * </pre>
      *
      * <code>repeated .api.Message messages = 2;</code>
@@ -6508,6 +7069,54 @@ public final class Api {
       }
     }
 
+    public static final int CRYPTO_TOKEN_FIELD_NUMBER = 6;
+    private volatile java.lang.Object cryptoToken_;
+    /**
+     * <pre>
+     * optional symmetric key to encrypt messages, the key itself is encrypted
+     * with model's public key.
+     * </pre>
+     *
+     * <code>string crypto_token = 6 [(.api.header) = "Ml-Maas-Crypto-Token"];</code>
+     * @return The cryptoToken.
+     */
+    @java.lang.Override
+    public java.lang.String getCryptoToken() {
+      java.lang.Object ref = cryptoToken_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        cryptoToken_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * optional symmetric key to encrypt messages, the key itself is encrypted
+     * with model's public key.
+     * </pre>
+     *
+     * <code>string crypto_token = 6 [(.api.header) = "Ml-Maas-Crypto-Token"];</code>
+     * @return The bytes for cryptoToken.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCryptoTokenBytes() {
+      java.lang.Object ref = cryptoToken_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cryptoToken_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6537,6 +7146,9 @@ public final class Api {
       if (!getReqIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, reqId_);
       }
+      if (!getCryptoTokenBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, cryptoToken_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6564,6 +7176,9 @@ public final class Api {
       }
       if (!getReqIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, reqId_);
+      }
+      if (!getCryptoTokenBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, cryptoToken_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6596,6 +7211,8 @@ public final class Api {
           != other.getStream()) return false;
       if (!getReqId()
           .equals(other.getReqId())) return false;
+      if (!getCryptoToken()
+          .equals(other.getCryptoToken())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6624,6 +7241,8 @@ public final class Api {
           getStream());
       hash = (37 * hash) + REQ_ID_FIELD_NUMBER;
       hash = (53 * hash) + getReqId().hashCode();
+      hash = (37 * hash) + CRYPTO_TOKEN_FIELD_NUMBER;
+      hash = (53 * hash) + getCryptoToken().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6739,7 +7358,7 @@ public final class Api {
                 com.volcengine.model.maas.api.Api.ChatReq.class, com.volcengine.model.maas.api.Api.ChatReq.Builder.class);
       }
 
-      // Construct using com.volcengine.service.maas.models.api.Api.ChatReq.newBuilder()
+      // Construct using com.volcengine.model.maas.api.Api.ChatReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6779,6 +7398,8 @@ public final class Api {
         stream_ = false;
 
         reqId_ = "";
+
+        cryptoToken_ = "";
 
         return this;
       }
@@ -6828,6 +7449,7 @@ public final class Api {
         }
         result.stream_ = stream_;
         result.reqId_ = reqId_;
+        result.cryptoToken_ = cryptoToken_;
         onBuilt();
         return result;
       }
@@ -6913,6 +7535,10 @@ public final class Api {
         }
         if (!other.getReqId().isEmpty()) {
           reqId_ = other.reqId_;
+          onChanged();
+        }
+        if (!other.getCryptoToken().isEmpty()) {
+          cryptoToken_ = other.cryptoToken_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -7087,7 +7713,7 @@ public final class Api {
        * <code>.api.Model model = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder>
+          com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder> 
           getModelFieldBuilder() {
         if (modelBuilder_ == null) {
           modelBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -7114,7 +7740,7 @@ public final class Api {
 
       /**
        * <pre>
-       * User inputed prompt
+       * User input prompt
        * </pre>
        *
        * <code>repeated .api.Message messages = 2;</code>
@@ -7128,7 +7754,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * User inputed prompt
+       * User input prompt
        * </pre>
        *
        * <code>repeated .api.Message messages = 2;</code>
@@ -7142,7 +7768,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * User inputed prompt
+       * User input prompt
        * </pre>
        *
        * <code>repeated .api.Message messages = 2;</code>
@@ -7156,7 +7782,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * User inputed prompt
+       * User input prompt
        * </pre>
        *
        * <code>repeated .api.Message messages = 2;</code>
@@ -7177,7 +7803,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * User inputed prompt
+       * User input prompt
        * </pre>
        *
        * <code>repeated .api.Message messages = 2;</code>
@@ -7195,7 +7821,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * User inputed prompt
+       * User input prompt
        * </pre>
        *
        * <code>repeated .api.Message messages = 2;</code>
@@ -7215,7 +7841,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * User inputed prompt
+       * User input prompt
        * </pre>
        *
        * <code>repeated .api.Message messages = 2;</code>
@@ -7236,7 +7862,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * User inputed prompt
+       * User input prompt
        * </pre>
        *
        * <code>repeated .api.Message messages = 2;</code>
@@ -7254,7 +7880,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * User inputed prompt
+       * User input prompt
        * </pre>
        *
        * <code>repeated .api.Message messages = 2;</code>
@@ -7272,7 +7898,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * User inputed prompt
+       * User input prompt
        * </pre>
        *
        * <code>repeated .api.Message messages = 2;</code>
@@ -7291,7 +7917,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * User inputed prompt
+       * User input prompt
        * </pre>
        *
        * <code>repeated .api.Message messages = 2;</code>
@@ -7308,7 +7934,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * User inputed prompt
+       * User input prompt
        * </pre>
        *
        * <code>repeated .api.Message messages = 2;</code>
@@ -7325,7 +7951,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * User inputed prompt
+       * User input prompt
        * </pre>
        *
        * <code>repeated .api.Message messages = 2;</code>
@@ -7336,7 +7962,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * User inputed prompt
+       * User input prompt
        * </pre>
        *
        * <code>repeated .api.Message messages = 2;</code>
@@ -7350,12 +7976,12 @@ public final class Api {
       }
       /**
        * <pre>
-       * User inputed prompt
+       * User input prompt
        * </pre>
        *
        * <code>repeated .api.Message messages = 2;</code>
        */
-      public java.util.List<? extends com.volcengine.model.maas.api.Api.MessageOrBuilder>
+      public java.util.List<? extends com.volcengine.model.maas.api.Api.MessageOrBuilder> 
            getMessagesOrBuilderList() {
         if (messagesBuilder_ != null) {
           return messagesBuilder_.getMessageOrBuilderList();
@@ -7365,7 +7991,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * User inputed prompt
+       * User input prompt
        * </pre>
        *
        * <code>repeated .api.Message messages = 2;</code>
@@ -7376,7 +8002,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * User inputed prompt
+       * User input prompt
        * </pre>
        *
        * <code>repeated .api.Message messages = 2;</code>
@@ -7388,17 +8014,17 @@ public final class Api {
       }
       /**
        * <pre>
-       * User inputed prompt
+       * User input prompt
        * </pre>
        *
        * <code>repeated .api.Message messages = 2;</code>
        */
-      public java.util.List<com.volcengine.model.maas.api.Api.Message.Builder>
+      public java.util.List<com.volcengine.model.maas.api.Api.Message.Builder> 
            getMessagesBuilderList() {
         return getMessagesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.volcengine.model.maas.api.Api.Message, com.volcengine.model.maas.api.Api.Message.Builder, com.volcengine.model.maas.api.Api.MessageOrBuilder>
+          com.volcengine.model.maas.api.Api.Message, com.volcengine.model.maas.api.Api.Message.Builder, com.volcengine.model.maas.api.Api.MessageOrBuilder> 
           getMessagesFieldBuilder() {
         if (messagesBuilder_ == null) {
           messagesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
@@ -7554,7 +8180,7 @@ public final class Api {
        * <code>.api.Parameters parameters = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.volcengine.model.maas.api.Api.Parameters, com.volcengine.model.maas.api.Api.Parameters.Builder, com.volcengine.model.maas.api.Api.ParametersOrBuilder>
+          com.volcengine.model.maas.api.Api.Parameters, com.volcengine.model.maas.api.Api.Parameters.Builder, com.volcengine.model.maas.api.Api.ParametersOrBuilder> 
           getParametersFieldBuilder() {
         if (parametersBuilder_ == null) {
           parametersBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -7708,6 +8334,107 @@ public final class Api {
   checkByteStringIsUtf8(value);
         
         reqId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object cryptoToken_ = "";
+      /**
+       * <pre>
+       * optional symmetric key to encrypt messages, the key itself is encrypted
+       * with model's public key.
+       * </pre>
+       *
+       * <code>string crypto_token = 6 [(.api.header) = "Ml-Maas-Crypto-Token"];</code>
+       * @return The cryptoToken.
+       */
+      public java.lang.String getCryptoToken() {
+        java.lang.Object ref = cryptoToken_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          cryptoToken_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * optional symmetric key to encrypt messages, the key itself is encrypted
+       * with model's public key.
+       * </pre>
+       *
+       * <code>string crypto_token = 6 [(.api.header) = "Ml-Maas-Crypto-Token"];</code>
+       * @return The bytes for cryptoToken.
+       */
+      public com.google.protobuf.ByteString
+          getCryptoTokenBytes() {
+        java.lang.Object ref = cryptoToken_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          cryptoToken_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * optional symmetric key to encrypt messages, the key itself is encrypted
+       * with model's public key.
+       * </pre>
+       *
+       * <code>string crypto_token = 6 [(.api.header) = "Ml-Maas-Crypto-Token"];</code>
+       * @param value The cryptoToken to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCryptoToken(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        cryptoToken_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * optional symmetric key to encrypt messages, the key itself is encrypted
+       * with model's public key.
+       * </pre>
+       *
+       * <code>string crypto_token = 6 [(.api.header) = "Ml-Maas-Crypto-Token"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCryptoToken() {
+        
+        cryptoToken_ = getDefaultInstance().getCryptoToken();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * optional symmetric key to encrypt messages, the key itself is encrypted
+       * with model's public key.
+       * </pre>
+       *
+       * <code>string crypto_token = 6 [(.api.header) = "Ml-Maas-Crypto-Token"];</code>
+       * @param value The bytes for cryptoToken to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCryptoTokenBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        cryptoToken_ = value;
         onChanged();
         return this;
       }
@@ -8374,7 +9101,7 @@ public final class Api {
                 com.volcengine.model.maas.api.Api.ChatResp.class, com.volcengine.model.maas.api.Api.ChatResp.Builder.class);
       }
 
-      // Construct using com.volcengine.service.maas.models.api.Api.ChatResp.newBuilder()
+      // Construct using com.volcengine.model.maas.api.Api.ChatResp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8782,7 +9509,7 @@ public final class Api {
        * <code>.api.Error error = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.volcengine.model.maas.api.Api.Error, com.volcengine.model.maas.api.Api.Error.Builder, com.volcengine.model.maas.api.Api.ErrorOrBuilder>
+          com.volcengine.model.maas.api.Api.Error, com.volcengine.model.maas.api.Api.Error.Builder, com.volcengine.model.maas.api.Api.ErrorOrBuilder> 
           getErrorFieldBuilder() {
         if (errorBuilder_ == null) {
           errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -8937,7 +9664,7 @@ public final class Api {
        * <code>.api.Choice choice = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.volcengine.model.maas.api.Api.Choice, com.volcengine.model.maas.api.Api.Choice.Builder, com.volcengine.model.maas.api.Api.ChoiceOrBuilder>
+          com.volcengine.model.maas.api.Api.Choice, com.volcengine.model.maas.api.Api.Choice.Builder, com.volcengine.model.maas.api.Api.ChoiceOrBuilder> 
           getChoiceFieldBuilder() {
         if (choiceBuilder_ == null) {
           choiceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -9092,7 +9819,7 @@ public final class Api {
        * <code>.api.Usage usage = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.volcengine.model.maas.api.Api.Usage, com.volcengine.model.maas.api.Api.Usage.Builder, com.volcengine.model.maas.api.Api.UsageOrBuilder>
+          com.volcengine.model.maas.api.Api.Usage, com.volcengine.model.maas.api.Api.Usage.Builder, com.volcengine.model.maas.api.Api.UsageOrBuilder> 
           getUsageFieldBuilder() {
         if (usageBuilder_ == null) {
           usageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -9157,6 +9884,1398 @@ public final class Api {
 
   }
 
+  public interface CertReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:api.CertReq)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.api.Model model = 1;</code>
+     * @return Whether the model field is set.
+     */
+    boolean hasModel();
+    /**
+     * <code>.api.Model model = 1;</code>
+     * @return The model.
+     */
+    com.volcengine.model.maas.api.Api.Model getModel();
+    /**
+     * <code>.api.Model model = 1;</code>
+     */
+    com.volcengine.model.maas.api.Api.ModelOrBuilder getModelOrBuilder();
+  }
+  /**
+   * Protobuf type {@code api.CertReq}
+   */
+  public static final class CertReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:api.CertReq)
+      CertReqOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CertReq.newBuilder() to construct.
+    private CertReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CertReq() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CertReq();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CertReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.volcengine.model.maas.api.Api.Model.Builder subBuilder = null;
+              if (model_ != null) {
+                subBuilder = model_.toBuilder();
+              }
+              model_ = input.readMessage(com.volcengine.model.maas.api.Api.Model.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(model_);
+                model_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.volcengine.model.maas.api.Api.internal_static_api_CertReq_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.volcengine.model.maas.api.Api.internal_static_api_CertReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.volcengine.model.maas.api.Api.CertReq.class, com.volcengine.model.maas.api.Api.CertReq.Builder.class);
+    }
+
+    public static final int MODEL_FIELD_NUMBER = 1;
+    private com.volcengine.model.maas.api.Api.Model model_;
+    /**
+     * <code>.api.Model model = 1;</code>
+     * @return Whether the model field is set.
+     */
+    @java.lang.Override
+    public boolean hasModel() {
+      return model_ != null;
+    }
+    /**
+     * <code>.api.Model model = 1;</code>
+     * @return The model.
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.Model getModel() {
+      return model_ == null ? com.volcengine.model.maas.api.Api.Model.getDefaultInstance() : model_;
+    }
+    /**
+     * <code>.api.Model model = 1;</code>
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.ModelOrBuilder getModelOrBuilder() {
+      return getModel();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (model_ != null) {
+        output.writeMessage(1, getModel());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (model_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getModel());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.volcengine.model.maas.api.Api.CertReq)) {
+        return super.equals(obj);
+      }
+      com.volcengine.model.maas.api.Api.CertReq other = (com.volcengine.model.maas.api.Api.CertReq) obj;
+
+      if (hasModel() != other.hasModel()) return false;
+      if (hasModel()) {
+        if (!getModel()
+            .equals(other.getModel())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasModel()) {
+        hash = (37 * hash) + MODEL_FIELD_NUMBER;
+        hash = (53 * hash) + getModel().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.volcengine.model.maas.api.Api.CertReq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.CertReq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.CertReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.CertReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.CertReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.CertReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.CertReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.CertReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.CertReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.CertReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.CertReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.CertReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.volcengine.model.maas.api.Api.CertReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code api.CertReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:api.CertReq)
+        com.volcengine.model.maas.api.Api.CertReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.volcengine.model.maas.api.Api.internal_static_api_CertReq_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.volcengine.model.maas.api.Api.internal_static_api_CertReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.volcengine.model.maas.api.Api.CertReq.class, com.volcengine.model.maas.api.Api.CertReq.Builder.class);
+      }
+
+      // Construct using com.volcengine.model.maas.api.Api.CertReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (modelBuilder_ == null) {
+          model_ = null;
+        } else {
+          model_ = null;
+          modelBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.volcengine.model.maas.api.Api.internal_static_api_CertReq_descriptor;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.CertReq getDefaultInstanceForType() {
+        return com.volcengine.model.maas.api.Api.CertReq.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.CertReq build() {
+        com.volcengine.model.maas.api.Api.CertReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.CertReq buildPartial() {
+        com.volcengine.model.maas.api.Api.CertReq result = new com.volcengine.model.maas.api.Api.CertReq(this);
+        if (modelBuilder_ == null) {
+          result.model_ = model_;
+        } else {
+          result.model_ = modelBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.volcengine.model.maas.api.Api.CertReq) {
+          return mergeFrom((com.volcengine.model.maas.api.Api.CertReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.volcengine.model.maas.api.Api.CertReq other) {
+        if (other == com.volcengine.model.maas.api.Api.CertReq.getDefaultInstance()) return this;
+        if (other.hasModel()) {
+          mergeModel(other.getModel());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.volcengine.model.maas.api.Api.CertReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.volcengine.model.maas.api.Api.CertReq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.volcengine.model.maas.api.Api.Model model_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder> modelBuilder_;
+      /**
+       * <code>.api.Model model = 1;</code>
+       * @return Whether the model field is set.
+       */
+      public boolean hasModel() {
+        return modelBuilder_ != null || model_ != null;
+      }
+      /**
+       * <code>.api.Model model = 1;</code>
+       * @return The model.
+       */
+      public com.volcengine.model.maas.api.Api.Model getModel() {
+        if (modelBuilder_ == null) {
+          return model_ == null ? com.volcengine.model.maas.api.Api.Model.getDefaultInstance() : model_;
+        } else {
+          return modelBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.api.Model model = 1;</code>
+       */
+      public Builder setModel(com.volcengine.model.maas.api.Api.Model value) {
+        if (modelBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          model_ = value;
+          onChanged();
+        } else {
+          modelBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.api.Model model = 1;</code>
+       */
+      public Builder setModel(
+          com.volcengine.model.maas.api.Api.Model.Builder builderForValue) {
+        if (modelBuilder_ == null) {
+          model_ = builderForValue.build();
+          onChanged();
+        } else {
+          modelBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.api.Model model = 1;</code>
+       */
+      public Builder mergeModel(com.volcengine.model.maas.api.Api.Model value) {
+        if (modelBuilder_ == null) {
+          if (model_ != null) {
+            model_ =
+              com.volcengine.model.maas.api.Api.Model.newBuilder(model_).mergeFrom(value).buildPartial();
+          } else {
+            model_ = value;
+          }
+          onChanged();
+        } else {
+          modelBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.api.Model model = 1;</code>
+       */
+      public Builder clearModel() {
+        if (modelBuilder_ == null) {
+          model_ = null;
+          onChanged();
+        } else {
+          model_ = null;
+          modelBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.api.Model model = 1;</code>
+       */
+      public com.volcengine.model.maas.api.Api.Model.Builder getModelBuilder() {
+        
+        onChanged();
+        return getModelFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.api.Model model = 1;</code>
+       */
+      public com.volcengine.model.maas.api.Api.ModelOrBuilder getModelOrBuilder() {
+        if (modelBuilder_ != null) {
+          return modelBuilder_.getMessageOrBuilder();
+        } else {
+          return model_ == null ?
+              com.volcengine.model.maas.api.Api.Model.getDefaultInstance() : model_;
+        }
+      }
+      /**
+       * <code>.api.Model model = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder> 
+          getModelFieldBuilder() {
+        if (modelBuilder_ == null) {
+          modelBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder>(
+                  getModel(),
+                  getParentForChildren(),
+                  isClean());
+          model_ = null;
+        }
+        return modelBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:api.CertReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:api.CertReq)
+    private static final com.volcengine.model.maas.api.Api.CertReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.volcengine.model.maas.api.Api.CertReq();
+    }
+
+    public static com.volcengine.model.maas.api.Api.CertReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CertReq>
+        PARSER = new com.google.protobuf.AbstractParser<CertReq>() {
+      @java.lang.Override
+      public CertReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CertReq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CertReq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CertReq> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.CertReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CertRespOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:api.CertResp)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.api.Model model = 1;</code>
+     * @return Whether the model field is set.
+     */
+    boolean hasModel();
+    /**
+     * <code>.api.Model model = 1;</code>
+     * @return The model.
+     */
+    com.volcengine.model.maas.api.Api.Model getModel();
+    /**
+     * <code>.api.Model model = 1;</code>
+     */
+    com.volcengine.model.maas.api.Api.ModelOrBuilder getModelOrBuilder();
+
+    /**
+     * <code>string cert = 2;</code>
+     * @return The cert.
+     */
+    java.lang.String getCert();
+    /**
+     * <code>string cert = 2;</code>
+     * @return The bytes for cert.
+     */
+    com.google.protobuf.ByteString
+        getCertBytes();
+  }
+  /**
+   * Protobuf type {@code api.CertResp}
+   */
+  public static final class CertResp extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:api.CertResp)
+      CertRespOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CertResp.newBuilder() to construct.
+    private CertResp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CertResp() {
+      cert_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CertResp();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CertResp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.volcengine.model.maas.api.Api.Model.Builder subBuilder = null;
+              if (model_ != null) {
+                subBuilder = model_.toBuilder();
+              }
+              model_ = input.readMessage(com.volcengine.model.maas.api.Api.Model.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(model_);
+                model_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              cert_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.volcengine.model.maas.api.Api.internal_static_api_CertResp_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.volcengine.model.maas.api.Api.internal_static_api_CertResp_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.volcengine.model.maas.api.Api.CertResp.class, com.volcengine.model.maas.api.Api.CertResp.Builder.class);
+    }
+
+    public static final int MODEL_FIELD_NUMBER = 1;
+    private com.volcengine.model.maas.api.Api.Model model_;
+    /**
+     * <code>.api.Model model = 1;</code>
+     * @return Whether the model field is set.
+     */
+    @java.lang.Override
+    public boolean hasModel() {
+      return model_ != null;
+    }
+    /**
+     * <code>.api.Model model = 1;</code>
+     * @return The model.
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.Model getModel() {
+      return model_ == null ? com.volcengine.model.maas.api.Api.Model.getDefaultInstance() : model_;
+    }
+    /**
+     * <code>.api.Model model = 1;</code>
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.ModelOrBuilder getModelOrBuilder() {
+      return getModel();
+    }
+
+    public static final int CERT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object cert_;
+    /**
+     * <code>string cert = 2;</code>
+     * @return The cert.
+     */
+    @java.lang.Override
+    public java.lang.String getCert() {
+      java.lang.Object ref = cert_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        cert_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string cert = 2;</code>
+     * @return The bytes for cert.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCertBytes() {
+      java.lang.Object ref = cert_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cert_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (model_ != null) {
+        output.writeMessage(1, getModel());
+      }
+      if (!getCertBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, cert_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (model_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getModel());
+      }
+      if (!getCertBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, cert_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.volcengine.model.maas.api.Api.CertResp)) {
+        return super.equals(obj);
+      }
+      com.volcengine.model.maas.api.Api.CertResp other = (com.volcengine.model.maas.api.Api.CertResp) obj;
+
+      if (hasModel() != other.hasModel()) return false;
+      if (hasModel()) {
+        if (!getModel()
+            .equals(other.getModel())) return false;
+      }
+      if (!getCert()
+          .equals(other.getCert())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasModel()) {
+        hash = (37 * hash) + MODEL_FIELD_NUMBER;
+        hash = (53 * hash) + getModel().hashCode();
+      }
+      hash = (37 * hash) + CERT_FIELD_NUMBER;
+      hash = (53 * hash) + getCert().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.volcengine.model.maas.api.Api.CertResp parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.CertResp parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.CertResp parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.CertResp parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.CertResp parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.CertResp parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.CertResp parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.CertResp parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.CertResp parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.CertResp parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.CertResp parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.CertResp parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.volcengine.model.maas.api.Api.CertResp prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code api.CertResp}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:api.CertResp)
+        com.volcengine.model.maas.api.Api.CertRespOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.volcengine.model.maas.api.Api.internal_static_api_CertResp_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.volcengine.model.maas.api.Api.internal_static_api_CertResp_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.volcengine.model.maas.api.Api.CertResp.class, com.volcengine.model.maas.api.Api.CertResp.Builder.class);
+      }
+
+      // Construct using com.volcengine.model.maas.api.Api.CertResp.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (modelBuilder_ == null) {
+          model_ = null;
+        } else {
+          model_ = null;
+          modelBuilder_ = null;
+        }
+        cert_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.volcengine.model.maas.api.Api.internal_static_api_CertResp_descriptor;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.CertResp getDefaultInstanceForType() {
+        return com.volcengine.model.maas.api.Api.CertResp.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.CertResp build() {
+        com.volcengine.model.maas.api.Api.CertResp result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.CertResp buildPartial() {
+        com.volcengine.model.maas.api.Api.CertResp result = new com.volcengine.model.maas.api.Api.CertResp(this);
+        if (modelBuilder_ == null) {
+          result.model_ = model_;
+        } else {
+          result.model_ = modelBuilder_.build();
+        }
+        result.cert_ = cert_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.volcengine.model.maas.api.Api.CertResp) {
+          return mergeFrom((com.volcengine.model.maas.api.Api.CertResp)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.volcengine.model.maas.api.Api.CertResp other) {
+        if (other == com.volcengine.model.maas.api.Api.CertResp.getDefaultInstance()) return this;
+        if (other.hasModel()) {
+          mergeModel(other.getModel());
+        }
+        if (!other.getCert().isEmpty()) {
+          cert_ = other.cert_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.volcengine.model.maas.api.Api.CertResp parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.volcengine.model.maas.api.Api.CertResp) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.volcengine.model.maas.api.Api.Model model_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder> modelBuilder_;
+      /**
+       * <code>.api.Model model = 1;</code>
+       * @return Whether the model field is set.
+       */
+      public boolean hasModel() {
+        return modelBuilder_ != null || model_ != null;
+      }
+      /**
+       * <code>.api.Model model = 1;</code>
+       * @return The model.
+       */
+      public com.volcengine.model.maas.api.Api.Model getModel() {
+        if (modelBuilder_ == null) {
+          return model_ == null ? com.volcengine.model.maas.api.Api.Model.getDefaultInstance() : model_;
+        } else {
+          return modelBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.api.Model model = 1;</code>
+       */
+      public Builder setModel(com.volcengine.model.maas.api.Api.Model value) {
+        if (modelBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          model_ = value;
+          onChanged();
+        } else {
+          modelBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.api.Model model = 1;</code>
+       */
+      public Builder setModel(
+          com.volcengine.model.maas.api.Api.Model.Builder builderForValue) {
+        if (modelBuilder_ == null) {
+          model_ = builderForValue.build();
+          onChanged();
+        } else {
+          modelBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.api.Model model = 1;</code>
+       */
+      public Builder mergeModel(com.volcengine.model.maas.api.Api.Model value) {
+        if (modelBuilder_ == null) {
+          if (model_ != null) {
+            model_ =
+              com.volcengine.model.maas.api.Api.Model.newBuilder(model_).mergeFrom(value).buildPartial();
+          } else {
+            model_ = value;
+          }
+          onChanged();
+        } else {
+          modelBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.api.Model model = 1;</code>
+       */
+      public Builder clearModel() {
+        if (modelBuilder_ == null) {
+          model_ = null;
+          onChanged();
+        } else {
+          model_ = null;
+          modelBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.api.Model model = 1;</code>
+       */
+      public com.volcengine.model.maas.api.Api.Model.Builder getModelBuilder() {
+        
+        onChanged();
+        return getModelFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.api.Model model = 1;</code>
+       */
+      public com.volcengine.model.maas.api.Api.ModelOrBuilder getModelOrBuilder() {
+        if (modelBuilder_ != null) {
+          return modelBuilder_.getMessageOrBuilder();
+        } else {
+          return model_ == null ?
+              com.volcengine.model.maas.api.Api.Model.getDefaultInstance() : model_;
+        }
+      }
+      /**
+       * <code>.api.Model model = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder> 
+          getModelFieldBuilder() {
+        if (modelBuilder_ == null) {
+          modelBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder>(
+                  getModel(),
+                  getParentForChildren(),
+                  isClean());
+          model_ = null;
+        }
+        return modelBuilder_;
+      }
+
+      private java.lang.Object cert_ = "";
+      /**
+       * <code>string cert = 2;</code>
+       * @return The cert.
+       */
+      public java.lang.String getCert() {
+        java.lang.Object ref = cert_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          cert_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string cert = 2;</code>
+       * @return The bytes for cert.
+       */
+      public com.google.protobuf.ByteString
+          getCertBytes() {
+        java.lang.Object ref = cert_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          cert_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string cert = 2;</code>
+       * @param value The cert to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCert(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        cert_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string cert = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCert() {
+        
+        cert_ = getDefaultInstance().getCert();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string cert = 2;</code>
+       * @param value The bytes for cert to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCertBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        cert_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:api.CertResp)
+    }
+
+    // @@protoc_insertion_point(class_scope:api.CertResp)
+    private static final com.volcengine.model.maas.api.Api.CertResp DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.volcengine.model.maas.api.Api.CertResp();
+    }
+
+    public static com.volcengine.model.maas.api.Api.CertResp getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CertResp>
+        PARSER = new com.google.protobuf.AbstractParser<CertResp>() {
+      @java.lang.Override
+      public CertResp parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CertResp(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CertResp> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CertResp> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.CertResp getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_api_Message_descriptor;
   private static final 
@@ -9202,6 +11321,16 @@ public final class Api {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_api_ChatResp_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_api_CertReq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_api_CertReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_api_CertResp_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_api_CertResp_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -9219,28 +11348,39 @@ public final class Api {
       "(\0132\n.api.Error\022\016\n\006req_id\030\002 \001(\t\"_\n\006Choice" +
       "\022\r\n\005index\030\001 \001(\005\022\035\n\007message\030\002 \001(\0132\014.api.M" +
       "essage\022\025\n\rfinish_reason\030\003 \001(\t\022\020\n\010logprob" +
-      "s\030\004 \001(\002\"\317\001\n\nParameters\022\023\n\013temperature\030\001 " +
-      "\001(\002\022\022\n\nmax_tokens\030\002 \001(\003\022\r\n\005top_p\030\003 \001(\002\022\030" +
-      "\n\020presence_penalty\030\004 \001(\002\022\031\n\021frequency_pe" +
-      "nalty\030\005 \001(\002\022\026\n\016max_new_tokens\030\006 \001(\003\022\032\n\022r" +
-      "epetition_penalty\030\007 \001(\002\022\021\n\tdo_sample\030\010 \001" +
-      "(\010\022\r\n\005top_k\030\t \001(\003\"O\n\005Usage\022\025\n\rprompt_tok" +
-      "ens\030\001 \001(\003\022\031\n\021completion_tokens\030\002 \001(\003\022\024\n\014" +
-      "total_tokens\030\003 \001(\003\"\211\001\n\007ChatReq\022\031\n\005model\030" +
-      "\001 \001(\0132\n.api.Model\022\036\n\010messages\030\002 \003(\0132\014.ap" +
-      "i.Message\022#\n\nparameters\030\003 \001(\0132\017.api.Para" +
-      "meters\022\016\n\006stream\030\004 \001(\010\022\016\n\006req_id\030\005 \001(\t\"m" +
-      "\n\010ChatResp\022\016\n\006req_id\030\001 \001(\t\022\031\n\005error\030\002 \001(" +
-      "\0132\n.api.Error\022\033\n\006choice\030\003 \001(\0132\013.api.Choi" +
-      "ce\022\031\n\005usage\030\004 \001(\0132\n.api.Usage2B\n\nAPIServ" +
-      "ice\0224\n\004Chat\022\014.api.ChatReq\032\r.api.ChatResp" +
-      "\"\017\322\301\030\013api/v1/chatB(\n&com.volcengine.serv" +
-      "ice.maas.models.apib\006proto3"
+      "s\030\004 \001(\002\"\302\003\n\nParameters\022\030\n\013temperature\030\001 " +
+      "\001(\002H\000\210\001\001\022\027\n\nmax_tokens\030\002 \001(\003H\001\210\001\001\022\022\n\005top" +
+      "_p\030\003 \001(\002H\002\210\001\001\022\035\n\020presence_penalty\030\004 \001(\002H" +
+      "\003\210\001\001\022\036\n\021frequency_penalty\030\005 \001(\002H\004\210\001\001\022\033\n\016" +
+      "max_new_tokens\030\006 \001(\003H\005\210\001\001\022\037\n\022repetition_" +
+      "penalty\030\007 \001(\002H\006\210\001\001\022\026\n\tdo_sample\030\010 \001(\010H\007\210" +
+      "\001\001\022\022\n\005top_k\030\t \001(\003H\010\210\001\001\022\033\n\016min_new_tokens" +
+      "\030\n \001(\003H\t\210\001\001B\016\n\014_temperatureB\r\n\013_max_toke" +
+      "nsB\010\n\006_top_pB\023\n\021_presence_penaltyB\024\n\022_fr" +
+      "equency_penaltyB\021\n\017_max_new_tokensB\025\n\023_r" +
+      "epetition_penaltyB\014\n\n_do_sampleB\010\n\006_top_" +
+      "kB\021\n\017_min_new_tokens\"O\n\005Usage\022\025\n\rprompt_" +
+      "tokens\030\001 \001(\003\022\031\n\021completion_tokens\030\002 \001(\003\022" +
+      "\024\n\014total_tokens\030\003 \001(\003\"\271\001\n\007ChatReq\022\031\n\005mod" +
+      "el\030\001 \001(\0132\n.api.Model\022\036\n\010messages\030\002 \003(\0132\014" +
+      ".api.Message\022#\n\nparameters\030\003 \001(\0132\017.api.P" +
+      "arameters\022\016\n\006stream\030\004 \001(\010\022\016\n\006req_id\030\005 \001(" +
+      "\t\022.\n\014crypto_token\030\006 \001(\tB\030\272\273\030\024Ml-Maas-Cry" +
+      "pto-Token\"m\n\010ChatResp\022\016\n\006req_id\030\001 \001(\t\022\031\n" +
+      "\005error\030\002 \001(\0132\n.api.Error\022\033\n\006choice\030\003 \001(\013" +
+      "2\013.api.Choice\022\031\n\005usage\030\004 \001(\0132\n.api.Usage" +
+      "\"$\n\007CertReq\022\031\n\005model\030\001 \001(\0132\n.api.Model\"3" +
+      "\n\010CertResp\022\031\n\005model\030\001 \001(\0132\n.api.Model\022\014\n" +
+      "\004cert\030\002 \001(\t2x\n\nAPIService\0224\n\004Chat\022\014.api." +
+      "ChatReq\032\r.api.ChatResp\"\017\322\301\030\013api/v1/chat\022" +
+      "4\n\004Cert\022\014.api.CertReq\032\r.api.CertResp\"\017\322\301" +
+      "\030\013api/v1/certB\037\n\035com.volcengine.model.ma" +
+      "as.apib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          Base.getDescriptor(),
+          com.volcengine.model.maas.Base.getDescriptor(),
         });
     internal_static_api_Message_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -9277,7 +11417,7 @@ public final class Api {
     internal_static_api_Parameters_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_api_Parameters_descriptor,
-        new java.lang.String[] { "Temperature", "MaxTokens", "TopP", "PresencePenalty", "FrequencyPenalty", "MaxNewTokens", "RepetitionPenalty", "DoSample", "TopK", });
+        new java.lang.String[] { "Temperature", "MaxTokens", "TopP", "PresencePenalty", "FrequencyPenalty", "MaxNewTokens", "RepetitionPenalty", "DoSample", "TopK", "MinNewTokens", "Temperature", "MaxTokens", "TopP", "PresencePenalty", "FrequencyPenalty", "MaxNewTokens", "RepetitionPenalty", "DoSample", "TopK", "MinNewTokens", });
     internal_static_api_Usage_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_api_Usage_fieldAccessorTable = new
@@ -9289,19 +11429,32 @@ public final class Api {
     internal_static_api_ChatReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_api_ChatReq_descriptor,
-        new java.lang.String[] { "Model", "Messages", "Parameters", "Stream", "ReqId", });
+        new java.lang.String[] { "Model", "Messages", "Parameters", "Stream", "ReqId", "CryptoToken", });
     internal_static_api_ChatResp_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_api_ChatResp_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_api_ChatResp_descriptor,
         new java.lang.String[] { "ReqId", "Error", "Choice", "Usage", });
+    internal_static_api_CertReq_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_api_CertReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_api_CertReq_descriptor,
+        new java.lang.String[] { "Model", });
+    internal_static_api_CertResp_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_api_CertResp_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_api_CertResp_descriptor,
+        new java.lang.String[] { "Model", "Cert", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
-    registry.add(Base.post);
+    registry.add(com.volcengine.model.maas.Base.header);
+    registry.add(com.volcengine.model.maas.Base.post);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
-    Base.getDescriptor();
+    com.volcengine.model.maas.Base.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

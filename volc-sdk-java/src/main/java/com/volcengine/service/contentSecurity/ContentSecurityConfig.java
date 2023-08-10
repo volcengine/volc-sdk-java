@@ -185,6 +185,20 @@ public class ContentSecurityConfig {
                         }
                     }
             ));
+            put(Const.AudioRisk, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AudioRisk));
+                                    add(new BasicNameValuePair("Version", "2022-04-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.CreateCustomContents, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -328,6 +342,7 @@ public class ContentSecurityConfig {
                     }
             ));
         }
+
         ;
     };
 }

@@ -32,6 +32,8 @@ public class GetAudioRiskResponse {
         private List<AudioDetail> details;
         @JSONField(name = "DataId")
         private String dataId;
+        @JSONField(name = "AudioText")
+        private String audioText;
         @JSONField(name = "PassThrough")
         private String passThrough;
     }

@@ -110,6 +110,8 @@ public class Const {
     public static final String GetAudioResult = "GetAudioResult";
     public static final String AsyncAudioRisk = "AsyncAudioRisk";
     public static final String GetVideoLiveResult = "GetVideoLiveResult";
+
+    public static final String AudioRisk = "AudioRisk";
     public static final String AsyncLiveVideoRisk = "AsyncLiveVideoRisk";
     public static final String GetAudioLiveResult = "GetAudioLiveResult";
     public static final String AsyncLiveAudioRisk = "AsyncLiveAudioRisk";

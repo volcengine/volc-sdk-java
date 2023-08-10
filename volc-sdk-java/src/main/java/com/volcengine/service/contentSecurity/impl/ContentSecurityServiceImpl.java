@@ -168,6 +168,16 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
     }
 
     @Override
+    public GetAudioRiskResponse AudioRisk(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.AudioRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), GetAudioRiskResponse.class);
+    }
+
+    @Override
     public AsyncRiskDetectionResponse AsyncLiveVideoRisk(RiskDetectionRequest riskDetectionRequest) throws Exception {
         RawResponse response = json(Const.AsyncLiveVideoRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

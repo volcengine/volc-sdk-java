@@ -140,6 +140,16 @@ public interface ContentSecurityService extends IBaseService {
     GetAudioRiskResponse AudioResult(ImageRiskResultRequest audioRiskResultRequest) throws Exception;
 
     /**
+     * Sync Audio Risk Detection.
+     *
+     * @param riskDetectionRequest audip risk detection request
+     * @return async audio risk detection response
+     * @throws Exception the exception
+     */
+    GetAudioRiskResponse AudioRisk(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+
+    /**
      * Async Video live Risk Detection.
      *
      * @param riskDetectionRequest video risk detection request
@@ -178,7 +188,7 @@ public interface ContentSecurityService extends IBaseService {
     /**
      * Text Slice Risk.
      *
-     * @param  riskDetectionRequest text risk detection request
+     * @param riskDetectionRequest text risk detection request
      * @return text risk detection response
      * @throws Exception the exception
      */

@@ -166,8 +166,8 @@ public class VodServiceConfig {
                                     add(new BasicNameValuePair("Version", "2022-01-01"));
                                 }
                             });
-                            put(com.volcengine.helper.Const.CONNECTION_TIMEOUT, 8000);
-                            put(com.volcengine.helper.Const.SOCKET_TIMEOUT, 8000);
+                            put(com.volcengine.helper.Const.CONNECTION_TIMEOUT, 30000);
+                            put(com.volcengine.helper.Const.SOCKET_TIMEOUT, 30000);
                         }
                     }
             ));

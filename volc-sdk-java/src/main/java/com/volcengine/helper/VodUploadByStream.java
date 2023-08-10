@@ -79,7 +79,7 @@ public class VodUploadByStream extends VodUploadAbstractStrategy {
 
     private VodServiceImpl.UploadPartResponse uploadPart(VodServiceImpl vodService, String host, String oid, String auth, String uploadID, long partNumber, InputStream inputStream, boolean isLargeFile, Retryer retryer, int storageClass) throws Exception {
         String oidEncode = StringUtils.replace(oid, " ", "%20");
-        String url = String.format("http://%s/%s?partNumber=%d&uploadID=%s", host, oidEncode, partNumber, uploadID);
+        String url = String.format("https://%s/%s?partNumber=%d&uploadID=%s", host, oidEncode, partNumber, uploadID);
         Map<String, String> headers = new HashMap<>();
         inputStream.mark(0);
         long crc32 = com.volcengine.helper.Utils.crc32(inputStream);

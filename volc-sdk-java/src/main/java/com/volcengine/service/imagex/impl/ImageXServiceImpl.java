@@ -370,17 +370,17 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     @Override
-    public SecurityToken2 getUploadSts2(List<String> serviceIds) throws Exception {
-        return getUploadSts2WithKeyPtn(serviceIds, Time.Hour, "");
+    public SecurityToken2 getUploadSts2(List<String> serviceIds, Map<String, String> tag) throws Exception {
+        return getUploadSts2WithKeyPtn(serviceIds, Time.Hour, "", tag);
     }
 
     @Override
     public SecurityToken2 getUploadSts2WithExpire(List<String> serviceIds, long expire) throws Exception {
-        return getUploadSts2WithKeyPtn(serviceIds, expire, "");
+        return getUploadSts2WithKeyPtn(serviceIds, expire, "", null);
     }
 
     @Override
-    public SecurityToken2 getUploadSts2WithKeyPtn(List<String> serviceIds, long expire, String keyPtn) throws Exception {
+    public SecurityToken2 getUploadSts2WithKeyPtn(List<String> serviceIds, long expire, String keyPtn, Map<String, String> tag) throws Exception {
         List<String> applyRes = new ArrayList<>();
         List<String> commitRes = new ArrayList<>();
         if (serviceIds.size() == 0) {
@@ -399,6 +399,11 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         Statement commitStatement = Sts2Utils.newAllowStatement(Collections.singletonList("ImageX:CommitImageUpload"), commitRes);
         inlinePolicy.addStatement(applyStatement);
         inlinePolicy.addStatement(commitStatement);
+        if (tag != null){
+            for (Map.Entry<String, String> entry : tag.entrySet()) {
+                inlinePolicy.addStatement(Sts2Utils.newAllowStatement(Collections.singletonList(entry.getKey()), Collections.singletonList(entry.getValue())));
+            }
+        }
         return signSts2(inlinePolicy, expire);
     }
 

@@ -8,6 +8,7 @@ import com.volcengine.model.sts2.SecurityToken2;
 import com.volcengine.service.IBaseService;
 
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -90,7 +91,7 @@ public interface IImageXService extends IBaseService {
      * @return the upload sts2 auth
      * @throws Exception the exception
      */
-    SecurityToken2 getUploadSts2(List<String> serviceIds) throws Exception;
+    SecurityToken2 getUploadSts2(List<String> serviceIds, Map<String, String> tag) throws Exception;
 
     /**
      * Get image upload sts2 auth.
@@ -111,7 +112,7 @@ public interface IImageXService extends IBaseService {
      * @return the upload sts2 auth
      * @throws Exception the exception
      */
-    SecurityToken2 getUploadSts2WithKeyPtn(List<String> serviceIds, long expire, String keyPtn) throws Exception;
+    SecurityToken2 getUploadSts2WithKeyPtn(List<String> serviceIds, long expire, String keyPtn, Map<String, String> tag) throws Exception;
 
     /**
      * Delete images.

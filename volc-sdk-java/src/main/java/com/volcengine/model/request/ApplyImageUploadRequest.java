@@ -19,6 +19,8 @@ public class ApplyImageUploadRequest {
     String fileExtension;
     @JSONField(name = "Prefix")
     String prefix;
+    @JSONField(name = "Overwrite")
+    String overwrite;
 
     @JSONField(serialize = false)
     Boolean skipCommit;

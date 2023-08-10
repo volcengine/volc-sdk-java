@@ -6,6 +6,7 @@ import com.volcengine.service.imagex.IImageXService;
 import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -25,7 +26,9 @@ public class GetUploadSts2 {
             // 默认超时时间为 1小时，如果有需要，请调用 imagex.getUploadSts2WithExpire() 来设置超时时间
             // 您可以使用 imagex.getUploadSts2WithKeyPtn("表达式") 来限制上传的存储名格式
             //     如: "test/*" 表示上传的文件必须包含 "test/" 前缀
-            SecurityToken2 sts2 = service.getUploadSts2(serviceIds);
+            HashMap<String, String> tag =  new HashMap<>();
+            tag.put("UploadOverwrite", "False");
+            SecurityToken2 sts2 = service.getUploadSts2(serviceIds, tag);
             System.out.println(JSON.toJSONString(sts2));
         } catch (Exception e) {
             e.printStackTrace();

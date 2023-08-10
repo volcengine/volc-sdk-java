@@ -22,7 +22,7 @@ public class UploadImage {
 
         ApplyImageUploadRequest request = new ApplyImageUploadRequest();
         request.setServiceId("service id"); // 服务 ID
-
+        // request.setOverwrite("False");
         try {
             // 读取文件
             List<byte[]> datas = new ArrayList<>();

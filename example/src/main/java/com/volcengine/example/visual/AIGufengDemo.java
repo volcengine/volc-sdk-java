@@ -23,7 +23,7 @@ public class AIGufengDemo {
 //        binaryData.add("image_base64");
 //        req.setBinaryDataBase64(binaryData);
         ArrayList<String> imageUrls = new ArrayList<>();
-        imageUrls.add("http://xxxx");
+        imageUrls.add("https://xxxx");
         req.setImage_urls(imageUrls);
 
         try {

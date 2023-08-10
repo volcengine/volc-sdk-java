@@ -10,7 +10,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import sun.misc.BASE64Encoder;
+import java.util.Base64;
 
 public class VisualServiceImplTest extends TestCase {
 
@@ -33,9 +33,9 @@ public class VisualServiceImplTest extends TestCase {
             e.printStackTrace();
         }
         // 对字节数组进行Base64编码，得到Base64编码的字符串
-        BASE64Encoder encoder = new BASE64Encoder();
-        String base64Str = encoder.encode(data);
-        return base64Str;
+        Base64.Encoder encoder = Base64.getEncoder();
+
+        return encoder.encodeToString(data);
     }
 
     public void testLensVidaVideoV2() {

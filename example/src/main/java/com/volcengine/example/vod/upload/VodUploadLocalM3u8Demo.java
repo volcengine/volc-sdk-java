@@ -22,7 +22,7 @@ public class VodUploadLocalM3u8Demo {
 
         String space = "your space name";
         String m3u8FilePath = "/Users/Downloads/main.m3u8";
-        // ts 路径列表 & ts FileName 列表，其中如无需设置 tsFileNames 时，tsFileNames 列表可以为null，设置时必须一一对应
+        // ts 路径列表 & ts FileName 列表，设置时必须一一对应
         List<String> tsFilePaths = new ArrayList<>();
         List<String> tsFileNames = new ArrayList<>();
 

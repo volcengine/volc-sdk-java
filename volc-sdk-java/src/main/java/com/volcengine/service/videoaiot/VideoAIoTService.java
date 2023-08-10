@@ -136,6 +136,7 @@ public interface VideoAIoTService extends IBaseService {
     LocalMediaDownloadResponse localMediaDownload(LocalMediaDownloadRequest localMediaDownloadRequest) throws Exception;
 
     GetLocalMediaDownloadResponse getLocalDownload(String id) throws Exception;
+
     /**
      * @param sipServerID sip server id
      * @param deviceType  IPC/NVR
@@ -226,6 +227,8 @@ public interface VideoAIoTService extends IBaseService {
     GetRecordV2Response getRecordListV2(GetRecordListV2Request request) throws Exception;
 
     PlaybackStartResponse playbackStart(PlaybackStartRequest request) throws Exception;
+
+    PlaybackStartResponse playbackStartV2(PlaybackStartRequestV2 request) throws Exception;
 
     PlaybackStatResponse playbackStat(String playbackStreamID) throws Exception;
 

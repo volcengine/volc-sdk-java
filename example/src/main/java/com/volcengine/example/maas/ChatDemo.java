@@ -18,7 +18,10 @@ public class ChatDemo {
 
         Api.ChatReq req = Api.ChatReq.newBuilder()
                 .setModel(Api.Model.newBuilder().setName("${YOUR_MODEL_NAME}"))
-                .setParameters(Api.Parameters.newBuilder().setMaxNewTokens(2000).setTemperature(0.8f))
+                .setParameters(Api.Parameters.newBuilder()
+                        .setMaxNewTokens(2000)
+                        .setTemperature(0.8f)
+                )
                 .addMessages(Api.Message.newBuilder().setRole(Const.MaasChatRoleOfUser).setContent("天为什么这么蓝？"))
                 .addMessages(Api.Message.newBuilder().setRole(Const.MaasChatRoleOfAssistant).setContent("因为有你"))
                 .addMessages(Api.Message.newBuilder().setRole(Const.MaasChatRoleOfUser).setContent("花儿为什么这么香？"))

@@ -617,6 +617,7 @@ public class Const {
     public static final String AIoTVideoGetRecordList = "GetRecordList";
     public static final String AIoTVideoGetRecordListV2 = "GetRecordListV2";
     public static final String AIoTVideoPlaybackStart = "PlaybackStart";
+    public static final String AIoTVideoPlaybackStartV2 = "PlaybackStartV2";
     public static final String AIoTVideoPlaybackStat = "PlayBackStat";
     public static final String AIoTVideoPlaybackStop = "PlaybackStop";
     public static final String AIoTVideoPlaybackControl = "PlayBackControl";

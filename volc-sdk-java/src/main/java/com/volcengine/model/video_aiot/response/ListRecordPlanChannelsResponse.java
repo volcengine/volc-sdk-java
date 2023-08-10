@@ -4,6 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Map;
 
 @Data
 public class ListRecordPlanChannelsResponse {
@@ -17,7 +18,7 @@ public class ListRecordPlanChannelsResponse {
         @JSONField(name = "PageResult")
         PageResultResponse pageResult;
         @JSONField(name = "List")
-        List<RecordPlanChannel> list;
+        Map<String,List<RecordPlanChannel>> list;
     }
 
     @Data

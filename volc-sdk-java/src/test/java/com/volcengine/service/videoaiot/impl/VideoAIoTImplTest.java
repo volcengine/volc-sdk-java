@@ -302,6 +302,29 @@ public class VideoAIoTImplTest extends TestCase {
         System.out.println(JSON.toJSONString(idResponse));
     }
 
+
+    public void testPlaybackV2() throws Exception {
+        setTest();
+        PlaybackStartRequestV2 start = new PlaybackStartRequestV2();
+        start.setDeviceNSID("34020034991180160268");
+        start.setChannelID("98880000001320000000");
+        start.setStartTime(1691510400);
+        start.setEndTime(1691596799);
+        PlaybackStartResponse playbackStartResponse = videoAIoTService.playbackStartV2(start);
+        System.out.println(JSON.toJSONString(playbackStartResponse));
+        String sid = playbackStartResponse.getResult().getStreamID();
+        for (int i = 0; ; i++) {
+            PlaybackStatResponse playbackStatResponse = videoAIoTService.playbackStat(sid);
+            System.out.println(JSON.toJSONString(playbackStatResponse));
+            if (playbackStatResponse.getResult().getStatus().equals("deleted")) {
+                break;
+            }
+            Thread.sleep(5000);
+        }
+        IDResponse idResponse = videoAIoTService.playbackStop(sid);
+        System.out.println(JSON.toJSONString(idResponse));
+    }
+
     public void testPlaybackStat() throws Exception {
         setTest();
         String sid = "3ad6c029-5153-40ca-904f-7810641d7b0f";
@@ -1142,6 +1165,16 @@ public class VideoAIoTImplTest extends TestCase {
         }
     }
 
+    public void testGetRecordPlan() {
+        String planID = "";
+        try {
+            RecordPlanResponse recordPlan = videoAIoTService.getRecordPlan(planID);
+            System.out.println(JSON.toJSONString(recordPlan));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     public void testUpdateRecordPlan() {
         setTest();
@@ -1151,13 +1184,17 @@ public class VideoAIoTImplTest extends TestCase {
         updateRecordPlanRequest.setBindTemplate("a87c5902-453a-4cb1-a4e2-87171b2c25bd");
         updateRecordPlanRequest.setStatus("enabled");
         UpdateRecordPlanRequest.ModifyList delList = new UpdateRecordPlanRequest.ModifyList();
-        delList.setStreams(new ArrayList<String>(){
-            {add("7f2f1b54-2714-4f66-ae78-cd477ab0b68b");}
+        delList.setStreams(new ArrayList<String>() {
+            {
+                add("7f2f1b54-2714-4f66-ae78-cd477ab0b68b");
+            }
         });
         updateRecordPlanRequest.setDelList(delList);
         UpdateRecordPlanRequest.ModifyList addList = new UpdateRecordPlanRequest.ModifyList();
-        addList.setStreams(new ArrayList<String>(){
-            {add("3e088b33-4e28-4af3-a6f1-daff5a8a7bab");}
+        addList.setStreams(new ArrayList<String>() {
+            {
+                add("3e088b33-4e28-4af3-a6f1-daff5a8a7bab");
+            }
         });
         updateRecordPlanRequest.setAddList(addList);
         try {
@@ -1174,6 +1211,17 @@ public class VideoAIoTImplTest extends TestCase {
         listRecordPlansRequest.setFilterName("test");
         try {
             ListRecordPlansResponse recordPlan = videoAIoTService.listRecordPlans(listRecordPlansRequest);
+            System.out.println(JSON.toJSONString(recordPlan));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void testListRecordPlanChannel() {
+        setTest();
+        String planID = "f4aaa8ec-cab4-4120-95cd-5be2cfb9bf1a";
+        try {
+            ListRecordPlanChannelsResponse recordPlan = videoAIoTService.listRecordPlanChannels(planID);
             System.out.println(JSON.toJSONString(recordPlan));
         } catch (Exception e) {
             throw new RuntimeException(e);

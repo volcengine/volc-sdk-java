@@ -61,5 +61,7 @@ public class ListDeviceRecordsResponse {
         String format;
         @JSONField(name = "Bucket")
         String bucket;
+        @JSONField(name = "StorageType")
+        String storageType;
     }
 }

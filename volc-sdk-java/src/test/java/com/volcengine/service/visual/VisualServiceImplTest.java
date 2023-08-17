@@ -106,7 +106,7 @@ public class VisualServiceImplTest extends TestCase {
 //        req.setTemplateBase64("template_base64");
         req.setTemplateUrl("http://xxx");
 
-//        req.setTemplateUrl("http://tosv.byted.org/obj/labcv-serveralgo/tobapi/duorenlian_1.jpg");
+//        req.setTemplateUrl("http://xxxx");
         req.setActionId("faceswap");
         req.setVersion("2.0");
         req.setDoRisk(false);

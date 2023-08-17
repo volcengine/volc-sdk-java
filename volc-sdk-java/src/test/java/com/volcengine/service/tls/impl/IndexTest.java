@@ -2,6 +2,8 @@ package com.volcengine.service.tls.impl;
 
 import com.volcengine.model.tls.Const;
 import com.volcengine.model.tls.FullTextInfo;
+import com.volcengine.model.tls.KeyValueInfo;
+import com.volcengine.model.tls.ValueInfo;
 import com.volcengine.model.tls.exception.LogException;
 import com.volcengine.model.tls.request.*;
 import com.volcengine.model.tls.response.*;
@@ -9,6 +11,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import static org.junit.Assert.*;
@@ -23,7 +26,7 @@ public class IndexTest extends BaseTest {
         try {
             //create project
             String projectName = prefix + separator + date + separator + System.currentTimeMillis();
-            String region = "your-region";
+            String region = clientConfig.getRegion();
             String description = "test project";
             CreateProjectRequest project = new CreateProjectRequest(projectName, region, description);
             CreateProjectResponse createProjectResponse = client.createProject(project);
@@ -39,23 +42,32 @@ public class IndexTest extends BaseTest {
             System.out.println("create topic success,response:" + createTopicResponse);
 
             //create index
+            ArrayList<KeyValueInfo> keyValueInfos = new ArrayList<>();
+            ValueInfo value = new ValueInfo();
+            value.setValueType("text");
+            value.setCaseSensitive(true);
+            value.setIncludeChinese(false);
+            value.setDelimiter("\\n\\t\\r\\");
+            value.setSqlFlag(false);
+            keyValueInfos.add(new KeyValueInfo("test-key", value));
             CreateIndexRequest createIndexRequest = new CreateIndexRequest(createTopicResponse.getTopicId(),
-                    new FullTextInfo(false, ",-;", false), null);
+                    new FullTextInfo(false, "!@#%^&*\"()-_=', <>/?|;:\\n\\n", false), keyValueInfos);
             CreateIndexResponse createIndexResponse = client.createIndex(createIndexRequest);
             assertTrue(createIndexResponse.getTopicId().length() > 0);
             System.out.println("create index success,response:" + createIndexResponse);
 
-            Exception exception = assertThrows(LogException.class, () -> {
+            LogException exception = assertThrows(LogException.class, () -> {
                 client.createIndex(createIndexRequest);
             });
             String expectedMessage = "Index already exist";
-            String actualMessage = exception.getMessage();
-            assertEquals(expectedMessage, actualMessage);
+            String actualMessage = exception.getErrorMessage();
+            assertTrue(actualMessage.contains(expectedMessage));
 
             //describe index
             DescribeIndexRequest describeIndexRequest = new DescribeIndexRequest(createTopicResponse.getTopicId());
             DescribeIndexResponse describeIndexResponse = client.describeIndex(describeIndexRequest);
             Assert.assertEquals(describeIndexResponse.getFullTextInfo(), createIndexRequest.getFullTextInfo());
+            Assert.assertEquals(describeIndexResponse.getKeyValue().get(0), createIndexRequest.getKeyValue().get(0));
             System.out.println("describe index success,response:" + describeIndexResponse);
 
             exception = assertThrows(LogException.class, () -> {
@@ -92,7 +104,7 @@ public class IndexTest extends BaseTest {
             });
             expectedMessage = "Index does not exist.";
             actualMessage = exception.getMessage();
-            assertEquals(expectedMessage, actualMessage);
+            assertTrue(actualMessage.contains(expectedMessage));
             //delete topic and project
             DeleteTopicResponse deleteTopicResponse = client.deleteTopic(
                     new DeleteTopicRequest(createTopicResponse.getTopicId()));
@@ -103,5 +115,6 @@ public class IndexTest extends BaseTest {
             e.printStackTrace();
         }
     }
+
 
 }

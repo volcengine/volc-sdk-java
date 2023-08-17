@@ -20,24 +20,62 @@ public class ModifyIndexRequest {
     @JSONField(name = KEY_VALUE)
     private List<KeyValueInfo> keyValue;
 
+    /**
+     * @param topicId      日志主题 ID
+     * @param fullTextInfo 全文索引配置
+     * @param keyValue     键值索引配置
+     */
     public ModifyIndexRequest(String topicId, FullTextInfo fullTextInfo, List<KeyValueInfo> keyValue) {
         this.topicId = topicId;
         this.fullTextInfo = fullTextInfo;
         this.keyValue = keyValue;
     }
 
+    /**
+     * @return 日志主题 ID
+     */
     public String getTopicId() {
         return topicId;
     }
 
+    /**
+     * @param topicId 日志主题 ID
+     */
+    public void setTopicId(String topicId) {
+        this.topicId = topicId;
+    }
+
+    /**
+     * @return 全文索引配置
+     */
     public FullTextInfo getFullTextInfo() {
         return fullTextInfo;
     }
 
+    /**
+     * @param fullTextInfo 全文索引配置
+     */
+    public void setFullTextInfo(FullTextInfo fullTextInfo) {
+        this.fullTextInfo = fullTextInfo;
+    }
+
+    /**
+     * @return 键值索引配置
+     */
     public List<KeyValueInfo> getKeyValue() {
         return keyValue;
     }
 
+    /**
+     * @param keyValue 键值索引配置
+     */
+    public void setKeyValue(List<KeyValueInfo> keyValue) {
+        this.keyValue = keyValue;
+    }
+
+    /**
+     * @return 检验必填参数，true合法false不合法
+     */
     public boolean CheckValidation() {
         if (this.topicId == null) {
             return false;

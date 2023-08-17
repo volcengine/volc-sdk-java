@@ -25,7 +25,7 @@ public class LogsDemo extends BaseDemo {
         try {
             //create project
             String projectName = prefix + separator + formatDate + separator + currentTimeMillis;
-            String region = "test-region";
+            String region = clientConfig.getRegion();
             String description = "test project";
             CreateProjectRequest project = new CreateProjectRequest(projectName, region, description);
             CreateProjectResponse createProjectResponse = client.createProject(project);
@@ -93,7 +93,7 @@ public class LogsDemo extends BaseDemo {
             //开始时间20220701
             searchLogsRequest.setStartTime(1656604800000L);
             searchLogsRequest.setEndTime(System.currentTimeMillis());
-            SearchLogsResponse searchLogsResponse = client.searchLogs(searchLogsRequest);
+            SearchLogsResponseV2 searchLogsResponse = client.searchLogsV2(searchLogsRequest);
             System.out.println("search log success,response:" + searchLogsResponse);
             // delete index topic project
             DeleteIndexRequest deleteIndexRequest = new DeleteIndexRequest(topicId);

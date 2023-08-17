@@ -489,6 +489,7 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
         com.volcengine.model.response.RawResponse response = query(Const.AIoTVideoGetDeviceChannels, new ArrayList<NameValuePair>() {
             {
                 add(new BasicNameValuePair("DeviceID", getDeviceChannelRequest.getDeviceID()));
+                add(new BasicNameValuePair("QueryMode", getDeviceChannelRequest.getQueryMode()));
             }
         });
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -502,6 +503,7 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
         com.volcengine.model.response.RawResponse response = query(Const.AIoTVideoGetDeviceChannelsV2, new ArrayList<NameValuePair>() {
             {
                 add(new BasicNameValuePair("DeviceID", getDeviceChannelRequest.getDeviceID()));
+                add(new BasicNameValuePair("QueryMode", getDeviceChannelRequest.getQueryMode()));
             }
         });
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -743,6 +745,7 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
         com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoStopStream, new ArrayList<NameValuePair>() {
             {
                 add(new BasicNameValuePair("StreamID", stopStream.getStreamID()));
+                add(new BasicNameValuePair("IsSmart", stopStream.getIsSmart()));
             }
         }, "");
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

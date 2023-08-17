@@ -5,4 +5,5 @@ import lombok.Data;
 @Data
 public class StreamRequest {
     String streamID;
+    String isSmart;
 }

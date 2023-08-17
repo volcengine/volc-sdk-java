@@ -417,6 +417,7 @@ public class Const {
     public static final String UnionProduct = "UnionProduct";
     public static final String HotBoard = "HotBoard";
     public static final String SdkMonitor = "SdkMonitor";
+    public static final String ContentSearch = "Search";
     //new
     public static final String FollowAction = "FollowAction";
     public static final String UnfollowAction = "UnfollowAction";

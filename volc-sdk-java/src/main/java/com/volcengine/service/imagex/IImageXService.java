@@ -8,7 +8,6 @@ import com.volcengine.model.sts2.SecurityToken2;
 import com.volcengine.service.IBaseService;
 
 import java.io.InputStream;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -428,6 +427,16 @@ public interface IImageXService extends IBaseService {
      * @throws Exception the exception
      */
     CreateImageTranscodeTaskResp createImageTranscodeTask(CreateImageTranscodeTaskReq req) throws Exception;
+
+    GetImageTranscodeDetailsResp getImageTranscodeDetails(GetImageTranscodeDetailsReq req) throws Exception;
+
+    CreateImageTranscodeCallbackResp createImageTranscodeCallback(CreateImageTranscodeCallbackReq req) throws Exception;
+
+    DeleteImageTranscodeDetailResp deleteImageTranscodeDetail(DeleteImageTranscodeDetailReq req) throws Exception;
+
+    CreateImageCompressTaskResp createImageCompressTask(CreateImageCompressTaskReq req) throws Exception;
+
+    GetCompressTaskInfoResp getCompressTaskInfo(GetCompressTaskInfoReq req) throws Exception;
 
 
     public DescribeImageXDomainTrafficDataResp describeImageXDomainTrafficData(DescribeImageXDomainTrafficDataReq req) throws Exception;

@@ -399,7 +399,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         Statement commitStatement = Sts2Utils.newAllowStatement(Collections.singletonList("ImageX:CommitImageUpload"), commitRes);
         inlinePolicy.addStatement(applyStatement);
         inlinePolicy.addStatement(commitStatement);
-        if (tag != null){
+        if (tag != null) {
             for (Map.Entry<String, String> entry : tag.entrySet()) {
                 inlinePolicy.addStatement(Sts2Utils.newAllowStatement(Collections.singletonList(entry.getKey()), Collections.singletonList(entry.getValue())));
             }
@@ -870,7 +870,34 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
 
     @Override
     public CreateImageTranscodeTaskResp createImageTranscodeTask(CreateImageTranscodeTaskReq req) throws Exception {
-        return this.postImageX("CreateImageTranscodeTask", EMPTY_STRING_STRING_MAP, req,CreateImageTranscodeTaskResp.class).getResult();
+        return this.postImageX("CreateImageTranscodeTask", EMPTY_STRING_STRING_MAP, req, CreateImageTranscodeTaskResp.class).getResult();
+    }
+
+    @Override
+    public GetImageTranscodeDetailsResp getImageTranscodeDetails(GetImageTranscodeDetailsReq req) throws Exception {
+        return this.getImageX("GetImageTranscodeDetails", Utils.paramsToMap(req), GetImageTranscodeDetailsResp.class).getResult();
+    }
+
+    @Override
+    public CreateImageTranscodeCallbackResp createImageTranscodeCallback(CreateImageTranscodeCallbackReq req) throws Exception {
+        return this.postImageX("CreateImageTranscodeCallback", EMPTY_STRING_STRING_MAP, req, CreateImageTranscodeCallbackResp.class).getResult();
+    }
+
+    @Override
+    public DeleteImageTranscodeDetailResp deleteImageTranscodeDetail(DeleteImageTranscodeDetailReq req) throws Exception {
+        return this.postImageX("DeleteImageTranscodeDetail", EMPTY_STRING_STRING_MAP, req, DeleteImageTranscodeDetailResp.class).getResult();
+    }
+
+    @Override
+    public CreateImageCompressTaskResp createImageCompressTask(CreateImageCompressTaskReq req) throws Exception {
+        Map<String, String> params = new HashMap<>();
+        params.put("ServiceId", req.getServiceId());
+        return this.postImageX("CreateImageCompressTask", params, req, CreateImageCompressTaskResp.class).getResult();
+    }
+
+    @Override
+    public GetCompressTaskInfoResp getCompressTaskInfo(GetCompressTaskInfoReq req) throws Exception {
+        return this.getImageX("GetCompressTaskInfo", Utils.paramsToMap(req), GetCompressTaskInfoResp.class).getResult();
     }
 
 

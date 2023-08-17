@@ -20,10 +20,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.volcengine.model.tls.Const.*;
@@ -42,6 +39,7 @@ public class TLSLogClientImpl implements TLSLogClient {
 
     public TLSLogClientImpl(TLSHttpUtil util, ClientConfig config) {
         this.httpRequest = util;
+        this.config = config;
     }
 
     private static void increaseCounterByOne() {
@@ -50,7 +48,7 @@ public class TLSLogClientImpl implements TLSLogClient {
             if (v >= DEFAULT_RETRY_COUNTER_MAXIMUM) {
                 break;
             }
-            boolean cas = DEFAULT_RETRY_COUNTER.compareAndSet(v, v+1);
+            boolean cas = DEFAULT_RETRY_COUNTER.compareAndSet(v, v + 1);
             if (cas) {
                 break;
             }
@@ -63,7 +61,7 @@ public class TLSLogClientImpl implements TLSLogClient {
             if (v <= 0) {
                 break;
             }
-            boolean cas = DEFAULT_RETRY_COUNTER.compareAndSet(v, v-1);
+            boolean cas = DEFAULT_RETRY_COUNTER.compareAndSet(v, v - 1);
             if (cas) {
                 break;
             }
@@ -113,8 +111,7 @@ public class TLSLogClientImpl implements TLSLogClient {
             headers.put(X_TLS_BODY_RAW_SIZE, String.valueOf(request.getLogGroupList().toByteArray().length));
         }
         // 2、check sum and sendRequest
-        RawResponse rawResponse = doProtoRetryRequest(PUT_LOGS, params, headers,
-                request.getLogGroupList().toByteArray(), compressType);
+        RawResponse rawResponse = doProtoRetryRequest(PUT_LOGS, params, headers, request.getLogGroupList().toByteArray(), compressType);
         // 3、parse response
         return new PutLogsResponse(rawResponse.getHeaders());
     }
@@ -139,8 +136,7 @@ public class TLSLogClientImpl implements TLSLogClient {
             headers.put(X_TLS_BODY_RAW_SIZE, String.valueOf(logGroupList.toByteArray().length));
         }
         // 3、check sum and sendRequest
-        RawResponse rawResponse = doProtoRetryRequest(PUT_LOGS, params, headers,
-                logGroupList.toByteArray(), compressType);
+        RawResponse rawResponse = doProtoRetryRequest(PUT_LOGS, params, headers, logGroupList.toByteArray(), compressType);
         // 4、parse response
         return new PutLogsResponse(rawResponse.getHeaders());
     }
@@ -159,8 +155,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_CURSOR, params, requestBody);
         // 3、parse response
-        return new DescribeCursorResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeCursorResponse.class);
+        return new DescribeCursorResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeCursorResponse.class);
 
     }
 
@@ -178,8 +173,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(CONSUME_LOGS, params, requestBody);
         // 3、parse response
-        return new ConsumeLogsResponse(rawResponse.getHeaders(),
-                request.getCompression()).deSerialize(rawResponse.getData(), ConsumeLogsResponse.class);
+        return new ConsumeLogsResponse(rawResponse.getHeaders(), request.getCompression()).deSerialize(rawResponse.getData(), ConsumeLogsResponse.class);
     }
 
     @Override
@@ -194,8 +188,24 @@ public class TLSLogClientImpl implements TLSLogClient {
         // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(SEARCH_LOGS, params, requestBody);
         // 3、parse response
-        return new SearchLogsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                SearchLogsResponse.class);
+        return new SearchLogsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), SearchLogsResponse.class);
+    }
+
+    @Override
+    public SearchLogsResponseV2 searchLogsV2(SearchLogsRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 1、prepare request
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        String requestBody = JSONObject.toJSONString(request);
+        Map<String, String> headers = new HashMap<>();
+        headers.put(HEADER_API_VERSION, API_VERSION_V_0_3_0);
+        // 2、check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(SEARCH_LOGS, params, requestBody, headers);
+        // 3、parse response
+        return new SearchLogsResponseV2(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), SearchLogsResponseV2.class);
     }
 
     @Override
@@ -216,13 +226,11 @@ public class TLSLogClientImpl implements TLSLogClient {
         // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_SHARDS, params, Const.EMPTY_JSON);
         // 3、parse response
-        return new DescribeShardsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeShardsResponse.class);
+        return new DescribeShardsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeShardsResponse.class);
     }
 
     @Override
-    public DescribeLogContextResponse describeLogContext(DescribeLogContextRequest request)
-            throws LogException {
+    public DescribeLogContextResponse describeLogContext(DescribeLogContextRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
@@ -235,20 +243,19 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_LOG_CONTEXT, params, requestBody);
 
         // 3. parse response
-        return new DescribeLogContextResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeLogContextResponse.class);
+        return new DescribeLogContextResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeLogContextResponse.class);
     }
 
     @Override
-    public WebTracksResponse webTracks(WebTracksRequest request)
-            throws LogException {
+    public WebTracksResponse webTracks(WebTracksRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
 
         // 1、prepare request
         String compressType = request.getCompressType();
-        ArrayList<NameValuePair> params = new ArrayList<>(); {
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        {
             if (StringUtils.isNotEmpty(request.getTopicId())) {
                 params.add(new BasicNameValuePair(TOPIC_ID, String.valueOf(request.getTopicId())));
             }
@@ -257,7 +264,8 @@ public class TLSLogClientImpl implements TLSLogClient {
             }
         }
         String requestBody = JSONObject.toJSONString(request);
-        HashMap<String, String> headers = new HashMap<>(); {
+        HashMap<String, String> headers = new HashMap<>();
+        {
             headers.put("Content-Type", "application/json");
             if (compressType != null) {
                 headers.put(X_TLS_COMPRESS_TYPE, compressType);
@@ -266,16 +274,14 @@ public class TLSLogClientImpl implements TLSLogClient {
         }
 
         // 2、check sum and sendRequest
-        RawResponse rawResponse = doProtoRetryRequest(WEB_TRACKS, params, headers,
-            requestBody.getBytes(), compressType);
+        RawResponse rawResponse = doProtoRetryRequest(WEB_TRACKS, params, headers, requestBody.getBytes(), compressType);
 
         // 3、parse response
         return new WebTracksResponse(rawResponse.getHeaders());
     }
 
     @Override
-    public DescribeHistogramResponse describeHistogram(DescribeHistogramRequest request)
-            throws LogException {
+    public DescribeHistogramResponse describeHistogram(DescribeHistogramRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
@@ -288,8 +294,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_HISTOGRAM, params, requestBody);
 
         // 3. parse response
-        return new DescribeHistogramResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeHistogramResponse.class);
+        return new DescribeHistogramResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeHistogramResponse.class);
     }
 
     /**
@@ -310,21 +315,41 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(Const.CREATE_PROJECT, new ArrayList<>(), requestBody);
 
         // 3、parse response
-        return new CreateProjectResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                CreateProjectResponse.class);
+        return new CreateProjectResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), CreateProjectResponse.class);
     }
 
-    private RawResponse sendJsonRequest(String path, ArrayList<NameValuePair> params, String requestBody)
-            throws LogException {
-        checkMd5(path, requestBody.getBytes());
-        RawResponse rawResponse = doRetryRequest(path, params, requestBody);
+    private RawResponse sendJsonRequest(String path, ArrayList<NameValuePair> query, String requestBody) throws LogException {
+        return sendJsonRequest(path, query, requestBody, new HashMap<>());
+    }
 
+    private RawResponse sendJsonRequest(String path, ArrayList<NameValuePair> query, String requestBody, Map<String, String> headers) throws LogException {
+        checkMd5(path, requestBody.getBytes());
+
+        mergeHeaders(path, headers);
+
+        RawResponse rawResponse = doRetryRequest(path, query, requestBody);
         if (rawResponse.getCode() != SdkError.SUCCESS.getNumber()) {
             String[] error = getError(rawResponse);
-            throw new LogException(rawResponse.getHttpCode(), error[0], error[1],
-                    rawResponse.getFirstHeader(X_TLS_REQUESTID));
+            throw new LogException(rawResponse.getHttpCode(), error[0], error[1], rawResponse.getFirstHeader(X_TLS_REQUESTID));
         }
         return rawResponse;
+    }
+
+    private void mergeHeaders(String path, Map<String, String> headers) {
+        if (headers == null) {
+            headers = new HashMap<>();
+        }
+        // 默认api版本0.2.0，如果用户有header使用用户自定义的
+        if (!headers.containsKey(HEADER_API_VERSION)) {
+            headers.put(HEADER_API_VERSION, this.config.getApiVersion());
+        }
+        Map<String, ApiInfo> apiInfoList = this.httpRequest.getApiInfoList();
+        ApiInfo apiInfo = apiInfoList.get(path);
+        List<Header> apiHeader = new ArrayList<>();
+        for (Map.Entry<String, String> entry : headers.entrySet()) {
+            apiHeader.add(new BasicHeader(entry.getKey(), entry.getValue()));
+        }
+        apiInfo.setHeader(apiHeader);
     }
 
     private RawResponse doRetryRequest(String path, ArrayList<NameValuePair> params, String requestBody) throws LogException {
@@ -342,8 +367,7 @@ public class TLSLogClientImpl implements TLSLogClient {
             }
             increaseCounterByOne();
             try {
-                long sleepMs = TimeUtil.calcDefaultBackOffMs(
-                        DEFAULT_RETRY_COUNTER.get(), DEFAULT_RETRY_INTERVAL_MS, expectedQuitTimestamp);
+                long sleepMs = TimeUtil.calcDefaultBackOffMs(DEFAULT_RETRY_COUNTER.get(), DEFAULT_RETRY_INTERVAL_MS, expectedQuitTimestamp);
                 if (sleepMs > 0) {
                     Thread.sleep(sleepMs);
                 }
@@ -354,8 +378,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         //throw exception
         if (rawResponse.getCode() != SdkError.SUCCESS.getNumber()) {
             String[] error = getError(rawResponse);
-            throw new LogException(rawResponse.getHttpCode(), error[0], error[1],
-                    rawResponse.getFirstHeader(X_TLS_REQUESTID));
+            throw new LogException(rawResponse.getHttpCode(), error[0], error[1], rawResponse.getFirstHeader(X_TLS_REQUESTID));
         }
         return rawResponse;
     }
@@ -426,8 +449,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_PROJECT, params, Const.EMPTY_JSON);
 
         // 3、parse response
-        return new DescribeProjectResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeProjectResponse.class);
+        return new DescribeProjectResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeProjectResponse.class);
     }
 
     /**
@@ -464,8 +486,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(Const.DESCRIBE_PROJECTS, params, Const.EMPTY_JSON);
 
         // 3、parse response
-        return new DescribeProjectsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeProjectsResponse.class);
+        return new DescribeProjectsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeProjectsResponse.class);
 
     }
 
@@ -483,8 +504,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(CREATE_TOPIC, new ArrayList<>(), requestBody);
 
         // 3、parse response
-        return new CreateTopicResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                CreateTopicResponse.class);
+        return new CreateTopicResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), CreateTopicResponse.class);
 
     }
 
@@ -534,8 +554,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_TOPIC, params, Const.EMPTY_JSON);
 
         // 3、parse response
-        return new DescribeTopicResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeTopicResponse.class);
+        return new DescribeTopicResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeTopicResponse.class);
 
     }
 
@@ -567,8 +586,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(Const.DESCRIBE_TOPICS, params, Const.EMPTY_JSON);
 
         // 3、parse response
-        return new DescribeTopicsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeTopicsResponse.class);
+        return new DescribeTopicsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeTopicsResponse.class);
 
     }
 
@@ -586,8 +604,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(Const.CREATE_INDEX, new ArrayList<>(), requestBody);
 
         // 3、parse response
-        return new CreateIndexResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                CreateIndexResponse.class);
+        return new CreateIndexResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), CreateIndexResponse.class);
     }
 
     @Override
@@ -637,8 +654,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_INDEX, params, Const.EMPTY_JSON);
 
         // 3、parse response
-        return new DescribeIndexResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeIndexResponse.class);
+        return new DescribeIndexResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeIndexResponse.class);
 
     }
 
@@ -655,8 +671,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(CREATE_RULE, new ArrayList<>(), requestBody);
 
         // 3、parse response
-        return new CreateRuleResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                CreateRuleResponse.class);
+        return new CreateRuleResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), CreateRuleResponse.class);
 
     }
 
@@ -706,8 +721,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_RULE, params, Const.EMPTY_JSON);
 
         // 3、parse response
-        return new DescribeRuleResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeRuleResponse.class);
+        return new DescribeRuleResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeRuleResponse.class);
 
     }
 
@@ -743,14 +757,12 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_RULES, params, Const.EMPTY_JSON);
 
         // 3、parse response
-        return new DescribeRulesResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeRulesResponse.class);
+        return new DescribeRulesResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeRulesResponse.class);
     }
 
 
     @Override
-    public ApplyRuleToHostGroupsResponse applyRuleToHostGroups(ApplyRuleToHostGroupsRequest request)
-            throws LogException {
+    public ApplyRuleToHostGroupsResponse applyRuleToHostGroups(ApplyRuleToHostGroupsRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
@@ -766,8 +778,7 @@ public class TLSLogClientImpl implements TLSLogClient {
     }
 
     @Override
-    public DeleteRuleFromHostGroupsResponse deleteRuleFromHostGroups(DeleteRuleFromHostGroupsRequest request)
-            throws LogException {
+    public DeleteRuleFromHostGroupsResponse deleteRuleFromHostGroups(DeleteRuleFromHostGroupsRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
@@ -795,8 +806,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(CREATE_HOST_GROUP, new ArrayList<>(), requestBody);
 
         // 3、parse response
-        return new CreateHostGroupResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                CreateHostGroupResponse.class);
+        return new CreateHostGroupResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), CreateHostGroupResponse.class);
 
     }
 
@@ -847,8 +857,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_HOST_GROUP, params, Const.EMPTY_JSON);
 
         // 3、parse response
-        return new DescribeHostGroupResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeHostGroupResponse.class);
+        return new DescribeHostGroupResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeHostGroupResponse.class);
     }
 
     @Override
@@ -879,8 +888,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_HOST_GROUPS, params, Const.EMPTY_JSON);
 
         // 4、parse response
-        return new DescribeHostGroupsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeHostGroupsResponse.class);
+        return new DescribeHostGroupsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeHostGroupsResponse.class);
 
     }
 
@@ -913,8 +921,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_HOSTS, params, Const.EMPTY_JSON);
 
         // 4、parse response
-        return new DescribeHostsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeHostsResponse.class);
+        return new DescribeHostsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeHostsResponse.class);
     }
 
     @Override
@@ -935,8 +942,7 @@ public class TLSLogClientImpl implements TLSLogClient {
     }
 
     @Override
-    public DescribeHostGroupRulesResponse describeHostGroupRules(DescribeHostGroupRulesRequest request)
-            throws LogException {
+    public DescribeHostGroupRulesResponse describeHostGroupRules(DescribeHostGroupRulesRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
@@ -955,14 +961,12 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_HOST_GROUP_RULES, params, Const.EMPTY_JSON);
 
         // 3、parse response
-        return new DescribeHostGroupRulesResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeHostGroupRulesResponse.class);
+        return new DescribeHostGroupRulesResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeHostGroupRulesResponse.class);
 
     }
 
     @Override
-    public ModifyHostGroupsAutoUpdateResponse modifyHostGroupsAutoUpdate(ModifyHostGroupsAutoUpdateRequest request)
-            throws LogException {
+    public ModifyHostGroupsAutoUpdateResponse modifyHostGroupsAutoUpdate(ModifyHostGroupsAutoUpdateRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
@@ -991,8 +995,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(CREATE_ALARM, new ArrayList<>(), requestBody);
 
         // 3、parse response
-        return new CreateAlarmResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                CreateAlarmResponse.class);
+        return new CreateAlarmResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), CreateAlarmResponse.class);
     }
 
     @Override
@@ -1063,14 +1066,12 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_ALARMS, params, Const.EMPTY_JSON);
 
         // 3、parse response
-        return new DescribeAlarmsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeAlarmsResponse.class);
+        return new DescribeAlarmsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeAlarmsResponse.class);
 
     }
 
     @Override
-    public CreateAlarmNotifyGroupResponse createAlarmNotifyGroup(CreateAlarmNotifyGroupRequest request)
-            throws LogException {
+    public CreateAlarmNotifyGroupResponse createAlarmNotifyGroup(CreateAlarmNotifyGroupRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
@@ -1082,13 +1083,11 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(CREATE_ALARM_NOTIFY_GROUP, new ArrayList<>(), requestBody);
 
         // 3、parse response
-        return new CreateAlarmNotifyGroupResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                CreateAlarmNotifyGroupResponse.class);
+        return new CreateAlarmNotifyGroupResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), CreateAlarmNotifyGroupResponse.class);
     }
 
     @Override
-    public DeleteAlarmNotifyGroupResponse deleteAlarmNotifyGroup(DeleteAlarmNotifyGroupRequest request)
-            throws LogException {
+    public DeleteAlarmNotifyGroupResponse deleteAlarmNotifyGroup(DeleteAlarmNotifyGroupRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
@@ -1104,8 +1103,7 @@ public class TLSLogClientImpl implements TLSLogClient {
     }
 
     @Override
-    public ModifyAlarmNotifyGroupResponse modifyAlarmNotifyGroup(ModifyAlarmNotifyGroupRequest request)
-            throws LogException {
+    public ModifyAlarmNotifyGroupResponse modifyAlarmNotifyGroup(ModifyAlarmNotifyGroupRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
@@ -1121,8 +1119,7 @@ public class TLSLogClientImpl implements TLSLogClient {
     }
 
     @Override
-    public DescribeAlarmNotifyGroupsResponse describeAlarmNotifyGroups(DescribeAlarmNotifyGroupsRequest request)
-            throws LogException {
+    public DescribeAlarmNotifyGroupsResponse describeAlarmNotifyGroups(DescribeAlarmNotifyGroupsRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
@@ -1138,8 +1135,7 @@ public class TLSLogClientImpl implements TLSLogClient {
             params.add(new BasicNameValuePair(ALARM_NOTIFY_GROUP_ID, String.valueOf(request.getAlarmNotifyGroupId())));
         }
         if (StringUtils.isNotEmpty(request.getAlarmNotifyGroupName())) {
-            params.add(new BasicNameValuePair(ALARM_NOTIFY_GROUP_NAME,
-                    String.valueOf(request.getAlarmNotifyGroupName())));
+            params.add(new BasicNameValuePair(ALARM_NOTIFY_GROUP_NAME, String.valueOf(request.getAlarmNotifyGroupName())));
         }
         if (StringUtils.isNotEmpty(request.getReceiverName())) {
             params.add(new BasicNameValuePair(RECEIVER_NAME, String.valueOf(request.getReceiverName())));
@@ -1152,13 +1148,11 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_ALARM_NOTIFY_GROUPS, params, Const.EMPTY_JSON);
 
         // 4、parse response
-        return new DescribeAlarmNotifyGroupsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeAlarmNotifyGroupsResponse.class);
+        return new DescribeAlarmNotifyGroupsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeAlarmNotifyGroupsResponse.class);
     }
 
     @Override
-    public OpenKafkaConsumerResponse openKafkaConsumer(OpenKafkaConsumerRequest request)
-            throws LogException {
+    public OpenKafkaConsumerResponse openKafkaConsumer(OpenKafkaConsumerRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
@@ -1175,8 +1169,7 @@ public class TLSLogClientImpl implements TLSLogClient {
     }
 
     @Override
-    public CloseKafkaConsumerResponse closeKafkaConsumer(CloseKafkaConsumerRequest request)
-            throws LogException {
+    public CloseKafkaConsumerResponse closeKafkaConsumer(CloseKafkaConsumerRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
@@ -1193,14 +1186,14 @@ public class TLSLogClientImpl implements TLSLogClient {
     }
 
     @Override
-    public DescribeKafkaConsumerResponse describeKafkaConsumer(DescribeKafkaConsumerRequest request)
-            throws LogException {
+    public DescribeKafkaConsumerResponse describeKafkaConsumer(DescribeKafkaConsumerRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
 
         // 2. prepare request
-        ArrayList<NameValuePair> params = new ArrayList<>(); {
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        {
             if (StringUtils.isNotEmpty(request.getTopicId())) {
                 params.add(new BasicNameValuePair(TOPIC_ID, String.valueOf(request.getTopicId())));
             }
@@ -1211,13 +1204,11 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_KAFKA_CONSUMER, params, requestBody);
 
         // 4. parse response
-        return new DescribeKafkaConsumerResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeKafkaConsumerResponse.class);
+        return new DescribeKafkaConsumerResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeKafkaConsumerResponse.class);
     }
 
     @Override
-    public CreateDownloadTaskResponse createDownloadTask(CreateDownloadTaskRequest request)
-            throws LogException {
+    public CreateDownloadTaskResponse createDownloadTask(CreateDownloadTaskRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
@@ -1230,19 +1221,18 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(CREATE_DOWNLOAD_TASK, params, requestBody);
 
         // 4. parse response
-        return new CreateDownloadTaskResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                CreateDownloadTaskResponse.class);
+        return new CreateDownloadTaskResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), CreateDownloadTaskResponse.class);
     }
 
     @Override
-    public DescribeDownloadTasksResponse describeDownloadTasks(DescribeDownloadTasksRequest request)
-            throws LogException {
+    public DescribeDownloadTasksResponse describeDownloadTasks(DescribeDownloadTasksRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
 
         // 2. prepare request
-        ArrayList<NameValuePair> params = new ArrayList<>(); {
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        {
             if (StringUtils.isNotEmpty(request.getTopicId())) {
                 params.add(new BasicNameValuePair(TOPIC_ID, String.valueOf(request.getTopicId())));
             }
@@ -1259,19 +1249,18 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_DOWNLOAD_TASKS, params, requestBody);
 
         // 4. parse response
-        return new DescribeDownloadTasksResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeDownloadTasksResponse.class);
+        return new DescribeDownloadTasksResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeDownloadTasksResponse.class);
     }
 
     @Override
-    public DescribeDownloadUrlResponse describeDownloadUrl(DescribeDownloadUrlRequest request)
-            throws LogException {
+    public DescribeDownloadUrlResponse describeDownloadUrl(DescribeDownloadUrlRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
 
         // 2. prepare request
-        ArrayList<NameValuePair> params = new ArrayList<>(); {
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        {
             if (StringUtils.isNotEmpty(request.getTaskId())) {
                 params.add(new BasicNameValuePair(TASK_ID, String.valueOf(request.getTaskId())));
             }
@@ -1282,12 +1271,13 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_DOWNLOAD_URL, params, requestBody);
 
         // 4. parse response
-        return new DescribeDownloadUrlResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(),
-                DescribeDownloadUrlResponse.class);
+        return new DescribeDownloadUrlResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeDownloadUrlResponse.class);
     }
 
-    private RawResponse doProtoRetryRequest(String api, List<NameValuePair> params, Map<String, String> headers,
-                                            byte[] body, String compressType) throws LogException {
+    private RawResponse doProtoRetryRequest(String api, List<NameValuePair> params, Map<String, String> headers, byte[] body, String compressType) throws LogException {
+        if (!headers.containsKey(HEADER_API_VERSION)) {
+            headers.put(HEADER_API_VERSION, this.config.getApiVersion());
+        }
         RawResponse rawResponse = null;
         long expectedQuitTimestamp = System.currentTimeMillis() + DEFAULT_REQUEST_TIMEOUT_MS;
         int tryCount = 0;
@@ -1302,8 +1292,7 @@ public class TLSLogClientImpl implements TLSLogClient {
             }
             increaseCounterByOne();
             try {
-                long sleepMs = TimeUtil.calcDefaultBackOffMs(
-                        DEFAULT_RETRY_COUNTER.get(), DEFAULT_RETRY_INTERVAL_MS, expectedQuitTimestamp);
+                long sleepMs = TimeUtil.calcDefaultBackOffMs(DEFAULT_RETRY_COUNTER.get(), DEFAULT_RETRY_INTERVAL_MS, expectedQuitTimestamp);
                 if (sleepMs > 0) {
                     Thread.sleep(sleepMs);
                 }
@@ -1314,8 +1303,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         //throw exception
         if (rawResponse.getCode() != SdkError.SUCCESS.getNumber()) {
             String[] error = getError(rawResponse);
-            throw new LogException(rawResponse.getHttpCode(), error[0], error[1],
-                    rawResponse.getFirstHeader(X_TLS_REQUESTID));
+            throw new LogException(rawResponse.getHttpCode(), error[0], error[1], rawResponse.getFirstHeader(X_TLS_REQUESTID));
         }
         return rawResponse;
     }

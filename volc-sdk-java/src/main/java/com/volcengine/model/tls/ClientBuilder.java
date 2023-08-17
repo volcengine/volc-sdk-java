@@ -43,6 +43,10 @@ public class ClientBuilder {
             throw new LogException("", "client config endpoint should start with http:// or https://", null);
         }
 
+        if (config.apiVersion == null) {
+            log.error("client config api version null error");
+            throw new LogException("", "client config api version null error", null);
+        }
         //init config for service
         ServiceInfo serviceInfo = ClientConfig.initServiceInfo(config);
         if (client == null) {

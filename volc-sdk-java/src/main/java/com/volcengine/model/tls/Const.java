@@ -282,4 +282,7 @@ public class Const {
     public static final String TOPIC = "Topic";
     public static final String DATE_FORMAT = "yyyyMMdd";
     public static final String SEPARATOR = "-";
+    public static final String HEADER_API_VERSION = "x-tls-apiversion";
+    public static final String API_VERSION_V_0_3_0 = "0.3.0";
+    public static final String API_VERSION_V_0_2_0 = "0.2.0";
 }

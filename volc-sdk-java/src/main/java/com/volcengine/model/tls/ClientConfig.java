@@ -9,7 +9,7 @@ import org.apache.http.message.BasicHeader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static com.volcengine.model.tls.Const.TLS;
+import static com.volcengine.model.tls.Const.*;
 
 @Data
 public class ClientConfig {
@@ -18,18 +18,25 @@ public class ClientConfig {
     String accessKeySecret;
     String securityToken;
     String region;
+    String apiVersion;
 
-    public ClientConfig(String endPoint, String region, String accessKeyId, String accessKeySecret, String securityToken
-    ) {
+    public ClientConfig(String endPoint, String region, String accessKeyId, String accessKeySecret,
+                        String securityToken) {
+        this(endPoint, region, accessKeyId, accessKeySecret, securityToken, API_VERSION_V_0_2_0);
+    }
+
+    public ClientConfig(String endPoint, String region, String accessKeyId, String accessKeySecret) {
+        this(endPoint, region, accessKeyId, accessKeySecret, null);
+    }
+
+    public ClientConfig(String endPoint, String region, String accessKeyId, String accessKeySecret,
+                        String securityToken, String apiVersion) {
         this.endpoint = endPoint;
         this.accessKeyId = accessKeyId;
         this.accessKeySecret = accessKeySecret;
         this.securityToken = securityToken;
         this.region = region;
-    }
-
-    public ClientConfig(String endPoint, String region, String accessKeyId, String accessKeySecret) {
-        this(endPoint, region, accessKeyId, accessKeySecret, null);
+        this.apiVersion = apiVersion;
     }
 
     public static ServiceInfo initServiceInfo(ClientConfig config) {

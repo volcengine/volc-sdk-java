@@ -12,10 +12,23 @@ public class DeleteHostGroupRequest {
     @JSONField(name = HOST_GROUP_ID)
     private String hostGroupId;
 
+    /**
+     * @param hostGroupId 机器组的 ID
+     */
     public DeleteHostGroupRequest(String hostGroupId) {
         this.hostGroupId = hostGroupId;
     }
 
+    /**
+     * @param hostGroupId 机器组的 ID
+     */
+    public void setHostGroupId(String hostGroupId) {
+        this.hostGroupId = hostGroupId;
+    }
+
+    /**
+     * @return 机器组的 ID
+     */
     public String getHostGroupId() {
         return hostGroupId;
     }

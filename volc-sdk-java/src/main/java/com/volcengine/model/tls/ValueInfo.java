@@ -7,15 +7,84 @@ import static com.volcengine.model.tls.Const.*;
 
 @Data
 public class ValueInfo {
-    @JSONField(name=VALUE_TYPE)
+    @JSONField(name = VALUE_TYPE)
     String valueType;
-    @JSONField(name=DELIMITER)
+    @JSONField(name = DELIMITER)
     String delimiter;
-    @JSONField(name=CASE_SENSITIVE)
+    @JSONField(name = CASE_SENSITIVE)
     boolean caseSensitive;
-    @JSONField(name=INCLUDE_CHINESE)
+    @JSONField(name = INCLUDE_CHINESE)
     boolean includeChinese;
-    @JSONField(name=SQL_FLAG)
+    @JSONField(name = SQL_FLAG)
     boolean sqlFlag;
 
+    /**
+     * @return 字段类型：long、double、text 和 json
+     */
+    public String getValueType() {
+        return valueType;
+    }
+
+    /**
+     * @param valueType 字段类型：long、double、text 和 json
+     */
+    public void setValueType(String valueType) {
+        this.valueType = valueType;
+    }
+
+    /**
+     * @return 字段的分词符。默认为空（""）
+     */
+    public String getDelimiter() {
+        return delimiter;
+    }
+
+    /**
+     * @param delimiter 字段的分词符。默认为空（""）
+     */
+    public void setDelimiter(String delimiter) {
+        this.delimiter = delimiter;
+    }
+
+    /**
+     * @return 是否区分大小写。默认为 false
+     */
+    public boolean isCaseSensitive() {
+        return caseSensitive;
+    }
+
+    /**
+     * @param caseSensitive 是否区分大小写。默认为 false
+     */
+    public void setCaseSensitive(boolean caseSensitive) {
+        this.caseSensitive = caseSensitive;
+    }
+
+    /**
+     * @return 是否包含中文。默认为 false
+     */
+    public boolean isIncludeChinese() {
+        return includeChinese;
+    }
+
+    /**
+     * @param includeChinese 是否包含中文。默认为 false
+     */
+    public void setIncludeChinese(boolean includeChinese) {
+        this.includeChinese = includeChinese;
+    }
+
+    /**
+     * @return 字段是否开启分析功能。默认为 false
+     */
+    public boolean isSqlFlag() {
+        return sqlFlag;
+    }
+
+    /**
+     * @param sqlFlag 字段是否开启分析功能。默认为 false
+     */
+    public void setSqlFlag(boolean sqlFlag) {
+        this.sqlFlag = sqlFlag;
+    }
 }

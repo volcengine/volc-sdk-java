@@ -14,7 +14,7 @@ public interface TLSLogClient {
 
     void resetAccessKeyToken(String accessKeyID, String accessKeySecret, String securityToken);
 
-    void setTimeout(int socketTimeout,int connectionTimeout);
+    void setTimeout(int socketTimeout, int connectionTimeout);
 
     /**
      * 日志管理
@@ -30,6 +30,8 @@ public interface TLSLogClient {
 
     SearchLogsResponse searchLogs(SearchLogsRequest request) throws LogException;
 
+    SearchLogsResponseV2 searchLogsV2(SearchLogsRequest request) throws LogException;
+
     DescribeShardsResponse describeShards(DescribeShardsRequest request) throws LogException;
 
     DescribeLogContextResponse describeLogContext(DescribeLogContextRequest request) throws LogException;
@@ -37,8 +39,10 @@ public interface TLSLogClient {
     WebTracksResponse webTracks(WebTracksRequest request) throws LogException;
 
     DescribeHistogramResponse describeHistogram(DescribeHistogramRequest request) throws LogException;
+
     /**
      * project
+     *
      * @param request
      */
     CreateProjectResponse createProject(CreateProjectRequest request) throws LogException;
@@ -66,6 +70,7 @@ public interface TLSLogClient {
 
     /**
      * index
+     *
      * @param request
      */
     CreateIndexResponse createIndex(CreateIndexRequest request) throws LogException;

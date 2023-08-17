@@ -18,7 +18,7 @@ public class RuleDemo extends BaseDemo {
         String date = sdf.format(new Date());
         //  create project
         String projectName = prefix + separator + date + separator + System.currentTimeMillis();
-        String region = "your-region";
+        String region = clientConfig.getRegion();
         String description = "test project";
 
         try {

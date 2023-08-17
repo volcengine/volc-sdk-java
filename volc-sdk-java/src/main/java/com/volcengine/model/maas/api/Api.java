@@ -830,7 +830,7 @@ public final class Api {
 
     /**
      * <pre>
-     * Use specific endpoint id for inference, must set either name or id by now
+     * Use specific endpoint id for inference, if set, parameters `name` and `version` will be ignored.
      * </pre>
      *
      * <code>string endpoint_id = 2;</code>
@@ -839,7 +839,7 @@ public final class Api {
     java.lang.String getEndpointId();
     /**
      * <pre>
-     * Use specific endpoint id for inference, must set either name or id by now
+     * Use specific endpoint id for inference, if set, parameters `name` and `version` will be ignored.
      * </pre>
      *
      * <code>string endpoint_id = 2;</code>
@@ -847,6 +847,26 @@ public final class Api {
      */
     com.google.protobuf.ByteString
         getEndpointIdBytes();
+
+    /**
+     * <pre>
+     * Use specific model version for inference, optional.
+     * </pre>
+     *
+     * <code>string version = 3;</code>
+     * @return The version.
+     */
+    java.lang.String getVersion();
+    /**
+     * <pre>
+     * Use specific model version for inference, optional.
+     * </pre>
+     *
+     * <code>string version = 3;</code>
+     * @return The bytes for version.
+     */
+    com.google.protobuf.ByteString
+        getVersionBytes();
   }
   /**
    * Protobuf type {@code api.Model}
@@ -863,6 +883,7 @@ public final class Api {
     private Model() {
       name_ = "";
       endpointId_ = "";
+      version_ = "";
     }
 
     @java.lang.Override
@@ -905,6 +926,12 @@ public final class Api {
               java.lang.String s = input.readStringRequireUtf8();
 
               endpointId_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              version_ = s;
               break;
             }
             default: {
@@ -989,7 +1016,7 @@ public final class Api {
     private volatile java.lang.Object endpointId_;
     /**
      * <pre>
-     * Use specific endpoint id for inference, must set either name or id by now
+     * Use specific endpoint id for inference, if set, parameters `name` and `version` will be ignored.
      * </pre>
      *
      * <code>string endpoint_id = 2;</code>
@@ -1010,7 +1037,7 @@ public final class Api {
     }
     /**
      * <pre>
-     * Use specific endpoint id for inference, must set either name or id by now
+     * Use specific endpoint id for inference, if set, parameters `name` and `version` will be ignored.
      * </pre>
      *
      * <code>string endpoint_id = 2;</code>
@@ -1025,6 +1052,52 @@ public final class Api {
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         endpointId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VERSION_FIELD_NUMBER = 3;
+    private volatile java.lang.Object version_;
+    /**
+     * <pre>
+     * Use specific model version for inference, optional.
+     * </pre>
+     *
+     * <code>string version = 3;</code>
+     * @return The version.
+     */
+    @java.lang.Override
+    public java.lang.String getVersion() {
+      java.lang.Object ref = version_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        version_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Use specific model version for inference, optional.
+     * </pre>
+     *
+     * <code>string version = 3;</code>
+     * @return The bytes for version.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getVersionBytes() {
+      java.lang.Object ref = version_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        version_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1051,6 +1124,9 @@ public final class Api {
       if (!getEndpointIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, endpointId_);
       }
+      if (!getVersionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, version_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1065,6 +1141,9 @@ public final class Api {
       }
       if (!getEndpointIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, endpointId_);
+      }
+      if (!getVersionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, version_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1085,6 +1164,8 @@ public final class Api {
           .equals(other.getName())) return false;
       if (!getEndpointId()
           .equals(other.getEndpointId())) return false;
+      if (!getVersion()
+          .equals(other.getVersion())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1100,6 +1181,8 @@ public final class Api {
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + ENDPOINT_ID_FIELD_NUMBER;
       hash = (53 * hash) + getEndpointId().hashCode();
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getVersion().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1237,6 +1320,8 @@ public final class Api {
 
         endpointId_ = "";
 
+        version_ = "";
+
         return this;
       }
 
@@ -1265,6 +1350,7 @@ public final class Api {
         com.volcengine.model.maas.api.Api.Model result = new com.volcengine.model.maas.api.Api.Model(this);
         result.name_ = name_;
         result.endpointId_ = endpointId_;
+        result.version_ = version_;
         onBuilt();
         return result;
       }
@@ -1319,6 +1405,10 @@ public final class Api {
         }
         if (!other.getEndpointId().isEmpty()) {
           endpointId_ = other.endpointId_;
+          onChanged();
+        }
+        if (!other.getVersion().isEmpty()) {
+          version_ = other.version_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -1449,7 +1539,7 @@ public final class Api {
       private java.lang.Object endpointId_ = "";
       /**
        * <pre>
-       * Use specific endpoint id for inference, must set either name or id by now
+       * Use specific endpoint id for inference, if set, parameters `name` and `version` will be ignored.
        * </pre>
        *
        * <code>string endpoint_id = 2;</code>
@@ -1469,7 +1559,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * Use specific endpoint id for inference, must set either name or id by now
+       * Use specific endpoint id for inference, if set, parameters `name` and `version` will be ignored.
        * </pre>
        *
        * <code>string endpoint_id = 2;</code>
@@ -1490,7 +1580,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * Use specific endpoint id for inference, must set either name or id by now
+       * Use specific endpoint id for inference, if set, parameters `name` and `version` will be ignored.
        * </pre>
        *
        * <code>string endpoint_id = 2;</code>
@@ -1509,7 +1599,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * Use specific endpoint id for inference, must set either name or id by now
+       * Use specific endpoint id for inference, if set, parameters `name` and `version` will be ignored.
        * </pre>
        *
        * <code>string endpoint_id = 2;</code>
@@ -1523,7 +1613,7 @@ public final class Api {
       }
       /**
        * <pre>
-       * Use specific endpoint id for inference, must set either name or id by now
+       * Use specific endpoint id for inference, if set, parameters `name` and `version` will be ignored.
        * </pre>
        *
        * <code>string endpoint_id = 2;</code>
@@ -1538,6 +1628,102 @@ public final class Api {
   checkByteStringIsUtf8(value);
         
         endpointId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object version_ = "";
+      /**
+       * <pre>
+       * Use specific model version for inference, optional.
+       * </pre>
+       *
+       * <code>string version = 3;</code>
+       * @return The version.
+       */
+      public java.lang.String getVersion() {
+        java.lang.Object ref = version_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          version_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Use specific model version for inference, optional.
+       * </pre>
+       *
+       * <code>string version = 3;</code>
+       * @return The bytes for version.
+       */
+      public com.google.protobuf.ByteString
+          getVersionBytes() {
+        java.lang.Object ref = version_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          version_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Use specific model version for inference, optional.
+       * </pre>
+       *
+       * <code>string version = 3;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVersion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        version_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Use specific model version for inference, optional.
+       * </pre>
+       *
+       * <code>string version = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVersion() {
+        
+        version_ = getDefaultInstance().getVersion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Use specific model version for inference, optional.
+       * </pre>
+       *
+       * <code>string version = 3;</code>
+       * @param value The bytes for version to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVersionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        version_ = value;
         onChanged();
         return this;
       }
@@ -11341,41 +11527,41 @@ public final class Api {
   static {
     java.lang.String[] descriptorData = {
       "\n\rapi/api.proto\022\003api\032\nbase.proto\"(\n\007Mess" +
-      "age\022\014\n\004role\030\001 \001(\t\022\017\n\007content\030\002 \001(\t\"*\n\005Mo" +
-      "del\022\014\n\004name\030\001 \001(\t\022\023\n\013endpoint_id\030\002 \001(\t\"6" +
-      "\n\005Error\022\014\n\004code\030\001 \001(\t\022\016\n\006code_n\030\002 \001(\005\022\017\n" +
-      "\007message\030\003 \001(\t\"6\n\tErrorResp\022\031\n\005error\030\001 \001" +
-      "(\0132\n.api.Error\022\016\n\006req_id\030\002 \001(\t\"_\n\006Choice" +
-      "\022\r\n\005index\030\001 \001(\005\022\035\n\007message\030\002 \001(\0132\014.api.M" +
-      "essage\022\025\n\rfinish_reason\030\003 \001(\t\022\020\n\010logprob" +
-      "s\030\004 \001(\002\"\302\003\n\nParameters\022\030\n\013temperature\030\001 " +
-      "\001(\002H\000\210\001\001\022\027\n\nmax_tokens\030\002 \001(\003H\001\210\001\001\022\022\n\005top" +
-      "_p\030\003 \001(\002H\002\210\001\001\022\035\n\020presence_penalty\030\004 \001(\002H" +
-      "\003\210\001\001\022\036\n\021frequency_penalty\030\005 \001(\002H\004\210\001\001\022\033\n\016" +
-      "max_new_tokens\030\006 \001(\003H\005\210\001\001\022\037\n\022repetition_" +
-      "penalty\030\007 \001(\002H\006\210\001\001\022\026\n\tdo_sample\030\010 \001(\010H\007\210" +
-      "\001\001\022\022\n\005top_k\030\t \001(\003H\010\210\001\001\022\033\n\016min_new_tokens" +
-      "\030\n \001(\003H\t\210\001\001B\016\n\014_temperatureB\r\n\013_max_toke" +
-      "nsB\010\n\006_top_pB\023\n\021_presence_penaltyB\024\n\022_fr" +
-      "equency_penaltyB\021\n\017_max_new_tokensB\025\n\023_r" +
-      "epetition_penaltyB\014\n\n_do_sampleB\010\n\006_top_" +
-      "kB\021\n\017_min_new_tokens\"O\n\005Usage\022\025\n\rprompt_" +
-      "tokens\030\001 \001(\003\022\031\n\021completion_tokens\030\002 \001(\003\022" +
-      "\024\n\014total_tokens\030\003 \001(\003\"\271\001\n\007ChatReq\022\031\n\005mod" +
-      "el\030\001 \001(\0132\n.api.Model\022\036\n\010messages\030\002 \003(\0132\014" +
-      ".api.Message\022#\n\nparameters\030\003 \001(\0132\017.api.P" +
-      "arameters\022\016\n\006stream\030\004 \001(\010\022\016\n\006req_id\030\005 \001(" +
-      "\t\022.\n\014crypto_token\030\006 \001(\tB\030\272\273\030\024Ml-Maas-Cry" +
-      "pto-Token\"m\n\010ChatResp\022\016\n\006req_id\030\001 \001(\t\022\031\n" +
-      "\005error\030\002 \001(\0132\n.api.Error\022\033\n\006choice\030\003 \001(\013" +
-      "2\013.api.Choice\022\031\n\005usage\030\004 \001(\0132\n.api.Usage" +
-      "\"$\n\007CertReq\022\031\n\005model\030\001 \001(\0132\n.api.Model\"3" +
-      "\n\010CertResp\022\031\n\005model\030\001 \001(\0132\n.api.Model\022\014\n" +
-      "\004cert\030\002 \001(\t2x\n\nAPIService\0224\n\004Chat\022\014.api." +
-      "ChatReq\032\r.api.ChatResp\"\017\322\301\030\013api/v1/chat\022" +
-      "4\n\004Cert\022\014.api.CertReq\032\r.api.CertResp\"\017\322\301" +
-      "\030\013api/v1/certB\037\n\035com.volcengine.model.ma" +
-      "as.apib\006proto3"
+      "age\022\014\n\004role\030\001 \001(\t\022\017\n\007content\030\002 \001(\t\";\n\005Mo" +
+      "del\022\014\n\004name\030\001 \001(\t\022\023\n\013endpoint_id\030\002 \001(\t\022\017" +
+      "\n\007version\030\003 \001(\t\"6\n\005Error\022\014\n\004code\030\001 \001(\t\022\016" +
+      "\n\006code_n\030\002 \001(\005\022\017\n\007message\030\003 \001(\t\"6\n\tError" +
+      "Resp\022\031\n\005error\030\001 \001(\0132\n.api.Error\022\016\n\006req_i" +
+      "d\030\002 \001(\t\"_\n\006Choice\022\r\n\005index\030\001 \001(\005\022\035\n\007mess" +
+      "age\030\002 \001(\0132\014.api.Message\022\025\n\rfinish_reason" +
+      "\030\003 \001(\t\022\020\n\010logprobs\030\004 \001(\002\"\302\003\n\nParameters\022" +
+      "\030\n\013temperature\030\001 \001(\002H\000\210\001\001\022\027\n\nmax_tokens\030" +
+      "\002 \001(\003H\001\210\001\001\022\022\n\005top_p\030\003 \001(\002H\002\210\001\001\022\035\n\020presen" +
+      "ce_penalty\030\004 \001(\002H\003\210\001\001\022\036\n\021frequency_penal" +
+      "ty\030\005 \001(\002H\004\210\001\001\022\033\n\016max_new_tokens\030\006 \001(\003H\005\210" +
+      "\001\001\022\037\n\022repetition_penalty\030\007 \001(\002H\006\210\001\001\022\026\n\td" +
+      "o_sample\030\010 \001(\010H\007\210\001\001\022\022\n\005top_k\030\t \001(\003H\010\210\001\001\022" +
+      "\033\n\016min_new_tokens\030\n \001(\003H\t\210\001\001B\016\n\014_tempera" +
+      "tureB\r\n\013_max_tokensB\010\n\006_top_pB\023\n\021_presen" +
+      "ce_penaltyB\024\n\022_frequency_penaltyB\021\n\017_max" +
+      "_new_tokensB\025\n\023_repetition_penaltyB\014\n\n_d" +
+      "o_sampleB\010\n\006_top_kB\021\n\017_min_new_tokens\"O\n" +
+      "\005Usage\022\025\n\rprompt_tokens\030\001 \001(\003\022\031\n\021complet" +
+      "ion_tokens\030\002 \001(\003\022\024\n\014total_tokens\030\003 \001(\003\"\271" +
+      "\001\n\007ChatReq\022\031\n\005model\030\001 \001(\0132\n.api.Model\022\036\n" +
+      "\010messages\030\002 \003(\0132\014.api.Message\022#\n\nparamet" +
+      "ers\030\003 \001(\0132\017.api.Parameters\022\016\n\006stream\030\004 \001" +
+      "(\010\022\016\n\006req_id\030\005 \001(\t\022.\n\014crypto_token\030\006 \001(\t" +
+      "B\030\272\273\030\024Ml-Maas-Crypto-Token\"m\n\010ChatResp\022\016" +
+      "\n\006req_id\030\001 \001(\t\022\031\n\005error\030\002 \001(\0132\n.api.Erro" +
+      "r\022\033\n\006choice\030\003 \001(\0132\013.api.Choice\022\031\n\005usage\030" +
+      "\004 \001(\0132\n.api.Usage\"$\n\007CertReq\022\031\n\005model\030\001 " +
+      "\001(\0132\n.api.Model\"3\n\010CertResp\022\031\n\005model\030\001 \001" +
+      "(\0132\n.api.Model\022\014\n\004cert\030\002 \001(\t2x\n\nAPIServi" +
+      "ce\0224\n\004Chat\022\014.api.ChatReq\032\r.api.ChatResp\"" +
+      "\017\322\301\030\013api/v1/chat\0224\n\004Cert\022\014.api.CertReq\032\r" +
+      ".api.CertResp\"\017\322\301\030\013api/v1/certB\037\n\035com.vo" +
+      "lcengine.model.maas.apib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11393,7 +11579,7 @@ public final class Api {
     internal_static_api_Model_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_api_Model_descriptor,
-        new java.lang.String[] { "Name", "EndpointId", });
+        new java.lang.String[] { "Name", "EndpointId", "Version", });
     internal_static_api_Error_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_api_Error_fieldAccessorTable = new

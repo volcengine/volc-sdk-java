@@ -9,6 +9,7 @@ import com.volcengine.model.response.RawResponse;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.adblocker.AdBlockerConfig;
 import com.volcengine.service.adblocker.AdBlockerService;
+import com.volcengine.service.businessSecurity.impl.BusinessSecurityServiceImpl;
 
 import java.util.ArrayList;
 
@@ -17,8 +18,10 @@ public class AdBlockerServiceImpl extends BaseServiceImpl implements AdBlockerSe
         super(AdBlockerConfig.serviceInfo, AdBlockerConfig.apiInfoList);
     }
 
+    private static final AdBlockerServiceImpl adBlockerInstance = new AdBlockerServiceImpl();
+
     public static AdBlockerService getInstance() {
-        return new AdBlockerServiceImpl();
+        return adBlockerInstance;
     }
 
     @Override

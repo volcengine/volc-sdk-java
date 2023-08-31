@@ -84,4 +84,33 @@ public interface SampleSnapshotParamsOrBuilder extends
    */
   com.google.protobuf.ByteString
       getFillTypeBytes();
+
+  /**
+   * <pre>
+   *采样截图自定义采样时间点
+   * </pre>
+   *
+   * <code>repeated float Offsets = 11;</code>
+   * @return A list containing the offsets.
+   */
+  java.util.List<java.lang.Float> getOffsetsList();
+  /**
+   * <pre>
+   *采样截图自定义采样时间点
+   * </pre>
+   *
+   * <code>repeated float Offsets = 11;</code>
+   * @return The count of offsets.
+   */
+  int getOffsetsCount();
+  /**
+   * <pre>
+   *采样截图自定义采样时间点
+   * </pre>
+   *
+   * <code>repeated float Offsets = 11;</code>
+   * @param index The index of the element to return.
+   * @return The offsets at the given index.
+   */
+  float getOffsets(int index);
 }

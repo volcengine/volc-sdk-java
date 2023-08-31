@@ -126,4 +126,33 @@ public interface SnapshotOverrideOrBuilder extends
    */
   com.google.protobuf.ByteString
       getFileIndexBytes();
+
+  /**
+   * <pre>
+   *采样截图自定义采样时间点
+   * </pre>
+   *
+   * <code>repeated float SampleOffsets = 6;</code>
+   * @return A list containing the sampleOffsets.
+   */
+  java.util.List<java.lang.Float> getSampleOffsetsList();
+  /**
+   * <pre>
+   *采样截图自定义采样时间点
+   * </pre>
+   *
+   * <code>repeated float SampleOffsets = 6;</code>
+   * @return The count of sampleOffsets.
+   */
+  int getSampleOffsetsCount();
+  /**
+   * <pre>
+   *采样截图自定义采样时间点
+   * </pre>
+   *
+   * <code>repeated float SampleOffsets = 6;</code>
+   * @param index The index of the element to return.
+   * @return The sampleOffsets at the given index.
+   */
+  float getSampleOffsets(int index);
 }

@@ -830,7 +830,8 @@ public final class Api {
 
     /**
      * <pre>
-     * Use specific endpoint id for inference, if set, parameters `name` and `version` will be ignored.
+     * Use specific endpoint id for inference, if set, parameters `name` and
+     * `version` will be ignored.
      * </pre>
      *
      * <code>string endpoint_id = 2;</code>
@@ -839,7 +840,8 @@ public final class Api {
     java.lang.String getEndpointId();
     /**
      * <pre>
-     * Use specific endpoint id for inference, if set, parameters `name` and `version` will be ignored.
+     * Use specific endpoint id for inference, if set, parameters `name` and
+     * `version` will be ignored.
      * </pre>
      *
      * <code>string endpoint_id = 2;</code>
@@ -1016,7 +1018,8 @@ public final class Api {
     private volatile java.lang.Object endpointId_;
     /**
      * <pre>
-     * Use specific endpoint id for inference, if set, parameters `name` and `version` will be ignored.
+     * Use specific endpoint id for inference, if set, parameters `name` and
+     * `version` will be ignored.
      * </pre>
      *
      * <code>string endpoint_id = 2;</code>
@@ -1037,7 +1040,8 @@ public final class Api {
     }
     /**
      * <pre>
-     * Use specific endpoint id for inference, if set, parameters `name` and `version` will be ignored.
+     * Use specific endpoint id for inference, if set, parameters `name` and
+     * `version` will be ignored.
      * </pre>
      *
      * <code>string endpoint_id = 2;</code>
@@ -1539,7 +1543,8 @@ public final class Api {
       private java.lang.Object endpointId_ = "";
       /**
        * <pre>
-       * Use specific endpoint id for inference, if set, parameters `name` and `version` will be ignored.
+       * Use specific endpoint id for inference, if set, parameters `name` and
+       * `version` will be ignored.
        * </pre>
        *
        * <code>string endpoint_id = 2;</code>
@@ -1559,7 +1564,8 @@ public final class Api {
       }
       /**
        * <pre>
-       * Use specific endpoint id for inference, if set, parameters `name` and `version` will be ignored.
+       * Use specific endpoint id for inference, if set, parameters `name` and
+       * `version` will be ignored.
        * </pre>
        *
        * <code>string endpoint_id = 2;</code>
@@ -1580,7 +1586,8 @@ public final class Api {
       }
       /**
        * <pre>
-       * Use specific endpoint id for inference, if set, parameters `name` and `version` will be ignored.
+       * Use specific endpoint id for inference, if set, parameters `name` and
+       * `version` will be ignored.
        * </pre>
        *
        * <code>string endpoint_id = 2;</code>
@@ -1599,7 +1606,8 @@ public final class Api {
       }
       /**
        * <pre>
-       * Use specific endpoint id for inference, if set, parameters `name` and `version` will be ignored.
+       * Use specific endpoint id for inference, if set, parameters `name` and
+       * `version` will be ignored.
        * </pre>
        *
        * <code>string endpoint_id = 2;</code>
@@ -1613,7 +1621,8 @@ public final class Api {
       }
       /**
        * <pre>
-       * Use specific endpoint id for inference, if set, parameters `name` and `version` will be ignored.
+       * Use specific endpoint id for inference, if set, parameters `name` and
+       * `version` will be ignored.
        * </pre>
        *
        * <code>string endpoint_id = 2;</code>
@@ -4463,6 +4472,27 @@ public final class Api {
      * @return The minNewTokens.
      */
     long getMinNewTokens();
+
+    /**
+     * <pre>
+     * the maximum number of prompt tokens, if prompt tokens length over this
+     * limit, it will be truncated as prompt[:max_prompt_tokens]
+     * </pre>
+     *
+     * <code>optional int64 max_prompt_tokens = 11;</code>
+     * @return Whether the maxPromptTokens field is set.
+     */
+    boolean hasMaxPromptTokens();
+    /**
+     * <pre>
+     * the maximum number of prompt tokens, if prompt tokens length over this
+     * limit, it will be truncated as prompt[:max_prompt_tokens]
+     * </pre>
+     *
+     * <code>optional int64 max_prompt_tokens = 11;</code>
+     * @return The maxPromptTokens.
+     */
+    long getMaxPromptTokens();
   }
   /**
    * Protobuf type {@code api.Parameters}
@@ -4558,6 +4588,11 @@ public final class Api {
             case 80: {
               bitField0_ |= 0x00000200;
               minNewTokens_ = input.readInt64();
+              break;
+            }
+            case 88: {
+              bitField0_ |= 0x00000400;
+              maxPromptTokens_ = input.readInt64();
               break;
             }
             default: {
@@ -4881,6 +4916,35 @@ public final class Api {
       return minNewTokens_;
     }
 
+    public static final int MAX_PROMPT_TOKENS_FIELD_NUMBER = 11;
+    private long maxPromptTokens_;
+    /**
+     * <pre>
+     * the maximum number of prompt tokens, if prompt tokens length over this
+     * limit, it will be truncated as prompt[:max_prompt_tokens]
+     * </pre>
+     *
+     * <code>optional int64 max_prompt_tokens = 11;</code>
+     * @return Whether the maxPromptTokens field is set.
+     */
+    @java.lang.Override
+    public boolean hasMaxPromptTokens() {
+      return ((bitField0_ & 0x00000400) != 0);
+    }
+    /**
+     * <pre>
+     * the maximum number of prompt tokens, if prompt tokens length over this
+     * limit, it will be truncated as prompt[:max_prompt_tokens]
+     * </pre>
+     *
+     * <code>optional int64 max_prompt_tokens = 11;</code>
+     * @return The maxPromptTokens.
+     */
+    @java.lang.Override
+    public long getMaxPromptTokens() {
+      return maxPromptTokens_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4924,6 +4988,9 @@ public final class Api {
       }
       if (((bitField0_ & 0x00000200) != 0)) {
         output.writeInt64(10, minNewTokens_);
+      }
+      if (((bitField0_ & 0x00000400) != 0)) {
+        output.writeInt64(11, maxPromptTokens_);
       }
       unknownFields.writeTo(output);
     }
@@ -4973,6 +5040,10 @@ public final class Api {
       if (((bitField0_ & 0x00000200) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(10, minNewTokens_);
+      }
+      if (((bitField0_ & 0x00000400) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(11, maxPromptTokens_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5044,6 +5115,11 @@ public final class Api {
         if (getMinNewTokens()
             != other.getMinNewTokens()) return false;
       }
+      if (hasMaxPromptTokens() != other.hasMaxPromptTokens()) return false;
+      if (hasMaxPromptTokens()) {
+        if (getMaxPromptTokens()
+            != other.getMaxPromptTokens()) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5104,6 +5180,11 @@ public final class Api {
         hash = (37 * hash) + MIN_NEW_TOKENS_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getMinNewTokens());
+      }
+      if (hasMaxPromptTokens()) {
+        hash = (37 * hash) + MAX_PROMPT_TOKENS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getMaxPromptTokens());
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5258,6 +5339,8 @@ public final class Api {
         bitField0_ = (bitField0_ & ~0x00000100);
         minNewTokens_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000200);
+        maxPromptTokens_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
 
@@ -5325,6 +5408,10 @@ public final class Api {
         if (((from_bitField0_ & 0x00000200) != 0)) {
           result.minNewTokens_ = minNewTokens_;
           to_bitField0_ |= 0x00000200;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.maxPromptTokens_ = maxPromptTokens_;
+          to_bitField0_ |= 0x00000400;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -5404,6 +5491,9 @@ public final class Api {
         }
         if (other.hasMinNewTokens()) {
           setMinNewTokens(other.getMinNewTokens());
+        }
+        if (other.hasMaxPromptTokens()) {
+          setMaxPromptTokens(other.getMaxPromptTokens());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6017,6 +6107,65 @@ public final class Api {
       public Builder clearMinNewTokens() {
         bitField0_ = (bitField0_ & ~0x00000200);
         minNewTokens_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long maxPromptTokens_ ;
+      /**
+       * <pre>
+       * the maximum number of prompt tokens, if prompt tokens length over this
+       * limit, it will be truncated as prompt[:max_prompt_tokens]
+       * </pre>
+       *
+       * <code>optional int64 max_prompt_tokens = 11;</code>
+       * @return Whether the maxPromptTokens field is set.
+       */
+      @java.lang.Override
+      public boolean hasMaxPromptTokens() {
+        return ((bitField0_ & 0x00000400) != 0);
+      }
+      /**
+       * <pre>
+       * the maximum number of prompt tokens, if prompt tokens length over this
+       * limit, it will be truncated as prompt[:max_prompt_tokens]
+       * </pre>
+       *
+       * <code>optional int64 max_prompt_tokens = 11;</code>
+       * @return The maxPromptTokens.
+       */
+      @java.lang.Override
+      public long getMaxPromptTokens() {
+        return maxPromptTokens_;
+      }
+      /**
+       * <pre>
+       * the maximum number of prompt tokens, if prompt tokens length over this
+       * limit, it will be truncated as prompt[:max_prompt_tokens]
+       * </pre>
+       *
+       * <code>optional int64 max_prompt_tokens = 11;</code>
+       * @param value The maxPromptTokens to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMaxPromptTokens(long value) {
+        bitField0_ |= 0x00000400;
+        maxPromptTokens_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * the maximum number of prompt tokens, if prompt tokens length over this
+       * limit, it will be truncated as prompt[:max_prompt_tokens]
+       * </pre>
+       *
+       * <code>optional int64 max_prompt_tokens = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMaxPromptTokens() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        maxPromptTokens_ = 0L;
         onChanged();
         return this;
       }
@@ -11534,34 +11683,36 @@ public final class Api {
       "Resp\022\031\n\005error\030\001 \001(\0132\n.api.Error\022\016\n\006req_i" +
       "d\030\002 \001(\t\"_\n\006Choice\022\r\n\005index\030\001 \001(\005\022\035\n\007mess" +
       "age\030\002 \001(\0132\014.api.Message\022\025\n\rfinish_reason" +
-      "\030\003 \001(\t\022\020\n\010logprobs\030\004 \001(\002\"\302\003\n\nParameters\022" +
+      "\030\003 \001(\t\022\020\n\010logprobs\030\004 \001(\002\"\370\003\n\nParameters\022" +
       "\030\n\013temperature\030\001 \001(\002H\000\210\001\001\022\027\n\nmax_tokens\030" +
       "\002 \001(\003H\001\210\001\001\022\022\n\005top_p\030\003 \001(\002H\002\210\001\001\022\035\n\020presen" +
       "ce_penalty\030\004 \001(\002H\003\210\001\001\022\036\n\021frequency_penal" +
       "ty\030\005 \001(\002H\004\210\001\001\022\033\n\016max_new_tokens\030\006 \001(\003H\005\210" +
       "\001\001\022\037\n\022repetition_penalty\030\007 \001(\002H\006\210\001\001\022\026\n\td" +
       "o_sample\030\010 \001(\010H\007\210\001\001\022\022\n\005top_k\030\t \001(\003H\010\210\001\001\022" +
-      "\033\n\016min_new_tokens\030\n \001(\003H\t\210\001\001B\016\n\014_tempera" +
-      "tureB\r\n\013_max_tokensB\010\n\006_top_pB\023\n\021_presen" +
-      "ce_penaltyB\024\n\022_frequency_penaltyB\021\n\017_max" +
-      "_new_tokensB\025\n\023_repetition_penaltyB\014\n\n_d" +
-      "o_sampleB\010\n\006_top_kB\021\n\017_min_new_tokens\"O\n" +
-      "\005Usage\022\025\n\rprompt_tokens\030\001 \001(\003\022\031\n\021complet" +
-      "ion_tokens\030\002 \001(\003\022\024\n\014total_tokens\030\003 \001(\003\"\271" +
-      "\001\n\007ChatReq\022\031\n\005model\030\001 \001(\0132\n.api.Model\022\036\n" +
-      "\010messages\030\002 \003(\0132\014.api.Message\022#\n\nparamet" +
-      "ers\030\003 \001(\0132\017.api.Parameters\022\016\n\006stream\030\004 \001" +
-      "(\010\022\016\n\006req_id\030\005 \001(\t\022.\n\014crypto_token\030\006 \001(\t" +
-      "B\030\272\273\030\024Ml-Maas-Crypto-Token\"m\n\010ChatResp\022\016" +
-      "\n\006req_id\030\001 \001(\t\022\031\n\005error\030\002 \001(\0132\n.api.Erro" +
-      "r\022\033\n\006choice\030\003 \001(\0132\013.api.Choice\022\031\n\005usage\030" +
-      "\004 \001(\0132\n.api.Usage\"$\n\007CertReq\022\031\n\005model\030\001 " +
-      "\001(\0132\n.api.Model\"3\n\010CertResp\022\031\n\005model\030\001 \001" +
-      "(\0132\n.api.Model\022\014\n\004cert\030\002 \001(\t2x\n\nAPIServi" +
-      "ce\0224\n\004Chat\022\014.api.ChatReq\032\r.api.ChatResp\"" +
-      "\017\322\301\030\013api/v1/chat\0224\n\004Cert\022\014.api.CertReq\032\r" +
-      ".api.CertResp\"\017\322\301\030\013api/v1/certB\037\n\035com.vo" +
-      "lcengine.model.maas.apib\006proto3"
+      "\033\n\016min_new_tokens\030\n \001(\003H\t\210\001\001\022\036\n\021max_prom" +
+      "pt_tokens\030\013 \001(\003H\n\210\001\001B\016\n\014_temperatureB\r\n\013" +
+      "_max_tokensB\010\n\006_top_pB\023\n\021_presence_penal" +
+      "tyB\024\n\022_frequency_penaltyB\021\n\017_max_new_tok" +
+      "ensB\025\n\023_repetition_penaltyB\014\n\n_do_sample" +
+      "B\010\n\006_top_kB\021\n\017_min_new_tokensB\024\n\022_max_pr" +
+      "ompt_tokens\"O\n\005Usage\022\025\n\rprompt_tokens\030\001 " +
+      "\001(\003\022\031\n\021completion_tokens\030\002 \001(\003\022\024\n\014total_" +
+      "tokens\030\003 \001(\003\"\271\001\n\007ChatReq\022\031\n\005model\030\001 \001(\0132" +
+      "\n.api.Model\022\036\n\010messages\030\002 \003(\0132\014.api.Mess" +
+      "age\022#\n\nparameters\030\003 \001(\0132\017.api.Parameters" +
+      "\022\016\n\006stream\030\004 \001(\010\022\016\n\006req_id\030\005 \001(\t\022.\n\014cryp" +
+      "to_token\030\006 \001(\tB\030\272\273\030\024Ml-Maas-Crypto-Token" +
+      "\"m\n\010ChatResp\022\016\n\006req_id\030\001 \001(\t\022\031\n\005error\030\002 " +
+      "\001(\0132\n.api.Error\022\033\n\006choice\030\003 \001(\0132\013.api.Ch" +
+      "oice\022\031\n\005usage\030\004 \001(\0132\n.api.Usage\"$\n\007CertR" +
+      "eq\022\031\n\005model\030\001 \001(\0132\n.api.Model\"3\n\010CertRes" +
+      "p\022\031\n\005model\030\001 \001(\0132\n.api.Model\022\014\n\004cert\030\002 \001" +
+      "(\t2x\n\nAPIService\0224\n\004Chat\022\014.api.ChatReq\032\r" +
+      ".api.ChatResp\"\017\322\301\030\013api/v1/chat\0224\n\004Cert\022\014" +
+      ".api.CertReq\032\r.api.CertResp\"\017\322\301\030\013api/v1/" +
+      "certB\037\n\035com.volcengine.model.maas.apib\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11603,7 +11754,7 @@ public final class Api {
     internal_static_api_Parameters_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_api_Parameters_descriptor,
-        new java.lang.String[] { "Temperature", "MaxTokens", "TopP", "PresencePenalty", "FrequencyPenalty", "MaxNewTokens", "RepetitionPenalty", "DoSample", "TopK", "MinNewTokens", "Temperature", "MaxTokens", "TopP", "PresencePenalty", "FrequencyPenalty", "MaxNewTokens", "RepetitionPenalty", "DoSample", "TopK", "MinNewTokens", });
+        new java.lang.String[] { "Temperature", "MaxTokens", "TopP", "PresencePenalty", "FrequencyPenalty", "MaxNewTokens", "RepetitionPenalty", "DoSample", "TopK", "MinNewTokens", "MaxPromptTokens", "Temperature", "MaxTokens", "TopP", "PresencePenalty", "FrequencyPenalty", "MaxNewTokens", "RepetitionPenalty", "DoSample", "TopK", "MinNewTokens", "MaxPromptTokens", });
     internal_static_api_Usage_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_api_Usage_fieldAccessorTable = new

@@ -23,4 +23,6 @@ public class FunctionsOptionInfo {
     String format;
     @JSONField(name = "ClassificationId")
     long classificationId;
+    @JSONField(name = "IsHlsIndexOnly")
+    boolean isHlsIndexOnly;
 }

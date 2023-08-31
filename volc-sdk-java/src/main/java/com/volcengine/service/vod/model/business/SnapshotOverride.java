@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     offsetTimeList_ = emptyIntList();
     fileName_ = "";
     fileIndex_ = "";
+    sampleOffsets_ = emptyFloatList();
   }
 
   @java.lang.Override
@@ -100,6 +101,27 @@ private static final long serialVersionUID = 0L;
             fileIndex_ = s;
             break;
           }
+          case 53: {
+            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+              sampleOffsets_ = newFloatList();
+              mutable_bitField0_ |= 0x00000004;
+            }
+            sampleOffsets_.addFloat(input.readFloat());
+            break;
+          }
+          case 50: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            if (!((mutable_bitField0_ & 0x00000004) != 0) && input.getBytesUntilLimit() > 0) {
+              sampleOffsets_ = newFloatList();
+              mutable_bitField0_ |= 0x00000004;
+            }
+            while (input.getBytesUntilLimit() > 0) {
+              sampleOffsets_.addFloat(input.readFloat());
+            }
+            input.popLimit(limit);
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -120,6 +142,9 @@ private static final long serialVersionUID = 0L;
       }
       if (((mutable_bitField0_ & 0x00000002) != 0)) {
         offsetTimeList_.makeImmutable(); // C
+      }
+      if (((mutable_bitField0_ & 0x00000004) != 0)) {
+        sampleOffsets_.makeImmutable(); // C
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -336,6 +361,46 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int SAMPLEOFFSETS_FIELD_NUMBER = 6;
+  private com.google.protobuf.Internal.FloatList sampleOffsets_;
+  /**
+   * <pre>
+   *采样截图自定义采样时间点
+   * </pre>
+   *
+   * <code>repeated float SampleOffsets = 6;</code>
+   * @return A list containing the sampleOffsets.
+   */
+  @java.lang.Override
+  public java.util.List<java.lang.Float>
+      getSampleOffsetsList() {
+    return sampleOffsets_;
+  }
+  /**
+   * <pre>
+   *采样截图自定义采样时间点
+   * </pre>
+   *
+   * <code>repeated float SampleOffsets = 6;</code>
+   * @return The count of sampleOffsets.
+   */
+  public int getSampleOffsetsCount() {
+    return sampleOffsets_.size();
+  }
+  /**
+   * <pre>
+   *采样截图自定义采样时间点
+   * </pre>
+   *
+   * <code>repeated float SampleOffsets = 6;</code>
+   * @param index The index of the element to return.
+   * @return The sampleOffsets at the given index.
+   */
+  public float getSampleOffsets(int index) {
+    return sampleOffsets_.getFloat(index);
+  }
+  private int sampleOffsetsMemoizedSerializedSize = -1;
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -369,6 +434,13 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileIndex_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, fileIndex_);
+    }
+    if (getSampleOffsetsList().size() > 0) {
+      output.writeUInt32NoTag(50);
+      output.writeUInt32NoTag(sampleOffsetsMemoizedSerializedSize);
+    }
+    for (int i = 0; i < sampleOffsets_.size(); i++) {
+      output.writeFloatNoTag(sampleOffsets_.getFloat(i));
     }
     unknownFields.writeTo(output);
   }
@@ -411,6 +483,17 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileIndex_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, fileIndex_);
     }
+    {
+      int dataSize = 0;
+      dataSize = 4 * getSampleOffsetsList().size();
+      size += dataSize;
+      if (!getSampleOffsetsList().isEmpty()) {
+        size += 1;
+        size += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(dataSize);
+      }
+      sampleOffsetsMemoizedSerializedSize = dataSize;
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -436,6 +519,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFileName())) return false;
     if (!getFileIndex()
         .equals(other.getFileIndex())) return false;
+    if (!getSampleOffsetsList()
+        .equals(other.getSampleOffsetsList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -461,6 +546,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFileName().hashCode();
     hash = (37 * hash) + FILEINDEX_FIELD_NUMBER;
     hash = (53 * hash) + getFileIndex().hashCode();
+    if (getSampleOffsetsCount() > 0) {
+      hash = (37 * hash) + SAMPLEOFFSETS_FIELD_NUMBER;
+      hash = (53 * hash) + getSampleOffsetsList().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -604,6 +693,8 @@ private static final long serialVersionUID = 0L;
 
       fileIndex_ = "";
 
+      sampleOffsets_ = emptyFloatList();
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -644,6 +735,11 @@ private static final long serialVersionUID = 0L;
       result.offsetTimeList_ = offsetTimeList_;
       result.fileName_ = fileName_;
       result.fileIndex_ = fileIndex_;
+      if (((bitField0_ & 0x00000004) != 0)) {
+        sampleOffsets_.makeImmutable();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.sampleOffsets_ = sampleOffsets_;
       onBuilt();
       return result;
     }
@@ -721,6 +817,16 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getFileIndex().isEmpty()) {
         fileIndex_ = other.fileIndex_;
+        onChanged();
+      }
+      if (!other.sampleOffsets_.isEmpty()) {
+        if (sampleOffsets_.isEmpty()) {
+          sampleOffsets_ = other.sampleOffsets_;
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          ensureSampleOffsetsIsMutable();
+          sampleOffsets_.addAll(other.sampleOffsets_);
+        }
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1237,6 +1343,113 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       fileIndex_ = value;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.Internal.FloatList sampleOffsets_ = emptyFloatList();
+    private void ensureSampleOffsetsIsMutable() {
+      if (!((bitField0_ & 0x00000004) != 0)) {
+        sampleOffsets_ = mutableCopy(sampleOffsets_);
+        bitField0_ |= 0x00000004;
+       }
+    }
+    /**
+     * <pre>
+     *采样截图自定义采样时间点
+     * </pre>
+     *
+     * <code>repeated float SampleOffsets = 6;</code>
+     * @return A list containing the sampleOffsets.
+     */
+    public java.util.List<java.lang.Float>
+        getSampleOffsetsList() {
+      return ((bitField0_ & 0x00000004) != 0) ?
+               java.util.Collections.unmodifiableList(sampleOffsets_) : sampleOffsets_;
+    }
+    /**
+     * <pre>
+     *采样截图自定义采样时间点
+     * </pre>
+     *
+     * <code>repeated float SampleOffsets = 6;</code>
+     * @return The count of sampleOffsets.
+     */
+    public int getSampleOffsetsCount() {
+      return sampleOffsets_.size();
+    }
+    /**
+     * <pre>
+     *采样截图自定义采样时间点
+     * </pre>
+     *
+     * <code>repeated float SampleOffsets = 6;</code>
+     * @param index The index of the element to return.
+     * @return The sampleOffsets at the given index.
+     */
+    public float getSampleOffsets(int index) {
+      return sampleOffsets_.getFloat(index);
+    }
+    /**
+     * <pre>
+     *采样截图自定义采样时间点
+     * </pre>
+     *
+     * <code>repeated float SampleOffsets = 6;</code>
+     * @param index The index to set the value at.
+     * @param value The sampleOffsets to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSampleOffsets(
+        int index, float value) {
+      ensureSampleOffsetsIsMutable();
+      sampleOffsets_.setFloat(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *采样截图自定义采样时间点
+     * </pre>
+     *
+     * <code>repeated float SampleOffsets = 6;</code>
+     * @param value The sampleOffsets to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSampleOffsets(float value) {
+      ensureSampleOffsetsIsMutable();
+      sampleOffsets_.addFloat(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *采样截图自定义采样时间点
+     * </pre>
+     *
+     * <code>repeated float SampleOffsets = 6;</code>
+     * @param values The sampleOffsets to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllSampleOffsets(
+        java.lang.Iterable<? extends java.lang.Float> values) {
+      ensureSampleOffsetsIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, sampleOffsets_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *采样截图自定义采样时间点
+     * </pre>
+     *
+     * <code>repeated float SampleOffsets = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSampleOffsets() {
+      sampleOffsets_ = emptyFloatList();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }

@@ -186,4 +186,10 @@ public interface VodUploadFunctionInputOrBuilder extends
    */
   com.google.protobuf.ByteString
       getActionTypeBytes();
+
+  /**
+   * <code>bool IsHlsIndexOnly = 18;</code>
+   * @return The isHlsIndexOnly.
+   */
+  boolean getIsHlsIndexOnly();
 }

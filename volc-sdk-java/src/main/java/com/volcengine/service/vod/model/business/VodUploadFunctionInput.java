@@ -159,6 +159,11 @@ private static final long serialVersionUID = 0L;
             actionType_ = s;
             break;
           }
+          case 144: {
+
+            isHlsIndexOnly_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -729,6 +734,17 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int ISHLSINDEXONLY_FIELD_NUMBER = 18;
+  private boolean isHlsIndexOnly_;
+  /**
+   * <code>bool IsHlsIndexOnly = 18;</code>
+   * @return The isHlsIndexOnly.
+   */
+  @java.lang.Override
+  public boolean getIsHlsIndexOnly() {
+    return isHlsIndexOnly_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -794,6 +810,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(actionType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 17, actionType_);
     }
+    if (isHlsIndexOnly_ != false) {
+      output.writeBool(18, isHlsIndexOnly_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -858,6 +877,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(actionType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, actionType_);
     }
+    if (isHlsIndexOnly_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(18, isHlsIndexOnly_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -908,6 +931,8 @@ private static final long serialVersionUID = 0L;
         != other.getAutoPublish()) return false;
     if (!getActionType()
         .equals(other.getActionType())) return false;
+    if (getIsHlsIndexOnly()
+        != other.getIsHlsIndexOnly()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -955,6 +980,9 @@ private static final long serialVersionUID = 0L;
         getAutoPublish());
     hash = (37 * hash) + ACTIONTYPE_FIELD_NUMBER;
     hash = (53 * hash) + getActionType().hashCode();
+    hash = (37 * hash) + ISHLSINDEXONLY_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsHlsIndexOnly());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1122,6 +1150,8 @@ private static final long serialVersionUID = 0L;
 
       actionType_ = "";
 
+      isHlsIndexOnly_ = false;
+
       return this;
     }
 
@@ -1165,6 +1195,7 @@ private static final long serialVersionUID = 0L;
       result.tag_ = tag_;
       result.autoPublish_ = autoPublish_;
       result.actionType_ = actionType_;
+      result.isHlsIndexOnly_ = isHlsIndexOnly_;
       onBuilt();
       return result;
     }
@@ -1276,6 +1307,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getActionType().isEmpty()) {
         actionType_ = other.actionType_;
         onChanged();
+      }
+      if (other.getIsHlsIndexOnly() != false) {
+        setIsHlsIndexOnly(other.getIsHlsIndexOnly());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2414,6 +2448,37 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       actionType_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean isHlsIndexOnly_ ;
+    /**
+     * <code>bool IsHlsIndexOnly = 18;</code>
+     * @return The isHlsIndexOnly.
+     */
+    @java.lang.Override
+    public boolean getIsHlsIndexOnly() {
+      return isHlsIndexOnly_;
+    }
+    /**
+     * <code>bool IsHlsIndexOnly = 18;</code>
+     * @param value The isHlsIndexOnly to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsHlsIndexOnly(boolean value) {
+      
+      isHlsIndexOnly_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool IsHlsIndexOnly = 18;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsHlsIndexOnly() {
+      
+      isHlsIndexOnly_ = false;
       onChanged();
       return this;
     }

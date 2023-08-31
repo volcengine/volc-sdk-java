@@ -31,6 +31,9 @@ public class VodUploadMediaDemo {
         Functions snapShotFunc = Functions.SnapShotFunction(2.3);
         functionsList.add(snapShotFunc);
 
+        Functions addOptionInfo = Functions.AddOptionInfoFunction("hls测试视频", "test", "素材测试，视频文件", 0, true);
+        functionsList.add(addOptionInfo);
+
         VodUploadMediaRequest vodUploadMediaRequest = VodUploadMediaRequest.newBuilder()
                 .setSpaceName(space)
                 .setFilePath(filePath)

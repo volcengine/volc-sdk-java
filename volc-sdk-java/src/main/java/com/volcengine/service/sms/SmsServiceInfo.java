@@ -30,7 +30,7 @@ public class SmsServiceInfo {
     public SmsServiceInfo(SmsServiceInfoConfig config) {
         this.connectionTimeout = config.getConnectionTimeout();
         this.socketTimeout = config.getSocketTimeout();
-        this.scheme = Objects.equals(config.getScheme(), "") ? HTTP : scheme;
+        this.scheme = Objects.equals(config.getScheme(), "") ? HTTPS : config.getScheme();
         this.host = config.getHost();
         this.header = new ArrayList<Header>() {
             {

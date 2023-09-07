@@ -240,7 +240,6 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     VisualCertQueryProResponse certQueryPro(VisualCertQueryProRequest request) throws Exception;
-
     /**
      * 希区柯克V2(3D运镜)
      * @param request
@@ -431,4 +430,37 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     String ocrApi(String actionName, JSONObject jsonObject) throws Exception;
+
+
+    /**
+     * 图像风格转换
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    ImageStyleConversionResponse imageStyleConversion(ImageStyleConversionRequest request) throws Exception;
+
+    /**
+     * 人脸三要素，纯API接入
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    CertSrcFaceCompResponse certSrcFaceComp(CertSrcFaceCompRequest request) throws Exception;
+
+    /**
+     * 面部对比
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    FaceCompareResponse faceCompare(FaceCompareRequest request) throws Exception;
+
+    /**
+     * 静默活体检测
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    StillLivenessImgResponse stillLivenessImg(StillLivenessImgRequest request) throws Exception;
 }

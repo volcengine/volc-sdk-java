@@ -75,6 +75,8 @@ public class ListAmortizedCostBillMonthlyResponse {
         private String instanceNo;
         @JSONField(name = "InstanceName")
         private String instanceName;
+        @JSONField(name = "ConfigName")
+        private String configName;
         @JSONField(name = "Element")
         private String element;
         @JSONField(name = "Region")
@@ -85,6 +87,8 @@ public class ListAmortizedCostBillMonthlyResponse {
         private String factor;
         @JSONField(name = "ExpandField")
         private String expandField;
+        @JSONField(name = "ExpenseTime")
+        private String expenseTime;
         @JSONField(name = "Price")
         private String price;
         @JSONField(name = "PriceUnit")
@@ -97,6 +101,14 @@ public class ListAmortizedCostBillMonthlyResponse {
         private String useDuration;
         @JSONField(name = "UseDurationUnit")
         private String useDurationUnit;
+        @JSONField(name = "OriginalBillAmount")
+        private String originalBillAmount;
+        @JSONField(name = "PreferentialBillAmount")
+        private String preferentialBillAmount;
+        @JSONField(name = "RoundAmount")
+        private String roundAmount;
+        @JSONField(name = "DiscountBillAmount")
+        private String discountBillAmount;
         @JSONField(name = "CouponAmount")
         private String couponAmount;
         @JSONField(name = "PayableAmount")

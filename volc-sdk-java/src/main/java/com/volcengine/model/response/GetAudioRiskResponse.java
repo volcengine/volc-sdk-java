@@ -56,6 +56,8 @@ public class GetAudioRiskResponse {
         private String UserId;
         @JSONField(name = "SliceId")
         private String SliceId;
+        @JSONField(name = "Decision")
+        private String Decision;
     }
 
     @Data

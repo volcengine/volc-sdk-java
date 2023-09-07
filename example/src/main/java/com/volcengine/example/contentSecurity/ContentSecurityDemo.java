@@ -14,6 +14,7 @@ public class ContentSecurityDemo {
         contentSecurityService.setAccessKey("");
         contentSecurityService.setSecretKey("");
 
+
         try {
             ImageRiskResultRequest request = new ImageRiskResultRequest();
             request.setAppId(334361);

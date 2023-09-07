@@ -50,4 +50,9 @@ public class VisualCertTokenRequest {
 
     @JSONField(name = "callback_info")
     JSONObject callBackInfo;
+
+    @JSONField(name = "config_id")
+    String configId;
+
+
 }

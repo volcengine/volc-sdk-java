@@ -61,7 +61,10 @@ public class Const {
     public static String GetSAMLProvider = "GetSAMLProvider";
     public static String UpdateSAMLProvider = "UpdateSAMLProvider";
     public static String ListSAMLProviders = "ListSAMLProviders";
-
+    public static final String ImageStyleConversion = "ImageStyleConversion";
+    public static final String CertSrcFaceComp = "CertSrcFaceComp";
+    public static final String FaceCompare = "FaceCompare";
+    public static final String StillLivenessImg = "StillLivenessImg";
 
     // billing
     public static final String ListBill = "ListBill";

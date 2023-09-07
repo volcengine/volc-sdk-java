@@ -309,6 +309,8 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertQueryProResponse.class);
     }
 
+
+
     @Override
     public VisualImg2Video3DResponse img2Video3D(VisualImg2Video3DRequest request) throws Exception {
         RawResponse response = json(Const.Img2Video3D, null, JSON.toJSONString(request));
@@ -542,4 +544,43 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         }
         return list;
     }
+    @Override
+    public ImageStyleConversionResponse imageStyleConversion(ImageStyleConversionRequest request) throws Exception {
+        RawResponse response = post(Const.ImageStyleConversion, null, convertNameValuePair(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), ImageStyleConversionResponse.class);
+    }
+
+    @Override
+    public CertSrcFaceCompResponse certSrcFaceComp(CertSrcFaceCompRequest request) throws Exception {
+        RawResponse response = json(Const.CertSrcFaceComp, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), CertSrcFaceCompResponse.class);
+
+    }
+
+    @Override
+    public FaceCompareResponse faceCompare(FaceCompareRequest request) throws Exception {
+        RawResponse response = json(Const.FaceCompare, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), FaceCompareResponse.class);
+
+    }
+
+    @Override
+    public StillLivenessImgResponse stillLivenessImg(StillLivenessImgRequest request) throws Exception {
+        RawResponse response = json(Const.StillLivenessImg, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), StillLivenessImgResponse.class);
+
+    }
 }
+

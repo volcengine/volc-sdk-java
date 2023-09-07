@@ -1006,6 +1006,62 @@ public class VisualConfig {
                         }
                     }
             ));
+            put(Const.ImageStyleConversion, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ImageStyleConversion));
+                                    add(new BasicNameValuePair("Version", "2020-08-26"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.CertSrcFaceComp, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CertSrcFaceComp));
+                                    add(new BasicNameValuePair("Version", "2022-08-31"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.FaceCompare, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.FaceCompare));
+                                    add(new BasicNameValuePair("Version", "2022-08-31"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.StillLivenessImg, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.StillLivenessImg));
+                                    add(new BasicNameValuePair("Version", "2022-08-31"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

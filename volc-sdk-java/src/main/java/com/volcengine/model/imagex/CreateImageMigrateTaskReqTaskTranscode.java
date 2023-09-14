@@ -16,5 +16,8 @@ public class CreateImageMigrateTaskReqTaskTranscode {
 
     @JSONField(name = "DemotionFmt")
     String DemotionFmt;
+
+    @JSONField(name = "EnableExif")
+    Boolean enableExif;
 }
 

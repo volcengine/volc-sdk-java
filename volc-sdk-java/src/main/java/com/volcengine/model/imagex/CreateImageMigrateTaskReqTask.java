@@ -20,5 +20,8 @@ public class CreateImageMigrateTaskReqTask {
 
     @JSONField(name = "RunStrategy")
     CreateImageMigrateTaskReqTaskRunStrategy runStrategy;
+
+    @JSONField(name = "CallbackCfg")
+    CreateImageMigrateTaskReqTaskCallbackCfg callbackCfg;
 }
 

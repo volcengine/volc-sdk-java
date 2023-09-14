@@ -33,7 +33,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public SecretBindResponse bindAXB(BindAXBRequest request) throws Exception {
-        RawResponse response = formPost("BindAXB", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("BindAXB", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -43,7 +43,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
     @Override
     public SecretBindResponse selectNumberAndBindAXB(SelectNumberAndBindAXBRequest request)
         throws Exception {
-        RawResponse response = formPost("SelectNumberAndBindAXB",
+        RawResponse response = formPostWithRetry("SelectNumberAndBindAXB",
             Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -53,7 +53,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public OperationResponse unbindAXB(SpecificSubIdRequest request) throws Exception {
-        RawResponse response = formPost("UnbindAXB", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("UnbindAXB", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -63,7 +63,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
     @Override
     public QuerySubscriptionResponse querySubscription(SpecificSubIdRequest request)
         throws Exception {
-        RawResponse response = formPost("QuerySubscription",
+        RawResponse response = formPostWithRetry("QuerySubscription",
             Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -74,7 +74,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
     @Override
     public QuerySubscriptionForListResponse querySubscriptionForList(
         QuerySubscriptionForListRequest request) throws Exception {
-        RawResponse response = formPost("QuerySubscriptionForList",
+        RawResponse response = formPostWithRetry("QuerySubscriptionForList",
             Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -84,7 +84,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public SecretBindResponse upgradeAXToAXB(UpgradeAXToAXBRequest request) throws Exception {
-        RawResponse response = formPost("UpgradeAXToAXB", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("UpgradeAXToAXB", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -93,7 +93,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public OperationResponse updateAXB(UpdateAXBRequest request) throws Exception {
-        RawResponse response = formPost("UpdateAXB", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("UpdateAXB", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -102,7 +102,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public SecretBindResponse bindAXN(BindAXNRequest request) throws Exception {
-        RawResponse response = formPost("BindAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("BindAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -111,7 +111,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public SecretBindResponse selectNumberAndBindAXN(SelectNumberAndBindAXNRequest request) throws Exception {
-        RawResponse response = formPost("SelectNumberAndBindAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("SelectNumberAndBindAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -120,7 +120,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public OperationResponse updateAXN(UpdateAXNRequest request) throws Exception {
-        RawResponse response = formPost("UpdateAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("UpdateAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -129,7 +129,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public OperationResponse unbindAXN(SpecificSubIdRequest request) throws Exception {
-        RawResponse response = formPost("UnbindAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("UnbindAXN", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -156,7 +156,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public SecretBindResponse bindAXNE(BindAXNERequest request) throws Exception {
-        RawResponse response = formPost("BindAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("BindAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -165,7 +165,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public OperationResponse unbindAXNE(SpecificSubIdRequest request) throws Exception {
-        RawResponse response = formPost("UnbindAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("UnbindAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -174,7 +174,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public OperationResponse updateAXNE(UpdateAXNERequest request) throws Exception {
-        RawResponse response = formPost("UpdateAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("UpdateAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -183,7 +183,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public SecretBindResponse bindAXBForAXNE(BindAXBForAXNERequest request) throws Exception {
-        RawResponse response = formPost("BindAXBForAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("BindAXBForAXNE", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -192,7 +192,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public SecretBindResponse bindAXYB(BindAXYBRequest request) throws Exception {
-        RawResponse response = formPost("BindAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("BindAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -201,7 +201,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public SecretBindResponse bindYBForAXYB(BindYBForAXYBRequest request) throws Exception {
-        RawResponse response = formPost("BindYBForAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("BindYBForAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -210,7 +210,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public OperationResponse unbindAXYB(SpecificSubIdRequest request) throws Exception {
-        RawResponse response = formPost("UnbindAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("UnbindAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -219,7 +219,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public OperationResponse updateAXYB(UpdateAXYBRequest request) throws Exception {
-        RawResponse response = formPost("UpdateAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("UpdateAXYB", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -228,7 +228,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public NumberPoolListResponse queryNumberPoolList(NumberPoolListRequest request) throws Exception {
-        RawResponse response = query("NumberPoolList", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("NumberPoolList", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -237,7 +237,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public NumberListResponse queryNumberList(NumberListRequest request) throws Exception {
-        RawResponse response = query("NumberList", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("NumberList", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -291,7 +291,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public QueryAudioRecordFileUrlResponse queryAudioRecordFileUrl(QueryAudioRecordFileUrlRequest request) throws Exception {
-        RawResponse response = formPost("QueryAudioRecordFileUrl", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("QueryAudioRecordFileUrl", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -300,7 +300,7 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
 
     @Override
     public QueryAudioRecordToTextFileResponse queryAudioRecordToTextFile(QueryAudioRecordToTextFileRequest request) throws Exception {
-        RawResponse response = formPost("QueryAudioRecordToTextFileUrl", Utils.mapToPairList(Utils.paramsToMap(request)));
+        RawResponse response = formPostWithRetry("QueryAudioRecordToTextFileUrl", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -403,6 +403,15 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
         }
         return JSON.parseObject(response.getData(), RiskControlResponse.class);
     }
+
+    private RawResponse formPostWithRetry(String api, List<NameValuePair> nameValuePairs) {
+        RawResponse rawResponse = post(api, Collections.emptyList(), nameValuePairs);
+        if (SdkError.EHTTP.getNumber() == rawResponse.getCode()) {
+            rawResponse = post(api, Collections.emptyList(), nameValuePairs);
+        }
+        return rawResponse;
+    }
+
 
     private RawResponse formPost(String api, List<NameValuePair> nameValuePairs) {
         return post(api, Collections.emptyList(), nameValuePairs);

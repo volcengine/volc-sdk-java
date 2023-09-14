@@ -92,6 +92,8 @@ public interface IImageXService extends IBaseService {
      */
     SecurityToken2 getUploadSts2(List<String> serviceIds, Map<String, String> tag) throws Exception;
 
+    SecurityToken2 getUploadSts2(List<String> serviceIds) throws Exception;
+
     /**
      * Get image upload sts2 auth.
      *
@@ -437,6 +439,8 @@ public interface IImageXService extends IBaseService {
     CreateImageCompressTaskResp createImageCompressTask(CreateImageCompressTaskReq req) throws Exception;
 
     GetCompressTaskInfoResp getCompressTaskInfo(GetCompressTaskInfoReq req) throws Exception;
+
+    UpdateImageFileKeyResp updateImageFileKey(UpdateImageFileKeyReq req) throws Exception;
 
 
     public DescribeImageXDomainTrafficDataResp describeImageXDomainTrafficData(DescribeImageXDomainTrafficDataReq req) throws Exception;

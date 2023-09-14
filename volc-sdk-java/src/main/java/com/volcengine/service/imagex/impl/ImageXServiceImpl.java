@@ -375,6 +375,11 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     @Override
+    public SecurityToken2 getUploadSts2(List<String> serviceIds) throws Exception {
+        return getUploadSts2WithKeyPtn(serviceIds, Time.Hour, "", null);
+    }
+
+    @Override
     public SecurityToken2 getUploadSts2WithExpire(List<String> serviceIds, long expire) throws Exception {
         return getUploadSts2WithKeyPtn(serviceIds, expire, "", null);
     }
@@ -898,6 +903,13 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     @Override
     public GetCompressTaskInfoResp getCompressTaskInfo(GetCompressTaskInfoReq req) throws Exception {
         return this.getImageX("GetCompressTaskInfo", Utils.paramsToMap(req), GetCompressTaskInfoResp.class).getResult();
+    }
+
+    @Override
+    public UpdateImageFileKeyResp updateImageFileKey(UpdateImageFileKeyReq req) throws Exception {
+        Map<String, String> params = new HashMap<>();
+        params.put("ServiceId", req.getServiceId());
+        return this.postImageX("UpdateImageFileKey", params, req, UpdateImageFileKeyResp.class).getResult();
     }
 
 

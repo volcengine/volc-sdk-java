@@ -874,6 +874,11 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     @Override
+    public ExportFailedMigrateTaskResp exportFailedMigrateTask(ExportFailedMigrateTaskReq req) throws Exception {
+        return this.getImageX("ExportFailedMigrateTask", Utils.paramsToMap(req), ExportFailedMigrateTaskResp.class).getResult();
+    }
+
+    @Override
     public CreateImageTranscodeTaskResp createImageTranscodeTask(CreateImageTranscodeTaskReq req) throws Exception {
         return this.postImageX("CreateImageTranscodeTask", EMPTY_STRING_STRING_MAP, req, CreateImageTranscodeTaskResp.class).getResult();
     }

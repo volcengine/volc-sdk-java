@@ -6,22 +6,22 @@ import lombok.Data;
 @Data
 public class GetImageMigrateTasksRespTaskProgress {
     @JSONField(name = "SuccessCnt")
-    Integer successCnt;
+    Long successCnt;
 
     @JSONField(name = "FailCnt")
-    Integer failCnt;
+    Long failCnt;
 
     @JSONField(name = "TotalCnt")
-    Integer totalCnt;
+    Long totalCnt;
 
     @JSONField(name = "SuccessAmount")
-    Integer successAmount;
+    Long successAmount;
 
     @JSONField(name = "TotalAmount")
-    Integer totalAmount;
+    Long totalAmount;
 
     @JSONField(name = "ErrCode")
-    Integer ErrCode;
+    Integer errCode;
 
     @JSONField(name = "ErrMsg")
     String errMsg;

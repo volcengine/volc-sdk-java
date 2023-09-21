@@ -420,6 +420,8 @@ public interface IImageXService extends IBaseService {
      */
     GetImageMigrateTasksResp getImageMigrateTask(GetImageMigrateTasksReq req) throws Exception;
 
+    ExportFailedMigrateTaskResp exportFailedMigrateTask(ExportFailedMigrateTaskReq req) throws Exception;
+
 
     /**
      * Image Transcode

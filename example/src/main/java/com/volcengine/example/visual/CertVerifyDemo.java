@@ -2,6 +2,7 @@ package com.volcengine.example.visual;
 
 import com.alibaba.fastjson.JSON;
 import com.volcengine.service.visual.IVisualService;
+import com.volcengine.service.visual.VisualDefaultClient;
 import com.volcengine.service.visual.impl.VisualServiceImpl;
 import com.volcengine.service.visual.model.request.VisualCertConfigInitRequest;
 import com.volcengine.service.visual.model.response.VisualCertConfigInitResponse;
@@ -25,7 +26,11 @@ public class CertVerifyDemo {
 //        System.out.println(JSON.toJSONString(resp));
 
 
-        IVisualService visualService = VisualServiceImpl.getInstance();
+        //获取IVisualService新实例
+        //IVisualService visualService = VisualServiceImpl.getInstance();
+        //获取全局的IVisualService实例
+        IVisualService visualService = VisualDefaultClient.iVisualService;
+
 
         // call below method if you don't set ak and sk in ～/.vcloud/config
         visualService.setAccessKey("sts-ak");

@@ -56,6 +56,8 @@ public class VideoRiskResultResponse {
         private String SliceId;
         @JSONField(name = "Decision")
         private String Decision;
+        @JSONField(name = "Text")
+        private String Text;
         @JSONField(name = "Results")
         private List<FrameResult> results;
     }

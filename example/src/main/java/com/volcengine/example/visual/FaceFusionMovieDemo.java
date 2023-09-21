@@ -16,15 +16,15 @@ public class FaceFusionMovieDemo {
         IVisualService visualService = VisualServiceImpl.getInstance();
 
         // call below method if you dont set ak and sk in ～/.vcloud/config
-        visualService.setAccessKey("ak");
-        visualService.setSecretKey("sk");
+        visualService.setAccessKey("your ak");
+        visualService.setSecretKey("your sk");
         //提交任务
         VisualFaceFusionMovieSubmitTaskRequest req = new VisualFaceFusionMovieSubmitTaskRequest();
         req.setReqKey("facefusionmovie_standard");
         req.setVideoUrl("");
         req.setImageUrl("");
-        req.setEnableFaceBeautify(true);
-
+        req.setRefImgUrl("");
+        req.setSourceSimilarity("1");
         try {
             VisualFaceFusionMovieSubmitTaskResponse response = visualService.faceFusionMovieSubmitTask(req);
             System.out.println(JSON.toJSONString(response));

@@ -14,6 +14,7 @@ import com.volcengine.service.visual.model.response.*;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -256,12 +257,38 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
     }
 
     @Override
+    public Object certTokenV2(VisualCertTokenRequest request) {
+        RawResponse response = json(Const.CertToken, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            return JSONObject.parseObject(response.getException().getMessage());
+        }
+        try {
+            return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertTokenResponse.class);
+        } catch (UnsupportedEncodingException e) {
+            return JSON.parseObject(new String(response.getData()));
+        }
+    }
+
+    @Override
     public VisualCertVerifyQueryResponse certVerifyQuery(VisualCertVerifyQueryRequest request) throws Exception {
         RawResponse response = json(Const.CertVerifyQuery, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertVerifyQueryResponse.class);
+    }
+
+    @Override
+    public Object certVerifyQueryV2(VisualCertVerifyQueryRequest request)  {
+        RawResponse response = json(Const.CertVerifyQuery, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            return JSONObject.parseObject(response.getException().getMessage());
+        }
+        try {
+            return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertTokenResponse.class);
+        } catch (UnsupportedEncodingException e) {
+            return JSON.parseObject(new String(response.getData()));
+        }
     }
 
     @Override
@@ -274,12 +301,38 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
     }
 
     @Override
+    public Object certConfigInitV2(VisualCertConfigInitRequest request) {
+        RawResponse response = json(Const.CertConfigInit, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            return JSONObject.parseObject(response.getException().getMessage());
+        }
+        try {
+            return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertConfigInitResponse.class);
+        } catch (UnsupportedEncodingException e) {
+            return JSON.parseObject(new String(response.getData()));
+        }
+    }
+
+    @Override
     public VisualCertConfigGetResponse certConfigGet(VisualCertConfigGetRequest request) throws Exception {
         RawResponse response = json(Const.CertConfigGet, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertConfigGetResponse.class);
+    }
+
+    @Override
+    public Object certConfigGetV2(VisualCertConfigGetRequest request) {
+        RawResponse response = json(Const.CertConfigGet, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            return JSONObject.parseObject(response.getException().getMessage());
+        }
+        try {
+            return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertConfigGetResponse.class);
+        } catch (UnsupportedEncodingException e) {
+            return JSON.parseObject(new String(response.getData()));
+        }
     }
 
     @Override
@@ -292,6 +345,19 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
     }
 
     @Override
+    public Object certTokenProV2(VisualCertTokenProRequest request) {
+        RawResponse response = json(Const.CertToken, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            return JSONObject.parseObject(response.getException().getMessage());
+        }
+        try {
+            return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertTokenProResponse.class);
+        } catch (UnsupportedEncodingException e) {
+            return JSON.parseObject(new String(response.getData()));
+        }
+    }
+
+    @Override
     public VisualCertVerifyProResponse certVerifyPro(VisualCertVerifyProRequest request) throws Exception {
         RawResponse response = json(Const.CertVerifyPro, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -299,7 +365,18 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertVerifyProResponse.class);
     }
-
+    @Override
+    public Object certVerifyProV2(VisualCertVerifyProRequest request) {
+        RawResponse response = json(Const.CertVerifyPro, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            return JSONObject.parseObject(response.getException().getMessage());
+        }
+        try {
+            return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertVerifyProResponse.class);
+        } catch (UnsupportedEncodingException e) {
+            return JSON.parseObject(new String(response.getData()));
+        }
+    }
     @Override
     public VisualCertQueryProResponse certQueryPro(VisualCertQueryProRequest request) throws Exception {
         RawResponse response = json(Const.CertVerifyQuery, null, JSON.toJSONString(request));
@@ -309,6 +386,18 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertQueryProResponse.class);
     }
 
+    @Override
+    public Object certQueryProV2(VisualCertQueryProRequest request) {
+        RawResponse response = json(Const.CertVerifyQuery, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            return JSONObject.parseObject(response.getException().getMessage());
+        }
+        try {
+            return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertQueryProResponse.class);
+        } catch (UnsupportedEncodingException e) {
+            return JSON.parseObject(new String(response.getData()));
+        }
+    }
 
 
     @Override
@@ -564,6 +653,20 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
     }
 
     @Override
+    public Object certSrcFaceCompV2(CertSrcFaceCompRequest request) {
+        RawResponse response = json(Const.CertSrcFaceComp, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            return JSONObject.parseObject(response.getException().getMessage());
+        }
+        try {
+            return JSON.parseObject(new String(response.getData(), "UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            return JSON.parseObject(new String(response.getData()));
+        }
+    }
+
+
+    @Override
     public FaceCompareResponse faceCompare(FaceCompareRequest request) throws Exception {
         RawResponse response = json(Const.FaceCompare, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -581,6 +684,28 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), StillLivenessImgResponse.class);
 
+    }
+
+    @Override
+    public Object stillLivenessImgV2(StillLivenessImgRequest request)  {
+        RawResponse response = json(Const.StillLivenessImg, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            return JSONObject.parseObject(response.getException().getMessage());
+        }
+        try {
+            return JSON.parseObject(new String(response.getData(), "UTF-8"), StillLivenessImgResponse.class);
+        } catch (UnsupportedEncodingException e) {
+            return JSON.parseObject(new String(response.getData()));
+        }
+    }
+
+    @Override
+    public OverResolutionV2Response OverResolutionV2(OverResolutionV2Request request) throws Exception{
+        RawResponse response = json(Const.OverResolutionV2, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), OverResolutionV2Response.class);
     }
 }
 

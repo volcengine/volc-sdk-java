@@ -699,7 +699,7 @@ public class Const {
     public static final String LensVidaVideoGetResultV2 = "LensVidaVideoGetResultV2";
     public static final String VideoOverResolutionSubmitTaskV2 = "VideoOverResolutionSubmitTaskV2";
     public static final String VideoOverResolutionQueryTaskV2 = "VideoOverResolutionQueryTaskV2";
-
+    public static final String OverResolutionV2 = "OverResolutionV2";
 
     // ipaas
     public static final String IPaasSDKService = "ipaas";

@@ -199,12 +199,26 @@ public interface IVisualService extends IBaseService {
      */
     VisualCertTokenResponse certToken(VisualCertTokenRequest request) throws Exception;
     /**
+     * 身份认证Token服务V2
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object certTokenV2(VisualCertTokenRequest request) ;
+    /**
      * 身份认证Query服务
      * @param request
      * @return
      * @throws Exception
      */
     VisualCertVerifyQueryResponse certVerifyQuery(VisualCertVerifyQueryRequest request) throws Exception;
+    /**
+     * 身份认证Query服务V2
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object certVerifyQueryV2(VisualCertVerifyQueryRequest request) ;
     /**
      * 身份认证ConfigInit服务
      * @param request
@@ -213,12 +227,27 @@ public interface IVisualService extends IBaseService {
      */
     VisualCertConfigInitResponse certConfigInit(VisualCertConfigInitRequest request) throws Exception;
     /**
+     * 身份认证ConfigInit服务V2
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object certConfigInitV2(VisualCertConfigInitRequest request) ;
+    /**
      * 身份认证ConfigGet服务
      * @param request
      * @return
      * @throws Exception
      */
     VisualCertConfigGetResponse certConfigGet(VisualCertConfigGetRequest request) throws Exception;
+    /**
+     * 身份认证ConfigGet服务V2
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object certConfigGetV2(VisualCertConfigGetRequest request) ;
+
     /**
      * 身份认证TokenPro服务
      * @param request
@@ -227,6 +256,13 @@ public interface IVisualService extends IBaseService {
      */
     VisualCertTokenProResponse certTokenPro(VisualCertTokenProRequest request) throws Exception;
     /**
+     * 身份认证TokenPro服务V2
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object certTokenProV2(VisualCertTokenProRequest request) ;
+    /**
      * 身份认证VerifyPro服务
      * @param request
      * @return
@@ -234,12 +270,26 @@ public interface IVisualService extends IBaseService {
      */
     VisualCertVerifyProResponse certVerifyPro(VisualCertVerifyProRequest request) throws Exception;
     /**
+     * 身份认证VerifyPro服务V2
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object certVerifyProV2(VisualCertVerifyProRequest request) ;
+    /**
      * 身份认证QueryPro服务
      * @param request
      * @return
      * @throws Exception
      */
     VisualCertQueryProResponse certQueryPro(VisualCertQueryProRequest request) throws Exception;
+    /**
+     * 身份认证QueryPro服务V2
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object certQueryProV2(VisualCertQueryProRequest request) ;
     /**
      * 希区柯克V2(3D运镜)
      * @param request
@@ -449,6 +499,14 @@ public interface IVisualService extends IBaseService {
     CertSrcFaceCompResponse certSrcFaceComp(CertSrcFaceCompRequest request) throws Exception;
 
     /**
+     * 人脸三要素，纯API接入V2（直接返回response）
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object certSrcFaceCompV2(CertSrcFaceCompRequest request) ;
+
+    /**
      * 面部对比
      * @param request
      * @return
@@ -463,4 +521,20 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     StillLivenessImgResponse stillLivenessImg(StillLivenessImgRequest request) throws Exception;
+
+    /**
+     * 静默活体检测V2
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object stillLivenessImgV2(StillLivenessImgRequest request) ;
+    /**
+     * 图片超分辨率
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    OverResolutionV2Response OverResolutionV2(OverResolutionV2Request request)throws Exception;
+
 }

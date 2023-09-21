@@ -12,11 +12,11 @@ public class ImageStyleConversionDemo {
         IVisualService visualService = VisualServiceImpl.getInstance();
 
         // call below method if you dont set ak and sk in ～/.vcloud/config
-        visualService.setAccessKey("ak");
-        visualService.setSecretKey("sk");
 
+        visualService.setAccessKey("your ak");
+        visualService.setSecretKey("your sk");
         ImageStyleConversionRequest req = new ImageStyleConversionRequest();
-        req.setImageBase64("image_base64");
+        req.setImageBase64("");
         req.setType("watercolor_cartoon");
         try {
             ImageStyleConversionResponse response = visualService.imageStyleConversion(req);

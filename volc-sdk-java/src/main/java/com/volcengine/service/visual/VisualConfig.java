@@ -1061,7 +1061,20 @@ public class VisualConfig {
                             });
                         }
                     }
-            ));
+            )); put(Const.OverResolutionV2, new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", Const.OverResolutionV2));
+                                add(new BasicNameValuePair("Version", "2022-08-31"));
+                            }
+                        });
+                    }
+                }
+        ));
         }
     };
 }

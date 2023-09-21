@@ -10,11 +10,11 @@ public class VisualJPCartoonRequest {
     String imageBase64;
 
     @JSONField(name = "cartoon_type")
-    String cartoonType;
+    String cartoonType="jpcartoon_head";
 
     @JSONField(name = "rotation")
     Integer rotation = 0;
 
     @JSONField(name = "do_risk")
-    Boolean doRisk;
+    Boolean doRisk=false;
 }

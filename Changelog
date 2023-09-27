@@ -1,5 +1,8 @@
 Change log
 
+2023-09-27 Bumped to version v1.0.121
+- Updated apis for cdn/rtc/tls
+
 2023-09-22 Bumped to version v1.0.120
 - Updated apis for live
 

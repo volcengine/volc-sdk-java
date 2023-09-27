@@ -71,6 +71,9 @@ public class CDN {
         @JSONField(name = "Certificate")
         Certificate Certificate;
 
+        @JSONField(name = "CloseSigCheck")
+        Boolean CloseSigCheck;
+
         @JSONField(name = "Source")
         String Source;
     }
@@ -106,13 +109,16 @@ public class CDN {
         List<CacheControlRule> Cache;
 
         @JSONField(name = "CacheKey")
-        List<CacheKeyGenerationRule> CacheKey;
+        List<CacheKeyRule> CacheKey;
 
         @JSONField(name = "Compression")
         Compression Compression;
 
         @JSONField(name = "CustomErrorPage")
         CustomErrorPage CustomErrorPage;
+
+        @JSONField(name = "CustomizeAccessRule")
+        CustomizeAccessRule CustomizeAccessRule;
 
         @JSONField(name = "Domain")
         String Domain;
@@ -174,6 +180,9 @@ public class CDN {
         @JSONField(name = "OriginSni")
         OriginSni OriginSni;
 
+        @JSONField(name = "PageOptimization")
+        PageOptimization PageOptimization;
+
         @JSONField(name = "Project")
         String Project;
 
@@ -211,7 +220,7 @@ public class CDN {
         Sparrow Sparrow;
 
         @JSONField(name = "Timeout")
-        TimeoutArg Timeout;
+        Timeout Timeout;
 
         @JSONField(name = "UaAccessRule")
         UserAgentAccessRule UaAccessRule;
@@ -310,6 +319,9 @@ public class CDN {
 
         @JSONField(name = "RequestHeaderInstances")
         List<RequestHeaderInstance> RequestHeaderInstances;
+
+        @JSONField(name = "RequestHost")
+        String RequestHost;
     }
 
     @Data
@@ -326,7 +338,7 @@ public class CDN {
         StatusCodeAction StatusCodeAction;
 
         @JSONField(name = "TimeOutAction")
-        TimeOutAction TimeOutAction;
+        AuthTimeoutAction TimeOutAction;
     }
 
     @Data
@@ -335,6 +347,17 @@ public class CDN {
 
         @JSONField(name = "Switch")
         Boolean Switch;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class AuthTimeoutAction {
+
+        @JSONField(name = "Action")
+        String Action;
+
+        @JSONField(name = "Time")
+        Long Time;
     }
 
     @Data
@@ -360,6 +383,9 @@ public class CDN {
 
         @JSONField(name = "SpeedLimitRate")
         Long SpeedLimitRate;
+
+        @JSONField(name = "SpeedLimitRateMax")
+        Long SpeedLimitRateMax;
     }
 
     @Data
@@ -400,7 +426,30 @@ public class CDN {
     public static class BatchDeployCertResult {
 
         @JSONField(name = "DeployResult")
-        List<DomainCertDeployStatus> DeployResult;
+        List<CertDeployStatus> DeployResult;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class BlockTaskInfo {
+
+        @JSONField(name = "BlockReason")
+        String BlockReason;
+
+        @JSONField(name = "CreateTime")
+        Long CreateTime;
+
+        @JSONField(name = "Status")
+        String Status;
+
+        @JSONField(name = "TaskID")
+        String TaskID;
+
+        @JSONField(name = "TaskType")
+        String TaskType;
+
+        @JSONField(name = "Url")
+        String Url;
     }
 
     @Data
@@ -469,13 +518,27 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
-    public static class CacheKeyGenerationRule {
+    public static class CacheKeyRule {
 
         @JSONField(name = "CacheKeyAction")
         CacheKeyAction CacheKeyAction;
 
         @JSONField(name = "Condition")
         Condition Condition;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class CertDeployStatus {
+
+        @JSONField(name = "Domain")
+        String Domain;
+
+        @JSONField(name = "ErrorMsg")
+        String ErrorMsg;
+
+        @JSONField(name = "Status")
+        String Status;
     }
 
     @Data
@@ -491,14 +554,8 @@ public class CDN {
         @JSONField(name = "Certificate")
         Certificate Certificate;
 
-        @JSONField(name = "ConfiguredDomain")
-        String ConfiguredDomain;
-
         @JSONField(name = "Desc")
         String Desc;
-
-        @JSONField(name = "DnsName")
-        String DnsName;
 
         @JSONField(name = "EffectiveTime")
         Long EffectiveTime;
@@ -508,9 +565,6 @@ public class CDN {
 
         @JSONField(name = "Source")
         String Source;
-
-        @JSONField(name = "Status")
-        String Status;
     }
 
     @Data
@@ -522,6 +576,17 @@ public class CDN {
 
         @JSONField(name = "PrivateKey")
         String PrivateKey;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class CommonReferType {
+
+        @JSONField(name = "IgnoreCase")
+        Boolean IgnoreCase;
+
+        @JSONField(name = "Referers")
+        List<String> Referers;
     }
 
     @Data
@@ -547,6 +612,9 @@ public class CDN {
 
         @JSONField(name = "CompressionType")
         List<String> CompressionType;
+
+        @JSONField(name = "MinFileSizeKB")
+        Long MinFileSizeKB;
     }
 
     @Data
@@ -590,7 +658,21 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class ConfiguredDomain {
+
+        @JSONField(name = "Domain")
+        String Domain;
+
+        @JSONField(name = "Type")
+        String Type;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class ContentTask {
+
+        @JSONField(name = "Area")
+        String Area;
 
         @JSONField(name = "CreateTime")
         Long CreateTime;
@@ -598,14 +680,29 @@ public class CDN {
         @JSONField(name = "Delete")
         Boolean Delete;
 
+        @JSONField(name = "Isp")
+        String Isp;
+
+        @JSONField(name = "Layer")
+        String Layer;
+
         @JSONField(name = "Process")
         String Process;
+
+        @JSONField(name = "RefreshPrefix")
+        Boolean RefreshPrefix;
+
+        @JSONField(name = "Region")
+        String Region;
 
         @JSONField(name = "Remark")
         String Remark;
 
         @JSONField(name = "Status")
         String Status;
+
+        @JSONField(name = "SubArea")
+        String SubArea;
 
         @JSONField(name = "TaskID")
         String TaskID;
@@ -652,6 +749,53 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class CustomizeAccessAction {
+
+        @JSONField(name = "AllowEmpty")
+        Boolean AllowEmpty;
+
+        @JSONField(name = "ListRules")
+        List<String> ListRules;
+
+        @JSONField(name = "RequestHeader")
+        String RequestHeader;
+
+        @JSONField(name = "RuleType")
+        String RuleType;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class CustomizeAccessRule {
+
+        @JSONField(name = "CustomizeInstances")
+        List<CustomizeInstance> CustomizeInstances;
+
+        @JSONField(name = "Switch")
+        Boolean Switch;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class CustomizeInstance {
+
+        @JSONField(name = "CustomizeRule")
+        CustomizeRule CustomizeRule;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class CustomizeRule {
+
+        @JSONField(name = "AccessAction")
+        CustomizeAccessAction AccessAction;
+
+        @JSONField(name = "Condition")
+        Condition Condition;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class DataPoint {
 
         @JSONField(name = "TimeStamp")
@@ -659,6 +803,22 @@ public class CDN {
 
         @JSONField(name = "Value")
         Double Value;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DeleteCdnCertificateRequest {
+
+        @JSONField(name = "CertId")
+        String CertId;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DeleteCdnCertificateResponse {
+
+        @JSONField(name = "ResponseMetadata")
+        ResponseMetadata ResponseMetadata;
     }
 
     @Data
@@ -715,6 +875,9 @@ public class CDN {
         @JSONField(name = "Interval")
         Long Interval;
 
+        @JSONField(name = "InverseDomain")
+        Boolean InverseDomain;
+
         @JSONField(name = "IsWildcardDomain")
         Boolean IsWildcardDomain;
 
@@ -769,11 +932,20 @@ public class CDN {
         @JSONField(name = "EndTime")
         Long EndTime;
 
+        @JSONField(name = "FreeTime")
+        String FreeTime;
+
+        @JSONField(name = "InverseDomain")
+        Boolean InverseDomain;
+
         @JSONField(name = "Project")
         String Project;
 
         @JSONField(name = "StartTime")
         Long StartTime;
+
+        @JSONField(name = "TimeZone")
+        String TimeZone;
     }
 
     @Data
@@ -873,7 +1045,7 @@ public class CDN {
     public static class DescribeCdnConfigResult {
 
         @JSONField(name = "DomainConfig")
-        DomainVolcanoDetail DomainConfig;
+        DomainConfig DomainConfig;
     }
 
     @Data
@@ -900,6 +1072,9 @@ public class CDN {
 
         @JSONField(name = "StartTime")
         Long StartTime;
+
+        @JSONField(name = "TimeZone")
+        String TimeZone;
     }
 
     @Data
@@ -949,6 +1124,9 @@ public class CDN {
         @JSONField(name = "Interval")
         String Interval;
 
+        @JSONField(name = "InverseDomain")
+        Boolean InverseDomain;
+
         @JSONField(name = "IpVersion")
         String IpVersion;
 
@@ -972,6 +1150,9 @@ public class CDN {
 
         @JSONField(name = "StartTime")
         Long StartTime;
+
+        @JSONField(name = "TimeZone")
+        String TimeZone;
     }
 
     @Data
@@ -1015,6 +1196,9 @@ public class CDN {
         @JSONField(name = "Interval")
         String Interval;
 
+        @JSONField(name = "InverseDomain")
+        Boolean InverseDomain;
+
         @JSONField(name = "IsWildcardDomain")
         Boolean IsWildcardDomain;
 
@@ -1026,6 +1210,9 @@ public class CDN {
 
         @JSONField(name = "StartTime")
         Long StartTime;
+
+        @JSONField(name = "TimeZone")
+        String TimeZone;
     }
 
     @Data
@@ -1159,18 +1346,21 @@ public class CDN {
     public static class DescribeCertConfigResult {
 
         @JSONField(name = "CertNotConfig")
-        List<DomainCertResult> CertNotConfig;
+        List<DomainStatus> CertNotConfig;
 
         @JSONField(name = "OtherCertConfig")
-        List<DomainCertResult> OtherCertConfig;
+        List<DomainCertStatus> OtherCertConfig;
 
         @JSONField(name = "SpecifiedCertConfig")
-        List<DomainCertResult> SpecifiedCertConfig;
+        List<DomainCertStatus> SpecifiedCertConfig;
     }
 
     @Data
     @Accessors(chain = true)
     public static class DescribeContentBlockTasksRequest {
+
+        @JSONField(name = "DomainName")
+        String DomainName;
 
         @JSONField(name = "EndTime")
         Long EndTime;
@@ -1213,7 +1403,7 @@ public class CDN {
     public static class DescribeContentBlockTasksResult {
 
         @JSONField(name = "Data")
-        List<DescribeContentBlockTasksTaskInfo> Data;
+        List<BlockTaskInfo> Data;
 
         @JSONField(name = "PageNum")
         Long PageNum;
@@ -1223,26 +1413,6 @@ public class CDN {
 
         @JSONField(name = "Total")
         Long Total;
-    }
-
-    @Data
-    @Accessors(chain = true)
-    public static class DescribeContentBlockTasksTaskInfo {
-
-        @JSONField(name = "CreateTime")
-        Long CreateTime;
-
-        @JSONField(name = "Status")
-        String Status;
-
-        @JSONField(name = "TaskID")
-        String TaskID;
-
-        @JSONField(name = "TaskType")
-        String TaskType;
-
-        @JSONField(name = "Url")
-        String Url;
     }
 
     @Data
@@ -1259,6 +1429,15 @@ public class CDN {
     @Data
     @Accessors(chain = true)
     public static class DescribeContentQuotaResult {
+
+        @JSONField(name = "BlockLimit")
+        Long BlockLimit;
+
+        @JSONField(name = "BlockQuota")
+        Long BlockQuota;
+
+        @JSONField(name = "BlockRemain")
+        Long BlockRemain;
 
         @JSONField(name = "PreloadLimit")
         Long PreloadLimit;
@@ -1295,6 +1474,15 @@ public class CDN {
 
         @JSONField(name = "RefreshRemain")
         Long RefreshRemain;
+
+        @JSONField(name = "UnblockLimit")
+        Long UnblockLimit;
+
+        @JSONField(name = "UnblockQuota")
+        Long UnblockQuota;
+
+        @JSONField(name = "UnblockRemain")
+        Long UnblockRemain;
     }
 
     @Data
@@ -1387,6 +1575,9 @@ public class CDN {
 
         @JSONField(name = "StartTime")
         Long StartTime;
+
+        @JSONField(name = "TimeZone")
+        String TimeZone;
     }
 
     @Data
@@ -1432,6 +1623,9 @@ public class CDN {
 
         @JSONField(name = "Interval")
         String Interval;
+
+        @JSONField(name = "InverseDomain")
+        Boolean InverseDomain;
 
         @JSONField(name = "IpVersion")
         String IpVersion;
@@ -1541,6 +1735,9 @@ public class CDN {
         @JSONField(name = "Interval")
         String Interval;
 
+        @JSONField(name = "InverseDomain")
+        Boolean InverseDomain;
+
         @JSONField(name = "Item")
         String Item;
 
@@ -1603,6 +1800,9 @@ public class CDN {
 
         @JSONField(name = "StartTime")
         Long StartTime;
+
+        @JSONField(name = "UaType")
+        String UaType;
     }
 
     @Data
@@ -1648,6 +1848,9 @@ public class CDN {
 
         @JSONField(name = "EndTime")
         Long EndTime;
+
+        @JSONField(name = "InverseDomain")
+        Boolean InverseDomain;
 
         @JSONField(name = "Item")
         String Item;
@@ -1770,6 +1973,9 @@ public class CDN {
         @JSONField(name = "Interval")
         String Interval;
 
+        @JSONField(name = "InverseDomain")
+        Boolean InverseDomain;
+
         @JSONField(name = "IpVersion")
         String IpVersion;
 
@@ -1830,6 +2036,9 @@ public class CDN {
         @JSONField(name = "Interval")
         String Interval;
 
+        @JSONField(name = "InverseDomain")
+        Boolean InverseDomain;
+
         @JSONField(name = "Item")
         String Item;
 
@@ -1887,6 +2096,9 @@ public class CDN {
         @JSONField(name = "EndTime")
         Long EndTime;
 
+        @JSONField(name = "InverseDomain")
+        Boolean InverseDomain;
+
         @JSONField(name = "Item")
         String Item;
 
@@ -1930,21 +2142,7 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
-    public static class DomainCertDeployStatus {
-
-        @JSONField(name = "Domain")
-        String Domain;
-
-        @JSONField(name = "ErrorMsg")
-        String ErrorMsg;
-
-        @JSONField(name = "Status")
-        String Status;
-    }
-
-    @Data
-    @Accessors(chain = true)
-    public static class DomainCertResult {
+    public static class DomainCertStatus {
 
         @JSONField(name = "CerStatus")
         String CerStatus;
@@ -1954,48 +2152,17 @@ public class CDN {
 
         @JSONField(name = "Status")
         String Status;
+
+        @JSONField(name = "Type")
+        String Type;
     }
 
     @Data
     @Accessors(chain = true)
-    public static class DomainLogDetail {
-
-        @JSONField(name = "EndTime")
-        Long EndTime;
-
-        @JSONField(name = "LogName")
-        String LogName;
-
-        @JSONField(name = "LogPath")
-        String LogPath;
-
-        @JSONField(name = "LogSize")
-        Long LogSize;
-
-        @JSONField(name = "StartTime")
-        Long StartTime;
-    }
-
-    @Data
-    @Accessors(chain = true)
-    public static class DomainNrtDetailData {
-
-        @JSONField(name = "DataDetails")
-        List<NrtDataDetails> DataDetails;
-
-        @JSONField(name = "Name")
-        String Name;
-    }
-
-    @Data
-    @Accessors(chain = true)
-    public static class DomainVolcanoDetail {
+    public static class DomainConfig {
 
         @JSONField(name = "AreaAccessRule")
         AreaAccessRule AreaAccessRule;
-
-        @JSONField(name = "AutoRotate")
-        AutoRotate AutoRotate;
 
         @JSONField(name = "BandwidthLimit")
         BandwidthLimit BandwidthLimit;
@@ -2007,7 +2174,7 @@ public class CDN {
         List<CacheControlRule> Cache;
 
         @JSONField(name = "CacheKey")
-        List<CacheKeyGenerationRule> CacheKey;
+        List<CacheKeyRule> CacheKey;
 
         @JSONField(name = "Cname")
         String Cname;
@@ -2020,6 +2187,9 @@ public class CDN {
 
         @JSONField(name = "CustomErrorPage")
         CustomErrorPage CustomErrorPage;
+
+        @JSONField(name = "CustomizeAccessRule")
+        CustomizeAccessRule CustomizeAccessRule;
 
         @JSONField(name = "Domain")
         String Domain;
@@ -2084,6 +2254,9 @@ public class CDN {
         @JSONField(name = "OriginSni")
         OriginSni OriginSni;
 
+        @JSONField(name = "PageOptimization")
+        PageOptimization PageOptimization;
+
         @JSONField(name = "Project")
         String Project;
 
@@ -2121,7 +2294,7 @@ public class CDN {
         String Status;
 
         @JSONField(name = "Timeout")
-        TimeoutArg Timeout;
+        Timeout Timeout;
 
         @JSONField(name = "UaAccessRule")
         UserAgentAccessRule UaAccessRule;
@@ -2134,6 +2307,130 @@ public class CDN {
 
         @JSONField(name = "WebpAdaptive")
         WebpAdaptive WebpAdaptive;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DomainLock {
+
+        @JSONField(name = "Remark")
+        String Remark;
+
+        @JSONField(name = "Status")
+        String Status;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DomainLogDetail {
+
+        @JSONField(name = "EndTime")
+        Long EndTime;
+
+        @JSONField(name = "LogName")
+        String LogName;
+
+        @JSONField(name = "LogPath")
+        String LogPath;
+
+        @JSONField(name = "LogSize")
+        Long LogSize;
+
+        @JSONField(name = "StartTime")
+        Long StartTime;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DomainNrtDetailData {
+
+        @JSONField(name = "DataDetails")
+        List<NrtDataDetails> DataDetails;
+
+        @JSONField(name = "Name")
+        String Name;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DomainStatus {
+
+        @JSONField(name = "Domain")
+        String Domain;
+
+        @JSONField(name = "Status")
+        String Status;
+
+        @JSONField(name = "Type")
+        String Type;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DomainSummary {
+
+        @JSONField(name = "BackupOrigin")
+        List<String> BackupOrigin;
+
+        @JSONField(name = "CacheShared")
+        String CacheShared;
+
+        @JSONField(name = "CacheSharedTargetHost")
+        String CacheSharedTargetHost;
+
+        @JSONField(name = "Cname")
+        String Cname;
+
+        @JSONField(name = "ConfigStatus")
+        String ConfigStatus;
+
+        @JSONField(name = "CreateTime")
+        Long CreateTime;
+
+        @JSONField(name = "Domain")
+        String Domain;
+
+        @JSONField(name = "DomainLock")
+        DomainLock DomainLock;
+
+        @JSONField(name = "HTTPS")
+        Boolean HTTPS;
+
+        @JSONField(name = "IPv6")
+        Boolean IPv6;
+
+        @JSONField(name = "IsConflictDomain")
+        Boolean IsConflictDomain;
+
+        @JSONField(name = "OriginProtocol")
+        String OriginProtocol;
+
+        @JSONField(name = "PrimaryOrigin")
+        List<String> PrimaryOrigin;
+
+        @JSONField(name = "Project")
+        String Project;
+
+        @JSONField(name = "ResourceTags")
+        List<ResourceTag> ResourceTags;
+
+        @JSONField(name = "ServiceRegion")
+        String ServiceRegion;
+
+        @JSONField(name = "ServiceType")
+        String ServiceType;
+
+        @JSONField(name = "SparrowList")
+        List<String> SparrowList;
+
+        @JSONField(name = "Status")
+        String Status;
+
+        @JSONField(name = "UpdateTime")
+        Long UpdateTime;
+
+        @JSONField(name = "Waf")
+        Boolean Waf;
     }
 
     @Data
@@ -2253,6 +2550,9 @@ public class CDN {
 
         @JSONField(name = "CertInfo")
         CertInfo CertInfo;
+
+        @JSONField(name = "CertInfoList")
+        List<CertInfo> CertInfoList;
 
         @JSONField(name = "DisableHttp")
         Boolean DisableHttp;
@@ -2389,10 +2689,43 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class IpSpeedLimit {
+
+        @JSONField(name = "IpSpeedLimitRules")
+        List<IpSpeedLimitRule> IpSpeedLimitRules;
+
+        @JSONField(name = "Switch")
+        Boolean Switch;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class IpSpeedLimitAction {
+
+        @JSONField(name = "SpeedLimitRate")
+        Long SpeedLimitRate;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class IpSpeedLimitRule {
+
+        @JSONField(name = "Condition")
+        Condition Condition;
+
+        @JSONField(name = "IpSpeedLimitAction")
+        IpSpeedLimitAction IpSpeedLimitAction;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class ListCdnCertInfoRequest {
 
         @JSONField(name = "CertId")
         String CertId;
+
+        @JSONField(name = "Configured")
+        Boolean Configured;
 
         @JSONField(name = "ConfiguredDomain")
         String ConfiguredDomain;
@@ -2429,7 +2762,7 @@ public class CDN {
     public static class ListCdnCertInfoResult {
 
         @JSONField(name = "CertInfo")
-        List<CertInfo> CertInfo;
+        List<ListCertInfo> CertInfo;
 
         @JSONField(name = "ExpiringCount")
         Long ExpiringCount;
@@ -2442,53 +2775,6 @@ public class CDN {
 
         @JSONField(name = "Total")
         Long Total;
-    }
-
-    @Data
-    @Accessors(chain = true)
-    public static class ListCdnDomainDomain {
-
-        @JSONField(name = "BackupOrigin")
-        List<String> BackupOrigin;
-
-        @JSONField(name = "Cname")
-        String Cname;
-
-        @JSONField(name = "CreateTime")
-        Long CreateTime;
-
-        @JSONField(name = "Domain")
-        String Domain;
-
-        @JSONField(name = "HTTPS")
-        Boolean HTTPS;
-
-        @JSONField(name = "IPv6")
-        Boolean IPv6;
-
-        @JSONField(name = "OriginProtocol")
-        String OriginProtocol;
-
-        @JSONField(name = "PrimaryOrigin")
-        List<String> PrimaryOrigin;
-
-        @JSONField(name = "Project")
-        String Project;
-
-        @JSONField(name = "ResourceTags")
-        List<ResourceTag> ResourceTags;
-
-        @JSONField(name = "ServiceRegion")
-        String ServiceRegion;
-
-        @JSONField(name = "ServiceType")
-        String ServiceType;
-
-        @JSONField(name = "Status")
-        String Status;
-
-        @JSONField(name = "UpdateTime")
-        Long UpdateTime;
     }
 
     @Data
@@ -2506,6 +2792,9 @@ public class CDN {
 
         @JSONField(name = "IPv6")
         Boolean IPv6;
+
+        @JSONField(name = "NeedSparrows")
+        Boolean NeedSparrows;
 
         @JSONField(name = "OriginProtocol")
         String OriginProtocol;
@@ -2554,7 +2843,7 @@ public class CDN {
     public static class ListCdnDomainsResult {
 
         @JSONField(name = "Data")
-        List<ListCdnDomainDomain> Data;
+        List<DomainSummary> Data;
 
         @JSONField(name = "PageNum")
         Long PageNum;
@@ -2568,7 +2857,51 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class ListCertInfo {
+
+        @JSONField(name = "CertId")
+        String CertId;
+
+        @JSONField(name = "CertName")
+        String CertName;
+
+        @JSONField(name = "ConfiguredDomain")
+        String ConfiguredDomain;
+
+        @JSONField(name = "ConfiguredDomainDetail")
+        List<ConfiguredDomain> ConfiguredDomainDetail;
+
+        @JSONField(name = "Desc")
+        String Desc;
+
+        @JSONField(name = "DnsName")
+        String DnsName;
+
+        @JSONField(name = "EffectiveTime")
+        Long EffectiveTime;
+
+        @JSONField(name = "ExpireTime")
+        Long ExpireTime;
+
+        @JSONField(name = "Source")
+        String Source;
+
+        @JSONField(name = "Status")
+        String Status;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class ListCertInfoRequest {
+
+        @JSONField(name = "CertId")
+        String CertId;
+
+        @JSONField(name = "ConfiguredDomain")
+        String ConfiguredDomain;
+
+        @JSONField(name = "FuzzyMatch")
+        Boolean FuzzyMatch;
 
         @JSONField(name = "Name")
         String Name;
@@ -2605,7 +2938,7 @@ public class CDN {
     public static class ListCertInfoResult {
 
         @JSONField(name = "CertInfo")
-        List<CertInfo> CertInfo;
+        List<ListCertInfo> CertInfo;
 
         @JSONField(name = "ExpiringCount")
         Long ExpiringCount;
@@ -2770,11 +3103,17 @@ public class CDN {
         @JSONField(name = "BillingRegion")
         String BillingRegion;
 
+        @JSONField(name = "Isp")
+        String Isp;
+
         @JSONField(name = "Metrics")
         List<MetricTimestampValue> Metrics;
 
         @JSONField(name = "Name")
         String Name;
+
+        @JSONField(name = "Region")
+        String Region;
     }
 
     @Data
@@ -2797,6 +3136,9 @@ public class CDN {
 
         @JSONField(name = "AllowEmpty")
         Boolean AllowEmpty;
+
+        @JSONField(name = "IgnoreCase")
+        Boolean IgnoreCase;
 
         @JSONField(name = "Origins")
         List<String> Origins;
@@ -2877,6 +3219,9 @@ public class CDN {
         @JSONField(name = "PrivateBucketAuth")
         PrivateBucketAuth PrivateBucketAuth;
 
+        @JSONField(name = "Region")
+        String Region;
+
         @JSONField(name = "Weight")
         String Weight;
     }
@@ -2938,13 +3283,13 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
-    public static class OriginTimeoutAction {
+    public static class PageOptimization {
 
-        @JSONField(name = "HttpTimeout")
-        Long HttpTimeout;
+        @JSONField(name = "OptimizationType")
+        List<String> OptimizationType;
 
-        @JSONField(name = "TcpTimeout")
-        Long TcpTimeout;
+        @JSONField(name = "Switch")
+        Boolean Switch;
     }
 
     @Data
@@ -3060,11 +3405,33 @@ public class CDN {
         @JSONField(name = "Referers")
         List<String> Referers;
 
+        @JSONField(name = "ReferersType")
+        ReferersType ReferersType;
+
         @JSONField(name = "RuleType")
         String RuleType;
 
         @JSONField(name = "Switch")
         Boolean Switch;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class RefererType {
+
+        @JSONField(name = "Referers")
+        List<String> Referers;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class ReferersType {
+
+        @JSONField(name = "CommonType")
+        CommonReferType CommonType;
+
+        @JSONField(name = "RegularType")
+        RefererType RegularType;
     }
 
     @Data
@@ -3261,6 +3628,9 @@ public class CDN {
         @JSONField(name = "Duration")
         Long Duration;
 
+        @JSONField(name = "KeepOriginArg")
+        Boolean KeepOriginArg;
+
         @JSONField(name = "MasterSecretKey")
         String MasterSecretKey;
 
@@ -3394,6 +3764,9 @@ public class CDN {
     @Accessors(chain = true)
     public static class SubmitBlockTaskRequest {
 
+        @JSONField(name = "Type")
+        String Type;
+
         @JSONField(name = "Urls")
         String Urls;
     }
@@ -3421,8 +3794,26 @@ public class CDN {
     @Accessors(chain = true)
     public static class SubmitPreloadTaskRequest {
 
+        @JSONField(name = "Area")
+        String Area;
+
         @JSONField(name = "ConcurrentLimit")
         Long ConcurrentLimit;
+
+        @JSONField(name = "Deduplicate")
+        Boolean Deduplicate;
+
+        @JSONField(name = "Isp")
+        String Isp;
+
+        @JSONField(name = "Layer")
+        String Layer;
+
+        @JSONField(name = "Region")
+        String Region;
+
+        @JSONField(name = "SubArea")
+        String SubArea;
 
         @JSONField(name = "Urls")
         String Urls;
@@ -3443,6 +3834,9 @@ public class CDN {
     @Accessors(chain = true)
     public static class SubmitPreloadTaskResult {
 
+        @JSONField(name = "CommitNum")
+        Long CommitNum;
+
         @JSONField(name = "TaskID")
         String TaskID;
     }
@@ -3453,6 +3847,9 @@ public class CDN {
 
         @JSONField(name = "Delete")
         Boolean Delete;
+
+        @JSONField(name = "Prefix")
+        Boolean Prefix;
 
         @JSONField(name = "Type")
         String Type;
@@ -3483,6 +3880,9 @@ public class CDN {
     @Data
     @Accessors(chain = true)
     public static class SubmitUnblockTaskRequest {
+
+        @JSONField(name = "Type")
+        String Type;
 
         @JSONField(name = "Urls")
         String Urls;
@@ -3520,18 +3920,7 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
-    public static class TimeOutAction {
-
-        @JSONField(name = "Action")
-        String Action;
-
-        @JSONField(name = "Time")
-        Long Time;
-    }
-
-    @Data
-    @Accessors(chain = true)
-    public static class TimeoutArg {
+    public static class Timeout {
 
         @JSONField(name = "Switch")
         Boolean Switch;
@@ -3542,13 +3931,24 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class TimeoutAction {
+
+        @JSONField(name = "HttpTimeout")
+        Long HttpTimeout;
+
+        @JSONField(name = "TcpTimeout")
+        Long TcpTimeout;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class TimeoutRule {
 
         @JSONField(name = "Condition")
         Condition Condition;
 
         @JSONField(name = "TimeoutAction")
-        OriginTimeoutAction TimeoutAction;
+        TimeoutAction TimeoutAction;
     }
 
     @Data
@@ -3566,6 +3966,9 @@ public class CDN {
     @Accessors(chain = true)
     public static class TopInstanceDetail {
 
+        @JSONField(name = "BeginTime")
+        String BeginTime;
+
         @JSONField(name = "BillingCode")
         String BillingCode;
 
@@ -3580,6 +3983,9 @@ public class CDN {
 
         @JSONField(name = "CreateTime")
         String CreateTime;
+
+        @JSONField(name = "FreeTimePeriods")
+        List<Long> FreeTimePeriods;
 
         @JSONField(name = "InstanceCategory")
         String InstanceCategory;
@@ -3610,11 +4016,41 @@ public class CDN {
         @JSONField(name = "BandwidthPeakTime")
         Long BandwidthPeakTime;
 
+        @JSONField(name = "BsBandwidth")
+        Double BsBandwidth;
+
+        @JSONField(name = "BsBandwidthPeakTime")
+        Long BsBandwidthPeakTime;
+
+        @JSONField(name = "BsFlux")
+        Double BsFlux;
+
+        @JSONField(name = "BsFluxRatio")
+        Double BsFluxRatio;
+
+        @JSONField(name = "DynamicRequest")
+        Long DynamicRequest;
+
+        @JSONField(name = "DynamicRequestRatio")
+        Double DynamicRequestRatio;
+
         @JSONField(name = "Flux")
         Double Flux;
 
         @JSONField(name = "FluxRatio")
         Double FluxRatio;
+
+        @JSONField(name = "InboundBandwidth")
+        Double InboundBandwidth;
+
+        @JSONField(name = "InboundBandwidthPeakTime")
+        Long InboundBandwidthPeakTime;
+
+        @JSONField(name = "InboundFlux")
+        Double InboundFlux;
+
+        @JSONField(name = "InboundFluxRatio")
+        Double InboundFluxRatio;
 
         @JSONField(name = "ItemKey")
         String ItemKey;
@@ -3630,6 +4066,12 @@ public class CDN {
 
         @JSONField(name = "Quic")
         Long Quic;
+
+        @JSONField(name = "StaticRequest")
+        Long StaticRequest;
+
+        @JSONField(name = "StaticRequestRatio")
+        Double StaticRequestRatio;
     }
 
     @Data
@@ -3707,13 +4149,16 @@ public class CDN {
         List<CacheControlRule> Cache;
 
         @JSONField(name = "CacheKey")
-        List<CacheKeyGenerationRule> CacheKey;
+        List<CacheKeyRule> CacheKey;
 
         @JSONField(name = "Compression")
         Compression Compression;
 
         @JSONField(name = "CustomErrorPage")
         CustomErrorPage CustomErrorPage;
+
+        @JSONField(name = "CustomizeAccessRule")
+        CustomizeAccessRule CustomizeAccessRule;
 
         @JSONField(name = "Domain")
         String Domain;
@@ -3775,6 +4220,9 @@ public class CDN {
         @JSONField(name = "OriginSni")
         OriginSni OriginSni;
 
+        @JSONField(name = "PageOptimization")
+        PageOptimization PageOptimization;
+
         @JSONField(name = "Quic")
         Quic Quic;
 
@@ -3806,7 +4254,7 @@ public class CDN {
         Sparrow Sparrow;
 
         @JSONField(name = "Timeout")
-        TimeoutArg Timeout;
+        Timeout Timeout;
 
         @JSONField(name = "UaAccessRule")
         UserAgentAccessRule UaAccessRule;
@@ -3851,6 +4299,9 @@ public class CDN {
 
         @JSONField(name = "AllowEmpty")
         Boolean AllowEmpty;
+
+        @JSONField(name = "IgnoreCase")
+        Boolean IgnoreCase;
 
         @JSONField(name = "RuleType")
         String RuleType;

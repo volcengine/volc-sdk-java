@@ -704,6 +704,22 @@ public class CDNConfig {
                     }
             ));
 
+            // 删除托管在内容分发网络的证书: https://www.volcengine.com/docs/6454/597589
+            put("DeleteCdnCertificate", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DeleteCdnCertificate"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
             // 查询计费结果数据: 
             put("DescribeAccountingSummary", new ApiInfo(
                     new HashMap<String, Object>() {

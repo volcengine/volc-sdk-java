@@ -1,6 +1,9 @@
 package com.volcengine.model.tls.request;
 
+import java.util.List;
+
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.tls.TagInfo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,6 +26,12 @@ public class ModifyTopicRequest {
     Integer maxSplitShard;
     @JSONField(name = ENABLE_TRACKING)
     Boolean enableTracking;
+    @JSONField(name = TIME_KEY)
+    String timeKey;
+    @JSONField(name = TIME_FORMAT)
+    String TimeFormat;
+    @JSONField(name = LOG_PUBLIC_IP)
+    Boolean logPublicIP;
 
     /**
      * @return 日志主题 ID
@@ -122,6 +131,48 @@ public class ModifyTopicRequest {
      */
     public void setEnableTracking(Boolean enableTracking) {
         this.enableTracking = enableTracking;
+    }
+
+    /**
+     * @return 日志时间字段的字段名称
+     */
+    public String getTimeKey() {
+        return timeKey;
+    }
+
+    /**
+     * @param timeKey 日志时间字段的字段名称
+     */
+    public void setTimeKey(String timeKey) {
+        this.timeKey = timeKey;
+    }
+
+    /**
+     * @return 时间字段的解析格式
+     */
+    public String getTimeFormat() {
+        return TimeFormat;
+    }
+
+    /**
+     * @param timeFormat 时间字段的解析格式
+     */
+    public void setTimeFormat(String timeFormat) {
+        TimeFormat = timeFormat;
+    }
+
+    /**
+     * @return 是否开启记录外网IP功能
+     */
+    public Boolean getLogPublicIP() {
+        return logPublicIP;
+    }
+
+    /**
+     * @param logPublicIP 是否开启记录外网IP功能
+     */
+    public void setLogPublicIP(Boolean logPublicIP) {
+        this.logPublicIP = logPublicIP;
     }
 
     /**

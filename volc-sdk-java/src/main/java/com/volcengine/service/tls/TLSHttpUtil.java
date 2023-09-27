@@ -548,8 +548,76 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         }
                     }
             ));
+            put(com.volcengine.model.tls.Const.CREATE_CONSUMER_GROUP, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.CREATE_CONSUMER_GROUP);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DELETE_CONSUMER_GROUP, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.DELETE);
+                            put(Const.Path, com.volcengine.model.tls.Const.DELETE_CONSUMER_GROUP);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.MODIFY_CONSUMER_GROUP, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.PUT);
+                            put(Const.Path, com.volcengine.model.tls.Const.MODIFY_CONSUMER_GROUP);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_CONSUMER_GROUPS, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.GET);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_CONSUMER_GROUPS);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.CONSUMER_HEARTBEAT, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.CONSUMER_HEARTBEAT);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_CHECKPOINT, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.GET);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_CHECKPOINT);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.MODIFY_CHECKPOINT, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.PUT);
+                            put(Const.Path, com.volcengine.model.tls.Const.MODIFY_CHECKPOINT);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
         }
     };
-
-
 }

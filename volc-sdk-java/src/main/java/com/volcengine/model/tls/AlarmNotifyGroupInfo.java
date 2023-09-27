@@ -1,10 +1,10 @@
 package com.volcengine.model.tls;
 
+import java.util.List;
+
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 import static com.volcengine.model.tls.Const.*;
 
@@ -23,4 +23,6 @@ public class AlarmNotifyGroupInfo {
     String createTime;
     @JSONField(name=MODIFY_TIME)
     String modifyTime;
+    @JSONField(name = IAM_PROJECT_NAME)
+    String iamProjectName;
 }

@@ -156,7 +156,6 @@ public class TLSLogClientImpl implements TLSLogClient {
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_CURSOR, params, requestBody);
         // 3、parse response
         return new DescribeCursorResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeCursorResponse.class);
-
     }
 
     @Override
@@ -170,8 +169,18 @@ public class TLSLogClientImpl implements TLSLogClient {
         params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
         params.add(new BasicNameValuePair(SHARD_ID, String.valueOf(request.getShardId())));
         String requestBody = JSONObject.toJSONString(request);
+
+        HashMap<String, String> headers = new HashMap<>();
+        if (request.getConsumerGroupName() != null) {
+            headers.put(CONSUMER_GROUP_NAME, request.getConsumerGroupName());
+        }
+        if (request.getConsumerName() != null) {
+            headers.put(CONSUMER_NAME, request.getConsumerName());
+        }
+
         // 2、check sum and sendRequest
-        RawResponse rawResponse = sendJsonRequest(CONSUME_LOGS, params, requestBody);
+        RawResponse rawResponse = sendJsonRequest(CONSUME_LOGS, params, requestBody, headers);
+
         // 3、parse response
         return new ConsumeLogsResponse(rawResponse.getHeaders(), request.getCompression()).deSerialize(rawResponse.getData(), ConsumeLogsResponse.class);
     }
@@ -185,8 +194,10 @@ public class TLSLogClientImpl implements TLSLogClient {
         // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         String requestBody = JSONObject.toJSONString(request);
+        Map<String, String> headers = new HashMap<>();
+        headers.put(HEADER_API_VERSION, API_VERSION_V_0_2_0);
         // 2、check sum and sendRequest
-        RawResponse rawResponse = sendJsonRequest(SEARCH_LOGS, params, requestBody);
+        RawResponse rawResponse = sendJsonRequest(SEARCH_LOGS, params, requestBody, headers);
         // 3、parse response
         return new SearchLogsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), SearchLogsResponse.class);
     }
@@ -323,7 +334,7 @@ public class TLSLogClientImpl implements TLSLogClient {
     }
 
     private RawResponse sendJsonRequest(String path, ArrayList<NameValuePair> query, String requestBody, Map<String, String> headers) throws LogException {
-        checkMd5(path, requestBody.getBytes());
+        checkMd5(path, requestBody.getBytes(), headers);
 
         mergeHeaders(path, headers);
 
@@ -339,7 +350,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         if (headers == null) {
             headers = new HashMap<>();
         }
-        // 默认api版本0.2.0，如果用户有header使用用户自定义的
+        // 默认api版本0.3.0，如果用户有header使用用户自定义的
         if (!headers.containsKey(HEADER_API_VERSION)) {
             headers.put(HEADER_API_VERSION, this.config.getApiVersion());
         }
@@ -505,7 +516,6 @@ public class TLSLogClientImpl implements TLSLogClient {
 
         // 3、parse response
         return new CreateTopicResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), CreateTopicResponse.class);
-
     }
 
     @Override
@@ -581,13 +591,15 @@ public class TLSLogClientImpl implements TLSLogClient {
         if (StringUtils.isNotEmpty(request.getTopicName())) {
             params.add(new BasicNameValuePair(TOPIC_NAME, request.getTopicName()));
         }
+        if (request.getTags() != null) {
+            params.add(new BasicNameValuePair(TAGS, JSONObject.toJSONString(request.getTags())));
+        }
 
         // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(Const.DESCRIBE_TOPICS, params, Const.EMPTY_JSON);
 
         // 3、parse response
         return new DescribeTopicsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeTopicsResponse.class);
-
     }
 
 
@@ -1067,7 +1079,6 @@ public class TLSLogClientImpl implements TLSLogClient {
 
         // 3、parse response
         return new DescribeAlarmsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeAlarmsResponse.class);
-
     }
 
     @Override
@@ -1132,16 +1143,16 @@ public class TLSLogClientImpl implements TLSLogClient {
             params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
         }
         if (StringUtils.isNotEmpty(request.getAlarmNotifyGroupId())) {
-            params.add(new BasicNameValuePair(ALARM_NOTIFY_GROUP_ID, String.valueOf(request.getAlarmNotifyGroupId())));
+            params.add(new BasicNameValuePair(ALARM_NOTIFY_GROUP_ID, request.getAlarmNotifyGroupId()));
         }
         if (StringUtils.isNotEmpty(request.getAlarmNotifyGroupName())) {
-            params.add(new BasicNameValuePair(ALARM_NOTIFY_GROUP_NAME, String.valueOf(request.getAlarmNotifyGroupName())));
+            params.add(new BasicNameValuePair(ALARM_NOTIFY_GROUP_NAME, request.getAlarmNotifyGroupName()));
         }
         if (StringUtils.isNotEmpty(request.getReceiverName())) {
-            params.add(new BasicNameValuePair(RECEIVER_NAME, String.valueOf(request.getReceiverName())));
+            params.add(new BasicNameValuePair(RECEIVER_NAME, request.getReceiverName()));
         }
-        if (StringUtils.isNotEmpty(request.getAlarmNotifyGroupId())) {
-            params.add(new BasicNameValuePair(ALARM_NOTIFY_GROUP_ID, String.valueOf(request.getAlarmNotifyGroupId())));
+        if (StringUtils.isNotEmpty(request.getIamProjectName())) {
+            params.add(new BasicNameValuePair(IAM_PROJECT_NAME, request.getIamProjectName()));
         }
 
         // 3、check sum and sendRequest
@@ -1274,6 +1285,129 @@ public class TLSLogClientImpl implements TLSLogClient {
         return new DescribeDownloadUrlResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeDownloadUrlResponse.class);
     }
 
+    @Override
+    public CreateConsumerGroupResponse createConsumerGroup(CreateConsumerGroupRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 1、prepare request
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 2、check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(CREATE_CONSUMER_GROUP, new ArrayList<>(), requestBody);
+
+        // 3、parse response
+        return new CreateConsumerGroupResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public DeleteConsumerGroupResponse deleteConsumerGroup(DeleteConsumerGroupRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 1、prepare request
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 2、check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(DELETE_CONSUMER_GROUP, new ArrayList<>(), requestBody);
+
+        // 3、parse response
+        return new DeleteConsumerGroupResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public ModifyConsumerGroupResponse modifyConsumerGroup(ModifyConsumerGroupRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 1、prepare request
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 2、check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(MODIFY_CONSUMER_GROUP, new ArrayList<>(), requestBody);
+
+        // 3、parse response
+        return new ModifyConsumerGroupResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public DescribeConsumerGroupsResponse describeConsumerGroups(DescribeConsumerGroupsRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 1、prepare request
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair(PROJECT_ID, request.getProjectID()));
+        if (request.getPageNumber() != null) {
+            params.add(new BasicNameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
+        }
+        if (request.getPageSize() != null) {
+            params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
+        }
+
+        // 2、check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_CONSUMER_GROUPS, params, Const.EMPTY_JSON);
+
+        // 3、parse response
+        return new DescribeConsumerGroupsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeConsumerGroupsResponse.class);
+    }
+
+    @Override
+    public ConsumerHeartbeatResponse consumerHeartbeat(ConsumerHeartbeatRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 1、prepare request
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 2、check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(CONSUMER_HEARTBEAT, new ArrayList<>(), requestBody);
+
+        // 3、parse response
+        return new ConsumerHeartbeatResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), ConsumerHeartbeatResponse.class);
+    }
+
+    @Override
+    public DescribeCheckpointResponse describeCheckPoint(DescribeCheckpointRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 1、prepare request
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair(PROJECT_ID, request.getProjectID()));
+        params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicID()));
+        params.add(new BasicNameValuePair(SHARD_ID, String.valueOf(request.getShardID())));
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 2、check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_CHECKPOINT, params, requestBody);
+
+        // 3、parse response
+        return new DescribeCheckpointResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeCheckpointResponse.class);
+    }
+
+    @Override
+    public ModifyCheckpointResponse modifyCheckPoint(ModifyCheckpointRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 1、prepare request
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 2、check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(MODIFY_CHECKPOINT, new ArrayList<>(), requestBody);
+
+        // 3、parse response
+        return new ModifyCheckpointResponse(rawResponse.getHeaders());
+    }
+
     private RawResponse doProtoRetryRequest(String api, List<NameValuePair> params, Map<String, String> headers, byte[] body, String compressType) throws LogException {
         if (!headers.containsKey(HEADER_API_VERSION)) {
             headers.put(HEADER_API_VERSION, this.config.getApiVersion());
@@ -1308,15 +1442,11 @@ public class TLSLogClientImpl implements TLSLogClient {
         return rawResponse;
     }
 
-    private void checkMd5(String path, byte[] body) throws LogException {
-        ApiInfo apiInfo = httpRequest.getApiInfoList().get(path);
-        List<Header> header = apiInfo.getHeader();
-        if (header == null) {
-            header = new ArrayList<>();
-        }
+    private void checkMd5(String path, byte[] body, Map<String, String> headers) throws LogException {
+        // TODO: 修改MD5请求头的处理逻辑
         String checkSum = MessageUtil.md5CheckSum(body);
         if (checkSum != null) {
-            header.add(new BasicHeader(HEADER_CONTENT_MD5, checkSum));
+            headers.put(HEADER_CONTENT_MD5, checkSum);
         }
     }
 

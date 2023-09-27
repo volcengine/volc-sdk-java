@@ -21,6 +21,10 @@ public class ConsumeLogsRequest {
     String topicId;
     @JSONField(serialize = false)
     Integer shardId;
+    @JSONField(serialize = false)
+    String consumerGroupName;
+    @JSONField(serialize = false)
+    String consumerName;
 
 
     /**
@@ -105,6 +109,34 @@ public class ConsumeLogsRequest {
      */
     public void setShardId(Integer shardId) {
         this.shardId = shardId;
+    }
+
+    /**
+     * @return 消费组名称
+     */
+    public String getConsumerGroupName() {
+        return consumerGroupName;
+    }
+
+    /**
+     * @param consumerGroupName 消费组名称
+     */
+    public void setConsumerGroupName(String consumerGroupName) {
+        this.consumerGroupName = consumerGroupName;
+    }
+
+    /**
+     * @return 消费者名称
+     */
+    public String getConsumerName() {
+        return consumerName;
+    }
+
+    /**
+     * @param consumerName 消费者名称
+     */
+    public void setConsumerName(String consumerName) {
+        this.consumerName = consumerName;
     }
 
     /**

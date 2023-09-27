@@ -1,12 +1,13 @@
 package com.volcengine.model.tls.request;
 
+import java.util.List;
+
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.tls.AlarmPeriodSetting;
 import com.volcengine.model.tls.QueryRequest;
 import com.volcengine.model.tls.RequestCycle;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 import static com.volcengine.model.tls.Const.*;
 
@@ -33,6 +34,10 @@ public class ModifyAlarmRequest {
     List<String> alarmNotifyGroup;
     @JSONField(name = USER_DEFINE_MSG)
     String userDefineMsg;
+    @JSONField(name = SEVERITY)
+    String severity;
+    @JSONField(name = ALARM_PERIOD_DETAIL)
+    AlarmPeriodSetting alarmPeriodDetail;
 
     /**
      * @return 告警策略 ID
@@ -173,6 +178,34 @@ public class ModifyAlarmRequest {
      */
     public void setUserDefineMsg(String userDefineMsg) {
         this.userDefineMsg = userDefineMsg;
+    }
+
+    /**
+     * @return 告警通知的级别，即告警的严重程度
+     */
+    public String getSeverity() {
+        return severity;
+    }
+
+    /**
+     * @param severity 告警通知的级别，即告警的严重程度
+     */
+    public void setSeverity(String severity) {
+        this.severity = severity;
+    }
+
+    /**
+     * @return 告警通知发送的周期
+     */
+    public AlarmPeriodSetting getAlarmPeriodDetail() {
+        return alarmPeriodDetail;
+    }
+
+    /**
+     * @param alarmPeriodDetail 告警通知发送的周期
+     */
+    public void setAlarmPeriodDetail(AlarmPeriodSetting alarmPeriodDetail) {
+        this.alarmPeriodDetail = alarmPeriodDetail;
     }
 
     /**

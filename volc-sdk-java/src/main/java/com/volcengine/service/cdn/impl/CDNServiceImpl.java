@@ -422,6 +422,15 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
+    public CDN.DeleteCdnCertificateResponse deleteCdnCertificate(CDN.DeleteCdnCertificateRequest request) throws Exception {
+        RawResponse response = requestProxy("DeleteCdnCertificate", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DeleteCdnCertificateResponse.class);
+    }
+
+    @Override
     public CDN.DescribeAccountingSummaryResponse describeAccountingSummary(CDN.DescribeAccountingSummaryRequest request) throws Exception {
         RawResponse response = requestProxy("DescribeAccountingSummary", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

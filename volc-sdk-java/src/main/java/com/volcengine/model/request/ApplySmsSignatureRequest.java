@@ -37,9 +37,6 @@ public class ApplySmsSignatureRequest {
     @JSONField(name = "uploadFileList")
     List<SignAuthFile> uploadFileList;
 
-    /**
-     * 火山控制台使用，传vconsole
-     */
     @JSONField(name = "from")
     String from;
 }

@@ -169,4 +169,13 @@ public interface SmsService extends IBaseService {
     DeleteSignatureResponse deleteSmsSignature(DeleteSignatureRequest deleteSignatureRequest) throws Exception;
 
 
+    /**
+     * getSendStat
+     *
+     * @param getSendStat
+     * @return
+     * @throws Exception
+     */
+    GetSendStatResponse getSendStat(GetSendStatRequest getSendStatRequest) throws Exception;
+
 }

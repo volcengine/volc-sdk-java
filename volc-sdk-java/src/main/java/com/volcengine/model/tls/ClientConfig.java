@@ -22,7 +22,7 @@ public class ClientConfig {
 
     public ClientConfig(String endPoint, String region, String accessKeyId, String accessKeySecret,
                         String securityToken) {
-        this(endPoint, region, accessKeyId, accessKeySecret, securityToken, API_VERSION_V_0_3_0);
+        this(endPoint, region, accessKeyId, accessKeySecret, securityToken, API_VERSION_V_0_2_0);
     }
 
     public ClientConfig(String endPoint, String region, String accessKeyId, String accessKeySecret) {

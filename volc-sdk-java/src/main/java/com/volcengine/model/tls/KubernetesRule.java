@@ -25,8 +25,6 @@ public class KubernetesRule {
     String podNameRegex;
     @JSONField(name = LABEL_TAG)
     Map<String, String> labelTag;
-    @JSONField(name = ANNOTATION_TAG)
-    Map<String, String> annotationTag;
 
     /**
      * @return 待采集的 Kubernetes Namespace 名称，不指定 Namespace 名称时表示采集全部容器
@@ -124,19 +122,5 @@ public class KubernetesRule {
      */
     public void setLabelTag(Map<String, String> labelTag) {
         this.labelTag = labelTag;
-    }
-
-    /**
-     * @return 是否将Kubernetes Annotation作作为日志标签，添加到原始日志数据中
-     */
-    public Map<String, String> getAnnotationTag() {
-        return annotationTag;
-    }
-
-    /**
-     * @param annotationTag 是否将Kubernetes Annotation作作为日志标签，添加到原始日志数据中
-     */
-    public void setAnnotationTag(Map<String, String> annotationTag) {
-        this.annotationTag = annotationTag;
     }
 }

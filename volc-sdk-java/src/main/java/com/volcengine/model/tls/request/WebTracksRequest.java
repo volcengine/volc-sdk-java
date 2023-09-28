@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 import java.util.Map;
 
-import static com.volcengine.model.tls.Const.*;
+import static com.volcengine.model.tls.Const.LOGS;
+import static com.volcengine.model.tls.Const.SOURCE;
 
 @Data
 @NoArgsConstructor
@@ -19,7 +20,7 @@ public class WebTracksRequest {
     String projectId;
 
     @JSONField(serialize = false)
-    String compressType = LZ4;
+    String compressType;
 
     @JSONField(name = LOGS)
     List<Map<String, String>> logs;
@@ -63,7 +64,7 @@ public class WebTracksRequest {
     }
 
     /**
-     * @param compressType 请求体的压缩格式支持lz4，默认lz4压缩
+     * @param compressType 请求体的压缩格式支持lz4。默认不压缩
      */
     public void setCompressType(String compressType) {
         this.compressType = compressType;

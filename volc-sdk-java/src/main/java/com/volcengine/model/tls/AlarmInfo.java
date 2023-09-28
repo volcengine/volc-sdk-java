@@ -37,8 +37,4 @@ public class AlarmInfo {
     String createTime;
     @JSONField(name = MODIFY_TIME)
     String modifyTime;
-    @JSONField(name = SEVERITY)
-    String severity;
-    @JSONField(name = ALARM_PERIOD_DETAIL)
-    AlarmPeriodSetting alarmPeriodDetail;
 }

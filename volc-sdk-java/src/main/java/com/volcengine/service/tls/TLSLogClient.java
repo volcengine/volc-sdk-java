@@ -157,21 +157,4 @@ public interface TLSLogClient {
     DescribeDownloadTasksResponse describeDownloadTasks(DescribeDownloadTasksRequest request) throws LogException;
 
     DescribeDownloadUrlResponse describeDownloadUrl(DescribeDownloadUrlRequest request) throws LogException;
-
-    /**
-     * 消费组消费
-     */
-    CreateConsumerGroupResponse createConsumerGroup(CreateConsumerGroupRequest request) throws LogException;
-
-    DeleteConsumerGroupResponse deleteConsumerGroup(DeleteConsumerGroupRequest request) throws LogException;
-
-    ModifyConsumerGroupResponse modifyConsumerGroup(ModifyConsumerGroupRequest request) throws LogException;
-
-    DescribeConsumerGroupsResponse describeConsumerGroups(DescribeConsumerGroupsRequest request) throws LogException;
-
-    ConsumerHeartbeatResponse consumerHeartbeat(ConsumerHeartbeatRequest request) throws LogException;
-
-    DescribeCheckpointResponse describeCheckPoint(DescribeCheckpointRequest request) throws LogException;
-
-    ModifyCheckpointResponse modifyCheckPoint(ModifyCheckpointRequest request) throws LogException;
 }

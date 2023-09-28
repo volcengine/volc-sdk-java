@@ -5,15 +5,17 @@ import net.jpountz.lz4.LZ4Factory;
 import net.jpountz.lz4.LZ4SafeDecompressor;
 
 public class EncodeUtil {
+    // consumer limit 5MB every time
+    public static final int MAX_DATA_LENGTH = 5 * 1024 * 1024;
     private static LZ4Factory factory = LZ4Factory.fastestInstance();
 
-    public static byte[] lz4Decompress(byte[] data, int bodyRawSize) {
+    public static byte[] lz4Decompress(byte[] data) {
         if (data == null || data.length == 0) {
             return null;
         }
         int compressedLength = data.length;
         LZ4SafeDecompressor lz4SafeDecompressor = factory.safeDecompressor();
-        byte[] restored = new byte[bodyRawSize];
+        byte[] restored = new byte[MAX_DATA_LENGTH];
         int decompressedLength = lz4SafeDecompressor.decompress(data, 0, compressedLength, restored, 0);
         byte[] result = new byte[decompressedLength];
         System.arraycopy(restored, 0, result, 0, decompressedLength);

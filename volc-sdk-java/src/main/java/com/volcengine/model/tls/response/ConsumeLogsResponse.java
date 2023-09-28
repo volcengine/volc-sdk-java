@@ -30,8 +30,7 @@ public class ConsumeLogsResponse extends CommonResponse {
     public ConsumeLogsResponse deSerialize(byte[] data, Class clazz) throws LogException {
         byte[] decompressBytes = data;
         if (getDecompress() != null && getDecompress().equalsIgnoreCase(LZ4) && data != null) {
-            int bodyRawSize = Integer.valueOf(this.getFirstHeader(X_TLS_BODY_RAW_SIZE));
-            decompressBytes = EncodeUtil.lz4Decompress(data, bodyRawSize);
+            decompressBytes = EncodeUtil.lz4Decompress(data);
         }
         if (decompressBytes != null) {
             try {

@@ -1,7 +1,5 @@
 package com.volcengine.model.tls;
 
-import java.util.List;
-
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,12 +33,4 @@ public class TopicInfo {
     Integer maxSplitShard;
     @JSONField(name = ENABLE_TRACKING)
     Boolean enableTracking;
-    @JSONField(name = TIME_KEY)
-    String timeKey;
-    @JSONField(name = TIME_FORMAT)
-    String TimeFormat;
-    @JSONField(name = TAGS)
-    List<TagInfo> tags;
-    @JSONField(name = LOG_PUBLIC_IP)
-    Boolean logPublicIP;
 }

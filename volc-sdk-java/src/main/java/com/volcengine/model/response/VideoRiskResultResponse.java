@@ -71,6 +71,6 @@ public class VideoRiskResultResponse {
         @JSONField(name = "SubLabel")
         private String subLabel;
         @JSONField(name = "Detail")
-        private List<String> detail;
+        private Object detail;
     }
 }

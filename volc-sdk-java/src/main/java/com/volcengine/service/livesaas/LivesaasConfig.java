@@ -1493,6 +1493,160 @@ public class LivesaasConfig {
                         }
                     }
             ));
+            put(Const.GetActivityMenus, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetActivityMenus));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ModifyActivityMenus, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ModifyActivityMenus));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetActivityEmbeddedUrls, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetActivityEmbeddedUrls));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetActivityProducts, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetActivityProducts));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateActivityProduct, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateActivityProduct));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DeleteActivityProduct, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DeleteActivityProduct));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateActivityEmbeddedUrl, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateActivityEmbeddedUrl));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DeleteActivityEmbeddedUrl, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DeleteActivityEmbeddedUrl));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateActivityBand, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateActivityBand));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DeleteActivityBand, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DeleteActivityBand));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetActivityBands, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetActivityBands));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

@@ -1631,4 +1631,169 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public GetActivityMenusResponse getActivityMenus(GetActivityMenusRequest getActivityMenusRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityMenus, Utils.paramsToPair(getActivityMenusRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityMenusResponse res = JSON.parseObject(response.getData(), GetActivityMenusResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ModifyActivityMenusResponse modifyActivityMenus(ModifyActivityMenusRequest modifyActivityMenusRequest) throws Exception {
+        RawResponse response = json(Const.ModifyActivityMenus, new ArrayList<>(), JSON.toJSONString(modifyActivityMenusRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ModifyActivityMenusResponse res = JSON.parseObject(response.getData(), ModifyActivityMenusResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetActivityEmbeddedUrlsResponse getActivityEmbeddedUrls(GetActivityEmbeddedUrlsRequest getActivityEmbeddedUrlsRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityEmbeddedUrls, Utils.paramsToPair(getActivityEmbeddedUrlsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityEmbeddedUrlsResponse res = JSON.parseObject(response.getData(), GetActivityEmbeddedUrlsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListProductCardsResponse getActivityProducts(ListProductCardsRequest listProductCardsRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityProducts, Utils.paramsToPair(listProductCardsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListProductCardsResponse res = JSON.parseObject(response.getData(), ListProductCardsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateProductCardResponse updateActivityProduct(UpdateProductCardRequest updateProductCardRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityProduct, new ArrayList<>(), JSON.toJSONString(updateProductCardRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateProductCardResponse res = JSON.parseObject(response.getData(), UpdateProductCardResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteActivityProductResponse deleteActivityProduct(DeleteActivityProductRequest deleteActivityProductRequest) throws Exception {
+        RawResponse response = json(Const.DeleteActivityProduct, new ArrayList<>(), JSON.toJSONString(deleteActivityProductRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteActivityProductResponse res = JSON.parseObject(response.getData(), DeleteActivityProductResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateActivityEmbeddedUrlConfigResponse updateActivityEmbeddedUrl(UpdateActivityEmbeddedUrlConfigRequest updateActivityEmbeddedUrlConfigRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityEmbeddedUrl, new ArrayList<>(), JSON.toJSONString(updateActivityEmbeddedUrlConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateActivityEmbeddedUrlConfigResponse res = JSON.parseObject(response.getData(), UpdateActivityEmbeddedUrlConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteActivityEmbeddedUrlConfigResponse deleteActivityEmbeddedUrl(DeleteActivityEmbeddedUrlConfigRequest deleteActivityEmbeddedUrlConfigRequest) throws Exception {
+        RawResponse response = json(Const.DeleteActivityEmbeddedUrl, new ArrayList<>(), JSON.toJSONString(deleteActivityEmbeddedUrlConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteActivityEmbeddedUrlConfigResponse res = JSON.parseObject(response.getData(), DeleteActivityEmbeddedUrlConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateGraphicIntroductionResponse updateActivityBand(UpdateGraphicIntroductionRequest updateGraphicIntroductionRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityBand, new ArrayList<>(), JSON.toJSONString(updateGraphicIntroductionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateGraphicIntroductionResponse res = JSON.parseObject(response.getData(), UpdateGraphicIntroductionResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteGraphicIntroductionResponse deleteActivityBand(DeleteGraphicIntroductionRequest deleteGraphicIntroductionRequest) throws Exception {
+        RawResponse response = json(Const.DeleteActivityBand, new ArrayList<>(), JSON.toJSONString(deleteGraphicIntroductionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteGraphicIntroductionResponse res = JSON.parseObject(response.getData(), DeleteGraphicIntroductionResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetGraphicIntroductionsResponse getActivityBands(GetGraphicIntroductionsRequest getGraphicIntroductionsRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityBands, Utils.paramsToPair(getGraphicIntroductionsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetGraphicIntroductionsResponse res = JSON.parseObject(response.getData(), GetGraphicIntroductionsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

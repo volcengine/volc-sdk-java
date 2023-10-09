@@ -942,4 +942,103 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     UpdatePopularitySettingsResponse updatePopularitySettings(UpdatePopularitySettingsRequest updatePopularitySettingsRequest) throws Exception;
+
+    /**
+     * GetActivityMenus
+     *
+     * @param getActivityMenusRequest GetActivityMenusRequest
+     * @return GetActivityMenusResponse
+     * @throws Exception the exception
+     */
+    GetActivityMenusResponse getActivityMenus(GetActivityMenusRequest getActivityMenusRequest) throws Exception;
+
+    /**
+     * ModifyActivityMenus
+     *
+     * @param modifyActivityMenusRequest ModifyActivityMenusRequest
+     * @return ModifyActivityMenusResponse
+     * @throws Exception the exception
+     */
+    ModifyActivityMenusResponse modifyActivityMenus(ModifyActivityMenusRequest modifyActivityMenusRequest) throws Exception;
+
+    /**
+     * GetActivityEmbeddedUrls
+     *
+     * @param getActivityEmbeddedUrlsRequest GetActivityEmbeddedUrlsRequest
+     * @return GetActivityEmbeddedUrlsResponse
+     * @throws Exception the exception
+     */
+    GetActivityEmbeddedUrlsResponse getActivityEmbeddedUrls(GetActivityEmbeddedUrlsRequest getActivityEmbeddedUrlsRequest) throws Exception;
+
+    /**
+     * getActivityProducts
+     *
+     * @param listProductCardsRequest ListProductCardsRequest
+     * @return ListProductCardsResponse
+     * @throws Exception the exception
+     */
+    ListProductCardsResponse getActivityProducts(ListProductCardsRequest listProductCardsRequest) throws Exception;
+
+    /**
+     * updateActivityProduct
+     *
+     * @param updateProductCardRequest UpdateProductCardRequest
+     * @return UpdateProductCardResponse
+     * @throws Exception the exception
+     */
+    UpdateProductCardResponse updateActivityProduct(UpdateProductCardRequest updateProductCardRequest) throws Exception;
+
+    /**
+     * DeleteActivityProduct
+     *
+     * @param deleteActivityProductRequest DeleteActivityProductRequest
+     * @return DeleteActivityProductResponse
+     * @throws Exception the exception
+     */
+    DeleteActivityProductResponse deleteActivityProduct(DeleteActivityProductRequest deleteActivityProductRequest) throws Exception;
+
+    /**
+     * updateActivityEmbeddedUrl
+     *
+     * @param updateActivityEmbeddedUrlConfigRequest UpdateActivityEmbeddedUrlConfigRequest
+     * @return UpdateActivityEmbeddedUrlConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityEmbeddedUrlConfigResponse updateActivityEmbeddedUrl(UpdateActivityEmbeddedUrlConfigRequest updateActivityEmbeddedUrlConfigRequest) throws Exception;
+
+    /**
+     * deleteActivityEmbeddedUrl
+     *
+     * @param deleteActivityEmbeddedUrlConfigRequest DeleteActivityEmbeddedUrlConfigRequest
+     * @return DeleteActivityEmbeddedUrlConfigResponse
+     * @throws Exception the exception
+     */
+    DeleteActivityEmbeddedUrlConfigResponse deleteActivityEmbeddedUrl(DeleteActivityEmbeddedUrlConfigRequest deleteActivityEmbeddedUrlConfigRequest) throws Exception;
+
+    /**
+     * updateActivityBand
+     *
+     * @param updateGraphicIntroductionRequest UpdateGraphicIntroductionRequest
+     * @return UpdateGraphicIntroductionResponse
+     * @throws Exception the exception
+     */
+    UpdateGraphicIntroductionResponse updateActivityBand(UpdateGraphicIntroductionRequest updateGraphicIntroductionRequest) throws Exception;
+
+    /**
+     * deleteActivityBand
+     *
+     * @param deleteGraphicIntroductionRequest DeleteGraphicIntroductionRequest
+     * @return DeleteGraphicIntroductionResponse
+     * @throws Exception the exception
+     */
+    DeleteGraphicIntroductionResponse deleteActivityBand(DeleteGraphicIntroductionRequest deleteGraphicIntroductionRequest) throws Exception;
+
+    /**
+     * getActivityBands
+     *
+     * @param getGraphicIntroductionsRequest GetGraphicIntroductionsRequest
+     * @return GetGraphicIntroductionsResponse
+     * @throws Exception the exception
+     */
+    GetGraphicIntroductionsResponse getActivityBands(GetGraphicIntroductionsRequest getGraphicIntroductionsRequest) throws Exception;
 }

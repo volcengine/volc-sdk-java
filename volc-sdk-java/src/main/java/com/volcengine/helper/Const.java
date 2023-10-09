@@ -333,6 +333,28 @@ public class Const {
 
     public static final String UpdatePopularitySettingsAPI = "UpdatePopularitySettingsAPI";
 
+    public static final String GetActivityMenus = "GetActivityMenus";
+
+    public static final String ModifyActivityMenus = "ModifyActivityMenus";
+
+    public static final String GetActivityEmbeddedUrls = "GetActivityEmbeddedUrls";
+
+    public static final String GetActivityProducts = "GetActivityProducts";
+
+    public static final String UpdateActivityProduct = "UpdateActivityProduct";
+
+    public static final String DeleteActivityProduct = "DeleteActivityProduct";
+
+    public static final String UpdateActivityEmbeddedUrl = "UpdateActivityEmbeddedUrl";
+
+    public static final String DeleteActivityEmbeddedUrl = "DeleteActivityEmbeddedUrl";
+
+    public static final String UpdateActivityBand = "UpdateActivityBand";
+
+    public static final String DeleteActivityBand = "DeleteActivityBand";
+
+    public static final String GetActivityBands = "GetActivityBands";
+
     // translate
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";

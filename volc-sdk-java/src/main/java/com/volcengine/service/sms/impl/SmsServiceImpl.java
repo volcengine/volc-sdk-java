@@ -297,6 +297,14 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         return deleteSignatureResponse(response);
     }
 
+    @Deprecated
+    @Override
+    public GetSendStatResponse getSendStat(GetSendStatRequest getSendStatRequest) throws Exception {
+        RawResponse response = json("GetTotalSendCountStatV5", new ArrayList<>(), JSON.toJSONString(getSendStatRequest));
+        return getGetSendStatResponse(response);
+    }
+
+
     private SmsSendResponse getSmsSendResponse(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -325,6 +333,23 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         res.getResponseMetadata().setService("volcSMS");
         return res;
     }
+
+    private GetSendStatResponse getGetSendStatResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            if (response.getException() != null) {
+                return new GetSendStatResponse(DefaultErrorCode,response.getException().getMessage());
+            }
+            return new GetSendStatResponse(String.valueOf(response.getCode()), Arrays.toString(response.getData()));
+        }
+        GetSendStatResponse res = JSON.parseObject(response.getData(), GetSendStatResponse.class);
+        if (res == null) {
+            return new GetSendStatResponse(DefaultErrorCode, DefaultErrorMsg);
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+
 
     private SmsSendResponse getSmsSendResponseStandard(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

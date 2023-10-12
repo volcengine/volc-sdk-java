@@ -18,15 +18,4 @@ public class ContentSecurityServiceTest extends TestCase {
         return service;
     }
 
-    public void testMobileStatusV2() throws Exception {
-        ContentSecurityService service = initService();
-
-        ImageRiskResultRequest req = new ImageRiskResultRequest();
-        req.setAppId(0000);
-        req.setService("image_content_risk");
-        req.setDataId("dataId");
-//        req.setParameters("{\"operate_time\":1617960951,\"mobile\":\"\"}");
-        ImageRiskDetectionResponse result = service.ImageRiskResultV2(req);
-        System.out.println("");
-    }
 }

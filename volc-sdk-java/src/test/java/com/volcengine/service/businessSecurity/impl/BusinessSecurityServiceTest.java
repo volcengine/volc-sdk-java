@@ -27,39 +27,6 @@ public class BusinessSecurityServiceTest extends TestCase {
         return serviceOpenapi;
     }
 
-    public void testMobileStatusV2() throws Exception {
-        BusinessSecurityService service = initService();
-
-        RiskDetectionRequest req = new RiskDetectionRequest();
-        req.setAppId(1234);
-        req.setService("service");
-        req.setParameters("{\"operate_time\":1617960951,\"mobile\":\"\"}");
-        MobileStatusResponseV2 result = service.MobileStatusV2(req);
-        System.out.println("");
-    }
-
-    public void testElementVerifyV2() throws Exception {
-        BusinessSecurityService service = initService();
-
-        RiskDetectionRequest req = new RiskDetectionRequest();
-        req.setAppId(1234);
-        req.setService("service");
-        req.setParameters("{\"operate_time\": 1635321212,\"mobile\":\"\",\"idcard_name\":\"\"}");
-        ElementVerifyResponseV2 result = service.ElementVerifyV2(req);
-        System.out.println("");
-    }
-
-    public void testElementVerifyEncrypted() throws Exception {
-        BusinessSecurityService service = initService();
-
-        RiskDetectionRequest req = new RiskDetectionRequest();
-        req.setAppId(1234);
-        req.setService("service");
-        req.setParameters("{\"operate_time\": 1635321212,\"mobile\":\"\",\"idcard_name\":\"\"}");
-        ElementVerifyResponseV2 result = service.ElementVerifyEncrypted("your private key", Const.AES, req);
-        System.out.println(result);
-    }
-
     public void testSimpleRiskStat() throws Exception {
         BusinessSecurityService service = initService("risk_console");
 

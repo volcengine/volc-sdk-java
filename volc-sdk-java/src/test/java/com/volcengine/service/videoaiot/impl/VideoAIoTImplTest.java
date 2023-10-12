@@ -405,9 +405,9 @@ public class VideoAIoTImplTest extends TestCase {
     public void testCloudRecordPlay() {
         setTest();
         CloudRecordPlayRequest cloudRecordPlayRequest = new CloudRecordPlayRequest();
-        cloudRecordPlayRequest.setStreamID("441a5430-75ad-487d-bcca-0210196598d5");
-        cloudRecordPlayRequest.setStartTs("2023-07-04T16:29:39+08:00");
-        cloudRecordPlayRequest.setEndTs("2023-07-04T16:39:39+08:00");
+        cloudRecordPlayRequest.setStreamID("97409199-7e1d-4b9d-af69-f2094c3ee9f0");
+        cloudRecordPlayRequest.setStartTs("2023-10-09T15:00:00+08:00");
+        cloudRecordPlayRequest.setEndTs("2023-10-09T20:00:00+08:00");
         cloudRecordPlayRequest.setTokenValid(3600);
         try {
             CloudPlayResponse resp = videoAIoTService.cloudRecordPlay(cloudRecordPlayRequest);
@@ -599,6 +599,28 @@ public class VideoAIoTImplTest extends TestCase {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void testStatStream() throws Exception {
+        setTest();
+        StatStreamRequest request = new StatStreamRequest();
+        request.setAggregation(300);
+        request.setStreamID("13790d1a-5f5d-40af-a6ed-b0e44d35a677");
+        request.setStartTime(0L);
+        request.setEndTime(0L);
+        StatStreamResponse statStreamResponse = videoAIoTService.statStream(request);
+        System.out.println(JSON.toJSONString(statStreamResponse));
+        assert statStreamResponse != null;
+        assert statStreamResponse.getResponseMetadata().getError() == null;
+        StatStreamResponse.StreamData sd = statStreamResponse.getStreamData();
+        assert sd.getSessionData().size() == 12;
+        int onlineTimeRange = 0;
+        for (StatStreamResponse.SessionData sessionDatum : sd.getSessionData()) {
+            if (sessionDatum.getOnlineUser() > 0) {
+                onlineTimeRange++;
+            }
+        }
+        assert onlineTimeRange == 2;
     }
 
     public void testCreateTmpl() {
@@ -1266,10 +1288,17 @@ public class VideoAIoTImplTest extends TestCase {
         }
     }
 
+//    public void setTest(){
+//        final String accessKey = "ak";
+//        final String secretKey = "sk";
+//        videoAIoTService.setAccessKey(accessKey);
+//        videoAIoTService.setSecretKey(secretKey);
+//    }
+
+
+    private static boolean online = false;
+
     public void setTest(){
-        final String accessKey = "ak";
-        final String secretKey = "sk";
-        videoAIoTService.setAccessKey(accessKey);
-        videoAIoTService.setSecretKey(secretKey);
+
     }
 }

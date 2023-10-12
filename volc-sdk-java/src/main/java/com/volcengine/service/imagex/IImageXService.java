@@ -444,6 +444,8 @@ public interface IImageXService extends IBaseService {
 
     UpdateImageFileKeyResp updateImageFileKey(UpdateImageFileKeyReq req) throws Exception;
 
+    GetImageStorageFilesResp getImageStorageFiles(GetImageStorageFilesReq req) throws Exception;
+
 
     public DescribeImageXDomainTrafficDataResp describeImageXDomainTrafficData(DescribeImageXDomainTrafficDataReq req) throws Exception;
 

@@ -917,6 +917,11 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         return this.postImageX("UpdateImageFileKey", params, req, UpdateImageFileKeyResp.class).getResult();
     }
 
+    @Override
+    public GetImageStorageFilesResp getImageStorageFiles(GetImageStorageFilesReq req) throws Exception {
+        return this.getImageX("GetImageStorageFiles", Utils.paramsToMap(req), GetImageStorageFilesResp.class).getResult();
+    }
+
 
     @Override
     public DescribeImageXDomainTrafficDataResp describeImageXDomainTrafficData(DescribeImageXDomainTrafficDataReq req) throws Exception {

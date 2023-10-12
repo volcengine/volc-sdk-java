@@ -51,10 +51,9 @@ public interface ContentSecurityService extends IBaseService {
     /**
      * Image Risk Result.
      *
-     * @param imageRiskResultRequest image risk result request
-     * @return image risk result response
-     * @throws Exception the exception
+     * @deprecated 已经废弃请使用ImageRiskResultV2
      */
+    @Deprecated
     ImageRiskDetectionResponse ImageRiskResult(ImageRiskResultRequest imageRiskResultRequest) throws Exception;
 
     /**
@@ -88,10 +87,9 @@ public interface ContentSecurityService extends IBaseService {
     /**
      * Text Risk Result.
      *
-     * @param riskDetectionRequest video risk detection request
-     * @return text risk detection response
-     * @throws Exception the exception
+     * @deprecated 已经废弃请使用TextSliceRisk
      */
+    @Deprecated
     TextRiskResponse TextRisk(RiskDetectionRequest riskDetectionRequest) throws Exception;
 
     /**

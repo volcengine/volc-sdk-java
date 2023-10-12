@@ -193,6 +193,7 @@ public interface VideoAIoTService extends IBaseService {
 
     IDResponse deleteStream(StreamRequest deleteStream) throws Exception;
 
+    StatStreamResponse statStream(StatStreamRequest statStreamRequest) throws Exception;
     IDResponse streamStartRecord(StreamStartRecordRequest streamStartRecordRequest) throws Exception;
 
     RawResponse streamStopRecord(String recordID) throws Exception;

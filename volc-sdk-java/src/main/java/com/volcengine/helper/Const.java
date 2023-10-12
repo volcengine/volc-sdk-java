@@ -627,6 +627,7 @@ public class Const {
 
     public static final String AIoTVideoCreateStream = "CreateStream";
     public static final String AIoTVideoDeleteStream = "DeleteStream";
+    public static final String AIoTVideoStatStream = "StatStream";
     public static final String AIoTVideoCreateForward = "CreateForward";
     public static final String AIoTVideoListForward = "ListForward";
     public static final String AIoTVideoGetForward = "GetForward";

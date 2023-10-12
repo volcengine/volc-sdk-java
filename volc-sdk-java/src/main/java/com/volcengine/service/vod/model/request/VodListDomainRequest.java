@@ -75,7 +75,12 @@ private static final long serialVersionUID = 0L;
           }
           case 32: {
 
-            offset_ = input.readInt64();
+            offset_ = input.readInt32();
+            break;
+          }
+          case 40: {
+
+            limit_ = input.readInt32();
             break;
           }
           default: {
@@ -224,18 +229,33 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OFFSET_FIELD_NUMBER = 4;
-  private long offset_;
+  private int offset_;
   /**
    * <pre>
-   *跨过多少条域名
+   *跳过域名组的游标
    * </pre>
    *
-   * <code>int64 Offset = 4;</code>
+   * <code>int32 Offset = 4;</code>
    * @return The offset.
    */
   @java.lang.Override
-  public long getOffset() {
+  public int getOffset() {
     return offset_;
+  }
+
+  public static final int LIMIT_FIELD_NUMBER = 5;
+  private int limit_;
+  /**
+   * <pre>
+   *单次查询域名组数量
+   * </pre>
+   *
+   * <code>int32 Limit = 5;</code>
+   * @return The limit.
+   */
+  @java.lang.Override
+  public int getLimit() {
+    return limit_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -261,8 +281,11 @@ private static final long serialVersionUID = 0L;
     if (sourceStationType_ != 0) {
       output.writeInt32(3, sourceStationType_);
     }
-    if (offset_ != 0L) {
-      output.writeInt64(4, offset_);
+    if (offset_ != 0) {
+      output.writeInt32(4, offset_);
+    }
+    if (limit_ != 0) {
+      output.writeInt32(5, limit_);
     }
     unknownFields.writeTo(output);
   }
@@ -283,9 +306,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, sourceStationType_);
     }
-    if (offset_ != 0L) {
+    if (offset_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(4, offset_);
+        .computeInt32Size(4, offset_);
+    }
+    if (limit_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(5, limit_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -310,6 +337,8 @@ private static final long serialVersionUID = 0L;
         != other.getSourceStationType()) return false;
     if (getOffset()
         != other.getOffset()) return false;
+    if (getLimit()
+        != other.getLimit()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -328,8 +357,9 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SOURCESTATIONTYPE_FIELD_NUMBER;
     hash = (53 * hash) + getSourceStationType();
     hash = (37 * hash) + OFFSET_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getOffset());
+    hash = (53 * hash) + getOffset();
+    hash = (37 * hash) + LIMIT_FIELD_NUMBER;
+    hash = (53 * hash) + getLimit();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -475,7 +505,9 @@ private static final long serialVersionUID = 0L;
 
       sourceStationType_ = 0;
 
-      offset_ = 0L;
+      offset_ = 0;
+
+      limit_ = 0;
 
       return this;
     }
@@ -507,6 +539,7 @@ private static final long serialVersionUID = 0L;
       result.domainType_ = domainType_;
       result.sourceStationType_ = sourceStationType_;
       result.offset_ = offset_;
+      result.limit_ = limit_;
       onBuilt();
       return result;
     }
@@ -566,8 +599,11 @@ private static final long serialVersionUID = 0L;
       if (other.getSourceStationType() != 0) {
         setSourceStationType(other.getSourceStationType());
       }
-      if (other.getOffset() != 0L) {
+      if (other.getOffset() != 0) {
         setOffset(other.getOffset());
+      }
+      if (other.getLimit() != 0) {
+        setLimit(other.getLimit());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -849,29 +885,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long offset_ ;
+    private int offset_ ;
     /**
      * <pre>
-     *跨过多少条域名
+     *跳过域名组的游标
      * </pre>
      *
-     * <code>int64 Offset = 4;</code>
+     * <code>int32 Offset = 4;</code>
      * @return The offset.
      */
     @java.lang.Override
-    public long getOffset() {
+    public int getOffset() {
       return offset_;
     }
     /**
      * <pre>
-     *跨过多少条域名
+     *跳过域名组的游标
      * </pre>
      *
-     * <code>int64 Offset = 4;</code>
+     * <code>int32 Offset = 4;</code>
      * @param value The offset to set.
      * @return This builder for chaining.
      */
-    public Builder setOffset(long value) {
+    public Builder setOffset(int value) {
       
       offset_ = value;
       onChanged();
@@ -879,15 +915,58 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *跨过多少条域名
+     *跳过域名组的游标
      * </pre>
      *
-     * <code>int64 Offset = 4;</code>
+     * <code>int32 Offset = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearOffset() {
       
-      offset_ = 0L;
+      offset_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int limit_ ;
+    /**
+     * <pre>
+     *单次查询域名组数量
+     * </pre>
+     *
+     * <code>int32 Limit = 5;</code>
+     * @return The limit.
+     */
+    @java.lang.Override
+    public int getLimit() {
+      return limit_;
+    }
+    /**
+     * <pre>
+     *单次查询域名组数量
+     * </pre>
+     *
+     * <code>int32 Limit = 5;</code>
+     * @param value The limit to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLimit(int value) {
+      
+      limit_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *单次查询域名组数量
+     * </pre>
+     *
+     * <code>int32 Limit = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLimit() {
+      
+      limit_ = 0;
       onChanged();
       return this;
     }

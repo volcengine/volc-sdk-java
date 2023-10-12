@@ -26,7 +26,7 @@ private static final long serialVersionUID = 0L;
     region_ = "";
     sources_ = java.util.Collections.emptyList();
     lockStatus_ = "";
-    cDNStatus_ = "";
+    cdnStatus_ = "";
   }
 
   @java.lang.Override
@@ -139,7 +139,7 @@ private static final long serialVersionUID = 0L;
           case 98: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            cDNStatus_ = s;
+            cdnStatus_ = s;
             break;
           }
           default: {
@@ -365,7 +365,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object status_;
   /**
    * <pre>
-   *运行状态
+   *是否开启点播调度
    * </pre>
    *
    * <code>string Status = 5;</code>
@@ -386,7 +386,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *运行状态
+   *是否开启点播调度
    * </pre>
    *
    * <code>string Status = 5;</code>
@@ -690,25 +690,25 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CDNSTATUS_FIELD_NUMBER = 12;
-  private volatile java.lang.Object cDNStatus_;
+  private volatile java.lang.Object cdnStatus_;
   /**
    * <pre>
    *在CDN侧是否启用停用
    * </pre>
    *
-   * <code>string CDNStatus = 12;</code>
-   * @return The cDNStatus.
+   * <code>string CdnStatus = 12;</code>
+   * @return The cdnStatus.
    */
   @java.lang.Override
-  public java.lang.String getCDNStatus() {
-    java.lang.Object ref = cDNStatus_;
+  public java.lang.String getCdnStatus() {
+    java.lang.Object ref = cdnStatus_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      cDNStatus_ = s;
+      cdnStatus_ = s;
       return s;
     }
   }
@@ -717,18 +717,18 @@ private static final long serialVersionUID = 0L;
    *在CDN侧是否启用停用
    * </pre>
    *
-   * <code>string CDNStatus = 12;</code>
-   * @return The bytes for cDNStatus.
+   * <code>string CdnStatus = 12;</code>
+   * @return The bytes for cdnStatus.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getCDNStatusBytes() {
-    java.lang.Object ref = cDNStatus_;
+      getCdnStatusBytes() {
+    java.lang.Object ref = cdnStatus_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      cDNStatus_ = b;
+      cdnStatus_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -782,8 +782,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lockStatus_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 11, lockStatus_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cDNStatus_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, cDNStatus_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cdnStatus_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, cdnStatus_);
     }
     unknownFields.writeTo(output);
   }
@@ -829,8 +829,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lockStatus_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, lockStatus_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cDNStatus_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, cDNStatus_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cdnStatus_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, cdnStatus_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -872,8 +872,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSourcesList())) return false;
     if (!getLockStatus()
         .equals(other.getLockStatus())) return false;
-    if (!getCDNStatus()
-        .equals(other.getCDNStatus())) return false;
+    if (!getCdnStatus()
+        .equals(other.getCdnStatus())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -912,7 +912,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + LOCKSTATUS_FIELD_NUMBER;
     hash = (53 * hash) + getLockStatus().hashCode();
     hash = (37 * hash) + CDNSTATUS_FIELD_NUMBER;
-    hash = (53 * hash) + getCDNStatus().hashCode();
+    hash = (53 * hash) + getCdnStatus().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1077,7 +1077,7 @@ private static final long serialVersionUID = 0L;
       }
       lockStatus_ = "";
 
-      cDNStatus_ = "";
+      cdnStatus_ = "";
 
       return this;
     }
@@ -1129,7 +1129,7 @@ private static final long serialVersionUID = 0L;
         result.sources_ = sourcesBuilder_.build();
       }
       result.lockStatus_ = lockStatus_;
-      result.cDNStatus_ = cDNStatus_;
+      result.cdnStatus_ = cdnStatus_;
       onBuilt();
       return result;
     }
@@ -1243,8 +1243,8 @@ private static final long serialVersionUID = 0L;
         lockStatus_ = other.lockStatus_;
         onChanged();
       }
-      if (!other.getCDNStatus().isEmpty()) {
-        cDNStatus_ = other.cDNStatus_;
+      if (!other.getCdnStatus().isEmpty()) {
+        cdnStatus_ = other.cdnStatus_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1664,7 +1664,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object status_ = "";
     /**
      * <pre>
-     *运行状态
+     *是否开启点播调度
      * </pre>
      *
      * <code>string Status = 5;</code>
@@ -1684,7 +1684,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *运行状态
+     *是否开启点播调度
      * </pre>
      *
      * <code>string Status = 5;</code>
@@ -1705,7 +1705,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *运行状态
+     *是否开启点播调度
      * </pre>
      *
      * <code>string Status = 5;</code>
@@ -1724,7 +1724,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *运行状态
+     *是否开启点播调度
      * </pre>
      *
      * <code>string Status = 5;</code>
@@ -1738,7 +1738,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *运行状态
+     *是否开启点播调度
      * </pre>
      *
      * <code>string Status = 5;</code>
@@ -2608,22 +2608,22 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object cDNStatus_ = "";
+    private java.lang.Object cdnStatus_ = "";
     /**
      * <pre>
      *在CDN侧是否启用停用
      * </pre>
      *
-     * <code>string CDNStatus = 12;</code>
-     * @return The cDNStatus.
+     * <code>string CdnStatus = 12;</code>
+     * @return The cdnStatus.
      */
-    public java.lang.String getCDNStatus() {
-      java.lang.Object ref = cDNStatus_;
+    public java.lang.String getCdnStatus() {
+      java.lang.Object ref = cdnStatus_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        cDNStatus_ = s;
+        cdnStatus_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -2634,17 +2634,17 @@ private static final long serialVersionUID = 0L;
      *在CDN侧是否启用停用
      * </pre>
      *
-     * <code>string CDNStatus = 12;</code>
-     * @return The bytes for cDNStatus.
+     * <code>string CdnStatus = 12;</code>
+     * @return The bytes for cdnStatus.
      */
     public com.google.protobuf.ByteString
-        getCDNStatusBytes() {
-      java.lang.Object ref = cDNStatus_;
+        getCdnStatusBytes() {
+      java.lang.Object ref = cdnStatus_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        cDNStatus_ = b;
+        cdnStatus_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -2655,17 +2655,17 @@ private static final long serialVersionUID = 0L;
      *在CDN侧是否启用停用
      * </pre>
      *
-     * <code>string CDNStatus = 12;</code>
-     * @param value The cDNStatus to set.
+     * <code>string CdnStatus = 12;</code>
+     * @param value The cdnStatus to set.
      * @return This builder for chaining.
      */
-    public Builder setCDNStatus(
+    public Builder setCdnStatus(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      cDNStatus_ = value;
+      cdnStatus_ = value;
       onChanged();
       return this;
     }
@@ -2674,12 +2674,12 @@ private static final long serialVersionUID = 0L;
      *在CDN侧是否启用停用
      * </pre>
      *
-     * <code>string CDNStatus = 12;</code>
+     * <code>string CdnStatus = 12;</code>
      * @return This builder for chaining.
      */
-    public Builder clearCDNStatus() {
+    public Builder clearCdnStatus() {
       
-      cDNStatus_ = getDefaultInstance().getCDNStatus();
+      cdnStatus_ = getDefaultInstance().getCdnStatus();
       onChanged();
       return this;
     }
@@ -2688,18 +2688,18 @@ private static final long serialVersionUID = 0L;
      *在CDN侧是否启用停用
      * </pre>
      *
-     * <code>string CDNStatus = 12;</code>
-     * @param value The bytes for cDNStatus to set.
+     * <code>string CdnStatus = 12;</code>
+     * @param value The bytes for cdnStatus to set.
      * @return This builder for chaining.
      */
-    public Builder setCDNStatusBytes(
+    public Builder setCdnStatusBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      cDNStatus_ = value;
+      cdnStatus_ = value;
       onChanged();
       return this;
     }

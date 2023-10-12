@@ -49,6 +49,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -140,6 +141,19 @@ private static final long serialVersionUID = 0L;
             enableLowPriority_ = input.readBool();
             break;
           }
+          case 122: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              customURLHeaders_ = com.google.protobuf.MapField.newMapField(
+                  CustomURLHeadersDefaultEntryHolder.defaultEntry);
+              mutable_bitField0_ |= 0x00000001;
+            }
+            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+            customURLHeaders__ = input.readMessage(
+                CustomURLHeadersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            customURLHeaders_.getMutableMap().put(
+                customURLHeaders__.getKey(), customURLHeaders__.getValue());
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -164,6 +178,18 @@ private static final long serialVersionUID = 0L;
     return com.volcengine.service.vod.model.business.VodUpload.internal_static_Volcengine_Vod_Models_Business_VodUrlUploadURLSet_descriptor;
   }
 
+  @SuppressWarnings({"rawtypes"})
+  @java.lang.Override
+  protected com.google.protobuf.MapField internalGetMapField(
+      int number) {
+    switch (number) {
+      case 15:
+        return internalGetCustomURLHeaders();
+      default:
+        throw new RuntimeException(
+            "Invalid map field number: " + number);
+    }
+  }
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -723,6 +749,103 @@ private static final long serialVersionUID = 0L;
     return enableLowPriority_;
   }
 
+  public static final int CUSTOMURLHEADERS_FIELD_NUMBER = 15;
+  private static final class CustomURLHeadersDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.String, java.lang.String> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.String, java.lang.String>newDefaultInstance(
+                com.volcengine.service.vod.model.business.VodUpload.internal_static_Volcengine_Vod_Models_Business_VodUrlUploadURLSet_CustomURLHeadersEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "");
+  }
+  private com.google.protobuf.MapField<
+      java.lang.String, java.lang.String> customURLHeaders_;
+  private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+  internalGetCustomURLHeaders() {
+    if (customURLHeaders_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          CustomURLHeadersDefaultEntryHolder.defaultEntry);
+    }
+    return customURLHeaders_;
+  }
+
+  public int getCustomURLHeadersCount() {
+    return internalGetCustomURLHeaders().getMap().size();
+  }
+  /**
+   * <pre>
+   * 自定义Header 
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; CustomURLHeaders = 15;</code>
+   */
+
+  @java.lang.Override
+  public boolean containsCustomURLHeaders(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    return internalGetCustomURLHeaders().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getCustomURLHeadersMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, java.lang.String> getCustomURLHeaders() {
+    return getCustomURLHeadersMap();
+  }
+  /**
+   * <pre>
+   * 自定义Header 
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; CustomURLHeaders = 15;</code>
+   */
+  @java.lang.Override
+
+  public java.util.Map<java.lang.String, java.lang.String> getCustomURLHeadersMap() {
+    return internalGetCustomURLHeaders().getMap();
+  }
+  /**
+   * <pre>
+   * 自定义Header 
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; CustomURLHeaders = 15;</code>
+   */
+  @java.lang.Override
+
+  public java.lang.String getCustomURLHeadersOrDefault(
+      java.lang.String key,
+      java.lang.String defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetCustomURLHeaders().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <pre>
+   * 自定义Header 
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; CustomURLHeaders = 15;</code>
+   */
+  @java.lang.Override
+
+  public java.lang.String getCustomURLHeadersOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetCustomURLHeaders().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -779,6 +902,12 @@ private static final long serialVersionUID = 0L;
     if (enableLowPriority_ != false) {
       output.writeBool(14, enableLowPriority_);
     }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetCustomURLHeaders(),
+        CustomURLHeadersDefaultEntryHolder.defaultEntry,
+        15);
     unknownFields.writeTo(output);
   }
 
@@ -833,6 +962,16 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(14, enableLowPriority_);
     }
+    for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+         : internalGetCustomURLHeaders().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+      customURLHeaders__ = CustomURLHeadersDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(15, customURLHeaders__);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -876,6 +1015,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getUrlEncryptionAlgorithm())) return false;
     if (getEnableLowPriority()
         != other.getEnableLowPriority()) return false;
+    if (!internalGetCustomURLHeaders().equals(
+        other.internalGetCustomURLHeaders())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -917,6 +1058,10 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ENABLELOWPRIORITY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getEnableLowPriority());
+    if (!internalGetCustomURLHeaders().getMap().isEmpty()) {
+      hash = (37 * hash) + CUSTOMURLHEADERS_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetCustomURLHeaders().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1024,6 +1169,28 @@ private static final long serialVersionUID = 0L;
       return com.volcengine.service.vod.model.business.VodUpload.internal_static_Volcengine_Vod_Models_Business_VodUrlUploadURLSet_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 15:
+          return internalGetCustomURLHeaders();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMutableMapField(
+        int number) {
+      switch (number) {
+        case 15:
+          return internalGetMutableCustomURLHeaders();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -1078,6 +1245,7 @@ private static final long serialVersionUID = 0L;
 
       enableLowPriority_ = false;
 
+      internalGetMutableCustomURLHeaders().clear();
       return this;
     }
 
@@ -1104,6 +1272,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.volcengine.service.vod.model.business.VodUrlUploadURLSet buildPartial() {
       com.volcengine.service.vod.model.business.VodUrlUploadURLSet result = new com.volcengine.service.vod.model.business.VodUrlUploadURLSet(this);
+      int from_bitField0_ = bitField0_;
       result.sourceUrl_ = sourceUrl_;
       result.callbackArgs_ = callbackArgs_;
       result.md5_ = md5_;
@@ -1118,6 +1287,8 @@ private static final long serialVersionUID = 0L;
       result.fileExtension_ = fileExtension_;
       result.urlEncryptionAlgorithm_ = urlEncryptionAlgorithm_;
       result.enableLowPriority_ = enableLowPriority_;
+      result.customURLHeaders_ = internalGetCustomURLHeaders();
+      result.customURLHeaders_.makeImmutable();
       onBuilt();
       return result;
     }
@@ -1219,6 +1390,8 @@ private static final long serialVersionUID = 0L;
       if (other.getEnableLowPriority() != false) {
         setEnableLowPriority(other.getEnableLowPriority());
       }
+      internalGetMutableCustomURLHeaders().mergeFrom(
+          other.internalGetCustomURLHeaders());
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -1247,6 +1420,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object sourceUrl_ = "";
     /**
@@ -2430,6 +2604,165 @@ private static final long serialVersionUID = 0L;
       
       enableLowPriority_ = false;
       onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> customURLHeaders_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetCustomURLHeaders() {
+      if (customURLHeaders_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            CustomURLHeadersDefaultEntryHolder.defaultEntry);
+      }
+      return customURLHeaders_;
+    }
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetMutableCustomURLHeaders() {
+      onChanged();;
+      if (customURLHeaders_ == null) {
+        customURLHeaders_ = com.google.protobuf.MapField.newMapField(
+            CustomURLHeadersDefaultEntryHolder.defaultEntry);
+      }
+      if (!customURLHeaders_.isMutable()) {
+        customURLHeaders_ = customURLHeaders_.copy();
+      }
+      return customURLHeaders_;
+    }
+
+    public int getCustomURLHeadersCount() {
+      return internalGetCustomURLHeaders().getMap().size();
+    }
+    /**
+     * <pre>
+     * 自定义Header 
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; CustomURLHeaders = 15;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsCustomURLHeaders(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetCustomURLHeaders().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getCustomURLHeadersMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getCustomURLHeaders() {
+      return getCustomURLHeadersMap();
+    }
+    /**
+     * <pre>
+     * 自定义Header 
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; CustomURLHeaders = 15;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, java.lang.String> getCustomURLHeadersMap() {
+      return internalGetCustomURLHeaders().getMap();
+    }
+    /**
+     * <pre>
+     * 自定义Header 
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; CustomURLHeaders = 15;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getCustomURLHeadersOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetCustomURLHeaders().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * 自定义Header 
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; CustomURLHeaders = 15;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getCustomURLHeadersOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetCustomURLHeaders().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public Builder clearCustomURLHeaders() {
+      internalGetMutableCustomURLHeaders().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <pre>
+     * 自定义Header 
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; CustomURLHeaders = 15;</code>
+     */
+
+    public Builder removeCustomURLHeaders(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      internalGetMutableCustomURLHeaders().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String>
+    getMutableCustomURLHeaders() {
+      return internalGetMutableCustomURLHeaders().getMutableMap();
+    }
+    /**
+     * <pre>
+     * 自定义Header 
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; CustomURLHeaders = 15;</code>
+     */
+    public Builder putCustomURLHeaders(
+        java.lang.String key,
+        java.lang.String value) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+      internalGetMutableCustomURLHeaders().getMutableMap()
+          .put(key, value);
+      return this;
+    }
+    /**
+     * <pre>
+     * 自定义Header 
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; CustomURLHeaders = 15;</code>
+     */
+
+    public Builder putAllCustomURLHeaders(
+        java.util.Map<java.lang.String, java.lang.String> values) {
+      internalGetMutableCustomURLHeaders().getMutableMap()
+          .putAll(values);
       return this;
     }
     @java.lang.Override

@@ -16,9 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private VodDomainInstanceInfo() {
-    instanceId_ = "";
     domains_ = java.util.Collections.emptyList();
-    configStatus_ = "";
   }
 
   @java.lang.Override
@@ -52,12 +50,6 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            instanceId_ = s;
-            break;
-          }
           case 18: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               domains_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodDomainoInfo>();
@@ -65,17 +57,6 @@ private static final long serialVersionUID = 0L;
             }
             domains_.add(
                 input.readMessage(com.volcengine.service.vod.model.business.VodDomainoInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 24: {
-
-            canSelfEditing_ = input.readBool();
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            configStatus_ = s;
             break;
           }
           default: {
@@ -111,52 +92,6 @@ private static final long serialVersionUID = 0L;
     return com.volcengine.service.vod.model.business.VodCdn.internal_static_Volcengine_Vod_Models_Business_VodDomainInstanceInfo_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.volcengine.service.vod.model.business.VodDomainInstanceInfo.class, com.volcengine.service.vod.model.business.VodDomainInstanceInfo.Builder.class);
-  }
-
-  public static final int INSTANCEID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object instanceId_;
-  /**
-   * <pre>
-   *实例ID，废弃
-   * </pre>
-   *
-   * <code>string InstanceId = 1;</code>
-   * @return The instanceId.
-   */
-  @java.lang.Override
-  public java.lang.String getInstanceId() {
-    java.lang.Object ref = instanceId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      instanceId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   *实例ID，废弃
-   * </pre>
-   *
-   * <code>string InstanceId = 1;</code>
-   * @return The bytes for instanceId.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getInstanceIdBytes() {
-    java.lang.Object ref = instanceId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      instanceId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
   }
 
   public static final int DOMAINS_FIELD_NUMBER = 2;
@@ -219,67 +154,6 @@ private static final long serialVersionUID = 0L;
     return domains_.get(index);
   }
 
-  public static final int CANSELFEDITING_FIELD_NUMBER = 3;
-  private boolean canSelfEditing_;
-  /**
-   * <pre>
-   *是否可自助配置，废弃
-   * </pre>
-   *
-   * <code>bool CanSelfEditing = 3;</code>
-   * @return The canSelfEditing.
-   */
-  @java.lang.Override
-  public boolean getCanSelfEditing() {
-    return canSelfEditing_;
-  }
-
-  public static final int CONFIGSTATUS_FIELD_NUMBER = 4;
-  private volatile java.lang.Object configStatus_;
-  /**
-   * <pre>
-   *实例配置状态，废弃
-   * </pre>
-   *
-   * <code>string ConfigStatus = 4;</code>
-   * @return The configStatus.
-   */
-  @java.lang.Override
-  public java.lang.String getConfigStatus() {
-    java.lang.Object ref = configStatus_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      configStatus_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   *实例配置状态，废弃
-   * </pre>
-   *
-   * <code>string ConfigStatus = 4;</code>
-   * @return The bytes for configStatus.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getConfigStatusBytes() {
-    java.lang.Object ref = configStatus_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      configStatus_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -294,17 +168,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(instanceId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, instanceId_);
-    }
     for (int i = 0; i < domains_.size(); i++) {
       output.writeMessage(2, domains_.get(i));
-    }
-    if (canSelfEditing_ != false) {
-      output.writeBool(3, canSelfEditing_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(configStatus_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, configStatus_);
     }
     unknownFields.writeTo(output);
   }
@@ -315,19 +180,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(instanceId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, instanceId_);
-    }
     for (int i = 0; i < domains_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, domains_.get(i));
-    }
-    if (canSelfEditing_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(3, canSelfEditing_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(configStatus_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, configStatus_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -344,14 +199,8 @@ private static final long serialVersionUID = 0L;
     }
     com.volcengine.service.vod.model.business.VodDomainInstanceInfo other = (com.volcengine.service.vod.model.business.VodDomainInstanceInfo) obj;
 
-    if (!getInstanceId()
-        .equals(other.getInstanceId())) return false;
     if (!getDomainsList()
         .equals(other.getDomainsList())) return false;
-    if (getCanSelfEditing()
-        != other.getCanSelfEditing()) return false;
-    if (!getConfigStatus()
-        .equals(other.getConfigStatus())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -363,17 +212,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + INSTANCEID_FIELD_NUMBER;
-    hash = (53 * hash) + getInstanceId().hashCode();
     if (getDomainsCount() > 0) {
       hash = (37 * hash) + DOMAINS_FIELD_NUMBER;
       hash = (53 * hash) + getDomainsList().hashCode();
     }
-    hash = (37 * hash) + CANSELFEDITING_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getCanSelfEditing());
-    hash = (37 * hash) + CONFIGSTATUS_FIELD_NUMBER;
-    hash = (53 * hash) + getConfigStatus().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -508,18 +350,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      instanceId_ = "";
-
       if (domainsBuilder_ == null) {
         domains_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
       } else {
         domainsBuilder_.clear();
       }
-      canSelfEditing_ = false;
-
-      configStatus_ = "";
-
       return this;
     }
 
@@ -547,7 +383,6 @@ private static final long serialVersionUID = 0L;
     public com.volcengine.service.vod.model.business.VodDomainInstanceInfo buildPartial() {
       com.volcengine.service.vod.model.business.VodDomainInstanceInfo result = new com.volcengine.service.vod.model.business.VodDomainInstanceInfo(this);
       int from_bitField0_ = bitField0_;
-      result.instanceId_ = instanceId_;
       if (domainsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           domains_ = java.util.Collections.unmodifiableList(domains_);
@@ -557,8 +392,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.domains_ = domainsBuilder_.build();
       }
-      result.canSelfEditing_ = canSelfEditing_;
-      result.configStatus_ = configStatus_;
       onBuilt();
       return result;
     }
@@ -607,10 +440,6 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.volcengine.service.vod.model.business.VodDomainInstanceInfo other) {
       if (other == com.volcengine.service.vod.model.business.VodDomainInstanceInfo.getDefaultInstance()) return this;
-      if (!other.getInstanceId().isEmpty()) {
-        instanceId_ = other.instanceId_;
-        onChanged();
-      }
       if (domainsBuilder_ == null) {
         if (!other.domains_.isEmpty()) {
           if (domains_.isEmpty()) {
@@ -636,13 +465,6 @@ private static final long serialVersionUID = 0L;
             domainsBuilder_.addAllMessages(other.domains_);
           }
         }
-      }
-      if (other.getCanSelfEditing() != false) {
-        setCanSelfEditing(other.getCanSelfEditing());
-      }
-      if (!other.getConfigStatus().isEmpty()) {
-        configStatus_ = other.configStatus_;
-        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -673,102 +495,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     private int bitField0_;
-
-    private java.lang.Object instanceId_ = "";
-    /**
-     * <pre>
-     *实例ID，废弃
-     * </pre>
-     *
-     * <code>string InstanceId = 1;</code>
-     * @return The instanceId.
-     */
-    public java.lang.String getInstanceId() {
-      java.lang.Object ref = instanceId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        instanceId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     *实例ID，废弃
-     * </pre>
-     *
-     * <code>string InstanceId = 1;</code>
-     * @return The bytes for instanceId.
-     */
-    public com.google.protobuf.ByteString
-        getInstanceIdBytes() {
-      java.lang.Object ref = instanceId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        instanceId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     *实例ID，废弃
-     * </pre>
-     *
-     * <code>string InstanceId = 1;</code>
-     * @param value The instanceId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setInstanceId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      instanceId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *实例ID，废弃
-     * </pre>
-     *
-     * <code>string InstanceId = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearInstanceId() {
-      
-      instanceId_ = getDefaultInstance().getInstanceId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *实例ID，废弃
-     * </pre>
-     *
-     * <code>string InstanceId = 1;</code>
-     * @param value The bytes for instanceId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setInstanceIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      instanceId_ = value;
-      onChanged();
-      return this;
-    }
 
     private java.util.List<com.volcengine.service.vod.model.business.VodDomainoInfo> domains_ =
       java.util.Collections.emptyList();
@@ -1080,145 +806,6 @@ private static final long serialVersionUID = 0L;
         domains_ = null;
       }
       return domainsBuilder_;
-    }
-
-    private boolean canSelfEditing_ ;
-    /**
-     * <pre>
-     *是否可自助配置，废弃
-     * </pre>
-     *
-     * <code>bool CanSelfEditing = 3;</code>
-     * @return The canSelfEditing.
-     */
-    @java.lang.Override
-    public boolean getCanSelfEditing() {
-      return canSelfEditing_;
-    }
-    /**
-     * <pre>
-     *是否可自助配置，废弃
-     * </pre>
-     *
-     * <code>bool CanSelfEditing = 3;</code>
-     * @param value The canSelfEditing to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCanSelfEditing(boolean value) {
-      
-      canSelfEditing_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *是否可自助配置，废弃
-     * </pre>
-     *
-     * <code>bool CanSelfEditing = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearCanSelfEditing() {
-      
-      canSelfEditing_ = false;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object configStatus_ = "";
-    /**
-     * <pre>
-     *实例配置状态，废弃
-     * </pre>
-     *
-     * <code>string ConfigStatus = 4;</code>
-     * @return The configStatus.
-     */
-    public java.lang.String getConfigStatus() {
-      java.lang.Object ref = configStatus_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        configStatus_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     *实例配置状态，废弃
-     * </pre>
-     *
-     * <code>string ConfigStatus = 4;</code>
-     * @return The bytes for configStatus.
-     */
-    public com.google.protobuf.ByteString
-        getConfigStatusBytes() {
-      java.lang.Object ref = configStatus_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        configStatus_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     *实例配置状态，废弃
-     * </pre>
-     *
-     * <code>string ConfigStatus = 4;</code>
-     * @param value The configStatus to set.
-     * @return This builder for chaining.
-     */
-    public Builder setConfigStatus(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      configStatus_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *实例配置状态，废弃
-     * </pre>
-     *
-     * <code>string ConfigStatus = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearConfigStatus() {
-      
-      configStatus_ = getDefaultInstance().getConfigStatus();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *实例配置状态，废弃
-     * </pre>
-     *
-     * <code>string ConfigStatus = 4;</code>
-     * @param value The bytes for configStatus to set.
-     * @return This builder for chaining.
-     */
-    public Builder setConfigStatusBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      configStatus_ = value;
-      onChanged();
-      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

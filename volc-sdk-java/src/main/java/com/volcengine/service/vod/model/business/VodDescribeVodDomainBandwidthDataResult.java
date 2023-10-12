@@ -17,10 +17,13 @@ private static final long serialVersionUID = 0L;
   }
   private VodDescribeVodDomainBandwidthDataResult() {
     domainList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    domainInSpaceList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     startTime_ = "";
     endTime_ = "";
     bandwidthType_ = "";
+    area_ = "";
     peakBandwidthTime_ = "";
+    peak95BandwidthTime_ = "";
     bandwidthDataList_ = java.util.Collections.emptyList();
   }
 
@@ -66,42 +69,68 @@ private static final long serialVersionUID = 0L;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
-
-            startTime_ = s;
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              domainInSpaceList_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000002;
+            }
+            domainInSpaceList_.add(s);
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
+            startTime_ = s;
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
             endTime_ = s;
             break;
           }
-          case 32: {
+          case 40: {
 
             aggregation_ = input.readInt32();
             break;
           }
-          case 42: {
+          case 50: {
             java.lang.String s = input.readStringRequireUtf8();
 
             bandwidthType_ = s;
             break;
           }
-          case 49: {
+          case 58: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            area_ = s;
+            break;
+          }
+          case 65: {
 
             peakBandwidth_ = input.readDouble();
             break;
           }
-          case 58: {
+          case 74: {
             java.lang.String s = input.readStringRequireUtf8();
 
             peakBandwidthTime_ = s;
             break;
           }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+          case 81: {
+
+            peak95Bandwidth_ = input.readDouble();
+            break;
+          }
+          case 90: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            peak95BandwidthTime_ = s;
+            break;
+          }
+          case 98: {
+            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
               bandwidthDataList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodBandwidthData>();
-              mutable_bitField0_ |= 0x00000002;
+              mutable_bitField0_ |= 0x00000004;
             }
             bandwidthDataList_.add(
                 input.readMessage(com.volcengine.service.vod.model.business.VodBandwidthData.parser(), extensionRegistry));
@@ -126,6 +155,9 @@ private static final long serialVersionUID = 0L;
         domainList_ = domainList_.getUnmodifiableView();
       }
       if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        domainInSpaceList_ = domainInSpaceList_.getUnmodifiableView();
+      }
+      if (((mutable_bitField0_ & 0x00000004) != 0)) {
         bandwidthDataList_ = java.util.Collections.unmodifiableList(bandwidthDataList_);
       }
       this.unknownFields = unknownFields.build();
@@ -196,14 +228,65 @@ private static final long serialVersionUID = 0L;
     return domainList_.getByteString(index);
   }
 
-  public static final int STARTTIME_FIELD_NUMBER = 2;
+  public static final int DOMAININSPACELIST_FIELD_NUMBER = 2;
+  private com.google.protobuf.LazyStringList domainInSpaceList_;
+  /**
+   * <pre>
+   * 域名列表
+   * </pre>
+   *
+   * <code>repeated string DomainInSpaceList = 2;</code>
+   * @return A list containing the domainInSpaceList.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getDomainInSpaceListList() {
+    return domainInSpaceList_;
+  }
+  /**
+   * <pre>
+   * 域名列表
+   * </pre>
+   *
+   * <code>repeated string DomainInSpaceList = 2;</code>
+   * @return The count of domainInSpaceList.
+   */
+  public int getDomainInSpaceListCount() {
+    return domainInSpaceList_.size();
+  }
+  /**
+   * <pre>
+   * 域名列表
+   * </pre>
+   *
+   * <code>repeated string DomainInSpaceList = 2;</code>
+   * @param index The index of the element to return.
+   * @return The domainInSpaceList at the given index.
+   */
+  public java.lang.String getDomainInSpaceList(int index) {
+    return domainInSpaceList_.get(index);
+  }
+  /**
+   * <pre>
+   * 域名列表
+   * </pre>
+   *
+   * <code>repeated string DomainInSpaceList = 2;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the domainInSpaceList at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getDomainInSpaceListBytes(int index) {
+    return domainInSpaceList_.getByteString(index);
+  }
+
+  public static final int STARTTIME_FIELD_NUMBER = 3;
   private volatile java.lang.Object startTime_;
   /**
    * <pre>
    * 查询的起始时间
    * </pre>
    *
-   * <code>string StartTime = 2;</code>
+   * <code>string StartTime = 3;</code>
    * @return The startTime.
    */
   @java.lang.Override
@@ -224,7 +307,7 @@ private static final long serialVersionUID = 0L;
    * 查询的起始时间
    * </pre>
    *
-   * <code>string StartTime = 2;</code>
+   * <code>string StartTime = 3;</code>
    * @return The bytes for startTime.
    */
   @java.lang.Override
@@ -242,14 +325,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int ENDTIME_FIELD_NUMBER = 3;
+  public static final int ENDTIME_FIELD_NUMBER = 4;
   private volatile java.lang.Object endTime_;
   /**
    * <pre>
    * 查询的结束时间
    * </pre>
    *
-   * <code>string EndTime = 3;</code>
+   * <code>string EndTime = 4;</code>
    * @return The endTime.
    */
   @java.lang.Override
@@ -270,7 +353,7 @@ private static final long serialVersionUID = 0L;
    * 查询的结束时间
    * </pre>
    *
-   * <code>string EndTime = 3;</code>
+   * <code>string EndTime = 4;</code>
    * @return The bytes for endTime.
    */
   @java.lang.Override
@@ -288,14 +371,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int AGGREGATION_FIELD_NUMBER = 4;
+  public static final int AGGREGATION_FIELD_NUMBER = 5;
   private int aggregation_;
   /**
    * <pre>
    * 聚合的时间粒度
    * </pre>
    *
-   * <code>int32 Aggregation = 4;</code>
+   * <code>int32 Aggregation = 5;</code>
    * @return The aggregation.
    */
   @java.lang.Override
@@ -303,14 +386,14 @@ private static final long serialVersionUID = 0L;
     return aggregation_;
   }
 
-  public static final int BANDWIDTHTYPE_FIELD_NUMBER = 5;
+  public static final int BANDWIDTHTYPE_FIELD_NUMBER = 6;
   private volatile java.lang.Object bandwidthType_;
   /**
    * <pre>
-   * 默认是CDN，支持CDN、PCDN、ALL
+   * 默认是CDN，支持CDN、ECDN、ALL
    * </pre>
    *
-   * <code>string BandwidthType = 5;</code>
+   * <code>string BandwidthType = 6;</code>
    * @return The bandwidthType.
    */
   @java.lang.Override
@@ -328,10 +411,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 默认是CDN，支持CDN、PCDN、ALL
+   * 默认是CDN，支持CDN、ECDN、ALL
    * </pre>
    *
-   * <code>string BandwidthType = 5;</code>
+   * <code>string BandwidthType = 6;</code>
    * @return The bytes for bandwidthType.
    */
   @java.lang.Override
@@ -349,14 +432,60 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int PEAKBANDWIDTH_FIELD_NUMBER = 6;
+  public static final int AREA_FIELD_NUMBER = 7;
+  private volatile java.lang.Object area_;
+  /**
+   * <pre>
+   * 区域
+   * </pre>
+   *
+   * <code>string Area = 7;</code>
+   * @return The area.
+   */
+  @java.lang.Override
+  public java.lang.String getArea() {
+    java.lang.Object ref = area_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      area_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 区域
+   * </pre>
+   *
+   * <code>string Area = 7;</code>
+   * @return The bytes for area.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getAreaBytes() {
+    java.lang.Object ref = area_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      area_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PEAKBANDWIDTH_FIELD_NUMBER = 8;
   private double peakBandwidth_;
   /**
    * <pre>
-   * 带宽峰值，单位为Mbps
+   * 带宽峰值，单位为bps
    * </pre>
    *
-   * <code>double PeakBandwidth = 6;</code>
+   * <code>double PeakBandwidth = 8;</code>
    * @return The peakBandwidth.
    */
   @java.lang.Override
@@ -364,14 +493,14 @@ private static final long serialVersionUID = 0L;
     return peakBandwidth_;
   }
 
-  public static final int PEAKBANDWIDTHTIME_FIELD_NUMBER = 7;
+  public static final int PEAKBANDWIDTHTIME_FIELD_NUMBER = 9;
   private volatile java.lang.Object peakBandwidthTime_;
   /**
    * <pre>
    * 带宽峰值出现的时间
    * </pre>
    *
-   * <code>string PeakBandwidthTime = 7;</code>
+   * <code>string PeakBandwidthTime = 9;</code>
    * @return The peakBandwidthTime.
    */
   @java.lang.Override
@@ -392,7 +521,7 @@ private static final long serialVersionUID = 0L;
    * 带宽峰值出现的时间
    * </pre>
    *
-   * <code>string PeakBandwidthTime = 7;</code>
+   * <code>string PeakBandwidthTime = 9;</code>
    * @return The bytes for peakBandwidthTime.
    */
   @java.lang.Override
@@ -410,14 +539,75 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int BANDWIDTHDATALIST_FIELD_NUMBER = 8;
+  public static final int PEAK95BANDWIDTH_FIELD_NUMBER = 10;
+  private double peak95Bandwidth_;
+  /**
+   * <pre>
+   * 带宽95峰值，单位为bps
+   * </pre>
+   *
+   * <code>double Peak95Bandwidth = 10;</code>
+   * @return The peak95Bandwidth.
+   */
+  @java.lang.Override
+  public double getPeak95Bandwidth() {
+    return peak95Bandwidth_;
+  }
+
+  public static final int PEAK95BANDWIDTHTIME_FIELD_NUMBER = 11;
+  private volatile java.lang.Object peak95BandwidthTime_;
+  /**
+   * <pre>
+   * 带宽95峰值出现的时间
+   * </pre>
+   *
+   * <code>string Peak95BandwidthTime = 11;</code>
+   * @return The peak95BandwidthTime.
+   */
+  @java.lang.Override
+  public java.lang.String getPeak95BandwidthTime() {
+    java.lang.Object ref = peak95BandwidthTime_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      peak95BandwidthTime_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 带宽95峰值出现的时间
+   * </pre>
+   *
+   * <code>string Peak95BandwidthTime = 11;</code>
+   * @return The bytes for peak95BandwidthTime.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPeak95BandwidthTimeBytes() {
+    java.lang.Object ref = peak95BandwidthTime_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      peak95BandwidthTime_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int BANDWIDTHDATALIST_FIELD_NUMBER = 12;
   private java.util.List<com.volcengine.service.vod.model.business.VodBandwidthData> bandwidthDataList_;
   /**
    * <pre>
    * 所有时间粒度数据
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
    */
   @java.lang.Override
   public java.util.List<com.volcengine.service.vod.model.business.VodBandwidthData> getBandwidthDataListList() {
@@ -428,7 +618,7 @@ private static final long serialVersionUID = 0L;
    * 所有时间粒度数据
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.volcengine.service.vod.model.business.VodBandwidthDataOrBuilder> 
@@ -440,7 +630,7 @@ private static final long serialVersionUID = 0L;
    * 所有时间粒度数据
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
    */
   @java.lang.Override
   public int getBandwidthDataListCount() {
@@ -451,7 +641,7 @@ private static final long serialVersionUID = 0L;
    * 所有时间粒度数据
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.VodBandwidthData getBandwidthDataList(int index) {
@@ -462,7 +652,7 @@ private static final long serialVersionUID = 0L;
    * 所有时间粒度数据
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.VodBandwidthDataOrBuilder getBandwidthDataListOrBuilder(
@@ -487,26 +677,38 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < domainList_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, domainList_.getRaw(i));
     }
+    for (int i = 0; i < domainInSpaceList_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, domainInSpaceList_.getRaw(i));
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(startTime_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, startTime_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, startTime_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endTime_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, endTime_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, endTime_);
     }
     if (aggregation_ != 0) {
-      output.writeInt32(4, aggregation_);
+      output.writeInt32(5, aggregation_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bandwidthType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, bandwidthType_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, bandwidthType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(area_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, area_);
     }
     if (java.lang.Double.doubleToRawLongBits(peakBandwidth_) != 0) {
-      output.writeDouble(6, peakBandwidth_);
+      output.writeDouble(8, peakBandwidth_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(peakBandwidthTime_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, peakBandwidthTime_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, peakBandwidthTime_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(peak95Bandwidth_) != 0) {
+      output.writeDouble(10, peak95Bandwidth_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(peak95BandwidthTime_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, peak95BandwidthTime_);
     }
     for (int i = 0; i < bandwidthDataList_.size(); i++) {
-      output.writeMessage(8, bandwidthDataList_.get(i));
+      output.writeMessage(12, bandwidthDataList_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -525,29 +727,47 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getDomainListList().size();
     }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < domainInSpaceList_.size(); i++) {
+        dataSize += computeStringSizeNoTag(domainInSpaceList_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getDomainInSpaceListList().size();
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(startTime_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, startTime_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, startTime_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endTime_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, endTime_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, endTime_);
     }
     if (aggregation_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(4, aggregation_);
+        .computeInt32Size(5, aggregation_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bandwidthType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, bandwidthType_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, bandwidthType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(area_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, area_);
     }
     if (java.lang.Double.doubleToRawLongBits(peakBandwidth_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(6, peakBandwidth_);
+        .computeDoubleSize(8, peakBandwidth_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(peakBandwidthTime_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, peakBandwidthTime_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, peakBandwidthTime_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(peak95Bandwidth_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(10, peak95Bandwidth_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(peak95BandwidthTime_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, peak95BandwidthTime_);
     }
     for (int i = 0; i < bandwidthDataList_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(8, bandwidthDataList_.get(i));
+        .computeMessageSize(12, bandwidthDataList_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -566,6 +786,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getDomainListList()
         .equals(other.getDomainListList())) return false;
+    if (!getDomainInSpaceListList()
+        .equals(other.getDomainInSpaceListList())) return false;
     if (!getStartTime()
         .equals(other.getStartTime())) return false;
     if (!getEndTime()
@@ -574,11 +796,18 @@ private static final long serialVersionUID = 0L;
         != other.getAggregation()) return false;
     if (!getBandwidthType()
         .equals(other.getBandwidthType())) return false;
+    if (!getArea()
+        .equals(other.getArea())) return false;
     if (java.lang.Double.doubleToLongBits(getPeakBandwidth())
         != java.lang.Double.doubleToLongBits(
             other.getPeakBandwidth())) return false;
     if (!getPeakBandwidthTime()
         .equals(other.getPeakBandwidthTime())) return false;
+    if (java.lang.Double.doubleToLongBits(getPeak95Bandwidth())
+        != java.lang.Double.doubleToLongBits(
+            other.getPeak95Bandwidth())) return false;
+    if (!getPeak95BandwidthTime()
+        .equals(other.getPeak95BandwidthTime())) return false;
     if (!getBandwidthDataListList()
         .equals(other.getBandwidthDataListList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -596,6 +825,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DOMAINLIST_FIELD_NUMBER;
       hash = (53 * hash) + getDomainListList().hashCode();
     }
+    if (getDomainInSpaceListCount() > 0) {
+      hash = (37 * hash) + DOMAININSPACELIST_FIELD_NUMBER;
+      hash = (53 * hash) + getDomainInSpaceListList().hashCode();
+    }
     hash = (37 * hash) + STARTTIME_FIELD_NUMBER;
     hash = (53 * hash) + getStartTime().hashCode();
     hash = (37 * hash) + ENDTIME_FIELD_NUMBER;
@@ -604,11 +837,18 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getAggregation();
     hash = (37 * hash) + BANDWIDTHTYPE_FIELD_NUMBER;
     hash = (53 * hash) + getBandwidthType().hashCode();
+    hash = (37 * hash) + AREA_FIELD_NUMBER;
+    hash = (53 * hash) + getArea().hashCode();
     hash = (37 * hash) + PEAKBANDWIDTH_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getPeakBandwidth()));
     hash = (37 * hash) + PEAKBANDWIDTHTIME_FIELD_NUMBER;
     hash = (53 * hash) + getPeakBandwidthTime().hashCode();
+    hash = (37 * hash) + PEAK95BANDWIDTH_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getPeak95Bandwidth()));
+    hash = (37 * hash) + PEAK95BANDWIDTHTIME_FIELD_NUMBER;
+    hash = (53 * hash) + getPeak95BandwidthTime().hashCode();
     if (getBandwidthDataListCount() > 0) {
       hash = (37 * hash) + BANDWIDTHDATALIST_FIELD_NUMBER;
       hash = (53 * hash) + getBandwidthDataListList().hashCode();
@@ -749,6 +989,8 @@ private static final long serialVersionUID = 0L;
       super.clear();
       domainList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
+      domainInSpaceList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000002);
       startTime_ = "";
 
       endTime_ = "";
@@ -757,13 +999,19 @@ private static final long serialVersionUID = 0L;
 
       bandwidthType_ = "";
 
+      area_ = "";
+
       peakBandwidth_ = 0D;
 
       peakBandwidthTime_ = "";
 
+      peak95Bandwidth_ = 0D;
+
+      peak95BandwidthTime_ = "";
+
       if (bandwidthDataListBuilder_ == null) {
         bandwidthDataList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
         bandwidthDataListBuilder_.clear();
       }
@@ -799,16 +1047,24 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.domainList_ = domainList_;
+      if (((bitField0_ & 0x00000002) != 0)) {
+        domainInSpaceList_ = domainInSpaceList_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.domainInSpaceList_ = domainInSpaceList_;
       result.startTime_ = startTime_;
       result.endTime_ = endTime_;
       result.aggregation_ = aggregation_;
       result.bandwidthType_ = bandwidthType_;
+      result.area_ = area_;
       result.peakBandwidth_ = peakBandwidth_;
       result.peakBandwidthTime_ = peakBandwidthTime_;
+      result.peak95Bandwidth_ = peak95Bandwidth_;
+      result.peak95BandwidthTime_ = peak95BandwidthTime_;
       if (bandwidthDataListBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           bandwidthDataList_ = java.util.Collections.unmodifiableList(bandwidthDataList_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.bandwidthDataList_ = bandwidthDataList_;
       } else {
@@ -872,6 +1128,16 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
+      if (!other.domainInSpaceList_.isEmpty()) {
+        if (domainInSpaceList_.isEmpty()) {
+          domainInSpaceList_ = other.domainInSpaceList_;
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          ensureDomainInSpaceListIsMutable();
+          domainInSpaceList_.addAll(other.domainInSpaceList_);
+        }
+        onChanged();
+      }
       if (!other.getStartTime().isEmpty()) {
         startTime_ = other.startTime_;
         onChanged();
@@ -887,6 +1153,10 @@ private static final long serialVersionUID = 0L;
         bandwidthType_ = other.bandwidthType_;
         onChanged();
       }
+      if (!other.getArea().isEmpty()) {
+        area_ = other.area_;
+        onChanged();
+      }
       if (other.getPeakBandwidth() != 0D) {
         setPeakBandwidth(other.getPeakBandwidth());
       }
@@ -894,11 +1164,18 @@ private static final long serialVersionUID = 0L;
         peakBandwidthTime_ = other.peakBandwidthTime_;
         onChanged();
       }
+      if (other.getPeak95Bandwidth() != 0D) {
+        setPeak95Bandwidth(other.getPeak95Bandwidth());
+      }
+      if (!other.getPeak95BandwidthTime().isEmpty()) {
+        peak95BandwidthTime_ = other.peak95BandwidthTime_;
+        onChanged();
+      }
       if (bandwidthDataListBuilder_ == null) {
         if (!other.bandwidthDataList_.isEmpty()) {
           if (bandwidthDataList_.isEmpty()) {
             bandwidthDataList_ = other.bandwidthDataList_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureBandwidthDataListIsMutable();
             bandwidthDataList_.addAll(other.bandwidthDataList_);
@@ -911,7 +1188,7 @@ private static final long serialVersionUID = 0L;
             bandwidthDataListBuilder_.dispose();
             bandwidthDataListBuilder_ = null;
             bandwidthDataList_ = other.bandwidthDataList_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             bandwidthDataListBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getBandwidthDataListFieldBuilder() : null;
@@ -1096,13 +1373,159 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private com.google.protobuf.LazyStringList domainInSpaceList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureDomainInSpaceListIsMutable() {
+      if (!((bitField0_ & 0x00000002) != 0)) {
+        domainInSpaceList_ = new com.google.protobuf.LazyStringArrayList(domainInSpaceList_);
+        bitField0_ |= 0x00000002;
+       }
+    }
+    /**
+     * <pre>
+     * 域名列表
+     * </pre>
+     *
+     * <code>repeated string DomainInSpaceList = 2;</code>
+     * @return A list containing the domainInSpaceList.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getDomainInSpaceListList() {
+      return domainInSpaceList_.getUnmodifiableView();
+    }
+    /**
+     * <pre>
+     * 域名列表
+     * </pre>
+     *
+     * <code>repeated string DomainInSpaceList = 2;</code>
+     * @return The count of domainInSpaceList.
+     */
+    public int getDomainInSpaceListCount() {
+      return domainInSpaceList_.size();
+    }
+    /**
+     * <pre>
+     * 域名列表
+     * </pre>
+     *
+     * <code>repeated string DomainInSpaceList = 2;</code>
+     * @param index The index of the element to return.
+     * @return The domainInSpaceList at the given index.
+     */
+    public java.lang.String getDomainInSpaceList(int index) {
+      return domainInSpaceList_.get(index);
+    }
+    /**
+     * <pre>
+     * 域名列表
+     * </pre>
+     *
+     * <code>repeated string DomainInSpaceList = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the domainInSpaceList at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getDomainInSpaceListBytes(int index) {
+      return domainInSpaceList_.getByteString(index);
+    }
+    /**
+     * <pre>
+     * 域名列表
+     * </pre>
+     *
+     * <code>repeated string DomainInSpaceList = 2;</code>
+     * @param index The index to set the value at.
+     * @param value The domainInSpaceList to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDomainInSpaceList(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureDomainInSpaceListIsMutable();
+      domainInSpaceList_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 域名列表
+     * </pre>
+     *
+     * <code>repeated string DomainInSpaceList = 2;</code>
+     * @param value The domainInSpaceList to add.
+     * @return This builder for chaining.
+     */
+    public Builder addDomainInSpaceList(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureDomainInSpaceListIsMutable();
+      domainInSpaceList_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 域名列表
+     * </pre>
+     *
+     * <code>repeated string DomainInSpaceList = 2;</code>
+     * @param values The domainInSpaceList to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllDomainInSpaceList(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureDomainInSpaceListIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, domainInSpaceList_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 域名列表
+     * </pre>
+     *
+     * <code>repeated string DomainInSpaceList = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDomainInSpaceList() {
+      domainInSpaceList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 域名列表
+     * </pre>
+     *
+     * <code>repeated string DomainInSpaceList = 2;</code>
+     * @param value The bytes of the domainInSpaceList to add.
+     * @return This builder for chaining.
+     */
+    public Builder addDomainInSpaceListBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureDomainInSpaceListIsMutable();
+      domainInSpaceList_.add(value);
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object startTime_ = "";
     /**
      * <pre>
      * 查询的起始时间
      * </pre>
      *
-     * <code>string StartTime = 2;</code>
+     * <code>string StartTime = 3;</code>
      * @return The startTime.
      */
     public java.lang.String getStartTime() {
@@ -1122,7 +1545,7 @@ private static final long serialVersionUID = 0L;
      * 查询的起始时间
      * </pre>
      *
-     * <code>string StartTime = 2;</code>
+     * <code>string StartTime = 3;</code>
      * @return The bytes for startTime.
      */
     public com.google.protobuf.ByteString
@@ -1143,7 +1566,7 @@ private static final long serialVersionUID = 0L;
      * 查询的起始时间
      * </pre>
      *
-     * <code>string StartTime = 2;</code>
+     * <code>string StartTime = 3;</code>
      * @param value The startTime to set.
      * @return This builder for chaining.
      */
@@ -1162,7 +1585,7 @@ private static final long serialVersionUID = 0L;
      * 查询的起始时间
      * </pre>
      *
-     * <code>string StartTime = 2;</code>
+     * <code>string StartTime = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearStartTime() {
@@ -1176,7 +1599,7 @@ private static final long serialVersionUID = 0L;
      * 查询的起始时间
      * </pre>
      *
-     * <code>string StartTime = 2;</code>
+     * <code>string StartTime = 3;</code>
      * @param value The bytes for startTime to set.
      * @return This builder for chaining.
      */
@@ -1198,7 +1621,7 @@ private static final long serialVersionUID = 0L;
      * 查询的结束时间
      * </pre>
      *
-     * <code>string EndTime = 3;</code>
+     * <code>string EndTime = 4;</code>
      * @return The endTime.
      */
     public java.lang.String getEndTime() {
@@ -1218,7 +1641,7 @@ private static final long serialVersionUID = 0L;
      * 查询的结束时间
      * </pre>
      *
-     * <code>string EndTime = 3;</code>
+     * <code>string EndTime = 4;</code>
      * @return The bytes for endTime.
      */
     public com.google.protobuf.ByteString
@@ -1239,7 +1662,7 @@ private static final long serialVersionUID = 0L;
      * 查询的结束时间
      * </pre>
      *
-     * <code>string EndTime = 3;</code>
+     * <code>string EndTime = 4;</code>
      * @param value The endTime to set.
      * @return This builder for chaining.
      */
@@ -1258,7 +1681,7 @@ private static final long serialVersionUID = 0L;
      * 查询的结束时间
      * </pre>
      *
-     * <code>string EndTime = 3;</code>
+     * <code>string EndTime = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearEndTime() {
@@ -1272,7 +1695,7 @@ private static final long serialVersionUID = 0L;
      * 查询的结束时间
      * </pre>
      *
-     * <code>string EndTime = 3;</code>
+     * <code>string EndTime = 4;</code>
      * @param value The bytes for endTime to set.
      * @return This builder for chaining.
      */
@@ -1294,7 +1717,7 @@ private static final long serialVersionUID = 0L;
      * 聚合的时间粒度
      * </pre>
      *
-     * <code>int32 Aggregation = 4;</code>
+     * <code>int32 Aggregation = 5;</code>
      * @return The aggregation.
      */
     @java.lang.Override
@@ -1306,7 +1729,7 @@ private static final long serialVersionUID = 0L;
      * 聚合的时间粒度
      * </pre>
      *
-     * <code>int32 Aggregation = 4;</code>
+     * <code>int32 Aggregation = 5;</code>
      * @param value The aggregation to set.
      * @return This builder for chaining.
      */
@@ -1321,7 +1744,7 @@ private static final long serialVersionUID = 0L;
      * 聚合的时间粒度
      * </pre>
      *
-     * <code>int32 Aggregation = 4;</code>
+     * <code>int32 Aggregation = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearAggregation() {
@@ -1334,10 +1757,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object bandwidthType_ = "";
     /**
      * <pre>
-     * 默认是CDN，支持CDN、PCDN、ALL
+     * 默认是CDN，支持CDN、ECDN、ALL
      * </pre>
      *
-     * <code>string BandwidthType = 5;</code>
+     * <code>string BandwidthType = 6;</code>
      * @return The bandwidthType.
      */
     public java.lang.String getBandwidthType() {
@@ -1354,10 +1777,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 默认是CDN，支持CDN、PCDN、ALL
+     * 默认是CDN，支持CDN、ECDN、ALL
      * </pre>
      *
-     * <code>string BandwidthType = 5;</code>
+     * <code>string BandwidthType = 6;</code>
      * @return The bytes for bandwidthType.
      */
     public com.google.protobuf.ByteString
@@ -1375,10 +1798,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 默认是CDN，支持CDN、PCDN、ALL
+     * 默认是CDN，支持CDN、ECDN、ALL
      * </pre>
      *
-     * <code>string BandwidthType = 5;</code>
+     * <code>string BandwidthType = 6;</code>
      * @param value The bandwidthType to set.
      * @return This builder for chaining.
      */
@@ -1394,10 +1817,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 默认是CDN，支持CDN、PCDN、ALL
+     * 默认是CDN，支持CDN、ECDN、ALL
      * </pre>
      *
-     * <code>string BandwidthType = 5;</code>
+     * <code>string BandwidthType = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearBandwidthType() {
@@ -1408,10 +1831,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 默认是CDN，支持CDN、PCDN、ALL
+     * 默认是CDN，支持CDN、ECDN、ALL
      * </pre>
      *
-     * <code>string BandwidthType = 5;</code>
+     * <code>string BandwidthType = 6;</code>
      * @param value The bytes for bandwidthType to set.
      * @return This builder for chaining.
      */
@@ -1427,13 +1850,109 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object area_ = "";
+    /**
+     * <pre>
+     * 区域
+     * </pre>
+     *
+     * <code>string Area = 7;</code>
+     * @return The area.
+     */
+    public java.lang.String getArea() {
+      java.lang.Object ref = area_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        area_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 区域
+     * </pre>
+     *
+     * <code>string Area = 7;</code>
+     * @return The bytes for area.
+     */
+    public com.google.protobuf.ByteString
+        getAreaBytes() {
+      java.lang.Object ref = area_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        area_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 区域
+     * </pre>
+     *
+     * <code>string Area = 7;</code>
+     * @param value The area to set.
+     * @return This builder for chaining.
+     */
+    public Builder setArea(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      area_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 区域
+     * </pre>
+     *
+     * <code>string Area = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearArea() {
+      
+      area_ = getDefaultInstance().getArea();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 区域
+     * </pre>
+     *
+     * <code>string Area = 7;</code>
+     * @param value The bytes for area to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAreaBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      area_ = value;
+      onChanged();
+      return this;
+    }
+
     private double peakBandwidth_ ;
     /**
      * <pre>
-     * 带宽峰值，单位为Mbps
+     * 带宽峰值，单位为bps
      * </pre>
      *
-     * <code>double PeakBandwidth = 6;</code>
+     * <code>double PeakBandwidth = 8;</code>
      * @return The peakBandwidth.
      */
     @java.lang.Override
@@ -1442,10 +1961,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 带宽峰值，单位为Mbps
+     * 带宽峰值，单位为bps
      * </pre>
      *
-     * <code>double PeakBandwidth = 6;</code>
+     * <code>double PeakBandwidth = 8;</code>
      * @param value The peakBandwidth to set.
      * @return This builder for chaining.
      */
@@ -1457,10 +1976,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 带宽峰值，单位为Mbps
+     * 带宽峰值，单位为bps
      * </pre>
      *
-     * <code>double PeakBandwidth = 6;</code>
+     * <code>double PeakBandwidth = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearPeakBandwidth() {
@@ -1476,7 +1995,7 @@ private static final long serialVersionUID = 0L;
      * 带宽峰值出现的时间
      * </pre>
      *
-     * <code>string PeakBandwidthTime = 7;</code>
+     * <code>string PeakBandwidthTime = 9;</code>
      * @return The peakBandwidthTime.
      */
     public java.lang.String getPeakBandwidthTime() {
@@ -1496,7 +2015,7 @@ private static final long serialVersionUID = 0L;
      * 带宽峰值出现的时间
      * </pre>
      *
-     * <code>string PeakBandwidthTime = 7;</code>
+     * <code>string PeakBandwidthTime = 9;</code>
      * @return The bytes for peakBandwidthTime.
      */
     public com.google.protobuf.ByteString
@@ -1517,7 +2036,7 @@ private static final long serialVersionUID = 0L;
      * 带宽峰值出现的时间
      * </pre>
      *
-     * <code>string PeakBandwidthTime = 7;</code>
+     * <code>string PeakBandwidthTime = 9;</code>
      * @param value The peakBandwidthTime to set.
      * @return This builder for chaining.
      */
@@ -1536,7 +2055,7 @@ private static final long serialVersionUID = 0L;
      * 带宽峰值出现的时间
      * </pre>
      *
-     * <code>string PeakBandwidthTime = 7;</code>
+     * <code>string PeakBandwidthTime = 9;</code>
      * @return This builder for chaining.
      */
     public Builder clearPeakBandwidthTime() {
@@ -1550,7 +2069,7 @@ private static final long serialVersionUID = 0L;
      * 带宽峰值出现的时间
      * </pre>
      *
-     * <code>string PeakBandwidthTime = 7;</code>
+     * <code>string PeakBandwidthTime = 9;</code>
      * @param value The bytes for peakBandwidthTime to set.
      * @return This builder for chaining.
      */
@@ -1566,12 +2085,151 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private double peak95Bandwidth_ ;
+    /**
+     * <pre>
+     * 带宽95峰值，单位为bps
+     * </pre>
+     *
+     * <code>double Peak95Bandwidth = 10;</code>
+     * @return The peak95Bandwidth.
+     */
+    @java.lang.Override
+    public double getPeak95Bandwidth() {
+      return peak95Bandwidth_;
+    }
+    /**
+     * <pre>
+     * 带宽95峰值，单位为bps
+     * </pre>
+     *
+     * <code>double Peak95Bandwidth = 10;</code>
+     * @param value The peak95Bandwidth to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPeak95Bandwidth(double value) {
+      
+      peak95Bandwidth_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 带宽95峰值，单位为bps
+     * </pre>
+     *
+     * <code>double Peak95Bandwidth = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPeak95Bandwidth() {
+      
+      peak95Bandwidth_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object peak95BandwidthTime_ = "";
+    /**
+     * <pre>
+     * 带宽95峰值出现的时间
+     * </pre>
+     *
+     * <code>string Peak95BandwidthTime = 11;</code>
+     * @return The peak95BandwidthTime.
+     */
+    public java.lang.String getPeak95BandwidthTime() {
+      java.lang.Object ref = peak95BandwidthTime_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        peak95BandwidthTime_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 带宽95峰值出现的时间
+     * </pre>
+     *
+     * <code>string Peak95BandwidthTime = 11;</code>
+     * @return The bytes for peak95BandwidthTime.
+     */
+    public com.google.protobuf.ByteString
+        getPeak95BandwidthTimeBytes() {
+      java.lang.Object ref = peak95BandwidthTime_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        peak95BandwidthTime_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 带宽95峰值出现的时间
+     * </pre>
+     *
+     * <code>string Peak95BandwidthTime = 11;</code>
+     * @param value The peak95BandwidthTime to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPeak95BandwidthTime(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      peak95BandwidthTime_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 带宽95峰值出现的时间
+     * </pre>
+     *
+     * <code>string Peak95BandwidthTime = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPeak95BandwidthTime() {
+      
+      peak95BandwidthTime_ = getDefaultInstance().getPeak95BandwidthTime();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 带宽95峰值出现的时间
+     * </pre>
+     *
+     * <code>string Peak95BandwidthTime = 11;</code>
+     * @param value The bytes for peak95BandwidthTime to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPeak95BandwidthTimeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      peak95BandwidthTime_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.util.List<com.volcengine.service.vod.model.business.VodBandwidthData> bandwidthDataList_ =
       java.util.Collections.emptyList();
     private void ensureBandwidthDataListIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         bandwidthDataList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodBandwidthData>(bandwidthDataList_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1583,7 +2241,7 @@ private static final long serialVersionUID = 0L;
      * 所有时间粒度数据
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodBandwidthData> getBandwidthDataListList() {
       if (bandwidthDataListBuilder_ == null) {
@@ -1597,7 +2255,7 @@ private static final long serialVersionUID = 0L;
      * 所有时间粒度数据
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
      */
     public int getBandwidthDataListCount() {
       if (bandwidthDataListBuilder_ == null) {
@@ -1611,7 +2269,7 @@ private static final long serialVersionUID = 0L;
      * 所有时间粒度数据
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
      */
     public com.volcengine.service.vod.model.business.VodBandwidthData getBandwidthDataList(int index) {
       if (bandwidthDataListBuilder_ == null) {
@@ -1625,7 +2283,7 @@ private static final long serialVersionUID = 0L;
      * 所有时间粒度数据
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
      */
     public Builder setBandwidthDataList(
         int index, com.volcengine.service.vod.model.business.VodBandwidthData value) {
@@ -1646,7 +2304,7 @@ private static final long serialVersionUID = 0L;
      * 所有时间粒度数据
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
      */
     public Builder setBandwidthDataList(
         int index, com.volcengine.service.vod.model.business.VodBandwidthData.Builder builderForValue) {
@@ -1664,7 +2322,7 @@ private static final long serialVersionUID = 0L;
      * 所有时间粒度数据
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
      */
     public Builder addBandwidthDataList(com.volcengine.service.vod.model.business.VodBandwidthData value) {
       if (bandwidthDataListBuilder_ == null) {
@@ -1684,7 +2342,7 @@ private static final long serialVersionUID = 0L;
      * 所有时间粒度数据
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
      */
     public Builder addBandwidthDataList(
         int index, com.volcengine.service.vod.model.business.VodBandwidthData value) {
@@ -1705,7 +2363,7 @@ private static final long serialVersionUID = 0L;
      * 所有时间粒度数据
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
      */
     public Builder addBandwidthDataList(
         com.volcengine.service.vod.model.business.VodBandwidthData.Builder builderForValue) {
@@ -1723,7 +2381,7 @@ private static final long serialVersionUID = 0L;
      * 所有时间粒度数据
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
      */
     public Builder addBandwidthDataList(
         int index, com.volcengine.service.vod.model.business.VodBandwidthData.Builder builderForValue) {
@@ -1741,7 +2399,7 @@ private static final long serialVersionUID = 0L;
      * 所有时间粒度数据
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
      */
     public Builder addAllBandwidthDataList(
         java.lang.Iterable<? extends com.volcengine.service.vod.model.business.VodBandwidthData> values) {
@@ -1760,12 +2418,12 @@ private static final long serialVersionUID = 0L;
      * 所有时间粒度数据
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
      */
     public Builder clearBandwidthDataList() {
       if (bandwidthDataListBuilder_ == null) {
         bandwidthDataList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         bandwidthDataListBuilder_.clear();
@@ -1777,7 +2435,7 @@ private static final long serialVersionUID = 0L;
      * 所有时间粒度数据
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
      */
     public Builder removeBandwidthDataList(int index) {
       if (bandwidthDataListBuilder_ == null) {
@@ -1794,7 +2452,7 @@ private static final long serialVersionUID = 0L;
      * 所有时间粒度数据
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
      */
     public com.volcengine.service.vod.model.business.VodBandwidthData.Builder getBandwidthDataListBuilder(
         int index) {
@@ -1805,7 +2463,7 @@ private static final long serialVersionUID = 0L;
      * 所有时间粒度数据
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
      */
     public com.volcengine.service.vod.model.business.VodBandwidthDataOrBuilder getBandwidthDataListOrBuilder(
         int index) {
@@ -1819,7 +2477,7 @@ private static final long serialVersionUID = 0L;
      * 所有时间粒度数据
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
      */
     public java.util.List<? extends com.volcengine.service.vod.model.business.VodBandwidthDataOrBuilder> 
          getBandwidthDataListOrBuilderList() {
@@ -1834,7 +2492,7 @@ private static final long serialVersionUID = 0L;
      * 所有时间粒度数据
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
      */
     public com.volcengine.service.vod.model.business.VodBandwidthData.Builder addBandwidthDataListBuilder() {
       return getBandwidthDataListFieldBuilder().addBuilder(
@@ -1845,7 +2503,7 @@ private static final long serialVersionUID = 0L;
      * 所有时间粒度数据
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
      */
     public com.volcengine.service.vod.model.business.VodBandwidthData.Builder addBandwidthDataListBuilder(
         int index) {
@@ -1857,7 +2515,7 @@ private static final long serialVersionUID = 0L;
      * 所有时间粒度数据
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 8;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodBandwidthData.Builder> 
          getBandwidthDataListBuilderList() {
@@ -1870,7 +2528,7 @@ private static final long serialVersionUID = 0L;
         bandwidthDataListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.volcengine.service.vod.model.business.VodBandwidthData, com.volcengine.service.vod.model.business.VodBandwidthData.Builder, com.volcengine.service.vod.model.business.VodBandwidthDataOrBuilder>(
                 bandwidthDataList_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         bandwidthDataList_ = null;

@@ -33,73 +33,110 @@ public interface VodDescribeVodDomainTrafficDataResultOrBuilder extends
       getDomainListBytes(int index);
 
   /**
-   * <code>string StartTime = 2;</code>
+   * <code>repeated string DomainInSpaceList = 2;</code>
+   * @return A list containing the domainInSpaceList.
+   */
+  java.util.List<java.lang.String>
+      getDomainInSpaceListList();
+  /**
+   * <code>repeated string DomainInSpaceList = 2;</code>
+   * @return The count of domainInSpaceList.
+   */
+  int getDomainInSpaceListCount();
+  /**
+   * <code>repeated string DomainInSpaceList = 2;</code>
+   * @param index The index of the element to return.
+   * @return The domainInSpaceList at the given index.
+   */
+  java.lang.String getDomainInSpaceList(int index);
+  /**
+   * <code>repeated string DomainInSpaceList = 2;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the domainInSpaceList at the given index.
+   */
+  com.google.protobuf.ByteString
+      getDomainInSpaceListBytes(int index);
+
+  /**
+   * <code>string StartTime = 3;</code>
    * @return The startTime.
    */
   java.lang.String getStartTime();
   /**
-   * <code>string StartTime = 2;</code>
+   * <code>string StartTime = 3;</code>
    * @return The bytes for startTime.
    */
   com.google.protobuf.ByteString
       getStartTimeBytes();
 
   /**
-   * <code>string EndTime = 3;</code>
+   * <code>string EndTime = 4;</code>
    * @return The endTime.
    */
   java.lang.String getEndTime();
   /**
-   * <code>string EndTime = 3;</code>
+   * <code>string EndTime = 4;</code>
    * @return The bytes for endTime.
    */
   com.google.protobuf.ByteString
       getEndTimeBytes();
 
   /**
-   * <code>int32 Aggregation = 4;</code>
+   * <code>int32 Aggregation = 5;</code>
    * @return The aggregation.
    */
   int getAggregation();
 
   /**
-   * <code>string TrafficType = 5;</code>
+   * <code>string TrafficType = 6;</code>
    * @return The trafficType.
    */
   java.lang.String getTrafficType();
   /**
-   * <code>string TrafficType = 5;</code>
+   * <code>string TrafficType = 6;</code>
    * @return The bytes for trafficType.
    */
   com.google.protobuf.ByteString
       getTrafficTypeBytes();
 
   /**
-   * <code>double TotalTraffic = 6;</code>
+   * <code>string Area = 7;</code>
+   * @return The area.
+   */
+  java.lang.String getArea();
+  /**
+   * <code>string Area = 7;</code>
+   * @return The bytes for area.
+   */
+  com.google.protobuf.ByteString
+      getAreaBytes();
+
+  /**
+   * <code>double TotalTraffic = 8;</code>
    * @return The totalTraffic.
    */
   double getTotalTraffic();
 
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 7;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
    */
   java.util.List<com.volcengine.service.vod.model.business.VodTrafficData> 
       getTrafficDataListList();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 7;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
    */
   com.volcengine.service.vod.model.business.VodTrafficData getTrafficDataList(int index);
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 7;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
    */
   int getTrafficDataListCount();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 7;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
    */
   java.util.List<? extends com.volcengine.service.vod.model.business.VodTrafficDataOrBuilder> 
       getTrafficDataListOrBuilderList();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 7;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
    */
   com.volcengine.service.vod.model.business.VodTrafficDataOrBuilder getTrafficDataListOrBuilder(
       int index);

@@ -910,7 +910,7 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.DescribeVodSpaceStorageData));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
                                 }
                             });
                         }
@@ -927,7 +927,7 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.ListDomain));
-                                    add(new BasicNameValuePair("Version", "2021-01-01"));
+                                    add(new BasicNameValuePair("Version", "2023-01-01"));
                                 }
                             });
                         }
@@ -1028,7 +1028,7 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.DescribeVodDomainBandwidthData));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
                                 }
                             });
                         }
@@ -1042,7 +1042,7 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.DescribeVodDomainTrafficData));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
                                 }
                             });
                         }
@@ -1183,6 +1183,20 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.AddOrUpdateCertificate20230701, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "POST");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AddOrUpdateCertificate));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             // **********************************************************************
             // 回调管理
             // **********************************************************************
@@ -1225,7 +1239,7 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.DescribeVodSpaceTranscodeData));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
                                 }
                             });
                         }
@@ -1239,7 +1253,7 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.DescribeVodSpaceAIStatisData));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
                                 }
                             });
                         }
@@ -1253,7 +1267,7 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.DescribeVodSpaceSubtitleStatisData));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
                                 }
                             });
                         }
@@ -1267,7 +1281,7 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.DescribeVodSpaceDetectStatisData));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
                                 }
                             });
                         }
@@ -1281,7 +1295,7 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.DescribeVodSnapshotData));
-                                    add(new BasicNameValuePair("Version", "2020-08-01"));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
                                 }
                             });
                         }
@@ -1295,7 +1309,7 @@ public class VodServiceConfig {
                         put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", Const.DescribeVodSpaceWorkflowDetailData));
-                                add(new BasicNameValuePair("Version", "2022-12-01"));
+                                add(new BasicNameValuePair("Version", "2023-07-01"));
                             }
                         });
                     }
@@ -1309,7 +1323,7 @@ public class VodServiceConfig {
                         put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", Const.DescribeVodSpaceEditDetailData));
-                                add(new BasicNameValuePair("Version", "2022-12-01"));
+                                add(new BasicNameValuePair("Version", "2023-07-01"));
                             }
                         });
                     }

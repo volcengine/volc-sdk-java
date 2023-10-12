@@ -33,6 +33,7 @@ private static final long serialVersionUID = 0L;
     drmExpireTimestamp_ = "";
     quality_ = "";
     playConfig_ = "";
+    needOriginal_ = "";
   }
 
   @java.lang.Override
@@ -165,6 +166,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             playConfig_ = s;
+            break;
+          }
+          case 146: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            needOriginal_ = s;
             break;
           }
           default: {
@@ -987,6 +994,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int NEEDORIGINAL_FIELD_NUMBER = 18;
+  private volatile java.lang.Object needOriginal_;
+  /**
+   * <pre>
+   *控制是否需要将原片信息置于 VideoInfos 中
+   * </pre>
+   *
+   * <code>string NeedOriginal = 18;</code>
+   * @return The needOriginal.
+   */
+  @java.lang.Override
+  public java.lang.String getNeedOriginal() {
+    java.lang.Object ref = needOriginal_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      needOriginal_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *控制是否需要将原片信息置于 VideoInfos 中
+   * </pre>
+   *
+   * <code>string NeedOriginal = 18;</code>
+   * @return The bytes for needOriginal.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getNeedOriginalBytes() {
+    java.lang.Object ref = needOriginal_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      needOriginal_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1052,6 +1105,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playConfig_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 17, playConfig_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(needOriginal_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 18, needOriginal_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -1112,6 +1168,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playConfig_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, playConfig_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(needOriginal_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(18, needOriginal_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1161,6 +1220,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getQuality())) return false;
     if (!getPlayConfig()
         .equals(other.getPlayConfig())) return false;
+    if (!getNeedOriginal()
+        .equals(other.getNeedOriginal())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1206,6 +1267,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getQuality().hashCode();
     hash = (37 * hash) + PLAYCONFIG_FIELD_NUMBER;
     hash = (53 * hash) + getPlayConfig().hashCode();
+    hash = (37 * hash) + NEEDORIGINAL_FIELD_NUMBER;
+    hash = (53 * hash) + getNeedOriginal().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1373,6 +1436,8 @@ private static final long serialVersionUID = 0L;
 
       playConfig_ = "";
 
+      needOriginal_ = "";
+
       return this;
     }
 
@@ -1416,6 +1481,7 @@ private static final long serialVersionUID = 0L;
       result.drmExpireTimestamp_ = drmExpireTimestamp_;
       result.quality_ = quality_;
       result.playConfig_ = playConfig_;
+      result.needOriginal_ = needOriginal_;
       onBuilt();
       return result;
     }
@@ -1530,6 +1596,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPlayConfig().isEmpty()) {
         playConfig_ = other.playConfig_;
+        onChanged();
+      }
+      if (!other.getNeedOriginal().isEmpty()) {
+        needOriginal_ = other.needOriginal_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -3204,6 +3274,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       playConfig_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object needOriginal_ = "";
+    /**
+     * <pre>
+     *控制是否需要将原片信息置于 VideoInfos 中
+     * </pre>
+     *
+     * <code>string NeedOriginal = 18;</code>
+     * @return The needOriginal.
+     */
+    public java.lang.String getNeedOriginal() {
+      java.lang.Object ref = needOriginal_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        needOriginal_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *控制是否需要将原片信息置于 VideoInfos 中
+     * </pre>
+     *
+     * <code>string NeedOriginal = 18;</code>
+     * @return The bytes for needOriginal.
+     */
+    public com.google.protobuf.ByteString
+        getNeedOriginalBytes() {
+      java.lang.Object ref = needOriginal_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        needOriginal_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *控制是否需要将原片信息置于 VideoInfos 中
+     * </pre>
+     *
+     * <code>string NeedOriginal = 18;</code>
+     * @param value The needOriginal to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNeedOriginal(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      needOriginal_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *控制是否需要将原片信息置于 VideoInfos 中
+     * </pre>
+     *
+     * <code>string NeedOriginal = 18;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNeedOriginal() {
+      
+      needOriginal_ = getDefaultInstance().getNeedOriginal();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *控制是否需要将原片信息置于 VideoInfos 中
+     * </pre>
+     *
+     * <code>string NeedOriginal = 18;</code>
+     * @param value The bytes for needOriginal to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNeedOriginalBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      needOriginal_ = value;
       onChanged();
       return this;
     }

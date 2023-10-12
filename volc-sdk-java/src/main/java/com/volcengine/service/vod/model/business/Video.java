@@ -136,6 +136,16 @@ private static final long serialVersionUID = 0L;
             scaleMode_ = input.readInt32();
             break;
           }
+          case 192: {
+
+            gopSize_ = input.readInt32();
+            break;
+          }
+          case 200: {
+
+            disableBFrame_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -452,6 +462,28 @@ private static final long serialVersionUID = 0L;
     return hDRMode_;
   }
 
+  public static final int GOPSIZE_FIELD_NUMBER = 24;
+  private int gopSize_;
+  /**
+   * <code>int32 GopSize = 24;</code>
+   * @return The gopSize.
+   */
+  @java.lang.Override
+  public int getGopSize() {
+    return gopSize_;
+  }
+
+  public static final int DISABLEBFRAME_FIELD_NUMBER = 25;
+  private boolean disableBFrame_;
+  /**
+   * <code>bool DisableBFrame = 25;</code>
+   * @return The disableBFrame.
+   */
+  @java.lang.Override
+  public boolean getDisableBFrame() {
+    return disableBFrame_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -513,6 +545,12 @@ private static final long serialVersionUID = 0L;
     }
     if (scaleMode_ != 0) {
       output.writeInt32(22, scaleMode_);
+    }
+    if (gopSize_ != 0) {
+      output.writeInt32(24, gopSize_);
+    }
+    if (disableBFrame_ != false) {
+      output.writeBool(25, disableBFrame_);
     }
     unknownFields.writeTo(output);
   }
@@ -583,6 +621,14 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(22, scaleMode_);
     }
+    if (gopSize_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(24, gopSize_);
+    }
+    if (disableBFrame_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(25, disableBFrame_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -632,6 +678,10 @@ private static final long serialVersionUID = 0L;
             other.getFps())) return false;
     if (getHDRMode()
         != other.getHDRMode()) return false;
+    if (getGopSize()
+        != other.getGopSize()) return false;
+    if (getDisableBFrame()
+        != other.getDisableBFrame()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -677,6 +727,11 @@ private static final long serialVersionUID = 0L;
         getFps());
     hash = (37 * hash) + HDRMODE_FIELD_NUMBER;
     hash = (53 * hash) + getHDRMode();
+    hash = (37 * hash) + GOPSIZE_FIELD_NUMBER;
+    hash = (53 * hash) + getGopSize();
+    hash = (37 * hash) + DISABLEBFRAME_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getDisableBFrame());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -842,6 +897,10 @@ private static final long serialVersionUID = 0L;
 
       hDRMode_ = 0;
 
+      gopSize_ = 0;
+
+      disableBFrame_ = false;
+
       return this;
     }
 
@@ -884,6 +943,8 @@ private static final long serialVersionUID = 0L;
       result.vsync_ = vsync_;
       result.fps_ = fps_;
       result.hDRMode_ = hDRMode_;
+      result.gopSize_ = gopSize_;
+      result.disableBFrame_ = disableBFrame_;
       onBuilt();
       return result;
     }
@@ -983,6 +1044,12 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getHDRMode() != 0) {
         setHDRMode(other.getHDRMode());
+      }
+      if (other.getGopSize() != 0) {
+        setGopSize(other.getGopSize());
+      }
+      if (other.getDisableBFrame() != false) {
+        setDisableBFrame(other.getDisableBFrame());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1685,6 +1752,68 @@ private static final long serialVersionUID = 0L;
     public Builder clearHDRMode() {
       
       hDRMode_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int gopSize_ ;
+    /**
+     * <code>int32 GopSize = 24;</code>
+     * @return The gopSize.
+     */
+    @java.lang.Override
+    public int getGopSize() {
+      return gopSize_;
+    }
+    /**
+     * <code>int32 GopSize = 24;</code>
+     * @param value The gopSize to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGopSize(int value) {
+      
+      gopSize_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 GopSize = 24;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearGopSize() {
+      
+      gopSize_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private boolean disableBFrame_ ;
+    /**
+     * <code>bool DisableBFrame = 25;</code>
+     * @return The disableBFrame.
+     */
+    @java.lang.Override
+    public boolean getDisableBFrame() {
+      return disableBFrame_;
+    }
+    /**
+     * <code>bool DisableBFrame = 25;</code>
+     * @param value The disableBFrame to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDisableBFrame(boolean value) {
+      
+      disableBFrame_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool DisableBFrame = 25;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDisableBFrame() {
+      
+      disableBFrame_ = false;
       onChanged();
       return this;
     }

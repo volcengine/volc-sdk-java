@@ -20,6 +20,11 @@ public final class VodUpload {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodUrlUploadURLSet_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodUrlUploadURLSet_CustomURLHeadersEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodUrlUploadURLSet_CustomURLHeadersEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Vod_Models_Business_VodUrlResponseData_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -170,7 +175,7 @@ public final class VodUpload {
     java.lang.String[] descriptorData = {
       "\n(volcengine/vod/business/vod_upload.pro" +
       "to\022\036Volcengine.Vod.Models.Business\032(volc" +
-      "engine/vod/business/vod_common.proto\"\266\002\n" +
+      "engine/vod/business/vod_common.proto\"\323\003\n" +
       "\022VodUrlUploadURLSet\022\021\n\tSourceUrl\030\001 \001(\t\022\024" +
       "\n\014CallbackArgs\030\002 \001(\t\022\013\n\003Md5\030\003 \001(\t\022\022\n\nTem" +
       "plateId\030\004 \001(\t\022\r\n\005Title\030\005 \001(\t\022\023\n\013Descript" +
@@ -178,111 +183,115 @@ public final class VodUpload {
       "\t\022\020\n\010FileName\030\t \001(\t\022\030\n\020ClassificationId\030" +
       "\n \001(\003\022\024\n\014StorageClass\030\013 \001(\005\022\025\n\rFileExten" +
       "sion\030\014 \001(\t\022\036\n\026UrlEncryptionAlgorithm\030\r \001" +
-      "(\t\022\031\n\021EnableLowPriority\030\016 \001(\010\"M\n\022VodUrlR" +
-      "esponseData\0227\n\004Data\030\001 \003(\0132).Volcengine.V" +
-      "od.Models.Business.ValuePair\"-\n\tValuePai" +
-      "r\022\r\n\005JobId\030\001 \001(\t\022\021\n\tSourceUrl\030\002 \001(\t\"R\n\014V" +
-      "odQueryData\022B\n\004Data\030\001 \001(\01324.Volcengine.V" +
-      "od.Models.Business.VodQueryUploadResult\"" +
-      "p\n\024VodQueryUploadResult\022@\n\rMediaInfoList" +
-      "\030\001 \003(\0132).Volcengine.Vod.Models.Business." +
-      "VodURLSet\022\026\n\016NotExistJobIds\030\002 \003(\t\"^\n\rVod" +
-      "CommitData\022M\n\004Data\030\001 \001(\0132?.Volcengine.Vo" +
-      "d.Models.Business.VodCommitUploadInfoRes" +
-      "ponseData\"\247\001\n\037VodCommitUploadInfoRespons" +
-      "eData\022\013\n\003Vid\030\001 \001(\t\022A\n\nSourceInfo\030\002 \001(\0132-" +
-      ".Volcengine.Vod.Models.Business.VodSourc" +
-      "eInfo\022\021\n\tPosterUri\030\003 \001(\t\022\024\n\014CallbackArgs" +
-      "\030\004 \001(\t\022\013\n\003Mid\030\005 \001(\t\"\333\001\n\tVodURLSet\022\021\n\tReq" +
-      "uestId\030\001 \001(\t\022\r\n\005JobId\030\002 \001(\t\022\021\n\tSourceUrl" +
-      "\030\003 \001(\t\022\r\n\005State\030\004 \001(\t\022\013\n\003Vid\030\005 \001(\t\022\021\n\tSp" +
-      "aceName\030\006 \001(\t\022\021\n\tAccountId\030\007 \001(\t\022A\n\nSour" +
-      "ceInfo\030\010 \001(\0132-.Volcengine.Vod.Models.Bus" +
-      "iness.VodSourceInfo\022\024\n\014CallbackArgs\030\t \001(" +
-      "\t\"`\n\030VodApplyUploadInfoResult\022D\n\004Data\030\001 " +
-      "\001(\01326.Volcengine.Vod.Models.Business.Vod" +
-      "ApplyUploadInfoData\"a\n\026VodApplyUploadInf" +
-      "oData\022G\n\rUploadAddress\030\001 \001(\01320.Volcengin" +
-      "e.Vod.Models.Business.VodUploadAddress\"\302" +
-      "\001\n\020VodUploadAddress\022@\n\nStoreInfos\030\001 \003(\0132" +
-      ",.Volcengine.Vod.Models.Business.VodStor" +
-      "eInfo\022\023\n\013UploadHosts\030\002 \003(\t\022C\n\014UploadHead" +
-      "er\030\003 \003(\0132-.Volcengine.Vod.Models.Busines" +
-      "s.VodHeaderPair\022\022\n\nSessionKey\030\004 \001(\t\".\n\014V" +
-      "odStoreInfo\022\020\n\010StoreUri\030\001 \001(\t\022\014\n\004Auth\030\002 " +
-      "\001(\t\"+\n\rVodHeaderPair\022\013\n\003Key\030\001 \001(\t\022\r\n\005Val" +
-      "ue\030\002 \001(\t\"b\n\031VodCommitUploadInfoResult\022E\n" +
-      "\004Data\030\001 \001(\01327.Volcengine.Vod.Models.Busi" +
-      "ness.VodCommitUploadInfoData\"\211\001\n\027VodComm" +
-      "itUploadInfoData\022\013\n\003Vid\030\001 \001(\t\022\021\n\tPosterU" +
-      "ri\030\002 \001(\t\022A\n\nSourceInfo\030\003 \001(\0132-.Volcengin" +
-      "e.Vod.Models.Business.VodSourceInfo\022\013\n\003M" +
-      "id\030\004 \001(\t\"\340\002\n\026VodUploadFunctionInput\022\024\n\014S" +
-      "napshotTime\030\001 \001(\001\022\r\n\005Title\030\002 \001(\t\022\014\n\004Tags" +
-      "\030\003 \001(\t\022\023\n\013Description\030\004 \001(\t\022\020\n\010Category\030" +
-      "\005 \001(\t\022\022\n\nRecordType\030\006 \001(\005\022\016\n\006Format\030\007 \001(" +
-      "\t\022\030\n\020ClassificationId\030\010 \001(\005\022\022\n\nTemplateI" +
-      "d\030\t \001(\t\022\013\n\003Vid\030\n \001(\t\022\013\n\003Fid\030\013 \001(\t\022\020\n\010Lan" +
-      "guage\030\014 \001(\t\022\020\n\010StoreUri\030\r \001(\t\022\016\n\006Source\030" +
-      "\016 \001(\t\022\013\n\003Tag\030\017 \001(\t\022\023\n\013AutoPublish\030\020 \001(\010\022" +
-      "\022\n\nActionType\030\021 \001(\t\022\026\n\016IsHlsIndexOnly\030\022 " +
-      "\001(\010\"h\n\021VodUploadFunction\022\014\n\004Name\030\001 \001(\t\022E" +
-      "\n\005Input\030\002 \001(\01326.Volcengine.Vod.Models.Bu" +
-      "siness.VodUploadFunctionInput\"\310\001\n\025Commit" +
-      "UploadInfoParam\022\021\n\tSpaceName\030\001 \001(\t\022\024\n\014Ca" +
-      "llbackArgs\030\002 \001(\t\022\022\n\nSessionKey\030\003 \001(\t\022D\n\t" +
-      "Functions\030\004 \003(\01321.Volcengine.Vod.Models." +
-      "Business.VodUploadFunction\022\023\n\013GetMetaMod" +
-      "e\030\005 \001(\t\022\027\n\017VodUploadSource\030\006 \001(\t\"\225\001\n\025Com" +
-      "mitRequestBodyJson\022\021\n\tSpaceName\030\001 \001(\t\022\022\n" +
-      "\nSessionKey\030\002 \001(\t\022\024\n\014CallbackArgs\030\003 \001(\t\022" +
-      "\021\n\tFunctions\030\004 \001(\t\022\023\n\013GetMetaMode\030\005 \001(\t\022" +
-      "\027\n\017VodUploadSource\030\006 \001(\t\"\354\001\n\024ApplyUpload" +
-      "InfoParam\022\021\n\tSpaceName\030\001 \001(\t\022\020\n\010FileType" +
-      "\030\002 \001(\t\022\022\n\nSessionKey\030\003 \001(\t\022\020\n\010FileSize\030\004" +
-      " \001(\001\022\021\n\tMediaType\030\005 \001(\t\022\017\n\007TosKeys\030\006 \001(\t" +
-      "\022\025\n\rFileExtension\030\007 \001(\t\022\022\n\nFilePrefix\030\010 " +
-      "\001(\t\022\027\n\017FlushUploadMode\030\t \001(\005\022\013\n\003Md5\030\n \001(" +
-      "\t\022\024\n\014StorageClass\030\013 \001(\005\"\226\001\n\016CommitRespon" +
-      "se\022\013\n\003Vid\030\001 \001(\t\022\013\n\003Mid\030\002 \001(\t\022A\n\nSourceIn" +
-      "fo\030\003 \001(\0132-.Volcengine.Vod.Models.Busines" +
-      "s.VodSourceInfo\022\021\n\tPosterUri\030\004 \001(\t\022\024\n\014Ca" +
-      "llbackArgs\030\005 \001(\t\")\n\023VodUploadOptionInfo\022" +
-      "\022\n\nTemplateId\030\001 \001(\t\"\230\002\n\025VodUploadCallbac" +
-      "kData\022\014\n\004Code\030\001 \001(\t\022\017\n\007Message\030\002 \001(\t\022\024\n\014" +
-      "CallbackArgs\030\003 \001(\t\022\013\n\003Vid\030\004 \001(\t\022\013\n\003Mid\030\005" +
-      " \001(\t\022\021\n\tSpaceName\030\006 \001(\t\022A\n\nSourceInfo\030\007 " +
-      "\001(\0132-.Volcengine.Vod.Models.Business.Vod" +
-      "SourceInfo\022\021\n\tPosterUri\030\010 \001(\t\022G\n\nOptionI" +
-      "nfo\030\t \001(\01323.Volcengine.Vod.Models.Busine" +
-      "ss.VodUploadOptionInfo\"\241\001\n\020CallbackRespo" +
-      "nse\022\021\n\tRequestId\030\001 \001(\t\022\017\n\007Version\030\002 \001(\t\022" +
-      "\021\n\tEventTime\030\003 \001(\t\022\021\n\tEventType\030\004 \001(\t\022C\n" +
-      "\004Data\030\005 \001(\01325.Volcengine.Vod.Models.Busi" +
-      "ness.VodUploadCallbackData\"+\n\tStoreInfo\022" +
-      "\020\n\010StoreUri\030\001 \001(\t\022\014\n\004Auth\030\002 \001(\t\"(\n\nHeade" +
-      "rPair\022\013\n\003Key\030\001 \001(\t\022\r\n\005Value\030\002 \001(\t\"\271\001\n\rUp" +
-      "loadAddress\022=\n\nStoreInfos\030\001 \003(\0132).Volcen" +
-      "gine.Vod.Models.Business.StoreInfo\022\023\n\013Up" +
-      "loadHosts\030\002 \003(\t\022@\n\014UploadHeader\030\003 \003(\0132*." +
-      "Volcengine.Vod.Models.Business.HeaderPai" +
-      "r\022\022\n\nSessionKey\030\004 \001(\t\"\256\001\n\021FlushUploadRes" +
-      "ult\022\023\n\013FlushUpload\030\001 \001(\010\022\013\n\003Vid\030\002 \001(\t\022\013\n" +
-      "\003Mid\030\003 \001(\t\022A\n\nSourceInfo\030\004 \001(\0132-.Volceng" +
-      "ine.Vod.Models.Business.VodSourceInfo\022\021\n" +
-      "\tPosterUri\030\005 \001(\t\022\024\n\014CallbackArgs\030\006 \001(\t\"\265" +
-      "\001\n\rApplyResponse\022D\n\rUploadAddress\030\001 \001(\0132" +
-      "-.Volcengine.Vod.Models.Business.UploadA" +
-      "ddress\022L\n\021FlushUploadResult\030\002 \001(\01321.Volc" +
-      "engine.Vod.Models.Business.FlushUploadRe" +
-      "sult\022\020\n\010SDKParam\030\003 \001(\t*B\n\020StorageClassTy" +
-      "pe\022\013\n\007Default\020\000\022\014\n\010Standard\020\001\022\013\n\007Archive" +
-      "\020\002\022\006\n\002IA\020\003B\315\001\n)com.volcengine.service.vo" +
-      "d.model.businessB\tVodUploadP\001ZAgithub.co" +
-      "m/volcengine/volc-sdk-golang/service/vod" +
-      "/models/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service" +
-      "\\Vod\\Models\\Business\342\002#Volc\\Service\\Vod\\" +
-      "Models\\GPBMetadatab\006proto3"
+      "(\t\022\031\n\021EnableLowPriority\030\016 \001(\010\022b\n\020CustomU" +
+      "RLHeaders\030\017 \003(\0132H.Volcengine.Vod.Models." +
+      "Business.VodUrlUploadURLSet.CustomURLHea" +
+      "dersEntry\0327\n\025CustomURLHeadersEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"M\n\022VodUrlResp" +
+      "onseData\0227\n\004Data\030\001 \003(\0132).Volcengine.Vod." +
+      "Models.Business.ValuePair\"-\n\tValuePair\022\r" +
+      "\n\005JobId\030\001 \001(\t\022\021\n\tSourceUrl\030\002 \001(\t\"R\n\014VodQ" +
+      "ueryData\022B\n\004Data\030\001 \001(\01324.Volcengine.Vod." +
+      "Models.Business.VodQueryUploadResult\"p\n\024" +
+      "VodQueryUploadResult\022@\n\rMediaInfoList\030\001 " +
+      "\003(\0132).Volcengine.Vod.Models.Business.Vod" +
+      "URLSet\022\026\n\016NotExistJobIds\030\002 \003(\t\"^\n\rVodCom" +
+      "mitData\022M\n\004Data\030\001 \001(\0132?.Volcengine.Vod.M" +
+      "odels.Business.VodCommitUploadInfoRespon" +
+      "seData\"\247\001\n\037VodCommitUploadInfoResponseDa" +
+      "ta\022\013\n\003Vid\030\001 \001(\t\022A\n\nSourceInfo\030\002 \001(\0132-.Vo" +
+      "lcengine.Vod.Models.Business.VodSourceIn" +
+      "fo\022\021\n\tPosterUri\030\003 \001(\t\022\024\n\014CallbackArgs\030\004 " +
+      "\001(\t\022\013\n\003Mid\030\005 \001(\t\"\333\001\n\tVodURLSet\022\021\n\tReques" +
+      "tId\030\001 \001(\t\022\r\n\005JobId\030\002 \001(\t\022\021\n\tSourceUrl\030\003 " +
+      "\001(\t\022\r\n\005State\030\004 \001(\t\022\013\n\003Vid\030\005 \001(\t\022\021\n\tSpace" +
+      "Name\030\006 \001(\t\022\021\n\tAccountId\030\007 \001(\t\022A\n\nSourceI" +
+      "nfo\030\010 \001(\0132-.Volcengine.Vod.Models.Busine" +
+      "ss.VodSourceInfo\022\024\n\014CallbackArgs\030\t \001(\t\"`" +
+      "\n\030VodApplyUploadInfoResult\022D\n\004Data\030\001 \001(\013" +
+      "26.Volcengine.Vod.Models.Business.VodApp" +
+      "lyUploadInfoData\"a\n\026VodApplyUploadInfoDa" +
+      "ta\022G\n\rUploadAddress\030\001 \001(\01320.Volcengine.V" +
+      "od.Models.Business.VodUploadAddress\"\302\001\n\020" +
+      "VodUploadAddress\022@\n\nStoreInfos\030\001 \003(\0132,.V" +
+      "olcengine.Vod.Models.Business.VodStoreIn" +
+      "fo\022\023\n\013UploadHosts\030\002 \003(\t\022C\n\014UploadHeader\030" +
+      "\003 \003(\0132-.Volcengine.Vod.Models.Business.V" +
+      "odHeaderPair\022\022\n\nSessionKey\030\004 \001(\t\".\n\014VodS" +
+      "toreInfo\022\020\n\010StoreUri\030\001 \001(\t\022\014\n\004Auth\030\002 \001(\t" +
+      "\"+\n\rVodHeaderPair\022\013\n\003Key\030\001 \001(\t\022\r\n\005Value\030" +
+      "\002 \001(\t\"b\n\031VodCommitUploadInfoResult\022E\n\004Da" +
+      "ta\030\001 \001(\01327.Volcengine.Vod.Models.Busines" +
+      "s.VodCommitUploadInfoData\"\211\001\n\027VodCommitU" +
+      "ploadInfoData\022\013\n\003Vid\030\001 \001(\t\022\021\n\tPosterUri\030" +
+      "\002 \001(\t\022A\n\nSourceInfo\030\003 \001(\0132-.Volcengine.V" +
+      "od.Models.Business.VodSourceInfo\022\013\n\003Mid\030" +
+      "\004 \001(\t\"\340\002\n\026VodUploadFunctionInput\022\024\n\014Snap" +
+      "shotTime\030\001 \001(\001\022\r\n\005Title\030\002 \001(\t\022\014\n\004Tags\030\003 " +
+      "\001(\t\022\023\n\013Description\030\004 \001(\t\022\020\n\010Category\030\005 \001" +
+      "(\t\022\022\n\nRecordType\030\006 \001(\005\022\016\n\006Format\030\007 \001(\t\022\030" +
+      "\n\020ClassificationId\030\010 \001(\005\022\022\n\nTemplateId\030\t" +
+      " \001(\t\022\013\n\003Vid\030\n \001(\t\022\013\n\003Fid\030\013 \001(\t\022\020\n\010Langua" +
+      "ge\030\014 \001(\t\022\020\n\010StoreUri\030\r \001(\t\022\016\n\006Source\030\016 \001" +
+      "(\t\022\013\n\003Tag\030\017 \001(\t\022\023\n\013AutoPublish\030\020 \001(\010\022\022\n\n" +
+      "ActionType\030\021 \001(\t\022\026\n\016IsHlsIndexOnly\030\022 \001(\010" +
+      "\"h\n\021VodUploadFunction\022\014\n\004Name\030\001 \001(\t\022E\n\005I" +
+      "nput\030\002 \001(\01326.Volcengine.Vod.Models.Busin" +
+      "ess.VodUploadFunctionInput\"\310\001\n\025CommitUpl" +
+      "oadInfoParam\022\021\n\tSpaceName\030\001 \001(\t\022\024\n\014Callb" +
+      "ackArgs\030\002 \001(\t\022\022\n\nSessionKey\030\003 \001(\t\022D\n\tFun" +
+      "ctions\030\004 \003(\01321.Volcengine.Vod.Models.Bus" +
+      "iness.VodUploadFunction\022\023\n\013GetMetaMode\030\005" +
+      " \001(\t\022\027\n\017VodUploadSource\030\006 \001(\t\"\225\001\n\025Commit" +
+      "RequestBodyJson\022\021\n\tSpaceName\030\001 \001(\t\022\022\n\nSe" +
+      "ssionKey\030\002 \001(\t\022\024\n\014CallbackArgs\030\003 \001(\t\022\021\n\t" +
+      "Functions\030\004 \001(\t\022\023\n\013GetMetaMode\030\005 \001(\t\022\027\n\017" +
+      "VodUploadSource\030\006 \001(\t\"\354\001\n\024ApplyUploadInf" +
+      "oParam\022\021\n\tSpaceName\030\001 \001(\t\022\020\n\010FileType\030\002 " +
+      "\001(\t\022\022\n\nSessionKey\030\003 \001(\t\022\020\n\010FileSize\030\004 \001(" +
+      "\001\022\021\n\tMediaType\030\005 \001(\t\022\017\n\007TosKeys\030\006 \001(\t\022\025\n" +
+      "\rFileExtension\030\007 \001(\t\022\022\n\nFilePrefix\030\010 \001(\t" +
+      "\022\027\n\017FlushUploadMode\030\t \001(\005\022\013\n\003Md5\030\n \001(\t\022\024" +
+      "\n\014StorageClass\030\013 \001(\005\"\226\001\n\016CommitResponse\022" +
+      "\013\n\003Vid\030\001 \001(\t\022\013\n\003Mid\030\002 \001(\t\022A\n\nSourceInfo\030" +
+      "\003 \001(\0132-.Volcengine.Vod.Models.Business.V" +
+      "odSourceInfo\022\021\n\tPosterUri\030\004 \001(\t\022\024\n\014Callb" +
+      "ackArgs\030\005 \001(\t\")\n\023VodUploadOptionInfo\022\022\n\n" +
+      "TemplateId\030\001 \001(\t\"\230\002\n\025VodUploadCallbackDa" +
+      "ta\022\014\n\004Code\030\001 \001(\t\022\017\n\007Message\030\002 \001(\t\022\024\n\014Cal" +
+      "lbackArgs\030\003 \001(\t\022\013\n\003Vid\030\004 \001(\t\022\013\n\003Mid\030\005 \001(" +
+      "\t\022\021\n\tSpaceName\030\006 \001(\t\022A\n\nSourceInfo\030\007 \001(\013" +
+      "2-.Volcengine.Vod.Models.Business.VodSou" +
+      "rceInfo\022\021\n\tPosterUri\030\010 \001(\t\022G\n\nOptionInfo" +
+      "\030\t \001(\01323.Volcengine.Vod.Models.Business." +
+      "VodUploadOptionInfo\"\241\001\n\020CallbackResponse" +
+      "\022\021\n\tRequestId\030\001 \001(\t\022\017\n\007Version\030\002 \001(\t\022\021\n\t" +
+      "EventTime\030\003 \001(\t\022\021\n\tEventType\030\004 \001(\t\022C\n\004Da" +
+      "ta\030\005 \001(\01325.Volcengine.Vod.Models.Busines" +
+      "s.VodUploadCallbackData\"+\n\tStoreInfo\022\020\n\010" +
+      "StoreUri\030\001 \001(\t\022\014\n\004Auth\030\002 \001(\t\"(\n\nHeaderPa" +
+      "ir\022\013\n\003Key\030\001 \001(\t\022\r\n\005Value\030\002 \001(\t\"\271\001\n\rUploa" +
+      "dAddress\022=\n\nStoreInfos\030\001 \003(\0132).Volcengin" +
+      "e.Vod.Models.Business.StoreInfo\022\023\n\013Uploa" +
+      "dHosts\030\002 \003(\t\022@\n\014UploadHeader\030\003 \003(\0132*.Vol" +
+      "cengine.Vod.Models.Business.HeaderPair\022\022" +
+      "\n\nSessionKey\030\004 \001(\t\"\256\001\n\021FlushUploadResult" +
+      "\022\023\n\013FlushUpload\030\001 \001(\010\022\013\n\003Vid\030\002 \001(\t\022\013\n\003Mi" +
+      "d\030\003 \001(\t\022A\n\nSourceInfo\030\004 \001(\0132-.Volcengine" +
+      ".Vod.Models.Business.VodSourceInfo\022\021\n\tPo" +
+      "sterUri\030\005 \001(\t\022\024\n\014CallbackArgs\030\006 \001(\t\"\265\001\n\r" +
+      "ApplyResponse\022D\n\rUploadAddress\030\001 \001(\0132-.V" +
+      "olcengine.Vod.Models.Business.UploadAddr" +
+      "ess\022L\n\021FlushUploadResult\030\002 \001(\01321.Volceng" +
+      "ine.Vod.Models.Business.FlushUploadResul" +
+      "t\022\020\n\010SDKParam\030\003 \001(\t*B\n\020StorageClassType\022" +
+      "\013\n\007Default\020\000\022\014\n\010Standard\020\001\022\013\n\007Archive\020\002\022" +
+      "\006\n\002IA\020\003B\315\001\n)com.volcengine.service.vod.m" +
+      "odel.businessB\tVodUploadP\001ZAgithub.com/v" +
+      "olcengine/volc-sdk-golang/service/vod/mo" +
+      "dels/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vo" +
+      "d\\Models\\Business\342\002#Volc\\Service\\Vod\\Mod" +
+      "els\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -294,7 +303,13 @@ public final class VodUpload {
     internal_static_Volcengine_Vod_Models_Business_VodUrlUploadURLSet_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodUrlUploadURLSet_descriptor,
-        new java.lang.String[] { "SourceUrl", "CallbackArgs", "Md5", "TemplateId", "Title", "Description", "Tags", "Category", "FileName", "ClassificationId", "StorageClass", "FileExtension", "UrlEncryptionAlgorithm", "EnableLowPriority", });
+        new java.lang.String[] { "SourceUrl", "CallbackArgs", "Md5", "TemplateId", "Title", "Description", "Tags", "Category", "FileName", "ClassificationId", "StorageClass", "FileExtension", "UrlEncryptionAlgorithm", "EnableLowPriority", "CustomURLHeaders", });
+    internal_static_Volcengine_Vod_Models_Business_VodUrlUploadURLSet_CustomURLHeadersEntry_descriptor =
+      internal_static_Volcengine_Vod_Models_Business_VodUrlUploadURLSet_descriptor.getNestedTypes().get(0);
+    internal_static_Volcengine_Vod_Models_Business_VodUrlUploadURLSet_CustomURLHeadersEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodUrlUploadURLSet_CustomURLHeadersEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_Volcengine_Vod_Models_Business_VodUrlResponseData_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Volcengine_Vod_Models_Business_VodUrlResponseData_fieldAccessorTable = new

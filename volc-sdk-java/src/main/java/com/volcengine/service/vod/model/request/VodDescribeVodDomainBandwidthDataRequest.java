@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private VodDescribeVodDomainBandwidthDataRequest() {
     domainList_ = "";
+    domainInSpaceList_ = "";
     startTime_ = "";
     endTime_ = "";
     bandwidthType_ = "";
@@ -62,27 +63,33 @@ private static final long serialVersionUID = 0L;
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            startTime_ = s;
+            domainInSpaceList_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
+            startTime_ = s;
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
             endTime_ = s;
             break;
           }
-          case 32: {
+          case 40: {
 
             aggregation_ = input.readInt32();
             break;
           }
-          case 42: {
+          case 50: {
             java.lang.String s = input.readStringRequireUtf8();
 
             bandwidthType_ = s;
             break;
           }
-          case 50: {
+          case 58: {
             java.lang.String s = input.readStringRequireUtf8();
 
             area_ = s;
@@ -166,14 +173,60 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int STARTTIME_FIELD_NUMBER = 2;
+  public static final int DOMAININSPACELIST_FIELD_NUMBER = 2;
+  private volatile java.lang.Object domainInSpaceList_;
+  /**
+   * <pre>
+   * 点播空间名和域名列表。格式为空间:域名 
+   * </pre>
+   *
+   * <code>string DomainInSpaceList = 2;</code>
+   * @return The domainInSpaceList.
+   */
+  @java.lang.Override
+  public java.lang.String getDomainInSpaceList() {
+    java.lang.Object ref = domainInSpaceList_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      domainInSpaceList_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 点播空间名和域名列表。格式为空间:域名 
+   * </pre>
+   *
+   * <code>string DomainInSpaceList = 2;</code>
+   * @return The bytes for domainInSpaceList.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDomainInSpaceListBytes() {
+    java.lang.Object ref = domainInSpaceList_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      domainInSpaceList_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int STARTTIME_FIELD_NUMBER = 3;
   private volatile java.lang.Object startTime_;
   /**
    * <pre>
    * 查询的起始时间, rfc3339 
    * </pre>
    *
-   * <code>string StartTime = 2;</code>
+   * <code>string StartTime = 3;</code>
    * @return The startTime.
    */
   @java.lang.Override
@@ -194,7 +247,7 @@ private static final long serialVersionUID = 0L;
    * 查询的起始时间, rfc3339 
    * </pre>
    *
-   * <code>string StartTime = 2;</code>
+   * <code>string StartTime = 3;</code>
    * @return The bytes for startTime.
    */
   @java.lang.Override
@@ -212,14 +265,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int ENDTIME_FIELD_NUMBER = 3;
+  public static final int ENDTIME_FIELD_NUMBER = 4;
   private volatile java.lang.Object endTime_;
   /**
    * <pre>
    * 查询的结束时间, rfc3339；查询时间跨度不超过93天 
    * </pre>
    *
-   * <code>string EndTime = 3;</code>
+   * <code>string EndTime = 4;</code>
    * @return The endTime.
    */
   @java.lang.Override
@@ -240,7 +293,7 @@ private static final long serialVersionUID = 0L;
    * 查询的结束时间, rfc3339；查询时间跨度不超过93天 
    * </pre>
    *
-   * <code>string EndTime = 3;</code>
+   * <code>string EndTime = 4;</code>
    * @return The bytes for endTime.
    */
   @java.lang.Override
@@ -258,14 +311,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int AGGREGATION_FIELD_NUMBER = 4;
+  public static final int AGGREGATION_FIELD_NUMBER = 5;
   private int aggregation_;
   /**
    * <pre>
    * 聚合的时间粒度，单位秒，默认300，支持300，1800，3600和86400 
    * </pre>
    *
-   * <code>int32 Aggregation = 4;</code>
+   * <code>int32 Aggregation = 5;</code>
    * @return The aggregation.
    */
   @java.lang.Override
@@ -273,14 +326,14 @@ private static final long serialVersionUID = 0L;
     return aggregation_;
   }
 
-  public static final int BANDWIDTHTYPE_FIELD_NUMBER = 5;
+  public static final int BANDWIDTHTYPE_FIELD_NUMBER = 6;
   private volatile java.lang.Object bandwidthType_;
   /**
    * <pre>
-   * 默认是CDN，支持CDN、PCDN、ALL 
+   * 默认是CDN，支持CDN、ECDN、ALL 
    * </pre>
    *
-   * <code>string BandwidthType = 5;</code>
+   * <code>string BandwidthType = 6;</code>
    * @return The bandwidthType.
    */
   @java.lang.Override
@@ -298,10 +351,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 默认是CDN，支持CDN、PCDN、ALL 
+   * 默认是CDN，支持CDN、ECDN、ALL 
    * </pre>
    *
-   * <code>string BandwidthType = 5;</code>
+   * <code>string BandwidthType = 6;</code>
    * @return The bytes for bandwidthType.
    */
   @java.lang.Override
@@ -319,14 +372,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int AREA_FIELD_NUMBER = 6;
+  public static final int AREA_FIELD_NUMBER = 7;
   private volatile java.lang.Object area_;
   /**
    * <pre>
    * 加速区域 
    * </pre>
    *
-   * <code>string Area = 6;</code>
+   * <code>string Area = 7;</code>
    * @return The area.
    */
   @java.lang.Override
@@ -347,7 +400,7 @@ private static final long serialVersionUID = 0L;
    * 加速区域 
    * </pre>
    *
-   * <code>string Area = 6;</code>
+   * <code>string Area = 7;</code>
    * @return The bytes for area.
    */
   @java.lang.Override
@@ -382,20 +435,23 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domainList_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, domainList_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domainInSpaceList_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, domainInSpaceList_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(startTime_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, startTime_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, startTime_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endTime_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, endTime_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, endTime_);
     }
     if (aggregation_ != 0) {
-      output.writeInt32(4, aggregation_);
+      output.writeInt32(5, aggregation_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bandwidthType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, bandwidthType_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, bandwidthType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(area_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, area_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, area_);
     }
     unknownFields.writeTo(output);
   }
@@ -409,21 +465,24 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domainList_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, domainList_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domainInSpaceList_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, domainInSpaceList_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(startTime_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, startTime_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, startTime_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endTime_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, endTime_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, endTime_);
     }
     if (aggregation_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(4, aggregation_);
+        .computeInt32Size(5, aggregation_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bandwidthType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, bandwidthType_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, bandwidthType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(area_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, area_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, area_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -442,6 +501,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getDomainList()
         .equals(other.getDomainList())) return false;
+    if (!getDomainInSpaceList()
+        .equals(other.getDomainInSpaceList())) return false;
     if (!getStartTime()
         .equals(other.getStartTime())) return false;
     if (!getEndTime()
@@ -465,6 +526,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + DOMAINLIST_FIELD_NUMBER;
     hash = (53 * hash) + getDomainList().hashCode();
+    hash = (37 * hash) + DOMAININSPACELIST_FIELD_NUMBER;
+    hash = (53 * hash) + getDomainInSpaceList().hashCode();
     hash = (37 * hash) + STARTTIME_FIELD_NUMBER;
     hash = (53 * hash) + getStartTime().hashCode();
     hash = (37 * hash) + ENDTIME_FIELD_NUMBER;
@@ -610,6 +673,8 @@ private static final long serialVersionUID = 0L;
       super.clear();
       domainList_ = "";
 
+      domainInSpaceList_ = "";
+
       startTime_ = "";
 
       endTime_ = "";
@@ -647,6 +712,7 @@ private static final long serialVersionUID = 0L;
     public com.volcengine.service.vod.model.request.VodDescribeVodDomainBandwidthDataRequest buildPartial() {
       com.volcengine.service.vod.model.request.VodDescribeVodDomainBandwidthDataRequest result = new com.volcengine.service.vod.model.request.VodDescribeVodDomainBandwidthDataRequest(this);
       result.domainList_ = domainList_;
+      result.domainInSpaceList_ = domainInSpaceList_;
       result.startTime_ = startTime_;
       result.endTime_ = endTime_;
       result.aggregation_ = aggregation_;
@@ -702,6 +768,10 @@ private static final long serialVersionUID = 0L;
       if (other == com.volcengine.service.vod.model.request.VodDescribeVodDomainBandwidthDataRequest.getDefaultInstance()) return this;
       if (!other.getDomainList().isEmpty()) {
         domainList_ = other.domainList_;
+        onChanged();
+      }
+      if (!other.getDomainInSpaceList().isEmpty()) {
+        domainInSpaceList_ = other.domainInSpaceList_;
         onChanged();
       }
       if (!other.getStartTime().isEmpty()) {
@@ -848,13 +918,109 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object domainInSpaceList_ = "";
+    /**
+     * <pre>
+     * 点播空间名和域名列表。格式为空间:域名 
+     * </pre>
+     *
+     * <code>string DomainInSpaceList = 2;</code>
+     * @return The domainInSpaceList.
+     */
+    public java.lang.String getDomainInSpaceList() {
+      java.lang.Object ref = domainInSpaceList_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        domainInSpaceList_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 点播空间名和域名列表。格式为空间:域名 
+     * </pre>
+     *
+     * <code>string DomainInSpaceList = 2;</code>
+     * @return The bytes for domainInSpaceList.
+     */
+    public com.google.protobuf.ByteString
+        getDomainInSpaceListBytes() {
+      java.lang.Object ref = domainInSpaceList_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        domainInSpaceList_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 点播空间名和域名列表。格式为空间:域名 
+     * </pre>
+     *
+     * <code>string DomainInSpaceList = 2;</code>
+     * @param value The domainInSpaceList to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDomainInSpaceList(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      domainInSpaceList_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 点播空间名和域名列表。格式为空间:域名 
+     * </pre>
+     *
+     * <code>string DomainInSpaceList = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDomainInSpaceList() {
+      
+      domainInSpaceList_ = getDefaultInstance().getDomainInSpaceList();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 点播空间名和域名列表。格式为空间:域名 
+     * </pre>
+     *
+     * <code>string DomainInSpaceList = 2;</code>
+     * @param value The bytes for domainInSpaceList to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDomainInSpaceListBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      domainInSpaceList_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object startTime_ = "";
     /**
      * <pre>
      * 查询的起始时间, rfc3339 
      * </pre>
      *
-     * <code>string StartTime = 2;</code>
+     * <code>string StartTime = 3;</code>
      * @return The startTime.
      */
     public java.lang.String getStartTime() {
@@ -874,7 +1040,7 @@ private static final long serialVersionUID = 0L;
      * 查询的起始时间, rfc3339 
      * </pre>
      *
-     * <code>string StartTime = 2;</code>
+     * <code>string StartTime = 3;</code>
      * @return The bytes for startTime.
      */
     public com.google.protobuf.ByteString
@@ -895,7 +1061,7 @@ private static final long serialVersionUID = 0L;
      * 查询的起始时间, rfc3339 
      * </pre>
      *
-     * <code>string StartTime = 2;</code>
+     * <code>string StartTime = 3;</code>
      * @param value The startTime to set.
      * @return This builder for chaining.
      */
@@ -914,7 +1080,7 @@ private static final long serialVersionUID = 0L;
      * 查询的起始时间, rfc3339 
      * </pre>
      *
-     * <code>string StartTime = 2;</code>
+     * <code>string StartTime = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearStartTime() {
@@ -928,7 +1094,7 @@ private static final long serialVersionUID = 0L;
      * 查询的起始时间, rfc3339 
      * </pre>
      *
-     * <code>string StartTime = 2;</code>
+     * <code>string StartTime = 3;</code>
      * @param value The bytes for startTime to set.
      * @return This builder for chaining.
      */
@@ -950,7 +1116,7 @@ private static final long serialVersionUID = 0L;
      * 查询的结束时间, rfc3339；查询时间跨度不超过93天 
      * </pre>
      *
-     * <code>string EndTime = 3;</code>
+     * <code>string EndTime = 4;</code>
      * @return The endTime.
      */
     public java.lang.String getEndTime() {
@@ -970,7 +1136,7 @@ private static final long serialVersionUID = 0L;
      * 查询的结束时间, rfc3339；查询时间跨度不超过93天 
      * </pre>
      *
-     * <code>string EndTime = 3;</code>
+     * <code>string EndTime = 4;</code>
      * @return The bytes for endTime.
      */
     public com.google.protobuf.ByteString
@@ -991,7 +1157,7 @@ private static final long serialVersionUID = 0L;
      * 查询的结束时间, rfc3339；查询时间跨度不超过93天 
      * </pre>
      *
-     * <code>string EndTime = 3;</code>
+     * <code>string EndTime = 4;</code>
      * @param value The endTime to set.
      * @return This builder for chaining.
      */
@@ -1010,7 +1176,7 @@ private static final long serialVersionUID = 0L;
      * 查询的结束时间, rfc3339；查询时间跨度不超过93天 
      * </pre>
      *
-     * <code>string EndTime = 3;</code>
+     * <code>string EndTime = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearEndTime() {
@@ -1024,7 +1190,7 @@ private static final long serialVersionUID = 0L;
      * 查询的结束时间, rfc3339；查询时间跨度不超过93天 
      * </pre>
      *
-     * <code>string EndTime = 3;</code>
+     * <code>string EndTime = 4;</code>
      * @param value The bytes for endTime to set.
      * @return This builder for chaining.
      */
@@ -1046,7 +1212,7 @@ private static final long serialVersionUID = 0L;
      * 聚合的时间粒度，单位秒，默认300，支持300，1800，3600和86400 
      * </pre>
      *
-     * <code>int32 Aggregation = 4;</code>
+     * <code>int32 Aggregation = 5;</code>
      * @return The aggregation.
      */
     @java.lang.Override
@@ -1058,7 +1224,7 @@ private static final long serialVersionUID = 0L;
      * 聚合的时间粒度，单位秒，默认300，支持300，1800，3600和86400 
      * </pre>
      *
-     * <code>int32 Aggregation = 4;</code>
+     * <code>int32 Aggregation = 5;</code>
      * @param value The aggregation to set.
      * @return This builder for chaining.
      */
@@ -1073,7 +1239,7 @@ private static final long serialVersionUID = 0L;
      * 聚合的时间粒度，单位秒，默认300，支持300，1800，3600和86400 
      * </pre>
      *
-     * <code>int32 Aggregation = 4;</code>
+     * <code>int32 Aggregation = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearAggregation() {
@@ -1086,10 +1252,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object bandwidthType_ = "";
     /**
      * <pre>
-     * 默认是CDN，支持CDN、PCDN、ALL 
+     * 默认是CDN，支持CDN、ECDN、ALL 
      * </pre>
      *
-     * <code>string BandwidthType = 5;</code>
+     * <code>string BandwidthType = 6;</code>
      * @return The bandwidthType.
      */
     public java.lang.String getBandwidthType() {
@@ -1106,10 +1272,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 默认是CDN，支持CDN、PCDN、ALL 
+     * 默认是CDN，支持CDN、ECDN、ALL 
      * </pre>
      *
-     * <code>string BandwidthType = 5;</code>
+     * <code>string BandwidthType = 6;</code>
      * @return The bytes for bandwidthType.
      */
     public com.google.protobuf.ByteString
@@ -1127,10 +1293,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 默认是CDN，支持CDN、PCDN、ALL 
+     * 默认是CDN，支持CDN、ECDN、ALL 
      * </pre>
      *
-     * <code>string BandwidthType = 5;</code>
+     * <code>string BandwidthType = 6;</code>
      * @param value The bandwidthType to set.
      * @return This builder for chaining.
      */
@@ -1146,10 +1312,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 默认是CDN，支持CDN、PCDN、ALL 
+     * 默认是CDN，支持CDN、ECDN、ALL 
      * </pre>
      *
-     * <code>string BandwidthType = 5;</code>
+     * <code>string BandwidthType = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearBandwidthType() {
@@ -1160,10 +1326,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 默认是CDN，支持CDN、PCDN、ALL 
+     * 默认是CDN，支持CDN、ECDN、ALL 
      * </pre>
      *
-     * <code>string BandwidthType = 5;</code>
+     * <code>string BandwidthType = 6;</code>
      * @param value The bytes for bandwidthType to set.
      * @return This builder for chaining.
      */
@@ -1185,7 +1351,7 @@ private static final long serialVersionUID = 0L;
      * 加速区域 
      * </pre>
      *
-     * <code>string Area = 6;</code>
+     * <code>string Area = 7;</code>
      * @return The area.
      */
     public java.lang.String getArea() {
@@ -1205,7 +1371,7 @@ private static final long serialVersionUID = 0L;
      * 加速区域 
      * </pre>
      *
-     * <code>string Area = 6;</code>
+     * <code>string Area = 7;</code>
      * @return The bytes for area.
      */
     public com.google.protobuf.ByteString
@@ -1226,7 +1392,7 @@ private static final long serialVersionUID = 0L;
      * 加速区域 
      * </pre>
      *
-     * <code>string Area = 6;</code>
+     * <code>string Area = 7;</code>
      * @param value The area to set.
      * @return This builder for chaining.
      */
@@ -1245,7 +1411,7 @@ private static final long serialVersionUID = 0L;
      * 加速区域 
      * </pre>
      *
-     * <code>string Area = 6;</code>
+     * <code>string Area = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearArea() {
@@ -1259,7 +1425,7 @@ private static final long serialVersionUID = 0L;
      * 加速区域 
      * </pre>
      *
-     * <code>string Area = 6;</code>
+     * <code>string Area = 7;</code>
      * @param value The bytes for area to set.
      * @return This builder for chaining.
      */

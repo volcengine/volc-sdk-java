@@ -450,157 +450,157 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodRetrieveTranscodeResultResponse retrieveTranscodeResult(com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest input) throws Exception;
 	
 	/**
-     * GetWorkflowExecution.
+     * getWorkflowExecution.
      *
      * @param input com.volcengine.service.vod.model.request.VodGetWorkflowExecutionStatusRequest
      * @return com.volcengine.service.vod.model.response.VodGetWorkflowExecutionStatusResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.vod.model.response.VodGetWorkflowExecutionStatusResponse GetWorkflowExecution(com.volcengine.service.vod.model.request.VodGetWorkflowExecutionStatusRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodGetWorkflowExecutionStatusResponse getWorkflowExecution(com.volcengine.service.vod.model.request.VodGetWorkflowExecutionStatusRequest input) throws Exception;
 	
 	/**
-     * GetWorkflowExecutionResult.
+     * getWorkflowExecutionResult.
      *
      * @param input com.volcengine.service.vod.model.request.VodGetWorkflowResultRequest
      * @return com.volcengine.service.vod.model.response.VodGetWorkflowResultResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.vod.model.response.VodGetWorkflowResultResponse GetWorkflowExecutionResult(com.volcengine.service.vod.model.request.VodGetWorkflowResultRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodGetWorkflowResultResponse getWorkflowExecutionResult(com.volcengine.service.vod.model.request.VodGetWorkflowResultRequest input) throws Exception;
 	
 	/**
-     * CreateTaskTemplate.
+     * createTaskTemplate.
      *
      * @param input com.volcengine.service.vod.model.request.VodCreateTaskTemplateRequest
      * @return com.volcengine.service.vod.model.response.VodCreateTaskTemplateResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.vod.model.response.VodCreateTaskTemplateResponse CreateTaskTemplate(com.volcengine.service.vod.model.request.VodCreateTaskTemplateRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodCreateTaskTemplateResponse createTaskTemplate(com.volcengine.service.vod.model.request.VodCreateTaskTemplateRequest input) throws Exception;
 	
 	/**
-     * UpdateTaskTemplate.
+     * updateTaskTemplate.
      *
      * @param input com.volcengine.service.vod.model.request.VodUpdateTaskTemplateRequest
      * @return com.volcengine.service.vod.model.response.VodUpdateTaskTemplateResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.vod.model.response.VodUpdateTaskTemplateResponse UpdateTaskTemplate(com.volcengine.service.vod.model.request.VodUpdateTaskTemplateRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodUpdateTaskTemplateResponse updateTaskTemplate(com.volcengine.service.vod.model.request.VodUpdateTaskTemplateRequest input) throws Exception;
 	
 	/**
-     * GetTaskTemplate.
+     * getTaskTemplate.
      *
      * @param input com.volcengine.service.vod.model.request.VodGetTaskTemplateRequest
      * @return com.volcengine.service.vod.model.response.VodGetTaskTemplateResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.vod.model.response.VodGetTaskTemplateResponse GetTaskTemplate(com.volcengine.service.vod.model.request.VodGetTaskTemplateRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodGetTaskTemplateResponse getTaskTemplate(com.volcengine.service.vod.model.request.VodGetTaskTemplateRequest input) throws Exception;
 	
 	/**
-     * ListTaskTemplate.
+     * listTaskTemplate.
      *
      * @param input com.volcengine.service.vod.model.request.VodListTaskTemplateRequest
      * @return com.volcengine.service.vod.model.response.VodListTaskTemplateResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.vod.model.response.VodListTaskTemplateResponse ListTaskTemplate(com.volcengine.service.vod.model.request.VodListTaskTemplateRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodListTaskTemplateResponse listTaskTemplate(com.volcengine.service.vod.model.request.VodListTaskTemplateRequest input) throws Exception;
 	
 	/**
-     * DeleteTaskTemplate.
+     * deleteTaskTemplate.
      *
      * @param input com.volcengine.service.vod.model.request.VodDeleteTaskTemplateRequest
      * @return com.volcengine.service.vod.model.response.VodDeleteTaskTemplateResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.vod.model.response.VodDeleteTaskTemplateResponse DeleteTaskTemplate(com.volcengine.service.vod.model.request.VodDeleteTaskTemplateRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodDeleteTaskTemplateResponse deleteTaskTemplate(com.volcengine.service.vod.model.request.VodDeleteTaskTemplateRequest input) throws Exception;
 	
 	/**
-     * CreateWorkflowTemplate.
+     * createWorkflowTemplate.
      *
      * @param input com.volcengine.service.vod.model.request.VodCreateWorkflowTemplateRequest
      * @return com.volcengine.service.vod.model.response.VodCreateWorkflowTemplateResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.vod.model.response.VodCreateWorkflowTemplateResponse CreateWorkflowTemplate(com.volcengine.service.vod.model.request.VodCreateWorkflowTemplateRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodCreateWorkflowTemplateResponse createWorkflowTemplate(com.volcengine.service.vod.model.request.VodCreateWorkflowTemplateRequest input) throws Exception;
 	
 	/**
-     * UpdateWorkflowTemplate.
+     * updateWorkflowTemplate.
      *
      * @param input com.volcengine.service.vod.model.request.VodUpdateWorkflowTemplateRequest
      * @return com.volcengine.service.vod.model.response.VodUpdateWorkflowTemplateResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.vod.model.response.VodUpdateWorkflowTemplateResponse UpdateWorkflowTemplate(com.volcengine.service.vod.model.request.VodUpdateWorkflowTemplateRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodUpdateWorkflowTemplateResponse updateWorkflowTemplate(com.volcengine.service.vod.model.request.VodUpdateWorkflowTemplateRequest input) throws Exception;
 	
 	/**
-     * GetWorkflowTemplate.
+     * getWorkflowTemplate.
      *
      * @param input com.volcengine.service.vod.model.request.VodGetWorkflowTemplateRequest
      * @return com.volcengine.service.vod.model.response.VodGetWorkflowTemplateResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.vod.model.response.VodGetWorkflowTemplateResponse GetWorkflowTemplate(com.volcengine.service.vod.model.request.VodGetWorkflowTemplateRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodGetWorkflowTemplateResponse getWorkflowTemplate(com.volcengine.service.vod.model.request.VodGetWorkflowTemplateRequest input) throws Exception;
 	
 	/**
-     * ListWorkflowTemplate.
+     * listWorkflowTemplate.
      *
      * @param input com.volcengine.service.vod.model.request.VodListWorkflowTemplateRequest
      * @return com.volcengine.service.vod.model.response.VodListWorkflowTemplateResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.vod.model.response.VodListWorkflowTemplateResponse ListWorkflowTemplate(com.volcengine.service.vod.model.request.VodListWorkflowTemplateRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodListWorkflowTemplateResponse listWorkflowTemplate(com.volcengine.service.vod.model.request.VodListWorkflowTemplateRequest input) throws Exception;
 	
 	/**
-     * DeleteWorkflowTemplate.
+     * deleteWorkflowTemplate.
      *
      * @param input com.volcengine.service.vod.model.request.VodDeleteWorkflowTemplateRequest
      * @return com.volcengine.service.vod.model.response.VodDeleteWorkflowTemplateResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.vod.model.response.VodDeleteWorkflowTemplateResponse DeleteWorkflowTemplate(com.volcengine.service.vod.model.request.VodDeleteWorkflowTemplateRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodDeleteWorkflowTemplateResponse deleteWorkflowTemplate(com.volcengine.service.vod.model.request.VodDeleteWorkflowTemplateRequest input) throws Exception;
 	
 	/**
-     * CreateWatermarkTemplate.
+     * createWatermarkTemplate.
      *
      * @param input com.volcengine.service.vod.model.request.VodCreateWatermarkRequest
      * @return com.volcengine.service.vod.model.response.VodCreateWatermarkResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.vod.model.response.VodCreateWatermarkResponse CreateWatermarkTemplate(com.volcengine.service.vod.model.request.VodCreateWatermarkRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodCreateWatermarkResponse createWatermarkTemplate(com.volcengine.service.vod.model.request.VodCreateWatermarkRequest input) throws Exception;
 	
 	/**
-     * UpdateWatermarkTemplate.
+     * updateWatermarkTemplate.
      *
      * @param input com.volcengine.service.vod.model.request.VodUpdateWatermarkRequest
      * @return com.volcengine.service.vod.model.response.VodUpdateWatermarkResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.vod.model.response.VodUpdateWatermarkResponse UpdateWatermarkTemplate(com.volcengine.service.vod.model.request.VodUpdateWatermarkRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodUpdateWatermarkResponse updateWatermarkTemplate(com.volcengine.service.vod.model.request.VodUpdateWatermarkRequest input) throws Exception;
 	
 	/**
-     * GetWatermarkTemplate.
+     * getWatermarkTemplate.
      *
      * @param input com.volcengine.service.vod.model.request.VodGetWatermarkRequest
      * @return com.volcengine.service.vod.model.response.VodGetWatermarkResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.vod.model.response.VodGetWatermarkResponse GetWatermarkTemplate(com.volcengine.service.vod.model.request.VodGetWatermarkRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodGetWatermarkResponse getWatermarkTemplate(com.volcengine.service.vod.model.request.VodGetWatermarkRequest input) throws Exception;
 	
 	/**
-     * ListWatermarkTemplate.
+     * listWatermarkTemplate.
      *
      * @param input com.volcengine.service.vod.model.request.VodListWatermarkRequest
      * @return com.volcengine.service.vod.model.response.VodListWatermarkResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.vod.model.response.VodListWatermarkResponse ListWatermarkTemplate(com.volcengine.service.vod.model.request.VodListWatermarkRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodListWatermarkResponse listWatermarkTemplate(com.volcengine.service.vod.model.request.VodListWatermarkRequest input) throws Exception;
 	
 	/**
-     * DeleteWatermarkTemplate.
+     * deleteWatermarkTemplate.
      *
      * @param input com.volcengine.service.vod.model.request.VodDeleteWatermarkRequest
      * @return com.volcengine.service.vod.model.response.VodDeleteWatermarkResponse
      * @throws Exception the exception
      */
-	com.volcengine.service.vod.model.response.VodDeleteWatermarkResponse DeleteWatermarkTemplate(com.volcengine.service.vod.model.request.VodDeleteWatermarkRequest input) throws Exception;
+	com.volcengine.service.vod.model.response.VodDeleteWatermarkResponse deleteWatermarkTemplate(com.volcengine.service.vod.model.request.VodDeleteWatermarkRequest input) throws Exception;
 	
 	/**
      * createSpace.
@@ -646,15 +646,6 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodUpdateSpaceUploadConfigResponse updateSpaceUploadConfig(com.volcengine.service.vod.model.request.VodUpdateSpaceUploadConfigRequest input) throws Exception;
-	
-	/**
-     * describeVodSpaceStorageData.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDescribeVodSpaceStorageDataRequest
-     * @return com.volcengine.service.vod.model.response.VodDescribeVodSpaceStorageDataResponse
-     * @throws Exception the exception
-     */
-	com.volcengine.service.vod.model.response.VodDescribeVodSpaceStorageDataResponse describeVodSpaceStorageData(com.volcengine.service.vod.model.request.VodDescribeVodSpaceStorageDataRequest input) throws Exception;
 	
 	/**
      * listDomain.
@@ -720,15 +711,6 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodListCdnTopAccessResponse listCdnTopAccess(com.volcengine.service.vod.model.request.VodListCdnTopAccessRequest input) throws Exception;
 	
 	/**
-     * describeVodDomainBandwidthData.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDescribeVodDomainBandwidthDataRequest
-     * @return com.volcengine.service.vod.model.response.VodDescribeVodDomainBandwidthDataResponse
-     * @throws Exception the exception
-     */
-	com.volcengine.service.vod.model.response.VodDescribeVodDomainBandwidthDataResponse describeVodDomainBandwidthData(com.volcengine.service.vod.model.request.VodDescribeVodDomainBandwidthDataRequest input) throws Exception;
-	
-	/**
      * listCdnUsageData.
      *
      * @param input com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest
@@ -754,15 +736,6 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodDescribeIPInfoResponse describeIpInfo(com.volcengine.service.vod.model.request.VodDescribeIPInfoRequest input) throws Exception;
-	
-	/**
-     * describeVodDomainTrafficData.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDescribeVodDomainTrafficDataRequest
-     * @return com.volcengine.service.vod.model.response.VodDescribeVodDomainTrafficDataResponse
-     * @throws Exception the exception
-     */
-	com.volcengine.service.vod.model.response.VodDescribeVodDomainTrafficDataResponse describeVodDomainTrafficData(com.volcengine.service.vod.model.request.VodDescribeVodDomainTrafficDataRequest input) throws Exception;
 	
 	/**
      * listCdnPvData.
@@ -817,6 +790,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodUpdateDomainAuthConfigV2Response updateDomainAuthConfig(com.volcengine.service.vod.model.request.VodUpdateDomainAuthConfigV2Request input) throws Exception;
+	
+	/**
+     * addOrUpdateCertificate20230701.
+     *
+     * @param input com.volcengine.service.vod.model.request.AddOrUpdateCertificateV2Request
+     * @return com.volcengine.service.vod.model.response.AddOrUpdateCertificateV2Response
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.AddOrUpdateCertificateV2Response addOrUpdateCertificate20230701(com.volcengine.service.vod.model.request.AddOrUpdateCertificateV2Request input) throws Exception;
 	
 	/**
      * addCallbackSubscription.
@@ -916,5 +898,32 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.DescribeVodSnapshotDataResponse describeVodSnapshotData(com.volcengine.service.vod.model.request.DescribeVodSnapshotDataRequest input) throws Exception;
+	
+	/**
+     * describeVodSpaceStorageData.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDescribeVodSpaceStorageDataRequest
+     * @return com.volcengine.service.vod.model.response.VodDescribeVodSpaceStorageDataResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodDescribeVodSpaceStorageDataResponse describeVodSpaceStorageData(com.volcengine.service.vod.model.request.VodDescribeVodSpaceStorageDataRequest input) throws Exception;
+	
+	/**
+     * describeVodDomainTrafficData.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDescribeVodDomainTrafficDataRequest
+     * @return com.volcengine.service.vod.model.response.VodDescribeVodDomainTrafficDataResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodDescribeVodDomainTrafficDataResponse describeVodDomainTrafficData(com.volcengine.service.vod.model.request.VodDescribeVodDomainTrafficDataRequest input) throws Exception;
+	
+	/**
+     * describeVodDomainBandwidthData.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDescribeVodDomainBandwidthDataRequest
+     * @return com.volcengine.service.vod.model.response.VodDescribeVodDomainBandwidthDataResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodDescribeVodDomainBandwidthDataResponse describeVodDomainBandwidthData(com.volcengine.service.vod.model.request.VodDescribeVodDomainBandwidthDataRequest input) throws Exception;
 	
 }  // end of service interface

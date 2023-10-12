@@ -714,14 +714,15 @@ public final class VodWorkflow {
       "istWatermarkResponseResult\022\r\n\005Limit\030\001 \001(" +
       "\005\022\016\n\006Offset\030\002 \001(\005\022\r\n\005Total\030\003 \001(\003\022:\n\004Data" +
       "\030\004 \003(\0132,.Volcengine.Vod.Models.Business." +
-      "LogoTemplate\"\241\002\n\005Video\022\013\n\003Res\030\001 \001(\t\022\021\n\tS" +
+      "LogoTemplate\"\311\002\n\005Video\022\013\n\003Res\030\001 \001(\t\022\021\n\tS" +
       "caleType\030\004 \001(\005\022\021\n\tScaleMode\030\026 \001(\005\022\022\n\nSca" +
       "leWidth\030\005 \001(\005\022\023\n\013ScaleHeight\030\006 \001(\005\022\022\n\nSc" +
       "aleShort\030\007 \001(\005\022\021\n\tScaleLong\030\010 \001(\005\022\r\n\005Cod" +
       "ec\030\t \001(\t\022\027\n\017RateControlMode\030\n \001(\t\022\022\n\nMax" +
       "Bitrate\030\013 \001(\005\022\017\n\007Bitrate\030\014 \001(\005\022\013\n\003Crf\030\r " +
       "\001(\002\022\016\n\006MaxFps\030\017 \001(\005\022\r\n\005Vsync\030\020 \001(\t\022\013\n\003Fp" +
-      "s\030\021 \001(\002\022\017\n\007HDRMode\030\025 \001(\005\"\231\001\n\005Audio\022\r\n\005Co" +
+      "s\030\021 \001(\002\022\017\n\007HDRMode\030\025 \001(\005\022\017\n\007GopSize\030\030 \001(" +
+      "\005\022\025\n\rDisableBFrame\030\031 \001(\010\"\231\001\n\005Audio\022\r\n\005Co" +
       "dec\030\001 \001(\t\022\022\n\nSampleRate\030\002 \001(\005\022\027\n\017RateCon" +
       "trolMode\030\003 \001(\t\022\017\n\007Bitrate\030\004 \001(\005\022\017\n\007MinRa" +
       "te\030\005 \001(\005\022\017\n\007MaxRate\030\006 \001(\005\022\020\n\010Channels\030\007 " +
@@ -1167,7 +1168,7 @@ public final class VodWorkflow {
     internal_static_Volcengine_Vod_Models_Business_Video_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_Video_descriptor,
-        new java.lang.String[] { "Res", "ScaleType", "ScaleMode", "ScaleWidth", "ScaleHeight", "ScaleShort", "ScaleLong", "Codec", "RateControlMode", "MaxBitrate", "Bitrate", "Crf", "MaxFps", "Vsync", "Fps", "HDRMode", });
+        new java.lang.String[] { "Res", "ScaleType", "ScaleMode", "ScaleWidth", "ScaleHeight", "ScaleShort", "ScaleLong", "Codec", "RateControlMode", "MaxBitrate", "Bitrate", "Crf", "MaxFps", "Vsync", "Fps", "HDRMode", "GopSize", "DisableBFrame", });
     internal_static_Volcengine_Vod_Models_Business_Audio_descriptor =
       getDescriptor().getMessageTypes().get(63);
     internal_static_Volcengine_Vod_Models_Business_Audio_fieldAccessorTable = new

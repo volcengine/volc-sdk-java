@@ -126,4 +126,16 @@ public interface VideoOrBuilder extends
    * @return The hDRMode.
    */
   int getHDRMode();
+
+  /**
+   * <code>int32 GopSize = 24;</code>
+   * @return The gopSize.
+   */
+  int getGopSize();
+
+  /**
+   * <code>bool DisableBFrame = 25;</code>
+   * @return The disableBFrame.
+   */
+  boolean getDisableBFrame();
 }

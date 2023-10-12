@@ -17,9 +17,11 @@ private static final long serialVersionUID = 0L;
   }
   private VodDescribeVodDomainTrafficDataRequest() {
     domainList_ = "";
+    domainInSpaceList_ = "";
     startTime_ = "";
     endTime_ = "";
     trafficType_ = "";
+    area_ = "";
   }
 
   @java.lang.Override
@@ -61,24 +63,36 @@ private static final long serialVersionUID = 0L;
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            startTime_ = s;
+            domainInSpaceList_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
+            startTime_ = s;
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
             endTime_ = s;
             break;
           }
-          case 32: {
+          case 40: {
 
             aggregation_ = input.readInt32();
             break;
           }
-          case 42: {
+          case 50: {
             java.lang.String s = input.readStringRequireUtf8();
 
             trafficType_ = s;
+            break;
+          }
+          case 58: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            area_ = s;
             break;
           }
           default: {
@@ -159,14 +173,60 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int STARTTIME_FIELD_NUMBER = 2;
+  public static final int DOMAININSPACELIST_FIELD_NUMBER = 2;
+  private volatile java.lang.Object domainInSpaceList_;
+  /**
+   * <pre>
+   * list of space:domain to query
+   * </pre>
+   *
+   * <code>string DomainInSpaceList = 2;</code>
+   * @return The domainInSpaceList.
+   */
+  @java.lang.Override
+  public java.lang.String getDomainInSpaceList() {
+    java.lang.Object ref = domainInSpaceList_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      domainInSpaceList_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * list of space:domain to query
+   * </pre>
+   *
+   * <code>string DomainInSpaceList = 2;</code>
+   * @return The bytes for domainInSpaceList.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDomainInSpaceListBytes() {
+    java.lang.Object ref = domainInSpaceList_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      domainInSpaceList_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int STARTTIME_FIELD_NUMBER = 3;
   private volatile java.lang.Object startTime_;
   /**
    * <pre>
    * rfc339
    * </pre>
    *
-   * <code>string StartTime = 2;</code>
+   * <code>string StartTime = 3;</code>
    * @return The startTime.
    */
   @java.lang.Override
@@ -187,7 +247,7 @@ private static final long serialVersionUID = 0L;
    * rfc339
    * </pre>
    *
-   * <code>string StartTime = 2;</code>
+   * <code>string StartTime = 3;</code>
    * @return The bytes for startTime.
    */
   @java.lang.Override
@@ -205,14 +265,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int ENDTIME_FIELD_NUMBER = 3;
+  public static final int ENDTIME_FIELD_NUMBER = 4;
   private volatile java.lang.Object endTime_;
   /**
    * <pre>
    * rfc339
    * </pre>
    *
-   * <code>string EndTime = 3;</code>
+   * <code>string EndTime = 4;</code>
    * @return The endTime.
    */
   @java.lang.Override
@@ -233,7 +293,7 @@ private static final long serialVersionUID = 0L;
    * rfc339
    * </pre>
    *
-   * <code>string EndTime = 3;</code>
+   * <code>string EndTime = 4;</code>
    * @return The bytes for endTime.
    */
   @java.lang.Override
@@ -251,14 +311,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int AGGREGATION_FIELD_NUMBER = 4;
+  public static final int AGGREGATION_FIELD_NUMBER = 5;
   private int aggregation_;
   /**
    * <pre>
    * default 300, supports 1800, 3600 and 86400
    * </pre>
    *
-   * <code>int32 Aggregation = 4;</code>
+   * <code>int32 Aggregation = 5;</code>
    * @return The aggregation.
    */
   @java.lang.Override
@@ -266,14 +326,14 @@ private static final long serialVersionUID = 0L;
     return aggregation_;
   }
 
-  public static final int TRAFFICTYPE_FIELD_NUMBER = 5;
+  public static final int TRAFFICTYPE_FIELD_NUMBER = 6;
   private volatile java.lang.Object trafficType_;
   /**
    * <pre>
-   * PCDN, CDN, or ALL
+   * ECDN, CDN, or ALL
    * </pre>
    *
-   * <code>string TrafficType = 5;</code>
+   * <code>string TrafficType = 6;</code>
    * @return The trafficType.
    */
   @java.lang.Override
@@ -291,10 +351,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * PCDN, CDN, or ALL
+   * ECDN, CDN, or ALL
    * </pre>
    *
-   * <code>string TrafficType = 5;</code>
+   * <code>string TrafficType = 6;</code>
    * @return The bytes for trafficType.
    */
   @java.lang.Override
@@ -306,6 +366,44 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       trafficType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int AREA_FIELD_NUMBER = 7;
+  private volatile java.lang.Object area_;
+  /**
+   * <code>string Area = 7;</code>
+   * @return The area.
+   */
+  @java.lang.Override
+  public java.lang.String getArea() {
+    java.lang.Object ref = area_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      area_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string Area = 7;</code>
+   * @return The bytes for area.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getAreaBytes() {
+    java.lang.Object ref = area_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      area_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -329,17 +427,23 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domainList_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, domainList_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domainInSpaceList_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, domainInSpaceList_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(startTime_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, startTime_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, startTime_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endTime_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, endTime_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, endTime_);
     }
     if (aggregation_ != 0) {
-      output.writeInt32(4, aggregation_);
+      output.writeInt32(5, aggregation_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(trafficType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, trafficType_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, trafficType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(area_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, area_);
     }
     unknownFields.writeTo(output);
   }
@@ -353,18 +457,24 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domainList_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, domainList_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domainInSpaceList_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, domainInSpaceList_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(startTime_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, startTime_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, startTime_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endTime_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, endTime_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, endTime_);
     }
     if (aggregation_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(4, aggregation_);
+        .computeInt32Size(5, aggregation_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(trafficType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, trafficType_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, trafficType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(area_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, area_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -383,6 +493,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getDomainList()
         .equals(other.getDomainList())) return false;
+    if (!getDomainInSpaceList()
+        .equals(other.getDomainInSpaceList())) return false;
     if (!getStartTime()
         .equals(other.getStartTime())) return false;
     if (!getEndTime()
@@ -391,6 +503,8 @@ private static final long serialVersionUID = 0L;
         != other.getAggregation()) return false;
     if (!getTrafficType()
         .equals(other.getTrafficType())) return false;
+    if (!getArea()
+        .equals(other.getArea())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -404,6 +518,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + DOMAINLIST_FIELD_NUMBER;
     hash = (53 * hash) + getDomainList().hashCode();
+    hash = (37 * hash) + DOMAININSPACELIST_FIELD_NUMBER;
+    hash = (53 * hash) + getDomainInSpaceList().hashCode();
     hash = (37 * hash) + STARTTIME_FIELD_NUMBER;
     hash = (53 * hash) + getStartTime().hashCode();
     hash = (37 * hash) + ENDTIME_FIELD_NUMBER;
@@ -412,6 +528,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getAggregation();
     hash = (37 * hash) + TRAFFICTYPE_FIELD_NUMBER;
     hash = (53 * hash) + getTrafficType().hashCode();
+    hash = (37 * hash) + AREA_FIELD_NUMBER;
+    hash = (53 * hash) + getArea().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -547,6 +665,8 @@ private static final long serialVersionUID = 0L;
       super.clear();
       domainList_ = "";
 
+      domainInSpaceList_ = "";
+
       startTime_ = "";
 
       endTime_ = "";
@@ -554,6 +674,8 @@ private static final long serialVersionUID = 0L;
       aggregation_ = 0;
 
       trafficType_ = "";
+
+      area_ = "";
 
       return this;
     }
@@ -582,10 +704,12 @@ private static final long serialVersionUID = 0L;
     public com.volcengine.service.vod.model.request.VodDescribeVodDomainTrafficDataRequest buildPartial() {
       com.volcengine.service.vod.model.request.VodDescribeVodDomainTrafficDataRequest result = new com.volcengine.service.vod.model.request.VodDescribeVodDomainTrafficDataRequest(this);
       result.domainList_ = domainList_;
+      result.domainInSpaceList_ = domainInSpaceList_;
       result.startTime_ = startTime_;
       result.endTime_ = endTime_;
       result.aggregation_ = aggregation_;
       result.trafficType_ = trafficType_;
+      result.area_ = area_;
       onBuilt();
       return result;
     }
@@ -638,6 +762,10 @@ private static final long serialVersionUID = 0L;
         domainList_ = other.domainList_;
         onChanged();
       }
+      if (!other.getDomainInSpaceList().isEmpty()) {
+        domainInSpaceList_ = other.domainInSpaceList_;
+        onChanged();
+      }
       if (!other.getStartTime().isEmpty()) {
         startTime_ = other.startTime_;
         onChanged();
@@ -651,6 +779,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTrafficType().isEmpty()) {
         trafficType_ = other.trafficType_;
+        onChanged();
+      }
+      if (!other.getArea().isEmpty()) {
+        area_ = other.area_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -778,13 +910,109 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object domainInSpaceList_ = "";
+    /**
+     * <pre>
+     * list of space:domain to query
+     * </pre>
+     *
+     * <code>string DomainInSpaceList = 2;</code>
+     * @return The domainInSpaceList.
+     */
+    public java.lang.String getDomainInSpaceList() {
+      java.lang.Object ref = domainInSpaceList_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        domainInSpaceList_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * list of space:domain to query
+     * </pre>
+     *
+     * <code>string DomainInSpaceList = 2;</code>
+     * @return The bytes for domainInSpaceList.
+     */
+    public com.google.protobuf.ByteString
+        getDomainInSpaceListBytes() {
+      java.lang.Object ref = domainInSpaceList_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        domainInSpaceList_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * list of space:domain to query
+     * </pre>
+     *
+     * <code>string DomainInSpaceList = 2;</code>
+     * @param value The domainInSpaceList to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDomainInSpaceList(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      domainInSpaceList_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * list of space:domain to query
+     * </pre>
+     *
+     * <code>string DomainInSpaceList = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDomainInSpaceList() {
+      
+      domainInSpaceList_ = getDefaultInstance().getDomainInSpaceList();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * list of space:domain to query
+     * </pre>
+     *
+     * <code>string DomainInSpaceList = 2;</code>
+     * @param value The bytes for domainInSpaceList to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDomainInSpaceListBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      domainInSpaceList_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object startTime_ = "";
     /**
      * <pre>
      * rfc339
      * </pre>
      *
-     * <code>string StartTime = 2;</code>
+     * <code>string StartTime = 3;</code>
      * @return The startTime.
      */
     public java.lang.String getStartTime() {
@@ -804,7 +1032,7 @@ private static final long serialVersionUID = 0L;
      * rfc339
      * </pre>
      *
-     * <code>string StartTime = 2;</code>
+     * <code>string StartTime = 3;</code>
      * @return The bytes for startTime.
      */
     public com.google.protobuf.ByteString
@@ -825,7 +1053,7 @@ private static final long serialVersionUID = 0L;
      * rfc339
      * </pre>
      *
-     * <code>string StartTime = 2;</code>
+     * <code>string StartTime = 3;</code>
      * @param value The startTime to set.
      * @return This builder for chaining.
      */
@@ -844,7 +1072,7 @@ private static final long serialVersionUID = 0L;
      * rfc339
      * </pre>
      *
-     * <code>string StartTime = 2;</code>
+     * <code>string StartTime = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearStartTime() {
@@ -858,7 +1086,7 @@ private static final long serialVersionUID = 0L;
      * rfc339
      * </pre>
      *
-     * <code>string StartTime = 2;</code>
+     * <code>string StartTime = 3;</code>
      * @param value The bytes for startTime to set.
      * @return This builder for chaining.
      */
@@ -880,7 +1108,7 @@ private static final long serialVersionUID = 0L;
      * rfc339
      * </pre>
      *
-     * <code>string EndTime = 3;</code>
+     * <code>string EndTime = 4;</code>
      * @return The endTime.
      */
     public java.lang.String getEndTime() {
@@ -900,7 +1128,7 @@ private static final long serialVersionUID = 0L;
      * rfc339
      * </pre>
      *
-     * <code>string EndTime = 3;</code>
+     * <code>string EndTime = 4;</code>
      * @return The bytes for endTime.
      */
     public com.google.protobuf.ByteString
@@ -921,7 +1149,7 @@ private static final long serialVersionUID = 0L;
      * rfc339
      * </pre>
      *
-     * <code>string EndTime = 3;</code>
+     * <code>string EndTime = 4;</code>
      * @param value The endTime to set.
      * @return This builder for chaining.
      */
@@ -940,7 +1168,7 @@ private static final long serialVersionUID = 0L;
      * rfc339
      * </pre>
      *
-     * <code>string EndTime = 3;</code>
+     * <code>string EndTime = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearEndTime() {
@@ -954,7 +1182,7 @@ private static final long serialVersionUID = 0L;
      * rfc339
      * </pre>
      *
-     * <code>string EndTime = 3;</code>
+     * <code>string EndTime = 4;</code>
      * @param value The bytes for endTime to set.
      * @return This builder for chaining.
      */
@@ -976,7 +1204,7 @@ private static final long serialVersionUID = 0L;
      * default 300, supports 1800, 3600 and 86400
      * </pre>
      *
-     * <code>int32 Aggregation = 4;</code>
+     * <code>int32 Aggregation = 5;</code>
      * @return The aggregation.
      */
     @java.lang.Override
@@ -988,7 +1216,7 @@ private static final long serialVersionUID = 0L;
      * default 300, supports 1800, 3600 and 86400
      * </pre>
      *
-     * <code>int32 Aggregation = 4;</code>
+     * <code>int32 Aggregation = 5;</code>
      * @param value The aggregation to set.
      * @return This builder for chaining.
      */
@@ -1003,7 +1231,7 @@ private static final long serialVersionUID = 0L;
      * default 300, supports 1800, 3600 and 86400
      * </pre>
      *
-     * <code>int32 Aggregation = 4;</code>
+     * <code>int32 Aggregation = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearAggregation() {
@@ -1016,10 +1244,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object trafficType_ = "";
     /**
      * <pre>
-     * PCDN, CDN, or ALL
+     * ECDN, CDN, or ALL
      * </pre>
      *
-     * <code>string TrafficType = 5;</code>
+     * <code>string TrafficType = 6;</code>
      * @return The trafficType.
      */
     public java.lang.String getTrafficType() {
@@ -1036,10 +1264,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * PCDN, CDN, or ALL
+     * ECDN, CDN, or ALL
      * </pre>
      *
-     * <code>string TrafficType = 5;</code>
+     * <code>string TrafficType = 6;</code>
      * @return The bytes for trafficType.
      */
     public com.google.protobuf.ByteString
@@ -1057,10 +1285,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * PCDN, CDN, or ALL
+     * ECDN, CDN, or ALL
      * </pre>
      *
-     * <code>string TrafficType = 5;</code>
+     * <code>string TrafficType = 6;</code>
      * @param value The trafficType to set.
      * @return This builder for chaining.
      */
@@ -1076,10 +1304,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * PCDN, CDN, or ALL
+     * ECDN, CDN, or ALL
      * </pre>
      *
-     * <code>string TrafficType = 5;</code>
+     * <code>string TrafficType = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearTrafficType() {
@@ -1090,10 +1318,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * PCDN, CDN, or ALL
+     * ECDN, CDN, or ALL
      * </pre>
      *
-     * <code>string TrafficType = 5;</code>
+     * <code>string TrafficType = 6;</code>
      * @param value The bytes for trafficType to set.
      * @return This builder for chaining.
      */
@@ -1105,6 +1333,82 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       trafficType_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object area_ = "";
+    /**
+     * <code>string Area = 7;</code>
+     * @return The area.
+     */
+    public java.lang.String getArea() {
+      java.lang.Object ref = area_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        area_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string Area = 7;</code>
+     * @return The bytes for area.
+     */
+    public com.google.protobuf.ByteString
+        getAreaBytes() {
+      java.lang.Object ref = area_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        area_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string Area = 7;</code>
+     * @param value The area to set.
+     * @return This builder for chaining.
+     */
+    public Builder setArea(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      area_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string Area = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearArea() {
+      
+      area_ = getDefaultInstance().getArea();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string Area = 7;</code>
+     * @param value The bytes for area to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAreaBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      area_ = value;
       onChanged();
       return this;
     }

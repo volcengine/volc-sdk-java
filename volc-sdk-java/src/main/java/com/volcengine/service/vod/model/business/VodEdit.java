@@ -29,6 +29,36 @@ public final class VodEdit {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_GetDirectEditResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_EditParam_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_EditParam_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_Canvas_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_Canvas_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_Output_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_Output_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_Codec_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_Codec_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_Track_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_Track_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_Upload_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_Upload_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -39,23 +69,41 @@ public final class VodEdit {
   static {
     java.lang.String[] descriptorData = {
       "\n&volcengine/vod/business/vod_edit.proto" +
-      "\022\036Volcengine.Vod.Models.Business\"0\n\037Subm" +
-      "itDirectEditTaskAsyncResult\022\r\n\005ReqId\030\001 \001" +
-      "(\t\"\'\n\025GetDirectEditProgress\022\016\n\006Result\030\001 " +
-      "\001(\005\"\227\001\n\023GetDirectEditResult\022\r\n\005ReqId\030\001 \001" +
-      "(\t\022\021\n\tEditParam\030\002 \001(\014\022\020\n\010Priority\030\003 \001(\005\022" +
-      "\023\n\013CallbackUri\030\004 \001(\t\022\024\n\014CallbackArgs\030\005 \001" +
-      "(\t\022\016\n\006Status\030\006 \001(\t\022\021\n\tOutputVid\030\007 \001(\tB\310\001" +
-      "\n)com.volcengine.service.vod.model.busin" +
-      "essB\007VodEditP\001ZAgithub.com/volcengine/vo" +
-      "lc-sdk-golang/service/vod/models/busines" +
-      "s\240\001\001\330\001\001\312\002 Volc\\Service\\Vod\\Models\\Busine" +
-      "ss\342\002#Volc\\Service\\Vod\\Models\\GPBMetadata" +
-      "b\006proto3"
+      "\022\036Volcengine.Vod.Models.Business\032\034google" +
+      "/protobuf/struct.proto\"0\n\037SubmitDirectEd" +
+      "itTaskAsyncResult\022\r\n\005ReqId\030\001 \001(\t\"\'\n\025GetD" +
+      "irectEditProgress\022\016\n\006Result\030\001 \001(\005\"\302\001\n\023Ge" +
+      "tDirectEditResult\022\r\n\005ReqId\030\001 \001(\t\022<\n\tEdit" +
+      "Param\030\002 \001(\0132).Volcengine.Vod.Models.Busi" +
+      "ness.EditParam\022\020\n\010Priority\030\003 \001(\005\022\023\n\013Call" +
+      "backUri\030\004 \001(\t\022\024\n\014CallbackArgs\030\005 \001(\t\022\016\n\006S" +
+      "tatus\030\006 \001(\t\022\021\n\tOutputVid\030\007 \001(\t\"\354\001\n\tEditP" +
+      "aram\0226\n\006Canvas\030\001 \001(\0132&.Volcengine.Vod.Mo" +
+      "dels.Business.Canvas\0226\n\006Output\030\002 \001(\0132&.V" +
+      "olcengine.Vod.Models.Business.Output\022%\n\005" +
+      "Track\030\003 \003(\0132\026.google.protobuf.Value\0226\n\006U" +
+      "pload\030\004 \001(\0132&.Volcengine.Vod.Models.Busi" +
+      "ness.Upload\022\020\n\010Uploader\030\005 \001(\t\"\'\n\006Canvas\022" +
+      "\016\n\006Height\030\001 \001(\005\022\r\n\005Width\030\002 \001(\005\"\206\001\n\006Outpu" +
+      "t\022\r\n\005Alpha\030\001 \001(\010\0224\n\005Codec\030\002 \001(\0132%.Volcen" +
+      "gine.Vod.Models.Business.Codec\022\024\n\014Disabl" +
+      "eAudio\030\003 \001(\010\022\024\n\014DisableVideo\030\004 \001(\010\022\013\n\003Fp" +
+      "s\030\005 \001(\005\"b\n\005Codec\022\024\n\014AudioBitrate\030\001 \001(\005\022\022" +
+      "\n\nAudioCodec\030\002 \001(\t\022\013\n\003Crf\030\003 \001(\005\022\016\n\006Prese" +
+      "t\030\004 \001(\t\022\022\n\nVideoCodec\030\005 \001(\t\"E\n\005Track\022\n\n\002" +
+      "ID\030\001 \001(\t\022\016\n\006Source\030\002 \001(\t\022\022\n\nTargetTime\030\003" +
+      " \003(\005\022\014\n\004Type\030\004 \001(\t\".\n\006Upload\022\021\n\tSpaceNam" +
+      "e\030\001 \001(\t\022\021\n\tVideoName\030\002 \001(\tB\310\001\n)com.volce" +
+      "ngine.service.vod.model.businessB\007VodEdi" +
+      "tP\001ZAgithub.com/volcengine/volc-sdk-gola" +
+      "ng/service/vod/models/business\240\001\001\330\001\001\312\002 V" +
+      "olc\\Service\\Vod\\Models\\Business\342\002#Volc\\S" +
+      "ervice\\Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.protobuf.StructProto.getDescriptor(),
         });
     internal_static_Volcengine_Vod_Models_Business_SubmitDirectEditTaskAsyncResult_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -75,6 +123,43 @@ public final class VodEdit {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_GetDirectEditResult_descriptor,
         new java.lang.String[] { "ReqId", "EditParam", "Priority", "CallbackUri", "CallbackArgs", "Status", "OutputVid", });
+    internal_static_Volcengine_Vod_Models_Business_EditParam_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_Volcengine_Vod_Models_Business_EditParam_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_EditParam_descriptor,
+        new java.lang.String[] { "Canvas", "Output", "Track", "Upload", "Uploader", });
+    internal_static_Volcengine_Vod_Models_Business_Canvas_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_Volcengine_Vod_Models_Business_Canvas_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_Canvas_descriptor,
+        new java.lang.String[] { "Height", "Width", });
+    internal_static_Volcengine_Vod_Models_Business_Output_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_Volcengine_Vod_Models_Business_Output_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_Output_descriptor,
+        new java.lang.String[] { "Alpha", "Codec", "DisableAudio", "DisableVideo", "Fps", });
+    internal_static_Volcengine_Vod_Models_Business_Codec_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_Volcengine_Vod_Models_Business_Codec_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_Codec_descriptor,
+        new java.lang.String[] { "AudioBitrate", "AudioCodec", "Crf", "Preset", "VideoCodec", });
+    internal_static_Volcengine_Vod_Models_Business_Track_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_Volcengine_Vod_Models_Business_Track_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_Track_descriptor,
+        new java.lang.String[] { "ID", "Source", "TargetTime", "Type", });
+    internal_static_Volcengine_Vod_Models_Business_Upload_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_Volcengine_Vod_Models_Business_Upload_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_Upload_descriptor,
+        new java.lang.String[] { "SpaceName", "VideoName", });
+    com.google.protobuf.StructProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

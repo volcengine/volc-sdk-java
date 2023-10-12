@@ -29,10 +29,30 @@ public interface VodDescribeVodDomainTrafficDataRequestOrBuilder extends
 
   /**
    * <pre>
+   * list of space:domain to query
+   * </pre>
+   *
+   * <code>string DomainInSpaceList = 2;</code>
+   * @return The domainInSpaceList.
+   */
+  java.lang.String getDomainInSpaceList();
+  /**
+   * <pre>
+   * list of space:domain to query
+   * </pre>
+   *
+   * <code>string DomainInSpaceList = 2;</code>
+   * @return The bytes for domainInSpaceList.
+   */
+  com.google.protobuf.ByteString
+      getDomainInSpaceListBytes();
+
+  /**
+   * <pre>
    * rfc339
    * </pre>
    *
-   * <code>string StartTime = 2;</code>
+   * <code>string StartTime = 3;</code>
    * @return The startTime.
    */
   java.lang.String getStartTime();
@@ -41,7 +61,7 @@ public interface VodDescribeVodDomainTrafficDataRequestOrBuilder extends
    * rfc339
    * </pre>
    *
-   * <code>string StartTime = 2;</code>
+   * <code>string StartTime = 3;</code>
    * @return The bytes for startTime.
    */
   com.google.protobuf.ByteString
@@ -52,7 +72,7 @@ public interface VodDescribeVodDomainTrafficDataRequestOrBuilder extends
    * rfc339
    * </pre>
    *
-   * <code>string EndTime = 3;</code>
+   * <code>string EndTime = 4;</code>
    * @return The endTime.
    */
   java.lang.String getEndTime();
@@ -61,7 +81,7 @@ public interface VodDescribeVodDomainTrafficDataRequestOrBuilder extends
    * rfc339
    * </pre>
    *
-   * <code>string EndTime = 3;</code>
+   * <code>string EndTime = 4;</code>
    * @return The bytes for endTime.
    */
   com.google.protobuf.ByteString
@@ -72,28 +92,40 @@ public interface VodDescribeVodDomainTrafficDataRequestOrBuilder extends
    * default 300, supports 1800, 3600 and 86400
    * </pre>
    *
-   * <code>int32 Aggregation = 4;</code>
+   * <code>int32 Aggregation = 5;</code>
    * @return The aggregation.
    */
   int getAggregation();
 
   /**
    * <pre>
-   * PCDN, CDN, or ALL
+   * ECDN, CDN, or ALL
    * </pre>
    *
-   * <code>string TrafficType = 5;</code>
+   * <code>string TrafficType = 6;</code>
    * @return The trafficType.
    */
   java.lang.String getTrafficType();
   /**
    * <pre>
-   * PCDN, CDN, or ALL
+   * ECDN, CDN, or ALL
    * </pre>
    *
-   * <code>string TrafficType = 5;</code>
+   * <code>string TrafficType = 6;</code>
    * @return The bytes for trafficType.
    */
   com.google.protobuf.ByteString
       getTrafficTypeBytes();
+
+  /**
+   * <code>string Area = 7;</code>
+   * @return The area.
+   */
+  java.lang.String getArea();
+  /**
+   * <code>string Area = 7;</code>
+   * @return The bytes for area.
+   */
+  com.google.protobuf.ByteString
+      getAreaBytes();
 }

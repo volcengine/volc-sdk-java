@@ -9,26 +9,6 @@ public interface VodDomainInstanceInfoOrBuilder extends
 
   /**
    * <pre>
-   *实例ID，废弃
-   * </pre>
-   *
-   * <code>string InstanceId = 1;</code>
-   * @return The instanceId.
-   */
-  java.lang.String getInstanceId();
-  /**
-   * <pre>
-   *实例ID，废弃
-   * </pre>
-   *
-   * <code>string InstanceId = 1;</code>
-   * @return The bytes for instanceId.
-   */
-  com.google.protobuf.ByteString
-      getInstanceIdBytes();
-
-  /**
-   * <pre>
    *域名列表
    * </pre>
    *
@@ -70,34 +50,4 @@ public interface VodDomainInstanceInfoOrBuilder extends
    */
   com.volcengine.service.vod.model.business.VodDomainoInfoOrBuilder getDomainsOrBuilder(
       int index);
-
-  /**
-   * <pre>
-   *是否可自助配置，废弃
-   * </pre>
-   *
-   * <code>bool CanSelfEditing = 3;</code>
-   * @return The canSelfEditing.
-   */
-  boolean getCanSelfEditing();
-
-  /**
-   * <pre>
-   *实例配置状态，废弃
-   * </pre>
-   *
-   * <code>string ConfigStatus = 4;</code>
-   * @return The configStatus.
-   */
-  java.lang.String getConfigStatus();
-  /**
-   * <pre>
-   *实例配置状态，废弃
-   * </pre>
-   *
-   * <code>string ConfigStatus = 4;</code>
-   * @return The bytes for configStatus.
-   */
-  com.google.protobuf.ByteString
-      getConfigStatusBytes();
 }

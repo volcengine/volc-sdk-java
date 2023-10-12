@@ -89,7 +89,7 @@ public interface VodDomainoInfoOrBuilder extends
 
   /**
    * <pre>
-   *运行状态
+   *是否开启点播调度
    * </pre>
    *
    * <code>string Status = 5;</code>
@@ -98,7 +98,7 @@ public interface VodDomainoInfoOrBuilder extends
   java.lang.String getStatus();
   /**
    * <pre>
-   *运行状态
+   *是否开启点播调度
    * </pre>
    *
    * <code>string Status = 5;</code>
@@ -263,18 +263,18 @@ public interface VodDomainoInfoOrBuilder extends
    *在CDN侧是否启用停用
    * </pre>
    *
-   * <code>string CDNStatus = 12;</code>
-   * @return The cDNStatus.
+   * <code>string CdnStatus = 12;</code>
+   * @return The cdnStatus.
    */
-  java.lang.String getCDNStatus();
+  java.lang.String getCdnStatus();
   /**
    * <pre>
    *在CDN侧是否启用停用
    * </pre>
    *
-   * <code>string CDNStatus = 12;</code>
-   * @return The bytes for cDNStatus.
+   * <code>string CdnStatus = 12;</code>
+   * @return The bytes for cdnStatus.
    */
   com.google.protobuf.ByteString
-      getCDNStatusBytes();
+      getCdnStatusBytes();
 }

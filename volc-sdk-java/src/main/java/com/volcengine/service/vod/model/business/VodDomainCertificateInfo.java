@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
     certificatePri_ = "";
     httpsStatus_ = "";
     expiredAt_ = "";
+    certificateCenterCertificateId_ = "";
   }
 
   @java.lang.Override
@@ -88,6 +89,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             expiredAt_ = s;
+            break;
+          }
+          case 58: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            certificateCenterCertificateId_ = s;
             break;
           }
           default: {
@@ -398,6 +405,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int CERTIFICATECENTERCERTIFICATEID_FIELD_NUMBER = 7;
+  private volatile java.lang.Object certificateCenterCertificateId_;
+  /**
+   * <pre>
+   *证书中心证书ID
+   * </pre>
+   *
+   * <code>string CertificateCenterCertificateId = 7;</code>
+   * @return The certificateCenterCertificateId.
+   */
+  @java.lang.Override
+  public java.lang.String getCertificateCenterCertificateId() {
+    java.lang.Object ref = certificateCenterCertificateId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      certificateCenterCertificateId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *证书中心证书ID
+   * </pre>
+   *
+   * <code>string CertificateCenterCertificateId = 7;</code>
+   * @return The bytes for certificateCenterCertificateId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCertificateCenterCertificateIdBytes() {
+    java.lang.Object ref = certificateCenterCertificateId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      certificateCenterCertificateId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -430,6 +483,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expiredAt_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, expiredAt_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(certificateCenterCertificateId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, certificateCenterCertificateId_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -456,6 +512,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expiredAt_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, expiredAt_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(certificateCenterCertificateId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, certificateCenterCertificateId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -484,6 +543,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getHttpsStatus())) return false;
     if (!getExpiredAt()
         .equals(other.getExpiredAt())) return false;
+    if (!getCertificateCenterCertificateId()
+        .equals(other.getCertificateCenterCertificateId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -507,6 +568,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getHttpsStatus().hashCode();
     hash = (37 * hash) + EXPIREDAT_FIELD_NUMBER;
     hash = (53 * hash) + getExpiredAt().hashCode();
+    hash = (37 * hash) + CERTIFICATECENTERCERTIFICATEID_FIELD_NUMBER;
+    hash = (53 * hash) + getCertificateCenterCertificateId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -652,6 +715,8 @@ private static final long serialVersionUID = 0L;
 
       expiredAt_ = "";
 
+      certificateCenterCertificateId_ = "";
+
       return this;
     }
 
@@ -684,6 +749,7 @@ private static final long serialVersionUID = 0L;
       result.certificatePri_ = certificatePri_;
       result.httpsStatus_ = httpsStatus_;
       result.expiredAt_ = expiredAt_;
+      result.certificateCenterCertificateId_ = certificateCenterCertificateId_;
       onBuilt();
       return result;
     }
@@ -754,6 +820,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getExpiredAt().isEmpty()) {
         expiredAt_ = other.expiredAt_;
+        onChanged();
+      }
+      if (!other.getCertificateCenterCertificateId().isEmpty()) {
+        certificateCenterCertificateId_ = other.certificateCenterCertificateId_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1357,6 +1427,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       expiredAt_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object certificateCenterCertificateId_ = "";
+    /**
+     * <pre>
+     *证书中心证书ID
+     * </pre>
+     *
+     * <code>string CertificateCenterCertificateId = 7;</code>
+     * @return The certificateCenterCertificateId.
+     */
+    public java.lang.String getCertificateCenterCertificateId() {
+      java.lang.Object ref = certificateCenterCertificateId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        certificateCenterCertificateId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *证书中心证书ID
+     * </pre>
+     *
+     * <code>string CertificateCenterCertificateId = 7;</code>
+     * @return The bytes for certificateCenterCertificateId.
+     */
+    public com.google.protobuf.ByteString
+        getCertificateCenterCertificateIdBytes() {
+      java.lang.Object ref = certificateCenterCertificateId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        certificateCenterCertificateId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *证书中心证书ID
+     * </pre>
+     *
+     * <code>string CertificateCenterCertificateId = 7;</code>
+     * @param value The certificateCenterCertificateId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCertificateCenterCertificateId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      certificateCenterCertificateId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *证书中心证书ID
+     * </pre>
+     *
+     * <code>string CertificateCenterCertificateId = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCertificateCenterCertificateId() {
+      
+      certificateCenterCertificateId_ = getDefaultInstance().getCertificateCenterCertificateId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *证书中心证书ID
+     * </pre>
+     *
+     * <code>string CertificateCenterCertificateId = 7;</code>
+     * @param value The bytes for certificateCenterCertificateId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCertificateCenterCertificateIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      certificateCenterCertificateId_ = value;
       onChanged();
       return this;
     }

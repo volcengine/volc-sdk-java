@@ -29,7 +29,7 @@ public interface VodBandwidthDataOrBuilder extends
 
   /**
    * <pre>
-   * 带宽，单位为 Mbps
+   * 带宽，单位为 bps
    * </pre>
    *
    * <code>double Bandwidth = 2;</code>

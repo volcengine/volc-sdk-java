@@ -132,6 +132,9 @@ public class Const {
 
     public static final String UpdateDomainAuthConfig = "UpdateDomainAuthConfig";
 
+    public static final String AddOrUpdateCertificate20230701 = "AddOrUpdateCertificate20230701";
+
+    public static final String AddOrUpdateCertificate = "AddOrUpdateCertificate";
 
     //vod-callback
     public static final String AddCallbackSubscription = "AddCallbackSubscription";

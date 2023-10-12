@@ -142,7 +142,7 @@ private static final long serialVersionUID = 0L;
   private double bandwidth_;
   /**
    * <pre>
-   * 带宽，单位为 Mbps
+   * 带宽，单位为 bps
    * </pre>
    *
    * <code>double Bandwidth = 2;</code>
@@ -573,7 +573,7 @@ private static final long serialVersionUID = 0L;
     private double bandwidth_ ;
     /**
      * <pre>
-     * 带宽，单位为 Mbps
+     * 带宽，单位为 bps
      * </pre>
      *
      * <code>double Bandwidth = 2;</code>
@@ -585,7 +585,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 带宽，单位为 Mbps
+     * 带宽，单位为 bps
      * </pre>
      *
      * <code>double Bandwidth = 2;</code>
@@ -600,7 +600,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 带宽，单位为 Mbps
+     * 带宽，单位为 bps
      * </pre>
      *
      * <code>double Bandwidth = 2;</code>

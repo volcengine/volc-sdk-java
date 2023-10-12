@@ -65,11 +65,21 @@ public interface VodListDomainRequestOrBuilder extends
 
   /**
    * <pre>
-   *跨过多少条域名
+   *跳过域名组的游标
    * </pre>
    *
-   * <code>int64 Offset = 4;</code>
+   * <code>int32 Offset = 4;</code>
    * @return The offset.
    */
-  long getOffset();
+  int getOffset();
+
+  /**
+   * <pre>
+   *单次查询域名组数量
+   * </pre>
+   *
+   * <code>int32 Limit = 5;</code>
+   * @return The limit.
+   */
+  int getLimit();
 }

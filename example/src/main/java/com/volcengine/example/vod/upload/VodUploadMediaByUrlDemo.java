@@ -6,6 +6,10 @@ package com.volcengine.example.vod.upload;
 
 import com.volcengine.service.vod.IVodService;
 import com.volcengine.service.vod.impl.VodServiceImpl;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class VodUploadMediaByUrlDemo {
 
     public static void main(String[] args) throws Exception {
@@ -21,6 +25,9 @@ public class VodUploadMediaByUrlDemo {
             uRLSetsBuilder.setStorageClass(0);
             uRLSetsBuilder.setFileExtension(".mp4");
             uRLSetsBuilder.setCallbackArgs("my java callback args");
+            Map<String, String> customUrlHeaders = new HashMap<>();
+            customUrlHeaders.put("your header key", "your header value");
+            uRLSetsBuilder.putAllCustomURLHeaders(customUrlHeaders);
             reqBuilder.addURLSets(uRLSetsBuilder);
 
             com.volcengine.service.vod.model.response.VodUrlUploadResponse resp = vodService.uploadMediaByUrl(reqBuilder.build());

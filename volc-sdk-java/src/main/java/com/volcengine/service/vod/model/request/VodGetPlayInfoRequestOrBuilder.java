@@ -352,4 +352,24 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getPlayConfigBytes();
+
+  /**
+   * <pre>
+   *控制是否需要将原片信息置于 VideoInfos 中
+   * </pre>
+   *
+   * <code>string NeedOriginal = 18;</code>
+   * @return The needOriginal.
+   */
+  java.lang.String getNeedOriginal();
+  /**
+   * <pre>
+   *控制是否需要将原片信息置于 VideoInfos 中
+   * </pre>
+   *
+   * <code>string NeedOriginal = 18;</code>
+   * @return The bytes for needOriginal.
+   */
+  com.google.protobuf.ByteString
+      getNeedOriginalBytes();
 }

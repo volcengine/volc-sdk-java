@@ -29,10 +29,30 @@ public interface VodDescribeVodDomainBandwidthDataRequestOrBuilder extends
 
   /**
    * <pre>
+   * 点播空间名和域名列表。格式为空间:域名 
+   * </pre>
+   *
+   * <code>string DomainInSpaceList = 2;</code>
+   * @return The domainInSpaceList.
+   */
+  java.lang.String getDomainInSpaceList();
+  /**
+   * <pre>
+   * 点播空间名和域名列表。格式为空间:域名 
+   * </pre>
+   *
+   * <code>string DomainInSpaceList = 2;</code>
+   * @return The bytes for domainInSpaceList.
+   */
+  com.google.protobuf.ByteString
+      getDomainInSpaceListBytes();
+
+  /**
+   * <pre>
    * 查询的起始时间, rfc3339 
    * </pre>
    *
-   * <code>string StartTime = 2;</code>
+   * <code>string StartTime = 3;</code>
    * @return The startTime.
    */
   java.lang.String getStartTime();
@@ -41,7 +61,7 @@ public interface VodDescribeVodDomainBandwidthDataRequestOrBuilder extends
    * 查询的起始时间, rfc3339 
    * </pre>
    *
-   * <code>string StartTime = 2;</code>
+   * <code>string StartTime = 3;</code>
    * @return The bytes for startTime.
    */
   com.google.protobuf.ByteString
@@ -52,7 +72,7 @@ public interface VodDescribeVodDomainBandwidthDataRequestOrBuilder extends
    * 查询的结束时间, rfc3339；查询时间跨度不超过93天 
    * </pre>
    *
-   * <code>string EndTime = 3;</code>
+   * <code>string EndTime = 4;</code>
    * @return The endTime.
    */
   java.lang.String getEndTime();
@@ -61,7 +81,7 @@ public interface VodDescribeVodDomainBandwidthDataRequestOrBuilder extends
    * 查询的结束时间, rfc3339；查询时间跨度不超过93天 
    * </pre>
    *
-   * <code>string EndTime = 3;</code>
+   * <code>string EndTime = 4;</code>
    * @return The bytes for endTime.
    */
   com.google.protobuf.ByteString
@@ -72,26 +92,26 @@ public interface VodDescribeVodDomainBandwidthDataRequestOrBuilder extends
    * 聚合的时间粒度，单位秒，默认300，支持300，1800，3600和86400 
    * </pre>
    *
-   * <code>int32 Aggregation = 4;</code>
+   * <code>int32 Aggregation = 5;</code>
    * @return The aggregation.
    */
   int getAggregation();
 
   /**
    * <pre>
-   * 默认是CDN，支持CDN、PCDN、ALL 
+   * 默认是CDN，支持CDN、ECDN、ALL 
    * </pre>
    *
-   * <code>string BandwidthType = 5;</code>
+   * <code>string BandwidthType = 6;</code>
    * @return The bandwidthType.
    */
   java.lang.String getBandwidthType();
   /**
    * <pre>
-   * 默认是CDN，支持CDN、PCDN、ALL 
+   * 默认是CDN，支持CDN、ECDN、ALL 
    * </pre>
    *
-   * <code>string BandwidthType = 5;</code>
+   * <code>string BandwidthType = 6;</code>
    * @return The bytes for bandwidthType.
    */
   com.google.protobuf.ByteString
@@ -102,7 +122,7 @@ public interface VodDescribeVodDomainBandwidthDataRequestOrBuilder extends
    * 加速区域 
    * </pre>
    *
-   * <code>string Area = 6;</code>
+   * <code>string Area = 7;</code>
    * @return The area.
    */
   java.lang.String getArea();
@@ -111,7 +131,7 @@ public interface VodDescribeVodDomainBandwidthDataRequestOrBuilder extends
    * 加速区域 
    * </pre>
    *
-   * <code>string Area = 6;</code>
+   * <code>string Area = 7;</code>
    * @return The bytes for area.
    */
   com.google.protobuf.ByteString

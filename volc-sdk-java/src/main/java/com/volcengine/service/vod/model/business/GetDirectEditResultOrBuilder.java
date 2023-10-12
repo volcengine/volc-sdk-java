@@ -32,10 +32,27 @@ public interface GetDirectEditResultOrBuilder extends
    * 视频编辑参数
    * </pre>
    *
-   * <code>bytes EditParam = 2;</code>
+   * <code>.Volcengine.Vod.Models.Business.EditParam EditParam = 2;</code>
+   * @return Whether the editParam field is set.
+   */
+  boolean hasEditParam();
+  /**
+   * <pre>
+   * 视频编辑参数
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.EditParam EditParam = 2;</code>
    * @return The editParam.
    */
-  com.google.protobuf.ByteString getEditParam();
+  com.volcengine.service.vod.model.business.EditParam getEditParam();
+  /**
+   * <pre>
+   * 视频编辑参数
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.EditParam EditParam = 2;</code>
+   */
+  com.volcengine.service.vod.model.business.EditParamOrBuilder getEditParamOrBuilder();
 
   /**
    * <pre>

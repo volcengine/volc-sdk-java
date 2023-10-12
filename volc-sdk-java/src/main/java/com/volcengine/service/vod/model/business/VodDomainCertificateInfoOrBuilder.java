@@ -126,4 +126,24 @@ public interface VodDomainCertificateInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getExpiredAtBytes();
+
+  /**
+   * <pre>
+   *证书中心证书ID
+   * </pre>
+   *
+   * <code>string CertificateCenterCertificateId = 7;</code>
+   * @return The certificateCenterCertificateId.
+   */
+  java.lang.String getCertificateCenterCertificateId();
+  /**
+   * <pre>
+   *证书中心证书ID
+   * </pre>
+   *
+   * <code>string CertificateCenterCertificateId = 7;</code>
+   * @return The bytes for certificateCenterCertificateId.
+   */
+  com.google.protobuf.ByteString
+      getCertificateCenterCertificateIdBytes();
 }

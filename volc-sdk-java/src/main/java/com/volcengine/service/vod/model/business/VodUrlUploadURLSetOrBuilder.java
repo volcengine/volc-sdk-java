@@ -256,4 +256,58 @@ public interface VodUrlUploadURLSetOrBuilder extends
    * @return The enableLowPriority.
    */
   boolean getEnableLowPriority();
+
+  /**
+   * <pre>
+   * 自定义Header 
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; CustomURLHeaders = 15;</code>
+   */
+  int getCustomURLHeadersCount();
+  /**
+   * <pre>
+   * 自定义Header 
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; CustomURLHeaders = 15;</code>
+   */
+  boolean containsCustomURLHeaders(
+      java.lang.String key);
+  /**
+   * Use {@link #getCustomURLHeadersMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, java.lang.String>
+  getCustomURLHeaders();
+  /**
+   * <pre>
+   * 自定义Header 
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; CustomURLHeaders = 15;</code>
+   */
+  java.util.Map<java.lang.String, java.lang.String>
+  getCustomURLHeadersMap();
+  /**
+   * <pre>
+   * 自定义Header 
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; CustomURLHeaders = 15;</code>
+   */
+
+  java.lang.String getCustomURLHeadersOrDefault(
+      java.lang.String key,
+      java.lang.String defaultValue);
+  /**
+   * <pre>
+   * 自定义Header 
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; CustomURLHeaders = 15;</code>
+   */
+
+  java.lang.String getCustomURLHeadersOrThrow(
+      java.lang.String key);
 }

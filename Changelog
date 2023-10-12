@@ -1,5 +1,9 @@
 Change log
 
+2023-10-12 Bumped to version v1.0.124
+- Updated apis for video_aiot/vod/maas/security/imagex
+- VOD: Rename workflow-related APIs by changing the initial letter of the API name from uppercase to lowercase
+
 2023-10-09 Bumped to version v1.0.123
 - Updated apis for livesaas/sms
 

@@ -769,6 +769,7 @@ public class Const {
     public static final String MaasChatRoleOfUser = "user";
     public static final String MaasChatRoleOfAssistant = "assistant";
     public static final String MaasChatRoleOfSystem = "system";
+    public static final String MaasChatRoleOfFunction = "function";
 
     public static final String SmsChannelTypeCnOTP = "CN_OTP";
     public static final String SmsChannelTypeCnNTC = "CN_NTC";

@@ -29,6 +29,7 @@ private static final long serialVersionUID = 0L;
     source_ = "";
     tag_ = "";
     actionType_ = "";
+    hlsMediaSize_ = "";
   }
 
   @java.lang.Override
@@ -162,6 +163,12 @@ private static final long serialVersionUID = 0L;
           case 144: {
 
             isHlsIndexOnly_ = input.readBool();
+            break;
+          }
+          case 154: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            hlsMediaSize_ = s;
             break;
           }
           default: {
@@ -745,6 +752,44 @@ private static final long serialVersionUID = 0L;
     return isHlsIndexOnly_;
   }
 
+  public static final int HLSMEDIASIZE_FIELD_NUMBER = 19;
+  private volatile java.lang.Object hlsMediaSize_;
+  /**
+   * <code>string HlsMediaSize = 19;</code>
+   * @return The hlsMediaSize.
+   */
+  @java.lang.Override
+  public java.lang.String getHlsMediaSize() {
+    java.lang.Object ref = hlsMediaSize_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      hlsMediaSize_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string HlsMediaSize = 19;</code>
+   * @return The bytes for hlsMediaSize.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getHlsMediaSizeBytes() {
+    java.lang.Object ref = hlsMediaSize_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      hlsMediaSize_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -812,6 +857,9 @@ private static final long serialVersionUID = 0L;
     }
     if (isHlsIndexOnly_ != false) {
       output.writeBool(18, isHlsIndexOnly_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hlsMediaSize_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 19, hlsMediaSize_);
     }
     unknownFields.writeTo(output);
   }
@@ -881,6 +929,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(18, isHlsIndexOnly_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hlsMediaSize_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(19, hlsMediaSize_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -933,6 +984,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getActionType())) return false;
     if (getIsHlsIndexOnly()
         != other.getIsHlsIndexOnly()) return false;
+    if (!getHlsMediaSize()
+        .equals(other.getHlsMediaSize())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -983,6 +1036,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ISHLSINDEXONLY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getIsHlsIndexOnly());
+    hash = (37 * hash) + HLSMEDIASIZE_FIELD_NUMBER;
+    hash = (53 * hash) + getHlsMediaSize().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1152,6 +1207,8 @@ private static final long serialVersionUID = 0L;
 
       isHlsIndexOnly_ = false;
 
+      hlsMediaSize_ = "";
+
       return this;
     }
 
@@ -1196,6 +1253,7 @@ private static final long serialVersionUID = 0L;
       result.autoPublish_ = autoPublish_;
       result.actionType_ = actionType_;
       result.isHlsIndexOnly_ = isHlsIndexOnly_;
+      result.hlsMediaSize_ = hlsMediaSize_;
       onBuilt();
       return result;
     }
@@ -1310,6 +1368,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getIsHlsIndexOnly() != false) {
         setIsHlsIndexOnly(other.getIsHlsIndexOnly());
+      }
+      if (!other.getHlsMediaSize().isEmpty()) {
+        hlsMediaSize_ = other.hlsMediaSize_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2479,6 +2541,82 @@ private static final long serialVersionUID = 0L;
     public Builder clearIsHlsIndexOnly() {
       
       isHlsIndexOnly_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object hlsMediaSize_ = "";
+    /**
+     * <code>string HlsMediaSize = 19;</code>
+     * @return The hlsMediaSize.
+     */
+    public java.lang.String getHlsMediaSize() {
+      java.lang.Object ref = hlsMediaSize_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        hlsMediaSize_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string HlsMediaSize = 19;</code>
+     * @return The bytes for hlsMediaSize.
+     */
+    public com.google.protobuf.ByteString
+        getHlsMediaSizeBytes() {
+      java.lang.Object ref = hlsMediaSize_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        hlsMediaSize_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string HlsMediaSize = 19;</code>
+     * @param value The hlsMediaSize to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHlsMediaSize(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      hlsMediaSize_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string HlsMediaSize = 19;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHlsMediaSize() {
+      
+      hlsMediaSize_ = getDefaultInstance().getHlsMediaSize();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string HlsMediaSize = 19;</code>
+     * @param value The bytes for hlsMediaSize to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHlsMediaSizeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      hlsMediaSize_ = value;
       onChanged();
       return this;
     }

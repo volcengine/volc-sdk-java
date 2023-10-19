@@ -254,4 +254,14 @@ public interface VodMediaBasicInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getVodUploadSourceBytes();
+
+  /**
+   * <pre>
+   * Hls媒体Size(m3u8+ts)
+   * </pre>
+   *
+   * <code>double HlsMediaSize = 12;</code>
+   * @return The hlsMediaSize.
+   */
+  double getHlsMediaSize();
 }

@@ -19,6 +19,8 @@ public class DescribeAlarmNotifyGroupsRequest {
     Integer pageNumber;
     @JSONField(name = PAGE_SIZE)
     Integer pageSize;
+    @JSONField(name = IAM_PROJECT_NAME)
+    String iamProjectName;
 
     public DescribeAlarmNotifyGroupsRequest(String alarmNotifyGroupId) {
         this.alarmNotifyGroupId = alarmNotifyGroupId;
@@ -92,6 +94,20 @@ public class DescribeAlarmNotifyGroupsRequest {
      */
     public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
+    }
+
+    /**
+     * @return 告警组所属的IAM项目名称
+     */
+    public String getIamProjectName() {
+        return iamProjectName;
+    }
+
+    /**
+     * @param iamProjectName 告警组所属的IAM项目名称
+     */
+    public void setIamProjectName(String iamProjectName) {
+        this.iamProjectName = iamProjectName;
     }
 
     /**

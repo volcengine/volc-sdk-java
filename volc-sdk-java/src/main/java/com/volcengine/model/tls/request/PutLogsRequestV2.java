@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+import static com.volcengine.model.tls.Const.LZ4;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,7 +16,7 @@ public class PutLogsRequestV2 {
     private List<LogItem> logs;
     private String topicId;
     private String hashKey;
-    private String compressType;
+    private String compressType = LZ4;
     private String path;
     private String source;
 

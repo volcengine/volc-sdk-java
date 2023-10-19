@@ -13,6 +13,8 @@ import static com.volcengine.model.tls.Const.*;
 public class ExtractRule {
     @JSONField(name = DELIMITER)
     String delimiter;
+    @JSONField(name = QUOTE)
+    String quote;
     @JSONField(name = BEGIN_REGEX)
     String beginRegex;
     @JSONField(name = LOG_REGEX)
@@ -44,6 +46,20 @@ public class ExtractRule {
      */
     public void setDelimiter(String delimiter) {
         this.delimiter = delimiter;
+    }
+
+    /**
+     * @return 引用符
+     */
+    public String getQuote() {
+        return quote;
+    }
+
+    /**
+     * @param quote 引用符
+     */
+    public void setQuote(String quote) {
+        this.quote = quote;
     }
 
     /**

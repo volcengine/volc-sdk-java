@@ -192,4 +192,16 @@ public interface VodUploadFunctionInputOrBuilder extends
    * @return The isHlsIndexOnly.
    */
   boolean getIsHlsIndexOnly();
+
+  /**
+   * <code>string HlsMediaSize = 19;</code>
+   * @return The hlsMediaSize.
+   */
+  java.lang.String getHlsMediaSize();
+  /**
+   * <code>string HlsMediaSize = 19;</code>
+   * @return The bytes for hlsMediaSize.
+   */
+  com.google.protobuf.ByteString
+      getHlsMediaSizeBytes();
 }

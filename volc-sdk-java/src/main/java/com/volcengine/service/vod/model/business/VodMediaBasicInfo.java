@@ -135,6 +135,11 @@ private static final long serialVersionUID = 0L;
             vodUploadSource_ = s;
             break;
           }
+          case 97: {
+
+            hlsMediaSize_ = input.readDouble();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -673,6 +678,21 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int HLSMEDIASIZE_FIELD_NUMBER = 12;
+  private double hlsMediaSize_;
+  /**
+   * <pre>
+   * Hls媒体Size(m3u8+ts)
+   * </pre>
+   *
+   * <code>double HlsMediaSize = 12;</code>
+   * @return The hlsMediaSize.
+   */
+  @java.lang.Override
+  public double getHlsMediaSize() {
+    return hlsMediaSize_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -719,6 +739,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vodUploadSource_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 11, vodUploadSource_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(hlsMediaSize_) != 0) {
+      output.writeDouble(12, hlsMediaSize_);
     }
     unknownFields.writeTo(output);
   }
@@ -768,6 +791,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vodUploadSource_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, vodUploadSource_);
     }
+    if (java.lang.Double.doubleToRawLongBits(hlsMediaSize_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(12, hlsMediaSize_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -808,6 +835,9 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTosStorageClass())) return false;
     if (!getVodUploadSource()
         .equals(other.getVodUploadSource())) return false;
+    if (java.lang.Double.doubleToLongBits(getHlsMediaSize())
+        != java.lang.Double.doubleToLongBits(
+            other.getHlsMediaSize())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -845,6 +875,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getTosStorageClass().hashCode();
     hash = (37 * hash) + VODUPLOADSOURCE_FIELD_NUMBER;
     hash = (53 * hash) + getVodUploadSource().hashCode();
+    hash = (37 * hash) + HLSMEDIASIZE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getHlsMediaSize()));
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1004,6 +1037,8 @@ private static final long serialVersionUID = 0L;
 
       vodUploadSource_ = "";
 
+      hlsMediaSize_ = 0D;
+
       return this;
     }
 
@@ -1050,6 +1085,7 @@ private static final long serialVersionUID = 0L;
       }
       result.tosStorageClass_ = tosStorageClass_;
       result.vodUploadSource_ = vodUploadSource_;
+      result.hlsMediaSize_ = hlsMediaSize_;
       onBuilt();
       return result;
     }
@@ -1146,6 +1182,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getVodUploadSource().isEmpty()) {
         vodUploadSource_ = other.vodUploadSource_;
         onChanged();
+      }
+      if (other.getHlsMediaSize() != 0D) {
+        setHlsMediaSize(other.getHlsMediaSize());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2338,6 +2377,49 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       vodUploadSource_ = value;
+      onChanged();
+      return this;
+    }
+
+    private double hlsMediaSize_ ;
+    /**
+     * <pre>
+     * Hls媒体Size(m3u8+ts)
+     * </pre>
+     *
+     * <code>double HlsMediaSize = 12;</code>
+     * @return The hlsMediaSize.
+     */
+    @java.lang.Override
+    public double getHlsMediaSize() {
+      return hlsMediaSize_;
+    }
+    /**
+     * <pre>
+     * Hls媒体Size(m3u8+ts)
+     * </pre>
+     *
+     * <code>double HlsMediaSize = 12;</code>
+     * @param value The hlsMediaSize to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHlsMediaSize(double value) {
+      
+      hlsMediaSize_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Hls媒体Size(m3u8+ts)
+     * </pre>
+     *
+     * <code>double HlsMediaSize = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHlsMediaSize() {
+      
+      hlsMediaSize_ = 0D;
       onChanged();
       return this;
     }

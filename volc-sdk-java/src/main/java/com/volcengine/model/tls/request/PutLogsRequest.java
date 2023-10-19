@@ -4,13 +4,15 @@ import com.volcengine.model.tls.pb.PutLogRequest;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import static com.volcengine.model.tls.Const.LZ4;
+
 @Data
 @NoArgsConstructor
 public class PutLogsRequest {
     private PutLogRequest.LogGroupList logGroupList;
     private String topicId;
     private String hashKey;
-    private String compressType;
+    private String compressType = LZ4;
 
     /**
      * @param logGroupList 日志列表

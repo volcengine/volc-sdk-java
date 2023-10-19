@@ -1,5 +1,8 @@
 package com.volcengine.model.tls.request;
 
+import java.util.List;
+
+import com.volcengine.model.tls.TagInfo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +15,7 @@ public class DescribeTopicsRequest {
     Boolean IsFullName;
     String topicName;
     String topicId;
+    List<TagInfo> tags;
 
     /**
      * @return 日志主题所属的日志项目 ID
@@ -95,6 +99,20 @@ public class DescribeTopicsRequest {
      */
     public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
+    }
+
+    /**
+     * @return 日志主题标签信息
+     */
+    public List<TagInfo> getTags() {
+        return tags;
+    }
+
+    /**
+     * @param tags 日志主题标签信息
+     */
+    public void setTags(List<TagInfo> tags) {
+        this.tags = tags;
     }
 
     /**

@@ -23,6 +23,12 @@ public class ModifyTopicRequest {
     Integer maxSplitShard;
     @JSONField(name = ENABLE_TRACKING)
     Boolean enableTracking;
+    @JSONField(name = TIME_KEY)
+    String timeKey;
+    @JSONField(name = TIME_FORMAT)
+    String timeFormat;
+    @JSONField(name = LOG_PUBLIC_IP)
+    Boolean logPublicIP;
 
     /**
      * @return 日志主题 ID
@@ -122,6 +128,48 @@ public class ModifyTopicRequest {
      */
     public void setEnableTracking(Boolean enableTracking) {
         this.enableTracking = enableTracking;
+    }
+
+    /**
+     * @return 日志时间字段的字段名称
+     */
+    public String getTimeKey() {
+        return timeKey;
+    }
+
+    /**
+     * @param timeKey 日志时间字段的字段名称
+     */
+    public void setTimeKey(String timeKey) {
+        this.timeKey = timeKey;
+    }
+
+    /**
+     * @return 时间字段的解析格式
+     */
+    public String getTimeFormat() {
+        return timeFormat;
+    }
+
+    /**
+     * @param timeFormat 时间字段的解析格式
+     */
+    public void setTimeFormat(String timeFormat) {
+        this.timeFormat = timeFormat;
+    }
+
+    /**
+     * @return 是否开启记录外网IP功能
+     */
+    public Boolean getLogPublicIP() {
+        return logPublicIP;
+    }
+
+    /**
+     * @param logPublicIP 是否开启记录外网IP功能
+     */
+    public void setLogPublicIP(Boolean logPublicIP) {
+        this.logPublicIP = logPublicIP;
     }
 
     /**

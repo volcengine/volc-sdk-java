@@ -1,10 +1,10 @@
 package com.volcengine.model.tls;
 
+import java.util.Map;
+
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Map;
 
 import static com.volcengine.model.tls.Const.*;
 
@@ -19,6 +19,12 @@ public class UserDefineRule {
     Boolean enableRawLog;
     @JSONField(name = FIELDS)
     Map<String, String> fields;
+    @JSONField(name = PLUGIN)
+    Plugin plugin;
+    @JSONField(name = ADVANCED)
+    Advanced advanced;
+    @JSONField(name = TAIL_FILES)
+    Boolean tailFiles;
 
     /**
      * @param parsePathRule 解析采集路径的规则
@@ -87,5 +93,47 @@ public class UserDefineRule {
      */
     public void setFields(Map<String, String> fields) {
         this.fields = fields;
+    }
+
+    /**
+     * @return LogCollector插件配置
+     */
+    public Plugin getPlugin() {
+        return plugin;
+    }
+
+    /**
+     * @param plugin LogCollector插件配置
+     */
+    public void setPlugin(Plugin plugin) {
+        this.plugin = plugin;
+    }
+
+    /**
+     * @return LogCollector扩展配置
+     */
+    public Advanced getAdvanced() {
+        return advanced;
+    }
+
+    /**
+     * @param advanced LogCollector扩展配置
+     */
+    public void setAdvanced(Advanced advanced) {
+        this.advanced = advanced;
+    }
+
+    /**
+     * @return LogCollector采集策略，即指定LogCollector采集增量日志还是全量日志
+     */
+    public Boolean getTailFiles() {
+        return tailFiles;
+    }
+
+    /**
+     * @param tailFiles LogCollector采集策略，即指定LogCollector采集增量日志还是全量日志
+     */
+    public void setTailFiles(Boolean tailFiles) {
+        this.tailFiles = tailFiles;
     }
 }

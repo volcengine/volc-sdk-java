@@ -1,5 +1,8 @@
 Change log
 
+2023-10-19 Bumped to version v1.0.125
+- Updated apis for tls/maas/vod/live/imgaex
+
 2023-10-12 Bumped to version v1.0.124
 - Updated apis for video_aiot/vod/maas/security/imagex
 - VOD: Rename workflow-related APIs by changing the initial letter of the API name from uppercase to lowercase

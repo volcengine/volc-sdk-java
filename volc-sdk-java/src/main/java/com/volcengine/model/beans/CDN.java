@@ -4081,26 +4081,66 @@ public class CDN {
         @JSONField(name = "2xx")
         Double Status2xx;
 
+        @JSONField(name = "2xx")
+        public void setStatus2xx (Double status2xx) {
+            this.Status2xx = status2xx;
+        }
+
         @JSONField(name = "2xxRatio")
         Double Status2xxRatio;
+
+        @JSONField(name = "2xxRatio")
+        public void setStatus2xxRatio (Double status2xxRatio) {
+            this.Status2xxRatio = status2xxRatio;
+        }
 
         @JSONField(name = "3xx")
         Double Status3xx;
 
+        @JSONField(name = "3xx")
+        public void setStatus3xx (Double status3xx) {
+            this.Status3xx = status3xx;
+        }
+
         @JSONField(name = "3xxRatio")
         Double Status3xxRatio;
+
+        @JSONField(name = "3xxRatio")
+        public void setStatus3xxRatio (Double status3xxRatio) {
+            this.Status3xxRatio = status3xxRatio;
+        }
 
         @JSONField(name = "4xx")
         Double Status4xx;
 
+        @JSONField(name = "4xx")
+        public void setStatus4xx (Double status4xx) {
+            this.Status4xx = status4xx;
+        }
+
         @JSONField(name = "4xxRatio")
         Double Status4xxRatio;
+
+        @JSONField(name = "4xxRatio")
+        public void setStatus4xxRatio (Double status4xxRatio) {
+            this.Status4xxRatio = status4xxRatio;
+        }
 
         @JSONField(name = "5xx")
         Double Status5xx;
 
+        @JSONField(name = "5xx")
+        public void setStatus5xx (Double status5xx) {
+            this.Status5xx = status5xx;
+        }
+
         @JSONField(name = "5xxRatio")
         Double Status5xxRatio;
+
+        @JSONField(name = "5xxRatio")
+        public void setStatus5xxRatio (Double status5xxRatio) {
+            this.Status5xxRatio = status5xxRatio;
+        }
 
         @JSONField(name = "ItemKey")
         String ItemKey;

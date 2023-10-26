@@ -45,4 +45,6 @@ public class GetListRequest {
     int offPersonalRec;
     @JSONField(name = "CustomVideoDefinition")
     String customVideoDefinition;
+    @JSONField(name = "ApiVersion")
+    int apiVersion;
 }

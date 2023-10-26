@@ -7,6 +7,7 @@ import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.stream.CommonPo;
+import com.volcengine.model.stream.CommonPoV2;
 import com.volcengine.model.stream.consumer.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.stream.MonitorService;
@@ -137,6 +138,20 @@ public class StreamConsumerServiceImpl extends BaseServiceImpl implements Stream
     }
 
     @Override
+    public SingleArticleResponseV2 singleArticleV2(SingleArticleRequest singleArticleRequest) throws Exception {
+        singleArticleRequest.setApiVersion(4);
+        long start = System.currentTimeMillis();
+        RawResponse response = query(Const.SingleArticleV2, Utils.mapToPairList(Utils.paramsToMap(singleArticleRequest)));
+        long end = System.currentTimeMillis();
+        sendToMonitor(instance, singleArticleRequest.getPartner(), "", singleArticleRequest.getAccessToken(),
+                Const.SingleArticleV2, response.getHttpCode(), response.getCode(), response.getData(), end - start);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), SingleArticleResponseV2.class);
+    }
+
+    @Override
     public MultiArticlesResponse multiArticles(MultiArticlesRequest multiArticlesRequest) throws Exception {
         long start = System.currentTimeMillis();
         Map<String, String> requestMap = Utils.paramsToMap(multiArticlesRequest);
@@ -169,6 +184,45 @@ public class StreamConsumerServiceImpl extends BaseServiceImpl implements Stream
             articleList.add(articleInfo);
         }
         MultiArticlesResponse.Result result = new MultiArticlesResponse.Result();
+        result.setArticleInfos(articleList);
+        getArticlesResponse.setResult(result);
+        return getArticlesResponse;
+    }
+
+    @Override
+    public MultiArticlesResponseV2 multiArticlesV2(MultiArticlesRequest multiArticlesRequest) throws Exception {
+        multiArticlesRequest.setApiVersion(4);
+        long start = System.currentTimeMillis();
+        Map<String, String> requestMap = Utils.paramsToMap(multiArticlesRequest);
+        if (requestMap.containsKey("GroupIDs")) {
+            String groupIdsStr = requestMap.get("GroupIDs");
+            groupIdsStr = groupIdsStr.replaceAll("%2C", ",");
+            requestMap.put("GroupIDs", groupIdsStr);
+        }
+        RawResponse response = query(Const.MultiArticleV2, Utils.mapToPairList(requestMap));
+        long end = System.currentTimeMillis();
+        sendToMonitor(instance, multiArticlesRequest.getPartner(), "", multiArticlesRequest.getAccessToken(),
+                Const.MultiArticleV2, response.getHttpCode(), response.getCode(), response.getData(), end - start);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        String jsonString = new String(response.getData());
+        JSONObject jsonObject = JSONObject.parseObject(jsonString);
+        MultiArticlesResponseV2 getArticlesResponse = new MultiArticlesResponseV2();
+        List<SingleArticleResponseV2.Result> articleList = new ArrayList<>();
+        JSONObject result1 = jsonObject.getJSONObject("Result");
+        JSONObject responseMetadataJson = jsonObject.getJSONObject("ResponseMetadata");
+        CommonPoV2.ResponseMetadata responseMetadata = JSONObject.toJavaObject(responseMetadataJson, CommonPoV2.ResponseMetadata.class);
+        getArticlesResponse.setResponseMetadata(responseMetadata);
+        if (result1 == null) {
+            return getArticlesResponse;
+        }
+        for (Map.Entry<String, Object> entry : ((Map<String, Object>) result1).entrySet()) {
+            SingleArticleResponseV2.Result articleInfo = JSONObject.toJavaObject((JSONObject) entry.getValue(), SingleArticleResponseV2.Result.class);
+            articleInfo.setGroupId(entry.getKey());
+            articleList.add(articleInfo);
+        }
+        MultiArticlesResponseV2.Result result = new MultiArticlesResponseV2.Result();
         result.setArticleInfos(articleList);
         getArticlesResponse.setResult(result);
         return getArticlesResponse;

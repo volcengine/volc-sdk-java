@@ -1,22 +1,18 @@
 package com.volcengine.example.stream.consumer;
 
 import com.alibaba.fastjson.JSON;
-import com.volcengine.model.stream.GetArticlesRequest;
-import com.volcengine.model.stream.GetArticlesResponse;
 import com.volcengine.model.stream.consumer.MultiArticlesRequest;
 import com.volcengine.model.stream.consumer.MultiArticlesResponse;
+import com.volcengine.model.stream.consumer.MultiArticlesResponseV2;
 import com.volcengine.service.stream.StreamConsumerService;
-import com.volcengine.service.stream.StreamService;
 import com.volcengine.service.stream.impl.StreamConsumerServiceImpl;
-import com.volcengine.service.stream.impl.StreamServiceImpl;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 
-// MultiArticlesDemo 该版本已逐渐废弃，请使用V2版本
-public class MultiArticlesDemo {
+public class MultiArticlesDemoV2 {
     public static void main(String[] args) {
         //初始化一个service
         StreamConsumerService streamConsumerService = StreamConsumerServiceImpl.getInstance();
@@ -30,11 +26,11 @@ public class MultiArticlesDemo {
         req.setAccessToken("accessToken");
         req.setPartner("server_sdk_demo_default_content");
         List<String> groupIdList = new ArrayList<>();
-        groupIdList.add("7156212955586298402");
+        groupIdList.add("7278981857889731072,6758714736730178060,7156861953141375500");
         req.setGroupIds(groupIdList);
 
         try {
-            MultiArticlesResponse response = streamConsumerService.multiArticles(req);
+            MultiArticlesResponseV2 response = streamConsumerService.multiArticlesV2(req);
             System.out.println(JSON.toJSONString(response));
         } catch (Exception e) {
             e.printStackTrace();

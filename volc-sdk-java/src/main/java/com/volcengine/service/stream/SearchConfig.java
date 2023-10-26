@@ -47,6 +47,20 @@ public class SearchConfig {
                         }
                     }
             ));
+            put(Const.ContentSearchV2, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ContentSearchV2));
+                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

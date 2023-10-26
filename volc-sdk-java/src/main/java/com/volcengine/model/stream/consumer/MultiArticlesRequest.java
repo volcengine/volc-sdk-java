@@ -17,5 +17,6 @@ public class MultiArticlesRequest {
     String accessToken;
     @JSONField(name = "CustomVideoDefinition")
     String customVideoDefinition;
+    @JSONField(name = "ApiVersion")
+    int apiVersion;
 }
-

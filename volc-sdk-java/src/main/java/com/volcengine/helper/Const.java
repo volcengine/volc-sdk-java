@@ -766,6 +766,10 @@ public class Const {
     // maas
     public static final String MaasApiChat = "chat";
 
+    public static final String MaasApiTokenization = "tokenization";
+
+    public static final String MaasApiClassification = "classification";
+
     public static final String MaasChatRoleOfUser = "user";
     public static final String MaasChatRoleOfAssistant = "assistant";
     public static final String MaasChatRoleOfSystem = "system";

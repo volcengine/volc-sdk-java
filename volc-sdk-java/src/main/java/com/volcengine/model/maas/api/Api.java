@@ -89,55 +89,6 @@ public final class Api {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private FunctionCall(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              arguments_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.volcengine.model.maas.api.Api.internal_static_proxy_FunctionCall_descriptor;
@@ -259,13 +210,13 @@ public final class Api {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (!getArgumentsBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(arguments_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, arguments_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -274,13 +225,13 @@ public final class Api {
       if (size != -1) return size;
 
       size = 0;
-      if (!getNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (!getArgumentsBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(arguments_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, arguments_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -299,7 +250,7 @@ public final class Api {
           .equals(other.getName())) return false;
       if (!getArguments()
           .equals(other.getArguments())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -314,7 +265,7 @@ public final class Api {
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + ARGUMENTS_FIELD_NUMBER;
       hash = (53 * hash) + getArguments().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -431,18 +382,13 @@ public final class Api {
 
       // Construct using com.volcengine.model.maas.api.Api.FunctionCall.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -535,7 +481,7 @@ public final class Api {
           arguments_ = other.arguments_;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -550,17 +496,40 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.volcengine.model.maas.api.Api.FunctionCall parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              case 18: {
+                arguments_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.volcengine.model.maas.api.Api.FunctionCall) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
 
@@ -793,7 +762,18 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FunctionCall(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -808,6 +788,1898 @@ public final class Api {
 
     @java.lang.Override
     public com.volcengine.model.maas.api.Api.FunctionCall getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TopLogprobsItemOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proxy.TopLogprobsItem)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>map&lt;string, float&gt; item = 1;</code>
+     */
+    int getItemCount();
+    /**
+     * <code>map&lt;string, float&gt; item = 1;</code>
+     */
+    boolean containsItem(
+        java.lang.String key);
+    /**
+     * Use {@link #getItemMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.Float>
+    getItem();
+    /**
+     * <code>map&lt;string, float&gt; item = 1;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.Float>
+    getItemMap();
+    /**
+     * <code>map&lt;string, float&gt; item = 1;</code>
+     */
+
+    float getItemOrDefault(
+        java.lang.String key,
+        float defaultValue);
+    /**
+     * <code>map&lt;string, float&gt; item = 1;</code>
+     */
+
+    float getItemOrThrow(
+        java.lang.String key);
+  }
+  /**
+   * Protobuf type {@code proxy.TopLogprobsItem}
+   */
+  public static final class TopLogprobsItem extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proxy.TopLogprobsItem)
+      TopLogprobsItemOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TopLogprobsItem.newBuilder() to construct.
+    private TopLogprobsItem(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TopLogprobsItem() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new TopLogprobsItem();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_TopLogprobsItem_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 1:
+          return internalGetItem();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_TopLogprobsItem_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.volcengine.model.maas.api.Api.TopLogprobsItem.class, com.volcengine.model.maas.api.Api.TopLogprobsItem.Builder.class);
+    }
+
+    public static final int ITEM_FIELD_NUMBER = 1;
+    private static final class ItemDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.Float> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.Float>newDefaultInstance(
+                  com.volcengine.model.maas.api.Api.internal_static_proxy_TopLogprobsItem_ItemEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.FLOAT,
+                  0F);
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.Float> item_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.Float>
+    internalGetItem() {
+      if (item_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            ItemDefaultEntryHolder.defaultEntry);
+      }
+      return item_;
+    }
+
+    public int getItemCount() {
+      return internalGetItem().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, float&gt; item = 1;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsItem(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetItem().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getItemMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.Float> getItem() {
+      return getItemMap();
+    }
+    /**
+     * <code>map&lt;string, float&gt; item = 1;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, java.lang.Float> getItemMap() {
+      return internalGetItem().getMap();
+    }
+    /**
+     * <code>map&lt;string, float&gt; item = 1;</code>
+     */
+    @java.lang.Override
+
+    public float getItemOrDefault(
+        java.lang.String key,
+        float defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.Float> map =
+          internalGetItem().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, float&gt; item = 1;</code>
+     */
+    @java.lang.Override
+
+    public float getItemOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.Float> map =
+          internalGetItem().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetItem(),
+          ItemDefaultEntryHolder.defaultEntry,
+          1);
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (java.util.Map.Entry<java.lang.String, java.lang.Float> entry
+           : internalGetItem().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.Float>
+        item__ = ItemDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(1, item__);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.volcengine.model.maas.api.Api.TopLogprobsItem)) {
+        return super.equals(obj);
+      }
+      com.volcengine.model.maas.api.Api.TopLogprobsItem other = (com.volcengine.model.maas.api.Api.TopLogprobsItem) obj;
+
+      if (!internalGetItem().equals(
+          other.internalGetItem())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (!internalGetItem().getMap().isEmpty()) {
+        hash = (37 * hash) + ITEM_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetItem().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.volcengine.model.maas.api.Api.TopLogprobsItem parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.TopLogprobsItem parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.TopLogprobsItem parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.TopLogprobsItem parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.TopLogprobsItem parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.TopLogprobsItem parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.TopLogprobsItem parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.TopLogprobsItem parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.TopLogprobsItem parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.TopLogprobsItem parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.TopLogprobsItem parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.TopLogprobsItem parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.volcengine.model.maas.api.Api.TopLogprobsItem prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proxy.TopLogprobsItem}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proxy.TopLogprobsItem)
+        com.volcengine.model.maas.api.Api.TopLogprobsItemOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_TopLogprobsItem_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 1:
+            return internalGetItem();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 1:
+            return internalGetMutableItem();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_TopLogprobsItem_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.volcengine.model.maas.api.Api.TopLogprobsItem.class, com.volcengine.model.maas.api.Api.TopLogprobsItem.Builder.class);
+      }
+
+      // Construct using com.volcengine.model.maas.api.Api.TopLogprobsItem.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        internalGetMutableItem().clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_TopLogprobsItem_descriptor;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.TopLogprobsItem getDefaultInstanceForType() {
+        return com.volcengine.model.maas.api.Api.TopLogprobsItem.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.TopLogprobsItem build() {
+        com.volcengine.model.maas.api.Api.TopLogprobsItem result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.TopLogprobsItem buildPartial() {
+        com.volcengine.model.maas.api.Api.TopLogprobsItem result = new com.volcengine.model.maas.api.Api.TopLogprobsItem(this);
+        int from_bitField0_ = bitField0_;
+        result.item_ = internalGetItem();
+        result.item_.makeImmutable();
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.volcengine.model.maas.api.Api.TopLogprobsItem) {
+          return mergeFrom((com.volcengine.model.maas.api.Api.TopLogprobsItem)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.volcengine.model.maas.api.Api.TopLogprobsItem other) {
+        if (other == com.volcengine.model.maas.api.Api.TopLogprobsItem.getDefaultInstance()) return this;
+        internalGetMutableItem().mergeFrom(
+            other.internalGetItem());
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.Float>
+                item__ = input.readMessage(
+                    ItemDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableItem().getMutableMap().put(
+                    item__.getKey(), item__.getValue());
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.Float> item_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.Float>
+      internalGetItem() {
+        if (item_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              ItemDefaultEntryHolder.defaultEntry);
+        }
+        return item_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.Float>
+      internalGetMutableItem() {
+        onChanged();;
+        if (item_ == null) {
+          item_ = com.google.protobuf.MapField.newMapField(
+              ItemDefaultEntryHolder.defaultEntry);
+        }
+        if (!item_.isMutable()) {
+          item_ = item_.copy();
+        }
+        return item_;
+      }
+
+      public int getItemCount() {
+        return internalGetItem().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, float&gt; item = 1;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsItem(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        return internalGetItem().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getItemMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.Float> getItem() {
+        return getItemMap();
+      }
+      /**
+       * <code>map&lt;string, float&gt; item = 1;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.String, java.lang.Float> getItemMap() {
+        return internalGetItem().getMap();
+      }
+      /**
+       * <code>map&lt;string, float&gt; item = 1;</code>
+       */
+      @java.lang.Override
+
+      public float getItemOrDefault(
+          java.lang.String key,
+          float defaultValue) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.Float> map =
+            internalGetItem().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, float&gt; item = 1;</code>
+       */
+      @java.lang.Override
+
+      public float getItemOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.Float> map =
+            internalGetItem().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearItem() {
+        internalGetMutableItem().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, float&gt; item = 1;</code>
+       */
+
+      public Builder removeItem(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        internalGetMutableItem().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.Float>
+      getMutableItem() {
+        return internalGetMutableItem().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, float&gt; item = 1;</code>
+       */
+      public Builder putItem(
+          java.lang.String key,
+          float value) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        
+        internalGetMutableItem().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, float&gt; item = 1;</code>
+       */
+
+      public Builder putAllItem(
+          java.util.Map<java.lang.String, java.lang.Float> values) {
+        internalGetMutableItem().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proxy.TopLogprobsItem)
+    }
+
+    // @@protoc_insertion_point(class_scope:proxy.TopLogprobsItem)
+    private static final com.volcengine.model.maas.api.Api.TopLogprobsItem DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.volcengine.model.maas.api.Api.TopLogprobsItem();
+    }
+
+    public static com.volcengine.model.maas.api.Api.TopLogprobsItem getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TopLogprobsItem>
+        PARSER = new com.google.protobuf.AbstractParser<TopLogprobsItem>() {
+      @java.lang.Override
+      public TopLogprobsItem parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<TopLogprobsItem> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TopLogprobsItem> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.TopLogprobsItem getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface LogprobsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proxy.Logprobs)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated int64 text_offset = 1;</code>
+     * @return A list containing the textOffset.
+     */
+    java.util.List<java.lang.Long> getTextOffsetList();
+    /**
+     * <code>repeated int64 text_offset = 1;</code>
+     * @return The count of textOffset.
+     */
+    int getTextOffsetCount();
+    /**
+     * <code>repeated int64 text_offset = 1;</code>
+     * @param index The index of the element to return.
+     * @return The textOffset at the given index.
+     */
+    long getTextOffset(int index);
+
+    /**
+     * <code>repeated double token_logprobs = 2;</code>
+     * @return A list containing the tokenLogprobs.
+     */
+    java.util.List<java.lang.Double> getTokenLogprobsList();
+    /**
+     * <code>repeated double token_logprobs = 2;</code>
+     * @return The count of tokenLogprobs.
+     */
+    int getTokenLogprobsCount();
+    /**
+     * <code>repeated double token_logprobs = 2;</code>
+     * @param index The index of the element to return.
+     * @return The tokenLogprobs at the given index.
+     */
+    double getTokenLogprobs(int index);
+
+    /**
+     * <code>repeated string tokens = 3;</code>
+     * @return A list containing the tokens.
+     */
+    java.util.List<java.lang.String>
+        getTokensList();
+    /**
+     * <code>repeated string tokens = 3;</code>
+     * @return The count of tokens.
+     */
+    int getTokensCount();
+    /**
+     * <code>repeated string tokens = 3;</code>
+     * @param index The index of the element to return.
+     * @return The tokens at the given index.
+     */
+    java.lang.String getTokens(int index);
+    /**
+     * <code>repeated string tokens = 3;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the tokens at the given index.
+     */
+    com.google.protobuf.ByteString
+        getTokensBytes(int index);
+
+    /**
+     * <code>.google.protobuf.ListValue top_logprobs = 4;</code>
+     * @return Whether the topLogprobs field is set.
+     */
+    boolean hasTopLogprobs();
+    /**
+     * <code>.google.protobuf.ListValue top_logprobs = 4;</code>
+     * @return The topLogprobs.
+     */
+    com.google.protobuf.ListValue getTopLogprobs();
+    /**
+     * <code>.google.protobuf.ListValue top_logprobs = 4;</code>
+     */
+    com.google.protobuf.ListValueOrBuilder getTopLogprobsOrBuilder();
+  }
+  /**
+   * Protobuf type {@code proxy.Logprobs}
+   */
+  public static final class Logprobs extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proxy.Logprobs)
+      LogprobsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Logprobs.newBuilder() to construct.
+    private Logprobs(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Logprobs() {
+      textOffset_ = emptyLongList();
+      tokenLogprobs_ = emptyDoubleList();
+      tokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Logprobs();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_Logprobs_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_Logprobs_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.volcengine.model.maas.api.Api.Logprobs.class, com.volcengine.model.maas.api.Api.Logprobs.Builder.class);
+    }
+
+    public static final int TEXT_OFFSET_FIELD_NUMBER = 1;
+    private com.google.protobuf.Internal.LongList textOffset_;
+    /**
+     * <code>repeated int64 text_offset = 1;</code>
+     * @return A list containing the textOffset.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getTextOffsetList() {
+      return textOffset_;
+    }
+    /**
+     * <code>repeated int64 text_offset = 1;</code>
+     * @return The count of textOffset.
+     */
+    public int getTextOffsetCount() {
+      return textOffset_.size();
+    }
+    /**
+     * <code>repeated int64 text_offset = 1;</code>
+     * @param index The index of the element to return.
+     * @return The textOffset at the given index.
+     */
+    public long getTextOffset(int index) {
+      return textOffset_.getLong(index);
+    }
+    private int textOffsetMemoizedSerializedSize = -1;
+
+    public static final int TOKEN_LOGPROBS_FIELD_NUMBER = 2;
+    private com.google.protobuf.Internal.DoubleList tokenLogprobs_;
+    /**
+     * <code>repeated double token_logprobs = 2;</code>
+     * @return A list containing the tokenLogprobs.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Double>
+        getTokenLogprobsList() {
+      return tokenLogprobs_;
+    }
+    /**
+     * <code>repeated double token_logprobs = 2;</code>
+     * @return The count of tokenLogprobs.
+     */
+    public int getTokenLogprobsCount() {
+      return tokenLogprobs_.size();
+    }
+    /**
+     * <code>repeated double token_logprobs = 2;</code>
+     * @param index The index of the element to return.
+     * @return The tokenLogprobs at the given index.
+     */
+    public double getTokenLogprobs(int index) {
+      return tokenLogprobs_.getDouble(index);
+    }
+    private int tokenLogprobsMemoizedSerializedSize = -1;
+
+    public static final int TOKENS_FIELD_NUMBER = 3;
+    private com.google.protobuf.LazyStringList tokens_;
+    /**
+     * <code>repeated string tokens = 3;</code>
+     * @return A list containing the tokens.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getTokensList() {
+      return tokens_;
+    }
+    /**
+     * <code>repeated string tokens = 3;</code>
+     * @return The count of tokens.
+     */
+    public int getTokensCount() {
+      return tokens_.size();
+    }
+    /**
+     * <code>repeated string tokens = 3;</code>
+     * @param index The index of the element to return.
+     * @return The tokens at the given index.
+     */
+    public java.lang.String getTokens(int index) {
+      return tokens_.get(index);
+    }
+    /**
+     * <code>repeated string tokens = 3;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the tokens at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getTokensBytes(int index) {
+      return tokens_.getByteString(index);
+    }
+
+    public static final int TOP_LOGPROBS_FIELD_NUMBER = 4;
+    private com.google.protobuf.ListValue topLogprobs_;
+    /**
+     * <code>.google.protobuf.ListValue top_logprobs = 4;</code>
+     * @return Whether the topLogprobs field is set.
+     */
+    @java.lang.Override
+    public boolean hasTopLogprobs() {
+      return topLogprobs_ != null;
+    }
+    /**
+     * <code>.google.protobuf.ListValue top_logprobs = 4;</code>
+     * @return The topLogprobs.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ListValue getTopLogprobs() {
+      return topLogprobs_ == null ? com.google.protobuf.ListValue.getDefaultInstance() : topLogprobs_;
+    }
+    /**
+     * <code>.google.protobuf.ListValue top_logprobs = 4;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.ListValueOrBuilder getTopLogprobsOrBuilder() {
+      return getTopLogprobs();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (getTextOffsetList().size() > 0) {
+        output.writeUInt32NoTag(10);
+        output.writeUInt32NoTag(textOffsetMemoizedSerializedSize);
+      }
+      for (int i = 0; i < textOffset_.size(); i++) {
+        output.writeInt64NoTag(textOffset_.getLong(i));
+      }
+      if (getTokenLogprobsList().size() > 0) {
+        output.writeUInt32NoTag(18);
+        output.writeUInt32NoTag(tokenLogprobsMemoizedSerializedSize);
+      }
+      for (int i = 0; i < tokenLogprobs_.size(); i++) {
+        output.writeDoubleNoTag(tokenLogprobs_.getDouble(i));
+      }
+      for (int i = 0; i < tokens_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tokens_.getRaw(i));
+      }
+      if (topLogprobs_ != null) {
+        output.writeMessage(4, getTopLogprobs());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < textOffset_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt64SizeNoTag(textOffset_.getLong(i));
+        }
+        size += dataSize;
+        if (!getTextOffsetList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        textOffsetMemoizedSerializedSize = dataSize;
+      }
+      {
+        int dataSize = 0;
+        dataSize = 8 * getTokenLogprobsList().size();
+        size += dataSize;
+        if (!getTokenLogprobsList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        tokenLogprobsMemoizedSerializedSize = dataSize;
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < tokens_.size(); i++) {
+          dataSize += computeStringSizeNoTag(tokens_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getTokensList().size();
+      }
+      if (topLogprobs_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getTopLogprobs());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.volcengine.model.maas.api.Api.Logprobs)) {
+        return super.equals(obj);
+      }
+      com.volcengine.model.maas.api.Api.Logprobs other = (com.volcengine.model.maas.api.Api.Logprobs) obj;
+
+      if (!getTextOffsetList()
+          .equals(other.getTextOffsetList())) return false;
+      if (!getTokenLogprobsList()
+          .equals(other.getTokenLogprobsList())) return false;
+      if (!getTokensList()
+          .equals(other.getTokensList())) return false;
+      if (hasTopLogprobs() != other.hasTopLogprobs()) return false;
+      if (hasTopLogprobs()) {
+        if (!getTopLogprobs()
+            .equals(other.getTopLogprobs())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getTextOffsetCount() > 0) {
+        hash = (37 * hash) + TEXT_OFFSET_FIELD_NUMBER;
+        hash = (53 * hash) + getTextOffsetList().hashCode();
+      }
+      if (getTokenLogprobsCount() > 0) {
+        hash = (37 * hash) + TOKEN_LOGPROBS_FIELD_NUMBER;
+        hash = (53 * hash) + getTokenLogprobsList().hashCode();
+      }
+      if (getTokensCount() > 0) {
+        hash = (37 * hash) + TOKENS_FIELD_NUMBER;
+        hash = (53 * hash) + getTokensList().hashCode();
+      }
+      if (hasTopLogprobs()) {
+        hash = (37 * hash) + TOP_LOGPROBS_FIELD_NUMBER;
+        hash = (53 * hash) + getTopLogprobs().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.volcengine.model.maas.api.Api.Logprobs parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.Logprobs parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.Logprobs parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.Logprobs parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.Logprobs parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.Logprobs parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.Logprobs parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.Logprobs parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.Logprobs parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.Logprobs parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.Logprobs parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.Logprobs parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.volcengine.model.maas.api.Api.Logprobs prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proxy.Logprobs}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proxy.Logprobs)
+        com.volcengine.model.maas.api.Api.LogprobsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_Logprobs_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_Logprobs_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.volcengine.model.maas.api.Api.Logprobs.class, com.volcengine.model.maas.api.Api.Logprobs.Builder.class);
+      }
+
+      // Construct using com.volcengine.model.maas.api.Api.Logprobs.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        textOffset_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        tokenLogprobs_ = emptyDoubleList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        tokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        if (topLogprobsBuilder_ == null) {
+          topLogprobs_ = null;
+        } else {
+          topLogprobs_ = null;
+          topLogprobsBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_Logprobs_descriptor;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.Logprobs getDefaultInstanceForType() {
+        return com.volcengine.model.maas.api.Api.Logprobs.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.Logprobs build() {
+        com.volcengine.model.maas.api.Api.Logprobs result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.Logprobs buildPartial() {
+        com.volcengine.model.maas.api.Api.Logprobs result = new com.volcengine.model.maas.api.Api.Logprobs(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          textOffset_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.textOffset_ = textOffset_;
+        if (((bitField0_ & 0x00000002) != 0)) {
+          tokenLogprobs_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.tokenLogprobs_ = tokenLogprobs_;
+        if (((bitField0_ & 0x00000004) != 0)) {
+          tokens_ = tokens_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.tokens_ = tokens_;
+        if (topLogprobsBuilder_ == null) {
+          result.topLogprobs_ = topLogprobs_;
+        } else {
+          result.topLogprobs_ = topLogprobsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.volcengine.model.maas.api.Api.Logprobs) {
+          return mergeFrom((com.volcengine.model.maas.api.Api.Logprobs)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.volcengine.model.maas.api.Api.Logprobs other) {
+        if (other == com.volcengine.model.maas.api.Api.Logprobs.getDefaultInstance()) return this;
+        if (!other.textOffset_.isEmpty()) {
+          if (textOffset_.isEmpty()) {
+            textOffset_ = other.textOffset_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureTextOffsetIsMutable();
+            textOffset_.addAll(other.textOffset_);
+          }
+          onChanged();
+        }
+        if (!other.tokenLogprobs_.isEmpty()) {
+          if (tokenLogprobs_.isEmpty()) {
+            tokenLogprobs_ = other.tokenLogprobs_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureTokenLogprobsIsMutable();
+            tokenLogprobs_.addAll(other.tokenLogprobs_);
+          }
+          onChanged();
+        }
+        if (!other.tokens_.isEmpty()) {
+          if (tokens_.isEmpty()) {
+            tokens_ = other.tokens_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureTokensIsMutable();
+            tokens_.addAll(other.tokens_);
+          }
+          onChanged();
+        }
+        if (other.hasTopLogprobs()) {
+          mergeTopLogprobs(other.getTopLogprobs());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                long v = input.readInt64();
+                ensureTextOffsetIsMutable();
+                textOffset_.addLong(v);
+                break;
+              } // case 8
+              case 10: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureTextOffsetIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  textOffset_.addLong(input.readInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 10
+              case 17: {
+                double v = input.readDouble();
+                ensureTokenLogprobsIsMutable();
+                tokenLogprobs_.addDouble(v);
+                break;
+              } // case 17
+              case 18: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureTokenLogprobsIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  tokenLogprobs_.addDouble(input.readDouble());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 18
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureTokensIsMutable();
+                tokens_.add(s);
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getTopLogprobsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.Internal.LongList textOffset_ = emptyLongList();
+      private void ensureTextOffsetIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          textOffset_ = mutableCopy(textOffset_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated int64 text_offset = 1;</code>
+       * @return A list containing the textOffset.
+       */
+      public java.util.List<java.lang.Long>
+          getTextOffsetList() {
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(textOffset_) : textOffset_;
+      }
+      /**
+       * <code>repeated int64 text_offset = 1;</code>
+       * @return The count of textOffset.
+       */
+      public int getTextOffsetCount() {
+        return textOffset_.size();
+      }
+      /**
+       * <code>repeated int64 text_offset = 1;</code>
+       * @param index The index of the element to return.
+       * @return The textOffset at the given index.
+       */
+      public long getTextOffset(int index) {
+        return textOffset_.getLong(index);
+      }
+      /**
+       * <code>repeated int64 text_offset = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The textOffset to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTextOffset(
+          int index, long value) {
+        ensureTextOffsetIsMutable();
+        textOffset_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 text_offset = 1;</code>
+       * @param value The textOffset to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTextOffset(long value) {
+        ensureTextOffsetIsMutable();
+        textOffset_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 text_offset = 1;</code>
+       * @param values The textOffset to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTextOffset(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureTextOffsetIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, textOffset_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 text_offset = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTextOffset() {
+        textOffset_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.DoubleList tokenLogprobs_ = emptyDoubleList();
+      private void ensureTokenLogprobsIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          tokenLogprobs_ = mutableCopy(tokenLogprobs_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated double token_logprobs = 2;</code>
+       * @return A list containing the tokenLogprobs.
+       */
+      public java.util.List<java.lang.Double>
+          getTokenLogprobsList() {
+        return ((bitField0_ & 0x00000002) != 0) ?
+                 java.util.Collections.unmodifiableList(tokenLogprobs_) : tokenLogprobs_;
+      }
+      /**
+       * <code>repeated double token_logprobs = 2;</code>
+       * @return The count of tokenLogprobs.
+       */
+      public int getTokenLogprobsCount() {
+        return tokenLogprobs_.size();
+      }
+      /**
+       * <code>repeated double token_logprobs = 2;</code>
+       * @param index The index of the element to return.
+       * @return The tokenLogprobs at the given index.
+       */
+      public double getTokenLogprobs(int index) {
+        return tokenLogprobs_.getDouble(index);
+      }
+      /**
+       * <code>repeated double token_logprobs = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The tokenLogprobs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTokenLogprobs(
+          int index, double value) {
+        ensureTokenLogprobsIsMutable();
+        tokenLogprobs_.setDouble(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated double token_logprobs = 2;</code>
+       * @param value The tokenLogprobs to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTokenLogprobs(double value) {
+        ensureTokenLogprobsIsMutable();
+        tokenLogprobs_.addDouble(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated double token_logprobs = 2;</code>
+       * @param values The tokenLogprobs to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTokenLogprobs(
+          java.lang.Iterable<? extends java.lang.Double> values) {
+        ensureTokenLogprobsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tokenLogprobs_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated double token_logprobs = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTokenLogprobs() {
+        tokenLogprobs_ = emptyDoubleList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList tokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureTokensIsMutable() {
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          tokens_ = new com.google.protobuf.LazyStringArrayList(tokens_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <code>repeated string tokens = 3;</code>
+       * @return A list containing the tokens.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getTokensList() {
+        return tokens_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string tokens = 3;</code>
+       * @return The count of tokens.
+       */
+      public int getTokensCount() {
+        return tokens_.size();
+      }
+      /**
+       * <code>repeated string tokens = 3;</code>
+       * @param index The index of the element to return.
+       * @return The tokens at the given index.
+       */
+      public java.lang.String getTokens(int index) {
+        return tokens_.get(index);
+      }
+      /**
+       * <code>repeated string tokens = 3;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the tokens at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getTokensBytes(int index) {
+        return tokens_.getByteString(index);
+      }
+      /**
+       * <code>repeated string tokens = 3;</code>
+       * @param index The index to set the value at.
+       * @param value The tokens to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTokens(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTokensIsMutable();
+        tokens_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tokens = 3;</code>
+       * @param value The tokens to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTokens(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTokensIsMutable();
+        tokens_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tokens = 3;</code>
+       * @param values The tokens to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTokens(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureTokensIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tokens_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tokens = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTokens() {
+        tokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tokens = 3;</code>
+       * @param value The bytes of the tokens to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTokensBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureTokensIsMutable();
+        tokens_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ListValue topLogprobs_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder> topLogprobsBuilder_;
+      /**
+       * <code>.google.protobuf.ListValue top_logprobs = 4;</code>
+       * @return Whether the topLogprobs field is set.
+       */
+      public boolean hasTopLogprobs() {
+        return topLogprobsBuilder_ != null || topLogprobs_ != null;
+      }
+      /**
+       * <code>.google.protobuf.ListValue top_logprobs = 4;</code>
+       * @return The topLogprobs.
+       */
+      public com.google.protobuf.ListValue getTopLogprobs() {
+        if (topLogprobsBuilder_ == null) {
+          return topLogprobs_ == null ? com.google.protobuf.ListValue.getDefaultInstance() : topLogprobs_;
+        } else {
+          return topLogprobsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.ListValue top_logprobs = 4;</code>
+       */
+      public Builder setTopLogprobs(com.google.protobuf.ListValue value) {
+        if (topLogprobsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          topLogprobs_ = value;
+          onChanged();
+        } else {
+          topLogprobsBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.ListValue top_logprobs = 4;</code>
+       */
+      public Builder setTopLogprobs(
+          com.google.protobuf.ListValue.Builder builderForValue) {
+        if (topLogprobsBuilder_ == null) {
+          topLogprobs_ = builderForValue.build();
+          onChanged();
+        } else {
+          topLogprobsBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.ListValue top_logprobs = 4;</code>
+       */
+      public Builder mergeTopLogprobs(com.google.protobuf.ListValue value) {
+        if (topLogprobsBuilder_ == null) {
+          if (topLogprobs_ != null) {
+            topLogprobs_ =
+              com.google.protobuf.ListValue.newBuilder(topLogprobs_).mergeFrom(value).buildPartial();
+          } else {
+            topLogprobs_ = value;
+          }
+          onChanged();
+        } else {
+          topLogprobsBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.ListValue top_logprobs = 4;</code>
+       */
+      public Builder clearTopLogprobs() {
+        if (topLogprobsBuilder_ == null) {
+          topLogprobs_ = null;
+          onChanged();
+        } else {
+          topLogprobs_ = null;
+          topLogprobsBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.ListValue top_logprobs = 4;</code>
+       */
+      public com.google.protobuf.ListValue.Builder getTopLogprobsBuilder() {
+        
+        onChanged();
+        return getTopLogprobsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.ListValue top_logprobs = 4;</code>
+       */
+      public com.google.protobuf.ListValueOrBuilder getTopLogprobsOrBuilder() {
+        if (topLogprobsBuilder_ != null) {
+          return topLogprobsBuilder_.getMessageOrBuilder();
+        } else {
+          return topLogprobs_ == null ?
+              com.google.protobuf.ListValue.getDefaultInstance() : topLogprobs_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.ListValue top_logprobs = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder> 
+          getTopLogprobsFieldBuilder() {
+        if (topLogprobsBuilder_ == null) {
+          topLogprobsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder>(
+                  getTopLogprobs(),
+                  getParentForChildren(),
+                  isClean());
+          topLogprobs_ = null;
+        }
+        return topLogprobsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proxy.Logprobs)
+    }
+
+    // @@protoc_insertion_point(class_scope:proxy.Logprobs)
+    private static final com.volcengine.model.maas.api.Api.Logprobs DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.volcengine.model.maas.api.Api.Logprobs();
+    }
+
+    public static com.volcengine.model.maas.api.Api.Logprobs getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Logprobs>
+        PARSER = new com.google.protobuf.AbstractParser<Logprobs>() {
+      @java.lang.Override
+      public Logprobs parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<Logprobs> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Logprobs> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.Logprobs getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -978,87 +2850,6 @@ public final class Api {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Message(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              role_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              content_ = s;
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                references_ = new java.util.ArrayList<com.volcengine.model.maas.api.Api.Reference>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              references_.add(
-                  input.readMessage(com.volcengine.model.maas.api.Api.Reference.parser(), extensionRegistry));
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 42: {
-              com.volcengine.model.maas.api.Api.FunctionCall.Builder subBuilder = null;
-              if (functionCall_ != null) {
-                subBuilder = functionCall_.toBuilder();
-              }
-              functionCall_ = input.readMessage(com.volcengine.model.maas.api.Api.FunctionCall.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(functionCall_);
-                functionCall_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          references_ = java.util.Collections.unmodifiableList(references_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1323,22 +3114,22 @@ public final class Api {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getRoleBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(role_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, role_);
       }
-      if (!getContentBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, content_);
       }
       for (int i = 0; i < references_.size(); i++) {
         output.writeMessage(3, references_.get(i));
       }
-      if (!getNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, name_);
       }
       if (functionCall_ != null) {
         output.writeMessage(5, getFunctionCall());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1347,24 +3138,24 @@ public final class Api {
       if (size != -1) return size;
 
       size = 0;
-      if (!getRoleBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(role_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, role_);
       }
-      if (!getContentBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, content_);
       }
       for (int i = 0; i < references_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, references_.get(i));
       }
-      if (!getNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, name_);
       }
       if (functionCall_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getFunctionCall());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1392,7 +3183,7 @@ public final class Api {
       }
       if (!getReferencesList()
           .equals(other.getReferencesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1417,7 +3208,7 @@ public final class Api {
         hash = (37 * hash) + REFERENCES_FIELD_NUMBER;
         hash = (53 * hash) + getReferencesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1534,19 +3325,13 @@ public final class Api {
 
       // Construct using com.volcengine.model.maas.api.Api.Message.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getReferencesFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -1565,10 +3350,11 @@ public final class Api {
         }
         if (referencesBuilder_ == null) {
           references_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          references_ = null;
           referencesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -1702,7 +3488,7 @@ public final class Api {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1717,17 +3503,65 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.volcengine.model.maas.api.Api.Message parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                role_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              case 18: {
+                content_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 18
+              case 26: {
+                com.volcengine.model.maas.api.Api.Reference m =
+                    input.readMessage(
+                        com.volcengine.model.maas.api.Api.Reference.parser(),
+                        extensionRegistry);
+                if (referencesBuilder_ == null) {
+                  ensureReferencesIsMutable();
+                  references_.add(m);
+                } else {
+                  referencesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 26
+              case 34: {
+                name_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getFunctionCallFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.volcengine.model.maas.api.Api.Message) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2519,7 +4353,18 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Message(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2663,72 +4508,6 @@ public final class Api {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Reference(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              url_ = s;
-              break;
-            }
-            case 16: {
-
-              idx_ = input.readInt32();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              logoUrl_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              pcUrl_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              siteName_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -2956,22 +4735,22 @@ public final class Api {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getUrlBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, url_);
       }
       if (idx_ != 0) {
         output.writeInt32(2, idx_);
       }
-      if (!getLogoUrlBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(logoUrl_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, logoUrl_);
       }
-      if (!getPcUrlBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pcUrl_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, pcUrl_);
       }
-      if (!getSiteNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(siteName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, siteName_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2980,23 +4759,23 @@ public final class Api {
       if (size != -1) return size;
 
       size = 0;
-      if (!getUrlBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, url_);
       }
       if (idx_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, idx_);
       }
-      if (!getLogoUrlBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(logoUrl_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, logoUrl_);
       }
-      if (!getPcUrlBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pcUrl_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, pcUrl_);
       }
-      if (!getSiteNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(siteName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, siteName_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3021,7 +4800,7 @@ public final class Api {
           .equals(other.getPcUrl())) return false;
       if (!getSiteName()
           .equals(other.getSiteName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3042,7 +4821,7 @@ public final class Api {
       hash = (53 * hash) + getPcUrl().hashCode();
       hash = (37 * hash) + SITE_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getSiteName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3159,18 +4938,13 @@ public final class Api {
 
       // Construct using com.volcengine.model.maas.api.Api.Reference.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -3283,7 +5057,7 @@ public final class Api {
           siteName_ = other.siteName_;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3298,17 +5072,55 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.volcengine.model.maas.api.Api.Reference parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                url_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              case 16: {
+                idx_ = input.readInt32();
+
+                break;
+              } // case 16
+              case 26: {
+                logoUrl_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 26
+              case 34: {
+                pcUrl_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 34
+              case 42: {
+                siteName_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.volcengine.model.maas.api.Api.Reference) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
 
@@ -3771,7 +5583,18 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Reference(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3886,61 +5709,6 @@ public final class Api {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Model(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              endpointId_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              version_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -4109,16 +5877,16 @@ public final class Api {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (!getEndpointIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endpointId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, endpointId_);
       }
-      if (!getVersionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, version_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4127,16 +5895,16 @@ public final class Api {
       if (size != -1) return size;
 
       size = 0;
-      if (!getNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (!getEndpointIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endpointId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, endpointId_);
       }
-      if (!getVersionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, version_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4157,7 +5925,7 @@ public final class Api {
           .equals(other.getEndpointId())) return false;
       if (!getVersion()
           .equals(other.getVersion())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4174,7 +5942,7 @@ public final class Api {
       hash = (53 * hash) + getEndpointId().hashCode();
       hash = (37 * hash) + VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getVersion().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4291,18 +6059,13 @@ public final class Api {
 
       // Construct using com.volcengine.model.maas.api.Api.Model.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -4402,7 +6165,7 @@ public final class Api {
           version_ = other.version_;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4417,17 +6180,45 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.volcengine.model.maas.api.Api.Model parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              case 18: {
+                endpointId_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 18
+              case 26: {
+                version_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.volcengine.model.maas.api.Api.Model) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
 
@@ -4756,7 +6547,18 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Model(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4838,60 +6640,6 @@ public final class Api {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Error(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              code_ = s;
-              break;
-            }
-            case 16: {
-
-              codeN_ = input.readInt32();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              message_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -5007,16 +6755,16 @@ public final class Api {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getCodeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(code_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, code_);
       }
       if (codeN_ != 0) {
         output.writeInt32(2, codeN_);
       }
-      if (!getMessageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, message_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5025,17 +6773,17 @@ public final class Api {
       if (size != -1) return size;
 
       size = 0;
-      if (!getCodeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(code_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, code_);
       }
       if (codeN_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, codeN_);
       }
-      if (!getMessageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, message_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5056,7 +6804,7 @@ public final class Api {
           != other.getCodeN()) return false;
       if (!getMessage()
           .equals(other.getMessage())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5073,7 +6821,7 @@ public final class Api {
       hash = (53 * hash) + getCodeN();
       hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getMessage().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5190,18 +6938,13 @@ public final class Api {
 
       // Construct using com.volcengine.model.maas.api.Api.Error.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -5300,7 +7043,7 @@ public final class Api {
           message_ = other.message_;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5315,17 +7058,45 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.volcengine.model.maas.api.Api.Error parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                code_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              case 16: {
+                codeN_ = input.readInt32();
+
+                break;
+              } // case 16
+              case 26: {
+                message_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.volcengine.model.maas.api.Api.Error) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
 
@@ -5544,7 +7315,18 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Error(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5622,62 +7404,6 @@ public final class Api {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ErrorResp(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.volcengine.model.maas.api.Api.Error.Builder subBuilder = null;
-              if (error_ != null) {
-                subBuilder = error_.toBuilder();
-              }
-              error_ = input.readMessage(com.volcengine.model.maas.api.Api.Error.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(error_);
-                error_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              reqId_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -5773,10 +7499,10 @@ public final class Api {
       if (error_ != null) {
         output.writeMessage(1, getError());
       }
-      if (!getReqIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, reqId_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5789,10 +7515,10 @@ public final class Api {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getError());
       }
-      if (!getReqIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, reqId_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5814,7 +7540,7 @@ public final class Api {
       }
       if (!getReqId()
           .equals(other.getReqId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5831,7 +7557,7 @@ public final class Api {
       }
       hash = (37 * hash) + REQ_ID_FIELD_NUMBER;
       hash = (53 * hash) + getReqId().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5948,18 +7674,13 @@ public final class Api {
 
       // Construct using com.volcengine.model.maas.api.Api.ErrorResp.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -6059,7 +7780,7 @@ public final class Api {
           reqId_ = other.reqId_;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6074,17 +7795,42 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.volcengine.model.maas.api.Api.ErrorResp parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getErrorFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 10
+              case 18: {
+                reqId_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.volcengine.model.maas.api.Api.ErrorResp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
 
@@ -6315,7 +8061,18 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ErrorResp(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6373,10 +8130,19 @@ public final class Api {
         getFinishReasonBytes();
 
     /**
-     * <code>float logprobs = 4;</code>
+     * <code>.proxy.Logprobs logprobs = 4;</code>
+     * @return Whether the logprobs field is set.
+     */
+    boolean hasLogprobs();
+    /**
+     * <code>.proxy.Logprobs logprobs = 4;</code>
      * @return The logprobs.
      */
-    float getLogprobs();
+    com.volcengine.model.maas.api.Api.Logprobs getLogprobs();
+    /**
+     * <code>.proxy.Logprobs logprobs = 4;</code>
+     */
+    com.volcengine.model.maas.api.Api.LogprobsOrBuilder getLogprobsOrBuilder();
   }
   /**
    * Protobuf type {@code proxy.Choice}
@@ -6405,72 +8171,6 @@ public final class Api {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Choice(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              index_ = input.readInt32();
-              break;
-            }
-            case 18: {
-              com.volcengine.model.maas.api.Api.Message.Builder subBuilder = null;
-              if (message_ != null) {
-                subBuilder = message_.toBuilder();
-              }
-              message_ = input.readMessage(com.volcengine.model.maas.api.Api.Message.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(message_);
-                message_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              finishReason_ = s;
-              break;
-            }
-            case 37: {
-
-              logprobs_ = input.readFloat();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -6561,14 +8261,29 @@ public final class Api {
     }
 
     public static final int LOGPROBS_FIELD_NUMBER = 4;
-    private float logprobs_;
+    private com.volcengine.model.maas.api.Api.Logprobs logprobs_;
     /**
-     * <code>float logprobs = 4;</code>
+     * <code>.proxy.Logprobs logprobs = 4;</code>
+     * @return Whether the logprobs field is set.
+     */
+    @java.lang.Override
+    public boolean hasLogprobs() {
+      return logprobs_ != null;
+    }
+    /**
+     * <code>.proxy.Logprobs logprobs = 4;</code>
      * @return The logprobs.
      */
     @java.lang.Override
-    public float getLogprobs() {
-      return logprobs_;
+    public com.volcengine.model.maas.api.Api.Logprobs getLogprobs() {
+      return logprobs_ == null ? com.volcengine.model.maas.api.Api.Logprobs.getDefaultInstance() : logprobs_;
+    }
+    /**
+     * <code>.proxy.Logprobs logprobs = 4;</code>
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.LogprobsOrBuilder getLogprobsOrBuilder() {
+      return getLogprobs();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6591,13 +8306,13 @@ public final class Api {
       if (message_ != null) {
         output.writeMessage(2, getMessage());
       }
-      if (!getFinishReasonBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(finishReason_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, finishReason_);
       }
-      if (logprobs_ != 0F) {
-        output.writeFloat(4, logprobs_);
+      if (logprobs_ != null) {
+        output.writeMessage(4, getLogprobs());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6614,14 +8329,14 @@ public final class Api {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getMessage());
       }
-      if (!getFinishReasonBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(finishReason_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, finishReason_);
       }
-      if (logprobs_ != 0F) {
+      if (logprobs_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(4, logprobs_);
+          .computeMessageSize(4, getLogprobs());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6645,10 +8360,12 @@ public final class Api {
       }
       if (!getFinishReason()
           .equals(other.getFinishReason())) return false;
-      if (java.lang.Float.floatToIntBits(getLogprobs())
-          != java.lang.Float.floatToIntBits(
-              other.getLogprobs())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (hasLogprobs() != other.hasLogprobs()) return false;
+      if (hasLogprobs()) {
+        if (!getLogprobs()
+            .equals(other.getLogprobs())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6667,10 +8384,11 @@ public final class Api {
       }
       hash = (37 * hash) + FINISH_REASON_FIELD_NUMBER;
       hash = (53 * hash) + getFinishReason().hashCode();
-      hash = (37 * hash) + LOGPROBS_FIELD_NUMBER;
-      hash = (53 * hash) + java.lang.Float.floatToIntBits(
-          getLogprobs());
-      hash = (29 * hash) + unknownFields.hashCode();
+      if (hasLogprobs()) {
+        hash = (37 * hash) + LOGPROBS_FIELD_NUMBER;
+        hash = (53 * hash) + getLogprobs().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6787,18 +8505,13 @@ public final class Api {
 
       // Construct using com.volcengine.model.maas.api.Api.Choice.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -6813,8 +8526,12 @@ public final class Api {
         }
         finishReason_ = "";
 
-        logprobs_ = 0F;
-
+        if (logprobsBuilder_ == null) {
+          logprobs_ = null;
+        } else {
+          logprobs_ = null;
+          logprobsBuilder_ = null;
+        }
         return this;
       }
 
@@ -6848,7 +8565,11 @@ public final class Api {
           result.message_ = messageBuilder_.build();
         }
         result.finishReason_ = finishReason_;
-        result.logprobs_ = logprobs_;
+        if (logprobsBuilder_ == null) {
+          result.logprobs_ = logprobs_;
+        } else {
+          result.logprobs_ = logprobsBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -6907,10 +8628,10 @@ public final class Api {
           finishReason_ = other.finishReason_;
           onChanged();
         }
-        if (other.getLogprobs() != 0F) {
-          setLogprobs(other.getLogprobs());
+        if (other.hasLogprobs()) {
+          mergeLogprobs(other.getLogprobs());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6925,17 +8646,54 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.volcengine.model.maas.api.Api.Choice parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                index_ = input.readInt32();
+
+                break;
+              } // case 8
+              case 18: {
+                input.readMessage(
+                    getMessageFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 18
+              case 26: {
+                finishReason_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getLogprobsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.volcengine.model.maas.api.Api.Choice) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
 
@@ -7165,35 +8923,123 @@ public final class Api {
         return this;
       }
 
-      private float logprobs_ ;
+      private com.volcengine.model.maas.api.Api.Logprobs logprobs_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Logprobs, com.volcengine.model.maas.api.Api.Logprobs.Builder, com.volcengine.model.maas.api.Api.LogprobsOrBuilder> logprobsBuilder_;
       /**
-       * <code>float logprobs = 4;</code>
+       * <code>.proxy.Logprobs logprobs = 4;</code>
+       * @return Whether the logprobs field is set.
+       */
+      public boolean hasLogprobs() {
+        return logprobsBuilder_ != null || logprobs_ != null;
+      }
+      /**
+       * <code>.proxy.Logprobs logprobs = 4;</code>
        * @return The logprobs.
        */
-      @java.lang.Override
-      public float getLogprobs() {
-        return logprobs_;
+      public com.volcengine.model.maas.api.Api.Logprobs getLogprobs() {
+        if (logprobsBuilder_ == null) {
+          return logprobs_ == null ? com.volcengine.model.maas.api.Api.Logprobs.getDefaultInstance() : logprobs_;
+        } else {
+          return logprobsBuilder_.getMessage();
+        }
       }
       /**
-       * <code>float logprobs = 4;</code>
-       * @param value The logprobs to set.
-       * @return This builder for chaining.
+       * <code>.proxy.Logprobs logprobs = 4;</code>
        */
-      public Builder setLogprobs(float value) {
-        
-        logprobs_ = value;
-        onChanged();
+      public Builder setLogprobs(com.volcengine.model.maas.api.Api.Logprobs value) {
+        if (logprobsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          logprobs_ = value;
+          onChanged();
+        } else {
+          logprobsBuilder_.setMessage(value);
+        }
+
         return this;
       }
       /**
-       * <code>float logprobs = 4;</code>
-       * @return This builder for chaining.
+       * <code>.proxy.Logprobs logprobs = 4;</code>
+       */
+      public Builder setLogprobs(
+          com.volcengine.model.maas.api.Api.Logprobs.Builder builderForValue) {
+        if (logprobsBuilder_ == null) {
+          logprobs_ = builderForValue.build();
+          onChanged();
+        } else {
+          logprobsBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Logprobs logprobs = 4;</code>
+       */
+      public Builder mergeLogprobs(com.volcengine.model.maas.api.Api.Logprobs value) {
+        if (logprobsBuilder_ == null) {
+          if (logprobs_ != null) {
+            logprobs_ =
+              com.volcengine.model.maas.api.Api.Logprobs.newBuilder(logprobs_).mergeFrom(value).buildPartial();
+          } else {
+            logprobs_ = value;
+          }
+          onChanged();
+        } else {
+          logprobsBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Logprobs logprobs = 4;</code>
        */
       public Builder clearLogprobs() {
-        
-        logprobs_ = 0F;
-        onChanged();
+        if (logprobsBuilder_ == null) {
+          logprobs_ = null;
+          onChanged();
+        } else {
+          logprobs_ = null;
+          logprobsBuilder_ = null;
+        }
+
         return this;
+      }
+      /**
+       * <code>.proxy.Logprobs logprobs = 4;</code>
+       */
+      public com.volcengine.model.maas.api.Api.Logprobs.Builder getLogprobsBuilder() {
+        
+        onChanged();
+        return getLogprobsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.proxy.Logprobs logprobs = 4;</code>
+       */
+      public com.volcengine.model.maas.api.Api.LogprobsOrBuilder getLogprobsOrBuilder() {
+        if (logprobsBuilder_ != null) {
+          return logprobsBuilder_.getMessageOrBuilder();
+        } else {
+          return logprobs_ == null ?
+              com.volcengine.model.maas.api.Api.Logprobs.getDefaultInstance() : logprobs_;
+        }
+      }
+      /**
+       * <code>.proxy.Logprobs logprobs = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Logprobs, com.volcengine.model.maas.api.Api.Logprobs.Builder, com.volcengine.model.maas.api.Api.LogprobsOrBuilder> 
+          getLogprobsFieldBuilder() {
+        if (logprobsBuilder_ == null) {
+          logprobsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.volcengine.model.maas.api.Api.Logprobs, com.volcengine.model.maas.api.Api.Logprobs.Builder, com.volcengine.model.maas.api.Api.LogprobsOrBuilder>(
+                  getLogprobs(),
+                  getParentForChildren(),
+                  isClean());
+          logprobs_ = null;
+        }
+        return logprobsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -7228,7 +9074,18 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Choice(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7480,6 +9337,17 @@ public final class Api {
      * @return The maxPromptTokens.
      */
     long getMaxPromptTokens();
+
+    /**
+     * <code>optional int64 logprobs = 12;</code>
+     * @return Whether the logprobs field is set.
+     */
+    boolean hasLogprobs();
+    /**
+     * <code>optional int64 logprobs = 12;</code>
+     * @return The logprobs.
+     */
+    long getLogprobs();
   }
   /**
    * Protobuf type {@code proxy.Parameters}
@@ -7507,99 +9375,6 @@ public final class Api {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Parameters(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 13: {
-              bitField0_ |= 0x00000001;
-              temperature_ = input.readFloat();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              maxTokens_ = input.readInt64();
-              break;
-            }
-            case 29: {
-              bitField0_ |= 0x00000004;
-              topP_ = input.readFloat();
-              break;
-            }
-            case 37: {
-              bitField0_ |= 0x00000008;
-              presencePenalty_ = input.readFloat();
-              break;
-            }
-            case 45: {
-              bitField0_ |= 0x00000010;
-              frequencyPenalty_ = input.readFloat();
-              break;
-            }
-            case 48: {
-              bitField0_ |= 0x00000020;
-              maxNewTokens_ = input.readInt64();
-              break;
-            }
-            case 61: {
-              bitField0_ |= 0x00000040;
-              repetitionPenalty_ = input.readFloat();
-              break;
-            }
-            case 64: {
-              bitField0_ |= 0x00000080;
-              doSample_ = input.readBool();
-              break;
-            }
-            case 72: {
-              bitField0_ |= 0x00000100;
-              topK_ = input.readInt64();
-              break;
-            }
-            case 80: {
-              bitField0_ |= 0x00000200;
-              minNewTokens_ = input.readInt64();
-              break;
-            }
-            case 88: {
-              bitField0_ |= 0x00000400;
-              maxPromptTokens_ = input.readInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -7932,6 +9707,25 @@ public final class Api {
       return maxPromptTokens_;
     }
 
+    public static final int LOGPROBS_FIELD_NUMBER = 12;
+    private long logprobs_;
+    /**
+     * <code>optional int64 logprobs = 12;</code>
+     * @return Whether the logprobs field is set.
+     */
+    @java.lang.Override
+    public boolean hasLogprobs() {
+      return ((bitField0_ & 0x00000800) != 0);
+    }
+    /**
+     * <code>optional int64 logprobs = 12;</code>
+     * @return The logprobs.
+     */
+    @java.lang.Override
+    public long getLogprobs() {
+      return logprobs_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7979,7 +9773,10 @@ public final class Api {
       if (((bitField0_ & 0x00000400) != 0)) {
         output.writeInt64(11, maxPromptTokens_);
       }
-      unknownFields.writeTo(output);
+      if (((bitField0_ & 0x00000800) != 0)) {
+        output.writeInt64(12, logprobs_);
+      }
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -8032,7 +9829,11 @@ public final class Api {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(11, maxPromptTokens_);
       }
-      size += unknownFields.getSerializedSize();
+      if (((bitField0_ & 0x00000800) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(12, logprobs_);
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8107,7 +9908,12 @@ public final class Api {
         if (getMaxPromptTokens()
             != other.getMaxPromptTokens()) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (hasLogprobs() != other.hasLogprobs()) return false;
+      if (hasLogprobs()) {
+        if (getLogprobs()
+            != other.getLogprobs()) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -8173,7 +9979,12 @@ public final class Api {
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getMaxPromptTokens());
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      if (hasLogprobs()) {
+        hash = (37 * hash) + LOGPROBS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getLogprobs());
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8290,18 +10101,13 @@ public final class Api {
 
       // Construct using com.volcengine.model.maas.api.Api.Parameters.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -8328,6 +10134,8 @@ public final class Api {
         bitField0_ = (bitField0_ & ~0x00000200);
         maxPromptTokens_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000400);
+        logprobs_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
 
@@ -8399,6 +10207,10 @@ public final class Api {
         if (((from_bitField0_ & 0x00000400) != 0)) {
           result.maxPromptTokens_ = maxPromptTokens_;
           to_bitField0_ |= 0x00000400;
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.logprobs_ = logprobs_;
+          to_bitField0_ |= 0x00000800;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -8482,7 +10294,10 @@ public final class Api {
         if (other.hasMaxPromptTokens()) {
           setMaxPromptTokens(other.getMaxPromptTokens());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        if (other.hasLogprobs()) {
+          setLogprobs(other.getLogprobs());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -8497,17 +10312,90 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.volcengine.model.maas.api.Api.Parameters parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 13: {
+                temperature_ = input.readFloat();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 13
+              case 16: {
+                maxTokens_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 29: {
+                topP_ = input.readFloat();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 29
+              case 37: {
+                presencePenalty_ = input.readFloat();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 37
+              case 45: {
+                frequencyPenalty_ = input.readFloat();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 45
+              case 48: {
+                maxNewTokens_ = input.readInt64();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
+              case 61: {
+                repetitionPenalty_ = input.readFloat();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 61
+              case 64: {
+                doSample_ = input.readBool();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 64
+              case 72: {
+                topK_ = input.readInt64();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 72
+              case 80: {
+                minNewTokens_ = input.readInt64();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 80
+              case 88: {
+                maxPromptTokens_ = input.readInt64();
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 88
+              case 96: {
+                logprobs_ = input.readInt64();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 96
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.volcengine.model.maas.api.Api.Parameters) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -9156,6 +11044,45 @@ public final class Api {
         onChanged();
         return this;
       }
+
+      private long logprobs_ ;
+      /**
+       * <code>optional int64 logprobs = 12;</code>
+       * @return Whether the logprobs field is set.
+       */
+      @java.lang.Override
+      public boolean hasLogprobs() {
+        return ((bitField0_ & 0x00000800) != 0);
+      }
+      /**
+       * <code>optional int64 logprobs = 12;</code>
+       * @return The logprobs.
+       */
+      @java.lang.Override
+      public long getLogprobs() {
+        return logprobs_;
+      }
+      /**
+       * <code>optional int64 logprobs = 12;</code>
+       * @param value The logprobs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLogprobs(long value) {
+        bitField0_ |= 0x00000800;
+        logprobs_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 logprobs = 12;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLogprobs() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        logprobs_ = 0L;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -9189,7 +11116,18 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Parameters(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -9269,58 +11207,6 @@ public final class Api {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Usage(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              promptTokens_ = input.readInt64();
-              break;
-            }
-            case 16: {
-
-              completionTokens_ = input.readInt64();
-              break;
-            }
-            case 24: {
-
-              totalTokens_ = input.readInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -9403,7 +11289,7 @@ public final class Api {
       if (totalTokens_ != 0L) {
         output.writeInt64(3, totalTokens_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -9424,7 +11310,7 @@ public final class Api {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(3, totalTokens_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9445,7 +11331,7 @@ public final class Api {
           != other.getCompletionTokens()) return false;
       if (getTotalTokens()
           != other.getTotalTokens()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -9465,7 +11351,7 @@ public final class Api {
       hash = (37 * hash) + TOTAL_TOKENS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTotalTokens());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9582,18 +11468,13 @@ public final class Api {
 
       // Construct using com.volcengine.model.maas.api.Api.Usage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -9690,7 +11571,7 @@ public final class Api {
         if (other.getTotalTokens() != 0L) {
           setTotalTokens(other.getTotalTokens());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -9705,17 +11586,45 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.volcengine.model.maas.api.Api.Usage parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                promptTokens_ = input.readInt64();
+
+                break;
+              } // case 8
+              case 16: {
+                completionTokens_ = input.readInt64();
+
+                break;
+              } // case 16
+              case 24: {
+                totalTokens_ = input.readInt64();
+
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.volcengine.model.maas.api.Api.Usage) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
 
@@ -9880,7 +11789,18 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Usage(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -10041,81 +11961,6 @@ public final class Api {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Function(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              description_ = s;
-              break;
-            }
-            case 26: {
-              com.google.protobuf.Struct.Builder subBuilder = null;
-              if (parameters_ != null) {
-                subBuilder = parameters_.toBuilder();
-              }
-              parameters_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(parameters_);
-                parameters_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                examples_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              examples_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          examples_ = examples_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -10325,10 +12170,10 @@ public final class Api {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (!getDescriptionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
       }
       if (parameters_ != null) {
@@ -10337,7 +12182,7 @@ public final class Api {
       for (int i = 0; i < examples_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, examples_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -10346,10 +12191,10 @@ public final class Api {
       if (size != -1) return size;
 
       size = 0;
-      if (!getNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (!getDescriptionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
       }
       if (parameters_ != null) {
@@ -10364,7 +12209,7 @@ public final class Api {
         size += dataSize;
         size += 1 * getExamplesList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -10390,7 +12235,7 @@ public final class Api {
       }
       if (!getExamplesList()
           .equals(other.getExamplesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -10413,7 +12258,7 @@ public final class Api {
         hash = (37 * hash) + EXAMPLES_FIELD_NUMBER;
         hash = (53 * hash) + getExamplesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10530,18 +12375,13 @@ public final class Api {
 
       // Construct using com.volcengine.model.maas.api.Api.Function.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -10666,7 +12506,7 @@ public final class Api {
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -10681,17 +12521,53 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.volcengine.model.maas.api.Api.Function parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              case 18: {
+                description_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getParametersFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 26
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureExamplesIsMutable();
+                examples_.add(s);
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.volcengine.model.maas.api.Api.Function) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -11221,7 +13097,18 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Function(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -11484,6 +13371,26 @@ public final class Api {
 
     /**
      * <pre>
+     * Method supports chat/tokenize/classification
+     * </pre>
+     *
+     * <code>string method = 9;</code>
+     * @return The method.
+     */
+    java.lang.String getMethod();
+    /**
+     * <pre>
+     * Method supports chat/tokenize/classification
+     * </pre>
+     *
+     * <code>string method = 9;</code>
+     * @return The bytes for method.
+     */
+    com.google.protobuf.ByteString
+        getMethodBytes();
+
+    /**
+     * <pre>
      * extra info
      * </pre>
      *
@@ -11522,9 +13429,11 @@ public final class Api {
      * <code>map&lt;string, string&gt; extra = 100;</code>
      */
 
-    java.lang.String getExtraOrDefault(
+    /* nullable */
+java.lang.String getExtraOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue);
+        /* nullable */
+java.lang.String defaultValue);
     /**
      * <pre>
      * extra info
@@ -11554,6 +13463,7 @@ public final class Api {
       cryptoToken_ = "";
       functions_ = java.util.Collections.emptyList();
       plugins_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      method_ = "";
     }
 
     @java.lang.Override
@@ -11567,136 +13477,6 @@ public final class Api {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ChatReq(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.volcengine.model.maas.api.Api.Model.Builder subBuilder = null;
-              if (model_ != null) {
-                subBuilder = model_.toBuilder();
-              }
-              model_ = input.readMessage(com.volcengine.model.maas.api.Api.Model.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(model_);
-                model_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                messages_ = new java.util.ArrayList<com.volcengine.model.maas.api.Api.Message>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              messages_.add(
-                  input.readMessage(com.volcengine.model.maas.api.Api.Message.parser(), extensionRegistry));
-              break;
-            }
-            case 26: {
-              com.volcengine.model.maas.api.Api.Parameters.Builder subBuilder = null;
-              if (parameters_ != null) {
-                subBuilder = parameters_.toBuilder();
-              }
-              parameters_ = input.readMessage(com.volcengine.model.maas.api.Api.Parameters.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(parameters_);
-                parameters_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 32: {
-
-              stream_ = input.readBool();
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              reqId_ = s;
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              cryptoToken_ = s;
-              break;
-            }
-            case 58: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                functions_ = new java.util.ArrayList<com.volcengine.model.maas.api.Api.Function>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              functions_.add(
-                  input.readMessage(com.volcengine.model.maas.api.Api.Function.parser(), extensionRegistry));
-              break;
-            }
-            case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                plugins_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              plugins_.add(s);
-              break;
-            }
-            case 802: {
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                extra_ = com.google.protobuf.MapField.newMapField(
-                    ExtraDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000008;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              extra__ = input.readMessage(
-                  ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              extra_.getMutableMap().put(
-                  extra__.getKey(), extra__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          messages_ = java.util.Collections.unmodifiableList(messages_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          functions_ = java.util.Collections.unmodifiableList(functions_);
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          plugins_ = plugins_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -12081,6 +13861,52 @@ public final class Api {
       return plugins_.getByteString(index);
     }
 
+    public static final int METHOD_FIELD_NUMBER = 9;
+    private volatile java.lang.Object method_;
+    /**
+     * <pre>
+     * Method supports chat/tokenize/classification
+     * </pre>
+     *
+     * <code>string method = 9;</code>
+     * @return The method.
+     */
+    @java.lang.Override
+    public java.lang.String getMethod() {
+      java.lang.Object ref = method_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        method_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Method supports chat/tokenize/classification
+     * </pre>
+     *
+     * <code>string method = 9;</code>
+     * @return The bytes for method.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMethodBytes() {
+      java.lang.Object ref = method_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        method_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     public static final int EXTRA_FIELD_NUMBER = 100;
     private static final class ExtraDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
@@ -12118,7 +13944,7 @@ public final class Api {
     @java.lang.Override
     public boolean containsExtra(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetExtra().getMap().containsKey(key);
     }
     /**
@@ -12153,7 +13979,7 @@ public final class Api {
     public java.lang.String getExtraOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -12169,7 +13995,7 @@ public final class Api {
 
     public java.lang.String getExtraOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       if (!map.containsKey(key)) {
@@ -12204,10 +14030,10 @@ public final class Api {
       if (stream_ != false) {
         output.writeBool(4, stream_);
       }
-      if (!getReqIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, reqId_);
       }
-      if (!getCryptoTokenBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cryptoToken_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, cryptoToken_);
       }
       for (int i = 0; i < functions_.size(); i++) {
@@ -12216,13 +14042,16 @@ public final class Api {
       for (int i = 0; i < plugins_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, plugins_.getRaw(i));
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(method_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, method_);
+      }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
           internalGetExtra(),
           ExtraDefaultEntryHolder.defaultEntry,
           100);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -12247,10 +14076,10 @@ public final class Api {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, stream_);
       }
-      if (!getReqIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, reqId_);
       }
-      if (!getCryptoTokenBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cryptoToken_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, cryptoToken_);
       }
       for (int i = 0; i < functions_.size(); i++) {
@@ -12265,6 +14094,9 @@ public final class Api {
         size += dataSize;
         size += 1 * getPluginsList().size();
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(method_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, method_);
+      }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetExtra().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
@@ -12275,7 +14107,7 @@ public final class Api {
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(100, extra__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -12312,9 +14144,11 @@ public final class Api {
           .equals(other.getFunctionsList())) return false;
       if (!getPluginsList()
           .equals(other.getPluginsList())) return false;
+      if (!getMethod()
+          .equals(other.getMethod())) return false;
       if (!internalGetExtra().equals(
           other.internalGetExtra())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -12352,11 +14186,13 @@ public final class Api {
         hash = (37 * hash) + PLUGINS_FIELD_NUMBER;
         hash = (53 * hash) + getPluginsList().hashCode();
       }
+      hash = (37 * hash) + METHOD_FIELD_NUMBER;
+      hash = (53 * hash) + getMethod().hashCode();
       if (!internalGetExtra().getMap().isEmpty()) {
         hash = (37 * hash) + EXTRA_FIELD_NUMBER;
         hash = (53 * hash) + internalGetExtra().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -12495,20 +14331,13 @@ public final class Api {
 
       // Construct using com.volcengine.model.maas.api.Api.ChatReq.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getMessagesFieldBuilder();
-          getFunctionsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -12521,10 +14350,11 @@ public final class Api {
         }
         if (messagesBuilder_ == null) {
           messages_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          messages_ = null;
           messagesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (parametersBuilder_ == null) {
           parameters_ = null;
         } else {
@@ -12539,12 +14369,15 @@ public final class Api {
 
         if (functionsBuilder_ == null) {
           functions_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          functions_ = null;
           functionsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         plugins_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
+        method_ = "";
+
         internalGetMutableExtra().clear();
         return this;
       }
@@ -12609,6 +14442,7 @@ public final class Api {
           bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.plugins_ = plugins_;
+        result.method_ = method_;
         result.extra_ = internalGetExtra();
         result.extra_.makeImmutable();
         onBuilt();
@@ -12738,9 +14572,13 @@ public final class Api {
           }
           onChanged();
         }
+        if (!other.getMethod().isEmpty()) {
+          method_ = other.method_;
+          onChanged();
+        }
         internalGetMutableExtra().mergeFrom(
             other.internalGetExtra());
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -12755,17 +14593,104 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.volcengine.model.maas.api.Api.ChatReq parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getModelFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 10
+              case 18: {
+                com.volcengine.model.maas.api.Api.Message m =
+                    input.readMessage(
+                        com.volcengine.model.maas.api.Api.Message.parser(),
+                        extensionRegistry);
+                if (messagesBuilder_ == null) {
+                  ensureMessagesIsMutable();
+                  messages_.add(m);
+                } else {
+                  messagesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getParametersFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 26
+              case 32: {
+                stream_ = input.readBool();
+
+                break;
+              } // case 32
+              case 42: {
+                reqId_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 42
+              case 50: {
+                cryptoToken_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 50
+              case 58: {
+                com.volcengine.model.maas.api.Api.Function m =
+                    input.readMessage(
+                        com.volcengine.model.maas.api.Api.Function.parser(),
+                        extensionRegistry);
+                if (functionsBuilder_ == null) {
+                  ensureFunctionsIsMutable();
+                  functions_.add(m);
+                } else {
+                  functionsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 58
+              case 66: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensurePluginsIsMutable();
+                plugins_.add(s);
+                break;
+              } // case 66
+              case 74: {
+                method_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 74
+              case 802: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                extra__ = input.readMessage(
+                    ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableExtra().getMutableMap().put(
+                    extra__.getKey(), extra__.getValue());
+                break;
+              } // case 802
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.volcengine.model.maas.api.Api.ChatReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -14096,6 +16021,102 @@ public final class Api {
         return this;
       }
 
+      private java.lang.Object method_ = "";
+      /**
+       * <pre>
+       * Method supports chat/tokenize/classification
+       * </pre>
+       *
+       * <code>string method = 9;</code>
+       * @return The method.
+       */
+      public java.lang.String getMethod() {
+        java.lang.Object ref = method_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          method_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Method supports chat/tokenize/classification
+       * </pre>
+       *
+       * <code>string method = 9;</code>
+       * @return The bytes for method.
+       */
+      public com.google.protobuf.ByteString
+          getMethodBytes() {
+        java.lang.Object ref = method_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          method_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Method supports chat/tokenize/classification
+       * </pre>
+       *
+       * <code>string method = 9;</code>
+       * @param value The method to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMethod(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        method_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Method supports chat/tokenize/classification
+       * </pre>
+       *
+       * <code>string method = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMethod() {
+        
+        method_ = getDefaultInstance().getMethod();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Method supports chat/tokenize/classification
+       * </pre>
+       *
+       * <code>string method = 9;</code>
+       * @param value The bytes for method to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMethodBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        method_ = value;
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> extra_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -14133,7 +16154,7 @@ public final class Api {
       @java.lang.Override
       public boolean containsExtra(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetExtra().getMap().containsKey(key);
       }
       /**
@@ -14168,7 +16189,7 @@ public final class Api {
       public java.lang.String getExtraOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -14184,7 +16205,7 @@ public final class Api {
 
       public java.lang.String getExtraOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         if (!map.containsKey(key)) {
@@ -14208,7 +16229,7 @@ public final class Api {
 
       public Builder removeExtra(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableExtra().getMutableMap()
             .remove(key);
         return this;
@@ -14231,8 +16252,11 @@ public final class Api {
       public Builder putExtra(
           java.lang.String key,
           java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableExtra().getMutableMap()
             .put(key, value);
         return this;
@@ -14284,7 +16308,18 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ChatReq(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -14299,6 +16334,5647 @@ public final class Api {
 
     @java.lang.Override
     public com.volcengine.model.maas.api.Api.ChatReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TokenizeReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proxy.TokenizeReq)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.proxy.Model model = 1;</code>
+     * @return Whether the model field is set.
+     */
+    boolean hasModel();
+    /**
+     * <code>.proxy.Model model = 1;</code>
+     * @return The model.
+     */
+    com.volcengine.model.maas.api.Api.Model getModel();
+    /**
+     * <code>.proxy.Model model = 1;</code>
+     */
+    com.volcengine.model.maas.api.Api.ModelOrBuilder getModelOrBuilder();
+
+    /**
+     * <code>string req_id = 2;</code>
+     * @return The reqId.
+     */
+    java.lang.String getReqId();
+    /**
+     * <code>string req_id = 2;</code>
+     * @return The bytes for reqId.
+     */
+    com.google.protobuf.ByteString
+        getReqIdBytes();
+
+    /**
+     * <code>string text = 3;</code>
+     * @return The text.
+     */
+    java.lang.String getText();
+    /**
+     * <code>string text = 3;</code>
+     * @return The bytes for text.
+     */
+    com.google.protobuf.ByteString
+        getTextBytes();
+  }
+  /**
+   * Protobuf type {@code proxy.TokenizeReq}
+   */
+  public static final class TokenizeReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proxy.TokenizeReq)
+      TokenizeReqOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TokenizeReq.newBuilder() to construct.
+    private TokenizeReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TokenizeReq() {
+      reqId_ = "";
+      text_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new TokenizeReq();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_TokenizeReq_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_TokenizeReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.volcengine.model.maas.api.Api.TokenizeReq.class, com.volcengine.model.maas.api.Api.TokenizeReq.Builder.class);
+    }
+
+    public static final int MODEL_FIELD_NUMBER = 1;
+    private com.volcengine.model.maas.api.Api.Model model_;
+    /**
+     * <code>.proxy.Model model = 1;</code>
+     * @return Whether the model field is set.
+     */
+    @java.lang.Override
+    public boolean hasModel() {
+      return model_ != null;
+    }
+    /**
+     * <code>.proxy.Model model = 1;</code>
+     * @return The model.
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.Model getModel() {
+      return model_ == null ? com.volcengine.model.maas.api.Api.Model.getDefaultInstance() : model_;
+    }
+    /**
+     * <code>.proxy.Model model = 1;</code>
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.ModelOrBuilder getModelOrBuilder() {
+      return getModel();
+    }
+
+    public static final int REQ_ID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object reqId_;
+    /**
+     * <code>string req_id = 2;</code>
+     * @return The reqId.
+     */
+    @java.lang.Override
+    public java.lang.String getReqId() {
+      java.lang.Object ref = reqId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        reqId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string req_id = 2;</code>
+     * @return The bytes for reqId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getReqIdBytes() {
+      java.lang.Object ref = reqId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        reqId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TEXT_FIELD_NUMBER = 3;
+    private volatile java.lang.Object text_;
+    /**
+     * <code>string text = 3;</code>
+     * @return The text.
+     */
+    @java.lang.Override
+    public java.lang.String getText() {
+      java.lang.Object ref = text_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        text_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string text = 3;</code>
+     * @return The bytes for text.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTextBytes() {
+      java.lang.Object ref = text_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        text_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (model_ != null) {
+        output.writeMessage(1, getModel());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, reqId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(text_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, text_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (model_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getModel());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, reqId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(text_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, text_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.volcengine.model.maas.api.Api.TokenizeReq)) {
+        return super.equals(obj);
+      }
+      com.volcengine.model.maas.api.Api.TokenizeReq other = (com.volcengine.model.maas.api.Api.TokenizeReq) obj;
+
+      if (hasModel() != other.hasModel()) return false;
+      if (hasModel()) {
+        if (!getModel()
+            .equals(other.getModel())) return false;
+      }
+      if (!getReqId()
+          .equals(other.getReqId())) return false;
+      if (!getText()
+          .equals(other.getText())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasModel()) {
+        hash = (37 * hash) + MODEL_FIELD_NUMBER;
+        hash = (53 * hash) + getModel().hashCode();
+      }
+      hash = (37 * hash) + REQ_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getReqId().hashCode();
+      hash = (37 * hash) + TEXT_FIELD_NUMBER;
+      hash = (53 * hash) + getText().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.volcengine.model.maas.api.Api.TokenizeReq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeReq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.volcengine.model.maas.api.Api.TokenizeReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proxy.TokenizeReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proxy.TokenizeReq)
+        com.volcengine.model.maas.api.Api.TokenizeReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_TokenizeReq_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_TokenizeReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.volcengine.model.maas.api.Api.TokenizeReq.class, com.volcengine.model.maas.api.Api.TokenizeReq.Builder.class);
+      }
+
+      // Construct using com.volcengine.model.maas.api.Api.TokenizeReq.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (modelBuilder_ == null) {
+          model_ = null;
+        } else {
+          model_ = null;
+          modelBuilder_ = null;
+        }
+        reqId_ = "";
+
+        text_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_TokenizeReq_descriptor;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.TokenizeReq getDefaultInstanceForType() {
+        return com.volcengine.model.maas.api.Api.TokenizeReq.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.TokenizeReq build() {
+        com.volcengine.model.maas.api.Api.TokenizeReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.TokenizeReq buildPartial() {
+        com.volcengine.model.maas.api.Api.TokenizeReq result = new com.volcengine.model.maas.api.Api.TokenizeReq(this);
+        if (modelBuilder_ == null) {
+          result.model_ = model_;
+        } else {
+          result.model_ = modelBuilder_.build();
+        }
+        result.reqId_ = reqId_;
+        result.text_ = text_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.volcengine.model.maas.api.Api.TokenizeReq) {
+          return mergeFrom((com.volcengine.model.maas.api.Api.TokenizeReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.volcengine.model.maas.api.Api.TokenizeReq other) {
+        if (other == com.volcengine.model.maas.api.Api.TokenizeReq.getDefaultInstance()) return this;
+        if (other.hasModel()) {
+          mergeModel(other.getModel());
+        }
+        if (!other.getReqId().isEmpty()) {
+          reqId_ = other.reqId_;
+          onChanged();
+        }
+        if (!other.getText().isEmpty()) {
+          text_ = other.text_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getModelFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 10
+              case 18: {
+                reqId_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 18
+              case 26: {
+                text_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+
+      private com.volcengine.model.maas.api.Api.Model model_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder> modelBuilder_;
+      /**
+       * <code>.proxy.Model model = 1;</code>
+       * @return Whether the model field is set.
+       */
+      public boolean hasModel() {
+        return modelBuilder_ != null || model_ != null;
+      }
+      /**
+       * <code>.proxy.Model model = 1;</code>
+       * @return The model.
+       */
+      public com.volcengine.model.maas.api.Api.Model getModel() {
+        if (modelBuilder_ == null) {
+          return model_ == null ? com.volcengine.model.maas.api.Api.Model.getDefaultInstance() : model_;
+        } else {
+          return modelBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.proxy.Model model = 1;</code>
+       */
+      public Builder setModel(com.volcengine.model.maas.api.Api.Model value) {
+        if (modelBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          model_ = value;
+          onChanged();
+        } else {
+          modelBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Model model = 1;</code>
+       */
+      public Builder setModel(
+          com.volcengine.model.maas.api.Api.Model.Builder builderForValue) {
+        if (modelBuilder_ == null) {
+          model_ = builderForValue.build();
+          onChanged();
+        } else {
+          modelBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Model model = 1;</code>
+       */
+      public Builder mergeModel(com.volcengine.model.maas.api.Api.Model value) {
+        if (modelBuilder_ == null) {
+          if (model_ != null) {
+            model_ =
+              com.volcengine.model.maas.api.Api.Model.newBuilder(model_).mergeFrom(value).buildPartial();
+          } else {
+            model_ = value;
+          }
+          onChanged();
+        } else {
+          modelBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Model model = 1;</code>
+       */
+      public Builder clearModel() {
+        if (modelBuilder_ == null) {
+          model_ = null;
+          onChanged();
+        } else {
+          model_ = null;
+          modelBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Model model = 1;</code>
+       */
+      public com.volcengine.model.maas.api.Api.Model.Builder getModelBuilder() {
+        
+        onChanged();
+        return getModelFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.proxy.Model model = 1;</code>
+       */
+      public com.volcengine.model.maas.api.Api.ModelOrBuilder getModelOrBuilder() {
+        if (modelBuilder_ != null) {
+          return modelBuilder_.getMessageOrBuilder();
+        } else {
+          return model_ == null ?
+              com.volcengine.model.maas.api.Api.Model.getDefaultInstance() : model_;
+        }
+      }
+      /**
+       * <code>.proxy.Model model = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder> 
+          getModelFieldBuilder() {
+        if (modelBuilder_ == null) {
+          modelBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder>(
+                  getModel(),
+                  getParentForChildren(),
+                  isClean());
+          model_ = null;
+        }
+        return modelBuilder_;
+      }
+
+      private java.lang.Object reqId_ = "";
+      /**
+       * <code>string req_id = 2;</code>
+       * @return The reqId.
+       */
+      public java.lang.String getReqId() {
+        java.lang.Object ref = reqId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          reqId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string req_id = 2;</code>
+       * @return The bytes for reqId.
+       */
+      public com.google.protobuf.ByteString
+          getReqIdBytes() {
+        java.lang.Object ref = reqId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          reqId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string req_id = 2;</code>
+       * @param value The reqId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReqId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        reqId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string req_id = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReqId() {
+        
+        reqId_ = getDefaultInstance().getReqId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string req_id = 2;</code>
+       * @param value The bytes for reqId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReqIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        reqId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object text_ = "";
+      /**
+       * <code>string text = 3;</code>
+       * @return The text.
+       */
+      public java.lang.String getText() {
+        java.lang.Object ref = text_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          text_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string text = 3;</code>
+       * @return The bytes for text.
+       */
+      public com.google.protobuf.ByteString
+          getTextBytes() {
+        java.lang.Object ref = text_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          text_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string text = 3;</code>
+       * @param value The text to set.
+       * @return This builder for chaining.
+       */
+      public Builder setText(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        text_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string text = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearText() {
+        
+        text_ = getDefaultInstance().getText();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string text = 3;</code>
+       * @param value The bytes for text to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTextBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        text_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proxy.TokenizeReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:proxy.TokenizeReq)
+    private static final com.volcengine.model.maas.api.Api.TokenizeReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.volcengine.model.maas.api.Api.TokenizeReq();
+    }
+
+    public static com.volcengine.model.maas.api.Api.TokenizeReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TokenizeReq>
+        PARSER = new com.google.protobuf.AbstractParser<TokenizeReq>() {
+      @java.lang.Override
+      public TokenizeReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<TokenizeReq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TokenizeReq> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.TokenizeReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TokenizeRespOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proxy.TokenizeResp)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 total_tokens = 1;</code>
+     * @return The totalTokens.
+     */
+    long getTotalTokens();
+
+    /**
+     * <code>repeated string tokens = 2;</code>
+     * @return A list containing the tokens.
+     */
+    java.util.List<java.lang.String>
+        getTokensList();
+    /**
+     * <code>repeated string tokens = 2;</code>
+     * @return The count of tokens.
+     */
+    int getTokensCount();
+    /**
+     * <code>repeated string tokens = 2;</code>
+     * @param index The index of the element to return.
+     * @return The tokens at the given index.
+     */
+    java.lang.String getTokens(int index);
+    /**
+     * <code>repeated string tokens = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the tokens at the given index.
+     */
+    com.google.protobuf.ByteString
+        getTokensBytes(int index);
+
+    /**
+     * <pre>
+     * Unified request id
+     * </pre>
+     *
+     * <code>string req_id = 3;</code>
+     * @return The reqId.
+     */
+    java.lang.String getReqId();
+    /**
+     * <pre>
+     * Unified request id
+     * </pre>
+     *
+     * <code>string req_id = 3;</code>
+     * @return The bytes for reqId.
+     */
+    com.google.protobuf.ByteString
+        getReqIdBytes();
+
+    /**
+     * <pre>
+     * Error if exists for the req
+     * </pre>
+     *
+     * <code>.proxy.Error error = 4;</code>
+     * @return Whether the error field is set.
+     */
+    boolean hasError();
+    /**
+     * <pre>
+     * Error if exists for the req
+     * </pre>
+     *
+     * <code>.proxy.Error error = 4;</code>
+     * @return The error.
+     */
+    com.volcengine.model.maas.api.Api.Error getError();
+    /**
+     * <pre>
+     * Error if exists for the req
+     * </pre>
+     *
+     * <code>.proxy.Error error = 4;</code>
+     */
+    com.volcengine.model.maas.api.Api.ErrorOrBuilder getErrorOrBuilder();
+  }
+  /**
+   * Protobuf type {@code proxy.TokenizeResp}
+   */
+  public static final class TokenizeResp extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proxy.TokenizeResp)
+      TokenizeRespOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TokenizeResp.newBuilder() to construct.
+    private TokenizeResp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TokenizeResp() {
+      tokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      reqId_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new TokenizeResp();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_TokenizeResp_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_TokenizeResp_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.volcengine.model.maas.api.Api.TokenizeResp.class, com.volcengine.model.maas.api.Api.TokenizeResp.Builder.class);
+    }
+
+    public static final int TOTAL_TOKENS_FIELD_NUMBER = 1;
+    private long totalTokens_;
+    /**
+     * <code>int64 total_tokens = 1;</code>
+     * @return The totalTokens.
+     */
+    @java.lang.Override
+    public long getTotalTokens() {
+      return totalTokens_;
+    }
+
+    public static final int TOKENS_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList tokens_;
+    /**
+     * <code>repeated string tokens = 2;</code>
+     * @return A list containing the tokens.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getTokensList() {
+      return tokens_;
+    }
+    /**
+     * <code>repeated string tokens = 2;</code>
+     * @return The count of tokens.
+     */
+    public int getTokensCount() {
+      return tokens_.size();
+    }
+    /**
+     * <code>repeated string tokens = 2;</code>
+     * @param index The index of the element to return.
+     * @return The tokens at the given index.
+     */
+    public java.lang.String getTokens(int index) {
+      return tokens_.get(index);
+    }
+    /**
+     * <code>repeated string tokens = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the tokens at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getTokensBytes(int index) {
+      return tokens_.getByteString(index);
+    }
+
+    public static final int REQ_ID_FIELD_NUMBER = 3;
+    private volatile java.lang.Object reqId_;
+    /**
+     * <pre>
+     * Unified request id
+     * </pre>
+     *
+     * <code>string req_id = 3;</code>
+     * @return The reqId.
+     */
+    @java.lang.Override
+    public java.lang.String getReqId() {
+      java.lang.Object ref = reqId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        reqId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Unified request id
+     * </pre>
+     *
+     * <code>string req_id = 3;</code>
+     * @return The bytes for reqId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getReqIdBytes() {
+      java.lang.Object ref = reqId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        reqId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ERROR_FIELD_NUMBER = 4;
+    private com.volcengine.model.maas.api.Api.Error error_;
+    /**
+     * <pre>
+     * Error if exists for the req
+     * </pre>
+     *
+     * <code>.proxy.Error error = 4;</code>
+     * @return Whether the error field is set.
+     */
+    @java.lang.Override
+    public boolean hasError() {
+      return error_ != null;
+    }
+    /**
+     * <pre>
+     * Error if exists for the req
+     * </pre>
+     *
+     * <code>.proxy.Error error = 4;</code>
+     * @return The error.
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.Error getError() {
+      return error_ == null ? com.volcengine.model.maas.api.Api.Error.getDefaultInstance() : error_;
+    }
+    /**
+     * <pre>
+     * Error if exists for the req
+     * </pre>
+     *
+     * <code>.proxy.Error error = 4;</code>
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.ErrorOrBuilder getErrorOrBuilder() {
+      return getError();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (totalTokens_ != 0L) {
+        output.writeInt64(1, totalTokens_);
+      }
+      for (int i = 0; i < tokens_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, tokens_.getRaw(i));
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, reqId_);
+      }
+      if (error_ != null) {
+        output.writeMessage(4, getError());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (totalTokens_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, totalTokens_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < tokens_.size(); i++) {
+          dataSize += computeStringSizeNoTag(tokens_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getTokensList().size();
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, reqId_);
+      }
+      if (error_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getError());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.volcengine.model.maas.api.Api.TokenizeResp)) {
+        return super.equals(obj);
+      }
+      com.volcengine.model.maas.api.Api.TokenizeResp other = (com.volcengine.model.maas.api.Api.TokenizeResp) obj;
+
+      if (getTotalTokens()
+          != other.getTotalTokens()) return false;
+      if (!getTokensList()
+          .equals(other.getTokensList())) return false;
+      if (!getReqId()
+          .equals(other.getReqId())) return false;
+      if (hasError() != other.hasError()) return false;
+      if (hasError()) {
+        if (!getError()
+            .equals(other.getError())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TOTAL_TOKENS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTotalTokens());
+      if (getTokensCount() > 0) {
+        hash = (37 * hash) + TOKENS_FIELD_NUMBER;
+        hash = (53 * hash) + getTokensList().hashCode();
+      }
+      hash = (37 * hash) + REQ_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getReqId().hashCode();
+      if (hasError()) {
+        hash = (37 * hash) + ERROR_FIELD_NUMBER;
+        hash = (53 * hash) + getError().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.volcengine.model.maas.api.Api.TokenizeResp parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeResp parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeResp parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeResp parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeResp parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeResp parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeResp parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeResp parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeResp parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeResp parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeResp parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.TokenizeResp parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.volcengine.model.maas.api.Api.TokenizeResp prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proxy.TokenizeResp}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proxy.TokenizeResp)
+        com.volcengine.model.maas.api.Api.TokenizeRespOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_TokenizeResp_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_TokenizeResp_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.volcengine.model.maas.api.Api.TokenizeResp.class, com.volcengine.model.maas.api.Api.TokenizeResp.Builder.class);
+      }
+
+      // Construct using com.volcengine.model.maas.api.Api.TokenizeResp.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        totalTokens_ = 0L;
+
+        tokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        reqId_ = "";
+
+        if (errorBuilder_ == null) {
+          error_ = null;
+        } else {
+          error_ = null;
+          errorBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_TokenizeResp_descriptor;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.TokenizeResp getDefaultInstanceForType() {
+        return com.volcengine.model.maas.api.Api.TokenizeResp.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.TokenizeResp build() {
+        com.volcengine.model.maas.api.Api.TokenizeResp result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.TokenizeResp buildPartial() {
+        com.volcengine.model.maas.api.Api.TokenizeResp result = new com.volcengine.model.maas.api.Api.TokenizeResp(this);
+        int from_bitField0_ = bitField0_;
+        result.totalTokens_ = totalTokens_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          tokens_ = tokens_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.tokens_ = tokens_;
+        result.reqId_ = reqId_;
+        if (errorBuilder_ == null) {
+          result.error_ = error_;
+        } else {
+          result.error_ = errorBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.volcengine.model.maas.api.Api.TokenizeResp) {
+          return mergeFrom((com.volcengine.model.maas.api.Api.TokenizeResp)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.volcengine.model.maas.api.Api.TokenizeResp other) {
+        if (other == com.volcengine.model.maas.api.Api.TokenizeResp.getDefaultInstance()) return this;
+        if (other.getTotalTokens() != 0L) {
+          setTotalTokens(other.getTotalTokens());
+        }
+        if (!other.tokens_.isEmpty()) {
+          if (tokens_.isEmpty()) {
+            tokens_ = other.tokens_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureTokensIsMutable();
+            tokens_.addAll(other.tokens_);
+          }
+          onChanged();
+        }
+        if (!other.getReqId().isEmpty()) {
+          reqId_ = other.reqId_;
+          onChanged();
+        }
+        if (other.hasError()) {
+          mergeError(other.getError());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                totalTokens_ = input.readInt64();
+
+                break;
+              } // case 8
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureTokensIsMutable();
+                tokens_.add(s);
+                break;
+              } // case 18
+              case 26: {
+                reqId_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getErrorFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private long totalTokens_ ;
+      /**
+       * <code>int64 total_tokens = 1;</code>
+       * @return The totalTokens.
+       */
+      @java.lang.Override
+      public long getTotalTokens() {
+        return totalTokens_;
+      }
+      /**
+       * <code>int64 total_tokens = 1;</code>
+       * @param value The totalTokens to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTotalTokens(long value) {
+        
+        totalTokens_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 total_tokens = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTotalTokens() {
+        
+        totalTokens_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList tokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureTokensIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          tokens_ = new com.google.protobuf.LazyStringArrayList(tokens_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string tokens = 2;</code>
+       * @return A list containing the tokens.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getTokensList() {
+        return tokens_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string tokens = 2;</code>
+       * @return The count of tokens.
+       */
+      public int getTokensCount() {
+        return tokens_.size();
+      }
+      /**
+       * <code>repeated string tokens = 2;</code>
+       * @param index The index of the element to return.
+       * @return The tokens at the given index.
+       */
+      public java.lang.String getTokens(int index) {
+        return tokens_.get(index);
+      }
+      /**
+       * <code>repeated string tokens = 2;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the tokens at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getTokensBytes(int index) {
+        return tokens_.getByteString(index);
+      }
+      /**
+       * <code>repeated string tokens = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The tokens to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTokens(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTokensIsMutable();
+        tokens_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tokens = 2;</code>
+       * @param value The tokens to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTokens(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTokensIsMutable();
+        tokens_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tokens = 2;</code>
+       * @param values The tokens to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTokens(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureTokensIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tokens_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tokens = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTokens() {
+        tokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tokens = 2;</code>
+       * @param value The bytes of the tokens to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTokensBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureTokensIsMutable();
+        tokens_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object reqId_ = "";
+      /**
+       * <pre>
+       * Unified request id
+       * </pre>
+       *
+       * <code>string req_id = 3;</code>
+       * @return The reqId.
+       */
+      public java.lang.String getReqId() {
+        java.lang.Object ref = reqId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          reqId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Unified request id
+       * </pre>
+       *
+       * <code>string req_id = 3;</code>
+       * @return The bytes for reqId.
+       */
+      public com.google.protobuf.ByteString
+          getReqIdBytes() {
+        java.lang.Object ref = reqId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          reqId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Unified request id
+       * </pre>
+       *
+       * <code>string req_id = 3;</code>
+       * @param value The reqId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReqId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        reqId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Unified request id
+       * </pre>
+       *
+       * <code>string req_id = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReqId() {
+        
+        reqId_ = getDefaultInstance().getReqId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Unified request id
+       * </pre>
+       *
+       * <code>string req_id = 3;</code>
+       * @param value The bytes for reqId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReqIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        reqId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.volcengine.model.maas.api.Api.Error error_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Error, com.volcengine.model.maas.api.Api.Error.Builder, com.volcengine.model.maas.api.Api.ErrorOrBuilder> errorBuilder_;
+      /**
+       * <pre>
+       * Error if exists for the req
+       * </pre>
+       *
+       * <code>.proxy.Error error = 4;</code>
+       * @return Whether the error field is set.
+       */
+      public boolean hasError() {
+        return errorBuilder_ != null || error_ != null;
+      }
+      /**
+       * <pre>
+       * Error if exists for the req
+       * </pre>
+       *
+       * <code>.proxy.Error error = 4;</code>
+       * @return The error.
+       */
+      public com.volcengine.model.maas.api.Api.Error getError() {
+        if (errorBuilder_ == null) {
+          return error_ == null ? com.volcengine.model.maas.api.Api.Error.getDefaultInstance() : error_;
+        } else {
+          return errorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Error if exists for the req
+       * </pre>
+       *
+       * <code>.proxy.Error error = 4;</code>
+       */
+      public Builder setError(com.volcengine.model.maas.api.Api.Error value) {
+        if (errorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          error_ = value;
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Error if exists for the req
+       * </pre>
+       *
+       * <code>.proxy.Error error = 4;</code>
+       */
+      public Builder setError(
+          com.volcengine.model.maas.api.Api.Error.Builder builderForValue) {
+        if (errorBuilder_ == null) {
+          error_ = builderForValue.build();
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Error if exists for the req
+       * </pre>
+       *
+       * <code>.proxy.Error error = 4;</code>
+       */
+      public Builder mergeError(com.volcengine.model.maas.api.Api.Error value) {
+        if (errorBuilder_ == null) {
+          if (error_ != null) {
+            error_ =
+              com.volcengine.model.maas.api.Api.Error.newBuilder(error_).mergeFrom(value).buildPartial();
+          } else {
+            error_ = value;
+          }
+          onChanged();
+        } else {
+          errorBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Error if exists for the req
+       * </pre>
+       *
+       * <code>.proxy.Error error = 4;</code>
+       */
+      public Builder clearError() {
+        if (errorBuilder_ == null) {
+          error_ = null;
+          onChanged();
+        } else {
+          error_ = null;
+          errorBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Error if exists for the req
+       * </pre>
+       *
+       * <code>.proxy.Error error = 4;</code>
+       */
+      public com.volcengine.model.maas.api.Api.Error.Builder getErrorBuilder() {
+        
+        onChanged();
+        return getErrorFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Error if exists for the req
+       * </pre>
+       *
+       * <code>.proxy.Error error = 4;</code>
+       */
+      public com.volcengine.model.maas.api.Api.ErrorOrBuilder getErrorOrBuilder() {
+        if (errorBuilder_ != null) {
+          return errorBuilder_.getMessageOrBuilder();
+        } else {
+          return error_ == null ?
+              com.volcengine.model.maas.api.Api.Error.getDefaultInstance() : error_;
+        }
+      }
+      /**
+       * <pre>
+       * Error if exists for the req
+       * </pre>
+       *
+       * <code>.proxy.Error error = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Error, com.volcengine.model.maas.api.Api.Error.Builder, com.volcengine.model.maas.api.Api.ErrorOrBuilder> 
+          getErrorFieldBuilder() {
+        if (errorBuilder_ == null) {
+          errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.volcengine.model.maas.api.Api.Error, com.volcengine.model.maas.api.Api.Error.Builder, com.volcengine.model.maas.api.Api.ErrorOrBuilder>(
+                  getError(),
+                  getParentForChildren(),
+                  isClean());
+          error_ = null;
+        }
+        return errorBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proxy.TokenizeResp)
+    }
+
+    // @@protoc_insertion_point(class_scope:proxy.TokenizeResp)
+    private static final com.volcengine.model.maas.api.Api.TokenizeResp DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.volcengine.model.maas.api.Api.TokenizeResp();
+    }
+
+    public static com.volcengine.model.maas.api.Api.TokenizeResp getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TokenizeResp>
+        PARSER = new com.google.protobuf.AbstractParser<TokenizeResp>() {
+      @java.lang.Override
+      public TokenizeResp parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<TokenizeResp> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TokenizeResp> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.TokenizeResp getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface LabelLogprobosValueOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proxy.LabelLogprobosValue)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated string tokens = 1;</code>
+     * @return A list containing the tokens.
+     */
+    java.util.List<java.lang.String>
+        getTokensList();
+    /**
+     * <code>repeated string tokens = 1;</code>
+     * @return The count of tokens.
+     */
+    int getTokensCount();
+    /**
+     * <code>repeated string tokens = 1;</code>
+     * @param index The index of the element to return.
+     * @return The tokens at the given index.
+     */
+    java.lang.String getTokens(int index);
+    /**
+     * <code>repeated string tokens = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the tokens at the given index.
+     */
+    com.google.protobuf.ByteString
+        getTokensBytes(int index);
+
+    /**
+     * <code>repeated double token_logprobs = 2;</code>
+     * @return A list containing the tokenLogprobs.
+     */
+    java.util.List<java.lang.Double> getTokenLogprobsList();
+    /**
+     * <code>repeated double token_logprobs = 2;</code>
+     * @return The count of tokenLogprobs.
+     */
+    int getTokenLogprobsCount();
+    /**
+     * <code>repeated double token_logprobs = 2;</code>
+     * @param index The index of the element to return.
+     * @return The tokenLogprobs at the given index.
+     */
+    double getTokenLogprobs(int index);
+
+    /**
+     * <code>string req_id = 3;</code>
+     * @return The reqId.
+     */
+    java.lang.String getReqId();
+    /**
+     * <code>string req_id = 3;</code>
+     * @return The bytes for reqId.
+     */
+    com.google.protobuf.ByteString
+        getReqIdBytes();
+  }
+  /**
+   * Protobuf type {@code proxy.LabelLogprobosValue}
+   */
+  public static final class LabelLogprobosValue extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proxy.LabelLogprobosValue)
+      LabelLogprobosValueOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use LabelLogprobosValue.newBuilder() to construct.
+    private LabelLogprobosValue(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LabelLogprobosValue() {
+      tokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      tokenLogprobs_ = emptyDoubleList();
+      reqId_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LabelLogprobosValue();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_LabelLogprobosValue_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_LabelLogprobosValue_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.volcengine.model.maas.api.Api.LabelLogprobosValue.class, com.volcengine.model.maas.api.Api.LabelLogprobosValue.Builder.class);
+    }
+
+    public static final int TOKENS_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList tokens_;
+    /**
+     * <code>repeated string tokens = 1;</code>
+     * @return A list containing the tokens.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getTokensList() {
+      return tokens_;
+    }
+    /**
+     * <code>repeated string tokens = 1;</code>
+     * @return The count of tokens.
+     */
+    public int getTokensCount() {
+      return tokens_.size();
+    }
+    /**
+     * <code>repeated string tokens = 1;</code>
+     * @param index The index of the element to return.
+     * @return The tokens at the given index.
+     */
+    public java.lang.String getTokens(int index) {
+      return tokens_.get(index);
+    }
+    /**
+     * <code>repeated string tokens = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the tokens at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getTokensBytes(int index) {
+      return tokens_.getByteString(index);
+    }
+
+    public static final int TOKEN_LOGPROBS_FIELD_NUMBER = 2;
+    private com.google.protobuf.Internal.DoubleList tokenLogprobs_;
+    /**
+     * <code>repeated double token_logprobs = 2;</code>
+     * @return A list containing the tokenLogprobs.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Double>
+        getTokenLogprobsList() {
+      return tokenLogprobs_;
+    }
+    /**
+     * <code>repeated double token_logprobs = 2;</code>
+     * @return The count of tokenLogprobs.
+     */
+    public int getTokenLogprobsCount() {
+      return tokenLogprobs_.size();
+    }
+    /**
+     * <code>repeated double token_logprobs = 2;</code>
+     * @param index The index of the element to return.
+     * @return The tokenLogprobs at the given index.
+     */
+    public double getTokenLogprobs(int index) {
+      return tokenLogprobs_.getDouble(index);
+    }
+    private int tokenLogprobsMemoizedSerializedSize = -1;
+
+    public static final int REQ_ID_FIELD_NUMBER = 3;
+    private volatile java.lang.Object reqId_;
+    /**
+     * <code>string req_id = 3;</code>
+     * @return The reqId.
+     */
+    @java.lang.Override
+    public java.lang.String getReqId() {
+      java.lang.Object ref = reqId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        reqId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string req_id = 3;</code>
+     * @return The bytes for reqId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getReqIdBytes() {
+      java.lang.Object ref = reqId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        reqId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < tokens_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tokens_.getRaw(i));
+      }
+      if (getTokenLogprobsList().size() > 0) {
+        output.writeUInt32NoTag(18);
+        output.writeUInt32NoTag(tokenLogprobsMemoizedSerializedSize);
+      }
+      for (int i = 0; i < tokenLogprobs_.size(); i++) {
+        output.writeDoubleNoTag(tokenLogprobs_.getDouble(i));
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, reqId_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < tokens_.size(); i++) {
+          dataSize += computeStringSizeNoTag(tokens_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getTokensList().size();
+      }
+      {
+        int dataSize = 0;
+        dataSize = 8 * getTokenLogprobsList().size();
+        size += dataSize;
+        if (!getTokenLogprobsList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        tokenLogprobsMemoizedSerializedSize = dataSize;
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, reqId_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.volcengine.model.maas.api.Api.LabelLogprobosValue)) {
+        return super.equals(obj);
+      }
+      com.volcengine.model.maas.api.Api.LabelLogprobosValue other = (com.volcengine.model.maas.api.Api.LabelLogprobosValue) obj;
+
+      if (!getTokensList()
+          .equals(other.getTokensList())) return false;
+      if (!getTokenLogprobsList()
+          .equals(other.getTokenLogprobsList())) return false;
+      if (!getReqId()
+          .equals(other.getReqId())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getTokensCount() > 0) {
+        hash = (37 * hash) + TOKENS_FIELD_NUMBER;
+        hash = (53 * hash) + getTokensList().hashCode();
+      }
+      if (getTokenLogprobsCount() > 0) {
+        hash = (37 * hash) + TOKEN_LOGPROBS_FIELD_NUMBER;
+        hash = (53 * hash) + getTokenLogprobsList().hashCode();
+      }
+      hash = (37 * hash) + REQ_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getReqId().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.volcengine.model.maas.api.Api.LabelLogprobosValue parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.LabelLogprobosValue parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.LabelLogprobosValue parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.LabelLogprobosValue parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.LabelLogprobosValue parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.LabelLogprobosValue parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.LabelLogprobosValue parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.LabelLogprobosValue parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.LabelLogprobosValue parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.LabelLogprobosValue parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.LabelLogprobosValue parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.LabelLogprobosValue parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.volcengine.model.maas.api.Api.LabelLogprobosValue prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proxy.LabelLogprobosValue}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proxy.LabelLogprobosValue)
+        com.volcengine.model.maas.api.Api.LabelLogprobosValueOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_LabelLogprobosValue_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_LabelLogprobosValue_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.volcengine.model.maas.api.Api.LabelLogprobosValue.class, com.volcengine.model.maas.api.Api.LabelLogprobosValue.Builder.class);
+      }
+
+      // Construct using com.volcengine.model.maas.api.Api.LabelLogprobosValue.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        tokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        tokenLogprobs_ = emptyDoubleList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        reqId_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_LabelLogprobosValue_descriptor;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.LabelLogprobosValue getDefaultInstanceForType() {
+        return com.volcengine.model.maas.api.Api.LabelLogprobosValue.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.LabelLogprobosValue build() {
+        com.volcengine.model.maas.api.Api.LabelLogprobosValue result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.LabelLogprobosValue buildPartial() {
+        com.volcengine.model.maas.api.Api.LabelLogprobosValue result = new com.volcengine.model.maas.api.Api.LabelLogprobosValue(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          tokens_ = tokens_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.tokens_ = tokens_;
+        if (((bitField0_ & 0x00000002) != 0)) {
+          tokenLogprobs_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.tokenLogprobs_ = tokenLogprobs_;
+        result.reqId_ = reqId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.volcengine.model.maas.api.Api.LabelLogprobosValue) {
+          return mergeFrom((com.volcengine.model.maas.api.Api.LabelLogprobosValue)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.volcengine.model.maas.api.Api.LabelLogprobosValue other) {
+        if (other == com.volcengine.model.maas.api.Api.LabelLogprobosValue.getDefaultInstance()) return this;
+        if (!other.tokens_.isEmpty()) {
+          if (tokens_.isEmpty()) {
+            tokens_ = other.tokens_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureTokensIsMutable();
+            tokens_.addAll(other.tokens_);
+          }
+          onChanged();
+        }
+        if (!other.tokenLogprobs_.isEmpty()) {
+          if (tokenLogprobs_.isEmpty()) {
+            tokenLogprobs_ = other.tokenLogprobs_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureTokenLogprobsIsMutable();
+            tokenLogprobs_.addAll(other.tokenLogprobs_);
+          }
+          onChanged();
+        }
+        if (!other.getReqId().isEmpty()) {
+          reqId_ = other.reqId_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureTokensIsMutable();
+                tokens_.add(s);
+                break;
+              } // case 10
+              case 17: {
+                double v = input.readDouble();
+                ensureTokenLogprobsIsMutable();
+                tokenLogprobs_.addDouble(v);
+                break;
+              } // case 17
+              case 18: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureTokenLogprobsIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  tokenLogprobs_.addDouble(input.readDouble());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 18
+              case 26: {
+                reqId_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList tokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureTokensIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          tokens_ = new com.google.protobuf.LazyStringArrayList(tokens_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string tokens = 1;</code>
+       * @return A list containing the tokens.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getTokensList() {
+        return tokens_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string tokens = 1;</code>
+       * @return The count of tokens.
+       */
+      public int getTokensCount() {
+        return tokens_.size();
+      }
+      /**
+       * <code>repeated string tokens = 1;</code>
+       * @param index The index of the element to return.
+       * @return The tokens at the given index.
+       */
+      public java.lang.String getTokens(int index) {
+        return tokens_.get(index);
+      }
+      /**
+       * <code>repeated string tokens = 1;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the tokens at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getTokensBytes(int index) {
+        return tokens_.getByteString(index);
+      }
+      /**
+       * <code>repeated string tokens = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The tokens to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTokens(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTokensIsMutable();
+        tokens_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tokens = 1;</code>
+       * @param value The tokens to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTokens(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTokensIsMutable();
+        tokens_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tokens = 1;</code>
+       * @param values The tokens to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTokens(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureTokensIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tokens_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tokens = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTokens() {
+        tokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tokens = 1;</code>
+       * @param value The bytes of the tokens to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTokensBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureTokensIsMutable();
+        tokens_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.DoubleList tokenLogprobs_ = emptyDoubleList();
+      private void ensureTokenLogprobsIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          tokenLogprobs_ = mutableCopy(tokenLogprobs_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated double token_logprobs = 2;</code>
+       * @return A list containing the tokenLogprobs.
+       */
+      public java.util.List<java.lang.Double>
+          getTokenLogprobsList() {
+        return ((bitField0_ & 0x00000002) != 0) ?
+                 java.util.Collections.unmodifiableList(tokenLogprobs_) : tokenLogprobs_;
+      }
+      /**
+       * <code>repeated double token_logprobs = 2;</code>
+       * @return The count of tokenLogprobs.
+       */
+      public int getTokenLogprobsCount() {
+        return tokenLogprobs_.size();
+      }
+      /**
+       * <code>repeated double token_logprobs = 2;</code>
+       * @param index The index of the element to return.
+       * @return The tokenLogprobs at the given index.
+       */
+      public double getTokenLogprobs(int index) {
+        return tokenLogprobs_.getDouble(index);
+      }
+      /**
+       * <code>repeated double token_logprobs = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The tokenLogprobs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTokenLogprobs(
+          int index, double value) {
+        ensureTokenLogprobsIsMutable();
+        tokenLogprobs_.setDouble(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated double token_logprobs = 2;</code>
+       * @param value The tokenLogprobs to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTokenLogprobs(double value) {
+        ensureTokenLogprobsIsMutable();
+        tokenLogprobs_.addDouble(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated double token_logprobs = 2;</code>
+       * @param values The tokenLogprobs to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTokenLogprobs(
+          java.lang.Iterable<? extends java.lang.Double> values) {
+        ensureTokenLogprobsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tokenLogprobs_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated double token_logprobs = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTokenLogprobs() {
+        tokenLogprobs_ = emptyDoubleList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object reqId_ = "";
+      /**
+       * <code>string req_id = 3;</code>
+       * @return The reqId.
+       */
+      public java.lang.String getReqId() {
+        java.lang.Object ref = reqId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          reqId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string req_id = 3;</code>
+       * @return The bytes for reqId.
+       */
+      public com.google.protobuf.ByteString
+          getReqIdBytes() {
+        java.lang.Object ref = reqId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          reqId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string req_id = 3;</code>
+       * @param value The reqId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReqId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        reqId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string req_id = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReqId() {
+        
+        reqId_ = getDefaultInstance().getReqId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string req_id = 3;</code>
+       * @param value The bytes for reqId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReqIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        reqId_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proxy.LabelLogprobosValue)
+    }
+
+    // @@protoc_insertion_point(class_scope:proxy.LabelLogprobosValue)
+    private static final com.volcengine.model.maas.api.Api.LabelLogprobosValue DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.volcengine.model.maas.api.Api.LabelLogprobosValue();
+    }
+
+    public static com.volcengine.model.maas.api.Api.LabelLogprobosValue getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LabelLogprobosValue>
+        PARSER = new com.google.protobuf.AbstractParser<LabelLogprobosValue>() {
+      @java.lang.Override
+      public LabelLogprobosValue parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<LabelLogprobosValue> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LabelLogprobosValue> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.LabelLogprobosValue getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ClassificationReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proxy.ClassificationReq)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.proxy.Model model = 1;</code>
+     * @return Whether the model field is set.
+     */
+    boolean hasModel();
+    /**
+     * <code>.proxy.Model model = 1;</code>
+     * @return The model.
+     */
+    com.volcengine.model.maas.api.Api.Model getModel();
+    /**
+     * <code>.proxy.Model model = 1;</code>
+     */
+    com.volcengine.model.maas.api.Api.ModelOrBuilder getModelOrBuilder();
+
+    /**
+     * <code>string req_id = 2;</code>
+     * @return The reqId.
+     */
+    java.lang.String getReqId();
+    /**
+     * <code>string req_id = 2;</code>
+     * @return The bytes for reqId.
+     */
+    com.google.protobuf.ByteString
+        getReqIdBytes();
+
+    /**
+     * <code>string query = 3;</code>
+     * @return The query.
+     */
+    java.lang.String getQuery();
+    /**
+     * <code>string query = 3;</code>
+     * @return The bytes for query.
+     */
+    com.google.protobuf.ByteString
+        getQueryBytes();
+
+    /**
+     * <code>repeated string labels = 4;</code>
+     * @return A list containing the labels.
+     */
+    java.util.List<java.lang.String>
+        getLabelsList();
+    /**
+     * <code>repeated string labels = 4;</code>
+     * @return The count of labels.
+     */
+    int getLabelsCount();
+    /**
+     * <code>repeated string labels = 4;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
+     */
+    java.lang.String getLabels(int index);
+    /**
+     * <code>repeated string labels = 4;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
+     */
+    com.google.protobuf.ByteString
+        getLabelsBytes(int index);
+  }
+  /**
+   * Protobuf type {@code proxy.ClassificationReq}
+   */
+  public static final class ClassificationReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proxy.ClassificationReq)
+      ClassificationReqOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ClassificationReq.newBuilder() to construct.
+    private ClassificationReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ClassificationReq() {
+      reqId_ = "";
+      query_ = "";
+      labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ClassificationReq();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_ClassificationReq_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_ClassificationReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.volcengine.model.maas.api.Api.ClassificationReq.class, com.volcengine.model.maas.api.Api.ClassificationReq.Builder.class);
+    }
+
+    public static final int MODEL_FIELD_NUMBER = 1;
+    private com.volcengine.model.maas.api.Api.Model model_;
+    /**
+     * <code>.proxy.Model model = 1;</code>
+     * @return Whether the model field is set.
+     */
+    @java.lang.Override
+    public boolean hasModel() {
+      return model_ != null;
+    }
+    /**
+     * <code>.proxy.Model model = 1;</code>
+     * @return The model.
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.Model getModel() {
+      return model_ == null ? com.volcengine.model.maas.api.Api.Model.getDefaultInstance() : model_;
+    }
+    /**
+     * <code>.proxy.Model model = 1;</code>
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.ModelOrBuilder getModelOrBuilder() {
+      return getModel();
+    }
+
+    public static final int REQ_ID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object reqId_;
+    /**
+     * <code>string req_id = 2;</code>
+     * @return The reqId.
+     */
+    @java.lang.Override
+    public java.lang.String getReqId() {
+      java.lang.Object ref = reqId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        reqId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string req_id = 2;</code>
+     * @return The bytes for reqId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getReqIdBytes() {
+      java.lang.Object ref = reqId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        reqId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int QUERY_FIELD_NUMBER = 3;
+    private volatile java.lang.Object query_;
+    /**
+     * <code>string query = 3;</code>
+     * @return The query.
+     */
+    @java.lang.Override
+    public java.lang.String getQuery() {
+      java.lang.Object ref = query_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        query_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string query = 3;</code>
+     * @return The bytes for query.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getQueryBytes() {
+      java.lang.Object ref = query_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        query_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LABELS_FIELD_NUMBER = 4;
+    private com.google.protobuf.LazyStringList labels_;
+    /**
+     * <code>repeated string labels = 4;</code>
+     * @return A list containing the labels.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getLabelsList() {
+      return labels_;
+    }
+    /**
+     * <code>repeated string labels = 4;</code>
+     * @return The count of labels.
+     */
+    public int getLabelsCount() {
+      return labels_.size();
+    }
+    /**
+     * <code>repeated string labels = 4;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
+     */
+    public java.lang.String getLabels(int index) {
+      return labels_.get(index);
+    }
+    /**
+     * <code>repeated string labels = 4;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getLabelsBytes(int index) {
+      return labels_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (model_ != null) {
+        output.writeMessage(1, getModel());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, reqId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(query_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, query_);
+      }
+      for (int i = 0; i < labels_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, labels_.getRaw(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (model_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getModel());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, reqId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(query_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, query_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < labels_.size(); i++) {
+          dataSize += computeStringSizeNoTag(labels_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getLabelsList().size();
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.volcengine.model.maas.api.Api.ClassificationReq)) {
+        return super.equals(obj);
+      }
+      com.volcengine.model.maas.api.Api.ClassificationReq other = (com.volcengine.model.maas.api.Api.ClassificationReq) obj;
+
+      if (hasModel() != other.hasModel()) return false;
+      if (hasModel()) {
+        if (!getModel()
+            .equals(other.getModel())) return false;
+      }
+      if (!getReqId()
+          .equals(other.getReqId())) return false;
+      if (!getQuery()
+          .equals(other.getQuery())) return false;
+      if (!getLabelsList()
+          .equals(other.getLabelsList())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasModel()) {
+        hash = (37 * hash) + MODEL_FIELD_NUMBER;
+        hash = (53 * hash) + getModel().hashCode();
+      }
+      hash = (37 * hash) + REQ_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getReqId().hashCode();
+      hash = (37 * hash) + QUERY_FIELD_NUMBER;
+      hash = (53 * hash) + getQuery().hashCode();
+      if (getLabelsCount() > 0) {
+        hash = (37 * hash) + LABELS_FIELD_NUMBER;
+        hash = (53 * hash) + getLabelsList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.volcengine.model.maas.api.Api.ClassificationReq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationReq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.volcengine.model.maas.api.Api.ClassificationReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proxy.ClassificationReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proxy.ClassificationReq)
+        com.volcengine.model.maas.api.Api.ClassificationReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_ClassificationReq_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_ClassificationReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.volcengine.model.maas.api.Api.ClassificationReq.class, com.volcengine.model.maas.api.Api.ClassificationReq.Builder.class);
+      }
+
+      // Construct using com.volcengine.model.maas.api.Api.ClassificationReq.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (modelBuilder_ == null) {
+          model_ = null;
+        } else {
+          model_ = null;
+          modelBuilder_ = null;
+        }
+        reqId_ = "";
+
+        query_ = "";
+
+        labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_ClassificationReq_descriptor;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.ClassificationReq getDefaultInstanceForType() {
+        return com.volcengine.model.maas.api.Api.ClassificationReq.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.ClassificationReq build() {
+        com.volcengine.model.maas.api.Api.ClassificationReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.ClassificationReq buildPartial() {
+        com.volcengine.model.maas.api.Api.ClassificationReq result = new com.volcengine.model.maas.api.Api.ClassificationReq(this);
+        int from_bitField0_ = bitField0_;
+        if (modelBuilder_ == null) {
+          result.model_ = model_;
+        } else {
+          result.model_ = modelBuilder_.build();
+        }
+        result.reqId_ = reqId_;
+        result.query_ = query_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          labels_ = labels_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.labels_ = labels_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.volcengine.model.maas.api.Api.ClassificationReq) {
+          return mergeFrom((com.volcengine.model.maas.api.Api.ClassificationReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.volcengine.model.maas.api.Api.ClassificationReq other) {
+        if (other == com.volcengine.model.maas.api.Api.ClassificationReq.getDefaultInstance()) return this;
+        if (other.hasModel()) {
+          mergeModel(other.getModel());
+        }
+        if (!other.getReqId().isEmpty()) {
+          reqId_ = other.reqId_;
+          onChanged();
+        }
+        if (!other.getQuery().isEmpty()) {
+          query_ = other.query_;
+          onChanged();
+        }
+        if (!other.labels_.isEmpty()) {
+          if (labels_.isEmpty()) {
+            labels_ = other.labels_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureLabelsIsMutable();
+            labels_.addAll(other.labels_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getModelFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 10
+              case 18: {
+                reqId_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 18
+              case 26: {
+                query_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 26
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureLabelsIsMutable();
+                labels_.add(s);
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private com.volcengine.model.maas.api.Api.Model model_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder> modelBuilder_;
+      /**
+       * <code>.proxy.Model model = 1;</code>
+       * @return Whether the model field is set.
+       */
+      public boolean hasModel() {
+        return modelBuilder_ != null || model_ != null;
+      }
+      /**
+       * <code>.proxy.Model model = 1;</code>
+       * @return The model.
+       */
+      public com.volcengine.model.maas.api.Api.Model getModel() {
+        if (modelBuilder_ == null) {
+          return model_ == null ? com.volcengine.model.maas.api.Api.Model.getDefaultInstance() : model_;
+        } else {
+          return modelBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.proxy.Model model = 1;</code>
+       */
+      public Builder setModel(com.volcengine.model.maas.api.Api.Model value) {
+        if (modelBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          model_ = value;
+          onChanged();
+        } else {
+          modelBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Model model = 1;</code>
+       */
+      public Builder setModel(
+          com.volcengine.model.maas.api.Api.Model.Builder builderForValue) {
+        if (modelBuilder_ == null) {
+          model_ = builderForValue.build();
+          onChanged();
+        } else {
+          modelBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Model model = 1;</code>
+       */
+      public Builder mergeModel(com.volcengine.model.maas.api.Api.Model value) {
+        if (modelBuilder_ == null) {
+          if (model_ != null) {
+            model_ =
+              com.volcengine.model.maas.api.Api.Model.newBuilder(model_).mergeFrom(value).buildPartial();
+          } else {
+            model_ = value;
+          }
+          onChanged();
+        } else {
+          modelBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Model model = 1;</code>
+       */
+      public Builder clearModel() {
+        if (modelBuilder_ == null) {
+          model_ = null;
+          onChanged();
+        } else {
+          model_ = null;
+          modelBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Model model = 1;</code>
+       */
+      public com.volcengine.model.maas.api.Api.Model.Builder getModelBuilder() {
+        
+        onChanged();
+        return getModelFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.proxy.Model model = 1;</code>
+       */
+      public com.volcengine.model.maas.api.Api.ModelOrBuilder getModelOrBuilder() {
+        if (modelBuilder_ != null) {
+          return modelBuilder_.getMessageOrBuilder();
+        } else {
+          return model_ == null ?
+              com.volcengine.model.maas.api.Api.Model.getDefaultInstance() : model_;
+        }
+      }
+      /**
+       * <code>.proxy.Model model = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder> 
+          getModelFieldBuilder() {
+        if (modelBuilder_ == null) {
+          modelBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder>(
+                  getModel(),
+                  getParentForChildren(),
+                  isClean());
+          model_ = null;
+        }
+        return modelBuilder_;
+      }
+
+      private java.lang.Object reqId_ = "";
+      /**
+       * <code>string req_id = 2;</code>
+       * @return The reqId.
+       */
+      public java.lang.String getReqId() {
+        java.lang.Object ref = reqId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          reqId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string req_id = 2;</code>
+       * @return The bytes for reqId.
+       */
+      public com.google.protobuf.ByteString
+          getReqIdBytes() {
+        java.lang.Object ref = reqId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          reqId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string req_id = 2;</code>
+       * @param value The reqId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReqId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        reqId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string req_id = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReqId() {
+        
+        reqId_ = getDefaultInstance().getReqId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string req_id = 2;</code>
+       * @param value The bytes for reqId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReqIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        reqId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object query_ = "";
+      /**
+       * <code>string query = 3;</code>
+       * @return The query.
+       */
+      public java.lang.String getQuery() {
+        java.lang.Object ref = query_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          query_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string query = 3;</code>
+       * @return The bytes for query.
+       */
+      public com.google.protobuf.ByteString
+          getQueryBytes() {
+        java.lang.Object ref = query_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          query_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string query = 3;</code>
+       * @param value The query to set.
+       * @return This builder for chaining.
+       */
+      public Builder setQuery(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        query_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string query = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearQuery() {
+        
+        query_ = getDefaultInstance().getQuery();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string query = 3;</code>
+       * @param value The bytes for query to set.
+       * @return This builder for chaining.
+       */
+      public Builder setQueryBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        query_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureLabelsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          labels_ = new com.google.protobuf.LazyStringArrayList(labels_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string labels = 4;</code>
+       * @return A list containing the labels.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getLabelsList() {
+        return labels_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string labels = 4;</code>
+       * @return The count of labels.
+       */
+      public int getLabelsCount() {
+        return labels_.size();
+      }
+      /**
+       * <code>repeated string labels = 4;</code>
+       * @param index The index of the element to return.
+       * @return The labels at the given index.
+       */
+      public java.lang.String getLabels(int index) {
+        return labels_.get(index);
+      }
+      /**
+       * <code>repeated string labels = 4;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the labels at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getLabelsBytes(int index) {
+        return labels_.getByteString(index);
+      }
+      /**
+       * <code>repeated string labels = 4;</code>
+       * @param index The index to set the value at.
+       * @param value The labels to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLabels(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureLabelsIsMutable();
+        labels_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string labels = 4;</code>
+       * @param value The labels to add.
+       * @return This builder for chaining.
+       */
+      public Builder addLabels(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureLabelsIsMutable();
+        labels_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string labels = 4;</code>
+       * @param values The labels to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllLabels(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureLabelsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, labels_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string labels = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLabels() {
+        labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string labels = 4;</code>
+       * @param value The bytes of the labels to add.
+       * @return This builder for chaining.
+       */
+      public Builder addLabelsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureLabelsIsMutable();
+        labels_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proxy.ClassificationReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:proxy.ClassificationReq)
+    private static final com.volcengine.model.maas.api.Api.ClassificationReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.volcengine.model.maas.api.Api.ClassificationReq();
+    }
+
+    public static com.volcengine.model.maas.api.Api.ClassificationReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ClassificationReq>
+        PARSER = new com.google.protobuf.AbstractParser<ClassificationReq>() {
+      @java.lang.Override
+      public ClassificationReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<ClassificationReq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ClassificationReq> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.ClassificationReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ClassificationRespOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proxy.ClassificationResp)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string label = 1;</code>
+     * @return The label.
+     */
+    java.lang.String getLabel();
+    /**
+     * <code>string label = 1;</code>
+     * @return The bytes for label.
+     */
+    com.google.protobuf.ByteString
+        getLabelBytes();
+
+    /**
+     * <code>map&lt;string, .proxy.LabelLogprobosValue&gt; label_logprobos = 2;</code>
+     */
+    int getLabelLogprobosCount();
+    /**
+     * <code>map&lt;string, .proxy.LabelLogprobosValue&gt; label_logprobos = 2;</code>
+     */
+    boolean containsLabelLogprobos(
+        java.lang.String key);
+    /**
+     * Use {@link #getLabelLogprobosMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue>
+    getLabelLogprobos();
+    /**
+     * <code>map&lt;string, .proxy.LabelLogprobosValue&gt; label_logprobos = 2;</code>
+     */
+    java.util.Map<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue>
+    getLabelLogprobosMap();
+    /**
+     * <code>map&lt;string, .proxy.LabelLogprobosValue&gt; label_logprobos = 2;</code>
+     */
+
+    /* nullable */
+com.volcengine.model.maas.api.Api.LabelLogprobosValue getLabelLogprobosOrDefault(
+        java.lang.String key,
+        /* nullable */
+com.volcengine.model.maas.api.Api.LabelLogprobosValue defaultValue);
+    /**
+     * <code>map&lt;string, .proxy.LabelLogprobosValue&gt; label_logprobos = 2;</code>
+     */
+
+    com.volcengine.model.maas.api.Api.LabelLogprobosValue getLabelLogprobosOrThrow(
+        java.lang.String key);
+
+    /**
+     * <pre>
+     * The tokens usage
+     * </pre>
+     *
+     * <code>.proxy.Usage usage = 3;</code>
+     * @return Whether the usage field is set.
+     */
+    boolean hasUsage();
+    /**
+     * <pre>
+     * The tokens usage
+     * </pre>
+     *
+     * <code>.proxy.Usage usage = 3;</code>
+     * @return The usage.
+     */
+    com.volcengine.model.maas.api.Api.Usage getUsage();
+    /**
+     * <pre>
+     * The tokens usage
+     * </pre>
+     *
+     * <code>.proxy.Usage usage = 3;</code>
+     */
+    com.volcengine.model.maas.api.Api.UsageOrBuilder getUsageOrBuilder();
+
+    /**
+     * <pre>
+     * Unified request id
+     * </pre>
+     *
+     * <code>string req_id = 4;</code>
+     * @return The reqId.
+     */
+    java.lang.String getReqId();
+    /**
+     * <pre>
+     * Unified request id
+     * </pre>
+     *
+     * <code>string req_id = 4;</code>
+     * @return The bytes for reqId.
+     */
+    com.google.protobuf.ByteString
+        getReqIdBytes();
+
+    /**
+     * <pre>
+     * Error if exists for the req
+     * </pre>
+     *
+     * <code>.proxy.Error error = 5;</code>
+     * @return Whether the error field is set.
+     */
+    boolean hasError();
+    /**
+     * <pre>
+     * Error if exists for the req
+     * </pre>
+     *
+     * <code>.proxy.Error error = 5;</code>
+     * @return The error.
+     */
+    com.volcengine.model.maas.api.Api.Error getError();
+    /**
+     * <pre>
+     * Error if exists for the req
+     * </pre>
+     *
+     * <code>.proxy.Error error = 5;</code>
+     */
+    com.volcengine.model.maas.api.Api.ErrorOrBuilder getErrorOrBuilder();
+  }
+  /**
+   * Protobuf type {@code proxy.ClassificationResp}
+   */
+  public static final class ClassificationResp extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proxy.ClassificationResp)
+      ClassificationRespOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ClassificationResp.newBuilder() to construct.
+    private ClassificationResp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ClassificationResp() {
+      label_ = "";
+      reqId_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ClassificationResp();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_ClassificationResp_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 2:
+          return internalGetLabelLogprobos();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_ClassificationResp_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.volcengine.model.maas.api.Api.ClassificationResp.class, com.volcengine.model.maas.api.Api.ClassificationResp.Builder.class);
+    }
+
+    public static final int LABEL_FIELD_NUMBER = 1;
+    private volatile java.lang.Object label_;
+    /**
+     * <code>string label = 1;</code>
+     * @return The label.
+     */
+    @java.lang.Override
+    public java.lang.String getLabel() {
+      java.lang.Object ref = label_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        label_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string label = 1;</code>
+     * @return The bytes for label.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getLabelBytes() {
+      java.lang.Object ref = label_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        label_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LABEL_LOGPROBOS_FIELD_NUMBER = 2;
+    private static final class LabelLogprobosDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue>newDefaultInstance(
+                  com.volcengine.model.maas.api.Api.internal_static_proxy_ClassificationResp_LabelLogprobosEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                  com.volcengine.model.maas.api.Api.LabelLogprobosValue.getDefaultInstance());
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue> labelLogprobos_;
+    private com.google.protobuf.MapField<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue>
+    internalGetLabelLogprobos() {
+      if (labelLogprobos_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            LabelLogprobosDefaultEntryHolder.defaultEntry);
+      }
+      return labelLogprobos_;
+    }
+
+    public int getLabelLogprobosCount() {
+      return internalGetLabelLogprobos().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, .proxy.LabelLogprobosValue&gt; label_logprobos = 2;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsLabelLogprobos(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetLabelLogprobos().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getLabelLogprobosMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue> getLabelLogprobos() {
+      return getLabelLogprobosMap();
+    }
+    /**
+     * <code>map&lt;string, .proxy.LabelLogprobosValue&gt; label_logprobos = 2;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue> getLabelLogprobosMap() {
+      return internalGetLabelLogprobos().getMap();
+    }
+    /**
+     * <code>map&lt;string, .proxy.LabelLogprobosValue&gt; label_logprobos = 2;</code>
+     */
+    @java.lang.Override
+
+    public com.volcengine.model.maas.api.Api.LabelLogprobosValue getLabelLogprobosOrDefault(
+        java.lang.String key,
+        com.volcengine.model.maas.api.Api.LabelLogprobosValue defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue> map =
+          internalGetLabelLogprobos().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, .proxy.LabelLogprobosValue&gt; label_logprobos = 2;</code>
+     */
+    @java.lang.Override
+
+    public com.volcengine.model.maas.api.Api.LabelLogprobosValue getLabelLogprobosOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue> map =
+          internalGetLabelLogprobos().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public static final int USAGE_FIELD_NUMBER = 3;
+    private com.volcengine.model.maas.api.Api.Usage usage_;
+    /**
+     * <pre>
+     * The tokens usage
+     * </pre>
+     *
+     * <code>.proxy.Usage usage = 3;</code>
+     * @return Whether the usage field is set.
+     */
+    @java.lang.Override
+    public boolean hasUsage() {
+      return usage_ != null;
+    }
+    /**
+     * <pre>
+     * The tokens usage
+     * </pre>
+     *
+     * <code>.proxy.Usage usage = 3;</code>
+     * @return The usage.
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.Usage getUsage() {
+      return usage_ == null ? com.volcengine.model.maas.api.Api.Usage.getDefaultInstance() : usage_;
+    }
+    /**
+     * <pre>
+     * The tokens usage
+     * </pre>
+     *
+     * <code>.proxy.Usage usage = 3;</code>
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.UsageOrBuilder getUsageOrBuilder() {
+      return getUsage();
+    }
+
+    public static final int REQ_ID_FIELD_NUMBER = 4;
+    private volatile java.lang.Object reqId_;
+    /**
+     * <pre>
+     * Unified request id
+     * </pre>
+     *
+     * <code>string req_id = 4;</code>
+     * @return The reqId.
+     */
+    @java.lang.Override
+    public java.lang.String getReqId() {
+      java.lang.Object ref = reqId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        reqId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Unified request id
+     * </pre>
+     *
+     * <code>string req_id = 4;</code>
+     * @return The bytes for reqId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getReqIdBytes() {
+      java.lang.Object ref = reqId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        reqId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ERROR_FIELD_NUMBER = 5;
+    private com.volcengine.model.maas.api.Api.Error error_;
+    /**
+     * <pre>
+     * Error if exists for the req
+     * </pre>
+     *
+     * <code>.proxy.Error error = 5;</code>
+     * @return Whether the error field is set.
+     */
+    @java.lang.Override
+    public boolean hasError() {
+      return error_ != null;
+    }
+    /**
+     * <pre>
+     * Error if exists for the req
+     * </pre>
+     *
+     * <code>.proxy.Error error = 5;</code>
+     * @return The error.
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.Error getError() {
+      return error_ == null ? com.volcengine.model.maas.api.Api.Error.getDefaultInstance() : error_;
+    }
+    /**
+     * <pre>
+     * Error if exists for the req
+     * </pre>
+     *
+     * <code>.proxy.Error error = 5;</code>
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.ErrorOrBuilder getErrorOrBuilder() {
+      return getError();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(label_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, label_);
+      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetLabelLogprobos(),
+          LabelLogprobosDefaultEntryHolder.defaultEntry,
+          2);
+      if (usage_ != null) {
+        output.writeMessage(3, getUsage());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, reqId_);
+      }
+      if (error_ != null) {
+        output.writeMessage(5, getError());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(label_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, label_);
+      }
+      for (java.util.Map.Entry<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue> entry
+           : internalGetLabelLogprobos().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue>
+        labelLogprobos__ = LabelLogprobosDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(2, labelLogprobos__);
+      }
+      if (usage_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getUsage());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, reqId_);
+      }
+      if (error_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getError());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.volcengine.model.maas.api.Api.ClassificationResp)) {
+        return super.equals(obj);
+      }
+      com.volcengine.model.maas.api.Api.ClassificationResp other = (com.volcengine.model.maas.api.Api.ClassificationResp) obj;
+
+      if (!getLabel()
+          .equals(other.getLabel())) return false;
+      if (!internalGetLabelLogprobos().equals(
+          other.internalGetLabelLogprobos())) return false;
+      if (hasUsage() != other.hasUsage()) return false;
+      if (hasUsage()) {
+        if (!getUsage()
+            .equals(other.getUsage())) return false;
+      }
+      if (!getReqId()
+          .equals(other.getReqId())) return false;
+      if (hasError() != other.hasError()) return false;
+      if (hasError()) {
+        if (!getError()
+            .equals(other.getError())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + LABEL_FIELD_NUMBER;
+      hash = (53 * hash) + getLabel().hashCode();
+      if (!internalGetLabelLogprobos().getMap().isEmpty()) {
+        hash = (37 * hash) + LABEL_LOGPROBOS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetLabelLogprobos().hashCode();
+      }
+      if (hasUsage()) {
+        hash = (37 * hash) + USAGE_FIELD_NUMBER;
+        hash = (53 * hash) + getUsage().hashCode();
+      }
+      hash = (37 * hash) + REQ_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getReqId().hashCode();
+      if (hasError()) {
+        hash = (37 * hash) + ERROR_FIELD_NUMBER;
+        hash = (53 * hash) + getError().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.volcengine.model.maas.api.Api.ClassificationResp parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationResp parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationResp parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationResp parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationResp parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationResp parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationResp parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationResp parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationResp parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationResp parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationResp parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.ClassificationResp parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.volcengine.model.maas.api.Api.ClassificationResp prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proxy.ClassificationResp}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proxy.ClassificationResp)
+        com.volcengine.model.maas.api.Api.ClassificationRespOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_ClassificationResp_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 2:
+            return internalGetLabelLogprobos();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 2:
+            return internalGetMutableLabelLogprobos();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_ClassificationResp_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.volcengine.model.maas.api.Api.ClassificationResp.class, com.volcengine.model.maas.api.Api.ClassificationResp.Builder.class);
+      }
+
+      // Construct using com.volcengine.model.maas.api.Api.ClassificationResp.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        label_ = "";
+
+        internalGetMutableLabelLogprobos().clear();
+        if (usageBuilder_ == null) {
+          usage_ = null;
+        } else {
+          usage_ = null;
+          usageBuilder_ = null;
+        }
+        reqId_ = "";
+
+        if (errorBuilder_ == null) {
+          error_ = null;
+        } else {
+          error_ = null;
+          errorBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_ClassificationResp_descriptor;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.ClassificationResp getDefaultInstanceForType() {
+        return com.volcengine.model.maas.api.Api.ClassificationResp.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.ClassificationResp build() {
+        com.volcengine.model.maas.api.Api.ClassificationResp result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.ClassificationResp buildPartial() {
+        com.volcengine.model.maas.api.Api.ClassificationResp result = new com.volcengine.model.maas.api.Api.ClassificationResp(this);
+        int from_bitField0_ = bitField0_;
+        result.label_ = label_;
+        result.labelLogprobos_ = internalGetLabelLogprobos();
+        result.labelLogprobos_.makeImmutable();
+        if (usageBuilder_ == null) {
+          result.usage_ = usage_;
+        } else {
+          result.usage_ = usageBuilder_.build();
+        }
+        result.reqId_ = reqId_;
+        if (errorBuilder_ == null) {
+          result.error_ = error_;
+        } else {
+          result.error_ = errorBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.volcengine.model.maas.api.Api.ClassificationResp) {
+          return mergeFrom((com.volcengine.model.maas.api.Api.ClassificationResp)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.volcengine.model.maas.api.Api.ClassificationResp other) {
+        if (other == com.volcengine.model.maas.api.Api.ClassificationResp.getDefaultInstance()) return this;
+        if (!other.getLabel().isEmpty()) {
+          label_ = other.label_;
+          onChanged();
+        }
+        internalGetMutableLabelLogprobos().mergeFrom(
+            other.internalGetLabelLogprobos());
+        if (other.hasUsage()) {
+          mergeUsage(other.getUsage());
+        }
+        if (!other.getReqId().isEmpty()) {
+          reqId_ = other.reqId_;
+          onChanged();
+        }
+        if (other.hasError()) {
+          mergeError(other.getError());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                label_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              case 18: {
+                com.google.protobuf.MapEntry<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue>
+                labelLogprobos__ = input.readMessage(
+                    LabelLogprobosDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableLabelLogprobos().getMutableMap().put(
+                    labelLogprobos__.getKey(), labelLogprobos__.getValue());
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getUsageFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 26
+              case 34: {
+                reqId_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getErrorFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object label_ = "";
+      /**
+       * <code>string label = 1;</code>
+       * @return The label.
+       */
+      public java.lang.String getLabel() {
+        java.lang.Object ref = label_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          label_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string label = 1;</code>
+       * @return The bytes for label.
+       */
+      public com.google.protobuf.ByteString
+          getLabelBytes() {
+        java.lang.Object ref = label_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          label_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string label = 1;</code>
+       * @param value The label to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLabel(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        label_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string label = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLabel() {
+        
+        label_ = getDefaultInstance().getLabel();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string label = 1;</code>
+       * @param value The bytes for label to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLabelBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        label_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue> labelLogprobos_;
+      private com.google.protobuf.MapField<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue>
+      internalGetLabelLogprobos() {
+        if (labelLogprobos_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              LabelLogprobosDefaultEntryHolder.defaultEntry);
+        }
+        return labelLogprobos_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue>
+      internalGetMutableLabelLogprobos() {
+        onChanged();;
+        if (labelLogprobos_ == null) {
+          labelLogprobos_ = com.google.protobuf.MapField.newMapField(
+              LabelLogprobosDefaultEntryHolder.defaultEntry);
+        }
+        if (!labelLogprobos_.isMutable()) {
+          labelLogprobos_ = labelLogprobos_.copy();
+        }
+        return labelLogprobos_;
+      }
+
+      public int getLabelLogprobosCount() {
+        return internalGetLabelLogprobos().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, .proxy.LabelLogprobosValue&gt; label_logprobos = 2;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsLabelLogprobos(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        return internalGetLabelLogprobos().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getLabelLogprobosMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue> getLabelLogprobos() {
+        return getLabelLogprobosMap();
+      }
+      /**
+       * <code>map&lt;string, .proxy.LabelLogprobosValue&gt; label_logprobos = 2;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue> getLabelLogprobosMap() {
+        return internalGetLabelLogprobos().getMap();
+      }
+      /**
+       * <code>map&lt;string, .proxy.LabelLogprobosValue&gt; label_logprobos = 2;</code>
+       */
+      @java.lang.Override
+
+      public com.volcengine.model.maas.api.Api.LabelLogprobosValue getLabelLogprobosOrDefault(
+          java.lang.String key,
+          com.volcengine.model.maas.api.Api.LabelLogprobosValue defaultValue) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue> map =
+            internalGetLabelLogprobos().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, .proxy.LabelLogprobosValue&gt; label_logprobos = 2;</code>
+       */
+      @java.lang.Override
+
+      public com.volcengine.model.maas.api.Api.LabelLogprobosValue getLabelLogprobosOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue> map =
+            internalGetLabelLogprobos().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearLabelLogprobos() {
+        internalGetMutableLabelLogprobos().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, .proxy.LabelLogprobosValue&gt; label_logprobos = 2;</code>
+       */
+
+      public Builder removeLabelLogprobos(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        internalGetMutableLabelLogprobos().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue>
+      getMutableLabelLogprobos() {
+        return internalGetMutableLabelLogprobos().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, .proxy.LabelLogprobosValue&gt; label_logprobos = 2;</code>
+       */
+      public Builder putLabelLogprobos(
+          java.lang.String key,
+          com.volcengine.model.maas.api.Api.LabelLogprobosValue value) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+        internalGetMutableLabelLogprobos().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, .proxy.LabelLogprobosValue&gt; label_logprobos = 2;</code>
+       */
+
+      public Builder putAllLabelLogprobos(
+          java.util.Map<java.lang.String, com.volcengine.model.maas.api.Api.LabelLogprobosValue> values) {
+        internalGetMutableLabelLogprobos().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+
+      private com.volcengine.model.maas.api.Api.Usage usage_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Usage, com.volcengine.model.maas.api.Api.Usage.Builder, com.volcengine.model.maas.api.Api.UsageOrBuilder> usageBuilder_;
+      /**
+       * <pre>
+       * The tokens usage
+       * </pre>
+       *
+       * <code>.proxy.Usage usage = 3;</code>
+       * @return Whether the usage field is set.
+       */
+      public boolean hasUsage() {
+        return usageBuilder_ != null || usage_ != null;
+      }
+      /**
+       * <pre>
+       * The tokens usage
+       * </pre>
+       *
+       * <code>.proxy.Usage usage = 3;</code>
+       * @return The usage.
+       */
+      public com.volcengine.model.maas.api.Api.Usage getUsage() {
+        if (usageBuilder_ == null) {
+          return usage_ == null ? com.volcengine.model.maas.api.Api.Usage.getDefaultInstance() : usage_;
+        } else {
+          return usageBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * The tokens usage
+       * </pre>
+       *
+       * <code>.proxy.Usage usage = 3;</code>
+       */
+      public Builder setUsage(com.volcengine.model.maas.api.Api.Usage value) {
+        if (usageBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          usage_ = value;
+          onChanged();
+        } else {
+          usageBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The tokens usage
+       * </pre>
+       *
+       * <code>.proxy.Usage usage = 3;</code>
+       */
+      public Builder setUsage(
+          com.volcengine.model.maas.api.Api.Usage.Builder builderForValue) {
+        if (usageBuilder_ == null) {
+          usage_ = builderForValue.build();
+          onChanged();
+        } else {
+          usageBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The tokens usage
+       * </pre>
+       *
+       * <code>.proxy.Usage usage = 3;</code>
+       */
+      public Builder mergeUsage(com.volcengine.model.maas.api.Api.Usage value) {
+        if (usageBuilder_ == null) {
+          if (usage_ != null) {
+            usage_ =
+              com.volcengine.model.maas.api.Api.Usage.newBuilder(usage_).mergeFrom(value).buildPartial();
+          } else {
+            usage_ = value;
+          }
+          onChanged();
+        } else {
+          usageBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The tokens usage
+       * </pre>
+       *
+       * <code>.proxy.Usage usage = 3;</code>
+       */
+      public Builder clearUsage() {
+        if (usageBuilder_ == null) {
+          usage_ = null;
+          onChanged();
+        } else {
+          usage_ = null;
+          usageBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The tokens usage
+       * </pre>
+       *
+       * <code>.proxy.Usage usage = 3;</code>
+       */
+      public com.volcengine.model.maas.api.Api.Usage.Builder getUsageBuilder() {
+        
+        onChanged();
+        return getUsageFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * The tokens usage
+       * </pre>
+       *
+       * <code>.proxy.Usage usage = 3;</code>
+       */
+      public com.volcengine.model.maas.api.Api.UsageOrBuilder getUsageOrBuilder() {
+        if (usageBuilder_ != null) {
+          return usageBuilder_.getMessageOrBuilder();
+        } else {
+          return usage_ == null ?
+              com.volcengine.model.maas.api.Api.Usage.getDefaultInstance() : usage_;
+        }
+      }
+      /**
+       * <pre>
+       * The tokens usage
+       * </pre>
+       *
+       * <code>.proxy.Usage usage = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Usage, com.volcengine.model.maas.api.Api.Usage.Builder, com.volcengine.model.maas.api.Api.UsageOrBuilder> 
+          getUsageFieldBuilder() {
+        if (usageBuilder_ == null) {
+          usageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.volcengine.model.maas.api.Api.Usage, com.volcengine.model.maas.api.Api.Usage.Builder, com.volcengine.model.maas.api.Api.UsageOrBuilder>(
+                  getUsage(),
+                  getParentForChildren(),
+                  isClean());
+          usage_ = null;
+        }
+        return usageBuilder_;
+      }
+
+      private java.lang.Object reqId_ = "";
+      /**
+       * <pre>
+       * Unified request id
+       * </pre>
+       *
+       * <code>string req_id = 4;</code>
+       * @return The reqId.
+       */
+      public java.lang.String getReqId() {
+        java.lang.Object ref = reqId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          reqId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Unified request id
+       * </pre>
+       *
+       * <code>string req_id = 4;</code>
+       * @return The bytes for reqId.
+       */
+      public com.google.protobuf.ByteString
+          getReqIdBytes() {
+        java.lang.Object ref = reqId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          reqId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Unified request id
+       * </pre>
+       *
+       * <code>string req_id = 4;</code>
+       * @param value The reqId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReqId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        reqId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Unified request id
+       * </pre>
+       *
+       * <code>string req_id = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReqId() {
+        
+        reqId_ = getDefaultInstance().getReqId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Unified request id
+       * </pre>
+       *
+       * <code>string req_id = 4;</code>
+       * @param value The bytes for reqId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReqIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        reqId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.volcengine.model.maas.api.Api.Error error_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Error, com.volcengine.model.maas.api.Api.Error.Builder, com.volcengine.model.maas.api.Api.ErrorOrBuilder> errorBuilder_;
+      /**
+       * <pre>
+       * Error if exists for the req
+       * </pre>
+       *
+       * <code>.proxy.Error error = 5;</code>
+       * @return Whether the error field is set.
+       */
+      public boolean hasError() {
+        return errorBuilder_ != null || error_ != null;
+      }
+      /**
+       * <pre>
+       * Error if exists for the req
+       * </pre>
+       *
+       * <code>.proxy.Error error = 5;</code>
+       * @return The error.
+       */
+      public com.volcengine.model.maas.api.Api.Error getError() {
+        if (errorBuilder_ == null) {
+          return error_ == null ? com.volcengine.model.maas.api.Api.Error.getDefaultInstance() : error_;
+        } else {
+          return errorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Error if exists for the req
+       * </pre>
+       *
+       * <code>.proxy.Error error = 5;</code>
+       */
+      public Builder setError(com.volcengine.model.maas.api.Api.Error value) {
+        if (errorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          error_ = value;
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Error if exists for the req
+       * </pre>
+       *
+       * <code>.proxy.Error error = 5;</code>
+       */
+      public Builder setError(
+          com.volcengine.model.maas.api.Api.Error.Builder builderForValue) {
+        if (errorBuilder_ == null) {
+          error_ = builderForValue.build();
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Error if exists for the req
+       * </pre>
+       *
+       * <code>.proxy.Error error = 5;</code>
+       */
+      public Builder mergeError(com.volcengine.model.maas.api.Api.Error value) {
+        if (errorBuilder_ == null) {
+          if (error_ != null) {
+            error_ =
+              com.volcengine.model.maas.api.Api.Error.newBuilder(error_).mergeFrom(value).buildPartial();
+          } else {
+            error_ = value;
+          }
+          onChanged();
+        } else {
+          errorBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Error if exists for the req
+       * </pre>
+       *
+       * <code>.proxy.Error error = 5;</code>
+       */
+      public Builder clearError() {
+        if (errorBuilder_ == null) {
+          error_ = null;
+          onChanged();
+        } else {
+          error_ = null;
+          errorBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Error if exists for the req
+       * </pre>
+       *
+       * <code>.proxy.Error error = 5;</code>
+       */
+      public com.volcengine.model.maas.api.Api.Error.Builder getErrorBuilder() {
+        
+        onChanged();
+        return getErrorFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Error if exists for the req
+       * </pre>
+       *
+       * <code>.proxy.Error error = 5;</code>
+       */
+      public com.volcengine.model.maas.api.Api.ErrorOrBuilder getErrorOrBuilder() {
+        if (errorBuilder_ != null) {
+          return errorBuilder_.getMessageOrBuilder();
+        } else {
+          return error_ == null ?
+              com.volcengine.model.maas.api.Api.Error.getDefaultInstance() : error_;
+        }
+      }
+      /**
+       * <pre>
+       * Error if exists for the req
+       * </pre>
+       *
+       * <code>.proxy.Error error = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Error, com.volcengine.model.maas.api.Api.Error.Builder, com.volcengine.model.maas.api.Api.ErrorOrBuilder> 
+          getErrorFieldBuilder() {
+        if (errorBuilder_ == null) {
+          errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.volcengine.model.maas.api.Api.Error, com.volcengine.model.maas.api.Api.Error.Builder, com.volcengine.model.maas.api.Api.ErrorOrBuilder>(
+                  getError(),
+                  getParentForChildren(),
+                  isClean());
+          error_ = null;
+        }
+        return errorBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proxy.ClassificationResp)
+    }
+
+    // @@protoc_insertion_point(class_scope:proxy.ClassificationResp)
+    private static final com.volcengine.model.maas.api.Api.ClassificationResp DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.volcengine.model.maas.api.Api.ClassificationResp();
+    }
+
+    public static com.volcengine.model.maas.api.Api.ClassificationResp getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ClassificationResp>
+        PARSER = new com.google.protobuf.AbstractParser<ClassificationResp>() {
+      @java.lang.Override
+      public ClassificationResp parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<ClassificationResp> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ClassificationResp> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.ClassificationResp getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -14449,9 +22125,11 @@ public final class Api {
      * <code>map&lt;string, string&gt; extra = 100;</code>
      */
 
-    java.lang.String getExtraOrDefault(
+    /* nullable */
+java.lang.String getExtraOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue);
+        /* nullable */
+java.lang.String defaultValue);
     /**
      * <pre>
      * extra info
@@ -14490,102 +22168,6 @@ public final class Api {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ChatResp(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              reqId_ = s;
-              break;
-            }
-            case 18: {
-              com.volcengine.model.maas.api.Api.Error.Builder subBuilder = null;
-              if (error_ != null) {
-                subBuilder = error_.toBuilder();
-              }
-              error_ = input.readMessage(com.volcengine.model.maas.api.Api.Error.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(error_);
-                error_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              com.volcengine.model.maas.api.Api.Choice.Builder subBuilder = null;
-              if (choice_ != null) {
-                subBuilder = choice_.toBuilder();
-              }
-              choice_ = input.readMessage(com.volcengine.model.maas.api.Api.Choice.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(choice_);
-                choice_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              com.volcengine.model.maas.api.Api.Usage.Builder subBuilder = null;
-              if (usage_ != null) {
-                subBuilder = usage_.toBuilder();
-              }
-              usage_ = input.readMessage(com.volcengine.model.maas.api.Api.Usage.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(usage_);
-                usage_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 802: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                extra_ = com.google.protobuf.MapField.newMapField(
-                    ExtraDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              extra__ = input.readMessage(
-                  ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              extra_.getMutableMap().put(
-                  extra__.getKey(), extra__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -14809,7 +22391,7 @@ public final class Api {
     @java.lang.Override
     public boolean containsExtra(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetExtra().getMap().containsKey(key);
     }
     /**
@@ -14844,7 +22426,7 @@ public final class Api {
     public java.lang.String getExtraOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -14860,7 +22442,7 @@ public final class Api {
 
     public java.lang.String getExtraOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       if (!map.containsKey(key)) {
@@ -14883,7 +22465,7 @@ public final class Api {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getReqIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, reqId_);
       }
       if (error_ != null) {
@@ -14901,7 +22483,7 @@ public final class Api {
           internalGetExtra(),
           ExtraDefaultEntryHolder.defaultEntry,
           100);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -14910,7 +22492,7 @@ public final class Api {
       if (size != -1) return size;
 
       size = 0;
-      if (!getReqIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, reqId_);
       }
       if (error_ != null) {
@@ -14935,7 +22517,7 @@ public final class Api {
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(100, extra__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -14969,7 +22551,7 @@ public final class Api {
       }
       if (!internalGetExtra().equals(
           other.internalGetExtra())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -14998,7 +22580,7 @@ public final class Api {
         hash = (37 * hash) + EXTRA_FIELD_NUMBER;
         hash = (53 * hash) + internalGetExtra().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -15137,18 +22719,13 @@ public final class Api {
 
       // Construct using com.volcengine.model.maas.api.Api.ChatResp.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -15282,7 +22859,7 @@ public final class Api {
         }
         internalGetMutableExtra().mergeFrom(
             other.internalGetExtra());
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -15297,17 +22874,64 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.volcengine.model.maas.api.Api.ChatResp parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                reqId_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getErrorFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getChoiceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getUsageFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 34
+              case 802: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                extra__ = input.readMessage(
+                    ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableExtra().getMutableMap().put(
+                    extra__.getKey(), extra__.getValue());
+                break;
+              } // case 802
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.volcengine.model.maas.api.Api.ChatResp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -15910,7 +23534,7 @@ public final class Api {
       @java.lang.Override
       public boolean containsExtra(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetExtra().getMap().containsKey(key);
       }
       /**
@@ -15945,7 +23569,7 @@ public final class Api {
       public java.lang.String getExtraOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -15961,7 +23585,7 @@ public final class Api {
 
       public java.lang.String getExtraOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         if (!map.containsKey(key)) {
@@ -15985,7 +23609,7 @@ public final class Api {
 
       public Builder removeExtra(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableExtra().getMutableMap()
             .remove(key);
         return this;
@@ -16008,8 +23632,11 @@ public final class Api {
       public Builder putExtra(
           java.lang.String key,
           java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableExtra().getMutableMap()
             .put(key, value);
         return this;
@@ -16061,7 +23688,18 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ChatResp(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -16127,56 +23765,6 @@ public final class Api {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CertReq(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.volcengine.model.maas.api.Api.Model.Builder subBuilder = null;
-              if (model_ != null) {
-                subBuilder = model_.toBuilder();
-              }
-              model_ = input.readMessage(com.volcengine.model.maas.api.Api.Model.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(model_);
-                model_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.volcengine.model.maas.api.Api.internal_static_proxy_CertReq_descriptor;
@@ -16233,7 +23821,7 @@ public final class Api {
       if (model_ != null) {
         output.writeMessage(1, getModel());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -16246,7 +23834,7 @@ public final class Api {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getModel());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -16266,7 +23854,7 @@ public final class Api {
         if (!getModel()
             .equals(other.getModel())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -16281,7 +23869,7 @@ public final class Api {
         hash = (37 * hash) + MODEL_FIELD_NUMBER;
         hash = (53 * hash) + getModel().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -16398,18 +23986,13 @@ public final class Api {
 
       // Construct using com.volcengine.model.maas.api.Api.CertReq.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -16502,7 +24085,7 @@ public final class Api {
         if (other.hasModel()) {
           mergeModel(other.getModel());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -16517,17 +24100,37 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.volcengine.model.maas.api.Api.CertReq parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getModelFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.volcengine.model.maas.api.Api.CertReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
 
@@ -16682,7 +24285,18 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CertReq(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -16760,62 +24374,6 @@ public final class Api {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private CertResp(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.volcengine.model.maas.api.Api.Model.Builder subBuilder = null;
-              if (model_ != null) {
-                subBuilder = model_.toBuilder();
-              }
-              model_ = input.readMessage(com.volcengine.model.maas.api.Api.Model.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(model_);
-                model_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              cert_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -16911,10 +24469,10 @@ public final class Api {
       if (model_ != null) {
         output.writeMessage(1, getModel());
       }
-      if (!getCertBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cert_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, cert_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -16927,10 +24485,10 @@ public final class Api {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getModel());
       }
-      if (!getCertBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cert_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, cert_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -16952,7 +24510,7 @@ public final class Api {
       }
       if (!getCert()
           .equals(other.getCert())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -16969,7 +24527,7 @@ public final class Api {
       }
       hash = (37 * hash) + CERT_FIELD_NUMBER;
       hash = (53 * hash) + getCert().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -17086,18 +24644,13 @@ public final class Api {
 
       // Construct using com.volcengine.model.maas.api.Api.CertResp.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -17197,7 +24750,7 @@ public final class Api {
           cert_ = other.cert_;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -17212,17 +24765,42 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.volcengine.model.maas.api.Api.CertResp parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getModelFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 10
+              case 18: {
+                cert_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.volcengine.model.maas.api.Api.CertResp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
 
@@ -17453,7 +25031,18 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CertResp(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -17478,6 +25067,21 @@ public final class Api {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_proxy_FunctionCall_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proxy_TopLogprobsItem_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proxy_TopLogprobsItem_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proxy_TopLogprobsItem_ItemEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proxy_TopLogprobsItem_ItemEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proxy_Logprobs_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proxy_Logprobs_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_proxy_Message_descriptor;
   private static final 
@@ -17534,6 +25138,36 @@ public final class Api {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_proxy_ChatReq_ExtraEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proxy_TokenizeReq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proxy_TokenizeReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proxy_TokenizeResp_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proxy_TokenizeResp_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proxy_LabelLogprobosValue_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proxy_LabelLogprobosValue_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proxy_ClassificationReq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proxy_ClassificationReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proxy_ClassificationResp_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proxy_ClassificationResp_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proxy_ClassificationResp_LabelLogprobosEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proxy_ClassificationResp_LabelLogprobosEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_proxy_ChatResp_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -17564,59 +25198,87 @@ public final class Api {
     java.lang.String[] descriptorData = {
       "\n\013proxy.proto\022\005proxy\032\nbase.proto\032\034google" +
       "/protobuf/struct.proto\"/\n\014FunctionCall\022\014" +
-      "\n\004name\030\001 \001(\t\022\021\n\targuments\030\002 \001(\t\"\210\001\n\007Mess" +
-      "age\022\014\n\004role\030\001 \001(\t\022\017\n\007content\030\002 \001(\t\022\014\n\004na" +
-      "me\030\004 \001(\t\022*\n\rfunction_call\030\005 \001(\0132\023.proxy." +
-      "FunctionCall\022$\n\nreferences\030\003 \003(\0132\020.proxy" +
-      ".Reference\"Z\n\tReference\022\013\n\003url\030\001 \001(\t\022\013\n\003" +
-      "idx\030\002 \001(\005\022\020\n\010logo_url\030\003 \001(\t\022\016\n\006pc_url\030\004 " +
-      "\001(\t\022\021\n\tsite_name\030\005 \001(\t\";\n\005Model\022\014\n\004name\030" +
-      "\001 \001(\t\022\023\n\013endpoint_id\030\002 \001(\t\022\017\n\007version\030\003 " +
-      "\001(\t\"6\n\005Error\022\014\n\004code\030\001 \001(\t\022\016\n\006code_n\030\002 \001" +
-      "(\005\022\017\n\007message\030\003 \001(\t\"8\n\tErrorResp\022\033\n\005erro" +
-      "r\030\001 \001(\0132\014.proxy.Error\022\016\n\006req_id\030\002 \001(\t\"a\n" +
-      "\006Choice\022\r\n\005index\030\001 \001(\005\022\037\n\007message\030\002 \001(\0132" +
-      "\016.proxy.Message\022\025\n\rfinish_reason\030\003 \001(\t\022\020" +
-      "\n\010logprobs\030\004 \001(\002\"\370\003\n\nParameters\022\030\n\013tempe" +
-      "rature\030\001 \001(\002H\000\210\001\001\022\027\n\nmax_tokens\030\002 \001(\003H\001\210" +
-      "\001\001\022\022\n\005top_p\030\003 \001(\002H\002\210\001\001\022\035\n\020presence_penal" +
-      "ty\030\004 \001(\002H\003\210\001\001\022\036\n\021frequency_penalty\030\005 \001(\002" +
-      "H\004\210\001\001\022\033\n\016max_new_tokens\030\006 \001(\003H\005\210\001\001\022\037\n\022re" +
-      "petition_penalty\030\007 \001(\002H\006\210\001\001\022\026\n\tdo_sample" +
-      "\030\010 \001(\010H\007\210\001\001\022\022\n\005top_k\030\t \001(\003H\010\210\001\001\022\033\n\016min_n" +
-      "ew_tokens\030\n \001(\003H\t\210\001\001\022\036\n\021max_prompt_token" +
-      "s\030\013 \001(\003H\n\210\001\001B\016\n\014_temperatureB\r\n\013_max_tok" +
-      "ensB\010\n\006_top_pB\023\n\021_presence_penaltyB\024\n\022_f" +
-      "requency_penaltyB\021\n\017_max_new_tokensB\025\n\023_" +
-      "repetition_penaltyB\014\n\n_do_sampleB\010\n\006_top" +
-      "_kB\021\n\017_min_new_tokensB\024\n\022_max_prompt_tok" +
-      "ens\"O\n\005Usage\022\025\n\rprompt_tokens\030\001 \001(\003\022\031\n\021c" +
-      "ompletion_tokens\030\002 \001(\003\022\024\n\014total_tokens\030\003" +
-      " \001(\003\"l\n\010Function\022\014\n\004name\030\001 \001(\t\022\023\n\013descri" +
-      "ption\030\002 \001(\t\022+\n\nparameters\030\003 \001(\0132\027.google" +
-      ".protobuf.Struct\022\020\n\010examples\030\004 \003(\t\"\314\002\n\007C" +
-      "hatReq\022\033\n\005model\030\001 \001(\0132\014.proxy.Model\022 \n\010m" +
-      "essages\030\002 \003(\0132\016.proxy.Message\022%\n\nparamet" +
-      "ers\030\003 \001(\0132\021.proxy.Parameters\022\016\n\006stream\030\004" +
-      " \001(\010\022\016\n\006req_id\030\005 \001(\t\022.\n\014crypto_token\030\006 \001" +
-      "(\tB\030\272\273\030\024Ml-Maas-Crypto-Token\022\"\n\tfunction" +
-      "s\030\007 \003(\0132\017.proxy.Function\022\017\n\007plugins\030\010 \003(" +
-      "\t\022(\n\005extra\030d \003(\0132\031.proxy.ChatReq.ExtraEn" +
-      "try\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\t:\0028\001\"\314\001\n\010ChatResp\022\016\n\006req_id\030\001 \001(\t\022\033" +
+      "\n\004name\030\001 \001(\t\022\021\n\targuments\030\002 \001(\t\"n\n\017TopLo" +
+      "gprobsItem\022.\n\004item\030\001 \003(\0132 .proxy.TopLogp" +
+      "robsItem.ItemEntry\032+\n\tItemEntry\022\013\n\003key\030\001" +
+      " \001(\t\022\r\n\005value\030\002 \001(\002:\0028\001\"y\n\010Logprobs\022\023\n\013t" +
+      "ext_offset\030\001 \003(\003\022\026\n\016token_logprobs\030\002 \003(\001" +
+      "\022\016\n\006tokens\030\003 \003(\t\0220\n\014top_logprobs\030\004 \001(\0132\032" +
+      ".google.protobuf.ListValue\"\210\001\n\007Message\022\014" +
+      "\n\004role\030\001 \001(\t\022\017\n\007content\030\002 \001(\t\022\014\n\004name\030\004 " +
+      "\001(\t\022*\n\rfunction_call\030\005 \001(\0132\023.proxy.Funct" +
+      "ionCall\022$\n\nreferences\030\003 \003(\0132\020.proxy.Refe" +
+      "rence\"Z\n\tReference\022\013\n\003url\030\001 \001(\t\022\013\n\003idx\030\002" +
+      " \001(\005\022\020\n\010logo_url\030\003 \001(\t\022\016\n\006pc_url\030\004 \001(\t\022\021" +
+      "\n\tsite_name\030\005 \001(\t\";\n\005Model\022\014\n\004name\030\001 \001(\t" +
+      "\022\023\n\013endpoint_id\030\002 \001(\t\022\017\n\007version\030\003 \001(\t\"6" +
+      "\n\005Error\022\014\n\004code\030\001 \001(\t\022\016\n\006code_n\030\002 \001(\005\022\017\n" +
+      "\007message\030\003 \001(\t\"8\n\tErrorResp\022\033\n\005error\030\001 \001" +
+      "(\0132\014.proxy.Error\022\016\n\006req_id\030\002 \001(\t\"r\n\006Choi" +
+      "ce\022\r\n\005index\030\001 \001(\005\022\037\n\007message\030\002 \001(\0132\016.pro" +
+      "xy.Message\022\025\n\rfinish_reason\030\003 \001(\t\022!\n\010log" +
+      "probs\030\004 \001(\0132\017.proxy.Logprobs\"\234\004\n\nParamet" +
+      "ers\022\030\n\013temperature\030\001 \001(\002H\000\210\001\001\022\027\n\nmax_tok" +
+      "ens\030\002 \001(\003H\001\210\001\001\022\022\n\005top_p\030\003 \001(\002H\002\210\001\001\022\035\n\020pr" +
+      "esence_penalty\030\004 \001(\002H\003\210\001\001\022\036\n\021frequency_p" +
+      "enalty\030\005 \001(\002H\004\210\001\001\022\033\n\016max_new_tokens\030\006 \001(" +
+      "\003H\005\210\001\001\022\037\n\022repetition_penalty\030\007 \001(\002H\006\210\001\001\022" +
+      "\026\n\tdo_sample\030\010 \001(\010H\007\210\001\001\022\022\n\005top_k\030\t \001(\003H\010" +
+      "\210\001\001\022\033\n\016min_new_tokens\030\n \001(\003H\t\210\001\001\022\036\n\021max_" +
+      "prompt_tokens\030\013 \001(\003H\n\210\001\001\022\025\n\010logprobs\030\014 \001" +
+      "(\003H\013\210\001\001B\016\n\014_temperatureB\r\n\013_max_tokensB\010" +
+      "\n\006_top_pB\023\n\021_presence_penaltyB\024\n\022_freque" +
+      "ncy_penaltyB\021\n\017_max_new_tokensB\025\n\023_repet" +
+      "ition_penaltyB\014\n\n_do_sampleB\010\n\006_top_kB\021\n" +
+      "\017_min_new_tokensB\024\n\022_max_prompt_tokensB\013" +
+      "\n\t_logprobs\"O\n\005Usage\022\025\n\rprompt_tokens\030\001 " +
+      "\001(\003\022\031\n\021completion_tokens\030\002 \001(\003\022\024\n\014total_" +
+      "tokens\030\003 \001(\003\"l\n\010Function\022\014\n\004name\030\001 \001(\t\022\023" +
+      "\n\013description\030\002 \001(\t\022+\n\nparameters\030\003 \001(\0132" +
+      "\027.google.protobuf.Struct\022\020\n\010examples\030\004 \003" +
+      "(\t\"\334\002\n\007ChatReq\022\033\n\005model\030\001 \001(\0132\014.proxy.Mo" +
+      "del\022 \n\010messages\030\002 \003(\0132\016.proxy.Message\022%\n" +
+      "\nparameters\030\003 \001(\0132\021.proxy.Parameters\022\016\n\006" +
+      "stream\030\004 \001(\010\022\016\n\006req_id\030\005 \001(\t\022.\n\014crypto_t" +
+      "oken\030\006 \001(\tB\030\272\273\030\024Ml-Maas-Crypto-Token\022\"\n\t" +
+      "functions\030\007 \003(\0132\017.proxy.Function\022\017\n\007plug" +
+      "ins\030\010 \003(\t\022\016\n\006method\030\t \001(\t\022(\n\005extra\030d \003(\013" +
+      "2\031.proxy.ChatReq.ExtraEntry\032,\n\nExtraEntr" +
+      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"H\n\013Tok" +
+      "enizeReq\022\033\n\005model\030\001 \001(\0132\014.proxy.Model\022\016\n" +
+      "\006req_id\030\002 \001(\t\022\014\n\004text\030\003 \001(\t\"a\n\014TokenizeR" +
+      "esp\022\024\n\014total_tokens\030\001 \001(\003\022\016\n\006tokens\030\002 \003(" +
+      "\t\022\016\n\006req_id\030\003 \001(\t\022\033\n\005error\030\004 \001(\0132\014.proxy" +
+      ".Error\"M\n\023LabelLogprobosValue\022\016\n\006tokens\030" +
+      "\001 \003(\t\022\026\n\016token_logprobs\030\002 \003(\001\022\016\n\006req_id\030" +
+      "\003 \001(\t\"_\n\021ClassificationReq\022\033\n\005model\030\001 \001(" +
+      "\0132\014.proxy.Model\022\016\n\006req_id\030\002 \001(\t\022\r\n\005query" +
+      "\030\003 \001(\t\022\016\n\006labels\030\004 \003(\t\"\210\002\n\022Classificatio" +
+      "nResp\022\r\n\005label\030\001 \001(\t\022F\n\017label_logprobos\030" +
+      "\002 \003(\0132-.proxy.ClassificationResp.LabelLo" +
+      "gprobosEntry\022\033\n\005usage\030\003 \001(\0132\014.proxy.Usag" +
+      "e\022\016\n\006req_id\030\004 \001(\t\022\033\n\005error\030\005 \001(\0132\014.proxy" +
+      ".Error\032Q\n\023LabelLogprobosEntry\022\013\n\003key\030\001 \001" +
+      "(\t\022)\n\005value\030\002 \001(\0132\032.proxy.LabelLogprobos" +
+      "Value:\0028\001\"\314\001\n\010ChatResp\022\016\n\006req_id\030\001 \001(\t\022\033" +
       "\n\005error\030\002 \001(\0132\014.proxy.Error\022\035\n\006choice\030\003 " +
       "\001(\0132\r.proxy.Choice\022\033\n\005usage\030\004 \001(\0132\014.prox" +
       "y.Usage\022)\n\005extra\030d \003(\0132\032.proxy.ChatResp." +
       "ExtraEntry\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
       "\005value\030\002 \001(\t:\0028\001\"&\n\007CertReq\022\033\n\005model\030\001 \001" +
       "(\0132\014.proxy.Model\"5\n\010CertResp\022\033\n\005model\030\001 " +
-      "\001(\0132\014.proxy.Model\022\014\n\004cert\030\002 \001(\t2\200\001\n\nAPIS" +
+      "\001(\0132\014.proxy.Model\022\014\n\004cert\030\002 \001(\t2\264\002\n\nAPIS" +
       "ervice\0228\n\004Chat\022\016.proxy.ChatReq\032\017.proxy.C" +
       "hatResp\"\017\322\301\030\013api/v1/chat\0228\n\004Cert\022\016.proxy" +
       ".CertReq\032\017.proxy.CertResp\"\017\322\301\030\013api/v1/ce" +
-      "rtBY\n\035com.volcengine.model.maas.apiB\003Api" +
-      "Z3code.byted.org/data/llmflow/app/proxy/" +
-      "biz/model/apib\006proto3"
+      "rt\022P\n\014Tokenization\022\022.proxy.TokenizeReq\032\023" +
+      ".proxy.TokenizeResp\"\027\322\301\030\023api/v1/tokeniza" +
+      "tion\022`\n\016Classification\022\030.proxy.Classific" +
+      "ationReq\032\031.proxy.ClassificationResp\"\031\322\301\030" +
+      "\025api/v1/classificationBY\n\035com.volcengine" +
+      ".model.maas.apiB\003ApiZ3code.byted.org/dat" +
+      "a/llmflow/app/proxy/biz/model/apib\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -17630,74 +25292,128 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proxy_FunctionCall_descriptor,
         new java.lang.String[] { "Name", "Arguments", });
-    internal_static_proxy_Message_descriptor =
+    internal_static_proxy_TopLogprobsItem_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_proxy_TopLogprobsItem_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proxy_TopLogprobsItem_descriptor,
+        new java.lang.String[] { "Item", });
+    internal_static_proxy_TopLogprobsItem_ItemEntry_descriptor =
+      internal_static_proxy_TopLogprobsItem_descriptor.getNestedTypes().get(0);
+    internal_static_proxy_TopLogprobsItem_ItemEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proxy_TopLogprobsItem_ItemEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_proxy_Logprobs_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_proxy_Logprobs_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proxy_Logprobs_descriptor,
+        new java.lang.String[] { "TextOffset", "TokenLogprobs", "Tokens", "TopLogprobs", });
+    internal_static_proxy_Message_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_proxy_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proxy_Message_descriptor,
         new java.lang.String[] { "Role", "Content", "Name", "FunctionCall", "References", });
     internal_static_proxy_Reference_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_proxy_Reference_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proxy_Reference_descriptor,
         new java.lang.String[] { "Url", "Idx", "LogoUrl", "PcUrl", "SiteName", });
     internal_static_proxy_Model_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_proxy_Model_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proxy_Model_descriptor,
         new java.lang.String[] { "Name", "EndpointId", "Version", });
     internal_static_proxy_Error_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_proxy_Error_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proxy_Error_descriptor,
         new java.lang.String[] { "Code", "CodeN", "Message", });
     internal_static_proxy_ErrorResp_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_proxy_ErrorResp_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proxy_ErrorResp_descriptor,
         new java.lang.String[] { "Error", "ReqId", });
     internal_static_proxy_Choice_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_proxy_Choice_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proxy_Choice_descriptor,
         new java.lang.String[] { "Index", "Message", "FinishReason", "Logprobs", });
     internal_static_proxy_Parameters_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_proxy_Parameters_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proxy_Parameters_descriptor,
-        new java.lang.String[] { "Temperature", "MaxTokens", "TopP", "PresencePenalty", "FrequencyPenalty", "MaxNewTokens", "RepetitionPenalty", "DoSample", "TopK", "MinNewTokens", "MaxPromptTokens", "Temperature", "MaxTokens", "TopP", "PresencePenalty", "FrequencyPenalty", "MaxNewTokens", "RepetitionPenalty", "DoSample", "TopK", "MinNewTokens", "MaxPromptTokens", });
+        new java.lang.String[] { "Temperature", "MaxTokens", "TopP", "PresencePenalty", "FrequencyPenalty", "MaxNewTokens", "RepetitionPenalty", "DoSample", "TopK", "MinNewTokens", "MaxPromptTokens", "Logprobs", "Temperature", "MaxTokens", "TopP", "PresencePenalty", "FrequencyPenalty", "MaxNewTokens", "RepetitionPenalty", "DoSample", "TopK", "MinNewTokens", "MaxPromptTokens", "Logprobs", });
     internal_static_proxy_Usage_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_proxy_Usage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proxy_Usage_descriptor,
         new java.lang.String[] { "PromptTokens", "CompletionTokens", "TotalTokens", });
     internal_static_proxy_Function_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_proxy_Function_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proxy_Function_descriptor,
         new java.lang.String[] { "Name", "Description", "Parameters", "Examples", });
     internal_static_proxy_ChatReq_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_proxy_ChatReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proxy_ChatReq_descriptor,
-        new java.lang.String[] { "Model", "Messages", "Parameters", "Stream", "ReqId", "CryptoToken", "Functions", "Plugins", "Extra", });
+        new java.lang.String[] { "Model", "Messages", "Parameters", "Stream", "ReqId", "CryptoToken", "Functions", "Plugins", "Method", "Extra", });
     internal_static_proxy_ChatReq_ExtraEntry_descriptor =
       internal_static_proxy_ChatReq_descriptor.getNestedTypes().get(0);
     internal_static_proxy_ChatReq_ExtraEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proxy_ChatReq_ExtraEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
+    internal_static_proxy_TokenizeReq_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_proxy_TokenizeReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proxy_TokenizeReq_descriptor,
+        new java.lang.String[] { "Model", "ReqId", "Text", });
+    internal_static_proxy_TokenizeResp_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_proxy_TokenizeResp_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proxy_TokenizeResp_descriptor,
+        new java.lang.String[] { "TotalTokens", "Tokens", "ReqId", "Error", });
+    internal_static_proxy_LabelLogprobosValue_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_proxy_LabelLogprobosValue_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proxy_LabelLogprobosValue_descriptor,
+        new java.lang.String[] { "Tokens", "TokenLogprobs", "ReqId", });
+    internal_static_proxy_ClassificationReq_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_proxy_ClassificationReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proxy_ClassificationReq_descriptor,
+        new java.lang.String[] { "Model", "ReqId", "Query", "Labels", });
+    internal_static_proxy_ClassificationResp_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_proxy_ClassificationResp_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proxy_ClassificationResp_descriptor,
+        new java.lang.String[] { "Label", "LabelLogprobos", "Usage", "ReqId", "Error", });
+    internal_static_proxy_ClassificationResp_LabelLogprobosEntry_descriptor =
+      internal_static_proxy_ClassificationResp_descriptor.getNestedTypes().get(0);
+    internal_static_proxy_ClassificationResp_LabelLogprobosEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proxy_ClassificationResp_LabelLogprobosEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_proxy_ChatResp_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_proxy_ChatResp_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proxy_ChatResp_descriptor,
@@ -17709,13 +25425,13 @@ public final class Api {
         internal_static_proxy_ChatResp_ExtraEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_proxy_CertReq_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_proxy_CertReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proxy_CertReq_descriptor,
         new java.lang.String[] { "Model", });
     internal_static_proxy_CertResp_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_proxy_CertResp_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proxy_CertResp_descriptor,

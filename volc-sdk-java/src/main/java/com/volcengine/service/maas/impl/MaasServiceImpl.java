@@ -42,9 +42,9 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
             try {
                 resp = convertJsonBytesToChatResp(response.getException().getMessage().getBytes());
             } catch (MaasException ignored) {
-                throw new MaasException(response.getException());
+                throw new MaasException(response.getException(), req.getReqId());
             }
-            throw new MaasException(resp.getError());
+            throw new MaasException(resp.getError(), resp.getReqId());
         }
 
         return convertJsonBytesToChatResp(response.getData());
@@ -61,21 +61,21 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
             ISigner.sign(request, this.credentials);
         } catch (Exception e) {
             e.printStackTrace();
-            throw new MaasException(e);
+            throw new MaasException(e, req.getReqId());
         }
 
         HttpResponse response;
         try {
             response = this.getHttpClient().execute(request);
         } catch (IOException e) {
-            throw new MaasException(e);
+            throw new MaasException(e, req.getReqId());
         }
 
         InputStream is;
         try {
             is = response.getEntity().getContent();
         } catch (IOException e) {
-            throw new MaasException(e);
+            throw new MaasException(e, req.getReqId());
         }
 
         return SseEvent.fromInputStream(is, StandardCharsets.UTF_8)
@@ -91,11 +91,43 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
                         throw new RuntimeException(e);
                     }
                     if (resp.getError().getCodeN() != 0) {
-                        throw new RuntimeException(new MaasException(resp.getError()));
+                        throw new RuntimeException(new MaasException(resp.getError(), resp.getReqId()));
                     }
 
                     return resp;
                 }).filter(Objects::nonNull);
+    }
+
+    @Override
+    public Api.TokenizeResp tokenization(Api.TokenizeReq req) throws MaasException {
+        RawResponse response = this.proto(Const.MaasApiTokenization, null, null, req.toByteArray(), null);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            Api.TokenizeResp resp;
+            try {
+                resp = convertJsonBytesToTokenizeResp(response.getException().getMessage().getBytes());
+            } catch (MaasException ignored) {
+                throw new MaasException(response.getException(), req.getReqId());
+            }
+            throw new MaasException(resp.getError(), resp.getReqId());
+        }
+
+        return convertJsonBytesToTokenizeResp(response.getData());
+    }
+
+    @Override
+    public Api.ClassificationResp classification(Api.ClassificationReq req) throws MaasException {
+        RawResponse response = this.proto(Const.MaasApiClassification, null, null, req.toByteArray(), null);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            Api.ClassificationResp resp;
+            try {
+                resp = convertJsonBytesToClassificationResp(response.getException().getMessage().getBytes());
+            } catch (MaasException ignored) {
+                throw new MaasException(response.getException(), req.getReqId());
+            }
+            throw new MaasException(resp.getError(), resp.getReqId());
+        }
+
+        return convertJsonBytesToClassificationResp(response.getData());
     }
 
     private static Api.ChatResp convertJsonBytesToChatResp(byte[] data) throws MaasException {
@@ -104,7 +136,28 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
             JsonFormat.parser().ignoringUnknownFields().merge(new String(data, StandardCharsets.UTF_8), builder);
             return builder.build();
         } catch (InvalidProtocolBufferException e) {
-            throw new MaasException(e);
+            throw new MaasException(e, "");
         }
     }
+
+    private static Api.TokenizeResp convertJsonBytesToTokenizeResp(byte[] data) throws MaasException {
+        try {
+            Api.TokenizeResp.Builder builder = Api.TokenizeResp.newBuilder();
+            JsonFormat.parser().ignoringUnknownFields().merge(new String(data, StandardCharsets.UTF_8), builder);
+            return builder.build();
+        } catch (InvalidProtocolBufferException e) {
+            throw new MaasException(e, "");
+        }
+    }
+
+    private static Api.ClassificationResp convertJsonBytesToClassificationResp(byte[] data) throws MaasException {
+        try {
+            Api.ClassificationResp.Builder builder = Api.ClassificationResp.newBuilder();
+            JsonFormat.parser().ignoringUnknownFields().merge(new String(data, StandardCharsets.UTF_8), builder);
+            return builder.build();
+        } catch (InvalidProtocolBufferException e) {
+            throw new MaasException(e, "");
+        }
+    }
+
 }

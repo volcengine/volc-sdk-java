@@ -37,6 +37,7 @@ public class ChatDemo {
             System.out.println(resp.getChoice().getMessage().getContent());
             System.out.println(resp.getUsage());
         } catch (MaasException e) {
+            System.out.println("req_id: " + e.getRequestId());
             System.out.println("code: " + e.getCode());
             System.out.println("code_n: " + e.getCodeN());
             System.out.println("message: " + e.getMsg());
@@ -68,6 +69,7 @@ public class ChatDemo {
         } catch (RuntimeException e) {
             Throwable cause = e.getCause();
             if (cause instanceof MaasException) {
+                System.out.println("req_id: " + ((MaasException) cause).getRequestId());
                 System.out.println("code: " + ((MaasException) cause).getCode());
                 System.out.println("code_n: " + ((MaasException) cause).getCodeN());
                 System.out.println("message: " + ((MaasException) cause).getMsg());

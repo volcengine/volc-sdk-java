@@ -15,6 +15,10 @@ public class RelatedArticleRequest {
     String count;
     @JSONField(name = "GroupId")
     String groupId;
+    @JSONField(name = "Os")
+    String os;
+    @JSONField(name = "ClientVersion")
+    String clientVersion;
     @JSONField(name = "NeedVideoDetail")
     String needVideoDetail;
 }

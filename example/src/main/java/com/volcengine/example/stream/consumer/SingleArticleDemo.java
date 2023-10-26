@@ -15,6 +15,7 @@ import java.time.ZoneOffset;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+// SingleArticleDemo 该版本已逐渐废弃，请使用V2版本
 public class SingleArticleDemo {
     public static void main(String[] args) {
         //初始化一个service

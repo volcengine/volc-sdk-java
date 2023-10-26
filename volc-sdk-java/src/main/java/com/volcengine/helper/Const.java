@@ -400,6 +400,7 @@ public class Const {
     // stream
     public static final String WapRegister = "WapRegister";
     public static final String ContentStream = "ContentStream";
+    public static final String ContentStreamV2 = "ContentStreamV2";
     public static final String Digg = "Digg";
     public static final String Bury = "Bury";
     public static final String UnDigg = "UnDigg";
@@ -425,6 +426,7 @@ public class Const {
     public static final String RecommendCategoryUser = "RecommendCategoryUser";
     public static final String RecommendCategoryInfo = "RecommendCategoryInfo";
     public static final String RelatedArticle = "RelatedArticle";
+    public static final String RelatedArticleV2 = "RelatedArticleV2";
     public static final String ClickLog = "ClickLog";
     public static final String StayLog = "StayLog";
     public static final String VideoPlayLog = "VideoPlayLog";
@@ -443,13 +445,16 @@ public class Const {
     public static final String HotBoard = "HotBoard";
     public static final String SdkMonitor = "SdkMonitor";
     public static final String ContentSearch = "Search";
+    public static final String ContentSearchV2 = "SearchV2";
     //new
     public static final String FollowAction = "FollowAction";
     public static final String UnfollowAction = "UnfollowAction";
     public static final String FollowList = "FollowList";
     public static final String FollowCheck = "FollowCheck";
     public static final String SingleArticle = "SingleArticle";
+    public static final String SingleArticleV2 = "SingleArticleV2";
     public static final String MultiArticle = "MultiArticle";
+    public static final String MultiArticleV2 = "MultiArticleV2";
     public static final String ContentVersion = "2021-01-01";
 
     //live

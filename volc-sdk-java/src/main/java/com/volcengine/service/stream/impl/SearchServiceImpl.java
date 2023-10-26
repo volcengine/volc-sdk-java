@@ -6,6 +6,7 @@ import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.stream.SearchGroupResponse;
+import com.volcengine.model.stream.SearchGroupResponseV2;
 import com.volcengine.model.stream.SearchRequest;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.stream.MonitorService;
@@ -65,6 +66,20 @@ public class SearchServiceImpl extends BaseServiceImpl implements SearchService 
         }
 
         return JSON.parseObject(response.getData(), SearchGroupResponse.class);
+    }
+
+    @Override
+    public SearchGroupResponseV2 searchGroupV2(SearchRequest request) throws Exception {
+        long start = System.currentTimeMillis();
+        RawResponse response = query(Const.ContentSearchV2, Utils.mapToPairList(Utils.paramsToMap(request)));
+        long end = System.currentTimeMillis();
+
+        sendToMonitor(instance, request.getPartner(), request.getAccessToken(),
+                Const.ContentSearchV2, response.getHttpCode(), response.getCode(), response.getData(), end - start);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), SearchGroupResponseV2.class);
     }
 
     @Override

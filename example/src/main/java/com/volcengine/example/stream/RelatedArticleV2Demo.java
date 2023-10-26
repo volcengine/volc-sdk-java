@@ -3,14 +3,14 @@ package com.volcengine.example.stream;
 import com.alibaba.fastjson.JSON;
 import com.volcengine.model.stream.RelatedArticleRequest;
 import com.volcengine.model.stream.RelatedArticleResponse;
+import com.volcengine.model.stream.RelatedArticleResponseV2;
 import com.volcengine.service.stream.StreamService;
 import com.volcengine.service.stream.impl.StreamServiceImpl;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
-// RelatedArticleDemo 该版本已逐渐废弃，请使用V2版本
-public class RelatedArticleDemo {
+public class RelatedArticleV2Demo {
     public static void main(String[] args) {
         //初始化一个service
         StreamService streamService = StreamServiceImpl.getInstance();
@@ -24,9 +24,11 @@ public class RelatedArticleDemo {
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setAccessToken("accessToken");
         req.setPartner("server_sdk_demo_default_content");
-        req.setGroupId("7008339270066766349");
+        req.setOs("ios");
+        req.setClientVersion("3.1.1");
+        req.setGroupId("7287890094584037951");
         try {
-            RelatedArticleResponse response = streamService.relatedArticle(req);
+            RelatedArticleResponseV2 response = streamService.relatedArticleV2(req);
             System.out.println(JSON.toJSONString(response));
         } catch (Exception e) {
             e.printStackTrace();

@@ -16,12 +16,19 @@ public interface StreamService extends IBaseService {
     WapRegisterResponse wapRegister(WapRegisterRequest wapRegisterRequest) throws Exception;
 
     /**
-     *    获取列表页
+     *    获取列表页(已废弃)
      * @param getListRequest
      * @return com.volcengine.model.stream.GetListResponse
      * @author zhangyuhang
     */
     GetListResponse getList(GetListRequest getListRequest) throws Exception;
+
+    /**
+     *    获取列表页
+     * @param getListRequest
+     * @return com.volcengine.model.stream.GetListV2Response
+     */
+    GetListResponseV2 getListV2(GetListRequest getListRequest) throws Exception;
 
     /**
      *    点赞
@@ -159,13 +166,20 @@ public interface StreamService extends IBaseService {
     */
     RecommendCategoryInfoResponse recommendCategoryInfo(RecommendCategoryInfoRequest recommendCategoryInfoRequest) throws Exception;
     /**
-     *    相关推荐
+     *    相关推荐(已废弃)
      * @param relatedArticleRequest
      * @return com.volcengine.model.stream.RelatedArticleResponse
      * @author zhangyuhang
     */
     RelatedArticleResponse relatedArticle(RelatedArticleRequest relatedArticleRequest) throws Exception;
-    
+
+    /**
+     *    相关推荐
+     * @param relatedArticleRequest
+     * @return com.volcengine.model.stream.RelatedArticleResponseV2
+     */
+    RelatedArticleResponseV2 relatedArticleV2(RelatedArticleRequest relatedArticleRequest) throws Exception;
+
     /**
      *    获取点赞列表
      * @param getDiggListRequest

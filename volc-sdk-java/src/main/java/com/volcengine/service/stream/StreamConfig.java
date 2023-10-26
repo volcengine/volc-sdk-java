@@ -61,6 +61,20 @@ public class StreamConfig {
                         }
                     }
             ));
+            put(Const.ContentStreamV2, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ContentStreamV2));
+                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.Digg, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -293,6 +307,20 @@ public class StreamConfig {
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.RelatedArticle));
+                                    add(new BasicNameValuePair("Version", Const.ContentVersion));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.RelatedArticleV2, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.RelatedArticleV2));
                                     add(new BasicNameValuePair("Version", Const.ContentVersion));
                                 }
                             });

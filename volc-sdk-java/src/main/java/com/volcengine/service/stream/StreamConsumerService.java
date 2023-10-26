@@ -40,7 +40,7 @@ public interface StreamConsumerService extends IBaseService {
     FollowCheckResponse followCheck(FollowCheckRequest followCheckRequest) throws Exception;
 
     /**
-     * 新版获取文章
+     * 获取文章信息(已废弃)
      * @param singleArticleRequest
      * @return com.volcengine.model.stream.consumer.SingleArticleResponse
      * @author zhangyuhang
@@ -48,10 +48,24 @@ public interface StreamConsumerService extends IBaseService {
     SingleArticleResponse singleArticle(SingleArticleRequest singleArticleRequest) throws Exception;
 
     /**
-     * 新版批量获取文章
+     * 获取文章信息
+     * @param singleArticleRequest
+     * @return com.volcengine.model.stream.consumer.SingleArticleResponseV2
+     */
+    SingleArticleResponseV2 singleArticleV2(SingleArticleRequest singleArticleRequest) throws Exception;
+
+    /**
+     * 批量获取文章信息(已废弃)
      * @param multiArticlesRequest
      * @return com.volcengine.model.stream.consumer.MultiArticlesResponse
      * @author zhangyuhang
     */
     MultiArticlesResponse multiArticles(MultiArticlesRequest multiArticlesRequest) throws Exception;
+
+    /**
+     * 批量获取文章信息
+     * @param multiArticlesRequest
+     * @return com.volcengine.model.stream.consumer.MultiArticlesResponse
+     */
+    MultiArticlesResponseV2 multiArticlesV2(MultiArticlesRequest multiArticlesRequest) throws Exception;
 }

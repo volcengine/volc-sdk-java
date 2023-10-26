@@ -90,6 +90,20 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
     }
 
     @Override
+    public GetListResponseV2 getListV2(GetListRequest getListRequest) throws Exception {
+        getListRequest.setApiVersion(4);
+        long start = System.currentTimeMillis();
+        RawResponse response = query(Const.ContentStreamV2, Utils.mapToPairList(Utils.paramsToMap(getListRequest)));
+        long end = System.currentTimeMillis();
+        sendToMonitor(instance, getListRequest.getPartner(), getListRequest.getCategory(), getListRequest.getAccessToken(),
+                Const.ContentStreamV2, response.getHttpCode(), response.getCode(), response.getData(), end - start);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), GetListResponseV2.class);
+    }
+    
+    @Override
     public DiggResponse digg(DiggRequest diggRequest) throws Exception {
         long start = System.currentTimeMillis();
         RawResponse response = query(Const.Digg, Utils.mapToPairList(Utils.paramsToMap(diggRequest)));
@@ -327,6 +341,19 @@ public class StreamServiceImpl extends BaseServiceImpl implements StreamService 
             throw response.getException();
         }
         return JSON.parseObject(response.getData(), RelatedArticleResponse.class);
+    }
+
+    @Override
+    public RelatedArticleResponseV2 relatedArticleV2(RelatedArticleRequest relatedArticleRequest) throws Exception {
+        long start = System.currentTimeMillis();
+        RawResponse response = query(Const.RelatedArticleV2, Utils.mapToPairList(Utils.paramsToMap(relatedArticleRequest)));
+        long end = System.currentTimeMillis();
+        sendToMonitor(instance, relatedArticleRequest.getPartner(), "", relatedArticleRequest.getAccessToken(),
+                Const.RelatedArticleV2, response.getHttpCode(), response.getCode(), response.getData(), end - start);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), RelatedArticleResponseV2.class);
     }
 
     @Override

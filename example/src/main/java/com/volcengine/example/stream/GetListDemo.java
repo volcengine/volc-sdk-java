@@ -9,6 +9,7 @@ import com.volcengine.service.stream.impl.StreamServiceImpl;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
+// GetListDemo 该版本已逐渐废弃，请使用V2版本
 public class GetListDemo {
     public static void main(String[] args) {
         //初始化一个service

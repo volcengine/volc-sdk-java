@@ -1,5 +1,8 @@
 Change log
 
+2023-10-26 Bumped to version v1.0.126
+- Updated apis for video_aiot/maas/security/stream/cdn/visual
+
 2023-10-19 Bumped to version v1.0.125
 - Updated apis for tls/maas/vod/live/imgaex
 

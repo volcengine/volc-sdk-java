@@ -40,6 +40,8 @@ public class VideoRiskResultResponse {
     public static class VideoResults {
         @JSONField(name = "Decision")
         private String decision;
+        @JSONField(name = "ImageSliceCount")
+        private Integer ImageSliceCount;
         @JSONField(name = "Frames")
         private List<Frame> frames;
     }

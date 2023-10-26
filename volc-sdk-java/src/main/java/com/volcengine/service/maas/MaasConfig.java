@@ -38,6 +38,20 @@ public class MaasConfig {
                         put(Const.Path, "/api/v1/chat");
                     }
                 }));
+
+                put(Const.MaasApiTokenization, new ApiInfo(new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "post");
+                        put(Const.Path, "/api/v1/tokenization");
+                    }
+                }));
+
+                put(Const.MaasApiClassification, new ApiInfo(new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "post");
+                        put(Const.Path, "/api/v1/classification");
+                    }
+                }));
             }
         };
     }

@@ -10,19 +10,22 @@ public class MaasException extends Exception {
 
     private final String msg;
 
-    public MaasException(String code, int codeN, String msg) {
+    private final String requestId;
+
+    public MaasException(String code, int codeN, String msg, String requestId) {
         super(msg);
         this.code = code;
         this.codeN = codeN;
         this.msg = msg;
+        this.requestId = requestId;
     }
 
-    public MaasException(Api.Error raw) {
-        this(raw.getCode(), raw.getCodeN(), raw.getMessage());
+    public MaasException(Api.Error raw, String requestId) {
+        this(raw.getCode(), raw.getCodeN(), raw.getMessage(), requestId);
     }
 
-    public MaasException(Exception raw) {
-        this("ClientSDKRequestError", 1709701, "MaaS SDK request error: " + raw.getMessage());
+    public MaasException(Exception raw, String requestId) {
+        this("ClientSDKRequestError", 1709701, "MaaS SDK request error: " + raw.getMessage(), requestId);
     }
 
     public String getCode() {
@@ -38,8 +41,12 @@ public class MaasException extends Exception {
         return msg;
     }
 
+    public String getRequestId() {
+        return requestId;
+    }
+
     @Override
     public String toString() {
-        return "MaasException{" + "code=" + code + ", code_n='" + codeN + '\'' + ", message='" + msg + '\'' + '}';
+        return "MaasException{" + "code=" + code + ", code_n='" + codeN + '\'' + ", message='" + msg + '\'' + ", request_id='" + requestId + '}';
     }
 }

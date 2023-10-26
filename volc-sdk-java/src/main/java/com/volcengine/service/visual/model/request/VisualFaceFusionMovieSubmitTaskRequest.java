@@ -27,4 +27,19 @@ public class VisualFaceFusionMovieSubmitTaskRequest {
 
     @JSONField(name = "source_similarity")
     String sourceSimilarity;
+
+    @JSONField(name = "logo_info")
+    LogoInfo logoInfo;
+    @Data
+    public static class LogoInfo{
+        @JSONField(name = "add_logo")
+        boolean addlogo;
+        @JSONField(name = "position")
+        int position;
+        @JSONField(name = "language")
+        int language;
+        @JSONField(name = "opacity")
+        double opacity;
+    }
+
 }

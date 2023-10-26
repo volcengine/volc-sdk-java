@@ -24,7 +24,14 @@ public class FaceFusionMovieDemo {
         req.setVideoUrl("");
         req.setImageUrl("");
         req.setRefImgUrl("");
-        req.setSourceSimilarity("1");
+        req.setSourceSimilarity("");
+        //水印信息
+//        VisualFaceFusionMovieSubmitTaskRequest.LogoInfo  logoInfo= new VisualFaceFusionMovieSubmitTaskRequest.LogoInfo();
+//        logoInfo.setAddlogo(true);
+//        logoInfo.setPosition(2);
+//        logoInfo.setLanguage(0);
+//        logoInfo.setOpacity(0.9);
+//        req.setLogoInfo(logoInfo);
         try {
             VisualFaceFusionMovieSubmitTaskResponse response = visualService.faceFusionMovieSubmitTask(req);
             System.out.println(JSON.toJSONString(response));
@@ -35,7 +42,7 @@ public class FaceFusionMovieDemo {
         // 查询任务
 //        VisualFaceFusionMovieGetResultRequest req = new VisualFaceFusionMovieGetResultRequest();
 //        req.setReqKey("facefusionmovie_standard");
-//        req.setTaskId("");
+//        req.setTaskId("task_id");
 //
 //        try {
 //            VisualFaceFusionMovieGetResultResponse response = visualService.faceFusionMovieGetResult(req);

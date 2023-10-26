@@ -2,6 +2,7 @@ package com.volcengine.service.videoaiot.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.volcengine.helper.Const;
+import com.volcengine.model.video_aiot.common;
 import com.volcengine.model.video_aiot.request.*;
 import com.volcengine.model.video_aiot.response.*;
 import com.volcengine.service.videoaiot.VideoAIoTConfig;
@@ -9,6 +10,7 @@ import com.volcengine.service.videoaiot.VideoAIoTService;
 import junit.framework.TestCase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class VideoAIoTImplTest extends TestCase {
@@ -384,14 +386,15 @@ public class VideoAIoTImplTest extends TestCase {
         setTest();
         long startTime = System.currentTimeMillis();
         ListDeviceRecordsRequest listDeviceRecords = new ListDeviceRecordsRequest();
-        listDeviceRecords.setSpaceID("0c8dbdd5-b9b4-4807-82d4-5f923a3a8173");
-        listDeviceRecords.setDeviceNSID("34020034991180160268");
+        listDeviceRecords.setSpaceID("cff23f2a-2cb7-4bc7-9dbc-a29927151bd8");
+        listDeviceRecords.setDeviceNSID("34020030991180394435");
         listDeviceRecords.setChannelID("98880000001320000000");
-        listDeviceRecords.setStartTs("2023-08-09T10:47:20+08:00");
-        listDeviceRecords.setEndTs("2023-08-10T10:47:20+08:00");
+        listDeviceRecords.setResolution("4");
+        listDeviceRecords.setStartTs("2023-10-24T14:54:00+08:00");
+        listDeviceRecords.setEndTs("2023-10-24T15:08:00+08:00");
         listDeviceRecords.setPageSize(100);
         listDeviceRecords.setPageNumber(1);
-        listDeviceRecords.setReqType("record_metadata1");
+        listDeviceRecords.setReqType("record_metadata");
         try {
             ListDeviceRecordsResponse resp = videoAIoTService.listDeviceRecords(listDeviceRecords);
             System.out.println(JSON.toJSONString(resp));
@@ -405,9 +408,9 @@ public class VideoAIoTImplTest extends TestCase {
     public void testCloudRecordPlay() {
         setTest();
         CloudRecordPlayRequest cloudRecordPlayRequest = new CloudRecordPlayRequest();
-        cloudRecordPlayRequest.setStreamID("97409199-7e1d-4b9d-af69-f2094c3ee9f0");
-        cloudRecordPlayRequest.setStartTs("2023-10-09T15:00:00+08:00");
-        cloudRecordPlayRequest.setEndTs("2023-10-09T20:00:00+08:00");
+        cloudRecordPlayRequest.setStreamID("21a578bc-9d64-42ae-b3ef-34c666cbb423");
+        cloudRecordPlayRequest.setStartTs("2023-10-24T14:54:00+08:00");
+        cloudRecordPlayRequest.setEndTs("2023-10-24T15:08:00+08:00");
         cloudRecordPlayRequest.setTokenValid(3600);
         try {
             CloudPlayResponse resp = videoAIoTService.cloudRecordPlay(cloudRecordPlayRequest);
@@ -605,7 +608,7 @@ public class VideoAIoTImplTest extends TestCase {
         setTest();
         StatStreamRequest request = new StatStreamRequest();
         request.setAggregation(300);
-        request.setStreamID("13790d1a-5f5d-40af-a6ed-b0e44d35a677");
+        request.setStreamID("17d45d12-8ca6-439d-b03e-33bc07bb14df");
         request.setStartTime(0L);
         request.setEndTime(0L);
         StatStreamResponse statStreamResponse = videoAIoTService.statStream(request);
@@ -1217,23 +1220,36 @@ public class VideoAIoTImplTest extends TestCase {
     public void testUpdateRecordPlan() {
         setTest();
         UpdateRecordPlanRequest updateRecordPlanRequest = new UpdateRecordPlanRequest();
-        updateRecordPlanRequest.setPlanName("sdk-update");
-        updateRecordPlanRequest.setPlanID("2f11a13a-038f-445a-800e-03572ec542e3");
-        updateRecordPlanRequest.setBindTemplate("a87c5902-453a-4cb1-a4e2-87171b2c25bd");
+        updateRecordPlanRequest.setPlanName("1024-sdk-update");
+        updateRecordPlanRequest.setPlanID("5811a03e-7578-4da3-8485-21611c8eef89");
+        updateRecordPlanRequest.setBindTemplate("5b96fd8b-bf42-4950-9194-5efd11453e89");
         updateRecordPlanRequest.setStatus("enabled");
         UpdateRecordPlanRequest.ModifyList delList = new UpdateRecordPlanRequest.ModifyList();
-        delList.setStreams(new ArrayList<String>() {
-            {
-                add("7f2f1b54-2714-4f66-ae78-cd477ab0b68b");
-            }
-        });
+//        common.Channel ch = new common.Channel();
+//        ch.setChannelID("98880000001320000000");
+//        delList.setDevices(new HashMap<String, List<common.Channel>>() {
+//            {
+//                put("34020030991180394435", new ArrayList<common.Channel>() {
+//                    {
+//                        add(ch);
+//                    }
+//                });
+//            }
+//        });
         updateRecordPlanRequest.setDelList(delList);
         UpdateRecordPlanRequest.ModifyList addList = new UpdateRecordPlanRequest.ModifyList();
-        addList.setStreams(new ArrayList<String>() {
+        common.Channel ch = new common.Channel();
+        ch.setChannelID("98880000001320000000");
+        addList.setDevices(new HashMap<String, List<common.Channel>>() {
             {
-                add("3e088b33-4e28-4af3-a6f1-daff5a8a7bab");
+                put("34020030991180394435", new ArrayList<common.Channel>() {
+                    {
+                        add(ch);
+                    }
+                });
             }
         });
+        updateRecordPlanRequest.setResolution("4");
         updateRecordPlanRequest.setAddList(addList);
         try {
             IDResponse recordPlan = videoAIoTService.updateRecordPlan(updateRecordPlanRequest);
@@ -1298,7 +1314,6 @@ public class VideoAIoTImplTest extends TestCase {
 
     private static boolean online = false;
 
-    public void setTest(){
-
+    public void setTest() {
     }
 }

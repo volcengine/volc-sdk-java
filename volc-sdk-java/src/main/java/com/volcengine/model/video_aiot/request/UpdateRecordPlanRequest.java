@@ -27,10 +27,11 @@ public class UpdateRecordPlanRequest {
     ModifyList addList;
     @JSONField(name = "DelList")
     ModifyList delList;
+
     @Data
     public static class ModifyList {
         @JSONField(name = "Devices")
-        Map<String, common.Channel> devices;
+        Map<String, List<common.Channel>> devices;
         @JSONField(name = "Streams")
         List<String> streams;
     }

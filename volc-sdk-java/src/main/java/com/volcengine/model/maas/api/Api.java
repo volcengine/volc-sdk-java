@@ -25062,6 +25062,3793 @@ java.lang.String defaultValue);
 
   }
 
+  public interface EmbeddingsReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proxy.EmbeddingsReq)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string req_id = 1;</code>
+     * @return The reqId.
+     */
+    java.lang.String getReqId();
+    /**
+     * <code>string req_id = 1;</code>
+     * @return The bytes for reqId.
+     */
+    com.google.protobuf.ByteString
+        getReqIdBytes();
+
+    /**
+     * <code>repeated string input = 2;</code>
+     * @return A list containing the input.
+     */
+    java.util.List<java.lang.String>
+        getInputList();
+    /**
+     * <code>repeated string input = 2;</code>
+     * @return The count of input.
+     */
+    int getInputCount();
+    /**
+     * <code>repeated string input = 2;</code>
+     * @param index The index of the element to return.
+     * @return The input at the given index.
+     */
+    java.lang.String getInput(int index);
+    /**
+     * <code>repeated string input = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the input at the given index.
+     */
+    com.google.protobuf.ByteString
+        getInputBytes(int index);
+
+    /**
+     * <code>.proxy.Model model = 3;</code>
+     * @return Whether the model field is set.
+     */
+    boolean hasModel();
+    /**
+     * <code>.proxy.Model model = 3;</code>
+     * @return The model.
+     */
+    com.volcengine.model.maas.api.Api.Model getModel();
+    /**
+     * <code>.proxy.Model model = 3;</code>
+     */
+    com.volcengine.model.maas.api.Api.ModelOrBuilder getModelOrBuilder();
+
+    /**
+     * <code>optional string encoding_format = 4;</code>
+     * @return Whether the encodingFormat field is set.
+     */
+    boolean hasEncodingFormat();
+    /**
+     * <code>optional string encoding_format = 4;</code>
+     * @return The encodingFormat.
+     */
+    java.lang.String getEncodingFormat();
+    /**
+     * <code>optional string encoding_format = 4;</code>
+     * @return The bytes for encodingFormat.
+     */
+    com.google.protobuf.ByteString
+        getEncodingFormatBytes();
+
+    /**
+     * <code>optional string user = 5;</code>
+     * @return Whether the user field is set.
+     */
+    boolean hasUser();
+    /**
+     * <code>optional string user = 5;</code>
+     * @return The user.
+     */
+    java.lang.String getUser();
+    /**
+     * <code>optional string user = 5;</code>
+     * @return The bytes for user.
+     */
+    com.google.protobuf.ByteString
+        getUserBytes();
+  }
+  /**
+   * Protobuf type {@code proxy.EmbeddingsReq}
+   */
+  public static final class EmbeddingsReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proxy.EmbeddingsReq)
+      EmbeddingsReqOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use EmbeddingsReq.newBuilder() to construct.
+    private EmbeddingsReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private EmbeddingsReq() {
+      reqId_ = "";
+      input_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      encodingFormat_ = "";
+      user_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new EmbeddingsReq();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_EmbeddingsReq_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_EmbeddingsReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.volcengine.model.maas.api.Api.EmbeddingsReq.class, com.volcengine.model.maas.api.Api.EmbeddingsReq.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int REQ_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object reqId_;
+    /**
+     * <code>string req_id = 1;</code>
+     * @return The reqId.
+     */
+    @java.lang.Override
+    public java.lang.String getReqId() {
+      java.lang.Object ref = reqId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        reqId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string req_id = 1;</code>
+     * @return The bytes for reqId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getReqIdBytes() {
+      java.lang.Object ref = reqId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        reqId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int INPUT_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList input_;
+    /**
+     * <code>repeated string input = 2;</code>
+     * @return A list containing the input.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getInputList() {
+      return input_;
+    }
+    /**
+     * <code>repeated string input = 2;</code>
+     * @return The count of input.
+     */
+    public int getInputCount() {
+      return input_.size();
+    }
+    /**
+     * <code>repeated string input = 2;</code>
+     * @param index The index of the element to return.
+     * @return The input at the given index.
+     */
+    public java.lang.String getInput(int index) {
+      return input_.get(index);
+    }
+    /**
+     * <code>repeated string input = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the input at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getInputBytes(int index) {
+      return input_.getByteString(index);
+    }
+
+    public static final int MODEL_FIELD_NUMBER = 3;
+    private com.volcengine.model.maas.api.Api.Model model_;
+    /**
+     * <code>.proxy.Model model = 3;</code>
+     * @return Whether the model field is set.
+     */
+    @java.lang.Override
+    public boolean hasModel() {
+      return model_ != null;
+    }
+    /**
+     * <code>.proxy.Model model = 3;</code>
+     * @return The model.
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.Model getModel() {
+      return model_ == null ? com.volcengine.model.maas.api.Api.Model.getDefaultInstance() : model_;
+    }
+    /**
+     * <code>.proxy.Model model = 3;</code>
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.ModelOrBuilder getModelOrBuilder() {
+      return getModel();
+    }
+
+    public static final int ENCODING_FORMAT_FIELD_NUMBER = 4;
+    private volatile java.lang.Object encodingFormat_;
+    /**
+     * <code>optional string encoding_format = 4;</code>
+     * @return Whether the encodingFormat field is set.
+     */
+    @java.lang.Override
+    public boolean hasEncodingFormat() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional string encoding_format = 4;</code>
+     * @return The encodingFormat.
+     */
+    @java.lang.Override
+    public java.lang.String getEncodingFormat() {
+      java.lang.Object ref = encodingFormat_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        encodingFormat_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string encoding_format = 4;</code>
+     * @return The bytes for encodingFormat.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getEncodingFormatBytes() {
+      java.lang.Object ref = encodingFormat_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        encodingFormat_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int USER_FIELD_NUMBER = 5;
+    private volatile java.lang.Object user_;
+    /**
+     * <code>optional string user = 5;</code>
+     * @return Whether the user field is set.
+     */
+    @java.lang.Override
+    public boolean hasUser() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string user = 5;</code>
+     * @return The user.
+     */
+    @java.lang.Override
+    public java.lang.String getUser() {
+      java.lang.Object ref = user_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        user_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string user = 5;</code>
+     * @return The bytes for user.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUserBytes() {
+      java.lang.Object ref = user_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        user_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, reqId_);
+      }
+      for (int i = 0; i < input_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, input_.getRaw(i));
+      }
+      if (model_ != null) {
+        output.writeMessage(3, getModel());
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, encodingFormat_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, user_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, reqId_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < input_.size(); i++) {
+          dataSize += computeStringSizeNoTag(input_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getInputList().size();
+      }
+      if (model_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getModel());
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, encodingFormat_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, user_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.volcengine.model.maas.api.Api.EmbeddingsReq)) {
+        return super.equals(obj);
+      }
+      com.volcengine.model.maas.api.Api.EmbeddingsReq other = (com.volcengine.model.maas.api.Api.EmbeddingsReq) obj;
+
+      if (!getReqId()
+          .equals(other.getReqId())) return false;
+      if (!getInputList()
+          .equals(other.getInputList())) return false;
+      if (hasModel() != other.hasModel()) return false;
+      if (hasModel()) {
+        if (!getModel()
+            .equals(other.getModel())) return false;
+      }
+      if (hasEncodingFormat() != other.hasEncodingFormat()) return false;
+      if (hasEncodingFormat()) {
+        if (!getEncodingFormat()
+            .equals(other.getEncodingFormat())) return false;
+      }
+      if (hasUser() != other.hasUser()) return false;
+      if (hasUser()) {
+        if (!getUser()
+            .equals(other.getUser())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + REQ_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getReqId().hashCode();
+      if (getInputCount() > 0) {
+        hash = (37 * hash) + INPUT_FIELD_NUMBER;
+        hash = (53 * hash) + getInputList().hashCode();
+      }
+      if (hasModel()) {
+        hash = (37 * hash) + MODEL_FIELD_NUMBER;
+        hash = (53 * hash) + getModel().hashCode();
+      }
+      if (hasEncodingFormat()) {
+        hash = (37 * hash) + ENCODING_FORMAT_FIELD_NUMBER;
+        hash = (53 * hash) + getEncodingFormat().hashCode();
+      }
+      if (hasUser()) {
+        hash = (37 * hash) + USER_FIELD_NUMBER;
+        hash = (53 * hash) + getUser().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.volcengine.model.maas.api.Api.EmbeddingsReq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsReq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.volcengine.model.maas.api.Api.EmbeddingsReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proxy.EmbeddingsReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proxy.EmbeddingsReq)
+        com.volcengine.model.maas.api.Api.EmbeddingsReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_EmbeddingsReq_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_EmbeddingsReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.volcengine.model.maas.api.Api.EmbeddingsReq.class, com.volcengine.model.maas.api.Api.EmbeddingsReq.Builder.class);
+      }
+
+      // Construct using com.volcengine.model.maas.api.Api.EmbeddingsReq.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        reqId_ = "";
+
+        input_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (modelBuilder_ == null) {
+          model_ = null;
+        } else {
+          model_ = null;
+          modelBuilder_ = null;
+        }
+        encodingFormat_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        user_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_EmbeddingsReq_descriptor;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.EmbeddingsReq getDefaultInstanceForType() {
+        return com.volcengine.model.maas.api.Api.EmbeddingsReq.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.EmbeddingsReq build() {
+        com.volcengine.model.maas.api.Api.EmbeddingsReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.EmbeddingsReq buildPartial() {
+        com.volcengine.model.maas.api.Api.EmbeddingsReq result = new com.volcengine.model.maas.api.Api.EmbeddingsReq(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.reqId_ = reqId_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          input_ = input_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.input_ = input_;
+        if (modelBuilder_ == null) {
+          result.model_ = model_;
+        } else {
+          result.model_ = modelBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.encodingFormat_ = encodingFormat_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.user_ = user_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.volcengine.model.maas.api.Api.EmbeddingsReq) {
+          return mergeFrom((com.volcengine.model.maas.api.Api.EmbeddingsReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.volcengine.model.maas.api.Api.EmbeddingsReq other) {
+        if (other == com.volcengine.model.maas.api.Api.EmbeddingsReq.getDefaultInstance()) return this;
+        if (!other.getReqId().isEmpty()) {
+          reqId_ = other.reqId_;
+          onChanged();
+        }
+        if (!other.input_.isEmpty()) {
+          if (input_.isEmpty()) {
+            input_ = other.input_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureInputIsMutable();
+            input_.addAll(other.input_);
+          }
+          onChanged();
+        }
+        if (other.hasModel()) {
+          mergeModel(other.getModel());
+        }
+        if (other.hasEncodingFormat()) {
+          bitField0_ |= 0x00000002;
+          encodingFormat_ = other.encodingFormat_;
+          onChanged();
+        }
+        if (other.hasUser()) {
+          bitField0_ |= 0x00000004;
+          user_ = other.user_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                reqId_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureInputIsMutable();
+                input_.add(s);
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getModelFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 26
+              case 34: {
+                encodingFormat_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 34
+              case 42: {
+                user_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object reqId_ = "";
+      /**
+       * <code>string req_id = 1;</code>
+       * @return The reqId.
+       */
+      public java.lang.String getReqId() {
+        java.lang.Object ref = reqId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          reqId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string req_id = 1;</code>
+       * @return The bytes for reqId.
+       */
+      public com.google.protobuf.ByteString
+          getReqIdBytes() {
+        java.lang.Object ref = reqId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          reqId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string req_id = 1;</code>
+       * @param value The reqId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReqId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        reqId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string req_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReqId() {
+        
+        reqId_ = getDefaultInstance().getReqId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string req_id = 1;</code>
+       * @param value The bytes for reqId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReqIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        reqId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList input_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureInputIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          input_ = new com.google.protobuf.LazyStringArrayList(input_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string input = 2;</code>
+       * @return A list containing the input.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getInputList() {
+        return input_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string input = 2;</code>
+       * @return The count of input.
+       */
+      public int getInputCount() {
+        return input_.size();
+      }
+      /**
+       * <code>repeated string input = 2;</code>
+       * @param index The index of the element to return.
+       * @return The input at the given index.
+       */
+      public java.lang.String getInput(int index) {
+        return input_.get(index);
+      }
+      /**
+       * <code>repeated string input = 2;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the input at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getInputBytes(int index) {
+        return input_.getByteString(index);
+      }
+      /**
+       * <code>repeated string input = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The input to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInput(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureInputIsMutable();
+        input_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string input = 2;</code>
+       * @param value The input to add.
+       * @return This builder for chaining.
+       */
+      public Builder addInput(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureInputIsMutable();
+        input_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string input = 2;</code>
+       * @param values The input to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllInput(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureInputIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, input_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string input = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInput() {
+        input_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string input = 2;</code>
+       * @param value The bytes of the input to add.
+       * @return This builder for chaining.
+       */
+      public Builder addInputBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureInputIsMutable();
+        input_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.volcengine.model.maas.api.Api.Model model_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder> modelBuilder_;
+      /**
+       * <code>.proxy.Model model = 3;</code>
+       * @return Whether the model field is set.
+       */
+      public boolean hasModel() {
+        return modelBuilder_ != null || model_ != null;
+      }
+      /**
+       * <code>.proxy.Model model = 3;</code>
+       * @return The model.
+       */
+      public com.volcengine.model.maas.api.Api.Model getModel() {
+        if (modelBuilder_ == null) {
+          return model_ == null ? com.volcengine.model.maas.api.Api.Model.getDefaultInstance() : model_;
+        } else {
+          return modelBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.proxy.Model model = 3;</code>
+       */
+      public Builder setModel(com.volcengine.model.maas.api.Api.Model value) {
+        if (modelBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          model_ = value;
+          onChanged();
+        } else {
+          modelBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Model model = 3;</code>
+       */
+      public Builder setModel(
+          com.volcengine.model.maas.api.Api.Model.Builder builderForValue) {
+        if (modelBuilder_ == null) {
+          model_ = builderForValue.build();
+          onChanged();
+        } else {
+          modelBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Model model = 3;</code>
+       */
+      public Builder mergeModel(com.volcengine.model.maas.api.Api.Model value) {
+        if (modelBuilder_ == null) {
+          if (model_ != null) {
+            model_ =
+              com.volcengine.model.maas.api.Api.Model.newBuilder(model_).mergeFrom(value).buildPartial();
+          } else {
+            model_ = value;
+          }
+          onChanged();
+        } else {
+          modelBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Model model = 3;</code>
+       */
+      public Builder clearModel() {
+        if (modelBuilder_ == null) {
+          model_ = null;
+          onChanged();
+        } else {
+          model_ = null;
+          modelBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Model model = 3;</code>
+       */
+      public com.volcengine.model.maas.api.Api.Model.Builder getModelBuilder() {
+        
+        onChanged();
+        return getModelFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.proxy.Model model = 3;</code>
+       */
+      public com.volcengine.model.maas.api.Api.ModelOrBuilder getModelOrBuilder() {
+        if (modelBuilder_ != null) {
+          return modelBuilder_.getMessageOrBuilder();
+        } else {
+          return model_ == null ?
+              com.volcengine.model.maas.api.Api.Model.getDefaultInstance() : model_;
+        }
+      }
+      /**
+       * <code>.proxy.Model model = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder> 
+          getModelFieldBuilder() {
+        if (modelBuilder_ == null) {
+          modelBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder>(
+                  getModel(),
+                  getParentForChildren(),
+                  isClean());
+          model_ = null;
+        }
+        return modelBuilder_;
+      }
+
+      private java.lang.Object encodingFormat_ = "";
+      /**
+       * <code>optional string encoding_format = 4;</code>
+       * @return Whether the encodingFormat field is set.
+       */
+      public boolean hasEncodingFormat() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional string encoding_format = 4;</code>
+       * @return The encodingFormat.
+       */
+      public java.lang.String getEncodingFormat() {
+        java.lang.Object ref = encodingFormat_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          encodingFormat_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string encoding_format = 4;</code>
+       * @return The bytes for encodingFormat.
+       */
+      public com.google.protobuf.ByteString
+          getEncodingFormatBytes() {
+        java.lang.Object ref = encodingFormat_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          encodingFormat_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string encoding_format = 4;</code>
+       * @param value The encodingFormat to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEncodingFormat(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        encodingFormat_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string encoding_format = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEncodingFormat() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        encodingFormat_ = getDefaultInstance().getEncodingFormat();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string encoding_format = 4;</code>
+       * @param value The bytes for encodingFormat to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEncodingFormatBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        bitField0_ |= 0x00000002;
+        encodingFormat_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object user_ = "";
+      /**
+       * <code>optional string user = 5;</code>
+       * @return Whether the user field is set.
+       */
+      public boolean hasUser() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional string user = 5;</code>
+       * @return The user.
+       */
+      public java.lang.String getUser() {
+        java.lang.Object ref = user_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          user_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string user = 5;</code>
+       * @return The bytes for user.
+       */
+      public com.google.protobuf.ByteString
+          getUserBytes() {
+        java.lang.Object ref = user_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          user_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string user = 5;</code>
+       * @param value The user to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUser(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        user_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string user = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUser() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        user_ = getDefaultInstance().getUser();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string user = 5;</code>
+       * @param value The bytes for user to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        bitField0_ |= 0x00000004;
+        user_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proxy.EmbeddingsReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:proxy.EmbeddingsReq)
+    private static final com.volcengine.model.maas.api.Api.EmbeddingsReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.volcengine.model.maas.api.Api.EmbeddingsReq();
+    }
+
+    public static com.volcengine.model.maas.api.Api.EmbeddingsReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<EmbeddingsReq>
+        PARSER = new com.google.protobuf.AbstractParser<EmbeddingsReq>() {
+      @java.lang.Override
+      public EmbeddingsReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<EmbeddingsReq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<EmbeddingsReq> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.EmbeddingsReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface EmbeddingOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proxy.Embedding)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 index = 1;</code>
+     * @return The index.
+     */
+    long getIndex();
+
+    /**
+     * <code>repeated double embedding = 2;</code>
+     * @return A list containing the embedding.
+     */
+    java.util.List<java.lang.Double> getEmbeddingList();
+    /**
+     * <code>repeated double embedding = 2;</code>
+     * @return The count of embedding.
+     */
+    int getEmbeddingCount();
+    /**
+     * <code>repeated double embedding = 2;</code>
+     * @param index The index of the element to return.
+     * @return The embedding at the given index.
+     */
+    double getEmbedding(int index);
+
+    /**
+     * <code>string object = 3;</code>
+     * @return The object.
+     */
+    java.lang.String getObject();
+    /**
+     * <code>string object = 3;</code>
+     * @return The bytes for object.
+     */
+    com.google.protobuf.ByteString
+        getObjectBytes();
+  }
+  /**
+   * Protobuf type {@code proxy.Embedding}
+   */
+  public static final class Embedding extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proxy.Embedding)
+      EmbeddingOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Embedding.newBuilder() to construct.
+    private Embedding(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Embedding() {
+      embedding_ = emptyDoubleList();
+      object_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Embedding();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_Embedding_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_Embedding_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.volcengine.model.maas.api.Api.Embedding.class, com.volcengine.model.maas.api.Api.Embedding.Builder.class);
+    }
+
+    public static final int INDEX_FIELD_NUMBER = 1;
+    private long index_;
+    /**
+     * <code>int64 index = 1;</code>
+     * @return The index.
+     */
+    @java.lang.Override
+    public long getIndex() {
+      return index_;
+    }
+
+    public static final int EMBEDDING_FIELD_NUMBER = 2;
+    private com.google.protobuf.Internal.DoubleList embedding_;
+    /**
+     * <code>repeated double embedding = 2;</code>
+     * @return A list containing the embedding.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Double>
+        getEmbeddingList() {
+      return embedding_;
+    }
+    /**
+     * <code>repeated double embedding = 2;</code>
+     * @return The count of embedding.
+     */
+    public int getEmbeddingCount() {
+      return embedding_.size();
+    }
+    /**
+     * <code>repeated double embedding = 2;</code>
+     * @param index The index of the element to return.
+     * @return The embedding at the given index.
+     */
+    public double getEmbedding(int index) {
+      return embedding_.getDouble(index);
+    }
+    private int embeddingMemoizedSerializedSize = -1;
+
+    public static final int OBJECT_FIELD_NUMBER = 3;
+    private volatile java.lang.Object object_;
+    /**
+     * <code>string object = 3;</code>
+     * @return The object.
+     */
+    @java.lang.Override
+    public java.lang.String getObject() {
+      java.lang.Object ref = object_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        object_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string object = 3;</code>
+     * @return The bytes for object.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getObjectBytes() {
+      java.lang.Object ref = object_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        object_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (index_ != 0L) {
+        output.writeInt64(1, index_);
+      }
+      if (getEmbeddingList().size() > 0) {
+        output.writeUInt32NoTag(18);
+        output.writeUInt32NoTag(embeddingMemoizedSerializedSize);
+      }
+      for (int i = 0; i < embedding_.size(); i++) {
+        output.writeDoubleNoTag(embedding_.getDouble(i));
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(object_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, object_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (index_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, index_);
+      }
+      {
+        int dataSize = 0;
+        dataSize = 8 * getEmbeddingList().size();
+        size += dataSize;
+        if (!getEmbeddingList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        embeddingMemoizedSerializedSize = dataSize;
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(object_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, object_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.volcengine.model.maas.api.Api.Embedding)) {
+        return super.equals(obj);
+      }
+      com.volcengine.model.maas.api.Api.Embedding other = (com.volcengine.model.maas.api.Api.Embedding) obj;
+
+      if (getIndex()
+          != other.getIndex()) return false;
+      if (!getEmbeddingList()
+          .equals(other.getEmbeddingList())) return false;
+      if (!getObject()
+          .equals(other.getObject())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + INDEX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getIndex());
+      if (getEmbeddingCount() > 0) {
+        hash = (37 * hash) + EMBEDDING_FIELD_NUMBER;
+        hash = (53 * hash) + getEmbeddingList().hashCode();
+      }
+      hash = (37 * hash) + OBJECT_FIELD_NUMBER;
+      hash = (53 * hash) + getObject().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.volcengine.model.maas.api.Api.Embedding parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.Embedding parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.Embedding parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.Embedding parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.Embedding parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.Embedding parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.Embedding parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.Embedding parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.Embedding parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.Embedding parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.Embedding parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.Embedding parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.volcengine.model.maas.api.Api.Embedding prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proxy.Embedding}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proxy.Embedding)
+        com.volcengine.model.maas.api.Api.EmbeddingOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_Embedding_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_Embedding_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.volcengine.model.maas.api.Api.Embedding.class, com.volcengine.model.maas.api.Api.Embedding.Builder.class);
+      }
+
+      // Construct using com.volcengine.model.maas.api.Api.Embedding.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        index_ = 0L;
+
+        embedding_ = emptyDoubleList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        object_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_Embedding_descriptor;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.Embedding getDefaultInstanceForType() {
+        return com.volcengine.model.maas.api.Api.Embedding.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.Embedding build() {
+        com.volcengine.model.maas.api.Api.Embedding result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.Embedding buildPartial() {
+        com.volcengine.model.maas.api.Api.Embedding result = new com.volcengine.model.maas.api.Api.Embedding(this);
+        int from_bitField0_ = bitField0_;
+        result.index_ = index_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          embedding_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.embedding_ = embedding_;
+        result.object_ = object_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.volcengine.model.maas.api.Api.Embedding) {
+          return mergeFrom((com.volcengine.model.maas.api.Api.Embedding)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.volcengine.model.maas.api.Api.Embedding other) {
+        if (other == com.volcengine.model.maas.api.Api.Embedding.getDefaultInstance()) return this;
+        if (other.getIndex() != 0L) {
+          setIndex(other.getIndex());
+        }
+        if (!other.embedding_.isEmpty()) {
+          if (embedding_.isEmpty()) {
+            embedding_ = other.embedding_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureEmbeddingIsMutable();
+            embedding_.addAll(other.embedding_);
+          }
+          onChanged();
+        }
+        if (!other.getObject().isEmpty()) {
+          object_ = other.object_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                index_ = input.readInt64();
+
+                break;
+              } // case 8
+              case 17: {
+                double v = input.readDouble();
+                ensureEmbeddingIsMutable();
+                embedding_.addDouble(v);
+                break;
+              } // case 17
+              case 18: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureEmbeddingIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  embedding_.addDouble(input.readDouble());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 18
+              case 26: {
+                object_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private long index_ ;
+      /**
+       * <code>int64 index = 1;</code>
+       * @return The index.
+       */
+      @java.lang.Override
+      public long getIndex() {
+        return index_;
+      }
+      /**
+       * <code>int64 index = 1;</code>
+       * @param value The index to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIndex(long value) {
+        
+        index_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 index = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIndex() {
+        
+        index_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.DoubleList embedding_ = emptyDoubleList();
+      private void ensureEmbeddingIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          embedding_ = mutableCopy(embedding_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated double embedding = 2;</code>
+       * @return A list containing the embedding.
+       */
+      public java.util.List<java.lang.Double>
+          getEmbeddingList() {
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(embedding_) : embedding_;
+      }
+      /**
+       * <code>repeated double embedding = 2;</code>
+       * @return The count of embedding.
+       */
+      public int getEmbeddingCount() {
+        return embedding_.size();
+      }
+      /**
+       * <code>repeated double embedding = 2;</code>
+       * @param index The index of the element to return.
+       * @return The embedding at the given index.
+       */
+      public double getEmbedding(int index) {
+        return embedding_.getDouble(index);
+      }
+      /**
+       * <code>repeated double embedding = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The embedding to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEmbedding(
+          int index, double value) {
+        ensureEmbeddingIsMutable();
+        embedding_.setDouble(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated double embedding = 2;</code>
+       * @param value The embedding to add.
+       * @return This builder for chaining.
+       */
+      public Builder addEmbedding(double value) {
+        ensureEmbeddingIsMutable();
+        embedding_.addDouble(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated double embedding = 2;</code>
+       * @param values The embedding to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllEmbedding(
+          java.lang.Iterable<? extends java.lang.Double> values) {
+        ensureEmbeddingIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, embedding_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated double embedding = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEmbedding() {
+        embedding_ = emptyDoubleList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object object_ = "";
+      /**
+       * <code>string object = 3;</code>
+       * @return The object.
+       */
+      public java.lang.String getObject() {
+        java.lang.Object ref = object_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          object_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string object = 3;</code>
+       * @return The bytes for object.
+       */
+      public com.google.protobuf.ByteString
+          getObjectBytes() {
+        java.lang.Object ref = object_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          object_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string object = 3;</code>
+       * @param value The object to set.
+       * @return This builder for chaining.
+       */
+      public Builder setObject(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        object_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string object = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearObject() {
+        
+        object_ = getDefaultInstance().getObject();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string object = 3;</code>
+       * @param value The bytes for object to set.
+       * @return This builder for chaining.
+       */
+      public Builder setObjectBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        object_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proxy.Embedding)
+    }
+
+    // @@protoc_insertion_point(class_scope:proxy.Embedding)
+    private static final com.volcengine.model.maas.api.Api.Embedding DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.volcengine.model.maas.api.Api.Embedding();
+    }
+
+    public static com.volcengine.model.maas.api.Api.Embedding getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Embedding>
+        PARSER = new com.google.protobuf.AbstractParser<Embedding>() {
+      @java.lang.Override
+      public Embedding parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<Embedding> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Embedding> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.Embedding getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface EmbeddingsRespOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proxy.EmbeddingsResp)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string req_id = 1;</code>
+     * @return The reqId.
+     */
+    java.lang.String getReqId();
+    /**
+     * <code>string req_id = 1;</code>
+     * @return The bytes for reqId.
+     */
+    com.google.protobuf.ByteString
+        getReqIdBytes();
+
+    /**
+     * <code>string object = 2;</code>
+     * @return The object.
+     */
+    java.lang.String getObject();
+    /**
+     * <code>string object = 2;</code>
+     * @return The bytes for object.
+     */
+    com.google.protobuf.ByteString
+        getObjectBytes();
+
+    /**
+     * <code>repeated .proxy.Embedding data = 3;</code>
+     */
+    java.util.List<com.volcengine.model.maas.api.Api.Embedding> 
+        getDataList();
+    /**
+     * <code>repeated .proxy.Embedding data = 3;</code>
+     */
+    com.volcengine.model.maas.api.Api.Embedding getData(int index);
+    /**
+     * <code>repeated .proxy.Embedding data = 3;</code>
+     */
+    int getDataCount();
+    /**
+     * <code>repeated .proxy.Embedding data = 3;</code>
+     */
+    java.util.List<? extends com.volcengine.model.maas.api.Api.EmbeddingOrBuilder> 
+        getDataOrBuilderList();
+    /**
+     * <code>repeated .proxy.Embedding data = 3;</code>
+     */
+    com.volcengine.model.maas.api.Api.EmbeddingOrBuilder getDataOrBuilder(
+        int index);
+
+    /**
+     * <code>.proxy.Model model = 4;</code>
+     * @return Whether the model field is set.
+     */
+    boolean hasModel();
+    /**
+     * <code>.proxy.Model model = 4;</code>
+     * @return The model.
+     */
+    com.volcengine.model.maas.api.Api.Model getModel();
+    /**
+     * <code>.proxy.Model model = 4;</code>
+     */
+    com.volcengine.model.maas.api.Api.ModelOrBuilder getModelOrBuilder();
+
+    /**
+     * <code>.proxy.Usage usage = 5;</code>
+     * @return Whether the usage field is set.
+     */
+    boolean hasUsage();
+    /**
+     * <code>.proxy.Usage usage = 5;</code>
+     * @return The usage.
+     */
+    com.volcengine.model.maas.api.Api.Usage getUsage();
+    /**
+     * <code>.proxy.Usage usage = 5;</code>
+     */
+    com.volcengine.model.maas.api.Api.UsageOrBuilder getUsageOrBuilder();
+
+    /**
+     * <code>.proxy.Error error = 6;</code>
+     * @return Whether the error field is set.
+     */
+    boolean hasError();
+    /**
+     * <code>.proxy.Error error = 6;</code>
+     * @return The error.
+     */
+    com.volcengine.model.maas.api.Api.Error getError();
+    /**
+     * <code>.proxy.Error error = 6;</code>
+     */
+    com.volcengine.model.maas.api.Api.ErrorOrBuilder getErrorOrBuilder();
+  }
+  /**
+   * Protobuf type {@code proxy.EmbeddingsResp}
+   */
+  public static final class EmbeddingsResp extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proxy.EmbeddingsResp)
+      EmbeddingsRespOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use EmbeddingsResp.newBuilder() to construct.
+    private EmbeddingsResp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private EmbeddingsResp() {
+      reqId_ = "";
+      object_ = "";
+      data_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new EmbeddingsResp();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_EmbeddingsResp_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.volcengine.model.maas.api.Api.internal_static_proxy_EmbeddingsResp_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.volcengine.model.maas.api.Api.EmbeddingsResp.class, com.volcengine.model.maas.api.Api.EmbeddingsResp.Builder.class);
+    }
+
+    public static final int REQ_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object reqId_;
+    /**
+     * <code>string req_id = 1;</code>
+     * @return The reqId.
+     */
+    @java.lang.Override
+    public java.lang.String getReqId() {
+      java.lang.Object ref = reqId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        reqId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string req_id = 1;</code>
+     * @return The bytes for reqId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getReqIdBytes() {
+      java.lang.Object ref = reqId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        reqId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int OBJECT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object object_;
+    /**
+     * <code>string object = 2;</code>
+     * @return The object.
+     */
+    @java.lang.Override
+    public java.lang.String getObject() {
+      java.lang.Object ref = object_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        object_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string object = 2;</code>
+     * @return The bytes for object.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getObjectBytes() {
+      java.lang.Object ref = object_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        object_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DATA_FIELD_NUMBER = 3;
+    private java.util.List<com.volcengine.model.maas.api.Api.Embedding> data_;
+    /**
+     * <code>repeated .proxy.Embedding data = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.volcengine.model.maas.api.Api.Embedding> getDataList() {
+      return data_;
+    }
+    /**
+     * <code>repeated .proxy.Embedding data = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.volcengine.model.maas.api.Api.EmbeddingOrBuilder> 
+        getDataOrBuilderList() {
+      return data_;
+    }
+    /**
+     * <code>repeated .proxy.Embedding data = 3;</code>
+     */
+    @java.lang.Override
+    public int getDataCount() {
+      return data_.size();
+    }
+    /**
+     * <code>repeated .proxy.Embedding data = 3;</code>
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.Embedding getData(int index) {
+      return data_.get(index);
+    }
+    /**
+     * <code>repeated .proxy.Embedding data = 3;</code>
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.EmbeddingOrBuilder getDataOrBuilder(
+        int index) {
+      return data_.get(index);
+    }
+
+    public static final int MODEL_FIELD_NUMBER = 4;
+    private com.volcengine.model.maas.api.Api.Model model_;
+    /**
+     * <code>.proxy.Model model = 4;</code>
+     * @return Whether the model field is set.
+     */
+    @java.lang.Override
+    public boolean hasModel() {
+      return model_ != null;
+    }
+    /**
+     * <code>.proxy.Model model = 4;</code>
+     * @return The model.
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.Model getModel() {
+      return model_ == null ? com.volcengine.model.maas.api.Api.Model.getDefaultInstance() : model_;
+    }
+    /**
+     * <code>.proxy.Model model = 4;</code>
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.ModelOrBuilder getModelOrBuilder() {
+      return getModel();
+    }
+
+    public static final int USAGE_FIELD_NUMBER = 5;
+    private com.volcengine.model.maas.api.Api.Usage usage_;
+    /**
+     * <code>.proxy.Usage usage = 5;</code>
+     * @return Whether the usage field is set.
+     */
+    @java.lang.Override
+    public boolean hasUsage() {
+      return usage_ != null;
+    }
+    /**
+     * <code>.proxy.Usage usage = 5;</code>
+     * @return The usage.
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.Usage getUsage() {
+      return usage_ == null ? com.volcengine.model.maas.api.Api.Usage.getDefaultInstance() : usage_;
+    }
+    /**
+     * <code>.proxy.Usage usage = 5;</code>
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.UsageOrBuilder getUsageOrBuilder() {
+      return getUsage();
+    }
+
+    public static final int ERROR_FIELD_NUMBER = 6;
+    private com.volcengine.model.maas.api.Api.Error error_;
+    /**
+     * <code>.proxy.Error error = 6;</code>
+     * @return Whether the error field is set.
+     */
+    @java.lang.Override
+    public boolean hasError() {
+      return error_ != null;
+    }
+    /**
+     * <code>.proxy.Error error = 6;</code>
+     * @return The error.
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.Error getError() {
+      return error_ == null ? com.volcengine.model.maas.api.Api.Error.getDefaultInstance() : error_;
+    }
+    /**
+     * <code>.proxy.Error error = 6;</code>
+     */
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.ErrorOrBuilder getErrorOrBuilder() {
+      return getError();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, reqId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(object_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, object_);
+      }
+      for (int i = 0; i < data_.size(); i++) {
+        output.writeMessage(3, data_.get(i));
+      }
+      if (model_ != null) {
+        output.writeMessage(4, getModel());
+      }
+      if (usage_ != null) {
+        output.writeMessage(5, getUsage());
+      }
+      if (error_ != null) {
+        output.writeMessage(6, getError());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, reqId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(object_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, object_);
+      }
+      for (int i = 0; i < data_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, data_.get(i));
+      }
+      if (model_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getModel());
+      }
+      if (usage_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getUsage());
+      }
+      if (error_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getError());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.volcengine.model.maas.api.Api.EmbeddingsResp)) {
+        return super.equals(obj);
+      }
+      com.volcengine.model.maas.api.Api.EmbeddingsResp other = (com.volcengine.model.maas.api.Api.EmbeddingsResp) obj;
+
+      if (!getReqId()
+          .equals(other.getReqId())) return false;
+      if (!getObject()
+          .equals(other.getObject())) return false;
+      if (!getDataList()
+          .equals(other.getDataList())) return false;
+      if (hasModel() != other.hasModel()) return false;
+      if (hasModel()) {
+        if (!getModel()
+            .equals(other.getModel())) return false;
+      }
+      if (hasUsage() != other.hasUsage()) return false;
+      if (hasUsage()) {
+        if (!getUsage()
+            .equals(other.getUsage())) return false;
+      }
+      if (hasError() != other.hasError()) return false;
+      if (hasError()) {
+        if (!getError()
+            .equals(other.getError())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + REQ_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getReqId().hashCode();
+      hash = (37 * hash) + OBJECT_FIELD_NUMBER;
+      hash = (53 * hash) + getObject().hashCode();
+      if (getDataCount() > 0) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getDataList().hashCode();
+      }
+      if (hasModel()) {
+        hash = (37 * hash) + MODEL_FIELD_NUMBER;
+        hash = (53 * hash) + getModel().hashCode();
+      }
+      if (hasUsage()) {
+        hash = (37 * hash) + USAGE_FIELD_NUMBER;
+        hash = (53 * hash) + getUsage().hashCode();
+      }
+      if (hasError()) {
+        hash = (37 * hash) + ERROR_FIELD_NUMBER;
+        hash = (53 * hash) + getError().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.volcengine.model.maas.api.Api.EmbeddingsResp parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsResp parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsResp parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsResp parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsResp parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsResp parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsResp parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsResp parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsResp parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsResp parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsResp parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.volcengine.model.maas.api.Api.EmbeddingsResp parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.volcengine.model.maas.api.Api.EmbeddingsResp prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proxy.EmbeddingsResp}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proxy.EmbeddingsResp)
+        com.volcengine.model.maas.api.Api.EmbeddingsRespOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_EmbeddingsResp_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_EmbeddingsResp_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.volcengine.model.maas.api.Api.EmbeddingsResp.class, com.volcengine.model.maas.api.Api.EmbeddingsResp.Builder.class);
+      }
+
+      // Construct using com.volcengine.model.maas.api.Api.EmbeddingsResp.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        reqId_ = "";
+
+        object_ = "";
+
+        if (dataBuilder_ == null) {
+          data_ = java.util.Collections.emptyList();
+        } else {
+          data_ = null;
+          dataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (modelBuilder_ == null) {
+          model_ = null;
+        } else {
+          model_ = null;
+          modelBuilder_ = null;
+        }
+        if (usageBuilder_ == null) {
+          usage_ = null;
+        } else {
+          usage_ = null;
+          usageBuilder_ = null;
+        }
+        if (errorBuilder_ == null) {
+          error_ = null;
+        } else {
+          error_ = null;
+          errorBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.volcengine.model.maas.api.Api.internal_static_proxy_EmbeddingsResp_descriptor;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.EmbeddingsResp getDefaultInstanceForType() {
+        return com.volcengine.model.maas.api.Api.EmbeddingsResp.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.EmbeddingsResp build() {
+        com.volcengine.model.maas.api.Api.EmbeddingsResp result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.volcengine.model.maas.api.Api.EmbeddingsResp buildPartial() {
+        com.volcengine.model.maas.api.Api.EmbeddingsResp result = new com.volcengine.model.maas.api.Api.EmbeddingsResp(this);
+        int from_bitField0_ = bitField0_;
+        result.reqId_ = reqId_;
+        result.object_ = object_;
+        if (dataBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            data_ = java.util.Collections.unmodifiableList(data_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.data_ = data_;
+        } else {
+          result.data_ = dataBuilder_.build();
+        }
+        if (modelBuilder_ == null) {
+          result.model_ = model_;
+        } else {
+          result.model_ = modelBuilder_.build();
+        }
+        if (usageBuilder_ == null) {
+          result.usage_ = usage_;
+        } else {
+          result.usage_ = usageBuilder_.build();
+        }
+        if (errorBuilder_ == null) {
+          result.error_ = error_;
+        } else {
+          result.error_ = errorBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.volcengine.model.maas.api.Api.EmbeddingsResp) {
+          return mergeFrom((com.volcengine.model.maas.api.Api.EmbeddingsResp)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.volcengine.model.maas.api.Api.EmbeddingsResp other) {
+        if (other == com.volcengine.model.maas.api.Api.EmbeddingsResp.getDefaultInstance()) return this;
+        if (!other.getReqId().isEmpty()) {
+          reqId_ = other.reqId_;
+          onChanged();
+        }
+        if (!other.getObject().isEmpty()) {
+          object_ = other.object_;
+          onChanged();
+        }
+        if (dataBuilder_ == null) {
+          if (!other.data_.isEmpty()) {
+            if (data_.isEmpty()) {
+              data_ = other.data_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureDataIsMutable();
+              data_.addAll(other.data_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.data_.isEmpty()) {
+            if (dataBuilder_.isEmpty()) {
+              dataBuilder_.dispose();
+              dataBuilder_ = null;
+              data_ = other.data_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              dataBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getDataFieldBuilder() : null;
+            } else {
+              dataBuilder_.addAllMessages(other.data_);
+            }
+          }
+        }
+        if (other.hasModel()) {
+          mergeModel(other.getModel());
+        }
+        if (other.hasUsage()) {
+          mergeUsage(other.getUsage());
+        }
+        if (other.hasError()) {
+          mergeError(other.getError());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                reqId_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              case 18: {
+                object_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 18
+              case 26: {
+                com.volcengine.model.maas.api.Api.Embedding m =
+                    input.readMessage(
+                        com.volcengine.model.maas.api.Api.Embedding.parser(),
+                        extensionRegistry);
+                if (dataBuilder_ == null) {
+                  ensureDataIsMutable();
+                  data_.add(m);
+                } else {
+                  dataBuilder_.addMessage(m);
+                }
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getModelFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getUsageFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 42
+              case 50: {
+                input.readMessage(
+                    getErrorFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 50
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object reqId_ = "";
+      /**
+       * <code>string req_id = 1;</code>
+       * @return The reqId.
+       */
+      public java.lang.String getReqId() {
+        java.lang.Object ref = reqId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          reqId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string req_id = 1;</code>
+       * @return The bytes for reqId.
+       */
+      public com.google.protobuf.ByteString
+          getReqIdBytes() {
+        java.lang.Object ref = reqId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          reqId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string req_id = 1;</code>
+       * @param value The reqId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReqId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        reqId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string req_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReqId() {
+        
+        reqId_ = getDefaultInstance().getReqId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string req_id = 1;</code>
+       * @param value The bytes for reqId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReqIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        reqId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object object_ = "";
+      /**
+       * <code>string object = 2;</code>
+       * @return The object.
+       */
+      public java.lang.String getObject() {
+        java.lang.Object ref = object_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          object_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string object = 2;</code>
+       * @return The bytes for object.
+       */
+      public com.google.protobuf.ByteString
+          getObjectBytes() {
+        java.lang.Object ref = object_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          object_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string object = 2;</code>
+       * @param value The object to set.
+       * @return This builder for chaining.
+       */
+      public Builder setObject(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        object_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string object = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearObject() {
+        
+        object_ = getDefaultInstance().getObject();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string object = 2;</code>
+       * @param value The bytes for object to set.
+       * @return This builder for chaining.
+       */
+      public Builder setObjectBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        object_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<com.volcengine.model.maas.api.Api.Embedding> data_ =
+        java.util.Collections.emptyList();
+      private void ensureDataIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          data_ = new java.util.ArrayList<com.volcengine.model.maas.api.Api.Embedding>(data_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Embedding, com.volcengine.model.maas.api.Api.Embedding.Builder, com.volcengine.model.maas.api.Api.EmbeddingOrBuilder> dataBuilder_;
+
+      /**
+       * <code>repeated .proxy.Embedding data = 3;</code>
+       */
+      public java.util.List<com.volcengine.model.maas.api.Api.Embedding> getDataList() {
+        if (dataBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(data_);
+        } else {
+          return dataBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .proxy.Embedding data = 3;</code>
+       */
+      public int getDataCount() {
+        if (dataBuilder_ == null) {
+          return data_.size();
+        } else {
+          return dataBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .proxy.Embedding data = 3;</code>
+       */
+      public com.volcengine.model.maas.api.Api.Embedding getData(int index) {
+        if (dataBuilder_ == null) {
+          return data_.get(index);
+        } else {
+          return dataBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .proxy.Embedding data = 3;</code>
+       */
+      public Builder setData(
+          int index, com.volcengine.model.maas.api.Api.Embedding value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDataIsMutable();
+          data_.set(index, value);
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proxy.Embedding data = 3;</code>
+       */
+      public Builder setData(
+          int index, com.volcengine.model.maas.api.Api.Embedding.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          data_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proxy.Embedding data = 3;</code>
+       */
+      public Builder addData(com.volcengine.model.maas.api.Api.Embedding value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDataIsMutable();
+          data_.add(value);
+          onChanged();
+        } else {
+          dataBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proxy.Embedding data = 3;</code>
+       */
+      public Builder addData(
+          int index, com.volcengine.model.maas.api.Api.Embedding value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDataIsMutable();
+          data_.add(index, value);
+          onChanged();
+        } else {
+          dataBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proxy.Embedding data = 3;</code>
+       */
+      public Builder addData(
+          com.volcengine.model.maas.api.Api.Embedding.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          data_.add(builderForValue.build());
+          onChanged();
+        } else {
+          dataBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proxy.Embedding data = 3;</code>
+       */
+      public Builder addData(
+          int index, com.volcengine.model.maas.api.Api.Embedding.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          data_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          dataBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proxy.Embedding data = 3;</code>
+       */
+      public Builder addAllData(
+          java.lang.Iterable<? extends com.volcengine.model.maas.api.Api.Embedding> values) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, data_);
+          onChanged();
+        } else {
+          dataBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proxy.Embedding data = 3;</code>
+       */
+      public Builder clearData() {
+        if (dataBuilder_ == null) {
+          data_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          dataBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proxy.Embedding data = 3;</code>
+       */
+      public Builder removeData(int index) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          data_.remove(index);
+          onChanged();
+        } else {
+          dataBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proxy.Embedding data = 3;</code>
+       */
+      public com.volcengine.model.maas.api.Api.Embedding.Builder getDataBuilder(
+          int index) {
+        return getDataFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .proxy.Embedding data = 3;</code>
+       */
+      public com.volcengine.model.maas.api.Api.EmbeddingOrBuilder getDataOrBuilder(
+          int index) {
+        if (dataBuilder_ == null) {
+          return data_.get(index);  } else {
+          return dataBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .proxy.Embedding data = 3;</code>
+       */
+      public java.util.List<? extends com.volcengine.model.maas.api.Api.EmbeddingOrBuilder> 
+           getDataOrBuilderList() {
+        if (dataBuilder_ != null) {
+          return dataBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(data_);
+        }
+      }
+      /**
+       * <code>repeated .proxy.Embedding data = 3;</code>
+       */
+      public com.volcengine.model.maas.api.Api.Embedding.Builder addDataBuilder() {
+        return getDataFieldBuilder().addBuilder(
+            com.volcengine.model.maas.api.Api.Embedding.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .proxy.Embedding data = 3;</code>
+       */
+      public com.volcengine.model.maas.api.Api.Embedding.Builder addDataBuilder(
+          int index) {
+        return getDataFieldBuilder().addBuilder(
+            index, com.volcengine.model.maas.api.Api.Embedding.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .proxy.Embedding data = 3;</code>
+       */
+      public java.util.List<com.volcengine.model.maas.api.Api.Embedding.Builder> 
+           getDataBuilderList() {
+        return getDataFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Embedding, com.volcengine.model.maas.api.Api.Embedding.Builder, com.volcengine.model.maas.api.Api.EmbeddingOrBuilder> 
+          getDataFieldBuilder() {
+        if (dataBuilder_ == null) {
+          dataBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.volcengine.model.maas.api.Api.Embedding, com.volcengine.model.maas.api.Api.Embedding.Builder, com.volcengine.model.maas.api.Api.EmbeddingOrBuilder>(
+                  data_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        return dataBuilder_;
+      }
+
+      private com.volcengine.model.maas.api.Api.Model model_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder> modelBuilder_;
+      /**
+       * <code>.proxy.Model model = 4;</code>
+       * @return Whether the model field is set.
+       */
+      public boolean hasModel() {
+        return modelBuilder_ != null || model_ != null;
+      }
+      /**
+       * <code>.proxy.Model model = 4;</code>
+       * @return The model.
+       */
+      public com.volcengine.model.maas.api.Api.Model getModel() {
+        if (modelBuilder_ == null) {
+          return model_ == null ? com.volcengine.model.maas.api.Api.Model.getDefaultInstance() : model_;
+        } else {
+          return modelBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.proxy.Model model = 4;</code>
+       */
+      public Builder setModel(com.volcengine.model.maas.api.Api.Model value) {
+        if (modelBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          model_ = value;
+          onChanged();
+        } else {
+          modelBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Model model = 4;</code>
+       */
+      public Builder setModel(
+          com.volcengine.model.maas.api.Api.Model.Builder builderForValue) {
+        if (modelBuilder_ == null) {
+          model_ = builderForValue.build();
+          onChanged();
+        } else {
+          modelBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Model model = 4;</code>
+       */
+      public Builder mergeModel(com.volcengine.model.maas.api.Api.Model value) {
+        if (modelBuilder_ == null) {
+          if (model_ != null) {
+            model_ =
+              com.volcengine.model.maas.api.Api.Model.newBuilder(model_).mergeFrom(value).buildPartial();
+          } else {
+            model_ = value;
+          }
+          onChanged();
+        } else {
+          modelBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Model model = 4;</code>
+       */
+      public Builder clearModel() {
+        if (modelBuilder_ == null) {
+          model_ = null;
+          onChanged();
+        } else {
+          model_ = null;
+          modelBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Model model = 4;</code>
+       */
+      public com.volcengine.model.maas.api.Api.Model.Builder getModelBuilder() {
+        
+        onChanged();
+        return getModelFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.proxy.Model model = 4;</code>
+       */
+      public com.volcengine.model.maas.api.Api.ModelOrBuilder getModelOrBuilder() {
+        if (modelBuilder_ != null) {
+          return modelBuilder_.getMessageOrBuilder();
+        } else {
+          return model_ == null ?
+              com.volcengine.model.maas.api.Api.Model.getDefaultInstance() : model_;
+        }
+      }
+      /**
+       * <code>.proxy.Model model = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder> 
+          getModelFieldBuilder() {
+        if (modelBuilder_ == null) {
+          modelBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.volcengine.model.maas.api.Api.Model, com.volcengine.model.maas.api.Api.Model.Builder, com.volcengine.model.maas.api.Api.ModelOrBuilder>(
+                  getModel(),
+                  getParentForChildren(),
+                  isClean());
+          model_ = null;
+        }
+        return modelBuilder_;
+      }
+
+      private com.volcengine.model.maas.api.Api.Usage usage_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Usage, com.volcengine.model.maas.api.Api.Usage.Builder, com.volcengine.model.maas.api.Api.UsageOrBuilder> usageBuilder_;
+      /**
+       * <code>.proxy.Usage usage = 5;</code>
+       * @return Whether the usage field is set.
+       */
+      public boolean hasUsage() {
+        return usageBuilder_ != null || usage_ != null;
+      }
+      /**
+       * <code>.proxy.Usage usage = 5;</code>
+       * @return The usage.
+       */
+      public com.volcengine.model.maas.api.Api.Usage getUsage() {
+        if (usageBuilder_ == null) {
+          return usage_ == null ? com.volcengine.model.maas.api.Api.Usage.getDefaultInstance() : usage_;
+        } else {
+          return usageBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.proxy.Usage usage = 5;</code>
+       */
+      public Builder setUsage(com.volcengine.model.maas.api.Api.Usage value) {
+        if (usageBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          usage_ = value;
+          onChanged();
+        } else {
+          usageBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Usage usage = 5;</code>
+       */
+      public Builder setUsage(
+          com.volcengine.model.maas.api.Api.Usage.Builder builderForValue) {
+        if (usageBuilder_ == null) {
+          usage_ = builderForValue.build();
+          onChanged();
+        } else {
+          usageBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Usage usage = 5;</code>
+       */
+      public Builder mergeUsage(com.volcengine.model.maas.api.Api.Usage value) {
+        if (usageBuilder_ == null) {
+          if (usage_ != null) {
+            usage_ =
+              com.volcengine.model.maas.api.Api.Usage.newBuilder(usage_).mergeFrom(value).buildPartial();
+          } else {
+            usage_ = value;
+          }
+          onChanged();
+        } else {
+          usageBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Usage usage = 5;</code>
+       */
+      public Builder clearUsage() {
+        if (usageBuilder_ == null) {
+          usage_ = null;
+          onChanged();
+        } else {
+          usage_ = null;
+          usageBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Usage usage = 5;</code>
+       */
+      public com.volcengine.model.maas.api.Api.Usage.Builder getUsageBuilder() {
+        
+        onChanged();
+        return getUsageFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.proxy.Usage usage = 5;</code>
+       */
+      public com.volcengine.model.maas.api.Api.UsageOrBuilder getUsageOrBuilder() {
+        if (usageBuilder_ != null) {
+          return usageBuilder_.getMessageOrBuilder();
+        } else {
+          return usage_ == null ?
+              com.volcengine.model.maas.api.Api.Usage.getDefaultInstance() : usage_;
+        }
+      }
+      /**
+       * <code>.proxy.Usage usage = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Usage, com.volcengine.model.maas.api.Api.Usage.Builder, com.volcengine.model.maas.api.Api.UsageOrBuilder> 
+          getUsageFieldBuilder() {
+        if (usageBuilder_ == null) {
+          usageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.volcengine.model.maas.api.Api.Usage, com.volcengine.model.maas.api.Api.Usage.Builder, com.volcengine.model.maas.api.Api.UsageOrBuilder>(
+                  getUsage(),
+                  getParentForChildren(),
+                  isClean());
+          usage_ = null;
+        }
+        return usageBuilder_;
+      }
+
+      private com.volcengine.model.maas.api.Api.Error error_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Error, com.volcengine.model.maas.api.Api.Error.Builder, com.volcengine.model.maas.api.Api.ErrorOrBuilder> errorBuilder_;
+      /**
+       * <code>.proxy.Error error = 6;</code>
+       * @return Whether the error field is set.
+       */
+      public boolean hasError() {
+        return errorBuilder_ != null || error_ != null;
+      }
+      /**
+       * <code>.proxy.Error error = 6;</code>
+       * @return The error.
+       */
+      public com.volcengine.model.maas.api.Api.Error getError() {
+        if (errorBuilder_ == null) {
+          return error_ == null ? com.volcengine.model.maas.api.Api.Error.getDefaultInstance() : error_;
+        } else {
+          return errorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.proxy.Error error = 6;</code>
+       */
+      public Builder setError(com.volcengine.model.maas.api.Api.Error value) {
+        if (errorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          error_ = value;
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Error error = 6;</code>
+       */
+      public Builder setError(
+          com.volcengine.model.maas.api.Api.Error.Builder builderForValue) {
+        if (errorBuilder_ == null) {
+          error_ = builderForValue.build();
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Error error = 6;</code>
+       */
+      public Builder mergeError(com.volcengine.model.maas.api.Api.Error value) {
+        if (errorBuilder_ == null) {
+          if (error_ != null) {
+            error_ =
+              com.volcengine.model.maas.api.Api.Error.newBuilder(error_).mergeFrom(value).buildPartial();
+          } else {
+            error_ = value;
+          }
+          onChanged();
+        } else {
+          errorBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Error error = 6;</code>
+       */
+      public Builder clearError() {
+        if (errorBuilder_ == null) {
+          error_ = null;
+          onChanged();
+        } else {
+          error_ = null;
+          errorBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.proxy.Error error = 6;</code>
+       */
+      public com.volcengine.model.maas.api.Api.Error.Builder getErrorBuilder() {
+        
+        onChanged();
+        return getErrorFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.proxy.Error error = 6;</code>
+       */
+      public com.volcengine.model.maas.api.Api.ErrorOrBuilder getErrorOrBuilder() {
+        if (errorBuilder_ != null) {
+          return errorBuilder_.getMessageOrBuilder();
+        } else {
+          return error_ == null ?
+              com.volcengine.model.maas.api.Api.Error.getDefaultInstance() : error_;
+        }
+      }
+      /**
+       * <code>.proxy.Error error = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.volcengine.model.maas.api.Api.Error, com.volcengine.model.maas.api.Api.Error.Builder, com.volcengine.model.maas.api.Api.ErrorOrBuilder> 
+          getErrorFieldBuilder() {
+        if (errorBuilder_ == null) {
+          errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.volcengine.model.maas.api.Api.Error, com.volcengine.model.maas.api.Api.Error.Builder, com.volcengine.model.maas.api.Api.ErrorOrBuilder>(
+                  getError(),
+                  getParentForChildren(),
+                  isClean());
+          error_ = null;
+        }
+        return errorBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proxy.EmbeddingsResp)
+    }
+
+    // @@protoc_insertion_point(class_scope:proxy.EmbeddingsResp)
+    private static final com.volcengine.model.maas.api.Api.EmbeddingsResp DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.volcengine.model.maas.api.Api.EmbeddingsResp();
+    }
+
+    public static com.volcengine.model.maas.api.Api.EmbeddingsResp getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<EmbeddingsResp>
+        PARSER = new com.google.protobuf.AbstractParser<EmbeddingsResp>() {
+      @java.lang.Override
+      public EmbeddingsResp parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<EmbeddingsResp> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<EmbeddingsResp> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.volcengine.model.maas.api.Api.EmbeddingsResp getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_proxy_FunctionCall_descriptor;
   private static final 
@@ -25187,6 +28974,21 @@ java.lang.String defaultValue);
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_proxy_CertResp_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proxy_EmbeddingsReq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proxy_EmbeddingsReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proxy_Embedding_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proxy_Embedding_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proxy_EmbeddingsResp_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proxy_EmbeddingsResp_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -25267,18 +29069,29 @@ java.lang.String defaultValue);
       "ExtraEntry\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
       "\005value\030\002 \001(\t:\0028\001\"&\n\007CertReq\022\033\n\005model\030\001 \001" +
       "(\0132\014.proxy.Model\"5\n\010CertResp\022\033\n\005model\030\001 " +
-      "\001(\0132\014.proxy.Model\022\014\n\004cert\030\002 \001(\t2\264\002\n\nAPIS" +
-      "ervice\0228\n\004Chat\022\016.proxy.ChatReq\032\017.proxy.C" +
-      "hatResp\"\017\322\301\030\013api/v1/chat\0228\n\004Cert\022\016.proxy" +
-      ".CertReq\032\017.proxy.CertResp\"\017\322\301\030\013api/v1/ce" +
-      "rt\022P\n\014Tokenization\022\022.proxy.TokenizeReq\032\023" +
-      ".proxy.TokenizeResp\"\027\322\301\030\023api/v1/tokeniza" +
-      "tion\022`\n\016Classification\022\030.proxy.Classific" +
-      "ationReq\032\031.proxy.ClassificationResp\"\031\322\301\030" +
-      "\025api/v1/classificationBY\n\035com.volcengine" +
-      ".model.maas.apiB\003ApiZ3code.byted.org/dat" +
-      "a/llmflow/app/proxy/biz/model/apib\006proto" +
-      "3"
+      "\001(\0132\014.proxy.Model\022\014\n\004cert\030\002 \001(\t\"\231\001\n\rEmbe" +
+      "ddingsReq\022\016\n\006req_id\030\001 \001(\t\022\r\n\005input\030\002 \003(\t" +
+      "\022\033\n\005model\030\003 \001(\0132\014.proxy.Model\022\034\n\017encodin" +
+      "g_format\030\004 \001(\tH\000\210\001\001\022\021\n\004user\030\005 \001(\tH\001\210\001\001B\022" +
+      "\n\020_encoding_formatB\007\n\005_user\"=\n\tEmbedding" +
+      "\022\r\n\005index\030\001 \001(\003\022\021\n\tembedding\030\002 \003(\001\022\016\n\006ob" +
+      "ject\030\003 \001(\t\"\247\001\n\016EmbeddingsResp\022\016\n\006req_id\030" +
+      "\001 \001(\t\022\016\n\006object\030\002 \001(\t\022\036\n\004data\030\003 \003(\0132\020.pr" +
+      "oxy.Embedding\022\033\n\005model\030\004 \001(\0132\014.proxy.Mod" +
+      "el\022\033\n\005usage\030\005 \001(\0132\014.proxy.Usage\022\033\n\005error" +
+      "\030\006 \001(\0132\014.proxy.Error2\206\003\n\nAPIService\0228\n\004C" +
+      "hat\022\016.proxy.ChatReq\032\017.proxy.ChatResp\"\017\322\301" +
+      "\030\013api/v1/chat\0228\n\004Cert\022\016.proxy.CertReq\032\017." +
+      "proxy.CertResp\"\017\322\301\030\013api/v1/cert\022P\n\014Token" +
+      "ization\022\022.proxy.TokenizeReq\032\023.proxy.Toke" +
+      "nizeResp\"\027\322\301\030\023api/v1/tokenization\022`\n\016Cla" +
+      "ssification\022\030.proxy.ClassificationReq\032\031." +
+      "proxy.ClassificationResp\"\031\322\301\030\025api/v1/cla" +
+      "ssification\022P\n\nEmbeddings\022\024.proxy.Embedd" +
+      "ingsReq\032\025.proxy.EmbeddingsResp\"\025\322\301\030\021api/" +
+      "v1/embeddingsBY\n\035com.volcengine.model.ma" +
+      "as.apiB\003ApiZ3code.byted.org/data/llmflow" +
+      "/app/proxy/biz/model/apib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -25436,6 +29249,24 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proxy_CertResp_descriptor,
         new java.lang.String[] { "Model", "Cert", });
+    internal_static_proxy_EmbeddingsReq_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_proxy_EmbeddingsReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proxy_EmbeddingsReq_descriptor,
+        new java.lang.String[] { "ReqId", "Input", "Model", "EncodingFormat", "User", "EncodingFormat", "User", });
+    internal_static_proxy_Embedding_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_proxy_Embedding_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proxy_Embedding_descriptor,
+        new java.lang.String[] { "Index", "Embedding", "Object", });
+    internal_static_proxy_EmbeddingsResp_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_proxy_EmbeddingsResp_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proxy_EmbeddingsResp_descriptor,
+        new java.lang.String[] { "ReqId", "Object", "Data", "Model", "Usage", "Error", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.volcengine.model.maas.Base.header);

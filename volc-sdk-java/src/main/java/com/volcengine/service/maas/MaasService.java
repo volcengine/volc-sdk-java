@@ -18,4 +18,6 @@ public interface MaasService extends IBaseService {
     Api.TokenizeResp tokenization(Api.TokenizeReq req) throws MaasException;
 
     Api.ClassificationResp classification(Api.ClassificationReq req) throws MaasException;
+
+    Api.EmbeddingsResp embeddings(Api.EmbeddingsReq req) throws MaasException;
 }

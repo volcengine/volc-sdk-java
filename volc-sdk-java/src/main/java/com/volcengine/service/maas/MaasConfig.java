@@ -52,6 +52,13 @@ public class MaasConfig {
                         put(Const.Path, "/api/v1/classification");
                     }
                 }));
+
+                put(Const.MaasApiEmbeddings, new ApiInfo(new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "post");
+                        put(Const.Path, "/api/v1/embeddings");
+                    }
+                }));
             }
         };
     }

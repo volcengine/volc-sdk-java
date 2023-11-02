@@ -130,6 +130,22 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
         return convertJsonBytesToClassificationResp(response.getData());
     }
 
+    @Override
+    public Api.EmbeddingsResp embeddings(Api.EmbeddingsReq req) throws MaasException {
+        RawResponse response = this.proto(Const.MaasApiEmbeddings, null, null, req.toByteArray(), null);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            Api.EmbeddingsResp resp;
+            try {
+                resp = convertJsonBytesToEmbeddingsResp(response.getException().getMessage().getBytes());
+            } catch (MaasException ignored) {
+                throw new MaasException(response.getException(), req.getReqId());
+            }
+            throw new MaasException(resp.getError(), resp.getReqId());
+        }
+
+        return convertJsonBytesToEmbeddingsResp(response.getData());
+    }
+
     private static Api.ChatResp convertJsonBytesToChatResp(byte[] data) throws MaasException {
         try {
             Api.ChatResp.Builder builder = Api.ChatResp.newBuilder();
@@ -160,4 +176,13 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
         }
     }
 
+    private static Api.EmbeddingsResp convertJsonBytesToEmbeddingsResp(byte[] data) throws MaasException {
+        try {
+            Api.EmbeddingsResp.Builder builder = Api.EmbeddingsResp.newBuilder();
+            JsonFormat.parser().ignoringUnknownFields().merge(new String(data, StandardCharsets.UTF_8), builder);
+            return builder.build();
+        } catch (InvalidProtocolBufferException e) {
+            throw new MaasException(e, "");
+        }
+    }
 }

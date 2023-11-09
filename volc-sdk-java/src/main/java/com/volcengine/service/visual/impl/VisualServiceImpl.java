@@ -707,5 +707,14 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), OverResolutionV2Response.class);
     }
+
+    @Override
+    public TupoCartoonResponse tupoCartoon(TupoCartoonRequest request) throws Exception {
+        RawResponse response = json(Const.TupoCartoon, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), TupoCartoonResponse.class);
+    }
 }
 

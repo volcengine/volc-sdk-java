@@ -1074,6 +1074,19 @@ public class VisualConfig {
                         });
                     }
                 }
+        ));put(Const.TupoCartoon, new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", Const.TupoCartoon));
+                                add(new BasicNameValuePair("Version", "2022-08-31"));
+                            }
+                        });
+                    }
+                }
         ));
         }
     };

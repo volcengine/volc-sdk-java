@@ -728,6 +728,7 @@ public class Const {
     public static final String VideoOverResolutionSubmitTaskV2 = "VideoOverResolutionSubmitTaskV2";
     public static final String VideoOverResolutionQueryTaskV2 = "VideoOverResolutionQueryTaskV2";
     public static final String OverResolutionV2 = "OverResolutionV2";
+    public static final String TupoCartoon = "TupoCartoon";
 
     // ipaas
     public static final String IPaasSDKService = "ipaas";

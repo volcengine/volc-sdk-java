@@ -17,6 +17,7 @@ public class JPCartoonDemo {
         
         VisualJPCartoonRequest req = new VisualJPCartoonRequest();
         req.setImageBase64("image_base64");
+        //req.setImageUrl("image_url");
         // req.setCartoonType("jpcartoon_head"); // jpcartoon_head | jpcartoon | hkcartoon
         // req.setRotation(1);
 

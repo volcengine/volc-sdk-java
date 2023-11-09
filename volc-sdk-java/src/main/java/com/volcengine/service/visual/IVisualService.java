@@ -536,5 +536,12 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     OverResolutionV2Response OverResolutionV2(OverResolutionV2Request request)throws Exception;
+    /**
+     * 卡通脸
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    TupoCartoonResponse tupoCartoon(TupoCartoonRequest request)throws Exception;
 
 }

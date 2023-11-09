@@ -7,7 +7,10 @@ import lombok.Data;
 public class VisualJPCartoonRequest {
     
     @JSONField(name = "image_base64")
-    String imageBase64;
+    String imageBase64="";
+
+    @JSONField(name = "image_url")
+    String imageUrl;
 
     @JSONField(name = "cartoon_type")
     String cartoonType="jpcartoon_head";

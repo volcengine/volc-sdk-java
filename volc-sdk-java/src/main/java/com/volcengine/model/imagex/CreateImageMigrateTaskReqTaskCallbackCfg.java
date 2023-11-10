@@ -10,5 +10,8 @@ public class CreateImageMigrateTaskReqTaskCallbackCfg {
 
     @JSONField(name = "Addr")
     private String addr;
+
+    @JSONField(name = "IncludeEntry")
+    private Boolean includeEntry;
 }
 

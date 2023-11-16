@@ -50,7 +50,6 @@ public class OCRApiDemo {
         action = "OCRCosmeticProduct"; // 化妆品生产许可证识别
         action = "OcrSeal";            // 印章识别
         action = "OcrTextAlignment";   // 合同校验
-        action = "OCRPdf";             // PDF识别
         action = "OCRTable";           // 表格识别
 
         try {

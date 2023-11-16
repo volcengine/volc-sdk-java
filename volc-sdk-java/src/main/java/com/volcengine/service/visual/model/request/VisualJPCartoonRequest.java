@@ -13,7 +13,7 @@ public class VisualJPCartoonRequest {
     String imageUrl;
 
     @JSONField(name = "cartoon_type")
-    String cartoonType="jpcartoon_head";
+    String cartoonType="jpcartoon";
 
     @JSONField(name = "rotation")
     Integer rotation = 0;

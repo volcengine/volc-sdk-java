@@ -125,14 +125,13 @@ public class Const {
 
     public static final String SubmitBlockTasks = "SubmitBlockTasks";
     public static final String GetContentBlockTasks = "GetContentBlockTasks";
+    public static final String ListFileMetaInfosByFileNames = "ListFileMetaInfosByFileNames";
 
     public static final String CreateDomain = "CreateDomain";
 
     public static final String UpdateDomainExpire = "UpdateDomainExpire";
 
     public static final String UpdateDomainAuthConfig = "UpdateDomainAuthConfig";
-
-    public static final String AddOrUpdateCertificate20230701 = "AddOrUpdateCertificate20230701";
 
     public static final String AddOrUpdateCertificate = "AddOrUpdateCertificate";
 

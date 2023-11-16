@@ -233,7 +233,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
     }
 
     private long checkAndGetFileSize(String filePath) throws Exception {
-            java.io.File file = new java.io.File(filePath);
+            File file = new File(filePath);
             if (!(file.isFile() && file.exists())) {
                 throw new Exception(com.volcengine.error.SdkError.getErrorDesc(com.volcengine.error.SdkError.ENOFILE));
             }
@@ -258,7 +258,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
     }
 
     private com.volcengine.model.beans.UploadCompleteInfo uploadToB(String spaceName, String filePath, String fileType, String fileName, String fileExtension, int storageClass, int uploadStrategy, com.volcengine.helper.VodUploadProgressListener listener) throws Exception {
-        java.io.File file = new java.io.File(filePath);
+        File file = new File(filePath);
         if (!(file.isFile() && file.exists())) {
             throw new Exception(com.volcengine.error.SdkError.getErrorDesc(com.volcengine.error.SdkError.ENOFILE));
         }
@@ -436,7 +436,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        VodServiceImpl.VodGetDirectEditProgressResponse resp = JSON.parseObject(response.getData(), VodServiceImpl.VodGetDirectEditProgressResponse.class);
+        VodGetDirectEditProgressResponse resp = JSON.parseObject(response.getData(), VodGetDirectEditProgressResponse.class);
         if (resp.result!=null){
             Result res = new Result();
             res.result = (Integer) resp.result;
@@ -624,6 +624,25 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * listFileMetaInfosByFileNames.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodListFileMetaInfosByFileNamesRequest
+     * @return com.volcengine.service.vod.model.response.VodListFileMetaInfosByFileNamesResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodListFileMetaInfosByFileNamesResponse listFileMetaInfosByFileNames(com.volcengine.service.vod.model.request.VodListFileMetaInfosByFileNamesRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.ListFileMetaInfosByFileNames, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodListFileMetaInfosByFileNamesResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodListFileMetaInfosByFileNamesResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}
@@ -1846,15 +1865,15 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 	
 	
 	/**
-     * addOrUpdateCertificate20230701.
+     * addOrUpdateCertificate.
      *
      * @param input com.volcengine.service.vod.model.request.AddOrUpdateCertificateV2Request
      * @return com.volcengine.service.vod.model.response.AddOrUpdateCertificateV2Response
      * @throws Exception the exception
      */
 	@Override
-	public com.volcengine.service.vod.model.response.AddOrUpdateCertificateV2Response addOrUpdateCertificate20230701(com.volcengine.service.vod.model.request.AddOrUpdateCertificateV2Request input) throws Exception {
-		com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.AddOrUpdateCertificate20230701, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+	public com.volcengine.service.vod.model.response.AddOrUpdateCertificateV2Response addOrUpdateCertificate(com.volcengine.service.vod.model.request.AddOrUpdateCertificateV2Request input) throws Exception {
+		com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.AddOrUpdateCertificate, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }

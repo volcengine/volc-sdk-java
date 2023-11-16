@@ -481,6 +481,8 @@ public interface IVisualService extends IBaseService {
      */
     String ocrApi(String actionName, JSONObject jsonObject) throws Exception;
 
+    String ocrAsyncApi(String actionName, JSONObject jsonObject) throws Exception;
+
 
     /**
      * 图像风格转换

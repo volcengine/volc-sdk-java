@@ -1061,7 +1061,8 @@ public class VisualConfig {
                             });
                         }
                     }
-            )); put(Const.OverResolutionV2, new ApiInfo(
+            ));
+            put(Const.OverResolutionV2, new ApiInfo(
                 new HashMap<String, Object>() {
                     {
                         put(Const.Method, "POST");
@@ -1074,7 +1075,8 @@ public class VisualConfig {
                         });
                     }
                 }
-        ));put(Const.TupoCartoon, new ApiInfo(
+            ));
+            put(Const.TupoCartoon, new ApiInfo(
                 new HashMap<String, Object>() {
                     {
                         put(Const.Method, "POST");
@@ -1087,7 +1089,35 @@ public class VisualConfig {
                         });
                     }
                 }
-        ));
+            ));
+            put(Const.OCRPdfSubmitTask, new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", Const.OCRPdfSubmitTask));
+                                add(new BasicNameValuePair("Version", "2021-08-23"));
+                            }
+                        });
+                    }
+                }
+            ));
+            put(Const.OCRPdfQueryTask, new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", Const.OCRPdfQueryTask));
+                                add(new BasicNameValuePair("Version", "2021-08-23"));
+                            }
+                        });
+                    }
+                }
+            ));
         }
     };
 }

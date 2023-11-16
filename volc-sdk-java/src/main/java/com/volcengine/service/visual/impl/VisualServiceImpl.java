@@ -623,6 +623,17 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         return new String(response.getData(), "UTF-8");
     }
 
+
+    @Override
+    public String ocrAsyncApi(String actionName, JSONObject jsonObject) throws Exception {
+        RawResponse response = json(actionName, null, JSON.toJSONString(jsonObject));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return new String(response.getData(), "UTF-8");
+    }
+
     private List<NameValuePair> convertNameValuePair(Object obj)
             throws IllegalArgumentException, IllegalAccessException {
         JSONObject jsonObject = (JSONObject) JSON.toJSON(obj);

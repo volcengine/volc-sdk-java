@@ -1138,6 +1138,21 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.ListFileMetaInfosByFileNames, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "POST");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListFileMetaInfosByFileNames));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.CreateDomain, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1183,7 +1198,7 @@ public class VodServiceConfig {
                         }
                     }
             ));
-            put(Const.AddOrUpdateCertificate20230701, new ApiInfo(
+            put(Const.AddOrUpdateCertificate, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(com.volcengine.helper.Const.Method, "POST");

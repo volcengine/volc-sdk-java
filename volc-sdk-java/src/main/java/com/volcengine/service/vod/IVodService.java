@@ -216,6 +216,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse commitUploadInfo(com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest input) throws Exception;
 	
 	/**
+     * listFileMetaInfosByFileNames.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodListFileMetaInfosByFileNamesRequest
+     * @return com.volcengine.service.vod.model.response.VodListFileMetaInfosByFileNamesResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodListFileMetaInfosByFileNamesResponse listFileMetaInfosByFileNames(com.volcengine.service.vod.model.request.VodListFileMetaInfosByFileNamesRequest input) throws Exception;
+	
+	/**
      * updateMediaInfo.
      *
      * @param input com.volcengine.service.vod.model.request.VodUpdateMediaInfoRequest
@@ -792,13 +801,13 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodUpdateDomainAuthConfigV2Response updateDomainAuthConfig(com.volcengine.service.vod.model.request.VodUpdateDomainAuthConfigV2Request input) throws Exception;
 	
 	/**
-     * addOrUpdateCertificate20230701.
+     * addOrUpdateCertificate.
      *
      * @param input com.volcengine.service.vod.model.request.AddOrUpdateCertificateV2Request
      * @return com.volcengine.service.vod.model.response.AddOrUpdateCertificateV2Response
      * @throws Exception the exception
      */
-	com.volcengine.service.vod.model.response.AddOrUpdateCertificateV2Response addOrUpdateCertificate20230701(com.volcengine.service.vod.model.request.AddOrUpdateCertificateV2Request input) throws Exception;
+	com.volcengine.service.vod.model.response.AddOrUpdateCertificateV2Response addOrUpdateCertificate(com.volcengine.service.vod.model.request.AddOrUpdateCertificateV2Request input) throws Exception;
 	
 	/**
      * addCallbackSubscription.

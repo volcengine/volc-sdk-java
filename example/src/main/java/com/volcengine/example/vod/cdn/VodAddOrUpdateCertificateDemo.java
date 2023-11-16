@@ -6,7 +6,7 @@ package com.volcengine.example.vod.cdn;
 
 import com.volcengine.service.vod.IVodService;
 import com.volcengine.service.vod.impl.VodServiceImpl;
-public class VodAddOrUpdateCertificate20230701Demo {
+public class VodAddOrUpdateCertificateDemo {
 
     public static void main(String[] args) throws Exception {
         IVodService vodService = VodServiceImpl.getInstance();
@@ -20,7 +20,7 @@ public class VodAddOrUpdateCertificate20230701Demo {
 			reqBuilder.setDomainType("your DomainType");
 			reqBuilder.setCertificateId("your CertificateId");
 			reqBuilder.setHttpsStatus("your HttpsStatus");
-            com.volcengine.service.vod.model.response.AddOrUpdateCertificateV2Response resp = vodService.addOrUpdateCertificate20230701(reqBuilder.build());
+            com.volcengine.service.vod.model.response.AddOrUpdateCertificateV2Response resp = vodService.addOrUpdateCertificate(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {
                 System.out.println(resp.getResponseMetadata().getError());
                 System.exit(-1);

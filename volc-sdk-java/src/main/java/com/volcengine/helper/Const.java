@@ -766,6 +766,8 @@ public class Const {
     public static final String OcrSeal = "OcrSeal";
     public static final String OcrTextAlignment = "OcrTextAlignment";
     public static final String OCRPdf = "OCRPdf";
+    public static final String OCRPdfSubmitTask = "OCRPdfSubmitTask";
+    public static final String OCRPdfQueryTask = "OCRPdfQueryTask";
     public static final String OCRTable = "OCRTable";
     public static final String OCRCosmeticProduct = "OCRCosmeticProduct";
 

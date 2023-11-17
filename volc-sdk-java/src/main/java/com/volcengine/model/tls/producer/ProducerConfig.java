@@ -64,8 +64,6 @@ public class ProducerConfig {
         if (clientConfig == null || StringUtils.isEmpty(clientConfig.getEndpoint()) || StringUtils.isEmpty(clientConfig.getAccessKeyId()) || StringUtils.isEmpty(clientConfig.getAccessKeySecret()) || StringUtils.isEmpty(clientConfig.getRegion())) {
             throw new LogException("InvalidArgument", String.valueOf(clientConfig), null);
         }
-        log.info("producer config valid success,config:" + this);
-
     }
 
     private long validNumber(Number field, Number min, Number max, Number originDefault) {

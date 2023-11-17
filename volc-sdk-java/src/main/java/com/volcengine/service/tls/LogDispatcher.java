@@ -33,8 +33,8 @@ public class LogDispatcher {
     private final ConcurrentHashMap<BatchLog.BatchKey, BatchLog.BatchManager> batches;
 
     public LogDispatcher(ProducerConfig producerConfig, String producerName, BlockingQueue<BatchLog> successQueue,
-                         BlockingQueue<BatchLog> failureQueue, Semaphore memoryLock, AtomicInteger batchCount
-            , RetryManager retryManager) throws LogException {
+                         BlockingQueue<BatchLog> failureQueue, Semaphore memoryLock,
+                         AtomicInteger batchCount, RetryManager retryManager) throws LogException {
         this.producerConfig = producerConfig;
         this.producerName = producerName;
         this.executorService = Executors.newFixedThreadPool(
@@ -96,7 +96,6 @@ public class LogDispatcher {
         LOG.info(String.format("log dispatcher %s update client config %s success", producerName, clientConfig));
     }
 
-
     public void addBatch(String hashKey, String topicId, String source, String filename,
                          PutLogRequest.LogGroup logGroup, CallBack callBack) throws InterruptedException, LogException {
         addLogLock.incrementAndGet();
@@ -104,8 +103,8 @@ public class LogDispatcher {
         addLogLock.decrementAndGet();
     }
 
-    private void doAdd(String hashKey, String topicId, String source, String filename,
-                       PutLogRequest.LogGroup logGroup, CallBack callBack) throws LogException, InterruptedException {
+    private void doAdd(String hashKey, String topicId, String source, String filename, PutLogRequest.LogGroup logGroup, CallBack callBack)
+            throws LogException, InterruptedException {
         // check status and batch size
         if (closed) {
             throw new LogException("Producer Error", "dispatcher closed can't add batch anymore", null);
@@ -114,7 +113,7 @@ public class LogDispatcher {
         producerConfig.checkBatchSize(batchSize);
         // wait add lock
         long maxBlockMs = producerConfig.getMaxBlockMs();
-        LOG.info(String.format("dispatcher %s try acquire memory lock ", producerName));
+        LOG.debug(String.format("dispatcher %s try acquire memory lock ", producerName));
 
         if (maxBlockMs == 0) {
             memoryLock.acquire();
@@ -153,23 +152,19 @@ public class LogDispatcher {
             boolean success = batchLog.tryAdd(logGroup, batchSize, callBack);
             if (success) {
                 if (batchManager.fullAndSendBatchRequest()) {
-                    batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue,
-                            batchCount, retryManager);
+                    batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue, batchCount, retryManager);
                 }
                 return;
-            } else
-                batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue,
-                        batchCount, retryManager);
+            } else {
+                batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue, batchCount, retryManager);
+            }
         }
         // no batch create new and try send
         batchLog = new BatchLog(batchKey, producerConfig);
         batchManager.setBatchLog(batchLog);
         batchLog.tryAdd(logGroup, batchSize, callBack);
         if (batchManager.fullAndSendBatchRequest()) {
-            batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue, batchCount,
-                    retryManager);
+            batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue, batchCount, retryManager);
         }
     }
-
-
 }

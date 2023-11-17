@@ -1,31 +1,30 @@
 # LOG Java Producer
 
-Producer 专用的异步发送log的类库，具有异步发送、高性能、失败重试、优雅关闭等特性
+Producer具有异步发送、高性能、失败重试等特性。日志服务推荐您使用Producer来上报日志。
 
 ## 使用步骤
 
-### producer的启动和关闭
+### Producer的启动和关闭
 
 ```java
-// 获取producer默认配置 具体配置见ProducerConfig
-ProducerConfig producerConfig = new ProducerConfig("YourEndPoint","YourRegion","YourAccessKey","YourAccessSecret","YourToken");
-Producer producer=new ProducerImpl(producerConfig);
+// 初始化客户端，推荐通过环境变量动态获取火山引擎密钥等身份认证信息，以免AccessKey硬编码引发数据安全风险。详细说明请参考 https://www.volcengine.com/docs/6470/1166455
+// 使用STS时，ak和sk均使用临时密钥，且设置VOLCENGINE_TOKEN；不使用STS时，VOLCENGINE_TOKEN部分传空
+ProducerConfig producerConfig = new ProducerConfig(System.getenv("VOLCENGINE_ENDPOINT"), System.getenv("VOLCENGINE_REGION"),
+        System.getenv("VOLCENGINE_ACCESS_KEY_ID"), System.getenv("VOLCENGINE_ACCESS_KEY_SECRET"), null);
+Producer producer = new ProducerImpl(producerConfig);
 
-//启动
+// 启动Producer
 producer.start()
-//安全关闭，等待producer中缓存的所有的数据全部发送完成以后在关闭producer
+        
+// 关闭Producer
 producer.close()
-//强制关闭
-producer.closeNow()
 ```
 
 ### 发送日志
 
-参考example/tls/demo/ProducerDemo
+请参考example/tls/demo/ProducerDemo。
 
-## producer配置
-
-### ProducerConfig
+### Producer配置
 
 | 参数                    | 类型            | 示例值               | 描述                                                                                                                                                                                                                  |
 |:----------------------|:--------------|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

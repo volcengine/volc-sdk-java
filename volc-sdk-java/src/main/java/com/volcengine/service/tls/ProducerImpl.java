@@ -41,8 +41,7 @@ public class ProducerImpl implements Producer {
         BlockingQueue<BatchLog> failureQueue = new LinkedBlockingQueue<BatchLog>();
         this.memoryLock = new Semaphore(producerConfig.getTotalSizeInBytes());
         this.retryManager = new RetryManager();
-        this.dispatcher = new LogDispatcher(producerConfig, name, successQueue, failureQueue, memoryLock, batchCount
-                , retryManager);
+        this.dispatcher = new LogDispatcher(producerConfig, name, successQueue, failureQueue, memoryLock, batchCount, retryManager);
         this.successHandler = new BatchHandler("success batch handler-" + name, memoryLock, successQueue, batchCount);
         this.failHandler = new BatchHandler("fail batch handler-" + name, memoryLock, failureQueue, batchCount);
         this.mover = new Mover(this.name + "-mover", producerConfig, this.dispatcher, this.retryManager,
@@ -55,41 +54,35 @@ public class ProducerImpl implements Producer {
 
     @Deprecated
     /*
-        use sendLogV2 instead
+     * Please use sendLogV2 instead.
      */
     @Override
-    public void sendLog(String hashKey, String topicId, String source, String filename,
-                        PutLogRequest.Log log, CallBack callBack) throws InterruptedException, LogException {
+    public void sendLog(String hashKey, String topicId, String source, String filename, PutLogRequest.Log log, CallBack callBack)
+            throws InterruptedException, LogException {
         if (topicId == null || log == null) {
-            throw new LogException("InvalidArgument", String.format("topic id:%s,log:%s", topicId, log),
-                    null);
+            throw new LogException("InvalidArgument", String.format("topic id: %s, log: %s", topicId, log), null);
         }
-        PutLogRequest.LogGroup logGroup = PutLogRequest.LogGroup.newBuilder().setFileName(filename).setSource(source).
-                addLogs(log).build();
+        PutLogRequest.LogGroup logGroup = PutLogRequest.LogGroup.newBuilder().setFileName(filename).setSource(source).addLogs(log).build();
         sendLogGroup(hashKey, topicId, source, filename, logGroup, callBack);
     }
 
     @Deprecated
     /*
-        use sendLogsV2 instead
+     * Please use sendLogsV2 instead.
      */
     @Override
-    public void sendLogGroup(String hashKey, String topicId, String source, String filename,
-                             PutLogRequest.LogGroup logGroup, CallBack callBack)
+    public void sendLogGroup(String hashKey, String topicId, String source, String filename, PutLogRequest.LogGroup logGroup, CallBack callBack)
             throws InterruptedException, LogException {
         // 1 check params
-        if (topicId == null || logGroup == null || logGroup.getLogsList() == null
-                || logGroup.getLogsList().size() == 0) {
-            throw new LogException("InvalidArgument", String.format("topic id:%s,log group:%s", topicId, logGroup),
-                    null);
+        if (topicId == null || logGroup == null || logGroup.getLogsList() == null || logGroup.getLogsList().size() == 0) {
+            throw new LogException("InvalidArgument", String.format("topic id: %s, log group: %s", topicId, logGroup), null);
         }
 
         // check batch count
         if (logGroup.getLogsList().size() > producerConfig.getMaxBatchCount()) {
-            throw new LogException("InvalidArgument", String.format("log list size %d is  greater than threshold %d",
+            throw new LogException("InvalidArgument", String.format("log list size %d is greater than threshold %d",
                     logGroup.getLogsList().size(), producerConfig.getMaxBatchCount()), null);
         }
-
 
         // 2 create batch log and add to dispatcher
         dispatcher.addBatch(hashKey, topicId, source, filename, logGroup, callBack);
@@ -107,31 +100,28 @@ public class ProducerImpl implements Producer {
     }
 
     @Override
-    public void sendLogsV2(String hashKey, String topicId, String source, String filename, List<LogItem> logs,
-                           CallBack callBack) throws InterruptedException, LogException {
+    public void sendLogsV2(String hashKey, String topicId, String source, String filename, List<LogItem> logs, CallBack callBack)
+            throws InterruptedException, LogException {
         // 1 check params
         if (topicId == null || logs == null || logs.size() == 0) {
-            throw new LogException("InvalidArgument", String.format("topic id:%s,log group:%s", topicId, logs),
-                    null);
+            throw new LogException("InvalidArgument", String.format("topic id: %s, log group: %s", topicId, logs), null);
         }
 
         // check batch count
         if (logs.size() > producerConfig.getMaxBatchCount()) {
-            throw new LogException("InvalidArgument", String.format("log list size %d is  greater than threshold %d",
+            throw new LogException("InvalidArgument", String.format("log list size %d is greater than threshold %d",
                     logs.size(), producerConfig.getMaxBatchCount()), null);
         }
 
         // 2 create batch log and add to dispatcher
-        dispatcher.addBatch(hashKey, topicId, source, filename, AdaptorUtil.logItems2PbGroup(filename, source, logs),
-                callBack);
+        dispatcher.addBatch(hashKey, topicId, source, filename, AdaptorUtil.logItems2PbGroup(filename, source, logs), callBack);
     }
-
 
     @Override
     public void resetAccessKeyToken(String accessKey, String secretKey, String securityToken) throws LogException {
         if (StringUtils.isEmpty(accessKey) || StringUtils.isEmpty(secretKey)) {
             throw new LogException("InvalidArgument",
-                    String.format("reset producer %s access key failed,accessKey is %s,secretKey is %s, token is %s",
+                    String.format("reset producer %s access key failed, accessKey is %s, secretKey is %s, token is %s",
                             name, accessKey, secretKey, securityToken), null);
         }
         dispatcher.resetAccessKeyToken(accessKey, secretKey, securityToken);
@@ -170,7 +160,7 @@ public class ProducerImpl implements Producer {
         if (producerConfig != null) {
             this.producerConfig = producerConfig;
             producerConfig.validConfig();
-            LOG.info(String.format("producer %s configured,config: %s", name, producerConfig));
+            LOG.info(String.format("producer %s configured, config: %s", name, producerConfig));
         }
     }
 }

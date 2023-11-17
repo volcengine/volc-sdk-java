@@ -9,46 +9,45 @@ import com.volcengine.model.tls.producer.ProducerConfig;
 import java.util.List;
 
 public interface Producer {
+    @Deprecated
+    /*
+     * Please use sendLogV2 instead.
+     */
+    void sendLog(String hashKey, String topicId, String source, String filename, PutLogRequest.Log log, CallBack callBack)
+            throws InterruptedException, LogException;
 
     @Deprecated
     /*
-        use sendLogV2 instead
+     * Please use sendLogsV2 instead.
      */
-    void sendLog(String hashKey, String topicId, String source, String filename, PutLogRequest.Log log,
-                 CallBack callBack) throws InterruptedException, LogException;
-
-    @Deprecated
-    /*
-        use sendLogsV2 instead
-     */
-    void sendLogGroup(String hashKey, String topicId, String source, String filename,
-                      PutLogRequest.LogGroup logGroup, CallBack callBack) throws InterruptedException, LogException;
+    void sendLogGroup(String hashKey, String topicId, String source, String filename, PutLogRequest.LogGroup logGroup, CallBack callBack)
+            throws InterruptedException, LogException;
 
     /**
-     * @param hashKey
-     * @param topicId  日志主题id
-     * @param source   路由 Shard 的key
+     * @param hashKey  路由Shard的key
+     * @param topicId  日志主题ID
+     * @param source   日志来源
      * @param filename 日志路径
      * @param log      待写入日志
      * @param callBack 回调函数
      * @throws InterruptedException
      * @throws LogException
      */
-    void sendLogV2(String hashKey, String topicId, String source, String filename, LogItem log,
-                   CallBack callBack) throws InterruptedException, LogException;
+    void sendLogV2(String hashKey, String topicId, String source, String filename, LogItem log, CallBack callBack)
+            throws InterruptedException, LogException;
 
     /**
-     * @param hashKey
+     * @param hashKey  路由Shard的key
      * @param topicId  日志主题id
-     * @param source   路由 Shard 的key
+     * @param source   日志来源
      * @param filename 日志路径
      * @param logs     待写入日志
      * @param callBack 回调函数
      * @throws InterruptedException
      * @throws LogException
      */
-    void sendLogsV2(String hashKey, String topicId, String source, String filename,
-                    List<LogItem> logs, CallBack callBack) throws InterruptedException, LogException;
+    void sendLogsV2(String hashKey, String topicId, String source, String filename, List<LogItem> logs, CallBack callBack)
+            throws InterruptedException, LogException;
 
     /**
      * @param accessKey     访问api的key
@@ -59,14 +58,14 @@ public interface Producer {
     void resetAccessKeyToken(String accessKey, String secretKey, String securityToken) throws LogException;
 
     /**
-     * 启动producer
+     * 启动Producer
      *
      * @throws LogException
      */
     void start() throws LogException;
 
     /**
-     * 暂停produver
+     * 暂停Producer
      *
      * @throws InterruptedException
      * @throws LogException
@@ -74,7 +73,7 @@ public interface Producer {
     void close() throws InterruptedException, LogException;
 
     /**
-     * 立刻暂停producer
+     * 立刻暂停Producer
      *
      * @throws InterruptedException
      * @throws LogException
@@ -82,7 +81,7 @@ public interface Producer {
     void closeNow() throws InterruptedException, LogException;
 
     /**
-     * 初始化producer配置
+     * 初始化Producer配置
      *
      * @param producerConfig
      * @throws LogException

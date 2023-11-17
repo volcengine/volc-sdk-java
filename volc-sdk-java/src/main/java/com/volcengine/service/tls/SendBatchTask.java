@@ -12,6 +12,8 @@ import org.apache.commons.logging.LogFactory;
 
 import java.util.concurrent.BlockingQueue;
 
+import static com.volcengine.model.tls.Const.HTTP_STATUS_OK;
+
 public class SendBatchTask implements Runnable {
     private static final Log LOG = LogFactory.getLog(SendBatchTask.class);
     private final ProducerConfig producerConfig;
@@ -42,21 +44,24 @@ public class SendBatchTask implements Runnable {
         try {
             putLogsResponse = client.putLogs(putLogsRequest);
         } catch (LogException e) {
-            LOG.error("send batch failed,batch:" + batchLog, e);
-            Attempt fail = new Attempt(false, e.getRequestId(), e.getErrorCode(), e.getErrorMessage());
+            LOG.error("send batch failed, batch:" + batchLog, e);
+            Attempt fail = new Attempt(false, e.getRequestId(), e.getErrorCode(), e.getErrorMessage(), e.getHttpCode());
             batchLog.addAttempt(fail);
-            retryManager.put(batchLog);
-            LOG.info("retry queue add batch success,batch:" + batchLog);
-            if (ProducerConfig.needRetry(e.getHttpCode()) && batchLog.getAttemptCount() < producerConfig.getRetryCount()) {
+            batchLog.setNextRetryMs(System.currentTimeMillis() + 5000);
+            if (!ProducerConfig.needRetry(e.getHttpCode()) || batchLog.getAttemptCount() > producerConfig.getRetryCount()) {
                 try {
                     failureQueue.put(batchLog);
+                    LOG.info("failure queue add batch success, batch:" + batchLog);
                 } catch (InterruptedException ex) {
-                    LOG.error("failure queue add batch failed,batch:" + batchLog, e);
+                    LOG.error("failure queue add batch failed, batch:" + batchLog, e);
                 }
+            } else {
+                retryManager.put(batchLog);
+                LOG.info("retry queue add batch success, batch:" + batchLog);
             }
             return;
         }
-        Attempt success = new Attempt(true, putLogsResponse.getRequestId(), null, null);
+        Attempt success = new Attempt(true, putLogsResponse.getRequestId(), null, null, HTTP_STATUS_OK);
         successQueue.add(batchLog);
         batchLog.addAttempt(success);
         LOG.info("send batch success,batch:" + batchLog);

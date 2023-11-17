@@ -10,6 +10,7 @@ import lombok.Data;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -30,6 +31,7 @@ public class BatchLog implements Delayed {
     EvictingQueue<Attempt> reservedAttempts;
     int attemptCount;
     long createMs;
+    long nextRetryMs;
     private static final Log LOG = LogFactory.getLog(BatchLog.class);
 
     private BatchLog() {
@@ -96,13 +98,13 @@ public class BatchLog implements Delayed {
     }
 
     @Override
-    public int compareTo(Delayed o) {
-        return 0;
+    public int compareTo(@Nonnull Delayed o) {
+        return (int) (nextRetryMs - ((BatchLog) o).getNextRetryMs());
     }
 
     @Override
     public long getDelay(TimeUnit unit) {
-        return unit.convert(producerConfig.getLingerMs(), TimeUnit.MILLISECONDS);
+        return unit.convert(nextRetryMs - System.currentTimeMillis(), TimeUnit.MILLISECONDS);
     }
 
     @Data
@@ -163,5 +165,15 @@ public class BatchLog implements Delayed {
         }
     }
 
-
+    @Override
+    public String toString() {
+        return "BatchLog{" +
+                "batchKey=" + batchKey +
+                ", currentBatchSize=" + currentBatchSize +
+                ", currentBatchCount=" + currentBatchCount +
+                ", reservedAttempts=" + reservedAttempts +
+                ", attemptCount=" + attemptCount +
+                ", createMs=" + createMs +
+                '}';
+    }
 }

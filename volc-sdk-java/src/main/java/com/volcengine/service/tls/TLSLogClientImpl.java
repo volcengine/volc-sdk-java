@@ -396,7 +396,7 @@ public class TLSLogClientImpl implements TLSLogClient {
 
     //429 or 5xx error retry
     private boolean needRetryStatus(int httpCode) {
-        return httpCode == TOO_MANY_REQUEST_ERROR || httpCode >= EXTERNAL_ERROR;
+        return httpCode == TOO_MANY_REQUEST_ERROR || httpCode >= EXTERNAL_ERROR || httpCode == 0;
     }
 
     /**

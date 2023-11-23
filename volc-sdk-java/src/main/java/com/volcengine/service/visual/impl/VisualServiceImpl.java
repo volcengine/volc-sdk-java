@@ -655,6 +655,8 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
 
     @Override
     public CertSrcFaceCompResponse certSrcFaceComp(CertSrcFaceCompRequest request) throws Exception {
+        //设置socketTimeout 为5s
+        VisualConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1).setSocketTimeout(5000);
         RawResponse response = json(Const.CertSrcFaceComp, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -665,6 +667,8 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
 
     @Override
     public Object certSrcFaceCompV2(CertSrcFaceCompRequest request) {
+        //设置socketTimeout 为5s
+        VisualConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1).setSocketTimeout(5000);
         RawResponse response = json(Const.CertSrcFaceComp, null, JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             return JSONObject.parseObject(response.getException().getMessage());

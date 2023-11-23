@@ -61,8 +61,6 @@ public final class ListDomainDetailBody  {
      *
      * <p>- cn：中国大陆；</p>
      *
-     * <p>- oversea：海外；</p>
-     *
      * <p>- cn-global：全球；</p>
      *
      * <p>- cn-oversea：海外及港澳台。</p>

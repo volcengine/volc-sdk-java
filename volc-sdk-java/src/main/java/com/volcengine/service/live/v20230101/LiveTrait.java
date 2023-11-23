@@ -209,6 +209,36 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>stopPullRecordTask</p>
+     * <p>停止拉流录制任务</p>
+     *
+     * <p>创建直播录制任务成功后，使用该接口停止任务。  </p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public StopPullRecordTaskRes stopPullRecordTask(StopPullRecordTaskBody body) throws Exception {
+        RawResponse rawResponse = json("StopPullRecordTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, StopPullRecordTaskRes.class);
+    }
+
+    /**
+     * <p>createPullRecordTask</p>
+     * <p>创建拉流录制任务</p>
+     *
+     * <p>本接口支持创建直播录制任务，创建成功后，可以将实时的视频直播流进行录制（Record）并保存为视频文件。  </p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreatePullRecordTaskRes createPullRecordTask(CreatePullRecordTaskBody body) throws Exception {
+        RawResponse rawResponse = json("CreatePullRecordTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreatePullRecordTaskRes.class);
+    }
+
+    /**
      * <p>deleteRecordPreset</p>
      * <p>删除录制配置</p>
      *
@@ -282,6 +312,21 @@ public class LiveTrait extends BaseServiceImpl {
     public ListVhostRecordPresetV2Res listVhostRecordPresetV2(ListVhostRecordPresetV2Body body) throws Exception {
         RawResponse rawResponse = json("ListVhostRecordPresetV2", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, ListVhostRecordPresetV2Res.class);
+    }
+
+    /**
+     * <p>listPullRecordTask</p>
+     * <p>查询拉流录制任务</p>
+     *
+     * <p>获取当前账号下，已经创建的直播录制任务列表。  </p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public ListPullRecordTaskRes listPullRecordTask(ListPullRecordTaskBody body) throws Exception {
+        RawResponse rawResponse = json("ListPullRecordTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, ListPullRecordTaskRes.class);
     }
 
     /**
@@ -455,7 +500,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>createTimeShiftPresetV3</p>
      * <p>添加直播时移配置</p>
      *
-     * <p>添加时移模板配置</p>
+     * <p>调用 CreateTimeShiftPresetV3 接口，新增直播时移配置。</p>
      *
      * @param body body payload
      * @return response data
@@ -524,21 +569,6 @@ public class LiveTrait extends BaseServiceImpl {
     public DescribeAuthRes describeAuth(DescribeAuthBody body) throws Exception {
         RawResponse rawResponse = json("DescribeAuth", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, DescribeAuthRes.class);
-    }
-
-    /**
-     * <p>updateAuthKey</p>
-     * <p>添加或更新推拉流鉴权</p>
-     *
-     * <p>添加或更新推拉流鉴权信息。更新时，会对所有的鉴权参数做**全量覆盖更新**。</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public UpdateAuthKeyRes updateAuthKey(UpdateAuthKeyBody body) throws Exception {
-        RawResponse rawResponse = json("UpdateAuthKey", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, UpdateAuthKeyRes.class);
     }
 
     /**
@@ -632,48 +662,33 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>deleteReferer</p>
-     * <p>删除 Referer 黑白名单</p>
+     * <p>createVerifyContent</p>
+     * <p>查询校验归属权内容</p>
      *
-     * <p>删除 Referer 防盗链配置。 </p>
+     * <p>调用CreateVerifyContent查询归属校验内容。</p>
      *
      * @param body body payload
      * @return response data
      * @throws Exception error during request
      */
-    public DeleteRefererRes deleteReferer(DeleteRefererBody body) throws Exception {
-        RawResponse rawResponse = json("DeleteReferer", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, DeleteRefererRes.class);
+    public CreateVerifyContentRes createVerifyContent(CreateVerifyContentBody body) throws Exception {
+        RawResponse rawResponse = json("CreateVerifyContent", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateVerifyContentRes.class);
     }
 
     /**
-     * <p>describeReferer</p>
-     * <p>查询 Referer 黑白名单</p>
+     * <p>verifyDomainOwner</p>
+     * <p>校验域名归属权</p>
      *
-     * <p>查询 Referer 防盗链内容。 </p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public DescribeRefererRes describeReferer(DescribeRefererBody body) throws Exception {
-        RawResponse rawResponse = json("DescribeReferer", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, DescribeRefererRes.class);
-    }
-
-    /**
-     * <p>updateReferer</p>
-     * <p>添加或更新 Referer 黑白名单</p>
-     *
-     * <p>调用改接口创建Referer 防盗链，或更新 Referer 防盗链配置。 </p>
+     * <p>调用VerifyDomainOwner对域名归属权进行校验。</p>
      *
      * @param body body payload
      * @return response data
      * @throws Exception error during request
      */
-    public UpdateRefererRes updateReferer(UpdateRefererBody body) throws Exception {
-        RawResponse rawResponse = json("UpdateReferer", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, UpdateRefererRes.class);
+    public VerifyDomainOwnerRes verifyDomainOwner(VerifyDomainOwnerBody body) throws Exception {
+        RawResponse rawResponse = json("VerifyDomainOwner", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, VerifyDomainOwnerRes.class);
     }
 
     /**
@@ -755,7 +770,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>listDomainDetail</p>
      * <p>查询域名列表</p>
      *
-     * <p>根据域名状态、类别等信息，过滤查询当前账号下的的域名列表。 </p>
+     * <p>调用 ListDomainDetail 接口，根据域名状态、类别等信息，过滤查询当前账号下的的域名列表信息。 </p>
      *
      * @param body body payload
      * @return response data
@@ -764,36 +779,6 @@ public class LiveTrait extends BaseServiceImpl {
     public ListDomainDetailRes listDomainDetail(ListDomainDetailBody body) throws Exception {
         RawResponse rawResponse = json("ListDomainDetail", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, ListDomainDetailRes.class);
-    }
-
-    /**
-     * <p>createVerifyContent</p>
-     * <p>查询校验归属权内容</p>
-     *
-     * <p>调用CreateVerifyContent查询归属校验内容。</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public CreateVerifyContentRes createVerifyContent(CreateVerifyContentBody body) throws Exception {
-        RawResponse rawResponse = json("CreateVerifyContent", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, CreateVerifyContentRes.class);
-    }
-
-    /**
-     * <p>verifyDomainOwner</p>
-     * <p>校验域名归属权</p>
-     *
-     * <p>调用VerifyDomainOwner对域名归属权进行校验。</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public VerifyDomainOwnerRes verifyDomainOwner(VerifyDomainOwnerBody body) throws Exception {
-        RawResponse rawResponse = json("VerifyDomainOwner", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, VerifyDomainOwnerRes.class);
     }
 
     /**
@@ -916,36 +901,6 @@ public class LiveTrait extends BaseServiceImpl {
     public ListPullToPushTaskRes listPullToPushTask(ListPullToPushTaskQuery query) throws Exception {
         RawResponse rawResponse = json("ListPullToPushTask", Utils.paramsToPair(query), "");
         return parseRawResponse(rawResponse, ListPullToPushTaskRes.class);
-    }
-
-    /**
-     * <p>describeDenyConfig</p>
-     * <p>查询IP黑白名单配置</p>
-     *
-     * <p>调用接口查询 IP 黑白名单配置。</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public DescribeDenyConfigRes describeDenyConfig(DescribeDenyConfigBody body) throws Exception {
-        RawResponse rawResponse = json("DescribeDenyConfig", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, DescribeDenyConfigRes.class);
-    }
-
-    /**
-     * <p>updateDenyConfig</p>
-     * <p>设置 IP 黑白名单</p>
-     *
-     * <p>如果设置黑名单，黑名单中外 IP 会被允许访问。如果设置白名单，白名单中内 IP 允许访问。</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public UpdateDenyConfigRes updateDenyConfig(UpdateDenyConfigBody body) throws Exception {
-        RawResponse rawResponse = json("UpdateDenyConfig", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, UpdateDenyConfigRes.class);
     }
 
     /**
@@ -1234,22 +1189,6 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>listVqosDimensionValues</p>
-     * <p>查询维度值</p>
-     *
-     * <p>查询维度值</p>
-     *
-     * @param query query arguments
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public ListVqosDimensionValuesRes listVqosDimensionValues(ListVqosDimensionValuesQuery query, ListVqosDimensionValuesBody body) throws Exception {
-        RawResponse rawResponse = json("ListVqosDimensionValues", Utils.paramsToPair(query), JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, ListVqosDimensionValuesRes.class);
-    }
-
-    /**
      * <p>listVqosMetricsDimensions</p>
      * <p>获取图表指标维度信息</p>
      *
@@ -1265,64 +1204,78 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>getVqosRawData</p>
-     * <p>通用数据查询接口</p>
+     * <p>stopPullCDNSnapshotTask</p>
+     * <p>停止直播截图任务</p>
      *
-     * <p>直播通用数据查询接口</p>
+     * <p>调用 StopPullCDNSnapshotTask 接口，停止拉流截图任务。</p>
      *
-     * @param query query arguments
      * @param body body payload
      * @return response data
      * @throws Exception error during request
      */
-    public GetVqosRawDataRes getVqosRawData(GetVqosRawDataQuery query, GetVqosRawDataBody body) throws Exception {
-        RawResponse rawResponse = json("GetVqosRawData", Utils.paramsToPair(query), JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, GetVqosRawDataRes.class);
+    public StopPullCDNSnapshotTaskRes stopPullCDNSnapshotTask(StopPullCDNSnapshotTaskBody body) throws Exception {
+        RawResponse rawResponse = json("StopPullCDNSnapshotTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, StopPullCDNSnapshotTaskRes.class);
     }
 
     /**
-     * <p>stopPullRecordTask</p>
-     * <p>停止拉流录制任务</p>
+     * <p>createPullCDNSnapshotTask</p>
+     * <p>创建直播截图任务</p>
      *
-     * <p>创建直播录制任务成功后，使用该接口停止任务。  </p>
+     * <p>调用 CreatePullCDNSnapshotTask 接口，创建直播截图任务。</p>
      *
      * @param body body payload
      * @return response data
      * @throws Exception error during request
      */
-    public StopPullRecordTaskRes stopPullRecordTask(StopPullRecordTaskBody body) throws Exception {
-        RawResponse rawResponse = json("StopPullRecordTask", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, StopPullRecordTaskRes.class);
+    public CreatePullCDNSnapshotTaskRes createPullCDNSnapshotTask(CreatePullCDNSnapshotTaskBody body) throws Exception {
+        RawResponse rawResponse = json("CreatePullCDNSnapshotTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreatePullCDNSnapshotTaskRes.class);
     }
 
     /**
-     * <p>createPullRecordTask</p>
-     * <p>创建拉流录制任务</p>
+     * <p>getPullCDNSnapshotTask</p>
+     * <p>查询单个直播截图任务</p>
      *
-     * <p>本接口支持创建直播录制任务，创建成功后，可以将实时的视频直播流进行录制（Record）并保存为视频文件。  </p>
+     * <p>调用 GetPullCDNSnapshotTask 接口，查询单个直播截图任务的信息。</p>
      *
      * @param body body payload
      * @return response data
      * @throws Exception error during request
      */
-    public CreatePullRecordTaskRes createPullRecordTask(CreatePullRecordTaskBody body) throws Exception {
-        RawResponse rawResponse = json("CreatePullRecordTask", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, CreatePullRecordTaskRes.class);
+    public GetPullCDNSnapshotTaskRes getPullCDNSnapshotTask(GetPullCDNSnapshotTaskBody body) throws Exception {
+        RawResponse rawResponse = json("GetPullCDNSnapshotTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetPullCDNSnapshotTaskRes.class);
     }
 
     /**
-     * <p>listPullRecordTask</p>
-     * <p>查询拉流录制任务</p>
+     * <p>listPullCDNSnapshotTask</p>
+     * <p>查询所有直播截图任务</p>
      *
-     * <p>获取当前账号下，已经创建的直播录制任务列表。  </p>
+     * <p>调用 ListPullCDNSnapshotTask 接口，查询所有直播截图任务。</p>
      *
      * @param body body payload
      * @return response data
      * @throws Exception error during request
      */
-    public ListPullRecordTaskRes listPullRecordTask(ListPullRecordTaskBody body) throws Exception {
-        RawResponse rawResponse = json("ListPullRecordTask", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, ListPullRecordTaskRes.class);
+    public ListPullCDNSnapshotTaskRes listPullCDNSnapshotTask(ListPullCDNSnapshotTaskBody body) throws Exception {
+        RawResponse rawResponse = json("ListPullCDNSnapshotTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, ListPullCDNSnapshotTaskRes.class);
+    }
+
+    /**
+     * <p>getPullRecordTask</p>
+     * <p>查询单个直播录制任务</p>
+     *
+     * <p>调用 GetPullRecordTask 接口，查询单个直播录制任务信息。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetPullRecordTaskRes getPullRecordTask(GetPullRecordTaskBody body) throws Exception {
+        RawResponse rawResponse = json("GetPullRecordTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetPullRecordTaskRes.class);
     }
 
     /**
@@ -1369,6 +1322,21 @@ public class LiveTrait extends BaseServiceImpl {
     public UpdateSnapshotAuditPresetRes updateSnapshotAuditPreset(UpdateSnapshotAuditPresetBody body) throws Exception {
         RawResponse rawResponse = json("UpdateSnapshotAuditPreset", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, UpdateSnapshotAuditPresetRes.class);
+    }
+
+    /**
+     * <p>describeSnapshotAuditPresetDetail</p>
+     * <p>查询截图审核模板详情</p>
+     *
+     * <p>查询截图审核模板详情</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeSnapshotAuditPresetDetailRes describeSnapshotAuditPresetDetail(DescribeSnapshotAuditPresetDetailBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeSnapshotAuditPresetDetail", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeSnapshotAuditPresetDetailRes.class);
     }
 
     /**
@@ -1854,6 +1822,141 @@ public class LiveTrait extends BaseServiceImpl {
     public DescribeLiveTimeShiftDataRes describeLiveTimeShiftData(DescribeLiveTimeShiftDataBody body) throws Exception {
         RawResponse rawResponse = json("DescribeLiveTimeShiftData", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, DescribeLiveTimeShiftDataRes.class);
+    }
+
+    /**
+     * <p>describeLiveCustomizedLogData</p>
+     * <p>查询定制化客户日志文件信息</p>
+     *
+     * <p>查询定制化客户指定域名下、指定日志类型的日志文件下载链接等信息。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeLiveCustomizedLogDataRes describeLiveCustomizedLogData(DescribeLiveCustomizedLogDataBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeLiveCustomizedLogData", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeLiveCustomizedLogDataRes.class);
+    }
+
+    /**
+     * <p>describeLiveLogData</p>
+     * <p>查询日志文件信息</p>
+     *
+     * <p>查询指定域名下、指定日志类型的日志文件下载链接等信息。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeLiveLogDataRes describeLiveLogData(DescribeLiveLogDataBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeLiveLogData", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeLiveLogDataRes.class);
+    }
+
+    /**
+     * <p>deleteReferer</p>
+     * <p>删除 Referer 黑白名单</p>
+     *
+     * <p>删除 Referer 防盗链配置。 </p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteRefererRes deleteReferer(DeleteRefererBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteReferer", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteRefererRes.class);
+    }
+
+    /**
+     * <p>describeReferer</p>
+     * <p>查询 Referer 黑白名单</p>
+     *
+     * <p>查询 Referer 防盗链内容。 </p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeRefererRes describeReferer(DescribeRefererBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeReferer", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeRefererRes.class);
+    }
+
+    /**
+     * <p>describeDenyConfig</p>
+     * <p>查询IP黑白名单配置</p>
+     *
+     * <p>调用接口查询 IP 黑白名单配置。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeDenyConfigRes describeDenyConfig(DescribeDenyConfigBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeDenyConfig", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeDenyConfigRes.class);
+    }
+
+    /**
+     * <p>updateReferer</p>
+     * <p>添加或更新 Referer 黑白名单</p>
+     *
+     * <p>调用改接口创建Referer 防盗链，或更新 Referer 防盗链配置。 </p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateRefererRes updateReferer(UpdateRefererBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateReferer", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateRefererRes.class);
+    }
+
+    /**
+     * <p>updateAuthKey</p>
+     * <p>添加或更新推拉流鉴权</p>
+     *
+     * <p>添加或更新推拉流鉴权信息。更新时，会对所有的鉴权参数做**全量覆盖更新**。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateAuthKeyRes updateAuthKey(UpdateAuthKeyBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateAuthKey", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateAuthKeyRes.class);
+    }
+
+    /**
+     * <p>updateDenyConfig</p>
+     * <p>设置 IP 黑白名单</p>
+     *
+     * <p>如果设置黑名单，黑名单中外 IP 会被允许访问。如果设置白名单，白名单中内 IP 允许访问。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateDenyConfigRes updateDenyConfig(UpdateDenyConfigBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateDenyConfig", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateDenyConfigRes.class);
+    }
+
+    /**
+     * <p>describeLiveStreamUsageData</p>
+     * <p>查询指定时间流和协议维度的数据</p>
+     *
+     * <p>查询指定时间流和协议维度的带宽、在线人数和请求数接口</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeLiveStreamUsageDataRes describeLiveStreamUsageData(DescribeLiveStreamUsageDataBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeLiveStreamUsageData", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeLiveStreamUsageDataRes.class);
     }
 
 }

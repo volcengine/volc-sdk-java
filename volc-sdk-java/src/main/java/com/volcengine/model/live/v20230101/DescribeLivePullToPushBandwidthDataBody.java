@@ -27,13 +27,13 @@ public final class DescribeLivePullToPushBandwidthDataBody  {
     private List<String> dstAddrTypeList;
 
     /**
-     * <p>查询的起始时间，起始时间应早于当前时间，RFC3339 格式的 UTC 时间，精度为 s。</p>
+     * <p>查询的起始时间，RFC3339 格式的 UTC 时间，精度为 s。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>查询的结束时间，结束时间需晚于起始时间 `StartTime`，RFC3339 格式的 UTC 时间，精度为 s。</p>
+     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为 s。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;

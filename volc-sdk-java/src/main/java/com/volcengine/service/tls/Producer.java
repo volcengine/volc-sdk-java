@@ -73,6 +73,15 @@ public interface Producer {
     void close() throws InterruptedException, LogException;
 
     /**
+     * 暂停Producer
+     *
+     * @param timeoutMs 超时等待时间
+     * @throws InterruptedException
+     * @throws LogException
+     */
+    void close(long timeoutMs) throws InterruptedException, LogException;
+
+    /**
      * 立刻暂停Producer
      *
      * @throws InterruptedException

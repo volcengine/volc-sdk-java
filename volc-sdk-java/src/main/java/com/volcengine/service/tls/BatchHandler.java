@@ -4,6 +4,8 @@ import com.volcengine.model.tls.producer.BatchLog;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -23,12 +25,17 @@ public class BatchHandler extends Thread {
         this.batchQueue = batchQueue;
         this.batchCount = batchCount;
         this.name = name;
-        this.closed = false;
     }
 
     @Override
     public void run() {
         handleBatches();
+
+        List<BatchLog> batchLogList = new ArrayList<>();
+        batchQueue.drainTo(batchLogList);
+        for (BatchLog batchLog : batchLogList) {
+            handle(batchLog);
+        }
     }
 
     private void handleBatches() {
@@ -43,9 +50,20 @@ public class BatchHandler extends Thread {
     }
 
     private void handle(BatchLog batch) {
-        batch.fireCallbacks();
-        batchCount.decrementAndGet();
-        memoryLock.release(batch.getCurrentBatchSize());
+        try {
+            batch.fireCallbacks();
+        } catch (Throwable t) {
+            LOG.error("batch fire callbacks failed: ", t);
+        } finally {
+            batchCount.decrementAndGet();
+            memoryLock.release(batch.getCurrentBatchSize());
+        }
+    }
+
+    @Override
+    public void start() {
+        this.closed = false;
+        super.start();
     }
 
     public void close() {

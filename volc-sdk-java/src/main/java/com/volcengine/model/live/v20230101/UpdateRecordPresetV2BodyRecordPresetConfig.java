@@ -2,6 +2,7 @@ package com.volcengine.model.live.v20230101;
 
 
 import com.alibaba.fastjson.JSON;
+import java.util.List;
 
 /**
  * UpdateRecordPresetV2BodyRecordPresetConfig
@@ -18,11 +19,13 @@ public final class UpdateRecordPresetV2BodyRecordPresetConfig  {
      *
      * <p>- 1：录制。</p>
      *
+     * <p>- 2：全部录制，如果录制转码流后缀列表（TranscodeSuffixList）为空则全部录制，不为空则录制 TranscodeSuffixList 命中的转码后缀。</p>
+     *
      *
      *
      * <p>:::tip</p>
      *
-     * <p>`TranscodeRecord`和`OriginRecord`的取值至少一个为 1。</p>
+     * <p>`TranscodeRecord` 和 `OriginRecord` 的取值至少一个不为 0。</p>
      *
      * <p>:::</p>
      */
@@ -42,7 +45,7 @@ public final class UpdateRecordPresetV2BodyRecordPresetConfig  {
      *
      * <p>:::tip</p>
      *
-     * <p>`TranscodeRecord`和`OriginRecord`的取值至少一个为 1。</p>
+     * <p>`TranscodeRecord`和`OriginRecord`的取值至少一个不为 0。</p>
      *
      * <p>:::</p>
      */
@@ -54,6 +57,12 @@ public final class UpdateRecordPresetV2BodyRecordPresetConfig  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SliceDuration")
     private Integer sliceDuration;
+
+    /**
+     * <p>录制转码流后缀列表，转码流录制配置为全部录制时（TranscodeRecord 配置等于 2）生效。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "TranscodeSuffixList")
+    private List<String> transcodeSuffixList;
 
     /**
      * <p>FLV 录制参数，开启 FLV 录制时设置。</p>

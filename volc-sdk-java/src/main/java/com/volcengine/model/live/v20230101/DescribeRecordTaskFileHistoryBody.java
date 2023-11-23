@@ -28,13 +28,13 @@ public final class DescribeRecordTaskFileHistoryBody  {
     private String stream;
 
     /**
-     * <p>开始推流时间，RFC3339 格式的 UTC 时间，精度为 s。</p>
+     * <p>开始录制时间，RFC3339 格式的 UTC 时间，精度为 s。当您查询指定录制任务详情时，DateFrom 应设置为开始时间之前的任意时间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DateFrom")
     private String dateFrom;
 
     /**
-     * <p>结束推流时间，结束时间需晚于 `DateFrom`，且与 `DateFrom` 间隔不超过 7天，RFC3339 格式的 UTC 时间，精度为 s。</p>
+     * <p>结束录制时间，结束时间需晚于 `DateFrom`，且与 `DateFrom` 间隔不超过 7天，RFC3339 格式的 UTC 时间，精度为 s。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DateTo")
     private String dateTo;

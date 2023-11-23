@@ -23,7 +23,7 @@ public final class CreatePullToPushTaskBody  {
     private Integer startTime;
 
     /**
-     * <p>结束时间，Unix 时间戳（秒）</p>
+     * <p>结束时间，Unix 时间戳，单位为 s</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private Integer endTime;
@@ -103,7 +103,7 @@ public final class CreatePullToPushTaskBody  {
     private String stream;
 
     /**
-     * <p>水印信息</p>
+     * <p>水印信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Watermark")
     private CreatePullToPushTaskBodyWatermark watermark;

@@ -355,6 +355,28 @@ public class Const {
 
     public static final String GetActivityBands = "GetActivityBands";
 
+    public static final String GetVQUserDataAPI = "GetVQUserDataAPI";
+
+    public static final String CreateHostAcceleratePackOrder = "CreateHostAcceleratePackOrder";
+
+    public static final String UpdateHostAcceleratePackOrder = "UpdateHostAcceleratePackOrder";
+
+    public static final String DeleteHostAcceleratePackOrder = "DeleteHostAcceleratePackOrder";
+
+    public static final String UnsubscribeHostAcceleratePackOrder = "UnsubscribeHostAcceleratePackOrder";
+
+    public static final String ModifyHostAcceleratePackOrder = "ModifyHostAcceleratePackOrder";
+
+    public static final String ListHostAcceleratePackOrder = "ListHostAcceleratePackOrder";
+
+    public static final String GetAccountAggregatedStatistics = "GetAccountAggregatedStatistics";
+
+    public static final String ListAccountActivityData = "ListAccountActivityData";
+
+    public static final String ListAccountUserData = "ListAccountUserData";
+
+    public static final String GetAccountUserTrackData = "GetAccountUserTrackData";
+
     // translate
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";
@@ -797,4 +819,9 @@ public class Const {
 
     // cloudtrail
     public static final String LookupEvents = "LookupEvents";
+
+    // securitySource
+    public static final String SecuritySource = "SecuritySource";
+    public static final String SecuritySourceStream = "SecuritySourceStream";
+
 }

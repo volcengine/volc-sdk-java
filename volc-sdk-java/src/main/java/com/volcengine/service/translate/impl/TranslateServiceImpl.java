@@ -17,8 +17,10 @@ public class TranslateServiceImpl extends BaseServiceImpl implements ITranslateS
         super(TranslateConfig.serviceInfo, TranslateConfig.apiInfoList);
     }
 
+    private static final TranslateServiceImpl translateServiceInstance = new TranslateServiceImpl();
+
     public static ITranslateService getInstance() {
-        return new TranslateServiceImpl();
+        return translateServiceInstance;
     }
 
 

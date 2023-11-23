@@ -2,6 +2,7 @@ package com.volcengine.model.live.v20230101;
 
 
 import com.alibaba.fastjson.JSON;
+import java.util.List;
 
 /**
  * ListDomainDetailResResultDomainListItem
@@ -118,6 +119,18 @@ public final class ListDomainDetailResResultDomainListItem  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PushDomain")
     private String pushDomain;
+
+    /**
+     * <p>项目名称</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ProjectName")
+    private String projectName;
+
+    /**
+     * <p>标签</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Tags")
+    private List<ListDomainDetailResResultDomainListItemTagsItem> tags;
 
     @Override
     public String toString() {

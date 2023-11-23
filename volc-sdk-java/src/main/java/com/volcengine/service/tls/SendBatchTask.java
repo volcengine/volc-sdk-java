@@ -48,23 +48,37 @@ public class SendBatchTask implements Runnable {
             Attempt fail = new Attempt(false, e.getRequestId(), e.getErrorCode(), e.getErrorMessage(), e.getHttpCode());
             batchLog.addAttempt(fail);
             batchLog.setNextRetryMs(System.currentTimeMillis() + 5000);
-            if (!ProducerConfig.needRetry(e.getHttpCode()) || batchLog.getAttemptCount() > producerConfig.getRetryCount()) {
-                try {
-                    failureQueue.put(batchLog);
-                    LOG.info("failure queue add batch success, batch:" + batchLog);
-                } catch (InterruptedException ex) {
-                    LOG.error("failure queue add batch failed, batch:" + batchLog, e);
-                }
+            if (!ProducerConfig.needRetry(e.getHttpCode()) || batchLog.getAttemptCount() > producerConfig.getRetryCount() || retryManager.isClosed()) {
+                putBatchLogToFailureQueue();
             } else {
-                retryManager.put(batchLog);
-                LOG.info("retry queue add batch success, batch:" + batchLog);
+                try {
+                    retryManager.put(batchLog);
+                    LOG.info("retry queue add batch success, batch: " + batchLog);
+                } catch (LogException ex) {
+                    LOG.warn("retry manager is closed and put batch log to failure queue");
+                    putBatchLogToFailureQueue();
+                }
             }
+            return;
+        } catch (Exception e) {
+            LOG.error("send batch failed, batch:" + batchLog, e);
+            Attempt fail = new Attempt(false, null, e.getClass().getName(), e.getMessage());
+            batchLog.addAttempt(fail);
+            putBatchLogToFailureQueue();
             return;
         }
         Attempt success = new Attempt(true, putLogsResponse.getRequestId(), null, null, HTTP_STATUS_OK);
-        successQueue.add(batchLog);
         batchLog.addAttempt(success);
-        LOG.info("send batch success,batch:" + batchLog);
+        successQueue.add(batchLog);
+        LOG.debug("send batch success, batch: " + batchLog);
     }
 
+    private void putBatchLogToFailureQueue() {
+        try {
+            failureQueue.put(batchLog);
+            LOG.info("failure queue add batch success, batch: " + batchLog);
+        } catch (InterruptedException ex) {
+            LOG.error("failure queue add batch failed, batch: " + batchLog, ex);
+        }
+    }
 }

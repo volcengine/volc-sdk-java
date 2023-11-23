@@ -28,13 +28,13 @@ public final class DescribeCDNSnapshotHistoryBody  {
     private String stream;
 
     /**
-     * <p>查询时间范围的开始时间。</p>
+     * <p>查询时间范围的开始时间，RFC3339 格式的 UTC 时间，精度为 s。当您查询指定截图任务详情时，DateFrom 应设置为开始时间之前的任意时间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DateFrom")
     private String dateFrom;
 
     /**
-     * <p>查询时间范围的结束时间。</p>
+     * <p>查询时间范围的结束时间，结束时间需晚于 DateFrom，且与 DateFrom 间隔不超过 7天，RFC3339 格式的 UTC 时间，精度为 s。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DateTo")
     private String dateTo;

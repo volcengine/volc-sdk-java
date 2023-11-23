@@ -29,7 +29,7 @@ public final class DescribeLiveTranscodeDataBody  {
     private String endTime;
 
     /**
-     * <p>时间粒度，单位为 s，当前仅支持天粒度，默认值为 86400。单次查询时间跨度为 93d，历史查询时间范围为 93d。</p>
+     * <p>时间粒度，单位为 s，当前仅支持天粒度，默认值为 86400。单次查询时间跨度为 93 天，历史查询时间范围为 366 天。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;

@@ -1041,4 +1041,103 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetGraphicIntroductionsResponse getActivityBands(GetGraphicIntroductionsRequest getGraphicIntroductionsRequest) throws Exception;
+
+     /**
+     * GetAccountAggregatedStatistics
+     *
+     * @param getAccountAggregatedStatisticsRequest GetAccountAggregatedStatisticsRequest
+     * @return GetAccountAggregatedStatisticsResponse
+     * @throws Exception the exception
+     */
+    GetAccountAggregatedStatisticsResponse getAccountAggregatedStatistics(GetAccountAggregatedStatisticsRequest getAccountAggregatedStatisticsRequest) throws Exception;
+
+    /**
+     * ListAccountActivityData
+     *
+     * @param listAccountActivityDataRequest ListAccountActivityDataRequest
+     * @return ListAccountActivityDataResponse
+     * @throws Exception the exception
+     */
+    ListAccountActivityDataResponse listAccountActivityData(ListAccountActivityDataRequest listAccountActivityDataRequest) throws Exception;
+
+    /**
+     * ListAccountUserData
+     *
+     * @param listAccountUserDataRequest ListAccountUserDataRequest
+     * @return ListAccountUserDataResponse
+     * @throws Exception the exception
+     */
+    ListAccountUserDataResponse listAccountUserData(ListAccountUserDataRequest listAccountUserDataRequest) throws Exception;
+
+    /**
+     * GetAccountUserTrackData
+     *
+     * @param getAccountUserTrackDataRequest GetAccountUserTrackDataRequest
+     * @return GetAccountUserTrackDataResponse
+     * @throws Exception the exception
+     */
+    GetAccountUserTrackDataResponse getAccountUserTrackData(GetAccountUserTrackDataRequest getAccountUserTrackDataRequest) throws Exception;
+
+     /**
+     * getVQUserDataAPI
+     *
+     * @param getVQUserDataAPIRequest GetVQUserDataAPIRequest
+     * @return GetVQUserDataAPIResponse
+     * @throws Exception the exception
+     */
+    GetVQUserDataAPIResponse getVQUserDataAPI(GetVQUserDataAPIRequest getVQUserDataAPIRequest) throws Exception;
+
+     /**
+     * getVQUserDataAPI
+     *
+     * @param createHostAcceleratePackOrderRequest CreateHostAcceleratePackOrderRequest
+     * @return CreateHostAcceleratePackOrderResponse
+     * @throws Exception the exception
+     */
+    CreateHostAcceleratePackOrderResponse createHostAcceleratePackOrder(CreateHostAcceleratePackOrderRequest createHostAcceleratePackOrderRequest) throws Exception;
+
+     /**
+     * updateHostAcceleratePackOrder
+     *
+     * @param updateHostAcceleratePackOrderRequest UpdateHostAcceleratePackOrderRequest
+     * @return UpdateHostAcceleratePackOrderResponse
+     * @throws Exception the exception
+     */
+    UpdateHostAcceleratePackOrderResponse updateHostAcceleratePackOrder(UpdateHostAcceleratePackOrderRequest updateHostAcceleratePackOrderRequest) throws Exception;
+
+     /**
+     * deleteHostAcceleratePackOrder
+     *
+     * @param deleteHostAcceleratePackOrderRequest DeleteHostAcceleratePackOrderRequest
+     * @return DeleteHostAcceleratePackOrderResponse
+     * @throws Exception the exception
+     */
+    DeleteHostAcceleratePackOrderResponse deleteHostAcceleratePackOrder(DeleteHostAcceleratePackOrderRequest deleteHostAcceleratePackOrderRequest) throws Exception;
+
+     /**
+     * unsubscribeHostAcceleratePackOrder
+     *
+     * @param unsubscribeHostAcceleratePackOrderRequest UnsubscribeHostAcceleratePackOrderRequest
+     * @return UnsubscribeHostAcceleratePackOrderResponse
+     * @throws Exception the exception
+     */
+    UnsubscribeHostAcceleratePackOrderResponse unsubscribeHostAcceleratePackOrder(UnsubscribeHostAcceleratePackOrderRequest unsubscribeHostAcceleratePackOrderRequest) throws Exception;
+
+    /**
+     * modifyHostAcceleratePackOrder
+     *
+     * @param modifyHostAcceleratePackOrderRequest ModifyHostAcceleratePackOrderRequest
+     * @return ModifyHostAcceleratePackOrderResponse
+     * @throws Exception the exception
+     */
+    ModifyHostAcceleratePackOrderResponse modifyHostAcceleratePackOrder(ModifyHostAcceleratePackOrderRequest modifyHostAcceleratePackOrderRequest) throws Exception;
+
+    /**
+     * listHostAcceleratePackOrder
+     *
+     * @param listHostAcceleratePackOrderRequest ListHostAcceleratePackOrderRequest
+     * @return ListHostAcceleratePackOrderResponse
+     * @throws Exception the exception
+     */
+    ListHostAcceleratePackOrderResponse listHostAcceleratePackOrder(ListHostAcceleratePackOrderRequest listHostAcceleratePackOrderRequest) throws Exception;
 }

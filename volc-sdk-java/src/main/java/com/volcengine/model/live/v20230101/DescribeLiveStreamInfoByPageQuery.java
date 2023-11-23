@@ -64,7 +64,7 @@ public final class DescribeLiveStreamInfoByPageQuery  {
     /**
      * <p>流类型，缺省情况下表示全选。支持如下取值。</p>
      *
-     * <p>- Origin：原始流；</p>
+     * <p>- origin：原始流；</p>
      *
      * <p>- trans：转码流。</p>
      */

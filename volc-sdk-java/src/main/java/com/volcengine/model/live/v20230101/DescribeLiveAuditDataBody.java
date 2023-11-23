@@ -24,16 +24,12 @@ public final class DescribeLiveAuditDataBody  {
 
     /**
      * <p>查询的结束时间。RFC3339 格式的 UTC 时间，精度为 s。</p>
-     *
-     *
-     *
-     * <p>支持查询 366 天以内的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
 
     /**
-     * <p>时间粒度，单位为 s，支持天粒度，默认为 86400。</p>
+     * <p>时间粒度，单位为 s，当前仅支持天粒度，默认值为 86400。单次查询时间跨度为 93 天，历史查询时间范围为 366 天。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;

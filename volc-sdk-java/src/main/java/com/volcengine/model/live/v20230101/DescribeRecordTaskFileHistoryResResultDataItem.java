@@ -46,7 +46,7 @@ public final class DescribeRecordTaskFileHistoryResResultDataItem  {
     private String duration;
 
     /**
-     * <p>开始推流时间。</p>
+     * <p>开始录制时间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
@@ -58,7 +58,7 @@ public final class DescribeRecordTaskFileHistoryResResultDataItem  {
     private String format;
 
     /**
-     * <p>结束推流时间。</p>
+     * <p>结束录制时间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;

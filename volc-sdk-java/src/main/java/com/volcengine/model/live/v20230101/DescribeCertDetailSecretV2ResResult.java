@@ -17,7 +17,7 @@ public final class DescribeCertDetailSecretV2ResResult  {
     private List<String> certDomainList;
 
     /**
-     * <p>证书链ID。</p>
+     * <p>证书链 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ChainID")
     private String chainID;

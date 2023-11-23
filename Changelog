@@ -1,5 +1,8 @@
 Change log
 
+2023-11-23 Bumped to version v1.0.132
+- Updated apis for security/live/livesaas/visual/tls/translate/maas
+
 2023-11-17 Bumped to version v1.0.131
 - Updated apis for tls
 

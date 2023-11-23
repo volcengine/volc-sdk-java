@@ -109,7 +109,7 @@ public final class DescribeLiveTrafficDataBody  {
      *
      * <p>- 3600：支持单次查询时间跨度为 93 天，历史查询时间范围为 93 天；</p>
      *
-     * <p>- 86400：支持单次查询时间跨度为 366 天，历史查询时间范围为 366 天。</p>
+     * <p>- 86400：支持单次查询时间跨度为 93 天，历史查询时间范围为 366 天。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;

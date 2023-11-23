@@ -11,7 +11,7 @@ import java.util.List;
 public final class DescribeLiveTimeShiftDataBody  {
 
     /**
-     * <p>聚合时间粒度，单位秒，支持配置为 86400，支持查询最近 366 天内的数据，单次查询时间范围 93 天。</p>
+     * <p>时间粒度，单位为 s，支持配置为 86400，单次查询时间跨度为 93 天，历史查询时间范围为 366 天。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;

@@ -88,9 +88,11 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
                     try {
                         resp = convertJsonBytesToChatResp(event.getData().getBytes());
                     } catch (MaasException e) {
+                        closeInputStream(is);
                         throw new RuntimeException(e);
                     }
                     if (resp.getError().getCodeN() != 0) {
+                        closeInputStream(is);
                         throw new RuntimeException(new MaasException(resp.getError(), resp.getReqId()));
                     }
 
@@ -183,6 +185,15 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
             return builder.build();
         } catch (InvalidProtocolBufferException e) {
             throw new MaasException(e, "");
+        }
+    }
+
+    private void closeInputStream(InputStream inputStream) {
+        if(inputStream != null) {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+            }
         }
     }
 }

@@ -41,6 +41,12 @@ public final class CreateSnapshotPresetBody  {
     private Integer interval;
 
     /**
+     * <p>存储方式为覆盖截图时的存储规则，支持以 {Domain}/{App}/{Stream} 样式设置存储规则，支持输入字母、数字、"-"、"!"、"_"、"."、"*"及占位符。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "OverwriteObject")
+    private String overwriteObject;
+
+    /**
      * <p>veImageX 的服务 ID。</p>
      *
      * <p>:::tip</p>
@@ -55,15 +61,15 @@ public final class CreateSnapshotPresetBody  {
     /**
      * <p>截图格式。默认值为 jpeg，支持如下取值。</p>
      *
-     * <p>- jpeg</p>
+     * <p>- jpeg </p>
      *
-     * <p>- png</p>
+     * <p>- jpg</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SnapshotFormat")
     private String snapshotFormat;
 
     /**
-     * <p>存储规则。存储在 ToS 时传，格式为`{PushDomain}/{App}/{Stream}/{UnixTimestamp}`。</p>
+     * <p>存储方式为实时存储时的存储规则，支持以 {Domain}/{App}/{Stream}/{UnixTimestamp} 样式设置存储规则，支持输入字母、数字、"-"、"!"、"_"、"."、"*"及占位符。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SnapshotObject")
     private String snapshotObject;

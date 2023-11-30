@@ -11,18 +11,23 @@ import com.volcengine.service.tls.consumer.ConsumerImpl;
 import com.volcengine.service.tls.consumer.LogProcessor;
 
 
-// 实现LogProcessor接口
+// 您需要定义一个实现LogProcessor接口的类
 public class ConsumerDemo implements LogProcessor {
     public static void main(String[] args) throws LogException, InterruptedException {
-        // 根据需要修改下面的必须配置项
-        ConsumerConfig config = new ConsumerConfig(System.getenv("endPoint"), System.getenv("region"),
-                System.getenv("ak"), System.getenv("sk"));
-        config.setProjectID("ProjectID");
-        config.setConsumerGroupName("java-consumer-group");
-        config.setConsumerName("java-consumer");
+        // 初始化客户端，推荐通过环境变量动态获取火山引擎密钥等身份认证信息，以免AccessKey硬编码引发数据安全风险。详细说明请参考 https://www.volcengine.com/docs/6470/1166455
+        // 使用STS时，ak和sk均使用临时密钥，且设置VOLCENGINE_TOKEN；不使用STS时，VOLCENGINE_TOKEN部分传空
+        ConsumerConfig config = new ConsumerConfig(System.getenv("VOLCENGINE_ENDPOINT"), System.getenv("VOLCENGINE_REGION"),
+                System.getenv("VOLCENGINE_ACCESS_KEY_ID"), System.getenv("VOLCENGINE_ACCESS_KEY_SECRET"), System.getenv("VOLCENGINE_TOKEN"));
+        // 请配置您的日志项目ID
+        config.setProjectID("your-project-id");
+        // 请配置您待消费的日志主题ID列表
         config.setTopicIDList(new ArrayList<String>(){{
-            add("TopicID");
+            add("your-topic-id");
         }});
+        // 请配置您的消费组名称
+        config.setConsumerGroupName("java-consumer-group");
+        // 请配置消费者名称
+        config.setConsumerName("java-consumer");
 
         // 实例化ConsumerImpl，调用consumer.start()开始持续消费
         Consumer consumer = new ConsumerImpl(config, new ConsumerDemo());
@@ -34,7 +39,7 @@ public class ConsumerDemo implements LogProcessor {
     }
 
     /**
-     * 用户需要自行实现这里的process方法
+     * 您需要根据业务需要，自行实现这里的process方法，用于处理每次消费得到的LogGroupList
      * 下面给出了逐个打印消费到的日志的代码示例
      */
     @Override

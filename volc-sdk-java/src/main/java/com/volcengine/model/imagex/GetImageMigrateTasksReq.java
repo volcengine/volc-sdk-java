@@ -10,5 +10,20 @@ public class GetImageMigrateTasksReq {
 
     @JSONField(name = "TaskId")
     String taskId;
+
+    @JSONField(name = "ServiceId")
+    String serviceId;
+
+    @JSONField(name = "Offset")
+    Integer offset;
+
+    @JSONField(name = "Limit")
+    Integer limit;
+
+    @JSONField(name = "TaskNamePtn")
+    String taskNamePtn;
+
+    @JSONField(name = "Status")
+    String status;
 }
 

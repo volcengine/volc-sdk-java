@@ -1962,4 +1962,19 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+     @Override
+     public CheckUidMatchResponse checkUidMatch(CheckUidMatchRequest checkUidMatchRequest) throws Exception {
+        RawResponse response = json(Const.CheckUidMatch, new ArrayList<>(), JSON.toJSONString(checkUidMatchRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CheckUidMatchResponse res = JSON.parseObject(response.getData(), CheckUidMatchResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+     }
 }

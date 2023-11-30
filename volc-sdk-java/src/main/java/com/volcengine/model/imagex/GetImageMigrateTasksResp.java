@@ -9,5 +9,8 @@ import java.util.List;
 public class GetImageMigrateTasksResp {
     @JSONField(name = "Tasks")
     List<GetImageMigrateTasksRespTask> tasks;
+
+    @JSONField(name = "Total")
+    Integer total;
 }
 

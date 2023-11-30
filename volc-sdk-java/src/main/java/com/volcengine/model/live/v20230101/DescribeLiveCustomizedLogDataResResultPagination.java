@@ -24,8 +24,8 @@ public final class DescribeLiveCustomizedLogDataResResultPagination  {
     /**
      * <p>查询结果总条数。</p>
      */
-    @com.alibaba.fastjson.annotation.JSONField(name = "TotalCnt")
-    private Integer totalCnt;
+    @com.alibaba.fastjson.annotation.JSONField(name = "TotalCount")
+    private Integer totalCount;
 
     @Override
     public String toString() {

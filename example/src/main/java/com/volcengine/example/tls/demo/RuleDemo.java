@@ -16,28 +16,18 @@ public class RuleDemo extends BaseDemo {
         String prefix = "test-rule";
         String separator = "-";
         String date = sdf.format(new Date());
-        //  create project
-        String projectName = prefix + separator + date + separator + System.currentTimeMillis();
-        String region = clientConfig.getRegion();
-        String description = "test project";
 
         try {
-            CreateProjectRequest project = new CreateProjectRequest(projectName, region, description);
-            CreateProjectResponse createProjectResponse = client.createProject(project);
-            System.out.println("create project success,response:" + createProjectResponse);
-            String projectId = createProjectResponse.getProjectId();
-            //  create topic
-            String topicName = prefix + separator + date + separator + System.currentTimeMillis();
-            CreateTopicRequest createTopicRequest = new CreateTopicRequest();
-            createTopicRequest.setTopicName(topicName);
-            createTopicRequest.setProjectId(projectId);
-            createTopicRequest.setTtl(500);
-            CreateTopicResponse createTopicResponse = client.createTopic(createTopicRequest);
+            // 请填写您的ProjectId、TopicId和HostGroupId
+            String projectID = "your-project-id";
+            String topicID = "your-topic-id";
+            String hostGroupID = "your-host-group-id";
 
-            System.out.println("create topic success,response:" + createTopicResponse);
-            // create rule
+            // 创建采集配置
+            // 请根据您的需要，填写topicId、ruleName和其它采集配置参数
+            // CreateRule API的请求参数规范请参阅 https://www.volcengine.com/docs/6470/112199
             CreateRuleRequest createRuleRequest = new CreateRuleRequest();
-            createRuleRequest.setTopicId(createTopicResponse.getTopicId());
+            createRuleRequest.setTopicId(topicID);
             createRuleRequest.setRuleName(prefix + separator + date + separator + System.currentTimeMillis());
             createRuleRequest.setPaths(Arrays.asList("/data/nginx/log/*/*/*.log"));
             createRuleRequest.setLogType("delimiter_log");
@@ -54,7 +44,9 @@ public class RuleDemo extends BaseDemo {
 
             createRuleRequest.setExcludePaths(Arrays.asList(new ExcludePath("File", "/data/nginx/log/*/*/exclude.log")));
             createRuleRequest.setLogSample("2018-05-22 15:35:53.850 INFO XXXX");
-            createRuleRequest.setUserDefineRule(new UserDefineRule(new ParsePathRule("/var/logs/instanceid_any_podname/test.log", "\\/test.log", Arrays.asList("instance-id")), new ShardHashKey(), Boolean.FALSE, new HashMap<>()));
+            createRuleRequest.setUserDefineRule(new UserDefineRule(
+                    new ParsePathRule("/var/logs/instanceid_any_podname/test.log", "\\/test.log", Arrays.asList("instance-id")),
+                    new ShardHashKey(), Boolean.FALSE, new HashMap<>()));
             createRuleRequest.setInputType(2);
 
             ContainerRule containerRule = new ContainerRule();
@@ -78,14 +70,18 @@ public class RuleDemo extends BaseDemo {
 
             createRuleRequest.setContainerRule(containerRule);
             CreateRuleResponse createRuleResponse = client.createRule(createRuleRequest);
-            System.out.println("create rule success,response:" + createRuleResponse);
+            System.out.println("create rule success, response: " + createRuleResponse);
 
-            //  modify rule
-            ModifyRuleRequest ruleInfo = new ModifyRuleRequest();
-            ruleInfo.setRuleId(createRuleResponse.getRuleId());
-            createRuleRequest.setRuleName(prefix + separator + date + separator + System.currentTimeMillis());
-            ruleInfo.setPaths(Arrays.asList("/data/nginx/log/*/*/*.log"));
-            ruleInfo.setLogType("delimiter_log");
+            String ruleID = createRuleResponse.getRuleId();
+
+            // 修改采集配置
+            // 请根据您的需要，填写待修改的ruleId、ruleName或其它参数
+            // ModifyRule API的请求参数规范请参阅 https://www.volcengine.com/docs/6470/112201
+            ModifyRuleRequest modifyRuleRequest = new ModifyRuleRequest();
+            modifyRuleRequest.setRuleId(ruleID);
+            modifyRuleRequest.setRuleName(prefix + separator + date + separator + System.currentTimeMillis());
+            modifyRuleRequest.setPaths(Arrays.asList("/data/nginx/log/*/*/*.log"));
+            modifyRuleRequest.setLogType("delimiter_log");
 
             extractRule = new ExtractRule();
             extractRule.setDelimiter("#");
@@ -95,12 +91,14 @@ public class RuleDemo extends BaseDemo {
             extractRule.setFilterKeyRegex(Arrays.asList(new FilterKeyRegex("msg", ".*ERROR.*")));
             extractRule.setUnMatchUpLoadSwitch(true);
             extractRule.setUnMatchLogKey("LogParseFailed");
-            ruleInfo.setExtractRule(extractRule);
+            modifyRuleRequest.setExtractRule(extractRule);
 
-            ruleInfo.setExcludePaths(Arrays.asList(new ExcludePath("File", "/data/nginx/log/*/*/exclude.log")));
-            ruleInfo.setLogSample("2018-05-22 15:35:53.850 INFO XXXX");
-            ruleInfo.setUserDefineRule(new UserDefineRule(new ParsePathRule("/var/logs/instanceid_any_podname/test.log", "\\/test.log", Arrays.asList("instance-id")), new ShardHashKey(), Boolean.FALSE, new HashMap<>()));
-            ruleInfo.setInputType(2);
+            modifyRuleRequest.setExcludePaths(Arrays.asList(new ExcludePath("File", "/data/nginx/log/*/*/exclude.log")));
+            modifyRuleRequest.setLogSample("2018-05-22 15:35:53.850 INFO XXXX");
+            modifyRuleRequest.setUserDefineRule(new UserDefineRule(
+                    new ParsePathRule("/var/logs/instanceid_any_podname/test.log", "\\/test.log", Arrays.asList("instance-id")),
+                    new ShardHashKey(), Boolean.FALSE, new HashMap<>()));
+            modifyRuleRequest.setInputType(2);
 
             containerRule = new ContainerRule();
             containerRule.setContainerNameRegex(".*Name.*");
@@ -121,66 +119,46 @@ public class RuleDemo extends BaseDemo {
             }});
             containerRule.setKubernetesRule(kubernetesRule);
 
-            ruleInfo.setContainerRule(containerRule);
-            ModifyRuleResponse modifyRuleResponse = client.modifyRule(ruleInfo);
-            System.out.println("modify rule success,response:" + modifyRuleResponse);
+            modifyRuleRequest.setContainerRule(containerRule);
+            ModifyRuleResponse modifyRuleResponse = client.modifyRule(modifyRuleRequest);
+            System.out.println("modify rule success, response: " + modifyRuleResponse);
 
-            // describe rule
-
-            DescribeRuleRequest describeRuleRequest = new DescribeRuleRequest(createRuleResponse.getRuleId());
+            // 查询指定采集配置
+            // 请根据您的需要，填写待查询的ruleId
+            // DescribeRule API的请求参数规范请参阅 https://www.volcengine.com/docs/6470/112202
+            DescribeRuleRequest describeRuleRequest = new DescribeRuleRequest(ruleID);
             DescribeRuleResponse describeRuleResponse = client.describeRule(describeRuleRequest);
-            System.out.println("describe rule success,response:" + describeRuleResponse);
-            // describe rules
+            System.out.println("describe rule success, response: " + describeRuleResponse);
+
+            // 查询日志项目所有采集配置
+            // 请根据您的需要，填写待查询的projectId
+            // DescribeRules API的请求参数规范请参阅 https://www.volcengine.com/docs/6470/112203
             DescribeRulesRequest describeRulesRequest = new DescribeRulesRequest();
-            describeRulesRequest.setProjectId(createProjectResponse.getProjectId());
+            describeRulesRequest.setProjectId(projectID);
             DescribeRulesResponse describeRulesResponse = client.describeRules(describeRulesRequest);
-            System.out.println("describe rules success,response:" + describeRulesResponse);
+            System.out.println("describe rules success, response: " + describeRulesResponse);
 
-            //create host group and apply rule to host group
-            CreateHostGroupRequest createHostGroupRequest = new CreateHostGroupRequest();
-            createHostGroupRequest.setHostGroupName(prefix + separator + System.currentTimeMillis());
-            createHostGroupRequest.setHostGroupType("IP");
-            createHostGroupRequest.setHostIpList(Arrays.asList("192.168.0.1", "127.0.0.1"));
-            CreateHostGroupResponse createHostGroupResponse = client.createHostGroup(createHostGroupRequest);
-            System.out.println("create host group success,response:" + createHostGroupResponse);
+            // 应用采集配置到机器组
+            // 请根据您的需要，填写ruleId和hostGroupIds列表
+            // ApplyRuleToHostGroups API的请求参数规范请参阅 https://www.volcengine.com/docs/6470/112204
+            ApplyRuleToHostGroupsRequest applyRuleToHostGroupsRequest = new ApplyRuleToHostGroupsRequest(ruleID, Arrays.asList(hostGroupID));
+            ApplyRuleToHostGroupsResponse applyRuleToHostGroupsResponse = client.applyRuleToHostGroups(applyRuleToHostGroupsRequest);
+            System.out.println("apply rule to host group success, response: " + applyRuleToHostGroupsResponse);
 
-            ApplyRuleToHostGroupsRequest applyRuleToHostGroupsRequest = new ApplyRuleToHostGroupsRequest(
-                    createRuleResponse.getRuleId(), Arrays.asList(createHostGroupResponse.getHostGroupId()));
-            ApplyRuleToHostGroupsResponse applyRuleToHostGroupsResponse =
-                    client.applyRuleToHostGroups(applyRuleToHostGroupsRequest);
-            System.out.println("apply rule to host group success,response:" + applyRuleToHostGroupsResponse);
+            // 删除机器组的采集配置
+            // 请根据您的需要，填写ruleId和hostGroupIds列表
+            // DeleteRuleFromHostGroups API的请求参数规范请参阅 https://www.volcengine.com/docs/6470/112205
+            DeleteRuleFromHostGroupsRequest deleteRuleFromHostGroupsRequest = new DeleteRuleFromHostGroupsRequest(ruleID, Arrays.asList(hostGroupID));
+            DeleteRuleFromHostGroupsResponse deleteRuleFromHostGroupsResponse = client.deleteRuleFromHostGroups(deleteRuleFromHostGroupsRequest);
+            System.out.println("delete rule to host group success, response: " + deleteRuleFromHostGroupsResponse);
 
-            //describe host's rules
-            DescribeHostGroupRulesRequest describeHostGroupRulesRequest =
-                    new DescribeHostGroupRulesRequest
-                            (createHostGroupResponse.getHostGroupId(), 1, 10);
-            DescribeHostGroupRulesResponse describeHostGroupRulesResponse =
-                    client.describeHostGroupRules(describeHostGroupRulesRequest);
-            System.out.println("describe rules of host group success,response:" + describeHostGroupRulesResponse);
-            //delete rule from host group
-            DeleteRuleFromHostGroupsRequest deleteRuleFromHostGroupsRequest = new DeleteRuleFromHostGroupsRequest(
-                    createRuleResponse.getRuleId(), Arrays.asList(createHostGroupResponse.getHostGroupId()));
-            DeleteRuleFromHostGroupsResponse deleteRuleFromHostGroupsResponse =
-                    client.deleteRuleFromHostGroups(deleteRuleFromHostGroupsRequest);
-            System.out.println("delete rule to host group success,response:" + deleteRuleFromHostGroupsResponse);
-
-            //  delete rule
-            DeleteRuleResponse deleteRuleResponse =
-                    client.deleteRule(new DeleteRuleRequest(createRuleResponse.getRuleId()));
-            System.out.println("delete rule success,response:" + deleteRuleResponse);
-            //delete host group
-            DeleteHostGroupResponse deleteHostGroupResponse =
-                    client.deleteHostGroup(new DeleteHostGroupRequest(createHostGroupResponse.getHostGroupId()));
-            System.out.println("delete host group success,response:" + deleteHostGroupResponse);
-            // delete topic and project
-            DeleteTopicResponse deleteTopicResponse =
-                    client.deleteTopic(new DeleteTopicRequest(createTopicResponse.getTopicId()));
-            System.out.println("delete topic success,response:" + deleteTopicResponse);
-            DeleteProjectResponse deleteProjectResponse = client.deleteProject(new DeleteProjectRequest(projectId));
-            System.out.println("delete project success,response:" + deleteProjectResponse);
+            // 删除采集配置
+            // 请根据您的需要，填写待删除的ruleId
+            // DeleteRule API的请求参数规范请参阅 https://www.volcengine.com/docs/6470/112200
+            DeleteRuleResponse deleteRuleResponse = client.deleteRule(new DeleteRuleRequest(ruleID));
+            System.out.println("delete rule success, response: " + deleteRuleResponse);
         } catch (LogException e) {
             e.printStackTrace();
         }
     }
-
 }

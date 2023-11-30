@@ -1140,4 +1140,13 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     ListHostAcceleratePackOrderResponse listHostAcceleratePackOrder(ListHostAcceleratePackOrderRequest listHostAcceleratePackOrderRequest) throws Exception;
+
+    /**
+     * CheckUidMatch
+     *
+     * @param checkUidMatchRequest CheckUidMatchRequest
+     * @return CheckUidMatchResponse
+     * @throws Exception the exception
+     */
+    CheckUidMatchResponse checkUidMatch(CheckUidMatchRequest checkUidMatchRequest) throws Exception;
 }

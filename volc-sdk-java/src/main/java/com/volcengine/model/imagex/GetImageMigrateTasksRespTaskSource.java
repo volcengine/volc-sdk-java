@@ -31,6 +31,9 @@ public class GetImageMigrateTasksRespTaskSource {
     @JSONField(name = "Endpoint")
     String endpoint;
 
+    @JSONField(name = "CdnHost")
+    String cdnHost;
+
     @JSONField(name = "SkipHeader")
     Boolean skipHeader;
 

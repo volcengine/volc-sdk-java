@@ -1,5 +1,8 @@
 Change log
 
+2023-11-30 Bumped to version v1.0.133
+- Updated apis for live/livesaas/tls/imagex
+
 2023-11-23 Bumped to version v1.0.132
 - Updated apis for security/live/livesaas/visual/tls/translate/maas
 

@@ -14,50 +14,66 @@ public class TopicDemo extends BaseDemo {
         String prefix = "test-topic";
         String separator = "-";
         String date = sdf.format(new Date());
+
         try {
-            //create project
+            // 创建日志项目
             String projectName = prefix + separator + date + separator + System.currentTimeMillis();
             String region = clientConfig.getRegion();
             String description = "test project";
-            CreateProjectRequest project = new CreateProjectRequest(projectName, region, description);
-            CreateProjectResponse createProjectResponse = client.createProject(project);
-            System.out.println("create project success,response:" + createProjectResponse);
-            String projectId = createProjectResponse.getProjectId();
-            //create topic
+            CreateProjectRequest createProjectRequest = new CreateProjectRequest(projectName, region, description);
+            CreateProjectResponse createProjectResponse = client.createProject(createProjectRequest);
+            System.out.println("create project success, response: " + createProjectResponse);
+
+            String projectID = createProjectResponse.getProjectId();
+
+            // 创建日志主题
+            // 请根据您的需要，填写projectId、topicName、ttl、shardCount和description等参数
+            // CreateTopic API的请求参数规范请参阅 https://www.volcengine.com/docs/6470/112180
             String topicName = prefix + separator + date + separator + System.currentTimeMillis();
             CreateTopicRequest createTopicRequest = new CreateTopicRequest();
             createTopicRequest.setTopicName(topicName);
-            createTopicRequest.setProjectId(projectId);
+            createTopicRequest.setProjectId(projectID);
             createTopicRequest.setTtl(500);
             CreateTopicResponse createTopicResponse = client.createTopic(createTopicRequest);
-            System.out.println("create topic success,response:" + createTopicResponse);
-            //modify topic
+            System.out.println("create topic success, response: " + createTopicResponse);
+
+            String topicID = createTopicResponse.getTopicId();
+
+            // 修改日志主题
+            // 请根据您的需要，填写topicId以及待修改的各项参数
+            // ModifyTopic API的请求参数规范请参阅 https://www.volcengine.com/docs/6470/112183
             ModifyTopicRequest modifyTopicRequest = new ModifyTopicRequest();
-            modifyTopicRequest.setTopicId(createTopicResponse.getTopicId());
+            modifyTopicRequest.setTopicId(topicID);
             modifyTopicRequest.setTopicName(topicName + separator + System.currentTimeMillis());
             ModifyTopicResponse modifyTopicResponse = client.modifyTopic(modifyTopicRequest);
-            System.out.println("modify topic success,response:" + modifyTopicResponse);
+            System.out.println("modify topic success, response: " + modifyTopicResponse);
 
-            //describe topic
-            DescribeTopicRequest describeTopicRequest = new DescribeTopicRequest(createTopicResponse.getTopicId());
+            // 查询指定日志主题信息
+            // 请根据您的需要，填写待查询的topicId
+            // DescribeTopic API的请求参数规范请参阅 https://www.volcengine.com/docs/6470/112184
+            DescribeTopicRequest describeTopicRequest = new DescribeTopicRequest(topicID);
             DescribeTopicResponse describeTopicResponse = client.describeTopic(describeTopicRequest);
-            System.out.println("describe topic success,response:" + describeTopicResponse);
+            System.out.println("describe topic success, response: " + describeTopicResponse);
 
-            //describe topics
+            // 查询所有日志主题信息
+            // 请根据您的需要，填写待查询的projectId
+            // DescribeTopics API的请求参数规范请参阅 https://www.volcengine.com/docs/6470/112185
             DescribeTopicsRequest describeTopicsRequest = new DescribeTopicsRequest();
-            describeTopicsRequest.setProjectId(createProjectResponse.getProjectId());
+            describeTopicsRequest.setProjectId(projectID);
             DescribeTopicsResponse describeTopicsResponse = client.describeTopics(describeTopicsRequest);
-            System.out.println("describe topics success,response:" + describeTopicsResponse);
-            //delete topic
-            DeleteTopicResponse deleteTopicResponse = client.deleteTopic(
-                    new DeleteTopicRequest(createTopicResponse.getTopicId()));
-            System.out.println("delete topic success,response:" + deleteTopicResponse);
-            DeleteProjectResponse deleteProjectResponse = client.deleteProject(new DeleteProjectRequest(projectId));
-            System.out.println("delete project success,response:" + deleteProjectResponse);
-        } catch (
-                LogException e) {
+            System.out.println("describe topics success, response: " + describeTopicsResponse);
+
+            // 删除日志主题
+            // 请根据您的需要，填写待删除的topicId
+            // DeleteTopic API的请求参数规范请参阅 https://www.volcengine.com/docs/6470/112182
+            DeleteTopicResponse deleteTopicResponse = client.deleteTopic(new DeleteTopicRequest(topicID));
+            System.out.println("delete topic success, response: " + deleteTopicResponse);
+
+            // 删除日志项目
+            DeleteProjectResponse deleteProjectResponse = client.deleteProject(new DeleteProjectRequest(projectID));
+            System.out.println("delete project success, response: " + deleteProjectResponse);
+        } catch (LogException e) {
             e.printStackTrace();
         }
     }
-
 }

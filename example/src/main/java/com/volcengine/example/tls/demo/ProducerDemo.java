@@ -1,106 +1,60 @@
 package com.volcengine.example.tls.demo;
 
-import com.volcengine.model.tls.*;
+import com.volcengine.model.tls.LogItem;
 import com.volcengine.model.tls.exception.LogException;
-import com.volcengine.model.tls.pb.PutLogRequest;
 import com.volcengine.model.tls.producer.CallBack;
+import com.volcengine.model.tls.producer.ProducerConfig;
 import com.volcengine.model.tls.producer.Result;
-import com.volcengine.model.tls.request.*;
-import com.volcengine.model.tls.response.*;
 import com.volcengine.service.tls.Producer;
 import com.volcengine.service.tls.ProducerImpl;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import static org.junit.Assert.assertTrue;
 
-public class ProducerDemo extends BaseDemo {
-    public static void main(String[] args) {
-        SimpleDateFormat sdf = new SimpleDateFormat(Const.DATE_FORMAT);
-        String prefix = "test-zsq";
-        String separator = "-";
-        Date date = new Date();
-        long currentTimeMillis = date.getTime();
-        String formatDate = sdf.format(date);
-        try {
-            //create project
-            String projectName = prefix + separator + formatDate + separator + currentTimeMillis;
-            String region = clientConfig.getRegion();
-            String description = "test project";
-            CreateProjectRequest project = new CreateProjectRequest(projectName, region, description);
-            CreateProjectResponse createProjectResponse = client.createProject(project);
-            System.out.println("create project success,response:" + createProjectResponse);
-            String projectId = createProjectResponse.getProjectId();
-            //create topic
-            String topicName = prefix + separator + formatDate + separator + currentTimeMillis;
-            CreateTopicRequest createTopicRequest = new CreateTopicRequest();
-            createTopicRequest.setTopicName(topicName);
-            createTopicRequest.setProjectId(projectId);
-            createTopicRequest.setTtl(500);
-            CreateTopicResponse createTopicResponse = client.createTopic(createTopicRequest);
-            System.out.println("create topic success,response:" + createTopicResponse);
+public class ProducerDemo {
+    public static void main(String[] args) throws LogException, InterruptedException {
+        // 初始化客户端，推荐通过环境变量动态获取火山引擎密钥等身份认证信息，以免AccessKey硬编码引发数据安全风险。详细说明请参考 https://www.volcengine.com/docs/6470/1166455
+        // 使用STS时，ak和sk均使用临时密钥，且设置VOLCENGINE_TOKEN；不使用STS时，VOLCENGINE_TOKEN部分传空
+        ProducerConfig producerConfig = new ProducerConfig(System.getenv("VOLCENGINE_ENDPOINT"), System.getenv("VOLCENGINE_REGION"),
+                System.getenv("VOLCENGINE_ACCESS_KEY_ID"), System.getenv("VOLCENGINE_ACCESS_KEY_SECRET"), System.getenv("VOLCENGINE_TOKEN"));
+        // 实例化并启动Producer
+        Producer producer = new ProducerImpl(producerConfig);
+        producer.start();
 
-            //create index
-            CreateIndexRequest createIndexRequest = new CreateIndexRequest(createTopicResponse.getTopicId(),
-                    new FullTextInfo(false, ",-;", false), null);
-            CreateIndexResponse createIndexResponse = client.createIndex(createIndexRequest);
-            System.out.println("create index success,response:" + createIndexResponse);
+        // 请根据您的需要，填写topicId、source、filename
+        String topicID = "your-topic-id";
+        String source = "your-log-source";
+        String filename = "your-log-filename";
+        // 如果您不需要回调处理，Producer提供的sendLogV2和sendLogsV2接口的callback参数传入null即可
+        CallBack callBack = new CallBack() {
+            @Override
+            public void onComplete(Result result) {
+                System.out.println("producer result:" + result);
+            }
+        };
 
-            // producer put logs
-            PutLogRequest.LogContent logContent = PutLogRequest.LogContent.newBuilder().setKey("test-key-" +
-                    currentTimeMillis).setValue("test-value").build();
-            PutLogRequest.Log log = PutLogRequest.Log.newBuilder().setTime(currentTimeMillis).
-                    addContents(logContent).build();
-            String topicId = createTopicResponse.getTopicId();
-            Producer producer = ProducerImpl.defaultProducer(
-                    clientConfig.getEndpoint(), clientConfig.getRegion(), clientConfig.getAccessKeyId(), clientConfig.getAccessKeySecret(),
-                    clientConfig.getSecurityToken());
-            producer.start();
-            // 如果不需要回调，callback参数传null即可
-            CallBack callBack = new CallBack() {
-                @Override
-                public void onComplete(Result result) {
-                    System.out.println("producer result:" + result);
-                }
-            };
-            List<LogItem> logs = new ArrayList<>();
-            currentTimeMillis = System.currentTimeMillis();
-            LogItem item = new LogItem(currentTimeMillis);
-            item.addContent("index", "" + 1);
-            item.addContent("test-key", "test-value");
-            logs.add(item);
-            producer.sendLogsV2("",topicId,"test-source", "test-file", logs, callBack);
-            // describe cursor
-            DescribeCursorRequest describeCursorRequest =
-                    new DescribeCursorRequest(topicId, 0, "1656604800");
-            DescribeCursorResponse describeCursorResponse = client.describeCursor(describeCursorRequest);
-            assertTrue(describeCursorResponse.getCursor().length() > 0);
+        LogItem item;
 
-            // wait 30s,index to be queried
+        // 调用Producer的sendLogV2接口，一次提交一条日志
+        item = new LogItem();
+        item.setTime(System.currentTimeMillis());
+        item.addContent("key1", "value1");
+        item.addContent("key2", "value2");
+        producer.sendLogV2(null, topicID, source, filename, item, callBack);
 
-            Thread.sleep(30000);
-            ConsumeLogsRequest consumeLogsRequest = new ConsumeLogsRequest();
-            consumeLogsRequest.setTopicId(topicId);
-            consumeLogsRequest.setShardId(0);
-            consumeLogsRequest.setCursor(describeCursorResponse.getCursor());
-            ConsumeLogsResponse consumeLogsResponse = client.consumeLogs(consumeLogsRequest);
-            System.out.println(String.format("consume logs success requestId:%s,cursor:%s,cursorCnt:%d.",
-                    consumeLogsResponse.getRequestId(), consumeLogsResponse.getXTlsCursor(),
-                    consumeLogsResponse.getXTlsCount()));
-            // delete index topic project
-            DeleteIndexRequest deleteIndexRequest = new DeleteIndexRequest(topicId);
-            DeleteIndexResponse deleteIndexResponse = client.deleteIndex(deleteIndexRequest);
-            System.out.println("delete index success,response:" + deleteIndexResponse);
-            DeleteTopicResponse deleteTopicResponse = client.deleteTopic(new DeleteTopicRequest(topicId));
-            System.out.println("delete topic success,response:" + deleteTopicResponse);
-            DeleteProjectResponse deleteProjectResponse = client.deleteProject(new DeleteProjectRequest(projectId));
-            System.out.println("delete project success,response:" + deleteProjectResponse);
-        } catch (LogException | InterruptedException e) {
-            e.printStackTrace();
+        // 调用Producer的sendLogsV2接口，一次提交多条日志
+        List<LogItem> items = new ArrayList<>();
+        for (int i = 1; i <= 1000; i++) {
+            item = new LogItem();
+            item.setTime(System.currentTimeMillis());
+            item.addContent("key1", "value1-" + i);
+            item.addContent("key2", "value2-" + i);
+            items.add(item);
         }
-    }
+        producer.sendLogsV2(null, topicID, source, filename, items, callBack);
 
+        // 关闭Producer
+        producer.close();
+    }
 }

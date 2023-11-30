@@ -22,6 +22,12 @@ public class GetImageMigrateTasksRespTask {
     @JSONField(name = "Dst")
     GetImageMigrateTasksRespTaskDst dst;
 
+    @JSONField(name = "Transcode")
+    GetImageMigrateTasksRespTaskTranscode transcode;
+
+    @JSONField(name = "RunStrategy")
+    GetImageMigrateTasksRespTaskRunStrategy runStrategy;
+
     @JSONField(name = "Progress")
     GetImageMigrateTasksRespTaskProgress progress;
 

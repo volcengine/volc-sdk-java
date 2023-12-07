@@ -5,10 +5,12 @@ import lombok.Data;
 
 @Data
 public class GetDeviceRequest {
-    @JSONField(name = "SpaceID")
+    @JSONField(serialize = false)
+    @Deprecated
     String spaceID;
-    @JSONField(name = "DeviceID")
+    @JSONField(serialize = false)
     String deviceID;
-    @JSONField(name = "SipServerID")
+    @Deprecated
+    @JSONField(serialize = false)
     String sipServerID;
 }

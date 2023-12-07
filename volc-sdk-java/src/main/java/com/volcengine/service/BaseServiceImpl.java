@@ -303,7 +303,7 @@ public abstract class BaseServiceImpl implements IBaseService {
 
         try {
             Collections.sort(mergedForm, NameValueComparator.INSTANCE);
-            request.setEntity(new UrlEncodedFormEntity(mergedForm));
+            request.setEntity(new UrlEncodedFormEntity(mergedForm, Consts.UTF_8));
         } catch (Exception e) {
             e.printStackTrace();
             return new RawResponse(null, SdkError.EENCODING.getNumber(), e);

@@ -446,12 +446,30 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
                 add(new BasicNameValuePair("StreamingIndex", Integer.toString(listDeviceRecordsRequest.getStreamingIndex())));
                 add(new BasicNameValuePair("Resolution", listDeviceRecordsRequest.getResolution()));
                 add(new BasicNameValuePair("ReqType", listDeviceRecordsRequest.getReqType()));
+                add(new BasicNameValuePair("WithSub", listDeviceRecordsRequest.isWithSub() ? "1" : "0"));
             }
         }, JSON.toJSONString(listDeviceRecordsRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         return JSON.parseObject(response.getData(), ListDeviceRecordsResponse.class);
+    }
+
+    @Override
+    public ListStreamRecordsResponseV3 listStreamRecords(ListStreamRecordsRequestV3 listStreamRecordsRequestV3) throws Exception {
+        if (listStreamRecordsRequestV3.getReqType() == null) {
+            listStreamRecordsRequestV3.setReqType("");
+        }
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoListStreamRecords, new ArrayList<NameValuePair>() {
+            {
+                add(new BasicNameValuePair("PageNumber", Integer.toString(listStreamRecordsRequestV3.getPageNumber())));
+                add(new BasicNameValuePair("PageSize", Integer.toString(listStreamRecordsRequestV3.getPageSize())));
+            }
+        }, JSON.toJSONString(listStreamRecordsRequestV3));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), ListStreamRecordsResponseV3.class);
     }
 
     @Override
@@ -471,10 +489,34 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
     }
 
     @Override
+    public PlayCloudResponse playCloudRecord(PlayCloudRecordRequest playCloudRecordRequest) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoPlayCloudRecord, new ArrayList<NameValuePair>() {
+        }, JSON.toJSONString(playCloudRecordRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), PlayCloudResponse.class);
+    }
+
+    @Override
     public IDResponse genSipID(String sipServerID, String deviceType) throws Exception {
         com.volcengine.model.response.RawResponse response = query(Const.AIoTVideoGenSipID, new ArrayList<NameValuePair>() {
             {
                 add(new BasicNameValuePair("SipServerID", sipServerID));
+                add(new BasicNameValuePair("DeviceType", deviceType));
+            }
+        });
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), IDResponse.class);
+    }
+
+    @Override
+    public IDResponse genSipIDBySpaceID(String spaceID, String deviceType) throws Exception {
+        com.volcengine.model.response.RawResponse response = query(Const.AIoTVideoGenSipID, new ArrayList<NameValuePair>() {
+            {
+                add(new BasicNameValuePair("SpaceID", spaceID));
                 add(new BasicNameValuePair("DeviceType", deviceType));
             }
         });
@@ -686,6 +728,10 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
         com.volcengine.model.response.RawResponse response = query(Const.AIoTVideoGetStream, new ArrayList<NameValuePair>() {
             {
                 add(new BasicNameValuePair("StreamID", getStreamRequest.getStreamID()));
+                add(new BasicNameValuePair("FreshExpiredPull", getStreamRequest.getFreshExpiredPull()));
+                add(new BasicNameValuePair("StreamingIndex", String.valueOf(getStreamRequest.getStreamingIndex())));
+                add(new BasicNameValuePair("Resolution", getStreamRequest.getResolution()));
+                add(new BasicNameValuePair("EnableAudioTranscode", getStreamRequest.isEnableAudioTranscode() ? "1" : "0"));
             }
         });
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -733,7 +779,7 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
             {
                 add(new BasicNameValuePair("StreamID", startStream.getStreamID()));
             }
-        }, "");
+        }, JSON.toJSONString(startStream));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -747,7 +793,7 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
                 add(new BasicNameValuePair("StreamID", stopStream.getStreamID()));
                 add(new BasicNameValuePair("IsSmart", stopStream.getIsSmart()));
             }
-        }, "");
+        }, JSON.toJSONString(stopStream));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -886,12 +932,38 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
     }
 
     @Override
+    public IDResponse forbidStream(StreamRequest streamRequest) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoForbidStream, new ArrayList<NameValuePair>() {
+            {
+                add(new BasicNameValuePair("StreamID", streamRequest.getStreamID()));
+            }
+        }, JSON.toJSONString(streamRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), IDResponse.class);
+    }
+
+    @Override
     public IDResponse unForbidStream(String streamID) throws Exception {
         com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoUnforbidStream, new ArrayList<NameValuePair>() {
             {
                 add(new BasicNameValuePair("StreamID", streamID));
             }
         }, "");
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), IDResponse.class);
+    }
+
+    @Override
+    public IDResponse allowStream(StreamRequest streamRequest) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoUnforbidStream, new ArrayList<NameValuePair>() {
+            {
+                add(new BasicNameValuePair("StreamID", streamRequest.getStreamID()));
+            }
+        }, JSON.toJSONString(streamRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -920,6 +992,18 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
             throw response.getException();
         }
         return JSON.parseObject(response.getData(), GetRecordV2Response.class);
+    }
+
+    @Override
+    public GetRecordV3Response getRecordListV3(GetRecordListV3Request request) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoGetRecordListV3, new ArrayList<NameValuePair>() {
+            {
+            }
+        }, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), GetRecordV3Response.class);
     }
 
     @Override

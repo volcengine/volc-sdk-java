@@ -21,89 +21,30 @@ public interface VideoAIoTService extends IBaseService {
      */
     SpaceResponse getSpace(String spaceID) throws Exception;
 
-    /**
-     * @param listSpaceRequest, max pageSize is 500
-     * @return space list
-     * @throws Exception
-     */
     ListSpaceResponse listSpace(ListSpaceRequest listSpaceRequest) throws Exception;
 
-    /**
-     * @param spaceID
-     * @return started space id
-     * @throws Exception
-     */
     IDResponse startSpace(String spaceID) throws Exception;
 
-    /**
-     * @param spaceID
-     * @return stopped space id
-     * @throws Exception
-     */
     IDResponse stopSpace(String spaceID) throws Exception;
 
-    /**
-     * delete the space and release resources in the space
-     *
-     * @param spaceID
-     * @return deleted space id
-     * @throws Exception
-     */
     IDResponse deleteSpace(String spaceID) throws Exception;
 
-    /**
-     * update space by spaceID
-     *
-     * @param updateSpaceRequest
-     * @return changed space id
-     * @throws Exception
-     */
     IDResponse updateSpace(UpdateSpaceRequest updateSpaceRequest) throws Exception;
 
-    /**
-     * set space template, snapshot/record/ai
-     *
-     * @param setSpaceTemplateRequest
-     * @return
-     * @throws Exception
-     */
     RawResponse setSpaceTemplate(SetSpaceTemplateRequest setSpaceTemplateRequest) throws Exception;
 
-    /**
-     * cancel space template
-     *
-     * @param spaceID
-     * @param templateType
-     * @return
-     * @throws Exception
-     */
     RawResponse unsetSpaceTemplate(String spaceID, String templateType) throws Exception;
 
     GetDataProjectWithBindWidthAndFlowResponse getDataProjectWithBindWidthAndFlow(GetDataProjectWithBindWidthAndFlowRequest getDataProjectWithBindWidthAndFlow) throws Exception;
 
     GetTotalDataResponse getTotalData(String time) throws Exception;
 
-    /**
-     * get space binded template by spaceID
-     *
-     * @param spaceID
-     * @return
-     * @throws Exception
-     */
     SpaceTemplateResponse getSpaceTemplate(String spaceID) throws Exception;
 
     RawResponse updateAuthInSpace(UpdateAuthInSpaceRequest updateAuthInSpace) throws Exception;
 
     RawResponse disableAuthInSpace(String spaceID, String domain) throws Exception;
 
-    //todo 域名
-//    IDResponse addSpaceDomain(AddSpaceDomainRequest addSpaceDomainRequest) throws Exception;
-//    ListSpaceDomainResponse listSpaceDomain(String spaceID) throws Exception;
-    //空间模板
-//    IDResponse createRecordTemplate(CreateTemplateRequest createTemplateRequest) throws Exception;
-//    IDResponse deleteTemplate(DeleteTemplateRequest deleteTemplateRequest) throws Exception;
-    //防盗链
-    ///设备相关接口
     CreateDeviceResponse createDevice(CreateDeviceRequest createDeviceRequest) throws Exception;
 
     ListDeviceResponse listDevice(ListDeviceRequest listDeviceRequest) throws Exception;
@@ -112,38 +53,36 @@ public interface VideoAIoTService extends IBaseService {
 
     IDResponse freshDevice(DeviceRequest freshDeviceRequest) throws Exception;
 
+    @Deprecated
     IDResponse startDevice(DeviceRequest startDevice) throws Exception;
 
+    @Deprecated
     IDResponse stopDevice(DeviceRequest stopDevice) throws Exception;
 
     IDResponse deleteDevice(DeviceRequest deleteDevice) throws Exception;
 
     IDResponse updateDevice(UpdateDeviceRequest updateDeviceRequest) throws Exception;
 
+    @Deprecated
     ListDeviceRecordsResponse listDeviceScreenshots(ListDeviceRecordsRequest listDeviceRecordsRequest) throws Exception;
 
+    @Deprecated //use list stream records instead
     ListDeviceRecordsResponse listDeviceRecords(ListDeviceRecordsRequest listDeviceRecordsRequest) throws Exception;
 
-    /**
-     * real time m3u8 file
-     *
-     * @param cloudRecordPlayRequest
-     * @return
-     * @throws Exception
-     */
+    ListStreamRecordsResponseV3 listStreamRecords(ListStreamRecordsRequestV3 listStreamRecordsRequestV3) throws Exception;
+
+    @Deprecated //use play cloud record instead
     CloudPlayResponse cloudRecordPlay(CloudRecordPlayRequest cloudRecordPlayRequest) throws Exception;
+
+    PlayCloudResponse playCloudRecord(PlayCloudRecordRequest playCloudRecordRequest) throws Exception;
 
     LocalMediaDownloadResponse localMediaDownload(LocalMediaDownloadRequest localMediaDownloadRequest) throws Exception;
 
     GetLocalMediaDownloadResponse getLocalDownload(String id) throws Exception;
 
-    /**
-     * @param sipServerID sip server id
-     * @param deviceType  IPC/NVR
-     * @return
-     * @throws Exception
-     */
+    @Deprecated
     IDResponse genSipID(String sipServerID, String deviceType) throws Exception;
+    IDResponse genSipIDBySpaceID(String spaceID, String deviceType) throws Exception;
 
     GetDeviceChannelResponse getDeviceChannels(GetDeviceChannelRequest getDeviceChannelRequest) throws Exception;
 
@@ -202,30 +141,28 @@ public interface VideoAIoTService extends IBaseService {
 
     DeleteStreamRecordResponse deleteStreamRecord(String recordID) throws Exception;
 
-    //    RawResponse createForward(CreateForwardRequest createForwardRequest) throws Exception;
-//
-//    ListForwardResponse listForward(ListForwardRequest listForwardRequest) throws Exception;
-//
-//    GetForwardResponse getForward(String streamID) throws Exception;
-//
-//    RawResponse startForward(String streamID) throws Exception;
-//
-//    RawResponse stopForward(String streamID) throws Exception;
-//
-//    DeleteForwardResponse deleteForward(DeleteForwardRequest deleteForwardRequest) throws Exception;
-//
     StreamLogsResponse streamLogs(StreamLogsRequest streamLogs) throws Exception;
 
     GetStreamDataResponse getStreamData(GetStreamDataRequest getStreamData) throws Exception;
 
+    @Deprecated
     IDResponse forbidStream(String streamID) throws Exception;
 
+    IDResponse forbidStream(StreamRequest streamRequest) throws Exception;
+
+    @Deprecated
     IDResponse unForbidStream(String streamID) throws Exception;
 
+    IDResponse allowStream(StreamRequest streamRequest) throws Exception;
+
     //录像
+    @Deprecated
     GetRecordResponse getRecordList(GetRecordListRequest request) throws Exception;
 
+    @Deprecated
     GetRecordV2Response getRecordListV2(GetRecordListV2Request request) throws Exception;
+
+    GetRecordV3Response getRecordListV3(GetRecordListV3Request request) throws Exception;
 
     PlaybackStartResponse playbackStart(PlaybackStartRequest request) throws Exception;
 

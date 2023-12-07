@@ -18,7 +18,7 @@ public class ListRecordPlanChannelsResponse {
         @JSONField(name = "PageResult")
         PageResultResponse pageResult;
         @JSONField(name = "List")
-        Map<String,List<RecordPlanChannel>> list;
+        Map<String, List<RecordPlanChannel>> list;
     }
 
     @Data
@@ -29,6 +29,8 @@ public class ListRecordPlanChannelsResponse {
         String channelID;
         @JSONField(name = "StreamingType")
         String streamingType;
+        @JSONField(name = "StreamingIndex")
+        String streamingIndex;
         @JSONField(name = "StreamID")
         String streamID;
         @JSONField(name = "StreamName")

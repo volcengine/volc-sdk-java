@@ -26,14 +26,13 @@ producer.close()
 
 ### Producer配置
 
-| 参数                  | 类型   | 示例值               | 描述                                                                                                                |
-|:--------------------|:-----|:------------------|:------------------------------------------------------------------------------------------------------------------|
-| totalSizeInBytes    | int  | 100 * 1024 * 1024 | 单个 producer 实例能缓存的日志大小上限，单位为b，默认为 100MB。                                                                          |
-| maxThreadCount      | int  | 50                | 单个producer能并发的最多线程的数量，默认为50，该参数用户可以根据自己实际服务器的性能去配置。                                                               |
-| maxBlockMs          | long | 60 * 1000 单位为毫秒   | 如果 producer 可用空间(totalSizeInBytes)不足，调用者在 send 方法上的最大阻塞时间，默认为 60 秒                                                |
-| maxBatchSizeBytes   | int  | 512 * 1024        | 当一个 BatchLog 中缓存的日志大小大于等于 maxBatchSizeBytes 时，该 batch 将被发送，默认为 512 KB，最大可设置成 5MB。                                 |
-| maxBatchCount       | int  | 4096              | 当一个 BatchLog 中缓存的日志条数大于等于 maxBatchCount 时，该 batch 将被发送，如果未指定，默认为 4096，最大可设置成 40960                                |
-| lingerMs            | int  | 2*1000单位为毫秒       | 一个 BatchLog 从创建到可发送的逗留时间，默认为 2 秒，最小可设置成 100 毫秒。                                                                   |
-| retryCount          | int  | 2                 | 如果某个 BatchLog 首次发送失败，能够对其重试的次数，默认为 2 次。                                                                           |
-| maxReservedAttempts | int  | 3                 | 每个 BatchLog 每次被尝试发送都对应着一个 Attempt，此参数用来控制返回给用户的 attempt 个数，默认只保留最近的 3 次 attempt 信息。 该参数越大能让您追溯更多的信息，但同时也会消耗更多的内存。 |
-
+| 参数                  | 类型   | 示例值               | 描述                                                                                                   |
+|:--------------------|:-----|:------------------|:-----------------------------------------------------------------------------------------------------|
+| totalSizeInBytes    | int  | 100 * 1024 * 1024 | 单个Producer实例能缓存的日志大小上限，单位为B，默认为100MB。                                                                |
+| maxThreadCount      | int  | 50                | 单个Producer实例并发线程的最大数量，默认为50，您可根据实际情况配置。                                                              |
+| maxBlockMs          | long | 60 * 1000         | 当Producer可用缓存空间（totalSizeInBytes）不足时，调用者在send方法上的最长阻塞时间，单位为毫秒，默认为60秒。                                |
+| maxBatchSizeBytes   | int  | 512 * 1024        | 当一个BatchLog中缓存的日志大小大于等于maxBatchSizeBytes时，该batch将被发送，单位为B，默认为512KB，最大可设置为10MB。                       |
+| maxBatchCount       | int  | 4096              | 当一个BatchLog中缓存的日志条数大于等于maxBatchCount时，该batch将被发送，默认为4096，最大可设置为40960。                                |
+| lingerMs            | int  | 2 * 1000          | 一个BatchLog从创建到可发送的等待时间，单位为毫秒，默认为2秒，最小可设置成100毫秒。                                                      |
+| retryCount          | int  | 2                 | 如果某个BatchLog首次发送失败，Producer对其自动重试的次数，默认为2次。                                                          |
+| maxReservedAttempts | int  | 3                 | 每个BatchLog每次尝试发送都对应着一个Attempt，此参数用来控制返回给用户的Attempt个数，默认只保留最近3次Attempt信息。该参数越大，您可追溯的信息越多，但同时也会消耗更多内存。 |

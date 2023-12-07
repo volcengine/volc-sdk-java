@@ -964,6 +964,20 @@ public class VideoAIoTConfig {
                         }
                     }
             ));
+            put(Const.AIoTVideoGetRecordListV3, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AIoTVideoGetRecordList));
+                                    add(new BasicNameValuePair("Version", Const.VideoAIoTSDKVersion20231001));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.AIoTVideoPlaybackStat, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1113,6 +1127,34 @@ public class VideoAIoTConfig {
                                 {
                                     add(new BasicNameValuePair("Action", Const.AIoTVideoListRecordPlanChannels));
                                     add(new BasicNameValuePair("Version", Const.VideoAIoTSDKVersion));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.AIoTVideoListStreamRecords, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AIoTVideoListStreamRecords));
+                                    add(new BasicNameValuePair("Version", Const.VideoAIoTSDKVersion20231001));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.AIoTVideoPlayCloudRecord, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AIoTVideoPlayCloudRecord));
+                                    add(new BasicNameValuePair("Version", Const.VideoAIoTSDKVersion20231001));
                                 }
                             });
                         }

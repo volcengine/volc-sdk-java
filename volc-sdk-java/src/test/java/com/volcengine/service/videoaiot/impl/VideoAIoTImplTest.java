@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.volcengine.service.videoaiot.impl.BaseTest.setTest;
+import static com.volcengine.service.videoaiot.impl.BaseTest.videoAIoTService;
+
 public class VideoAIoTImplTest extends TestCase {
 
     private static final String rtmpSpaceID = "34e82b73-c853-4347-89c0-8a8395df14aa";
@@ -20,7 +23,6 @@ public class VideoAIoTImplTest extends TestCase {
     private static final String deviceID = "8f551529-0a60-431f-81f9-e87bac0e3428";
     private static final String streamID = "021c4154-2e1a-4c2b-acd9-388f79d7ff30";
     private static final String screenTemplateID = "7e15a883-881a-49bd-a2e1-83b15243fe43";
-    private final VideoAIoTService videoAIoTService = VideoAIoTServiceImpl.getInstance();
     int presetID = 15;
 
     public void testListSpace() {
@@ -35,22 +37,6 @@ public class VideoAIoTImplTest extends TestCase {
             throw new RuntimeException(e);
         }
     }
-
-//    public void testCreateSpace() {
-//        CreateSpaceRequest createSpaceRequest = new CreateSpaceRequest();
-//        createSpaceRequest.setSpaceName("java-space");
-//        createSpaceRequest.setRegion("cn-beijing-a");
-//        createSpaceRequest.setCallback("");
-//        createSpaceRequest.setDescription("java-sdk-create");
-//        createSpaceRequest.setAccessType("rtmp");
-//        createSpaceRequest.setHLSLowLatency(false);
-//        try {
-//            IDResponse space = videoAIoTService.createSpace(createSpaceRequest);
-//            System.out.printf(JSON.toJSONString(space));
-//        } catch (Exception e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 
     public void testCreateSpace() {
         CreateSpaceRequest createSpaceRequest = new CreateSpaceRequest();
@@ -382,7 +368,7 @@ public class VideoAIoTImplTest extends TestCase {
         }
     }
 
-    public void testListDeviceRecords() {
+    public void testListDeviceRecordsV3() {
         setTest();
         long startTime = System.currentTimeMillis();
         ListDeviceRecordsRequest listDeviceRecords = new ListDeviceRecordsRequest();
@@ -408,9 +394,9 @@ public class VideoAIoTImplTest extends TestCase {
     public void testCloudRecordPlay() {
         setTest();
         CloudRecordPlayRequest cloudRecordPlayRequest = new CloudRecordPlayRequest();
-        cloudRecordPlayRequest.setStreamID("21a578bc-9d64-42ae-b3ef-34c666cbb423");
-        cloudRecordPlayRequest.setStartTs("2023-10-24T14:54:00+08:00");
-        cloudRecordPlayRequest.setEndTs("2023-10-24T15:08:00+08:00");
+        cloudRecordPlayRequest.setStreamID("38d26a12-718e-46eb-b326-bcd450bba84d");
+        cloudRecordPlayRequest.setStartTs("2023-11-01T18:10:00+08:00");
+        cloudRecordPlayRequest.setEndTs("2023-11-01T18:20:00+08:00");
         cloudRecordPlayRequest.setTokenValid(3600);
         try {
             CloudPlayResponse resp = videoAIoTService.cloudRecordPlay(cloudRecordPlayRequest);
@@ -419,6 +405,7 @@ public class VideoAIoTImplTest extends TestCase {
             throw new RuntimeException(e);
         }
     }
+
 
     public void testStopDevice() {
         do_TestStopDevice("a0c97103-f019-42b4-b60a-f0976744d546", "925ca8e1-11cc-4473-aace-d9d91301b002");
@@ -497,11 +484,11 @@ public class VideoAIoTImplTest extends TestCase {
     }
 
     public void testUpdateStream() {
+        setTest();
         UpdateStreamRequest updateStreamRequest = new UpdateStreamRequest();
-        updateStreamRequest.setStreamID(streamID);
-        updateStreamRequest.setStreamName("java-sdk-update11111");
-        updateStreamRequest.setDescription("123123123");
-        updateStreamRequest.setSpaceID(rtmpSpaceID);
+        updateStreamRequest.setStreamID("33d3dc70-6125-40bd-bb53-1f57b0facd04");
+        updateStreamRequest.setSpaceID("08fc89c1-cac9-4603-8a69-b20c2ebb7bc5");
+        updateStreamRequest.setIgnoreAudio(false);
         try {
             IDResponse idResponse = videoAIoTService.updateStream(updateStreamRequest);
             System.out.printf(JSON.toJSONString(idResponse));
@@ -625,35 +612,6 @@ public class VideoAIoTImplTest extends TestCase {
         }
         assert onlineTimeRange == 2;
     }
-
-    public void testCreateTmpl() {
-    }
-
-//    public void testCreateForward() {
-//        CreateForwardRequest request = new CreateForwardRequest();
-//        request.setStart(Boolean.TRUE);
-//        request.setDescription("sdk create");
-//        request.setStreamName("forward_" + System.currentTimeMillis());
-//        request.setExpire(7);
-//        request.setSpaceID("4386048e-d9ab-4961-ba90-03bca3d13cc2");
-//        request.setSource("rtmp://73kxrwxhdq83ks1e.pull.bfcdnbf.com/yzy42ufvr6aykp07/wedc?volcTime=1662091448&volcSecret=59b58224bb887ab26671bc4342a5b153");
-//        try {
-//            RawResponse forward = videoAIoTService.createForward(request);
-//            System.out.println(JSON.toJSONString(forward));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    public void testStopForward() {
-//
-//        try {
-//            RawResponse rawResponse = videoAIoTService.stopForward("ae382ce9-6c8d-4e74-a6a5-dd37938f980c");
-//            System.out.println(JSON.toJSONString(rawResponse));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     public void testStreamLogs() {
         //推流记录
@@ -1186,112 +1144,6 @@ public class VideoAIoTImplTest extends TestCase {
         }
     }
 
-    public void testCreateRecordPlan() {
-        setTest();
-        CreateRecordPlanRequest createRecordPlanRequest = new CreateRecordPlanRequest();
-        createRecordPlanRequest.setPlanName("test-plan");
-        createRecordPlanRequest.setBindTemplate("0609aef4-eb80-41c7-9858-48347d8d4904");
-        createRecordPlanRequest.setBindStreams(new ArrayList<String>() {
-            {
-                add("7f2f1b54-2714-4f66-ae78-cd477ab0b68b");
-            }
-        });
-        createRecordPlanRequest.setDescription("javasdktest");
-        createRecordPlanRequest.setStatus("enabled");
-        try {
-            IDResponse recordPlan = videoAIoTService.createRecordPlan(createRecordPlanRequest);
-            System.out.println(recordPlan);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void testGetRecordPlan() {
-        String planID = "";
-        try {
-            RecordPlanResponse recordPlan = videoAIoTService.getRecordPlan(planID);
-            System.out.println(JSON.toJSONString(recordPlan));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-
-    public void testUpdateRecordPlan() {
-        setTest();
-        UpdateRecordPlanRequest updateRecordPlanRequest = new UpdateRecordPlanRequest();
-        updateRecordPlanRequest.setPlanName("1024-sdk-update");
-        updateRecordPlanRequest.setPlanID("5811a03e-7578-4da3-8485-21611c8eef89");
-        updateRecordPlanRequest.setBindTemplate("5b96fd8b-bf42-4950-9194-5efd11453e89");
-        updateRecordPlanRequest.setStatus("enabled");
-        UpdateRecordPlanRequest.ModifyList delList = new UpdateRecordPlanRequest.ModifyList();
-//        common.Channel ch = new common.Channel();
-//        ch.setChannelID("98880000001320000000");
-//        delList.setDevices(new HashMap<String, List<common.Channel>>() {
-//            {
-//                put("34020030991180394435", new ArrayList<common.Channel>() {
-//                    {
-//                        add(ch);
-//                    }
-//                });
-//            }
-//        });
-        updateRecordPlanRequest.setDelList(delList);
-        UpdateRecordPlanRequest.ModifyList addList = new UpdateRecordPlanRequest.ModifyList();
-        common.Channel ch = new common.Channel();
-        ch.setChannelID("98880000001320000000");
-        addList.setDevices(new HashMap<String, List<common.Channel>>() {
-            {
-                put("34020030991180394435", new ArrayList<common.Channel>() {
-                    {
-                        add(ch);
-                    }
-                });
-            }
-        });
-        updateRecordPlanRequest.setResolution("4");
-        updateRecordPlanRequest.setAddList(addList);
-        try {
-            IDResponse recordPlan = videoAIoTService.updateRecordPlan(updateRecordPlanRequest);
-            System.out.println(JSON.toJSONString(recordPlan));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void testListRecordPlan() {
-        setTest();
-        ListRecordPlansRequest listRecordPlansRequest = new ListRecordPlansRequest();
-        listRecordPlansRequest.setFilterName("test");
-        try {
-            ListRecordPlansResponse recordPlan = videoAIoTService.listRecordPlans(listRecordPlansRequest);
-            System.out.println(JSON.toJSONString(recordPlan));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void testListRecordPlanChannel() {
-        setTest();
-        String planID = "f4aaa8ec-cab4-4120-95cd-5be2cfb9bf1a";
-        try {
-            ListRecordPlanChannelsResponse recordPlan = videoAIoTService.listRecordPlanChannels(planID);
-            System.out.println(JSON.toJSONString(recordPlan));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void testDeleteRecordPlan() {
-        setTest();
-        try {
-            IDResponse recordPlan = videoAIoTService.deleteRecordPlan("2f11a13a-038f-445a-800e-03572ec542e3");
-            System.out.println(JSON.toJSONString(recordPlan));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     public void testStartStream() {
         setTest();
         StreamRequest streamRequest = new StreamRequest();
@@ -1304,16 +1156,72 @@ public class VideoAIoTImplTest extends TestCase {
         }
     }
 
-//    public void setTest(){
-//        final String accessKey = "ak";
-//        final String secretKey = "sk";
-//        videoAIoTService.setAccessKey(accessKey);
-//        videoAIoTService.setSecretKey(secretKey);
-//    }
+    /**
+     * sub streams tests
+     */
+    public void testStartStreamSubStream() {
+        setTest();
+        StreamRequest streamRequest = new StreamRequest();
+        streamRequest.setStreamID("0f144bd6-6be1-4a11-9b1a-4b0f36b82277");
+        streamRequest.setStreamingIndex(1);
+        streamRequest.setResolution("2");
+        try {
+            StartStreamResponse startStreamResponse = videoAIoTService.startStream(streamRequest);
+            System.out.println(JSON.toJSONString(startStreamResponse));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void testStopStreamSubStream() {
+        setTest();
+        StreamRequest streamRequest = new StreamRequest();
+        streamRequest.setStreamID("0f144bd6-6be1-4a11-9b1a-4b0f36b82277");
+        streamRequest.setStreamingIndex(1);
+        streamRequest.setResolution("2");
+        try {
+            IDResponse stopStream = videoAIoTService.stopStream(streamRequest);
+            System.out.println(JSON.toJSONString(stopStream));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public void testListStreamRecords() {
+        setTest();
+        long startTime = System.currentTimeMillis();
+        ListStreamRecordsRequestV3 listStreamRecordsRequestV3 = new ListStreamRecordsRequestV3();
+        listStreamRecordsRequestV3.setStreamID("0f144bd6-6be1-4a11-9b1a-4b0f36b82277");
+        listStreamRecordsRequestV3.setStreamingIndex(1);
+        listStreamRecordsRequestV3.setStartTime(System.currentTimeMillis() / 1000 - 3600);
+        listStreamRecordsRequestV3.setEndTime(System.currentTimeMillis() / 1000);
+        listStreamRecordsRequestV3.setPageSize(100);
+        listStreamRecordsRequestV3.setPageNumber(1);
+        listStreamRecordsRequestV3.setReqType("");
+        try {
+            ListStreamRecordsResponseV3 resp = videoAIoTService.listStreamRecords(listStreamRecordsRequestV3);
+            System.out.println(JSON.toJSONString(resp));
+            System.out.println(resp.getDeviceRecords().size());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("COST:" + (System.currentTimeMillis() - startTime));
+    }
+
+
+    public void testPlayCloudRecord() throws Exception {
+        setTest();
+        PlayCloudRecordRequest playCloudRecordRequest = new PlayCloudRecordRequest();
+        playCloudRecordRequest.setStreamID("0f144bd6-6be1-4a11-9b1a-4b0f36b82277");
+        playCloudRecordRequest.setStartTime(System.currentTimeMillis() / 1000 - 3600);
+        playCloudRecordRequest.setEndTime(System.currentTimeMillis() / 1000);
+        playCloudRecordRequest.setStreamingIndex(2);
+        playCloudRecordRequest.setTokenValid(1200);
+        PlayCloudResponse playCloudResponse = videoAIoTService.playCloudRecord(playCloudRecordRequest);
+        System.out.println(JSON.toJSONString(playCloudResponse));
+    }
 
 
     private static boolean online = false;
-
-    public void setTest() {
-    }
 }

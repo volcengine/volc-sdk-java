@@ -587,6 +587,7 @@ public class Const {
 
     //video_aiot
     public static final String VideoAIoTSDKVersion = "2021-01-01";
+    public static final String VideoAIoTSDKVersion20231001 = "2023-10-01";
     public static final String AIoTVideoCreateSpace = "CreateSpace";
     public static final String AIoTVideoDeleteSpace = "DeleteSpace";
     public static final String AIoTVideoGetSpace = "GetSpace";
@@ -624,6 +625,7 @@ public class Const {
     public static final String AIoTVideoListDeviceRecords = "ListDeviceRecords";
     public static final String AIoTVideoCloudRecordPlay = "CloudRecordPlay";
 
+    public static final String AIoTVideoPlayCloudRecord = "PlayCloudRecord";
     public static final String AIoTVideoLocalMediaDownload = "LocalMediaDownload";
 
     public static final String AIoTVideoGetLocalDownload = "GetLocalDownload";
@@ -632,6 +634,7 @@ public class Const {
 
     public static final String AIoTVideoListAlarmNotify = "ListAlarmNotify";
 
+    public static final String AIoTVideoListStreamRecords = "ListStreamRecords";
     public static final String AIoTVideoDeleteAlarmNotify = "DeleteAlarmNotify";
 
     public static final String AIoTVideoDeleteAlarmNotifyAll = "DeleteAlarmNotifyAll";
@@ -672,6 +675,7 @@ public class Const {
 
     public static final String AIoTVideoGetRecordList = "GetRecordList";
     public static final String AIoTVideoGetRecordListV2 = "GetRecordListV2";
+    public static final String AIoTVideoGetRecordListV3 = "GetRecordListV3";
     public static final String AIoTVideoPlaybackStart = "PlaybackStart";
     public static final String AIoTVideoPlaybackStartV2 = "PlaybackStartV2";
     public static final String AIoTVideoPlaybackStat = "PlayBackStat";

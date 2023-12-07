@@ -32,6 +32,9 @@ public class UpdateRecordPlanRequest {
     public static class ModifyList {
         @JSONField(name = "Devices")
         Map<String, List<common.Channel>> devices;
+        @JSONField(name = "MainStreams")
+        List<String> mainStreams;
+        @Deprecated
         @JSONField(name = "Streams")
         List<String> streams;
     }

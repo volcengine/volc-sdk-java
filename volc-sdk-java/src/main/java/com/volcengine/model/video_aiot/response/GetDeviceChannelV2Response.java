@@ -31,6 +31,7 @@ public class GetDeviceChannelV2Response {
         @JSONField(name = "CreateAt")
         private String createAt;
         @JSONField(name = "SubStreams")
+        @Deprecated
         private String[] subStreams;
     }
 

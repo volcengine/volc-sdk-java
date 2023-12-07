@@ -21,6 +21,9 @@ public class CreateRecordPlanRequest {
     String resolution;
     @JSONField(name = "BindChannels")
     Map<String, common.Channel> bindChannel;
+    @JSONField(name = "MainStreams")
+    List<String> mainStreams;
+    @Deprecated
     @JSONField(name = "BindStreams")
     List<String> bindStreams;
     @JSONField(name = "Status")

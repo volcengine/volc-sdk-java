@@ -14,7 +14,7 @@ public class ProducerConfig {
     public static final int DEFAULT_TOTAL_SIZE_IN_BYTES = 100 * 1024 * 1024;
     public static final int DEFAULT_MAX_THREAD_COUNT = 50;
     public static final int DEFAULT_MAX_BATCH_SIZE = 512 * 1024;
-    public static final int MAX_BATCH_SIZE = 5 * 1024 * 1024;
+    public static final int MAX_BATCH_SIZE = 10 * 1024 * 1024;
     public static final int DEFAULT_MAX_BATCH_COUNT = 4096;
     public static final int MAX_BATCH_COUNT = 4096 * 10;
     public static final int DEFAULT_LINGER_MS = 2000;
@@ -150,10 +150,10 @@ public class ProducerConfig {
 
     public void checkBatchSize(int batchSize) throws LogException {
         if (batchSize > MAX_BATCH_SIZE) {
-            throw new LogException("Invalid Arguments", "log batch size" + batchSize + " is larger than MAX_BATCH_SIZE " + MAX_BATCH_SIZE, null);
+            throw new LogException("Invalid Arguments", "log batch size " + batchSize + " is larger than MAX_BATCH_SIZE " + MAX_BATCH_SIZE, null);
         }
         if (batchSize > getTotalSizeInBytes()) {
-            throw new LogException("Invalid Arguments", "log batch size" + batchSize + " is larger than DEFAULT_TOTAL_SIZE_IN_BYTES " + DEFAULT_TOTAL_SIZE_IN_BYTES, null);
+            throw new LogException("Invalid Arguments", "log batch size " + batchSize + " is larger than DEFAULT_TOTAL_SIZE_IN_BYTES " + DEFAULT_TOTAL_SIZE_IN_BYTES, null);
         }
     }
 }

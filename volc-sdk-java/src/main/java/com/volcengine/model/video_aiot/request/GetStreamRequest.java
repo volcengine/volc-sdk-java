@@ -5,6 +5,13 @@ import lombok.Data;
 
 @Data
 public class GetStreamRequest {
-    @JSONField(name = "StreamID")
+    @JSONField(serialize = false)
     String streamID;
+    @JSONField(serialize = false)
+    String freshExpiredPull;
+    @JSONField(serialize = false)
+    int streamingIndex;
+    @JSONField(serialize = false)
+    String resolution;
+    boolean enableAudioTranscode;
 }

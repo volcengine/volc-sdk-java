@@ -5,9 +5,7 @@ import lombok.Data;
 
 @Data
 public class GetDeviceChannelV2Request {
-    @JSONField(name = "DeviceID")
     private String deviceID;
-    @JSONField(name = "QueryMode")
     private String queryMode;
 
     public void setQueryMode(GetDeviceChannelV2Request.QueryMode mode) {

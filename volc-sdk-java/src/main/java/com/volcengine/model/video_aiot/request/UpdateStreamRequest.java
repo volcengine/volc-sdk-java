@@ -6,9 +6,10 @@ import lombok.Data;
 
 @Data
 public class UpdateStreamRequest {
-    @JSONField(name = "SpaceID")
+    @JSONField(serialize = false)
+    @Deprecated
     String spaceID;
-    @JSONField(name = "StreamID")
+    @JSONField(serialize = false)
     String streamID;
     @JSONField(name = "StreamName")
     String streamName;

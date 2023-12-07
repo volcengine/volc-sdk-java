@@ -1,5 +1,9 @@
 Change log
 
+2023-12-07 Bumped to version v1.0.134
+- Updated apis for video_aiot/tls
+- Added service vikingDB
+
 2023-11-30 Bumped to version v1.0.133
 - Updated apis for live/livesaas/tls/imagex
 

@@ -11,4 +11,6 @@ public class ExtractImageHmRequest {
     String storeUri;
     @JSONField(name = "Algorithm")
     String algorithm;
+    @JSONField(name = "ImageUrl")
+    String ImageUrl;
 }

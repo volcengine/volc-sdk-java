@@ -1142,6 +1142,24 @@ public interface LivesaasService extends IBaseService {
     ListHostAcceleratePackOrderResponse listHostAcceleratePackOrder(ListHostAcceleratePackOrderRequest listHostAcceleratePackOrderRequest) throws Exception;
 
     /**
+     * getAttentionDetectionConfig
+     *
+     * @param getAttentionDetectionConfigRequest GetAttentionDetectionConfigRequest
+     * @return GetAttentionDetectionConfigResponse
+     * @throws Exception the exception
+     */
+    GetAttentionDetectionConfigResponse getAttentionDetectionConfig(GetAttentionDetectionConfigRequest getAttentionDetectionConfigRequest) throws Exception;
+
+
+    /**
+     * updateAttentionDetectionConfig
+     *
+     * @param updateAttentionDetectionConfigRequest UpdateAttentionDetectionConfigRequest
+     * @return GetAttentionDetectionConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateAttentionDetectionConfigResponse updateAttentionDetectionConfig(UpdateAttentionDetectionConfigRequest updateAttentionDetectionConfigRequest) throws Exception;
+    /**
      * CheckUidMatch
      *
      * @param checkUidMatchRequest CheckUidMatchRequest

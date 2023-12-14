@@ -581,11 +581,28 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     @Override
+    public CreateHiddenWatermarkImageResponse createHiddenWatermarkImage(CreateHiddenWatermarkImageRequest req) throws Exception{
+        Map<String, String> params = new HashMap<>();
+        params.put("ServiceId", req.getServiceId());
+        RawResponse response = json("CreateHiddenWatermarkImage", Utils.mapToPairList(params), JSON.toJSONString(req));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CreateHiddenWatermarkImageResponse res = JSON.parseObject(response.getData(), CreateHiddenWatermarkImageResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + " error: " + meta.getError().getMessage());
+        }
+        return res;
+    }
+
+    @Override
     public ExtractImageHmResponse extractImageHm(ExtractImageHmRequest req) throws Exception {
         Map<String, String> params = new HashMap<>();
         params.put("ServiceId", req.getServiceId());
         params.put("StoreUri", req.getStoreUri());
         params.put("Algorithm", req.getAlgorithm());
+        params.put("ImageUrl", req.getImageUrl());
         RawResponse response = query("CreateImageHmExtract", Utils.mapToPairList(params));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();

@@ -277,12 +277,15 @@ public class Index {
                 } else {
                     id = (Integer)item.get(requestPrimaryKey());
                 }
-
                 HashMap<String,Object> fields = new HashMap<>();
                 if(outputFields == null || outputFields.size() != 0){
                     @SuppressWarnings("unchecked")
                     LinkedTreeMap<String,Object> map = (LinkedTreeMap<String,Object>)item.get("fields");
                     fields = vikingDBService.convertLinkedTreeMapToHashMap(map);
+                }
+                String text = null;
+                if(item.containsKey("text")){
+                    text = (String)item.get("text");
                 }
                 DataObject dataObject;
                 // System.out.println(item.get("score").getClass());
@@ -290,12 +293,14 @@ public class Index {
                     dataObject = new DataObject()
                                     .setFields(fields)
                                     .setId(id)
+                                    .setText(text)
                                     .setScore((Double)item.get("score"));
                 } else {
                     Integer score = (Integer)item.get("score");
                     dataObject = new DataObject()
                                     .setFields(fields)
                                     .setId(id)
+                                    .setText(text)
                                     .setScore(score.doubleValue());
                 }
                 

@@ -210,7 +210,7 @@ public class LiveTrait extends BaseServiceImpl {
 
     /**
      * <p>stopPullRecordTask</p>
-     * <p>停止拉流录制任务</p>
+     * <p>停止直播录制任务</p>
      *
      * <p>创建直播录制任务成功后，使用该接口停止任务。  </p>
      *
@@ -225,7 +225,7 @@ public class LiveTrait extends BaseServiceImpl {
 
     /**
      * <p>createPullRecordTask</p>
-     * <p>创建拉流录制任务</p>
+     * <p>创建直播录制任务</p>
      *
      * <p>本接口支持创建直播录制任务，创建成功后，可以将实时的视频直播流进行录制（Record）并保存为视频文件。  </p>
      *
@@ -316,7 +316,7 @@ public class LiveTrait extends BaseServiceImpl {
 
     /**
      * <p>listPullRecordTask</p>
-     * <p>查询拉流录制任务</p>
+     * <p>查询直播录制任务</p>
      *
      * <p>获取当前账号下，已经创建的直播录制任务列表。  </p>
      *
@@ -587,23 +587,8 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>listCertV2</p>
-     * <p>查询证书列表V2</p>
-     *
-     * <p>查看当前账号下的证书列表。</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public ListCertV2Res listCertV2(ListCertV2Body body) throws Exception {
-        RawResponse rawResponse = json("ListCertV2", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, ListCertV2Res.class);
-    }
-
-    /**
      * <p>describeCertDetailSecretV2</p>
-     * <p>查询证书详细信息V2</p>
+     * <p>查看证书详情</p>
      *
      * <p>查询证书详情V2</p>
      *
@@ -614,6 +599,21 @@ public class LiveTrait extends BaseServiceImpl {
     public DescribeCertDetailSecretV2Res describeCertDetailSecretV2(DescribeCertDetailSecretV2Body body) throws Exception {
         RawResponse rawResponse = json("DescribeCertDetailSecretV2", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, DescribeCertDetailSecretV2Res.class);
+    }
+
+    /**
+     * <p>listCertV2</p>
+     * <p>查询证书列表</p>
+     *
+     * <p>查看当前账号下的证书列表。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public ListCertV2Res listCertV2(ListCertV2Body body) throws Exception {
+        RawResponse rawResponse = json("ListCertV2", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, ListCertV2Res.class);
     }
 
     /**
@@ -904,21 +904,6 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>deleteRelaySourceV3</p>
-     * <p>删除回源配置V3</p>
-     *
-     * <p>删除指定范围内的拉流回源配置。 </p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public DeleteRelaySourceV3Res deleteRelaySourceV3(DeleteRelaySourceV3Body body) throws Exception {
-        RawResponse rawResponse = json("DeleteRelaySourceV3", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, DeleteRelaySourceV3Res.class);
-    }
-
-    /**
      * <p>deleteRelaySourceV4</p>
      * <p>删除固定回源配置</p>
      *
@@ -931,6 +916,21 @@ public class LiveTrait extends BaseServiceImpl {
     public DeleteRelaySourceV4Res deleteRelaySourceV4(DeleteRelaySourceV4Body body) throws Exception {
         RawResponse rawResponse = json("DeleteRelaySourceV4", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, DeleteRelaySourceV4Res.class);
+    }
+
+    /**
+     * <p>deleteRelaySourceV3</p>
+     * <p>删除播放触发回源配置</p>
+     *
+     * <p>删除指定范围内的拉流回源配置。 </p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteRelaySourceV3Res deleteRelaySourceV3(DeleteRelaySourceV3Body body) throws Exception {
+        RawResponse rawResponse = json("DeleteRelaySourceV3", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteRelaySourceV3Res.class);
     }
 
     /**
@@ -1160,7 +1160,7 @@ public class LiveTrait extends BaseServiceImpl {
 
     /**
      * <p>describeStreamQuotaConfig</p>
-     * <p>查询推拉流限额配置</p>
+     * <p>查询推拉流限流配置</p>
      *
      * <p>查询指定推/拉流域名的限额配置。</p>
      *
@@ -1870,6 +1870,21 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>describeDenyConfig</p>
+     * <p>查询 IP 黑白名单</p>
+     *
+     * <p>调用接口查询 IP 黑白名单配置。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeDenyConfigRes describeDenyConfig(DescribeDenyConfigBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeDenyConfig", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeDenyConfigRes.class);
+    }
+
+    /**
      * <p>describeReferer</p>
      * <p>查询 Referer 黑白名单</p>
      *
@@ -1885,18 +1900,18 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>describeDenyConfig</p>
-     * <p>查询IP黑白名单配置</p>
+     * <p>updateDenyConfig</p>
+     * <p>添加或更新 IP 黑白名单</p>
      *
-     * <p>调用接口查询 IP 黑白名单配置。</p>
+     * <p>如果设置黑名单，黑名单中外 IP 会被允许访问。如果设置白名单，白名单中内 IP 允许访问。</p>
      *
      * @param body body payload
      * @return response data
      * @throws Exception error during request
      */
-    public DescribeDenyConfigRes describeDenyConfig(DescribeDenyConfigBody body) throws Exception {
-        RawResponse rawResponse = json("DescribeDenyConfig", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, DescribeDenyConfigRes.class);
+    public UpdateDenyConfigRes updateDenyConfig(UpdateDenyConfigBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateDenyConfig", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateDenyConfigRes.class);
     }
 
     /**
@@ -1930,18 +1945,18 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>updateDenyConfig</p>
-     * <p>设置 IP 黑白名单</p>
+     * <p>describeLiveActivityBandwidthData</p>
+     * <p>DescribeLiveActivityBandwidthData</p>
      *
-     * <p>如果设置黑名单，黑名单中外 IP 会被允许访问。如果设置白名单，白名单中内 IP 允许访问。</p>
+     * <p>活动带宽接口</p>
      *
      * @param body body payload
      * @return response data
      * @throws Exception error during request
      */
-    public UpdateDenyConfigRes updateDenyConfig(UpdateDenyConfigBody body) throws Exception {
-        RawResponse rawResponse = json("UpdateDenyConfig", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, UpdateDenyConfigRes.class);
+    public DescribeLiveActivityBandwidthDataRes describeLiveActivityBandwidthData(DescribeLiveActivityBandwidthDataBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeLiveActivityBandwidthData", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeLiveActivityBandwidthDataRes.class);
     }
 
     /**

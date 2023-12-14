@@ -20,6 +20,7 @@ import com.volcengine.service.vikingDB.common.CreateIndexParam;
 import com.volcengine.service.vikingDB.common.EmbModel;
 import com.volcengine.service.vikingDB.common.Field;
 import com.volcengine.service.vikingDB.common.RawData;
+import com.volcengine.service.vikingDB.common.UpdateCollectionParam;
 import com.volcengine.service.vikingDB.common.VectorIndexParams;
 
 import org.apache.http.Header;
@@ -116,6 +117,9 @@ public class VikingDBService extends BaseServiceImpl {
 
         paramsPost.put(Const.Path, "/api/data/embedding");
         apiInfo.put("Embedding", new ApiInfo(paramsPost));
+
+        paramsPost.put(Const.Path, "/api/collection/update");
+        apiInfo.put("UpdateCollection", new ApiInfo(paramsPost));
 
         return apiInfo;
     }
@@ -430,7 +434,33 @@ public class VikingDBService extends BaseServiceImpl {
         }
         return indexes;
     }
+    public void updateCollection(UpdateCollectionParam updateCollectionParam) throws Exception{
+        if(updateCollectionParam.getIsBuild() == 0){
+            VikingDBException vikingDBException = new VikingDBException(1000031, null, "Param dose not build");
+            throw vikingDBException.getErrorCodeException(1000031, null, "Param dose not build");
+        }
+        List<Map<String,Object>> fields = new ArrayList<>();
+        for(Field field: updateCollectionParam.getFields()){
+            Map<String,Object> _field = new HashMap<>();
+            _field.put("field_name", field.getFieldName());
+            _field.put("field_type", field.getFieldType());
+            if(field.getDefaultVal() != null)
+                _field.put("default_val", field.getDefaultVal());
+            if(field.getDim() != null)
+                _field.put("dim", field.getDim());
+            if(field.getPipelineName() != null)
+                _field.put("pipeline_name", field.getPipelineName());
+            fields.add(_field);
+        }
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("collection_name", updateCollectionParam.getCollectionName());
+        params.put("fields", fields);
+        if(updateCollectionParam.getDescription() != null){
+            params.put("description", updateCollectionParam.getDescription());
+        }
+        doRequest("UpdateCollection", null, params);
 
+    }
     public List<Double> embedding(EmbModel embModel, RawData rawData) throws Exception{
         if(embModel.getIsBuild() == 0 || rawData.getIsBuild() == 0){
             VikingDBException vikingDBException = new VikingDBException(1000031, null, "Param dose not build");

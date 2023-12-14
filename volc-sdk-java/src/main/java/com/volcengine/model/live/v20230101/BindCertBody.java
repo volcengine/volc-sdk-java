@@ -10,6 +10,12 @@ import com.alibaba.fastjson.JSON;
 public final class BindCertBody  {
 
     /**
+     * <p>证书域名。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "CertDomain")
+    private String certDomain;
+
+    /**
      * <p>需要绑定的证书链 ID，可以通过[查询证书列表](https://www.volcengine.com/docs/6469/1126822)接口获取。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ChainID")

@@ -818,6 +818,20 @@ public class ImageXConfig {
                         }
                     }
             ));
+            put("CreateHiddenWatermarkImage", new ApiInfo(
+                   new HashMap<String, Object>() {
+                       {
+                           put(Const.Method, "POST");
+                           put(Const.Path, "/");
+                           put(Const.Query, new ArrayList<NameValuePair>(){
+                               {
+                                   add(new BasicNameValuePair("Action", "CreateHiddenWatermarkImage"));
+                                   add(new BasicNameValuePair("Version", "2023-05-01"));
+                               }
+                           });
+                       }
+                   }
+            ));
             put("CreateImageHmEmbed", new ApiInfo(
                     new HashMap<String, Object>() {
                         {

@@ -494,20 +494,6 @@ public class LiveConfig {
                     }
                 }     
             ));
-            put("ListCertV2", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "ListCertV2"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
             put("DescribeCertDetailSecretV2", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -516,6 +502,20 @@ public class LiveConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "DescribeCertDetailSecretV2"));
+                                add(new BasicNameValuePair("Version", "2023-01-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("ListCertV2", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "ListCertV2"));
                                 add(new BasicNameValuePair("Version", "2023-01-01"));
                             }
                         });
@@ -788,20 +788,6 @@ public class LiveConfig {
                     }
                 }     
             ));
-            put("DeleteRelaySourceV3", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "DeleteRelaySourceV3"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
             put("DeleteRelaySourceV4", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -810,6 +796,20 @@ public class LiveConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "DeleteRelaySourceV4"));
+                                add(new BasicNameValuePair("Version", "2023-01-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("DeleteRelaySourceV3", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DeleteRelaySourceV3"));
                                 add(new BasicNameValuePair("Version", "2023-01-01"));
                             }
                         });
@@ -1628,6 +1628,20 @@ public class LiveConfig {
                     }
                 }     
             ));
+            put("DescribeDenyConfig", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DescribeDenyConfig"));
+                                add(new BasicNameValuePair("Version", "2023-01-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
             put("DescribeReferer", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -1642,14 +1656,14 @@ public class LiveConfig {
                     }
                 }     
             ));
-            put("DescribeDenyConfig", new ApiInfo(
+            put("UpdateDenyConfig", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
                         put(Const.Method, "POST");
                         put(Const.Path, "/");
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
-                                add(new BasicNameValuePair("Action", "DescribeDenyConfig"));
+                                add(new BasicNameValuePair("Action", "UpdateDenyConfig"));
                                 add(new BasicNameValuePair("Version", "2023-01-01"));
                             }
                         });
@@ -1684,14 +1698,14 @@ public class LiveConfig {
                     }
                 }     
             ));
-            put("UpdateDenyConfig", new ApiInfo(
+            put("DescribeLiveActivityBandwidthData", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
                         put(Const.Method, "POST");
                         put(Const.Path, "/");
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
-                                add(new BasicNameValuePair("Action", "UpdateDenyConfig"));
+                                add(new BasicNameValuePair("Action", "DescribeLiveActivityBandwidthData"));
                                 add(new BasicNameValuePair("Version", "2023-01-01"));
                             }
                         });

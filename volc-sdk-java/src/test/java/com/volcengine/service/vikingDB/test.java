@@ -27,14 +27,15 @@ import com.volcengine.service.vikingDB.common.SearchByTextParam;
 import com.volcengine.service.vikingDB.common.SearchByVectorParam;
 import com.volcengine.service.vikingDB.common.SearchParam;
 import com.volcengine.service.vikingDB.common.Text;
+import com.volcengine.service.vikingDB.common.UpdateCollectionParam;
 import com.volcengine.service.vikingDB.common.VectorIndexParams;
 import com.volcengine.service.vikingDB.common.VectorOrder;
 
 
 public class test {
     public static void main(String[] args) throws Exception {
-        System.out.println("example");
-    //    VikingDBService vikingDBService = new VikingDBService("host", "region", "ak", "sk","http");
+        // System.out.println("example");
+       VikingDBService vikingDBService = new VikingDBService("host", "region", "ak", "sk","http");
     //    List<Field> fields = new ArrayList<>();
     //    fields.add(new Field().setFieldName("doc_id").setFieldType(FieldType.Int64).setPrimaryKey(true).build());
     //    fields.add(new Field().setFieldName("text_vector").setFieldType(FieldType.Vector).setDim(10).build());
@@ -202,32 +203,32 @@ public class test {
     //     List<DataObject> datas = index.searchById(searchByIdParam);
     //     System.out.println(datas);
 
-    //     Index index = vikingDBService.getIndex("javaSDKTest", "test_index");
-    //     List<String> outputField = new ArrayList<>();
-    //     outputField.add("doc_id");
-    //     outputField.add("like");
-    //     outputField.add("text_vector");
-    //     HashMap<String, Object> filter = new HashMap<>();
-    //     filter.put("op", "range");
-    //     filter.put("field", "price");
-    //     filter.put("lt", 4);
-    //     List<DataObject> datas = index.search(new SearchParam()
-    //                                             .setVectorOrder(new VectorOrder().setVector(genRandomVector(10)).build())
-    //                                             .setOutputFields(outputField)
-    //                                             .setPartition(3)
-    //                                             .setFilter(filter)
-    //                                             .setLimit(2)
-    //                                             .build());
+        // Index index = vikingDBService.getIndex("javaSDKTest", "test_index");
+        // List<String> outputField = new ArrayList<>();
+        // outputField.add("doc_id");
+        // outputField.add("like");
+        // outputField.add("text_vector");
+        // HashMap<String, Object> filter = new HashMap<>();
+        // filter.put("op", "range");
+        // filter.put("field", "price");
+        // filter.put("lt", 4);
+        // List<DataObject> datas = index.search(new SearchParam()
+        //                                         .setVectorOrder(new VectorOrder().setVector(genRandomVector(10)).build())
+        //                                         .setOutputFields(outputField)
+        //                                         .setPartition(3)
+        //                                         .setFilter(filter)
+        //                                         .setLimit(2)
+        //                                         .build());
 
-    //     System.out.println(datas);
+        // System.out.println(datas);
 
-    //     Index index = vikingDBService.getIndex("javaSDKTest", "test_index");
-    //     List<DataObject> datas = index.search(new SearchParam()
-    //                                             .setVectorOrder(new VectorOrder().setId("22").build())
-    //                                             .setPartition(3)
-    //                                             .build());
+        // Index index = vikingDBService.getIndex("javaSDKTest", "test_index");
+        // List<DataObject> datas = index.search(new SearchParam()
+        //                                         .setVectorOrder(new VectorOrder().setId("22").build())
+        //                                         .setPartition(3)
+        //                                         .build());
 
-    //     System.out.println(datas);
+        // System.out.println(datas);
 
     //     Index index = vikingDBService.getIndex("javaSDKTest", "test_index");
     //     List<DataObject> datas = index.search(new SearchParam()
@@ -358,6 +359,26 @@ public class test {
         // List<DataObject> datas = index.searchByText(searchByTextParam);
         // System.out.println(datas);
 
+        // Collection collection = vikingDBService.getCollection("test_text");
+        // List<String> ids = new ArrayList<>();
+        // ids.add("11");
+        // ids.add("22");
+        // ids.add("33");
+        // ids.add("44");
+        // List<DataObject> dataObjects = collection.fetchData(ids);
+        // System.out.println(dataObjects);
+
+        // List<Field> fields = new ArrayList<>();
+        // fields.add(new Field().setFieldName("new_field1").setFieldType(FieldType.Int64).setDefaultVal(10).build());
+        // fields.add(new Field().setFieldName("new_field2").setFieldType(FieldType.String).setDefaultVal("test").build());
+        // UpdateCollectionParam updateCollectionParam = new UpdateCollectionParam().setCollectionName("javaSDKTest1")
+        //                                                                         .setFields(fields)
+        //                                                                         .setDescription("modify")
+        //                                                                         .build();
+        // vikingDBService.updateCollection(updateCollectionParam);
+
+        Collection collection = vikingDBService.getCollection("javaSDKTest1");
+        System.out.println(collection);
 
 
     }

@@ -53,5 +53,11 @@ public class GetUserBehaviorListResponseAPIV2 {
         Long UserId;
         @JSONField(name = "SilenceStatus")
         Integer SilenceStatus;
+        @JSONField(name = "ShiftScreenNumber")
+        Integer ShiftScreenNumber;
+        @JSONField(name = "MuteNumber")
+        Integer MuteNumber;
+        @JSONField(name = "NoInteractNumber")
+        Integer NoInteractNumber;
     }
 }

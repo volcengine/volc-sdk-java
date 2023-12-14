@@ -4,22 +4,22 @@ package com.volcengine.model.live.v20230101;
 import com.alibaba.fastjson.JSON;
 
 /**
- * GetVqosRawDataRes
+ * DescribeLiveActivityBandwidthDataRes
  */
 @lombok.Data
-public final class GetVqosRawDataRes  {
+public final class DescribeLiveActivityBandwidthDataRes  {
 
     /**
      * <p>TODO</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ResponseMetadata")
-    private GetVqosRawDataResResponseMetadata responseMetadata;
+    private DescribeLiveActivityBandwidthDataResResponseMetadata responseMetadata;
 
     /**
      * <p>TODO</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Result")
-    private GetVqosRawDataResResult result;
+    private DescribeLiveActivityBandwidthDataResResult result;
 
     @Override
     public String toString() {

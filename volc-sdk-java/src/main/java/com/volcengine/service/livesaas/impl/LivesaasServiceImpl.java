@@ -1963,6 +1963,36 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         return res;
     }
 
+    @Override
+    public GetAttentionDetectionConfigResponse getAttentionDetectionConfig(GetAttentionDetectionConfigRequest getAttentionDetectionConfigRequest) throws Exception {
+        RawResponse response = query(Const.GetAttentionDetectionConfig, Utils.paramsToPair(getAttentionDetectionConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetAttentionDetectionConfigResponse res = JSON.parseObject(response.getData(), GetAttentionDetectionConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateAttentionDetectionConfigResponse updateAttentionDetectionConfig(UpdateAttentionDetectionConfigRequest updateAttentionDetectionConfigRequest) throws Exception {
+        RawResponse response = json(Const.UpdateAttentionDetectionConfig, new ArrayList<>(), JSON.toJSONString(updateAttentionDetectionConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateAttentionDetectionConfigResponse res = JSON.parseObject(response.getData(), UpdateAttentionDetectionConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
      @Override
      public CheckUidMatchResponse checkUidMatch(CheckUidMatchRequest checkUidMatchRequest) throws Exception {
         RawResponse response = json(Const.CheckUidMatch, new ArrayList<>(), JSON.toJSONString(checkUidMatchRequest));
@@ -1976,5 +2006,5 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         }
         res.getResponseMetadata().setService("livesaas");
         return res;
-     }
+    }
 }

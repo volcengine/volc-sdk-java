@@ -243,6 +243,15 @@ public interface IImageXService extends IBaseService {
     /**
      * Request ImageX api with method POST.
      *
+     * @param req create hidden watermark image hm request
+     * @return image store uri
+     * @throws Exception the exception
+     */
+    CreateHiddenWatermarkImageResponse createHiddenWatermarkImage(CreateHiddenWatermarkImageRequest req) throws Exception;
+
+    /**
+     * Request ImageX api with method POST.
+     *
      * @param req extract hidden mark from image
      * @return embedded info
      * @throws Exception the exception

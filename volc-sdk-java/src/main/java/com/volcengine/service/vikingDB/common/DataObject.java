@@ -13,6 +13,7 @@ public class DataObject {
     private String timestamp = null;
     private Integer TTL = null;
     private Double score = null;
+    private String text = null;
     private Integer isBuild = 0;
     public DataObject(){}
     public DataObject setId(Object id) {
@@ -21,6 +22,10 @@ public class DataObject {
     }
     public DataObject setFields(HashMap<String, Object> fields) {
         this.fields = fields;
+        return this;
+    }
+    public DataObject setText(String text) {
+        this.text = text;
         return this;
     }
     public DataObject setTimestamp(String timestamp) {

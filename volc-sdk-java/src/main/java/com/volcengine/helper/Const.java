@@ -377,6 +377,9 @@ public class Const {
 
     public static final String GetAccountUserTrackData = "GetAccountUserTrackData";
 
+    public static final String GetAttentionDetectionConfig = "GetAttentionDetectionConfig";
+
+    public static final String UpdateAttentionDetectionConfig = "UpdateAttentionDetectionConfig";
     public static final String CheckUidMatch = "CheckUidMatch";
 
     // translate

@@ -60,28 +60,29 @@ public class test {
     //         System.out.println(collection);
     //     }
 
-    //     VectorIndexParams vectorIndex = new VectorIndexParams()
-    //                                     .setDistance(DistanceType.COSINE)
-    //                                     .setIndexType(IndexType.HNSW)
-    //                                     .setQuant(QuantType.Float)
-    //                                     .build();
-    //     List<String> scalarIndex = new ArrayList<>();
-    //     scalarIndex.add("price");
-    //     scalarIndex.add("aim");
-    //     CreateIndexParam createIndexParam = new CreateIndexParam()
-    //                                     .setCollectionName("javaSDKTest")
-    //                                     .setIndexName("test_index")
-    //                                     .setDescription("this is a test for index")
-    //                                     .setCpuQuoat(5)
-    //                                     .setVectorIndex(vectorIndex)
-    //                                     .setScalarIndex(scalarIndex)
-    //                                     .setPartitionBy("like")
-    //                                     .build();
-    //     Index index = vikingDBService.createIndex(createIndexParam);
-    //     System.out.println(index);
+        // VectorIndexParams vectorIndex = new VectorIndexParams()
+        //                                 .setDistance(DistanceType.COSINE)
+        //                                 .setIndexType(IndexType.HNSW)
+        //                                 .setQuant(QuantType.Float)
+        //                                 .build();
+        // List<String> scalarIndex = new ArrayList<>();
+        // scalarIndex.add("price");
+        // scalarIndex.add("aim");
+        // CreateIndexParam createIndexParam = new CreateIndexParam()
+        //                                 .setCollectionName("javaSDKTest")
+        //                                 .setIndexName("test_index")
+        //                                 .setDescription("this is a test for index")
+        //                                 .setCpuQuoat(5)
+        //                                 .setVectorIndex(vectorIndex)
+        //                                 .setScalarIndex(scalarIndex)
+        //                                 .setPartitionBy("like")
+        //                                 .setShardCount(3)
+        //                                 .build();
+        // Index index = vikingDBService.createIndex(createIndexParam);
+        // System.out.println(index);
 
-    //     Index index = vikingDBService.getIndex("javaSDKTest", "test_index");
-    //     System.out.println(index);
+        // Index index = vikingDBService.getIndex("javaSDKTest", "test_index");
+        // System.out.println(index);
 
     //     vikingDBService.dropIndex("javaSDKTest", "test_index");
     

@@ -331,6 +331,7 @@ public class VikingDBService extends BaseServiceImpl {
         params.put("partition_by", createIndexParam.getPartitionBy());
         if(createIndexParam.getVectorIndex() != null) params.put("vector_index", createIndexParam.getVectorIndex().dict());
         if(createIndexParam.getScalarIndex() != null) params.put("scalar_index", createIndexParam.getScalarIndex());
+        if(createIndexParam.getShardCount() != null) params.put("shard_count", createIndexParam.getShardCount());
         // System.out.println(params);
         doRequest("CreateIndex",null, params);
         Index index = new Index(createIndexParam.getCollectionName(), createIndexParam.getIndexName(),

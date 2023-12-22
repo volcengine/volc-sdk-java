@@ -19,6 +19,8 @@ public class CheckSmsVerifyCodeDemo {
         req.setScene("Test");
         req.setPhoneNumber("188xxxxxxxxx");
         req.setCode("123456");
+        // set EncryptName
+        req.setEncryptName("encryptName");
         try{
             SmsCheckVerifyCodeResponse response = smsService.checkVerifyCode(req);
             System.out.println(JSON.toJSONString(response));

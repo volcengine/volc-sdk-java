@@ -34,6 +34,8 @@ public class SendSmsDemo {
         param.put("code","测试信息");
         req.setTemplateParamByMap(param);
 
+        // set EncryptName
+        req.setEncryptName("encryptName");
         try {
             SmsSendResponse response = smsService.sendStandard(req);
             System.out.println(JSON.toJSONString(response));

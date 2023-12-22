@@ -19,6 +19,9 @@ public class SmsBatchSendRequest {
     @JSONField(name = "Tag")
     String tag;
 
+    @JSONField(name="EncryptName")
+    String encryptName;
+
     @Data
     @AllArgsConstructor
     public static class BatchSmsMessage {

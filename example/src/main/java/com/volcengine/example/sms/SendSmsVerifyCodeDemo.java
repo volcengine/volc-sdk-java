@@ -23,6 +23,8 @@ public class SendSmsVerifyCodeDemo {
         req.setExpireTime(240);
         req.setTryCount(3);
         req.setCodeType(6);
+        // set EncryptName
+        req.setEncryptName("encryptName");
         try {
             SmsSendResponse respones = smsService.sendVerifyCode(req);
             System.out.println(JSON.toJSONString(respones));

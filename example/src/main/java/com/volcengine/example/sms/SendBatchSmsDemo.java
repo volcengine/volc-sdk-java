@@ -24,6 +24,8 @@ public class SendBatchSmsDemo {
         req.setSmsAccount("smsAccount");
         req.setTemplateId("templateId");
         req.setTag("tag");
+        // set EncryptName
+        req.setEncryptName("encryptName");
 
         List<SmsBatchSendRequest.BatchSmsMessage> messages = new ArrayList<>();
         messages.add(new SmsBatchSendRequest.BatchSmsMessage("phoneNo", "{\"code\":\"1234\"}"));

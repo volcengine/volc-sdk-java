@@ -13,4 +13,6 @@ public class SmsCheckVerifyCodeRequest {
     String scene;
     @JSONField(name = "Code")
     String code;
+    @JSONField(name="EncryptName")
+    String encryptName;
 }

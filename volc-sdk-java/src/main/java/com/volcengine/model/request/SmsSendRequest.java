@@ -23,6 +23,8 @@ public class SmsSendRequest {
     @JSONField(name = "UserExtCode")
     String userExtCode;
 
+    @JSONField(name="EncryptName")
+    String encryptName;
     public void setTemplateParamByMap(Map<String,String> paramMap){
         if (paramMap==null|| paramMap.isEmpty()){
             return;

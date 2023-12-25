@@ -1042,6 +1042,48 @@ public class ImageXConfig {
                         }
                     }
             ));
+            put("GetBatchProcessResult", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetBatchProcessResult"));
+                                    add(new BasicNameValuePair("Version", "2023-05-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("CreateBatchProcessTask", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "CreateBatchProcessTask"));
+                                    add(new BasicNameValuePair("Version", "2023-05-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("GetBatchTaskInfo", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetBatchTaskInfo"));
+                                    add(new BasicNameValuePair("Version", "2023-05-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
 
         {

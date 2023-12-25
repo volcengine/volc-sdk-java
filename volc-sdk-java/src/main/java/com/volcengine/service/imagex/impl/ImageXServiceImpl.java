@@ -677,6 +677,26 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     @Override
+    public GetBatchTaskInfoResp getBatchTaskInfo(GetBatchTaskInfoReq req) throws Exception{
+        return this.getImageX("GetBatchTaskInfo", Utils.paramsToMap(req), GetBatchTaskInfoResp.class).getResult();
+    }
+
+    @Override
+    public CreateBatchProcessTaskResp createBatchProcessTask(CreateBatchProcessTaskReq req) throws Exception{
+        Map<String, String> params = new HashMap<>();
+        params.put("ServiceId", req.getServiceId());
+        return this.postImageX("CreateBatchProcessTask", Utils.paramsToMap(params), req, CreateBatchProcessTaskResp.class).getResult();
+    }
+
+    @Override
+    public GetBatchProcessResultResp getBatchProcessResult(GetBatchProcessResultReq req) throws Exception {
+        Map<String, String> params = new HashMap<>();
+        params.put("ServiceId", req.getServiceId());
+        return this.postImageX("GetBatchProcessResult", Utils.paramsToMap(params), req, GetBatchProcessResultResp.class).getResult();
+    }
+
+
+    @Override
     public GetImageBgFillResultResponse getImageBgFillResult(GetImageBgFillResultRequest req) throws Exception {
         //noinspection unchecked
         RawResponse response = json("GetImageBgFillResult", Collections.EMPTY_LIST, JSON.toJSONString(req));

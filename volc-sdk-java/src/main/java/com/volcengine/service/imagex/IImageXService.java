@@ -349,6 +349,33 @@ public interface IImageXService extends IBaseService {
     GetImageComicResultResponse getImageComicResult(GetImageComicResultRequest req) throws Exception;
 
     /**
+     * Batch Process
+     *
+     * @param req request args
+     * @return result
+     * @throws Exception the exception
+     */
+    GetBatchProcessResultResp getBatchProcessResult(GetBatchProcessResultReq req) throws Exception;
+
+    /**
+     * Batch Process
+     *
+     * @param req request args
+     * @return result
+     * @throws Exception the exception
+     */
+    CreateBatchProcessTaskResp createBatchProcessTask(CreateBatchProcessTaskReq req) throws Exception;
+
+    /**
+     * Batch Process
+     *
+     * @param req request args
+     * @return result
+     * @throws Exception the exception
+     */
+    GetBatchTaskInfoResp getBatchTaskInfo(GetBatchTaskInfoReq req) throws Exception;
+
+    /**
      * Super resolution
      *
      * @param req request args

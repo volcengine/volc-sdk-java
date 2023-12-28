@@ -21,6 +21,7 @@ import com.volcengine.service.vikingDB.common.EmbModel;
 import com.volcengine.service.vikingDB.common.Field;
 import com.volcengine.service.vikingDB.common.RawData;
 import com.volcengine.service.vikingDB.common.UpdateCollectionParam;
+import com.volcengine.service.vikingDB.common.UpdateIndexParam;
 import com.volcengine.service.vikingDB.common.VectorIndexParams;
 
 import org.apache.http.Header;
@@ -120,6 +121,9 @@ public class VikingDBService extends BaseServiceImpl {
 
         paramsPost.put(Const.Path, "/api/collection/update");
         apiInfo.put("UpdateCollection", new ApiInfo(paramsPost));
+
+        paramsPost.put(Const.Path, "/api/index/update");
+        apiInfo.put("UpdateIndex", new ApiInfo(paramsPost));
 
         return apiInfo;
     }
@@ -462,6 +466,26 @@ public class VikingDBService extends BaseServiceImpl {
         doRequest("UpdateCollection", null, params);
 
     }
+    public void updateIndex(UpdateIndexParam updateIndexParam) throws Exception{
+        if(updateIndexParam.getIsBuild() == 0){
+            VikingDBException vikingDBException = new VikingDBException(1000031, null, "Param dose not build");
+            throw vikingDBException.getErrorCodeException(1000031, null, "Param dose not build");
+        }
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("collection_name", updateIndexParam.getCollectionName());
+        params.put("index_name", updateIndexParam.getIndexName());
+        if(updateIndexParam.getCpuQuoat() != null){
+            params.put("cpu_quota", updateIndexParam.getCpuQuoat());
+        }
+        if(updateIndexParam.getDescription() != null){
+            params.put("description", updateIndexParam.getDescription());
+        }
+        if(updateIndexParam.getScalarIndex() != null){
+            params.put("scalar_index", updateIndexParam.getScalarIndex());
+        }
+        doRequest("UpdateIndex", null, params);
+    }
+    
     public List<Double> embedding(EmbModel embModel, RawData rawData) throws Exception{
         if(embModel.getIsBuild() == 0 || rawData.getIsBuild() == 0){
             VikingDBException vikingDBException = new VikingDBException(1000031, null, "Param dose not build");

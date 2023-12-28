@@ -28,6 +28,7 @@ import com.volcengine.service.vikingDB.common.SearchByVectorParam;
 import com.volcengine.service.vikingDB.common.SearchParam;
 import com.volcengine.service.vikingDB.common.Text;
 import com.volcengine.service.vikingDB.common.UpdateCollectionParam;
+import com.volcengine.service.vikingDB.common.UpdateIndexParam;
 import com.volcengine.service.vikingDB.common.VectorIndexParams;
 import com.volcengine.service.vikingDB.common.VectorOrder;
 
@@ -378,8 +379,23 @@ public class test {
         //                                                                         .build();
         // vikingDBService.updateCollection(updateCollectionParam);
 
-        Collection collection = vikingDBService.getCollection("javaSDKTest1");
-        System.out.println(collection);
+        // Collection collection = vikingDBService.getCollection("javaSDKTest1");
+        // System.out.println(collection);
+
+        Index index = vikingDBService.getIndex("example", "example_index");
+        System.out.println(index);
+        List<String> scalar_index = new ArrayList<>();
+        scalar_index.add("like");
+        UpdateIndexParam parmas = new UpdateIndexParam().setCollectionName("example")
+                                        .setIndexName("example_index")
+                                        .setCpuQuoat(3)
+                                        .setDescription("java test")
+                                        .setScalarIndex(scalar_index)
+                                        .build();
+        vikingDBService.updateIndex(parmas);
+        Index index1 = vikingDBService.getIndex("example", "example_index");
+        System.out.println(index1);
+
 
 
     }

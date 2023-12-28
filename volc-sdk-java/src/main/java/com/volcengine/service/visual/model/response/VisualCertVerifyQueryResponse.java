@@ -45,6 +45,10 @@ public class VisualCertVerifyQueryResponse extends VisualBaseResponse {
         public static class SourceCompDetails {
             @JSONField(name = "score")
             Float score;
+            @JSONField(name = "image_face_detail")
+            String imageFaceDetail;
+            @JSONField(name = "image_env_detail")
+            String imageEnvDetail;
             @JSONField(name = "thresholds")
             Thresholds thresholds;
             @Data
@@ -92,6 +96,18 @@ public class VisualCertVerifyQueryResponse extends VisualBaseResponse {
             @JSONField(name = "value")
             Integer value;
         }
-
+        @JSONField(name = "verify_idcard_info")
+        VerifyIdcardInfo verifyIdcardInfo;
+        @Data
+        public static class VerifyIdcardInfo {
+            @JSONField(name = "idcard_name")
+            String idcardName;
+            @JSONField(name = "idcard_no")
+            String idcardNo;
+            @JSONField(name = "face_photo_base64")
+            String facePhotoBase64;
+            @JSONField(name = "national_emblem_photo_base64")
+            String nationalEmblemPhotoBase64;
+        }
     }
 }

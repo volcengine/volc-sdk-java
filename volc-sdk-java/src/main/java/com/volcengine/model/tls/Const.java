@@ -82,8 +82,8 @@ public class Const {
     public static final String MODIFY_CHECKPOINT = "/ModifyCheckPoint";
 
     public static final String TLS = "TLS";
-    public static final int CONNECTION_TIMEOUT_MS = 5000;
-    public static final int SOCKET_TIMEOUT_MS = 5000;
+    public static final int CONNECTION_TIMEOUT_MS = 60000;
+    public static final int SOCKET_TIMEOUT_MS = 60000;
 
     public static final String REGION = "Region";
     public static final String X_TLS_REQUESTID = "X-Tls-Requestid";

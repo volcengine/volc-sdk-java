@@ -28,9 +28,8 @@ import static com.volcengine.model.tls.producer.ProducerConfig.EXTERNAL_ERROR;
 import static com.volcengine.model.tls.producer.ProducerConfig.TOO_MANY_REQUEST_ERROR;
 
 public class TLSLogClientImpl implements TLSLogClient {
-
     public static int DEFAULT_RETRY_INTERVAL_MS = 100;
-    public static int DEFAULT_REQUEST_TIMEOUT_MS = 30 * 1000;
+    public static int DEFAULT_REQUEST_TIMEOUT_MS = 90 * 1000;
     public static int DEFAULT_RETRY_COUNTER_MAXIMUM = 50;
 
     private static AtomicInteger DEFAULT_RETRY_COUNTER = new AtomicInteger(0);
@@ -40,6 +39,9 @@ public class TLSLogClientImpl implements TLSLogClient {
     public TLSLogClientImpl(TLSHttpUtil util, ClientConfig config) {
         this.httpRequest = util;
         this.config = config;
+
+        this.httpRequest.setSocketTimeout(60000);
+        this.httpRequest.setConnectionTimeout(60000);
     }
 
     private static void increaseCounterByOne() {

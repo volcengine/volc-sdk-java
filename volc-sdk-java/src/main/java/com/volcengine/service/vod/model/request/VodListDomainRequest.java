@@ -4,12 +4,6 @@
 package com.volcengine.service.vod.model.request;
 
 /**
- * <pre>
- * **********************************************************************
- * 分发加速管理
- * **********************************************************************
- * </pre>
- *
  * Protobuf type {@code Volcengine.Vod.Models.Request.VodListDomainRequest}
  */
 public final class VodListDomainRequest extends
@@ -456,12 +450,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * **********************************************************************
-   * 分发加速管理
-   * **********************************************************************
-   * </pre>
-   *
    * Protobuf type {@code Volcengine.Vod.Models.Request.VodListDomainRequest}
    */
   public static final class Builder extends

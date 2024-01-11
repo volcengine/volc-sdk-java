@@ -731,7 +731,6 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
                 add(new BasicNameValuePair("FreshExpiredPull", getStreamRequest.getFreshExpiredPull()));
                 add(new BasicNameValuePair("StreamingIndex", String.valueOf(getStreamRequest.getStreamingIndex())));
                 add(new BasicNameValuePair("Resolution", getStreamRequest.getResolution()));
-                add(new BasicNameValuePair("EnableAudioTranscode", getStreamRequest.isEnableAudioTranscode() ? "1" : "0"));
             }
         });
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -778,6 +777,8 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
         com.volcengine.model.response.RawResponse response = json(Const.AIoTVideoStartStream, new ArrayList<NameValuePair>() {
             {
                 add(new BasicNameValuePair("StreamID", startStream.getStreamID()));
+                add(new BasicNameValuePair("EnableAudioTranscode", startStream.isEnableAudioTranscode() ? "1" : "0"));
+                add(new BasicNameValuePair("IgnoreAudio", startStream.isIgnoreAudio() ? "1" : "0"));
             }
         }, JSON.toJSONString(startStream));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

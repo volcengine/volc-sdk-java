@@ -95,6 +95,20 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.DescribeDrmDataKey, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeDrmDataKey));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.GetPlayInfoWithLiveTimeShiftScene, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -226,6 +240,20 @@ public class VodServiceConfig {
                                 {
                                     add(new BasicNameValuePair("Action", Const.GetMediaInfos));
                                     add(new BasicNameValuePair("Version", "2022-12-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetMediaInfos20230701, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetMediaInfos20230701));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
                                 }
                             });
                         }
@@ -787,17 +815,17 @@ public class VodServiceConfig {
             // 视频编辑
             // **********************************************************************
             put(Const.SubmitDirectEditTaskAsync, new ApiInfo(
-                     new HashMap<String, Object>() {
-                         {
-                             put(com.volcengine.helper.Const.Method, "POST");
-                             put(com.volcengine.helper.Const.Path, "/");
-                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
-                                 {
-                                      add(new BasicNameValuePair("Action", Const.SubmitDirectEditTaskAsync));
-                                      add(new BasicNameValuePair("Version", "2018-01-01"));
-                                 }
-                             });
-                         }
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "POST");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.SubmitDirectEditTaskAsync));
+                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                }
+                            });
+                        }
                     }
             ));
             put(Const.GetDirectEditResult, new ApiInfo(
@@ -916,6 +944,20 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.DeleteSpace, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DeleteSpace));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             // **********************************************************************
             // 分发加速管理
             // **********************************************************************
@@ -928,6 +970,20 @@ public class VodServiceConfig {
                                 {
                                     add(new BasicNameValuePair("Action", Const.ListDomain));
                                     add(new BasicNameValuePair("Version", "2023-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.StartDomain, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.StartDomain));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
                                 }
                             });
                         }
@@ -1168,6 +1224,96 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.StopDomain, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.StopDomain));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DeleteDomain, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DeleteDomain));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.AddDomainToScheduler, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AddDomainToScheduler));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.RemoveDomainFromScheduler, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.RemoveDomainFromScheduler));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DeleteDomain, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DeleteDomain));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateDomainPlayRule, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateDomainPlayRule));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.UpdateDomainExpire, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1207,6 +1353,21 @@ public class VodServiceConfig {
                                 {
                                     add(new BasicNameValuePair("Action", Const.AddOrUpdateCertificate));
                                     add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateDomainUrlAuthConfig, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "POST");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateDomainUrlAuthConfig));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+
                                 }
                             });
                         }
@@ -1317,32 +1478,32 @@ public class VodServiceConfig {
                     }
             ));
             put(Const.DescribeVodSpaceWorkflowDetailData, new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(com.volcengine.helper.Const.Method, "GET");
-                        put(com.volcengine.helper.Const.Path, "/");
-                        put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", Const.DescribeVodSpaceWorkflowDetailData));
-                                add(new BasicNameValuePair("Version", "2023-07-01"));
-                            }
-                        });
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeVodSpaceWorkflowDetailData));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
                     }
-                }
             ));
             put(Const.DescribeVodSpaceEditDetailData, new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(com.volcengine.helper.Const.Method, "GET");
-                        put(com.volcengine.helper.Const.Path, "/");
-                        put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", Const.DescribeVodSpaceEditDetailData));
-                                add(new BasicNameValuePair("Version", "2023-07-01"));
-                            }
-                        });
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeVodSpaceEditDetailData));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
                     }
-                }
             ));
         }
     };

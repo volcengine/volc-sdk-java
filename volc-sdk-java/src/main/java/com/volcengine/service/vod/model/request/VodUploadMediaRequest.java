@@ -23,6 +23,8 @@ private static final long serialVersionUID = 0L;
     fileName_ = "";
     fileExtension_ = "";
     vodUploadSource_ = "";
+    clientNetWorkMode_ = "";
+    clientIDCMode_ = "";
   }
 
   @java.lang.Override
@@ -110,6 +112,18 @@ private static final long serialVersionUID = 0L;
           case 80: {
 
             parallelNum_ = input.readInt32();
+            break;
+          }
+          case 90: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            clientNetWorkMode_ = s;
+            break;
+          }
+          case 98: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            clientIDCMode_ = s;
             break;
           }
           default: {
@@ -511,6 +525,98 @@ private static final long serialVersionUID = 0L;
     return parallelNum_;
   }
 
+  public static final int CLIENTNETWORKMODE_FIELD_NUMBER = 11;
+  private volatile java.lang.Object clientNetWorkMode_;
+  /**
+   * <pre>
+   * 客户端网络环境 
+   * </pre>
+   *
+   * <code>string ClientNetWorkMode = 11;</code>
+   * @return The clientNetWorkMode.
+   */
+  @java.lang.Override
+  public java.lang.String getClientNetWorkMode() {
+    java.lang.Object ref = clientNetWorkMode_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      clientNetWorkMode_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 客户端网络环境 
+   * </pre>
+   *
+   * <code>string ClientNetWorkMode = 11;</code>
+   * @return The bytes for clientNetWorkMode.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getClientNetWorkModeBytes() {
+    java.lang.Object ref = clientNetWorkMode_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      clientNetWorkMode_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CLIENTIDCMODE_FIELD_NUMBER = 12;
+  private volatile java.lang.Object clientIDCMode_;
+  /**
+   * <pre>
+   * 客户端机房环境 
+   * </pre>
+   *
+   * <code>string ClientIDCMode = 12;</code>
+   * @return The clientIDCMode.
+   */
+  @java.lang.Override
+  public java.lang.String getClientIDCMode() {
+    java.lang.Object ref = clientIDCMode_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      clientIDCMode_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 客户端机房环境 
+   * </pre>
+   *
+   * <code>string ClientIDCMode = 12;</code>
+   * @return The bytes for clientIDCMode.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getClientIDCModeBytes() {
+    java.lang.Object ref = clientIDCMode_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      clientIDCMode_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -555,6 +661,12 @@ private static final long serialVersionUID = 0L;
     if (parallelNum_ != 0) {
       output.writeInt32(10, parallelNum_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientNetWorkMode_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, clientNetWorkMode_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientIDCMode_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, clientIDCMode_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -597,6 +709,12 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(10, parallelNum_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientNetWorkMode_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, clientNetWorkMode_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientIDCMode_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, clientIDCMode_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -632,6 +750,10 @@ private static final long serialVersionUID = 0L;
         != other.getUploadStrategy()) return false;
     if (getParallelNum()
         != other.getParallelNum()) return false;
+    if (!getClientNetWorkMode()
+        .equals(other.getClientNetWorkMode())) return false;
+    if (!getClientIDCMode()
+        .equals(other.getClientIDCMode())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -663,6 +785,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getUploadStrategy();
     hash = (37 * hash) + PARALLELNUM_FIELD_NUMBER;
     hash = (53 * hash) + getParallelNum();
+    hash = (37 * hash) + CLIENTNETWORKMODE_FIELD_NUMBER;
+    hash = (53 * hash) + getClientNetWorkMode().hashCode();
+    hash = (37 * hash) + CLIENTIDCMODE_FIELD_NUMBER;
+    hash = (53 * hash) + getClientIDCMode().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -816,6 +942,10 @@ private static final long serialVersionUID = 0L;
 
       parallelNum_ = 0;
 
+      clientNetWorkMode_ = "";
+
+      clientIDCMode_ = "";
+
       return this;
     }
 
@@ -852,6 +982,8 @@ private static final long serialVersionUID = 0L;
       result.vodUploadSource_ = vodUploadSource_;
       result.uploadStrategy_ = uploadStrategy_;
       result.parallelNum_ = parallelNum_;
+      result.clientNetWorkMode_ = clientNetWorkMode_;
+      result.clientIDCMode_ = clientIDCMode_;
       onBuilt();
       return result;
     }
@@ -936,6 +1068,14 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getParallelNum() != 0) {
         setParallelNum(other.getParallelNum());
+      }
+      if (!other.getClientNetWorkMode().isEmpty()) {
+        clientNetWorkMode_ = other.clientNetWorkMode_;
+        onChanged();
+      }
+      if (!other.getClientIDCMode().isEmpty()) {
+        clientIDCMode_ = other.clientIDCMode_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1763,6 +1903,198 @@ private static final long serialVersionUID = 0L;
     public Builder clearParallelNum() {
       
       parallelNum_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object clientNetWorkMode_ = "";
+    /**
+     * <pre>
+     * 客户端网络环境 
+     * </pre>
+     *
+     * <code>string ClientNetWorkMode = 11;</code>
+     * @return The clientNetWorkMode.
+     */
+    public java.lang.String getClientNetWorkMode() {
+      java.lang.Object ref = clientNetWorkMode_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        clientNetWorkMode_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 客户端网络环境 
+     * </pre>
+     *
+     * <code>string ClientNetWorkMode = 11;</code>
+     * @return The bytes for clientNetWorkMode.
+     */
+    public com.google.protobuf.ByteString
+        getClientNetWorkModeBytes() {
+      java.lang.Object ref = clientNetWorkMode_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        clientNetWorkMode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 客户端网络环境 
+     * </pre>
+     *
+     * <code>string ClientNetWorkMode = 11;</code>
+     * @param value The clientNetWorkMode to set.
+     * @return This builder for chaining.
+     */
+    public Builder setClientNetWorkMode(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      clientNetWorkMode_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 客户端网络环境 
+     * </pre>
+     *
+     * <code>string ClientNetWorkMode = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearClientNetWorkMode() {
+      
+      clientNetWorkMode_ = getDefaultInstance().getClientNetWorkMode();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 客户端网络环境 
+     * </pre>
+     *
+     * <code>string ClientNetWorkMode = 11;</code>
+     * @param value The bytes for clientNetWorkMode to set.
+     * @return This builder for chaining.
+     */
+    public Builder setClientNetWorkModeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      clientNetWorkMode_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object clientIDCMode_ = "";
+    /**
+     * <pre>
+     * 客户端机房环境 
+     * </pre>
+     *
+     * <code>string ClientIDCMode = 12;</code>
+     * @return The clientIDCMode.
+     */
+    public java.lang.String getClientIDCMode() {
+      java.lang.Object ref = clientIDCMode_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        clientIDCMode_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 客户端机房环境 
+     * </pre>
+     *
+     * <code>string ClientIDCMode = 12;</code>
+     * @return The bytes for clientIDCMode.
+     */
+    public com.google.protobuf.ByteString
+        getClientIDCModeBytes() {
+      java.lang.Object ref = clientIDCMode_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        clientIDCMode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 客户端机房环境 
+     * </pre>
+     *
+     * <code>string ClientIDCMode = 12;</code>
+     * @param value The clientIDCMode to set.
+     * @return This builder for chaining.
+     */
+    public Builder setClientIDCMode(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      clientIDCMode_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 客户端机房环境 
+     * </pre>
+     *
+     * <code>string ClientIDCMode = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearClientIDCMode() {
+      
+      clientIDCMode_ = getDefaultInstance().getClientIDCMode();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 客户端机房环境 
+     * </pre>
+     *
+     * <code>string ClientIDCMode = 12;</code>
+     * @param value The bytes for clientIDCMode to set.
+     * @return This builder for chaining.
+     */
+    public Builder setClientIDCModeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      clientIDCMode_ = value;
       onChanged();
       return this;
     }

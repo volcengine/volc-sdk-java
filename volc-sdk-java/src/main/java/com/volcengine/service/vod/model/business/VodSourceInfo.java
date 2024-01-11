@@ -50,6 +50,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -188,6 +189,19 @@ private static final long serialVersionUID = 0L;
             fileName_ = s;
             break;
           }
+          case 170: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              fileExtra_ = com.google.protobuf.MapField.newMapField(
+                  FileExtraDefaultEntryHolder.defaultEntry);
+              mutable_bitField0_ |= 0x00000001;
+            }
+            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+            fileExtra__ = input.readMessage(
+                FileExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            fileExtra_.getMutableMap().put(
+                fileExtra__.getKey(), fileExtra__.getValue());
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -212,6 +226,18 @@ private static final long serialVersionUID = 0L;
     return com.volcengine.service.vod.model.business.VodCommon.internal_static_Volcengine_Vod_Models_Business_VodSourceInfo_descriptor;
   }
 
+  @SuppressWarnings({"rawtypes"})
+  @java.lang.Override
+  protected com.google.protobuf.MapField internalGetMapField(
+      int number) {
+    switch (number) {
+      case 21:
+        return internalGetFileExtra();
+      default:
+        throw new RuntimeException(
+            "Invalid map field number: " + number);
+    }
+  }
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -938,6 +964,103 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int FILEEXTRA_FIELD_NUMBER = 21;
+  private static final class FileExtraDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.String, java.lang.String> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.String, java.lang.String>newDefaultInstance(
+                com.volcengine.service.vod.model.business.VodCommon.internal_static_Volcengine_Vod_Models_Business_VodSourceInfo_FileExtraEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "");
+  }
+  private com.google.protobuf.MapField<
+      java.lang.String, java.lang.String> fileExtra_;
+  private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+  internalGetFileExtra() {
+    if (fileExtra_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          FileExtraDefaultEntryHolder.defaultEntry);
+    }
+    return fileExtra_;
+  }
+
+  public int getFileExtraCount() {
+    return internalGetFileExtra().getMap().size();
+  }
+  /**
+   * <pre>
+   *附加属性
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; FileExtra = 21;</code>
+   */
+
+  @java.lang.Override
+  public boolean containsFileExtra(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    return internalGetFileExtra().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getFileExtraMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, java.lang.String> getFileExtra() {
+    return getFileExtraMap();
+  }
+  /**
+   * <pre>
+   *附加属性
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; FileExtra = 21;</code>
+   */
+  @java.lang.Override
+
+  public java.util.Map<java.lang.String, java.lang.String> getFileExtraMap() {
+    return internalGetFileExtra().getMap();
+  }
+  /**
+   * <pre>
+   *附加属性
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; FileExtra = 21;</code>
+   */
+  @java.lang.Override
+
+  public java.lang.String getFileExtraOrDefault(
+      java.lang.String key,
+      java.lang.String defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetFileExtra().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <pre>
+   *附加属性
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; FileExtra = 21;</code>
+   */
+  @java.lang.Override
+
+  public java.lang.String getFileExtraOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetFileExtra().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1012,6 +1135,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 20, fileName_);
     }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetFileExtra(),
+        FileExtraDefaultEntryHolder.defaultEntry,
+        21);
     unknownFields.writeTo(output);
   }
 
@@ -1089,6 +1218,16 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, fileName_);
     }
+    for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+         : internalGetFileExtra().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+      fileExtra__ = FileExtraDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(21, fileExtra__);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1153,6 +1292,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTosStorageClass())) return false;
     if (!getFileName()
         .equals(other.getFileName())) return false;
+    if (!internalGetFileExtra().equals(
+        other.internalGetFileExtra())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1211,6 +1352,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getTosStorageClass().hashCode();
     hash = (37 * hash) + FILENAME_FIELD_NUMBER;
     hash = (53 * hash) + getFileName().hashCode();
+    if (!internalGetFileExtra().getMap().isEmpty()) {
+      hash = (37 * hash) + FILEEXTRA_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetFileExtra().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1318,6 +1463,28 @@ private static final long serialVersionUID = 0L;
       return com.volcengine.service.vod.model.business.VodCommon.internal_static_Volcengine_Vod_Models_Business_VodSourceInfo_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 21:
+          return internalGetFileExtra();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMutableMapField(
+        int number) {
+      switch (number) {
+        case 21:
+          return internalGetMutableFileExtra();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -1392,6 +1559,7 @@ private static final long serialVersionUID = 0L;
 
       fileName_ = "";
 
+      internalGetMutableFileExtra().clear();
       return this;
     }
 
@@ -1418,6 +1586,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.volcengine.service.vod.model.business.VodSourceInfo buildPartial() {
       com.volcengine.service.vod.model.business.VodSourceInfo result = new com.volcengine.service.vod.model.business.VodSourceInfo(this);
+      int from_bitField0_ = bitField0_;
       result.fileId_ = fileId_;
       result.md5_ = md5_;
       result.fileType_ = fileType_;
@@ -1446,6 +1615,8 @@ private static final long serialVersionUID = 0L;
       }
       result.tosStorageClass_ = tosStorageClass_;
       result.fileName_ = fileName_;
+      result.fileExtra_ = internalGetFileExtra();
+      result.fileExtra_.makeImmutable();
       onBuilt();
       return result;
     }
@@ -1566,6 +1737,8 @@ private static final long serialVersionUID = 0L;
         fileName_ = other.fileName_;
         onChanged();
       }
+      internalGetMutableFileExtra().mergeFrom(
+          other.internalGetFileExtra());
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -1594,6 +1767,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object fileId_ = "";
     /**
@@ -3312,6 +3486,165 @@ private static final long serialVersionUID = 0L;
       
       fileName_ = value;
       onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> fileExtra_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetFileExtra() {
+      if (fileExtra_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            FileExtraDefaultEntryHolder.defaultEntry);
+      }
+      return fileExtra_;
+    }
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetMutableFileExtra() {
+      onChanged();;
+      if (fileExtra_ == null) {
+        fileExtra_ = com.google.protobuf.MapField.newMapField(
+            FileExtraDefaultEntryHolder.defaultEntry);
+      }
+      if (!fileExtra_.isMutable()) {
+        fileExtra_ = fileExtra_.copy();
+      }
+      return fileExtra_;
+    }
+
+    public int getFileExtraCount() {
+      return internalGetFileExtra().getMap().size();
+    }
+    /**
+     * <pre>
+     *附加属性
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; FileExtra = 21;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsFileExtra(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetFileExtra().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getFileExtraMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getFileExtra() {
+      return getFileExtraMap();
+    }
+    /**
+     * <pre>
+     *附加属性
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; FileExtra = 21;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, java.lang.String> getFileExtraMap() {
+      return internalGetFileExtra().getMap();
+    }
+    /**
+     * <pre>
+     *附加属性
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; FileExtra = 21;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getFileExtraOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetFileExtra().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     *附加属性
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; FileExtra = 21;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getFileExtraOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetFileExtra().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public Builder clearFileExtra() {
+      internalGetMutableFileExtra().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <pre>
+     *附加属性
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; FileExtra = 21;</code>
+     */
+
+    public Builder removeFileExtra(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      internalGetMutableFileExtra().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String>
+    getMutableFileExtra() {
+      return internalGetMutableFileExtra().getMutableMap();
+    }
+    /**
+     * <pre>
+     *附加属性
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; FileExtra = 21;</code>
+     */
+    public Builder putFileExtra(
+        java.lang.String key,
+        java.lang.String value) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+      internalGetMutableFileExtra().getMutableMap()
+          .put(key, value);
+      return this;
+    }
+    /**
+     * <pre>
+     *附加属性
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; FileExtra = 21;</code>
+     */
+
+    public Builder putAllFileExtra(
+        java.util.Map<java.lang.String, java.lang.String> values) {
+      internalGetMutableFileExtra().getMutableMap()
+          .putAll(values);
       return this;
     }
     @java.lang.Override

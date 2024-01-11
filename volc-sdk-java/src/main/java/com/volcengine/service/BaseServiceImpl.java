@@ -27,10 +27,10 @@ import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.entity.ByteArrayEntity;
-import org.apache.http.entity.FileEntity;
-import org.apache.http.entity.InputStreamEntity;
-import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.*;
+import org.apache.http.entity.mime.HttpMultipartMode;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
@@ -308,6 +308,25 @@ public abstract class BaseServiceImpl implements IBaseService {
             e.printStackTrace();
             return new RawResponse(null, SdkError.EENCODING.getNumber(), e);
         }
+        return makeRequest(api, request);
+    }
+
+    public RawResponse postFileMultiPart(String api,List<NameValuePair> fromData,String dataName,String fileName,byte[] data){
+        ApiInfo apiInfo = apiInfoList.get(api);
+        if (apiInfo == null) {
+            return new RawResponse(null, SdkError.ENOAPI.getNumber(), new Exception(SdkError.getErrorDesc(SdkError.ENOAPI)));
+        }
+
+        MultipartEntityBuilder multipartEntityBuilder = MultipartEntityBuilder.create();
+        multipartEntityBuilder.addBinaryBody(dataName, data,ContentType.APPLICATION_OCTET_STREAM,"blob");
+        for(NameValuePair nameValuePair: fromData) {
+            multipartEntityBuilder.addTextBody(nameValuePair.getName(),nameValuePair.getValue());
+        }
+
+        HttpEntity reqEntity = multipartEntityBuilder.build();
+        SignableRequest request = prepareRequest(api, null);
+        request.setEntity(reqEntity);
+        request.setHeader("Content-Type", reqEntity.getContentType().getValue());
         return makeRequest(api, request);
     }
 

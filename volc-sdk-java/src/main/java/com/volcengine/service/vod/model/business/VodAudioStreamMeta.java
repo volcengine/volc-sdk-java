@@ -77,6 +77,11 @@ private static final long serialVersionUID = 0L;
             quality_ = s;
             break;
           }
+          case 48: {
+
+            channels_ = input.readInt32();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -246,6 +251,21 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int CHANNELS_FIELD_NUMBER = 6;
+  private int channels_;
+  /**
+   * <pre>
+   *声道数
+   * </pre>
+   *
+   * <code>int32 Channels = 6;</code>
+   * @return The channels.
+   */
+  @java.lang.Override
+  public int getChannels() {
+    return channels_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -275,6 +295,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(quality_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, quality_);
     }
+    if (channels_ != 0) {
+      output.writeInt32(6, channels_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -302,6 +325,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(quality_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, quality_);
     }
+    if (channels_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(6, channels_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -328,6 +355,8 @@ private static final long serialVersionUID = 0L;
         != other.getBitrate()) return false;
     if (!getQuality()
         .equals(other.getQuality())) return false;
+    if (getChannels()
+        != other.getChannels()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -350,6 +379,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getBitrate();
     hash = (37 * hash) + QUALITY_FIELD_NUMBER;
     hash = (53 * hash) + getQuality().hashCode();
+    hash = (37 * hash) + CHANNELS_FIELD_NUMBER;
+    hash = (53 * hash) + getChannels();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -493,6 +524,8 @@ private static final long serialVersionUID = 0L;
 
       quality_ = "";
 
+      channels_ = 0;
+
       return this;
     }
 
@@ -524,6 +557,7 @@ private static final long serialVersionUID = 0L;
       result.sampleRate_ = sampleRate_;
       result.bitrate_ = bitrate_;
       result.quality_ = quality_;
+      result.channels_ = channels_;
       onBuilt();
       return result;
     }
@@ -588,6 +622,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getQuality().isEmpty()) {
         quality_ = other.quality_;
         onChanged();
+      }
+      if (other.getChannels() != 0) {
+        setChannels(other.getChannels());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -935,6 +972,49 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       quality_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int channels_ ;
+    /**
+     * <pre>
+     *声道数
+     * </pre>
+     *
+     * <code>int32 Channels = 6;</code>
+     * @return The channels.
+     */
+    @java.lang.Override
+    public int getChannels() {
+      return channels_;
+    }
+    /**
+     * <pre>
+     *声道数
+     * </pre>
+     *
+     * <code>int32 Channels = 6;</code>
+     * @param value The channels to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChannels(int value) {
+      
+      channels_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *声道数
+     * </pre>
+     *
+     * <code>int32 Channels = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearChannels() {
+      
+      channels_ = 0;
       onChanged();
       return this;
     }

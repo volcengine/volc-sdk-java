@@ -180,6 +180,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodGetPlayInfoWithLiveTimeShiftSceneResponse getPlayInfoWithLiveTimeShiftScene(com.volcengine.service.vod.model.request.VodGetPlayInfoWithLiveTimeShiftSceneRequest input) throws Exception;
 	
 	/**
+     * describeDrmDataKey.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDescribeDrmDataKeyRequest
+     * @return com.volcengine.service.vod.model.response.VodDescribeDrmDataKeyResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodDescribeDrmDataKeyResponse describeDrmDataKey(com.volcengine.service.vod.model.request.VodDescribeDrmDataKeyRequest input) throws Exception;
+	
+	/**
      * uploadMediaByUrl.
      *
      * @param input com.volcengine.service.vod.model.request.VodUrlUploadRequest
@@ -259,6 +268,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodGetMediaInfosResponse getMediaInfos(com.volcengine.service.vod.model.request.VodGetMediaInfosRequest input) throws Exception;
+	
+	/**
+     * getMediaInfos20230701.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetMediaInfosRequest
+     * @return com.volcengine.service.vod.model.response.VodGetMediaInfosResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodGetMediaInfosResponse getMediaInfos20230701(com.volcengine.service.vod.model.request.VodGetMediaInfosRequest input) throws Exception;
 	
 	/**
      * getRecommendedPoster.
@@ -612,6 +630,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodDeleteWatermarkResponse deleteWatermarkTemplate(com.volcengine.service.vod.model.request.VodDeleteWatermarkRequest input) throws Exception;
 	
 	/**
+     * deleteSpace.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDeleteSpaceRequest
+     * @return com.volcengine.service.vod.model.response.VodDeleteSpaceResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodDeleteSpaceResponse deleteSpace(com.volcengine.service.vod.model.request.VodDeleteSpaceRequest input) throws Exception;
+	
+	/**
      * createSpace.
      *
      * @param input com.volcengine.service.vod.model.request.VodCreateSpaceRequest
@@ -655,6 +682,60 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodUpdateSpaceUploadConfigResponse updateSpaceUploadConfig(com.volcengine.service.vod.model.request.VodUpdateSpaceUploadConfigRequest input) throws Exception;
+	
+	/**
+     * addDomainToScheduler.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodAddDomainToSchedulerRequest
+     * @return com.volcengine.service.vod.model.response.VodAddDomainToSchedulerResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodAddDomainToSchedulerResponse addDomainToScheduler(com.volcengine.service.vod.model.request.VodAddDomainToSchedulerRequest input) throws Exception;
+	
+	/**
+     * removeDomainFromScheduler.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodRemoveDomainFromSchedulerRequest
+     * @return com.volcengine.service.vod.model.response.VodRemoveDomainFromSchedulerResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodRemoveDomainFromSchedulerResponse removeDomainFromScheduler(com.volcengine.service.vod.model.request.VodRemoveDomainFromSchedulerRequest input) throws Exception;
+	
+	/**
+     * updateDomainPlayRule.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest
+     * @return com.volcengine.service.vod.model.response.VodUpdateDomainPlayRuleResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodUpdateDomainPlayRuleResponse updateDomainPlayRule(com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest input) throws Exception;
+	
+	/**
+     * startDomain.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodStartDomainRequest
+     * @return com.volcengine.service.vod.model.response.VodStartDomainResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodStartDomainResponse startDomain(com.volcengine.service.vod.model.request.VodStartDomainRequest input) throws Exception;
+	
+	/**
+     * stopDomain.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodStopDomainRequest
+     * @return com.volcengine.service.vod.model.response.VodStopDomainResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodStopDomainResponse stopDomain(com.volcengine.service.vod.model.request.VodStopDomainRequest input) throws Exception;
+	
+	/**
+     * deleteDomain.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDeleteDomainRequest
+     * @return com.volcengine.service.vod.model.response.VodDeleteDomainResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodDeleteDomainResponse deleteDomain(com.volcengine.service.vod.model.request.VodDeleteDomainRequest input) throws Exception;
 	
 	/**
      * listDomain.
@@ -808,6 +889,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.AddOrUpdateCertificateV2Response addOrUpdateCertificate(com.volcengine.service.vod.model.request.AddOrUpdateCertificateV2Request input) throws Exception;
+	
+	/**
+     * updateDomainUrlAuthConfig.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodUpdateDomainUrlAuthConfigV2Request
+     * @return com.volcengine.service.vod.model.response.VodUpdateDomainUrlAuthConfigV2Response
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodUpdateDomainUrlAuthConfigV2Response updateDomainUrlAuthConfig(com.volcengine.service.vod.model.request.VodUpdateDomainUrlAuthConfigV2Request input) throws Exception;
 	
 	/**
      * addCallbackSubscription.

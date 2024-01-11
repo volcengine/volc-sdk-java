@@ -176,4 +176,44 @@ public interface VodUploadMediaRequestOrBuilder extends
    * @return The parallelNum.
    */
   int getParallelNum();
+
+  /**
+   * <pre>
+   * 客户端网络环境 
+   * </pre>
+   *
+   * <code>string ClientNetWorkMode = 11;</code>
+   * @return The clientNetWorkMode.
+   */
+  java.lang.String getClientNetWorkMode();
+  /**
+   * <pre>
+   * 客户端网络环境 
+   * </pre>
+   *
+   * <code>string ClientNetWorkMode = 11;</code>
+   * @return The bytes for clientNetWorkMode.
+   */
+  com.google.protobuf.ByteString
+      getClientNetWorkModeBytes();
+
+  /**
+   * <pre>
+   * 客户端机房环境 
+   * </pre>
+   *
+   * <code>string ClientIDCMode = 12;</code>
+   * @return The clientIDCMode.
+   */
+  java.lang.String getClientIDCMode();
+  /**
+   * <pre>
+   * 客户端机房环境 
+   * </pre>
+   *
+   * <code>string ClientIDCMode = 12;</code>
+   * @return The bytes for clientIDCMode.
+   */
+  com.google.protobuf.ByteString
+      getClientIDCModeBytes();
 }

@@ -46,6 +46,7 @@ public class Const {
     public static final String GetAllPlayInfo = "GetAllPlayInfo";
     public static final String GetPrivateDrmPlayAuth = "GetPrivateDrmPlayAuth";
     public static final String GetHlsDecryptionKey = "GetHlsDecryptionKey";
+    public static final String DescribeDrmDataKey = "DescribeDrmDataKey";
     public static final String GetPlayInfoWithLiveTimeShiftScene = "GetPlayInfoWithLiveTimeShiftScene";
     // vod-upload
     public static final String UploadMediaByUrl = "UploadMediaByUrl";
@@ -54,6 +55,8 @@ public class Const {
     public static final String CommitUploadInfo = "CommitUploadInfo";
     // vod-media
     public static final String UpdateMediaInfo = "UpdateMediaInfo";
+    public static final String GetMediaInfos20230701 = "GetMediaInfos";
+
     public static final String UpdateMediaPublishStatus = "UpdateMediaPublishStatus";
     public static final String UpdateMediaStorageClass = "UpdateMediaStorageClass";
     public static final String GetMediaInfos = "GetMediaInfos";
@@ -135,6 +138,8 @@ public class Const {
 
     public static final String AddOrUpdateCertificate = "AddOrUpdateCertificate";
 
+    public static final String UpdateDomainUrlAuthConfig = "UpdateDomainUrlAuthConfig";
+
     //vod-callback
     public static final String AddCallbackSubscription = "AddCallbackSubscription";
     public static final String SetCallbackEvent = "SetCallbackEvent";
@@ -155,5 +160,12 @@ public class Const {
     public static final String DescribeVodSpaceEditDetailData = "DescribeVodSpaceEditDetailData";
 
 
+    public static final String DeleteSpace = "DeleteSpace";
     public static final String ExtractMediaMetaTask = "ExtractMediaMetaTask";
+    public static final String UpdateDomainPlayRule = "UpdateDomainPlayRule";
+    public static final String AddDomainToScheduler = "AddDomainToScheduler";
+    public static final String RemoveDomainFromScheduler = "RemoveDomainFromScheduler";
+    public static final String DeleteDomain = "DeleteDomain";
+    public static final String StartDomain = "StartDomain";
+    public static final String StopDomain = "StopDomain";
 }

@@ -120,4 +120,28 @@ public interface ApplyUploadInfoParamOrBuilder extends
    * @return The storageClass.
    */
   int getStorageClass();
+
+  /**
+   * <code>string ClientNetWorkMode = 101;</code>
+   * @return The clientNetWorkMode.
+   */
+  java.lang.String getClientNetWorkMode();
+  /**
+   * <code>string ClientNetWorkMode = 101;</code>
+   * @return The bytes for clientNetWorkMode.
+   */
+  com.google.protobuf.ByteString
+      getClientNetWorkModeBytes();
+
+  /**
+   * <code>string ClientIDCMode = 102;</code>
+   * @return The clientIDCMode.
+   */
+  java.lang.String getClientIDCMode();
+  /**
+   * <code>string ClientIDCMode = 102;</code>
+   * @return The bytes for clientIDCMode.
+   */
+  com.google.protobuf.ByteString
+      getClientIDCModeBytes();
 }

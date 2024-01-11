@@ -225,6 +225,70 @@ public class BusinessSecurityConfig {
                         }
                     }
             ));
+            put(Const.GetUploadId,new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.CONNECTION_TIMEOUT, 30000);
+                            put(Const.SOCKET_TIMEOUT, 30000);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetUploadId"));
+                                    add(new BasicNameValuePair("Version", "2022-12-23"));
+                                }
+                            });
+                            put(Const.Header, headers);
+                        }
+                    }
+            ));
+            put(Const.CompleteUploadFile,new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "CompleteUploadFile"));
+                                    add(new BasicNameValuePair("Version", "2022-12-23"));
+                                }
+                            });
+                            put(Const.Header, headers);
+                        }
+                    }
+            ));
+            put(Const.UploadFile,new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "UploadFile"));
+                                    add(new BasicNameValuePair("Version", "2022-12-23"));
+                                }
+                            });
+                            put(Const.Header, headers);
+                        }
+                    }
+            ));
+            put(Const.GetUploadedPartList,new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetUploadedPartList"));
+                                    add(new BasicNameValuePair("Version", "2022-12-23"));
+                                }
+                            });
+                            put(Const.Header, headers);
+                        }
+                    }
+            ));
+
+
         }
     };
 

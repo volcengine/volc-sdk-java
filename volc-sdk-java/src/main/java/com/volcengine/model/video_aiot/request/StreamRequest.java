@@ -12,4 +12,6 @@ public class StreamRequest {
     @JSONField(name = "Resolution")
     String resolution;
     String isSmart;
+    boolean enableAudioTranscode;
+    boolean ignoreAudio;
 }

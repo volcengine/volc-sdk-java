@@ -23,4 +23,6 @@ public class UpdateStreamRequest {
     String status;
     @JSONField(name = "IgnoreAudio")
     boolean ignoreAudio;
+    @JSONField(name = "PullSource")
+    String pullSource;
 }

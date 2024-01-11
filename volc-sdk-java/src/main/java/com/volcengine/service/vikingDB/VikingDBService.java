@@ -127,6 +127,17 @@ public class VikingDBService extends BaseServiceImpl {
 
         return apiInfo;
     }
+    public void setHeader(HashMap<String,String> header){
+        Map<String, ApiInfo> apiInfo = this.apiInfoList;
+        for(String key : apiInfo.keySet()){
+            List<Header> newHeader = apiInfo.get(key).getHeader();
+            for(String item : header.keySet()){
+                newHeader.add(new BasicHeader(item, header.get(item)));
+            }
+            apiInfo.get(key).setHeader(newHeader);
+        }
+        this.apiInfoList = apiInfo;
+    }
 
 
     public LinkedTreeMap<String,Object> doRequest(String api, List<NameValuePair> params, HashMap<String,Object> body) throws Exception{

@@ -76,4 +76,14 @@ public interface VodAudioStreamMetaOrBuilder extends
    */
   com.google.protobuf.ByteString
       getQualityBytes();
+
+  /**
+   * <pre>
+   *声道数
+   * </pre>
+   *
+   * <code>int32 Channels = 6;</code>
+   * @return The channels.
+   */
+  int getChannels();
 }

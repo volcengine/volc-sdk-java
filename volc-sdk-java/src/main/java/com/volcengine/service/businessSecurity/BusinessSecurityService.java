@@ -1,10 +1,6 @@
 package com.volcengine.service.businessSecurity;
 
-import com.volcengine.model.request.AsyncRiskDetectionRequest;
-import com.volcengine.model.request.DataReportRequest;
-import com.volcengine.model.request.RiskDetectionRequest;
-import com.volcengine.model.request.RiskResultRequest;
-import com.volcengine.model.request.RiskStatRequest;
+import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
 import com.volcengine.service.IBaseService;
 
@@ -119,4 +115,19 @@ public interface BusinessSecurityService extends IBaseService {
      * @throws Exception the exception
      */
     RiskStatResponse.CommonRiskStatResponse ContentRiskStat(RiskStatRequest.CommonProductStatisticsReq commonProductStatisticsReq) throws Exception;
+
+
+
+    RiskVConsoleResponse.GetUploadIdResult GetUploadId(GetUploadIdRequest request)throws Exception;
+
+    RiskVConsoleResponse.UploadFileResult UploadFile(UploadFileRequest request) throws Exception;
+
+    RiskVConsoleResponse.CompleteUploadFileResult CompleteUploadFile(CompleteUploadFileRequest request)throws Exception;
+
+    RiskVConsoleResponse.GetUploadedPartListResult GetUploadedPartList(GetUploadedPartListRequest request) throws Exception;
+
+
+    PushTrafficRiskDataResponse PushTrafficRiskData(PushTrafficRiskDataRequest request)throws  Exception;
+
+
 }

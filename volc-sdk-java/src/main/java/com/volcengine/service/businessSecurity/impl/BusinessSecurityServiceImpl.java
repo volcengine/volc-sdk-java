@@ -4,20 +4,25 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
-import com.volcengine.model.request.AsyncRiskDetectionRequest;
-import com.volcengine.model.request.DataReportRequest;
-import com.volcengine.model.request.RiskDetectionRequest;
-import com.volcengine.model.request.RiskResultRequest;
-import com.volcengine.model.request.RiskStatRequest;
+import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.businessSecurity.BusinessSecurityConfig;
 import com.volcengine.service.businessSecurity.BusinessSecurityService;
 import com.volcengine.util.AesUtil;
+import lombok.Data;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 
-import java.util.ArrayList;
+import java.io.FileInputStream;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.util.*;
 
 public class BusinessSecurityServiceImpl extends BaseServiceImpl implements BusinessSecurityService {
+
+    private static final Integer PART_FILE_SIZE = 7340032;
     private BusinessSecurityServiceImpl() {
         super(BusinessSecurityConfig.serviceInfo, BusinessSecurityConfig.apiInfoList);
     }
@@ -157,7 +162,164 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-
         return JSON.parseObject(response.getData(), RiskStatResponse.CommonRiskStatResponse.class);
     }
+
+    @Override
+    public RiskVConsoleResponse.GetUploadIdResult GetUploadId(GetUploadIdRequest request) throws Exception {
+        RawResponse response = json(Const.GetUploadId, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(),RiskVConsoleResponse.GetUploadIdResult.class);
+    }
+
+
+    @Override
+    public RiskVConsoleResponse.UploadFileResult UploadFile(UploadFileRequest request) throws Exception {
+        List<NameValuePair> fromData = new ArrayList<>();
+        fromData.add(new BasicNameValuePair("app_id", String.valueOf(request.getAppId())));
+        fromData.add(new BasicNameValuePair("upload_id", String.valueOf(request.getUploadId())));
+        fromData.add(new BasicNameValuePair("part_size", String.valueOf(request.getPartSize())));
+        fromData.add(new BasicNameValuePair("part_num", String.valueOf(request.getPartNum())));
+
+        RawResponse response = postFileMultiPart(Const.UploadFile,fromData, "content", request.getFileName(),request.getContent());
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(),RiskVConsoleResponse.UploadFileResult.class);
+    }
+
+    @Override
+    public RiskVConsoleResponse.CompleteUploadFileResult CompleteUploadFile(CompleteUploadFileRequest request) throws Exception {
+        RawResponse response = json(Const.CompleteUploadFile, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(),RiskVConsoleResponse.CompleteUploadFileResult.class);
+    }
+
+    @Override
+    public RiskVConsoleResponse.GetUploadedPartListResult GetUploadedPartList(GetUploadedPartListRequest request) throws Exception {
+        RawResponse response = json(Const.GetUploadedPartList, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(),RiskVConsoleResponse.GetUploadedPartListResult.class);
+    }
+
+
+    public PushTrafficRiskDataResponse PushTrafficRiskData(PushTrafficRiskDataRequest request)throws  Exception{
+        FileInfo fileInfo = getFileInfo(request.getFilePath());
+        String fileName = request.getFilePath().substring(request.getFilePath().lastIndexOf("/")+1);
+        GetUploadIdRequest getUploadIdRequest =  new GetUploadIdRequest();
+        getUploadIdRequest.setAppId(request.getAppId());
+        getUploadIdRequest.setFileName(fileName);
+        getUploadIdRequest.setFileHash(fileInfo.getFileHash());
+        getUploadIdRequest.setPartSize(PART_FILE_SIZE);
+        RiskVConsoleResponse.GetUploadIdResult response = GetUploadId(getUploadIdRequest);
+        String uploadId = response.getResult().getData().getUploadId() ;
+        FileInputStream fis = new FileInputStream(request.getFilePath());
+        GetUploadedPartListRequest getUploadedPartListRequest = new GetUploadedPartListRequest();
+        getUploadedPartListRequest.setUploadId(uploadId);
+        getUploadedPartListRequest.setAppId(request.getAppId());
+        RiskVConsoleResponse.GetUploadedPartListResult uploadedPartListResult = GetUploadedPartList(getUploadedPartListRequest);
+        List<Integer> uploadedPartList = uploadedPartListResult.getResult().getData();
+        Set<Integer> set = new HashSet<>();
+        if(uploadedPartList != null){
+            set.addAll(uploadedPartList);
+        }
+        byte[] buffer = new byte[PART_FILE_SIZE]; // 每次读取的字节数
+        int bytesRead;
+        int partNum = 1;
+        while ((bytesRead = fis.read(buffer)) != -1) {
+            if(set.contains(partNum)){
+                partNum++;
+                continue;
+            }
+
+            UploadFileRequest uploadFileRequest = new UploadFileRequest();
+            uploadFileRequest.setAppId(request.getAppId());
+            uploadFileRequest.setFileName(fileName);
+            uploadFileRequest.setUploadId(uploadId);
+            uploadFileRequest.setPartNum(partNum++);
+            uploadFileRequest.setPartSize(bytesRead);
+            if(bytesRead == PART_FILE_SIZE) {
+                uploadFileRequest.setContent(buffer);
+            }else {
+                byte[] newBuffer = new byte[bytesRead];
+                System.arraycopy(buffer,0,newBuffer,0,bytesRead);
+                uploadFileRequest.setContent(newBuffer);
+            }
+            RiskVConsoleResponse.UploadFileResult result = UploadFile(uploadFileRequest);
+            if(!"0".equals(result.getResult().getErrCode())){
+                return PushTrafficRiskDataResponse.builder().success(false).build();
+            }
+        }
+        CompleteUploadFileRequest completeUploadFileRequest = new CompleteUploadFileRequest();
+        completeUploadFileRequest.setAppId(560584l);
+        completeUploadFileRequest.setUploadId(uploadId);
+        completeUploadFileRequest.setBusinessType(request.getBusinessType());
+        completeUploadFileRequest.setDataType(request.getDataType());
+        completeUploadFileRequest.setScene(request.getScene());
+        RiskVConsoleResponse.CompleteUploadFileResult completeUploadFileResult = CompleteUploadFile(completeUploadFileRequest);
+        return PushTrafficRiskDataResponse.builder().success(true).build();
+    }
+    @Data
+    static class FileInfo{
+        private long fileSize;
+
+        private String fileName;
+
+        private String filePath;
+
+        private String fileHash;
+
+        private int partNum;
+
+    }
+
+    private FileInfo getFileInfo(String filePath) throws Exception {
+        if (StringUtils.isBlank(filePath)) {
+            throw new Exception("filePath is null");
+        }
+        FileInfo fileInfo = new FileInfo();
+        fileInfo.setFilePath(filePath);
+        fileInfo.setFileName(filePath.substring(filePath.lastIndexOf("/") + 1));
+        long fileSize = 0l;
+        int partNum = 0;
+        MessageDigest md = MessageDigest.getInstance("MD5"); // 选择哈希算法，这里选择MD5
+
+        FileInputStream fis = new FileInputStream(filePath);
+        byte[] buffer = new byte[PART_FILE_SIZE]; // 每次读取的字节数
+        int bytesRead;
+        while ((bytesRead = fis.read(buffer)) != -1) {
+            partNum++;
+            fileSize += bytesRead;
+            md.update(buffer, 0, bytesRead); // 更新哈希值
+        }
+        fis.close();
+
+        byte[] hash = md.digest(); // 计算最终的哈希值
+
+        // 将哈希值转换为十六进制字符串
+        StringBuilder hexString = new StringBuilder();
+        for (byte b : hash) {
+            String hex = Integer.toHexString(0xff & b);
+            if (hex.length() == 1) {
+                hexString.append('0');
+            }
+            hexString.append(hex);
+        }
+
+        fileInfo.setPartNum(partNum);
+        fileInfo.setFileHash(hexString.toString());
+        fileInfo.setFileSize(fileSize);
+        return fileInfo;
+
+
+    }
+
 }

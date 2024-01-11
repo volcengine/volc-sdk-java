@@ -28,6 +28,10 @@ public class MaasException extends Exception {
         this("ClientSDKRequestError", 1709701, "MaaS SDK request error: " + raw.getMessage(), requestId);
     }
 
+    public MaasException(Exception raw, int codeN, String requestId) {
+        this("ClientSDKRequestError", codeN, "MaaS SDK request error: " + raw.getMessage(), requestId);
+    }
+
     public String getCode() {
         return code;
     }

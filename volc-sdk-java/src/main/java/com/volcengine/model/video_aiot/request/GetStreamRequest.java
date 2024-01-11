@@ -13,5 +13,4 @@ public class GetStreamRequest {
     int streamingIndex;
     @JSONField(serialize = false)
     String resolution;
-    boolean enableAudioTranscode;
 }

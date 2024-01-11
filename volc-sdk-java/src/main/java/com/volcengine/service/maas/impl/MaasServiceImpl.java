@@ -42,7 +42,7 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
             try {
                 resp = convertJsonBytesToChatResp(response.getException().getMessage().getBytes());
             } catch (MaasException ignored) {
-                throw new MaasException(response.getException(), req.getReqId());
+                throw new MaasException(response.getException(), response.getHttpCode(), req.getReqId());
             }
             throw new MaasException(resp.getError(), resp.getReqId());
         }
@@ -108,7 +108,7 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
             try {
                 resp = convertJsonBytesToTokenizeResp(response.getException().getMessage().getBytes());
             } catch (MaasException ignored) {
-                throw new MaasException(response.getException(), req.getReqId());
+                throw new MaasException(response.getException(), response.getHttpCode(), req.getReqId());
             }
             throw new MaasException(resp.getError(), resp.getReqId());
         }
@@ -124,7 +124,7 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
             try {
                 resp = convertJsonBytesToClassificationResp(response.getException().getMessage().getBytes());
             } catch (MaasException ignored) {
-                throw new MaasException(response.getException(), req.getReqId());
+                throw new MaasException(response.getException(), response.getHttpCode(), req.getReqId());
             }
             throw new MaasException(resp.getError(), resp.getReqId());
         }
@@ -140,7 +140,7 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
             try {
                 resp = convertJsonBytesToEmbeddingsResp(response.getException().getMessage().getBytes());
             } catch (MaasException ignored) {
-                throw new MaasException(response.getException(), req.getReqId());
+                throw new MaasException(response.getException(), response.getHttpCode(), req.getReqId());
             }
             throw new MaasException(resp.getError(), resp.getReqId());
         }

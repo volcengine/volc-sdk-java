@@ -19,6 +19,7 @@ public class VodListDomainDemo {
 			reqBuilder.setDomainType("your DomainType");
 			reqBuilder.setSourceStationType(0);
 			reqBuilder.setOffset(0);
+			reqBuilder.setLimit(0);
 			
             com.volcengine.service.vod.model.response.VodListDomainResponse resp = vodService.listDomain(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

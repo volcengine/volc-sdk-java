@@ -36,8 +36,10 @@ public class Stream {
     String pushUrl;
     @JSONField(name = "PullUrls")
     String[] pullUrls;
+    @Deprecated
     @JSONField(name = "PushUrlDDL")
     int pushUrlDDL;
+    @Deprecated
     @JSONField(name = "FailedTimes")
     int failedTimes;
     @JSONField(name = "RecentPushTs")
@@ -51,8 +53,10 @@ public class Stream {
     @JSONField(name = "AI")
     StreamTemplate ai;
     @JSONField(name = "Logs")
+    @Deprecated
     List<LogInfo> logs;
-
+    @JSONField(name = "PullSource")
+    String pullSource;
     @Data
     public static class StreamTemplate {
         @JSONField(name = "TemplateName")

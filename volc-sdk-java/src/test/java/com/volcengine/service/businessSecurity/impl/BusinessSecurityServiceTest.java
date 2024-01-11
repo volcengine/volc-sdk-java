@@ -1,15 +1,15 @@
 package com.volcengine.service.businessSecurity.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.volcengine.helper.Const;
-import com.volcengine.model.request.RiskDetectionRequest;
-import com.volcengine.model.request.RiskStatRequest;
-import com.volcengine.model.response.ElementVerifyResponseV2;
-import com.volcengine.model.response.MobileStatusResponseV2;
+import com.volcengine.model.request.*;
+import com.volcengine.model.response.PushTrafficRiskDataResponse;
 import com.volcengine.model.response.RiskStatResponse;
+import com.volcengine.model.response.RiskVConsoleResponse;
 import com.volcengine.service.businessSecurity.BusinessSecurityConfig;
 import com.volcengine.service.businessSecurity.BusinessSecurityService;
 import junit.framework.TestCase;
+
+import java.nio.charset.StandardCharsets;
 
 public class BusinessSecurityServiceTest extends TestCase {
     private BusinessSecurityService initService() {
@@ -23,7 +23,7 @@ public class BusinessSecurityServiceTest extends TestCase {
         BusinessSecurityConfig.init();
         BusinessSecurityService serviceOpenapi = BusinessSecurityServiceImpl.getInstanceOpenapi();
         serviceOpenapi.setAccessKey("AK");
-        serviceOpenapi.setSecretKey("SK");
+        serviceOpenapi.setSecretKey("AK");
         return serviceOpenapi;
     }
 
@@ -67,4 +67,21 @@ public class BusinessSecurityServiceTest extends TestCase {
         RiskStatResponse.CommonRiskStatResponse resp = service.ContentRiskStat(req);
         System.out.println(resp);
     }
+
+
+    public void testSendSamplePackage()throws Exception{
+        BusinessSecurityService service = initService("Business");
+        PushTrafficRiskDataRequest request = new PushTrafficRiskDataRequest();
+        request.setAppId(560584l);
+        request.setFilePath("/tmp/origin-data_v9.csv");
+        request.setBusinessType("A1");
+        request.setScene("1");
+        request.setDataType("1");
+        PushTrafficRiskDataResponse response = service.PushTrafficRiskData(request);
+    }
+
+//    public void testSha256(){
+//        byte[] bs = new byte[10*1024*1024];
+//        for(int i=0;)
+//    }
 }

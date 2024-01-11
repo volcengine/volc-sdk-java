@@ -97,6 +97,14 @@ public class Const {
     public static final String SimpleRiskStat = "SimpleRiskStat";
     public static final String ContentRiskStat = "ContentRiskStat";
 
+    public static final String GetUploadId = "GetUploadId";
+
+    public static final String UploadFile = "UploadFile";
+
+    public static final String CompleteUploadFile = "CompleteUploadFile";
+
+    public static final String GetUploadedPartList = "GetUploadedPartList";
+
     // content security
     public static final String ImageContentRisk = "ImageContentRisk";
     public static final String ImageContentRiskV2 = "ImageContentRiskV2";

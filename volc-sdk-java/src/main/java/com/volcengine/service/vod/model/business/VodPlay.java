@@ -44,6 +44,11 @@ public final class VodPlay {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodGetPlayInfoWithLiveTimeShiftSceneResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodDescribeDrmDataKeyResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodDescribeDrmDataKeyResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -72,13 +77,14 @@ public final class VodPlay {
       "lExpire\030\004 \001(\001\"\205\001\n*VodGetPlayInfoWithLive" +
       "TimeShiftSceneResult\022W\n\014PlayInfoList\030\001 \003" +
       "(\0132A.Volcengine.Vod.Models.Business.VodP" +
-      "layInfoWithLiveTimeShiftSceneB\313\001\n)com.vo" +
-      "lcengine.service.vod.model.businessB\007Vod" +
-      "PlayP\001ZAgithub.com/volcengine/volc-sdk-g" +
-      "olang/service/vod/models/business\240\001\001\330\001\001\302" +
-      "\002\000\312\002 Volc\\Service\\Vod\\Models\\Business\342\002#" +
-      "Volc\\Service\\Vod\\Models\\GPBMetadatab\006pro" +
-      "to3"
+      "layInfoWithLiveTimeShiftScene\"<\n\033VodDesc" +
+      "ribeDrmDataKeyResult\022\021\n\tSecretKey\030\001 \001(\t\022" +
+      "\n\n\002Ak\030\002 \001(\tB\313\001\n)com.volcengine.service.v" +
+      "od.model.businessB\007VodPlayP\001ZAgithub.com" +
+      "/volcengine/volc-sdk-golang/service/vod/" +
+      "models/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\" +
+      "Vod\\Models\\Business\342\002#Volc\\Service\\Vod\\M" +
+      "odels\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -120,6 +126,12 @@ public final class VodPlay {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodGetPlayInfoWithLiveTimeShiftSceneResult_descriptor,
         new java.lang.String[] { "PlayInfoList", });
+    internal_static_Volcengine_Vod_Models_Business_VodDescribeDrmDataKeyResult_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_Volcengine_Vod_Models_Business_VodDescribeDrmDataKeyResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodDescribeDrmDataKeyResult_descriptor,
+        new java.lang.String[] { "SecretKey", "Ak", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

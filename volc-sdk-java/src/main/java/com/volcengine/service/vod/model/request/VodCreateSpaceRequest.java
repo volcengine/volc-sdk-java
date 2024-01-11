@@ -4,12 +4,6 @@
 package com.volcengine.service.vod.model.request;
 
 /**
- * <pre>
- * **********************************************************************
- * 空间管理
- * **********************************************************************
- * </pre>
- *
  * Protobuf type {@code Volcengine.Vod.Models.Request.VodCreateSpaceRequest}
  */
 public final class VodCreateSpaceRequest extends
@@ -546,12 +540,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * **********************************************************************
-   * 空间管理
-   * **********************************************************************
-   * </pre>
-   *
    * Protobuf type {@code Volcengine.Vod.Models.Request.VodCreateSpaceRequest}
    */
   public static final class Builder extends

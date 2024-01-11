@@ -13,11 +13,17 @@ import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Consts;
 import org.apache.http.Header;
+import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -64,7 +70,7 @@ public class SignerV4Impl implements ISignerV4 {
         }
 
         RequestParam requestParam = RequestParam.builder().isSignUrl(false)
-                .body(request.getEntity() == null ? new byte[0] : EntityUtils.toByteArray(request.getEntity()))
+                .body(getBodyByEntity(request.getEntity()))
                 .host(request.getUriBuilder().getHost())
                 .path(builder.getPath()).method(request.getMethod()).date(new Date())
                 .queryList(request.getUriBuilder().getQueryParams())
@@ -82,6 +88,18 @@ public class SignerV4Impl implements ISignerV4 {
             request.setHeader(Const.XSecurityToken, signRequest.getXSecurityToken());
         }
         request.setURI(request.getUriBuilder().build());
+    }
+
+    private byte[] getBodyByEntity(HttpEntity httpEntity) throws IOException {
+        if (httpEntity == null){
+            return new byte[0];
+        }
+        if( httpEntity.getContentLength()>25*1024){
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            httpEntity.writeTo(byteArrayOutputStream);
+            return byteArrayOutputStream.toByteArray();
+        }
+        return EntityUtils.toByteArray(httpEntity);
     }
 
     @Override

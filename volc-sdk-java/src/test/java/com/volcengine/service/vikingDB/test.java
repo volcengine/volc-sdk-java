@@ -37,6 +37,11 @@ public class test {
     public static void main(String[] args) throws Exception {
         // System.out.println("example");
        VikingDBService vikingDBService = new VikingDBService("host", "region", "ak", "sk","http");
+       HashMap<String,String> header = new HashMap<>();
+       header.put("V-User-Name", "javaName");
+       header.put("V-User-Id", "javaID");
+       header.put("V-Account-Id", "javaAccountID");
+       vikingDBService.setHeader(header);
     //    List<Field> fields = new ArrayList<>();
     //    fields.add(new Field().setFieldName("doc_id").setFieldType(FieldType.Int64).setPrimaryKey(true).build());
     //    fields.add(new Field().setFieldName("text_vector").setFieldType(FieldType.Vector).setDim(10).build());
@@ -51,7 +56,7 @@ public class test {
     //                                                    .build();
     //    Collection collection = vikingDBService.createCollection(createCollectionParam);
 
-    //    Collection collection = vikingDBService.getCollection("javaSDKTest");
+       Collection collection = vikingDBService.getCollection("javaSDKTest");
     //    System.out.println(collection);
 
     //     vikingDBService.dropCollection("javaSDKTest");

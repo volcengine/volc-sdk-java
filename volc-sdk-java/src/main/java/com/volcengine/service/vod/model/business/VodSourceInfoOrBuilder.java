@@ -360,4 +360,58 @@ public interface VodSourceInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getFileNameBytes();
+
+  /**
+   * <pre>
+   *附加属性
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; FileExtra = 21;</code>
+   */
+  int getFileExtraCount();
+  /**
+   * <pre>
+   *附加属性
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; FileExtra = 21;</code>
+   */
+  boolean containsFileExtra(
+      java.lang.String key);
+  /**
+   * Use {@link #getFileExtraMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, java.lang.String>
+  getFileExtra();
+  /**
+   * <pre>
+   *附加属性
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; FileExtra = 21;</code>
+   */
+  java.util.Map<java.lang.String, java.lang.String>
+  getFileExtraMap();
+  /**
+   * <pre>
+   *附加属性
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; FileExtra = 21;</code>
+   */
+
+  java.lang.String getFileExtraOrDefault(
+      java.lang.String key,
+      java.lang.String defaultValue);
+  /**
+   * <pre>
+   *附加属性
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; FileExtra = 21;</code>
+   */
+
+  java.lang.String getFileExtraOrThrow(
+      java.lang.String key);
 }

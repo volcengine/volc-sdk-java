@@ -17,7 +17,6 @@ public class GetActivityAPI {
         // list users
         try {
             CommonRequest commonAPIRequest = new CommonRequest();
-            commonAPIRequest.setActivityId(123456L);
             commonAPIRequest.setActivityId(1750157979551799L);
 
             GetActivityAPIResponse getActivityAPIResponse = livesaasService.getActivityAPI(commonAPIRequest);

@@ -37,11 +37,13 @@ public class test {
     public static void main(String[] args) throws Exception {
         // System.out.println("example");
        VikingDBService vikingDBService = new VikingDBService("host", "region", "ak", "sk","http");
-       HashMap<String,String> header = new HashMap<>();
-       header.put("V-User-Name", "javaName");
-       header.put("V-User-Id", "javaID");
-       header.put("V-Account-Id", "javaAccountID");
-       vikingDBService.setHeader(header);
+       Double score = vikingDBService.rerank("退改", "如果您需要人工服务，可以拨打人工客服电话：4006660921", "转人工");
+       System.out.println(score);
+    //    HashMap<String,String> header = new HashMap<>();
+    //    header.put("V-User-Name", "javaName");
+    //    header.put("V-User-Id", "javaID");
+    //    header.put("V-Account-Id", "javaAccountID");
+    //    vikingDBService.setHeader(header);
     //    List<Field> fields = new ArrayList<>();
     //    fields.add(new Field().setFieldName("doc_id").setFieldType(FieldType.Int64).setPrimaryKey(true).build());
     //    fields.add(new Field().setFieldName("text_vector").setFieldType(FieldType.Vector).setDim(10).build());
@@ -56,7 +58,7 @@ public class test {
     //                                                    .build();
     //    Collection collection = vikingDBService.createCollection(createCollectionParam);
 
-       Collection collection = vikingDBService.getCollection("javaSDKTest");
+    //    Collection collection = vikingDBService.getCollection("javaSDKTest");
     //    System.out.println(collection);
 
     //     vikingDBService.dropCollection("javaSDKTest");
@@ -387,19 +389,19 @@ public class test {
         // Collection collection = vikingDBService.getCollection("javaSDKTest1");
         // System.out.println(collection);
 
-        Index index = vikingDBService.getIndex("example", "example_index");
-        System.out.println(index);
-        List<String> scalar_index = new ArrayList<>();
-        scalar_index.add("like");
-        UpdateIndexParam parmas = new UpdateIndexParam().setCollectionName("example")
-                                        .setIndexName("example_index")
-                                        .setCpuQuoat(3)
-                                        .setDescription("java test")
-                                        .setScalarIndex(scalar_index)
-                                        .build();
-        vikingDBService.updateIndex(parmas);
-        Index index1 = vikingDBService.getIndex("example", "example_index");
-        System.out.println(index1);
+        // Index index = vikingDBService.getIndex("example", "example_index");
+        // System.out.println(index);
+        // List<String> scalar_index = new ArrayList<>();
+        // scalar_index.add("like");
+        // UpdateIndexParam parmas = new UpdateIndexParam().setCollectionName("example")
+        //                                 .setIndexName("example_index")
+        //                                 .setCpuQuoat(3)
+        //                                 .setDescription("java test")
+        //                                 .setScalarIndex(scalar_index)
+        //                                 .build();
+        // vikingDBService.updateIndex(parmas);
+        // Index index1 = vikingDBService.getIndex("example", "example_index");
+        // System.out.println(index1);
 
 
 

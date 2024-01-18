@@ -239,7 +239,6 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
                 partNum++;
                 continue;
             }
-
             UploadFileRequest uploadFileRequest = new UploadFileRequest();
             uploadFileRequest.setAppId(request.getAppId());
             uploadFileRequest.setFileName(fileName);
@@ -259,7 +258,7 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
             }
         }
         CompleteUploadFileRequest completeUploadFileRequest = new CompleteUploadFileRequest();
-        completeUploadFileRequest.setAppId(560584l);
+        completeUploadFileRequest.setAppId(request.getAppId());
         completeUploadFileRequest.setUploadId(uploadId);
         completeUploadFileRequest.setBusinessType(request.getBusinessType());
         completeUploadFileRequest.setDataType(request.getDataType());

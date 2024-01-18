@@ -16,7 +16,7 @@ public class ModifyPackOrder {
     @JSONField(name = "NewDouyinId")
     String NewDouyinId;
     @JSONField(name = "NewNickname")
-    Boolean NewNickname;
+    String NewNickname;
     @JSONField(name = "ExecuteTime")
     String ExecuteTime;
 }

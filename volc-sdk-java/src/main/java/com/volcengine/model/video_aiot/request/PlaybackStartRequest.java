@@ -15,4 +15,6 @@ public class PlaybackStartRequest {
     private int startTime;
     @JSONField(name = "EndTime")
     private int endTime;
+    @JSONField(name = "EnableAudioTranscode")
+    private boolean enableAudioTranscode;
 }

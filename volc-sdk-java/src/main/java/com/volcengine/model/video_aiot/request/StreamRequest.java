@@ -11,7 +11,10 @@ public class StreamRequest {
     int streamingIndex;
     @JSONField(name = "Resolution")
     String resolution;
+    @JSONField(serialize = false)
     String isSmart;
+    @JSONField(serialize = false)
     boolean enableAudioTranscode;
+    @JSONField(serialize = false)
     boolean ignoreAudio;
 }

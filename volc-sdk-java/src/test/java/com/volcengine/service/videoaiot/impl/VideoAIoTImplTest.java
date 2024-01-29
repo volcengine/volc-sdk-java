@@ -989,13 +989,30 @@ public class VideoAIoTImplTest extends TestCase {
         try {
             GetRecordListV2Request request = new GetRecordListV2Request();
             request.setRecordType("all");
-            request.setDeviceNSID("34020027991180820747");
-            request.setStartTime(1688572800);
-            request.setEndTime(1688659199);
+            request.setDeviceNSID("34020040991180013413");
+            request.setStartTime(1706112000);
+            request.setEndTime(1706198399);
             request.setOrder(true);
             request.setTimeoutInSec(20);
-            request.setChannelID("98880000001320000000");
+            request.setChannelID("34020000001320000001");
             GetRecordV2Response resp = videoAIoTService.getRecordListV2(request);
+            System.out.println(JSON.toJSONString(resp));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testGetDeviceRecordListV3() {
+        setTest();
+        try {
+            GetRecordListV3Request request = new GetRecordListV3Request();
+            request.setRecordType("all");
+            request.setStartTime(1706112000);
+            request.setEndTime(1706198399);
+            request.setOrder(true);
+            request.setTimeoutInSec(20);
+            request.setStreamID("bad89d4d-1fd5-4498-a49e-5b0faf835022");
+            GetRecordV3Response resp = videoAIoTService.getRecordListV3(request);
             System.out.println(JSON.toJSONString(resp));
         } catch (Exception e) {
             e.printStackTrace();
@@ -1025,7 +1042,8 @@ public class VideoAIoTImplTest extends TestCase {
     public void testStartStream() {
         setTest();
         StreamRequest streamRequest = new StreamRequest();
-        streamRequest.setStreamID("c0856536-3ac6-4191-9dec-96d0b08cd954");
+        streamRequest.setStreamID("15795af1-86fb-434f-af1a-3f604fec1df7");
+        streamRequest.setIgnoreAudio(true);
         try {
             StartStreamResponse startStreamResponse = videoAIoTService.startStream(streamRequest);
             System.out.println(JSON.toJSONString(startStreamResponse));

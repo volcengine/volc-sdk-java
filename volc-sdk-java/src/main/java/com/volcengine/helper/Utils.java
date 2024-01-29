@@ -233,7 +233,11 @@ public class Utils {
                 pairs.add(new BasicNameValuePair(entry.getKey(), ((Long) entry.getValue()).toString()));
             } else if (entry.getValue().getClass() == Boolean.class) {
                 pairs.add(new BasicNameValuePair(entry.getKey(), ((Boolean) entry.getValue()).toString()));
-            } else if (entry.getValue().getClass() == JSONArray.class) {
+            } else if (entry.getValue().getClass() == Float.class) {
+                pairs.add(new BasicNameValuePair(entry.getKey(), ((Float) entry.getValue()).toString()));
+            }else if (entry.getValue().getClass() == Double.class) {
+                pairs.add(new BasicNameValuePair(entry.getKey(), ((Double) entry.getValue()).toString()));
+            }else if (entry.getValue().getClass() == JSONArray.class) {
                 List<String> list = (List<String>) entry.getValue();
                 for (String item : list) {
                     pairs.add(new BasicNameValuePair(entry.getKey(), item));

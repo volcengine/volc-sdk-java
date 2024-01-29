@@ -3,8 +3,10 @@ package com.volcengine.service.videoaiot.impl;
 import com.alibaba.fastjson.JSON;
 import com.volcengine.model.video_aiot.request.ListDeviceRecordsRequest;
 import com.volcengine.model.video_aiot.request.ListStreamRecordsRequestV3;
+import com.volcengine.model.video_aiot.request.PlayCloudRecordRequest;
 import com.volcengine.model.video_aiot.response.ListDeviceRecordsResponse;
 import com.volcengine.model.video_aiot.response.ListStreamRecordsResponseV3;
+import com.volcengine.model.video_aiot.response.PlayCloudResponse;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
@@ -43,5 +45,20 @@ public class CloudRecordTest {
         listStreamRecordsRequestV3.setWithSub(true);
         ListDeviceRecordsResponse listStreamRecordsResponseV3 = videoAIoTService.listDeviceRecords(listStreamRecordsRequestV3);
         System.out.println(JSON.toJSONString(listStreamRecordsResponseV3));
+    }
+
+    @Test
+    public void testPlayCloudRecords() throws Exception {
+        //bad89d4d-1fd5-4498-a49e-5b0faf835022", "", 1704941499, 1704941599
+        setTest();
+        PlayCloudRecordRequest cloudRecordPlayRequest = new PlayCloudRecordRequest();
+        cloudRecordPlayRequest.setStreamID("bad89d4d-1fd5-4498-a49e-5b0faf835022");
+        cloudRecordPlayRequest.setResolution("");
+        cloudRecordPlayRequest.setStartTime(1704941499);
+        cloudRecordPlayRequest.setEndTime(1704941599);
+        cloudRecordPlayRequest.setTokenValid(86400);
+        cloudRecordPlayRequest.setWithSub(true);
+        PlayCloudResponse playCloudResponse = videoAIoTService.playCloudRecord(cloudRecordPlayRequest);
+        System.out.println(JSON.toJSONString(playCloudResponse));
     }
 }

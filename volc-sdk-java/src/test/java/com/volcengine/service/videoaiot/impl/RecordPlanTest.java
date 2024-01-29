@@ -19,7 +19,7 @@ import static com.volcengine.service.videoaiot.impl.BaseTest.setTest;
 import static com.volcengine.service.videoaiot.impl.BaseTest.videoAIoTService;
 
 public class RecordPlanTest {
-    private String planID = "999f5f44-b4e6-400f-9c8a-df6e0a586600";
+    private String planID = "d97fc331-d37a-4f1c-8d59-115a7a968ebc";
     @Test
     public void testCreateRecordPlan() {
         setTest();

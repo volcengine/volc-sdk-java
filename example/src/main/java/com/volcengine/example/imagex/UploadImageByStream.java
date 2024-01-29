@@ -2,8 +2,7 @@ package com.volcengine.example.imagex;
 
 import com.volcengine.model.request.ApplyImageUploadRequest;
 import com.volcengine.model.response.CommitImageUploadResponse;
-import com.volcengine.service.imagex.IImageXService;
-import com.volcengine.service.imagex.impl.ImageXServiceImpl;
+import com.volcengine.service.imagex.ImagexService;
 import lombok.SneakyThrows;
 
 import java.io.File;
@@ -18,7 +17,7 @@ import java.util.List;
 public class UploadImageByStream {
     public static void main(String[] args) {
         // 默认 ImageX 实例为 `cn-north-1`，如果您想使用其他区域的实例，请使用 `ImageXServiceImpl.GetInstance(区域名)` 显式指定区域
-        IImageXService service = ImageXServiceImpl.getInstance();
+        ImagexService service = ImagexService.getInstance();
         service.setAccessKey("ak");
         service.setSecretKey("sk");
 

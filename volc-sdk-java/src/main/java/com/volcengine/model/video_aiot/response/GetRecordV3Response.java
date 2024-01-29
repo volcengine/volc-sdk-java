@@ -22,6 +22,8 @@ public class GetRecordV3Response {
 
     @Data
     public static class RecordItemV3 {
+        @JSONField(name = "Name")
+        private String name;
         @JSONField(name = "ChannelID")
         private String ChannelID;
         @JSONField(name = "StartTime")

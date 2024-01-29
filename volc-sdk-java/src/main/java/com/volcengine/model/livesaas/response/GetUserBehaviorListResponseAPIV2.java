@@ -59,5 +59,9 @@ public class GetUserBehaviorListResponseAPIV2 {
         Integer MuteNumber;
         @JSONField(name = "NoInteractNumber")
         Integer NoInteractNumber;
+        @JSONField(name = "CommentCounts")
+        Integer CommentCounts;
+        @JSONField(name = "ChannelName")
+        String ChannelName;
     }
 }

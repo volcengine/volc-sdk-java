@@ -15,8 +15,12 @@ public class ListRecordPlanChannelsResponse {
 
     @Data
     public static class RecordPlanChannels {
-        @JSONField(name = "PageResult")
-        PageResultResponse pageResult;
+        @JSONField(name = "PageNumber")
+        int pageNumber;
+        @JSONField(name = "PageSize")
+        int pageSize;
+        @JSONField(name = "TotalCount")
+        int totalCount;
         @JSONField(name = "List")
         Map<String, List<RecordPlanChannel>> list;
     }

@@ -5,8 +5,7 @@ import com.volcengine.model.request.iam.ListUsersRequest;
 import com.volcengine.model.response.iam.ListUsersResponse;
 import com.volcengine.service.iam.IIamService;
 import com.volcengine.service.iam.impl.IamServiceImpl;
-import com.volcengine.service.imagex.IImageXService;
-import com.volcengine.service.imagex.impl.ImageXServiceImpl;
+import com.volcengine.service.imagex.ImagexService;
 import junit.framework.TestCase;
 
 import java.util.HashMap;
@@ -34,7 +33,7 @@ public class SignerV4ImplTest extends TestCase {
 
     public void testSignUrl(){
         // default region cn-north-1, for other region, call ImageXServiceImpl.getInstance(region)
-        IImageXService service = ImageXServiceImpl.getInstance();
+        ImagexService service = ImagexService.getInstance();
 
         // call below method if you dont set ak and sk in ～/.volc/config
         service.setAccessKey("your-ak");

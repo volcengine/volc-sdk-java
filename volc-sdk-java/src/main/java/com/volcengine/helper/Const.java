@@ -389,6 +389,11 @@ public class Const {
 
     public static final String UpdateAttentionDetectionConfig = "UpdateAttentionDetectionConfig";
     public static final String CheckUidMatch = "CheckUidMatch";
+    public static final String GetTeachAssistantConfig = "GetTeachAssistantConfig";
+    public static final String UpdateTeachAssistantConfig = "UpdateTeachAssistantConfig";
+    public static final String ListTeachAssistantAccounts = "ListTeachAssistantAccounts";
+    public static final String UpdateTeachAssistantAccount = "UpdateTeachAssistantAccount";
+    public static final String DeleteTeachAssistantAccount = "DeleteTeachAssistantAccount";
 
     // translate
     public static final String LangDetect = "LangDetect";

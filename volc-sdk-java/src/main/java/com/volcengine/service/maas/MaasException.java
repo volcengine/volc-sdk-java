@@ -1,6 +1,7 @@
 package com.volcengine.service.maas;
 
 import com.volcengine.model.maas.api.Api;
+import com.volcengine.model.maas.api.v2.Error;
 
 public class MaasException extends Exception {
 
@@ -21,6 +22,10 @@ public class MaasException extends Exception {
     }
 
     public MaasException(Api.Error raw, String requestId) {
+        this(raw.getCode(), raw.getCodeN(), raw.getMessage(), requestId);
+    }
+
+    public MaasException(Error raw, String requestId) {
         this(raw.getCode(), raw.getCodeN(), raw.getMessage(), requestId);
     }
 
@@ -51,6 +56,6 @@ public class MaasException extends Exception {
 
     @Override
     public String toString() {
-        return "MaasException{" + "code=" + code + ", code_n='" + codeN + '\'' + ", message='" + msg + '\'' + ", request_id='" + requestId + '}';
+        return "MaasException{" + "code=" + code + ", code_n='" + codeN + '\'' + ", message='" + msg + '\'' + ", request_id='" + requestId + '\'' + '}';
     }
 }

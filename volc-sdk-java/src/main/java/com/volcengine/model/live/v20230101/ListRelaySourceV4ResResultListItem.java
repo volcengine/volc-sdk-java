@@ -29,13 +29,13 @@ public final class ListRelaySourceV4ResResultListItem  {
     private String stream;
 
     /**
-     * <p>开始时间，`StartTime` 和 `EndTime` 同时缺省的情况下，表示永久回源。</p>
+     * <p>回源开始时间，`StartTime` 和 `EndTime` 同时缺省的情况下，表示永久回源。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private Integer startTime;
 
     /**
-     * <p>结束时间，`StartTime` 和 `EndTime` 同时缺省的情况下，表示永久回源。</p>
+     * <p>回源结束时间，`StartTime` 和 `EndTime` 同时缺省的情况下，表示永久回源。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private Integer endTime;

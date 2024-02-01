@@ -219,55 +219,96 @@ public interface DescribeVodSpaceTranscodeDataResultOrBuilder extends
       getDetailFieldListBytes(int index);
 
   /**
-   * <code>int64 TotalTranscodeData = 9;</code>
+   * <pre>
+   * 地区列表
+   * </pre>
+   *
+   * <code>repeated string RegionList = 9;</code>
+   * @return A list containing the regionList.
+   */
+  java.util.List<java.lang.String>
+      getRegionListList();
+  /**
+   * <pre>
+   * 地区列表
+   * </pre>
+   *
+   * <code>repeated string RegionList = 9;</code>
+   * @return The count of regionList.
+   */
+  int getRegionListCount();
+  /**
+   * <pre>
+   * 地区列表
+   * </pre>
+   *
+   * <code>repeated string RegionList = 9;</code>
+   * @param index The index of the element to return.
+   * @return The regionList at the given index.
+   */
+  java.lang.String getRegionList(int index);
+  /**
+   * <pre>
+   * 地区列表
+   * </pre>
+   *
+   * <code>repeated string RegionList = 9;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the regionList at the given index.
+   */
+  com.google.protobuf.ByteString
+      getRegionListBytes(int index);
+
+  /**
+   * <code>int64 TotalTranscodeData = 10;</code>
    * @return The totalTranscodeData.
    */
   long getTotalTranscodeData();
 
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
    */
   java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem> 
       getTotalTranscodeDataListList();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
    */
   com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem getTotalTranscodeDataList(int index);
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
    */
   int getTotalTranscodeDataListCount();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
    */
   java.util.List<? extends com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItemOrBuilder> 
       getTotalTranscodeDataListOrBuilderList();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
    */
   com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItemOrBuilder getTotalTranscodeDataListOrBuilder(
       int index);
 
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
    */
   java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail> 
       getTranscodeDataDetailListList();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
    */
   com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail getTranscodeDataDetailList(int index);
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
    */
   int getTranscodeDataDetailListCount();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
    */
   java.util.List<? extends com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetailOrBuilder> 
       getTranscodeDataDetailListOrBuilderList();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
    */
   com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetailOrBuilder getTranscodeDataDetailListOrBuilder(
       int index);

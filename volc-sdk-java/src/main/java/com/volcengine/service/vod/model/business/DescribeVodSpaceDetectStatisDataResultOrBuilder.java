@@ -203,55 +203,80 @@ public interface DescribeVodSpaceDetectStatisDataResultOrBuilder extends
       getDetailFieldListBytes(int index);
 
   /**
-   * <code>int64 TotalDetectUsageData = 8;</code>
+   * <code>repeated string RegionList = 8;</code>
+   * @return A list containing the regionList.
+   */
+  java.util.List<java.lang.String>
+      getRegionListList();
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @return The count of regionList.
+   */
+  int getRegionListCount();
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @param index The index of the element to return.
+   * @return The regionList at the given index.
+   */
+  java.lang.String getRegionList(int index);
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the regionList at the given index.
+   */
+  com.google.protobuf.ByteString
+      getRegionListBytes(int index);
+
+  /**
+   * <code>int64 TotalDetectUsageData = 9;</code>
    * @return The totalDetectUsageData.
    */
   long getTotalDetectUsageData();
 
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataItem DetectUsageDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataItem DetectUsageDataList = 10;</code>
    */
   java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceDetectStatisDataItem> 
       getDetectUsageDataListList();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataItem DetectUsageDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataItem DetectUsageDataList = 10;</code>
    */
   com.volcengine.service.vod.model.business.DescribeVodSpaceDetectStatisDataItem getDetectUsageDataList(int index);
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataItem DetectUsageDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataItem DetectUsageDataList = 10;</code>
    */
   int getDetectUsageDataListCount();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataItem DetectUsageDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataItem DetectUsageDataList = 10;</code>
    */
   java.util.List<? extends com.volcengine.service.vod.model.business.DescribeVodSpaceDetectStatisDataItemOrBuilder> 
       getDetectUsageDataListOrBuilderList();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataItem DetectUsageDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataItem DetectUsageDataList = 10;</code>
    */
   com.volcengine.service.vod.model.business.DescribeVodSpaceDetectStatisDataItemOrBuilder getDetectUsageDataListOrBuilder(
       int index);
 
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataDetail DetectUsageDataDetailList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataDetail DetectUsageDataDetailList = 11;</code>
    */
   java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceDetectStatisDataDetail> 
       getDetectUsageDataDetailListList();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataDetail DetectUsageDataDetailList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataDetail DetectUsageDataDetailList = 11;</code>
    */
   com.volcengine.service.vod.model.business.DescribeVodSpaceDetectStatisDataDetail getDetectUsageDataDetailList(int index);
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataDetail DetectUsageDataDetailList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataDetail DetectUsageDataDetailList = 11;</code>
    */
   int getDetectUsageDataDetailListCount();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataDetail DetectUsageDataDetailList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataDetail DetectUsageDataDetailList = 11;</code>
    */
   java.util.List<? extends com.volcengine.service.vod.model.business.DescribeVodSpaceDetectStatisDataDetailOrBuilder> 
       getDetectUsageDataDetailListOrBuilderList();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataDetail DetectUsageDataDetailList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceDetectStatisDataDetail DetectUsageDataDetailList = 11;</code>
    */
   com.volcengine.service.vod.model.business.DescribeVodSpaceDetectStatisDataDetailOrBuilder getDetectUsageDataDetailListOrBuilder(
       int index);

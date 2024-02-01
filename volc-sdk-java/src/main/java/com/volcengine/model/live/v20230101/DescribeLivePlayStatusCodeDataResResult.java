@@ -11,7 +11,7 @@ import java.util.List;
 public final class DescribeLivePlayStatusCodeDataResResult  {
 
     /**
-     * <p>拉流域名列表。</p>
+     * <p>域名列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DomainList")
     private List<String> domainList;
@@ -23,55 +23,67 @@ public final class DescribeLivePlayStatusCodeDataResResult  {
     private List<String> iSPList;
 
     /**
-     * <p>CDN 节点 IP 所属区域。</p>
+     * <p>CDN 节点 IP 所属区域列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RegionList")
     private List<DescribeLivePlayStatusCodeDataResResultRegionListItem> regionList;
 
     /**
-     * <p>客户端 IP 所属区域。</p>
+     * <p>客户端 IP 所属区域列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "UserRegionList")
     private List<DescribeLivePlayStatusCodeDataResResultUserRegionListItem> userRegionList;
 
     /**
-     * <p>起始时间。</p>
+     * <p>查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>结束时间。</p>
+     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
 
     /**
-     * <p>时间粒度。</p>
+     * <p>聚合的时间粒度，单位为秒。</p>
+     *
+     *
+     *
+     * <p>- 60：1 分钟；</p>
+     *
+     * <p>- 300：5 分钟；</p>
+     *
+     * <p>- 3600：1 小时。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;
 
     /**
-     * <p>是否返回过滤字段和时间聚合后的数据。</p>
+     * <p>数据拆分的维度，维度说明如下所示。</p>
+     *
+     * <p>- Domain：域名；</p>
+     *
+     * <p>- ISP：运营商。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DetailField")
     private List<String> detailField;
 
     /**
-     * <p>所有时间数据总量。</p>
+     * <p>当前查询条件下的状态码占比数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StatusSummaryDataList")
     private List<DescribeLivePlayStatusCodeDataResResultStatusSummaryDataListItem> statusSummaryDataList;
 
     /**
-     * <p>每个时间点的粒度数据。</p>
+     * <p>所有时间粒度的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StatusDataList")
     private List<DescribeLivePlayStatusCodeDataResResultStatusDataListItem> statusDataList;
 
     /**
-     * <p>字段和时间聚合后数据。</p>
+     * <p>按维度拆分后的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StatusDetailDataList")
     private List<DescribeLivePlayStatusCodeDataResResultStatusDetailDataListItem> statusDetailDataList;

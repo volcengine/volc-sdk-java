@@ -16,13 +16,13 @@ public final class CreateDomainV2BodyDomainsItem  {
     private String domainName;
 
     /**
-     * <p>证书ID。</p>
+     * <p>证书 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ChainID")
     private String chainID;
 
     /**
-     * <p>域名类型。</p>
+     * <p>域名类型，支持以下取值。</p>
      *
      * <p>- push：推流域名</p>
      *

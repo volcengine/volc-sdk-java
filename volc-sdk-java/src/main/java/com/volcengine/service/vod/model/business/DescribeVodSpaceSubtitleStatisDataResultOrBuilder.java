@@ -201,55 +201,80 @@ public interface DescribeVodSpaceSubtitleStatisDataResultOrBuilder extends
       getDetailFieldListBytes(int index);
 
   /**
-   * <code>int64 TotalSubtitleUsageData = 8;</code>
+   * <code>repeated string RegionList = 8;</code>
+   * @return A list containing the regionList.
+   */
+  java.util.List<java.lang.String>
+      getRegionListList();
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @return The count of regionList.
+   */
+  int getRegionListCount();
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @param index The index of the element to return.
+   * @return The regionList at the given index.
+   */
+  java.lang.String getRegionList(int index);
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the regionList at the given index.
+   */
+  com.google.protobuf.ByteString
+      getRegionListBytes(int index);
+
+  /**
+   * <code>int64 TotalSubtitleUsageData = 9;</code>
    * @return The totalSubtitleUsageData.
    */
   long getTotalSubtitleUsageData();
 
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataItem SubtitleUsageDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataItem SubtitleUsageDataList = 10;</code>
    */
   java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceSubtitleStatisDataItem> 
       getSubtitleUsageDataListList();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataItem SubtitleUsageDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataItem SubtitleUsageDataList = 10;</code>
    */
   com.volcengine.service.vod.model.business.DescribeVodSpaceSubtitleStatisDataItem getSubtitleUsageDataList(int index);
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataItem SubtitleUsageDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataItem SubtitleUsageDataList = 10;</code>
    */
   int getSubtitleUsageDataListCount();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataItem SubtitleUsageDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataItem SubtitleUsageDataList = 10;</code>
    */
   java.util.List<? extends com.volcengine.service.vod.model.business.DescribeVodSpaceSubtitleStatisDataItemOrBuilder> 
       getSubtitleUsageDataListOrBuilderList();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataItem SubtitleUsageDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataItem SubtitleUsageDataList = 10;</code>
    */
   com.volcengine.service.vod.model.business.DescribeVodSpaceSubtitleStatisDataItemOrBuilder getSubtitleUsageDataListOrBuilder(
       int index);
 
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataDetail SubtitleUsageDataDetailList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataDetail SubtitleUsageDataDetailList = 11;</code>
    */
   java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceSubtitleStatisDataDetail> 
       getSubtitleUsageDataDetailListList();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataDetail SubtitleUsageDataDetailList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataDetail SubtitleUsageDataDetailList = 11;</code>
    */
   com.volcengine.service.vod.model.business.DescribeVodSpaceSubtitleStatisDataDetail getSubtitleUsageDataDetailList(int index);
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataDetail SubtitleUsageDataDetailList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataDetail SubtitleUsageDataDetailList = 11;</code>
    */
   int getSubtitleUsageDataDetailListCount();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataDetail SubtitleUsageDataDetailList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataDetail SubtitleUsageDataDetailList = 11;</code>
    */
   java.util.List<? extends com.volcengine.service.vod.model.business.DescribeVodSpaceSubtitleStatisDataDetailOrBuilder> 
       getSubtitleUsageDataDetailListOrBuilderList();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataDetail SubtitleUsageDataDetailList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataDetail SubtitleUsageDataDetailList = 11;</code>
    */
   com.volcengine.service.vod.model.business.DescribeVodSpaceSubtitleStatisDataDetailOrBuilder getSubtitleUsageDataDetailListOrBuilder(
       int index);

@@ -17,7 +17,31 @@ public final class DescribeLivePushStreamCountDataResResult  {
     private List<String> domainList;
 
     /**
-     * <p>*运营商*。</p>
+     * <p>提供网络接入服务的运营商标识符，标识符与运营商的对应关系如下。</p>
+     *
+     * <p>- unicom：联通；</p>
+     *
+     * <p>- railcom：铁通；</p>
+     *
+     * <p>- telecom：电信；</p>
+     *
+     * <p>- mobile：移动；</p>
+     *
+     * <p>- cernet：教育网；</p>
+     *
+     * <p>- tianwei：天威；</p>
+     *
+     * <p>- alibaba：阿里巴巴；</p>
+     *
+     * <p>- tencent：腾讯；</p>
+     *
+     * <p>- drpeng：鹏博士；</p>
+     *
+     * <p>- btvn：广电；</p>
+     *
+     * <p>- huashu：华数；</p>
+     *
+     * <p>- other：其他。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ISPList")
     private List<String> iSPList;
@@ -29,43 +53,53 @@ public final class DescribeLivePushStreamCountDataResResult  {
     private List<DescribeLivePushStreamCountDataResResultUserRegionListItem> userRegionList;
 
     /**
-     * <p>开始时间。</p>
+     * <p>查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>结束时间。</p>
+     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
 
     /**
-     * <p>聚合的时间粒度。</p>
+     * <p>数据聚合的时间粒度，单位为秒。</p>
+     *
+     * <p>- 60：1 分钟；</p>
+     *
+     * <p>- 300：5 分钟；</p>
+     *
+     * <p>- 3600：1 小时；</p>
+     *
+     * <p>- 86400：1 天。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;
 
     /**
-     * <p>数据拆分的维度。</p>
+     * <p>数据拆分的维度，维度说明如下所示。</p>
+     *
+     * <p>- Domain：域名。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DetailField")
     private List<String> detailField;
 
     /**
-     * <p>峰值流数量。</p>
+     * <p>查询时间范围内的推流数量最大值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PeakCount")
     private Integer peakCount;
 
     /**
-     * <p>按指定时间粒度聚合后的峰值流数数据。</p>
+     * <p>所有时间粒度的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TotalStreamDataList")
     private List<DescribeLivePushStreamCountDataResResultTotalStreamDataListItem> totalStreamDataList;
 
     /**
-     * <p>拆分维度字段和时间聚合后数据。</p>
+     * <p>按维度拆分后的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StreamDetailDataList")
     private List<DescribeLivePushStreamCountDataResResultStreamDetailDataListItem> streamDetailDataList;

@@ -22,6 +22,7 @@ public class VodDescribeVodSpaceAIStatisDataDemo {
 			reqBuilder.setTaskStageList("your TaskStageList");
 			reqBuilder.setAggregation(0);
 			reqBuilder.setDetailFieldList("your DetailFieldList");
+			reqBuilder.setRegionList("your RegionList");
 			
             com.volcengine.service.vod.model.response.DescribeVodSpaceAIStatisDataResponse resp = vodService.describeVodSpaceAIStatisData(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

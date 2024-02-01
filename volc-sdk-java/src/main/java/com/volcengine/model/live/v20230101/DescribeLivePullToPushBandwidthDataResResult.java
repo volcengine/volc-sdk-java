@@ -27,43 +27,53 @@ public final class DescribeLivePullToPushBandwidthDataResResult  {
     private List<String> dstAddrTypeList;
 
     /**
-     * <p>查询的起始时间。</p>
+     * <p>查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>查询的结束时间。</p>
+     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
 
     /**
-     * <p>时间粒度。</p>
+     * <p>数据聚合的时间粒度，单位为秒。</p>
+     *
+     * <p>- 300：5 分钟；</p>
+     *
+     * <p>- 3600：1 小时；</p>
+     *
+     * <p>- 86400：1 天。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;
 
     /**
-     * <p>数据拆分的维度。</p>
+     * <p>数据拆分的维度，维度说明如下。</p>
+     *
+     * <p>- Domain：域名；</p>
+     *
+     * <p>- DstAddrType：推流地址类型。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DetailField")
     private List<String> detailField;
 
     /**
-     * <p>转推带宽峰值，单位为 Mbps。</p>
+     * <p>当前查询条件下的拉流转推峰值带宽，单位为 Mbps。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PeakUpBandwidth")
     private Float peakUpBandwidth;
 
     /**
-     * <p>所有时间粒度数据。</p>
+     * <p>所有时间粒度的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "BandwidthDataList")
     private List<DescribeLivePullToPushBandwidthDataResResultBandwidthDataListItem> bandwidthDataList;
 
     /**
-     * <p>过滤字段和时间聚合后的数据。</p>
+     * <p>按维度拆分的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "BandwidthDetailDataList")
     private List<DescribeLivePullToPushBandwidthDataResResultBandwidthDetailDataListItem> bandwidthDetailDataList;

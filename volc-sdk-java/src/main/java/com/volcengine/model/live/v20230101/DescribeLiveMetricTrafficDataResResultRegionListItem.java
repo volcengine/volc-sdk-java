@@ -10,19 +10,19 @@ import com.alibaba.fastjson.JSON;
 public final class DescribeLiveMetricTrafficDataResResultRegionListItem  {
 
     /**
-     * <p>大区标识符。</p>
+     * <p>区域信息中的大区标识符。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Area")
     private String area;
 
     /**
-     * <p>国家标识符。</p>
+     * <p>区域信息中的国家标识符。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Country")
     private String country;
 
     /**
-     * <p>省份标识符。</p>
+     * <p>区域信息中的省份标识符。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Province")
     private String province;

@@ -19,6 +19,8 @@ public class GetUserBehaviorListResponseAPIV2 {
         List<UserBehaviorV2> Data;
         @JSONField(name = "TotalItemCount")
         Long TotalItemCount;
+        @JSONField(name = "ScrollId")
+        String ScrollId;
     }
 
     @Data

@@ -20,6 +20,7 @@ public class VodDescribeVodSpaceStorageDataDemo {
 			reqBuilder.setEndTime("your EndTime");
 			reqBuilder.setAggregation(0);
 			reqBuilder.setType("your Type");
+			reqBuilder.setRegionList("your RegionList");
 			
             com.volcengine.service.vod.model.response.VodDescribeVodSpaceStorageDataResponse resp = vodService.describeVodSpaceStorageData(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

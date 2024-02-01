@@ -120,10 +120,51 @@ public interface VodDescribeVodSpaceStorageDataResultOrBuilder extends
 
   /**
    * <pre>
+   * region list
+   * </pre>
+   *
+   * <code>repeated string RegionList = 6;</code>
+   * @return A list containing the regionList.
+   */
+  java.util.List<java.lang.String>
+      getRegionListList();
+  /**
+   * <pre>
+   * region list
+   * </pre>
+   *
+   * <code>repeated string RegionList = 6;</code>
+   * @return The count of regionList.
+   */
+  int getRegionListCount();
+  /**
+   * <pre>
+   * region list
+   * </pre>
+   *
+   * <code>repeated string RegionList = 6;</code>
+   * @param index The index of the element to return.
+   * @return The regionList at the given index.
+   */
+  java.lang.String getRegionList(int index);
+  /**
+   * <pre>
+   * region list
+   * </pre>
+   *
+   * <code>repeated string RegionList = 6;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the regionList at the given index.
+   */
+  com.google.protobuf.ByteString
+      getRegionListBytes(int index);
+
+  /**
+   * <pre>
    * Byte of latest storage
    * </pre>
    *
-   * <code>int64 LatestStorageData = 6;</code>
+   * <code>int64 LatestStorageData = 7;</code>
    * @return The latestStorageData.
    */
   long getLatestStorageData();
@@ -133,7 +174,7 @@ public interface VodDescribeVodSpaceStorageDataResultOrBuilder extends
    * list of Storage Data
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
    */
   java.util.List<com.volcengine.service.vod.model.business.VodStorageData> 
       getStorageDataListList();
@@ -142,7 +183,7 @@ public interface VodDescribeVodSpaceStorageDataResultOrBuilder extends
    * list of Storage Data
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
    */
   com.volcengine.service.vod.model.business.VodStorageData getStorageDataList(int index);
   /**
@@ -150,7 +191,7 @@ public interface VodDescribeVodSpaceStorageDataResultOrBuilder extends
    * list of Storage Data
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
    */
   int getStorageDataListCount();
   /**
@@ -158,7 +199,7 @@ public interface VodDescribeVodSpaceStorageDataResultOrBuilder extends
    * list of Storage Data
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
    */
   java.util.List<? extends com.volcengine.service.vod.model.business.VodStorageDataOrBuilder> 
       getStorageDataListOrBuilderList();
@@ -167,7 +208,7 @@ public interface VodDescribeVodSpaceStorageDataResultOrBuilder extends
    * list of Storage Data
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
    */
   com.volcengine.service.vod.model.business.VodStorageDataOrBuilder getStorageDataListOrBuilder(
       int index);

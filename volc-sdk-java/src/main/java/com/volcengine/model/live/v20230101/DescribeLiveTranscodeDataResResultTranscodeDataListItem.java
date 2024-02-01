@@ -10,37 +10,37 @@ import com.alibaba.fastjson.JSON;
 public final class DescribeLiveTranscodeDataResResultTranscodeDataListItem  {
 
     /**
-     * <p>当前时间片内的转码时长，单位为分钟。</p>
+     * <p>当前数据聚合时间粒度内的转码时长，单位为分钟。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Duration")
     private Float duration;
 
     /**
-     * <p>分辨率。</p>
+     * <p>转码分辨率档位，以 480P 为例，表示转码配置的长边 x 短边计算而出的面积小于 640 x 480。</p>
      *
      * <p>- 480P：640 × 480； </p>
      *
      * <p>- 720P：1280 × 720； </p>
      *
-     * <p>- 1080P：1920 × 1088； </p>
+     * <p>- 1080P：1936 × 1088； </p>
      *
      * <p>- 2K：2560 × 1440； </p>
      *
-     * <p>- 4K：4096 × 21600； </p>
+     * <p>- 4K：4096 × 2160； </p>
      *
-     * <p>- 0：纯音频流。</p>
+     * <p>- 0P：纯音频转码。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Resolution")
     private String resolution;
 
     /**
-     * <p>聚合时刻。</p>
+     * <p>数据按时间粒度聚合时，每个时间粒度的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TimeStamp")
     private String timeStamp;
 
     /**
-     * <p>视频编码格式，支持的取值和含义如下所示。</p>
+     * <p>转码格式，支持的取值和含义如下所示。</p>
      *
      * <p>- Normal_H264：H.264 标准转码； </p>
      *
@@ -50,7 +50,7 @@ public final class DescribeLiveTranscodeDataResResultTranscodeDataListItem  {
      *
      * <p>- ByteHD_H265：H.265 极智超清； </p>
      *
-     * <p>- Audio：纯音频流。</p>
+     * <p>- Audio：纯音频转码。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TranscodeType")
     private String transcodeType;

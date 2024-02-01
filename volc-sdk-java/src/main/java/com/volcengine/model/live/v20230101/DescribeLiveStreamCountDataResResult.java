@@ -17,49 +17,65 @@ public final class DescribeLiveStreamCountDataResResult  {
     private List<String> domainList;
 
     /**
-     * <p>查询开始时间。</p>
+     * <p>查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>查询结束时间。</p>
+     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
 
     /**
-     * <p>数据聚合的时间粒度。</p>
+     * <p>数据聚合的时间粒度，单位为秒。</p>
+     *
+     * <p>- 60：1 分钟；</p>
+     *
+     * <p>- 300：5 分钟；</p>
+     *
+     * <p>- 3600：1 小时；</p>
+     *
+     * <p>- 86400：1 天。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;
 
     /**
-     * <p>数据拆分的维度。</p>
+     * <p>数据拆分的维度，维度说明如下所示。</p>
+     *
+     * <p>- Domain：域名。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DetailField")
     private List<String> detailField;
 
     /**
-     * <p>流类型。</p>
+     * <p>流类型，流类型说明如下。</p>
+     *
+     * <p>- push：拉流；</p>
+     *
+     * <p>- relay-source：回源流；</p>
+     *
+     * <p>- transcode：转码流。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StreamType")
     private List<String> streamType;
 
     /**
-     * <p>峰值流数。</p>
+     * <p>当前查询条件下流数最大值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PeakCount")
     private Integer peakCount;
 
     /**
-     * <p>按指定时间粒度聚合的峰值流数数据。</p>
+     * <p>所有时间粒度的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TotalStreamDataList")
     private List<DescribeLiveStreamCountDataResResultTotalStreamDataListItem> totalStreamDataList;
 
     /**
-     * <p>按指定维度拆分后的峰值流数数据。</p>
+     * <p>按维度拆分后的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StreamDetailDataList")
     private List<DescribeLiveStreamCountDataResResultStreamDetailDataListItem> streamDetailDataList;

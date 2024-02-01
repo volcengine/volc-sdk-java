@@ -62,7 +62,7 @@ public class ChatDemo {
                 System.out.println(resp.getChoice().getMessage().getContent());
 
                 // last message, will return full response including usage, role, finish_reason, etc.
-                if (resp.getUsage().isInitialized()) {
+                if (resp.getUsage().getTotalTokens() > 0) {
                     System.out.println(resp.getUsage());
                 }
             });

@@ -219,35 +219,36 @@ public final class VodCdn {
       "stCdnTopAccessResult\022I\n\tItemInfos\030\001 \003(\0132" +
       "6.Volcengine.Vod.Models.Business.VodCdnT" +
       "opAccessElement\"3\n\020VodBandwidthData\022\014\n\004T" +
-      "ime\030\001 \001(\t\022\021\n\tBandwidth\030\002 \001(\001\"\353\002\n\'VodDesc" +
+      "ime\030\001 \001(\t\022\021\n\tBandwidth\030\002 \001(\001\"\377\002\n\'VodDesc" +
       "ribeVodDomainBandwidthDataResult\022\022\n\nDoma" +
       "inList\030\001 \003(\t\022\031\n\021DomainInSpaceList\030\002 \003(\t\022" +
       "\021\n\tStartTime\030\003 \001(\t\022\017\n\007EndTime\030\004 \001(\t\022\023\n\013A" +
       "ggregation\030\005 \001(\005\022\025\n\rBandwidthType\030\006 \001(\t\022" +
-      "\014\n\004Area\030\007 \001(\t\022\025\n\rPeakBandwidth\030\010 \001(\001\022\031\n\021" +
-      "PeakBandwidthTime\030\t \001(\t\022\027\n\017Peak95Bandwid" +
-      "th\030\n \001(\001\022\033\n\023Peak95BandwidthTime\030\013 \001(\t\022K\n" +
-      "\021BandwidthDataList\030\014 \003(\01320.Volcengine.Vo" +
-      "d.Models.Business.VodBandwidthData\"\264\001\n\024V" +
-      "odCdnStatisticsData\022\014\n\004Name\030\001 \001(\t\022\016\n\006Met" +
-      "ric\030\002 \001(\t\022\020\n\010DataType\030\003 \001(\t\0228\n\006Points\030\004 " +
-      "\003(\0132(.Volcengine.Vod.Models.Business.Vod" +
-      "Point\022\016\n\006Region\030\005 \001(\t\022\013\n\003Isp\030\006 \001(\t\022\025\n\rBi" +
-      "llingRegion\030\007 \001(\t\"\200\001\n\034VodCdnStatisticsCo" +
-      "mmonResult\022C\n\005Datas\030\001 \003(\01324.Volcengine.V" +
-      "od.Models.Business.VodCdnStatisticsData\022" +
-      "\033\n\023NoPermissionDomains\030\002 \003(\t\"H\n\014VodCdnIp" +
-      "Info\022\n\n\002Ip\030\001 \001(\t\022\r\n\005CdnIp\030\002 \001(\010\022\020\n\010Locat" +
-      "ion\030\003 \001(\t\022\013\n\003Isp\030\004 \001(\t\"V\n\027VodDescribeIpI" +
-      "nfoResult\022;\n\005Infos\030\001 \003(\0132,.Volcengine.Vo" +
-      "d.Models.Business.VodCdnIpInfo\"/\n\016VodTra" +
-      "fficData\022\014\n\004Time\030\001 \001(\t\022\017\n\007Traffic\030\002 \001(\001\"" +
-      "\221\002\n%VodDescribeVodDomainTrafficDataResul" +
-      "t\022\022\n\nDomainList\030\001 \003(\t\022\031\n\021DomainInSpaceLi" +
-      "st\030\002 \003(\t\022\021\n\tStartTime\030\003 \001(\t\022\017\n\007EndTime\030\004" +
-      " \001(\t\022\023\n\013Aggregation\030\005 \001(\005\022\023\n\013TrafficType" +
-      "\030\006 \001(\t\022\014\n\004Area\030\007 \001(\t\022\024\n\014TotalTraffic\030\010 \001" +
-      "(\001\022G\n\017TrafficDataList\030\t \003(\0132..Volcengine" +
+      "\014\n\004Area\030\007 \001(\t\022\022\n\nRegionList\030\010 \003(\t\022\025\n\rPea" +
+      "kBandwidth\030\t \001(\001\022\031\n\021PeakBandwidthTime\030\n " +
+      "\001(\t\022\027\n\017Peak95Bandwidth\030\013 \001(\001\022\033\n\023Peak95Ba" +
+      "ndwidthTime\030\014 \001(\t\022K\n\021BandwidthDataList\030\r" +
+      " \003(\01320.Volcengine.Vod.Models.Business.Vo" +
+      "dBandwidthData\"\264\001\n\024VodCdnStatisticsData\022" +
+      "\014\n\004Name\030\001 \001(\t\022\016\n\006Metric\030\002 \001(\t\022\020\n\010DataTyp" +
+      "e\030\003 \001(\t\0228\n\006Points\030\004 \003(\0132(.Volcengine.Vod" +
+      ".Models.Business.VodPoint\022\016\n\006Region\030\005 \001(" +
+      "\t\022\013\n\003Isp\030\006 \001(\t\022\025\n\rBillingRegion\030\007 \001(\t\"\200\001" +
+      "\n\034VodCdnStatisticsCommonResult\022C\n\005Datas\030" +
+      "\001 \003(\01324.Volcengine.Vod.Models.Business.V" +
+      "odCdnStatisticsData\022\033\n\023NoPermissionDomai" +
+      "ns\030\002 \003(\t\"H\n\014VodCdnIpInfo\022\n\n\002Ip\030\001 \001(\t\022\r\n\005" +
+      "CdnIp\030\002 \001(\010\022\020\n\010Location\030\003 \001(\t\022\013\n\003Isp\030\004 \001" +
+      "(\t\"V\n\027VodDescribeIpInfoResult\022;\n\005Infos\030\001" +
+      " \003(\0132,.Volcengine.Vod.Models.Business.Vo" +
+      "dCdnIpInfo\"/\n\016VodTrafficData\022\014\n\004Time\030\001 \001" +
+      "(\t\022\017\n\007Traffic\030\002 \001(\001\"\245\002\n%VodDescribeVodDo" +
+      "mainTrafficDataResult\022\022\n\nDomainList\030\001 \003(" +
+      "\t\022\031\n\021DomainInSpaceList\030\002 \003(\t\022\021\n\tStartTim" +
+      "e\030\003 \001(\t\022\017\n\007EndTime\030\004 \001(\t\022\023\n\013Aggregation\030" +
+      "\005 \001(\005\022\023\n\013TrafficType\030\006 \001(\t\022\014\n\004Area\030\007 \001(\t" +
+      "\022\022\n\nRegionList\030\010 \003(\t\022\024\n\014TotalTraffic\030\t \001" +
+      "(\001\022G\n\017TrafficDataList\030\n \003(\0132..Volcengine" +
       ".Vod.Models.Business.VodTrafficData\"\254\002\n\023" +
       "VodDomainSourceInfo\022U\n\021SourceStationType" +
       "\030\001 \001(\0162:.Volcengine.Vod.Models.Business." +
@@ -387,7 +388,7 @@ public final class VodCdn {
     internal_static_Volcengine_Vod_Models_Business_VodDescribeVodDomainBandwidthDataResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDescribeVodDomainBandwidthDataResult_descriptor,
-        new java.lang.String[] { "DomainList", "DomainInSpaceList", "StartTime", "EndTime", "Aggregation", "BandwidthType", "Area", "PeakBandwidth", "PeakBandwidthTime", "Peak95Bandwidth", "Peak95BandwidthTime", "BandwidthDataList", });
+        new java.lang.String[] { "DomainList", "DomainInSpaceList", "StartTime", "EndTime", "Aggregation", "BandwidthType", "Area", "RegionList", "PeakBandwidth", "PeakBandwidthTime", "Peak95Bandwidth", "Peak95BandwidthTime", "BandwidthDataList", });
     internal_static_Volcengine_Vod_Models_Business_VodCdnStatisticsData_descriptor =
       getDescriptor().getMessageTypes().get(17);
     internal_static_Volcengine_Vod_Models_Business_VodCdnStatisticsData_fieldAccessorTable = new
@@ -423,7 +424,7 @@ public final class VodCdn {
     internal_static_Volcengine_Vod_Models_Business_VodDescribeVodDomainTrafficDataResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDescribeVodDomainTrafficDataResult_descriptor,
-        new java.lang.String[] { "DomainList", "DomainInSpaceList", "StartTime", "EndTime", "Aggregation", "TrafficType", "Area", "TotalTraffic", "TrafficDataList", });
+        new java.lang.String[] { "DomainList", "DomainInSpaceList", "StartTime", "EndTime", "Aggregation", "TrafficType", "Area", "RegionList", "TotalTraffic", "TrafficDataList", });
     internal_static_Volcengine_Vod_Models_Business_VodDomainSourceInfo_descriptor =
       getDescriptor().getMessageTypes().get(23);
     internal_static_Volcengine_Vod_Models_Business_VodDomainSourceInfo_fieldAccessorTable = new

@@ -28,4 +28,6 @@ public class GetUserBehaviorListRequestAPIV2 {
     String Extra;
     @JSONField(name = "EndTime")
     Long EndTime;
+    @JSONField(name = "ScrollId")
+    String ScrollId;
 }

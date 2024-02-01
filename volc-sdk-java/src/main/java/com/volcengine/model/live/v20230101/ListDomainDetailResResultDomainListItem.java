@@ -51,7 +51,7 @@ public final class ListDomainDetailResResultDomainListItem  {
     private String type;
 
     /**
-     * <p>区域，包含 4 种类型。</p>
+     * <p>区域，包含以下类型。</p>
      *
      * <p>- cn：中国大陆；</p>
      *
@@ -91,7 +91,7 @@ public final class ListDomainDetailResResultDomainListItem  {
     private Integer domainCheck;
 
     /**
-     * <p>IPC 备案校验是否通过，是否过期信息。</p>
+     * <p>ICP 备案校验是否通过，是否过期信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ICPCheck")
     private Integer iCPCheck;
@@ -121,13 +121,13 @@ public final class ListDomainDetailResResultDomainListItem  {
     private String pushDomain;
 
     /**
-     * <p>项目名称</p>
+     * <p>项目名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ProjectName")
     private String projectName;
 
     /**
-     * <p>标签</p>
+     * <p>标签信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Tags")
     private List<ListDomainDetailResResultDomainListItemTagsItem> tags;

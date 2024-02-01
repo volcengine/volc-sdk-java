@@ -22,6 +22,7 @@ public class VodDescribeVodSpaceSubtitleStatisDataDemo {
 			reqBuilder.setTaskStageList("your TaskStageList");
 			reqBuilder.setAggregation(0);
 			reqBuilder.setDetailFieldList("your DetailFieldList");
+			reqBuilder.setRegionList("your RegionList");
 			
             com.volcengine.service.vod.model.response.DescribeVodSpaceSubtitleStatisDataResponse resp = vodService.describeVodSpaceSubtitleStatisData(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

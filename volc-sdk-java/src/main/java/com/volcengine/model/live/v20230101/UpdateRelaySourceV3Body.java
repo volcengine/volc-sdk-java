@@ -11,7 +11,7 @@ import java.util.List;
 public final class UpdateRelaySourceV3Body  {
 
     /**
-     * <p>域名空间名称。</p>
+     * <p>域名空间名称，由 1 到 60 位数字、字母、下划线及"-"和"."组成。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;

@@ -17,7 +17,7 @@ public final class DescribeRelaySourceV3ResResultRelaySourceConfigListItem  {
     private String vhost;
 
     /**
-     * <p>App名称。</p>
+     * <p>应用名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;

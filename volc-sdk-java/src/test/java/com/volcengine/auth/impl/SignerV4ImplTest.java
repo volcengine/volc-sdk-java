@@ -5,7 +5,7 @@ import com.volcengine.model.request.iam.ListUsersRequest;
 import com.volcengine.model.response.iam.ListUsersResponse;
 import com.volcengine.service.iam.IIamService;
 import com.volcengine.service.iam.impl.IamServiceImpl;
-import com.volcengine.service.imagex.ImagexService;
+import com.volcengine.service.imagex.v2.ImagexService;
 import junit.framework.TestCase;
 
 import java.util.HashMap;

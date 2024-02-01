@@ -26,4 +26,34 @@ public interface VodGetHlsDecryptionKeyResultOrBuilder extends
    */
   com.google.protobuf.ByteString
       getSecretKeyBytes();
+
+  /**
+   * <pre>
+   * SecretKey是否是已经base64过后的SecretKey
+   * </pre>
+   *
+   * <code>bool IsBase64 = 2;</code>
+   * @return The isBase64.
+   */
+  boolean getIsBase64();
+
+  /**
+   * <pre>
+   *真实的密钥格式 二进制密钥则是binary 缺省就是string
+   * </pre>
+   *
+   * <code>string KeyFormat = 3;</code>
+   * @return The keyFormat.
+   */
+  java.lang.String getKeyFormat();
+  /**
+   * <pre>
+   *真实的密钥格式 二进制密钥则是binary 缺省就是string
+   * </pre>
+   *
+   * <code>string KeyFormat = 3;</code>
+   * @return The bytes for keyFormat.
+   */
+  com.google.protobuf.ByteString
+      getKeyFormatBytes();
 }

@@ -73,6 +73,36 @@ public final class ListVhostWatermarkPresetResResultWatermarkPresetListItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;
 
+    /**
+     * <p>水印图片对应的 HTTP 地址。与水印图片字符串字段二选一传入，同时传入时，以水印图片字符串参数为准。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "PictureURL")
+    private String pictureURL;
+
+    /**
+     * <p>水印图片预览背景高度，单位为 px。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "PreviewHeight")
+    private Float previewHeight;
+
+    /**
+     * <p>水印图片预览背景宽度，单位为 px。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "PreviewWidth")
+    private Float previewWidth;
+
+    /**
+     * <p>水印相对高度，水印高度占直播转码流画面高度的比例，取值范围为 [0,1]，水印宽度会随高度等比缩放。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "RelativeHeight")
+    private Float relativeHeight;
+
+    /**
+     * <p>流名称。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
+    private String stream;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

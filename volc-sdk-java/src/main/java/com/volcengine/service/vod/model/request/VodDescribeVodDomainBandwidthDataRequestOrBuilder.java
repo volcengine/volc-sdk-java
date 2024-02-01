@@ -136,4 +136,24 @@ public interface VodDescribeVodDomainBandwidthDataRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getAreaBytes();
+
+  /**
+   * <pre>
+   * 空间区域 
+   * </pre>
+   *
+   * <code>string RegionList = 8;</code>
+   * @return The regionList.
+   */
+  java.lang.String getRegionList();
+  /**
+   * <pre>
+   * 空间区域 
+   * </pre>
+   *
+   * <code>string RegionList = 8;</code>
+   * @return The bytes for regionList.
+   */
+  com.google.protobuf.ByteString
+      getRegionListBytes();
 }

@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private VodGetHlsDecryptionKeyResult() {
     secretKey_ = "";
+    keyFormat_ = "";
   }
 
   @java.lang.Override
@@ -53,6 +54,17 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             secretKey_ = s;
+            break;
+          }
+          case 16: {
+
+            isBase64_ = input.readBool();
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            keyFormat_ = s;
             break;
           }
           default: {
@@ -133,6 +145,67 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int ISBASE64_FIELD_NUMBER = 2;
+  private boolean isBase64_;
+  /**
+   * <pre>
+   * SecretKey是否是已经base64过后的SecretKey
+   * </pre>
+   *
+   * <code>bool IsBase64 = 2;</code>
+   * @return The isBase64.
+   */
+  @java.lang.Override
+  public boolean getIsBase64() {
+    return isBase64_;
+  }
+
+  public static final int KEYFORMAT_FIELD_NUMBER = 3;
+  private volatile java.lang.Object keyFormat_;
+  /**
+   * <pre>
+   *真实的密钥格式 二进制密钥则是binary 缺省就是string
+   * </pre>
+   *
+   * <code>string KeyFormat = 3;</code>
+   * @return The keyFormat.
+   */
+  @java.lang.Override
+  public java.lang.String getKeyFormat() {
+    java.lang.Object ref = keyFormat_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      keyFormat_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *真实的密钥格式 二进制密钥则是binary 缺省就是string
+   * </pre>
+   *
+   * <code>string KeyFormat = 3;</code>
+   * @return The bytes for keyFormat.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getKeyFormatBytes() {
+    java.lang.Object ref = keyFormat_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      keyFormat_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -150,6 +223,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(secretKey_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, secretKey_);
     }
+    if (isBase64_ != false) {
+      output.writeBool(2, isBase64_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyFormat_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, keyFormat_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -161,6 +240,13 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(secretKey_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, secretKey_);
+    }
+    if (isBase64_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(2, isBase64_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyFormat_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, keyFormat_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -179,6 +265,10 @@ private static final long serialVersionUID = 0L;
 
     if (!getSecretKey()
         .equals(other.getSecretKey())) return false;
+    if (getIsBase64()
+        != other.getIsBase64()) return false;
+    if (!getKeyFormat()
+        .equals(other.getKeyFormat())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -192,6 +282,11 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + SECRETKEY_FIELD_NUMBER;
     hash = (53 * hash) + getSecretKey().hashCode();
+    hash = (37 * hash) + ISBASE64_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsBase64());
+    hash = (37 * hash) + KEYFORMAT_FIELD_NUMBER;
+    hash = (53 * hash) + getKeyFormat().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -327,6 +422,10 @@ private static final long serialVersionUID = 0L;
       super.clear();
       secretKey_ = "";
 
+      isBase64_ = false;
+
+      keyFormat_ = "";
+
       return this;
     }
 
@@ -354,6 +453,8 @@ private static final long serialVersionUID = 0L;
     public com.volcengine.service.vod.model.business.VodGetHlsDecryptionKeyResult buildPartial() {
       com.volcengine.service.vod.model.business.VodGetHlsDecryptionKeyResult result = new com.volcengine.service.vod.model.business.VodGetHlsDecryptionKeyResult(this);
       result.secretKey_ = secretKey_;
+      result.isBase64_ = isBase64_;
+      result.keyFormat_ = keyFormat_;
       onBuilt();
       return result;
     }
@@ -404,6 +505,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.volcengine.service.vod.model.business.VodGetHlsDecryptionKeyResult.getDefaultInstance()) return this;
       if (!other.getSecretKey().isEmpty()) {
         secretKey_ = other.secretKey_;
+        onChanged();
+      }
+      if (other.getIsBase64() != false) {
+        setIsBase64(other.getIsBase64());
+      }
+      if (!other.getKeyFormat().isEmpty()) {
+        keyFormat_ = other.keyFormat_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -527,6 +635,145 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       secretKey_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean isBase64_ ;
+    /**
+     * <pre>
+     * SecretKey是否是已经base64过后的SecretKey
+     * </pre>
+     *
+     * <code>bool IsBase64 = 2;</code>
+     * @return The isBase64.
+     */
+    @java.lang.Override
+    public boolean getIsBase64() {
+      return isBase64_;
+    }
+    /**
+     * <pre>
+     * SecretKey是否是已经base64过后的SecretKey
+     * </pre>
+     *
+     * <code>bool IsBase64 = 2;</code>
+     * @param value The isBase64 to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsBase64(boolean value) {
+      
+      isBase64_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * SecretKey是否是已经base64过后的SecretKey
+     * </pre>
+     *
+     * <code>bool IsBase64 = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsBase64() {
+      
+      isBase64_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object keyFormat_ = "";
+    /**
+     * <pre>
+     *真实的密钥格式 二进制密钥则是binary 缺省就是string
+     * </pre>
+     *
+     * <code>string KeyFormat = 3;</code>
+     * @return The keyFormat.
+     */
+    public java.lang.String getKeyFormat() {
+      java.lang.Object ref = keyFormat_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        keyFormat_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *真实的密钥格式 二进制密钥则是binary 缺省就是string
+     * </pre>
+     *
+     * <code>string KeyFormat = 3;</code>
+     * @return The bytes for keyFormat.
+     */
+    public com.google.protobuf.ByteString
+        getKeyFormatBytes() {
+      java.lang.Object ref = keyFormat_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        keyFormat_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *真实的密钥格式 二进制密钥则是binary 缺省就是string
+     * </pre>
+     *
+     * <code>string KeyFormat = 3;</code>
+     * @param value The keyFormat to set.
+     * @return This builder for chaining.
+     */
+    public Builder setKeyFormat(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      keyFormat_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *真实的密钥格式 二进制密钥则是binary 缺省就是string
+     * </pre>
+     *
+     * <code>string KeyFormat = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearKeyFormat() {
+      
+      keyFormat_ = getDefaultInstance().getKeyFormat();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *真实的密钥格式 二进制密钥则是binary 缺省就是string
+     * </pre>
+     *
+     * <code>string KeyFormat = 3;</code>
+     * @param value The bytes for keyFormat to set.
+     * @return This builder for chaining.
+     */
+    public Builder setKeyFormatBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      keyFormat_ = value;
       onChanged();
       return this;
     }

@@ -112,31 +112,56 @@ public interface VodDescribeVodDomainTrafficDataResultOrBuilder extends
       getAreaBytes();
 
   /**
-   * <code>double TotalTraffic = 8;</code>
+   * <code>repeated string RegionList = 8;</code>
+   * @return A list containing the regionList.
+   */
+  java.util.List<java.lang.String>
+      getRegionListList();
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @return The count of regionList.
+   */
+  int getRegionListCount();
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @param index The index of the element to return.
+   * @return The regionList at the given index.
+   */
+  java.lang.String getRegionList(int index);
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the regionList at the given index.
+   */
+  com.google.protobuf.ByteString
+      getRegionListBytes(int index);
+
+  /**
+   * <code>double TotalTraffic = 9;</code>
    * @return The totalTraffic.
    */
   double getTotalTraffic();
 
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
    */
   java.util.List<com.volcengine.service.vod.model.business.VodTrafficData> 
       getTrafficDataListList();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
    */
   com.volcengine.service.vod.model.business.VodTrafficData getTrafficDataList(int index);
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
    */
   int getTrafficDataListCount();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
    */
   java.util.List<? extends com.volcengine.service.vod.model.business.VodTrafficDataOrBuilder> 
       getTrafficDataListOrBuilderList();
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
    */
   com.volcengine.service.vod.model.business.VodTrafficDataOrBuilder getTrafficDataListOrBuilder(
       int index);

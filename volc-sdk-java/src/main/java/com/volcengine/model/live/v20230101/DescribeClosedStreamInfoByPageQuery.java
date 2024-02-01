@@ -97,6 +97,18 @@ public final class DescribeClosedStreamInfoByPageQuery  {
     @com.alibaba.fastjson.annotation.JSONField(name = "SourceType")
     private String sourceType;
 
+    /**
+     * <p>指定是否模糊匹配流名称，缺省情况为精准匹配。支持如下取值。</p>
+     *
+     *
+     *
+     * <p>- fuzzy：模糊匹配；</p>
+     *
+     * <p>- strict：精准匹配。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "QueryType")
+    private String queryType;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

@@ -11,19 +11,19 @@ import java.util.List;
 public final class DescribeLivePullToPushDataResResultPullToPushDetailDataListItem  {
 
     /**
-     * <p>域名。</p>
+     * <p>按域名维度进行数据拆分时的域名信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;
 
     /**
-     * <p>查询范围内拉流转推总时长，单位分钟，保留小数点后 2 位。</p>
+     * <p>按维度进行数据拆分后，当前维度的拉流转推总时长，单位分钟。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TotalDuration")
     private Float totalDuration;
 
     /**
-     * <p>各时间片详细数据。</p>
+     * <p>按维度进行数据拆分后，当前维度下所有时间粒度的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PullToPushDataList")
     private List<DescribeLivePullToPushDataResResultPullToPushDetailDataListItemPullToPushDataListItem> pullToPushDataList;

@@ -11,7 +11,7 @@ import java.util.List;
 public final class DescribeLiveRegionDataResResult  {
 
     /**
-     * <p>大区信息。</p>
+     * <p>区域信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Areas")
     private List<DescribeLiveRegionDataResResultAreasItem> areas;

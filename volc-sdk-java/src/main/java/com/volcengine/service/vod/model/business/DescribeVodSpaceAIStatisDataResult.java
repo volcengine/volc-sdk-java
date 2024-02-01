@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
     mediaAiType_ = "";
     taskStageList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     detailFieldList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     aiUsageDataList_ = java.util.Collections.emptyList();
     aiUsageDataDetailList_ = java.util.Collections.emptyList();
   }
@@ -107,24 +108,33 @@ private static final long serialVersionUID = 0L;
             detailFieldList_.add(s);
             break;
           }
-          case 64: {
+          case 66: {
+            java.lang.String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+              regionList_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000008;
+            }
+            regionList_.add(s);
+            break;
+          }
+          case 72: {
 
             totalAiUsageData_ = input.readInt64();
             break;
           }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+          case 82: {
+            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
               aiUsageDataList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem>();
-              mutable_bitField0_ |= 0x00000008;
+              mutable_bitField0_ |= 0x00000010;
             }
             aiUsageDataList_.add(
                 input.readMessage(com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem.parser(), extensionRegistry));
             break;
           }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+          case 90: {
+            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
               aiUsageDataDetailList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail>();
-              mutable_bitField0_ |= 0x00000010;
+              mutable_bitField0_ |= 0x00000020;
             }
             aiUsageDataDetailList_.add(
                 input.readMessage(com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail.parser(), extensionRegistry));
@@ -155,9 +165,12 @@ private static final long serialVersionUID = 0L;
         detailFieldList_ = detailFieldList_.getUnmodifiableView();
       }
       if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        aiUsageDataList_ = java.util.Collections.unmodifiableList(aiUsageDataList_);
+        regionList_ = regionList_.getUnmodifiableView();
       }
       if (((mutable_bitField0_ & 0x00000010) != 0)) {
+        aiUsageDataList_ = java.util.Collections.unmodifiableList(aiUsageDataList_);
+      }
+      if (((mutable_bitField0_ & 0x00000020) != 0)) {
         aiUsageDataDetailList_ = java.util.Collections.unmodifiableList(aiUsageDataDetailList_);
       }
       this.unknownFields = unknownFields.build();
@@ -483,10 +496,45 @@ private static final long serialVersionUID = 0L;
     return detailFieldList_.getByteString(index);
   }
 
-  public static final int TOTALAIUSAGEDATA_FIELD_NUMBER = 8;
+  public static final int REGIONLIST_FIELD_NUMBER = 8;
+  private com.google.protobuf.LazyStringList regionList_;
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @return A list containing the regionList.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getRegionListList() {
+    return regionList_;
+  }
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @return The count of regionList.
+   */
+  public int getRegionListCount() {
+    return regionList_.size();
+  }
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @param index The index of the element to return.
+   * @return The regionList at the given index.
+   */
+  public java.lang.String getRegionList(int index) {
+    return regionList_.get(index);
+  }
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the regionList at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getRegionListBytes(int index) {
+    return regionList_.getByteString(index);
+  }
+
+  public static final int TOTALAIUSAGEDATA_FIELD_NUMBER = 9;
   private long totalAiUsageData_;
   /**
-   * <code>int64 TotalAiUsageData = 8;</code>
+   * <code>int64 TotalAiUsageData = 9;</code>
    * @return The totalAiUsageData.
    */
   @java.lang.Override
@@ -494,17 +542,17 @@ private static final long serialVersionUID = 0L;
     return totalAiUsageData_;
   }
 
-  public static final int AIUSAGEDATALIST_FIELD_NUMBER = 9;
+  public static final int AIUSAGEDATALIST_FIELD_NUMBER = 10;
   private java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem> aiUsageDataList_;
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
    */
   @java.lang.Override
   public java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem> getAiUsageDataListList() {
     return aiUsageDataList_;
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItemOrBuilder> 
@@ -512,21 +560,21 @@ private static final long serialVersionUID = 0L;
     return aiUsageDataList_;
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
    */
   @java.lang.Override
   public int getAiUsageDataListCount() {
     return aiUsageDataList_.size();
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem getAiUsageDataList(int index) {
     return aiUsageDataList_.get(index);
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItemOrBuilder getAiUsageDataListOrBuilder(
@@ -534,17 +582,17 @@ private static final long serialVersionUID = 0L;
     return aiUsageDataList_.get(index);
   }
 
-  public static final int AIUSAGEDATADETAILLIST_FIELD_NUMBER = 10;
+  public static final int AIUSAGEDATADETAILLIST_FIELD_NUMBER = 11;
   private java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail> aiUsageDataDetailList_;
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
    */
   @java.lang.Override
   public java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail> getAiUsageDataDetailListList() {
     return aiUsageDataDetailList_;
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetailOrBuilder> 
@@ -552,21 +600,21 @@ private static final long serialVersionUID = 0L;
     return aiUsageDataDetailList_;
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
    */
   @java.lang.Override
   public int getAiUsageDataDetailListCount() {
     return aiUsageDataDetailList_.size();
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail getAiUsageDataDetailList(int index) {
     return aiUsageDataDetailList_.get(index);
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetailOrBuilder getAiUsageDataDetailListOrBuilder(
@@ -609,14 +657,17 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < detailFieldList_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, detailFieldList_.getRaw(i));
     }
+    for (int i = 0; i < regionList_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, regionList_.getRaw(i));
+    }
     if (totalAiUsageData_ != 0L) {
-      output.writeInt64(8, totalAiUsageData_);
+      output.writeInt64(9, totalAiUsageData_);
     }
     for (int i = 0; i < aiUsageDataList_.size(); i++) {
-      output.writeMessage(9, aiUsageDataList_.get(i));
+      output.writeMessage(10, aiUsageDataList_.get(i));
     }
     for (int i = 0; i < aiUsageDataDetailList_.size(); i++) {
-      output.writeMessage(10, aiUsageDataDetailList_.get(i));
+      output.writeMessage(11, aiUsageDataDetailList_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -664,17 +715,25 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getDetailFieldListList().size();
     }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < regionList_.size(); i++) {
+        dataSize += computeStringSizeNoTag(regionList_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getRegionListList().size();
+    }
     if (totalAiUsageData_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(8, totalAiUsageData_);
+        .computeInt64Size(9, totalAiUsageData_);
     }
     for (int i = 0; i < aiUsageDataList_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(9, aiUsageDataList_.get(i));
+        .computeMessageSize(10, aiUsageDataList_.get(i));
     }
     for (int i = 0; i < aiUsageDataDetailList_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(10, aiUsageDataDetailList_.get(i));
+        .computeMessageSize(11, aiUsageDataDetailList_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -705,6 +764,8 @@ private static final long serialVersionUID = 0L;
         != other.getAggregation()) return false;
     if (!getDetailFieldListList()
         .equals(other.getDetailFieldListList())) return false;
+    if (!getRegionListList()
+        .equals(other.getRegionListList())) return false;
     if (getTotalAiUsageData()
         != other.getTotalAiUsageData()) return false;
     if (!getAiUsageDataListList()
@@ -742,6 +803,10 @@ private static final long serialVersionUID = 0L;
     if (getDetailFieldListCount() > 0) {
       hash = (37 * hash) + DETAILFIELDLIST_FIELD_NUMBER;
       hash = (53 * hash) + getDetailFieldListList().hashCode();
+    }
+    if (getRegionListCount() > 0) {
+      hash = (37 * hash) + REGIONLIST_FIELD_NUMBER;
+      hash = (53 * hash) + getRegionListList().hashCode();
     }
     hash = (37 * hash) + TOTALAIUSAGEDATA_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -903,17 +968,19 @@ private static final long serialVersionUID = 0L;
 
       detailFieldList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000004);
+      regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000008);
       totalAiUsageData_ = 0L;
 
       if (aiUsageDataListBuilder_ == null) {
         aiUsageDataList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
         aiUsageDataListBuilder_.clear();
       }
       if (aiUsageDataDetailListBuilder_ == null) {
         aiUsageDataDetailList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
       } else {
         aiUsageDataDetailListBuilder_.clear();
       }
@@ -963,20 +1030,25 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.detailFieldList_ = detailFieldList_;
+      if (((bitField0_ & 0x00000008) != 0)) {
+        regionList_ = regionList_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.regionList_ = regionList_;
       result.totalAiUsageData_ = totalAiUsageData_;
       if (aiUsageDataListBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           aiUsageDataList_ = java.util.Collections.unmodifiableList(aiUsageDataList_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.aiUsageDataList_ = aiUsageDataList_;
       } else {
         result.aiUsageDataList_ = aiUsageDataListBuilder_.build();
       }
       if (aiUsageDataDetailListBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           aiUsageDataDetailList_ = java.util.Collections.unmodifiableList(aiUsageDataDetailList_);
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.aiUsageDataDetailList_ = aiUsageDataDetailList_;
       } else {
@@ -1075,6 +1147,16 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
+      if (!other.regionList_.isEmpty()) {
+        if (regionList_.isEmpty()) {
+          regionList_ = other.regionList_;
+          bitField0_ = (bitField0_ & ~0x00000008);
+        } else {
+          ensureRegionListIsMutable();
+          regionList_.addAll(other.regionList_);
+        }
+        onChanged();
+      }
       if (other.getTotalAiUsageData() != 0L) {
         setTotalAiUsageData(other.getTotalAiUsageData());
       }
@@ -1082,7 +1164,7 @@ private static final long serialVersionUID = 0L;
         if (!other.aiUsageDataList_.isEmpty()) {
           if (aiUsageDataList_.isEmpty()) {
             aiUsageDataList_ = other.aiUsageDataList_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureAiUsageDataListIsMutable();
             aiUsageDataList_.addAll(other.aiUsageDataList_);
@@ -1095,7 +1177,7 @@ private static final long serialVersionUID = 0L;
             aiUsageDataListBuilder_.dispose();
             aiUsageDataListBuilder_ = null;
             aiUsageDataList_ = other.aiUsageDataList_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
             aiUsageDataListBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAiUsageDataListFieldBuilder() : null;
@@ -1108,7 +1190,7 @@ private static final long serialVersionUID = 0L;
         if (!other.aiUsageDataDetailList_.isEmpty()) {
           if (aiUsageDataDetailList_.isEmpty()) {
             aiUsageDataDetailList_ = other.aiUsageDataDetailList_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureAiUsageDataDetailListIsMutable();
             aiUsageDataDetailList_.addAll(other.aiUsageDataDetailList_);
@@ -1121,7 +1203,7 @@ private static final long serialVersionUID = 0L;
             aiUsageDataDetailListBuilder_.dispose();
             aiUsageDataDetailListBuilder_ = null;
             aiUsageDataDetailList_ = other.aiUsageDataDetailList_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000020);
             aiUsageDataDetailListBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAiUsageDataDetailListFieldBuilder() : null;
@@ -1929,9 +2011,119 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private com.google.protobuf.LazyStringList regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureRegionListIsMutable() {
+      if (!((bitField0_ & 0x00000008) != 0)) {
+        regionList_ = new com.google.protobuf.LazyStringArrayList(regionList_);
+        bitField0_ |= 0x00000008;
+       }
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @return A list containing the regionList.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getRegionListList() {
+      return regionList_.getUnmodifiableView();
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @return The count of regionList.
+     */
+    public int getRegionListCount() {
+      return regionList_.size();
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @param index The index of the element to return.
+     * @return The regionList at the given index.
+     */
+    public java.lang.String getRegionList(int index) {
+      return regionList_.get(index);
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the regionList at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getRegionListBytes(int index) {
+      return regionList_.getByteString(index);
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @param index The index to set the value at.
+     * @param value The regionList to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRegionList(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRegionListIsMutable();
+      regionList_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @param value The regionList to add.
+     * @return This builder for chaining.
+     */
+    public Builder addRegionList(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRegionListIsMutable();
+      regionList_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @param values The regionList to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllRegionList(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureRegionListIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, regionList_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRegionList() {
+      regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @param value The bytes of the regionList to add.
+     * @return This builder for chaining.
+     */
+    public Builder addRegionListBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureRegionListIsMutable();
+      regionList_.add(value);
+      onChanged();
+      return this;
+    }
+
     private long totalAiUsageData_ ;
     /**
-     * <code>int64 TotalAiUsageData = 8;</code>
+     * <code>int64 TotalAiUsageData = 9;</code>
      * @return The totalAiUsageData.
      */
     @java.lang.Override
@@ -1939,7 +2131,7 @@ private static final long serialVersionUID = 0L;
       return totalAiUsageData_;
     }
     /**
-     * <code>int64 TotalAiUsageData = 8;</code>
+     * <code>int64 TotalAiUsageData = 9;</code>
      * @param value The totalAiUsageData to set.
      * @return This builder for chaining.
      */
@@ -1950,7 +2142,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 TotalAiUsageData = 8;</code>
+     * <code>int64 TotalAiUsageData = 9;</code>
      * @return This builder for chaining.
      */
     public Builder clearTotalAiUsageData() {
@@ -1963,9 +2155,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem> aiUsageDataList_ =
       java.util.Collections.emptyList();
     private void ensureAiUsageDataListIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         aiUsageDataList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem>(aiUsageDataList_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1973,7 +2165,7 @@ private static final long serialVersionUID = 0L;
         com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem, com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem.Builder, com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItemOrBuilder> aiUsageDataListBuilder_;
 
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem> getAiUsageDataListList() {
       if (aiUsageDataListBuilder_ == null) {
@@ -1983,7 +2175,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
      */
     public int getAiUsageDataListCount() {
       if (aiUsageDataListBuilder_ == null) {
@@ -1993,7 +2185,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem getAiUsageDataList(int index) {
       if (aiUsageDataListBuilder_ == null) {
@@ -2003,7 +2195,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
      */
     public Builder setAiUsageDataList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem value) {
@@ -2020,7 +2212,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
      */
     public Builder setAiUsageDataList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem.Builder builderForValue) {
@@ -2034,7 +2226,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
      */
     public Builder addAiUsageDataList(com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem value) {
       if (aiUsageDataListBuilder_ == null) {
@@ -2050,7 +2242,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
      */
     public Builder addAiUsageDataList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem value) {
@@ -2067,7 +2259,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
      */
     public Builder addAiUsageDataList(
         com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem.Builder builderForValue) {
@@ -2081,7 +2273,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
      */
     public Builder addAiUsageDataList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem.Builder builderForValue) {
@@ -2095,7 +2287,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
      */
     public Builder addAllAiUsageDataList(
         java.lang.Iterable<? extends com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem> values) {
@@ -2110,12 +2302,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
      */
     public Builder clearAiUsageDataList() {
       if (aiUsageDataListBuilder_ == null) {
         aiUsageDataList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         aiUsageDataListBuilder_.clear();
@@ -2123,7 +2315,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
      */
     public Builder removeAiUsageDataList(int index) {
       if (aiUsageDataListBuilder_ == null) {
@@ -2136,14 +2328,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem.Builder getAiUsageDataListBuilder(
         int index) {
       return getAiUsageDataListFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItemOrBuilder getAiUsageDataListOrBuilder(
         int index) {
@@ -2153,7 +2345,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
      */
     public java.util.List<? extends com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItemOrBuilder> 
          getAiUsageDataListOrBuilderList() {
@@ -2164,14 +2356,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem.Builder addAiUsageDataListBuilder() {
       return getAiUsageDataListFieldBuilder().addBuilder(
           com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem.getDefaultInstance());
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem.Builder addAiUsageDataListBuilder(
         int index) {
@@ -2179,7 +2371,7 @@ private static final long serialVersionUID = 0L;
           index, com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem.getDefaultInstance());
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataItem AiUsageDataList = 10;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem.Builder> 
          getAiUsageDataListBuilderList() {
@@ -2192,7 +2384,7 @@ private static final long serialVersionUID = 0L;
         aiUsageDataListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem, com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItem.Builder, com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataItemOrBuilder>(
                 aiUsageDataList_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         aiUsageDataList_ = null;
@@ -2203,9 +2395,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail> aiUsageDataDetailList_ =
       java.util.Collections.emptyList();
     private void ensureAiUsageDataDetailListIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         aiUsageDataDetailList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail>(aiUsageDataDetailList_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -2213,7 +2405,7 @@ private static final long serialVersionUID = 0L;
         com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail, com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail.Builder, com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetailOrBuilder> aiUsageDataDetailListBuilder_;
 
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail> getAiUsageDataDetailListList() {
       if (aiUsageDataDetailListBuilder_ == null) {
@@ -2223,7 +2415,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
      */
     public int getAiUsageDataDetailListCount() {
       if (aiUsageDataDetailListBuilder_ == null) {
@@ -2233,7 +2425,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail getAiUsageDataDetailList(int index) {
       if (aiUsageDataDetailListBuilder_ == null) {
@@ -2243,7 +2435,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
      */
     public Builder setAiUsageDataDetailList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail value) {
@@ -2260,7 +2452,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
      */
     public Builder setAiUsageDataDetailList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail.Builder builderForValue) {
@@ -2274,7 +2466,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
      */
     public Builder addAiUsageDataDetailList(com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail value) {
       if (aiUsageDataDetailListBuilder_ == null) {
@@ -2290,7 +2482,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
      */
     public Builder addAiUsageDataDetailList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail value) {
@@ -2307,7 +2499,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
      */
     public Builder addAiUsageDataDetailList(
         com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail.Builder builderForValue) {
@@ -2321,7 +2513,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
      */
     public Builder addAiUsageDataDetailList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail.Builder builderForValue) {
@@ -2335,7 +2527,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
      */
     public Builder addAllAiUsageDataDetailList(
         java.lang.Iterable<? extends com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail> values) {
@@ -2350,12 +2542,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
      */
     public Builder clearAiUsageDataDetailList() {
       if (aiUsageDataDetailListBuilder_ == null) {
         aiUsageDataDetailList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         aiUsageDataDetailListBuilder_.clear();
@@ -2363,7 +2555,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
      */
     public Builder removeAiUsageDataDetailList(int index) {
       if (aiUsageDataDetailListBuilder_ == null) {
@@ -2376,14 +2568,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail.Builder getAiUsageDataDetailListBuilder(
         int index) {
       return getAiUsageDataDetailListFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetailOrBuilder getAiUsageDataDetailListOrBuilder(
         int index) {
@@ -2393,7 +2585,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
      */
     public java.util.List<? extends com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetailOrBuilder> 
          getAiUsageDataDetailListOrBuilderList() {
@@ -2404,14 +2596,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail.Builder addAiUsageDataDetailListBuilder() {
       return getAiUsageDataDetailListFieldBuilder().addBuilder(
           com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail.getDefaultInstance());
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail.Builder addAiUsageDataDetailListBuilder(
         int index) {
@@ -2419,7 +2611,7 @@ private static final long serialVersionUID = 0L;
           index, com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail.getDefaultInstance());
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceAIStatisDataDetail AiUsageDataDetailList = 11;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail.Builder> 
          getAiUsageDataDetailListBuilderList() {
@@ -2432,7 +2624,7 @@ private static final long serialVersionUID = 0L;
         aiUsageDataDetailListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail, com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetail.Builder, com.volcengine.service.vod.model.business.DescribeVodSpaceAIStatisDataDetailOrBuilder>(
                 aiUsageDataDetailList_,
-                ((bitField0_ & 0x00000010) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         aiUsageDataDetailList_ = null;

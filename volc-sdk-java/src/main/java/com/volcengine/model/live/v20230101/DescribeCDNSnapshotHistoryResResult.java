@@ -11,16 +11,16 @@ import java.util.List;
 public final class DescribeCDNSnapshotHistoryResResult  {
 
     /**
-     * <p>截图历史列表记录。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "StreamInfoList")
-    private List<DescribeCDNSnapshotHistoryResResultStreamInfoListItem> streamInfoList;
-
-    /**
      * <p>分页信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Pagination")
     private DescribeCDNSnapshotHistoryResResultPagination pagination;
+
+    /**
+     * <p>截图文件信息。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Data")
+    private List<DescribeCDNSnapshotHistoryResResultDataItem> data;
 
     @Override
     public String toString() {

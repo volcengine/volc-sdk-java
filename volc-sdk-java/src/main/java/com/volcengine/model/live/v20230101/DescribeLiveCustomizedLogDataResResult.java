@@ -11,13 +11,13 @@ import java.util.List;
 public final class DescribeLiveCustomizedLogDataResResult  {
 
     /**
-     * <p>开始时间。</p>
+     * <p>查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>结束时间。</p>
+     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
@@ -29,7 +29,7 @@ public final class DescribeLiveCustomizedLogDataResResult  {
     private String type;
 
     /**
-     * <p>分页信息。</p>
+     * <p>数据分页信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Pagination")
     private DescribeLiveCustomizedLogDataResResultPagination pagination;
@@ -41,7 +41,7 @@ public final class DescribeLiveCustomizedLogDataResResult  {
     private List<DescribeLiveCustomizedLogDataResResultLogInfoListItem> logInfoList;
 
     /**
-     * <p>查询日志的域名列表。</p>
+     * <p>域名列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DomainList")
     private List<String> domainList;

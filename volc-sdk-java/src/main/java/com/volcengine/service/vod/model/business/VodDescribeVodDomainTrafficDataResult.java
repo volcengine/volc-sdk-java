@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
     endTime_ = "";
     trafficType_ = "";
     area_ = "";
+    regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     trafficDataList_ = java.util.Collections.emptyList();
   }
 
@@ -103,15 +104,24 @@ private static final long serialVersionUID = 0L;
             area_ = s;
             break;
           }
-          case 65: {
+          case 66: {
+            java.lang.String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+              regionList_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000004;
+            }
+            regionList_.add(s);
+            break;
+          }
+          case 73: {
 
             totalTraffic_ = input.readDouble();
             break;
           }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+          case 82: {
+            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
               trafficDataList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodTrafficData>();
-              mutable_bitField0_ |= 0x00000004;
+              mutable_bitField0_ |= 0x00000008;
             }
             trafficDataList_.add(
                 input.readMessage(com.volcengine.service.vod.model.business.VodTrafficData.parser(), extensionRegistry));
@@ -139,6 +149,9 @@ private static final long serialVersionUID = 0L;
         domainInSpaceList_ = domainInSpaceList_.getUnmodifiableView();
       }
       if (((mutable_bitField0_ & 0x00000004) != 0)) {
+        regionList_ = regionList_.getUnmodifiableView();
+      }
+      if (((mutable_bitField0_ & 0x00000008) != 0)) {
         trafficDataList_ = java.util.Collections.unmodifiableList(trafficDataList_);
       }
       this.unknownFields = unknownFields.build();
@@ -391,10 +404,45 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int TOTALTRAFFIC_FIELD_NUMBER = 8;
+  public static final int REGIONLIST_FIELD_NUMBER = 8;
+  private com.google.protobuf.LazyStringList regionList_;
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @return A list containing the regionList.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getRegionListList() {
+    return regionList_;
+  }
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @return The count of regionList.
+   */
+  public int getRegionListCount() {
+    return regionList_.size();
+  }
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @param index The index of the element to return.
+   * @return The regionList at the given index.
+   */
+  public java.lang.String getRegionList(int index) {
+    return regionList_.get(index);
+  }
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the regionList at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getRegionListBytes(int index) {
+    return regionList_.getByteString(index);
+  }
+
+  public static final int TOTALTRAFFIC_FIELD_NUMBER = 9;
   private double totalTraffic_;
   /**
-   * <code>double TotalTraffic = 8;</code>
+   * <code>double TotalTraffic = 9;</code>
    * @return The totalTraffic.
    */
   @java.lang.Override
@@ -402,17 +450,17 @@ private static final long serialVersionUID = 0L;
     return totalTraffic_;
   }
 
-  public static final int TRAFFICDATALIST_FIELD_NUMBER = 9;
+  public static final int TRAFFICDATALIST_FIELD_NUMBER = 10;
   private java.util.List<com.volcengine.service.vod.model.business.VodTrafficData> trafficDataList_;
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
    */
   @java.lang.Override
   public java.util.List<com.volcengine.service.vod.model.business.VodTrafficData> getTrafficDataListList() {
     return trafficDataList_;
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.volcengine.service.vod.model.business.VodTrafficDataOrBuilder> 
@@ -420,21 +468,21 @@ private static final long serialVersionUID = 0L;
     return trafficDataList_;
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
    */
   @java.lang.Override
   public int getTrafficDataListCount() {
     return trafficDataList_.size();
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.VodTrafficData getTrafficDataList(int index) {
     return trafficDataList_.get(index);
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.VodTrafficDataOrBuilder getTrafficDataListOrBuilder(
@@ -477,11 +525,14 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(area_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, area_);
     }
+    for (int i = 0; i < regionList_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, regionList_.getRaw(i));
+    }
     if (java.lang.Double.doubleToRawLongBits(totalTraffic_) != 0) {
-      output.writeDouble(8, totalTraffic_);
+      output.writeDouble(9, totalTraffic_);
     }
     for (int i = 0; i < trafficDataList_.size(); i++) {
-      output.writeMessage(9, trafficDataList_.get(i));
+      output.writeMessage(10, trafficDataList_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -524,13 +575,21 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(area_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, area_);
     }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < regionList_.size(); i++) {
+        dataSize += computeStringSizeNoTag(regionList_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getRegionListList().size();
+    }
     if (java.lang.Double.doubleToRawLongBits(totalTraffic_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(8, totalTraffic_);
+        .computeDoubleSize(9, totalTraffic_);
     }
     for (int i = 0; i < trafficDataList_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(9, trafficDataList_.get(i));
+        .computeMessageSize(10, trafficDataList_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -561,6 +620,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTrafficType())) return false;
     if (!getArea()
         .equals(other.getArea())) return false;
+    if (!getRegionListList()
+        .equals(other.getRegionListList())) return false;
     if (java.lang.Double.doubleToLongBits(getTotalTraffic())
         != java.lang.Double.doubleToLongBits(
             other.getTotalTraffic())) return false;
@@ -595,6 +656,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getTrafficType().hashCode();
     hash = (37 * hash) + AREA_FIELD_NUMBER;
     hash = (53 * hash) + getArea().hashCode();
+    if (getRegionListCount() > 0) {
+      hash = (37 * hash) + REGIONLIST_FIELD_NUMBER;
+      hash = (53 * hash) + getRegionListList().hashCode();
+    }
     hash = (37 * hash) + TOTALTRAFFIC_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getTotalTraffic()));
@@ -750,11 +815,13 @@ private static final long serialVersionUID = 0L;
 
       area_ = "";
 
+      regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000004);
       totalTraffic_ = 0D;
 
       if (trafficDataListBuilder_ == null) {
         trafficDataList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
         trafficDataListBuilder_.clear();
       }
@@ -800,11 +867,16 @@ private static final long serialVersionUID = 0L;
       result.aggregation_ = aggregation_;
       result.trafficType_ = trafficType_;
       result.area_ = area_;
+      if (((bitField0_ & 0x00000004) != 0)) {
+        regionList_ = regionList_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.regionList_ = regionList_;
       result.totalTraffic_ = totalTraffic_;
       if (trafficDataListBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           trafficDataList_ = java.util.Collections.unmodifiableList(trafficDataList_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.trafficDataList_ = trafficDataList_;
       } else {
@@ -897,6 +969,16 @@ private static final long serialVersionUID = 0L;
         area_ = other.area_;
         onChanged();
       }
+      if (!other.regionList_.isEmpty()) {
+        if (regionList_.isEmpty()) {
+          regionList_ = other.regionList_;
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          ensureRegionListIsMutable();
+          regionList_.addAll(other.regionList_);
+        }
+        onChanged();
+      }
       if (other.getTotalTraffic() != 0D) {
         setTotalTraffic(other.getTotalTraffic());
       }
@@ -904,7 +986,7 @@ private static final long serialVersionUID = 0L;
         if (!other.trafficDataList_.isEmpty()) {
           if (trafficDataList_.isEmpty()) {
             trafficDataList_ = other.trafficDataList_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureTrafficDataListIsMutable();
             trafficDataList_.addAll(other.trafficDataList_);
@@ -917,7 +999,7 @@ private static final long serialVersionUID = 0L;
             trafficDataListBuilder_.dispose();
             trafficDataListBuilder_ = null;
             trafficDataList_ = other.trafficDataList_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
             trafficDataListBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTrafficDataListFieldBuilder() : null;
@@ -1511,9 +1593,119 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private com.google.protobuf.LazyStringList regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureRegionListIsMutable() {
+      if (!((bitField0_ & 0x00000004) != 0)) {
+        regionList_ = new com.google.protobuf.LazyStringArrayList(regionList_);
+        bitField0_ |= 0x00000004;
+       }
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @return A list containing the regionList.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getRegionListList() {
+      return regionList_.getUnmodifiableView();
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @return The count of regionList.
+     */
+    public int getRegionListCount() {
+      return regionList_.size();
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @param index The index of the element to return.
+     * @return The regionList at the given index.
+     */
+    public java.lang.String getRegionList(int index) {
+      return regionList_.get(index);
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the regionList at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getRegionListBytes(int index) {
+      return regionList_.getByteString(index);
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @param index The index to set the value at.
+     * @param value The regionList to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRegionList(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRegionListIsMutable();
+      regionList_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @param value The regionList to add.
+     * @return This builder for chaining.
+     */
+    public Builder addRegionList(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRegionListIsMutable();
+      regionList_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @param values The regionList to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllRegionList(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureRegionListIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, regionList_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRegionList() {
+      regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @param value The bytes of the regionList to add.
+     * @return This builder for chaining.
+     */
+    public Builder addRegionListBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureRegionListIsMutable();
+      regionList_.add(value);
+      onChanged();
+      return this;
+    }
+
     private double totalTraffic_ ;
     /**
-     * <code>double TotalTraffic = 8;</code>
+     * <code>double TotalTraffic = 9;</code>
      * @return The totalTraffic.
      */
     @java.lang.Override
@@ -1521,7 +1713,7 @@ private static final long serialVersionUID = 0L;
       return totalTraffic_;
     }
     /**
-     * <code>double TotalTraffic = 8;</code>
+     * <code>double TotalTraffic = 9;</code>
      * @param value The totalTraffic to set.
      * @return This builder for chaining.
      */
@@ -1532,7 +1724,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double TotalTraffic = 8;</code>
+     * <code>double TotalTraffic = 9;</code>
      * @return This builder for chaining.
      */
     public Builder clearTotalTraffic() {
@@ -1545,9 +1737,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.volcengine.service.vod.model.business.VodTrafficData> trafficDataList_ =
       java.util.Collections.emptyList();
     private void ensureTrafficDataListIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         trafficDataList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodTrafficData>(trafficDataList_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1555,7 +1747,7 @@ private static final long serialVersionUID = 0L;
         com.volcengine.service.vod.model.business.VodTrafficData, com.volcengine.service.vod.model.business.VodTrafficData.Builder, com.volcengine.service.vod.model.business.VodTrafficDataOrBuilder> trafficDataListBuilder_;
 
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodTrafficData> getTrafficDataListList() {
       if (trafficDataListBuilder_ == null) {
@@ -1565,7 +1757,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
      */
     public int getTrafficDataListCount() {
       if (trafficDataListBuilder_ == null) {
@@ -1575,7 +1767,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
      */
     public com.volcengine.service.vod.model.business.VodTrafficData getTrafficDataList(int index) {
       if (trafficDataListBuilder_ == null) {
@@ -1585,7 +1777,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
      */
     public Builder setTrafficDataList(
         int index, com.volcengine.service.vod.model.business.VodTrafficData value) {
@@ -1602,7 +1794,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
      */
     public Builder setTrafficDataList(
         int index, com.volcengine.service.vod.model.business.VodTrafficData.Builder builderForValue) {
@@ -1616,7 +1808,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
      */
     public Builder addTrafficDataList(com.volcengine.service.vod.model.business.VodTrafficData value) {
       if (trafficDataListBuilder_ == null) {
@@ -1632,7 +1824,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
      */
     public Builder addTrafficDataList(
         int index, com.volcengine.service.vod.model.business.VodTrafficData value) {
@@ -1649,7 +1841,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
      */
     public Builder addTrafficDataList(
         com.volcengine.service.vod.model.business.VodTrafficData.Builder builderForValue) {
@@ -1663,7 +1855,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
      */
     public Builder addTrafficDataList(
         int index, com.volcengine.service.vod.model.business.VodTrafficData.Builder builderForValue) {
@@ -1677,7 +1869,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
      */
     public Builder addAllTrafficDataList(
         java.lang.Iterable<? extends com.volcengine.service.vod.model.business.VodTrafficData> values) {
@@ -1692,12 +1884,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
      */
     public Builder clearTrafficDataList() {
       if (trafficDataListBuilder_ == null) {
         trafficDataList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         trafficDataListBuilder_.clear();
@@ -1705,7 +1897,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
      */
     public Builder removeTrafficDataList(int index) {
       if (trafficDataListBuilder_ == null) {
@@ -1718,14 +1910,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
      */
     public com.volcengine.service.vod.model.business.VodTrafficData.Builder getTrafficDataListBuilder(
         int index) {
       return getTrafficDataListFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
      */
     public com.volcengine.service.vod.model.business.VodTrafficDataOrBuilder getTrafficDataListOrBuilder(
         int index) {
@@ -1735,7 +1927,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
      */
     public java.util.List<? extends com.volcengine.service.vod.model.business.VodTrafficDataOrBuilder> 
          getTrafficDataListOrBuilderList() {
@@ -1746,14 +1938,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
      */
     public com.volcengine.service.vod.model.business.VodTrafficData.Builder addTrafficDataListBuilder() {
       return getTrafficDataListFieldBuilder().addBuilder(
           com.volcengine.service.vod.model.business.VodTrafficData.getDefaultInstance());
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
      */
     public com.volcengine.service.vod.model.business.VodTrafficData.Builder addTrafficDataListBuilder(
         int index) {
@@ -1761,7 +1953,7 @@ private static final long serialVersionUID = 0L;
           index, com.volcengine.service.vod.model.business.VodTrafficData.getDefaultInstance());
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodTrafficData TrafficDataList = 10;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodTrafficData.Builder> 
          getTrafficDataListBuilderList() {
@@ -1774,7 +1966,7 @@ private static final long serialVersionUID = 0L;
         trafficDataListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.volcengine.service.vod.model.business.VodTrafficData, com.volcengine.service.vod.model.business.VodTrafficData.Builder, com.volcengine.service.vod.model.business.VodTrafficDataOrBuilder>(
                 trafficDataList_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         trafficDataList_ = null;

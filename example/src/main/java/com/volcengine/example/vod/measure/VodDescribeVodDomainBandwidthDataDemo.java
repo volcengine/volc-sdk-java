@@ -22,6 +22,7 @@ public class VodDescribeVodDomainBandwidthDataDemo {
 			reqBuilder.setAggregation(0);
 			reqBuilder.setBandwidthType("your BandwidthType");
 			reqBuilder.setArea("your Area");
+			reqBuilder.setRegionList("your RegionList");
 			
             com.volcengine.service.vod.model.response.VodDescribeVodDomainBandwidthDataResponse resp = vodService.describeVodDomainBandwidthData(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

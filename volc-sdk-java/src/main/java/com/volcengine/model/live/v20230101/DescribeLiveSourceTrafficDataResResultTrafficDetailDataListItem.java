@@ -11,31 +11,31 @@ import java.util.List;
 public final class DescribeLiveSourceTrafficDataResResultTrafficDetailDataListItem  {
 
     /**
-     * <p>域名。</p>
+     * <p>按域名维度进行数据拆分时的域名信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;
 
     /**
-     * <p>运营商。</p>
+     * <p>按运营商维度进行数据拆分时的运营商信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ISP")
     private String iSP;
 
     /**
-     * <p>IP 地址。</p>
+     * <p>按出口外网的 IP 地址维度进行数据拆分时的 IP 地址信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "IP")
     private String iP;
 
     /**
-     * <p>回源总流量，单位为 GB。</p>
+     * <p>按维度进行数据拆分后，当前维度的回源中总流量，单位为 GB。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TotalTraffic")
     private Float totalTraffic;
 
     /**
-     * <p>所有时间粒度数据。</p>
+     * <p>按维度进行数据拆分后，当前维度下所有时间粒度的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TrafficDataList")
     private List<DescribeLiveSourceTrafficDataResResultTrafficDetailDataListItemTrafficDataListItem> trafficDataList;

@@ -16,13 +16,13 @@ public final class DeleteSnapshotPresetBody  {
     private String app;
 
     /**
-     * <p>模版名称。</p>
+     * <p>截图配置名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Preset")
     private String preset;
 
     /**
-     * <p>视频直播服务的域名空间。</p>
+     * <p>域名空间名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;

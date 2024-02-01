@@ -10,13 +10,13 @@ import com.alibaba.fastjson.JSON;
 public final class DescribeLiveTimeShiftDataResResultTimeShiftDataListItem  {
 
     /**
-     * <p>时间点，默认为每日的结束时间。例如，返回 2022-02-16T00:00:00+08:00，表示取该时刻的存储用量作为 2 月 16 日的计费用量。</p>
+     * <p>数据按时间粒度聚合时，每个时间粒度的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TimeStamp")
     private String timeStamp;
 
     /**
-     * <p>存储用量，单位为 GB。</p>
+     * <p>当前数据聚合时间粒度内的时移文件存储用量，单位为 GB。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Storage")
     private Float storage;

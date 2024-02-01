@@ -11,7 +11,7 @@ import java.util.List;
 public final class DescribeLivePullToPushBandwidthDataResResultBandwidthDetailDataListItem  {
 
     /**
-     * <p>推流地址类型。</p>
+     * <p>按推流地址类型维度进行数据拆分时的地址类型信息。</p>
      *
      * <p>- Live：非第三方；</p>
      *
@@ -21,19 +21,19 @@ public final class DescribeLivePullToPushBandwidthDataResResultBandwidthDetailDa
     private String dstAddrType;
 
     /**
-     * <p>域名。</p>
+     * <p>按域名维度进行数据拆分时的域名信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;
 
     /**
-     * <p>转推带宽峰值，单位为 Mbps。</p>
+     * <p>按维度进行数据拆分后，当前维度下的拉流转推峰值带宽，单位为 Mbps。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PeakUpBandwidth")
     private Float peakUpBandwidth;
 
     /**
-     * <p>所有时间粒度数据。</p>
+     * <p>按维度进行数据拆分后，当前维度下所有时间粒度的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "BandwidthDataList")
     private List<DescribeLivePullToPushBandwidthDataResResultBandwidthDetailDataListItemBandwidthDataListItem> bandwidthDataList;

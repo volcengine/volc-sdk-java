@@ -134,18 +134,18 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>deleteWatermarkPreset</p>
-     * <p>删除水印</p>
+     * <p>createWatermarkPreset</p>
+     * <p>添加水印</p>
      *
-     * <p>删除指定 App 的水印。 </p>
+     * <p>为指定的 App 添加水印。支持设置水印图片、位置、尺寸等参数。  </p>
      *
      * @param body body payload
      * @return response data
      * @throws Exception error during request
      */
-    public DeleteWatermarkPresetRes deleteWatermarkPreset(DeleteWatermarkPresetBody body) throws Exception {
-        RawResponse rawResponse = json("DeleteWatermarkPreset", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, DeleteWatermarkPresetRes.class);
+    public CreateWatermarkPresetRes createWatermarkPreset(CreateWatermarkPresetBody body) throws Exception {
+        RawResponse rawResponse = json("CreateWatermarkPreset", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateWatermarkPresetRes.class);
     }
 
     /**
@@ -161,6 +161,21 @@ public class LiveTrait extends BaseServiceImpl {
     public UpdateWatermarkPresetRes updateWatermarkPreset(UpdateWatermarkPresetBody body) throws Exception {
         RawResponse rawResponse = json("UpdateWatermarkPreset", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, UpdateWatermarkPresetRes.class);
+    }
+
+    /**
+     * <p>deleteWatermarkPreset</p>
+     * <p>删除水印</p>
+     *
+     * <p>删除指定 App 的水印。 </p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteWatermarkPresetRes deleteWatermarkPreset(DeleteWatermarkPresetBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteWatermarkPreset", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteWatermarkPresetRes.class);
     }
 
     /**
@@ -191,21 +206,6 @@ public class LiveTrait extends BaseServiceImpl {
     public ListVhostWatermarkPresetRes listVhostWatermarkPreset(ListVhostWatermarkPresetBody body) throws Exception {
         RawResponse rawResponse = json("ListVhostWatermarkPreset", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, ListVhostWatermarkPresetRes.class);
-    }
-
-    /**
-     * <p>createWatermarkPreset</p>
-     * <p>添加水印</p>
-     *
-     * <p>为指定的 App 添加水印。支持设置水印图片、位置、尺寸等参数。  </p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public CreateWatermarkPresetRes createWatermarkPreset(CreateWatermarkPresetBody body) throws Exception {
-        RawResponse rawResponse = json("CreateWatermarkPreset", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, CreateWatermarkPresetRes.class);
     }
 
     /**
@@ -399,6 +399,21 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>updateSnapshotPresetV2</p>
+     * <p>更新截图配置V2</p>
+     *
+     * <p>更新截图配置V2</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateSnapshotPresetV2Res updateSnapshotPresetV2(UpdateSnapshotPresetV2Body body) throws Exception {
+        RawResponse rawResponse = json("UpdateSnapshotPresetV2", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateSnapshotPresetV2Res.class);
+    }
+
+    /**
      * <p>describeCDNSnapshotHistory</p>
      * <p>查询截图历史详情</p>
      *
@@ -429,6 +444,21 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>listVhostSnapshotPresetV2</p>
+     * <p>查询截图配置列表V2</p>
+     *
+     * <p>查询截图配置列表V2</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public ListVhostSnapshotPresetV2Res listVhostSnapshotPresetV2(ListVhostSnapshotPresetV2Body body) throws Exception {
+        RawResponse rawResponse = json("ListVhostSnapshotPresetV2", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, ListVhostSnapshotPresetV2Res.class);
+    }
+
+    /**
      * <p>createSnapshotPreset</p>
      * <p>添加截图配置</p>
      *
@@ -449,6 +479,21 @@ public class LiveTrait extends BaseServiceImpl {
     public CreateSnapshotPresetRes createSnapshotPreset(CreateSnapshotPresetBody body) throws Exception {
         RawResponse rawResponse = json("CreateSnapshotPreset", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, CreateSnapshotPresetRes.class);
+    }
+
+    /**
+     * <p>createSnapshotPresetV2</p>
+     * <p>添加截图配置V2</p>
+     *
+     * <p>添加截图配置V2</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateSnapshotPresetV2Res createSnapshotPresetV2(CreateSnapshotPresetV2Body body) throws Exception {
+        RawResponse rawResponse = json("CreateSnapshotPresetV2", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateSnapshotPresetV2Res.class);
     }
 
     /**

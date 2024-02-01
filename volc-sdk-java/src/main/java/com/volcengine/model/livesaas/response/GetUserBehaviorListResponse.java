@@ -19,6 +19,8 @@ public class GetUserBehaviorListResponse {
         Long TotalItemCount;
         @JSONField(name = "Data")
         List<UserBehaviorV2> Data;
+        @JSONField(name = "ScrollId")
+        String ScrollId;
     }
 
     @Data
@@ -53,5 +55,7 @@ public class GetUserBehaviorListResponse {
         Long UserId;
         @JSONField(name = "AccessTime")
         String AccessTime;
+        @JSONField(name = "SilenceStatus")
+        Integer SilenceStatus;
     }
 }

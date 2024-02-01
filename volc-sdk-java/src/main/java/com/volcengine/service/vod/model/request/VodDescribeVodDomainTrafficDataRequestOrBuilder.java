@@ -128,4 +128,16 @@ public interface VodDescribeVodDomainTrafficDataRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getAreaBytes();
+
+  /**
+   * <code>string RegionList = 8;</code>
+   * @return The regionList.
+   */
+  java.lang.String getRegionList();
+  /**
+   * <code>string RegionList = 8;</code>
+   * @return The bytes for regionList.
+   */
+  com.google.protobuf.ByteString
+      getRegionListBytes();
 }

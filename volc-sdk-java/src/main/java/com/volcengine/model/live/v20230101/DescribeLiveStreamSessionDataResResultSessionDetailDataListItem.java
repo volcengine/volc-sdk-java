@@ -11,43 +11,43 @@ import java.util.List;
 public final class DescribeLiveStreamSessionDataResResultSessionDetailDataListItem  {
 
     /**
-     * <p>推拉流协议。</p>
+     * <p>按推拉流协议维度进行数据拆分时的协议信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Protocol")
     private String protocol;
 
     /**
-     * <p>域名。</p>
+     * <p>按域名维度进行数据拆分时的域名信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;
 
     /**
-     * <p>运营商。</p>
+     * <p>按运营商维度进行数据拆分时的运营商信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ISP")
     private String iSP;
 
     /**
-     * <p>请求的 Referer。</p>
+     * <p>按请求的 Referer 信息进行数据拆分时的 Referer 信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Referer")
     private String referer;
 
     /**
-     * <p>总的请求数。</p>
+     * <p>按维度进行数据拆分后，当前维度的请求数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TotalRequest")
     private Integer totalRequest;
 
     /**
-     * <p>在线人数峰值。</p>
+     * <p>按维度进行数据拆分后，当前维度的在线人数峰值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PeakOnlineUser")
     private Integer peakOnlineUser;
 
     /**
-     * <p>查询范围内的汇总信息。</p>
+     * <p>按维度进行数据拆分后，当前维度下所有时间粒度的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SessionDataList")
     private List<DescribeLiveStreamSessionDataResResultSessionDetailDataListItemSessionDataListItem> sessionDataList;

@@ -61,5 +61,7 @@ public class SearchGroupResponseV2 {
         long videoWatchCount;
         @JSONField(name = "VideoDetail")
         CommonPoV2.VideoDetail videoDetail;
+        @JSONField(name = "RelatedScore")
+        double relatedScore;
     }
 }

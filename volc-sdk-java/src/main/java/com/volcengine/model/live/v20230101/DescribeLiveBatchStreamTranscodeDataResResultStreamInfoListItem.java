@@ -28,7 +28,7 @@ public final class DescribeLiveBatchStreamTranscodeDataResResultStreamInfoListIt
     private String app;
 
     /**
-     * <p>当前流的分辨率，支持的取值如下所示。</p>
+     * <p>当前流的转码分辨率档位，以 480P 为例，表示转码配置的长边 x 短边计算而出的面积小于 640 x 480。</p>
      *
      * <p>- 480P：640 × 480； </p>
      *
@@ -40,13 +40,13 @@ public final class DescribeLiveBatchStreamTranscodeDataResResultStreamInfoListIt
      *
      * <p>- 4K：4096 × 2160； </p>
      *
-     * <p>- 0P：纯音频流。</p>
+     * <p>- 0P：纯音频转码。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Resolution")
     private String resolution;
 
     /**
-     * <p>当前流的转码总时长，单位为分钟。</p>
+     * <p>当前流在查询时间内的转码总时长，单位为分钟。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Duration")
     private Float duration;
@@ -68,7 +68,7 @@ public final class DescribeLiveBatchStreamTranscodeDataResResultStreamInfoListIt
     private String vCodec;
 
     /**
-     * <p>码率。</p>
+     * <p>当前流的转码码率。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Coderate")
     private Integer coderate;

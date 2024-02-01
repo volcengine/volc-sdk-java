@@ -181,10 +181,51 @@ public interface VodDescribeVodDomainBandwidthDataResultOrBuilder extends
 
   /**
    * <pre>
+   * 空间所属区域
+   * </pre>
+   *
+   * <code>repeated string RegionList = 8;</code>
+   * @return A list containing the regionList.
+   */
+  java.util.List<java.lang.String>
+      getRegionListList();
+  /**
+   * <pre>
+   * 空间所属区域
+   * </pre>
+   *
+   * <code>repeated string RegionList = 8;</code>
+   * @return The count of regionList.
+   */
+  int getRegionListCount();
+  /**
+   * <pre>
+   * 空间所属区域
+   * </pre>
+   *
+   * <code>repeated string RegionList = 8;</code>
+   * @param index The index of the element to return.
+   * @return The regionList at the given index.
+   */
+  java.lang.String getRegionList(int index);
+  /**
+   * <pre>
+   * 空间所属区域
+   * </pre>
+   *
+   * <code>repeated string RegionList = 8;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the regionList at the given index.
+   */
+  com.google.protobuf.ByteString
+      getRegionListBytes(int index);
+
+  /**
+   * <pre>
    * 带宽峰值，单位为bps
    * </pre>
    *
-   * <code>double PeakBandwidth = 8;</code>
+   * <code>double PeakBandwidth = 9;</code>
    * @return The peakBandwidth.
    */
   double getPeakBandwidth();
@@ -194,7 +235,7 @@ public interface VodDescribeVodDomainBandwidthDataResultOrBuilder extends
    * 带宽峰值出现的时间
    * </pre>
    *
-   * <code>string PeakBandwidthTime = 9;</code>
+   * <code>string PeakBandwidthTime = 10;</code>
    * @return The peakBandwidthTime.
    */
   java.lang.String getPeakBandwidthTime();
@@ -203,7 +244,7 @@ public interface VodDescribeVodDomainBandwidthDataResultOrBuilder extends
    * 带宽峰值出现的时间
    * </pre>
    *
-   * <code>string PeakBandwidthTime = 9;</code>
+   * <code>string PeakBandwidthTime = 10;</code>
    * @return The bytes for peakBandwidthTime.
    */
   com.google.protobuf.ByteString
@@ -214,7 +255,7 @@ public interface VodDescribeVodDomainBandwidthDataResultOrBuilder extends
    * 带宽95峰值，单位为bps
    * </pre>
    *
-   * <code>double Peak95Bandwidth = 10;</code>
+   * <code>double Peak95Bandwidth = 11;</code>
    * @return The peak95Bandwidth.
    */
   double getPeak95Bandwidth();
@@ -224,7 +265,7 @@ public interface VodDescribeVodDomainBandwidthDataResultOrBuilder extends
    * 带宽95峰值出现的时间
    * </pre>
    *
-   * <code>string Peak95BandwidthTime = 11;</code>
+   * <code>string Peak95BandwidthTime = 12;</code>
    * @return The peak95BandwidthTime.
    */
   java.lang.String getPeak95BandwidthTime();
@@ -233,7 +274,7 @@ public interface VodDescribeVodDomainBandwidthDataResultOrBuilder extends
    * 带宽95峰值出现的时间
    * </pre>
    *
-   * <code>string Peak95BandwidthTime = 11;</code>
+   * <code>string Peak95BandwidthTime = 12;</code>
    * @return The bytes for peak95BandwidthTime.
    */
   com.google.protobuf.ByteString
@@ -244,7 +285,7 @@ public interface VodDescribeVodDomainBandwidthDataResultOrBuilder extends
    * 所有时间粒度数据
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 13;</code>
    */
   java.util.List<com.volcengine.service.vod.model.business.VodBandwidthData> 
       getBandwidthDataListList();
@@ -253,7 +294,7 @@ public interface VodDescribeVodDomainBandwidthDataResultOrBuilder extends
    * 所有时间粒度数据
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 13;</code>
    */
   com.volcengine.service.vod.model.business.VodBandwidthData getBandwidthDataList(int index);
   /**
@@ -261,7 +302,7 @@ public interface VodDescribeVodDomainBandwidthDataResultOrBuilder extends
    * 所有时间粒度数据
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 13;</code>
    */
   int getBandwidthDataListCount();
   /**
@@ -269,7 +310,7 @@ public interface VodDescribeVodDomainBandwidthDataResultOrBuilder extends
    * 所有时间粒度数据
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 13;</code>
    */
   java.util.List<? extends com.volcengine.service.vod.model.business.VodBandwidthDataOrBuilder> 
       getBandwidthDataListOrBuilderList();
@@ -278,7 +319,7 @@ public interface VodDescribeVodDomainBandwidthDataResultOrBuilder extends
    * 所有时间粒度数据
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 12;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodBandwidthData BandwidthDataList = 13;</code>
    */
   com.volcengine.service.vod.model.business.VodBandwidthDataOrBuilder getBandwidthDataListOrBuilder(
       int index);

@@ -16,7 +16,7 @@ public final class DeleteRelaySourceV4Body  {
     private String app;
 
     /**
-     * <p>流名称。</p>
+     * <p>流名称，由 1 到 100 位数字、字母、下划线及"-"和"."组成。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
     private String stream;

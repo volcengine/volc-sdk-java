@@ -372,4 +372,24 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getNeedOriginalBytes();
+
+  /**
+   * <pre>
+   *强行指定本次请求的时间戳防盗链 单位秒
+   * </pre>
+   *
+   * <code>string ForceExpire = 19;</code>
+   * @return The forceExpire.
+   */
+  java.lang.String getForceExpire();
+  /**
+   * <pre>
+   *强行指定本次请求的时间戳防盗链 单位秒
+   * </pre>
+   *
+   * <code>string ForceExpire = 19;</code>
+   * @return The bytes for forceExpire.
+   */
+  com.google.protobuf.ByteString
+      getForceExpireBytes();
 }

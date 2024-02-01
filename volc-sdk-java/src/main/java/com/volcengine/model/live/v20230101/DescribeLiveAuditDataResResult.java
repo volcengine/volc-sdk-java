@@ -17,43 +17,47 @@ public final class DescribeLiveAuditDataResResult  {
     private List<String> domainList;
 
     /**
-     * <p>查询的起始时间。RFC3339 格式的 UTC 时间，精度为 s。</p>
+     * <p>查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>查询的结束时间。RFC3339 格式的 UTC 时间，精度为 s。</p>
+     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
 
     /**
-     * <p>时间粒度，单位为 s。</p>
+     * <p>数据聚合的时间粒度，单位为秒。</p>
+     *
+     * <p>- 86400：1 天。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;
 
     /**
-     * <p>数据拆分的维度。取值为 `Domain` 时，表示按域名拆分数据。</p>
+     * <p>数据拆分的维度，维度说明如下。</p>
+     *
+     * <p>- Domain：域名。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DetailField")
     private List<String> detailField;
 
     /**
-     * <p>所选域名的已经审核的截图总张数。</p>
+     * <p>当前查询条件下的截图审核总张数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TotalCount")
     private Integer totalCount;
 
     /**
-     * <p>审核截图数据。</p>
+     * <p>所有时间粒度的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AuditDataList")
     private List<DescribeLiveAuditDataResResultAuditDataListItem> auditDataList;
 
     /**
-     * <p>按维度拆分后的详细数据。</p>
+     * <p>按维度拆分后的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AuditDetailDataList")
     private List<DescribeLiveAuditDataResResultAuditDetailDataListItem> auditDetailDataList;

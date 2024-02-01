@@ -11,9 +11,7 @@ import java.util.List;
 public final class DescribeLiveISPDataResResult  {
 
     /**
-     * <p>运营商信息。</p>
-     *
-     * <p>视频直播提供的网络运营商标识，支持的运营商如下所示。</p>
+     * <p>运营商信息，视频直播提供的网络运营商标识，支持的运营商如下所示。</p>
      *
      * <p>- unicom：联通；</p>
      *

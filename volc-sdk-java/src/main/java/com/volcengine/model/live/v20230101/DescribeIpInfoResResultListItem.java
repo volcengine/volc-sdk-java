@@ -48,17 +48,7 @@ public final class DescribeIpInfoResResultListItem  {
     /**
      * <p>IP 所属运营商。非归属火山引擎视频直播的 IP，返回”-“。</p>
      *
-     * <p>- telecom：中国电信；</p>
-     *
-     * <p>- unicom：中国联通；</p>
-     *
-     * <p>- mobile：中国移动；</p>
-     *
-     * <p>- btvn：广电网；</p>
-     *
-     * <p>- drpeng：鹏博士；</p>
-     *
-     * <p>- other：其他。</p>
+     * <p>您可以通过 [DescribeLiveISPData](https://www.volcengine.com/docs/6469/1133974) 接口查看运营商标识符对应的运营商名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Isp")
     private String isp;

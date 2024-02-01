@@ -21,6 +21,12 @@ public final class UpdateWatermarkPresetBody  {
      * <p>- vertical：竖屏；</p>
      *
      * <p>- horizontal：横屏。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>该参数属于历史版本参数，预计将于未来移除。建议使用预览背景高度（PreviewHeight）、预览背景宽度（PreviewWidth）参数代替。</p>
+     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Orientation")
     private String orientation;
@@ -34,11 +40,9 @@ public final class UpdateWatermarkPresetBody  {
      *
      *
      *
-     * <p>例如，`data:image/png;base64,iVBORw0KGg****mCC`</p>
-     *
      * <p>:::warning</p>
      *
-     * <p>如果水印图片不更新，请勿传入该参数。否则会造成水印无法显示。</p>
+     * <p>如果水印图片不更新，请勿在更新配置时传入该参数，否则会造成水印无法显示。</p>
      *
      * <p>:::</p>
      */
@@ -58,7 +62,7 @@ public final class UpdateWatermarkPresetBody  {
     private Float posY;
 
     /**
-     * <p>水印相对宽度，水印宽度占直播转码流画面宽度的比例，取值范围为 [0,1]，水印高度会随宽度等比缩放。</p>
+     * <p>水印相对宽度，水印宽度占直播转码流画面宽度的比例，取值范围为 [0,1]，水印高度会随宽度等比缩放。与水印相对高度字段冲突，请选择其中一个传参。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RelativeWidth")
     private Float relativeWidth;
@@ -68,6 +72,36 @@ public final class UpdateWatermarkPresetBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;
+
+    /**
+     * <p>水印图片对应的 HTTP 地址。与水印图片字符串字段二选一传入。同时传入时，以水印图片字符串参数为准。</p>
+     *
+     * <p>:::warning</p>
+     *
+     * <p>如果水印图片不更新，请勿在更新配置时传入该参数，否则会造成水印无法显示。</p>
+     *
+     * <p>:::</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "PictureUrl")
+    private String pictureUrl;
+
+    /**
+     * <p>水印图片预览背景高度，单位为 px。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "PreviewHeight")
+    private Float previewHeight;
+
+    /**
+     * <p>水印图片预览背景宽度，单位为 px。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "PreviewWidth")
+    private Float previewWidth;
+
+    /**
+     * <p>水印相对高度，水印高度占直播转码流画面高度的比例，取值范围为 [0,1]，水印宽度会随高度等比缩放。与水印相对宽度字段冲突，请选择其中一个传参。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "RelativeHeight")
+    private Float relativeHeight;
 
     @Override
     public String toString() {

@@ -26,7 +26,7 @@ public final class CreateDomainBody  {
     private String type;
 
     /**
-     * <p>区域，默认指为 cn，包含 3 种类型。</p>
+     * <p>区域，默认指为 cn，包含以下类型。</p>
      *
      * <p>- cn：中国大陆；</p>
      *

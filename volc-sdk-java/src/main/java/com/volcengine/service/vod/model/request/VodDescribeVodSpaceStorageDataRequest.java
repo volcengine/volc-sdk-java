@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     startTime_ = "";
     endTime_ = "";
     type_ = "";
+    regionList_ = "";
   }
 
   @java.lang.Override
@@ -79,6 +80,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             type_ = s;
+            break;
+          }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            regionList_ = s;
             break;
           }
           default: {
@@ -312,6 +319,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int REGIONLIST_FIELD_NUMBER = 6;
+  private volatile java.lang.Object regionList_;
+  /**
+   * <pre>
+   * region list, multiple regions are divided by commas
+   * </pre>
+   *
+   * <code>string RegionList = 6;</code>
+   * @return The regionList.
+   */
+  @java.lang.Override
+  public java.lang.String getRegionList() {
+    java.lang.Object ref = regionList_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      regionList_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * region list, multiple regions are divided by commas
+   * </pre>
+   *
+   * <code>string RegionList = 6;</code>
+   * @return The bytes for regionList.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getRegionListBytes() {
+    java.lang.Object ref = regionList_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      regionList_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -341,6 +394,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, type_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(regionList_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, regionList_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -365,6 +421,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, type_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(regionList_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, regionList_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -391,6 +450,8 @@ private static final long serialVersionUID = 0L;
         != other.getAggregation()) return false;
     if (!getType()
         .equals(other.getType())) return false;
+    if (!getRegionList()
+        .equals(other.getRegionList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -412,6 +473,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getAggregation();
     hash = (37 * hash) + TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getType().hashCode();
+    hash = (37 * hash) + REGIONLIST_FIELD_NUMBER;
+    hash = (53 * hash) + getRegionList().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -555,6 +618,8 @@ private static final long serialVersionUID = 0L;
 
       type_ = "";
 
+      regionList_ = "";
+
       return this;
     }
 
@@ -586,6 +651,7 @@ private static final long serialVersionUID = 0L;
       result.endTime_ = endTime_;
       result.aggregation_ = aggregation_;
       result.type_ = type_;
+      result.regionList_ = regionList_;
       onBuilt();
       return result;
     }
@@ -651,6 +717,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getType().isEmpty()) {
         type_ = other.type_;
+        onChanged();
+      }
+      if (!other.getRegionList().isEmpty()) {
+        regionList_ = other.regionList_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1105,6 +1175,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       type_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object regionList_ = "";
+    /**
+     * <pre>
+     * region list, multiple regions are divided by commas
+     * </pre>
+     *
+     * <code>string RegionList = 6;</code>
+     * @return The regionList.
+     */
+    public java.lang.String getRegionList() {
+      java.lang.Object ref = regionList_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        regionList_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * region list, multiple regions are divided by commas
+     * </pre>
+     *
+     * <code>string RegionList = 6;</code>
+     * @return The bytes for regionList.
+     */
+    public com.google.protobuf.ByteString
+        getRegionListBytes() {
+      java.lang.Object ref = regionList_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        regionList_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * region list, multiple regions are divided by commas
+     * </pre>
+     *
+     * <code>string RegionList = 6;</code>
+     * @param value The regionList to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRegionList(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      regionList_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * region list, multiple regions are divided by commas
+     * </pre>
+     *
+     * <code>string RegionList = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRegionList() {
+      
+      regionList_ = getDefaultInstance().getRegionList();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * region list, multiple regions are divided by commas
+     * </pre>
+     *
+     * <code>string RegionList = 6;</code>
+     * @param value The bytes for regionList to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRegionListBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      regionList_ = value;
       onChanged();
       return this;
     }

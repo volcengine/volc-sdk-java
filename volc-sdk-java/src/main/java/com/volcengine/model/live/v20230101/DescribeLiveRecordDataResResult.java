@@ -11,61 +11,69 @@ import java.util.List;
 public final class DescribeLiveRecordDataResResult  {
 
     /**
-     * <p>域名列表，缺省情况表示该用户的所有域名。</p>
+     * <p>域名列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DomainList")
     private List<String> domainList;
 
     /**
-     * <p>查询的起始时间，RFC3339 格式的 UTC 时间，精度为 s。</p>
+     * <p>查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为 s。</p>
+     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
 
     /**
-     * <p>时间粒度，单位为 s。</p>
+     * <p>数据聚合的时间粒度，单位为秒。  </p>
+     *
+     * <p>- 300：5 分钟； </p>
+     *
+     * <p>- 3600：1 小时； </p>
+     *
+     * <p>- 86400：1 天。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;
 
     /**
-     * <p>数据拆分的维度。</p>
+     * <p>数据拆分的维度，维度说明如下。</p>
+     *
+     * <p>- Domain：域名。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DetailField")
     private List<String> detailField;
 
     /**
-     * <p>查询时间范围内录制峰值。</p>
+     * <p>当前查询条件下的录制并发路数最大值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RecordPeak")
     private Integer recordPeak;
 
     /**
-     * <p>录制峰值数据。</p>
+     * <p>所有时间粒度的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RecordDataList")
     private List<DescribeLiveRecordDataResResultRecordDataListItem> recordDataList;
 
     /**
-     * <p>数据拆分后的详细数据。</p>
+     * <p>按维度拆分后的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RecordDetailDataList")
     private List<DescribeLiveRecordDataResResultRecordDetailDataListItem> recordDetailDataList;
 
     /**
-     * <p>应用名称。</p>
+     * <p>查询流粒度数据时的应用名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>流名称。</p>
+     * <p>查询流粒度数据时的流名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
     private String stream;

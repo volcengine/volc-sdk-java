@@ -11,13 +11,13 @@ import java.util.List;
 public final class ListCommonTransPresetDetailResResult  {
 
     /**
-     * <p>极智超清模板信息。</p>
+     * <p>极智超清转码配置。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "NarrowBandHDPresetDetail")
     private List<ListCommonTransPresetDetailResResultNarrowBandHDPresetDetailItem> narrowBandHDPresetDetail;
 
     /**
-     * <p>标准模板信息。</p>
+     * <p>标准转码配置。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StandardPresetDetail")
     private List<ListCommonTransPresetDetailResResultStandardPresetDetailItem> standardPresetDetail;

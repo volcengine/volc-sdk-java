@@ -15,9 +15,9 @@ public final class UpdateRelaySourceV3BodyGroupDetailsItemServersItem  {
      *
      *
      *
-     * <p>- rtmp</p>
+     * <p>- rtmp：RTMP 回源协议；</p>
      *
-     * <p>- flv</p>
+     * <p>- flv：FLV 回源协议。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RelaySourceProtocol")
     private String relaySourceProtocol;

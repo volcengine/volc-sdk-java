@@ -17,19 +17,19 @@ public final class DescribeLiveBatchStreamTranscodeDataResResult  {
     private List<String> domainList;
 
     /**
-     * <p>查询的起始时间。</p>
+     * <p>查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>查询的结束时间。</p>
+     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
 
     /**
-     * <p>查询结果中，所有流的转码总时长，单位为分钟。</p>
+     * <p>当前查询条件下，所有流的转码总时长，单位为分钟。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TotalDuration")
     private Float totalDuration;
@@ -41,7 +41,7 @@ public final class DescribeLiveBatchStreamTranscodeDataResResult  {
     private List<DescribeLiveBatchStreamTranscodeDataResResultStreamInfoListItem> streamInfoList;
 
     /**
-     * <p>分页信息。</p>
+     * <p>数据分页的信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Pagination")
     private DescribeLiveBatchStreamTranscodeDataResResultPagination pagination;

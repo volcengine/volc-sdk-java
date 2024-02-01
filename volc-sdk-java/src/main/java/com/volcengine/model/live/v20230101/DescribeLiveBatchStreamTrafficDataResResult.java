@@ -17,43 +17,55 @@ public final class DescribeLiveBatchStreamTrafficDataResResult  {
     private List<String> domainList;
 
     /**
-     * <p>推拉流协议。</p>
+     * <p>推拉流协议，协议说明如下。</p>
+     *
+     * <p>- HTTP-FLV：基于 HTTP 协议的推拉流协议，使用 FLV 格式传输视频格式。</p>
+     *
+     * <p>- HTTP-HLS：基于 HTTP 协议的推拉流协议，使用 TS 格式传输视频格式。</p>
+     *
+     * <p>- RTMP：Real Time Message Protocol，实时信息传输协议。</p>
+     *
+     * <p>- RTM：Real Time Media，超低延时直播协议。</p>
+     *
+     * <p>- SRT：Secure Reliable Transport，安全可靠传输协议。</p>
+     *
+     * <p>- QUIC：Quick UDP Internet Connections，一种基于 UDP 的全新的低延时互联网传输协议。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ProtocolList")
     private List<String> protocolList;
 
     /**
-     * <p>查询的起始时间。</p>
+     * <p>查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>查询的结束时间。</p>
+     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
 
     /**
-     * <p>查询结果中，所有流的上行总流量，单位为 GB。</p>
+     * <p>当前查询条件下，所有流的上行总流量，单位为 GB。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TotalUpTraffic")
     private Float totalUpTraffic;
 
     /**
-     * <p>查询结果中，所有流的下行总流量，单位为 GB。</p>
+     * <p>当前查询条件下，所有流的下行总流量，单位为 GB。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TotalDownTraffic")
     private Float totalDownTraffic;
 
     /**
-     * <p>流维度的用量信息详情。</p>
+     * <p>流维度的流量用量信息详情。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StreamInfoList")
     private List<DescribeLiveBatchStreamTrafficDataResResultStreamInfoListItem> streamInfoList;
 
     /**
-     * <p>分页信息。</p>
+     * <p>数据分页的信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Pagination")
     private DescribeLiveBatchStreamTrafficDataResResultPagination pagination;

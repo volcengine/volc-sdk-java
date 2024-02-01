@@ -16,7 +16,7 @@ public final class DeleteTranscodePresetBody  {
     private String app;
 
     /**
-     * <p>转码模版名称。</p>
+     * <p>转码配置名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Preset")
     private String preset;

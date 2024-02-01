@@ -96,4 +96,24 @@ public interface VodDescribeVodSpaceStorageDataRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTypeBytes();
+
+  /**
+   * <pre>
+   * region list, multiple regions are divided by commas
+   * </pre>
+   *
+   * <code>string RegionList = 6;</code>
+   * @return The regionList.
+   */
+  java.lang.String getRegionList();
+  /**
+   * <pre>
+   * region list, multiple regions are divided by commas
+   * </pre>
+   *
+   * <code>string RegionList = 6;</code>
+   * @return The bytes for regionList.
+   */
+  com.google.protobuf.ByteString
+      getRegionListBytes();
 }

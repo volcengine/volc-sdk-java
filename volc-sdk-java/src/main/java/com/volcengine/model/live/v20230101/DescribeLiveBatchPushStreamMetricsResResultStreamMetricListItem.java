@@ -23,7 +23,7 @@ public final class DescribeLiveBatchPushStreamMetricsResResultStreamMetricListIt
     private String app;
 
     /**
-     * <p>推流名称。</p>
+     * <p>流名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
     private String stream;

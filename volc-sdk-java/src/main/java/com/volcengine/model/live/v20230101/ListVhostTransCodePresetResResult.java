@@ -11,19 +11,19 @@ import java.util.List;
 public final class ListVhostTransCodePresetResResult  {
 
     /**
-     * <p>使用内置参数的转码配置列表</p>
+     * <p>使用内置参数的转码配置列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CommonPresetList")
     private List<ListVhostTransCodePresetResResultCommonPresetListItem> commonPresetList;
 
     /**
-     * <p>使用自定义配置的转码配置列表</p>
+     * <p>使用自定义配置的转码配置列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CustomizePresetList")
     private List<ListVhostTransCodePresetResResultCustomizePresetListItem> customizePresetList;
 
     /**
-     * <p>全部转码配置列表</p>
+     * <p>全部转码配置列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AllPresetList")
     private List<ListVhostTransCodePresetResResultAllPresetListItem> allPresetList;

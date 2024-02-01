@@ -10,61 +10,61 @@ import com.alibaba.fastjson.JSON;
 public final class DescribeLiveBatchSourceStreamMetricsResResultStreamMetricListItemMetricListItem  {
 
     /**
-     * <p>时间戳。RFC3339 格式的 UTC 时间，精度为 s。</p>
+     * <p>数据按时间粒度聚合时，每个时间粒度的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TimeStamp")
     private String timeStamp;
 
     /**
-     * <p>视频码率，单位为 kbps。</p>
+     * <p>当前数据聚合时间粒度内的视频码率最大值，单位为 kbps。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Bitrate")
     private Float bitrate;
 
     /**
-     * <p>视频帧率，单位为 fps。</p>
+     * <p>当前数据聚合时间粒度内的视频帧率最大值，单位为 fps。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Framerate")
     private Float framerate;
 
     /**
-     * <p>音频帧率，单位为 fps。</p>
+     * <p>当前数据聚合时间粒度内的音频帧率最大值，单位为 fps。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AudioFramerate")
     private Float audioFramerate;
 
     /**
-     * <p>音频码率，单位为 kbps。</p>
+     * <p>当前数据聚合时间粒度内的音频码率最大值，单位为 kbps。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AudioBitrate")
     private Float audioBitrate;
 
     /**
-     * <p>音频显示时间戳 PTS（Presentation Time Stamp），单位为 ms。</p>
+     * <p>当前数据聚合时间粒度内，最后一个音频帧的显示时间戳 PTS（Presentation Time Stamp），单位为毫秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AudioPts")
     private Integer audioPts;
 
     /**
-     * <p>视频显示时间戳 PTS（Presentation Time Stamp），单位为 ms。</p>
+     * <p>当前数据聚合时间粒度内，最后一个视频帧的显示时间戳 PTS（Presentation Time Stamp），单位为毫秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "VideoPts")
     private Integer videoPts;
 
     /**
-     * <p>音视频时间戳差值，即 AudioPts 与 VideoPts 之间的差值，单位为 ms。</p>
+     * <p>当前数据聚合时间粒度内，所有音视频帧显示时间戳差值的最大值，即所有 AudioPts 与 VideoPts 差值的最大值，单位为毫秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PtsDelta")
     private Integer ptsDelta;
 
     /**
-     * <p>音频帧间隔，单位为 ms。</p>
+     * <p>当前数据聚合时间粒度内，相邻音频帧显示时间戳差值的最大值，单位为毫秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AudioFrameGap")
     private Integer audioFrameGap;
 
     /**
-     * <p>视频帧间隔，单位为 ms。</p>
+     * <p>当前数据聚合时间粒度内，相邻视频帧显示时间戳差值的最大值，单位为毫秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "VideoFrameGap")
     private Integer videoFrameGap;

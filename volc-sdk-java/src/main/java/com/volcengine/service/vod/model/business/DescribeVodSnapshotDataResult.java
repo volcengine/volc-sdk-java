@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
     snapshotType_ = "";
     taskStageList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     detailFieldList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     snapshotDataList_ = java.util.Collections.emptyList();
     snapshotDetailDataList_ = java.util.Collections.emptyList();
   }
@@ -107,24 +108,33 @@ private static final long serialVersionUID = 0L;
             detailFieldList_.add(s);
             break;
           }
-          case 64: {
+          case 66: {
+            java.lang.String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+              regionList_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000008;
+            }
+            regionList_.add(s);
+            break;
+          }
+          case 72: {
 
             totalSnapshotData_ = input.readInt64();
             break;
           }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+          case 82: {
+            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
               snapshotDataList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem>();
-              mutable_bitField0_ |= 0x00000008;
+              mutable_bitField0_ |= 0x00000010;
             }
             snapshotDataList_.add(
                 input.readMessage(com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem.parser(), extensionRegistry));
             break;
           }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+          case 90: {
+            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
               snapshotDetailDataList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail>();
-              mutable_bitField0_ |= 0x00000010;
+              mutable_bitField0_ |= 0x00000020;
             }
             snapshotDetailDataList_.add(
                 input.readMessage(com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail.parser(), extensionRegistry));
@@ -155,9 +165,12 @@ private static final long serialVersionUID = 0L;
         detailFieldList_ = detailFieldList_.getUnmodifiableView();
       }
       if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        snapshotDataList_ = java.util.Collections.unmodifiableList(snapshotDataList_);
+        regionList_ = regionList_.getUnmodifiableView();
       }
       if (((mutable_bitField0_ & 0x00000010) != 0)) {
+        snapshotDataList_ = java.util.Collections.unmodifiableList(snapshotDataList_);
+      }
+      if (((mutable_bitField0_ & 0x00000020) != 0)) {
         snapshotDetailDataList_ = java.util.Collections.unmodifiableList(snapshotDetailDataList_);
       }
       this.unknownFields = unknownFields.build();
@@ -483,10 +496,45 @@ private static final long serialVersionUID = 0L;
     return detailFieldList_.getByteString(index);
   }
 
-  public static final int TOTALSNAPSHOTDATA_FIELD_NUMBER = 8;
+  public static final int REGIONLIST_FIELD_NUMBER = 8;
+  private com.google.protobuf.LazyStringList regionList_;
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @return A list containing the regionList.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getRegionListList() {
+    return regionList_;
+  }
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @return The count of regionList.
+   */
+  public int getRegionListCount() {
+    return regionList_.size();
+  }
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @param index The index of the element to return.
+   * @return The regionList at the given index.
+   */
+  public java.lang.String getRegionList(int index) {
+    return regionList_.get(index);
+  }
+  /**
+   * <code>repeated string RegionList = 8;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the regionList at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getRegionListBytes(int index) {
+    return regionList_.getByteString(index);
+  }
+
+  public static final int TOTALSNAPSHOTDATA_FIELD_NUMBER = 9;
   private long totalSnapshotData_;
   /**
-   * <code>int64 TotalSnapshotData = 8;</code>
+   * <code>int64 TotalSnapshotData = 9;</code>
    * @return The totalSnapshotData.
    */
   @java.lang.Override
@@ -494,17 +542,17 @@ private static final long serialVersionUID = 0L;
     return totalSnapshotData_;
   }
 
-  public static final int SNAPSHOTDATALIST_FIELD_NUMBER = 9;
+  public static final int SNAPSHOTDATALIST_FIELD_NUMBER = 10;
   private java.util.List<com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem> snapshotDataList_;
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
    */
   @java.lang.Override
   public java.util.List<com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem> getSnapshotDataListList() {
     return snapshotDataList_;
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItemOrBuilder> 
@@ -512,21 +560,21 @@ private static final long serialVersionUID = 0L;
     return snapshotDataList_;
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
    */
   @java.lang.Override
   public int getSnapshotDataListCount() {
     return snapshotDataList_.size();
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem getSnapshotDataList(int index) {
     return snapshotDataList_.get(index);
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItemOrBuilder getSnapshotDataListOrBuilder(
@@ -534,17 +582,17 @@ private static final long serialVersionUID = 0L;
     return snapshotDataList_.get(index);
   }
 
-  public static final int SNAPSHOTDETAILDATALIST_FIELD_NUMBER = 10;
+  public static final int SNAPSHOTDETAILDATALIST_FIELD_NUMBER = 11;
   private java.util.List<com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail> snapshotDetailDataList_;
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
    */
   @java.lang.Override
   public java.util.List<com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail> getSnapshotDetailDataListList() {
     return snapshotDetailDataList_;
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetailOrBuilder> 
@@ -552,21 +600,21 @@ private static final long serialVersionUID = 0L;
     return snapshotDetailDataList_;
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
    */
   @java.lang.Override
   public int getSnapshotDetailDataListCount() {
     return snapshotDetailDataList_.size();
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail getSnapshotDetailDataList(int index) {
     return snapshotDetailDataList_.get(index);
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetailOrBuilder getSnapshotDetailDataListOrBuilder(
@@ -609,14 +657,17 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < detailFieldList_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, detailFieldList_.getRaw(i));
     }
+    for (int i = 0; i < regionList_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, regionList_.getRaw(i));
+    }
     if (totalSnapshotData_ != 0L) {
-      output.writeInt64(8, totalSnapshotData_);
+      output.writeInt64(9, totalSnapshotData_);
     }
     for (int i = 0; i < snapshotDataList_.size(); i++) {
-      output.writeMessage(9, snapshotDataList_.get(i));
+      output.writeMessage(10, snapshotDataList_.get(i));
     }
     for (int i = 0; i < snapshotDetailDataList_.size(); i++) {
-      output.writeMessage(10, snapshotDetailDataList_.get(i));
+      output.writeMessage(11, snapshotDetailDataList_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -664,17 +715,25 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getDetailFieldListList().size();
     }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < regionList_.size(); i++) {
+        dataSize += computeStringSizeNoTag(regionList_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getRegionListList().size();
+    }
     if (totalSnapshotData_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(8, totalSnapshotData_);
+        .computeInt64Size(9, totalSnapshotData_);
     }
     for (int i = 0; i < snapshotDataList_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(9, snapshotDataList_.get(i));
+        .computeMessageSize(10, snapshotDataList_.get(i));
     }
     for (int i = 0; i < snapshotDetailDataList_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(10, snapshotDetailDataList_.get(i));
+        .computeMessageSize(11, snapshotDetailDataList_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -705,6 +764,8 @@ private static final long serialVersionUID = 0L;
         != other.getAggregation()) return false;
     if (!getDetailFieldListList()
         .equals(other.getDetailFieldListList())) return false;
+    if (!getRegionListList()
+        .equals(other.getRegionListList())) return false;
     if (getTotalSnapshotData()
         != other.getTotalSnapshotData()) return false;
     if (!getSnapshotDataListList()
@@ -742,6 +803,10 @@ private static final long serialVersionUID = 0L;
     if (getDetailFieldListCount() > 0) {
       hash = (37 * hash) + DETAILFIELDLIST_FIELD_NUMBER;
       hash = (53 * hash) + getDetailFieldListList().hashCode();
+    }
+    if (getRegionListCount() > 0) {
+      hash = (37 * hash) + REGIONLIST_FIELD_NUMBER;
+      hash = (53 * hash) + getRegionListList().hashCode();
     }
     hash = (37 * hash) + TOTALSNAPSHOTDATA_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -903,17 +968,19 @@ private static final long serialVersionUID = 0L;
 
       detailFieldList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000004);
+      regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000008);
       totalSnapshotData_ = 0L;
 
       if (snapshotDataListBuilder_ == null) {
         snapshotDataList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
         snapshotDataListBuilder_.clear();
       }
       if (snapshotDetailDataListBuilder_ == null) {
         snapshotDetailDataList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
       } else {
         snapshotDetailDataListBuilder_.clear();
       }
@@ -963,20 +1030,25 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.detailFieldList_ = detailFieldList_;
+      if (((bitField0_ & 0x00000008) != 0)) {
+        regionList_ = regionList_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.regionList_ = regionList_;
       result.totalSnapshotData_ = totalSnapshotData_;
       if (snapshotDataListBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           snapshotDataList_ = java.util.Collections.unmodifiableList(snapshotDataList_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.snapshotDataList_ = snapshotDataList_;
       } else {
         result.snapshotDataList_ = snapshotDataListBuilder_.build();
       }
       if (snapshotDetailDataListBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           snapshotDetailDataList_ = java.util.Collections.unmodifiableList(snapshotDetailDataList_);
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.snapshotDetailDataList_ = snapshotDetailDataList_;
       } else {
@@ -1075,6 +1147,16 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
+      if (!other.regionList_.isEmpty()) {
+        if (regionList_.isEmpty()) {
+          regionList_ = other.regionList_;
+          bitField0_ = (bitField0_ & ~0x00000008);
+        } else {
+          ensureRegionListIsMutable();
+          regionList_.addAll(other.regionList_);
+        }
+        onChanged();
+      }
       if (other.getTotalSnapshotData() != 0L) {
         setTotalSnapshotData(other.getTotalSnapshotData());
       }
@@ -1082,7 +1164,7 @@ private static final long serialVersionUID = 0L;
         if (!other.snapshotDataList_.isEmpty()) {
           if (snapshotDataList_.isEmpty()) {
             snapshotDataList_ = other.snapshotDataList_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureSnapshotDataListIsMutable();
             snapshotDataList_.addAll(other.snapshotDataList_);
@@ -1095,7 +1177,7 @@ private static final long serialVersionUID = 0L;
             snapshotDataListBuilder_.dispose();
             snapshotDataListBuilder_ = null;
             snapshotDataList_ = other.snapshotDataList_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
             snapshotDataListBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSnapshotDataListFieldBuilder() : null;
@@ -1108,7 +1190,7 @@ private static final long serialVersionUID = 0L;
         if (!other.snapshotDetailDataList_.isEmpty()) {
           if (snapshotDetailDataList_.isEmpty()) {
             snapshotDetailDataList_ = other.snapshotDetailDataList_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureSnapshotDetailDataListIsMutable();
             snapshotDetailDataList_.addAll(other.snapshotDetailDataList_);
@@ -1121,7 +1203,7 @@ private static final long serialVersionUID = 0L;
             snapshotDetailDataListBuilder_.dispose();
             snapshotDetailDataListBuilder_ = null;
             snapshotDetailDataList_ = other.snapshotDetailDataList_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000020);
             snapshotDetailDataListBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSnapshotDetailDataListFieldBuilder() : null;
@@ -1929,9 +2011,119 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private com.google.protobuf.LazyStringList regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureRegionListIsMutable() {
+      if (!((bitField0_ & 0x00000008) != 0)) {
+        regionList_ = new com.google.protobuf.LazyStringArrayList(regionList_);
+        bitField0_ |= 0x00000008;
+       }
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @return A list containing the regionList.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getRegionListList() {
+      return regionList_.getUnmodifiableView();
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @return The count of regionList.
+     */
+    public int getRegionListCount() {
+      return regionList_.size();
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @param index The index of the element to return.
+     * @return The regionList at the given index.
+     */
+    public java.lang.String getRegionList(int index) {
+      return regionList_.get(index);
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the regionList at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getRegionListBytes(int index) {
+      return regionList_.getByteString(index);
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @param index The index to set the value at.
+     * @param value The regionList to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRegionList(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRegionListIsMutable();
+      regionList_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @param value The regionList to add.
+     * @return This builder for chaining.
+     */
+    public Builder addRegionList(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRegionListIsMutable();
+      regionList_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @param values The regionList to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllRegionList(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureRegionListIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, regionList_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRegionList() {
+      regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string RegionList = 8;</code>
+     * @param value The bytes of the regionList to add.
+     * @return This builder for chaining.
+     */
+    public Builder addRegionListBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureRegionListIsMutable();
+      regionList_.add(value);
+      onChanged();
+      return this;
+    }
+
     private long totalSnapshotData_ ;
     /**
-     * <code>int64 TotalSnapshotData = 8;</code>
+     * <code>int64 TotalSnapshotData = 9;</code>
      * @return The totalSnapshotData.
      */
     @java.lang.Override
@@ -1939,7 +2131,7 @@ private static final long serialVersionUID = 0L;
       return totalSnapshotData_;
     }
     /**
-     * <code>int64 TotalSnapshotData = 8;</code>
+     * <code>int64 TotalSnapshotData = 9;</code>
      * @param value The totalSnapshotData to set.
      * @return This builder for chaining.
      */
@@ -1950,7 +2142,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 TotalSnapshotData = 8;</code>
+     * <code>int64 TotalSnapshotData = 9;</code>
      * @return This builder for chaining.
      */
     public Builder clearTotalSnapshotData() {
@@ -1963,9 +2155,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem> snapshotDataList_ =
       java.util.Collections.emptyList();
     private void ensureSnapshotDataListIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         snapshotDataList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem>(snapshotDataList_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1973,7 +2165,7 @@ private static final long serialVersionUID = 0L;
         com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem, com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem.Builder, com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItemOrBuilder> snapshotDataListBuilder_;
 
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem> getSnapshotDataListList() {
       if (snapshotDataListBuilder_ == null) {
@@ -1983,7 +2175,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
      */
     public int getSnapshotDataListCount() {
       if (snapshotDataListBuilder_ == null) {
@@ -1993,7 +2185,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem getSnapshotDataList(int index) {
       if (snapshotDataListBuilder_ == null) {
@@ -2003,7 +2195,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
      */
     public Builder setSnapshotDataList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem value) {
@@ -2020,7 +2212,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
      */
     public Builder setSnapshotDataList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem.Builder builderForValue) {
@@ -2034,7 +2226,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
      */
     public Builder addSnapshotDataList(com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem value) {
       if (snapshotDataListBuilder_ == null) {
@@ -2050,7 +2242,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
      */
     public Builder addSnapshotDataList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem value) {
@@ -2067,7 +2259,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
      */
     public Builder addSnapshotDataList(
         com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem.Builder builderForValue) {
@@ -2081,7 +2273,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
      */
     public Builder addSnapshotDataList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem.Builder builderForValue) {
@@ -2095,7 +2287,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
      */
     public Builder addAllSnapshotDataList(
         java.lang.Iterable<? extends com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem> values) {
@@ -2110,12 +2302,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
      */
     public Builder clearSnapshotDataList() {
       if (snapshotDataListBuilder_ == null) {
         snapshotDataList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         snapshotDataListBuilder_.clear();
@@ -2123,7 +2315,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
      */
     public Builder removeSnapshotDataList(int index) {
       if (snapshotDataListBuilder_ == null) {
@@ -2136,14 +2328,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem.Builder getSnapshotDataListBuilder(
         int index) {
       return getSnapshotDataListFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItemOrBuilder getSnapshotDataListOrBuilder(
         int index) {
@@ -2153,7 +2345,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
      */
     public java.util.List<? extends com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItemOrBuilder> 
          getSnapshotDataListOrBuilderList() {
@@ -2164,14 +2356,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem.Builder addSnapshotDataListBuilder() {
       return getSnapshotDataListFieldBuilder().addBuilder(
           com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem.getDefaultInstance());
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem.Builder addSnapshotDataListBuilder(
         int index) {
@@ -2179,7 +2371,7 @@ private static final long serialVersionUID = 0L;
           index, com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem.getDefaultInstance());
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 9;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataItem SnapshotDataList = 10;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem.Builder> 
          getSnapshotDataListBuilderList() {
@@ -2192,7 +2384,7 @@ private static final long serialVersionUID = 0L;
         snapshotDataListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem, com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItem.Builder, com.volcengine.service.vod.model.business.DescribeVodSnapshotDataItemOrBuilder>(
                 snapshotDataList_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         snapshotDataList_ = null;
@@ -2203,9 +2395,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail> snapshotDetailDataList_ =
       java.util.Collections.emptyList();
     private void ensureSnapshotDetailDataListIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         snapshotDetailDataList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail>(snapshotDetailDataList_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -2213,7 +2405,7 @@ private static final long serialVersionUID = 0L;
         com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail, com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail.Builder, com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetailOrBuilder> snapshotDetailDataListBuilder_;
 
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail> getSnapshotDetailDataListList() {
       if (snapshotDetailDataListBuilder_ == null) {
@@ -2223,7 +2415,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
      */
     public int getSnapshotDetailDataListCount() {
       if (snapshotDetailDataListBuilder_ == null) {
@@ -2233,7 +2425,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail getSnapshotDetailDataList(int index) {
       if (snapshotDetailDataListBuilder_ == null) {
@@ -2243,7 +2435,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
      */
     public Builder setSnapshotDetailDataList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail value) {
@@ -2260,7 +2452,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
      */
     public Builder setSnapshotDetailDataList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail.Builder builderForValue) {
@@ -2274,7 +2466,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
      */
     public Builder addSnapshotDetailDataList(com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail value) {
       if (snapshotDetailDataListBuilder_ == null) {
@@ -2290,7 +2482,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
      */
     public Builder addSnapshotDetailDataList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail value) {
@@ -2307,7 +2499,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
      */
     public Builder addSnapshotDetailDataList(
         com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail.Builder builderForValue) {
@@ -2321,7 +2513,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
      */
     public Builder addSnapshotDetailDataList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail.Builder builderForValue) {
@@ -2335,7 +2527,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
      */
     public Builder addAllSnapshotDetailDataList(
         java.lang.Iterable<? extends com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail> values) {
@@ -2350,12 +2542,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
      */
     public Builder clearSnapshotDetailDataList() {
       if (snapshotDetailDataListBuilder_ == null) {
         snapshotDetailDataList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         snapshotDetailDataListBuilder_.clear();
@@ -2363,7 +2555,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
      */
     public Builder removeSnapshotDetailDataList(int index) {
       if (snapshotDetailDataListBuilder_ == null) {
@@ -2376,14 +2568,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail.Builder getSnapshotDetailDataListBuilder(
         int index) {
       return getSnapshotDetailDataListFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetailOrBuilder getSnapshotDetailDataListOrBuilder(
         int index) {
@@ -2393,7 +2585,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
      */
     public java.util.List<? extends com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetailOrBuilder> 
          getSnapshotDetailDataListOrBuilderList() {
@@ -2404,14 +2596,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail.Builder addSnapshotDetailDataListBuilder() {
       return getSnapshotDetailDataListFieldBuilder().addBuilder(
           com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail.getDefaultInstance());
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail.Builder addSnapshotDetailDataListBuilder(
         int index) {
@@ -2419,7 +2611,7 @@ private static final long serialVersionUID = 0L;
           index, com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail.getDefaultInstance());
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSnapshotDataDetail SnapshotDetailDataList = 11;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail.Builder> 
          getSnapshotDetailDataListBuilderList() {
@@ -2432,7 +2624,7 @@ private static final long serialVersionUID = 0L;
         snapshotDetailDataListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail, com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetail.Builder, com.volcengine.service.vod.model.business.DescribeVodSnapshotDataDetailOrBuilder>(
                 snapshotDetailDataList_,
-                ((bitField0_ & 0x00000010) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         snapshotDetailDataList_ = null;

@@ -42,6 +42,24 @@ public final class ListVhostTransCodePresetResResultCustomizePresetListItemTrans
     private Integer audioBitrate;
 
     /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "AutoTransResolution")
+    private Integer autoTransResolution;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "AutoTransVb")
+    private Integer autoTransVb;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "AutoTransVr")
+    private Integer autoTransVr;
+
+    /**
      * <p>2 个参考帧之间的最大 B 帧数。`BFrames` 取 0 时，表示去 B 帧。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "BFrames")
@@ -114,6 +132,12 @@ public final class ListVhostTransCodePresetResResultCustomizePresetListItemTrans
     private Integer shortSide;
 
     /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StopInterval")
+    private Integer stopInterval;
+
+    /**
      * <p>转码流后缀名</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SuffixName")
@@ -150,6 +174,12 @@ public final class ListVhostTransCodePresetResResultCustomizePresetListItemTrans
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Width")
     private Integer width;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "TransType")
+    private String transType;
 
     @Override
     public String toString() {

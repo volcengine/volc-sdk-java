@@ -164,32 +164,33 @@ public final class VodMeasure {
       "\r\n\005Space\030\001 \001(\t\022\021\n\tTaskStage\030\002 \001(\t\022\r\n\005Tot" +
       "al\030\003 \001(\003\022a\n\022TranscodeUsageList\030\004 \003(\0132E.V" +
       "olcengine.Vod.Models.Business.DescribeVo" +
-      "dSpaceTranscodeDetailTVUnit\"\254\003\n#Describe" +
+      "dSpaceTranscodeDetailTVUnit\"\300\003\n#Describe" +
       "VodSpaceTranscodeDataResult\022\021\n\tSpaceList" +
       "\030\001 \003(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007EndTime\030\003 \001" +
       "(\t\022\025\n\rTranscodeType\030\004 \001(\t\022\025\n\rSpecificati" +
       "on\030\005 \001(\t\022\025\n\rTaskStageList\030\006 \003(\t\022\023\n\013Aggre" +
-      "gation\030\007 \001(\003\022\027\n\017DetailFieldList\030\010 \003(\t\022\032\n" +
-      "\022TotalTranscodeData\030\t \001(\003\022]\n\026TotalTransc" +
-      "odeDataList\030\n \003(\0132=.Volcengine.Vod.Model" +
-      "s.Business.DescribeVodSpaceTranscodeItem" +
-      "\022`\n\027TranscodeDataDetailList\030\013 \003(\0132?.Volc" +
-      "engine.Vod.Models.Business.DescribeVodSp" +
-      "aceTranscodeDetail\"B\n DescribeVodSpaceAI" +
-      "StatisDataItem\022\014\n\004Time\030\001 \001(\t\022\020\n\010Duration" +
-      "\030\002 \001(\003\"\241\001\n\"DescribeVodSpaceAIStatisDataD" +
-      "etail\022\r\n\005Space\030\001 \001(\t\022\021\n\tTaskStage\030\002 \001(\t\022" +
-      "Y\n\017AiUsageDataList\030\003 \003(\0132@.Volcengine.Vo" +
-      "d.Models.Business.DescribeVodSpaceAIStat" +
-      "isDataItem\"\215\003\n\"DescribeVodSpaceAIStatisD" +
-      "ataResult\022\021\n\tSpaceList\030\001 \003(\t\022\021\n\tStartTim" +
-      "e\030\002 \001(\t\022\017\n\007EndTime\030\003 \001(\t\022\023\n\013MediaAiType\030" +
-      "\004 \001(\t\022\025\n\rTaskStageList\030\005 \003(\t\022\023\n\013Aggregat" +
-      "ion\030\006 \001(\003\022\027\n\017DetailFieldList\030\007 \003(\t\022\030\n\020To" +
-      "talAiUsageData\030\010 \001(\003\022Y\n\017AiUsageDataList\030" +
-      "\t \003(\0132@.Volcengine.Vod.Models.Business.D" +
+      "gation\030\007 \001(\003\022\027\n\017DetailFieldList\030\010 \003(\t\022\022\n" +
+      "\nRegionList\030\t \003(\t\022\032\n\022TotalTranscodeData\030" +
+      "\n \001(\003\022]\n\026TotalTranscodeDataList\030\013 \003(\0132=." +
+      "Volcengine.Vod.Models.Business.DescribeV" +
+      "odSpaceTranscodeItem\022`\n\027TranscodeDataDet" +
+      "ailList\030\014 \003(\0132?.Volcengine.Vod.Models.Bu" +
+      "siness.DescribeVodSpaceTranscodeDetail\"B" +
+      "\n DescribeVodSpaceAIStatisDataItem\022\014\n\004Ti" +
+      "me\030\001 \001(\t\022\020\n\010Duration\030\002 \001(\003\"\241\001\n\"DescribeV" +
+      "odSpaceAIStatisDataDetail\022\r\n\005Space\030\001 \001(\t" +
+      "\022\021\n\tTaskStage\030\002 \001(\t\022Y\n\017AiUsageDataList\030\003" +
+      " \003(\0132@.Volcengine.Vod.Models.Business.De" +
+      "scribeVodSpaceAIStatisDataItem\"\241\003\n\"Descr" +
+      "ibeVodSpaceAIStatisDataResult\022\021\n\tSpaceLi" +
+      "st\030\001 \003(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007EndTime\030\003" +
+      " \001(\t\022\023\n\013MediaAiType\030\004 \001(\t\022\025\n\rTaskStageLi" +
+      "st\030\005 \003(\t\022\023\n\013Aggregation\030\006 \001(\003\022\027\n\017DetailF" +
+      "ieldList\030\007 \003(\t\022\022\n\nRegionList\030\010 \003(\t\022\030\n\020To" +
+      "talAiUsageData\030\t \001(\003\022Y\n\017AiUsageDataList\030" +
+      "\n \003(\0132@.Volcengine.Vod.Models.Business.D" +
       "escribeVodSpaceAIStatisDataItem\022a\n\025AiUsa" +
-      "geDataDetailList\030\n \003(\0132B.Volcengine.Vod." +
+      "geDataDetailList\030\013 \003(\0132B.Volcengine.Vod." +
       "Models.Business.DescribeVodSpaceAIStatis" +
       "DataDetail\"E\n&DescribeVodSpaceSubtitleSt" +
       "atisDataItem\022\014\n\004Time\030\001 \001(\t\022\r\n\005Usage\030\002 \001(" +
@@ -197,105 +198,106 @@ public final class VodMeasure {
       "Detail\022\r\n\005Space\030\001 \001(\t\022\021\n\tTaskStage\030\002 \001(\t" +
       "\022e\n\025SubtitleUsageDataList\030\003 \003(\0132F.Volcen" +
       "gine.Vod.Models.Business.DescribeVodSpac" +
-      "eSubtitleStatisDataItem\"\262\003\n(DescribeVodS" +
+      "eSubtitleStatisDataItem\"\306\003\n(DescribeVodS" +
       "paceSubtitleStatisDataResult\022\021\n\tSpaceLis" +
       "t\030\001 \003(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007EndTime\030\003 " +
       "\001(\t\022\024\n\014SubtitleType\030\004 \001(\t\022\025\n\rTaskStageLi" +
       "st\030\005 \003(\t\022\023\n\013Aggregation\030\006 \001(\003\022\027\n\017DetailF" +
-      "ieldList\030\007 \003(\t\022\036\n\026TotalSubtitleUsageData" +
-      "\030\010 \001(\003\022e\n\025SubtitleUsageDataList\030\t \003(\0132F." +
-      "Volcengine.Vod.Models.Business.DescribeV" +
-      "odSpaceSubtitleStatisDataItem\022m\n\033Subtitl" +
-      "eUsageDataDetailList\030\n \003(\0132H.Volcengine." +
-      "Vod.Models.Business.DescribeVodSpaceSubt" +
-      "itleStatisDataDetail\"C\n$DescribeVodSpace" +
-      "DetectStatisDataItem\022\014\n\004Time\030\001 \001(\t\022\r\n\005Us" +
-      "age\030\002 \001(\003\"\255\001\n&DescribeVodSpaceDetectStat" +
-      "isDataDetail\022\r\n\005Space\030\001 \001(\t\022\021\n\tTaskStage" +
-      "\030\002 \001(\t\022a\n\023DetectUsageDataList\030\003 \003(\0132D.Vo" +
-      "lcengine.Vod.Models.Business.DescribeVod" +
-      "SpaceDetectStatisDataItem\"\244\003\n&DescribeVo" +
-      "dSpaceDetectStatisDataResult\022\021\n\tSpaceLis" +
-      "t\030\001 \003(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007EndTime\030\003 " +
-      "\001(\t\022\022\n\nDetectType\030\004 \001(\t\022\025\n\rTaskStageList" +
-      "\030\005 \003(\t\022\023\n\013Aggregation\030\006 \001(\003\022\027\n\017DetailFie" +
-      "ldList\030\007 \003(\t\022\034\n\024TotalDetectUsageData\030\010 \001" +
-      "(\003\022a\n\023DetectUsageDataList\030\t \003(\0132D.Volcen" +
+      "ieldList\030\007 \003(\t\022\022\n\nRegionList\030\010 \003(\t\022\036\n\026To" +
+      "talSubtitleUsageData\030\t \001(\003\022e\n\025SubtitleUs" +
+      "ageDataList\030\n \003(\0132F.Volcengine.Vod.Model" +
+      "s.Business.DescribeVodSpaceSubtitleStati" +
+      "sDataItem\022m\n\033SubtitleUsageDataDetailList" +
+      "\030\013 \003(\0132H.Volcengine.Vod.Models.Business." +
+      "DescribeVodSpaceSubtitleStatisDataDetail" +
+      "\"C\n$DescribeVodSpaceDetectStatisDataItem" +
+      "\022\014\n\004Time\030\001 \001(\t\022\r\n\005Usage\030\002 \001(\003\"\255\001\n&Descri" +
+      "beVodSpaceDetectStatisDataDetail\022\r\n\005Spac" +
+      "e\030\001 \001(\t\022\021\n\tTaskStage\030\002 \001(\t\022a\n\023DetectUsag" +
+      "eDataList\030\003 \003(\0132D.Volcengine.Vod.Models." +
+      "Business.DescribeVodSpaceDetectStatisDat" +
+      "aItem\"\270\003\n&DescribeVodSpaceDetectStatisDa" +
+      "taResult\022\021\n\tSpaceList\030\001 \003(\t\022\021\n\tStartTime" +
+      "\030\002 \001(\t\022\017\n\007EndTime\030\003 \001(\t\022\022\n\nDetectType\030\004 " +
+      "\001(\t\022\025\n\rTaskStageList\030\005 \003(\t\022\023\n\013Aggregatio" +
+      "n\030\006 \001(\003\022\027\n\017DetailFieldList\030\007 \003(\t\022\022\n\nRegi" +
+      "onList\030\010 \003(\t\022\034\n\024TotalDetectUsageData\030\t \001" +
+      "(\003\022a\n\023DetectUsageDataList\030\n \003(\0132D.Volcen" +
       "gine.Vod.Models.Business.DescribeVodSpac" +
       "eDetectStatisDataItem\022i\n\031DetectUsageData" +
-      "DetailList\030\n \003(\0132F.Volcengine.Vod.Models" +
+      "DetailList\030\013 \003(\0132F.Volcengine.Vod.Models" +
       ".Business.DescribeVodSpaceDetectStatisDa" +
       "taDetail\":\n\033DescribeVodSnapshotDataItem\022" +
       "\014\n\004Time\030\001 \001(\t\022\r\n\005Count\030\002 \001(\003\"\247\001\n\035Describ" +
       "eVodSnapshotDataDetail\022\r\n\005Space\030\001 \001(\t\022\021\n" +
       "\tTaskStage\030\002 \001(\t\022\r\n\005Total\030\003 \001(\t\022U\n\020Snaps" +
       "hotDataList\030\004 \003(\0132;.Volcengine.Vod.Model" +
-      "s.Business.DescribeVodSnapshotDataItem\"\202" +
+      "s.Business.DescribeVodSnapshotDataItem\"\226" +
       "\003\n\035DescribeVodSnapshotDataResult\022\021\n\tSpac" +
       "eList\030\001 \003(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007EndTim" +
       "e\030\003 \001(\t\022\024\n\014SnapshotType\030\004 \001(\t\022\025\n\rTaskSta" +
       "geList\030\005 \003(\t\022\023\n\013Aggregation\030\006 \001(\003\022\027\n\017Det" +
-      "ailFieldList\030\007 \003(\t\022\031\n\021TotalSnapshotData\030" +
-      "\010 \001(\003\022U\n\020SnapshotDataList\030\t \003(\0132;.Volcen" +
-      "gine.Vod.Models.Business.DescribeVodSnap" +
-      "shotDataItem\022]\n\026SnapshotDetailDataList\030\n" +
-      " \003(\0132=.Volcengine.Vod.Models.Business.De" +
-      "scribeVodSnapshotDataDetail\"\330\001\n%Describe" +
-      "VodSpaceWorkflowTranscodeInfo\022\024\n\014Templat" +
-      "eType\030\001 \001(\t\022\020\n\010FileType\030\002 \001(\t\022\020\n\010Duratio" +
-      "n\030\003 \001(\003\022\r\n\005Codec\030\004 \001(\t\022\r\n\005Remux\030\005 \001(\010\022\022\n" +
-      "\nDefinition\030\006 \001(\t\022\r\n\005Width\030\007 \001(\003\022\016\n\006Heig" +
-      "ht\030\010 \001(\003\022\r\n\005Slice\030\t \001(\010\022\025\n\rIsLowPriority" +
-      "\030\n \001(\010\"c\n$DescribeVodSpaceWorkflowSnapsh" +
-      "otInfo\022\024\n\014TemplateType\030\001 \001(\t\022\016\n\006Number\030\002" +
-      " \001(\003\022\025\n\rIsLowPriority\030\003 \001(\010\"h\n\'DescribeV" +
-      "odSpaceWorkflowEnhanceExecInfo\022\024\n\014Templa" +
-      "teType\030\001 \001(\t\022\020\n\010Duration\030\002 \001(\003\022\025\n\rIsLowP" +
-      "riority\030\003 \001(\010\"t\n#DescribeVodSpaceWorkflo" +
-      "wVideoAIInfo\022\024\n\014TemplateType\030\001 \001(\t\022\020\n\010Du" +
-      "ration\030\002 \001(\003\022\016\n\006Number\030\003 \001(\003\022\025\n\rIsLowPri" +
-      "ority\030\004 \001(\010\"\215\004\n\036DescribeVodSpaceWorkflow" +
-      "Detail\022\r\n\005RunId\030\001 \001(\t\022\013\n\003Vid\030\002 \001(\t\022\022\n\nTe" +
-      "mplateId\030\003 \001(\t\022\021\n\tSpaceName\030\004 \001(\t\022\016\n\006Sta" +
-      "tus\030\005 \001(\t\022\021\n\tStartTime\030\006 \001(\t\022\017\n\007EndTime\030" +
-      "\007 \001(\t\022\\\n\rTranscodeInfo\030\010 \001(\0132E.Volcengin" +
-      "e.Vod.Models.Business.DescribeVodSpaceWo" +
-      "rkflowTranscodeInfo\022Z\n\014SnapshotInfo\030\t \001(" +
-      "\0132D.Volcengine.Vod.Models.Business.Descr" +
-      "ibeVodSpaceWorkflowSnapshotInfo\022`\n\017Enhan" +
-      "ceExecInfo\030\n \001(\0132G.Volcengine.Vod.Models" +
-      ".Business.DescribeVodSpaceWorkflowEnhanc" +
-      "eExecInfo\022X\n\013VideoAIInfo\030\013 \001(\0132C.Volceng" +
-      "ine.Vod.Models.Business.DescribeVodSpace" +
-      "WorkflowVideoAIInfo\"\373\001\n(DescribeVodSpace" +
-      "WorkflowDetailDataResult\022\016\n\006Region\030\001 \001(\t" +
-      "\022\r\n\005Space\030\002 \001(\t\022\021\n\tStartTime\030\003 \001(\t\022\017\n\007En" +
-      "dTime\030\004 \001(\t\022\020\n\010PageSize\030\005 \001(\003\022\017\n\007PageNum" +
-      "\030\006 \001(\003\022\r\n\005Total\030\007 \001(\003\022Z\n\022WorkflowDetailD" +
-      "ata\030\010 \003(\0132>.Volcengine.Vod.Models.Busine" +
-      "ss.DescribeVodSpaceWorkflowDetail\"\201\001\n\032De" +
-      "scribeVodSpaceEditDetail\022\014\n\004Time\030\001 \001(\t\022\021" +
-      "\n\tOutputVid\030\002 \001(\t\022\r\n\005Space\030\003 \001(\t\022\r\n\005Code" +
-      "c\030\004 \001(\t\022\022\n\nDefinition\030\005 \001(\t\022\020\n\010Duration\030" +
-      "\006 \001(\003\"\357\001\n$DescribeVodSpaceEditDetailData" +
-      "Result\022\016\n\006Region\030\001 \001(\t\022\r\n\005Space\030\002 \001(\t\022\021\n" +
-      "\tStartTime\030\003 \001(\t\022\017\n\007EndTime\030\004 \001(\t\022\020\n\010Pag" +
-      "eSize\030\005 \001(\003\022\017\n\007PageNum\030\006 \001(\003\022\r\n\005Total\030\007 " +
-      "\001(\003\022R\n\016EditDetailData\030\010 \003(\0132:.Volcengine" +
-      ".Vod.Models.Business.DescribeVodSpaceEdi" +
-      "tDetail\"W\n\"DescribeVodPlayFileLogByDomai" +
-      "nItem\022\014\n\004Date\030\001 \001(\t\022\016\n\006Domain\030\002 \001(\t\022\023\n\013D" +
-      "ownloadUrl\030\003 \001(\t\"\264\001\n$DescribeVodPlayFile" +
-      "LogByDomainResult\022\021\n\tStartTime\030\001 \001(\t\022\017\n\007" +
-      "EndTime\030\002 \001(\t\022\022\n\nDomainList\030\003 \003(\t\022T\n\010Fil" +
-      "eList\030\004 \003(\0132B.Volcengine.Vod.Models.Busi" +
-      "ness.DescribeVodPlayFileLogByDomainItemB" +
-      "\313\001\n)com.volcengine.service.vod.model.bus" +
-      "inessB\nVodMeasureP\001ZAgithub.com/volcengi" +
-      "ne/volc-sdk-golang/service/vod/models/bu" +
-      "siness\240\001\001\330\001\001\312\002 Volc\\Service\\Vod\\Models\\B" +
-      "usiness\342\002#Volc\\Service\\Vod\\Models\\GPBMet" +
-      "adatab\006proto3"
+      "ailFieldList\030\007 \003(\t\022\022\n\nRegionList\030\010 \003(\t\022\031" +
+      "\n\021TotalSnapshotData\030\t \001(\003\022U\n\020SnapshotDat" +
+      "aList\030\n \003(\0132;.Volcengine.Vod.Models.Busi" +
+      "ness.DescribeVodSnapshotDataItem\022]\n\026Snap" +
+      "shotDetailDataList\030\013 \003(\0132=.Volcengine.Vo" +
+      "d.Models.Business.DescribeVodSnapshotDat" +
+      "aDetail\"\330\001\n%DescribeVodSpaceWorkflowTran" +
+      "scodeInfo\022\024\n\014TemplateType\030\001 \001(\t\022\020\n\010FileT" +
+      "ype\030\002 \001(\t\022\020\n\010Duration\030\003 \001(\003\022\r\n\005Codec\030\004 \001" +
+      "(\t\022\r\n\005Remux\030\005 \001(\010\022\022\n\nDefinition\030\006 \001(\t\022\r\n" +
+      "\005Width\030\007 \001(\003\022\016\n\006Height\030\010 \001(\003\022\r\n\005Slice\030\t " +
+      "\001(\010\022\025\n\rIsLowPriority\030\n \001(\010\"c\n$DescribeVo" +
+      "dSpaceWorkflowSnapshotInfo\022\024\n\014TemplateTy" +
+      "pe\030\001 \001(\t\022\016\n\006Number\030\002 \001(\003\022\025\n\rIsLowPriorit" +
+      "y\030\003 \001(\010\"h\n\'DescribeVodSpaceWorkflowEnhan" +
+      "ceExecInfo\022\024\n\014TemplateType\030\001 \001(\t\022\020\n\010Dura" +
+      "tion\030\002 \001(\003\022\025\n\rIsLowPriority\030\003 \001(\010\"t\n#Des" +
+      "cribeVodSpaceWorkflowVideoAIInfo\022\024\n\014Temp" +
+      "lateType\030\001 \001(\t\022\020\n\010Duration\030\002 \001(\003\022\016\n\006Numb" +
+      "er\030\003 \001(\003\022\025\n\rIsLowPriority\030\004 \001(\010\"\215\004\n\036Desc" +
+      "ribeVodSpaceWorkflowDetail\022\r\n\005RunId\030\001 \001(" +
+      "\t\022\013\n\003Vid\030\002 \001(\t\022\022\n\nTemplateId\030\003 \001(\t\022\021\n\tSp" +
+      "aceName\030\004 \001(\t\022\016\n\006Status\030\005 \001(\t\022\021\n\tStartTi" +
+      "me\030\006 \001(\t\022\017\n\007EndTime\030\007 \001(\t\022\\\n\rTranscodeIn" +
+      "fo\030\010 \001(\0132E.Volcengine.Vod.Models.Busines" +
+      "s.DescribeVodSpaceWorkflowTranscodeInfo\022" +
+      "Z\n\014SnapshotInfo\030\t \001(\0132D.Volcengine.Vod.M" +
+      "odels.Business.DescribeVodSpaceWorkflowS" +
+      "napshotInfo\022`\n\017EnhanceExecInfo\030\n \001(\0132G.V" +
+      "olcengine.Vod.Models.Business.DescribeVo" +
+      "dSpaceWorkflowEnhanceExecInfo\022X\n\013VideoAI" +
+      "Info\030\013 \001(\0132C.Volcengine.Vod.Models.Busin" +
+      "ess.DescribeVodSpaceWorkflowVideoAIInfo\"" +
+      "\373\001\n(DescribeVodSpaceWorkflowDetailDataRe" +
+      "sult\022\016\n\006Region\030\001 \001(\t\022\r\n\005Space\030\002 \001(\t\022\021\n\tS" +
+      "tartTime\030\003 \001(\t\022\017\n\007EndTime\030\004 \001(\t\022\020\n\010PageS" +
+      "ize\030\005 \001(\003\022\017\n\007PageNum\030\006 \001(\003\022\r\n\005Total\030\007 \001(" +
+      "\003\022Z\n\022WorkflowDetailData\030\010 \003(\0132>.Volcengi" +
+      "ne.Vod.Models.Business.DescribeVodSpaceW" +
+      "orkflowDetail\"\201\001\n\032DescribeVodSpaceEditDe" +
+      "tail\022\014\n\004Time\030\001 \001(\t\022\021\n\tOutputVid\030\002 \001(\t\022\r\n" +
+      "\005Space\030\003 \001(\t\022\r\n\005Codec\030\004 \001(\t\022\022\n\nDefinitio" +
+      "n\030\005 \001(\t\022\020\n\010Duration\030\006 \001(\003\"\357\001\n$DescribeVo" +
+      "dSpaceEditDetailDataResult\022\016\n\006Region\030\001 \001" +
+      "(\t\022\r\n\005Space\030\002 \001(\t\022\021\n\tStartTime\030\003 \001(\t\022\017\n\007" +
+      "EndTime\030\004 \001(\t\022\020\n\010PageSize\030\005 \001(\003\022\017\n\007PageN" +
+      "um\030\006 \001(\003\022\r\n\005Total\030\007 \001(\003\022R\n\016EditDetailDat" +
+      "a\030\010 \003(\0132:.Volcengine.Vod.Models.Business" +
+      ".DescribeVodSpaceEditDetail\"W\n\"DescribeV" +
+      "odPlayFileLogByDomainItem\022\014\n\004Date\030\001 \001(\t\022" +
+      "\016\n\006Domain\030\002 \001(\t\022\023\n\013DownloadUrl\030\003 \001(\t\"\264\001\n" +
+      "$DescribeVodPlayFileLogByDomainResult\022\021\n" +
+      "\tStartTime\030\001 \001(\t\022\017\n\007EndTime\030\002 \001(\t\022\022\n\nDom" +
+      "ainList\030\003 \003(\t\022T\n\010FileList\030\004 \003(\0132B.Volcen" +
+      "gine.Vod.Models.Business.DescribeVodPlay" +
+      "FileLogByDomainItemB\313\001\n)com.volcengine.s" +
+      "ervice.vod.model.businessB\nVodMeasureP\001Z" +
+      "Agithub.com/volcengine/volc-sdk-golang/s" +
+      "ervice/vod/models/business\240\001\001\330\001\001\312\002 Volc\\" +
+      "Service\\Vod\\Models\\Business\342\002#Volc\\Servi" +
+      "ce\\Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -324,7 +326,7 @@ public final class VodMeasure {
     internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceTranscodeDataResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceTranscodeDataResult_descriptor,
-        new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "TranscodeType", "Specification", "TaskStageList", "Aggregation", "DetailFieldList", "TotalTranscodeData", "TotalTranscodeDataList", "TranscodeDataDetailList", });
+        new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "TranscodeType", "Specification", "TaskStageList", "Aggregation", "DetailFieldList", "RegionList", "TotalTranscodeData", "TotalTranscodeDataList", "TranscodeDataDetailList", });
     internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceAIStatisDataItem_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceAIStatisDataItem_fieldAccessorTable = new
@@ -342,7 +344,7 @@ public final class VodMeasure {
     internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceAIStatisDataResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceAIStatisDataResult_descriptor,
-        new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "MediaAiType", "TaskStageList", "Aggregation", "DetailFieldList", "TotalAiUsageData", "AiUsageDataList", "AiUsageDataDetailList", });
+        new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "MediaAiType", "TaskStageList", "Aggregation", "DetailFieldList", "RegionList", "TotalAiUsageData", "AiUsageDataList", "AiUsageDataDetailList", });
     internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceSubtitleStatisDataItem_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceSubtitleStatisDataItem_fieldAccessorTable = new
@@ -360,7 +362,7 @@ public final class VodMeasure {
     internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceSubtitleStatisDataResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceSubtitleStatisDataResult_descriptor,
-        new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "SubtitleType", "TaskStageList", "Aggregation", "DetailFieldList", "TotalSubtitleUsageData", "SubtitleUsageDataList", "SubtitleUsageDataDetailList", });
+        new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "SubtitleType", "TaskStageList", "Aggregation", "DetailFieldList", "RegionList", "TotalSubtitleUsageData", "SubtitleUsageDataList", "SubtitleUsageDataDetailList", });
     internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceDetectStatisDataItem_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceDetectStatisDataItem_fieldAccessorTable = new
@@ -378,7 +380,7 @@ public final class VodMeasure {
     internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceDetectStatisDataResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceDetectStatisDataResult_descriptor,
-        new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "DetectType", "TaskStageList", "Aggregation", "DetailFieldList", "TotalDetectUsageData", "DetectUsageDataList", "DetectUsageDataDetailList", });
+        new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "DetectType", "TaskStageList", "Aggregation", "DetailFieldList", "RegionList", "TotalDetectUsageData", "DetectUsageDataList", "DetectUsageDataDetailList", });
     internal_static_Volcengine_Vod_Models_Business_DescribeVodSnapshotDataItem_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_Volcengine_Vod_Models_Business_DescribeVodSnapshotDataItem_fieldAccessorTable = new
@@ -396,7 +398,7 @@ public final class VodMeasure {
     internal_static_Volcengine_Vod_Models_Business_DescribeVodSnapshotDataResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_DescribeVodSnapshotDataResult_descriptor,
-        new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "SnapshotType", "TaskStageList", "Aggregation", "DetailFieldList", "TotalSnapshotData", "SnapshotDataList", "SnapshotDetailDataList", });
+        new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "SnapshotType", "TaskStageList", "Aggregation", "DetailFieldList", "RegionList", "TotalSnapshotData", "SnapshotDataList", "SnapshotDetailDataList", });
     internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowTranscodeInfo_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceWorkflowTranscodeInfo_fieldAccessorTable = new

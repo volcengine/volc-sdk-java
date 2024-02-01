@@ -31,6 +31,22 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(com.volcengine.helper.Const.REGION_AP_SOUTHEAST_1, new ServiceInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.CONNECTION_TIMEOUT, 5000);
+                            put(com.volcengine.helper.Const.SOCKET_TIMEOUT, 5000);
+                            put(com.volcengine.helper.Const.Scheme, "https");
+                            put(com.volcengine.helper.Const.Host, "vod.ap-southeast-1.volcengineapi.com");
+                            put(com.volcengine.helper.Const.Header, new ArrayList<Header>() {
+                                {
+                                    add(new BasicHeader("Accept", "application/json"));
+                                }
+                            });
+                            put(com.volcengine.helper.Const.Credentials, new Credentials(com.volcengine.helper.Const.REGION_AP_SOUTHEAST_1, "vod"));
+                        }
+                    }
+            ));
         }
     };
 

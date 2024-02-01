@@ -8,7 +8,7 @@ import java.nio.charset.Charset;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-class SseEvent {
+public class SseEvent {
 
     private static final String FIELD_DATA = "data";
 

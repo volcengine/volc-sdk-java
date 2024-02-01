@@ -3,8 +3,6 @@ package com.volcengine.model.livesaas.request;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
-import java.util.List;
-import java.util.Map;
 
 @Data
 public class GetUserBehaviorListRequest {
@@ -28,4 +26,8 @@ public class GetUserBehaviorListRequest {
     Integer IsMerge;
     @JSONField(name = "Extra")
     String Extra;
+    @JSONField(name = "IsMergeUserId")
+    Integer IsMergeUserId;
+    @JSONField(name = "ScrollId")
+    String ScrollId;
 }

@@ -23,6 +23,7 @@ private static final long serialVersionUID = 0L;
     specification_ = "";
     taskStageList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     detailFieldList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     totalTranscodeDataList_ = java.util.Collections.emptyList();
     transcodeDataDetailList_ = java.util.Collections.emptyList();
   }
@@ -114,24 +115,33 @@ private static final long serialVersionUID = 0L;
             detailFieldList_.add(s);
             break;
           }
-          case 72: {
+          case 74: {
+            java.lang.String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+              regionList_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000008;
+            }
+            regionList_.add(s);
+            break;
+          }
+          case 80: {
 
             totalTranscodeData_ = input.readInt64();
             break;
           }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+          case 90: {
+            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
               totalTranscodeDataList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem>();
-              mutable_bitField0_ |= 0x00000008;
+              mutable_bitField0_ |= 0x00000010;
             }
             totalTranscodeDataList_.add(
                 input.readMessage(com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem.parser(), extensionRegistry));
             break;
           }
-          case 90: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+          case 98: {
+            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
               transcodeDataDetailList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail>();
-              mutable_bitField0_ |= 0x00000010;
+              mutable_bitField0_ |= 0x00000020;
             }
             transcodeDataDetailList_.add(
                 input.readMessage(com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail.parser(), extensionRegistry));
@@ -162,9 +172,12 @@ private static final long serialVersionUID = 0L;
         detailFieldList_ = detailFieldList_.getUnmodifiableView();
       }
       if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        totalTranscodeDataList_ = java.util.Collections.unmodifiableList(totalTranscodeDataList_);
+        regionList_ = regionList_.getUnmodifiableView();
       }
       if (((mutable_bitField0_ & 0x00000010) != 0)) {
+        totalTranscodeDataList_ = java.util.Collections.unmodifiableList(totalTranscodeDataList_);
+      }
+      if (((mutable_bitField0_ & 0x00000020) != 0)) {
         transcodeDataDetailList_ = java.util.Collections.unmodifiableList(transcodeDataDetailList_);
       }
       this.unknownFields = unknownFields.build();
@@ -534,10 +547,61 @@ private static final long serialVersionUID = 0L;
     return detailFieldList_.getByteString(index);
   }
 
-  public static final int TOTALTRANSCODEDATA_FIELD_NUMBER = 9;
+  public static final int REGIONLIST_FIELD_NUMBER = 9;
+  private com.google.protobuf.LazyStringList regionList_;
+  /**
+   * <pre>
+   * 地区列表
+   * </pre>
+   *
+   * <code>repeated string RegionList = 9;</code>
+   * @return A list containing the regionList.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getRegionListList() {
+    return regionList_;
+  }
+  /**
+   * <pre>
+   * 地区列表
+   * </pre>
+   *
+   * <code>repeated string RegionList = 9;</code>
+   * @return The count of regionList.
+   */
+  public int getRegionListCount() {
+    return regionList_.size();
+  }
+  /**
+   * <pre>
+   * 地区列表
+   * </pre>
+   *
+   * <code>repeated string RegionList = 9;</code>
+   * @param index The index of the element to return.
+   * @return The regionList at the given index.
+   */
+  public java.lang.String getRegionList(int index) {
+    return regionList_.get(index);
+  }
+  /**
+   * <pre>
+   * 地区列表
+   * </pre>
+   *
+   * <code>repeated string RegionList = 9;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the regionList at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getRegionListBytes(int index) {
+    return regionList_.getByteString(index);
+  }
+
+  public static final int TOTALTRANSCODEDATA_FIELD_NUMBER = 10;
   private long totalTranscodeData_;
   /**
-   * <code>int64 TotalTranscodeData = 9;</code>
+   * <code>int64 TotalTranscodeData = 10;</code>
    * @return The totalTranscodeData.
    */
   @java.lang.Override
@@ -545,17 +609,17 @@ private static final long serialVersionUID = 0L;
     return totalTranscodeData_;
   }
 
-  public static final int TOTALTRANSCODEDATALIST_FIELD_NUMBER = 10;
+  public static final int TOTALTRANSCODEDATALIST_FIELD_NUMBER = 11;
   private java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem> totalTranscodeDataList_;
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
    */
   @java.lang.Override
   public java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem> getTotalTranscodeDataListList() {
     return totalTranscodeDataList_;
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItemOrBuilder> 
@@ -563,21 +627,21 @@ private static final long serialVersionUID = 0L;
     return totalTranscodeDataList_;
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
    */
   @java.lang.Override
   public int getTotalTranscodeDataListCount() {
     return totalTranscodeDataList_.size();
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem getTotalTranscodeDataList(int index) {
     return totalTranscodeDataList_.get(index);
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItemOrBuilder getTotalTranscodeDataListOrBuilder(
@@ -585,17 +649,17 @@ private static final long serialVersionUID = 0L;
     return totalTranscodeDataList_.get(index);
   }
 
-  public static final int TRANSCODEDATADETAILLIST_FIELD_NUMBER = 11;
+  public static final int TRANSCODEDATADETAILLIST_FIELD_NUMBER = 12;
   private java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail> transcodeDataDetailList_;
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
    */
   @java.lang.Override
   public java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail> getTranscodeDataDetailListList() {
     return transcodeDataDetailList_;
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetailOrBuilder> 
@@ -603,21 +667,21 @@ private static final long serialVersionUID = 0L;
     return transcodeDataDetailList_;
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
    */
   @java.lang.Override
   public int getTranscodeDataDetailListCount() {
     return transcodeDataDetailList_.size();
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail getTranscodeDataDetailList(int index) {
     return transcodeDataDetailList_.get(index);
   }
   /**
-   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetailOrBuilder getTranscodeDataDetailListOrBuilder(
@@ -663,14 +727,17 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < detailFieldList_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, detailFieldList_.getRaw(i));
     }
+    for (int i = 0; i < regionList_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, regionList_.getRaw(i));
+    }
     if (totalTranscodeData_ != 0L) {
-      output.writeInt64(9, totalTranscodeData_);
+      output.writeInt64(10, totalTranscodeData_);
     }
     for (int i = 0; i < totalTranscodeDataList_.size(); i++) {
-      output.writeMessage(10, totalTranscodeDataList_.get(i));
+      output.writeMessage(11, totalTranscodeDataList_.get(i));
     }
     for (int i = 0; i < transcodeDataDetailList_.size(); i++) {
-      output.writeMessage(11, transcodeDataDetailList_.get(i));
+      output.writeMessage(12, transcodeDataDetailList_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -721,17 +788,25 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getDetailFieldListList().size();
     }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < regionList_.size(); i++) {
+        dataSize += computeStringSizeNoTag(regionList_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getRegionListList().size();
+    }
     if (totalTranscodeData_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(9, totalTranscodeData_);
+        .computeInt64Size(10, totalTranscodeData_);
     }
     for (int i = 0; i < totalTranscodeDataList_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(10, totalTranscodeDataList_.get(i));
+        .computeMessageSize(11, totalTranscodeDataList_.get(i));
     }
     for (int i = 0; i < transcodeDataDetailList_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(11, transcodeDataDetailList_.get(i));
+        .computeMessageSize(12, transcodeDataDetailList_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -764,6 +839,8 @@ private static final long serialVersionUID = 0L;
         != other.getAggregation()) return false;
     if (!getDetailFieldListList()
         .equals(other.getDetailFieldListList())) return false;
+    if (!getRegionListList()
+        .equals(other.getRegionListList())) return false;
     if (getTotalTranscodeData()
         != other.getTotalTranscodeData()) return false;
     if (!getTotalTranscodeDataListList()
@@ -803,6 +880,10 @@ private static final long serialVersionUID = 0L;
     if (getDetailFieldListCount() > 0) {
       hash = (37 * hash) + DETAILFIELDLIST_FIELD_NUMBER;
       hash = (53 * hash) + getDetailFieldListList().hashCode();
+    }
+    if (getRegionListCount() > 0) {
+      hash = (37 * hash) + REGIONLIST_FIELD_NUMBER;
+      hash = (53 * hash) + getRegionListList().hashCode();
     }
     hash = (37 * hash) + TOTALTRANSCODEDATA_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -966,17 +1047,19 @@ private static final long serialVersionUID = 0L;
 
       detailFieldList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000004);
+      regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000008);
       totalTranscodeData_ = 0L;
 
       if (totalTranscodeDataListBuilder_ == null) {
         totalTranscodeDataList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
         totalTranscodeDataListBuilder_.clear();
       }
       if (transcodeDataDetailListBuilder_ == null) {
         transcodeDataDetailList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
       } else {
         transcodeDataDetailListBuilder_.clear();
       }
@@ -1027,20 +1110,25 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.detailFieldList_ = detailFieldList_;
+      if (((bitField0_ & 0x00000008) != 0)) {
+        regionList_ = regionList_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.regionList_ = regionList_;
       result.totalTranscodeData_ = totalTranscodeData_;
       if (totalTranscodeDataListBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           totalTranscodeDataList_ = java.util.Collections.unmodifiableList(totalTranscodeDataList_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.totalTranscodeDataList_ = totalTranscodeDataList_;
       } else {
         result.totalTranscodeDataList_ = totalTranscodeDataListBuilder_.build();
       }
       if (transcodeDataDetailListBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           transcodeDataDetailList_ = java.util.Collections.unmodifiableList(transcodeDataDetailList_);
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.transcodeDataDetailList_ = transcodeDataDetailList_;
       } else {
@@ -1143,6 +1231,16 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
+      if (!other.regionList_.isEmpty()) {
+        if (regionList_.isEmpty()) {
+          regionList_ = other.regionList_;
+          bitField0_ = (bitField0_ & ~0x00000008);
+        } else {
+          ensureRegionListIsMutable();
+          regionList_.addAll(other.regionList_);
+        }
+        onChanged();
+      }
       if (other.getTotalTranscodeData() != 0L) {
         setTotalTranscodeData(other.getTotalTranscodeData());
       }
@@ -1150,7 +1248,7 @@ private static final long serialVersionUID = 0L;
         if (!other.totalTranscodeDataList_.isEmpty()) {
           if (totalTranscodeDataList_.isEmpty()) {
             totalTranscodeDataList_ = other.totalTranscodeDataList_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureTotalTranscodeDataListIsMutable();
             totalTranscodeDataList_.addAll(other.totalTranscodeDataList_);
@@ -1163,7 +1261,7 @@ private static final long serialVersionUID = 0L;
             totalTranscodeDataListBuilder_.dispose();
             totalTranscodeDataListBuilder_ = null;
             totalTranscodeDataList_ = other.totalTranscodeDataList_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
             totalTranscodeDataListBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTotalTranscodeDataListFieldBuilder() : null;
@@ -1176,7 +1274,7 @@ private static final long serialVersionUID = 0L;
         if (!other.transcodeDataDetailList_.isEmpty()) {
           if (transcodeDataDetailList_.isEmpty()) {
             transcodeDataDetailList_ = other.transcodeDataDetailList_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureTranscodeDataDetailListIsMutable();
             transcodeDataDetailList_.addAll(other.transcodeDataDetailList_);
@@ -1189,7 +1287,7 @@ private static final long serialVersionUID = 0L;
             transcodeDataDetailListBuilder_.dispose();
             transcodeDataDetailListBuilder_ = null;
             transcodeDataDetailList_ = other.transcodeDataDetailList_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000020);
             transcodeDataDetailListBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTranscodeDataDetailListFieldBuilder() : null;
@@ -2088,9 +2186,155 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private com.google.protobuf.LazyStringList regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureRegionListIsMutable() {
+      if (!((bitField0_ & 0x00000008) != 0)) {
+        regionList_ = new com.google.protobuf.LazyStringArrayList(regionList_);
+        bitField0_ |= 0x00000008;
+       }
+    }
+    /**
+     * <pre>
+     * 地区列表
+     * </pre>
+     *
+     * <code>repeated string RegionList = 9;</code>
+     * @return A list containing the regionList.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getRegionListList() {
+      return regionList_.getUnmodifiableView();
+    }
+    /**
+     * <pre>
+     * 地区列表
+     * </pre>
+     *
+     * <code>repeated string RegionList = 9;</code>
+     * @return The count of regionList.
+     */
+    public int getRegionListCount() {
+      return regionList_.size();
+    }
+    /**
+     * <pre>
+     * 地区列表
+     * </pre>
+     *
+     * <code>repeated string RegionList = 9;</code>
+     * @param index The index of the element to return.
+     * @return The regionList at the given index.
+     */
+    public java.lang.String getRegionList(int index) {
+      return regionList_.get(index);
+    }
+    /**
+     * <pre>
+     * 地区列表
+     * </pre>
+     *
+     * <code>repeated string RegionList = 9;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the regionList at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getRegionListBytes(int index) {
+      return regionList_.getByteString(index);
+    }
+    /**
+     * <pre>
+     * 地区列表
+     * </pre>
+     *
+     * <code>repeated string RegionList = 9;</code>
+     * @param index The index to set the value at.
+     * @param value The regionList to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRegionList(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRegionListIsMutable();
+      regionList_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 地区列表
+     * </pre>
+     *
+     * <code>repeated string RegionList = 9;</code>
+     * @param value The regionList to add.
+     * @return This builder for chaining.
+     */
+    public Builder addRegionList(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRegionListIsMutable();
+      regionList_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 地区列表
+     * </pre>
+     *
+     * <code>repeated string RegionList = 9;</code>
+     * @param values The regionList to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllRegionList(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureRegionListIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, regionList_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 地区列表
+     * </pre>
+     *
+     * <code>repeated string RegionList = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRegionList() {
+      regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 地区列表
+     * </pre>
+     *
+     * <code>repeated string RegionList = 9;</code>
+     * @param value The bytes of the regionList to add.
+     * @return This builder for chaining.
+     */
+    public Builder addRegionListBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureRegionListIsMutable();
+      regionList_.add(value);
+      onChanged();
+      return this;
+    }
+
     private long totalTranscodeData_ ;
     /**
-     * <code>int64 TotalTranscodeData = 9;</code>
+     * <code>int64 TotalTranscodeData = 10;</code>
      * @return The totalTranscodeData.
      */
     @java.lang.Override
@@ -2098,7 +2342,7 @@ private static final long serialVersionUID = 0L;
       return totalTranscodeData_;
     }
     /**
-     * <code>int64 TotalTranscodeData = 9;</code>
+     * <code>int64 TotalTranscodeData = 10;</code>
      * @param value The totalTranscodeData to set.
      * @return This builder for chaining.
      */
@@ -2109,7 +2353,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 TotalTranscodeData = 9;</code>
+     * <code>int64 TotalTranscodeData = 10;</code>
      * @return This builder for chaining.
      */
     public Builder clearTotalTranscodeData() {
@@ -2122,9 +2366,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem> totalTranscodeDataList_ =
       java.util.Collections.emptyList();
     private void ensureTotalTranscodeDataListIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         totalTranscodeDataList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem>(totalTranscodeDataList_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -2132,7 +2376,7 @@ private static final long serialVersionUID = 0L;
         com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem, com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem.Builder, com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItemOrBuilder> totalTranscodeDataListBuilder_;
 
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem> getTotalTranscodeDataListList() {
       if (totalTranscodeDataListBuilder_ == null) {
@@ -2142,7 +2386,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
      */
     public int getTotalTranscodeDataListCount() {
       if (totalTranscodeDataListBuilder_ == null) {
@@ -2152,7 +2396,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem getTotalTranscodeDataList(int index) {
       if (totalTranscodeDataListBuilder_ == null) {
@@ -2162,7 +2406,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
      */
     public Builder setTotalTranscodeDataList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem value) {
@@ -2179,7 +2423,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
      */
     public Builder setTotalTranscodeDataList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem.Builder builderForValue) {
@@ -2193,7 +2437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
      */
     public Builder addTotalTranscodeDataList(com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem value) {
       if (totalTranscodeDataListBuilder_ == null) {
@@ -2209,7 +2453,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
      */
     public Builder addTotalTranscodeDataList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem value) {
@@ -2226,7 +2470,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
      */
     public Builder addTotalTranscodeDataList(
         com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem.Builder builderForValue) {
@@ -2240,7 +2484,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
      */
     public Builder addTotalTranscodeDataList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem.Builder builderForValue) {
@@ -2254,7 +2498,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
      */
     public Builder addAllTotalTranscodeDataList(
         java.lang.Iterable<? extends com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem> values) {
@@ -2269,12 +2513,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
      */
     public Builder clearTotalTranscodeDataList() {
       if (totalTranscodeDataListBuilder_ == null) {
         totalTranscodeDataList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         totalTranscodeDataListBuilder_.clear();
@@ -2282,7 +2526,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
      */
     public Builder removeTotalTranscodeDataList(int index) {
       if (totalTranscodeDataListBuilder_ == null) {
@@ -2295,14 +2539,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem.Builder getTotalTranscodeDataListBuilder(
         int index) {
       return getTotalTranscodeDataListFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItemOrBuilder getTotalTranscodeDataListOrBuilder(
         int index) {
@@ -2312,7 +2556,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
      */
     public java.util.List<? extends com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItemOrBuilder> 
          getTotalTranscodeDataListOrBuilderList() {
@@ -2323,14 +2567,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem.Builder addTotalTranscodeDataListBuilder() {
       return getTotalTranscodeDataListFieldBuilder().addBuilder(
           com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem.getDefaultInstance());
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem.Builder addTotalTranscodeDataListBuilder(
         int index) {
@@ -2338,7 +2582,7 @@ private static final long serialVersionUID = 0L;
           index, com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem.getDefaultInstance());
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 10;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeItem TotalTranscodeDataList = 11;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem.Builder> 
          getTotalTranscodeDataListBuilderList() {
@@ -2351,7 +2595,7 @@ private static final long serialVersionUID = 0L;
         totalTranscodeDataListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem, com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItem.Builder, com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeItemOrBuilder>(
                 totalTranscodeDataList_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         totalTranscodeDataList_ = null;
@@ -2362,9 +2606,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail> transcodeDataDetailList_ =
       java.util.Collections.emptyList();
     private void ensureTranscodeDataDetailListIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         transcodeDataDetailList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail>(transcodeDataDetailList_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -2372,7 +2616,7 @@ private static final long serialVersionUID = 0L;
         com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail, com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail.Builder, com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetailOrBuilder> transcodeDataDetailListBuilder_;
 
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail> getTranscodeDataDetailListList() {
       if (transcodeDataDetailListBuilder_ == null) {
@@ -2382,7 +2626,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
      */
     public int getTranscodeDataDetailListCount() {
       if (transcodeDataDetailListBuilder_ == null) {
@@ -2392,7 +2636,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail getTranscodeDataDetailList(int index) {
       if (transcodeDataDetailListBuilder_ == null) {
@@ -2402,7 +2646,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
      */
     public Builder setTranscodeDataDetailList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail value) {
@@ -2419,7 +2663,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
      */
     public Builder setTranscodeDataDetailList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail.Builder builderForValue) {
@@ -2433,7 +2677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
      */
     public Builder addTranscodeDataDetailList(com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail value) {
       if (transcodeDataDetailListBuilder_ == null) {
@@ -2449,7 +2693,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
      */
     public Builder addTranscodeDataDetailList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail value) {
@@ -2466,7 +2710,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
      */
     public Builder addTranscodeDataDetailList(
         com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail.Builder builderForValue) {
@@ -2480,7 +2724,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
      */
     public Builder addTranscodeDataDetailList(
         int index, com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail.Builder builderForValue) {
@@ -2494,7 +2738,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
      */
     public Builder addAllTranscodeDataDetailList(
         java.lang.Iterable<? extends com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail> values) {
@@ -2509,12 +2753,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
      */
     public Builder clearTranscodeDataDetailList() {
       if (transcodeDataDetailListBuilder_ == null) {
         transcodeDataDetailList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         transcodeDataDetailListBuilder_.clear();
@@ -2522,7 +2766,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
      */
     public Builder removeTranscodeDataDetailList(int index) {
       if (transcodeDataDetailListBuilder_ == null) {
@@ -2535,14 +2779,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail.Builder getTranscodeDataDetailListBuilder(
         int index) {
       return getTranscodeDataDetailListFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetailOrBuilder getTranscodeDataDetailListOrBuilder(
         int index) {
@@ -2552,7 +2796,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
      */
     public java.util.List<? extends com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetailOrBuilder> 
          getTranscodeDataDetailListOrBuilderList() {
@@ -2563,14 +2807,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail.Builder addTranscodeDataDetailListBuilder() {
       return getTranscodeDataDetailListFieldBuilder().addBuilder(
           com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail.getDefaultInstance());
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
      */
     public com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail.Builder addTranscodeDataDetailListBuilder(
         int index) {
@@ -2578,7 +2822,7 @@ private static final long serialVersionUID = 0L;
           index, com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail.getDefaultInstance());
     }
     /**
-     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 11;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.DescribeVodSpaceTranscodeDetail TranscodeDataDetailList = 12;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail.Builder> 
          getTranscodeDataDetailListBuilderList() {
@@ -2591,7 +2835,7 @@ private static final long serialVersionUID = 0L;
         transcodeDataDetailListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail, com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetail.Builder, com.volcengine.service.vod.model.business.DescribeVodSpaceTranscodeDetailOrBuilder>(
                 transcodeDataDetailList_,
-                ((bitField0_ & 0x00000010) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         transcodeDataDetailList_ = null;

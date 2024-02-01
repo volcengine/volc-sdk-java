@@ -11,37 +11,37 @@ import java.util.List;
 public final class DescribeLiveBandwidthDataResResultBandwidthDetailDataListItem  {
 
     /**
-     * <p>推拉流协议。</p>
+     * <p>按推拉流协议维度进行数据拆分时的协议信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Protocol")
     private String protocol;
 
     /**
-     * <p>域名。</p>
+     * <p>按域名维度进行数据拆分时的域名信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;
 
     /**
-     * <p>上行峰值，单位为 Mbps。</p>
+     * <p>按维度进行数据拆分后，当前维度的上行峰值带宽，单位为 Mbps。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PeakUpBandwidth")
     private Float peakUpBandwidth;
 
     /**
-     * <p>下行峰值，单位为 Mbps。</p>
+     * <p>按维度进行数据拆分后，当前维度的下行峰值带宽，单位为 Mbps。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PeakDownBandwidth")
     private Float peakDownBandwidth;
 
     /**
-     * <p>带宽用量数据。</p>
+     * <p>按维度进行数据拆分后，当前维度下所有时间粒度的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "BandwidthDataList")
     private List<DescribeLiveBandwidthDataResResultBandwidthDetailDataListItemBandwidthDataListItem> bandwidthDataList;
 
     /**
-     * <p>运营商。</p>
+     * <p>按运营商维度进行数据拆分时的运营商信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ISP")
     private String iSP;

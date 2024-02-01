@@ -11,11 +11,13 @@ import java.util.List;
 public final class UpdateRelaySourceV4Body  {
 
     /**
-     * <p>开始时间，Unix 时间戳，单位为 s。</p>
+     * <p>开始时间，Unix 时间戳，单位为秒。</p>
      *
      * <p>:::tip</p>
      *
-     * <p>`StartTime` 与 `EndTime` 同时缺省，表示永久回源。</p>
+     * <p>- 回源开始到结束最大时间跨度为 7 天；</p>
+     *
+     * <p>- 开始时间与结束时间同时缺省，表示永久回源。</p>
      *
      * <p>:::</p>
      */
@@ -23,11 +25,13 @@ public final class UpdateRelaySourceV4Body  {
     private Integer startTime;
 
     /**
-     * <p>结束时间，Unix 时间戳，单位为 s，结束时间需晚于 `StartTime`，且与 `StartTime` 的最大时间跨度为 7 天。</p>
+     * <p>结束时间，Unix 时间戳，单位为秒。</p>
      *
      * <p>:::tip</p>
      *
-     * <p>`StartTime` 与 `EndTime` 同时缺省，表示永久回源。</p>
+     * <p>- 回源开始到结束最大时间跨度为 7 天；</p>
+     *
+     * <p>- 开始时间与结束时间同时缺省，表示永久回源。</p>
      *
      * <p>:::</p>
      */
@@ -41,7 +45,7 @@ public final class UpdateRelaySourceV4Body  {
     private String app;
 
     /**
-     * <p>流名称。</p>
+     * <p>流名称，由 1 到 100 位数字、字母、下划线及"-"和"."组成。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
     private String stream;
@@ -53,7 +57,7 @@ public final class UpdateRelaySourceV4Body  {
     private String domain;
 
     /**
-     * <p>回源地址列表，支持输入 RTMP、FLV 和 HLS 协议的直播地址。</p>
+     * <p>回源地址列表，支持输入 RTMP、FLV、HLS 和 SRT 协议的直播地址。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SrcAddrS")
     private List<String> srcAddrS;

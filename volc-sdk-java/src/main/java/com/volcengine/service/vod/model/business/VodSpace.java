@@ -46,23 +46,23 @@ public final class VodSpace {
       "ion\030\007 \001(\t\022\020\n\010UserName\030\010 \001(\t\022\021\n\tCreatedAt" +
       "\030\t \001(\t\022\014\n\004Type\030\n \001(\t\022\026\n\016MediaSyncLevel\030\013" +
       " \001(\t\022\025\n\rCanUseArchive\030\014 \001(\010\"/\n\016VodStorag" +
-      "eData\022\014\n\004Time\030\001 \001(\t\022\017\n\007Storage\030\002 \001(\003\"\344\001\n" +
+      "eData\022\014\n\004Time\030\001 \001(\t\022\017\n\007Storage\030\002 \001(\003\"\370\001\n" +
       "$VodDescribeVodSpaceStorageDataResult\022\021\n" +
       "\tSpaceList\030\001 \003(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007E" +
       "ndTime\030\003 \001(\t\022\023\n\013Aggregation\030\004 \001(\005\022\014\n\004Typ" +
-      "e\030\005 \001(\t\022\031\n\021LatestStorageData\030\006 \001(\003\022G\n\017St" +
-      "orageDataList\030\007 \003(\0132..Volcengine.Vod.Mod" +
-      "els.Business.VodStorageData*\243\001\n\027VodSpace" +
-      "UploadConfigKey\022$\n UndefinedVodSpaceUplo" +
-      "adConfigKey\020\000\022/\n+CustomUploadFilePathVod" +
-      "SpaceUploadConfigKey\020\001\0221\n-AutoPublishAft" +
-      "erUploadVodSpaceUploadConfigKey\020\002B\314\001\n)co" +
-      "m.volcengine.service.vod.model.businessB" +
-      "\010VodSpaceP\001ZAgithub.com/volcengine/volc-" +
-      "sdk-golang/service/vod/models/business\240\001" +
-      "\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Models\\Busine" +
-      "ss\342\002#Volc\\Service\\Vod\\Models\\GPBMetadata" +
-      "b\006proto3"
+      "e\030\005 \001(\t\022\022\n\nRegionList\030\006 \003(\t\022\031\n\021LatestSto" +
+      "rageData\030\007 \001(\003\022G\n\017StorageDataList\030\010 \003(\0132" +
+      "..Volcengine.Vod.Models.Business.VodStor" +
+      "ageData*\243\001\n\027VodSpaceUploadConfigKey\022$\n U" +
+      "ndefinedVodSpaceUploadConfigKey\020\000\022/\n+Cus" +
+      "tomUploadFilePathVodSpaceUploadConfigKey" +
+      "\020\001\0221\n-AutoPublishAfterUploadVodSpaceUplo" +
+      "adConfigKey\020\002B\314\001\n)com.volcengine.service" +
+      ".vod.model.businessB\010VodSpaceP\001ZAgithub." +
+      "com/volcengine/volc-sdk-golang/service/v" +
+      "od/models/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Servi" +
+      "ce\\Vod\\Models\\Business\342\002#Volc\\Service\\Vo" +
+      "d\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -85,7 +85,7 @@ public final class VodSpace {
     internal_static_Volcengine_Vod_Models_Business_VodDescribeVodSpaceStorageDataResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDescribeVodSpaceStorageDataResult_descriptor,
-        new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "Aggregation", "Type", "LatestStorageData", "StorageDataList", });
+        new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "Aggregation", "Type", "RegionList", "LatestStorageData", "StorageDataList", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

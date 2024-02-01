@@ -154,4 +154,24 @@ public interface DescribeVodSpaceTranscodeDataRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getDetailFieldListBytes();
+
+  /**
+   * <pre>
+   * 地区列表，多个地区用逗号分割
+   * </pre>
+   *
+   * <code>string RegionList = 9;</code>
+   * @return The regionList.
+   */
+  java.lang.String getRegionList();
+  /**
+   * <pre>
+   * 地区列表，多个地区用逗号分割
+   * </pre>
+   *
+   * <code>string RegionList = 9;</code>
+   * @return The bytes for regionList.
+   */
+  com.google.protobuf.ByteString
+      getRegionListBytes();
 }

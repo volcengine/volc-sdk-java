@@ -10,25 +10,25 @@ import com.alibaba.fastjson.JSON;
 public final class ListRelaySourceV4ResResultPagination  {
 
     /**
-     * <p>当前页码。</p>
+     * <p>当前查询的页码。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageCur")
     private Integer pageCur;
 
     /**
-     * <p>单页数据量。</p>
+     * <p>每页显示的数据条数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageSize")
     private Integer pageSize;
 
     /**
-     * <p>总页数。</p>
+     * <p>查询结果的数据总页数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageTotal")
     private Integer pageTotal;
 
     /**
-     * <p>总数据量。</p>
+     * <p>查询结果的数据总条数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TotalCount")
     private Integer totalCount;

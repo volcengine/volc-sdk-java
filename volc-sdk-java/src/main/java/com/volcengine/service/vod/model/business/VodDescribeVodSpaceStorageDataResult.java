@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     startTime_ = "";
     endTime_ = "";
     type_ = "";
+    regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     storageDataList_ = java.util.Collections.emptyList();
   }
 
@@ -86,15 +87,24 @@ private static final long serialVersionUID = 0L;
             type_ = s;
             break;
           }
-          case 48: {
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              regionList_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000002;
+            }
+            regionList_.add(s);
+            break;
+          }
+          case 56: {
 
             latestStorageData_ = input.readInt64();
             break;
           }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+          case 66: {
+            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
               storageDataList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodStorageData>();
-              mutable_bitField0_ |= 0x00000002;
+              mutable_bitField0_ |= 0x00000004;
             }
             storageDataList_.add(
                 input.readMessage(com.volcengine.service.vod.model.business.VodStorageData.parser(), extensionRegistry));
@@ -119,6 +129,9 @@ private static final long serialVersionUID = 0L;
         spaceList_ = spaceList_.getUnmodifiableView();
       }
       if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        regionList_ = regionList_.getUnmodifiableView();
+      }
+      if (((mutable_bitField0_ & 0x00000004) != 0)) {
         storageDataList_ = java.util.Collections.unmodifiableList(storageDataList_);
       }
       this.unknownFields = unknownFields.build();
@@ -342,14 +355,65 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int LATESTSTORAGEDATA_FIELD_NUMBER = 6;
+  public static final int REGIONLIST_FIELD_NUMBER = 6;
+  private com.google.protobuf.LazyStringList regionList_;
+  /**
+   * <pre>
+   * region list
+   * </pre>
+   *
+   * <code>repeated string RegionList = 6;</code>
+   * @return A list containing the regionList.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getRegionListList() {
+    return regionList_;
+  }
+  /**
+   * <pre>
+   * region list
+   * </pre>
+   *
+   * <code>repeated string RegionList = 6;</code>
+   * @return The count of regionList.
+   */
+  public int getRegionListCount() {
+    return regionList_.size();
+  }
+  /**
+   * <pre>
+   * region list
+   * </pre>
+   *
+   * <code>repeated string RegionList = 6;</code>
+   * @param index The index of the element to return.
+   * @return The regionList at the given index.
+   */
+  public java.lang.String getRegionList(int index) {
+    return regionList_.get(index);
+  }
+  /**
+   * <pre>
+   * region list
+   * </pre>
+   *
+   * <code>repeated string RegionList = 6;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the regionList at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getRegionListBytes(int index) {
+    return regionList_.getByteString(index);
+  }
+
+  public static final int LATESTSTORAGEDATA_FIELD_NUMBER = 7;
   private long latestStorageData_;
   /**
    * <pre>
    * Byte of latest storage
    * </pre>
    *
-   * <code>int64 LatestStorageData = 6;</code>
+   * <code>int64 LatestStorageData = 7;</code>
    * @return The latestStorageData.
    */
   @java.lang.Override
@@ -357,14 +421,14 @@ private static final long serialVersionUID = 0L;
     return latestStorageData_;
   }
 
-  public static final int STORAGEDATALIST_FIELD_NUMBER = 7;
+  public static final int STORAGEDATALIST_FIELD_NUMBER = 8;
   private java.util.List<com.volcengine.service.vod.model.business.VodStorageData> storageDataList_;
   /**
    * <pre>
    * list of Storage Data
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
    */
   @java.lang.Override
   public java.util.List<com.volcengine.service.vod.model.business.VodStorageData> getStorageDataListList() {
@@ -375,7 +439,7 @@ private static final long serialVersionUID = 0L;
    * list of Storage Data
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.volcengine.service.vod.model.business.VodStorageDataOrBuilder> 
@@ -387,7 +451,7 @@ private static final long serialVersionUID = 0L;
    * list of Storage Data
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
    */
   @java.lang.Override
   public int getStorageDataListCount() {
@@ -398,7 +462,7 @@ private static final long serialVersionUID = 0L;
    * list of Storage Data
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.VodStorageData getStorageDataList(int index) {
@@ -409,7 +473,7 @@ private static final long serialVersionUID = 0L;
    * list of Storage Data
    * </pre>
    *
-   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+   * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
    */
   @java.lang.Override
   public com.volcengine.service.vod.model.business.VodStorageDataOrBuilder getStorageDataListOrBuilder(
@@ -446,11 +510,14 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, type_);
     }
+    for (int i = 0; i < regionList_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, regionList_.getRaw(i));
+    }
     if (latestStorageData_ != 0L) {
-      output.writeInt64(6, latestStorageData_);
+      output.writeInt64(7, latestStorageData_);
     }
     for (int i = 0; i < storageDataList_.size(); i++) {
-      output.writeMessage(7, storageDataList_.get(i));
+      output.writeMessage(8, storageDataList_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -482,13 +549,21 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, type_);
     }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < regionList_.size(); i++) {
+        dataSize += computeStringSizeNoTag(regionList_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getRegionListList().size();
+    }
     if (latestStorageData_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(6, latestStorageData_);
+        .computeInt64Size(7, latestStorageData_);
     }
     for (int i = 0; i < storageDataList_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(7, storageDataList_.get(i));
+        .computeMessageSize(8, storageDataList_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -515,6 +590,8 @@ private static final long serialVersionUID = 0L;
         != other.getAggregation()) return false;
     if (!getType()
         .equals(other.getType())) return false;
+    if (!getRegionListList()
+        .equals(other.getRegionListList())) return false;
     if (getLatestStorageData()
         != other.getLatestStorageData()) return false;
     if (!getStorageDataListList()
@@ -542,6 +619,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getAggregation();
     hash = (37 * hash) + TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getType().hashCode();
+    if (getRegionListCount() > 0) {
+      hash = (37 * hash) + REGIONLIST_FIELD_NUMBER;
+      hash = (53 * hash) + getRegionListList().hashCode();
+    }
     hash = (37 * hash) + LATESTSTORAGEDATA_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getLatestStorageData());
@@ -693,11 +774,13 @@ private static final long serialVersionUID = 0L;
 
       type_ = "";
 
+      regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000002);
       latestStorageData_ = 0L;
 
       if (storageDataListBuilder_ == null) {
         storageDataList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
         storageDataListBuilder_.clear();
       }
@@ -737,11 +820,16 @@ private static final long serialVersionUID = 0L;
       result.endTime_ = endTime_;
       result.aggregation_ = aggregation_;
       result.type_ = type_;
+      if (((bitField0_ & 0x00000002) != 0)) {
+        regionList_ = regionList_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.regionList_ = regionList_;
       result.latestStorageData_ = latestStorageData_;
       if (storageDataListBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           storageDataList_ = java.util.Collections.unmodifiableList(storageDataList_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.storageDataList_ = storageDataList_;
       } else {
@@ -820,6 +908,16 @@ private static final long serialVersionUID = 0L;
         type_ = other.type_;
         onChanged();
       }
+      if (!other.regionList_.isEmpty()) {
+        if (regionList_.isEmpty()) {
+          regionList_ = other.regionList_;
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          ensureRegionListIsMutable();
+          regionList_.addAll(other.regionList_);
+        }
+        onChanged();
+      }
       if (other.getLatestStorageData() != 0L) {
         setLatestStorageData(other.getLatestStorageData());
       }
@@ -827,7 +925,7 @@ private static final long serialVersionUID = 0L;
         if (!other.storageDataList_.isEmpty()) {
           if (storageDataList_.isEmpty()) {
             storageDataList_ = other.storageDataList_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureStorageDataListIsMutable();
             storageDataList_.addAll(other.storageDataList_);
@@ -840,7 +938,7 @@ private static final long serialVersionUID = 0L;
             storageDataListBuilder_.dispose();
             storageDataListBuilder_ = null;
             storageDataList_ = other.storageDataList_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             storageDataListBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getStorageDataListFieldBuilder() : null;
@@ -1356,13 +1454,159 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private com.google.protobuf.LazyStringList regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureRegionListIsMutable() {
+      if (!((bitField0_ & 0x00000002) != 0)) {
+        regionList_ = new com.google.protobuf.LazyStringArrayList(regionList_);
+        bitField0_ |= 0x00000002;
+       }
+    }
+    /**
+     * <pre>
+     * region list
+     * </pre>
+     *
+     * <code>repeated string RegionList = 6;</code>
+     * @return A list containing the regionList.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getRegionListList() {
+      return regionList_.getUnmodifiableView();
+    }
+    /**
+     * <pre>
+     * region list
+     * </pre>
+     *
+     * <code>repeated string RegionList = 6;</code>
+     * @return The count of regionList.
+     */
+    public int getRegionListCount() {
+      return regionList_.size();
+    }
+    /**
+     * <pre>
+     * region list
+     * </pre>
+     *
+     * <code>repeated string RegionList = 6;</code>
+     * @param index The index of the element to return.
+     * @return The regionList at the given index.
+     */
+    public java.lang.String getRegionList(int index) {
+      return regionList_.get(index);
+    }
+    /**
+     * <pre>
+     * region list
+     * </pre>
+     *
+     * <code>repeated string RegionList = 6;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the regionList at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getRegionListBytes(int index) {
+      return regionList_.getByteString(index);
+    }
+    /**
+     * <pre>
+     * region list
+     * </pre>
+     *
+     * <code>repeated string RegionList = 6;</code>
+     * @param index The index to set the value at.
+     * @param value The regionList to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRegionList(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRegionListIsMutable();
+      regionList_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * region list
+     * </pre>
+     *
+     * <code>repeated string RegionList = 6;</code>
+     * @param value The regionList to add.
+     * @return This builder for chaining.
+     */
+    public Builder addRegionList(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRegionListIsMutable();
+      regionList_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * region list
+     * </pre>
+     *
+     * <code>repeated string RegionList = 6;</code>
+     * @param values The regionList to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllRegionList(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureRegionListIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, regionList_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * region list
+     * </pre>
+     *
+     * <code>repeated string RegionList = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRegionList() {
+      regionList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * region list
+     * </pre>
+     *
+     * <code>repeated string RegionList = 6;</code>
+     * @param value The bytes of the regionList to add.
+     * @return This builder for chaining.
+     */
+    public Builder addRegionListBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureRegionListIsMutable();
+      regionList_.add(value);
+      onChanged();
+      return this;
+    }
+
     private long latestStorageData_ ;
     /**
      * <pre>
      * Byte of latest storage
      * </pre>
      *
-     * <code>int64 LatestStorageData = 6;</code>
+     * <code>int64 LatestStorageData = 7;</code>
      * @return The latestStorageData.
      */
     @java.lang.Override
@@ -1374,7 +1618,7 @@ private static final long serialVersionUID = 0L;
      * Byte of latest storage
      * </pre>
      *
-     * <code>int64 LatestStorageData = 6;</code>
+     * <code>int64 LatestStorageData = 7;</code>
      * @param value The latestStorageData to set.
      * @return This builder for chaining.
      */
@@ -1389,7 +1633,7 @@ private static final long serialVersionUID = 0L;
      * Byte of latest storage
      * </pre>
      *
-     * <code>int64 LatestStorageData = 6;</code>
+     * <code>int64 LatestStorageData = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearLatestStorageData() {
@@ -1402,9 +1646,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.volcengine.service.vod.model.business.VodStorageData> storageDataList_ =
       java.util.Collections.emptyList();
     private void ensureStorageDataListIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         storageDataList_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodStorageData>(storageDataList_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1416,7 +1660,7 @@ private static final long serialVersionUID = 0L;
      * list of Storage Data
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodStorageData> getStorageDataListList() {
       if (storageDataListBuilder_ == null) {
@@ -1430,7 +1674,7 @@ private static final long serialVersionUID = 0L;
      * list of Storage Data
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
      */
     public int getStorageDataListCount() {
       if (storageDataListBuilder_ == null) {
@@ -1444,7 +1688,7 @@ private static final long serialVersionUID = 0L;
      * list of Storage Data
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
      */
     public com.volcengine.service.vod.model.business.VodStorageData getStorageDataList(int index) {
       if (storageDataListBuilder_ == null) {
@@ -1458,7 +1702,7 @@ private static final long serialVersionUID = 0L;
      * list of Storage Data
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
      */
     public Builder setStorageDataList(
         int index, com.volcengine.service.vod.model.business.VodStorageData value) {
@@ -1479,7 +1723,7 @@ private static final long serialVersionUID = 0L;
      * list of Storage Data
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
      */
     public Builder setStorageDataList(
         int index, com.volcengine.service.vod.model.business.VodStorageData.Builder builderForValue) {
@@ -1497,7 +1741,7 @@ private static final long serialVersionUID = 0L;
      * list of Storage Data
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
      */
     public Builder addStorageDataList(com.volcengine.service.vod.model.business.VodStorageData value) {
       if (storageDataListBuilder_ == null) {
@@ -1517,7 +1761,7 @@ private static final long serialVersionUID = 0L;
      * list of Storage Data
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
      */
     public Builder addStorageDataList(
         int index, com.volcengine.service.vod.model.business.VodStorageData value) {
@@ -1538,7 +1782,7 @@ private static final long serialVersionUID = 0L;
      * list of Storage Data
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
      */
     public Builder addStorageDataList(
         com.volcengine.service.vod.model.business.VodStorageData.Builder builderForValue) {
@@ -1556,7 +1800,7 @@ private static final long serialVersionUID = 0L;
      * list of Storage Data
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
      */
     public Builder addStorageDataList(
         int index, com.volcengine.service.vod.model.business.VodStorageData.Builder builderForValue) {
@@ -1574,7 +1818,7 @@ private static final long serialVersionUID = 0L;
      * list of Storage Data
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
      */
     public Builder addAllStorageDataList(
         java.lang.Iterable<? extends com.volcengine.service.vod.model.business.VodStorageData> values) {
@@ -1593,12 +1837,12 @@ private static final long serialVersionUID = 0L;
      * list of Storage Data
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
      */
     public Builder clearStorageDataList() {
       if (storageDataListBuilder_ == null) {
         storageDataList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         storageDataListBuilder_.clear();
@@ -1610,7 +1854,7 @@ private static final long serialVersionUID = 0L;
      * list of Storage Data
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
      */
     public Builder removeStorageDataList(int index) {
       if (storageDataListBuilder_ == null) {
@@ -1627,7 +1871,7 @@ private static final long serialVersionUID = 0L;
      * list of Storage Data
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
      */
     public com.volcengine.service.vod.model.business.VodStorageData.Builder getStorageDataListBuilder(
         int index) {
@@ -1638,7 +1882,7 @@ private static final long serialVersionUID = 0L;
      * list of Storage Data
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
      */
     public com.volcengine.service.vod.model.business.VodStorageDataOrBuilder getStorageDataListOrBuilder(
         int index) {
@@ -1652,7 +1896,7 @@ private static final long serialVersionUID = 0L;
      * list of Storage Data
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
      */
     public java.util.List<? extends com.volcengine.service.vod.model.business.VodStorageDataOrBuilder> 
          getStorageDataListOrBuilderList() {
@@ -1667,7 +1911,7 @@ private static final long serialVersionUID = 0L;
      * list of Storage Data
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
      */
     public com.volcengine.service.vod.model.business.VodStorageData.Builder addStorageDataListBuilder() {
       return getStorageDataListFieldBuilder().addBuilder(
@@ -1678,7 +1922,7 @@ private static final long serialVersionUID = 0L;
      * list of Storage Data
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
      */
     public com.volcengine.service.vod.model.business.VodStorageData.Builder addStorageDataListBuilder(
         int index) {
@@ -1690,7 +1934,7 @@ private static final long serialVersionUID = 0L;
      * list of Storage Data
      * </pre>
      *
-     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 7;</code>
+     * <code>repeated .Volcengine.Vod.Models.Business.VodStorageData StorageDataList = 8;</code>
      */
     public java.util.List<com.volcengine.service.vod.model.business.VodStorageData.Builder> 
          getStorageDataListBuilderList() {
@@ -1703,7 +1947,7 @@ private static final long serialVersionUID = 0L;
         storageDataListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.volcengine.service.vod.model.business.VodStorageData, com.volcengine.service.vod.model.business.VodStorageData.Builder, com.volcengine.service.vod.model.business.VodStorageDataOrBuilder>(
                 storageDataList_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         storageDataList_ = null;

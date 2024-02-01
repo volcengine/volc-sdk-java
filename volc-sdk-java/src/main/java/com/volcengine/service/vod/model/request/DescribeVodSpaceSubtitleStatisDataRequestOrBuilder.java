@@ -136,4 +136,24 @@ public interface DescribeVodSpaceSubtitleStatisDataRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getDetailFieldListBytes();
+
+  /**
+   * <pre>
+   * 区域，多个区域用逗号分割
+   * </pre>
+   *
+   * <code>string RegionList = 8;</code>
+   * @return The regionList.
+   */
+  java.lang.String getRegionList();
+  /**
+   * <pre>
+   * 区域，多个区域用逗号分割
+   * </pre>
+   *
+   * <code>string RegionList = 8;</code>
+   * @return The bytes for regionList.
+   */
+  com.google.protobuf.ByteString
+      getRegionListBytes();
 }

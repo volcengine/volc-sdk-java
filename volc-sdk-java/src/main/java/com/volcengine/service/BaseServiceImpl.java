@@ -330,7 +330,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         return makeRequest(api, request);
     }
 
-    private RawResponse makeRequest(String api, SignableRequest request) {
+    protected RawResponse makeRequest(String api, SignableRequest request) {
         try {
             ISigner.sign(request, this.credentials);
         } catch (Exception e) {

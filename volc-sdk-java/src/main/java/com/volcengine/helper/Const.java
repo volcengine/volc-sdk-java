@@ -9,6 +9,8 @@ public class Const {
     public static final String REGION_AP_SINGAPORE_1 = "ap-singapore-1";
     public static final String REGION_US_EASE_1 = "us-east-1";
 
+    public static final String REGION_AP_SOUTHEAST_1 = "ap-southeast-1";
+
     public static final String TIME_FORMAT_V4 = "yyyyMMdd'T'HHmmss'Z'";
 
     public static final String CONNECTION_TIMEOUT = "ConnectionTimeout";

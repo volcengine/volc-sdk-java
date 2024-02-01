@@ -11,19 +11,19 @@ import java.util.List;
 public final class DescribeLiveRecordDataResResultRecordDetailDataListItem  {
 
     /**
-     * <p>域名。</p>
+     * <p>按域名维度进行数据拆分时的域名信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;
 
     /**
-     * <p>查询时间范围内录制峰值。</p>
+     * <p>按维度进行数据拆分后，当前维度的录制并发路数最大值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RecordPeak")
     private Integer recordPeak;
 
     /**
-     * <p>录制峰值数据。</p>
+     * <p>按维度进行数据拆分后，当前维度下所有时间粒度的数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RecordDataList")
     private List<DescribeLiveRecordDataResResultRecordDetailDataListItemRecordDataListItem> recordDataList;

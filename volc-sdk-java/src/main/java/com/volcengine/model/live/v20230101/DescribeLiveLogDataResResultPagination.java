@@ -10,19 +10,19 @@ import com.alibaba.fastjson.JSON;
 public final class DescribeLiveLogDataResResultPagination  {
 
     /**
-     * <p>当前所在分页。</p>
+     * <p>当前所在分页的页码。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageNum")
     private Integer pageNum;
 
     /**
-     * <p>每页显示信息条数。</p>
+     * <p>每页显示的数据条数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageSize")
     private Integer pageSize;
 
     /**
-     * <p>结果总条数。</p>
+     * <p>查询结果的数据总条数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TotalCount")
     private Integer totalCount;

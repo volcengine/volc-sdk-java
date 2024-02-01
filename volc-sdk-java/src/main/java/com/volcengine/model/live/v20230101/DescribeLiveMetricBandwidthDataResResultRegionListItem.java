@@ -10,19 +10,19 @@ import com.alibaba.fastjson.JSON;
 public final class DescribeLiveMetricBandwidthDataResResultRegionListItem  {
 
     /**
-     * <p>大区，映射关系请参见[区域映射](https://www.volcengine.com/docs/6469/114196)。</p>
+     * <p>区域信息中的大区标识符。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Area")
     private String area;
 
     /**
-     * <p>国家，映射关系请参见[区域映射](https://www.volcengine.com/docs/6469/114196)。</p>
+     * <p>区域信息中的国家标识符。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Country")
     private String country;
 
     /**
-     * <p>国内为省，国外暂不支持该参数，映射关系请参见[区域映射](https://www.volcengine.com/docs/6469/114196)。</p>
+     * <p>区域信息中的身份标识符。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Province")
     private String province;

@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
     endTime_ = "";
     trafficType_ = "";
     area_ = "";
+    regionList_ = "";
   }
 
   @java.lang.Override
@@ -93,6 +94,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             area_ = s;
+            break;
+          }
+          case 66: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            regionList_ = s;
             break;
           }
           default: {
@@ -410,6 +417,44 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int REGIONLIST_FIELD_NUMBER = 8;
+  private volatile java.lang.Object regionList_;
+  /**
+   * <code>string RegionList = 8;</code>
+   * @return The regionList.
+   */
+  @java.lang.Override
+  public java.lang.String getRegionList() {
+    java.lang.Object ref = regionList_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      regionList_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string RegionList = 8;</code>
+   * @return The bytes for regionList.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getRegionListBytes() {
+    java.lang.Object ref = regionList_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      regionList_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -445,6 +490,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(area_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, area_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(regionList_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, regionList_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -476,6 +524,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(area_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, area_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(regionList_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, regionList_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -505,6 +556,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTrafficType())) return false;
     if (!getArea()
         .equals(other.getArea())) return false;
+    if (!getRegionList()
+        .equals(other.getRegionList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -530,6 +583,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getTrafficType().hashCode();
     hash = (37 * hash) + AREA_FIELD_NUMBER;
     hash = (53 * hash) + getArea().hashCode();
+    hash = (37 * hash) + REGIONLIST_FIELD_NUMBER;
+    hash = (53 * hash) + getRegionList().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -677,6 +732,8 @@ private static final long serialVersionUID = 0L;
 
       area_ = "";
 
+      regionList_ = "";
+
       return this;
     }
 
@@ -710,6 +767,7 @@ private static final long serialVersionUID = 0L;
       result.aggregation_ = aggregation_;
       result.trafficType_ = trafficType_;
       result.area_ = area_;
+      result.regionList_ = regionList_;
       onBuilt();
       return result;
     }
@@ -783,6 +841,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getArea().isEmpty()) {
         area_ = other.area_;
+        onChanged();
+      }
+      if (!other.getRegionList().isEmpty()) {
+        regionList_ = other.regionList_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1409,6 +1471,82 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       area_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object regionList_ = "";
+    /**
+     * <code>string RegionList = 8;</code>
+     * @return The regionList.
+     */
+    public java.lang.String getRegionList() {
+      java.lang.Object ref = regionList_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        regionList_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string RegionList = 8;</code>
+     * @return The bytes for regionList.
+     */
+    public com.google.protobuf.ByteString
+        getRegionListBytes() {
+      java.lang.Object ref = regionList_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        regionList_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string RegionList = 8;</code>
+     * @param value The regionList to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRegionList(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      regionList_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string RegionList = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRegionList() {
+      
+      regionList_ = getDefaultInstance().getRegionList();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string RegionList = 8;</code>
+     * @param value The bytes for regionList to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRegionListBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      regionList_ = value;
       onChanged();
       return this;
     }

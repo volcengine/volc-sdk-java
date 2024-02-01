@@ -17,7 +17,7 @@ public final class DescribeLiveStreamInfoByPageResResult  {
     private List<DescribeLiveStreamInfoByPageResResultStreamInfoListItem> streamInfoList;
 
     /**
-     * <p>当前分页的在线流数量。</p>
+     * <p>在线流总数量。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RoughCount")
     private Integer roughCount;

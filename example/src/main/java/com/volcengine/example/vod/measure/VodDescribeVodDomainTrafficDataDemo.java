@@ -22,6 +22,7 @@ public class VodDescribeVodDomainTrafficDataDemo {
 			reqBuilder.setAggregation(0);
 			reqBuilder.setTrafficType("your TrafficType");
 			reqBuilder.setArea("your Area");
+			reqBuilder.setRegionList("your RegionList");
 			
             com.volcengine.service.vod.model.response.VodDescribeVodDomainTrafficDataResponse resp = vodService.describeVodDomainTrafficData(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

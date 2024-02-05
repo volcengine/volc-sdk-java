@@ -129,7 +129,23 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualFaceSwapResponse.class);
     }
+    @Override
+    public VisualFaceSwapV2Response faceSwapV2(VisualFaceSwapV2Request request) throws Exception {
+        RawResponse response = json(Const.FaceSwapV2, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualFaceSwapV2Response.class);
+    }
 
+    @Override
+    public VisualFaceSwapAIResponse faceSwapAI(VisualFaceSwapAIRequest request) throws Exception {
+        RawResponse response = json(Const.FaceswapAI, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualFaceSwapAIResponse.class);
+    }
     @Override
     public VisualJPCartoonResponse jpCartoon(VisualJPCartoonRequest request) throws Exception {
         RawResponse response = post(Const.JPCartoon, null, convertNameValuePair(request));
@@ -731,5 +747,32 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), TupoCartoonResponse.class);
     }
+    @Override
+    public VisualH5TokenResponse certH5Token(VisualH5TokenRequest request) throws Exception {
+        RawResponse response = json(Const.CertH5Token, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualH5TokenResponse.class);
+
+    }
+
+    @Override
+    public VisualH5CertConfigInitResponse certH5ConfigInit(VisualCertH5ConfigInitRequest request) throws Exception {
+        RawResponse response = json(Const.CertH5ConfigInit, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualH5CertConfigInitResponse.class);
+    }
+    @Override
+    public VisualHighAesSmartDrawingResponse visualHighAesSmartDrawing(Object request) throws Exception {
+        RawResponse response = json(Const.HighAesSmartDrawing, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualHighAesSmartDrawingResponse.class);
+    }
+
 }
 

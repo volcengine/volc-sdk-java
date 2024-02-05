@@ -67,7 +67,9 @@ public class Const {
     public static final String CertSrcFaceComp = "CertSrcFaceComp";
     public static final String FaceCompare = "FaceCompare";
     public static final String StillLivenessImg = "StillLivenessImg";
-
+    public static final String CertH5Token = "CertH5Token";
+    public static final String CertH5ConfigInit = "CertH5ConfigInit";
+    public static final String HighAesSmartDrawing = "HighAesSmartDrawing";
     // billing
     public static final String ListBill = "ListBill";
     public static final String ListBillDetail = "ListBillDetail";
@@ -740,6 +742,9 @@ public class Const {
     public static final String ImageFlow = "ImageFlow";
     public static final String ImageScore = "ImageScore";
     public static final String FaceSwap = "FaceSwap";
+    public static final String FaceSwapV2 = "FaceSwap";
+    public static final String FaceswapAI = "FaceswapAI";
+
     public static final String JPCartoon = "JPCartoon";
     public static final String EyeClose2Open = "EyeClose2Open";
     public static final String EmoticonEdit = "EmoticonEdit";

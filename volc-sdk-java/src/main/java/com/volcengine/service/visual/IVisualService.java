@@ -88,6 +88,22 @@ public interface IVisualService extends IBaseService {
     VisualFaceSwapResponse faceSwap(VisualFaceSwapRequest request) throws Exception;
 
     /**
+     * 人像融合 V3.0/V3.3
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualFaceSwapV2Response faceSwapV2(VisualFaceSwapV2Request request) throws Exception;
+
+    /**
+     * Ai写真
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualFaceSwapAIResponse faceSwapAI(VisualFaceSwapAIRequest request) throws Exception;
+
+    /**
      * 人像漫画风
      * @param request
      * @return
@@ -545,5 +561,28 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     TupoCartoonResponse tupoCartoon(TupoCartoonRequest request)throws Exception;
+    /**
+     * 身份认证H5Token服务
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualH5TokenResponse certH5Token(VisualH5TokenRequest request) throws Exception;
+
+    /**
+     * 身份认证H5ConfigInit服务
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualH5CertConfigInitResponse certH5ConfigInit(VisualCertH5ConfigInitRequest request) throws Exception;
+
+    /**
+     * 智能绘图
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualHighAesSmartDrawingResponse visualHighAesSmartDrawing(Object request) throws Exception;
 
 }

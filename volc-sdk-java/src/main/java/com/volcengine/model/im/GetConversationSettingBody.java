@@ -16,7 +16,7 @@ public final class GetConversationSettingBody  {
     private Integer appId;
 
     /**
-     * <p>会话成员 UserId，UserId 必须大于 0。</p>
+     * <p>会话成员 UserId，UserId 必须大于 `0`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ParticipantUserId")
     private Long participantUserId;
@@ -28,7 +28,11 @@ public final class GetConversationSettingBody  {
     private Long conversationShortId;
 
     /**
-     * <p>是否需要该成员在会话中的已读位置。 true：不需要。 false：需要。</p>
+     * <p>是否需要该成员在会话中的已读位置。</p>
+     *
+     * <p>- `true`：不需要。</p>
+     *
+     * <p>- `false`：需要。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "NoReadIndex")
     private Boolean noReadIndex;

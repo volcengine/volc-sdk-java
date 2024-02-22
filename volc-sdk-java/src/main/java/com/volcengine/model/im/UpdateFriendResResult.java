@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class UpdateFriendResResult  {
 
     /**
-     * <p>TODO</p>
+     * <p>更新失败的好友信息</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "FailedInfos")
     private UpdateFriendResResultFailedInfos failedInfos;

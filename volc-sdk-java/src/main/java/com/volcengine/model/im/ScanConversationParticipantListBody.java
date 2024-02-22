@@ -31,7 +31,7 @@ public final class ScanConversationParticipantListBody  {
      * <p>查询人数</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Limit")
-    private Integer limit;
+    private Long limit;
 
     /**
      * <p>按照进群的时间正序或逆序查询。</p>
@@ -70,9 +70,9 @@ public final class ScanConversationParticipantListBody  {
      *
      *
      *
-     * <p>- `true`：是。</p>
+     * <p>- `true`：是：拉取直播群在线成员列表（包含群主和管理员，只要在线就会返回，非直播群不会返回任何数据）。</p>
      *
-     * <p>- `false`：否。</p>
+     * <p>- `false`：否：拉取成员列表（非直播群），拉取群主管理员（直播群）。</p>
      *
      *
      *

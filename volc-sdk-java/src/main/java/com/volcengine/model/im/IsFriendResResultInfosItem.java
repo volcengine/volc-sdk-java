@@ -16,7 +16,13 @@ public final class IsFriendResResultInfosItem  {
     private Long friendUserId;
 
     /**
-     * <p>是否是好友。 true：是。 false：否</p>
+     * <p>是否是好友。</p>
+     *
+     *
+     *
+     * <p>- `true`：是。</p>
+     *
+     * <p>- `false`：否</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "IsFriend")
     private Boolean isFriend;

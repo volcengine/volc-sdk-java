@@ -12,7 +12,7 @@ import java.util.List;
 public final class BatchUpdateUserBody {
 
     /**
-     * <p>应用的唯一标志</p>
+     * <p>用户的唯一标识</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AppId")
     private Integer appId;

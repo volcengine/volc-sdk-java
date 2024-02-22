@@ -71,17 +71,9 @@ public final class DescribeLiveSourceTrafficDataResResult  {
     private List<DescribeLiveSourceTrafficDataResResultUserRegionListItem> userRegionList;
 
     /**
-     * <p>IP 地址。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "IPList")
-    private List<String> iPList;
-
-    /**
      * <p>数据拆分的维度，维度说明如下所示。</p>
      *
      * <p>- Domain：域名；</p>
-     *
-     * <p>- IP：出口外网的 IP 地址；</p>
      *
      * <p>- ISP：运营商。</p>
      */

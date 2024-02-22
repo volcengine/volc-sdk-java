@@ -16,13 +16,13 @@ public final class CreateConversationBody  {
     private Integer appId;
 
     /**
-     * <p>信箱，用做逻辑隔离 默认值为 0</p>
+     * <p>信箱，用做逻辑隔离 默认值为 `0`</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "InboxType")
     private Integer inboxType;
 
     /**
-     * <p>TODO</p>
+     * <p>会话详细信息</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ConversationCoreInfo")
     private CreateConversationBodyConversationCoreInfo conversationCoreInfo;
@@ -40,7 +40,7 @@ public final class CreateConversationBody  {
     private Long otherUserId;
 
     /**
-     * <p>幂等id，如果创建时指定了此字段，并且数据库中存在此 id 对应的会话，则不会重复创建，并且接口返回的Exist字段为true。</p>
+     * <p>幂等id，如果创建时指定了此字段，并且数据库中存在此 id 对应的会话，则不会重复创建，并且接口返回的Exist字段为`true`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "IdempotentId")
     private String idempotentId;

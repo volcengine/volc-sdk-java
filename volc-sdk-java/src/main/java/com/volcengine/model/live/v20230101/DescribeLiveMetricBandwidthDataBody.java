@@ -105,12 +105,6 @@ public final class DescribeLiveMetricBandwidthDataBody  {
     private List<String> iSPList;
 
     /**
-     * <p>查询单个或多个出口外网 IP 地址数据，第四个地址位需要改为 000。例如，实际 IP 地址为 10.255.159.10，则请求时取 10.255.159.000。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "IPList")
-    private List<String> iPList;
-
-    /**
      * <p>CDN 节点 IP 所属区域的列表，缺省情况下表示所有区域。</p>
      *
      * <p>:::tip</p>
@@ -166,8 +160,6 @@ public final class DescribeLiveMetricBandwidthDataBody  {
      * <p>- Domain：域名；</p>
      *
      * <p>- Protocol：推拉流协议；</p>
-     *
-     * <p>- IP：出口外网的 IP 地址；</p>
      *
      * <p>- ISP：运营商。</p>
      *

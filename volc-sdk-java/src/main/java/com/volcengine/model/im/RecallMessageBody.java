@@ -34,7 +34,15 @@ public final class RecallMessageBody  {
     private Long messageId;
 
     /**
-     * <p>撤回消息的会话成员角色。 0：普通会话成员。 1：群主。 2：管理员。</p>
+     * <p>撤回消息的会话成员角色。</p>
+     *
+     *
+     *
+     * <p>- `0`：普通会话成员。</p>
+     *
+     * <p>- `1`：群主。</p>
+     *
+     * <p>- `2`：管理员。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RecallRole")
     private Integer recallRole;

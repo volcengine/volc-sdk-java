@@ -22,7 +22,7 @@ public final class UpdateRecordPresetV2BodyRecordPresetConfigMp4ParamVODParam  {
     private Boolean enable;
 
     /**
-     * <p>视频点播（VOD）空间名称。可登录[视频点播控制台](https://console.volcengine.com/vod/)查询</p>
+     * <p>视频点播（VOD）空间名称。可登录[视频点播控制台](https://console.volcengine.com/vod/)查询。</p>
      *
      * <p>:::tip</p>
      *
@@ -34,7 +34,7 @@ public final class UpdateRecordPresetV2BodyRecordPresetConfigMp4ParamVODParam  {
     private String vodNamespace;
 
     /**
-     * <p>工作流模版 ID，对于存储在点播的录制文件，会使用该工作流模版对视频进行处理。可登录[视频点播控制台](https://console.volcengine.com/vod/)获取 ID</p>
+     * <p>工作流模版 ID，对于存储在点播的录制文件，会使用该工作流模版对视频进行处理。可登录[视频点播控制台](https://console.volcengine.com/vod/)获取 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "WorkflowID")
     private String workflowID;

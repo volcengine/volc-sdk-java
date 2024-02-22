@@ -692,6 +692,20 @@ public class ImConfig {
                     }
                 }     
             ));
+            put("GetAppToken", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "GetAppToken"));
+                                add(new BasicNameValuePair("Version", "2020-12-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
             put("RemoveBlackList", new ApiInfo(
                 new HashMap<String, Object>() {
                     {

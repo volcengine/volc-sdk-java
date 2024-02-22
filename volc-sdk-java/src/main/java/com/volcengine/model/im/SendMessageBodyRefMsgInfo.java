@@ -7,7 +7,7 @@ import com.alibaba.fastjson.JSON;
  * SendMessageBodyRefMsgInfo
  */
 @lombok.Data
-public final class SendMessageBodyRefMsgInfo  {
+public final class SendMessageBodyRefMsgInfo {
 
     /**
      * <p>被引用的消息 ID</p>

@@ -24,7 +24,7 @@ public final class GetConversationMessagesResResult  {
     private Long newCursor;
 
     /**
-     * <p>TODO</p>
+     * <p>消息详细信息</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Messages")
     private List<GetConversationMessagesResResultMessagesItem> messages;

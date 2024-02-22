@@ -108,7 +108,7 @@ public final class BatchGetConversationsResResultConversationCoreInfosItem  {
     private Long onlineCount;
 
     /**
-     * <p>单聊会话另一个UserId</p>
+     * <p>单聊会话另一个 UserId</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "OtherUserId")
     private Long otherUserId;

@@ -12,7 +12,7 @@ import java.util.List;
 public final class AddBlackListResResult  {
 
     /**
-     * <p>TODO</p>
+     * <p>添加黑名单失败的用户信息</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "FailedInfos")
     private List<AddBlackListResResultFailedInfosItem> failedInfos;

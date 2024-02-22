@@ -286,6 +286,15 @@ public interface LivesaasService extends IBaseService {
     CommonStatusResponse presenterChatAPI(PresenterChatRequest presenterChatRequest) throws Exception;
 
     /**
+     * PresenterChatAPIV2
+     *
+     * @param presenterChatRequest PresenterChatRequest
+     * @return CommonStatusResponse
+     * @throws Exception the exception
+     */
+    CommonStatusResponse presenterChatAPIV2(PresenterChatRequest presenterChatRequest) throws Exception;
+
+    /**
      * PollingChatAPI
      *
      * @param pollingChatAPIRequest PollingChatAPIRequest

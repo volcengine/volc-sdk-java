@@ -24,7 +24,17 @@ public final class BatchGetConversationsBody  {
     private List<Long> conversationShortId;
 
     /**
-     * <p>是否忽略获取会话成员数。 true： 忽略。 false：不忽略。 默认值为 true。</p>
+     * <p>是否忽略获取会话成员数。</p>
+     *
+     *
+     *
+     * <p>- `true`： 忽略。</p>
+     *
+     * <p>- `false`：不忽略。</p>
+     *
+     *
+     *
+     * <p>默认值为 `true`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SkipMemberCount")
     private Boolean skipMemberCount;

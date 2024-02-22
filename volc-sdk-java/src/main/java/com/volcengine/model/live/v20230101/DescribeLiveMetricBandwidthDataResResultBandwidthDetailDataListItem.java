@@ -29,12 +29,6 @@ public final class DescribeLiveMetricBandwidthDataResResultBandwidthDetailDataLi
     private String iSP;
 
     /**
-     * <p>按 IP 地址维度进行数据拆分时的 IP 地址信息。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "IP")
-    private String iP;
-
-    /**
      * <p>按维度进行数据拆分后，当前维度的上行峰值带宽，单位为 Mbps。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PeakUpBandwidth")

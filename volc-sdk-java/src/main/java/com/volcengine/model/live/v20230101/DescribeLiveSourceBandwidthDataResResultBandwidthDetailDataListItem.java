@@ -23,12 +23,6 @@ public final class DescribeLiveSourceBandwidthDataResResultBandwidthDetailDataLi
     private String iSP;
 
     /**
-     * <p>按出口外网的 IP 地址维度进行数据拆分后的 IP 地址信息。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "IP")
-    private String iP;
-
-    /**
      * <p>按维度进行数据拆分后，当前维度的回源峰值带宽，单位为 Mbps。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PeakBandwidth")

@@ -12,7 +12,7 @@ import java.util.Map;
 public final class IsInBlackListResResult  {
 
     /**
-     * <p>校验结果。 value 为 true：在黑名单中。 value 为 false：不在黑名单中</p>
+     * <p>校验结果。key 为 uid，value 为 true：在黑名单中。 value 为 false：不在黑名单中</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "IsInBlackListInfos")
     private Map<String, Boolean> isInBlackListInfos;

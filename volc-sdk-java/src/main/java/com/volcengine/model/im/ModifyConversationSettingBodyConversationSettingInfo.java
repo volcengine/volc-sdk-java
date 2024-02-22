@@ -18,13 +18,23 @@ public final class ModifyConversationSettingBodyConversationSettingInfo  {
     private Long conversationShortId;
 
     /**
-     * <p>需要修改的会话成员UserId</p>
+     * <p>需要修改的会话成员 UserId</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ParticipantUserId")
     private Long participantUserId;
 
     /**
-     * <p>是否开启免打扰。 true：开启。 false：不开启 默认值为 false。</p>
+     * <p>是否开启免打扰。</p>
+     *
+     *
+     *
+     * <p>- `true`：开启。</p>
+     *
+     * <p>- `false`：不开启</p>
+     *
+     *
+     *
+     * <p>默认值为 `false`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "IsMute")
     private Boolean isMute;

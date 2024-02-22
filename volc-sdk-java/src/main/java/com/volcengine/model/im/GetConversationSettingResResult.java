@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class GetConversationSettingResResult  {
 
     /**
-     * <p>TODO</p>
+     * <p>用户会话设置</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ConversationSettingInfo")
     private GetConversationSettingResResultConversationSettingInfo conversationSettingInfo;

@@ -2,7 +2,9 @@ package com.volcengine.service.maas;
 
 import com.volcengine.model.maas.api.Api;
 import com.volcengine.model.maas.api.v2.Error;
+import lombok.Getter;
 
+@Getter
 public class MaasException extends Exception {
 
     private final String code;
@@ -33,26 +35,14 @@ public class MaasException extends Exception {
         this("ClientSDKRequestError", 1709701, "MaaS SDK request error: " + raw.getMessage(), requestId);
     }
 
+    public MaasException(String raw, String requestId) {
+        this("ClientSDKRequestError", 1709701, "MaaS SDK request error: " + raw, requestId);
+    }
+
     public MaasException(Exception raw, int codeN, String requestId) {
         this("ClientSDKRequestError", codeN, "MaaS SDK request error: " + raw.getMessage(), requestId);
     }
 
-    public String getCode() {
-        return code;
-    }
-
-
-    public int getCodeN() {
-        return codeN;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public String getRequestId() {
-        return requestId;
-    }
 
     @Override
     public String toString() {

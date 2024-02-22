@@ -77,12 +77,6 @@ public final class DescribeLiveMetricBandwidthDataResResult  {
     private List<String> iSPList;
 
     /**
-     * <p>出口外网的 IP 地址列表。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "IPList")
-    private List<String> iPList;
-
-    /**
      * <p>CDN 节点 IP 所属区域列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RegionList")
@@ -126,8 +120,6 @@ public final class DescribeLiveMetricBandwidthDataResResult  {
      * <p>- Domain：域名；</p>
      *
      * <p>- Protocol：推拉流协议；</p>
-     *
-     * <p>- IP：出口外网的 IP 地址；</p>
      *
      * <p>- ISP：运营商。</p>
      */

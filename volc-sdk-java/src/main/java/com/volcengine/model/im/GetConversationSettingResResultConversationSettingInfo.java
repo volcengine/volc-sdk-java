@@ -30,49 +30,73 @@ public final class GetConversationSettingResResultConversationSettingInfo  {
     private Long conversationShortId;
 
     /**
-     * <p>会话类型。 1：单聊 2:群聊 100:直播群</p>
+     * <p>会话类型。</p>
+     *
+     *
+     *
+     * <p>- `1`：单聊</p>
+     *
+     * <p>- `2`：群聊</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ConversationType")
     private Integer conversationType;
 
     /**
-     * <p>信箱,用于逻辑隔离</p>
+     * <p>信箱，用于逻辑隔离</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "InboxType")
     private Integer inboxType;
 
     /**
-     * <p>置顶时间，单位为毫秒。0表示未置顶</p>
+     * <p>置顶时间，单位为毫秒。`0`表示未置顶</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StickTopTime")
     private Long stickTopTime;
 
     /**
-     * <p>是否置顶。 true：置顶。 false：不置顶</p>
+     * <p>是否置顶。</p>
+     *
+     *
+     *
+     * <p>- `true`：置顶。</p>
+     *
+     * <p>- `false`：不置顶</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "IsStickTop")
     private Boolean isStickTop;
 
     /**
-     * <p>收藏时间，单位为毫秒。 0表示未收藏</p>
+     * <p>收藏时间，单位为毫秒。 `0`表示未收藏</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SetFavoriteTime")
     private Long setFavoriteTime;
 
     /**
-     * <p>是否收藏。 true：收藏。 false：不收藏</p>
+     * <p>是否收藏。</p>
+     *
+     *
+     *
+     * <p>- `true`：收藏。</p>
+     *
+     * <p>- `false`：不收藏</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "IsSetFavorite")
     private Boolean isSetFavorite;
 
     /**
-     * <p>是否开启免打扰。 true：开启。 false：不开启</p>
+     * <p>是否开启免打扰。</p>
+     *
+     *
+     *
+     * <p>- `true`：开启。</p>
+     *
+     * <p>- `false`：不开启</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "IsMute")
     private Boolean isMute;
 
     /**
-     * <p>扩展字段</p>
+     * <p>扩展字段。 `key` 的数据类型为 `String`，`value` 的数据类型为 `String`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Ext")
     private Map<String, String> ext;

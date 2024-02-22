@@ -22,7 +22,15 @@ public final class GetUserConversationsBody  {
     private Long participantUserId;
 
     /**
-     * <p>数据来源。 0：从缓存中拉取，按会话最近活跃排序。 1:从数据库中拉取，按照创建时间正序排序。 2：拉取用户创建的直播群会话，按照创建时间逆序排序</p>
+     * <p>数据来源。</p>
+     *
+     *
+     *
+     * <p>- `0`：从缓存中拉取，按会话最近活跃排序。</p>
+     *
+     * <p>- `1`：从数据库中拉取，按照创建时间正序排序。</p>
+     *
+     * <p>- `2`：拉取用户创建的直播群会话，按照创建时间逆序排序</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DataType")
     private Integer dataType;
@@ -34,19 +42,27 @@ public final class GetUserConversationsBody  {
     private Long cursor;
 
     /**
-     * <p>查询数量。最大值为 20。</p>
+     * <p>查询数量。最大值为 `20`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Limit")
     private Long limit;
 
     /**
-     * <p>是否忽略会话成员数。 true：忽略。 false：不忽略。 默认值为 false。</p>
+     * <p>是否忽略会话成员数。</p>
+     *
+     *
+     *
+     * <p>- `true`：忽略。</p>
+     *
+     * <p>- `false`：不忽略。</p>
+     *
+     * <p>默认值为 `false`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SkipMemberCount")
     private Boolean skipMemberCount;
 
     /**
-     * <p>信箱，用于逻辑隔离。 默认值为 0。</p>
+     * <p>信箱，用于逻辑隔离。 默认值为 `0`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "InboxType")
     private Integer inboxType;

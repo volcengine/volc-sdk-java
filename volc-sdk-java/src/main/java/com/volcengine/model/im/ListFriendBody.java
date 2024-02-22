@@ -22,25 +22,35 @@ public final class ListFriendBody  {
     private Long userId;
 
     /**
-     * <p>信箱，用做逻辑隔离 默认值为 0</p>
+     * <p>信箱，用做逻辑隔离。默认值为 `0`</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "InboxType")
     private Integer inboxType;
 
     /**
-     * <p>查询起始位置，默认值为 0，即第一个添加的好友。</p>
+     * <p>查询起始位置，默认值为 `0`，即第一个添加的好友。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Cursor")
     private Long cursor;
 
     /**
-     * <p>查询条数，每次最多查询 20 位好友。默认值为 20。</p>
+     * <p>查询条数，每次最多查询 20 位好友。默认值为 `20`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Limit")
     private Long limit;
 
     /**
-     * <p>是否需要好友总数。 false：不需要。 true：需要。 默认值为 false。</p>
+     * <p>是否需要好友总数。</p>
+     *
+     *
+     *
+     * <p>- `false`：不需要。</p>
+     *
+     * <p>- `true`：需要。</p>
+     *
+     *
+     *
+     * <p>默认值为 `false`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "NeedTotal")
     private Boolean needTotal;

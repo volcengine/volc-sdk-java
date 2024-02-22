@@ -199,6 +199,8 @@ public class Const {
 
     public static final String PresenterChatAPI = "PresenterChatAPI";
 
+    public static final String PresenterChatAPIV2 = "PresenterChatAPIV2";
+
     public static final String PollingChatAPI = "PollingChatAPI";
 
     public static final String GetHotChatAPI = "GetHotChatAPI";

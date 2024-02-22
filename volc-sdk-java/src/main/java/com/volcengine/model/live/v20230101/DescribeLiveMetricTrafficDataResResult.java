@@ -77,12 +77,6 @@ public final class DescribeLiveMetricTrafficDataResResult  {
     private List<String> iSPList;
 
     /**
-     * <p>出口外网的 IP 地址。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "IPList")
-    private List<String> iPList;
-
-    /**
      * <p>CDN 节点 IP 所属区域列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RegionList")
@@ -127,8 +121,6 @@ public final class DescribeLiveMetricTrafficDataResResult  {
      *
      * <p>- Protocol：推拉流协议；</p>
      *
-     * <p>- IP：出口外网的 IP 地址；</p>
-     *
      * <p>- ISP：运营商。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DetailField")
@@ -157,7 +149,7 @@ public final class DescribeLiveMetricTrafficDataResResult  {
      *
      * <p>:::tip</p>
      *
-     * <p>请求时，`DomainList`、`ProtocolList`、`IPList` 和 `ISPList` 至少有一个参数传入了多个值时，会返回该参数；否则不返回该参数。</p>
+     * <p>请求时，`DomainList`、`ProtocolList` 和 `ISPList` 至少有一个参数传入了多个值时，会返回该参数；否则不返回该参数。</p>
      *
      * <p>:::</p>
      */

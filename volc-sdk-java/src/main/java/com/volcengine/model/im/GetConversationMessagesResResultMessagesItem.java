@@ -12,7 +12,13 @@ import java.util.Map;
 public final class GetConversationMessagesResResultMessagesItem  {
 
     /**
-     * <p>会话类型。 1：单聊 2:群聊</p>
+     * <p>会话类型</p>
+     *
+     *
+     *
+     * <p>- `1`：单聊。</p>
+     *
+     * <p>- `2`：群聊。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ConversationType")
     private Integer conversationType;
@@ -30,7 +36,21 @@ public final class GetConversationMessagesResResultMessagesItem  {
     private Long messageId;
 
     /**
-     * <p>消息类型。 10001：文本。 10003：图片。 10004：视频 10005：文件 10006：音频 10012：自定义消息</p>
+     * <p>消息类型。</p>
+     *
+     *
+     *
+     * <p>- `10001`：文本。</p>
+     *
+     * <p>- `10003`：图片。</p>
+     *
+     * <p>- `10004`：视频</p>
+     *
+     * <p>- `10005`：文件</p>
+     *
+     * <p>- `10006`：音频</p>
+     *
+     * <p>- `10012`：自定义消息</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "MsgType")
     private Integer msgType;
@@ -48,7 +68,7 @@ public final class GetConversationMessagesResResultMessagesItem  {
     private Map<String, String> ext;
 
     /**
-     * <p>消息状态，取值为0，表示消息可见。</p>
+     * <p>消息状态，取值为`0`，表示消息可见。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Status")
     private Integer status;
@@ -69,7 +89,7 @@ public final class GetConversationMessagesResResultMessagesItem  {
      * <p>应用的唯一标志</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AppId")
-    private Long appId;
+    private Integer appId;
 
     /**
      * <p>引用消息</p>

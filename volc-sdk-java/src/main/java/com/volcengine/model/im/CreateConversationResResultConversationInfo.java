@@ -24,7 +24,7 @@ public final class CreateConversationResResultConversationInfo  {
     private Integer appId;
 
     /**
-     * <p>信箱,用于逻辑隔离</p>
+     * <p>信箱，用于逻辑隔离</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "InboxType")
     private Integer inboxType;
@@ -66,7 +66,13 @@ public final class CreateConversationResResultConversationInfo  {
     private String notice;
 
     /**
-     * <p>会话状态。 0：正常 1：已解散</p>
+     * <p>会话状态。</p>
+     *
+     *
+     *
+     * <p>- `0`：正常</p>
+     *
+     * <p>- `1`：已解散</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Status")
     private Integer status;
@@ -90,7 +96,13 @@ public final class CreateConversationResResultConversationInfo  {
     private Long modifyTime;
 
     /**
-     * <p>会话类型。 1：单聊 2:群聊</p>
+     * <p>会话类型。</p>
+     *
+     *
+     *
+     * <p>- `1`：单聊</p>
+     *
+     * <p>- `2`：群聊</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ConversationType")
     private Integer conversationType;
@@ -108,7 +120,7 @@ public final class CreateConversationResResultConversationInfo  {
     private Long onlineCount;
 
     /**
-     * <p>单聊另一个成员的UserId</p>
+     * <p>单聊另一个成员的 UserId</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "OtherUserId")
     private Long otherUserId;

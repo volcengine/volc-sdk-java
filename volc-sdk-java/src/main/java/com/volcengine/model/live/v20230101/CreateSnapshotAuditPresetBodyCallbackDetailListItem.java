@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class CreateSnapshotAuditPresetBodyCallbackDetailListItem  {
 
     /**
-     * <p>回调的类型 HTTP。</p>
+     * <p>回调地址的类型，当前仅支持 http。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CallbackType")
     private String callbackType;

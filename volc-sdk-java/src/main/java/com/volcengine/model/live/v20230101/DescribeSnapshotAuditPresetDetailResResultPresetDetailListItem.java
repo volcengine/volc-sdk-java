@@ -114,6 +114,18 @@ public final class DescribeSnapshotAuditPresetDetailResResultPresetDetailListIte
     @com.alibaba.fastjson.annotation.JSONField(name = "Label")
     private List<String> label;
 
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "AccountID")
+    private String accountID;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "AuditType")
+    private String auditType;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

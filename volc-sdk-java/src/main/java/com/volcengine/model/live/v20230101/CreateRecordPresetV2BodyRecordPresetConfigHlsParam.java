@@ -44,11 +44,11 @@ public final class CreateRecordPresetV2BodyRecordPresetConfigHlsParam  {
      *
      *
      *
-     * <p>-1：一直拼接；</p>
+     * <p>- \-1：一直拼接；</p>
      *
-     * <p>0：不拼接；</p>
+     * <p>- 0：不拼接；</p>
      *
-     * <p>大于 0：断流拼接时间间隔，对 HLS 录制生效。</p>
+     * <p>- 大于 0：断流拼接时间间隔，对 HLS 录制生效。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Splice")
     private Integer splice;
@@ -56,13 +56,11 @@ public final class CreateRecordPresetV2BodyRecordPresetConfigHlsParam  {
     /**
      * <p>TOS 存储相关配置</p>
      *
+     * <p>:::tip</p>
      *
+     * <p>`TOSParam`和`VODParam`配置且配置其中一个。</p>
      *
-     * <p>说明</p>
-     *
-     *
-     *
-     * <p>TOSParam和VODParam配置且配置其中一个。</p>
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TOSParam")
     private CreateRecordPresetV2BodyRecordPresetConfigHlsParamTOSParam tOSParam;
@@ -70,13 +68,11 @@ public final class CreateRecordPresetV2BodyRecordPresetConfigHlsParam  {
     /**
      * <p>VOD 存储相关配置</p>
      *
+     * <p>:::tip</p>
      *
+     * <p>`TOSParam`和`VODParam`配置且配置其中一个。</p>
      *
-     * <p>说明</p>
-     *
-     *
-     *
-     * <p>TOSParam和VODParam配置且配置其中一个。</p>
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "VODParam")
     private CreateRecordPresetV2BodyRecordPresetConfigHlsParamVODParam vODParam;

@@ -16,13 +16,13 @@ public final class DeleteSnapshotAuditPresetBody  {
     private String vhost;
 
     /**
-     * <p>App 名称。</p>
+     * <p>应用名称，由 1 到 30 位数字、字母、下划线及"-"和"."组成。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>审核模版名称。</p>
+     * <p>截图审核配置的名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PresetName")
     private String presetName;

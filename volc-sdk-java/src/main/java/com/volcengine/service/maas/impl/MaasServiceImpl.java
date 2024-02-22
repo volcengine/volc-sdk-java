@@ -1,5 +1,6 @@
 package com.volcengine.service.maas.impl;
 
+import com.google.protobuf.GeneratedMessageV3;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.util.JsonFormat;
 import com.volcengine.error.SdkError;
@@ -12,7 +13,7 @@ import com.volcengine.service.maas.MaasConfig;
 import com.volcengine.service.maas.MaasException;
 import com.volcengine.service.maas.MaasService;
 import org.apache.http.HttpResponse;
-import org.apache.http.entity.ByteArrayEntity;
+import org.apache.http.entity.StringEntity;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,7 +37,7 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
     public Api.ChatResp chat(Api.ChatReq req) throws MaasException {
         req = req.toBuilder().setStream(false).build();
 
-        RawResponse response = this.proto(Const.MaasApiChat, null, null, req.toByteArray(), null);
+        RawResponse response = this.json(Const.MaasApiChat, null, json_dumps(req));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             Api.ChatResp resp;
             try {
@@ -55,12 +56,11 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
         req = req.toBuilder().setStream(true).build();
 
         SignableRequest request = prepareRequest(Const.MaasApiChat, null);
-        request.setHeader(Const.CONTENT_TYPE, Const.APPLICATION_X_PROTOBUF);
-        request.setEntity(new ByteArrayEntity(req.toByteArray()));
+        request.setHeader("Content-Type", "application/json");
+        request.setEntity(new StringEntity(json_dumps(req), "utf-8"));
         try {
             ISigner.sign(request, this.credentials);
         } catch (Exception e) {
-            e.printStackTrace();
             throw new MaasException(e, req.getReqId());
         }
 
@@ -102,7 +102,7 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
 
     @Override
     public Api.TokenizeResp tokenization(Api.TokenizeReq req) throws MaasException {
-        RawResponse response = this.proto(Const.MaasApiTokenization, null, null, req.toByteArray(), null);
+        RawResponse response = this.json(Const.MaasApiTokenization, null, json_dumps(req));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             Api.TokenizeResp resp;
             try {
@@ -118,7 +118,7 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
 
     @Override
     public Api.ClassificationResp classification(Api.ClassificationReq req) throws MaasException {
-        RawResponse response = this.proto(Const.MaasApiClassification, null, null, req.toByteArray(), null);
+        RawResponse response = this.json(Const.MaasApiClassification, null, json_dumps(req));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             Api.ClassificationResp resp;
             try {
@@ -134,7 +134,7 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
 
     @Override
     public Api.EmbeddingsResp embeddings(Api.EmbeddingsReq req) throws MaasException {
-        RawResponse response = this.proto(Const.MaasApiEmbeddings, null, null, req.toByteArray(), null);
+        RawResponse response = this.json(Const.MaasApiEmbeddings, null, json_dumps(req));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             Api.EmbeddingsResp resp;
             try {
@@ -188,11 +188,19 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
         }
     }
 
+    private static <T extends GeneratedMessageV3> String json_dumps(T req) throws MaasException {
+        try {
+            return JsonFormat.printer().preservingProtoFieldNames().print(req);
+        } catch (InvalidProtocolBufferException e) {
+            throw new MaasException(e, "");
+        }
+    }
+
     private void closeInputStream(InputStream inputStream) {
-        if(inputStream != null) {
+        if (inputStream != null) {
             try {
                 inputStream.close();
-            } catch (IOException e) {
+            } catch (IOException ignored) {
             }
         }
     }

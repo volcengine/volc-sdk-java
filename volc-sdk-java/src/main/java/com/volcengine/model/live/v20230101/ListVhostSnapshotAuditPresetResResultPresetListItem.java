@@ -16,13 +16,13 @@ public final class ListVhostSnapshotAuditPresetResResultPresetListItem  {
     private String vhost;
 
     /**
-     * <p>App 名称。</p>
+     * <p>应用名称，由 1 到 30 位数字、字母、下划线及"-"和"."组成。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>审核模版详细信息。</p>
+     * <p>截图审核配置详细信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AuditPreset")
     private ListVhostSnapshotAuditPresetResResultPresetListItemAuditPreset auditPreset;

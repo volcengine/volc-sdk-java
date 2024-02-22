@@ -29,6 +29,12 @@ public final class UpdateFriendBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "FriendInfos")
     private List<UpdateFriendBodyFriendInfosItem> friendInfos;
 
+    /**
+     * <p>信箱，用做逻辑隔离。默认值为`0`</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "InboxType")
+    private Integer inboxType;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

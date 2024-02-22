@@ -18,7 +18,7 @@ public final class ModifyConversationBodyConversationCoreInfo  {
     private Long conversationShortId;
 
     /**
-     * <p>会话的扩展字段</p>
+     * <p>会话的扩展字段。`key` 的数据类型为 `String`，`value` 的数据类型为 `String`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Ext")
     private Map<String, String> ext;
@@ -48,7 +48,7 @@ public final class ModifyConversationBodyConversationCoreInfo  {
     private String notice;
 
     /**
-     * <p>群主的UserId</p>
+     * <p>会话拥有人 UserId</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "OwnerUserId")
     private Long ownerUserId;

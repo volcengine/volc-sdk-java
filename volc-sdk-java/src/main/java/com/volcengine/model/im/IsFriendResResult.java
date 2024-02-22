@@ -12,7 +12,7 @@ import java.util.List;
 public final class IsFriendResResult  {
 
     /**
-     * <p>TODO</p>
+     * <p>好友关系详情</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Infos")
     private List<IsFriendResResultInfosItem> infos;

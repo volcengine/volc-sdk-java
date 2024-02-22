@@ -11,7 +11,7 @@ import java.util.List;
 public final class ListVhostSnapshotAuditPresetResResult  {
 
     /**
-     * <p>截图审核模版列表。</p>
+     * <p>截图审核配置列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PresetList")
     private List<ListVhostSnapshotAuditPresetResResultPresetListItem> presetList;

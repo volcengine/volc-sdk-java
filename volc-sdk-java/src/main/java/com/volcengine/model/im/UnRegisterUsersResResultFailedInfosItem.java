@@ -13,7 +13,7 @@ public final class UnRegisterUsersResResultFailedInfosItem  {
      * <p>失败的uid</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "UserId")
-    private String userId;
+    private Long userId;
 
     /**
      * <p>错误信息。参考：[错误码](https://www.volcengine.com/docs/6348/412253)</p>

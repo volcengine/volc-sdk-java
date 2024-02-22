@@ -16,7 +16,7 @@ public final class BatchUpdateUserRes {
     private ResponseMetadata responseMetadata;
 
     /**
-     * <p>TODO</p>
+     * <p>视请求的接口而定</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Result")
     private BatchUpdateUserResResult result;

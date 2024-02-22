@@ -16,7 +16,7 @@ public final class ModifyConversationSettingBody  {
     private Integer appId;
 
     /**
-     * <p>TODO</p>
+     * <p>用户会话设置</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ConversationSettingInfo")
     private ModifyConversationSettingBodyConversationSettingInfo conversationSettingInfo;

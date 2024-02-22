@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class CreateConversationResResult  {
 
     /**
-     * <p>会话 ID</p>
+     * <p>会话id</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ConversationShortId")
     private Long conversationShortId;
@@ -22,7 +22,7 @@ public final class CreateConversationResResult  {
     private Boolean exist;
 
     /**
-     * <p>TODO</p>
+     * <p>会话详细信息</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ConversationInfo")
     private CreateConversationResResultConversationInfo conversationInfo;

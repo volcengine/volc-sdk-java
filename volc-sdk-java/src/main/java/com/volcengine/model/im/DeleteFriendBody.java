@@ -24,7 +24,7 @@ public final class DeleteFriendBody  {
     private Long userId;
 
     /**
-     * <p>信箱，用做逻辑隔离 默认值为 0</p>
+     * <p>信箱，用做逻辑隔离。默认值为 `0`</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "InboxType")
     private Integer inboxType;

@@ -516,6 +516,21 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public CommonStatusResponse presenterChatAPIV2(PresenterChatRequest presenterChatRequest) throws Exception {
+        RawResponse response = json(Const.PresenterChatAPIV2, new ArrayList<>(), JSON.toJSONString(presenterChatRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CommonStatusResponse res = JSON.parseObject(response.getData(), CommonStatusResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public PollingChatAPIResponse pollingChatAPI(PollingChatAPIRequest pollingChatAPIRequest) throws Exception {
         RawResponse response = query(Const.PollingChatAPI, Utils.paramsToPair(pollingChatAPIRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

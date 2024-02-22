@@ -10,7 +10,13 @@ import com.alibaba.fastjson.JSON;
 public final class IsUserInConversationResResult  {
 
     /**
-     * <p>用户是否在会话中。 true：是。 false：否。</p>
+     * <p>用户是否在会话中。</p>
+     *
+     *
+     *
+     * <p>- `true`：是。</p>
+     *
+     * <p>- `false`：否。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "IsUserInConversation")
     private Boolean isUserInConversation;

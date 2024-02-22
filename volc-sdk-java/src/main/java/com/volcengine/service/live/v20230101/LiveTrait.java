@@ -1512,6 +1512,21 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>describeLiveBatchSourceStreamAvgMetrics</p>
+     * <p>查询多路回源流监控数据平均值指标</p>
+     *
+     * <p>支持查询一定时间范围内多路直播回源流的音视频帧率、码率等信息，用于判断回源流的健康程度。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeLiveBatchSourceStreamAvgMetricsRes describeLiveBatchSourceStreamAvgMetrics(DescribeLiveBatchSourceStreamAvgMetricsBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeLiveBatchSourceStreamAvgMetrics", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeLiveBatchSourceStreamAvgMetricsRes.class);
+    }
+
+    /**
      * <p>describeLiveBatchPushStreamMetrics</p>
      * <p>查询多路推流监控数据</p>
      *
@@ -1524,6 +1539,21 @@ public class LiveTrait extends BaseServiceImpl {
     public DescribeLiveBatchPushStreamMetricsRes describeLiveBatchPushStreamMetrics(DescribeLiveBatchPushStreamMetricsBody body) throws Exception {
         RawResponse rawResponse = json("DescribeLiveBatchPushStreamMetrics", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, DescribeLiveBatchPushStreamMetricsRes.class);
+    }
+
+    /**
+     * <p>describeLiveBatchPushStreamAvgMetrics</p>
+     * <p>查询多路推流监控数据平均值</p>
+     *
+     * <p>支持查询一定时间范围内指定推流域名下直播推流的音视频帧率、码率等平均值指标，用于判断直播推流的健康程度。支持查询删除域名的直播推流数据。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeLiveBatchPushStreamAvgMetricsRes describeLiveBatchPushStreamAvgMetrics(DescribeLiveBatchPushStreamAvgMetricsBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeLiveBatchPushStreamAvgMetrics", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeLiveBatchPushStreamAvgMetricsRes.class);
     }
 
     /**
@@ -2017,6 +2047,51 @@ public class LiveTrait extends BaseServiceImpl {
     public DescribeLiveStreamUsageDataRes describeLiveStreamUsageData(DescribeLiveStreamUsageDataBody body) throws Exception {
         RawResponse rawResponse = json("DescribeLiveStreamUsageData", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, DescribeLiveStreamUsageDataRes.class);
+    }
+
+    /**
+     * <p>deleteIPAccessRule</p>
+     * <p>删除ip访问限制</p>
+     *
+     * <p>更新ip访问限制</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteIPAccessRuleRes deleteIPAccessRule(DeleteIPAccessRuleBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteIPAccessRule", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteIPAccessRuleRes.class);
+    }
+
+    /**
+     * <p>updateIPAccessRule</p>
+     * <p>更新ip访问限制</p>
+     *
+     * <p>更新ip访问限制</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateIPAccessRuleRes updateIPAccessRule(UpdateIPAccessRuleBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateIPAccessRule", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateIPAccessRuleRes.class);
+    }
+
+    /**
+     * <p>describeIPAccessRule</p>
+     * <p>查询ip访问限制</p>
+     *
+     * <p>查询ip访问限制</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeIPAccessRuleRes describeIPAccessRule(DescribeIPAccessRuleBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeIPAccessRule", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeIPAccessRuleRes.class);
     }
 
 }

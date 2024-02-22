@@ -12,7 +12,7 @@ import java.util.List;
 public final class GetParticipantReadIndexResResult  {
 
     /**
-     * <p>TODO</p>
+     * <p>会话成员信息</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ReadIndexes")
     private List<GetParticipantReadIndexResResultReadIndexesItem> readIndexes;

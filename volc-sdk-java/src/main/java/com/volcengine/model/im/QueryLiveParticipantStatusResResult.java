@@ -12,7 +12,7 @@ import java.util.List;
 public final class QueryLiveParticipantStatusResResult  {
 
     /**
-     * <p>TODO</p>
+     * <p>成员在直播群的状态</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Status")
     private List<QueryLiveParticipantStatusResResultStatusItem> status;

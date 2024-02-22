@@ -36,13 +36,21 @@ public final class CreateConversationBodyConversationCoreInfo  {
     private String notice;
 
     /**
-     * <p>map<string,string> 扩展字段</p>
+     * <p>扩展字段</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Ext")
     private Map<String, String> ext;
 
     /**
-     * <p>会话类型 1：单聊 2:群聊 100：直播群</p>
+     * <p>会话类型</p>
+     *
+     *
+     *
+     * <p>- `1`：单聊</p>
+     *
+     * <p>- `2`：群聊</p>
+     *
+     * <p>- `100`：直播群</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ConversationType")
     private Integer conversationType;

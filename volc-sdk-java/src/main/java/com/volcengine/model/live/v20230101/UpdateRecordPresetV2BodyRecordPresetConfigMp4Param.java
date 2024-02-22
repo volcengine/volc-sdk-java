@@ -22,13 +22,13 @@ public final class UpdateRecordPresetV2BodyRecordPresetConfigMp4Param  {
     private Boolean enable;
 
     /**
-     * <p>断流录制单文件录制时长，单位为 s，默认值为 7200，取值范围为 -1，[300,86400]，-1表示一直录制，目前只对HLS生效</p>
+     * <p>断流录制单文件录制时长，单位为 s，默认值为 7200，取值范围为 -1，[300,86400]，-1表示一直录制，目前只对 HLS 生效。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Duration")
     private Integer duration;
 
     /**
-     * <p>实时录制文件时长，单位为 s，取值范围为 [300,21600]</p>
+     * <p>实时录制文件时长，单位为 s，取值范围为 [300,21600]。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RealtimeRecordDuration")
     private Integer realtimeRecordDuration;
@@ -38,45 +38,41 @@ public final class UpdateRecordPresetV2BodyRecordPresetConfigMp4Param  {
      *
      *
      *
-     * <p>-1：一直拼接；</p>
+     * <p>- \-1：一直拼接；</p>
      *
-     * <p>0：不拼接；</p>
+     * <p>- 0：不拼接；</p>
      *
-     * <p>大于 0：断流拼接时间间隔，对 HLS 录制生效。</p>
+     * <p>- 大于 0：断流拼接时间间隔，对 HLS 录制生效。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Splice")
     private Integer splice;
 
     /**
-     * <p>TOS 存储相关配置</p>
+     * <p>TOS 存储相关配置。</p>
      *
+     * <p>:::tip</p>
      *
+     * <p>`TOSParam`和`VODParam`配置且配置其中一个。</p>
      *
-     * <p>说明</p>
-     *
-     *
-     *
-     * <p>TOSParam和VODParam配置且配置其中一个。</p>
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TOSParam")
     private UpdateRecordPresetV2BodyRecordPresetConfigMp4ParamTOSParam tOSParam;
 
     /**
-     * <p>VOD 存储相关配置</p>
+     * <p>VOD 存储相关配置。</p>
      *
+     * <p>:::tip</p>
      *
+     * <p>`TOSParam`和`VODParam`配置且配置其中一个。</p>
      *
-     * <p>说明</p>
-     *
-     *
-     *
-     * <p>TOSParam和VODParam配置且配置其中一个。</p>
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "VODParam")
     private UpdateRecordPresetV2BodyRecordPresetConfigMp4ParamVODParam vODParam;
 
     /**
-     * <p>断流等待时长，取值范围[0, 3600]</p>
+     * <p>断流等待时长，取值范围[0, 3600]。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ContinueDuration")
     private Integer continueDuration;

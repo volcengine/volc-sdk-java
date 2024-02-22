@@ -22,13 +22,13 @@ public final class GetBlackListBody  {
     private Long userId;
 
     /**
-     * <p>信箱，用做逻辑隔离。默认值为 0</p>
+     * <p>信箱，用做逻辑隔离。默认值为 `0`</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "InboxType")
     private Integer inboxType;
 
     /**
-     * <p>查询起始位置，按照添加顺序逆序查询。默认值为 0，即最后一个添加至黑名单的用户。</p>
+     * <p>查询起始位置，按照添加顺序逆序查询。默认值为 `0`，即最后一个添加至黑名单的用户。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Cursor")
     private Long cursor;
@@ -40,7 +40,17 @@ public final class GetBlackListBody  {
     private Long limit;
 
     /**
-     * <p>是否需要黑名单用户总数。 false：不需要。 true：需要。 默认值为 false。</p>
+     * <p>是否需要黑名单用户总数。</p>
+     *
+     *
+     *
+     * <p>- `false`：不需要。</p>
+     *
+     * <p>- `true`：需要。</p>
+     *
+     *
+     *
+     * <p>默认值为 `false`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "NeedTotal")
     private Boolean needTotal;

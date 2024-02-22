@@ -16,19 +16,19 @@ public final class ListPullToPushTaskResResultPagination  {
     private Integer pageCur;
 
     /**
-     * <p>每页结果数量。</p>
+     * <p>每页显示的数据条数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageSize")
     private Integer pageSize;
 
     /**
-     * <p>分页的总量。</p>
+     * <p>查询结果的数据总页数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageTotal")
     private Integer pageTotal;
 
     /**
-     * <p>返回任务总条数。</p>
+     * <p>查询结果的数据总条数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TotalCount")
     private Integer totalCount;

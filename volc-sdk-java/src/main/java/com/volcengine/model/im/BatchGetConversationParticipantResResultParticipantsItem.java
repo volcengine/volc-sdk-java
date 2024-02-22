@@ -9,7 +9,7 @@ import java.util.Map;
  * BatchGetConversationParticipantResResultParticipantsItem
  */
 @lombok.Data
-public final class BatchGetConversationParticipantResResultParticipantsItem  {
+public final class BatchGetConversationParticipantResResultParticipantsItem {
 
     /**
      * <p>会话 ID</p>
@@ -42,7 +42,13 @@ public final class BatchGetConversationParticipantResResultParticipantsItem  {
     private Long operator;
 
     /**
-     * <p>成员状态。 0：正常 1：退出</p>
+     * <p>成员状态。</p>
+     *
+     *
+     *
+     * <p>- `0`：正常</p>
+     *
+     * <p>- `1`：退出</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Status")
     private Integer status;
@@ -60,13 +66,21 @@ public final class BatchGetConversationParticipantResResultParticipantsItem  {
     private Map<String, String> ext;
 
     /**
-     * <p>成员身份。 0: 普通成员。 1: 群主。 2：群管理员。</p>
+     * <p>成员身份。</p>
+     *
+     *
+     *
+     * <p>- `0`：普通成员。</p>
+     *
+     * <p>- `1`：群主。</p>
+     *
+     * <p>- `2`：群管理员。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Role")
     private Long role;
 
     /**
-     * <p>禁言时间戳，单位为秒。0表示不禁言</p>
+     * <p>禁言时间戳，单位为秒。`0`表示不禁言</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "BlockTime")
     private Long blockTime;

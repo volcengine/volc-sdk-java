@@ -30,7 +30,7 @@ public final class AddBlackListBody  {
     private Integer inboxType;
 
     /**
-     * <p>TODO</p>
+     * <p>需要加入黑名单的 UserId 及每个用户对应的扩展信息，一次最多添加 10 个用户至黑名单</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "BlackListInfos")
     private List<AddBlackListBodyBlackListInfosItem> blackListInfos;

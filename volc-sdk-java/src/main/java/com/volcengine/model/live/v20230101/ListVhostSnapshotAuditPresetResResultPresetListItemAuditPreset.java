@@ -17,31 +17,25 @@ public final class ListVhostSnapshotAuditPresetResResultPresetListItemAuditPrese
     private Float interval;
 
     /**
-     * <p>审核模板名称。</p>
+     * <p>截图审核配置的名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PresetName")
     private String presetName;
 
     /**
-     * <p>ToS 存储空间 bucket。</p>
-     *
-     * <p>:::tip</p>
-     *
-     * <p>参数 `Bucket` 和 `ServiceID` 传且仅传一个。</p>
-     *
-     * <p>:::</p>
+     * <p>ToS 存储对应的 Bucket。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Bucket")
     private String bucket;
 
     /**
-     * <p>ToS 存储空间 bucket 下的存储目录。</p>
+     * <p>ToS 存储对应的 Bucket 下的存储目录。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StorageDir")
     private String storageDir;
 
     /**
-     * <p>审核结果回调配置。</p>
+     * <p>截图审核结果回调地址配置。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CallbackDetailList")
     private List<ListVhostSnapshotAuditPresetResResultPresetListItemAuditPresetCallbackDetailListItem> callbackDetailList;
@@ -59,13 +53,13 @@ public final class ListVhostSnapshotAuditPresetResResultPresetListItemAuditPrese
     private String serviceID;
 
     /**
-     * <p>审核模板描述。</p>
+     * <p>截图审核配置的描述。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Description")
     private String description;
 
     /**
-     * <p>存储策略。支持以下取值。</p>
+     * <p>存储策略，取值及含义如下。</p>
      *
      * <p>- 0：触发存储，只存储有风险图片；</p>
      *
@@ -75,7 +69,7 @@ public final class ListVhostSnapshotAuditPresetResResultPresetListItemAuditPrese
     private Integer storageStrategy;
 
     /**
-     * <p>审核标签名称，若为空，则默认请求所有基础模型。支持以下取值。</p>
+     * <p>审核标签名称，取值及含义如下。</p>
      *
      * <p>- 301：涉黄；</p>
      *
@@ -103,10 +97,16 @@ public final class ListVhostSnapshotAuditPresetResResultPresetListItemAuditPrese
     private List<String> label;
 
     /**
-     * <p>更新时间，RFC3339 格式的 UTC 时间，精度为 s。</p>
+     * <p>配置信息的更新时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "UpdateTime")
     private String updateTime;
+
+    /**
+     * <p>存储方式为实时存储时的存储规则，支持以 {Domain}/{App}/{Stream}/{UnixTimestamp} 样式设置存储规则，支持输入字母、数字、"-"、"!"、"\_"、"."、"\*"及占位符。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "SnapshotObject")
+    private String snapshotObject;
 
     @Override
     public String toString() {

@@ -12,19 +12,19 @@ import java.util.List;
 public final class GetMessagesBody  {
 
     /**
-     * <p>TODO</p>
+     * <p>应用的唯一标志</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AppId")
     private Integer appId;
 
     /**
-     * <p>TODO</p>
+     * <p>会话 ID</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ConversationShortId")
     private Long conversationShortId;
 
     /**
-     * <p>TODO</p>
+     * <p>消息 ID</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "MessageIds")
     private List<Long> messageIds;

@@ -22,7 +22,7 @@ public final class UpdateRecordPresetV2BodyRecordPresetConfigMp4ParamTOSParam  {
     private Boolean enable;
 
     /**
-     * <p>TOS 存储空间，一般使用 CDN 对应的 Bucket</p>
+     * <p>TOS 存储空间，一般使用 CDN 对应的 Bucket。</p>
      *
      * <p>:::tip</p>
      *
@@ -34,7 +34,7 @@ public final class UpdateRecordPresetV2BodyRecordPresetConfigMp4ParamTOSParam  {
     private String bucket;
 
     /**
-     * <p>TOS 存储目录，默认为空</p>
+     * <p>TOS 存储目录，默认为空。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StorageDir")
     private String storageDir;

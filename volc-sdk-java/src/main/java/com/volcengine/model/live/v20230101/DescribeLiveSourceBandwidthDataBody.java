@@ -101,12 +101,6 @@ public final class DescribeLiveSourceBandwidthDataBody  {
     private List<DescribeLiveSourceBandwidthDataBodyUserRegionListItem> userRegionList;
 
     /**
-     * <p>查询单个或多个出口外网 IP 地址数据，第四个地址位需要改为 000。例如，实际 IP 地址为 10.255.159.10，则请求时取 10.255.159.000。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "IPList")
-    private List<String> iPList;
-
-    /**
      * <p>查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
@@ -136,8 +130,6 @@ public final class DescribeLiveSourceBandwidthDataBody  {
      * <p>数据拆分的维度，缺省情况下不进行数据拆分，支持的维度如下所示。</p>
      *
      * <p>- Domain：域名；</p>
-     *
-     * <p>- IP：出口外网的 IP 地址；</p>
      *
      * <p>- ISP：运营商。</p>
      *

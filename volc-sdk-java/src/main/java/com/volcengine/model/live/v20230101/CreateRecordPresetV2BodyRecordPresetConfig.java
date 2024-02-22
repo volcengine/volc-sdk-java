@@ -81,7 +81,7 @@ public final class CreateRecordPresetV2BodyRecordPresetConfig  {
      *
      * <p>:::tip</p>
      *
-     * <p>`FlvParam`、`HlsParam`、`Mp4Param`至少开启一个。</p>
+     * <p>`FlvParam`、`HlsParam`、`Mp4Param` 至少开启一个。</p>
      *
      * <p>:::</p>
      */
@@ -93,7 +93,7 @@ public final class CreateRecordPresetV2BodyRecordPresetConfig  {
      *
      * <p>:::tip</p>
      *
-     * <p>`FlvParam`、`HlsParam`、`Mp4Param`至少开启一个。</p>
+     * <p>`FlvParam`、`HlsParam`、`Mp4Param` 至少开启一个。</p>
      *
      * <p>:::</p>
      */

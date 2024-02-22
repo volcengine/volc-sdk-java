@@ -9,12 +9,11 @@ import com.volcengine.model.maas.api.v2.*;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.SignableRequest;
-import com.volcengine.service.maas.v2.MaasConfig;
 import com.volcengine.service.maas.MaasException;
-import com.volcengine.service.maas.v2.MaasService;
 import com.volcengine.service.maas.impl.SseEvent;
+import com.volcengine.service.maas.v2.MaasConfig;
+import com.volcengine.service.maas.v2.MaasService;
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.StringEntity;
 
@@ -22,12 +21,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
+import java.security.SecureRandom;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.stream.Stream;
 
 public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
     private static final String CHAT_TERMINATOR = "[DONE]";
+
+    private static final ObjectMapper mapper = new ObjectMapper();
 
     public MaasServiceImpl(String host, String region) {
         this(host, region, 60_000, 60_000);
@@ -37,42 +40,38 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
         super(MaasConfig.getServiceInfo(host, region, connectionTimeout, socketTimeout), MaasConfig.getApiInfoList());
     }
 
-
     @Override
     public ChatResp chat(String endpointId, ChatReq req) throws MaasException {
-        req = req.withStream(false);
+        return request(endpointId, Const.MaasApiChat, req.withStream(false), ChatResp.class);
+    }
 
-        RawResponse response = null;
-        try {
-            response = json(endpointId, Const.MaasApiChat, null, new ObjectMapper().writeValueAsString(req));
-        } catch (JsonProcessingException e) {
-            throw new MaasException(e, null);
-        }
-        String logId = response.getFirstHeader("x-tt-logid");
+    @Override
+    public TokenizeResp tokenization(String endpointId, TokenizeReq req) throws MaasException {
+        return request(endpointId, Const.MaasApiTokenization, req, TokenizeResp.class);
+    }
 
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            ChatResp resp;
-            try {
-                resp = convertJsonBytesToChatResp(response.getException().getMessage().getBytes());
-            } catch (MaasException ignored) {
-                throw new MaasException(response.getException(), logId);
-            }
-            throw new MaasException(resp.getError(), logId);
-        }
+    @Override
+    public ClassificationResp classification(String endpointId, ClassificationReq req) throws MaasException {
+        return request(endpointId, Const.MaasApiClassification, req, ClassificationResp.class);
+    }
 
-        return convertJsonBytesToChatResp(response.getData());
+    @Override
+    public EmbeddingsResp embeddings(String endpointId, EmbeddingsReq req) throws MaasException {
+        return request(endpointId, Const.MaasApiEmbeddings, req, EmbeddingsResp.class);
     }
 
     @Override
     public Stream<ChatResp> streamChat(String endpointId, ChatReq req) throws MaasException {
         req.setStream(true);
+        String reqId = genReqId();
 
         SignableRequest request = prepareRequest(Const.MaasApiChat, null);
         try {
-            request.setEntity(new StringEntity(new ObjectMapper().writeValueAsString(req), "utf-8"));
+            request.setEntity(new StringEntity(mapper.writeValueAsString(req), "utf-8"));
+            request.setHeader("x-tt-logid", reqId);
             request.setHeader("Content-Type", "application/json");
         } catch (JsonProcessingException e) {
-            throw new MaasException(e, null);
+            throw new MaasException(e, reqId);
         }
 
         try {
@@ -82,27 +81,23 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
 
             ISigner.sign(request, this.credentials);
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new MaasException(e, null);
+            throw new MaasException(e, reqId);
         }
 
         HttpResponse response;
-        String logId = null;
         try {
             response = this.getHttpClient().execute(request);
-            logId = response.getFirstHeader("x-tt-logid").getValue();
         } catch (IOException e) {
-            throw new MaasException(e, logId);
+            throw new MaasException(e, reqId);
         }
 
         InputStream is;
         try {
             is = response.getEntity().getContent();
         } catch (IOException e) {
-            throw new MaasException(e, logId);
+            throw new MaasException(e, reqId);
         }
 
-        final String finalLogId = logId;
         return SseEvent.fromInputStream(is, StandardCharsets.UTF_8)
                 .map(event -> {
                     if (event.getData().trim().equals(CHAT_TERMINATOR)) {
@@ -111,137 +106,61 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
 
                     ChatResp resp;
                     try {
-                        resp = convertJsonBytesToChatResp(event.getData().getBytes());
-                    } catch (MaasException e) {
+                        resp = json_parse(event.getData().getBytes(), ChatResp.class);
+                    } catch (JsonProcessingException e) {
                         closeInputStream(is);
-                        throw new RuntimeException(e);
+                        throw new RuntimeException(new MaasException(e, reqId));
                     }
                     if (resp.getError() != null && resp.getError().getCodeN() != 0) {
                         closeInputStream(is);
-                        throw new RuntimeException(new MaasException(resp.getError(), finalLogId));
+                        throw new RuntimeException(new MaasException(resp.getError(), reqId));
                     }
 
                     return resp;
                 }).filter(Objects::nonNull);
     }
 
-    @Override
-    public TokenizeResp tokenization(String endpointId, TokenizeReq req) throws MaasException {
-        RawResponse response = null;
-        try {
-            response = json(endpointId, Const.MaasApiTokenization, null, new ObjectMapper().writeValueAsString(req));
-        } catch (JsonProcessingException e) {
-            throw new MaasException(e, null);
-        }
-
-        String logId = response.getFirstHeader("x-tt-logid");
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            TokenizeResp resp;
-            try {
-                resp = convertJsonBytesToTokenizeResp(response.getException().getMessage().getBytes());
-            } catch (MaasException ignored) {
-                throw new MaasException(response.getException(), logId);
-            }
-            throw new MaasException(resp.getError(), logId);
-        }
-
-        return convertJsonBytesToTokenizeResp(response.getData());
-    }
-
-    @Override
-    public ClassificationResp classification(String endpointId, ClassificationReq req) throws MaasException {
-        RawResponse response = null;
-        try {
-            response = json(endpointId, Const.MaasApiClassification, null, new ObjectMapper().writeValueAsString(req));
-        } catch (JsonProcessingException e) {
-            throw new MaasException(e, null);
-        }
-
-        String logId = response.getFirstHeader("x-tt-logid");
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            ClassificationResp resp;
-            try {
-                resp = convertJsonBytesToClassificationResp(response.getException().getMessage().getBytes());
-            } catch (MaasException ignored) {
-                throw new MaasException(response.getException(), logId);
-            }
-            throw new MaasException(resp.getError(), logId);
-        }
-
-        return convertJsonBytesToClassificationResp(response.getData());
-    }
-
-    @Override
-    public EmbeddingsResp embeddings(String endpointId, EmbeddingsReq req) throws MaasException {
-        RawResponse response = null;
-        try {
-            response = json(endpointId, Const.MaasApiEmbeddings, null, new ObjectMapper().writeValueAsString(req));
-        } catch (JsonProcessingException e) {
-            throw new MaasException(e, null);
-        }
-
-        String logId = response.getFirstHeader("x-tt-logid");
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            EmbeddingsResp resp;
-            try {
-                resp = convertJsonBytesToEmbeddingsResp(response.getException().getMessage().getBytes());
-            } catch (MaasException ignored) {
-                throw new MaasException(response.getException(), logId);
-            }
-            throw new MaasException(resp.getError(), logId);
-        }
-
-        return convertJsonBytesToEmbeddingsResp(response.getData());
-    }
-
-    private static ChatResp convertJsonBytesToChatResp(byte[] data) throws MaasException {
-        try {
-            return new ObjectMapper().readValue(new String(data, StandardCharsets.UTF_8), ChatResp.class);
-        } catch (Exception e) {
-            throw new MaasException(e, "");
-        }
-    }
-
-    private static TokenizeResp convertJsonBytesToTokenizeResp(byte[] data) throws MaasException {
-        try {
-            return new ObjectMapper().readValue(new String(data, StandardCharsets.UTF_8), TokenizeResp.class);
-        } catch (Exception e) {
-            throw new MaasException(e, "");
-        }
-    }
-
-    private static ClassificationResp convertJsonBytesToClassificationResp(byte[] data) throws MaasException {
-        try {
-            return new ObjectMapper().readValue(new String(data, StandardCharsets.UTF_8), ClassificationResp.class);
-        } catch (Exception e) {
-            throw new MaasException(e, "");
-        }
-    }
-
-    private static EmbeddingsResp convertJsonBytesToEmbeddingsResp(byte[] data) throws MaasException {
-        try {
-            return new ObjectMapper().readValue(new String(data, StandardCharsets.UTF_8), EmbeddingsResp.class);
-        } catch (Exception e) {
-            throw new MaasException(e, "");
-        }
-    }
-
     private void closeInputStream(InputStream inputStream) {
-        if(inputStream != null) {
+        if (inputStream != null) {
             try {
                 inputStream.close();
-            } catch (IOException e) {
+            } catch (IOException ignored) {
             }
         }
     }
 
-    private RawResponse json(String endpointId, String api, List<NameValuePair> params, String body) throws MaasException {
+    private static <T> T json_parse(byte[] data, Class<T> valueType) throws JsonProcessingException {
+        return mapper.readValue(new String(data, StandardCharsets.UTF_8), valueType);
+    }
+
+    private <T> T request(String endpointId, String api, Object req, Class<T> responseType) throws MaasException {
+        String reqId = genReqId();
+
+        try {
+            RawResponse response = json(endpointId, api, reqId, mapper.writeValueAsString(req));
+            if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+                try {
+                    ErrorResp resp = json_parse(response.getException().getMessage().getBytes(), ErrorResp.class);
+                    throw new MaasException(resp.getError(), reqId);
+                } catch (JsonProcessingException ignored) {
+                    throw new MaasException(response.getException(), reqId);
+                }
+            }
+
+            return json_parse(response.getData(), responseType);
+        } catch (JsonProcessingException e) {
+            throw new MaasException(e, reqId);
+        }
+    }
+
+    private RawResponse json(String endpointId, String api, String reqId, String body) throws MaasException {
         ApiInfo apiInfo = apiInfoList.get(api);
         if (apiInfo == null) {
-            return new RawResponse(null, SdkError.ENOAPI.getNumber(), new Exception(SdkError.getErrorDesc(SdkError.ENOAPI)));
+            throw new MaasException(SdkError.getErrorDesc(SdkError.ENOAPI), reqId);
         }
 
-        SignableRequest request = prepareRequest(api, params);
+        SignableRequest request = prepareRequest(api, null);
+        request.setHeader("x-tt-logid", reqId);
         request.setHeader("Content-Type", "application/json");
         request.setEntity(new StringEntity(body, "utf-8"));
 
@@ -250,9 +169,19 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
             builder.setPath(String.format(builder.getPath(), endpointId));
             request.setURI(builder.build());
         } catch (URISyntaxException e) {
-            throw new MaasException(e, null);
+            throw new MaasException(e, reqId);
         }
 
         return makeRequest(api, request);
+    }
+
+    private String genReqId() {
+        final int length = 34;
+
+        StringBuilder sb = new StringBuilder();
+        sb.ensureCapacity(length);
+        sb.append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")));
+        sb.append(String.format("%020X", new SecureRandom().nextLong()));
+        return sb.toString();
     }
 }

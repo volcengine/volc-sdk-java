@@ -35,7 +35,7 @@ public final class UpdateSnapshotAuditPresetBody  {
     private String domain;
 
     /**
-     * <p>App 名称。</p>
+     * <p>应用名称，由 1 到 30 位数字、字母、下划线及"-"和"."组成。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
@@ -47,13 +47,13 @@ public final class UpdateSnapshotAuditPresetBody  {
     private Float interval;
 
     /**
-     * <p>审核模板名称。</p>
+     * <p>截图审核配置的名称，您可以通过调用[查询截图审核配置列表](https://www.volcengine.com/docs/6469/1126870)接口获取。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PresetName")
     private String presetName;
 
     /**
-     * <p>ToS 存储空间 bucket。</p>
+     * <p>ToS 存储对应的 Bucket。</p>
      *
      * <p>:::tip</p>
      *
@@ -65,13 +65,15 @@ public final class UpdateSnapshotAuditPresetBody  {
     private String bucket;
 
     /**
-     * <p>ToS 存储空间 bucket 下的存储目录。</p>
+     * <p>ToS 存储对应 Bucket 下的存储目录，默认为空。</p>
+     *
+     * <p>例如，存储位置为 live-test-tos-example/live/liveapp 时，StorageDir 取值为 live/liveapp。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StorageDir")
     private String storageDir;
 
     /**
-     * <p>审核结果回调配置。</p>
+     * <p>截图审核结果回调地址配置。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CallbackDetailList")
     private List<UpdateSnapshotAuditPresetBodyCallbackDetailListItem> callbackDetailList;
@@ -89,7 +91,7 @@ public final class UpdateSnapshotAuditPresetBody  {
     private String serviceID;
 
     /**
-     * <p>审核模板描述。</p>
+     * <p>截图审核配置的描述。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Description")
     private String description;
@@ -105,7 +107,7 @@ public final class UpdateSnapshotAuditPresetBody  {
     private Integer storageStrategy;
 
     /**
-     * <p>审核标签名称，若为空，则默认请求所有基础模型。支持以下取值。</p>
+     * <p>审核标签，缺省情况下取值为 301、302、302、305 和 306，支持的取值及含义如下。</p>
      *
      * <p>- 301：涉黄；</p>
      *
@@ -131,6 +133,12 @@ public final class UpdateSnapshotAuditPresetBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Label")
     private List<String> label;
+
+    /**
+     * <p>截图存储规则，支持以 {Domain}/{App}/{Stream}/{UnixTimestamp} 样式设置存储规则，支持输入字母、数字、-、!、\_、.、\* 及占位符，最大长度为 180 个字符。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "SnapshotObject")
+    private String snapshotObject;
 
     @Override
     public String toString() {

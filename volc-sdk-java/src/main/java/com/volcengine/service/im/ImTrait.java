@@ -121,7 +121,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>isUserInConversation</p>
      * <p>判断用户是否在会话中</p>
      *
-     * <p>你可以调用IsUserInConversation接口，指定你所属的AppId、会话 ID 和会话成员 UserId，判断该用户是否在会话中。</p>
+     * <p>你可以使用此接口判断用户是否在会话中。</p>
      *
      * @param body body payload
      * @return response data
@@ -181,7 +181,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>batchGetConversationParticipant</p>
      * <p>批量查询会话成员详细信息</p>
      *
-     * <p>你可以调用BatchGetConversationParticipant接口，指定你所属的AppId、会话 ID 和查询会话成员 UserId 进行批量查询会话成员的详细信息。</p>
+     * <p>你可以使用此接口批量查询会话成员的详细信息。</p>
      *
      * @param body body payload
      * @return response data
@@ -320,7 +320,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>getParticipantReadIndex</p>
      * <p>查询会话成员已读位置</p>
      *
-     * <p>你可以调用GetParticipantReadIndex接口，指定你所属的AppId和会话 ID 查询会话中所有成员的已读位置。</p>
+     * <p>你可以使用此接口查询会话中所有成员的已读位置。</p>
      *
      * @param body body payload
      * @return response data
@@ -335,7 +335,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>getConversationUserCount</p>
      * <p>查询会话成员数量</p>
      *
-     * <p>你可以调用GetConversationUserCount接口，指定你所属的AppId和会话 ID，查询会话成员数量。</p>
+     * <p>你可以使用此接口查询会话成员数量。</p>
      *
      * @param body body payload
      * @return response data
@@ -350,15 +350,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>queryLiveParticipantStatus</p>
      * <p>查询直播群成员状态</p>
      *
-     * <p>你可以调用QueryLiveParticipantStatus接口，指定你所属的AppId、会话 ID 和查询群成员的 UserId，查询指定成员在直播群的状态。</p>
-     *
-     *
-     *
-     * <p>目前仅直播群支持此接口</p>
-     *
-     *
-     *
-     * <p>一次最多支持查询 200 个群成员状态。如查询群成员数超过 200，只返回前 200 个成员状态。</p>
+     * <p>你可以使用此接口查询群成员在直播群的状态。</p>
      *
      * @param body body payload
      * @return response data
@@ -373,7 +365,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>modifyConversation</p>
      * <p>修改会话信息</p>
      *
-     * <p>你可以调用ModifyConversation接口，指定你所属的AppId和会话信息修改会话的详细信息。</p>
+     * <p>你可以使用此接口修改会话信息。</p>
      *
      * @param body body payload
      * @return response data
@@ -388,7 +380,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>modifyConversationSetting</p>
      * <p>修改用户对会话的设置</p>
      *
-     * <p>你可以调用ModifyConversationSetting接口，指定你所属的AppId、会话 ID 和会话成员 UserId 修改该成员对会话的设置。</p>
+     * <p>你可以使用此接口查询会话成员对会话的设置</p>
      *
      * @param body body payload
      * @return response data
@@ -403,7 +395,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>createConversation</p>
      * <p>创建会话</p>
      *
-     * <p>你可以调用CreateConversation接口，指定你所属的AppId、会话成员 ID 和会话详细信息进行创建会话。</p>
+     * <p>你可以使用此接口创建会话。</p>
      *
      * @param body body payload
      * @return response data
@@ -418,7 +410,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>batchGetConversations</p>
      * <p>批量查询会话</p>
      *
-     * <p>你可以调用BatchGetConversations接口，指定你所属的AppId和会话 ID 批量查询会话信息。</p>
+     * <p>你可以使用此接口批量查询会话。</p>
      *
      * @param body body payload
      * @return response data
@@ -433,7 +425,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>getConversationSetting</p>
      * <p>查询成员对会话的设置</p>
      *
-     * <p>你可以调用GetConversationSetting接口，指定你所属的AppId、会话 ID和会话成员 UserId，查询会话成员对会话的设置。</p>
+     * <p>你可以使用此接口查询会话成员对会话的设置。</p>
      *
      * @param body body payload
      * @return response data
@@ -448,7 +440,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>getUserConversations</p>
      * <p>查询用户拥有会话</p>
      *
-     * <p>你可以调用GetUserConversations接口，指定你所属的AppId、用户 ID、查询起始位置和查询数量来查询用户拥有的会话。</p>
+     * <p>你可以使用此接口查询某个成员拥有的会话。</p>
      *
      * @param body body payload
      * @return response data
@@ -463,13 +455,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>destroyConversation</p>
      * <p>解散群聊</p>
      *
-     * <p>你可以调用DestroyConversation接口，指定你所属的AppId、会话 ID 和群主 ID来解散指定群聊。</p>
-     *
-     *
-     *
-     * <p>单聊无法调用此接口。</p>
-     *
-     * <p>只有群主可以解散群聊。</p>
+     * <p>你可以使用此接口解散群聊。</p>
      *
      * @param body body payload
      * @return response data
@@ -484,11 +470,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>modifyMessage</p>
      * <p>修改消息扩展字段</p>
      *
-     * <p>你可以调用ModifyMessage接口，指定你所属的AppId和，会话 ID 和消息 ID，修改消息的扩展字段。</p>
-     *
-     *
-     *
-     * <p>无法修改已过期消息。</p>
+     * <p>你可以使用此接口修改消息扩展字段。</p>
      *
      * @param body body payload
      * @return response data
@@ -503,11 +485,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>getConversationMessages</p>
      * <p>分批查询会话中的消息</p>
      *
-     * <p>你可以调用GetConversationMessages接口，指定你所属的AppId、会话 ID、查询起始位置和查询条数批量查询会话中的消息。</p>
-     *
-     *
-     *
-     * <p>一次最多查询 20 条消息。</p>
+     * <p>你可以使用此接口批量查询会话中的消息。</p>
      *
      * @param body body payload
      * @return response data
@@ -522,7 +500,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>deleteConversationMessage</p>
      * <p>删除会话消息</p>
      *
-     * <p>你可以调用DeleteConversationMessage接口，指定你所属的AppId和，会话 ID、消息 ID 和删除方式，删除指定的会话消息。</p>
+     * <p>你可以使用此接口删除会话中的指定消息。</p>
      *
      * @param body body payload
      * @return response data
@@ -537,7 +515,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>deleteMessage</p>
      * <p>删除用户消息</p>
      *
-     * <p>你可以调用DeleteMessage接口，指定你所属的AppId和，会话 ID、会话成员 ID 和消息 ID，删除指定的用户消息。</p>
+     * <p>你可以使用此接口删除用户消息。</p>
      *
      * @param body body payload
      * @return response data
@@ -575,7 +553,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>getMessages</p>
      * <p>批量查询消息</p>
      *
-     * <p>你可以调用GetMessages接口，指定你所属的AppId和，会话 ID 和消息 ID，查询指定消息的详细信息。</p>
+     * <p>你可以使用此接口指定消息 ID 对消息进行批量查询。</p>
      *
      * @param body body payload
      * @return response data
@@ -590,7 +568,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>recallMessage</p>
      * <p>撤回用户消息</p>
      *
-     * <p>你可以调用RecallMessage接口，指定你所属的AppId、会话 ID、消息 ID 和撤回消息的会话成员 ID，撤回指定消息。</p>
+     * <p>你可以使用此接口撤回用户的消息。</p>
      *
      * @param body body payload
      * @return response data
@@ -605,7 +583,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>deleteFriend</p>
      * <p>删除好友</p>
      *
-     * <p>你可以调用 DeleteFriend 接口，指定你所属的 AppId、用户 ID 和 好友 ID 双向删除好友。一次最多支持删除 10 个好友。</p>
+     * <p>你可以使用此接口删除好友。</p>
      *
      * @param body body payload
      * @return response data
@@ -650,7 +628,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>listFriend</p>
      * <p>查询好友列表</p>
      *
-     * <p>你可以调用ListFriend接口，指定你所属的AppId、用户 ID、查询起始位置和查询条数查询指定用户的好友列表。</p>
+     * <p>你可以使用此接口查询指定用户的好友列表。</p>
      *
      * @param body body payload
      * @return response data
@@ -680,7 +658,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>getBlackList</p>
      * <p>查询黑名单</p>
      *
-     * <p>你可以调用 GetBlackList 接口，指定你所属的AppId、用户 ID，分页查询对应的黑名单列表。</p>
+     * <p>你可以使用此接口查询指定用户的黑名单列表。</p>
      *
      * @param body body payload
      * @return response data
@@ -695,7 +673,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>isFriend</p>
      * <p>校验好友关系</p>
      *
-     * <p>你可以调用 IsFriend 接口，指定你所属的 AppId、用户 ID 和 检验用户 ID 判断双方是否为好友。一次最多支持校验 10 个好友。</p>
+     * <p>你可以使用此接口校验两个用户之间的好友关系。</p>
      *
      * @param body body payload
      * @return response data
@@ -710,7 +688,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>isInBlackList</p>
      * <p>校验用户是否在黑名单</p>
      *
-     * <p>你可以调用 IsInBlackList 接口，指定你所属的 AppId、用户 ID 和对方用户 ID，校验对方是否在自己的黑名单中。一次最多支持校验 10 个用户。</p>
+     * <p>你可以使用此接口查看某用户是否在黑名单中。</p>
      *
      * @param body body payload
      * @return response data
@@ -725,7 +703,7 @@ public class ImTrait extends BaseServiceImpl {
      * <p>addFriend</p>
      * <p>添加好友</p>
      *
-     * <p>你可以调用 AddFriend 接口，指定你所属的 AppId、用户 ID 和 好友 ID 双向添加好友。 一次最多支持添加 10 个好友。</p>
+     * <p>你可以使用此接口添加好友。</p>
      *
      * @param body body payload
      * @return response data
@@ -752,10 +730,25 @@ public class ImTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>getAppToken</p>
+     * <p>生成Token</p>
+     *
+     * <p>你可以指定你所属的AppId，UserId 和 Token过期时间来获得一个对应的Token （Token本质就是使用AppId，UserId和Token过期时间字段使用AppKey进行对称性加密）</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetAppTokenRes getAppToken(GetAppTokenBody body) throws Exception {
+        RawResponse rawResponse = json("GetAppToken", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetAppTokenRes.class);
+    }
+
+    /**
      * <p>removeBlackList</p>
      * <p>移出黑名单</p>
      *
-     * <p>你可以调用 RemoveBlackList 接口，指定你所属的 AppId、用户 ID 和黑名单中的用户 ID，将黑名单中的用户移出黑名单。一次最多支持将 10 个用户移出黑名单。</p>
+     * <p>你可以使用此接口将用户移出黑名单。</p>
      *
      * @param body body payload
      * @return response data

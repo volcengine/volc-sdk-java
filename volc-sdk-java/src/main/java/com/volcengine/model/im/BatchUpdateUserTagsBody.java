@@ -19,18 +19,6 @@ public final class BatchUpdateUserTagsBody  {
     private Integer appId;
 
     /**
-     * <p>用户id列表</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "UserIds")
-    private List<Long> userIds;
-
-    /**
-     * <p>用户标签</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "Tags")
-    private List<String> tags;
-
-    /**
      * <p>标签更新方式。</p>
      *
      * <p> 0：对于重复 key，覆盖 value，对于新 key，进行添加 </p>
@@ -41,6 +29,18 @@ public final class BatchUpdateUserTagsBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Op")
     private Integer op;
+
+    /**
+     * <p>用户标签</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Tags")
+    private List<String> tags;
+
+    /**
+     * <p>用户userId列表</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "UserIds")
+    private List<Long> userIds;
 
     @Override
     public String toString() {

@@ -12,7 +12,7 @@ import java.util.List;
 public final class GetMessagesResResult  {
 
     /**
-     * <p>TODO</p>
+     * <p>消息详细信息</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Messages")
     private List<GetMessagesResResultMessagesItem> messages;

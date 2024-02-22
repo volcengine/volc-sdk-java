@@ -12,7 +12,7 @@ import java.util.List;
 public final class BatchGetConversationParticipantResResult  {
 
     /**
-     * <p>TODO</p>
+     * <p>成功时返回查询会话成员信息，失败时为空。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Participants")
     private List<BatchGetConversationParticipantResResultParticipantsItem> participants;

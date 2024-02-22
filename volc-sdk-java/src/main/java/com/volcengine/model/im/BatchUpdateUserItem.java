@@ -16,31 +16,31 @@ public final class BatchUpdateUserItem {
      * <p>用户id</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "UserId")
-    private Long UserId;
+    private Long userId;
 
     /**
-     * <p>昵称</p>
+     * <p>扩展字段。`key` 的类型为 string，`value` 的类型为 string。</p>
      */
-    @com.alibaba.fastjson.annotation.JSONField(name = "NickName")
-    private String NickName;
-
-    /**
-     * <p>头像 url</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "Portrait")
-    private String Portrait;
+    @com.alibaba.fastjson.annotation.JSONField(name = "Ext")
+    private Map<String, String> ext;
 
     /**
      * <p>标签</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Tags")
-    private List<String> Tags;
+    private List<String> tags;
 
     /**
-     * <p>扩展字段。key 的类型为 string，value 的类型为 string。</p>
+     * <p>头像 url</p>
      */
-    @com.alibaba.fastjson.annotation.JSONField(name = "Ext")
-    private Map<String, String> Ext;
+    @com.alibaba.fastjson.annotation.JSONField(name = "Portrait")
+    private String portrait;
+
+    /**
+     * <p>昵称</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "NickName")
+    private String nickName;
 
     @Override
     public String toString() {

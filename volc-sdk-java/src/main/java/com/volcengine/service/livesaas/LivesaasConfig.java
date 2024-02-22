@@ -471,6 +471,20 @@ public class LivesaasConfig {
                         }
                     }
             ));
+            put(Const.PresenterChatAPIV2, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.PresenterChatAPIV2));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.PollingChatAPI, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

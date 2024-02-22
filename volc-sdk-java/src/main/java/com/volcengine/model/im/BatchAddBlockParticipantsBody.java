@@ -40,7 +40,7 @@ public final class BatchAddBlockParticipantsBody  {
     private Integer blockAction;
 
     /**
-     * <p>`key` 为群成员 ID，`value` 为禁言或者拉黑时长， 单位为秒。</p>
+     * <p>`key` 为群成员 ID，类型：String，只能传userId，`value` 为禁言或者拉黑时长，类型：int，单位为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ParticipantBlockInfos")
     private Map<String, Long> participantBlockInfos;

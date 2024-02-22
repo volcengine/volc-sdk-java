@@ -18,7 +18,7 @@ public final class RegisterUsersBody  {
     private Integer appId;
 
     /**
-     * <p>注册用户的信息。一次最多注册 10 个用户。</p>
+     * <p>注册用户的信息。一次最多注册 20 个用户。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Users")
     private List<RegisterUsersBodyUsersItem> users;

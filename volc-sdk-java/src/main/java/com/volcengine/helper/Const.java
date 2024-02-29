@@ -331,6 +331,8 @@ public class Const {
 
     public static final String GetAdvertisementDataAPIV2 = "GetAdvertisementDataAPIV2";
 
+    public static final String GetAdvertisementDataDetailAPI = "GetAdvertisementDataDetailAPI";
+
     public static final String ListUserBehaviorDataAPIV2 = "ListUserBehaviorDataAPIV2";
 
     public static final String ListChannelAPI = "ListChannelAPI";

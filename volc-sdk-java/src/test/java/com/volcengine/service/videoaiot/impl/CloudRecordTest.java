@@ -52,12 +52,12 @@ public class CloudRecordTest {
         //bad89d4d-1fd5-4498-a49e-5b0faf835022", "", 1704941499, 1704941599
         setTest();
         PlayCloudRecordRequest cloudRecordPlayRequest = new PlayCloudRecordRequest();
-        cloudRecordPlayRequest.setStreamID("bad89d4d-1fd5-4498-a49e-5b0faf835022");
+        cloudRecordPlayRequest.setStreamID("2df95fef-65b1-4569-8866-7fdfcfe2190b");
         cloudRecordPlayRequest.setResolution("");
-        cloudRecordPlayRequest.setStartTime(1704941499);
-        cloudRecordPlayRequest.setEndTime(1704941599);
+        cloudRecordPlayRequest.setStartTime(System.currentTimeMillis()/1000-3600);
+        cloudRecordPlayRequest.setEndTime(System.currentTimeMillis()/1000);
         cloudRecordPlayRequest.setTokenValid(86400);
-        cloudRecordPlayRequest.setWithSub(true);
+        cloudRecordPlayRequest.setWithSub(false);
         PlayCloudResponse playCloudResponse = videoAIoTService.playCloudRecord(cloudRecordPlayRequest);
         System.out.println(JSON.toJSONString(playCloudResponse));
     }

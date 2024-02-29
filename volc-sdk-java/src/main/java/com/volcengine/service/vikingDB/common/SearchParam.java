@@ -44,11 +44,7 @@ public class SearchParam {
         if(this.scalarOrder != null && this.scalarOrder.getIsBuild() == 0){
             throw vikingDBException.getErrorCodeException(1000030, null, "scalarOrder does not build");
         }
-        if(this.vectorOrder == null && this.scalarOrder == null){
-            throw vikingDBException.getErrorCodeException(1000030, null, "Order does not exist");
-        } else {
-            this.isBuild = 1;
-            return this;
-        }
+        this.isBuild = 1;
+        return this;
     }
 }

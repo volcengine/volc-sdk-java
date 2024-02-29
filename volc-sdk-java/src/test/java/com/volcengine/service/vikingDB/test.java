@@ -36,9 +36,9 @@ import com.volcengine.service.vikingDB.common.VectorOrder;
 public class test {
     public static void main(String[] args) throws Exception {
         // System.out.println("example");
-       VikingDBService vikingDBService = new VikingDBService("host", "region", "ak", "sk","http");
-       Double score = vikingDBService.rerank("退改", "如果您需要人工服务，可以拨打人工客服电话：4006660921", "转人工");
-       System.out.println(score);
+       VikingDBService vikingDBService = new VikingDBService("", "", "", "","http");
+    //    Double score = vikingDBService.rerank("退改", "如果您需要人工服务，可以拨打人工客服电话：4006660921", "转人工");
+    //    System.out.println(score);
     //    HashMap<String,String> header = new HashMap<>();
     //    header.put("V-User-Name", "javaName");
     //    header.put("V-User-Id", "javaID");
@@ -230,6 +230,23 @@ public class test {
         //                                         .build());
 
         // System.out.println(datas);
+
+        Index index = vikingDBService.getIndex("example", "example_index");
+        List<String> outputField = new ArrayList<>();
+        outputField.add("doc_id");
+        outputField.add("like");
+        outputField.add("text_vector");
+        HashMap<String, Object> filter = new HashMap<>();
+        filter.put("op", "range");
+        filter.put("field", "price");
+        filter.put("lt", 4);
+        List<DataObject> datas = index.search(new SearchParam()
+                                                .setOutputFields(outputField)
+                                                .setFilter(filter)
+                                                .setLimit(5)
+                                                .build());
+
+        System.out.println(datas);
 
         // Index index = vikingDBService.getIndex("javaSDKTest", "test_index");
         // List<DataObject> datas = index.search(new SearchParam()

@@ -59,7 +59,7 @@ public final class UpdateAuthKeyBodyAuthDetailListItem  {
      * <p>```</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AuthField")
-    private Map<String, String> authField;
+    private Map<String, Object> authField;
 
     /**
      * <p>该参数在推/拉流鉴权时生效，表示加密字段。使用不同的对称加密算法	`EncryptionAlgorithm`，加密字段存在差异。</p>

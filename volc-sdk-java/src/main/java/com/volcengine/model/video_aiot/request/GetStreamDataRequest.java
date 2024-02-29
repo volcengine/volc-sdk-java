@@ -5,10 +5,14 @@ import lombok.Data;
 
 @Data
 public class GetStreamDataRequest {
-    @JSONField(name = "StreamID")
+    @JSONField(serialize = false)
     String streamID;
-    @JSONField(name = "StartTime")
+    @JSONField(serialize = false)
     String startTime;
-    @JSONField(name = "EndTime")
+    @JSONField(serialize = false)
     String endTime;
+    @JSONField(name = "StreamingIndex")
+    int streamingIndex;
+    @JSONField(name = "Resolution")
+    String resolution;
 }

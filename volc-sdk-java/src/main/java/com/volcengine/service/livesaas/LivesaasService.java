@@ -1186,4 +1186,13 @@ public interface LivesaasService extends IBaseService {
     UpdateTeachAssistantAccountResponse updateTeachAssistantAccount(UpdateTeachAssistantAccountRequest updateTeachAssistantAccountRequest) throws Exception;
 
     DeleteTeachAssistantAccountResponse deleteTeachAssistantAccount(DeleteTeachAssistantAccountRequest deleteTeachAssistantAccountRequest) throws Exception;
+
+    /**
+     * GetAdvertisementDataDetailAPI
+     *
+     * @param getAdvertisementDataDetailAPIRequest
+     * @return
+     * @throws Exception
+     */
+    GetAdvertisementDataDetailAPIResponse getAdvertisementDataDetailAPI(GetAdvertisementDataDetailAPIRequest getAdvertisementDataDetailAPIRequest) throws Exception;
 }

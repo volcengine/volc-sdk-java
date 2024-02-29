@@ -32,7 +32,7 @@ public final class UpdateRelaySourceV3BodyGroupDetailsItemServersItem  {
      * <p>自定义回源参数，缺省情况下为空。格式为 `"Key":"Value"`，例如，`"domain":"live.push.net"`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RelaySourceParams")
-    private Map<String, String> relaySourceParams;
+    private Map<String, Object> relaySourceParams;
 
     @Override
     public String toString() {

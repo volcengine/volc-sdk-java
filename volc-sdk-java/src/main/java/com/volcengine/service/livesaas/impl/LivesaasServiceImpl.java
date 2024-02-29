@@ -1511,6 +1511,22 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public GetAdvertisementDataDetailAPIResponse getAdvertisementDataDetailAPI(GetAdvertisementDataDetailAPIRequest getAdvertisementDataDetailAPIRequest) throws Exception {
+        RawResponse response = query(Const.GetAdvertisementDataDetailAPI, Utils.paramsToPair(getAdvertisementDataDetailAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetAdvertisementDataDetailAPIResponse res = JSON.parseObject(response.getData(), GetAdvertisementDataDetailAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+
+    @Override
     public GetUserBehaviorListResponseAPIV2 ListUserBehaviorDataAPIV2(GetUserBehaviorListRequestAPIV2 getUserBehaviorListAPIV2Request) throws Exception {
         RawResponse response = query(Const.ListUserBehaviorDataAPIV2, Utils.paramsToPair(getUserBehaviorListAPIV2Request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

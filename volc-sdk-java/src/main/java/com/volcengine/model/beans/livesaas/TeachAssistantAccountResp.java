@@ -21,5 +21,7 @@ public class TeachAssistantAccountResp {
     List<Integer> TeachAssistantFeatures;
     @JSONField(name = "LoginUrl")
     String LoginUrl;
+    @JSONField(name = "OneStepLoginUrl")
+    String OneStepLoginUrl;
 }
 

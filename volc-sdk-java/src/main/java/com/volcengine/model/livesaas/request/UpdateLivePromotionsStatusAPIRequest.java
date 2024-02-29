@@ -14,4 +14,8 @@ public class UpdateLivePromotionsStatusAPIRequest {
     Long Id;
     @JSONField(name = "Status")
     Integer Status;
+    @JSONField(name = "Name")
+    String Name;
+    @JSONField(name = "PushUrl")
+    String PushUrl;
 }

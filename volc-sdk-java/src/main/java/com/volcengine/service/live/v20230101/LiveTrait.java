@@ -10,6 +10,7 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.model.live.v20230101.*;
 import com.volcengine.service.BaseServiceImpl;
 import lombok.Data;
+import org.apache.http.HttpHost;
 
 /**
  * Live Trait
@@ -21,6 +22,10 @@ public class LiveTrait extends BaseServiceImpl {
 
     protected LiveTrait(ServiceInfo serviceInfo) {
         super(serviceInfo, LiveConfig.apiInfoList);
+    }
+    
+    protected LiveTrait(HttpHost proxy) {
+        super(LiveConfig.serviceInfoMap.get(Const.REGION_CN_NORTH_1), proxy, LiveConfig.apiInfoList);
     }
 
     @Data

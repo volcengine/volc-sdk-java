@@ -83,12 +83,27 @@ public class Index {
                                                             .build();
                 res = searchById(searchByIdParam);
             }
-        } else {
+        } else if(searchParam.getScalarOrder() != null){
             HashMap<String,Object> orderByScalar = new HashMap<>();
             orderByScalar.put("order", searchParam.getScalarOrder().getOrder());
             orderByScalar.put("field_name", searchParam.getScalarOrder().getFieldName());
             HashMap<String,Object> search = new HashMap<>();
             search.put("order_by_scalar", orderByScalar);
+            search.put("limit", searchParam.getLimit());
+            search.put("partition", searchParam.getPartition());
+            if(searchParam.getOutputFields() != null) 
+                search.put("output_fields", searchParam.getOutputFields());
+            if(searchParam.getFilter() != null)
+                search.put("filter", searchParam.getFilter());
+            HashMap<String,Object> params = new HashMap<>();
+            params.put("collection_name", collectionName);
+            params.put("index_name", indexName);
+            params.put("search", search);
+
+            LinkedTreeMap<String,Object> resData = vikingDBService.doRequest("SearchIndex",null, params);
+            res =  getDatas(resData, searchParam.getOutputFields());
+        } else {
+            HashMap<String,Object> search = new HashMap<>();
             search.put("limit", searchParam.getLimit());
             search.put("partition", searchParam.getPartition());
             if(searchParam.getOutputFields() != null) 

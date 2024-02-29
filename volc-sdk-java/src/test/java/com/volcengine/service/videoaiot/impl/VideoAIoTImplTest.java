@@ -505,20 +505,6 @@ public class VideoAIoTImplTest extends TestCase {
         }
     }
 
-    public void testGetStreamData() {
-        // 流维度的数据查询
-        GetStreamDataRequest streamRequest = new GetStreamDataRequest();
-        streamRequest.setStreamID("dbc2000c-56e0-4ccc-ba9e-df43f8199073");
-        streamRequest.setStartTime("1662555386");
-        streamRequest.setEndTime("1662641786");
-        try {
-            GetStreamDataResponse dataResponse = videoAIoTService.getStreamData(streamRequest);
-            System.out.println(JSON.toJSONString(dataResponse));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     public void testGetDataProjectWithBindWidthAndFlow() {
         GetDataProjectWithBindWidthAndFlowRequest dataRequest = new GetDataProjectWithBindWidthAndFlowRequest();
         dataRequest.setSpaceID("517ff7ec-7700-4862-b1e7-7967a492df79");
@@ -1088,8 +1074,8 @@ public class VideoAIoTImplTest extends TestCase {
         setTest();
         long startTime = System.currentTimeMillis();
         ListStreamRecordsRequestV3 listStreamRecordsRequestV3 = new ListStreamRecordsRequestV3();
-        listStreamRecordsRequestV3.setStreamID("0f144bd6-6be1-4a11-9b1a-4b0f36b82277");
-        listStreamRecordsRequestV3.setStreamingIndex(1);
+        listStreamRecordsRequestV3.setStreamID("2df95fef-65b1-4569-8866-7fdfcfe2190b");
+        listStreamRecordsRequestV3.setStreamingIndex(0);
         listStreamRecordsRequestV3.setStartTime(System.currentTimeMillis() / 1000 - 3600);
         listStreamRecordsRequestV3.setEndTime(System.currentTimeMillis() / 1000);
         listStreamRecordsRequestV3.setPageSize(100);

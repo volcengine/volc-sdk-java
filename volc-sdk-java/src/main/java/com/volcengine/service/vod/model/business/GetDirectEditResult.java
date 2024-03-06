@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private GetDirectEditResult() {
     reqId_ = "";
+    editParam_ = com.google.protobuf.ByteString.EMPTY;
     callbackUri_ = "";
     callbackArgs_ = "";
     status_ = "";
@@ -60,16 +61,8 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            com.volcengine.service.vod.model.business.EditParam.Builder subBuilder = null;
-            if (editParam_ != null) {
-              subBuilder = editParam_.toBuilder();
-            }
-            editParam_ = input.readMessage(com.volcengine.service.vod.model.business.EditParam.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(editParam_);
-              editParam_ = subBuilder.buildPartial();
-            }
 
+            editParam_ = input.readBytes();
             break;
           }
           case 24: {
@@ -180,41 +173,18 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EDITPARAM_FIELD_NUMBER = 2;
-  private com.volcengine.service.vod.model.business.EditParam editParam_;
+  private com.google.protobuf.ByteString editParam_;
   /**
    * <pre>
    * 视频编辑参数
    * </pre>
    *
-   * <code>.Volcengine.Vod.Models.Business.EditParam EditParam = 2;</code>
-   * @return Whether the editParam field is set.
-   */
-  @java.lang.Override
-  public boolean hasEditParam() {
-    return editParam_ != null;
-  }
-  /**
-   * <pre>
-   * 视频编辑参数
-   * </pre>
-   *
-   * <code>.Volcengine.Vod.Models.Business.EditParam EditParam = 2;</code>
+   * <code>bytes EditParam = 2;</code>
    * @return The editParam.
    */
   @java.lang.Override
-  public com.volcengine.service.vod.model.business.EditParam getEditParam() {
-    return editParam_ == null ? com.volcengine.service.vod.model.business.EditParam.getDefaultInstance() : editParam_;
-  }
-  /**
-   * <pre>
-   * 视频编辑参数
-   * </pre>
-   *
-   * <code>.Volcengine.Vod.Models.Business.EditParam EditParam = 2;</code>
-   */
-  @java.lang.Override
-  public com.volcengine.service.vod.model.business.EditParamOrBuilder getEditParamOrBuilder() {
-    return getEditParam();
+  public com.google.protobuf.ByteString getEditParam() {
+    return editParam_;
   }
 
   public static final int PRIORITY_FIELD_NUMBER = 3;
@@ -433,8 +403,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, reqId_);
     }
-    if (editParam_ != null) {
-      output.writeMessage(2, getEditParam());
+    if (!editParam_.isEmpty()) {
+      output.writeBytes(2, editParam_);
     }
     if (priority_ != 0) {
       output.writeInt32(3, priority_);
@@ -463,9 +433,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reqId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, reqId_);
     }
-    if (editParam_ != null) {
+    if (!editParam_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getEditParam());
+        .computeBytesSize(2, editParam_);
     }
     if (priority_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -500,11 +470,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getReqId()
         .equals(other.getReqId())) return false;
-    if (hasEditParam() != other.hasEditParam()) return false;
-    if (hasEditParam()) {
-      if (!getEditParam()
-          .equals(other.getEditParam())) return false;
-    }
+    if (!getEditParam()
+        .equals(other.getEditParam())) return false;
     if (getPriority()
         != other.getPriority()) return false;
     if (!getCallbackUri()
@@ -528,10 +495,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + REQID_FIELD_NUMBER;
     hash = (53 * hash) + getReqId().hashCode();
-    if (hasEditParam()) {
-      hash = (37 * hash) + EDITPARAM_FIELD_NUMBER;
-      hash = (53 * hash) + getEditParam().hashCode();
-    }
+    hash = (37 * hash) + EDITPARAM_FIELD_NUMBER;
+    hash = (53 * hash) + getEditParam().hashCode();
     hash = (37 * hash) + PRIORITY_FIELD_NUMBER;
     hash = (53 * hash) + getPriority();
     hash = (37 * hash) + CALLBACKURI_FIELD_NUMBER;
@@ -677,12 +642,8 @@ private static final long serialVersionUID = 0L;
       super.clear();
       reqId_ = "";
 
-      if (editParamBuilder_ == null) {
-        editParam_ = null;
-      } else {
-        editParam_ = null;
-        editParamBuilder_ = null;
-      }
+      editParam_ = com.google.protobuf.ByteString.EMPTY;
+
       priority_ = 0;
 
       callbackUri_ = "";
@@ -720,11 +681,7 @@ private static final long serialVersionUID = 0L;
     public com.volcengine.service.vod.model.business.GetDirectEditResult buildPartial() {
       com.volcengine.service.vod.model.business.GetDirectEditResult result = new com.volcengine.service.vod.model.business.GetDirectEditResult(this);
       result.reqId_ = reqId_;
-      if (editParamBuilder_ == null) {
-        result.editParam_ = editParam_;
-      } else {
-        result.editParam_ = editParamBuilder_.build();
-      }
+      result.editParam_ = editParam_;
       result.priority_ = priority_;
       result.callbackUri_ = callbackUri_;
       result.callbackArgs_ = callbackArgs_;
@@ -782,8 +739,8 @@ private static final long serialVersionUID = 0L;
         reqId_ = other.reqId_;
         onChanged();
       }
-      if (other.hasEditParam()) {
-        mergeEditParam(other.getEditParam());
+      if (other.getEditParam() != com.google.protobuf.ByteString.EMPTY) {
+        setEditParam(other.getEditParam());
       }
       if (other.getPriority() != 0) {
         setPriority(other.getPriority());
@@ -929,53 +886,35 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.volcengine.service.vod.model.business.EditParam editParam_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.volcengine.service.vod.model.business.EditParam, com.volcengine.service.vod.model.business.EditParam.Builder, com.volcengine.service.vod.model.business.EditParamOrBuilder> editParamBuilder_;
+    private com.google.protobuf.ByteString editParam_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
      * 视频编辑参数
      * </pre>
      *
-     * <code>.Volcengine.Vod.Models.Business.EditParam EditParam = 2;</code>
-     * @return Whether the editParam field is set.
-     */
-    public boolean hasEditParam() {
-      return editParamBuilder_ != null || editParam_ != null;
-    }
-    /**
-     * <pre>
-     * 视频编辑参数
-     * </pre>
-     *
-     * <code>.Volcengine.Vod.Models.Business.EditParam EditParam = 2;</code>
+     * <code>bytes EditParam = 2;</code>
      * @return The editParam.
      */
-    public com.volcengine.service.vod.model.business.EditParam getEditParam() {
-      if (editParamBuilder_ == null) {
-        return editParam_ == null ? com.volcengine.service.vod.model.business.EditParam.getDefaultInstance() : editParam_;
-      } else {
-        return editParamBuilder_.getMessage();
-      }
+    @java.lang.Override
+    public com.google.protobuf.ByteString getEditParam() {
+      return editParam_;
     }
     /**
      * <pre>
      * 视频编辑参数
      * </pre>
      *
-     * <code>.Volcengine.Vod.Models.Business.EditParam EditParam = 2;</code>
+     * <code>bytes EditParam = 2;</code>
+     * @param value The editParam to set.
+     * @return This builder for chaining.
      */
-    public Builder setEditParam(com.volcengine.service.vod.model.business.EditParam value) {
-      if (editParamBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        editParam_ = value;
-        onChanged();
-      } else {
-        editParamBuilder_.setMessage(value);
-      }
-
+    public Builder setEditParam(com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      editParam_ = value;
+      onChanged();
       return this;
     }
     /**
@@ -983,105 +922,14 @@ private static final long serialVersionUID = 0L;
      * 视频编辑参数
      * </pre>
      *
-     * <code>.Volcengine.Vod.Models.Business.EditParam EditParam = 2;</code>
-     */
-    public Builder setEditParam(
-        com.volcengine.service.vod.model.business.EditParam.Builder builderForValue) {
-      if (editParamBuilder_ == null) {
-        editParam_ = builderForValue.build();
-        onChanged();
-      } else {
-        editParamBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * 视频编辑参数
-     * </pre>
-     *
-     * <code>.Volcengine.Vod.Models.Business.EditParam EditParam = 2;</code>
-     */
-    public Builder mergeEditParam(com.volcengine.service.vod.model.business.EditParam value) {
-      if (editParamBuilder_ == null) {
-        if (editParam_ != null) {
-          editParam_ =
-            com.volcengine.service.vod.model.business.EditParam.newBuilder(editParam_).mergeFrom(value).buildPartial();
-        } else {
-          editParam_ = value;
-        }
-        onChanged();
-      } else {
-        editParamBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * 视频编辑参数
-     * </pre>
-     *
-     * <code>.Volcengine.Vod.Models.Business.EditParam EditParam = 2;</code>
+     * <code>bytes EditParam = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearEditParam() {
-      if (editParamBuilder_ == null) {
-        editParam_ = null;
-        onChanged();
-      } else {
-        editParam_ = null;
-        editParamBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * 视频编辑参数
-     * </pre>
-     *
-     * <code>.Volcengine.Vod.Models.Business.EditParam EditParam = 2;</code>
-     */
-    public com.volcengine.service.vod.model.business.EditParam.Builder getEditParamBuilder() {
       
+      editParam_ = getDefaultInstance().getEditParam();
       onChanged();
-      return getEditParamFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * 视频编辑参数
-     * </pre>
-     *
-     * <code>.Volcengine.Vod.Models.Business.EditParam EditParam = 2;</code>
-     */
-    public com.volcengine.service.vod.model.business.EditParamOrBuilder getEditParamOrBuilder() {
-      if (editParamBuilder_ != null) {
-        return editParamBuilder_.getMessageOrBuilder();
-      } else {
-        return editParam_ == null ?
-            com.volcengine.service.vod.model.business.EditParam.getDefaultInstance() : editParam_;
-      }
-    }
-    /**
-     * <pre>
-     * 视频编辑参数
-     * </pre>
-     *
-     * <code>.Volcengine.Vod.Models.Business.EditParam EditParam = 2;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.volcengine.service.vod.model.business.EditParam, com.volcengine.service.vod.model.business.EditParam.Builder, com.volcengine.service.vod.model.business.EditParamOrBuilder> 
-        getEditParamFieldBuilder() {
-      if (editParamBuilder_ == null) {
-        editParamBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.volcengine.service.vod.model.business.EditParam, com.volcengine.service.vod.model.business.EditParam.Builder, com.volcengine.service.vod.model.business.EditParamOrBuilder>(
-                getEditParam(),
-                getParentForChildren(),
-                isClean());
-        editParam_ = null;
-      }
-      return editParamBuilder_;
+      return this;
     }
 
     private int priority_ ;

@@ -180,15 +180,6 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodGetPlayInfoWithLiveTimeShiftSceneResponse getPlayInfoWithLiveTimeShiftScene(com.volcengine.service.vod.model.request.VodGetPlayInfoWithLiveTimeShiftSceneRequest input) throws Exception;
 	
 	/**
-     * describeDrmDataKey.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDescribeDrmDataKeyRequest
-     * @return com.volcengine.service.vod.model.response.VodDescribeDrmDataKeyResponse
-     * @throws Exception the exception
-     */
-	com.volcengine.service.vod.model.response.VodDescribeDrmDataKeyResponse describeDrmDataKey(com.volcengine.service.vod.model.request.VodDescribeDrmDataKeyRequest input) throws Exception;
-	
-	/**
      * uploadMediaByUrl.
      *
      * @param input com.volcengine.service.vod.model.request.VodUrlUploadRequest

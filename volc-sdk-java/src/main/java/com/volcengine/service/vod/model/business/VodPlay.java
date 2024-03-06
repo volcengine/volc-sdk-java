@@ -70,23 +70,22 @@ public final class VodPlay {
       "\002 \001(\t\"u\n\036VodGetPrivateDrmPlayAuthResult\022" +
       "S\n\020PlayAuthInfoList\030\001 \003(\01329.Volcengine.V" +
       "od.Models.Business.VodPrivateDrmPlayAuth" +
-      "Info\"V\n\034VodGetHlsDecryptionKeyResult\022\021\n\t" +
-      "SecretKey\030\001 \001(\t\022\020\n\010IsBase64\030\002 \001(\010\022\021\n\tKey" +
-      "Format\030\003 \001(\t\"t\n!VodPlayInfoWithLiveTimeS" +
-      "hiftScene\022\020\n\010StoreUri\030\001 \001(\t\022\023\n\013MainPlayU" +
-      "rl\030\002 \001(\t\022\025\n\rBackupPlayUrl\030\003 \001(\t\022\021\n\tUrlEx" +
-      "pire\030\004 \001(\001\"\205\001\n*VodGetPlayInfoWithLiveTim" +
-      "eShiftSceneResult\022W\n\014PlayInfoList\030\001 \003(\0132" +
-      "A.Volcengine.Vod.Models.Business.VodPlay" +
-      "InfoWithLiveTimeShiftScene\"a\n\033VodDescrib" +
-      "eDrmDataKeyResult\022\021\n\tSecretKey\030\001 \001(\t\022\n\n\002" +
-      "Ak\030\002 \001(\t\022\020\n\010IsBase64\030\003 \001(\010\022\021\n\tKeyFormat\030" +
-      "\004 \001(\tB\313\001\n)com.volcengine.service.vod.mod" +
-      "el.businessB\007VodPlayP\001ZAgithub.com/volce" +
-      "ngine/volc-sdk-golang/service/vod/models" +
-      "/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Mo" +
-      "dels\\Business\342\002#Volc\\Service\\Vod\\Models\\" +
-      "GPBMetadatab\006proto3"
+      "Info\"1\n\034VodGetHlsDecryptionKeyResult\022\021\n\t" +
+      "SecretKey\030\001 \001(\t\"t\n!VodPlayInfoWithLiveTi" +
+      "meShiftScene\022\020\n\010StoreUri\030\001 \001(\t\022\023\n\013MainPl" +
+      "ayUrl\030\002 \001(\t\022\025\n\rBackupPlayUrl\030\003 \001(\t\022\021\n\tUr" +
+      "lExpire\030\004 \001(\001\"\205\001\n*VodGetPlayInfoWithLive" +
+      "TimeShiftSceneResult\022W\n\014PlayInfoList\030\001 \003" +
+      "(\0132A.Volcengine.Vod.Models.Business.VodP" +
+      "layInfoWithLiveTimeShiftScene\"a\n\033VodDesc" +
+      "ribeDrmDataKeyResult\022\021\n\tSecretKey\030\001 \001(\t\022" +
+      "\n\n\002Ak\030\002 \001(\t\022\020\n\010IsBase64\030\003 \001(\010\022\021\n\tKeyForm" +
+      "at\030\004 \001(\tB\313\001\n)com.volcengine.service.vod." +
+      "model.businessB\007VodPlayP\001ZAgithub.com/vo" +
+      "lcengine/volc-sdk-golang/service/vod/mod" +
+      "els/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod" +
+      "\\Models\\Business\342\002#Volc\\Service\\Vod\\Mode" +
+      "ls\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

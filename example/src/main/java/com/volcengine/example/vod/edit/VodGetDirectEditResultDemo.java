@@ -31,22 +31,6 @@ public class VodGetDirectEditResultDemo {
                 System.out.println(vodGetDirectEditResultResponse.getResponseMetadata().getError());
                 System.exit(-1);
             }
-            //获取EditParam中的Track
-            for (GetDirectEditResult value : vodGetDirectEditResultResponse.getResultList()) {
-                for (Value track :value.getEditParam().getTrackList()){
-                    for (Value v:track.getListValue().getValuesList()) {
-                        Struct structValue = v.getStructValue();
-                        Map<String, Value> fieldsMap = structValue.getFieldsMap();
-                        for (String key : fieldsMap.keySet()){
-                            Value vv = fieldsMap.get(key);
-                            Map<Descriptors.FieldDescriptor, Object> allFields = vv.getAllFields();
-                            for (Descriptors.FieldDescriptor field: allFields.keySet()) {
-                                System.out.println(key+":"+allFields.get(field));
-                            }
-                        }
-                    }
-                }
-            }
             System.out.println(vodGetDirectEditResultResponse.toString()); // 如有汉字，请采用UTF8编码方式
             System.out.println(vodGetDirectEditResultResponse.getResponseMetadata().getRequestId());
         } catch (Exception e) {

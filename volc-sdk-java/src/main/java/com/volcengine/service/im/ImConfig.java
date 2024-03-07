@@ -90,6 +90,20 @@ public class ImConfig {
                     }
                 }     
             ));
+            put("GetMessagesReadReceipt", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetMessagesReadReceipt"));
+                                    add(new BasicNameValuePair("Version", "2020-12-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put("ModifyParticipantReadIndex", new ApiInfo(
                 new HashMap<String, Object>() {
                     {

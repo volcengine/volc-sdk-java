@@ -14,6 +14,12 @@ public class VisualAllAgeGenerationRequest {
     @JSONField(name = "binary_data_base64")
     ArrayList<String> binaryDataBase64;
 
+    @JSONField(name = "image_urls")
+    ArrayList<String> image_urls;
+
     @JSONField(name = "target_age")
     Integer targetAge;
+
+    @JSONField(name = "do_risk")
+    boolean doRisk=false;
 }

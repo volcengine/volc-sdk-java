@@ -5,10 +5,13 @@ import com.volcengine.model.ApiInfo;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
 import org.apache.http.Header;
+import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicHeader;
+import org.apache.http.message.BasicNameValuePair;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MaasConfig {
@@ -57,6 +60,19 @@ public class MaasConfig {
                     {
                         put(Const.Method, "post");
                         put(Const.Path, "/api/v2/endpoint/%s/embeddings");
+                    }
+                }));
+
+                put(Const.MaasApiTop, new ApiInfo(new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "post");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "CreateOrRefreshAPIKey"));
+                                add(new BasicNameValuePair("Version", "2024-01-01"));
+                            }
+                        });
                     }
                 }));
             }

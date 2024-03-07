@@ -2,6 +2,7 @@ package com.volcengine.service.businessSecurity.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.volcengine.model.request.*;
+import com.volcengine.model.response.GetDailyMarketingPackageResponse;
 import com.volcengine.model.response.PushTrafficRiskDataResponse;
 import com.volcengine.model.response.RiskStatResponse;
 import com.volcengine.model.response.RiskVConsoleResponse;
@@ -80,8 +81,13 @@ public class BusinessSecurityServiceTest extends TestCase {
         PushTrafficRiskDataResponse response = service.PushTrafficRiskData(request);
     }
 
-//    public void testSha256(){
-//        byte[] bs = new byte[10*1024*1024];
-//        for(int i=0;)
-//    }
+    public void testGetDailyMarketingPackage()throws Exception{
+        BusinessSecurityService service = initService("Business");
+        GetDailyMarketingPackageRequest request = new GetDailyMarketingPackageRequest();
+        request.setDate("20240206");
+        request.setPlanName("测试计划");
+        request.setCustomerPackageId(1);
+        GetDailyMarketingPackageResponse response = service.GetDailyMarketingPackage(request);
+    }
+
 }

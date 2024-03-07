@@ -88,6 +88,21 @@ public class ImTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>getMessagesReadReceipt</p>
+     * <p>获取消息的已读回执详情</p>
+     *
+     * <p>你可以调用GetMessagesReadReceipt接口，指定你所属的AppId、会话 Id 和消息Id获得消息的已读详情</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetMessagesReadReceiptRes getMessagesReadReceipt(GetMessagesReadReceiptBody body) throws Exception {
+        RawResponse rawResponse = json("GetMessagesReadReceipt", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetMessagesReadReceiptRes.class);
+    }
+
+    /**
      * <p>scanConversationParticipantList</p>
      * <p>分批扫描群聊中的成员详细信</p>
      *

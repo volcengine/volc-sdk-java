@@ -30,8 +30,10 @@ public class VisualFaceSwapV2Request {
     Boolean doRisk=false;
 
     @JSONField(name = "source_similarity")
-    String sourceSimilarity="1";;
+    String sourceSimilarity="1";
 
+    @JSONField(name = "gpen")
+    Double gpen;
     @Data
     public static class MergeInfos {
         @JSONField(name = "location")

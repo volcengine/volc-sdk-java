@@ -129,5 +129,5 @@ public interface BusinessSecurityService extends IBaseService {
 
     PushTrafficRiskDataResponse PushTrafficRiskData(PushTrafficRiskDataRequest request)throws  Exception;
 
-
+    GetDailyMarketingPackageResponse  GetDailyMarketingPackage(GetDailyMarketingPackageRequest request)throws Exception;
 }

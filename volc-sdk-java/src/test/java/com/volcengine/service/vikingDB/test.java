@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import com.volcengine.service.vikingDB.Collection;
@@ -37,6 +38,26 @@ public class test {
     public static void main(String[] args) throws Exception {
         // System.out.println("example");
        VikingDBService vikingDBService = new VikingDBService("", "", "", "","http");
+
+       List<Map<String,Object>> datas = new ArrayList<>();
+       Map<String,Object> map1 = new HashMap<>();
+       map1.put("query", "退改");
+       map1.put("content", "如果您需要人工服务，可以拨打人工客服电话：4006660921");
+       map1.put("title", "无");
+       Map<String,Object> map2 = new HashMap<>();
+       map2.put("query", "退改");
+       map2.put("content", "1、1日票 1.5日票 2日票的退款政策： -到访日前2天的00:00前，免费退款 - 到访日前2天的00:00至到访日前夜23:59期间,退款需扣除服务费（人民币80元） - 到访日当天（00:00 之后），不可退款 2、半日票的退款政策： - 未使用的们票可在所选入...");
+       map2.put("title", "门票退改政策｜北京环球影城的门票退改政策");
+       Map<String,Object> map3 = new HashMap<>();
+       map3.put("query", "退改");
+       map3.put("content", "如果您需要人工服务，可以拨打人工客服电话：4006660921");
+       datas.add(map1);
+       datas.add(map2);
+       datas.add(map3);
+       List<Double> res = vikingDBService.batchRerank(datas);
+       System.out.println(res);
+
+
     //    Double score = vikingDBService.rerank("退改", "如果您需要人工服务，可以拨打人工客服电话：4006660921", "转人工");
     //    System.out.println(score);
     //    HashMap<String,String> header = new HashMap<>();
@@ -70,7 +91,7 @@ public class test {
 
         // VectorIndexParams vectorIndex = new VectorIndexParams()
         //                                 .setDistance(DistanceType.COSINE)
-        //                                 .setIndexType(IndexType.HNSW)
+        //                                 .setIndexType(IndexType.DiskANN)
         //                                 .setQuant(QuantType.Float)
         //                                 .build();
         // List<String> scalarIndex = new ArrayList<>();
@@ -231,22 +252,22 @@ public class test {
 
         // System.out.println(datas);
 
-        Index index = vikingDBService.getIndex("example", "example_index");
-        List<String> outputField = new ArrayList<>();
-        outputField.add("doc_id");
-        outputField.add("like");
-        outputField.add("text_vector");
-        HashMap<String, Object> filter = new HashMap<>();
-        filter.put("op", "range");
-        filter.put("field", "price");
-        filter.put("lt", 4);
-        List<DataObject> datas = index.search(new SearchParam()
-                                                .setOutputFields(outputField)
-                                                .setFilter(filter)
-                                                .setLimit(5)
-                                                .build());
+        // Index index = vikingDBService.getIndex("example", "example_index");
+        // List<String> outputField = new ArrayList<>();
+        // outputField.add("doc_id");
+        // outputField.add("like");
+        // outputField.add("text_vector");
+        // HashMap<String, Object> filter = new HashMap<>();
+        // filter.put("op", "range");
+        // filter.put("field", "price");
+        // filter.put("lt", 4);
+        // List<DataObject> datas = index.search(new SearchParam()
+        //                                         .setOutputFields(outputField)
+        //                                         .setFilter(filter)
+        //                                         .setLimit(5)
+        //                                         .build());
 
-        System.out.println(datas);
+        // System.out.println(datas);
 
         // Index index = vikingDBService.getIndex("javaSDKTest", "test_index");
         // List<DataObject> datas = index.search(new SearchParam()

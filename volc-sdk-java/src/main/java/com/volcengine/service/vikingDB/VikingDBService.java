@@ -128,6 +128,9 @@ public class VikingDBService extends BaseServiceImpl {
         paramsPost.put(Const.Path, "/api/index/rerank");
         apiInfo.put("Rerank", new ApiInfo(paramsPost));
 
+        paramsPost.put(Const.Path, "/api/index/batch_rerank");
+        apiInfo.put("BatchRerank", new ApiInfo(paramsPost));
+
         return apiInfo;
     }
     public void setHeader(HashMap<String,String> header){
@@ -555,6 +558,20 @@ public class VikingDBService extends BaseServiceImpl {
         params.put("title", title);
         LinkedTreeMap<String,Object> resData = doRequest("Rerank", null, params);
         return (Double)resData.get("data");
+    }
+    public List<Double> batchRerank(List<Map<String,Object>> datas) throws Exception{
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("datas", datas);
+        LinkedTreeMap<String,Object> resData = doRequest("BatchRerank", null, params);
+        List<Double> scores = new ArrayList<>();
+
+        @SuppressWarnings("unchecked")
+        List<Double> res = (List<Double>)resData.get("data");
+
+        for(int i=0;i<res.size();i++){
+            scores.add(res.get(i));
+        }
+        return scores;
     }
 
 

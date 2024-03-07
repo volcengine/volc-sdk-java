@@ -287,6 +287,21 @@ public class BusinessSecurityConfig {
                         }
                     }
             ));
+            put(Const.GetDailyMarketingPackage,new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetDailyMarketingPackage"));
+                                    add(new BasicNameValuePair("Version", "2024-01-24"));
+                                }
+                            });
+                            put(Const.Header, headers);
+                        }
+                    }
+            ));
 
 
         }

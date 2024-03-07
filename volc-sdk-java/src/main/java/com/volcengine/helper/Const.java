@@ -109,6 +109,8 @@ public class Const {
 
     public static final String GetUploadedPartList = "GetUploadedPartList";
 
+    public static final String GetDailyMarketingPackage = "GetDailyMarketingPackage";
+
     // content security
     public static final String ImageContentRisk = "ImageContentRisk";
     public static final String ImageContentRiskV2 = "ImageContentRiskV2";
@@ -831,6 +833,8 @@ public class Const {
     public static final String MaasApiTokenization = "tokenization";
     public static final String MaasApiClassification = "classification";
     public static final String MaasApiEmbeddings = "embeddings";
+
+    public static final String MaasApiTop = "top";
 
     public static final String MaasChatRoleOfUser = "user";
     public static final String MaasChatRoleOfAssistant = "assistant";

@@ -266,6 +266,17 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
         RiskVConsoleResponse.CompleteUploadFileResult completeUploadFileResult = CompleteUploadFile(completeUploadFileRequest);
         return PushTrafficRiskDataResponse.builder().success(true).build();
     }
+
+    @Override
+    public GetDailyMarketingPackageResponse GetDailyMarketingPackage(GetDailyMarketingPackageRequest request) throws Exception {
+        RawResponse response = json(Const.GetDailyMarketingPackage, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), GetDailyMarketingPackageResponse.class);
+    }
+
     @Data
     static class FileInfo{
         private long fileSize;

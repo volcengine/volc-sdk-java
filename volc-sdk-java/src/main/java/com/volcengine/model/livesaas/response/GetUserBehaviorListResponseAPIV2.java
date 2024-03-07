@@ -65,5 +65,7 @@ public class GetUserBehaviorListResponseAPIV2 {
         Integer CommentCounts;
         @JSONField(name = "ChannelName")
         String ChannelName;
+        @JSONField(name = "UserCredit")
+        Integer UserCredit;
     }
 }

@@ -22,15 +22,5 @@ public interface MaasService extends IBaseService {
 
     EmbeddingsResp embeddings(String endpointId, EmbeddingsReq req) throws MaasException;
 
-    CreateOrRefreshAPIKeyResp createOrRefreshAPIKey(CreateOrRefreshAPIKeyReq req) throws Exception;
-
-    // 定义获取和设置 apikey 的方法
-    String getAPIKey();
-
-    // 定义获取和设置 apikeyTtl 的方法
-    Integer getAPIKeyTtl();
-    void setAPIKeyTtl(Integer apikeyTtl);
-
-
     void setApikey(String apikey);
 }

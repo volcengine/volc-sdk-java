@@ -62,19 +62,6 @@ public class MaasConfig {
                         put(Const.Path, "/api/v2/endpoint/%s/embeddings");
                     }
                 }));
-
-                put(Const.MaasApiTop, new ApiInfo(new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "post");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "CreateOrRefreshAPIKey"));
-                                add(new BasicNameValuePair("Version", "2024-01-01"));
-                            }
-                        });
-                    }
-                }));
             }
         };
     }

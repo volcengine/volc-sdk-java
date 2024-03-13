@@ -37,30 +37,7 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
     private static final String CHAT_TERMINATOR = "[DONE]";
 
     private static final ObjectMapper mapper = new ObjectMapper();
-
-    // 定义属性
-    private String apikey = "";
-    private Integer apikeyTtl = 0;
-
-    @Override
-    public String getAPIKey() {
-        return this.apikey;
-    }
-
-    @Override
-    public void setApikey(String apikey) {
-        this.apikey = apikey;
-    }
-
-    @Override
-    public Integer getAPIKeyTtl() {
-        return this.apikeyTtl;
-    }
-
-    @Override
-    public void setAPIKeyTtl(Integer apikeyTtl) {
-        this.apikeyTtl = apikeyTtl;
-    }
+    private String settedApikey = "";
 
     public MaasServiceImpl(String host, String region) {
         this(host, region, 60_000, 60_000);
@@ -91,12 +68,8 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
     }
 
     @Override
-    public CreateOrRefreshAPIKeyResp createOrRefreshAPIKey(CreateOrRefreshAPIKeyReq req) throws Exception {
-        RawResponse response =  super.json(Const.MaasApiTop, new ArrayList<>(), JSON.toJSONString(req));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-        return JSON.parseObject(response.getData(), CreateOrRefreshAPIKeyResp.class);
+    public void setApikey(String apikey) {
+        this.settedApikey = apikey;
     }
 
     @Override
@@ -104,10 +77,7 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
         req.setStream(true);
         String reqId = genReqId();
 
-        Integer apikeyTtl = this.getAPIKeyTtl();
-        if (!endpointId.isEmpty() && apikeyTtl == 0) {
-            getKey(endpointId);
-        }
+        String apikey = this.settedApikey;
 
         SignableRequest request = prepareRequest(Const.MaasApiChat, null);
         try {
@@ -122,9 +92,12 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
             URIBuilder builder = request.getUriBuilder();
             builder.setPath(String.format(builder.getPath(), endpointId));
             request.setURI(builder.build());
+            if (Objects.equals(apikey, "")) {
+                ISigner.sign(request, this.credentials);
+            } else {
+                request.setHeader(Const.Authorization, "Bearer " + apikey);
+            }
 
-            ISigner.sign(request, this.credentials);
-            request.setHeader(Const.Authorization, "Bearer " + this.apikey);
         } catch (Exception e) {
             throw new MaasException(e, reqId);
         }
@@ -181,13 +154,10 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
     private <T> T request(String endpointId, String api, Object req, Class<T> responseType) throws MaasException {
         String reqId = genReqId();
 
-        Integer apikeyTtl = this.getAPIKeyTtl();
-        if (!endpointId.isEmpty() && apikeyTtl == 0 && this.apikey.isEmpty()) {
-            this.getKey(endpointId);
-        }
+        String apikey = this.settedApikey;
 
         try {
-            RawResponse response = json(endpointId, api, reqId, mapper.writeValueAsString(req), this.apikey);
+            RawResponse response = json(endpointId, api, reqId, mapper.writeValueAsString(req), apikey);
             if (response.getCode() != SdkError.SUCCESS.getNumber()) {
                 try {
                     ErrorResp resp = json_parse(response.getException().getMessage().getBytes(), ErrorResp.class);
@@ -204,7 +174,7 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
     }
 
     protected RawResponse makeReq(String api, SignableRequest request, String apikey) {
-        if (apikey != null || !apikey.isEmpty()) {
+        if (apikey != null && !apikey.isEmpty()) {
             request.setHeader(Const.Authorization, "Bearer " + apikey);
         } else {
             try {
@@ -274,54 +244,5 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
         sb.append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")));
         sb.append(String.format("%020X", new SecureRandom().nextLong()));
         return sb.toString();
-    }
-
-    public String getKey(String endpointId) {
-        String apiKey = this.getAPIKey();
-
-        if (apiKey.isEmpty()) {
-            this.applyKey(endpointId, 604800, null);
-        } else {
-            int currentTime = Math.toIntExact(System.currentTimeMillis() / 1000);
-            Integer apiKeyTtl = this.getAPIKeyTtl();
-            if (currentTime + 300 > apiKeyTtl) {
-                applyKey(endpointId, 604800, null); // 假设 applyKey 已经适当实现
-                return this.getAPIKey();
-            }
-        }
-        return this.getAPIKey();
-    }
-
-
-    public void applyKey (String endpointId, Integer ttl, List<String>endpointIdList) {
-        MaasService inner = new MaasServiceImpl("open.volcengineapi.com", "cn-beijing");
-        String ak = this.credentials.getAccessKeyID();
-        String sk = this.credentials.getSecretAccessKey();
-        inner.setAccessKey(ak);
-        inner.setSecretKey(sk);
-        if (endpointIdList == null) {
-            endpointIdList = new ArrayList<>();
-        }
-        endpointIdList.add(endpointId);
-
-        CreateOrRefreshAPIKeyReq req = new CreateOrRefreshAPIKeyReq();
-
-        endpointIdList.add(endpointId);
-        req.setTtl(ttl);
-        req.setEndpointIdList(endpointIdList);
-        try {
-            // 假设 createOrRefreshAPIKey 方法接受一个 Map 作为参数，并返回一个包含 API key 的响应
-            CreateOrRefreshAPIKeyResp resp = inner.createOrRefreshAPIKey(req);
-
-            apikey = resp.getResult().getApiKey();
-            long epochSecond = Instant.now().getEpochSecond();
-            this.setAPIKeyTtl(ttl + (int)epochSecond);
-            this.setApikey(apikey);
-        } catch (MaasException e) {
-            // 处理异常，MaasException 需要是一个已定义的异常类
-            e.printStackTrace();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
     }
 }

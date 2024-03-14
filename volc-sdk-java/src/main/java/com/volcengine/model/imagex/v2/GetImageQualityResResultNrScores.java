@@ -81,6 +81,30 @@ public final class GetImageQualityResResultNrScores  {
     @com.alibaba.fastjson.annotation.JSONField(name = "noise")
     private Double noise;
 
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "blur")
+    private Double blur;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "cg")
+    private Double cg;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "cmartifact")
+    private Double cmartifact;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "green")
+    private Double green;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

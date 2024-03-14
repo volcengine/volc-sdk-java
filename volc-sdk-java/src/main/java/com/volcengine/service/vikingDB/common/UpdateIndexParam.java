@@ -13,6 +13,7 @@ public class UpdateIndexParam {
     private Integer cpuQuoat = null;
     private String description = null;
     private List<String> scalarIndex = null;
+    private Integer shardCount = null;
     private Integer isBuild = 0;
     public UpdateIndexParam setCollectionName(String collectionName) {
         this.collectionName = collectionName;
@@ -32,6 +33,10 @@ public class UpdateIndexParam {
     }
     public UpdateIndexParam setScalarIndex(List<String> scalarIndex) {
         this.scalarIndex = scalarIndex;
+        return this;
+    }
+    public UpdateIndexParam setShardCount(Integer shardCount) {
+        this.shardCount = shardCount;
         return this;
     }
     public UpdateIndexParam build() throws Exception{

@@ -402,6 +402,27 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>describeImageXBucketRetrievalUsage</p>
+     * <p>查询资源占用量</p>
+     *
+     * <p>本接口支持通过自定义查询时间段，查询该时间段的每天资源占用量。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>单次查询最大时间跨度为 93 天。</p>
+     *
+     * <p>:::</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeImageXBucketRetrievalUsageRes describeImageXBucketRetrievalUsage(DescribeImageXBucketRetrievalUsageQuery query) throws Exception {
+        RawResponse rawResponse = json("DescribeImageXBucketRetrievalUsage", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, DescribeImageXBucketRetrievalUsageRes.class);
+    }
+
+    /**
      * <p>describeImageXSummary</p>
      * <p>查询用量概览</p>
      *
@@ -593,7 +614,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>describeImageXEdgeRequest</p>
      * <p>查询边缘分发请求次</p>
      *
-     * <p>本接口支持通过自定义查询时间段，查询该时间段的边缘请求次数。</p>
+     * <p>本接口支持通过自���义查询时间段，查询该时间段的边缘请求次数。</p>
      *
      * @param query query arguments
      * @return response data
@@ -1703,6 +1724,22 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>updateImageResourceStatus</p>
+     * <p>修改上传文件状态</p>
+     *
+     * <p>修改上传文件状态</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageResourceStatusRes updateImageResourceStatus(UpdateImageResourceStatusQuery query, UpdateImageResourceStatusBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageResourceStatus", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageResourceStatusRes.class);
+    }
+
+    /**
      * <p>getImageStorageFiles</p>
      * <p>列举服务下的文件</p>
      *
@@ -1847,10 +1884,24 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>getImageServiceSubscription</p>
+     * <p>查询服务开通状态</p>
+     *
+     * <p>本接口支持查询图片服务的开通状态详情，支持返回账号 ID、已购商品和已购商品配置等信息。</p>
+     *
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageServiceSubscriptionRes getImageServiceSubscription() throws Exception {
+        RawResponse rawResponse = json("GetImageServiceSubscription", null, "");
+        return parseRawResponse(rawResponse, GetImageServiceSubscriptionRes.class);
+    }
+
+    /**
      * <p>getImageService</p>
      * <p>获取单个服务信息</p>
      *
-     * <p>本接口支持通过指定服务 ID，获取对应服务的详情，如：服务名称、服务地域和服务类型等信息。</p>
+     * <p>本接口支���通过指定服务 ID，获取对应服务的详情，如：服务名称、服务地域和服务类型等信息。</p>
      *
      * @param query query arguments
      * @return response data
@@ -2460,6 +2511,22 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>getImageDetectResult</p>
+     * <p>图片内容检测</p>
+     *
+     * <p>图片内容检测</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageDetectResultRes getImageDetectResult(GetImageDetectResultQuery query, GetImageDetectResultBody body) throws Exception {
+        RawResponse rawResponse = json("GetImageDetectResult", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetImageDetectResultRes.class);
+    }
+
+    /**
      * <p>createImageHmExtract</p>
      * <p>提取盲水印</p>
      *
@@ -2632,20 +2699,6 @@ public class ImagexTrait extends BaseServiceImpl {
     public UpdateImageMirrorConfRes updateImageMirrorConf(UpdateImageMirrorConfQuery query, UpdateImageMirrorConfBody body) throws Exception {
         RawResponse rawResponse = json("UpdateImageMirrorConf", Utils.paramsToPair(query), JSON.toJSONString(body));
         return parseRawResponse(rawResponse, UpdateImageMirrorConfRes.class);
-    }
-
-    /**
-     * <p>getImageServiceSubscription</p>
-     * <p>查询服务开通状态</p>
-     *
-     * <p>本接口支持查询图片服务的开通状态详情，支持返回账号 ID、已购商品和已购商品配置等信息。</p>
-     *
-     * @return response data
-     * @throws Exception error during request
-     */
-    public GetImageServiceSubscriptionRes getImageServiceSubscription() throws Exception {
-        RawResponse rawResponse = json("GetImageServiceSubscription", null, "");
-        return parseRawResponse(rawResponse, GetImageServiceSubscriptionRes.class);
     }
 
     /**

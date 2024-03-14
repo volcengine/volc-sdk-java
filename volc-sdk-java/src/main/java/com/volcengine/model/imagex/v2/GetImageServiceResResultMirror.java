@@ -40,12 +40,6 @@ public final class GetImageServiceResResultMirror  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Headers")
     private Map<String, String> headers;
 
-    /**
-     * <p>镜像源站</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "Origin")
-    private GetImageServiceResResultMirrorOrigin origin;
-
     @Override
     public String toString() {
         return JSON.toJSONString(this);

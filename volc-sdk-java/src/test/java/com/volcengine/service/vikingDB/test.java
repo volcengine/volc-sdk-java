@@ -39,23 +39,23 @@ public class test {
         // System.out.println("example");
        VikingDBService vikingDBService = new VikingDBService("", "", "", "","http");
 
-       List<Map<String,Object>> datas = new ArrayList<>();
-       Map<String,Object> map1 = new HashMap<>();
-       map1.put("query", "退改");
-       map1.put("content", "如果您需要人工服务，可以拨打人工客服电话：4006660921");
-       map1.put("title", "无");
-       Map<String,Object> map2 = new HashMap<>();
-       map2.put("query", "退改");
-       map2.put("content", "1、1日票 1.5日票 2日票的退款政策： -到访日前2天的00:00前，免费退款 - 到访日前2天的00:00至到访日前夜23:59期间,退款需扣除服务费（人民币80元） - 到访日当天（00:00 之后），不可退款 2、半日票的退款政策： - 未使用的们票可在所选入...");
-       map2.put("title", "门票退改政策｜北京环球影城的门票退改政策");
-       Map<String,Object> map3 = new HashMap<>();
-       map3.put("query", "退改");
-       map3.put("content", "如果您需要人工服务，可以拨打人工客服电话：4006660921");
-       datas.add(map1);
-       datas.add(map2);
-       datas.add(map3);
-       List<Double> res = vikingDBService.batchRerank(datas);
-       System.out.println(res);
+    //    List<Map<String,Object>> datas = new ArrayList<>();
+    //    Map<String,Object> map1 = new HashMap<>();
+    //    map1.put("query", "退改");
+    //    map1.put("content", "如果您需要人工服务，可以拨打人工客服电话：4006660921");
+    //    map1.put("title", "无");
+    //    Map<String,Object> map2 = new HashMap<>();
+    //    map2.put("query", "退改");
+    //    map2.put("content", "1、1日票 1.5日票 2日票的退款政策： -到访日前2天的00:00前，免费退款 - 到访日前2天的00:00至到访日前夜23:59期间,退款需扣除服务费（人民币80元） - 到访日当天（00:00 之后），不可退款 2、半日票的退款政策： - 未使用的们票可在所选入...");
+    //    map2.put("title", "门票退改政策｜北京环球影城的门票退改政策");
+    //    Map<String,Object> map3 = new HashMap<>();
+    //    map3.put("query", "退改");
+    //    map3.put("content", "如果您需要人工服务，可以拨打人工客服电话：4006660921");
+    //    datas.add(map1);
+    //    datas.add(map2);
+    //    datas.add(map3);
+    //    List<Double> res = vikingDBService.batchRerank(datas);
+    //    System.out.println(res);
 
 
     //    Double score = vikingDBService.rerank("退改", "如果您需要人工服务，可以拨打人工客服电话：4006660921", "转人工");
@@ -427,18 +427,19 @@ public class test {
         // Collection collection = vikingDBService.getCollection("javaSDKTest1");
         // System.out.println(collection);
 
-        // Index index = vikingDBService.getIndex("example", "example_index");
-        // System.out.println(index);
+        // Index index = vikingDBService.getIndex("example", "goIndex");
+        // System.out.println(index.getShardCount());
         // List<String> scalar_index = new ArrayList<>();
         // scalar_index.add("like");
         // UpdateIndexParam parmas = new UpdateIndexParam().setCollectionName("example")
-        //                                 .setIndexName("example_index")
+        //                                 .setIndexName("goIndex")
         //                                 .setCpuQuoat(3)
         //                                 .setDescription("java test")
         //                                 .setScalarIndex(scalar_index)
+        //                                 .setShardCount(7)
         //                                 .build();
         // vikingDBService.updateIndex(parmas);
-        // Index index1 = vikingDBService.getIndex("example", "example_index");
+        // Index index1 = vikingDBService.getIndex("example", "goIndex");
         // System.out.println(index1);
 
 

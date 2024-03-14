@@ -57,7 +57,7 @@ public final class GetImageTemplateResResult  {
     private Double ouputQuality;
 
     /**
-     * <p>默认为空，使用绝对质量；传relative，使用相对质量，原图为JPEG有效</p>
+     * <p>默认为空，使用绝对质��；传relative，使用相对质量，原图为JPEG有效</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "QualityMode")
     private String qualityMode;

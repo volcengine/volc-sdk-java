@@ -11,7 +11,13 @@ import java.util.List;
 public final class GetImageServiceResResultImageYAttribute  {
 
     /**
-     * <p>是否开启原图保护</p>
+     * <p>是否开启原图保护，取值如下所示：</p>
+     *
+     *
+     *
+     * <p>- `true`：开启</p>
+     *
+     * <p>- `false`：关闭</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ResourceProtect")
     private Boolean resourceProtect;

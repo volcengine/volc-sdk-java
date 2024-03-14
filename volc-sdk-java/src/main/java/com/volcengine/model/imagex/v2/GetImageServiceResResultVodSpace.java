@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class GetImageServiceResResultVodSpace  {
 
     /**
-     * <p>空间名</p>
+     * <p>点播空间名</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SpaceName")
     private String spaceName;
@@ -22,7 +22,7 @@ public final class GetImageServiceResResultVodSpace  {
     private String region;
 
     /**
-     * <p>底层存储名</p>
+     * <p>点播空间存储桶名称</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Bucket")
     private String bucket;

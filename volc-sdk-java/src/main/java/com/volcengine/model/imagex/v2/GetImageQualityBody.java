@@ -26,7 +26,7 @@ public final class GetImageQualityBody  {
     private String imageUrl;
 
     /**
-     * <p>评估工具，默认选择全部。多个支持的评估工具用逗号隔开，当前支持以下工具：</p>
+     * <p>评估工具。指定多个评估工具时使用英文逗号分隔，当前支持以下工具：</p>
      *
      * <p>* nr_index</p>
      *
@@ -48,8 +48,6 @@ public final class GetImageQualityBody  {
      *
      * <p>* texture</p>
      *
-     * <p>* colorfulness</p>
-     *
      * <p>* brightness</p>
      *
      * <p>* overexposure</p>
@@ -57,6 +55,16 @@ public final class GetImageQualityBody  {
      * <p>* hue</p>
      *
      * <p>* saturation</p>
+     *
+     * <p>* psnr</p>
+     *
+     * <p>* ssim</p>
+     *
+     * <p>* vmaf</p>
+     *
+     * <p>* green</p>
+     *
+     * <p>* cmartifacts</p>
      *
      * <p>:::tip</p>
      *
@@ -66,6 +74,18 @@ public final class GetImageQualityBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "VqType")
     private String vqType;
+
+    /**
+     * <p>指定服务下的评估参照图片存储 Uri 或访问 URL，用于和 `ImageUrl` 图片进行特定维度的对比。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>当 `VqType` 中包含 `psnr、ssim、vmaf` 等任一字段时，该字段为必填，否则上述评估指标无法正常输出结果。</p>
+     *
+     * <p>:::</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ImageUrlRef")
+    private String imageUrlRef;
 
     @Override
     public String toString() {

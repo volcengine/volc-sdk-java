@@ -155,88 +155,68 @@ public final class GetImageServiceResResult  {
     private List<GetImageServiceResResultEventRulesItem> eventRules;
 
     /**
-     * <p>是否允许配置其他镜像站类型</p>
+     * <p>是否允许配置其他镜像站类型，取值如下所示：</p>
+     *
+     *
+     *
+     * <p>- `true`：是</p>
+     *
+     * <p>- `false`：否</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AllowMirrorTypes")
     private Boolean allowMirrorTypes;
 
     /**
-     * <p>ImageY相关配置（tob 展示）</p>
+     * <p>自定义处理相关配置</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ImageYAttribute")
     private GetImageServiceResResultImageYAttribute imageYAttribute;
 
     /**
-     * <p>是否开启ImageY</p>
+     * <p>是否开启自定义处理样式，取值如下所示：</p>
+     *
+     * <p>- `true`：是</p>
+     *
+     * <p>- `false`：否</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ImageY")
     private Boolean imageY;
 
     /**
-     * <p>TODO</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "VolTosBucket")
-    private GetImageServiceResResultVolTosBucket volTosBucket;
-
-    /**
-     * <p>TODO</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "AllowVolcTos")
-    private Boolean allowVolcTos;
-
-    /**
-     * <p>用于保护「数据加密密钥」的密钥，只有加密上传的图片需要做处理时需要申请</p>
+     * <p>用于保护「数据加密密钥」的密钥，只有加密上传的图片需要做处理时需要申请。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RsaPublicKey")
     private String rsaPublicKey;
 
     /**
-     * <p>服务绑定的项目。仅对ToB账号请求生效，默认default</p>
+     * <p>服务绑定的项目，默认为 default。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ProjectName")
     private String projectName;
 
     /**
-     * <p>服务绑定的标签。仅ToB账号有值</p>
+     * <p>服务绑定的标签。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ResourceTags")
     private List<GetImageServiceResResultResourceTagsItem> resourceTags;
-
-    /**
-     * <p>内部服务创建人</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "Creator")
-    private String creator;
-
-    /**
-     * <p>内部服务安全保密等级 'L1' | 'L2' | 'L3' | 'L4' | 'L5'</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "PrivacyLevel")
-    private String privacyLevel;
-
-    /**
-     * <p>内部服务内容安全负责人</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "SecurityContact")
-    private String securityContact;
-
-    /**
-     * <p>内部服务服务树节点</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "ServiceTreeNodeId")
-    private String serviceTreeNodeId;
-
-    /**
-     * <p>内部使用 元数据写入ODM可便于数据鉴权、溯源</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "WriteOdm")
-    private Boolean writeOdm;
 
     /**
      * <p>绑定的点播空间信息</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "VodSpace")
     private GetImageServiceResResultVodSpace vodSpace;
+
+    /**
+     * <p>存储降冷策略</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StorageRules")
+    private List<GetImageServiceResResultStorageRulesItem> storageRules;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ResourceLimitedVisit")
+    private GetImageServiceResResultResourceLimitedVisit resourceLimitedVisit;
 
     @Override
     public String toString() {

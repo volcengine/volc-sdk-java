@@ -24,7 +24,7 @@ public final class GetImageUploadFileQuery  {
      *
      * <p>- 您可以在 veImageX 控制台 [资源管理](https://console.volcengine.com/imagex/resource_manage/)页面，在已上传文件的名称列获取资源 Uri。</p>
      *
-     * <p>- 您也可以通过 OpenAPI 的方式获取Uri，具体请参考[文件上传完成上报](https://www.volcengine.com/docs/508/9398)。</p>
+     * <p>- 您也可以通过 OpenAPI 的方式获取Uri，具体请参考 [GetImageUploadFiles](https://www.volcengine.com/docs/508/9392)。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StoreUri")
     private String storeUri;

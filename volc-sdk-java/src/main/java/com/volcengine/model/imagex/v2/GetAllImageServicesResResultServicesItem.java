@@ -122,13 +122,13 @@ public final class GetAllImageServicesResResultServicesItem  {
      * <p>镜像回源配置。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Mirror")
-    private List<GetAllImageServicesResResultServicesItemMirrorItem> mirror;
+    private GetAllImageServicesResResultServicesItemMirror mirror;
 
     /**
      * <p>资源配置。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Storage")
-    private List<GetAllImageServicesResResultServicesItemStorageItem> storage;
+    private GetAllImageServicesResResultServicesItemStorage storage;
 
     /**
      * <p>服务的授权 Bucket 列表。</p>
@@ -149,7 +149,7 @@ public final class GetAllImageServicesResResultServicesItem  {
     private Boolean uploadOverwrite;
 
     /**
-     * <p>事件通知规则</p>
+     * <p>事件通知配置</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EventRules")
     private List<GetAllImageServicesResResultServicesItemEventRulesItem> eventRules;
@@ -183,6 +183,30 @@ public final class GetAllImageServicesResResultServicesItem  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ResourceTags")
     private List<GetAllImageServicesResResultServicesItemResourceTagsItem> resourceTags;
+
+    /**
+     * <p>降冷存储配置</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StorageRules")
+    private List<GetAllImageServicesResResultServicesItemStorageRulesItem> storageRules;
+
+    /**
+     * <p>绑定点播空间配置</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "VodSpace")
+    private GetAllImageServicesResResultServicesItemVodSpace vodSpace;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Field5")
+    private String field5;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ResourceLimitedVisit")
+    private GetAllImageServicesResResultServicesItemResourceLimitedVisit resourceLimitedVisit;
 
     @Override
     public String toString() {

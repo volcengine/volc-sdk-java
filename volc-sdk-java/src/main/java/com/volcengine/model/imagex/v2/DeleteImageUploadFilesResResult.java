@@ -11,10 +11,16 @@ import java.util.List;
 public final class DeleteImageUploadFilesResResult  {
 
     /**
-     * <p>成功删除的文件 Uri 列表。</p>
+     * <p>文件成功删除的 URI 列表</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DeletedFiles")
     private List<String> deletedFiles;
+
+    /**
+     * <p>文件不存在的无效 URI 列表</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "InvaildFiles")
+    private List<String> invaildFiles;
 
     @Override
     public String toString() {

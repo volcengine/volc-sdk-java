@@ -7,4 +7,6 @@ import lombok.Data;
 @Builder
 public class PushTrafficRiskDataResponse {
     private boolean success;
+
+    private String packageId;
 }

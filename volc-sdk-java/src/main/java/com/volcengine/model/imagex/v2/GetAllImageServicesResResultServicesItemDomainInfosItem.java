@@ -37,6 +37,12 @@ public final class GetAllImageServicesResResultServicesItemDomainInfosItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "IsDefault")
     private Boolean isDefault;
 
+    /**
+     * <p>是否开启鉴权</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "UrlAuth")
+    private Boolean urlAuth;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

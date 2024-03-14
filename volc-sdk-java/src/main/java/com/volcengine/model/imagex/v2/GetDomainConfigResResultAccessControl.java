@@ -16,10 +16,10 @@ public final class GetDomainConfigResResultAccessControl  {
     private GetDomainConfigResResultAccessControlIpAuth ipAuth;
 
     /**
-     * <p>Referer 访问限制配置</p>
+     * <p>TODO</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "refer_link")
-    private GetDomainConfigResResultAccessControlReferLink referLink;
+    private Object referLink;
 
     /**
      * <p>UA 访问控制配置</p>
@@ -38,6 +38,12 @@ public final class GetDomainConfigResResultAccessControl  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "remote_auth")
     private GetDomainConfigResResultAccessControlRemoteAuth remoteAuth;
+
+    /**
+     * <p>Referer 防盗链配置</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "referer_link")
+    private GetDomainConfigResResultAccessControlRefererLink refererLink;
 
     @Override
     public String toString() {

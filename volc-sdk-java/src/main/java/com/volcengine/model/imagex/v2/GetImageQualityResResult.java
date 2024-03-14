@@ -21,6 +21,24 @@ public final class GetImageQualityResResult  {
     @com.alibaba.fastjson.annotation.JSONField(name = "NrScores")
     private GetImageQualityResResultNrScores nrScores;
 
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "FrScoreResult")
+    private GetImageQualityResResultFrScoreResult frScoreResult;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "FrScores")
+    private GetImageQualityResResultFrScores frScores;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "NrScoreResult")
+    private GetImageQualityResResultNrScoreResult nrScoreResult;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

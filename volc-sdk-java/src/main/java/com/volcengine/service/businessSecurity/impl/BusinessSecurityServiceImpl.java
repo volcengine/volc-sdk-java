@@ -264,7 +264,7 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
         completeUploadFileRequest.setDataType(request.getDataType());
         completeUploadFileRequest.setScene(request.getScene());
         RiskVConsoleResponse.CompleteUploadFileResult completeUploadFileResult = CompleteUploadFile(completeUploadFileRequest);
-        return PushTrafficRiskDataResponse.builder().success(true).build();
+        return PushTrafficRiskDataResponse.builder().success(true).packageId(completeUploadFileResult.getResult().getData()).build();
     }
 
     @Override

@@ -45,5 +45,9 @@ public class GetCheckInListAPIResponse {
         String CheckInId;
         @JSONField(name = "StartTime")
         Long StartTime;
+        @JSONField(name = "IsSendComment")
+        Integer IsSendComment;
+        @JSONField(name = "CommentContent")
+        String CommentContent;
     }
 }

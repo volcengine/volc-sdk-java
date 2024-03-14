@@ -23,8 +23,6 @@ public class BusinessSecurityServiceTest extends TestCase {
     private BusinessSecurityService initService(String service) {
         BusinessSecurityConfig.init();
         BusinessSecurityService serviceOpenapi = BusinessSecurityServiceImpl.getInstanceOpenapi();
-        serviceOpenapi.setAccessKey("AK");
-        serviceOpenapi.setSecretKey("AK");
         return serviceOpenapi;
     }
 
@@ -73,8 +71,8 @@ public class BusinessSecurityServiceTest extends TestCase {
     public void testSendSamplePackage()throws Exception{
         BusinessSecurityService service = initService("Business");
         PushTrafficRiskDataRequest request = new PushTrafficRiskDataRequest();
-        request.setAppId(560584l);
-        request.setFilePath("/tmp/origin-data_v9.csv");
+        request.setAppId(579824l);
+        request.setFilePath("/tmp/权重测试222.csv");
         request.setBusinessType("A1");
         request.setScene("1");
         request.setDataType("1");

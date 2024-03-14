@@ -67,7 +67,7 @@ public final class DescribeImageXCdnSuccessRateByTimeBody  {
      *
      * <p>- `电信`</p>
      *
-     * <p>- `联通`</p>
+     * <p>- `联���`</p>
      *
      * <p>- `移动`</p>
      *

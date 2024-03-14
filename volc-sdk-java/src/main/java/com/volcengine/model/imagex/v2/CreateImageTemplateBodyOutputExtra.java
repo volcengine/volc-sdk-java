@@ -83,6 +83,28 @@ public final class CreateImageTemplateBodyOutputExtra  {
     @com.alibaba.fastjson.annotation.JSONField(name = "heic.alpha.reserve")
     private String heicAlphaReserve;
 
+    /**
+     * <p>jpeg 的 alpha 图片是否降级为 png，指定为 `png` 时表示降级为 png 格式。缺省情况下默认为空，表示不降级。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "jpeg.alpha.demotion.png")
+    private String jpegAlphaDemotionPng;
+
+    /**
+     * <p>指定 jpeg 体积的输出大小，需同时设置 `jpeg.size.fixed.padding`，二者缺一不可。</p>
+     *
+     * <p>指定输出体积大小，单位为 Byte。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "jpeg.size.fixed")
+    private String jpegSizeFixed;
+
+    /**
+     * <p>指定 jpeg 体积的输出大小，需同时指定 `jpeg.size.fixed`，二者缺一不可。</p>
+     *
+     * <p>体积填充方式，取值固定为 `append`。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "jpeg.size.fixed.padding")
+    private String jpegSizeFixedPadding;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

@@ -404,6 +404,24 @@ public class Const {
     public static final String ListTeachAssistantAccounts = "ListTeachAssistantAccounts";
     public static final String UpdateTeachAssistantAccount = "UpdateTeachAssistantAccount";
     public static final String DeleteTeachAssistantAccount = "DeleteTeachAssistantAccount";
+    public static final String GetSecurityControlConfig = "GetSecurityControlConfig";
+    public static final String UpdateSecurityControlConfig = "UpdateSecurityControlConfig";
+
+    public static final String GetActivityCommentConfig = "GetActivityCommentConfig";
+
+    public static final String UpdateActivityCommentConfig = "UpdateActivityCommentConfig";
+
+    public static final String ListActivityCustomEmojiSets = "ListActivityCustomEmojiSets";
+
+    public static final String GetActivityCustomEmojiSetDetail = "GetActivityCustomEmojiSetDetail";
+
+    public static final String ModifyActivityCustomEmojiSets = "ModifyActivityCustomEmojiSets";
+
+    public static final String DeleteActivityCustomEmojiSet = "DeleteActivityCustomEmojiSet";
+
+    public static final String CreateOrUpdateActivityCustomEmojiSet = "CreateOrUpdateActivityCustomEmojiSet";
+
+    public static final String UpdateActivityCustomEmojiSetStatus = "UpdateActivityCustomEmojiSetStatus";
 
     // translate
     public static final String LangDetect = "LangDetect";

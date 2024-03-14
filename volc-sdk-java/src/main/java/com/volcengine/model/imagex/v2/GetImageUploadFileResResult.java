@@ -34,10 +34,46 @@ public final class GetImageUploadFileResResult  {
     private Integer fileSize;
 
     /**
-     * <p>底层存储的content-type值</p>
+     * <p>底层存储的 content-type 值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StorageContentType")
     private String storageContentType;
+
+    /**
+     * <p>文件恢复副本的到期时间。仅当文件执行过恢复操作时有值</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "RestoreExpiryDate")
+    private String restoreExpiryDate;
+
+    /**
+     * <p>文件是否处于恢复中状态，取值如下所示：</p>
+     *
+     * <p>- `true`：是</p>
+     *
+     * <p>- `false`：否</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Restoring")
+    private Boolean restoring;
+
+    /**
+     * <p>底层存储类型，取值如下所示：</p>
+     *
+     * <p>- `STANDARD`：标准存储 </p>
+     *
+     * <p>- `IA`：低频存储 </p>
+     *
+     * <p>- `ARCHIVE`：归档存储 </p>
+     *
+     * <p>- `COLD_ARCHIVE`：冷归档存储	</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StorageClass")
+    private String storageClass;
+
+    /**
+     * <p>是否被禁用</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Disabled")
+    private Boolean disabled;
 
     @Override
     public String toString() {

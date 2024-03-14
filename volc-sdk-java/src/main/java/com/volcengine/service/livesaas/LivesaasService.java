@@ -1195,4 +1195,94 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception
      */
     GetAdvertisementDataDetailAPIResponse getAdvertisementDataDetailAPI(GetAdvertisementDataDetailAPIRequest getAdvertisementDataDetailAPIRequest) throws Exception;
+
+    /**
+     * getActivityCommentConfig
+     *
+     * @param commonRequest CommonRequest
+     * @return GetActivityCommentConfigResponse
+     * @throws Exception the exception
+     */
+    GetActivityCommentConfigResponse getActivityCommentConfig(CommonRequest commonRequest) throws Exception;
+
+    /**
+     * updateActivityCommentConfig
+     *
+     * @param updateActivityCommentConfigRequest UpdateActivityCommentConfigRequest
+     * @return UpdateActivityCommentConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityCommentConfigResponse updateActivityCommentConfig(UpdateActivityCommentConfigRequest updateActivityCommentConfigRequest) throws Exception;
+
+    /**
+     * listActivityCustomEmojiSets
+     *
+     * @param commonRequest CommonRequest
+     * @return ListActivityCustomEmojiSetsResponse
+     * @throws Exception the exception
+     */
+    ListActivityCustomEmojiSetsResponse listActivityCustomEmojiSets(CommonRequest commonRequest) throws Exception;
+
+    /**
+     * getActivityCustomEmojiSetDetail
+     *
+     * @param getActivityCustomEmojiSetDetailRequest GetActivityCustomEmojiSetDetailRequest
+     * @return GetActivityCustomEmojiSetDetailResponse
+     * @throws Exception the exception
+     */
+    GetActivityCustomEmojiSetDetailResponse getActivityCustomEmojiSetDetail(GetActivityCustomEmojiSetDetailRequest getActivityCustomEmojiSetDetailRequest) throws Exception;
+
+    /**
+     * modifyActivityCustomEmojiSets
+     *
+     * @param modifyActivityCustomEmojiSetsRequest ModifyActivityCustomEmojiSetsRequest
+     * @return ModifyActivityCustomEmojiSetsResponse
+     * @throws Exception the exception
+     */
+    ModifyActivityCustomEmojiSetsResponse modifyActivityCustomEmojiSets(ModifyActivityCustomEmojiSetsRequest modifyActivityCustomEmojiSetsRequest) throws Exception;
+
+    /**
+     * deleteActivityCustomEmojiSet
+     *
+     * @param deleteActivityCustomEmojiSetRequest DeleteActivityCustomEmojiSetRequest
+     * @return DeleteActivityCustomEmojiSetResponse
+     * @throws Exception the exception
+     */
+    DeleteActivityCustomEmojiSetResponse deleteActivityCustomEmojiSet(DeleteActivityCustomEmojiSetRequest deleteActivityCustomEmojiSetRequest) throws Exception;
+
+    /**
+     * createOrUpdateActivityCustomEmojiSet
+     *
+     * @param createOrUpdateActivityCustomEmojiSetRequest CreateOrUpdateActivityCustomEmojiSetRequest
+     * @return CreateOrUpdateActivityCustomEmojiSetResponse
+     * @throws Exception the exception
+     */
+    CreateOrUpdateActivityCustomEmojiSetResponse createOrUpdateActivityCustomEmojiSet(CreateOrUpdateActivityCustomEmojiSetRequest createOrUpdateActivityCustomEmojiSetRequest) throws Exception;
+
+    /**
+     * updateActivityCustomEmojiSetStatus
+     *
+     * @param updateActivityCustomEmojiSetStatusRequest UpdateActivityCustomEmojiSetStatusRequest
+     * @return UpdateActivityCustomEmojiSetStatusResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityCustomEmojiSetStatusResponse updateActivityCustomEmojiSetStatus(UpdateActivityCustomEmojiSetStatusRequest updateActivityCustomEmojiSetStatusRequest) throws Exception;
+
+    /**
+     * GetSecurityControlConfig
+     *
+     * @param getSecurityControlConfigRequest
+     * @return
+     * @throws Exception
+     */
+    GetSecurityControlConfigResponse getSecurityControlConfig(GetSecurityControlConfigRequest getSecurityControlConfigRequest) throws Exception;
+
+    /**
+     * UpdateSecurityControlConfig
+     *
+     * @param updateSecurityControlConfigRequest
+     * @return
+     * @throws Exception
+     */
+    UpdateSecurityControlConfigResponse updateSecurityControlConfig(UpdateSecurityControlConfigRequest updateSecurityControlConfigRequest) throws Exception;
 }

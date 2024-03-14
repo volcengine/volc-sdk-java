@@ -91,6 +91,12 @@ public final class GetImageServiceSubscriptionResResult  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Status")
     private Integer status;
 
+    /**
+     * <p>实例对应的价格版本</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "PriceVersion")
+    private String priceVersion;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

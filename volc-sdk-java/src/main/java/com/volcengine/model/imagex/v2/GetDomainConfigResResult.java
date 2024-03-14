@@ -76,6 +76,12 @@ public final class GetDomainConfigResResult  {
     @com.alibaba.fastjson.annotation.JSONField(name = "lock_status")
     private GetDomainConfigResResultLockStatus lockStatus;
 
+    /**
+     * <p>页面优化设置</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "page_optimization")
+    private GetDomainConfigResResultPageOptimization pageOptimization;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

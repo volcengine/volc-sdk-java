@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class DescribeImageXClientLoadDurationResResultDurationDataItemDataItem  {
 
     /**
-     * <p>平均耗时，单位毫秒。</p>
+     * <p>平均耗时，单位毫秒���</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Value")
     private Double value;

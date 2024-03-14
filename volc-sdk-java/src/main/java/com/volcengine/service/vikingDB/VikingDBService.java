@@ -500,6 +500,9 @@ public class VikingDBService extends BaseServiceImpl {
         if(updateIndexParam.getScalarIndex() != null){
             params.put("scalar_index", updateIndexParam.getScalarIndex());
         }
+        if(updateIndexParam.getShardCount() != null){
+            params.put("shard_count", updateIndexParam.getShardCount());
+        }
         doRequest("UpdateIndex", null, params);
     }
     

@@ -17,7 +17,7 @@ public final class DescribeForbiddenStreamInfoByPageResResult  {
     private List<DescribeForbiddenStreamInfoByPageResResultStreamInfoListItem> streamInfoList;
 
     /**
-     * <p>流数量。</p>
+     * <p>查询结果中禁推流数量。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RoughCount")
     private Integer roughCount;

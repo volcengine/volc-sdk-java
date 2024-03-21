@@ -188,13 +188,13 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
     }
 
     @Override
-    public VideoRiskResultResponse VideoLiveResult(ImageRiskResultRequest videoRiskResultRequest) throws Exception {
+    public GetVideoLiveRiskResultResponse VideoLiveResult(ImageRiskResultRequest videoRiskResultRequest) throws Exception {
         RawResponse response = query(Const.GetVideoLiveResult, Utils.mapToPairList(Utils.paramsToMap(videoRiskResultRequest)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
 
-        return JSON.parseObject(response.getData(), VideoRiskResultResponse.class);
+        return JSON.parseObject(response.getData(), GetVideoLiveRiskResultResponse.class);
     }
 
     @Override
@@ -208,13 +208,13 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
     }
 
     @Override
-    public GetAudioRiskResponse AudioLiveResult(ImageRiskResultRequest audioRiskResultRequest) throws Exception {
+    public GetAudioLiveRiskResponse AudioLiveResult(ImageRiskResultRequest audioRiskResultRequest) throws Exception {
         RawResponse response = query(Const.GetAudioLiveResult, Utils.mapToPairList(Utils.paramsToMap(audioRiskResultRequest)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
 
-        return JSON.parseObject(response.getData(), GetAudioRiskResponse.class);
+        return JSON.parseObject(response.getData(), GetAudioLiveRiskResponse.class);
     }
 
     @Override

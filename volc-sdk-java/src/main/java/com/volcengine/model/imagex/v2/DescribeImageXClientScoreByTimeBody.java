@@ -141,7 +141,7 @@ public final class DescribeImageXClientScoreByTimeBody  {
      *
      * <p>- `psnr`：查询 psnr 指标</p>
      *
-     * <p>- `ssim`：查询 ssim ���标</p>
+     * <p>- `ssim`：查询 ssim 指标</p>
      *
      * <p>- `vmaf`：查询 vmaf 指标</p>
      */

@@ -10,19 +10,19 @@ import com.alibaba.fastjson.JSON;
 public final class ListVhostTransCodePresetResResultCustomizePresetListItem  {
 
     /**
-     * <p>应用名称，由 1 到 30 位数字、字母、下划线及"-"和"."组成</p>
+     * <p>应用名称，由 1 到 30 位数字、字母、下划线及"-"和"."组成。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>TODO</p>
+     * <p>转码配置具体信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TranscodePreset")
     private ListVhostTransCodePresetResResultCustomizePresetListItemTranscodePreset transcodePreset;
 
     /**
-     * <p>域名空间</p>
+     * <p>域名空间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;

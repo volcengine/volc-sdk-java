@@ -196,6 +196,12 @@ public final class UpdateTranscodePresetBody  {
     /**
      * <p>短边长度，配置不同的视频编码方式和转码类型时，短边长度的取值范围存在如下差异。</p>
      *
+     * <p>- `ParamType` 取 hvq 时：</p>
+     *
+     * <p>	- H.264：取值范围为 0 和 [150,1280]；</p>
+     *
+     * <p>	- H.265：取值范围为 0 和 [150,1280]；</p>
+     *
      * <p>- `Roi` 取 false 时：</p>
      *
      * <p>	- H.264：取值范围为 0 和 [150,2160]；</p>
@@ -300,6 +306,44 @@ public final class UpdateTranscodePresetBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TransType")
     private String transType;
+
+    /**
+     * <p>动态范围，画质增强类型生效</p>
+     *
+     * <p>- SDR：输出为SDR</p>
+     *
+     * <p>- HDR：输出为HDR</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "DynamicRange")
+    private String dynamicRange;
+
+    /**
+     * <p>是否开启智能插帧，只对画质增强类型生效</p>
+     *
+     * <p>- 0：不开启</p>
+     *
+     * <p>- 1：开启</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "FISwitch")
+    private Integer fISwitch;
+
+    /**
+     * <p>转码模板参数的类型</p>
+     *
+     * <p>- hvq：表示使用画质增强</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ParamType")
+    private String paramType;
+
+    /**
+     * <p>使用场景，画质增强时生效</p>
+     *
+     *
+     *
+     * <p>football：足球场景</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "SceneType")
+    private String sceneType;
 
     @Override
     public String toString() {

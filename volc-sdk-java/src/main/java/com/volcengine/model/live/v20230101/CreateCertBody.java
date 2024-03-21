@@ -10,12 +10,6 @@ import com.alibaba.fastjson.JSON;
 public final class CreateCertBody  {
 
     /**
-     * <p>火山引擎账号 ID</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "AccountID")
-    private String accountID;
-
-    /**
      * <p>证书名称</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CertName")

@@ -585,4 +585,28 @@ public interface IVisualService extends IBaseService {
      */
     VisualHighAesSmartDrawingResponse visualHighAesSmartDrawing(Object request) throws Exception;
 
+    /**
+     * 涂抹消除
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualImg2ImgInpaintingResponse  img2ImgInpainting(VisualImg2ImgInpaintingRequest request) throws Exception;
+
+    /**
+     * 涂抹编辑
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualImg2ImgInpaintingEditResponse  imgInpaintingEdit(VisualImg2ImgInpaintingEditRequest request) throws Exception;
+
+    /**
+     * 智能扩图outpainting
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualImg2ImgOutpaintingResponse  Img2ImgOutpainting(VisualImg2ImgOutpaintingRequest request) throws Exception;
+
 }

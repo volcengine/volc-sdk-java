@@ -28,7 +28,7 @@ public final class DescribeLiveCustomizedLogDataResResultLogInfoListItem  {
     private String downloadUrl;
 
     /**
-     * <p>日志文件对应的小时区间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     * <p>日志文件的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DateTime")
     private String dateTime;

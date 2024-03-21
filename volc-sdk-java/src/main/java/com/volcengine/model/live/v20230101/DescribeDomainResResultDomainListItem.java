@@ -62,12 +62,6 @@ public final class DescribeDomainResResultDomainListItem  {
     private String region;
 
     /**
-     * <p>CNAME 信息。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "CName")
-    private String cName;
-
-    /**
      * <p>CNAME 状态。</p>
      *
      * <p>- 0：未配置 CNAME；</p>
@@ -118,6 +112,12 @@ public final class DescribeDomainResResultDomainListItem  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PushDomain")
     private String pushDomain;
+
+    /**
+     * <p>CNAME 信息。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "CNAME")
+    private String cNAME;
 
     @Override
     public String toString() {

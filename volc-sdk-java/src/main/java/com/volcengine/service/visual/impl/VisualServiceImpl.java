@@ -773,6 +773,29 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualHighAesSmartDrawingResponse.class);
     }
-
+    @Override
+    public  VisualImg2ImgInpaintingResponse  img2ImgInpainting(VisualImg2ImgInpaintingRequest request)  throws Exception {
+        RawResponse response = json(Const.Img2ImgInpainting, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualImg2ImgInpaintingResponse.class);
+    }
+    @Override
+    public  VisualImg2ImgInpaintingEditResponse  imgInpaintingEdit(VisualImg2ImgInpaintingEditRequest request)  throws Exception {
+        RawResponse response = json(Const.Img2ImgInpaintingEdit, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualImg2ImgInpaintingEditResponse.class);
+    }
+    @Override
+    public VisualImg2ImgOutpaintingResponse  Img2ImgOutpainting(VisualImg2ImgOutpaintingRequest request)  throws Exception {
+        RawResponse response = json(Const.Img2ImgOutpainting, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualImg2ImgOutpaintingResponse.class);
+    }
 }
 

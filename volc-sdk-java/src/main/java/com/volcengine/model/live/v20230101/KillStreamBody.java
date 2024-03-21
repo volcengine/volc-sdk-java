@@ -10,19 +10,19 @@ import com.alibaba.fastjson.JSON;
 public final class KillStreamBody  {
 
     /**
-     * <p>域名空间名称。</p>
+     * <p>域名空间，您可以调用 [DescribeLiveStreamInfoByPage](https://www.volcengine.com/docs/6469/1126841) 接口，查看待断开的在线流的信息，包括 `Vhost`、`APP` 和 `Stream`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;
 
     /**
-     * <p>应用名称，由 1 到 30 位数字、字母、下划线及"-"和"."组成。</p>
+     * <p>直播流使用的应用名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>流名称，由 1 到 100 位数字、字母、下划线及"-"和"."组成。</p>
+     * <p>直播流使用的流名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
     private String stream;

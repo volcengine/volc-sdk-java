@@ -12,6 +12,8 @@ import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.SignableRequest;
 import com.volcengine.service.maas.MaasException;
 import com.volcengine.service.maas.impl.SseEvent;
+import com.volcengine.service.maas.v2.impl.audio.Audio;
+import com.volcengine.service.maas.v2.impl.images.Images;
 import com.volcengine.service.maas.v2.MaasConfig;
 import com.volcengine.service.maas.v2.MaasService;
 import org.apache.http.Header;
@@ -48,6 +50,16 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
     }
 
     @Override
+    public Audio audio() {
+        return new Audio(this);
+    }
+
+    @Override
+    public Images images() {
+        return new Images(this);
+    }
+
+    @Override
     public ChatResp chat(String endpointId, ChatReq req) throws MaasException {
         return request(endpointId, Const.MaasApiChat, req.withStream(false), ChatResp.class);
     }
@@ -70,6 +82,11 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
     @Override
     public void setApikey(String apikey) {
         this.settedApikey = apikey;
+    }
+
+    @Override
+    public String getApikey() {
+        return this.settedApikey;
     }
 
     @Override
@@ -215,7 +232,7 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
         }
     }
 
-    private RawResponse json(String endpointId, String api, String reqId, String body, String apikey) throws MaasException {
+    public RawResponse json(String endpointId, String api, String reqId, String body, String apikey) throws MaasException {
         ApiInfo apiInfo = apiInfoList.get(api);
         if (apiInfo == null) {
             throw new MaasException(SdkError.getErrorDesc(SdkError.ENOAPI), reqId);
@@ -236,7 +253,7 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
         return makeReq(api, request, apikey);
     }
 
-    private String genReqId() {
+    public String genReqId() {
         final int length = 34;
 
         StringBuilder sb = new StringBuilder();
@@ -244,5 +261,41 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
         sb.append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")));
         sb.append(String.format("%020X", new SecureRandom().nextLong()));
         return sb.toString();
+    }
+
+    public HttpResponse jsonWithHttpResponse(String endpointId, String api, String body, String apikey) throws MaasException {
+        ApiInfo apiInfo = apiInfoList.get(api);
+        if (apiInfo == null) {
+            throw new MaasException(new Exception("sdk unknown api"), "");
+        }
+
+        SignableRequest request = prepareRequest(api, null);
+        request.setHeader("Content-Type", "application/json");
+        request.setEntity(new StringEntity(body, "utf-8"));
+
+        try {
+            URIBuilder builder = request.getUriBuilder();
+            builder.setPath(String.format(builder.getPath(), endpointId));
+            request.setURI(builder.build());
+
+            if (apikey != null && !apikey.isEmpty()) {
+                request.setHeader(Const.Authorization, "Bearer " + apikey);
+            } else {
+                ISigner.sign(request, this.credentials);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new MaasException(e, null);
+        }
+
+        HttpResponse response;
+        String logId = null;
+        try {
+            response = this.getHttpClient().execute(request);
+        } catch (IOException e) {
+            throw new MaasException(e, logId);
+        }
+
+        return response;
     }
 }

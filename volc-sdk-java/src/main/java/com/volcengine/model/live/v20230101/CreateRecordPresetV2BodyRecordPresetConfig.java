@@ -11,21 +11,21 @@ import java.util.List;
 public final class CreateRecordPresetV2BodyRecordPresetConfig  {
 
     /**
-     * <p>转码流录制，默认值为 0。支持的取值如下所示。</p>
+     * <p>是否录制转码流，默认值为 `0`，支持的取值及含义如下所示。</p>
      *
      *
      *
-     * <p>- 0：不录制；</p>
+     * <p>- `0`：不录制；</p>
      *
-     * <p>- 1：录制。</p>
+     * <p>- `1`：录制全部转码流；</p>
      *
-     * <p>- 2：全部录制，如果录制转码流后缀列表（TranscodeSuffixList）为空则全部录制，不为空则录制 TranscodeSuffixList 命中的转码后缀。</p>
+     * <p>- `2`：通过转码流后缀列表，即`TranscodeSuffixList` 字段取值匹配转码流。</p>
      *
      *
      *
      * <p>:::tip</p>
      *
-     * <p>`TranscodeRecord` 和 `OriginRecord` 的取值至少一个不为 0。</p>
+     * <p>转码流和源流需至少选一个进行录制，即是否录制转码流（`TranscodeRecord`）和是否录制源流（`OriginRecord`）的取值至少一个不为 0。</p>
      *
      * <p>:::</p>
      */
@@ -33,25 +33,25 @@ public final class CreateRecordPresetV2BodyRecordPresetConfig  {
     private Integer transcodeRecord;
 
     /**
-     * <p>录制转码流后缀列表，转码流录制配置为全部录制时（TranscodeRecord 配置等于 2）生效。</p>
+     * <p>转码流后缀列表，转码流录制配置为根据转码流列表匹配（`TranscodeRecord` 取值为 `2`）时生效，`TranscodeSuffixList` 默认配置为空，效果等同于录制全部转码流。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TranscodeSuffixList")
     private List<String> transcodeSuffixList;
 
     /**
-     * <p>源流录制，默认值为 0。支持的取值如下所示。</p>
+     * <p>是否源流录制，默认值为 `0`，支持的取值即含义如下所示。</p>
      *
      *
      *
-     * <p>- 0：不录制；</p>
+     * <p>- `0`：不录制；</p>
      *
-     * <p>- 1：录制。</p>
+     * <p>- `1`：录制。</p>
      *
      *
      *
      * <p>:::tip</p>
      *
-     * <p>`TranscodeRecord` 和 `OriginRecord` 的取值至少一个不为 0。</p>
+     * <p>转码流和源流需至少选一个进行录制，即是否录制转码流（`TranscodeRecord`）和是否录制源流（`OriginRecord`）的取值至少一个不为 0。</p>
      *
      * <p>:::</p>
      */
@@ -59,17 +59,17 @@ public final class CreateRecordPresetV2BodyRecordPresetConfig  {
     private Integer originRecord;
 
     /**
-     * <p>录制 HLS 格式时，单个 TS 切片时长，单位为 s，默认值为 5，取值范围为 [5,30]</p>
+     * <p>录制为 HLS 格式时，单个 TS 切片时长，单位为秒，默认值为 `10`，取值范围为 [5,30]。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SliceDuration")
     private Integer sliceDuration;
 
     /**
-     * <p>FLV 录制参数，开启 FLV 录制时设置</p>
+     * <p>录制为 FLV 格式时的录制参数。</p>
      *
      * <p>:::tip</p>
      *
-     * <p>`FlvParam`、`HlsParam`、`Mp4Param` 至少开启一个。</p>
+     * <p>您需至少配置一种录制格式，即 `FlvParam`、`HlsParam`、`Mp4Param` 至少开启一个。</p>
      *
      * <p>:::</p>
      */
@@ -77,11 +77,11 @@ public final class CreateRecordPresetV2BodyRecordPresetConfig  {
     private CreateRecordPresetV2BodyRecordPresetConfigFlvParam flvParam;
 
     /**
-     * <p>HLS 录制参数，开启 HLS 录制时设置</p>
+     * <p>录制为 HLS 合适时的录制参数。</p>
      *
      * <p>:::tip</p>
      *
-     * <p>`FlvParam`、`HlsParam`、`Mp4Param` 至少开启一个。</p>
+     * <p>您需至少配置一种录制格式，即 `FlvParam`、`HlsParam`、`Mp4Param` 至少开启一个。</p>
      *
      * <p>:::</p>
      */
@@ -89,11 +89,11 @@ public final class CreateRecordPresetV2BodyRecordPresetConfig  {
     private CreateRecordPresetV2BodyRecordPresetConfigHlsParam hlsParam;
 
     /**
-     * <p>MP4 录制参数，开启 MP4 录制时设置</p>
+     * <p>录制为 MP4 格式时的录制参数。</p>
      *
      * <p>:::tip</p>
      *
-     * <p>`FlvParam`、`HlsParam`、`Mp4Param` 至少开启一个。</p>
+     * <p>您需至少配置一种录制格式，即 `FlvParam`、`HlsParam`、`Mp4Param` 至少开启一个。</p>
      *
      * <p>:::</p>
      */

@@ -23,7 +23,7 @@ public final class GetImageUploadFilesResResult  {
     private List<GetImageUploadFilesResResultFileObjectsItem> fileObjects;
 
     /**
-     * <p>当前存储状态���取值为：正常、未审核、禁用。</p>
+     * <p>当前存储状态，取值为：正常、未审核、禁用。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Status")
     private String status;

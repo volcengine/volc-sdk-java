@@ -48,7 +48,7 @@ public final class GetImageAuditTasksQuery  {
      *
      * <p>- `Running`：审核中</p>
      *
-     * <p>- `Suspend`���已暂停</p>
+     * <p>- `Suspend`：已暂停</p>
      *
      * <p>- `Done`：已完成</p>
      *

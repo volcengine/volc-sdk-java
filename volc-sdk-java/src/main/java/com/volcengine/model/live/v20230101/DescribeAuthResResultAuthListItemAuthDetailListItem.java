@@ -27,7 +27,7 @@ public final class DescribeAuthResResultAuthListItemAuthDetailListItem  {
      * <p>自定义推拉流地址中，鉴权参数 `volcSecret` 和 `volcTime` 的名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AuthField")
-    private Map<String, Object> authField;
+    private Map<String, String> authField;
 
     /**
      * <p>加密字段。</p>

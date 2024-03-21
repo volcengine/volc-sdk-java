@@ -35,7 +35,7 @@ public final class DescribeLiveBatchStreamTranscodeDataBody  {
     private String endTime;
 
     /**
-     * <p>每页显示的数据条数，默认值为 1000，取值范围为 100～1000。</p>
+     * <p>每页显示的数据条数，默认值为 1000，取值范围为 [100,1000]。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageSize")
     private Integer pageSize;

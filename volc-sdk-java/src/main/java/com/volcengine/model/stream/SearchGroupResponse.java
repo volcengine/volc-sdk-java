@@ -96,6 +96,10 @@ public class SearchGroupResponse {
         String bizLog;
         @JSONField(name = "ProductUnion")
         List<GetUnionProductResponse.Result> productUnion;
+        @JSONField(name = "RelatedScore")
+        double relatedScore;
+        @JSONField(name = "HighQualityContent")
+        String highQualityContent;
     }
 
     @Data

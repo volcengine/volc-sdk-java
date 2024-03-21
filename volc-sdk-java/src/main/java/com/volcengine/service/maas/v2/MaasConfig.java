@@ -62,6 +62,20 @@ public class MaasConfig {
                         put(Const.Path, "/api/v2/endpoint/%s/embeddings");
                     }
                 }));
+
+                put(Const.MaasApiAudioSpeech, new ApiInfo(new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "post");
+                        put(Const.Path, "/api/v2/endpoint/%s/audio/speech");
+                    }
+                }));
+
+                put(Const.MaasApiImagesQuickGen, new ApiInfo(new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "post");
+                        put(Const.Path, "/api/v2/endpoint/%s/images/quick-gen");
+                    }
+                }));
             }
         };
     }

@@ -8,6 +8,7 @@ import com.volcengine.service.imagex.impl.ImageXServiceImpl;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 获取 STS2 的上传密钥（离线的）
@@ -27,7 +28,27 @@ public class GetUploadSts2 {
             // 您可以使用 imagex.getUploadSts2WithKeyPtn("表达式") 来限制上传的存储名格式
             //     如: "test/*" 表示上传的文件必须包含 "test/" 前缀
             HashMap<String, String> tag =  new HashMap<>();
-            tag.put("UploadOverwrite", "False");
+            // tag 可如下配置
+//    Map<String, String> tag = new HashMap<>();
+        Map<String, Object> policy = new HashMap<>();
+        policy.put("FileSizeUpLimit","xxx");
+        policy.put("FileSizeBottomLimit","xxx");
+        policy.put("ContentTypeBlackList",new ArrayList<String>(){
+        {
+            add("xxx");
+            add("yyy");
+        }
+    });
+        policy.put("ContentTypeWhiteList",new ArrayList<String>(){
+        {
+            add("xxx");
+            add("yyy");
+        }
+    });
+        tag.put("UploadPolicy",JSON.toJSONString(policy));
+        tag.put("UploadOverwrite","True");
+//            tag.put("UploadOverwrite", "False");
+            System.out.println(tag);
             SecurityToken2 sts2 = service.getUploadSts2(serviceIds, tag);
             System.out.println(JSON.toJSONString(sts2));
         } catch (Exception e) {

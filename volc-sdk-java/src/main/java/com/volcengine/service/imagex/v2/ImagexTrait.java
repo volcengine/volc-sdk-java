@@ -614,7 +614,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>describeImageXEdgeRequest</p>
      * <p>查询边缘分发请求次</p>
      *
-     * <p>本接口支持通过自���义查询时间段，查询该时间段的边缘请求次数。</p>
+     * <p>本接口支持通过自定义查询时间段，查询该时间段的边缘请求次数。</p>
      *
      * @param query query arguments
      * @return response data
@@ -798,6 +798,75 @@ public class ImagexTrait extends BaseServiceImpl {
     public DescribeImageXCDNTopRequestDataRes describeImageXCDNTopRequestData(DescribeImageXCDNTopRequestDataQuery query) throws Exception {
         RawResponse rawResponse = json("DescribeImageXCDNTopRequestData", Utils.paramsToPair(query), "");
         return parseRawResponse(rawResponse, DescribeImageXCDNTopRequestDataRes.class);
+    }
+
+    /**
+     * <p>describeImageXExceedResolutionRatioAll</p>
+     * <p>查询大图分辨率占比分布</p>
+     *
+     * <p>本接口支持通过指定查询维度，来获取大图分辨率占比分布数据。</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>单次查询的时间跨度不能超过 **90** 天。</p>
+     *
+     * <p>:::</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeImageXExceedResolutionRatioAllRes describeImageXExceedResolutionRatioAll(DescribeImageXExceedResolutionRatioAllBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeImageXExceedResolutionRatioAll", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeImageXExceedResolutionRatioAllRes.class);
+    }
+
+    /**
+     * <p>describeImageXExceedFileSize</p>
+     * <p>查询大图文件体积大小分布</p>
+     *
+     * <p>本接口支持通过指定查询维度，来获取大图文件体积大小分布数据。</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>单次查询的时间跨度不能超过 **90** 天。</p>
+     *
+     * <p>:::</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeImageXExceedFileSizeRes describeImageXExceedFileSize(DescribeImageXExceedFileSizeBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeImageXExceedFileSize", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeImageXExceedFileSizeRes.class);
+    }
+
+    /**
+     * <p>describeImageXExceedCountByTime</p>
+     * <p>查询大图样本量</p>
+     *
+     * <p>本接口支持查询大图样本量数据。</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>单次查询的时间跨度不能超过 **90** 天。</p>
+     *
+     * <p>:::</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeImageXExceedCountByTimeRes describeImageXExceedCountByTime(DescribeImageXExceedCountByTimeBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeImageXExceedCountByTime", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeImageXExceedCountByTimeRes.class);
     }
 
     /**
@@ -1901,7 +1970,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>getImageService</p>
      * <p>获取单个服务信息</p>
      *
-     * <p>本接口支���通过指定服务 ID，获取对应服务的详情，如：服务名称、服务地域和服务类型等信息。</p>
+     * <p>本接口支持通过指定服务 ID，获取对应服务的详情，如：服务名称、服务地域和服务类型等信息。</p>
      *
      * @param query query arguments
      * @return response data
@@ -2050,6 +2119,22 @@ public class ImagexTrait extends BaseServiceImpl {
     public GetResourceURLRes getResourceURL(GetResourceURLQuery query) throws Exception {
         RawResponse rawResponse = json("GetResourceURL", Utils.paramsToPair(query), "");
         return parseRawResponse(rawResponse, GetResourceURLRes.class);
+    }
+
+    /**
+     * <p>createImageFromUri</p>
+     * <p>资源迁移</p>
+     *
+     * <p>资源迁移</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateImageFromUriRes createImageFromUri(CreateImageFromUriQuery query, CreateImageFromUriBody body) throws Exception {
+        RawResponse rawResponse = json("CreateImageFromUri", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateImageFromUriRes.class);
     }
 
     /**

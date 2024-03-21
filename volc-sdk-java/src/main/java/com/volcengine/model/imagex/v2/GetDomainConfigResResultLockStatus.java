@@ -12,7 +12,7 @@ public final class GetDomainConfigResResultLockStatus  {
     /**
      * <p>整个域名是否锁定，取值如下所示：</p>
      *
-     * <p>- `true`��是</p>
+     * <p>- `true`：是</p>
      *
      * <p>- `false`：否</p>
      */

@@ -63,5 +63,7 @@ public class SearchGroupResponseV2 {
         CommonPoV2.VideoDetail videoDetail;
         @JSONField(name = "RelatedScore")
         double relatedScore;
+        @JSONField(name = "HighQualityContent")
+        String highQualityContent;
     }
 }

@@ -18,7 +18,7 @@ public class EmbeddingsV2Demo {
 
         EmbeddingsReq tReq = new EmbeddingsReq()
                 .withInput(new ArrayList<>(Arrays.asList(
-                        "海很深",
+                        "天很蓝",
                         "海很深"
                 )));
 
@@ -31,7 +31,7 @@ public class EmbeddingsV2Demo {
             EmbeddingsResp resp = maasService.embeddings(endpointId, req);
             System.out.println(resp.getObject());
             System.out.println(resp.getData()); //object: object type 恒为embedding，embedding: embedding向量，index: 列表中序号
-    } catch (MaasException e) {
+        } catch (MaasException e) {
             System.out.println("req_id: " + e.getRequestId());
             System.out.println("code: " + e.getCode());
             System.out.println("code_n: " + e.getCodeN());

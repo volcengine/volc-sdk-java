@@ -229,6 +229,21 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>createLiveStreamRecordIndexFiles</p>
+     * <p>创建录制索引文件</p>
+     *
+     * <p>本接口支持生成指定开始时间和结束时间的m3u8录制文件</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateLiveStreamRecordIndexFilesRes createLiveStreamRecordIndexFiles(CreateLiveStreamRecordIndexFilesBody body) throws Exception {
+        RawResponse rawResponse = json("CreateLiveStreamRecordIndexFiles", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateLiveStreamRecordIndexFilesRes.class);
+    }
+
+    /**
      * <p>createPullRecordTask</p>
      * <p>创建直播录制任务</p>
      *
@@ -1562,6 +1577,21 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>describeLiveBatchStreamTranscodeData</p>
+     * <p>查询多路流的转码数据</p>
+     *
+     * <p>调用接口分页查询指定域名下所有流的转码总量，及每条流的流名、编码格式和转码时长等信息。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeLiveBatchStreamTranscodeDataRes describeLiveBatchStreamTranscodeData(DescribeLiveBatchStreamTranscodeDataBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeLiveBatchStreamTranscodeData", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeLiveBatchStreamTranscodeDataRes.class);
+    }
+
+    /**
      * <p>describeLiveStreamCountData</p>
      * <p>查询峰值流数</p>
      *
@@ -1680,21 +1710,6 @@ public class LiveTrait extends BaseServiceImpl {
     public DescribeLiveBatchStreamTrafficDataRes describeLiveBatchStreamTrafficData(DescribeLiveBatchStreamTrafficDataBody body) throws Exception {
         RawResponse rawResponse = json("DescribeLiveBatchStreamTrafficData", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, DescribeLiveBatchStreamTrafficDataRes.class);
-    }
-
-    /**
-     * <p>describeLiveBatchStreamTranscodeData</p>
-     * <p>查询直播流的转码数据</p>
-     *
-     * <p>调用接口分页查询指定域名下所有流的转码总量，及每条流的流名、编码格式和转码时长等信息。</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public DescribeLiveBatchStreamTranscodeDataRes describeLiveBatchStreamTranscodeData(DescribeLiveBatchStreamTranscodeDataBody body) throws Exception {
-        RawResponse rawResponse = json("DescribeLiveBatchStreamTranscodeData", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, DescribeLiveBatchStreamTranscodeDataRes.class);
     }
 
     /**

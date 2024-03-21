@@ -666,6 +666,48 @@ public class ImagexConfig {
                     }
                 }     
             ));
+            put("DescribeImageXExceedResolutionRatioAll", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DescribeImageXExceedResolutionRatioAll"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("DescribeImageXExceedFileSize", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DescribeImageXExceedFileSize"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("DescribeImageXExceedCountByTime", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DescribeImageXExceedCountByTime"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
             put("DescribeImageXServiceQuality", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -1557,6 +1599,20 @@ public class ImagexConfig {
                             {
                                 add(new BasicNameValuePair("Action", "GetResourceURL"));
                                 add(new BasicNameValuePair("Version", "2023-05-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("CreateImageFromUri", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "CreateImageFromUri"));
+                                add(new BasicNameValuePair("Version", "2018-08-01"));
                             }
                         });
                     }

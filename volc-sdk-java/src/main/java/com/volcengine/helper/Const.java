@@ -70,6 +70,9 @@ public class Const {
     public static final String CertH5Token = "CertH5Token";
     public static final String CertH5ConfigInit = "CertH5ConfigInit";
     public static final String HighAesSmartDrawing = "HighAesSmartDrawing";
+    public static final String Img2ImgInpainting = "Img2ImgInpainting";
+    public static final String Img2ImgInpaintingEdit = "Img2ImgInpaintingEdit";
+    public static final String Img2ImgOutpainting = "Img2ImgOutpainting";
     // billing
     public static final String ListBill = "ListBill";
     public static final String ListBillDetail = "ListBillDetail";
@@ -851,6 +854,8 @@ public class Const {
     public static final String MaasApiTokenization = "tokenization";
     public static final String MaasApiClassification = "classification";
     public static final String MaasApiEmbeddings = "embeddings";
+    public static final String MaasApiAudioSpeech = "audio.speech";
+    public static final String MaasApiImagesQuickGen = "images.quick_gen";
 
     public static final String MaasApiTop = "top";
 

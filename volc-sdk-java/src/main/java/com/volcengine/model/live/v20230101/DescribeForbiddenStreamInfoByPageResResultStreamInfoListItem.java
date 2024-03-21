@@ -10,47 +10,47 @@ import com.alibaba.fastjson.JSON;
 public final class DescribeForbiddenStreamInfoByPageResResultStreamInfoListItem  {
 
     /**
-     * <p>域名空间名称。</p>
+     * <p>禁推流的域名空间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;
 
     /**
-     * <p>推流域名。</p>
+     * <p>禁推流的域名。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;
 
     /**
-     * <p>应用名称。</p>
+     * <p>禁推流的应用名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>流名称。</p>
+     * <p>禁推流的流名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
     private String stream;
 
     /**
-     * <p>直播流开始时间。</p>
+     * <p>禁推流被禁推的开始时间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CreateTime")
     private String createTime;
 
     /**
-     * <p>直播流结束时间。</p>
+     * <p>禁推流结束禁推的时间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
 
     /**
-     * <p>是否禁用。</p>
+     * <p>当前流的禁推配置是否启用。</p>
      *
-     * <p><li>true：禁用；</p>
+     * <p>- `true`：启用；</p>
      *
-     * <p><li>false：启用。</p>
+     * <p>- `false`：禁用。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Status")
     private Boolean status;

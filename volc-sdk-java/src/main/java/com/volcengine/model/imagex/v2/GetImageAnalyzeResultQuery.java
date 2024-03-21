@@ -40,7 +40,7 @@ public final class GetImageAnalyzeResultQuery  {
     private Integer limit;
 
     /**
-     * <p>分页偏移量，默认为 0。取值为 1 时，表示跳过第一条数据，从第二条数��取值。</p>
+     * <p>分页偏移量，默认为 0。取值为 1 时，表示跳过第一条数据，从第二条数据取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Offset")
     private Integer offset;

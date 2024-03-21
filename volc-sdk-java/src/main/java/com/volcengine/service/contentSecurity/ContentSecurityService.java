@@ -163,7 +163,7 @@ public interface ContentSecurityService extends IBaseService {
      * @return async video risk detection response
      * @throws Exception the exception
      */
-    VideoRiskResultResponse VideoLiveResult(ImageRiskResultRequest videoRiskResultRequest) throws Exception;
+    GetVideoLiveRiskResultResponse VideoLiveResult(ImageRiskResultRequest videoRiskResultRequest) throws Exception;
 
     /**
      * Async Audio Live Risk Detection.
@@ -181,7 +181,7 @@ public interface ContentSecurityService extends IBaseService {
      * @return async video risk detection response
      * @throws Exception the exception
      */
-    GetAudioRiskResponse AudioLiveResult(ImageRiskResultRequest audioRiskResultRequest) throws Exception;
+    GetAudioLiveRiskResponse AudioLiveResult(ImageRiskResultRequest audioRiskResultRequest) throws Exception;
 
     /**
      * Text Slice Risk.

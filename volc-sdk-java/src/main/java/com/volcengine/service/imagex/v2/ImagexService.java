@@ -386,6 +386,25 @@ public class ImagexService extends ImagexTrait {
     }
 
 
+// tag 可如下配置
+//    Map<String, String> tag = new HashMap<>();
+//    Map<String, Object> policy = new HashMap<>();
+//        policy.put("FileSizeUpLimit","xxx");
+//        policy.put("FileSizeBottomLimit","xxx");
+//        policy.put("ContentTypeBlackList",new ArrayList<String>(){
+//        {
+//            add("xxx");
+//            add("yyy");
+//        }
+//    });
+//        policy.put("ContentTypeWhiteList",new ArrayList<String>(){
+//        {
+//            add("xxx");
+//            add("yyy");
+//        }
+//    });
+//        tag.put("UploadPolicy",JSON.toJSONString(policy));
+//        tag.put("UploadOverwrite","True");
     public SecurityToken2 getUploadSts2WithKeyPtn(List<String> serviceIds, long expire, String keyPtn, Map<String, String> tag) throws Exception {
         List<String> applyRes = new ArrayList<>();
         List<String> commitRes = new ArrayList<>();

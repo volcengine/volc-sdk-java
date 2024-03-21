@@ -199,12 +199,6 @@ public final class GetAllImageServicesResResultServicesItem  {
     /**
      * <p>TODO</p>
      */
-    @com.alibaba.fastjson.annotation.JSONField(name = "Field5")
-    private String field5;
-
-    /**
-     * <p>TODO</p>
-     */
     @com.alibaba.fastjson.annotation.JSONField(name = "ResourceLimitedVisit")
     private GetAllImageServicesResResultServicesItemResourceLimitedVisit resourceLimitedVisit;
 

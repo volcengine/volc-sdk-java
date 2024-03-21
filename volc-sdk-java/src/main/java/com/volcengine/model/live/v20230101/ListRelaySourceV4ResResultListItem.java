@@ -11,7 +11,7 @@ import java.util.List;
 public final class ListRelaySourceV4ResResultListItem  {
 
     /**
-     * <p>推流域名。</p>
+     * <p>直播流的使用的域名。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;

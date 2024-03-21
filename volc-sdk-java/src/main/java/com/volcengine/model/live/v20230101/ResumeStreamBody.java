@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class ResumeStreamBody  {
 
     /**
-     * <p>域名空间名称。</p>
+     * <p>域名空间。您可以调用 [DescribeForbiddenStreamInfoByPage](https://www.volcengine.com/docs/6469/1126843) 接口，查看禁推直播流的信息，包括 `Vhost`、`Domain`、`App` 和 `Stream`。</p>
      *
      * <p>:::tip</p>
      *
@@ -22,7 +22,7 @@ public final class ResumeStreamBody  {
     private String vhost;
 
     /**
-     * <p>推流域名。</p>
+     * <p>直播流使用的域名。</p>
      *
      * <p>:::tip</p>
      *
@@ -34,13 +34,13 @@ public final class ResumeStreamBody  {
     private String domain;
 
     /**
-     * <p>应用名称。</p>
+     * <p>直播流使用的应用名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>流名称。</p>
+     * <p>直播流使用的流名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
     private String stream;

@@ -10,49 +10,49 @@ import com.alibaba.fastjson.JSON;
 public final class DescribeClosedStreamInfoByPageResResultStreamInfoListItem  {
 
     /**
-     * <p>Vhost 表示视频直播服务的配置空间。</p>
+     * <p>历史直播流使用的域名所属的域名空间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;
 
     /**
-     * <p>域名。</p>
+     * <p>历史直播流使用的域名。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;
 
     /**
-     * <p>应用名称。</p>
+     * <p>历史直播流使用的应用名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>流名称。</p>
+     * <p>历史直播流使用的流名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
     private String stream;
 
     /**
-     * <p>直播流开始时间。</p>
+     * <p>直播流的开始时间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>直播流结束时间。</p>
+     * <p>直播流的结束时间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
 
     /**
-     * <p>表示推流方式，缺省情况查询全部推流方式。支持如下取值。</p>
+     * <p>历史直播流的来源类型，取值及含义如下所示。</p>
      *
      *
      *
-     * <p>- push：直推流；</p>
+     * <p>- `push`：直推流；</p>
      *
-     * <p>- relay：回源流。</p>
+     * <p>- `relay`：回源流。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SourceType")
     private String sourceType;

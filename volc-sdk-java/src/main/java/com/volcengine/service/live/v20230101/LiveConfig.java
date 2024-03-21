@@ -200,6 +200,20 @@ public class LiveConfig {
                     }
                 }     
             ));
+            put("CreateLiveStreamRecordIndexFiles", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "CreateLiveStreamRecordIndexFiles"));
+                                add(new BasicNameValuePair("Version", "2023-01-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
             put("CreatePullRecordTask", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -1376,6 +1390,20 @@ public class LiveConfig {
                     }
                 }     
             ));
+            put("DescribeLiveBatchStreamTranscodeData", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DescribeLiveBatchStreamTranscodeData"));
+                                add(new BasicNameValuePair("Version", "2023-01-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
             put("DescribeLiveStreamCountData", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -1468,20 +1496,6 @@ public class LiveConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "DescribeLiveBatchStreamTrafficData"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
-            put("DescribeLiveBatchStreamTranscodeData", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "DescribeLiveBatchStreamTranscodeData"));
                                 add(new BasicNameValuePair("Version", "2023-01-01"));
                             }
                         });

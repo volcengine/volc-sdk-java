@@ -26,7 +26,7 @@ public final class DescribeRelaySourceV3ResResultRelaySourceConfigListItemGroupD
      * <p>自定义回源参数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RelaySourceParams")
-    private Map<String, Object> relaySourceParams;
+    private Map<String, String> relaySourceParams;
 
     @Override
     public String toString() {

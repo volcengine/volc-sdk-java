@@ -11,13 +11,13 @@ import java.util.List;
 public final class DescribeClosedStreamInfoByPageResResult  {
 
     /**
-     * <p>流信息列表。</p>
+     * <p>历史直播流信息列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StreamInfoList")
     private List<DescribeClosedStreamInfoByPageResResultStreamInfoListItem> streamInfoList;
 
     /**
-     * <p>流数量。</p>
+     * <p>查询结果中历史流的数量。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RoughCount")
     private Integer roughCount;

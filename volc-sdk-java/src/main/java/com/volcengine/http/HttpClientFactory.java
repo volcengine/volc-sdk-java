@@ -7,12 +7,20 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.HttpRequestRetryHandler;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.protocol.HttpClientContext;
+import org.apache.http.config.Registry;
+import org.apache.http.config.RegistryBuilder;
 import org.apache.http.conn.ConnectionKeepAliveStrategy;
+import org.apache.http.conn.socket.ConnectionSocketFactory;
+import org.apache.http.conn.socket.PlainConnectionSocketFactory;
+import org.apache.http.conn.ssl.NoopHostnameVerifier;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.conn.ssl.TrustAllStrategy;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.message.BasicHeaderElementIterator;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.protocol.HttpContext;
+import org.apache.http.ssl.SSLContextBuilder;
 
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -46,32 +54,42 @@ public class HttpClientFactory {
     private static ConnectionKeepAliveStrategy connectionKeepAliveStrategy;
 
     public static ClientInstance create(ClientConfiguration configuration, HttpHost proxy) {
-        PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
-        int maxCon = configuration.getMaxConnections();
-        int maxConPerRoute = configuration.getMaxConPerRoute();
-        connectionManager.setMaxTotal(maxCon);
-        connectionManager.setDefaultMaxPerRoute(maxConPerRoute);
+        try {
+            Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()
+                    .register("http", PlainConnectionSocketFactory.getSocketFactory())
+                    .register("https", new SSLConnectionSocketFactory(
+                            SSLContextBuilder.create().loadTrustMaterial(TrustAllStrategy.INSTANCE).build(),
+                            NoopHostnameVerifier.INSTANCE))
+                    .build();
+            PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry);
+            int maxCon = configuration.getMaxConnections();
+            int maxConPerRoute = configuration.getMaxConPerRoute();
+            connectionManager.setMaxTotal(maxCon);
+            connectionManager.setDefaultMaxPerRoute(maxConPerRoute);
 
-        ConnectionKeepAliveStrategy strategy;
-        if (connectionKeepAliveStrategy != null) {
-            strategy = connectionKeepAliveStrategy;
-        } else {
-            strategy = getConnectionKeepAliveStrategy();
+            ConnectionKeepAliveStrategy strategy;
+            if (connectionKeepAliveStrategy != null) {
+                strategy = connectionKeepAliveStrategy;
+            } else {
+                strategy = getConnectionKeepAliveStrategy();
+            }
+            HttpClient httpClient;
+            httpClient = HttpClients.custom()
+                    .setConnectionManager(connectionManager)
+                    .setKeepAliveStrategy(strategy)
+                    .setRetryHandler(httpRequestRetryHandler)
+                    .setDefaultRequestConfig(RequestConfig.custom().setStaleConnectionCheckEnabled(true).build())
+                    .setProxy(proxy)
+                    .build();
+
+            IdleConnectionMonitorThread daemonThread = new IdleConnectionMonitorThread(connectionManager);
+            daemonThread.setDaemon(true);
+            daemonThread.start();
+
+            return new ClientInstance(httpClient, daemonThread);
+        }catch (Exception ex){
+            throw new RuntimeException(ex);
         }
-        HttpClient httpClient;
-        httpClient = HttpClients.custom()
-                .setConnectionManager(connectionManager)
-                .setKeepAliveStrategy(strategy)
-                .setRetryHandler(httpRequestRetryHandler)
-                .setDefaultRequestConfig(RequestConfig.custom().setStaleConnectionCheckEnabled(true).build())
-                .setProxy(proxy)
-                .build();
-
-        IdleConnectionMonitorThread daemonThread = new IdleConnectionMonitorThread(connectionManager);
-        daemonThread.setDaemon(true);
-        daemonThread.start();
-
-        return new ClientInstance(httpClient, daemonThread);
     }
 
     public static ConnectionKeepAliveStrategy getConnectionKeepAliveStrategy() {

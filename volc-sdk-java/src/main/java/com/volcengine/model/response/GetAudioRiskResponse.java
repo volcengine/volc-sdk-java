@@ -28,6 +28,8 @@ public class GetAudioRiskResponse {
     public static class AudioResult {
         @JSONField(name = "Decision")
         private String decision;
+        @JSONField(name = "DecisionDetail")
+        private String decisionDetail;
         @JSONField(name = "Details")
         private List<AudioDetail> details;
         @JSONField(name = "DataId")
@@ -58,6 +60,8 @@ public class GetAudioRiskResponse {
         private String SliceId;
         @JSONField(name = "Decision")
         private String Decision;
+        @JSONField(name = "DecisionDetail")
+        private String DecisionDetail;
     }
 
     @Data

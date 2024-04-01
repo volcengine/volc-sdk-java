@@ -304,6 +304,12 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         return getGetSendStatResponse(response);
     }
 
+    @Override
+    public GetSmsSendDetailsResponse getSmsSendDetails(GetSmsSendDetailsRequest getSmsSendDetailsRequest) throws Exception {
+        RawResponse response = json("GetSmsSendDetails", new ArrayList<>(), JSON.toJSONString(getSmsSendDetailsRequest));
+        return getSmsSendDetailsResponse(response);
+    }
+
 
     private SmsSendResponse getSmsSendResponse(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -572,4 +578,20 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         res.getResponseMetadata().setService("volcSMS");
         return res;
     }
+
+
+    private GetSmsSendDetailsResponse getSmsSendDetailsResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetSmsSendDetailsResponse res = JSON.parseObject(response.getData(), GetSmsSendDetailsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
 }
+
+

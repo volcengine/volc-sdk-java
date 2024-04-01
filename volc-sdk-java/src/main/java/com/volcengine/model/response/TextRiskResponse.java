@@ -56,6 +56,7 @@ public class TextRiskResponse {
         private List<Position> positions;
     }
 
+    @Data
     public static class Position {
         @JSONField(name = "StartPos")
         private int startPos;

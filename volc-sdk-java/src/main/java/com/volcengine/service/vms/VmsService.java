@@ -266,4 +266,40 @@ public interface VmsService extends IBaseService {
     CommonResponse<QueryOpenGetResourceResult> queryOpenGetResource(QueryResourceRequest request) throws Exception;
 
     RiskControlResponse canCall(RiskControlReq request) throws Exception;
+
+    /**
+     * 资质图片上传接口
+     *
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    UploadQualificationFileResponse uploadQualificationFile(UploadQualificationFileRequest request) throws Exception;
+
+    /**
+     * 添加资质
+     *
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    AddQualificationResponse addQualification(QualificationInfoOperateRequest request) throws Exception;
+
+    /**
+     * 更新资质
+     *
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    UpdateQualificationResponse updateQualification(QualificationInfoOperateRequest request) throws Exception;
+
+    /**
+     * 查询资质
+     *
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    QualificationInfoQueryResponse queryQualification(QualificationInfoQueryRequest request) throws Exception;
 }

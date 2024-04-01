@@ -697,6 +697,63 @@ public class VmsConfig {
                 }
             ));
 
+            put("UploadQualificationFile", new ApiInfo(
+                new HashMap<String, Object>(){
+                    {
+                        put(Const.Method, Const.POST);
+                        put(Const.Path, DEFAULT_PATH);
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair(ACTION, "UploadQualificationFile"));
+                                add(new BasicNameValuePair(VERSION, DEFAULT_VERSION));
+                            }
+                        });
+                    }
+                }
+            ));
+            put("AddQualification", new ApiInfo(
+                new HashMap<String, Object>(){
+                    {
+                        put(Const.Method, Const.POST);
+                        put(Const.Path, DEFAULT_PATH);
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair(ACTION, "AddQualification"));
+                                add(new BasicNameValuePair(VERSION, DEFAULT_VERSION));
+                            }
+                        });
+                    }
+                }
+            ));
+            put("UpdateQualification", new ApiInfo(
+                new HashMap<String, Object>(){
+                    {
+                        put(Const.Method, Const.POST);
+                        put(Const.Path, DEFAULT_PATH);
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair(ACTION, "UpdateQualification"));
+                                add(new BasicNameValuePair(VERSION, DEFAULT_VERSION));
+                            }
+                        });
+                    }
+                }
+            ));
+            put("QueryQualification", new ApiInfo(
+                new HashMap<String, Object>(){
+                    {
+                        put(Const.Method, Const.POST);
+                        put(Const.Path, DEFAULT_PATH);
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair(ACTION, "QueryQualification"));
+                                add(new BasicNameValuePair(VERSION, DEFAULT_VERSION));
+                            }
+                        });
+                    }
+                }
+            ));
+
             put("QueryCanCall", new ApiInfo(
                 new HashMap<String, Object>() {
                     {

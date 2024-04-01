@@ -404,6 +404,35 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
         return JSON.parseObject(response.getData(), RiskControlResponse.class);
     }
 
+    @Override
+    public UploadQualificationFileResponse uploadQualificationFile(UploadQualificationFileRequest request)
+        throws Exception {
+        List<NameValuePair> fromData = new ArrayList<>();
+        fromData.add(new BasicNameValuePair("fileType", request.getFileType()));
+
+        RawResponse response =
+            postFileMultiPart("UploadQualificationFile", fromData, "file", request.getFileName(), request.getFile());
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), UploadQualificationFileResponse.class);
+    }
+
+    @Override
+    public AddQualificationResponse addQualification(QualificationInfoOperateRequest request) throws Exception {
+        return doJson("AddQualification", request, new TypeReference<AddQualificationResponse>(){});
+    }
+
+    @Override
+    public UpdateQualificationResponse updateQualification(QualificationInfoOperateRequest request) throws Exception {
+        return doJson("UpdateQualification", request, new TypeReference<UpdateQualificationResponse>(){});
+    }
+
+    @Override
+    public QualificationInfoQueryResponse queryQualification(QualificationInfoQueryRequest request) throws Exception {
+        return doJson("QueryQualification", request, new TypeReference<QualificationInfoQueryResponse>(){});
+    }
+
     private RawResponse formPostWithRetry(String api, List<NameValuePair> nameValuePairs) {
         RawResponse rawResponse = post(api, Collections.emptyList(), nameValuePairs);
         if (SdkError.EHTTP.getNumber() == rawResponse.getCode()) {

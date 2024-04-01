@@ -28,9 +28,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.*;
-import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
@@ -318,7 +316,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         }
 
         MultipartEntityBuilder multipartEntityBuilder = MultipartEntityBuilder.create();
-        multipartEntityBuilder.addBinaryBody(dataName, data,ContentType.APPLICATION_OCTET_STREAM,"blob");
+        multipartEntityBuilder.addBinaryBody(dataName, data,ContentType.APPLICATION_OCTET_STREAM,fileName);
         for(NameValuePair nameValuePair: fromData) {
             multipartEntityBuilder.addTextBody(nameValuePair.getName(),nameValuePair.getValue());
         }

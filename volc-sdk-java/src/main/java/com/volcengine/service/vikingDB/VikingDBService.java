@@ -361,6 +361,7 @@ public class VikingDBService extends BaseServiceImpl {
         index.setDescription(createIndexParam.getDescription());
         index.setPartitionBy(createIndexParam.getPartitionBy());
         index.setCpuQuota(createIndexParam.getCpuQuoat());
+        index.requestPrimaryKey();
         return index;
     }
 
@@ -377,6 +378,7 @@ public class VikingDBService extends BaseServiceImpl {
         index.setCollectionName(collectionName);
         index.setIndexName(indexName);
         index.setVikingDBService(this);
+        index.requestPrimaryKey();
         if(res.containsKey("vector_index")){
             @SuppressWarnings("unchecked")
             LinkedTreeMap<String,Object> vectorIndexMap = (LinkedTreeMap<String, Object>)res.get("vector_index");

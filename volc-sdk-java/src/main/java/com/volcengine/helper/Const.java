@@ -884,4 +884,7 @@ public class Const {
     public static final String SecuritySource = "SecuritySource";
     public static final String SecuritySourceStream = "SecuritySourceStream";
 
+    // report
+    public static final String ExportReports = "ExportReports";
+    public static final String ReportVersion = "2024-01-01";
 }

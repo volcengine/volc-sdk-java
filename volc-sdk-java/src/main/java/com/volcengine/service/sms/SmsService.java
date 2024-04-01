@@ -178,4 +178,6 @@ public interface SmsService extends IBaseService {
      */
     GetSendStatResponse getSendStat(GetSendStatRequest getSendStatRequest) throws Exception;
 
+
+    GetSmsSendDetailsResponse getSmsSendDetails(GetSmsSendDetailsRequest getSmsSendDetailsRequest) throws Exception;
 }

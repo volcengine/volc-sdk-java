@@ -11,7 +11,7 @@ import java.util.List;
 public final class ListTimeShiftPresetV2ResResult  {
 
     /**
-     * <p>模板列表。</p>
+     * <p>时移配置列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "List")
     private List<ListTimeShiftPresetV2ResResultListItem> list;

@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class CreateCertResResult  {
 
     /**
-     * <p>证书 ID。</p>
+     * <p>证书链 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ChainID")
     private String chainID;
@@ -22,11 +22,11 @@ public final class CreateCertResResult  {
     private String domain;
 
     /**
-     * <p>证书用途，包括两种取值。</p>
+     * <p>证书用途，默认为 `https`，取值及含义如下所示。</p>
      *
-     * <p>- https：HTTPS 认证；</p>
+     * <p>- `https`：用于 HTTPS 加密；</p>
      *
-     * <p>- sign：签名校验。</p>
+     * <p>- `sign`：用于签名加密。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "UseWay")
     private String useWay;

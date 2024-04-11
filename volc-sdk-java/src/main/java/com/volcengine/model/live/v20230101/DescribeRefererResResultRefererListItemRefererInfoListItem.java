@@ -22,17 +22,17 @@ public final class DescribeRefererResResultRefererListItemRefererInfoListItem  {
     private Integer priority;
 
     /**
-     * <p>防盗链类型。</p>
+     * <p>referer 防盗链黑白名单类型，取值即含义如下所示。</p>
      *
-     * <p>- deny：黑名单；</p>
+     * <p>- `deny`：黑名单；</p>
      *
-     * <p>- allow：白名单。</p>
+     * <p>- `allow`：白名单。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Type")
     private String type;
 
     /**
-     * <p>防盗链规则。</p>
+     * <p>Referer 字段规则，即设置的黑名单或白名单的域名。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Value")
     private String value;

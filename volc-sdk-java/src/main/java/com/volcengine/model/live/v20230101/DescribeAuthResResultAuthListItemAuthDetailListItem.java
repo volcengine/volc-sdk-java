@@ -30,7 +30,7 @@ public final class DescribeAuthResResultAuthListItemAuthDetailListItem  {
     private Map<String, String> authField;
 
     /**
-     * <p>加密字段。</p>
+     * <p>生成加密字符串使用的加密字段。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EncryptField")
     private List<String> encryptField;

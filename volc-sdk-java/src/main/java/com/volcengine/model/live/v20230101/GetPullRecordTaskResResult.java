@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class GetPullRecordTaskResResult  {
 
     /**
-     * <p>直播录制任务的 ID。</p>
+     * <p>任务的 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TaskId")
     private String taskId;
@@ -22,45 +22,45 @@ public final class GetPullRecordTaskResResult  {
     private String startTime;
 
     /**
-     * <p>任务结束时间</p>
+     * <p>任务结束时间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
 
     /**
-     * <p>域名空间</p>
+     * <p>创建录制任务时传入的域名空间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;
 
     /**
-     * <p>推流/拉流域名</p>
+     * <p>创建录制任务时传入的域名。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;
 
     /**
-     * <p>应用名称。</p>
+     * <p>创建录制任务时传入的应用名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>流名称。</p>
+     * <p>创建任务时传入的流名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
     private String stream;
 
     /**
-     * <p>任务状态，有以下几种状态：</p>
+     * <p>录制任务的状态，取值及含义如下所示。</p>
      *
-     * <p>- 停用</p>
+     * <p>- `停用`：录制任务已被停止；</p>
      *
-     * <p>- 未开始</p>
+     * <p>- `未开始`：录制任务未到录制开始时间；</p>
      *
-     * <p>- 生效中</p>
+     * <p>- `生效中`：录制任务正在录制；</p>
      *
-     * <p>- 已结束</p>
+     * <p>- `已结束`：录制已结束。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Status")
     private String status;

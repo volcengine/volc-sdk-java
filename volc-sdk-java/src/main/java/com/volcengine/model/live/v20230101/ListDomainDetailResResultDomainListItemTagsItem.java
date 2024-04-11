@@ -22,11 +22,11 @@ public final class ListDomainDetailResResultDomainListItemTagsItem  {
     private String value;
 
     /**
-     * <p>标签类型。</p>
+     * <p>标签类型，取值及含义如下所示。</p>
      *
-     * <p>- System：系统内置标签</p>
+     * <p>- System：系统内置标签；</p>
      *
-     * <p>- Custom：自定义标签</p>
+     * <p>- Custom：自定义标签。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Category")
     private String category;

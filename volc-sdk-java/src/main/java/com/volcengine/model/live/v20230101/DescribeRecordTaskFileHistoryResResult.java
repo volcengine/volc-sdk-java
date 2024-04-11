@@ -17,7 +17,7 @@ public final class DescribeRecordTaskFileHistoryResResult  {
     private List<DescribeRecordTaskFileHistoryResResultDataItem> data;
 
     /**
-     * <p>分页信息。</p>
+     * <p>查询结果的分页信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Pagination")
     private DescribeRecordTaskFileHistoryResResultPagination pagination;

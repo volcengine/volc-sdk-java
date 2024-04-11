@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class UpdateStreamQuotaConfigBodyQuotaDetailListItemBandwidthConfig  {
 
     /**
-     * <p>带宽限额，取值[1~1000]。</p>
+     * <p>带宽限额，下行带宽峰值超过此限额的额外访问将会被拒绝，取值范围为 [1,10000]。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Quota")
     private Integer quota;
@@ -30,7 +30,7 @@ public final class UpdateStreamQuotaConfigBodyQuotaDetailListItemBandwidthConfig
     private String quotaUnit;
 
     /**
-     * <p>拉流带宽限额告警阈值，取值范围为 \[1,1000\]，缺省情况表示不设置告警。</p>
+     * <p>拉流带宽限额告警阈值，取值范围为 [1,10000]，缺省情况表示不设置告警。</p>
      *
      * <p>:::tip</p>
      *

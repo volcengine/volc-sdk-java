@@ -10,19 +10,37 @@ import com.alibaba.fastjson.JSON;
 public final class ListVhostSnapshotPresetV2ResResultPresetListItemSlicePresetV2SnapshotPresetConfigJpgParam  {
 
     /**
-     * <p>TODO</p>
+     * <p>当前格式的截图是否开启，默认为 false，取值及含义如下所示。</p>
+     *
+     *
+     *
+     * <p>- false：不开启；</p>
+     *
+     * <p>- true：开启。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Enable")
     private Boolean enable;
 
     /**
-     * <p>TODO</p>
+     * <p>截图存储到 TOS 时的配置。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>TOSParam 和 ImageXParam 配置且配置其中一个。</p>
+     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TOSParam")
     private ListVhostSnapshotPresetV2ResResultPresetListItemSlicePresetV2SnapshotPresetConfigJpgParamTOSParam tOSParam;
 
     /**
-     * <p>TODO</p>
+     * <p>截图存储到 veImageX 时的配置。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>TOSParam 和 ImageXParam 配置且配置其中一个。</p>
+     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ImageXParam")
     private ListVhostSnapshotPresetV2ResResultPresetListItemSlicePresetV2SnapshotPresetConfigJpgParamImageXParam imageXParam;

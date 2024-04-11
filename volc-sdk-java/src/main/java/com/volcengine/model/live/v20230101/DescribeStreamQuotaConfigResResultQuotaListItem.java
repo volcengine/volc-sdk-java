@@ -11,7 +11,7 @@ import java.util.List;
 public final class DescribeStreamQuotaConfigResResultQuotaListItem  {
 
     /**
-     * <p>域名空间名称。</p>
+     * <p>域名空间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;

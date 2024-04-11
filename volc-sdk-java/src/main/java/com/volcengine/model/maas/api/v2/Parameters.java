@@ -3,6 +3,7 @@ package com.volcengine.model.maas.api.v2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -29,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "repetition_penalty",
     "do_sample",
     "logprobs",
-    "stop"
+    "stop",
+    "logit_bias",
+    "guidance"
 })
 @Generated("jsonschema2pojo")
 public class Parameters {
@@ -138,6 +141,22 @@ public class Parameters {
      */
     @JsonProperty("stop")
     private List<String> stop = new ArrayList<String>();
+    /**
+     * Logit Bias
+     * <p>
+     *
+     *
+     */
+    @JsonProperty("logit_bias")
+    private Map<Integer, Float> logitBias;
+    /**
+     * Guidance
+     * <p>
+     *
+     *
+     */
+    @JsonProperty("guidance")
+    private Boolean guidance;
 
     /**
      * Max Prompt Tokens
@@ -490,6 +509,60 @@ public class Parameters {
         return this;
     }
 
+    /**
+     * Logit Bias
+     * <p>
+     *
+     *
+     */
+    @JsonProperty("logit_bias")
+    public Map<Integer, Float> getLogitBias() {
+        return logitBias;
+    }
+
+    /**
+     * Logit Bias
+     * <p>
+     *
+     *
+     */
+    @JsonProperty("logit_bias")
+    public void setLogitBias(Map<Integer, Float> logitBias) {
+        this.logitBias = logitBias;
+    }
+
+    public Parameters withLogitBias(Map<Integer, Float> logitBias) {
+        this.logitBias = logitBias;
+        return this;
+    }
+
+    /**
+     * Guidance
+     * <p>
+     *
+     *
+     */
+    @JsonProperty("guidance")
+    public Boolean getGuidance() {
+        return guidance;
+    }
+
+    /**
+     * Guidance
+     * <p>
+     *
+     *
+     */
+    @JsonProperty("guidance")
+    public void setGuidance(Boolean guidance) {
+        this.guidance = guidance;
+    }
+
+    public Parameters withGuidance(Boolean guidance) {
+        this.guidance = guidance;
+        return this;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -546,6 +619,14 @@ public class Parameters {
         sb.append('=');
         sb.append(((this.stop == null)?"<null>":this.stop));
         sb.append(',');
+        sb.append("logitBias");
+        sb.append('=');
+        sb.append(((this.logitBias == null)?"<null>":this.logitBias));
+        sb.append(',');
+        sb.append("guidance");
+        sb.append('=');
+        sb.append(((this.guidance == null)?"<null>":this.guidance));
+        sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');
         } else {
@@ -566,9 +647,11 @@ public class Parameters {
         result = ((result* 31)+((this.presencePenalty == null)? 0 :this.presencePenalty.hashCode()));
         result = ((result* 31)+((this.minNewTokens == null)? 0 :this.minNewTokens.hashCode()));
         result = ((result* 31)+((this.stop == null)? 0 :this.stop.hashCode()));
+        result = ((result* 31)+((this.guidance == null)? 0 :this.guidance.hashCode()));
         result = ((result* 31)+((this.maxTokens == null)? 0 :this.maxTokens.hashCode()));
         result = ((result* 31)+((this.temperature == null)? 0 :this.temperature.hashCode()));
         result = ((result* 31)+((this.repetitionPenalty == null)? 0 :this.repetitionPenalty.hashCode()));
+        result = ((result* 31)+((this.logitBias == null)? 0 :this.logitBias.hashCode()));
         result = ((result* 31)+((this.frequencyPenalty == null)? 0 :this.frequencyPenalty.hashCode()));
         return result;
     }
@@ -582,7 +665,7 @@ public class Parameters {
             return false;
         }
         Parameters rhs = ((Parameters) other);
-        return ((((((((((((((this.topK == rhs.topK)||((this.topK!= null)&&this.topK.equals(rhs.topK)))&&((this.doSample == rhs.doSample)||((this.doSample!= null)&&this.doSample.equals(rhs.doSample))))&&((this.maxNewTokens == rhs.maxNewTokens)||((this.maxNewTokens!= null)&&this.maxNewTokens.equals(rhs.maxNewTokens))))&&((this.topP == rhs.topP)||((this.topP!= null)&&this.topP.equals(rhs.topP))))&&((this.logprobs == rhs.logprobs)||((this.logprobs!= null)&&this.logprobs.equals(rhs.logprobs))))&&((this.maxPromptTokens == rhs.maxPromptTokens)||((this.maxPromptTokens!= null)&&this.maxPromptTokens.equals(rhs.maxPromptTokens))))&&((this.presencePenalty == rhs.presencePenalty)||((this.presencePenalty!= null)&&this.presencePenalty.equals(rhs.presencePenalty))))&&((this.minNewTokens == rhs.minNewTokens)||((this.minNewTokens!= null)&&this.minNewTokens.equals(rhs.minNewTokens))))&&((this.stop == rhs.stop)||((this.stop!= null)&&this.stop.equals(rhs.stop))))&&((this.maxTokens == rhs.maxTokens)||((this.maxTokens!= null)&&this.maxTokens.equals(rhs.maxTokens))))&&((this.temperature == rhs.temperature)||((this.temperature!= null)&&this.temperature.equals(rhs.temperature))))&&((this.repetitionPenalty == rhs.repetitionPenalty)||((this.repetitionPenalty!= null)&&this.repetitionPenalty.equals(rhs.repetitionPenalty))))&&((this.frequencyPenalty == rhs.frequencyPenalty)||((this.frequencyPenalty!= null)&&this.frequencyPenalty.equals(rhs.frequencyPenalty))));
+        return ((((((((((((((((this.topK == rhs.topK)||((this.topK!= null)&&this.topK.equals(rhs.topK)))&&((this.doSample == rhs.doSample)||((this.doSample!= null)&&this.doSample.equals(rhs.doSample))))&&((this.maxNewTokens == rhs.maxNewTokens)||((this.maxNewTokens!= null)&&this.maxNewTokens.equals(rhs.maxNewTokens))))&&((this.topP == rhs.topP)||((this.topP!= null)&&this.topP.equals(rhs.topP))))&&((this.logprobs == rhs.logprobs)||((this.logprobs!= null)&&this.logprobs.equals(rhs.logprobs))))&&((this.maxPromptTokens == rhs.maxPromptTokens)||((this.maxPromptTokens!= null)&&this.maxPromptTokens.equals(rhs.maxPromptTokens))))&&((this.presencePenalty == rhs.presencePenalty)||((this.presencePenalty!= null)&&this.presencePenalty.equals(rhs.presencePenalty))))&&((this.minNewTokens == rhs.minNewTokens)||((this.minNewTokens!= null)&&this.minNewTokens.equals(rhs.minNewTokens))))&&((this.stop == rhs.stop)||((this.stop!= null)&&this.stop.equals(rhs.stop))))&&((this.guidance == rhs.guidance)||((this.guidance!= null)&&this.guidance.equals(rhs.guidance))))&&((this.maxTokens == rhs.maxTokens)||((this.maxTokens!= null)&&this.maxTokens.equals(rhs.maxTokens))))&&((this.temperature == rhs.temperature)||((this.temperature!= null)&&this.temperature.equals(rhs.temperature))))&&((this.repetitionPenalty == rhs.repetitionPenalty)||((this.repetitionPenalty!= null)&&this.repetitionPenalty.equals(rhs.repetitionPenalty))))&&((this.logitBias == rhs.logitBias)||((this.logitBias!= null)&&this.logitBias.equals(rhs.logitBias))))&&((this.frequencyPenalty == rhs.frequencyPenalty)||((this.frequencyPenalty!= null)&&this.frequencyPenalty.equals(rhs.frequencyPenalty))));
     }
 
 }

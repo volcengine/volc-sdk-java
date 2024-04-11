@@ -11,19 +11,19 @@ import java.util.List;
 public final class UpdateAuthKeyBody  {
 
     /**
-     * <p>应用名称，默认为所有应用名称，由 1 到 30 位数字、字母、下划线及"-"和"."组成。</p>
+     * <p>应用名称，取值与直播流地址中 AppName 字段取值相同，默认为空，表示所有应用名称。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（\_）、短横线（-）和句点（.）组成，长度为 1 到 30 个字符。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>鉴权详情，数量阈值为 100。</p>
+     * <p>鉴权配置参数，包括鉴权密钥、鉴权字段、加密字符串生成算法等。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AuthDetailList")
     private List<UpdateAuthKeyBodyAuthDetailListItem> authDetailList;
 
     /**
-     * <p>推/拉流域名。</p>
+     * <p>直播流使用的域名。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console-stable.volcanicengine.com/live/main/domain/list)页面，查看直播流使用的域名。</p>
      *
      * <p>:::tip</p>
      *
@@ -35,33 +35,33 @@ public final class UpdateAuthKeyBody  {
     private String domain;
 
     /**
-     * <p>鉴权状态。创建推拉流鉴权时，默认值为 false；更新推拉流鉴权时，缺省情况表示不修改推拉流鉴权状态。</p>
+     * <p>是否开启 URL 地址鉴权，取值及含义如下所示。</p>
      *
-     * <p>- false：关闭推拉流鉴权；</p>
+     * <p>- `false`：关闭（默认值）；</p>
      *
-     * <p>- true：开启推拉流鉴权。</p>
+     * <p>- `true`：开启。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PushPullEnable")
     private Boolean pushPullEnable;
 
     /**
-     * <p>鉴权场景类型。</p>
+     * <p>鉴权场景类型，取值及含义如下所示。</p>
      *
-     * <p>- push：推流鉴权；</p>
+     * <p>- `push`：推流鉴权；</p>
      *
-     * <p>- pull：拉流鉴权；</p>
+     * <p>- `pull`：拉流鉴权。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SceneType")
     private String sceneType;
 
     /**
-     * <p>有效时长，单位为 s，默认值为 604800，取值范围为 [60,2592000]。</p>
+     * <p>鉴权生效时长，单位为秒，默认值为 604800，取值范围为 [60,2592000]，超出生效时长后 URL 无法使用。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ValidDuration")
     private Integer validDuration;
 
     /**
-     * <p>域名空间名称。</p>
+     * <p>域名空间，即直播流地址的域名所属的域名空间。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console-stable.volcanicengine.com/live/main/domain/list)页面，查看需要查询的直播流使用的域名所属的域名空间。</p>
      *
      * <p>:::tip</p>
      *

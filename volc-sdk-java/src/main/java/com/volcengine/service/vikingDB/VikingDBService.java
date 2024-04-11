@@ -1,5 +1,6 @@
 package com.volcengine.service.vikingDB;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -43,8 +44,14 @@ import static com.volcengine.helper.Const.*;
 public class VikingDBService extends BaseServiceImpl {
 
 
-    public VikingDBService(String host, String region, String ak, String sk, String scheme) {
+    public VikingDBService(String host, String region, String ak, String sk, String scheme) throws Exception {
         super(getServiceInfo(host, region, ak, sk, scheme), getApiInfo());
+
+        HashMap<String,Object> map = new HashMap<>();
+        RawResponse res = json("Ping", null, JSON.toJSONString(map));
+        if (res.getCode() != 0){
+            throw new Exception("host or region is incorrect");
+        }
 
     }
     public static ServiceInfo getServiceInfo(String host, String region, String ak, String sk, String scheme){
@@ -130,6 +137,9 @@ public class VikingDBService extends BaseServiceImpl {
 
         paramsPost.put(Const.Path, "/api/index/batch_rerank");
         apiInfo.put("BatchRerank", new ApiInfo(paramsPost));
+
+        paramsGet.put(Const.Path, "/api/viking_db/data/ping");
+        apiInfo.put("Ping", new ApiInfo(paramsPost));
 
         return apiInfo;
     }

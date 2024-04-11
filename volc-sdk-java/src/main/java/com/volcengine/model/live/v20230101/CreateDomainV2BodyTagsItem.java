@@ -24,9 +24,9 @@ public final class CreateDomainV2BodyTagsItem  {
     /**
      * <p>标签类型，支持以下取值。</p>
      *
-     * <p>- System：系统内置标签</p>
+     * <p>- `System`：系统内置标签；</p>
      *
-     * <p>- Custom：自定义标签</p>
+     * <p>- `Custom`：自定义标签。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Category")
     private String category;

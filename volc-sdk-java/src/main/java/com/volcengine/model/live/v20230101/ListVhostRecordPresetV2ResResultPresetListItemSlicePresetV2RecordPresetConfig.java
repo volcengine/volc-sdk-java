@@ -11,57 +11,57 @@ import java.util.List;
 public final class ListVhostRecordPresetV2ResResultPresetListItemSlicePresetV2RecordPresetConfig  {
 
     /**
-     * <p>转码流录制，默认值为 0。支持的取值如下所示。</p>
+     * <p>转码流录制，取值及含义如下所示。</p>
      *
      *
      *
-     * <p>- 0：不录制；</p>
+     * <p>- `0`：不录制；</p>
      *
-     * <p>- 1：录制。</p>
+     * <p>- `1`：录制全部转码流；</p>
      *
-     * <p>- 2：全部录制，如果录制转码流后缀列表（TranscodeSuffixList）为空则全部录制，不为空则录制 TranscodeSuffixList 命中的转码后缀。</p>
+     * <p>- `2`：录制指定转码流，即通过转码后缀列表 `TranscodeSuffixList` 匹配转码流进行录制，如果转码流后缀列表为空仍表示录制全部转码流。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TranscodeRecord")
     private Integer transcodeRecord;
 
     /**
-     * <p>录制转码流后缀列表，转码流录制配置为全部录制时（TranscodeRecord 配置等于 2）生效。</p>
+     * <p>转码流后缀列表，转码流录制配置为根据转码流列表匹配（`TranscodeRecord` 取值为 `2`）时生效，`TranscodeSuffixList` 配置为空时，效果等同于录制全部转码流。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TranscodeSuffixList")
     private List<String> transcodeSuffixList;
 
     /**
-     * <p>源流录制，默认值为 0。支持的取值如下所示。</p>
+     * <p>- 是否源流录制，取值及含义如下所示。</p>
      *
      *
      *
-     * <p>- 0：不录制；</p>
+     * <p>- `0`：不录制；</p>
      *
-     * <p>- 1：录制。</p>
+     * <p>- `1`：录制。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "OriginRecord")
     private Integer originRecord;
 
     /**
-     * <p>录制 HLS 格式时，单个 TS 切片时长，单位为 s，默认值为 5，取值范围为 [5,30]。</p>
+     * <p>录制为 HLS 格式时，单个 TS 切片时长，单位为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SliceDuration")
     private Integer sliceDuration;
 
     /**
-     * <p>FLV 录制参数，开启 FLV 录制时设置。</p>
+     * <p>录制为 FLV 格式时的录制参数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "FlvParam")
     private ListVhostRecordPresetV2ResResultPresetListItemSlicePresetV2RecordPresetConfigFlvParam flvParam;
 
     /**
-     * <p>HLS 录制参数，开启 HLS 录制时设置。</p>
+     * <p>录制为 HLS 格式时的录制参数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "HlsParam")
     private ListVhostRecordPresetV2ResResultPresetListItemSlicePresetV2RecordPresetConfigHlsParam hlsParam;
 
     /**
-     * <p>MP4 录制参数，开启 MP4 录制时设置。</p>
+     * <p>录制为 HLS 格式时的录制参数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Mp4Param")
     private ListVhostRecordPresetV2ResResultPresetListItemSlicePresetV2RecordPresetConfigMp4Param mp4Param;

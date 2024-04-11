@@ -11,25 +11,31 @@ import java.util.List;
 public final class CreateDomainV2Body  {
 
     /**
-     * <p>域名列表，总和最多十个。</p>
+     * <p>待添加到视频直播服务进行加速的域名列表信息。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>一个域名空间下最多包含 10 个域名。</p>
+     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domains")
     private List<CreateDomainV2BodyDomainsItem> domains;
 
     /**
-     * <p>区域，包含以下类型。</p>
+     * <p>域名加速区域，包含以下类型。</p>
      *
-     * <p>- cn：中国大陆；</p>
+     * <p>- `cn`：中国大陆；</p>
      *
-     * <p>- cn-global：全球；</p>
+     * <p>- `cn-global`：全球；</p>
      *
-     * <p>- cn-oversea：海外及港澳台。</p>
+     * <p>- `cn-oversea`：海外及港澳台。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Region")
     private String region;
 
     /**
-     * <p>域名空间名称。</p>
+     * <p>域名空间，是一组关联域名的集合，由字母（A - Z、a -z）、数字（0 - 9）和连字符（-） 组成。您可以自定义新的域名空间或调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口查看已有域名使用的域名空间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;

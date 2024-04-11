@@ -11,13 +11,13 @@ import java.util.List;
 public final class ListPullRecordTaskResResult  {
 
     /**
-     * <p>直播录制列表记录。</p>
+     * <p>直播录制任务列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "List")
     private List<ListPullRecordTaskResResultListItem> list;
 
     /**
-     * <p>分页信息。</p>
+     * <p>查询结果的分页信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Pagination")
     private ListPullRecordTaskResResultPagination pagination;

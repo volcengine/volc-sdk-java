@@ -22,7 +22,7 @@ public final class ListVhostRecordPresetV2ResResultPresetListItem  {
     private String app;
 
     /**
-     * <p>模板详细信息。</p>
+     * <p>录制参数详细信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SlicePresetV2")
     private ListVhostRecordPresetV2ResResultPresetListItemSlicePresetV2 slicePresetV2;

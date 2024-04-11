@@ -10,13 +10,13 @@ import com.alibaba.fastjson.JSON;
 public final class UpdateRecordPresetV2BodyRecordPresetConfigHlsParamVODParam  {
 
     /**
-     * <p>是否使用 VOD 存储，默认为 false，取值及含义如下所示。</p>
+     * <p>是否使用 VOD 存储，默认为 `false`，取值及含义如下所示。</p>
      *
      *
      *
-     * <p>- false：不使用；</p>
+     * <p>- `false`：不使用；</p>
      *
-     * <p>- true：使用。</p>
+     * <p>- `true`：使用。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Enable")
     private Boolean enable;
@@ -26,7 +26,7 @@ public final class UpdateRecordPresetV2BodyRecordPresetConfigHlsParamVODParam  {
      *
      * <p>:::tip</p>
      *
-     * <p>如果 VODParam 中的 Enable 取值为 true，则 VodNamespace 必填。</p>
+     * <p>如果使用 VOD 存储，即 `VODParam` 中 `Enable` 取值为 `true` 时，`VodNamespace` 为必填。</p>
      *
      * <p>:::</p>
      */
@@ -34,45 +34,53 @@ public final class UpdateRecordPresetV2BodyRecordPresetConfigHlsParamVODParam  {
     private String vodNamespace;
 
     /**
-     * <p>工作流模版 ID，对于存储在点播的录制文件，会使用该工作流模版对视频进行处理。可登录[视频点播控制台](https://console.volcengine.com/vod/)获取 ID。</p>
+     * <p>视频点播工作流模板 ID，对于存储在点播的录制文件，会使用该工作流模版对录制的视频进行处理，可登录[视频点播控制台](https://console.volcengine.com/vod/)获取工作流模板 ID，默认为空。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "WorkflowID")
     private String workflowID;
 
     /**
-     * <p>直播录制文件存储到点播时的视频分类 ID，您可以通过视频点播的 [ListVideoClassifications](https://www.volcengine.com/docs/4/101661) 接口查询视频分类 ID 等信息。</p>
+     * <p>直播录制文件存储到点播时的视频分类 ID，您可以通过视频点播的 [ListVideoClassifications](https://www.volcengine.com/docs/4/101661) 接口查询视频分类 ID 等信息，默认为空。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ClassificationID")
     private Integer classificationID;
 
     /**
-     * <p>直播录制文件存储到点播时的存储类型。默认值为 1，支持的取值及含义如下所示。</p>
+     * <p>直播录制文件存储到点播时的存储类型，存储类型介绍请参考[媒资存储管理](https://www.volcengine.com/docs/4/73629#媒资存储)。默认值为 `1`，支持的取值及含义如下所示。</p>
      *
      *
      *
-     * <p>- 1：标准存储；</p>
+     * <p>- `1`：标准存储；</p>
      *
-     * <p>- 2：归档存储。</p>
+     * <p>- `2`：归档存储。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StorageClass")
     private Integer storageClass;
 
     /**
-     * <p>录制文件的存储位置，最大长度为 200 个字符。默认的存储位置为 `record/{PubDomain}/{App}/{Stream}/{StartTime}_{EndTime}` ，参数格式要求如下所示。</p>
+     * <p>录制文件的存储规则，最大长度为 200 个字符，支持以</p>
+     *
+     * <p>`record/{PubDomain}/{App}/{Stream}/{StartTime}_{EndTime}` 样式设置存储规则，支持输入字母（A - Z、a - z）、数字（0 - 9）、短横线（-）、叹号（!）、下划线（_）、句点（.）、星号（*）及占位符。</p>
      *
      *
      *
-     * <p>- 支持删除固定路径，如 {App}/{Stream}；</p>
+     * <p>存储规则设置注意事项如下。</p>
      *
-     * <p>- 不支持以正斜线（/）或者反斜线（\\）开头；</p>
      *
-     * <p>- 不支持 “//” 和 “/./” 等字符串；</p>
      *
-     * <p>- 不支持 \\b、\\t、\\n、\\v、\\f、\\r 等字符；</p>
+     * <p>- 目录层级至少包含2级及以上，如 `live/{App}/{Stream}`。</p>
      *
-     * <p>- 不支持 “..” 作为文件名；</p>
+     * <p>- record 为自定义字段；</p>
      *
-     * <p>- 目录层级至少包含 2 级及以上，如 `live/{App}/{Stream}`。</p>
+     * <p>- {PubDomain} 取值为当前配置的 `vhost` 值；</p>
+     *
+     * <p>- {App} 取值为当前配置的 `AppName` 值；</p>
+     *
+     * <p>- {Stream} 取值为当前配置的 `StreamName` 值；</p>
+     *
+     * <p>- {StartTime} 取值为录制的开始时间戳；</p>
+     *
+     * <p>- {EndTime} 取值为录制的结束时间戳。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ExactObject")
     private String exactObject;

@@ -10,35 +10,33 @@ import com.alibaba.fastjson.JSON;
 public final class UpdateTimeShiftPresetV3Body  {
 
     /**
-     * <p>域名空间名称。</p>
+     * <p>域名空间名称，您可以调用[ListTimeShiftPresetV2](https://www.volcengine.com/docs/6469/1126883) 接口，获取待更新时移配置的 `Vhost` 取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;
 
     /**
-     * <p>应用名称，由 1 到 30 位数字、字母、下划线及"-"和"."组成。</p>
+     * <p>应用名称，您可以调用[ListTimeShiftPresetV2](https://www.volcengine.com/docs/6469/1126883) 接口，获取待更新时移配置的 `App` 取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>开启时移的流名称，同一个 App 最多可指定 20 路。</p>
+     * <p>开启时移的流名称，默认为空表示更新 App 级别的时移配置，不为空时表示更新 Stream 级别的时移配置。您可以调用[ListTimeShiftPresetV2](https://www.volcengine.com/docs/6469/1126883) 接口，获取待更新时移配置的 `Stream` 取值并进行更新。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
     private String stream;
 
     /**
-     * <p>最大时移时长，即观看时移的最长时间，单位为 s。支持的取值如下所示。</p>
+     * <p>最大时移时长，即允许用户回看的最长时间，单位为秒，支持的取值如下所示。</p>
      *
+     * <p>- `86400`：1 天；</p>
      *
+     * <p>- `259200`：3 天；</p>
      *
-     * <p>- 86400</p>
+     * <p>- `604800`：7 天；</p>
      *
-     * <p>- 259200</p>
-     *
-     * <p>- 604800</p>
-     *
-     * <p>- 1296000</p>
+     * <p>- `1296000`：15 天。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "MaxShiftTime")
     private Integer maxShiftTime;

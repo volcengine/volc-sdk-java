@@ -84,7 +84,7 @@ public final class ListVhostTransCodePresetResResultCommonPresetListItemTranscod
     private Integer bFrames;
 
     /**
-     * <p>视频帧率，单位为 fps，帧率越大，画面越流畅，开启智能插帧时该值为 0。</p>
+     * <p>视频帧率，单位为 fps，帧率越大，画面越流畅。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "FPS")
     private Integer fPS;
@@ -196,48 +196,6 @@ public final class ListVhostTransCodePresetResResultCommonPresetListItemTranscod
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TransType")
     private String transType;
-
-    /**
-     * <p>动态范围，画质增强类型生效</p>
-     *
-     *
-     *
-     * <p>- SDR：输出为SDR</p>
-     *
-     * <p>- HDR：输出为HDR</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "DynamicRange")
-    private String dynamicRange;
-
-    /**
-     * <p>是否开启智能插帧，只对画质增强类型生效</p>
-     *
-     *
-     *
-     * <p>- 0：不开启</p>
-     *
-     * <p>- 1：开启</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "FISwitch")
-    private String fISwitch;
-
-    /**
-     * <p>转码模板参数的类型</p>
-     *
-     *
-     *
-     * <p>- hvq：表示使用画质增强</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "ParamType")
-    private String paramType;
-
-    /**
-     * <p>使用场景，画质增强时生效</p>
-     *
-     * <p>football：足球场景</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "SceneType")
-    private String sceneType;
 
     @Override
     public String toString() {

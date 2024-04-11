@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class DescribeCertDetailSecretV2Body  {
 
     /**
-     * <p>证书实例 ID，可以通过[查询证书列表](https://www.volcengine.com/docs/6469/81242)接口获取。</p>
+     * <p>证书实例 ID，您可以通过[ListCertV2](https://www.volcengine.com/docs/6469/81242)接口获取证书示例 ID。</p>
      *
      * <p>:::tip</p>
      *
@@ -22,7 +22,7 @@ public final class DescribeCertDetailSecretV2Body  {
     private String certID;
 
     /**
-     * <p>证书链 ID，可以通过[查询证书列表](https://www.volcengine.com/docs/6469/81242)接口获取。</p>
+     * <p>证书链 ID，您可以通过[ListcCertV2](https://www.volcengine.com/docs/6469/81242)接口获取 证书链 ID。</p>
      *
      * <p>:::tip</p>
      *

@@ -16,7 +16,7 @@ public final class ListTimeShiftPresetV2ResResultListItem  {
     private String app;
 
     /**
-     * <p>ToS 存储目录。</p>
+     * <p>TOS 存储对应的 Bucket。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Bucket")
     private String bucket;
@@ -28,35 +28,35 @@ public final class ListTimeShiftPresetV2ResResultListItem  {
     private String domain;
 
     /**
-     * <p>最大时移时长，即观看时移的最长时间，单位为 s。</p>
+     * <p>最大时移时长，即允许用户回看的最长时间，单位为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "MaxShiftTime")
     private Integer maxShiftTime;
 
     /**
-     * <p>模板名称。</p>
+     * <p>时移配置名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Name")
     private String name;
 
     /**
-     * <p>直播时移配置模版状态。</p>
+     * <p>直播时移配置启用状态。</p>
      *
-     * <p>- 0：配置中；</p>
+     * <p>- `0`：配置中；</p>
      *
-     * <p>- 1：已启用。</p>
+     * <p>- `1`：已启用。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Status")
     private Integer status;
 
     /**
-     * <p>类型。默认类型为 VoD。</p>
+     * <p>类型。默认类型为 `vod`。</p>
      *
-     * <p>- VoD</p>
+     * <p>- `vod`：录制类型为录制时移时，录制配置中存储位置为 VOD。</p>
      *
-     * <p>- ToS</p>
+     * <p>- `tos`：录制类型为录制时移时，录制配置中存储喂食为 TOS。</p>
      *
-     * <p>- fcdn-ToS</p>
+     * <p>- `fcdn-toS`：独立时移。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Type")
     private String type;
@@ -68,7 +68,7 @@ public final class ListTimeShiftPresetV2ResResultListItem  {
     private String stream;
 
     /**
-     * <p>点播空间。</p>
+     * <p>视频点播（VOD）空间名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "VODNamespace")
     private String vODNamespace;

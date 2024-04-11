@@ -25,6 +25,8 @@ public class TokenizeV2Demo {
             TokenizeResp resp = maasService.tokenization(endpointId, req);
             System.out.println(resp.getTotalTokens());
             System.out.println(resp.getTokens());
+            System.out.println(resp.getTokenIds());
+            System.out.println(resp.getOffsetMapping());
         } catch (MaasException e) {
             System.out.println("req_id: " + e.getRequestId());
             System.out.println("code: " + e.getCode());

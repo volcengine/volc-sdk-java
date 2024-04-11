@@ -16,7 +16,7 @@ public final class DescribeCallbackResResultCallbackListItemCallbackDetailListIt
     private String callbackType;
 
     /**
-     * <p>回调的 URL。</p>
+     * <p>回调消息接收地址。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "URL")
     private String uRL;

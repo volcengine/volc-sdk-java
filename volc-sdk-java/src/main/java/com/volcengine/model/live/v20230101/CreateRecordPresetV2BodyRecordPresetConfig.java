@@ -19,7 +19,7 @@ public final class CreateRecordPresetV2BodyRecordPresetConfig  {
      *
      * <p>- `1`：录制全部转码流；</p>
      *
-     * <p>- `2`：通过转码流后缀列表，即`TranscodeSuffixList` 字段取值匹配转码流。</p>
+     * <p>- `2`：录制指定转码流，即通过转码后缀列表 `TranscodeSuffixList` 匹配转码流进行录制，如果转码流后缀列表为空仍表示录制全部转码流。</p>
      *
      *
      *
@@ -39,7 +39,7 @@ public final class CreateRecordPresetV2BodyRecordPresetConfig  {
     private List<String> transcodeSuffixList;
 
     /**
-     * <p>是否源流录制，默认值为 `0`，支持的取值即含义如下所示。</p>
+     * <p>是否源流录制，默认值为 `0`，支持的取值及含义如下所示。</p>
      *
      *
      *

@@ -18,29 +18,27 @@ public final class GeneratePlayURLResResultURLListItem  {
     /**
      * <p>CDN 类型。</p>
      *
-     * <p>- fcdn：火山引擎流媒体直播 CDN；</p>
+     * <p>- `fcdn`：火山引擎流媒体直播 CDN；</p>
      *
-     * <p>- 3rd：第三方 CDN。</p>
+     * <p>- `3rd`：第三方 CDN。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CDN")
     private String cDN;
 
     /**
-     * <p>协议类型，包括 hls、flv 和 rtmp。</p>
+     * <p>协议类型，包括 hls、flv、rtmp、udp 和 cmaf。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Protocol")
     private String protocol;
 
     /**
-     * <p>地址类型，可能的值为：</p>
+     * <p>地址类型，取值及含义如下所示。</p>
      *
-     * <p>- push：推流；</p>
+     * <p>- `pull`：拉流地址；</p>
      *
-     * <p>- pull：拉流；</p>
+     * <p>- `3rd_play(relay_source)`：第三方回源地址，当配置了回源且 CDN 类型为第三方 CDN 时返回；</p>
      *
-     * <p>- 3rd_play(relay_source)：第三方回源；</p>
-     *
-     * <p>- 3rd_play(relay_sink)：第三方转推。</p>
+     * <p>- `3rd_play(relay_sink)`：第三方转推地址，当配置了拉流转推且 CDN 类型为第三方 CDN 时返回。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Type")
     private String type;

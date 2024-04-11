@@ -1285,4 +1285,13 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception
      */
     UpdateSecurityControlConfigResponse updateSecurityControlConfig(UpdateSecurityControlConfigRequest updateSecurityControlConfigRequest) throws Exception;
+
+    /**
+     * GetLiveTrafficPostPayData
+     *
+     * @param getLiveTrafficPostPayDataRequest
+     * @return
+     * @throws Exception
+     */
+    GetLiveTrafficPostPayDataResponse getLiveTrafficPostPayData(GetLiveTrafficPostPayDataRequest getLiveTrafficPostPayDataRequest) throws Exception;
 }

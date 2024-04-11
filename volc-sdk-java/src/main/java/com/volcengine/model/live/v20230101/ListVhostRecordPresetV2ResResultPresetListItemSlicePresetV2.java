@@ -10,13 +10,13 @@ import com.alibaba.fastjson.JSON;
 public final class ListVhostRecordPresetV2ResResultPresetListItemSlicePresetV2  {
 
     /**
-     * <p>模板 ID。</p>
+     * <p>录制配置 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ID")
     private Integer iD;
 
     /**
-     * <p>模板名称。</p>
+     * <p>录制配置名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Name")
     private String name;

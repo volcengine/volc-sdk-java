@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class DescribeStreamQuotaConfigResResultQuotaListItemQuotaDetailListItemStreamConfig  {
 
     /**
-     * <p>推流路数限额。</p>
+     * <p>推流域名的推流路数限额。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Quota")
     private Integer quota;

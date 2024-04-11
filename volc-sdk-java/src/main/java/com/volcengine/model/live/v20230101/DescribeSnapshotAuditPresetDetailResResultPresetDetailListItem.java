@@ -53,12 +53,6 @@ public final class DescribeSnapshotAuditPresetDetailResResultPresetDetailListIte
     private String bucket;
 
     /**
-     * <p>审核结果回调配置。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "CallbackDetailList")
-    private List<DescribeSnapshotAuditPresetDetailResResultPresetDetailListItemCallbackDetailListItem> callbackDetailList;
-
-    /**
      * <p>veimageX 的服务 ID。</p>
      *
      * <p>:::tip</p>

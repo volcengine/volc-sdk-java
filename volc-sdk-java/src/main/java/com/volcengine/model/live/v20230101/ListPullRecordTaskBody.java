@@ -10,13 +10,15 @@ import com.alibaba.fastjson.JSON;
 public final class ListPullRecordTaskBody  {
 
     /**
-     * <p>分页查询页码。</p>
+     * <p>查询数据的页码，默认为 `1`，表示查询第一页的数据，取值范围为正整数。</p>
+     *
+     *
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageNum")
     private Integer pageNum;
 
     /**
-     * <p>单个分页中，查询的结果数量。</p>
+     * <p>每页显示的数据条数，默认为 `20`，最大值为 500。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageSize")
     private Integer pageSize;

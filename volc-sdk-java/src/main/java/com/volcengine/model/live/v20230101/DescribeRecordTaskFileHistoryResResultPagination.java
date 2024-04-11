@@ -10,25 +10,25 @@ import com.alibaba.fastjson.JSON;
 public final class DescribeRecordTaskFileHistoryResResultPagination  {
 
     /**
-     * <p>当前页。</p>
+     * <p>当前所在分页的页码。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageCur")
     private Integer pageCur;
 
     /**
-     * <p>当前页的大小。</p>
+     * <p>每页显示的数据条数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageSize")
     private Integer pageSize;
 
     /**
-     * <p>当前页的数据量。</p>
+     * <p>查询结果的数据总页数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageTotal")
     private Integer pageTotal;
 
     /**
-     * <p>数据总量。</p>
+     * <p>查询结果的数据总条数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TotalCount")
     private Integer totalCount;

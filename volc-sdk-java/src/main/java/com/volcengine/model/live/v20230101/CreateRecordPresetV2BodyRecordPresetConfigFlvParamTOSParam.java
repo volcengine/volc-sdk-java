@@ -26,7 +26,7 @@ public final class CreateRecordPresetV2BodyRecordPresetConfigFlvParamTOSParam  {
      *
      * <p>:::tip</p>
      *
-     * <p>如果启用 TOSParam 配置（`Enable` 取值为 `true`），则 `Bucket` 必填。</p>
+     * <p>如果使用 TOS 存储，即 `TOSParam` 中 `Enable` 取值为 `true` 时，`Bucket` 为必填。</p>
      *
      * <p>:::</p>
      */

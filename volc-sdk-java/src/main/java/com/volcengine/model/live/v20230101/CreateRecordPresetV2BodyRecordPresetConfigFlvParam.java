@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class CreateRecordPresetV2BodyRecordPresetConfigFlvParam  {
 
     /**
-     * <p>当前格式的录制是否开启，默认 `false`，取值及含义如下所示。</p>
+     * <p>当前格式的录制是否开启，默认值为 `false`，支持的取值及含义如下所示。</p>
      *
      *
      *
@@ -28,7 +28,7 @@ public final class CreateRecordPresetV2BodyRecordPresetConfigFlvParam  {
      *
      * <p>- 取值为 `-1` 时，表示不限制录制时长，录制结束后生成一个完整的录制文件。</p>
      *
-     * <p>- 取值为 [300,86400] 之间的值时，表示根据设置的录制文件时长生成录制文件，完成录制后一起上传。</p>
+     * <p>- 取值为 [300,86400] 之间的值时，表示根据设置的录制文件时分段长生成录制文件，完成录制后一起上传。</p>
      *
      *
      *

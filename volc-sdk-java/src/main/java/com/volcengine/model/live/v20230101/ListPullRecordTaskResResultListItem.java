@@ -16,13 +16,13 @@ public final class ListPullRecordTaskResResultListItem  {
     private String taskId;
 
     /**
-     * <p>录制的开始时间，RFC3339 格式表示的 UTC 时间戳，精度为 s。</p>
+     * <p>录制的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>录制的结束时间，RFC3339 格式表示的 UTC 时间戳，精度为 s。</p>
+     * <p>录制的结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
@@ -52,17 +52,17 @@ public final class ListPullRecordTaskResResultListItem  {
     private String stream;
 
     /**
-     * <p>任务状态，有以下几种状态：</p>
+     * <p>录制任务的状态，取值及含义如下所示。</p>
      *
      *
      *
-     * <p>- 停用</p>
+     * <p>- `停用`：录制任务已被停止；</p>
      *
-     * <p>- 未开始</p>
+     * <p>- `未开始`：录制任务未到录制开始时间；</p>
      *
-     * <p>- 生效中</p>
+     * <p>- `生效中`：录制任务正在录制；</p>
      *
-     * <p>- 已结束</p>
+     * <p>- `已结束`：录制已结束。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Status")
     private String status;

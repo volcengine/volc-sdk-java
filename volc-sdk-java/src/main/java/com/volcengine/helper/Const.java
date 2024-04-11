@@ -426,6 +426,8 @@ public class Const {
 
     public static final String UpdateActivityCustomEmojiSetStatus = "UpdateActivityCustomEmojiSetStatus";
 
+    public static final String GetLiveTrafficPostPayData = "GetLiveTrafficPostPayData";
+
     // translate
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";

@@ -10,17 +10,17 @@ import com.alibaba.fastjson.JSON;
 public final class ListTimeShiftPresetV2Body  {
 
     /**
-     * <p>时移类型。默认类型为 VoD。</p>
+     * <p>时移类型，默认类型为 `vod`。</p>
      *
-     * <p>- vod：点播时移，获取 vod 类型的时移模板配置信息；</p>
+     * <p>- `vod`：点播时移，表示查询时移录制存储在 VOD 中的时移配置；</p>
      *
-     * <p>- tos：直播时移，获取 tos 以及 fcdn-tos 类型的时移模板配置信息。</p>
+     * <p>- `tos`：直播时移，表示查询时移录制存储在 TOS 以及 fcdn-tos 中的时移配置。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Type")
     private String type;
 
     /**
-     * <p>域名空间名称。</p>
+     * <p>域名空间，即直播流地址的域名所属的域名空间。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console-stable.volcanicengine.com/live/main/domain/list)页面，查看需要时移的直播流使用的域名所属的域名空间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;

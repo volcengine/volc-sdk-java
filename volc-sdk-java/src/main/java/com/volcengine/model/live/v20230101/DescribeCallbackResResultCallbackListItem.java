@@ -17,13 +17,19 @@ public final class DescribeCallbackResResultCallbackListItem  {
     private String app;
 
     /**
-     * <p>开启鉴权。</p>
+     * <p>回调消息发送是否开启鉴权，默认为 `false`，取值及含义如下所示。</p>
+     *
+     *
+     *
+     * <p>- `false`：不开启；</p>
+     *
+     * <p>- `true`：开启。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AuthEnable")
     private Boolean authEnable;
 
     /**
-     * <p>密钥。</p>
+     * <p>回调消息发送鉴权密钥，开启回调消息鉴权时生效。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AuthKeyPrimary")
     private String authKeyPrimary;
@@ -35,19 +41,19 @@ public final class DescribeCallbackResResultCallbackListItem  {
     private List<DescribeCallbackResResultCallbackListItemCallbackDetailListItem> callbackDetailList;
 
     /**
-     * <p>消息类型。包括以下类型。</p>
+     * <p>回调的消息类型，取值及含义如下所示。</p>
      *
      *
      *
-     * <p>- push：推流开始回调；</p>
+     * <p>- `push`：推流开始回调；</p>
      *
-     * <p>- push\_end：推流结束回调；</p>
+     * <p>- `push_end`：推流结束回调；</p>
      *
-     * <p>- snapshot：截图回调；</p>
+     * <p>- `snapshot`：截图回调；</p>
      *
-     * <p>- record：录制回调；</p>
+     * <p>- `record`：录制回调；</p>
      *
-     * <p>- audit\_snapshot：截图审核回调。</p>
+     * <p>- `audit_snapshot`：截图审核回调。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "MessageType")
     private String messageType;
@@ -65,7 +71,7 @@ public final class DescribeCallbackResResultCallbackListItem  {
     private Integer transcodeCallback;
 
     /**
-     * <p>域名空间名称。</p>
+     * <p>域名空间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;

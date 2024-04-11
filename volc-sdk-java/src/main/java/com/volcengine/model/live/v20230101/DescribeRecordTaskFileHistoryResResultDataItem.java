@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class DescribeRecordTaskFileHistoryResResultDataItem  {
 
     /**
-     * <p>域名空间名称。由 1 到 60 位数字、字母、下划线及"-"和"."组成。</p>
+     * <p>域名空间名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;
@@ -28,13 +28,13 @@ public final class DescribeRecordTaskFileHistoryResResultDataItem  {
     private String stream;
 
     /**
-     * <p>ToS 存储空间。</p>
+     * <p> 存储位置为 TOS 时的 Bucket。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Bucket")
     private String bucket;
 
     /**
-     * <p>ToS 中的保存路径。</p>
+     * <p>存储位置为 TOS 时，在 Bucket 中的存储路径。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Path")
     private String path;
@@ -70,7 +70,7 @@ public final class DescribeRecordTaskFileHistoryResResultDataItem  {
     private String fileName;
 
     /**
-     * <p>录制文件保存在 VoD 时，录制视频的 ID。</p>
+     * <p>录制文件保存在 VOD 时，录制文件的 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vid")
     private String vid;

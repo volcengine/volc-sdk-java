@@ -174,7 +174,7 @@ public final class CreateTranscodePresetBody  {
     private Integer longSide;
 
     /**
-     * <p>转码类型是否为极智超清转码，当画质增强开启时，该参数默认为 true，其余默认值为 false，取值及含义如下。</p>
+     * <p>转码类型是否为极智超清转码，默认值为 `false`，取值及含义如下。</p>
      *
      * <p>- `true`：极智超清转码；</p>
      *
@@ -184,7 +184,7 @@ public final class CreateTranscodePresetBody  {
      *
      * <p>:::tip</p>
      *
-     * <p>视频编码格式为 H.266 (`Vcodec` 取值为 `h266`)时，转码类型不支持极智超清转码。</p>
+     * <p>视频编码格式为 H.266 （`Vcodec` 取值为 `h266`）时，转码类型不支持极智超清转码。</p>
      *
      * <p>:::</p>
      */
@@ -193,12 +193,6 @@ public final class CreateTranscodePresetBody  {
 
     /**
      * <p>短边长度，默认值为 `0`。配置不同的转码类型（`Roi`）和视频编码方式（`Vcodec`）时，短边长度的取值范围存在如下。</p>
-     *
-     * <p>- `ParamType` 取 hvq 时： </p>
-     *
-     * <p>	-  视频编码方式为 H.264 （Vcodec 取值为 h264）取值范围为 0 和 [150,1280]； </p>
-     *
-     * <p>	-  视频编码方式为 H.265 （`Vcodec` 取值为 `h265`）取值范围为 0 和 [150,1280]；</p>
      *
      * <p>- 转码类型为标准转码（`Roi` 取值为 `false`）时：</p>
      *
@@ -306,42 +300,6 @@ public final class CreateTranscodePresetBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TransType")
     private String transType;
-
-    /**
-     * <p>动态范围，画质增强类型生效，ParamType=hvq时必填，并且h264只支持SDR</p>
-     *
-     * <p>- SDR：输出为SDR</p>
-     *
-     * <p>- HDR：输出为HDR</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "DynamicRange")
-    private String dynamicRange;
-
-    /**
-     * <p>是否开启智能插帧，只对画质增强类型生效，不填默认为不开启</p>
-     *
-     * <p>- 0：不开启</p>
-     *
-     * <p>- 1：开启</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "FISwitch")
-    private Integer fISwitch;
-
-    /**
-     * <p>转码模板参数的类型</p>
-     *
-     * <p>- hvq：表示使用画质增强</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "ParamType")
-    private String paramType;
-
-    /**
-     * <p>使用场景，画质增强时生效，不填不生效</p>
-     *
-     * <p>- football：足球场景</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "SceneType")
-    private String sceneType;
 
     @Override
     public String toString() {

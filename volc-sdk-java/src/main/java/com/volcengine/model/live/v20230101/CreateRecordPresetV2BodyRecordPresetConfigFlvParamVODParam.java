@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class CreateRecordPresetV2BodyRecordPresetConfigFlvParamVODParam  {
 
     /**
-     * <p>是否使用 VOD 存储，默认为 `false`，取值及含义如下所示。</p>
+     * <p>是否使用 VOD 存储，默认为 `false`，支持的取值及含义如下所示。</p>
      *
      *
      *
@@ -26,7 +26,7 @@ public final class CreateRecordPresetV2BodyRecordPresetConfigFlvParamVODParam  {
      *
      * <p>:::tip</p>
      *
-     * <p>如果启用 VODParam 配置（`Enable` 取值为 `true`），则 `VodNamespace` 必填。</p>
+     * <p>如果使用 VOD 存储，即 `VODParam` 中 `Enable` 取值为 `true` 时，`VodNamespace` 为必填。</p>
      *
      * <p>:::</p>
      */

@@ -73,12 +73,6 @@ public final class UpdateSnapshotAuditPresetBody  {
     private String storageDir;
 
     /**
-     * <p>截图审核结果回调地址配置。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "CallbackDetailList")
-    private List<UpdateSnapshotAuditPresetBodyCallbackDetailListItem> callbackDetailList;
-
-    /**
      * <p>veimageX 的服务 ID。</p>
      *
      * <p>:::tip</p>

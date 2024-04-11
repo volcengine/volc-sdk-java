@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class GetPullRecordTaskBody  {
 
     /**
-     * <p>直播录制任务的 ID，任务的唯一标识。</p>
+     * <p>任务 ID，录制任务的唯一标识。您可以调用 [ListPullRecordTask](https://www.volcengine.com/docs/6469/1111480) 获取任务 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TaskID")
     private String taskID;

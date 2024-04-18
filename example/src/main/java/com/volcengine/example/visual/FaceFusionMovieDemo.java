@@ -20,7 +20,7 @@ public class FaceFusionMovieDemo {
         visualService.setSecretKey("your sk");
         //提交任务
         VisualFaceFusionMovieSubmitTaskRequest req = new VisualFaceFusionMovieSubmitTaskRequest();
-        req.setReqKey("facefusionmovie_standard");
+        req.setReqKey("facefusionmovie_standard");//3.x版本更换reqKey,facefusionmovie_standard_v2
         req.setVideoUrl("");
         req.setImageUrl("");
         req.setRefImgUrl("");
@@ -32,6 +32,12 @@ public class FaceFusionMovieDemo {
 //        logoInfo.setLanguage(0);
 //        logoInfo.setOpacity(0.9);
 //        req.setLogoInfo(logoInfo);
+        //3.x版本参数
+//        req.setEnableFaceBeautify(false);
+//        req.setSharpening(0);
+//        req.setWhitening(0);
+//        req.setDermabrasion(0);
+//        req.setGpen(1);
         try {
             VisualFaceFusionMovieSubmitTaskResponse response = visualService.faceFusionMovieSubmitTask(req);
             System.out.println(JSON.toJSONString(response));
@@ -41,7 +47,7 @@ public class FaceFusionMovieDemo {
 
         // 查询任务
 //        VisualFaceFusionMovieGetResultRequest req = new VisualFaceFusionMovieGetResultRequest();
-//        req.setReqKey("facefusionmovie_standard");
+//        req.setReqKey("facefusionmovie_standard");//3.x版本更换reqKey,facefusionmovie_standard_v2
 //        req.setTaskId("task_id");
 //
 //        try {

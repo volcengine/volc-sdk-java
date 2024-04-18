@@ -141,6 +141,9 @@ public class VikingDBService extends BaseServiceImpl {
         paramsGet.put(Const.Path, "/api/viking_db/data/ping");
         apiInfo.put("Ping", new ApiInfo(paramsPost));
 
+        paramsPost.put(Const.Path, "/api/data/embedding/version/2");
+        apiInfo.put("EmbeddingV2", new ApiInfo(paramsPost));
+
         return apiInfo;
     }
     public void setHeader(HashMap<String,String> header){
@@ -587,6 +590,54 @@ public class VikingDBService extends BaseServiceImpl {
             scores.add(res.get(i));
         }
         return scores;
+    }
+    public Map<String, Object> embeddingV2(EmbModel embModel, List<RawData> rawDatas) throws Exception{
+        for(RawData rawData: rawDatas){
+            if(embModel.getIsBuild() == 0 || rawData.getIsBuild() == 0){
+                VikingDBException vikingDBException = new VikingDBException(1000031, null, "Param dose not build");
+                throw vikingDBException.getErrorCodeException(1000031, null, "Param dose not build");
+            }
+        }
+
+        HashMap<String, Object> model = new HashMap<>();
+        model.put("model_name", embModel.getModelName());
+        model.put("params", embModel.getParams());
+        List<HashMap<String, Object>> data = new ArrayList<>();
+        for(RawData rawData: rawDatas){
+            HashMap<String, Object> param = new HashMap<>();
+            param.put("data_type", rawData.getDataType());
+            param.put("text", rawData.getText());
+            data.add(param);
+        }
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("model", model);
+        params.put("data", data);
+        LinkedTreeMap<String,Object> resData = doRequest("EmbeddingV2",null, params);
+        @SuppressWarnings("unchecked")
+        Map<String, Object>  res = (Map<String, Object> )resData.get("data");
+        return res;
+    }
+    public Map<String, Object> embeddingV2(EmbModel embModel, RawData rawData) throws Exception{
+        if(embModel.getIsBuild() == 0 || rawData.getIsBuild() == 0){
+            VikingDBException vikingDBException = new VikingDBException(1000031, null, "Param dose not build");
+            throw vikingDBException.getErrorCodeException(1000031, null, "Param dose not build");
+        }
+
+        HashMap<String, Object> model = new HashMap<>();
+        model.put("model_name", embModel.getModelName());
+        model.put("params", embModel.getParams());
+        HashMap<String, Object> param = new HashMap<>();
+        List<HashMap<String, Object>> data = new ArrayList<>();
+        param.put("data_type", rawData.getDataType());
+        param.put("text", rawData.getText());
+        data.add(param);
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("model", model);
+        params.put("data", data);
+        LinkedTreeMap<String,Object> resData = doRequest("EmbeddingV2",null, params);
+        @SuppressWarnings("unchecked")
+        Map<String, Object> res = (Map<String, Object>)resData.get("data");
+        return res;
     }
 
 

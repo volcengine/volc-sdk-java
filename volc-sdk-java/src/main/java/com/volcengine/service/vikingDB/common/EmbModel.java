@@ -1,5 +1,7 @@
 package com.volcengine.service.vikingDB.common;
 
+import java.util.Map;
+
 import com.volcengine.service.vikingDB.VikingDBException;
 
 import lombok.Data;
@@ -7,13 +9,13 @@ import lombok.Data;
 @Data
 public class EmbModel {
     private String modelName = null;
-    private String params = null;
+    private Map<String, Object> params = null;
     private Integer isBuild = 0;
     public EmbModel setModelName(String modelName) {
         this.modelName = modelName;
         return this;
     }
-    public EmbModel setParams(String params) {
+    public EmbModel setParams(Map<String, Object> params) {
         this.params = params;
         return this;
     }

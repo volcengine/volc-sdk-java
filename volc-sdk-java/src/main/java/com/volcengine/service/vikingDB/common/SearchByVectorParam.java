@@ -14,6 +14,8 @@ public class SearchByVectorParam {
     private List<String> outputFields = null;
     private Object partition = "default";
     private Integer isBuild = 0;
+    private Map<String, Object> sparseVectors = null;
+    private Double denseWeight = null;
     public SearchByVectorParam setVector(List<Double> vector){
         this.vector = vector;
         return this;
@@ -32,6 +34,14 @@ public class SearchByVectorParam {
     }
     public SearchByVectorParam setPartition(Object partition){
         this.partition = partition;
+        return this;
+    }
+    public SearchByVectorParam setSparseVectors(Map<String, Object> sparseVectors){
+        this.sparseVectors = sparseVectors;
+        return this;
+    }
+    public SearchByVectorParam setDenseWeight(Double denseWeight){
+        this.denseWeight = denseWeight;
         return this;
     }
     public SearchByVectorParam build() throws Exception{

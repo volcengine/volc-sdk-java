@@ -20,4 +20,7 @@ public class VisualCertQueryProRequest {
 
     @JSONField(name = "omit_video_data")
     Boolean omitVideoData = false;
+
+    @JSONField(name = "include_idcard_data")
+    Boolean includeIdcardData = false;
 }

@@ -15,6 +15,7 @@ public class SearchParam {
     private List<String> outputFields = null;
     private Object partition = "default";
     private Integer isBuild = 0;
+    private Double denseWeight = null;
     public SearchParam setVectorOrder(VectorOrder vectorOrder){
         this.vectorOrder = vectorOrder;
         return this;
@@ -37,6 +38,10 @@ public class SearchParam {
     }
     public SearchParam setPartition(Object partition){
         this.partition = partition;
+        return this;
+    }
+    public SearchParam setDenseWeight(Double denseWeight){
+        this.denseWeight = denseWeight;
         return this;
     }
     public SearchParam build() throws Exception{

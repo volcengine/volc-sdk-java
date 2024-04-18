@@ -17,17 +17,17 @@ import com.fasterxml.jackson.annotation.JsonValue;
 /**
  * MaasChatMessage
  * <p>
- * 
- * 
+ *
+ *
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "role",
-    "content",
-    "name",
-    "references",
-    "tool_calls",
-    "tool_call_id"
+        "role",
+        "content",
+        "name",
+        "references",
+        "tool_calls",
+        "tool_call_id"
 })
 @Generated("jsonschema2pojo")
 public class Message {
@@ -36,7 +36,7 @@ public class Message {
      * ChatRole
      * <p>
      * An enumeration.
-     * 
+     *
      */
     @JsonProperty("role")
     @JsonPropertyDescription("An enumeration.")
@@ -44,40 +44,40 @@ public class Message {
     /**
      * Content
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("content")
     private Object content;
     /**
      * Name
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("name")
     private String name;
     /**
      * References
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("references")
     private List<Reference> references = new ArrayList<Reference>();
     /**
      * Tool Calls
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("tool_calls")
     private List<ToolCall> toolCalls = new ArrayList<ToolCall>();
     /**
      * Tool Call Id
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("tool_call_id")
     private String toolCallId;
@@ -86,7 +86,7 @@ public class Message {
      * ChatRole
      * <p>
      * An enumeration.
-     * 
+     *
      */
     @JsonProperty("role")
     public Message.ChatRole getRole() {
@@ -97,7 +97,7 @@ public class Message {
      * ChatRole
      * <p>
      * An enumeration.
-     * 
+     *
      */
     @JsonProperty("role")
     public void setRole(Message.ChatRole role) {
@@ -112,8 +112,8 @@ public class Message {
     /**
      * Content
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("content")
     public Object getContent() {
@@ -123,8 +123,8 @@ public class Message {
     /**
      * Content
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("content")
     public void setContent(Object content) {
@@ -139,8 +139,8 @@ public class Message {
     /**
      * Name
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("name")
     public String getName() {
@@ -150,8 +150,8 @@ public class Message {
     /**
      * Name
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("name")
     public void setName(String name) {
@@ -166,8 +166,8 @@ public class Message {
     /**
      * References
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("references")
     public List<Reference> getReferences() {
@@ -177,8 +177,8 @@ public class Message {
     /**
      * References
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("references")
     public void setReferences(List<Reference> references) {
@@ -193,8 +193,8 @@ public class Message {
     /**
      * Tool Calls
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("tool_calls")
     public List<ToolCall> getToolCalls() {
@@ -204,8 +204,8 @@ public class Message {
     /**
      * Tool Calls
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("tool_calls")
     public void setToolCalls(List<ToolCall> toolCalls) {
@@ -220,8 +220,8 @@ public class Message {
     /**
      * Tool Call Id
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("tool_call_id")
     public String getToolCallId() {
@@ -231,8 +231,8 @@ public class Message {
     /**
      * Tool Call Id
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("tool_call_id")
     public void setToolCallId(String toolCallId) {
@@ -309,7 +309,7 @@ public class Message {
      * ChatRole
      * <p>
      * An enumeration.
-     * 
+     *
      */
     @Generated("jsonschema2pojo")
     public enum ChatRole {

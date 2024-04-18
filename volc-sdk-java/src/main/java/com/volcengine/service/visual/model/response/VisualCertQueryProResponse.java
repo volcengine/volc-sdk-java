@@ -109,5 +109,21 @@ public class VisualCertQueryProResponse extends VisualBaseResponse {
             @JSONField(name = "value")
             Integer value;
         }
+
+        @JSONField(name = "verify_idcard_info")
+        VerifyIdcardInfo verifyIdcardInfo;
+        @Data
+        public static class VerifyIdcardInfo {
+            @JSONField(name = "idcard_name")
+            String idcardName;
+            @JSONField(name = "idcard_no")
+            String idcardNo;
+            @JSONField(name = "face_photo_base64")
+            String facePhotoBase64;
+            @JSONField(name = "national_emblem_photo_base64")
+            String nationalEmblemPhotoBase64;
+            @JSONField(name = "ocr_result_detail")
+            String ocrResultDetail;
+        }
     }
 }

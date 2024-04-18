@@ -289,11 +289,10 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
         }
 
         HttpResponse response;
-        String logId = null;
         try {
             response = this.getHttpClient().execute(request);
         } catch (IOException e) {
-            throw new MaasException(e, logId);
+            throw new MaasException(e, "");
         }
 
         return response;

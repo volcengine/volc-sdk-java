@@ -11,20 +11,21 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * MaasChatRequest
+ * ChatReq
  * <p>
- * 
- * 
+ *
+ *
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "messages",
-    "stream",
-    "crypto_token",
-    "tools",
-    "parameters",
-    "user",
-    "extra"
+        "messages",
+        "stream",
+        "verbose",
+        "crypto_token",
+        "tools",
+        "parameters",
+        "user",
+        "extra"
 })
 @Generated("jsonschema2pojo")
 public class ChatReq {
@@ -32,56 +33,64 @@ public class ChatReq {
     /**
      * Messages
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("messages")
     private List<Message> messages = new ArrayList<Message>();
     /**
      * Stream
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("stream")
     private Boolean stream = false;
     /**
+     * Verbose
+     * <p>
+     *
+     *
+     */
+    @JsonProperty("verbose")
+    private Boolean verbose = false;
+    /**
      * Crypto Token
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("crypto_token")
     private String cryptoToken;
     /**
      * Tools
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("tools")
     private List<Tool> tools = new ArrayList<Tool>();
     /**
      * Parameters
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("parameters")
     private Parameters parameters;
     /**
      * User
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("user")
     private String user;
     /**
      * Extra
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("extra")
     private Map<String, String> extra;
@@ -89,8 +98,8 @@ public class ChatReq {
     /**
      * Messages
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("messages")
     public List<Message> getMessages() {
@@ -100,8 +109,8 @@ public class ChatReq {
     /**
      * Messages
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("messages")
     public void setMessages(List<Message> messages) {
@@ -116,8 +125,8 @@ public class ChatReq {
     /**
      * Stream
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("stream")
     public Boolean getStream() {
@@ -127,8 +136,8 @@ public class ChatReq {
     /**
      * Stream
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("stream")
     public void setStream(Boolean stream) {
@@ -141,10 +150,37 @@ public class ChatReq {
     }
 
     /**
+     * Verbose
+     * <p>
+     *
+     *
+     */
+    @JsonProperty("verbose")
+    public Boolean getVerbose() {
+        return verbose;
+    }
+
+    /**
+     * Verbose
+     * <p>
+     *
+     *
+     */
+    @JsonProperty("verbose")
+    public void setVerbose(Boolean verbose) {
+        this.verbose = verbose;
+    }
+
+    public ChatReq withVerbose(Boolean verbose) {
+        this.verbose = verbose;
+        return this;
+    }
+
+    /**
      * Crypto Token
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("crypto_token")
     public String getCryptoToken() {
@@ -154,8 +190,8 @@ public class ChatReq {
     /**
      * Crypto Token
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("crypto_token")
     public void setCryptoToken(String cryptoToken) {
@@ -170,8 +206,8 @@ public class ChatReq {
     /**
      * Tools
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("tools")
     public List<Tool> getTools() {
@@ -181,8 +217,8 @@ public class ChatReq {
     /**
      * Tools
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("tools")
     public void setTools(List<Tool> tools) {
@@ -197,8 +233,8 @@ public class ChatReq {
     /**
      * Parameters
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("parameters")
     public Parameters getParameters() {
@@ -208,8 +244,8 @@ public class ChatReq {
     /**
      * Parameters
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("parameters")
     public void setParameters(Parameters parameters) {
@@ -224,8 +260,8 @@ public class ChatReq {
     /**
      * User
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("user")
     public String getUser() {
@@ -235,8 +271,8 @@ public class ChatReq {
     /**
      * User
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("user")
     public void setUser(String user) {
@@ -251,8 +287,8 @@ public class ChatReq {
     /**
      * Extra
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("extra")
     public Map<String, String> getExtra() {
@@ -262,8 +298,8 @@ public class ChatReq {
     /**
      * Extra
      * <p>
-     * 
-     * 
+     *
+     *
      */
     @JsonProperty("extra")
     public void setExtra(Map<String, String> extra) {
@@ -286,6 +322,10 @@ public class ChatReq {
         sb.append("stream");
         sb.append('=');
         sb.append(((this.stream == null)?"<null>":this.stream));
+        sb.append(',');
+        sb.append("verbose");
+        sb.append('=');
+        sb.append(((this.verbose == null)?"<null>":this.verbose));
         sb.append(',');
         sb.append("cryptoToken");
         sb.append('=');
@@ -325,6 +365,7 @@ public class ChatReq {
         result = ((result* 31)+((this.tools == null)? 0 :this.tools.hashCode()));
         result = ((result* 31)+((this.parameters == null)? 0 :this.parameters.hashCode()));
         result = ((result* 31)+((this.user == null)? 0 :this.user.hashCode()));
+        result = ((result* 31)+((this.verbose == null)? 0 :this.verbose.hashCode()));
         return result;
     }
 
@@ -337,7 +378,7 @@ public class ChatReq {
             return false;
         }
         ChatReq rhs = ((ChatReq) other);
-        return ((((((((this.stream == rhs.stream)||((this.stream!= null)&&this.stream.equals(rhs.stream)))&&((this.extra == rhs.extra)||((this.extra!= null)&&this.extra.equals(rhs.extra))))&&((this.messages == rhs.messages)||((this.messages!= null)&&this.messages.equals(rhs.messages))))&&((this.cryptoToken == rhs.cryptoToken)||((this.cryptoToken!= null)&&this.cryptoToken.equals(rhs.cryptoToken))))&&((this.tools == rhs.tools)||((this.tools!= null)&&this.tools.equals(rhs.tools))))&&((this.parameters == rhs.parameters)||((this.parameters!= null)&&this.parameters.equals(rhs.parameters))))&&((this.user == rhs.user)||((this.user!= null)&&this.user.equals(rhs.user))));
+        return (((((((((this.stream == rhs.stream)||((this.stream!= null)&&this.stream.equals(rhs.stream)))&&((this.extra == rhs.extra)||((this.extra!= null)&&this.extra.equals(rhs.extra))))&&((this.messages == rhs.messages)||((this.messages!= null)&&this.messages.equals(rhs.messages))))&&((this.cryptoToken == rhs.cryptoToken)||((this.cryptoToken!= null)&&this.cryptoToken.equals(rhs.cryptoToken))))&&((this.tools == rhs.tools)||((this.tools!= null)&&this.tools.equals(rhs.tools))))&&((this.parameters == rhs.parameters)||((this.parameters!= null)&&this.parameters.equals(rhs.parameters))))&&((this.user == rhs.user)||((this.user!= null)&&this.user.equals(rhs.user))))&&((this.verbose == rhs.verbose)||((this.verbose!= null)&&this.verbose.equals(rhs.verbose))));
     }
 
 }

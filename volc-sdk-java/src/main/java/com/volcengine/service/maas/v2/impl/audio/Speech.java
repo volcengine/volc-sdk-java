@@ -22,12 +22,11 @@ public class Speech {
     public BinaryResponseContent create(String endpointId, SpeechReq req) throws MaasException {
 
         HttpResponse response;
-        String logId = "";
+        String logId = this.service.genReqId();
         String apikey = this.service.getApikey();
 
         try {
             response = this.service.jsonWithHttpResponse(endpointId, Const.MaasApiAudioSpeech, new ObjectMapper().writeValueAsString(req), apikey);
-            logId = response.getFirstHeader("x-tt-logid").getValue();
         } catch (Exception e) {
             throw new MaasException(e, logId);
         }

@@ -144,16 +144,16 @@ public class Parameters {
     /**
      * Logit Bias
      * <p>
-     *
-     *
+     * 
+     * 
      */
     @JsonProperty("logit_bias")
     private Map<Integer, Float> logitBias;
     /**
      * Guidance
      * <p>
-     *
-     *
+     * 
+     * 
      */
     @JsonProperty("guidance")
     private Boolean guidance;
@@ -512,8 +512,8 @@ public class Parameters {
     /**
      * Logit Bias
      * <p>
-     *
-     *
+     * 
+     * 
      */
     @JsonProperty("logit_bias")
     public Map<Integer, Float> getLogitBias() {
@@ -523,8 +523,8 @@ public class Parameters {
     /**
      * Logit Bias
      * <p>
-     *
-     *
+     * 
+     * 
      */
     @JsonProperty("logit_bias")
     public void setLogitBias(Map<Integer, Float> logitBias) {
@@ -539,8 +539,8 @@ public class Parameters {
     /**
      * Guidance
      * <p>
-     *
-     *
+     * 
+     * 
      */
     @JsonProperty("guidance")
     public Boolean getGuidance() {
@@ -550,8 +550,8 @@ public class Parameters {
     /**
      * Guidance
      * <p>
-     *
-     *
+     * 
+     * 
      */
     @JsonProperty("guidance")
     public void setGuidance(Boolean guidance) {

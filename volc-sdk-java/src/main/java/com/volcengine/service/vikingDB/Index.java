@@ -70,6 +70,8 @@ public class Index {
                                                             .setOutputFields(searchParam.getOutputFields())
                                                             .setPartition(searchParam.getPartition())
                                                             .setVector(searchParam.getVectorOrder().getVector())
+                                                            .setDenseWeight(searchParam.getDenseWeight())
+                                                            .setSparseVectors(searchParam.getVectorOrder().getSparseVectors())
                                                             .build();
                                                             
                 return searchByVector(searchByVectorParam);
@@ -80,6 +82,7 @@ public class Index {
                                                             .setOutputFields(searchParam.getOutputFields())
                                                             .setPartition(searchParam.getPartition())
                                                             .setId(searchParam.getVectorOrder().getId())
+                                                            .setDenseWeight(searchParam.getDenseWeight())
                                                             .build();
                 res = searchById(searchByIdParam);
             }
@@ -140,6 +143,8 @@ public class Index {
             search.put("output_fields", searchByIdParam.getOutputFields());
         if(searchByIdParam.getFilter() != null)
             search.put("filter", searchByIdParam.getFilter());
+        if(searchByIdParam.getDenseWeight() != null)
+            search.put("dense_weight", searchByIdParam.getDenseWeight());
         HashMap<String,Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);
@@ -162,6 +167,11 @@ public class Index {
         vectorList.add(searchByVectorParam.getVector());
         HashMap<String,Object> orderByVector = new HashMap<>();
         orderByVector.put("vectors", vectorList);
+        if (searchByVectorParam.getSparseVectors() != null) {
+            List<Object> sparseVectorList = new ArrayList<>();
+            sparseVectorList.add(searchByVectorParam.getSparseVectors());
+            orderByVector.put("sparse_vectors", sparseVectorList);
+        }
         HashMap<String,Object> search = new HashMap<>();
         search.put("order_by_vector", orderByVector);
         search.put("limit", searchByVectorParam.getLimit());
@@ -170,12 +180,15 @@ public class Index {
             search.put("output_fields", searchByVectorParam.getOutputFields());
         if(searchByVectorParam.getFilter() != null)
             search.put("filter", searchByVectorParam.getFilter());
+        if(searchByVectorParam.getDenseWeight() != null)
+            search.put("dense_weight", searchByVectorParam.getDenseWeight());
         HashMap<String,Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);
         params.put("search", search);
 
         LinkedTreeMap<String,Object> resData = vikingDBService.doRequest("SearchIndex",null, params);
+        // System.out.println(resData);
         return getDatas(resData, searchByVectorParam.getOutputFields());
     }
 
@@ -195,6 +208,8 @@ public class Index {
             search.put("output_fields", searchByTextParam.getOutputFields());
         if(searchByTextParam.getFilter() != null)
             search.put("filter", searchByTextParam.getFilter());
+        if(searchByTextParam.getDenseWeight() != null)
+            search.put("dense_weight", searchByTextParam.getDenseWeight());
         HashMap<String,Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);

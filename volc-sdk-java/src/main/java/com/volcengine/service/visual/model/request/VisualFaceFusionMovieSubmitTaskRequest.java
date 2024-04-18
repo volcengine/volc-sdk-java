@@ -20,7 +20,7 @@ public class VisualFaceFusionMovieSubmitTaskRequest {
     String videoUrl;
 
     @JSONField(name = "enable_face_beautify")
-    Boolean enableFaceBeautify;
+    Boolean enableFaceBeautify=false;
 
     @JSONField(name = "ref_img_url")
     String refImgUrl;
@@ -28,11 +28,12 @@ public class VisualFaceFusionMovieSubmitTaskRequest {
     @JSONField(name = "source_similarity")
     String sourceSimilarity;
 
+    @JSONField(name = "logo_info")
+    LogoInfo logoInfo;
+
     @JSONField(name = "gpen")
     double gpen=1.0;
 
-    @JSONField(name = "logo_info")
-    LogoInfo logoInfo;
     @Data
     public static class LogoInfo{
         @JSONField(name = "add_logo")
@@ -44,5 +45,13 @@ public class VisualFaceFusionMovieSubmitTaskRequest {
         @JSONField(name = "opacity")
         double opacity;
     }
+    @JSONField(name = "whitening")
+    double whitening =0;
 
+    @JSONField(name = "dermabrasion")
+    double dermabrasion =0;
+
+    @JSONField(name = "sharpening ")
+    double sharpening =0;
 }
+

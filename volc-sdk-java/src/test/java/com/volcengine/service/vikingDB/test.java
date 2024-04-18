@@ -39,6 +39,142 @@ public class test {
         // System.out.println("example");
        VikingDBService vikingDBService = new VikingDBService("", "", "", "","http");
 
+    //    List<Field> fields = new ArrayList<>();
+    //    fields.add(new Field().setFieldName("id").setFieldType(FieldType.String).setPrimaryKey(true).build());
+    //    fields.add(new Field().setFieldName("vector").setFieldType(FieldType.Vector).setDim(12).build());
+    //    fields.add(new Field().setFieldName("sparse").setFieldType(FieldType.Sparse_Vector).build());
+    //    CreateCollectionParam createCollectionParam = new CreateCollectionParam()
+    //                                                    .setCollectionName("sparse_java")
+    //                                                    .setFields(fields)
+    //                                                    .build();
+    //    Collection collection = vikingDBService.createCollection(createCollectionParam);
+
+        // Collection collection = vikingDBService.getCollection("sparse_java");
+        // System.out.println(collection);
+
+        // VectorIndexParams vectorIndex = new VectorIndexParams()
+        //                                 .setDistance(DistanceType.COSINE)
+        //                                 .setIndexType(IndexType.HNSW_HYBRID)
+        //                                 .setQuant(QuantType.Float)
+        //                                 .build();
+        // CreateIndexParam createIndexParam = new CreateIndexParam()
+        //                                 .setCollectionName("sparse_java")
+        //                                 .setIndexName("sparse_java")
+        //                                 .setVectorIndex(vectorIndex)
+        //                                 .build();
+        // Index index = vikingDBService.createIndex(createIndexParam);
+        // System.out.println(index);
+    
+        // Index index = vikingDBService.getIndex("sparse_java", "sparse_java");
+        // System.out.println(index);
+        
+        // HashMap<String,Double> sparse = new HashMap<String,Double>();
+        // sparse.put("hello", 0.5);
+        // HashMap<String,Object> field1 = new HashMap<String,Object>();
+
+        // field1.put("id", "11");
+        // field1.put("vector", genRandomVector(12));
+        // field1.put("sparse", sparse);
+
+        // DataObject dataObject1 = new DataObject()
+        //                         .setFields(field1)
+        //                         .setTTL(200000)
+        //                         .build();
+        // HashMap<String,Object> field2 = new HashMap<String,Object>();
+        // field2.put("id", "22");
+        // field2.put("vector", genRandomVector(12));
+        // field2.put("sparse", sparse);
+        // DataObject dataObject2 = new DataObject()
+        //                         .setFields(field2)
+        //                         .build();
+        // HashMap<String,Object> field3 = new HashMap<String,Object>();
+        // field3.put("id", "33");
+        // field3.put("vector", genRandomVector(12));
+        // field3.put("sparse", sparse);
+        // DataObject dataObject3 = new DataObject()
+        //                         .setFields(field3)
+        //                         .setTTL(6000000)
+        //                         .build();
+        // HashMap<String,Object> field4 = new HashMap<String,Object>();
+        // field4.put("id", "44");
+        // field4.put("vector", genRandomVector(12));
+        // field4.put("sparse", sparse);
+        // DataObject dataObject4 = new DataObject()
+        //                         .setFields(field4)
+        //                         .build();
+        // Collection collection = vikingDBService.getCollection("sparse_java");
+        // List<DataObject> dataObjects = new ArrayList<>();
+        // dataObjects.add(dataObject1);
+        // dataObjects.add(dataObject2);
+        // dataObjects.add(dataObject3);
+        // dataObjects.add(dataObject4);
+        // collection.upsertData(dataObjects);
+
+
+        // HashMap<String,Object> sparse = new HashMap<String,Object>();
+        // sparse.put("hello", 0.5);
+        // SearchByVectorParam searchByVectorParam = new SearchByVectorParam()
+        //                                             .setVector(genRandomVector(12))
+        //                                             .setSparseVectors(sparse)
+        //                                             .setDenseWeight(0.7)
+        //                                             .build();
+        // Index index = vikingDBService.getIndex("sparse_java", "sparse_java");
+        // List<DataObject> datas = index.searchByVector(searchByVectorParam);
+        // System.out.println(datas);
+
+        // HashMap<String, Object> params = new HashMap<>();
+        // params.put("return_token_usage", true);
+        // ArrayList<RawData> rawDatas = new ArrayList<>();
+        // rawDatas.add(new RawData().setDataType("text").setText("hello1").build());
+        // rawDatas.add(new RawData().setDataType("text").setText("hello2").build());
+        // Map<String, Object> res = vikingDBService.embeddingV2(new EmbModel().setModelName("bge-m3").setParams(params).build(), rawDatas);
+        // System.out.println(res);
+
+        // SearchByIdParam searchByIdParam = new SearchByIdParam()
+        //                                     .setId("11")
+        //                                     .setDenseWeight(0.7)
+        //                                     .build();
+        // Index index = vikingDBService.getIndex("sparse_java", "sparse_java");
+        // List<DataObject> datas = index.searchById(searchByIdParam);
+        // System.out.println(datas);
+
+        // HashMap<String,Object> sparse = new HashMap<String,Object>();
+        // sparse.put("hello", 0.5);
+        // Index index = vikingDBService.getIndex("sparse_java", "sparse_java");
+        // List<DataObject> datas = index.search(new SearchParam()
+        //                                         .setVectorOrder(new VectorOrder().setVector(genRandomVector(12)).setSparseVectors(sparse).build())
+        //                                         .setDenseWeight(0.7)
+        //                                         .build());
+        // System.out.println(datas);
+
+        // HashMap<String,Object> sparse = new HashMap<String,Object>();
+        // sparse.put("hello", 0.5);
+        // Index index = vikingDBService.getIndex("sparse_java", "sparse_java");
+        // List<DataObject> datas = index.search(new SearchParam()
+        //                                         .setVectorOrder(new VectorOrder().setId("11").build())
+        //                                         .setDenseWeight(0.7)
+        //                                         .build());
+        // System.out.println(datas);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //    List<Map<String,Object>> datas = new ArrayList<>();
     //    Map<String,Object> map1 = new HashMap<>();
     //    map1.put("query", "退改");

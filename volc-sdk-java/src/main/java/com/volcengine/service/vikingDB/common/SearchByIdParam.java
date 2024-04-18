@@ -14,6 +14,7 @@ public class SearchByIdParam {
     private List<String> outputFields = null;
     private Object partition = "default";
     private Integer isBuild = 0;
+    private Double denseWeight = null;
     public SearchByIdParam setId(Object id){
         this.id = id;
         return this;
@@ -32,6 +33,10 @@ public class SearchByIdParam {
     }
     public SearchByIdParam setPartition(Object partition){
         this.partition = partition;
+        return this;
+    }
+    public SearchByIdParam setDenseWeight(Double denseWeight){
+        this.denseWeight = denseWeight;
         return this;
     }
     public SearchByIdParam build() throws Exception{

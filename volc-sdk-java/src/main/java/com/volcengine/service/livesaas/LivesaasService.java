@@ -1294,4 +1294,121 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception
      */
     GetLiveTrafficPostPayDataResponse getLiveTrafficPostPayData(GetLiveTrafficPostPayDataRequest getLiveTrafficPostPayDataRequest) throws Exception;
+
+    /**
+     * GetSecurityControlConfig
+     *
+     * @param listAwardConfigsRequest
+     * @return
+     * @throws Exception
+     */
+    ListAwardConfigsResponse listAwardConfigs(ListAwardConfigsRequest listAwardConfigsRequest) throws Exception;
+
+    /**
+     * GetSecurityControlConfig
+     *
+     * @param listAwardRecordStatisticsRequest
+     * @return
+     * @throws Exception
+     */
+    ListAwardRecordStatisticsResponse listAwardRecordStatistics(ListAwardRecordStatisticsRequest listAwardRecordStatisticsRequest) throws Exception;
+
+    /**
+     * GetActivityLivePromotionData
+     *
+     * @param getActivityLivePromotionDataRequest GetActivityLivePromotionDataRequest
+     * @return GetActivityLivePromotionDataResponse
+     * @throws Exception the exception
+     */
+    GetActivityLivePromotionDataResponse getActivityLivePromotionData(GetActivityLivePromotionDataRequest getActivityLivePromotionDataRequest) throws Exception;
+
+    /**
+     * GetActivityLivePromotionDetail
+     *
+     * @param getActivityLivePromotionDetailRequest GetActivityLivePromotionDetailRequest
+     * @return GetActivityLivePromotionDetailResponse
+     * @throws Exception the exception
+     */
+    GetActivityLivePromotionDetailResponse getActivityLivePromotionDetail(GetActivityLivePromotionDetailRequest getActivityLivePromotionDetailRequest) throws Exception;
+
+    /**
+     * ListAccountActivityHistoryData
+     *
+     * @param listAccountActivityHistoryDataRequest ListAccountActivityHistoryDataRequest
+     * @return ListAccountActivityHistoryDataResponse
+     * @throws Exception the exception
+     */
+    ListAccountActivityHistoryDataResponse listAccountActivityHistoryData(ListAccountActivityHistoryDataRequest listAccountActivityHistoryDataRequest) throws Exception;
+
+    /**
+     * UpdateVodPlayerConfig
+     *
+     * @param updateVodPlayerConfigRequest UpdateVodPlayerConfigRequest
+     * @return UpdateVodPlayerConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateVodPlayerConfigResponse updateVodPlayerConfig(UpdateVodPlayerConfigRequest updateVodPlayerConfigRequest) throws Exception;
+
+    /**
+     * DeleteVodPlayerConfig
+     *
+     * @param deleteVodPlayerConfigRequest DeleteVodPlayerConfigRequest
+     * @return DeleteVodPlayerConfigResponse
+     * @throws Exception the exception
+     */
+    DeleteVodPlayerConfigResponse deleteVodPlayerConfig(DeleteVodPlayerConfigRequest deleteVodPlayerConfigRequest) throws Exception;
+
+    /**
+     * GetVodPlayerConfig
+     *
+     * @param getVodPlayerConfigRequest GetVodPlayerConfigRequest
+     * @return GetVodPlayerConfigResponse
+     * @throws Exception the exception
+     */
+    GetVodPlayerConfigResponse getVodPlayerConfig(GetVodPlayerConfigRequest getVodPlayerConfigRequest) throws Exception;
+
+    /**
+     * ListVodPlayerConfig
+     *
+     * @param listVodPlayerConfigRequest ListVodPlayerConfigRequest
+     * @return ListVodPlayerConfigResponse
+     * @throws Exception the exception
+     */
+    ListVodPlayerConfigResponse listVodPlayerConfig(ListVodPlayerConfigRequest listVodPlayerConfigRequest) throws Exception;
+
+    /**
+     * UpdateDefaultVodPlayerConfig
+     *
+     * @param updateDefaultVodPlayerConfigRequest UpdateDefaultVodPlayerConfigRequest
+     * @return UpdateDefaultVodPlayerConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateDefaultVodPlayerConfigResponse updateDefaultVodPlayerConfig(UpdateDefaultVodPlayerConfigRequest updateDefaultVodPlayerConfigRequest) throws Exception;
+
+    /**
+     * GetVodPlayerToken
+     *
+     * @param getVodPlayerTokenRequest GetVodPlayerTokenRequest
+     * @return GetVodPlayerTokenResponse
+     * @throws Exception the exception
+     */
+    GetVodPlayerTokenResponse getVodPlayerToken(GetVodPlayerTokenRequest getVodPlayerTokenRequest) throws Exception;
+
+    /**
+     * GetVideoLibraryFolderTree
+     *
+     * @param getVideoLibraryFolderTreeRequest GetVideoLibraryFolderTreeRequest
+     * @return GetVideoLibraryFolderTreeResponse
+     * @throws Exception the exception
+     */
+    GetVideoLibraryFolderTreeResponse getVideoLibraryFolderTree(GetVideoLibraryFolderTreeRequest getVideoLibraryFolderTreeRequest) throws Exception;
+
+    /**
+     * SearchVideoLibraryFolderTree
+     *
+     * @param searchVideoLibraryFolderTreeRequest SearchVideoLibraryFolderTreeRequest
+     * @return SearchVideoLibraryFolderTreeResponse
+     * @throws Exception the exception
+     */
+    SearchVideoLibraryFolderTreeResponse searchVideoLibraryFolderTree(SearchVideoLibraryFolderTreeRequest searchVideoLibraryFolderTreeRequest) throws Exception;
 }

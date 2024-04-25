@@ -22,4 +22,8 @@ public class ListActivityLibAPIRequest {
     Integer PageSize;
     @JSONField(name = "OrderKey")
     String OrderKey;
+    @JSONField(name = "FolderId")
+    Long FolderId;
+    @JSONField(name = "IncludeSubFolder")
+    Boolean IncludeSubFolder;
 }

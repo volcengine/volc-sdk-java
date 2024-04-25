@@ -7,9 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 @Data
-public class Temp2MediaAPIRequest {
-    @JSONField(name = "Ids")
-    List<String> Ids;
+public class GetVideoLibraryFolderTreeRequest {
     @JSONField(name = "FolderId")
     Long FolderId;
 }

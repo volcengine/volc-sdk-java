@@ -62,6 +62,14 @@ public class ListActivityLibAPIResponse {
         String MediaName;
         @JSONField(name = "ReviewStatus")
         Integer ReviewStatus;
+        @JSONField(name = "VideoWidth")
+        Long VideoWidth;
+        @JSONField(name = "VideoHeight")
+        Long VideoHeight;
+        @JSONField(name = "FolderName")
+        String FolderName;
+        @JSONField(name = "FolderId")
+        Long FolderId;
     }
 
     @Data

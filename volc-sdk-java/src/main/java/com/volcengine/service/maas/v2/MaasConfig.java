@@ -76,6 +76,13 @@ public class MaasConfig {
                         put(Const.Path, "/api/v2/endpoint/%s/images/quick-gen");
                     }
                 }));
+
+                put(Const.MaasApiImagesFlexGen, new ApiInfo(new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "post");
+                        put(Const.Path, "/api/v2/endpoint/%s/images/flex-gen");
+                    }
+                }));
             }
         };
     }

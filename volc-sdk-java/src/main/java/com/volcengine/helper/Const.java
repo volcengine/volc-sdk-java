@@ -425,8 +425,32 @@ public class Const {
     public static final String CreateOrUpdateActivityCustomEmojiSet = "CreateOrUpdateActivityCustomEmojiSet";
 
     public static final String UpdateActivityCustomEmojiSetStatus = "UpdateActivityCustomEmojiSetStatus";
+    public static final String ListAwardConfigs = "ListAwardConfigs";
+    public static final String ListAwardRecordStatistics = "ListAwardRecordStatistics";
 
     public static final String GetLiveTrafficPostPayData = "GetLiveTrafficPostPayData";
+
+    public static final String GetActivityLivePromotionDetail = "GetActivityLivePromotionDetail";
+
+    public static final String GetActivityLivePromotionData = "GetActivityLivePromotionData";
+
+    public static final String ListAccountActivityHistoryData = "ListAccountActivityHistoryData";
+
+    public static final String UpdateVodPlayerConfig = "UpdateVodPlayerConfig";
+
+    public static final String DeleteVodPlayerConfig = "DeleteVodPlayerConfig";
+
+    public static final String GetVodPlayerConfig = "GetVodPlayerConfig";
+
+    public static final String ListVodPlayerConfig = "ListVodPlayerConfig";
+
+    public static final String UpdateDefaultVodPlayerConfig = "UpdateDefaultVodPlayerConfig";
+
+    public static final String GetVodPlayerToken = "GetVodPlayerToken";
+
+    public static final String GetVideoLibraryFolderTree = "GetVideoLibraryFolderTree";
+
+    public static final String SearchVideoLibraryFolderTree = "SearchVideoLibraryFolderTree";
 
     // translate
     public static final String LangDetect = "LangDetect";
@@ -858,6 +882,7 @@ public class Const {
     public static final String MaasApiEmbeddings = "embeddings";
     public static final String MaasApiAudioSpeech = "audio.speech";
     public static final String MaasApiImagesQuickGen = "images.quick_gen";
+    public static final String MaasApiImagesFlexGen = "images.flex_gen";
 
     public static final String MaasApiTop = "top";
 

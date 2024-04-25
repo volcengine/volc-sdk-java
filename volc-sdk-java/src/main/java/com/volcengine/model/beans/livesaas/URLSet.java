@@ -9,4 +9,6 @@ public class URLSet  {
     java.lang.String SourceUrl;
     @JSONField(name = "Name")
     java.lang.String Name;
+    @JSONField(name = "FolderId")
+    Long FolderId;
 }

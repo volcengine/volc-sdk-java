@@ -19,7 +19,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "strength",
     "height",
     "width",
-    "num_inference_steps"
+    "num_inference_steps",
+    "sampler_name",
+    "scheduler",
+    "cfg_scale"
 })
 @Generated("jsonschema2pojo")
 public class ImagesParameters {
@@ -39,7 +42,7 @@ public class ImagesParameters {
      * 
      */
     @JsonProperty("strength")
-    private Double strength;
+    private Float strength;
     /**
      * Height
      * <p>
@@ -64,6 +67,30 @@ public class ImagesParameters {
      */
     @JsonProperty("num_inference_steps")
     private Integer numInferenceSteps;
+    /**
+     * Sampler Name
+     * <p>
+     * 
+     * 
+     */
+    @JsonProperty("sampler_name")
+    private String samplerName;
+    /**
+     * Scheduler
+     * <p>
+     * 
+     * 
+     */
+    @JsonProperty("scheduler")
+    private String scheduler;
+    /**
+     * Cfg Scale
+     * <p>
+     * 
+     * 
+     */
+    @JsonProperty("cfg_scale")
+    private Float cfgScale;
 
     /**
      * Seed
@@ -99,7 +126,7 @@ public class ImagesParameters {
      * 
      */
     @JsonProperty("strength")
-    public Double getStrength() {
+    public Float getStrength() {
         return strength;
     }
 
@@ -110,11 +137,11 @@ public class ImagesParameters {
      * 
      */
     @JsonProperty("strength")
-    public void setStrength(Double strength) {
+    public void setStrength(Float strength) {
         this.strength = strength;
     }
 
-    public ImagesParameters withStrength(Double strength) {
+    public ImagesParameters withStrength(Float strength) {
         this.strength = strength;
         return this;
     }
@@ -200,6 +227,87 @@ public class ImagesParameters {
         return this;
     }
 
+    /**
+     * Sampler Name
+     * <p>
+     * 
+     * 
+     */
+    @JsonProperty("sampler_name")
+    public String getSamplerName() {
+        return samplerName;
+    }
+
+    /**
+     * Sampler Name
+     * <p>
+     * 
+     * 
+     */
+    @JsonProperty("sampler_name")
+    public void setSamplerName(String samplerName) {
+        this.samplerName = samplerName;
+    }
+
+    public ImagesParameters withSamplerName(String samplerName) {
+        this.samplerName = samplerName;
+        return this;
+    }
+
+    /**
+     * Scheduler
+     * <p>
+     * 
+     * 
+     */
+    @JsonProperty("scheduler")
+    public String getScheduler() {
+        return scheduler;
+    }
+
+    /**
+     * Scheduler
+     * <p>
+     * 
+     * 
+     */
+    @JsonProperty("scheduler")
+    public void setScheduler(String scheduler) {
+        this.scheduler = scheduler;
+    }
+
+    public ImagesParameters withScheduler(String scheduler) {
+        this.scheduler = scheduler;
+        return this;
+    }
+
+    /**
+     * Cfg Scale
+     * <p>
+     * 
+     * 
+     */
+    @JsonProperty("cfg_scale")
+    public Float getCfgScale() {
+        return cfgScale;
+    }
+
+    /**
+     * Cfg Scale
+     * <p>
+     * 
+     * 
+     */
+    @JsonProperty("cfg_scale")
+    public void setCfgScale(Float cfgScale) {
+        this.cfgScale = cfgScale;
+    }
+
+    public ImagesParameters withCfgScale(Float cfgScale) {
+        this.cfgScale = cfgScale;
+        return this;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -224,6 +332,18 @@ public class ImagesParameters {
         sb.append('=');
         sb.append(((this.numInferenceSteps == null)?"<null>":this.numInferenceSteps));
         sb.append(',');
+        sb.append("samplerName");
+        sb.append('=');
+        sb.append(((this.samplerName == null)?"<null>":this.samplerName));
+        sb.append(',');
+        sb.append("scheduler");
+        sb.append('=');
+        sb.append(((this.scheduler == null)?"<null>":this.scheduler));
+        sb.append(',');
+        sb.append("cfgScale");
+        sb.append('=');
+        sb.append(((this.cfgScale == null)?"<null>":this.cfgScale));
+        sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');
         } else {
@@ -235,11 +355,14 @@ public class ImagesParameters {
     @Override
     public int hashCode() {
         int result = 1;
-        result = ((result* 31)+((this.width == null)? 0 :this.width.hashCode()));
+        result = ((result* 31)+((this.scheduler == null)? 0 :this.scheduler.hashCode()));
         result = ((result* 31)+((this.seed == null)? 0 :this.seed.hashCode()));
         result = ((result* 31)+((this.strength == null)? 0 :this.strength.hashCode()));
         result = ((result* 31)+((this.numInferenceSteps == null)? 0 :this.numInferenceSteps.hashCode()));
+        result = ((result* 31)+((this.cfgScale == null)? 0 :this.cfgScale.hashCode()));
+        result = ((result* 31)+((this.width == null)? 0 :this.width.hashCode()));
         result = ((result* 31)+((this.height == null)? 0 :this.height.hashCode()));
+        result = ((result* 31)+((this.samplerName == null)? 0 :this.samplerName.hashCode()));
         return result;
     }
 
@@ -252,7 +375,7 @@ public class ImagesParameters {
             return false;
         }
         ImagesParameters rhs = ((ImagesParameters) other);
-        return ((((((this.width == rhs.width)||((this.width!= null)&&this.width.equals(rhs.width)))&&((this.seed == rhs.seed)||((this.seed!= null)&&this.seed.equals(rhs.seed))))&&((this.strength == rhs.strength)||((this.strength!= null)&&this.strength.equals(rhs.strength))))&&((this.numInferenceSteps == rhs.numInferenceSteps)||((this.numInferenceSteps!= null)&&this.numInferenceSteps.equals(rhs.numInferenceSteps))))&&((this.height == rhs.height)||((this.height!= null)&&this.height.equals(rhs.height))));
+        return (((((((((this.scheduler == rhs.scheduler)||((this.scheduler!= null)&&this.scheduler.equals(rhs.scheduler)))&&((this.seed == rhs.seed)||((this.seed!= null)&&this.seed.equals(rhs.seed))))&&((this.strength == rhs.strength)||((this.strength!= null)&&this.strength.equals(rhs.strength))))&&((this.numInferenceSteps == rhs.numInferenceSteps)||((this.numInferenceSteps!= null)&&this.numInferenceSteps.equals(rhs.numInferenceSteps))))&&((this.cfgScale == rhs.cfgScale)||((this.cfgScale!= null)&&this.cfgScale.equals(rhs.cfgScale))))&&((this.width == rhs.width)||((this.width!= null)&&this.width.equals(rhs.width))))&&((this.height == rhs.height)||((this.height!= null)&&this.height.equals(rhs.height))))&&((this.samplerName == rhs.samplerName)||((this.samplerName!= null)&&this.samplerName.equals(rhs.samplerName))));
     }
 
 }

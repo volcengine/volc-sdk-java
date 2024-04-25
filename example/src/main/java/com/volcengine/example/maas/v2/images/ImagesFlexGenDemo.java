@@ -5,11 +5,12 @@ import com.volcengine.service.maas.MaasException;
 import com.volcengine.service.maas.v2.MaasService;
 import com.volcengine.service.maas.v2.impl.MaasServiceImpl;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 
-public class ImagesQuickGenDemo {
+public class ImagesFlexGenDemo {
     public static void main(String[] args) {
         MaasService maasService = new MaasServiceImpl("maas-api.ml-platform-cn-beijing.volces.com", "cn-beijing");
 
@@ -18,26 +19,25 @@ public class ImagesQuickGenDemo {
         maasService.setSecretKey(System.getenv("VOLC_SECRETKEY"));
 
         byte[] controlImage = loadImage("{YOUR_CONTROL_PICTURE_PATH}");
-        ImagesQuickGenRequest tReq = new ImagesQuickGenRequest()
+        ImagesRequest tReq = new ImagesRequest()
                 .withPrompt("(sfw:1.0),(masterpiece,best quality,ultra highres),(realistic:1.15),(3D:1.0)")
                 .withNegativePrompt("(embedding:EasyNegative:0.9),(embedding:badhandv4:1.3),terrible,injured,(nsfw:1.0),(nude:1.0)")
                 .withControlImageList(new ArrayList<byte[]>(){{
                     add(controlImage);
                 }})
-                .withParameters(new ImagesParameters()
-                        .withStrength(0.75f)
-                        .withHeight(512)
-                        .withWidth(512)
-                        .withNumInferenceSteps(20)
-                );
+                .withStrength(0.75f)
+                .withHeight(512)
+                .withWidth(512)
+                .withNumInferenceSteps(20);
+
 
         String endpointId = "${YOUR_ENDPOINT_ID}";
-        testImagesQuickGen(maasService, endpointId, tReq);
+        testImagesFlexGen(maasService, endpointId, tReq);
     }
 
-    private static void testImagesQuickGen(MaasService maasService, String endpointId, ImagesQuickGenRequest req) {
+    private static void testImagesFlexGen(MaasService maasService, String endpointId, ImagesRequest req) {
         try {
-            ImagesQuickGenResponse resp = maasService.images().ImagesQuickGen(endpointId, req);
+            ImagesResponse resp = maasService.images().ImagesFlexGen(endpointId, req);
             System.out.println(resp.getData());
         } catch (MaasException e) {
             System.out.println("req_id: " + e.getRequestId());

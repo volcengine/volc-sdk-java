@@ -30,5 +30,7 @@ public class QueryUploadMediaByURLResponse {
         String State;
         @JSONField(name = "Vid")
         String Vid;
+        @JSONField(name = "FolderId")
+        Long FolderId;
     }
 }

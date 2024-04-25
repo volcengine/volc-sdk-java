@@ -1,6 +1,8 @@
 
 package com.volcengine.model.maas.api.v2;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -20,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "negative_prompt",
     "init_image",
     "control_image",
+    "control_image_list",
     "parameters"
 })
 @Generated("jsonschema2pojo")
@@ -56,7 +59,7 @@ public class ImagesQuickGenRequest {
      * 
      */
     @JsonProperty("init_image")
-    private byte[] initImage;
+    private String initImage;
     /**
      * Control Image
      * <p>
@@ -65,6 +68,14 @@ public class ImagesQuickGenRequest {
      */
     @JsonProperty("control_image")
     private byte[] controlImage;
+    /**
+     * Control Image List
+     * <p>
+     * 
+     * 
+     */
+    @JsonProperty("control_image_list")
+    private List<byte[]> controlImageList = new ArrayList<byte[]>();
     /**
      * ImagesParameters
      * <p>
@@ -162,7 +173,7 @@ public class ImagesQuickGenRequest {
      * 
      */
     @JsonProperty("init_image")
-    public byte[] getInitImage() {
+    public String getInitImage() {
         return initImage;
     }
 
@@ -173,11 +184,11 @@ public class ImagesQuickGenRequest {
      * 
      */
     @JsonProperty("init_image")
-    public void setInitImage(byte[] initImage) {
+    public void setInitImage(String initImage) {
         this.initImage = initImage;
     }
 
-    public ImagesQuickGenRequest withInitImage(byte[] initImage) {
+    public ImagesQuickGenRequest withInitImage(String initImage) {
         this.initImage = initImage;
         return this;
     }
@@ -206,6 +217,33 @@ public class ImagesQuickGenRequest {
 
     public ImagesQuickGenRequest withControlImage(byte[] controlImage) {
         this.controlImage = controlImage;
+        return this;
+    }
+
+    /**
+     * Control Image List
+     * <p>
+     * 
+     * 
+     */
+    @JsonProperty("control_image_list")
+    public List<byte[]> getControlImageList() {
+        return controlImageList;
+    }
+
+    /**
+     * Control Image List
+     * <p>
+     * 
+     * 
+     */
+    @JsonProperty("control_image_list")
+    public void setControlImageList(List<byte[]> controlImageList) {
+        this.controlImageList = controlImageList;
+    }
+
+    public ImagesQuickGenRequest withControlImageList(List<byte[]> controlImageList) {
+        this.controlImageList = controlImageList;
         return this;
     }
 
@@ -260,6 +298,10 @@ public class ImagesQuickGenRequest {
         sb.append('=');
         sb.append(((this.controlImage == null)?"<null>":this.controlImage));
         sb.append(',');
+        sb.append("controlImageList");
+        sb.append('=');
+        sb.append(((this.controlImageList == null)?"<null>":this.controlImageList));
+        sb.append(',');
         sb.append("parameters");
         sb.append('=');
         sb.append(((this.parameters == null)?"<null>":this.parameters));
@@ -276,6 +318,7 @@ public class ImagesQuickGenRequest {
     public int hashCode() {
         int result = 1;
         result = ((result* 31)+((this.initImage == null)? 0 :this.initImage.hashCode()));
+        result = ((result* 31)+((this.controlImageList == null)? 0 :this.controlImageList.hashCode()));
         result = ((result* 31)+((this.controlImage == null)? 0 :this.controlImage.hashCode()));
         result = ((result* 31)+((this.prompt == null)? 0 :this.prompt.hashCode()));
         result = ((result* 31)+((this.parameters == null)? 0 :this.parameters.hashCode()));
@@ -293,7 +336,7 @@ public class ImagesQuickGenRequest {
             return false;
         }
         ImagesQuickGenRequest rhs = ((ImagesQuickGenRequest) other);
-        return (((((((this.initImage == rhs.initImage)||((this.initImage!= null)&&this.initImage.equals(rhs.initImage)))&&((this.controlImage == rhs.controlImage)||((this.controlImage!= null)&&this.controlImage.equals(rhs.controlImage))))&&((this.prompt == rhs.prompt)||((this.prompt!= null)&&this.prompt.equals(rhs.prompt))))&&((this.parameters == rhs.parameters)||((this.parameters!= null)&&this.parameters.equals(rhs.parameters))))&&((this.reqId == rhs.reqId)||((this.reqId!= null)&&this.reqId.equals(rhs.reqId))))&&((this.negativePrompt == rhs.negativePrompt)||((this.negativePrompt!= null)&&this.negativePrompt.equals(rhs.negativePrompt))));
+        return ((((((((this.initImage == rhs.initImage)||((this.initImage!= null)&&this.initImage.equals(rhs.initImage)))&&((this.controlImageList == rhs.controlImageList)||((this.controlImageList!= null)&&this.controlImageList.equals(rhs.controlImageList))))&&((this.controlImage == rhs.controlImage)||((this.controlImage!= null)&&this.controlImage.equals(rhs.controlImage))))&&((this.prompt == rhs.prompt)||((this.prompt!= null)&&this.prompt.equals(rhs.prompt))))&&((this.parameters == rhs.parameters)||((this.parameters!= null)&&this.parameters.equals(rhs.parameters))))&&((this.reqId == rhs.reqId)||((this.reqId!= null)&&this.reqId.equals(rhs.reqId))))&&((this.negativePrompt == rhs.negativePrompt)||((this.negativePrompt!= null)&&this.negativePrompt.equals(rhs.negativePrompt))));
     }
 
 }

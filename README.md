@@ -19,6 +19,16 @@ Access Key（访问密钥）是访问火山引擎服务的安全凭证，包含A
     <version>最新版本</version>
 </dependency>
 ```
+如果 SDK版本 高于或者等于 Java 9 请依赖javax.annotation-api 由于在高于或者等于 Java 9 中 javax.annotation-api 被移除
+
+请在使用中引用
+```xml
+<dependency>
+  <groupId>javax.annotation</groupId>
+  <artifactId>javax.annotation-api</artifactId>
+  <version>1.3.2</version>
+</dependency>
+```
 
 ### SNAPSHOT发布说明
 [版本号：2.0.1-SNAPSHOT](https://oss.sonatype.org/content/repositories/snapshots/com/volcengine/volc-sdk-java)

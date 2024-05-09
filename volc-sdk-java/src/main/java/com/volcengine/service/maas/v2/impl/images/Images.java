@@ -34,7 +34,7 @@ public class Images {
 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             try {
-                ErrorResp resp = json_parse(response.getException().getMessage().getBytes(), ErrorResp.class);
+                ErrorResp resp = json_parse(response.getException().getMessage().getBytes(StandardCharsets.UTF_8), ErrorResp.class);
                 throw new MaasException(resp.getError(), logId);
             } catch (JsonProcessingException ignored) {
                 throw new MaasException(response.getException(), logId);
@@ -61,7 +61,7 @@ public class Images {
 
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             try {
-                ErrorResp resp = json_parse(response.getException().getMessage().getBytes(), ErrorResp.class);
+                ErrorResp resp = json_parse(response.getException().getMessage().getBytes(StandardCharsets.UTF_8), ErrorResp.class);
                 throw new MaasException(resp.getError(), logId);
             } catch (JsonProcessingException ignored) {
                 throw new MaasException(response.getException(), logId);

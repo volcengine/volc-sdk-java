@@ -31,9 +31,13 @@ public class ImageRiskDetectionResponse {
         @JSONField(name = "Decision")
         private String decision;
         @JSONField(name = "DecisionDetail")
+        private String ocrText;
+        @JSONField(name = "OcrText")
         private String decisionDetail;
         @JSONField(name = "Results")
         private List<ImageLabelResult> results;
+        @JSONField(name = "OcrDetails")
+        private List<ImageContentFrameDetail> ocrDetails;
     }
 
     @Data
@@ -56,5 +60,28 @@ public class ImageRiskDetectionResponse {
         private String url;
         @JSONField(name = "id")
         private Double id;
+    }
+    @Data
+    public static class ImageContentFrameDetail  {
+        @JSONField(name = "Id")
+        private Double id;
+        @JSONField(name = "OcrFrameText")
+        private String ocrFrameText;
+        @JSONField(name = "Positions")
+        private List<Positions> positions;
+    }
+    @Data
+    public static class Positions  {
+        @JSONField(name = "DetPointsRelative")
+        private List<DetPointsRelative> detPointsRelative;
+        @JSONField(name = "Text")
+        private String text;
+    }
+    @Data
+    public static class DetPointsRelative  {
+        @JSONField(name = "X")
+        private Double x;
+        @JSONField(name = "Y")
+        private Double y;
     }
 }

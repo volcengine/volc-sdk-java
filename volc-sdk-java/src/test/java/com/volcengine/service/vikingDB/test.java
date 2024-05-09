@@ -1,6 +1,14 @@
 package com.volcengine.service.vikingDB;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.List;
@@ -215,8 +223,8 @@ public class test {
     //                                                    .build();
     //    Collection collection = vikingDBService.createCollection(createCollectionParam);
 
-       Collection collection = vikingDBService.getCollection("example");
-       System.out.println(collection);
+    //    Collection collection = vikingDBService.getCollection("example");
+    //    System.out.println(collection);
 
     //     vikingDBService.dropCollection("javaSDKTest");
         
@@ -577,6 +585,32 @@ public class test {
         // vikingDBService.updateIndex(parmas);
         // Index index1 = vikingDBService.getIndex("example", "goIndex");
         // System.out.println(index1);
+
+        String url = "";
+        String filePath = "./image.jpg";
+        String encodedImageContent = "";
+        try {
+            // 下载图片
+            URL imageUrl = new URL(url);
+            try (InputStream in = imageUrl.openStream()) {
+                Files.copy(in, Paths.get(filePath), StandardCopyOption.REPLACE_EXISTING);
+            }
+            byte[] fileContent = Files.readAllBytes(Paths.get(filePath));
+            encodedImageContent = Base64.getEncoder().encodeToString(fileContent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("return_token_usage", true);
+        ArrayList<RawData> rawDatas = new ArrayList<>();
+        rawDatas.add(new RawData().setDataType("image").setImage(encodedImageContent).build());
+        rawDatas.add(new RawData().setDataType("image").setImage(encodedImageContent).build());
+        Map<String, Object> res = vikingDBService.embeddingV2(new EmbModel().setModelName("bge-visualized-m3").setParams(params).build(), rawDatas);
+        System.out.println(res);
+
+
+
 
 
 

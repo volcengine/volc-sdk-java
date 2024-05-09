@@ -141,7 +141,7 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
 
                     ChatResp resp;
                     try {
-                        resp = json_parse(event.getData().getBytes(), ChatResp.class);
+                        resp = json_parse(event.getData().getBytes(StandardCharsets.UTF_8), ChatResp.class);
                     } catch (JsonProcessingException e) {
                         closeInputStream(is);
                         throw new RuntimeException(new MaasException(e, reqId));
@@ -177,7 +177,7 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
             RawResponse response = json(endpointId, api, reqId, mapper.writeValueAsString(req), apikey);
             if (response.getCode() != SdkError.SUCCESS.getNumber()) {
                 try {
-                    ErrorResp resp = json_parse(response.getException().getMessage().getBytes(), ErrorResp.class);
+                    ErrorResp resp = json_parse(response.getException().getMessage().getBytes(StandardCharsets.UTF_8), ErrorResp.class);
                     throw new MaasException(resp.getError(), reqId);
                 } catch (JsonProcessingException ignored) {
                     throw new MaasException(response.getException(), reqId);

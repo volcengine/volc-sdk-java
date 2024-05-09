@@ -606,7 +606,12 @@ public class VikingDBService extends BaseServiceImpl {
         for(RawData rawData: rawDatas){
             HashMap<String, Object> param = new HashMap<>();
             param.put("data_type", rawData.getDataType());
-            param.put("text", rawData.getText());
+            if (rawData.getText() != null) {
+                param.put("text", rawData.getText());
+            }
+            if (rawData.getImage() != null){
+                param.put("image", rawData.getImage());
+            }
             data.add(param);
         }
         HashMap<String, Object> params = new HashMap<>();
@@ -629,7 +634,12 @@ public class VikingDBService extends BaseServiceImpl {
         HashMap<String, Object> param = new HashMap<>();
         List<HashMap<String, Object>> data = new ArrayList<>();
         param.put("data_type", rawData.getDataType());
-        param.put("text", rawData.getText());
+        if (rawData.getText() != null) {
+            param.put("text", rawData.getText());
+        }
+        if (rawData.getImage() != null){
+            param.put("image", rawData.getImage());
+        }
         data.add(param);
         HashMap<String, Object> params = new HashMap<>();
         params.put("model", model);

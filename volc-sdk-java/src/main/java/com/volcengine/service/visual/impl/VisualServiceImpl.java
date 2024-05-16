@@ -797,5 +797,40 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualImg2ImgOutpaintingResponse.class);
     }
+    @Override
+    public MultiPhotoPortraitSubmitTaskCreateAIModelResponse multiPhotoPortraitSubmitTaskCreateAIModel(MultiPhotoPortraitSubmitTaskCreateAIModelRequest request) throws Exception {
+        RawResponse response = json(Const.MultiPhotoPortraitSubmitTaskCreateAIModel, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), MultiPhotoPortraitSubmitTaskCreateAIModelResponse.class);
+    }
+
+    @Override
+    public MultiPhotoPortraitSubmitTaskGenerateImageResponse multiPhotoPortraitSubmitTaskGenerateImage(MultiPhotoPortraitSubmitTaskGenerateImageRequest request) throws Exception {
+        RawResponse response = json(Const.MultiPhotoPortraitSubmitTaskGenerateImage, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), MultiPhotoPortraitSubmitTaskGenerateImageResponse.class);
+    }
+
+    @Override
+    public MultiPhotoPortraitGetTaskResultResponse multiPhotoPortraitGetTaskResult(MultiPhotoPortraitGetTaskResultRequest request) throws Exception {
+        RawResponse response = json(Const.MultiPhotoPortraitGetTaskResult, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), MultiPhotoPortraitGetTaskResultResponse.class);
+    }
+
+    @Override
+    public MultiPhotoPortraitManageTaskResponse multiPhotoPortraitManageTask(MultiPhotoPortraitManageTaskRequest request) throws Exception {
+        RawResponse response = json(Const.MultiPhotoPortraitManageTask, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), MultiPhotoPortraitManageTaskResponse.class);
+    }
 }
 

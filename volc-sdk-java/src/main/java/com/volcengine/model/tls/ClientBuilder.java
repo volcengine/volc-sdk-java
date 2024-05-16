@@ -8,10 +8,12 @@ import com.volcengine.service.tls.TLSLogClientImpl;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import static com.volcengine.model.tls.Const.SOCKET_TIMEOUT_MS;
+import static com.volcengine.model.tls.Const.CONNECTION_TIMEOUT_MS;
+
 
 public class ClientBuilder {
     public static final String HTTP = "http";
-    private static volatile TLSLogClient client;
     private final static Log log = LogFactory.getLog(ClientBuilder.class);
 
     public ClientBuilder() {
@@ -42,27 +44,21 @@ public class ClientBuilder {
             log.error("client config endpoint should start with http:// or https://");
             throw new LogException("", "client config endpoint should start with http:// or https://", null);
         }
-
         if (config.apiVersion == null) {
             log.error("client config api version null error");
             throw new LogException("", "client config api version null error", null);
         }
+
         //init config for service
         ServiceInfo serviceInfo = ClientConfig.initServiceInfo(config);
-        if (client == null) {
-            synchronized (ClientBuilder.class) {
-                if (client == null) {
-                    TLSHttpUtil tlsHttpUtil = new TLSHttpUtil(serviceInfo, TLSHttpUtil.API_INFO_LIST);
-                    tlsHttpUtil.setAccessKey(config.getAccessKeyId());
-                    tlsHttpUtil.setSecretKey(config.getAccessKeySecret());
-                    tlsHttpUtil.setSessionToken(config.getSecurityToken());
-                    tlsHttpUtil.setSocketTimeout(60000);
-                    tlsHttpUtil.setConnectionTimeout(60000);
-                    client = new TLSLogClientImpl(tlsHttpUtil, config);
-                }
-            }
-        }
-        return client;
+        TLSHttpUtil tlsHttpUtil = new TLSHttpUtil(serviceInfo, TLSHttpUtil.API_INFO_LIST);
+        tlsHttpUtil.setAccessKey(config.getAccessKeyId());
+        tlsHttpUtil.setSecretKey(config.getAccessKeySecret());
+        tlsHttpUtil.setSessionToken(config.getSecurityToken());
+        tlsHttpUtil.setSocketTimeout(SOCKET_TIMEOUT_MS);
+        tlsHttpUtil.setConnectionTimeout(CONNECTION_TIMEOUT_MS);
+
+        return new TLSLogClientImpl(tlsHttpUtil, config);
     }
 
 }

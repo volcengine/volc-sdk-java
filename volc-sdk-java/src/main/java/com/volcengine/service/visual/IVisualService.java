@@ -609,4 +609,36 @@ public interface IVisualService extends IBaseService {
      */
     VisualImg2ImgOutpaintingResponse  Img2ImgOutpainting(VisualImg2ImgOutpaintingRequest request) throws Exception;
 
+    /**
+     * 提交【分身生成】任务
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    MultiPhotoPortraitSubmitTaskCreateAIModelResponse multiPhotoPortraitSubmitTaskCreateAIModel(MultiPhotoPortraitSubmitTaskCreateAIModelRequest request) throws Exception;
+
+    /**
+     * 提交【图片生成】任务
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    MultiPhotoPortraitSubmitTaskGenerateImageResponse multiPhotoPortraitSubmitTaskGenerateImage(MultiPhotoPortraitSubmitTaskGenerateImageRequest request) throws Exception;
+
+    /**
+     * 查询任务
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    MultiPhotoPortraitGetTaskResultResponse multiPhotoPortraitGetTaskResult(MultiPhotoPortraitGetTaskResultRequest request) throws Exception;
+
+    /**
+     * 管理任务
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    MultiPhotoPortraitManageTaskResponse multiPhotoPortraitManageTask(MultiPhotoPortraitManageTaskRequest request) throws Exception;
+
 }

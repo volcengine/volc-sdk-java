@@ -22,7 +22,7 @@ public class ClickLogDemo {
         ClickLogRequest req = new ClickLogRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setAccessToken("accessToken");
-        req.setPartner("server_sdk_demo_default_content");
+        req.setPartner("partner");
         req.setGroupId("6938426748178530823");
         req.setCategory("");
         req.setEventTime("1626861782");

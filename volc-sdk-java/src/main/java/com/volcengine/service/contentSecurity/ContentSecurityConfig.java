@@ -341,8 +341,231 @@ public class ContentSecurityConfig {
                         }
                     }
             ));
-        }
 
-        ;
+            put(Const.CreateCustomLib, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "CreateCustomLib"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put(Const.DeleteCustomLib, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DeleteCustomLib"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put(Const.UpdateCustomLib, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "UpdateCustomLib"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put(Const.ChangeCustomContentsStatus, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ChangeCustomContentsStatus"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put(Const.GetCustomLib, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetCustomLib"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put(Const.CreateAccessConfig, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "CreateAccessConfig"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put(Const.UpdateAccessConfig, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "UpdateAccessConfig"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put(Const.UpdateConfigStatus, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "UpdateConfigStatus"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put(Const.GetAccessConfig, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetAccessConfig"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put(Const.GetTextLibContent, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetTextLibContent"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put(Const.DeleteTextLibContent, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DeleteTextLibContent"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put(Const.UploadTextLibContent, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "UploadTextLibContent"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put(Const.GetImageLibContent, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetImageLibContent"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put(Const.DeleteImageLibContent, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DeleteImageLibContent"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put(Const.UploadImageLibContent, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "UploadImageLibContent"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+        }
     };
 }

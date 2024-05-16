@@ -25,14 +25,14 @@ public class FollowCardLogDemo {
         FollowCardLogRequest req = new FollowCardLogRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setAccessToken("accessToken");
-        req.setPartner("server_sdk_demo_default_content");
+        req.setPartner("partner");
         List<FollowCardLogRequest.Body> bodyList = new ArrayList<>();
 
         FollowCardLogRequest.Body body = new FollowCardLogRequest.Body();
         body.setFollowType("from_group");
         body.setProfileUserId("104792520555");
         body.setToUserId("104792520555");
-        body.setCategoryName("server_sdk_demo_default_content");
+        body.setCategoryName("category");
         body.setSource("list_follow_card_related");
         body.setActionType("show");
         body.setOrder(2);

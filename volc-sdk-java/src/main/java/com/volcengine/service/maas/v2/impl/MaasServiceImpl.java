@@ -151,6 +151,7 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
                         throw new RuntimeException(new MaasException(resp.getError(), reqId));
                     }
 
+                    resp.setRequestId(reqId);
                     return resp;
                 }).filter(Objects::nonNull);
     }
@@ -164,11 +165,11 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
         }
     }
 
-    private static <T> T json_parse(byte[] data, Class<T> valueType) throws JsonProcessingException {
+    private static <T extends BaseResponse> T json_parse(byte[] data, Class<T> valueType) throws JsonProcessingException {
         return mapper.readValue(new String(data, StandardCharsets.UTF_8), valueType);
     }
 
-    private <T> T request(String endpointId, String api, Object req, Class<T> responseType) throws MaasException {
+    private <T extends BaseResponse> T request(String endpointId, String api, Object req, Class<T> responseType) throws MaasException {
         String reqId = genReqId();
 
         String apikey = this.settedApikey;
@@ -184,7 +185,9 @@ public class MaasServiceImpl extends BaseServiceImpl implements MaasService {
                 }
             }
 
-            return json_parse(response.getData(), responseType);
+            T resp = json_parse(response.getData(), responseType);
+            resp.setRequestId(reqId);
+            return resp;
         } catch (JsonProcessingException e) {
             throw new MaasException(e, reqId);
         }

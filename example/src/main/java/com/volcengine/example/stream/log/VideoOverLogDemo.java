@@ -22,7 +22,7 @@ public class VideoOverLogDemo {
         VideoOverLogRequest req = new VideoOverLogRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setAccessToken("accessToken");
-        req.setPartner("server_sdk_demo_default_content");
+        req.setPartner("partner");
         req.setGroupId("6938426748178530823");
         req.setPosition("list");
         req.setPercent("98");

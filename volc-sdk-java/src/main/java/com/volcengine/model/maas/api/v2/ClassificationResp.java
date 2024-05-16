@@ -23,7 +23,7 @@ import java.util.Map;
     "error"
 })
 @Generated("jsonschema2pojo")
-public class ClassificationResp {
+public class ClassificationResp extends BaseResponse {
 
     /**
      * Label

@@ -22,9 +22,9 @@ public class ProductClickLogDemo {
         ProductClickLogRequest req = new ProductClickLogRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setAccessToken("accessToken");
-        req.setPartner("server_sdk_demo_default_content");
+        req.setPartner("partner");
         req.setGroupId("6938426748178530823");
-        req.setCategory("server_sdk_demo_default_content_feed_1_3");
+        req.setCategory("category");
         req.setEventTime(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setEntranceForm("related_product");
         req.setProductId("2021102615430865626");

@@ -28,7 +28,7 @@ public class MultiArticlesDemo {
         MultiArticlesRequest req = new MultiArticlesRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setAccessToken("accessToken");
-        req.setPartner("server_sdk_demo_default_content");
+        req.setPartner("partner");
         List<String> groupIdList = new ArrayList<>();
         groupIdList.add("7156212955586298402");
         req.setGroupIds(groupIdList);

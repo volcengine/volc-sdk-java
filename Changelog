@@ -1,5 +1,8 @@
 Change log
 
+2024-05-16 Bumped to version v1.0.160
+- Updated apis for tls/visual/contentSecurity/stream/maas
+
 2024-05-09 Bumped to version v1.0.159
 - Updated apis for contentSecurity/vikingDB/maas
 

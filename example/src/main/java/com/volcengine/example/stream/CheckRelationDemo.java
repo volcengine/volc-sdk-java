@@ -22,7 +22,7 @@ public class CheckRelationDemo {
         CheckRelationRequest req = new CheckRelationRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setAccessToken("accessToken");
-        req.setPartner("server_sdk_demo_default_content");
+        req.setPartner("partner");
         req.setUserId("104792520555");
         try {
             CheckRelationResponse response = streamService.checkRelation(req);

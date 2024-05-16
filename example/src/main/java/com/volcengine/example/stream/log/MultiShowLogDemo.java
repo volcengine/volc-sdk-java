@@ -24,12 +24,12 @@ public class MultiShowLogDemo {
         MultiShowLogRequest req = new MultiShowLogRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setAccessToken("accessToken");
-        req.setPartner("server_sdk_demo_default_content");
+        req.setPartner("partner");
         List<MultiShowLogRequest.Body> bodyList = new ArrayList<>();
 
         MultiShowLogRequest.Body body = new MultiShowLogRequest.Body();
         body.setGroupId("7008339270066766349");
-        body.setCategory("server_sdk_demo_default_content");
+        body.setCategory("category");
         body.setEventTime(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         body.setFromGid("6938426748178530823");
         body.setDt("iphone6s");
@@ -41,7 +41,7 @@ public class MultiShowLogDemo {
 
         MultiShowLogRequest.Body body1 = new MultiShowLogRequest.Body();
         body1.setGroupId("7008339270066766349");
-        body1.setCategory("server_sdk_demo_default_content");
+        body1.setCategory("category");
         body1.setEventTime(1626861782);
         body1.setFromGid("6938426748178530823");
         body1.setDt("iphone6s");

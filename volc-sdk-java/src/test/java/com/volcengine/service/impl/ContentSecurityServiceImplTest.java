@@ -1,20 +1,22 @@
 package com.volcengine.service.impl;
 
-import com.volcengine.model.request.CreateCustomContentsRequest;
-import com.volcengine.model.request.UploadCustomContentsRequest;
-import com.volcengine.model.response.AsyncRiskDetectionResponse;
+import com.alibaba.fastjson.JSON;
+import com.volcengine.model.request.*;
+import com.volcengine.model.response.*;
 import com.volcengine.service.contentSecurity.ContentSecurityService;
 import com.volcengine.service.contentSecurity.impl.ContentSecurityServiceImpl;
 import junit.framework.TestCase;
 
-import java.util.Arrays;
-import java.util.Collections;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.*;
 
 public class ContentSecurityServiceImplTest extends TestCase {
     private ContentSecurityService initService() {
         ContentSecurityService service = ContentSecurityServiceImpl.getInstance();
         service.setAccessKey("AK");
-        service.setSecretKey("SK");
+        service.setSecretKey("Sk");
         return service;
     }
 
@@ -50,4 +52,5 @@ public class ContentSecurityServiceImplTest extends TestCase {
             throw new RuntimeException(e);
         }
     }
+
 }

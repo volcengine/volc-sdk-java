@@ -93,6 +93,8 @@ public class Const {
     // business security
     public static final String RiskDetection = "RiskDetection";
     public static final String AsyncRiskDetection = "AsyncRiskDetection";
+    public static  final  String CreateApp = "CreateApp";
+    public static final String ListApps = "ListApps";
     public static final String RiskResult = "RiskResult";
     public static final String DataReport = "DataReport";
     public static final String AccountRisk = "AccountRisk";
@@ -140,6 +142,21 @@ public class Const {
     public static final String CloseVideoLiveRisk = "CloseVideoLiveRisk";
 
     public static final String CloseAudioLiveRisk = "CloseAudioLiveRisk";
+    public static final String CreateCustomLib = "CreateCustomLib";
+    public static final String DeleteCustomLib = "DeleteCustomLib";
+    public static final String UpdateCustomLib = "UpdateCustomLib";
+    public static final String ChangeCustomContentsStatus = "ChangeCustomContentsStatus";
+    public static final String GetCustomLib = "GetCustomLib";
+    public static final String CreateAccessConfig = "CreateAccessConfig";
+    public static final String UpdateAccessConfig = "UpdateAccessConfig";
+    public static final String UpdateConfigStatus = "UpdateConfigStatus";
+    public static final String GetAccessConfig = "GetAccessConfig";
+    public static final String GetTextLibContent = "GetTextLibContent";
+    public static final String DeleteTextLibContent = "DeleteTextLibContent";
+    public static final String UploadTextLibContent = "UploadTextLibContent";
+    public static final String GetImageLibContent = "GetImageLibContent";
+    public static final String DeleteImageLibContent = "DeleteImageLibContent";
+    public static final String UploadImageLibContent = "UploadImageLibContent";
 
     // livesaas
     public static final String ListSiteTagAPIV2 = "ListSiteTagAPIV2";
@@ -833,6 +850,10 @@ public class Const {
     public static final String VideoOverResolutionQueryTaskV2 = "VideoOverResolutionQueryTaskV2";
     public static final String OverResolutionV2 = "OverResolutionV2";
     public static final String TupoCartoon = "TupoCartoon";
+    public static final String MultiPhotoPortraitSubmitTaskCreateAIModel = "MultiPhotoPortraitSubmitTaskCreateAIModel";
+    public static final String MultiPhotoPortraitSubmitTaskGenerateImage = "MultiPhotoPortraitSubmitTaskGenerateImage";
+    public static final String MultiPhotoPortraitGetTaskResult = "MultiPhotoPortraitGetTaskResult";
+    public static final String MultiPhotoPortraitManageTask = "MultiPhotoPortraitManageTask";
 
     // ipaas
     public static final String IPaasSDKService = "ipaas";

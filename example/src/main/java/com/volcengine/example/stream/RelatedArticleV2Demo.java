@@ -23,7 +23,7 @@ public class RelatedArticleV2Demo {
         RelatedArticleRequest req = new RelatedArticleRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setAccessToken("accessToken");
-        req.setPartner("server_sdk_demo_default_content");
+        req.setPartner("partner");
         req.setOs("ios");
         req.setClientVersion("3.1.1");
         req.setGroupId("7287890094584037951");

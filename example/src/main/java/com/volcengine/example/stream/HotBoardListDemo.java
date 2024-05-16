@@ -21,7 +21,7 @@ public class HotBoardListDemo {
         HotBoardListRequest req = new HotBoardListRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setAccessToken("accessToken");
-        req.setPartner("server_sdk_demo_default_content");
+        req.setPartner("partner");
 
         try {
             HotBoardListResponse response = streamService.hotBoardList(req);

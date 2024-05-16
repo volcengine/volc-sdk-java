@@ -23,7 +23,7 @@ public class HotBoardBoardDemo {
         HotBoardBoardRequest req = new HotBoardBoardRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setAccessToken("accessToken");
-        req.setPartner("server_sdk_demo_default_content");
+        req.setPartner("partner");
         req.setHotBoardGid("7022784394884546573");
         try {
             HotBoardBoardResponse response = streamService.hotBoardBoard(req);

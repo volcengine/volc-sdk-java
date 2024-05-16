@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "error"
 })
 @Generated("jsonschema2pojo")
-public class ImagesQuickGenResponse {
+public class ImagesQuickGenResponse extends BaseResponse {
 
     /**
      * Req Id

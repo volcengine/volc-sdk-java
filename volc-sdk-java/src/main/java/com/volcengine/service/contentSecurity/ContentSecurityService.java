@@ -1,9 +1,6 @@
 package com.volcengine.service.contentSecurity;
 
-import com.volcengine.model.request.CreateCustomContentsRequest;
-import com.volcengine.model.request.ImageRiskResultRequest;
-import com.volcengine.model.request.RiskDetectionRequest;
-import com.volcengine.model.request.UploadCustomContentsRequest;
+import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
 import com.volcengine.service.IBaseService;
 
@@ -209,4 +206,127 @@ public interface ContentSecurityService extends IBaseService {
      * @throws Exception the exception
      */
     AsyncRiskDetectionResponse CloseVideoLiveRisk(ImageRiskResultRequest closeVideoLiveRequest) throws Exception;
+
+    /**
+     * Create Custom Lib
+     * @param request create custom lib request
+     * @return  create custom lib response
+     * @throws Exception the exception
+     */
+    ContentSecurityCommonResponse CreateCustomLib(CreateContentSecurityCustomLibRequest request) throws Exception;
+
+    /**
+     * Update Custom Lib
+     * @param request update custom lib request
+     * @return update custom lib response
+     * @throws Exception the exception
+     */
+    ContentSecurityCommonResponse UpdateCustomLib(UpdateContentSecurityCustomLibRequest request) throws Exception;
+
+    /**
+     * Update Custom Lib
+     * @param request update custom lib request
+     * @return update custom lib response
+     * @throws Exception the exception
+     */
+    ContentSecurityCommonResponse ChangeCustomLibStatus(ChangeContentSecurityCustomLibStatusRequest request) throws Exception;
+
+    /**
+     * Delete Custom Lib
+     * @param request delete custom lib request
+     * @return delete custom lib response
+     * @throws Exception the exception
+     */
+    ContentSecurityCommonResponse DeleteCustomLib(DeleteContentSecurityCustomLibRequest request) throws Exception;
+
+    /**
+     * Get Custom Lib
+     * @param request get custom lib request
+     * @return get custom lib response
+     * @throws Exception the exception
+     */
+    ContentSecurityCustomLibListResponse GetCustomLib(GetContentSecurityCustomLibRequest request) throws Exception;
+
+    /**
+     * Create Access Config
+     * @param request create access config request
+     * @return  create access config response
+     * @throws Exception the exception
+     */
+    ContentSecurityCommonResponse CreateAccessConfig(CreateContentSecurityAccessConfigRequest request) throws Exception;
+
+    /**
+     * Update Access Config
+     * @param request update access config request
+     * @return update access config response
+     * @throws Exception the exception
+     */
+    ContentSecurityCommonResponse UpdateAccessConfig(UpdateContentSecurityAccessConfigRequest request) throws Exception;
+
+    /**
+     * Update Access Config Status
+     * @param request update access config status request
+     * @return update access config status response
+     * @throws Exception the exception
+     */
+    ContentSecurityCommonResponse UpdateAccessConfigStatus(UpdateContentSecurityAccessConfigStatusRequest request) throws Exception;
+
+    /**
+     * Get Access Config
+     * @param request get access config request
+     * @return get access config response
+     * @throws Exception the exception
+     */
+    ContentSecurityAccessConfigListResponse GetAccessConfig(GetContentSecurityAccessConfigRequest request) throws Exception;
+
+    /**
+     * Get Custom Text Lib
+     * @param request get custom text lib request
+     * @return get custom text lib response
+     * @throws Exception the exception
+     */
+    ContentSecurityCustTextLibListResponse GetTextLibContent(GetContentSecurityCustTextLibRequest request) throws Exception;
+
+    /**
+     * Delete Custom Text Lib
+     * @param request delete custom text lib request
+     * @return delete custom text lib response
+     * @throws Exception the exception
+     */
+    ContentSecurityCommonResponse DeleteTextLibContent(DeleteContentSecurityCustTextLibRequest request) throws Exception;
+
+    /**
+     * Upload Custom Text Lib
+     * @param request upload custom text lib request
+     * @return upload custom text lib response
+     * @throws Exception the exception
+     */
+    ContentSecurityCommonResponse UploadCustTextLibContent(UploadContentSecurityCustTextLibRequest request) throws Exception;
+
+    /**
+     * Get Custom Img Lib
+     * @param request get custom img lib request
+     * @return get custom img lib response
+     * @throws Exception the exception
+     */
+    ContentSecurityCustImgLibListResponse GetCustImgLibContent(GetContentSecurityCustImgLibRequest request) throws Exception;
+
+    /**
+     * Delete Custom img Lib
+     * @param request delete custom img lib request
+     * @return delete custom img lib response
+     * @throws Exception the exception
+     */
+    ContentSecurityCommonResponse DeleteCustImgLibContent(DeleteContentSecurityCustImgLibRequest request) throws Exception;
+
+    /**
+     * Upload Custom Img Lib
+     * @param request upload custom img lib request
+     * @return upload custom img lib response
+     * @throws Exception the exception
+     */
+    ContentSecurityCommonResponse UploadCustImgLibContent(UploadContentSecurityCustImgLibRequest request) throws Exception;
+
+
+
 }

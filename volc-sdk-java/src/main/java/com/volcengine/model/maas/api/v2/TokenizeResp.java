@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "error"
 })
 @Generated("jsonschema2pojo")
-public class TokenizeResp {
+public class TokenizeResp extends BaseResponse {
 
     /**
      * Total Tokens

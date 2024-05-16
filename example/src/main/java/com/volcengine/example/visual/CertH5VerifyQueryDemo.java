@@ -32,6 +32,7 @@ public class CertH5VerifyQueryDemo {
         req.setOmitImageData(false);
         req.setOmitVideoData(false);
         req.setIncludeIdcardData(false);
+        req.setIncludeRtcData(false);
         try {
             VisualCertQueryProResponse response = visualService.certQueryPro(req);
             System.out.println(JSON.toJSONString(response));

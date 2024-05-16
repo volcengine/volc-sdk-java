@@ -22,7 +22,7 @@ public class SingleShowLogDemo {
         SingleShowLogRequest req = new SingleShowLogRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setAccessToken("accessToken");
-        req.setPartner("server_sdk_demo_default_content");
+        req.setPartner("partner");
         req.setGroupId("6938426748178530823");
         req.setCategory("__ALL__");
         req.setEventTime("1626861782");

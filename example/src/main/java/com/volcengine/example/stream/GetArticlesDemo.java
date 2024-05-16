@@ -22,7 +22,7 @@ public class GetArticlesDemo {
         GetArticlesRequest req = new GetArticlesRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setAccessToken("accessToken");
-        req.setPartner("server_sdk_demo_default_content");
+        req.setPartner("partner");
         req.setGroupIds("7008338242986623518");
 
         try {

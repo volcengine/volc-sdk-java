@@ -41,6 +41,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static com.volcengine.model.tls.Const.LZ4;
+import static com.volcengine.model.tls.Const.PUT_LOGS;
 
 public abstract class BaseServiceImpl implements IBaseService {
 
@@ -389,7 +390,12 @@ public abstract class BaseServiceImpl implements IBaseService {
         if (!mergedNV.isEmpty())
             builder.setParameters(mergedNV);
 
-        RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(socketTimeout).setConnectTimeout(connectionTimeout).build();
+        boolean expectContinueEnabled = api.equals(PUT_LOGS);
+        RequestConfig requestConfig = RequestConfig.custom()
+                .setSocketTimeout(socketTimeout)
+                .setConnectTimeout(connectionTimeout)
+                .setExpectContinueEnabled(expectContinueEnabled)
+                .build();
         request.setConfig(requestConfig);
 
         return request;
@@ -572,8 +578,10 @@ public abstract class BaseServiceImpl implements IBaseService {
         if (compressType != null && compressType.equalsIgnoreCase(LZ4)) {
             compressedData = EncodeUtil.lz4Compress(body);
         }
-        if (compressedData != null && compressedData.length > 0)
+        if (compressedData != null && compressedData.length > 0) {
             request.setEntity(new ByteArrayEntity(compressedData));
+        }
+
         return makeRequest(api, request);
     }
 }

@@ -302,6 +302,36 @@ public class BusinessSecurityConfig {
                         }
                     }
             ));
+            put(Const.CreateApp,new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "CreateApp"));
+                                    add(new BasicNameValuePair("Version", "2022-12-23"));
+                                }
+                            });
+                            put(Const.Header, headers);
+                        }
+                    }
+            ));
+            put(Const.ListApps,new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ListApps"));
+                                    add(new BasicNameValuePair("Version", "2022-12-23"));
+                                }
+                            });
+                            put(Const.Header, headers);
+                        }
+                    }
+            ));
 
 
         }

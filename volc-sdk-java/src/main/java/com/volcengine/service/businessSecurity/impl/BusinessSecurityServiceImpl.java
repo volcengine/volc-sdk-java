@@ -332,4 +332,23 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
 
     }
 
+    @Override
+    public CreateAppResponse.CommonCreateAppResponse CreateApp(CreateAppRequest createAppRequest) throws Exception {
+        RawResponse response = query(Const.CreateApp, Utils.mapToPairList(Utils.paramsToMap(createAppRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), CreateAppResponse.CommonCreateAppResponse.class);
+    }
+
+    @Override
+    public ListAppsResponse.CommonListAppsResponse ListApps(ListAppsRequest listAppsRequest) throws Exception {
+        RawResponse response = query(Const.ListApps, Utils.mapToPairList(Utils.paramsToMap(listAppsRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ListAppsResponse.CommonListAppsResponse.class);
+    }
 }

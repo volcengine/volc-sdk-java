@@ -22,7 +22,7 @@ import java.util.Map;
     "error",
 })
 @Generated("jsonschema2pojo")
-public class ErrorResp {
+public class ErrorResp extends BaseResponse {
 
     /**
      * Error

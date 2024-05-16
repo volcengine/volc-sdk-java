@@ -24,7 +24,7 @@ public class SingleArticleDemoV2 {
         SingleArticleRequest req = new SingleArticleRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setAccessToken("accessToken");
-        req.setPartner("server_sdk_demo_default_content");
+        req.setPartner("partner");
         req.setGroupId("7138365312264569377");
 
         try {

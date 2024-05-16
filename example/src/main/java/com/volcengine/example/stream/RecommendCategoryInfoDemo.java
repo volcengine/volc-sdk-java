@@ -22,7 +22,7 @@ public class RecommendCategoryInfoDemo {
         RecommendCategoryInfoRequest req = new RecommendCategoryInfoRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setAccessToken("accessToken");
-        req.setPartner("server_sdk_demo_default_content");
+        req.setPartner("partner");
         req.setOuid("7008339270066766349");
         try {
             RecommendCategoryInfoResponse response = streamService.recommendCategoryInfo(req);

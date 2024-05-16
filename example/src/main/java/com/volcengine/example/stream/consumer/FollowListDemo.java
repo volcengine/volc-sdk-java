@@ -25,7 +25,7 @@ public class FollowListDemo {
         FollowListRequest req = new FollowListRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setAccessToken("accessToken");
-        req.setPartner("server_sdk_demo_default_content");
+        req.setPartner("partner");
         req.setCursor(0);
         req.setCount(10);
         try {

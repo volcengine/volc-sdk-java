@@ -129,5 +129,22 @@ public interface BusinessSecurityService extends IBaseService {
 
     PushTrafficRiskDataResponse PushTrafficRiskData(PushTrafficRiskDataRequest request)throws  Exception;
 
+    /**
+     * Create App.
+     *
+     * @param createAppRequest CreateApp request
+     * @return CreateApp response
+     * @throws Exception the exception
+     */
+    CreateAppResponse.CommonCreateAppResponse CreateApp(CreateAppRequest createAppRequest)throws Exception;
+    /**
+     * List Apps.
+     *
+     * @param listAppsRequest ListApps request
+     * @return ListApps response
+     * @throws Exception the exception
+     */
+    ListAppsResponse.CommonListAppsResponse ListApps(ListAppsRequest listAppsRequest)throws Exception;
+
     GetDailyMarketingPackageResponse  GetDailyMarketingPackage(GetDailyMarketingPackageRequest request)throws Exception;
 }

@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "extra"
 })
 @Generated("jsonschema2pojo")
-public class ChatResp {
+public class ChatResp extends BaseResponse {
 
     /**
      * Error

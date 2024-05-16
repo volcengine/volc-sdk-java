@@ -23,7 +23,7 @@ public class WapRegisterDemo {
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setUuid("1695657902873656");
         req.setOuid("12138");
-        req.setPartner("server_sdk_demo_default_content");
+        req.setPartner("partner");
 
         try {
             WapRegisterResponse response = streamService.wapRegister(req);

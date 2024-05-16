@@ -22,7 +22,7 @@ public class GetVideoUrlDemo {
         GetVideoUrlRequest req = new GetVideoUrlRequest();
         req.setTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8")));
         req.setAccessToken("accessToken");
-        req.setPartner("server_sdk_demo_default_content");
+        req.setPartner("partner");
         req.setVideoId("v02004g10000c5h9rhbc77u5t3n7pdt0_7017353858951316006_2_20");
 
         try {

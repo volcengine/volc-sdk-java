@@ -1230,6 +1230,62 @@ public class VisualConfig {
                         }
                     }
             ));
+            put(Const.MultiPhotoPortraitSubmitTaskCreateAIModel, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.MultiPhotoPortraitSubmitTaskCreateAIModel));
+                                    add(new BasicNameValuePair("Version", "2022-08-31"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.MultiPhotoPortraitSubmitTaskGenerateImage, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.MultiPhotoPortraitSubmitTaskGenerateImage));
+                                    add(new BasicNameValuePair("Version", "2022-08-31"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.MultiPhotoPortraitGetTaskResult, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.MultiPhotoPortraitGetTaskResult));
+                                    add(new BasicNameValuePair("Version", "2022-08-31"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.MultiPhotoPortraitManageTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.MultiPhotoPortraitManageTask));
+                                    add(new BasicNameValuePair("Version", "2022-08-31"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

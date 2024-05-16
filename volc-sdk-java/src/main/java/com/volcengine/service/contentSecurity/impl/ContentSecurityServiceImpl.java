@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
-import com.volcengine.model.request.CreateCustomContentsRequest;
-import com.volcengine.model.request.ImageRiskResultRequest;
-import com.volcengine.model.request.RiskDetectionRequest;
-import com.volcengine.model.request.UploadCustomContentsRequest;
+import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.contentSecurity.ContentSecurityConfig;
@@ -245,5 +242,155 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
         }
 
         return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
+    }
+
+    @Override
+    public ContentSecurityCommonResponse CreateCustomLib(CreateContentSecurityCustomLibRequest request) throws Exception {
+        RawResponse response = json(Const.CreateCustomLib, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityCommonResponse.class);
+    }
+
+    @Override
+    public ContentSecurityCommonResponse UpdateCustomLib(UpdateContentSecurityCustomLibRequest request) throws Exception {
+        RawResponse response = json(Const.UpdateCustomLib, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityCommonResponse.class);
+    }
+
+    public ContentSecurityCommonResponse ChangeCustomLibStatus(ChangeContentSecurityCustomLibStatusRequest request) throws Exception {
+        RawResponse response = json(Const.ChangeCustomContentsStatus, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityCommonResponse.class);
+    }
+
+
+    @Override
+    public ContentSecurityCommonResponse DeleteCustomLib(DeleteContentSecurityCustomLibRequest request) throws Exception {
+        RawResponse response = json(Const.DeleteCustomLib, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityCommonResponse.class);
+    }
+
+    @Override
+    public ContentSecurityCustomLibListResponse GetCustomLib(GetContentSecurityCustomLibRequest request) throws Exception {
+        RawResponse response = json(Const.GetCustomLib, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityCustomLibListResponse.class);
+    }
+
+    @Override
+    public ContentSecurityCommonResponse CreateAccessConfig(CreateContentSecurityAccessConfigRequest request) throws Exception {
+        RawResponse response = json(Const.CreateAccessConfig, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityCommonResponse.class);
+    }
+
+    @Override
+    public ContentSecurityCommonResponse UpdateAccessConfig(UpdateContentSecurityAccessConfigRequest request) throws Exception {
+        RawResponse response = json(Const.UpdateAccessConfig, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityCommonResponse.class);
+    }
+
+    @Override
+    public ContentSecurityCommonResponse UpdateAccessConfigStatus(UpdateContentSecurityAccessConfigStatusRequest request) throws Exception {
+        RawResponse response = json(Const.UpdateConfigStatus, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityCommonResponse.class);
+    }
+
+    @Override
+    public ContentSecurityAccessConfigListResponse GetAccessConfig(GetContentSecurityAccessConfigRequest request) throws Exception {
+        RawResponse response = json(Const.GetAccessConfig, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityAccessConfigListResponse.class);
+    }
+
+    @Override
+    public ContentSecurityCustTextLibListResponse GetTextLibContent(GetContentSecurityCustTextLibRequest request) throws Exception {
+        RawResponse response = json(Const.GetTextLibContent, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityCustTextLibListResponse.class);
+    }
+
+    @Override
+    public ContentSecurityCommonResponse DeleteTextLibContent(DeleteContentSecurityCustTextLibRequest request) throws Exception {
+        RawResponse response = json(Const.DeleteTextLibContent, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityCommonResponse.class);
+    }
+
+    @Override
+    public ContentSecurityCommonResponse UploadCustTextLibContent(UploadContentSecurityCustTextLibRequest request) throws Exception {
+        RawResponse response = json(Const.UploadTextLibContent, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityCommonResponse.class);
+    }
+
+    @Override
+    public ContentSecurityCustImgLibListResponse GetCustImgLibContent(GetContentSecurityCustImgLibRequest request) throws Exception {
+        RawResponse response = json(Const.GetImageLibContent, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityCustImgLibListResponse.class);
+    }
+
+    @Override
+    public ContentSecurityCommonResponse DeleteCustImgLibContent(DeleteContentSecurityCustImgLibRequest request) throws Exception {
+        RawResponse response = json(Const.DeleteImageLibContent, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityCommonResponse.class);
+    }
+
+    @Override
+    public ContentSecurityCommonResponse UploadCustImgLibContent(UploadContentSecurityCustImgLibRequest request) throws Exception {
+        RawResponse response = json(Const.UploadImageLibContent, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityCommonResponse.class);
     }
 }

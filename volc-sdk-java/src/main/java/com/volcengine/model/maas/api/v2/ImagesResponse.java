@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "error"
 })
 @Generated("jsonschema2pojo")
-public class ImagesResponse {
+public class ImagesResponse extends BaseResponse {
 
     /**
      * Data

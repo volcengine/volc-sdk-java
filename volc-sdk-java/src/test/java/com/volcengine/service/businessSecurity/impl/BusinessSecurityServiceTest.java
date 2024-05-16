@@ -3,26 +3,26 @@ package com.volcengine.service.businessSecurity.impl;
 import com.alibaba.fastjson.JSON;
 import com.volcengine.model.request.*;
 import com.volcengine.model.response.GetDailyMarketingPackageResponse;
+import com.volcengine.model.response.ListAppsResponse;
 import com.volcengine.model.response.PushTrafficRiskDataResponse;
 import com.volcengine.model.response.RiskStatResponse;
-import com.volcengine.model.response.RiskVConsoleResponse;
 import com.volcengine.service.businessSecurity.BusinessSecurityConfig;
 import com.volcengine.service.businessSecurity.BusinessSecurityService;
 import junit.framework.TestCase;
-
-import java.nio.charset.StandardCharsets;
 
 public class BusinessSecurityServiceTest extends TestCase {
     private BusinessSecurityService initService() {
         BusinessSecurityService service = BusinessSecurityServiceImpl.getInstance();
         service.setAccessKey("AK");
-        service.setSecretKey("AK");
+        service.setSecretKey("SK");
         return service;
     }
 
     private BusinessSecurityService initService(String service) {
         BusinessSecurityConfig.init();
         BusinessSecurityService serviceOpenapi = BusinessSecurityServiceImpl.getInstanceOpenapi();
+        serviceOpenapi.setAccessKey("AK");
+        serviceOpenapi.setSecretKey("SK");
         return serviceOpenapi;
     }
 
@@ -67,6 +67,14 @@ public class BusinessSecurityServiceTest extends TestCase {
         System.out.println(resp);
     }
 
+    public void testListApps()throws Exception{
+        BusinessSecurityService service = initService();
+        ListAppsRequest req = new ListAppsRequest();
+        req.setLimit(0);
+        req.setOffset(20);
+        ListAppsResponse.CommonListAppsResponse resp = service.ListApps(req);
+        System.out.println(resp);
+    }
 
     public void testSendSamplePackage()throws Exception{
         BusinessSecurityService service = initService("Business");

@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "data"
 })
 @Generated("jsonschema2pojo")
-public class EmbeddingsResp {
+public class EmbeddingsResp extends BaseResponse {
 
     /**
      * Usage

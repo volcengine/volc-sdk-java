@@ -125,5 +125,12 @@ public class VisualCertQueryProResponse extends VisualBaseResponse {
             @JSONField(name = "ocr_result_detail")
             String ocrResultDetail;
         }
+        @JSONField(name = "verify_rtc_info")
+        VerifyRtcInfo verifyRtcInfo;
+        @Data
+        public static class VerifyRtcInfo {
+            @JSONField(name = "verify_type")
+            String verifyType;
+        }
     }
 }

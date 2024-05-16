@@ -39,6 +39,9 @@ public class SecuritySourceResponse {
         @JSONField(name = "References")
         private List<SecuritySourceReference> references;
 
+        @JSONField(name = "FinishReason")
+        private String finishReason;
+
     }
 
     @Data

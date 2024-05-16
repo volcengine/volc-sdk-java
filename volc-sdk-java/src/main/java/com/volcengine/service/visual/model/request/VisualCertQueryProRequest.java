@@ -23,4 +23,7 @@ public class VisualCertQueryProRequest {
 
     @JSONField(name = "include_idcard_data")
     Boolean includeIdcardData = false;
+
+    @JSONField(name = "include_rtc_data")
+    Boolean includeRtcData = false;
 }

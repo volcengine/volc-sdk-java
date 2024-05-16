@@ -15,7 +15,7 @@ public class SearchGroupDemoV2 {
 
         searchService.SetNeedMonitor(true);
         SearchRequest request = new SearchRequest();
-        request.setPartner("server_sdk_demo_default_content");
+        request.setPartner("partner");
         request.setAccessToken("31170522212716956578152898865559");
         request.setKeyword("美食");
         request.setNeedVideoDetail("1");

@@ -17,7 +17,7 @@ public class ExportReportsDemo {
         exportReportsService.setAccessKey("ak");
         exportReportsService.setSecretKey("sk");
 
-        String utmSource = "server_sdk_demo_default_content";
+        String utmSource = "partner";
         String reportType = "user_duration";
         String date = "20240323";
         ExportReportsRequest request = new ExportReportsRequest();

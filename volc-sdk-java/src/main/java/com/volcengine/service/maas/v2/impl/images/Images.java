@@ -42,7 +42,9 @@ public class Images {
         }
 
         try {
-            return json_parse(response.getData(), ImagesQuickGenResponse.class);
+            ImagesQuickGenResponse resp = json_parse(response.getData(), ImagesQuickGenResponse.class);
+            resp.setRequestId(logId);
+            return resp;
         } catch (JsonProcessingException e) {
             throw new MaasException(e, logId);
         }
@@ -50,11 +52,11 @@ public class Images {
 
     public ImagesResponse ImagesFlexGen(String endpointId, ImagesRequest req) throws MaasException {
 
-        String logId = this.service.genReqId();
+        String reqId = this.service.genReqId();
         RawResponse response = null;
         String apikey = this.service.getApikey();
         try {
-            response = this.service.json(endpointId, Const.MaasApiImagesFlexGen, logId, new ObjectMapper().writeValueAsString(req), apikey);
+            response = this.service.json(endpointId, Const.MaasApiImagesFlexGen, reqId, new ObjectMapper().writeValueAsString(req), apikey);
         } catch (JsonProcessingException e) {
             throw new MaasException(e, null);
         }
@@ -62,16 +64,18 @@ public class Images {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             try {
                 ErrorResp resp = json_parse(response.getException().getMessage().getBytes(StandardCharsets.UTF_8), ErrorResp.class);
-                throw new MaasException(resp.getError(), logId);
+                throw new MaasException(resp.getError(), reqId);
             } catch (JsonProcessingException ignored) {
-                throw new MaasException(response.getException(), logId);
+                throw new MaasException(response.getException(), reqId);
             }
         }
 
         try {
-            return json_parse(response.getData(), ImagesResponse.class);
+            ImagesResponse resp = json_parse(response.getData(), ImagesResponse.class);
+            resp.setRequestId(reqId);
+            return resp;
         } catch (JsonProcessingException e) {
-            throw new MaasException(e, logId);
+            throw new MaasException(e, reqId);
         }
     }
 

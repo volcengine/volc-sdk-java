@@ -12,4 +12,6 @@ public class SendCustomSystemMessageRequest {
     Long ActivityID;
     @JSONField(name = "Content")
     String Content;
+    @JSONField(name = "MessageType")
+    Integer MessageType;
 }

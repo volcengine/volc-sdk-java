@@ -74,7 +74,7 @@ public interface VideoLogoDefinitionOrBuilder extends
   int getSizeX();
 
   /**
-   * <code>int32 sizeY = 10;</code>
+   * <code>int32 SizeY = 10;</code>
    * @return The sizeY.
    */
   int getSizeY();

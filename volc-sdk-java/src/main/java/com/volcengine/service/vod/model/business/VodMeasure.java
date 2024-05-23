@@ -144,6 +144,56 @@ public final class VodMeasure {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayFileLogByDomainResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodEnhanceImageDataItem_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodEnhanceImageDataItem_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodEnhanceImageDataResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodEnhanceImageDataResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDataItem_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDataItem_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDetailTVUnit_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDetailTVUnit_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDataDetail_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDataDetail_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDataResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDataResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayedStatisDataItem_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayedStatisDataItem_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayedStatisDataResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayedStatisDataResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodMostPlayedStatisDataItem_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodMostPlayedStatisDataItem_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodMostPlayedStatisDataResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodMostPlayedStatisDataResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -292,12 +342,61 @@ public final class VodMeasure {
       "\tStartTime\030\001 \001(\t\022\017\n\007EndTime\030\002 \001(\t\022\022\n\nDom" +
       "ainList\030\003 \003(\t\022T\n\010FileList\030\004 \003(\0132B.Volcen" +
       "gine.Vod.Models.Business.DescribeVodPlay" +
-      "FileLogByDomainItemB\313\001\n)com.volcengine.s" +
-      "ervice.vod.model.businessB\nVodMeasureP\001Z" +
-      "Agithub.com/volcengine/volc-sdk-golang/s" +
-      "ervice/vod/models/business\240\001\001\330\001\001\312\002 Volc\\" +
-      "Service\\Vod\\Models\\Business\342\002#Volc\\Servi" +
-      "ce\\Vod\\Models\\GPBMetadatab\006proto3"
+      "FileLogByDomainItem\"\202\001\n\037DescribeVodEnhan" +
+      "ceImageDataItem\022\014\n\004Time\030\001 \001(\t\022\n\n\002SR\030\002 \001(" +
+      "\003\022\013\n\003VFI\030\003 \001(\003\022\022\n\nSDREnhance\030\004 \001(\003\022\017\n\007SD" +
+      "R2HDR\030\005 \001(\003\022\023\n\013AudioDenose\030\006 \001(\003\"\251\002\n!Des" +
+      "cribeVodEnhanceImageDataResult\022\021\n\tSpaceL" +
+      "ist\030\001 \003(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007EndTime\030" +
+      "\003 \001(\t\022\024\n\014TaskTypeList\030\004 \003(\t\022\025\n\rTaskStage" +
+      "List\030\005 \003(\t\022\023\n\013Aggregation\030\006 \001(\003\022\022\n\nRegio" +
+      "nList\030\007 \003(\t\022\034\n\024TotalEnhanceImagData\030\010 \001(" +
+      "\003\022Y\n\020EnhanceImageList\030\t \003(\0132?.Volcengine" +
+      ".Vod.Models.Business.DescribeVodEnhanceI" +
+      "mageDataItem\"D\n\"DescribeVodSpaceEditStat" +
+      "isDataItem\022\014\n\004Name\030\001 \001(\t\022\020\n\010Duration\030\002 \001" +
+      "(\003\"\225\001\n&DescribeVodSpaceEditStatisDetailT" +
+      "VUnit\022\014\n\004Time\030\001 \001(\t\022]\n\021EditUsageItemList" +
+      "\030\002 \003(\0132B.Volcengine.Vod.Models.Business." +
+      "DescribeVodSpaceEditStatisDataItem\"\230\001\n$D" +
+      "escribeVodSpaceEditStatisDataDetail\022\r\n\005S" +
+      "pace\030\001 \001(\t\022a\n\021EditUsageDataList\030\003 \003(\0132F." +
+      "Volcengine.Vod.Models.Business.DescribeV" +
+      "odSpaceEditStatisDetailTVUnit\"\235\003\n$Descri" +
+      "beVodSpaceEditStatisDataResult\022\021\n\tSpaceL" +
+      "ist\030\001 \003(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007EndTime\030" +
+      "\003 \001(\t\022\025\n\rSpecification\030\004 \001(\t\022\023\n\013Aggregat" +
+      "ion\030\005 \001(\003\022\027\n\017DetailFieldList\030\006 \003(\t\022\022\n\nRe" +
+      "gionList\030\007 \003(\t\022\032\n\022TotalEditUsageData\030\010 \001" +
+      "(\003\022b\n\026TotalEditUsageDataList\030\t \003(\0132B.Vol" +
+      "cengine.Vod.Models.Business.DescribeVodS" +
+      "paceEditStatisDataItem\022e\n\027EditUsageDataD" +
+      "etailList\030\n \003(\0132D.Volcengine.Vod.Models." +
+      "Business.DescribeVodSpaceEditStatisDataD" +
+      "etail\"\224\001\n\037DescribeVodPlayedStatisDataIte" +
+      "m\022\013\n\003Vid\030\001 \001(\t\022\014\n\004Name\030\002 \001(\t\022\014\n\004Size\030\003 \001" +
+      "(\003\022\020\n\010Duration\030\004 \001(\001\022\022\n\nCreateTime\030\005 \001(\t" +
+      "\022\021\n\tPlayCount\030\006 \001(\003\022\017\n\007Traffic\030\007 \001(\003\"\322\001\n" +
+      "!DescribeVodPlayedStatisDataResult\022\r\n\005Sp" +
+      "ace\030\001 \001(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007EndTime\030" +
+      "\003 \001(\t\022\017\n\007VidList\030\004 \003(\t\022\021\n\tOrderType\030\005 \001(" +
+      "\t\022V\n\rPlayStatInfos\030\006 \003(\0132?.Volcengine.Vo" +
+      "d.Models.Business.DescribeVodPlayedStati" +
+      "sDataItem\"\230\001\n#DescribeVodMostPlayedStati" +
+      "sDataItem\022\013\n\003Vid\030\001 \001(\t\022\014\n\004Name\030\002 \001(\t\022\014\n\004" +
+      "Size\030\003 \001(\003\022\020\n\010Duration\030\004 \001(\001\022\022\n\nCreateTi" +
+      "me\030\005 \001(\t\022\021\n\tPlayCount\030\006 \001(\003\022\017\n\007Traffic\030\007" +
+      " \001(\003\"\327\001\n%DescribeVodMostPlayedStatisData" +
+      "Result\022\r\n\005Space\030\001 \001(\t\022\021\n\tStartTime\030\002 \001(\t" +
+      "\022\017\n\007EndTime\030\003 \001(\t\022\021\n\tOrderType\030\004 \001(\t\022\014\n\004" +
+      "TopN\030\005 \001(\003\022Z\n\rPlayStatInfos\030\006 \003(\0132C.Volc" +
+      "engine.Vod.Models.Business.DescribeVodMo" +
+      "stPlayedStatisDataItemB\313\001\n)com.volcengin" +
+      "e.service.vod.model.businessB\nVodMeasure" +
+      "P\001ZAgithub.com/volcengine/volc-sdk-golan" +
+      "g/service/vod/models/business\240\001\001\330\001\001\312\002 Vo" +
+      "lc\\Service\\Vod\\Models\\Business\342\002#Volc\\Se" +
+      "rvice\\Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -459,6 +558,66 @@ public final class VodMeasure {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayFileLogByDomainResult_descriptor,
         new java.lang.String[] { "StartTime", "EndTime", "DomainList", "FileList", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodEnhanceImageDataItem_descriptor =
+      getDescriptor().getMessageTypes().get(26);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodEnhanceImageDataItem_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodEnhanceImageDataItem_descriptor,
+        new java.lang.String[] { "Time", "SR", "VFI", "SDREnhance", "SDR2HDR", "AudioDenose", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodEnhanceImageDataResult_descriptor =
+      getDescriptor().getMessageTypes().get(27);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodEnhanceImageDataResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodEnhanceImageDataResult_descriptor,
+        new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "TaskTypeList", "TaskStageList", "Aggregation", "RegionList", "TotalEnhanceImagData", "EnhanceImageList", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDataItem_descriptor =
+      getDescriptor().getMessageTypes().get(28);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDataItem_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDataItem_descriptor,
+        new java.lang.String[] { "Name", "Duration", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDetailTVUnit_descriptor =
+      getDescriptor().getMessageTypes().get(29);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDetailTVUnit_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDetailTVUnit_descriptor,
+        new java.lang.String[] { "Time", "EditUsageItemList", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDataDetail_descriptor =
+      getDescriptor().getMessageTypes().get(30);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDataDetail_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDataDetail_descriptor,
+        new java.lang.String[] { "Space", "EditUsageDataList", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDataResult_descriptor =
+      getDescriptor().getMessageTypes().get(31);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDataResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodSpaceEditStatisDataResult_descriptor,
+        new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "Specification", "Aggregation", "DetailFieldList", "RegionList", "TotalEditUsageData", "TotalEditUsageDataList", "EditUsageDataDetailList", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayedStatisDataItem_descriptor =
+      getDescriptor().getMessageTypes().get(32);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayedStatisDataItem_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayedStatisDataItem_descriptor,
+        new java.lang.String[] { "Vid", "Name", "Size", "Duration", "CreateTime", "PlayCount", "Traffic", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayedStatisDataResult_descriptor =
+      getDescriptor().getMessageTypes().get(33);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayedStatisDataResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodPlayedStatisDataResult_descriptor,
+        new java.lang.String[] { "Space", "StartTime", "EndTime", "VidList", "OrderType", "PlayStatInfos", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodMostPlayedStatisDataItem_descriptor =
+      getDescriptor().getMessageTypes().get(34);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodMostPlayedStatisDataItem_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodMostPlayedStatisDataItem_descriptor,
+        new java.lang.String[] { "Vid", "Name", "Size", "Duration", "CreateTime", "PlayCount", "Traffic", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodMostPlayedStatisDataResult_descriptor =
+      getDescriptor().getMessageTypes().get(35);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodMostPlayedStatisDataResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodMostPlayedStatisDataResult_descriptor,
+        new java.lang.String[] { "Space", "StartTime", "EndTime", "OrderType", "TopN", "PlayStatInfos", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

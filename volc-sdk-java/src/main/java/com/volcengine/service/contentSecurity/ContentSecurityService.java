@@ -213,7 +213,7 @@ public interface ContentSecurityService extends IBaseService {
      * @return  create custom lib response
      * @throws Exception the exception
      */
-    ContentSecurityCommonResponse CreateCustomLib(CreateContentSecurityCustomLibRequest request) throws Exception;
+    ContentSecurityCustomLibCreateResponse CreateCustomLib(CreateContentSecurityCustomLibRequest request) throws Exception;
 
     /**
      * Update Custom Lib
@@ -253,7 +253,7 @@ public interface ContentSecurityService extends IBaseService {
      * @return  create access config response
      * @throws Exception the exception
      */
-    ContentSecurityCommonResponse CreateAccessConfig(CreateContentSecurityAccessConfigRequest request) throws Exception;
+    ContentSecurityAccessConfigCreateResponse CreateAccessConfig(CreateContentSecurityAccessConfigRequest request) throws Exception;
 
     /**
      * Update Access Config
@@ -325,8 +325,6 @@ public interface ContentSecurityService extends IBaseService {
      * @return upload custom img lib response
      * @throws Exception the exception
      */
-    ContentSecurityCommonResponse UploadCustImgLibContent(UploadContentSecurityCustImgLibRequest request) throws Exception;
-
-
+    ContentSecurityUploadImgResponse UploadCustImgLibContent(UploadContentSecurityCustImgLibRequest request) throws Exception;
 
 }

@@ -729,6 +729,7 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
             {
                 add(new BasicNameValuePair("StreamID", getStreamRequest.getStreamID()));
                 add(new BasicNameValuePair("FreshExpiredPull", getStreamRequest.getFreshExpiredPull()));
+                add(new BasicNameValuePair("FreshExpiredPush", getStreamRequest.getFreshExpiredPush()));
                 add(new BasicNameValuePair("StreamingIndex", String.valueOf(getStreamRequest.getStreamingIndex())));
                 add(new BasicNameValuePair("Resolution", getStreamRequest.getResolution()));
             }

@@ -538,6 +538,20 @@ public class ImConfig {
                     }
                 }     
             ));
+            put("BatchSendMessage", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "BatchSendMessage"));
+                                    add(new BasicNameValuePair("Version", "2020-12-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put("GetMessages", new ApiInfo(
                 new HashMap<String, Object>() {
                     {

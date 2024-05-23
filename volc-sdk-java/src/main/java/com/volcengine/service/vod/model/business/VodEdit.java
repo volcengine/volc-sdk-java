@@ -29,6 +29,11 @@ public final class VodEdit {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_GetDirectEditResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_CancelDirectEditTask_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_CancelDirectEditTask_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -45,13 +50,14 @@ public final class VodEdit {
       "\001(\005\"\227\001\n\023GetDirectEditResult\022\r\n\005ReqId\030\001 \001" +
       "(\t\022\021\n\tEditParam\030\002 \001(\014\022\020\n\010Priority\030\003 \001(\005\022" +
       "\023\n\013CallbackUri\030\004 \001(\t\022\024\n\014CallbackArgs\030\005 \001" +
-      "(\t\022\016\n\006Status\030\006 \001(\t\022\021\n\tOutputVid\030\007 \001(\tB\310\001" +
-      "\n)com.volcengine.service.vod.model.busin" +
-      "essB\007VodEditP\001ZAgithub.com/volcengine/vo" +
-      "lc-sdk-golang/service/vod/models/busines" +
-      "s\240\001\001\330\001\001\312\002 Volc\\Service\\Vod\\Models\\Busine" +
-      "ss\342\002#Volc\\Service\\Vod\\Models\\GPBMetadata" +
-      "b\006proto3"
+      "(\t\022\016\n\006Status\030\006 \001(\t\022\021\n\tOutputVid\030\007 \001(\t\"\'\n" +
+      "\024CancelDirectEditTask\022\017\n\007Message\030\001 \001(\tB\310" +
+      "\001\n)com.volcengine.service.vod.model.busi" +
+      "nessB\007VodEditP\001ZAgithub.com/volcengine/v" +
+      "olc-sdk-golang/service/vod/models/busine" +
+      "ss\240\001\001\330\001\001\312\002 Volc\\Service\\Vod\\Models\\Busin" +
+      "ess\342\002#Volc\\Service\\Vod\\Models\\GPBMetadat" +
+      "ab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -75,6 +81,12 @@ public final class VodEdit {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_GetDirectEditResult_descriptor,
         new java.lang.String[] { "ReqId", "EditParam", "Priority", "CallbackUri", "CallbackArgs", "Status", "OutputVid", });
+    internal_static_Volcengine_Vod_Models_Business_CancelDirectEditTask_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_Volcengine_Vod_Models_Business_CancelDirectEditTask_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_CancelDirectEditTask_descriptor,
+        new java.lang.String[] { "Message", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

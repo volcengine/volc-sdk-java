@@ -13,4 +13,6 @@ public class CreateStreamRequest {
     String description;
     @JSONField(name = "PullSource")
     String pullSource;
+    @JSONField(name = "Destination")
+    String destination;
 }

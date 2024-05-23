@@ -364,7 +364,7 @@ private static final long serialVersionUID = 0L;
   public static final int SIZEY_FIELD_NUMBER = 11;
   private int sizeY_;
   /**
-   * <code>int32 sizeY = 11;</code>
+   * <code>int32 SizeY = 11;</code>
    * @return The sizeY.
    */
   @java.lang.Override
@@ -1336,7 +1336,7 @@ private static final long serialVersionUID = 0L;
 
     private int sizeY_ ;
     /**
-     * <code>int32 sizeY = 11;</code>
+     * <code>int32 SizeY = 11;</code>
      * @return The sizeY.
      */
     @java.lang.Override
@@ -1344,7 +1344,7 @@ private static final long serialVersionUID = 0L;
       return sizeY_;
     }
     /**
-     * <code>int32 sizeY = 11;</code>
+     * <code>int32 SizeY = 11;</code>
      * @param value The sizeY to set.
      * @return This builder for chaining.
      */
@@ -1355,7 +1355,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 sizeY = 11;</code>
+     * <code>int32 SizeY = 11;</code>
      * @return This builder for chaining.
      */
     public Builder clearSizeY() {

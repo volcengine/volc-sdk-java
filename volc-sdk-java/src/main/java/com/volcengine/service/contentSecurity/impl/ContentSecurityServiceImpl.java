@@ -245,13 +245,13 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
     }
 
     @Override
-    public ContentSecurityCommonResponse CreateCustomLib(CreateContentSecurityCustomLibRequest request) throws Exception {
+    public ContentSecurityCustomLibCreateResponse CreateCustomLib(CreateContentSecurityCustomLibRequest request) throws Exception {
         RawResponse response = json(Const.CreateCustomLib, new ArrayList<>(), JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
 
-        return JSON.parseObject(response.getData(), ContentSecurityCommonResponse.class);
+        return JSON.parseObject(response.getData(), ContentSecurityCustomLibCreateResponse.class);
     }
 
     @Override
@@ -295,13 +295,13 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
     }
 
     @Override
-    public ContentSecurityCommonResponse CreateAccessConfig(CreateContentSecurityAccessConfigRequest request) throws Exception {
+    public ContentSecurityAccessConfigCreateResponse CreateAccessConfig(CreateContentSecurityAccessConfigRequest request) throws Exception {
         RawResponse response = json(Const.CreateAccessConfig, new ArrayList<>(), JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
 
-        return JSON.parseObject(response.getData(), ContentSecurityCommonResponse.class);
+        return JSON.parseObject(response.getData(), ContentSecurityAccessConfigCreateResponse.class);
     }
 
     @Override
@@ -385,12 +385,12 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
     }
 
     @Override
-    public ContentSecurityCommonResponse UploadCustImgLibContent(UploadContentSecurityCustImgLibRequest request) throws Exception {
+    public ContentSecurityUploadImgResponse UploadCustImgLibContent(UploadContentSecurityCustImgLibRequest request) throws Exception {
         RawResponse response = json(Const.UploadImageLibContent, new ArrayList<>(), JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
 
-        return JSON.parseObject(response.getData(), ContentSecurityCommonResponse.class);
+        return JSON.parseObject(response.getData(), ContentSecurityUploadImgResponse.class);
     }
 }

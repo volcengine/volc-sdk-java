@@ -62,7 +62,7 @@ public interface ImageLogoDefinitionOrBuilder extends
   int getSizeX();
 
   /**
-   * <code>int32 sizeY = 8;</code>
+   * <code>int32 SizeY = 8;</code>
    * @return The sizeY.
    */
   int getSizeY();

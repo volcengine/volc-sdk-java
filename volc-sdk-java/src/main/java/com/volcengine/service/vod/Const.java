@@ -158,6 +158,11 @@ public class Const {
     public static final String DescribeVodSnapshotData = "DescribeVodSnapshotData";
     public static final String DescribeVodSpaceWorkflowDetailData = "DescribeVodSpaceWorkflowDetailData";
     public static final String DescribeVodSpaceEditDetailData = "DescribeVodSpaceEditDetailData";
+    public static final String DescribeVodEnhanceImageData = "DescribeVodEnhanceImageData";
+    public static final String DescribeVodSpaceEditStatisData = "DescribeVodSpaceEditStatisData";
+    public static final String DescribeVodPlayedStatisData = "DescribeVodPlayedStatisData";
+    public static final String DescribeVodMostPlayedStatisData = "DescribeVodMostPlayedStatisData";
+
 
 
     public static final String DeleteSpace = "DeleteSpace";

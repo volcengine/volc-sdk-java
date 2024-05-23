@@ -10,7 +10,10 @@ public class GetStreamRequest {
     @JSONField(serialize = false)
     String freshExpiredPull;
     @JSONField(serialize = false)
+    String freshExpiredPush;
+    @JSONField(serialize = false)
     int streamingIndex;
     @JSONField(serialize = false)
     String resolution;
+
 }

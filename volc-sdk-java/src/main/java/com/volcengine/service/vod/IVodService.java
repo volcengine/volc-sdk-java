@@ -1016,4 +1016,40 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      */
 	com.volcengine.service.vod.model.response.VodDescribeVodDomainBandwidthDataResponse describeVodDomainBandwidthData(com.volcengine.service.vod.model.request.VodDescribeVodDomainBandwidthDataRequest input) throws Exception;
 	
+	/**
+     * describeVodEnhanceImageData.
+     *
+     * @param input com.volcengine.service.vod.model.request.DescribeVodEnhanceImageDataRequest
+     * @return com.volcengine.service.vod.model.response.DescribeVodEnhanceImageDataResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.DescribeVodEnhanceImageDataResponse describeVodEnhanceImageData(com.volcengine.service.vod.model.request.DescribeVodEnhanceImageDataRequest input) throws Exception;
+	
+	/**
+     * describeVodSpaceEditStatisData.
+     *
+     * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceEditStatisDataRequest
+     * @return com.volcengine.service.vod.model.response.DescribeVodSpaceEditStatisDataResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.DescribeVodSpaceEditStatisDataResponse describeVodSpaceEditStatisData(com.volcengine.service.vod.model.request.DescribeVodSpaceEditStatisDataRequest input) throws Exception;
+	
+	/**
+     * describeVodPlayedStatisData.
+     *
+     * @param input com.volcengine.service.vod.model.request.DescribeVodPlayedStatisDataRequest
+     * @return com.volcengine.service.vod.model.response.DescribeVodPlayedStatisDataResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.DescribeVodPlayedStatisDataResponse describeVodPlayedStatisData(com.volcengine.service.vod.model.request.DescribeVodPlayedStatisDataRequest input) throws Exception;
+	
+	/**
+     * describeVodMostPlayedStatisData.
+     *
+     * @param input com.volcengine.service.vod.model.request.DescribeVodMostPlayedStatisDataRequest
+     * @return com.volcengine.service.vod.model.response.DescribeVodMostPlayedStatisDataResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.DescribeVodMostPlayedStatisDataResponse describeVodMostPlayedStatisData(com.volcengine.service.vod.model.request.DescribeVodMostPlayedStatisDataRequest input) throws Exception;
+	
 }  // end of service interface

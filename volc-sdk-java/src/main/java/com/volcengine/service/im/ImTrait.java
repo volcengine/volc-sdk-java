@@ -876,4 +876,9 @@ public class ImTrait extends BaseServiceImpl {
         return parseRawResponse(rawResponse, BatchUpdateUserRes.class);
     }
 
+    public BatchSendMessageRes batchSendMessage(BatchSendMessageBody body) throws Exception {
+        RawResponse rawResponse = json("BatchSendMessage", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, BatchSendMessageRes.class);
+    }
+
 }

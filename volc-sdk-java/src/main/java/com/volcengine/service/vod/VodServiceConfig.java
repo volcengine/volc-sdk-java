@@ -1521,6 +1521,62 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.DescribeVodEnhanceImageData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeVodEnhanceImageData));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeVodSpaceEditStatisData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeVodSpaceEditStatisData));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeVodPlayedStatisData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeVodPlayedStatisData));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeVodMostPlayedStatisData, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeVodMostPlayedStatisData));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

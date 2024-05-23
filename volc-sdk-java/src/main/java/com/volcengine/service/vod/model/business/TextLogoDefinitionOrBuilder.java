@@ -92,7 +92,7 @@ public interface TextLogoDefinitionOrBuilder extends
   int getSizeX();
 
   /**
-   * <code>int32 sizeY = 11;</code>
+   * <code>int32 SizeY = 11;</code>
    * @return The sizeY.
    */
   int getSizeY();

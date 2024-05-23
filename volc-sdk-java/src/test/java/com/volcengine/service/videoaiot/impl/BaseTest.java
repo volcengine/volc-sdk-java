@@ -1,5 +1,6 @@
 package com.volcengine.service.videoaiot.impl;
 
+
 import com.volcengine.helper.Const;
 import com.volcengine.service.videoaiot.VideoAIoTConfig;
 import com.volcengine.service.videoaiot.VideoAIoTService;
@@ -15,4 +16,6 @@ public class BaseTest {
         videoAIoTService.setAccessKey(System.getenv("ak"));
         videoAIoTService.setSecretKey(System.getenv("sk"));
     }
+
+
 }

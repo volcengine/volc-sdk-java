@@ -28,7 +28,7 @@ public class UploadContentSecurityCustImgLibRequest {
         String imageName;
         @JSONField(name = "url")
         String url;
-        @JSONField(name = "data")
+        @JSONField(name = "image_data")
         String data;
     }
 }

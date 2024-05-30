@@ -19,6 +19,7 @@ public class SearchGroupDemoV2 {
         request.setAccessToken("31170522212716956578152898865559");
         request.setKeyword("美食");
         request.setNeedVideoDetail("1");
+        request.needGroupTypes("tuwen");
         request.setOffset(0);
         request.setCount(10);
 

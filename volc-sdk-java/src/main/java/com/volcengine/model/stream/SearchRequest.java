@@ -35,4 +35,6 @@ public class SearchRequest {
     String searchId;
     @JSONField(name = "NeedVideoDetail")
     String needVideoDetail;
+    @JSONField(name = "NeedGroupTypes")
+    String needGroupTypes;
 }

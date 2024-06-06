@@ -30,4 +30,6 @@ public class BindAXBRequest {
     private String outId;
 
     private Integer verifyFlag;
+
+    private String voiceCode;
 }

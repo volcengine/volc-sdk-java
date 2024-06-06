@@ -3,6 +3,8 @@ package com.volcengine.model.tls;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
+import java.util.List;
+
 import static com.volcengine.model.tls.Const.*;
 
 @Data
@@ -17,6 +19,10 @@ public class ValueInfo {
     boolean includeChinese;
     @JSONField(name = SQL_FLAG)
     boolean sqlFlag;
+    @JSONField(name = JSON_KEYS)
+    List<KeyValueInfo> jsonKeys;
+    @JSONField(name = INDEX_ALL)
+    boolean indexAll;
 
     /**
      * @return 字段类型：long、double、text 和 json
@@ -86,5 +92,33 @@ public class ValueInfo {
      */
     public void setSqlFlag(boolean sqlFlag) {
         this.sqlFlag = sqlFlag;
+    }
+
+    /**
+     * @return JSON子字段键值索引
+     */
+    public List<KeyValueInfo> getJsonKeys() {
+        return jsonKeys;
+    }
+
+    /**
+     * @param jsonKeys JSON子字段键值索引
+     */
+    public void setJsonKeys(List<KeyValueInfo> jsonKeys) {
+        this.jsonKeys = jsonKeys;
+    }
+
+    /**
+     * @return 是否为JSON字段中所有值为文本的字段创建索引
+     */
+    public boolean isIndexAll() {
+        return indexAll;
+    }
+
+    /**
+     * @param indexAll 是否为JSON字段中所有值为文本的字段创建索引
+     */
+    public void setIndexAll(boolean indexAll) {
+        this.indexAll = indexAll;
     }
 }

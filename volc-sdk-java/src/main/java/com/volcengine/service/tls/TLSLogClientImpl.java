@@ -1,6 +1,8 @@
 package com.volcengine.service.tls;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.volcengine.error.SdkError;
 import com.volcengine.model.ApiInfo;
 import com.volcengine.model.response.RawResponse;
@@ -28,6 +30,10 @@ import static com.volcengine.model.tls.producer.ProducerConfig.EXTERNAL_ERROR;
 import static com.volcengine.model.tls.producer.ProducerConfig.TOO_MANY_REQUEST_ERROR;
 
 public class TLSLogClientImpl implements TLSLogClient {
+    static {
+        JSON.DEFAULT_GENERATE_FEATURE |= SerializerFeature.DisableCircularReferenceDetect.getMask();
+    }
+
     public static int DEFAULT_RETRY_INTERVAL_MS = 100;
     public static int DEFAULT_REQUEST_TIMEOUT_MS = 90 * 1000;
     public static int DEFAULT_RETRY_COUNTER_MAXIMUM = 50;
@@ -604,7 +610,6 @@ public class TLSLogClientImpl implements TLSLogClient {
         return new DescribeTopicsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeTopicsResponse.class);
     }
 
-
     @Override
     public CreateIndexResponse createIndex(CreateIndexRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
@@ -635,7 +640,6 @@ public class TLSLogClientImpl implements TLSLogClient {
 
         // 3、parse response
         return new DeleteIndexResponse(rawResponse.getHeaders());
-
     }
 
     @Override
@@ -669,7 +673,6 @@ public class TLSLogClientImpl implements TLSLogClient {
 
         // 3、parse response
         return new DescribeIndexResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeIndexResponse.class);
-
     }
 
     @Override

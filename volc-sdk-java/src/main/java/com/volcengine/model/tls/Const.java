@@ -134,6 +134,9 @@ public class Const {
     public static final String INCLUDE_CHINESE = "IncludeChinese";
     public static final String SQL_FLAG = "SqlFlag";
     public static final String MODIFY_TIME = "ModifyTime";
+    public static final String JSON_KEYS = "JsonKeys";
+    public static final String INDEX_ALL = "IndexAll";
+
     // ruleInfo
     public static final String RULE_ID = "RuleId";
     public static final String RULE_INFO = "RuleInfo";

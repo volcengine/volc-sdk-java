@@ -103,6 +103,7 @@ public class Const {
     public static final String SubmitDirectEditTaskAsync = "SubmitDirectEditTaskAsync";
     public static final String GetDirectEditResult = "GetDirectEditResult";
     public static final String GetDirectEditProgress = "GetDirectEditProgress";
+    public static final String CancelDirectEditTask = "CancelDirectEditTask";
     //vod-space
     public static final String CreateSpace = "CreateSpace";
     public static final String ListSpace = "ListSpace";
@@ -173,4 +174,6 @@ public class Const {
     public static final String DeleteDomain = "DeleteDomain";
     public static final String StartDomain = "StartDomain";
     public static final String StopDomain = "StopDomain";
+    public static final String GetFileInfos = "GetFileInfos";
+    public static final String UpdateFileStorageClass = "UpdateFileStorageClass";
 }

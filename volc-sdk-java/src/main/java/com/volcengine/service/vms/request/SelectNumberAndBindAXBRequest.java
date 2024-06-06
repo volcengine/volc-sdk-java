@@ -40,4 +40,6 @@ public class SelectNumberAndBindAXBRequest {
     private Integer verifyFlag;
 
     private String idempotentId;
+
+    private String voiceCode;
 }

@@ -131,7 +131,16 @@ public interface IVodService extends com.volcengine.service.IBaseService {
     * @throws Exception the exception
     */
     com.volcengine.service.vod.model.response.VodGetDirectEditProgressResponse getDirectEditProgress(com.volcengine.service.vod.model.request.VodGetDirectEditProgressRequest input) throws Exception;
-
+    
+    /**
+    * cancelDirectEditTask.
+    *
+    * @param input com.volcengine.service.vod.model.request.VodCancelDirectEditTaskRequest
+    * @return com.volcengine.service.vod.model.response.VodCancelDirectEditTaskResponse
+    * @throws Exception the exception
+    */
+    com.volcengine.service.vod.model.response.VodCancelDirectEditTaskResponse cancelDirectEditTask(com.volcengine.service.vod.model.request.VodCancelDirectEditTaskRequest input) throws Exception;
+    
 
 
 	/**
@@ -295,6 +304,24 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodDeleteTranscodesResponse deleteTranscodes(com.volcengine.service.vod.model.request.VodDeleteTranscodesRequest input) throws Exception;
+	
+	/**
+     * getFileInfos.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetFileInfosRequest
+     * @return com.volcengine.service.vod.model.response.VodGetFileInfosResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodGetFileInfosResponse getFileInfos(com.volcengine.service.vod.model.request.VodGetFileInfosRequest input) throws Exception;
+	
+	/**
+     * updateFileStorageClass.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodUpdateFileStorageClassRequest
+     * @return com.volcengine.service.vod.model.response.VodUpdateFileStorageClassResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodUpdateFileStorageClassResponse updateFileStorageClass(com.volcengine.service.vod.model.request.VodUpdateFileStorageClassRequest input) throws Exception;
 	
 	/**
      * deleteMediaTosFile.

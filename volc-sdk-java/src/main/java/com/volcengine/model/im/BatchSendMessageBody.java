@@ -21,13 +21,13 @@ public final class BatchSendMessageBody  {
      * <p>消息发送人 UserId</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Sender")
-    private Integer sender;
+    private Long sender;
 
     /**
      * <p>消息接收人 UserId 列表</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Receiver")
-    private List<Integer> receiver;
+    private List<Long> receiver;
 
     /**
      * <p>信箱，用做逻辑隔离 默认值为 `0`</p>

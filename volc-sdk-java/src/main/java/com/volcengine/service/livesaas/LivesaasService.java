@@ -18,7 +18,7 @@ public interface LivesaasService extends IBaseService {
     /**
      * UpdateSiteTagAPIV2
      *
-     * @param updateSiteTagAPIVUpdateSiteTagAPIV2RequestRequest 2
+     * @param updateSiteTagAPIV2Request UpdateSiteTagAPIV2Request
      * @return CommonStatusResponse
      * @throws Exception the exception
      */
@@ -423,7 +423,7 @@ public interface LivesaasService extends IBaseService {
     /**
      * UpdateActivityProductAPI
      *
-     * @param updateActivityProductVUpdateActivityProductV2RequestRequest 2
+     * @param updateActivityProductV2Request UpdateActivityProductV2Request
      * @return CommonStatusResponse
      * @throws Exception the exception
      */
@@ -577,7 +577,7 @@ public interface LivesaasService extends IBaseService {
     /**
      * TempToMediaActivityMediaAPI
      *
-     * @param tempTemp2MediaAPIRequestMediaAPIRequest 2
+     * @param temp2MediaAPIRequest Temp2MediaAPIRequest
      * @return Temp2MediaAPIResponse
      * @throws Exception the exception
      */
@@ -1411,4 +1411,66 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     SearchVideoLibraryFolderTreeResponse searchVideoLibraryFolderTree(SearchVideoLibraryFolderTreeRequest searchVideoLibraryFolderTreeRequest) throws Exception;
+    /**
+     * ListLoopVideos
+     *
+     * @param listLoopVideosRequest ListLoopVideosRequest
+     * @return ListLoopVideosResponse
+     * @throws Exception the exception
+     */
+    ListLoopVideosResponse listLoopVideos(ListLoopVideosRequest listLoopVideosRequest) throws Exception;
+
+    /**
+     * UpdateLoopVideoStatus
+     *
+     * @param updateLoopVideoStatusRequest UpdateLoopVideoStatusRequest
+     * @return UpdateLoopVideoStatusResponse
+     * @throws Exception the exception
+     */
+    UpdateLoopVideoStatusResponse updateLoopVideoStatus(UpdateLoopVideoStatusRequest updateLoopVideoStatusRequest) throws Exception;
+
+    /**
+     * UpdateLoopVideos
+     *
+     * @param updateLoopVideosRequest UpdateLoopVideosRequest
+     * @return UpdateLoopVideosResponse
+     * @throws Exception the exception
+     */
+    UpdateLoopVideosResponse updateLoopVideos(UpdateLoopVideosRequest updateLoopVideosRequest) throws Exception;
+
+    /**
+     * ListPrograms
+     *
+     * @param listProgramsRequest ListProgramsRequest
+     * @return ListProgramsResponse
+     * @throws Exception the exception
+     */
+    ListProgramsResponse listPrograms(ListProgramsRequest listProgramsRequest) throws Exception;
+
+    /**
+     * UpdateProgram
+     *
+     * @param updateProgramRequest UpdateProgramRequest
+     * @return UpdateProgramResponse
+     * @throws Exception the exception
+     */
+    UpdateProgramResponse updateProgram(UpdateProgramRequest updateProgramRequest) throws Exception;
+
+    /**
+     * DeleteProgram
+     *
+     * @param deleteProgramRequest DeleteProgramRequest
+     * @return DeleteProgramResponse
+     * @throws Exception the exception
+     */
+    DeleteProgramResponse deleteProgram(DeleteProgramRequest deleteProgramRequest) throws Exception;
+
+    /**
+     * MediaCut
+     *
+     * @param mediaCutRequest MediaCutRequest
+     * @return MediaCutResponse
+     * @throws Exception the exception
+     */
+    MediaCutResponse mediaCut(MediaCutRequest mediaCutRequest) throws Exception;
 }

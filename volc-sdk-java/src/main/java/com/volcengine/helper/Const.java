@@ -469,6 +469,14 @@ public class Const {
 
     public static final String SearchVideoLibraryFolderTree = "SearchVideoLibraryFolderTree";
 
+    public static final String ListLoopVideos = "ListLoopVideos";
+    public static final String UpdateLoopVideoStatus = "UpdateLoopVideoStatus";
+    public static final String UpdateLoopVideos = "UpdateLoopVideos";
+    public static final String ListPrograms = "ListPrograms";
+    public static final String UpdateProgram = "UpdateProgram";
+    public static final String DeleteProgram = "DeleteProgram";
+    public static final String MediaCut = "MediaCut";
+
     // translate
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";

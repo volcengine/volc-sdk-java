@@ -2473,4 +2473,109 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public ListLoopVideosResponse listLoopVideos(ListLoopVideosRequest listLoopVideosRequest) throws Exception {
+        RawResponse response = query(Const.ListLoopVideos, Utils.paramsToPair(listLoopVideosRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListLoopVideosResponse res = JSON.parseObject(response.getData(), ListLoopVideosResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListProgramsResponse listPrograms(ListProgramsRequest listProgramsRequest) throws Exception {
+        RawResponse response = query(Const.ListPrograms, Utils.paramsToPair(listProgramsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListProgramsResponse res = JSON.parseObject(response.getData(), ListProgramsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateLoopVideoStatusResponse updateLoopVideoStatus(UpdateLoopVideoStatusRequest updateLoopVideoStatusRequest) throws Exception {
+        RawResponse response = json(Const.UpdateLoopVideoStatus, new ArrayList<>(), JSON.toJSONString(updateLoopVideoStatusRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateLoopVideoStatusResponse res = JSON.parseObject(response.getData(), UpdateLoopVideoStatusResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateLoopVideosResponse updateLoopVideos(UpdateLoopVideosRequest updateLoopVideosRequest) throws Exception {
+        RawResponse response = json(Const.UpdateLoopVideos, new ArrayList<>(), JSON.toJSONString(updateLoopVideosRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateLoopVideosResponse res = JSON.parseObject(response.getData(), UpdateLoopVideosResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateProgramResponse updateProgram(UpdateProgramRequest updateProgramRequest) throws Exception {
+        RawResponse response = json(Const.UpdateProgram, new ArrayList<>(), JSON.toJSONString(updateProgramRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateProgramResponse res = JSON.parseObject(response.getData(), UpdateProgramResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteProgramResponse deleteProgram(DeleteProgramRequest deleteProgramRequest) throws Exception {
+        RawResponse response = json(Const.DeleteProgram, new ArrayList<>(), JSON.toJSONString(deleteProgramRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteProgramResponse res = JSON.parseObject(response.getData(), DeleteProgramResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public MediaCutResponse mediaCut(MediaCutRequest mediaCutRequest) throws Exception {
+        RawResponse response = json(Const.MediaCut, new ArrayList<>(), JSON.toJSONString(mediaCutRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        MediaCutResponse res = JSON.parseObject(response.getData(), MediaCutResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

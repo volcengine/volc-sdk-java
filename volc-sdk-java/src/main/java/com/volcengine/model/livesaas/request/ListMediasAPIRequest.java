@@ -10,8 +10,8 @@ import java.util.Map;
 public class ListMediasAPIRequest {
     @JSONField(name = "Name")
     String Name;
-    @JSONField(name = "EndT")
-    Long EndT;
+    @JSONField(name = "EndTime")
+    Long EndTime;
     @JSONField(name = "PageNo")
     Integer PageNo;
     @JSONField(name = "PageItemCount")

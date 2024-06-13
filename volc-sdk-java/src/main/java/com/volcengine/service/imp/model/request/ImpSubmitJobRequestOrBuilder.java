@@ -93,4 +93,31 @@ public interface ImpSubmitJobRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getEnableLowPriorityBytes();
+
+  /**
+   * <pre>
+   * 任务执行参数
+   * </pre>
+   *
+   * <code>.Volcengine.Imp.Models.Business.Params Params = 5;</code>
+   * @return Whether the params field is set.
+   */
+  boolean hasParams();
+  /**
+   * <pre>
+   * 任务执行参数
+   * </pre>
+   *
+   * <code>.Volcengine.Imp.Models.Business.Params Params = 5;</code>
+   * @return The params.
+   */
+  com.volcengine.service.imp.model.business.Params getParams();
+  /**
+   * <pre>
+   * 任务执行参数
+   * </pre>
+   *
+   * <code>.Volcengine.Imp.Models.Business.Params Params = 5;</code>
+   */
+  com.volcengine.service.imp.model.business.ParamsOrBuilder getParamsOrBuilder();
 }

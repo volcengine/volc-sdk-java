@@ -28,6 +28,30 @@ public class ImpSubmitJobDemo {
             submitJobRequest.setCallbackArgs("your call back args");
             submitJobRequest.setEnableLowPriority("false");
 
+            Params.Builder params = Params.newBuilder();
+            OverrideParams.Builder overrideParams = OverrideParams.newBuilder();
+            SmartEraseOverrideParams.Builder smartEraseOverrideParams = SmartEraseOverrideParams.newBuilder();
+            Watermark.Builder watermark = Watermark.newBuilder();
+            DetectRect.Builder watermarkDetectRect = DetectRect.newBuilder();
+            watermarkDetectRect.setX1(0);
+            watermarkDetectRect.setX2(1);
+            watermarkDetectRect.setY1(0);
+            watermarkDetectRect.setY2(1);
+            watermark.addDetectRect(0, watermarkDetectRect.build());
+            OCR.Builder ocr = OCR.newBuilder();
+            DetectRect.Builder ocrDetectRect = DetectRect.newBuilder();
+            ocrDetectRect.setX1(0);
+            ocrDetectRect.setX2(1);
+            ocrDetectRect.setY1(0);
+            ocrDetectRect.setY2(1);
+            ocr.addDetectRect(0, ocrDetectRect.build());
+            smartEraseOverrideParams.addActivityId("*");
+            smartEraseOverrideParams.setWatermark(watermark.build());
+            smartEraseOverrideParams.setOCR(ocr.build());
+            overrideParams.addSmartErase(0, smartEraseOverrideParams.build());
+            params.setOverrideParams(overrideParams.build());
+            submitJobRequest.setParams(params.build());
+
             ImpSubmitJobResponse resp =  impService.SubmitJob(submitJobRequest.build());
             System.out.println(resp);
         } catch (Exception e) {

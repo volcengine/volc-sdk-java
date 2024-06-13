@@ -82,6 +82,19 @@ private static final long serialVersionUID = 0L;
             enableLowPriority_ = s;
             break;
           }
+          case 42: {
+            com.volcengine.service.imp.model.business.Params.Builder subBuilder = null;
+            if (params_ != null) {
+              subBuilder = params_.toBuilder();
+            }
+            params_ = input.readMessage(com.volcengine.service.imp.model.business.Params.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(params_);
+              params_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -290,6 +303,44 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int PARAMS_FIELD_NUMBER = 5;
+  private com.volcengine.service.imp.model.business.Params params_;
+  /**
+   * <pre>
+   * 任务执行参数
+   * </pre>
+   *
+   * <code>.Volcengine.Imp.Models.Business.Params Params = 5;</code>
+   * @return Whether the params field is set.
+   */
+  @java.lang.Override
+  public boolean hasParams() {
+    return params_ != null;
+  }
+  /**
+   * <pre>
+   * 任务执行参数
+   * </pre>
+   *
+   * <code>.Volcengine.Imp.Models.Business.Params Params = 5;</code>
+   * @return The params.
+   */
+  @java.lang.Override
+  public com.volcengine.service.imp.model.business.Params getParams() {
+    return params_ == null ? com.volcengine.service.imp.model.business.Params.getDefaultInstance() : params_;
+  }
+  /**
+   * <pre>
+   * 任务执行参数
+   * </pre>
+   *
+   * <code>.Volcengine.Imp.Models.Business.Params Params = 5;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.imp.model.business.ParamsOrBuilder getParamsOrBuilder() {
+    return getParams();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -316,6 +367,9 @@ private static final long serialVersionUID = 0L;
     if (!getEnableLowPriorityBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, enableLowPriority_);
     }
+    if (params_ != null) {
+      output.writeMessage(5, getParams());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -337,6 +391,10 @@ private static final long serialVersionUID = 0L;
     }
     if (!getEnableLowPriorityBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, enableLowPriority_);
+    }
+    if (params_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getParams());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -364,6 +422,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCallbackArgs())) return false;
     if (!getEnableLowPriority()
         .equals(other.getEnableLowPriority())) return false;
+    if (hasParams() != other.hasParams()) return false;
+    if (hasParams()) {
+      if (!getParams()
+          .equals(other.getParams())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -385,6 +448,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getCallbackArgs().hashCode();
     hash = (37 * hash) + ENABLELOWPRIORITY_FIELD_NUMBER;
     hash = (53 * hash) + getEnableLowPriority().hashCode();
+    if (hasParams()) {
+      hash = (37 * hash) + PARAMS_FIELD_NUMBER;
+      hash = (53 * hash) + getParams().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -530,6 +597,12 @@ private static final long serialVersionUID = 0L;
 
       enableLowPriority_ = "";
 
+      if (paramsBuilder_ == null) {
+        params_ = null;
+      } else {
+        params_ = null;
+        paramsBuilder_ = null;
+      }
       return this;
     }
 
@@ -564,6 +637,11 @@ private static final long serialVersionUID = 0L;
       result.templateId_ = templateId_;
       result.callbackArgs_ = callbackArgs_;
       result.enableLowPriority_ = enableLowPriority_;
+      if (paramsBuilder_ == null) {
+        result.params_ = params_;
+      } else {
+        result.params_ = paramsBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -626,6 +704,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getEnableLowPriority().isEmpty()) {
         enableLowPriority_ = other.enableLowPriority_;
         onChanged();
+      }
+      if (other.hasParams()) {
+        mergeParams(other.getParams());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1097,6 +1178,161 @@ private static final long serialVersionUID = 0L;
       enableLowPriority_ = value;
       onChanged();
       return this;
+    }
+
+    private com.volcengine.service.imp.model.business.Params params_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.imp.model.business.Params, com.volcengine.service.imp.model.business.Params.Builder, com.volcengine.service.imp.model.business.ParamsOrBuilder> paramsBuilder_;
+    /**
+     * <pre>
+     * 任务执行参数
+     * </pre>
+     *
+     * <code>.Volcengine.Imp.Models.Business.Params Params = 5;</code>
+     * @return Whether the params field is set.
+     */
+    public boolean hasParams() {
+      return paramsBuilder_ != null || params_ != null;
+    }
+    /**
+     * <pre>
+     * 任务执行参数
+     * </pre>
+     *
+     * <code>.Volcengine.Imp.Models.Business.Params Params = 5;</code>
+     * @return The params.
+     */
+    public com.volcengine.service.imp.model.business.Params getParams() {
+      if (paramsBuilder_ == null) {
+        return params_ == null ? com.volcengine.service.imp.model.business.Params.getDefaultInstance() : params_;
+      } else {
+        return paramsBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * 任务执行参数
+     * </pre>
+     *
+     * <code>.Volcengine.Imp.Models.Business.Params Params = 5;</code>
+     */
+    public Builder setParams(com.volcengine.service.imp.model.business.Params value) {
+      if (paramsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        params_ = value;
+        onChanged();
+      } else {
+        paramsBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 任务执行参数
+     * </pre>
+     *
+     * <code>.Volcengine.Imp.Models.Business.Params Params = 5;</code>
+     */
+    public Builder setParams(
+        com.volcengine.service.imp.model.business.Params.Builder builderForValue) {
+      if (paramsBuilder_ == null) {
+        params_ = builderForValue.build();
+        onChanged();
+      } else {
+        paramsBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 任务执行参数
+     * </pre>
+     *
+     * <code>.Volcengine.Imp.Models.Business.Params Params = 5;</code>
+     */
+    public Builder mergeParams(com.volcengine.service.imp.model.business.Params value) {
+      if (paramsBuilder_ == null) {
+        if (params_ != null) {
+          params_ =
+            com.volcengine.service.imp.model.business.Params.newBuilder(params_).mergeFrom(value).buildPartial();
+        } else {
+          params_ = value;
+        }
+        onChanged();
+      } else {
+        paramsBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 任务执行参数
+     * </pre>
+     *
+     * <code>.Volcengine.Imp.Models.Business.Params Params = 5;</code>
+     */
+    public Builder clearParams() {
+      if (paramsBuilder_ == null) {
+        params_ = null;
+        onChanged();
+      } else {
+        params_ = null;
+        paramsBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 任务执行参数
+     * </pre>
+     *
+     * <code>.Volcengine.Imp.Models.Business.Params Params = 5;</code>
+     */
+    public com.volcengine.service.imp.model.business.Params.Builder getParamsBuilder() {
+      
+      onChanged();
+      return getParamsFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * 任务执行参数
+     * </pre>
+     *
+     * <code>.Volcengine.Imp.Models.Business.Params Params = 5;</code>
+     */
+    public com.volcengine.service.imp.model.business.ParamsOrBuilder getParamsOrBuilder() {
+      if (paramsBuilder_ != null) {
+        return paramsBuilder_.getMessageOrBuilder();
+      } else {
+        return params_ == null ?
+            com.volcengine.service.imp.model.business.Params.getDefaultInstance() : params_;
+      }
+    }
+    /**
+     * <pre>
+     * 任务执行参数
+     * </pre>
+     *
+     * <code>.Volcengine.Imp.Models.Business.Params Params = 5;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.imp.model.business.Params, com.volcengine.service.imp.model.business.Params.Builder, com.volcengine.service.imp.model.business.ParamsOrBuilder> 
+        getParamsFieldBuilder() {
+      if (paramsBuilder_ == null) {
+        paramsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.imp.model.business.Params, com.volcengine.service.imp.model.business.Params.Builder, com.volcengine.service.imp.model.business.ParamsOrBuilder>(
+                getParams(),
+                getParentForChildren(),
+                isClean());
+        params_ = null;
+      }
+      return paramsBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

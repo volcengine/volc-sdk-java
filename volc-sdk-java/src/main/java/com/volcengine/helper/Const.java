@@ -468,6 +468,12 @@ public class Const {
     public static final String GetVideoLibraryFolderTree = "GetVideoLibraryFolderTree";
 
     public static final String SearchVideoLibraryFolderTree = "SearchVideoLibraryFolderTree";
+    public static final String DeleteHostAccount = "DeleteHostAccount";
+    public static final String UpdateHostAccount = "UpdateHostAccount";
+    public static final String UpdateActivityHostAccount = "UpdateActivityHostAccount";
+    public static final String UpdateFloatingAdvertisement = "UpdateFloatingAdvertisement";
+    public static final String ListHostAccounts = "ListHostAccounts";
+    public static final String GetBusinessAccountInfo = "GetBusinessAccountInfo";
 
     public static final String ListLoopVideos = "ListLoopVideos";
     public static final String UpdateLoopVideoStatus = "UpdateLoopVideoStatus";

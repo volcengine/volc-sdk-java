@@ -2578,4 +2578,94 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public UpdateHostAccountResponse updateHostAccount(UpdateHostAccountRequest updateHostAccountRequest) throws Exception {
+        RawResponse response = json(Const.UpdateHostAccount, new ArrayList<>(), JSON.toJSONString(updateHostAccountRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateHostAccountResponse res = JSON.parseObject(response.getData(), UpdateHostAccountResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteHostAccountResponse deleteHostAccount(DeleteHostAccountRequest deleteHostAccountRequest) throws Exception {
+        RawResponse response = json(Const.DeleteHostAccount, new ArrayList<>(), JSON.toJSONString(deleteHostAccountRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteHostAccountResponse res = JSON.parseObject(response.getData(), DeleteHostAccountResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateActivityHostAccountResponse updateActivityHostAccount(UpdateActivityHostAccountRequest updateActivityHostAccountRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityHostAccount, new ArrayList<>(), JSON.toJSONString(updateActivityHostAccountRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateActivityHostAccountResponse res = JSON.parseObject(response.getData(), UpdateActivityHostAccountResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateFloatingAdvertisementResponse updateFloatingAdvertisement(UpdateFloatingAdvertisementRequest updateFloatingAdvertisementRequest) throws Exception {
+        RawResponse response = json(Const.UpdateFloatingAdvertisement, new ArrayList<>(), JSON.toJSONString(updateFloatingAdvertisementRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateFloatingAdvertisementResponse res = JSON.parseObject(response.getData(), UpdateFloatingAdvertisementResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListHostAccountsResponse listHostAccounts(ListHostAccountsRequest listHostAccountsRequest) throws Exception {
+        RawResponse response = query(Const.ListHostAccounts, Utils.paramsToPair(listHostAccountsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListHostAccountsResponse res = JSON.parseObject(response.getData(), ListHostAccountsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetBusinessAccountInfoResponse getBusinessAccountInfo(GetBusinessAccountInfoRequest getBusinessAccountInfoRequest) throws Exception {
+        RawResponse response = query(Const.GetBusinessAccountInfo, Utils.paramsToPair(getBusinessAccountInfoRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetBusinessAccountInfoResponse res = JSON.parseObject(response.getData(), GetBusinessAccountInfoResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

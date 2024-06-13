@@ -40,18 +40,19 @@ public final class ImpRequest {
     java.lang.String[] descriptorData = {
       "\n\035imp/request/request_imp.proto\022\035Volceng" +
       "ine.Imp.Models.Request\032\035imp/business/imp" +
-      "_common.proto\"\230\001\n\023ImpSubmitJobRequest\022<\n" +
+      "_common.proto\"\320\001\n\023ImpSubmitJobRequest\022<\n" +
       "\tInputPath\030\001 \001(\0132).Volcengine.Imp.Models" +
       ".Business.InputPath\022\022\n\nTemplateId\030\002 \001(\t\022" +
       "\024\n\014CallbackArgs\030\003 \001(\t\022\031\n\021EnableLowPriori" +
-      "ty\030\004 \001(\t\"\"\n\021ImpKillJobRequest\022\r\n\005JobId\030\001" +
-      " \001(\t\"\'\n\025ImpRetrieveJobRequest\022\016\n\006JobIds\030" +
-      "\001 \003(\tB\310\001\n(com.volcengine.service.imp.mod" +
-      "el.requestB\nImpRequestP\001Z@github.com/vol" +
-      "cengine/volc-sdk-golang/service/imp/mode" +
-      "ls/request\240\001\001\330\001\001\312\002\037Volc\\Service\\Imp\\Mode" +
-      "ls\\Request\342\002#Volc\\Service\\Imp\\Models\\GPB" +
-      "Metadatab\006proto3"
+      "ty\030\004 \001(\t\0226\n\006Params\030\005 \001(\0132&.Volcengine.Im" +
+      "p.Models.Business.Params\"\"\n\021ImpKillJobRe" +
+      "quest\022\r\n\005JobId\030\001 \001(\t\"\'\n\025ImpRetrieveJobRe" +
+      "quest\022\016\n\006JobIds\030\001 \003(\tB\310\001\n(com.volcengine" +
+      ".service.imp.model.requestB\nImpRequestP\001" +
+      "Z@github.com/volcengine/volc-sdk-golang/" +
+      "service/imp/models/request\240\001\001\330\001\001\312\002\037Volc\\" +
+      "Service\\Imp\\Models\\Request\342\002#Volc\\Servic" +
+      "e\\Imp\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -63,7 +64,7 @@ public final class ImpRequest {
     internal_static_Volcengine_Imp_Models_Request_ImpSubmitJobRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Request_ImpSubmitJobRequest_descriptor,
-        new java.lang.String[] { "InputPath", "TemplateId", "CallbackArgs", "EnableLowPriority", });
+        new java.lang.String[] { "InputPath", "TemplateId", "CallbackArgs", "EnableLowPriority", "Params", });
     internal_static_Volcengine_Imp_Models_Request_ImpKillJobRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Volcengine_Imp_Models_Request_ImpKillJobRequest_fieldAccessorTable = new

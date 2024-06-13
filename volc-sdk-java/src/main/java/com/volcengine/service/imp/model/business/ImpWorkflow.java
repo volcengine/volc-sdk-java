@@ -29,6 +29,36 @@ public final class ImpWorkflow {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Imp_Models_Business_JobExecution_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Imp_Models_Business_Params_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Imp_Models_Business_Params_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Imp_Models_Business_OverrideParams_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Imp_Models_Business_OverrideParams_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Imp_Models_Business_SmartEraseOverrideParams_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Imp_Models_Business_SmartEraseOverrideParams_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Imp_Models_Business_Watermark_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Imp_Models_Business_Watermark_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Imp_Models_Business_OCR_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Imp_Models_Business_OCR_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Imp_Models_Business_DetectRect_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Imp_Models_Business_DetectRect_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -53,12 +83,26 @@ public final class ImpWorkflow {
       "dels.Business.JobOutput\022\016\n\006Status\030\004 \001(\t\022" +
       "\020\n\010CreateAt\030\005 \001(\t\022\022\n\nFinishedAt\030\006 \001(\t\022\022\n" +
       "\nTemplateId\030\007 \001(\t\022\031\n\021EnableLowPriority\030\010" +
-      " \001(\t\022\021\n\tJobSource\030\t \001(\tB\314\001\n)com.volcengi" +
-      "ne.service.imp.model.businessB\013ImpWorkfl" +
-      "owP\001ZAgithub.com/volcengine/volc-sdk-gol" +
-      "ang/service/imp/models/business\240\001\001\330\001\001\312\002 " +
-      "Volc\\Service\\Imp\\Models\\Business\342\002#Volc\\" +
-      "Service\\Imp\\Models\\GPBMetadatab\006proto3"
+      " \001(\t\022\021\n\tJobSource\030\t \001(\t\"P\n\006Params\022F\n\016Ove" +
+      "rrideParams\030\001 \001(\0132..Volcengine.Imp.Model" +
+      "s.Business.OverrideParams\"^\n\016OverridePar" +
+      "ams\022L\n\nSmartErase\030\001 \003(\01328.Volcengine.Imp" +
+      ".Models.Business.SmartEraseOverrideParam" +
+      "s\"\236\001\n\030SmartEraseOverrideParams\022\022\n\nActivi" +
+      "tyId\030\001 \003(\t\022<\n\tWatermark\030\002 \001(\0132).Volcengi" +
+      "ne.Imp.Models.Business.Watermark\0220\n\003OCR\030" +
+      "\003 \001(\0132#.Volcengine.Imp.Models.Business.O" +
+      "CR\"K\n\tWatermark\022>\n\nDetectRect\030\001 \003(\0132*.Vo" +
+      "lcengine.Imp.Models.Business.DetectRect\"" +
+      "E\n\003OCR\022>\n\nDetectRect\030\001 \003(\0132*.Volcengine." +
+      "Imp.Models.Business.DetectRect\"<\n\nDetect" +
+      "Rect\022\n\n\002X1\030\001 \001(\001\022\n\n\002Y1\030\002 \001(\001\022\n\n\002X2\030\003 \001(\001" +
+      "\022\n\n\002Y2\030\004 \001(\001B\314\001\n)com.volcengine.service." +
+      "imp.model.businessB\013ImpWorkflowP\001ZAgithu" +
+      "b.com/volcengine/volc-sdk-golang/service" +
+      "/imp/models/business\240\001\001\330\001\001\312\002 Volc\\Servic" +
+      "e\\Imp\\Models\\Business\342\002#Volc\\Service\\Imp" +
+      "\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -82,6 +126,42 @@ public final class ImpWorkflow {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_JobExecution_descriptor,
         new java.lang.String[] { "JobId", "InputPath", "Output", "Status", "CreateAt", "FinishedAt", "TemplateId", "EnableLowPriority", "JobSource", });
+    internal_static_Volcengine_Imp_Models_Business_Params_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_Volcengine_Imp_Models_Business_Params_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Imp_Models_Business_Params_descriptor,
+        new java.lang.String[] { "OverrideParams", });
+    internal_static_Volcengine_Imp_Models_Business_OverrideParams_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_Volcengine_Imp_Models_Business_OverrideParams_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Imp_Models_Business_OverrideParams_descriptor,
+        new java.lang.String[] { "SmartErase", });
+    internal_static_Volcengine_Imp_Models_Business_SmartEraseOverrideParams_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_Volcengine_Imp_Models_Business_SmartEraseOverrideParams_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Imp_Models_Business_SmartEraseOverrideParams_descriptor,
+        new java.lang.String[] { "ActivityId", "Watermark", "OCR", });
+    internal_static_Volcengine_Imp_Models_Business_Watermark_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_Volcengine_Imp_Models_Business_Watermark_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Imp_Models_Business_Watermark_descriptor,
+        new java.lang.String[] { "DetectRect", });
+    internal_static_Volcengine_Imp_Models_Business_OCR_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_Volcengine_Imp_Models_Business_OCR_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Imp_Models_Business_OCR_descriptor,
+        new java.lang.String[] { "DetectRect", });
+    internal_static_Volcengine_Imp_Models_Business_DetectRect_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_Volcengine_Imp_Models_Business_DetectRect_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Imp_Models_Business_DetectRect_descriptor,
+        new java.lang.String[] { "X1", "Y1", "X2", "Y2", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

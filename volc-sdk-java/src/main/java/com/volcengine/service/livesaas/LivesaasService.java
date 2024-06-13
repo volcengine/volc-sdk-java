@@ -1473,4 +1473,58 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     MediaCutResponse mediaCut(MediaCutRequest mediaCutRequest) throws Exception;
+
+    /**
+     * DeleteHostAccount
+     *
+     * @param deleteHostAccountRequest DeleteHostAccountRequest
+     * @return DeleteHostAccountResponse
+     * @throws Exception the exception
+     */
+    DeleteHostAccountResponse deleteHostAccount(DeleteHostAccountRequest deleteHostAccountRequest) throws Exception;
+
+    /**
+     * UpdateHostAccount
+     *
+     * @param updateHostAccountRequest UpdateHostAccountRequest
+     * @return UpdateHostAccountResponse
+     * @throws Exception the exception
+     */
+    UpdateHostAccountResponse updateHostAccount(UpdateHostAccountRequest updateHostAccountRequest) throws Exception;
+
+    /**
+     * UpdateActivityHostAccount
+     *
+     * @param updateActivityHostAccountRequest UpdateActivityHostAccountRequest
+     * @return UpdateActivityHostAccountResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityHostAccountResponse updateActivityHostAccount(UpdateActivityHostAccountRequest updateActivityHostAccountRequest) throws Exception;
+
+    /**
+     * UpdateFloatingAdvertisement
+     *
+     * @param updateFloatingAdvertisementRequest UpdateFloatingAdvertisementRequest
+     * @return UpdateFloatingAdvertisementResponse
+     * @throws Exception the exception
+     */
+    UpdateFloatingAdvertisementResponse updateFloatingAdvertisement(UpdateFloatingAdvertisementRequest updateFloatingAdvertisementRequest) throws Exception;
+
+    /**
+     * ListHostAccounts
+     *
+     * @param listHostAccountsRequest ListHostAccountsRequest
+     * @return ListHostAccountsResponse
+     * @throws Exception the exception
+     */
+    ListHostAccountsResponse listHostAccounts(ListHostAccountsRequest listHostAccountsRequest) throws Exception;
+
+    /**
+     * getBusinessAccountInfo
+     *
+     * @param getBusinessAccountInfoRequest GetBusinessAccountInfoRequest
+     * @return GetBusinessAccountInfoResponse
+     * @throws Exception the exception
+     */
+    GetBusinessAccountInfoResponse getBusinessAccountInfo(GetBusinessAccountInfoRequest getBusinessAccountInfoRequest) throws Exception;
 }

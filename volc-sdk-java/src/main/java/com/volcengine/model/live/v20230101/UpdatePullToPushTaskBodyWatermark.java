@@ -14,9 +14,9 @@ public final class UpdatePullToPushTaskBodyWatermark  {
      *
      *
      *
-     * <p>- mediatype：图片类型，支持 png、jpg、jpeg 格式；</p>
+     * <p>- `mediatype`：图片类型，支持 png、jpg、jpeg 格式；</p>
      *
-     * <p>- data：base64 编码的图片字符串。</p>
+     * <p>- `data`：base64 编码的图片字符串。</p>
      *
      *
      *

@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class UpdateCallbackBodyCallbackDetailListItem  {
 
     /**
-     * <p>回调类型，支持设置为 HTTP，表示可以使用 HTTP 和 HTTPS 地址接收回调事件。</p>
+     * <p>回调类型，返回 HTTP，表示可以使用 HTTP 和 HTTPS 地址接收回调消息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CallbackType")
     private String callbackType;

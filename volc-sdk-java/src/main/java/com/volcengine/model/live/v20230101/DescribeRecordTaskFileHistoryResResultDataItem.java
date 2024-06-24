@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class DescribeRecordTaskFileHistoryResResultDataItem  {
 
     /**
-     * <p>域名空间名称。</p>
+     * <p>域名空间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;
@@ -74,6 +74,18 @@ public final class DescribeRecordTaskFileHistoryResResultDataItem  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vid")
     private String vid;
+
+    /**
+     * <p>结束录制时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "EndTimeUTC")
+    private String endTimeUTC;
+
+    /**
+     * <p>开始录制时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StartTimeUTC")
+    private String startTimeUTC;
 
     @Override
     public String toString() {

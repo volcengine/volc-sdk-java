@@ -180,4 +180,10 @@ public interface SmsService extends IBaseService {
 
 
     GetSmsSendDetailsResponse getSmsSendDetails(GetSmsSendDetailsRequest getSmsSendDetailsRequest) throws Exception;
+
+    ApplySignatureIdentResponse applySignatureIdent(ApplySignatureIdentRequest applySignatureIdentRequest) throws Exception;
+
+    GetSignatureIdentListResponse getSignatureIdentList(GetSignatureIdentListRequest getSignatureIdentListRequest) throws Exception;
+
+    BatchBindSignatureIdentResponse batchBindSignatureIdent(BatchBindSignatureIdentRequest batchBindSignatureIdentRequest) throws Exception;
 }

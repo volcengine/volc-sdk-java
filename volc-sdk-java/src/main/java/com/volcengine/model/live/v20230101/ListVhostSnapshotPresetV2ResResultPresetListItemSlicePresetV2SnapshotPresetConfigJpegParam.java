@@ -10,13 +10,13 @@ import com.alibaba.fastjson.JSON;
 public final class ListVhostSnapshotPresetV2ResResultPresetListItemSlicePresetV2SnapshotPresetConfigJpegParam  {
 
     /**
-     * <p>当前格式的截图是否开启，默认为 false，取值及含义如下所示。</p>
+     * <p>当前格式的截图是否开启，取值及含义如下所示。</p>
      *
      *
      *
-     * <p>- false：不开启；</p>
+     * <p>- `false`：不开启；</p>
      *
-     * <p>- true：开启。</p>
+     * <p>- `true`：开启。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Enable")
     private Boolean enable;

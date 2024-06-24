@@ -22,7 +22,7 @@ public final class CreateCertResResult  {
     private String domain;
 
     /**
-     * <p>证书用途，默认为 `https`，取值及含义如下所示。</p>
+     * <p>证书用途，取值及含义如下所示。</p>
      *
      * <p>- `https`：用于 HTTPS 加密；</p>
      *

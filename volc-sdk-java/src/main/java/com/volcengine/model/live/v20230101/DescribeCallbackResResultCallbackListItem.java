@@ -17,7 +17,7 @@ public final class DescribeCallbackResResultCallbackListItem  {
     private String app;
 
     /**
-     * <p>回调消息发送是否开启鉴权，默认为 `false`，取值及含义如下所示。</p>
+     * <p>回调消息发送是否开启鉴权，默认为 `false`，取值及含义如下所示。</p>
      *
      *
      *
@@ -63,9 +63,9 @@ public final class DescribeCallbackResResultCallbackListItem  {
      *
      *
      *
-     * <p>- 0：false，不开启；</p>
+     * <p>- `0`：不开启；</p>
      *
-     * <p>- 1：true，开启。</p>
+     * <p>- `1`：开启。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TranscodeCallback")
     private Integer transcodeCallback;
@@ -77,10 +77,16 @@ public final class DescribeCallbackResResultCallbackListItem  {
     private String vhost;
 
     /**
-     * <p>创建时间。</p>
+     * <p>回调配置创建时间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CreateTime")
     private String createTime;
+
+    /**
+     * <p>回调配置创建时间，格式为 RFC3339 的 UTC 时间，精度为秒。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "CreateTimeUTC")
+    private String createTimeUTC;
 
     @Override
     public String toString() {

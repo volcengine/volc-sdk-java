@@ -28,13 +28,13 @@ public final class CreateLiveStreamRecordIndexFilesResResult  {
     private String stream;
 
     /**
-     * <p>录制索引文件的开始时间。</p>
+     * <p>录制索引文件的开始时间，RFC3339 格式的时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>录制索引文件的开始时间。</p>
+     * <p>录制索引文件的结束时间，RFC3339 格式的时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
@@ -58,7 +58,7 @@ public final class CreateLiveStreamRecordIndexFilesResResult  {
     private Float duration;
 
     /**
-     * <p>创建录制索引文件任务的时间。</p>
+     * <p>创建录制索引文件任务的时间，RFC3339 格式的 UTC 时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CreateTime")
     private String createTime;

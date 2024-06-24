@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class ListVhostSnapshotPresetV2ResResultPresetListItem  {
 
     /**
-     * <p>域名空间名称。</p>
+     * <p>域名空间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;

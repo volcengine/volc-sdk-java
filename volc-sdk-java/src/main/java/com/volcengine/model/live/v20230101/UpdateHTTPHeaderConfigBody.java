@@ -11,13 +11,13 @@ import java.util.List;
 public final class UpdateHTTPHeaderConfigBody  {
 
     /**
-     * <p>域名空间，即直播流地址的域名所属的域名空间。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console-stable.volcanicengine.com/live/main/domain/list)页面，查看需要域名所属的域名空间。</p>
+     * <p>域名空间，即直播流地址的域名所属的域名空间。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，查看需要域名所属的域名空间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;
 
     /**
-     * <p>拉流域名。默认为空，表示 Vhost 下的全部拉流域名。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console-stable.volcanicengine.com/live/main/domain/list)页面，查看配置的拉流域名。</p>
+     * <p>拉流域名。默认为空，表示 Vhost 下的全部拉流域名。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，查看配置的拉流域名。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;

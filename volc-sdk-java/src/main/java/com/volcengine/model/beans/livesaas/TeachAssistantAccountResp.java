@@ -23,5 +23,7 @@ public class TeachAssistantAccountResp {
     String LoginUrl;
     @JSONField(name = "OneStepLoginUrl")
     String OneStepLoginUrl;
+    @JSONField(name = "AudienceGroupIds")
+    List<Long> AudienceGroupIds;
 }
 

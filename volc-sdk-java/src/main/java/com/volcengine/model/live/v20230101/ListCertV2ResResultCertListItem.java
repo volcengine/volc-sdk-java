@@ -70,6 +70,12 @@ public final class ListCertV2ResResultCertListItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Status")
     private String status;
 
+    /**
+     * <p>项目名称。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ProjectName")
+    private String projectName;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

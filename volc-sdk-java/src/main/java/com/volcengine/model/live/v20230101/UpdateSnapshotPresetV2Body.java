@@ -10,31 +10,31 @@ import com.alibaba.fastjson.JSON;
 public final class UpdateSnapshotPresetV2Body  {
 
     /**
-     * <p>域名空间名称。</p>
+     * <p>域名空间，您可以调用 [ListVhostSnapshotPresetV2](https://www.volcengine.com/docs/6469/1208858) 接口，获取待更新截图配置的 Vhost 取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;
 
     /**
-     * <p>截图配置的名称。</p>
+     * <p>截图配置的名称，您可以调用 [ListVhostSnapshotPresetV2](https://www.volcengine.com/docs/6469/1208858) 接口获取，取值与 `Name` 字段取值相同。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Preset")
     private String preset;
 
     /**
-     * <p>应用名称，由 1 到 30 位数字、字母、下划线及"-"和"."组成。</p>
+     * <p>应用名称，您可以调用 [ListVhostSnapshotPresetV2](https://www.volcengine.com/docs/6469/1208858) 接口，获取待更新截图配置的 App 取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>截图配置生效状态，默认为生效。</p>
+     * <p>截图配置生效状态，默认及含义如下所示。</p>
      *
      *
      *
-     * <p>- 1：生效；</p>
+     * <p>- `1`：生效；</p>
      *
-     * <p>- 0：不生效。</p>
+     * <p>- `0`：不生效。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Status")
     private Integer status;

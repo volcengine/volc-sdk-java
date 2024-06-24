@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class ForbidStreamBody  {
 
     /**
-     * <p>域名空间，即直播流地址的域名（`Domain`）所属的域名空间（`Vhost`）。您可以调用 [`ListDomainDetail`](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console-stable.volcanicengine.com/live/main/domain/list)页面，查看待禁推的直播流使用的域名所属的域名空间。</p>
+     * <p>域名空间，即直播流地址的域名（`Domain`）所属的域名空间（`Vhost`）。您可以调用 [`ListDomainDetail`](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，查看待禁推的直播流使用的域名所属的域名空间。</p>
      *
      * <p>:::tip</p>
      *
@@ -22,7 +22,7 @@ public final class ForbidStreamBody  {
     private String vhost;
 
     /**
-     * <p>直播流使用的域名，您可以调用 [`ListDomainDetail`](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console-stable.volcanicengine.com/live/main/domain/list)页面，查看待禁推的直播流使用的域名。</p>
+     * <p>直播流使用的域名，您可以调用 [`ListDomainDetail`](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，查看待禁推的直播流使用的域名。</p>
      *
      * <p>:::tip</p>
      *

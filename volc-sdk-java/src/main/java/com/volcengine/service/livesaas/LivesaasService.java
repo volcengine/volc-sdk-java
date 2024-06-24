@@ -322,6 +322,24 @@ public interface LivesaasService extends IBaseService {
     GetTopChatAPIResponse getTopChatAPI(CommonRequest commonRequest) throws Exception;
 
     /**
+     * GetHotChatAPI
+     *
+     * @param getHotChatAPIRequest GetHotChatAPIRequest
+     * @return GetHotChatAPIResponse
+     * @throws Exception the exception
+     */
+    GetHotChatAPIResponse getHotChatAPI(GetHotChatAPIRequest getHotChatAPIRequest) throws Exception;
+
+    /**
+     * GetTopChatAPI
+     *
+     * @param getTopChatAPIRequest GetTopChatAPIRequest
+     * @return GetTopChatAPIResponse
+     * @throws Exception the exception
+     */
+    GetTopChatAPIResponse getTopChatAPI(GetTopChatAPIRequest getTopChatAPIRequest) throws Exception;
+
+    /**
      * DeleteChatAPI
      *
      * @param deleteChatAPIRequest DeleteChatAPIRequest
@@ -423,7 +441,7 @@ public interface LivesaasService extends IBaseService {
     /**
      * UpdateActivityProductAPI
      *
-     * @param updateActivityProductV2Request UpdateActivityProductV2Request
+     * @param updateActivityProductVUpdateActivityProductV2RequestRequest 2
      * @return CommonStatusResponse
      * @throws Exception the exception
      */
@@ -1287,6 +1305,16 @@ public interface LivesaasService extends IBaseService {
     UpdateSecurityControlConfigResponse updateSecurityControlConfig(UpdateSecurityControlConfigRequest updateSecurityControlConfigRequest) throws Exception;
 
     /**
+     * GetActivityLinks
+     *
+     * @param getActivityLinksRequest
+     * @return
+     * @throws Exception
+     */
+    GetActivityLinksResponse getActivityLinks(GetActivityLinksRequest getActivityLinksRequest) throws Exception;
+
+
+    /**
      * GetLiveTrafficPostPayData
      *
      * @param getLiveTrafficPostPayDataRequest
@@ -1527,4 +1555,68 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetBusinessAccountInfoResponse getBusinessAccountInfo(GetBusinessAccountInfoRequest getBusinessAccountInfoRequest) throws Exception;
+
+    /**
+     * getAudienceGroupConfig
+     *
+     * @param getAudienceGroupConfigRequest GetAudienceGroupConfigRequest
+     * @return GetAudienceGroupConfigResponse
+     * @throws Exception the exception
+     */
+    GetAudienceGroupConfigResponse getAudienceGroupConfig(GetAudienceGroupConfigRequest getAudienceGroupConfigRequest) throws Exception;
+
+    /**
+     * updateAudienceGroupConfig
+     *
+     * @param updateAudienceGroupConfigRequest UpdateAudienceGroupConfigRequest
+     * @return UpdateAudienceGroupConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateAudienceGroupConfigResponse updateAudienceGroupConfig(UpdateAudienceGroupConfigRequest updateAudienceGroupConfigRequest) throws Exception;
+
+    /**
+     * listAudienceGroupUser
+     *
+     * @param listAudienceGroupUserRequest ListAudienceGroupUserRequest
+     * @return ListAudienceGroupUserResponse
+     * @throws Exception the exception
+     */
+    ListAudienceGroupUserResponse listAudienceGroupUser(ListAudienceGroupUserRequest listAudienceGroupUserRequest) throws Exception;
+
+    /**
+     * addAudienceGroup
+     *
+     * @param addAudienceGroupRequest AddAudienceGroupRequest
+     * @return AddAudienceGroupResponse
+     * @throws Exception the exception
+     */
+    AddAudienceGroupResponse addAudienceGroup(AddAudienceGroupRequest addAudienceGroupRequest) throws Exception;
+
+    /**
+     * updateAudienceGroupUserConfig
+     *
+     * @param updateAudienceGroupUserConfig UpdateAudienceGroupUserConfigRequest
+     * @return UpdateAudienceGroupUserConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateAudienceGroupUserConfigResponse updateAudienceGroupUserConfig(UpdateAudienceGroupUserConfigRequest updateAudienceGroupUserConfig) throws Exception;
+
+    /**
+     * deleteAudienceGroup
+     *
+     * @param deleteAudienceGroupRequest DeleteAudienceGroupRequest
+     * @return DeleteAudienceGroupResponse
+     * @throws Exception the exception
+     */
+    DeleteAudienceGroupResponse deleteAudienceGroup(DeleteAudienceGroupRequest deleteAudienceGroupRequest) throws Exception;
+
+    /**
+     * modifyAudienceGroup
+     *
+     * @param modifyAudienceGroupRequest ModifyAudienceGroupRequest
+     * @return ModifyAudienceGroupResponse
+     * @throws Exception the exception
+     */
+    ModifyAudienceGroupResponse modifyAudienceGroup(ModifyAudienceGroupRequest modifyAudienceGroupRequest) throws Exception;
+
 }

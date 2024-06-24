@@ -10,11 +10,11 @@ import com.alibaba.fastjson.JSON;
 public final class CreateSnapshotPresetV2BodySnapshotPresetConfigJpegParamImageXParam  {
 
     /**
-     * <p>截图是否使用 veImageX 存储，默认为 false，取值及含义如下所示。</p>
+     * <p>截图是否使用 veImageX 存储，取值及含义如下所示。</p>
      *
-     * <p>- false：不使用；</p>
+     * <p>- `false`：（默认值）不使用；</p>
      *
-     * <p>- true：使用。</p>
+     * <p>- `true`：使用。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Enable")
     private Boolean enable;

@@ -12,27 +12,29 @@ public final class ListCommonTransPresetDetailResResultNarrowBandHDPresetDetailI
     /**
      * <p>音频编码格式，支持的取值及含义如下。</p>
      *
-     * <p>- aac：使用 AAC 编码格式；</p>
+     * <p>- `aac`：使用 AAC 编码格式；</p>
      *
-     * <p>- copy：不进行转码，所有音频编码参数不生效；</p>
+     * <p>- `opus`：使用 Opus 编码格式；</p>
      *
-     * <p>- opus：使用 Opus 编码格式。</p>
+     * <p>- `copy`：不进行转码，所有音频编码参数不生效。</p>
+     *
+     *
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Acodec")
     private String acodec;
 
     /**
-     * <p>宽高自适应模式开关，支持的取值及含义如下。</p>
+     * <p>视频分辨率自适应模式开关。支持的取值及含义如下。</p>
      *
-     * <p>- 0：关闭宽高自适应</p>
+     * <p>- `0`：关闭视频分辨率自适应；</p>
      *
-     * <p>- 1：开启宽高自适应</p>
+     * <p>- `1`：开启视频分辨率自适应。</p>
      *
      * <p>:::tip</p>
      *
-     * <p>- 关闭宽高自适应时，转码配置分辨率取 `Width` 和 `Height` 的值对转码视频进行拉伸；</p>
+     * <p>- 关闭视频分辨率自适应模式（`As` 取值为 `0`）时，转码配置的视频分辨率取视频宽度（`Width`）和视频高度（`Height`）的值对转码视频进行拉伸；</p>
      *
-     * <p>- 开启宽高自适应时，转码配置分辨率按照 `ShortSide` 、 `LongSide` 、`Width` 、`Height` 的优先级取值，另一边等比缩放。</p>
+     * <p>- 开启视频分辨率自适应模式（`As` 取值为 `1`）时，转码配置的视频分辨率按照短边长度（`ShortSide`）、长边长度（`LongSide`）、视频宽度（`Width`）、视频高度（`Height`）的优先级取值，另一边等比缩放。</p>
      *
      * <p>:::</p>
      */
@@ -46,7 +48,15 @@ public final class ListCommonTransPresetDetailResResultNarrowBandHDPresetDetailI
     private Integer audioBitrate;
 
     /**
-     * <p>2 个参考帧之间的最大 B 帧数。`BFrames` 取 0 时，表示去 B 帧。</p>
+     * <p>转码输出视频中 2 个参考帧之间的最大 B 帧数量，默认值为 `3`，取值为 `0` 时表示去除 B 帧。</p>
+     *
+     *
+     *
+     * <p>最大 B 帧数量的取值范围根据视频编码格式（Vcodec）的不同有所差异，取值范围如下所示。</p>
+     *
+     * <p>- 视频编码格式为 H.264 （`Vcodec` 取值为 `h264`）时取值范围为 [0,7]；</p>
+     *
+     * <p>- 视频编码格式为 H.265 或 H.266 （`Vcodec` 取值为 `h265` 或 `h266`）时取值范围为 [0,3]、7、15。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "BFrames")
     private Integer bFrames;
@@ -68,11 +78,11 @@ public final class ListCommonTransPresetDetailResResultNarrowBandHDPresetDetailI
      *
      * <p>:::tip</p>
      *
-     * <p>- 当 `As` 的取值为 0 即关闭宽高自适应时，转码分辨率将取 Width 和 Height 的值对转码视频进行拉伸；</p>
+     * <p>- 当关闭视频分辨率自适应（`As` 取值为 `0`）时，转码分辨率将取 `Width` 和 `Height` 的值对转码视频进行拉伸；</p>
      *
-     * <p>- Width 和 Height 任一配置为 0 时，转码视频将保持源流尺寸；</p>
+     * <p>- 当关闭视频分辨率自适应（`As` 取值为 `0`）时，`Width` 和 `Height` 任一取值为 `0` 时，转码视频将保持源流尺寸；</p>
      *
-     * <p>- 编码格式为 H.266 时，不支持设置 Width 和 Height，请使用自适应配置。</p>
+     * <p>- 编码格式为 H.266 时，不支持设置 `Width` 和 `Height`，请使用自适应配置。</p>
      *
      * <p>:::</p>
      */
@@ -94,11 +104,19 @@ public final class ListCommonTransPresetDetailResResultNarrowBandHDPresetDetailI
     private Integer longSide;
 
     /**
-     * <p>是否极智超清转码，取值及含义如下。</p>
+     * <p>转码类型是否为极智超清转码，默认值为 `false`，取值及含义如下。</p>
      *
-     * <p>- true：极智超清转码；</p>
+     * <p>- `true`：极智超清转码；</p>
      *
-     * <p>- false：标准转码。</p>
+     * <p>- `false`：标准转码。</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>视频编码格式为 H.266 （`Vcodec` 取值为 `h266`）时，转码类型不支持极智超清转码。</p>
+     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Roi")
     private Boolean roi;
@@ -118,7 +136,11 @@ public final class ListCommonTransPresetDetailResResultNarrowBandHDPresetDetailI
     private Integer shortSide;
 
     /**
-     * <p>转码流后缀名。</p>
+     * <p>转码后缀，支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（_）和短横线（-）组成，长度为 1 到 10 个字符。</p>
+     *
+     *
+     *
+     * <p>转码后缀通常以流名称后缀的形式来使用，常见的标识有 `_sd`、`_hd`、`_uhd`，例如，当转码配置的标识为 `_hd` 时，拉取转码流时转码流的流名名称为 `源流的流名称_hd`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SuffixName")
     private String suffixName;
@@ -126,17 +148,17 @@ public final class ListCommonTransPresetDetailResResultNarrowBandHDPresetDetailI
     /**
      * <p>视频编码格式。</p>
      *
-     * <p>- h264：使用 H.264 编码格式；</p>
+     * <p>- `h264`：使用 H.264 编码格式；</p>
      *
-     * <p>- h265：使用 H.265 编码格式；</p>
+     * <p>- `h265`：使用 H.265 编码格式；</p>
      *
-     * <p>- copy：不进行转码，所有视频编码参数不生效。</p>
+     * <p>- `copy`：不进行转码，所有视频编码参数不生效。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vcodec")
     private String vcodec;
 
     /**
-     * <p>视频码率，单位为 kbps</p>
+     * <p>视频码率，单位为 kbps。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "VideoBitrate")
     private Integer videoBitrate;
@@ -146,11 +168,11 @@ public final class ListCommonTransPresetDetailResResultNarrowBandHDPresetDetailI
      *
      * <p>:::tip</p>
      *
-     * <p>- 当 `As` 的取值为 0 即关闭宽高自适应时，转码分辨率将取 Width 和 Height 的值对转码视频进行拉伸；</p>
+     * <p>- 当关闭视频分辨率自适应（`As` 取值为 `0`）时，转码分辨率将取 `Width` 和 `Height` 的值对转码视频进行拉伸；</p>
      *
-     * <p>- Width 和 Height 任一配置为 0 时，转码视频将保持源流尺寸；</p>
+     * <p>- 当关闭视频分辨率自适应（`As` 取值为 `0`）时，`Width` 和 `Height` 任一取值为 `0` 时，转码视频将保持源流尺寸；</p>
      *
-     * <p>- 编码格式为 H.266 时，不支持设置 Width 和 Height，请使用自适应配置。</p>
+     * <p>- 编码格式为 H.266 时，不支持设置 `Width` 和 `Height`，请使用自适应配置。</p>
      *
      * <p>:::</p>
      */

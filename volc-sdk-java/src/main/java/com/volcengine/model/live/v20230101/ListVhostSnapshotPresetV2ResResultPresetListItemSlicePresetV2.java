@@ -22,13 +22,13 @@ public final class ListVhostSnapshotPresetV2ResResultPresetListItemSlicePresetV2
     private String name;
 
     /**
-     * <p>截图配置生效状态。</p>
+     * <p>截图配置生效状态，取值及含义如下所示。</p>
      *
      *
      *
-     * <p>- 1：生效；</p>
+     * <p>- `1`：生效；</p>
      *
-     * <p>- 0：不生效。</p>
+     * <p>- `0`：不生效。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Status")
     private Integer status;

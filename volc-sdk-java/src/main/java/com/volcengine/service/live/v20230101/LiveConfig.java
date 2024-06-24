@@ -88,6 +88,20 @@ public class LiveConfig {
                     }
                 }     
             ));
+            put("TranscodingJobStatus", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "GET");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "TranscodingJobStatus"));
+                                add(new BasicNameValuePair("Version", "2023-01-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
             put("ListVhostTransCodePreset", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -110,6 +124,20 @@ public class LiveConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "CreateTranscodePreset"));
+                                add(new BasicNameValuePair("Version", "2023-01-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("RestartTranscodingJob", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "GET");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "RestartTranscodingJob"));
                                 add(new BasicNameValuePair("Version", "2023-01-01"));
                             }
                         });
@@ -620,34 +648,6 @@ public class LiveConfig {
                     }
                 }     
             ));
-            put("CreateVerifyContent", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "CreateVerifyContent"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
-            put("VerifyDomainOwner", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "VerifyDomainOwner"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
             put("DeleteDomain", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -1110,76 +1110,6 @@ public class LiveConfig {
                     }
                 }     
             ));
-            put("ListVqosMetricsDimensions", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "GET");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "ListVqosMetricsDimensions"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
-            put("StopPullCDNSnapshotTask", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "StopPullCDNSnapshotTask"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
-            put("CreatePullCDNSnapshotTask", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "CreatePullCDNSnapshotTask"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
-            put("GetPullCDNSnapshotTask", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "GetPullCDNSnapshotTask"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
-            put("ListPullCDNSnapshotTask", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "ListPullCDNSnapshotTask"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
             put("DeleteSnapshotAuditPreset", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -1202,20 +1132,6 @@ public class LiveConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "UpdateSnapshotAuditPreset"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
-            put("DescribeSnapshotAuditPresetDetail", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "DescribeSnapshotAuditPresetDetail"));
                                 add(new BasicNameValuePair("Version", "2023-01-01"));
                             }
                         });
@@ -1376,20 +1292,6 @@ public class LiveConfig {
                     }
                 }     
             ));
-            put("DescribeLiveBatchStreamTranscodeData", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "DescribeLiveBatchStreamTranscodeData"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
             put("DescribeLiveStreamCountData", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -1426,6 +1328,20 @@ public class LiveConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "DescribeLivePushStreamInfoData"));
+                                add(new BasicNameValuePair("Version", "2023-01-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("DescribeLiveTranscodeInfoData", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DescribeLiveTranscodeInfoData"));
                                 add(new BasicNameValuePair("Version", "2023-01-01"));
                             }
                         });
@@ -1482,20 +1398,6 @@ public class LiveConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "DescribeLiveMetricTrafficData"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
-            put("DescribeLiveBatchStreamTrafficData", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "DescribeLiveBatchStreamTrafficData"));
                                 add(new BasicNameValuePair("Version", "2023-01-01"));
                             }
                         });
@@ -1670,20 +1572,6 @@ public class LiveConfig {
                     }
                 }     
             ));
-            put("DescribeLiveCustomizedLogData", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "DescribeLiveCustomizedLogData"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
             put("DescribeLiveLogData", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -1852,28 +1740,98 @@ public class LiveConfig {
                     }
                 }     
             ));
-            put("DescribeLiveActivityBandwidthData", new ApiInfo(
+            put("UpdateEncryptDRM", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
                         put(Const.Method, "POST");
                         put(Const.Path, "/");
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
-                                add(new BasicNameValuePair("Action", "DescribeLiveActivityBandwidthData"));
+                                add(new BasicNameValuePair("Action", "UpdateEncryptDRM"));
                                 add(new BasicNameValuePair("Version", "2023-01-01"));
                             }
                         });
                     }
                 }     
             ));
-            put("DescribeLiveStreamUsageData", new ApiInfo(
+            put("DescribeLicenseDRM", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
                         put(Const.Method, "POST");
                         put(Const.Path, "/");
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
-                                add(new BasicNameValuePair("Action", "DescribeLiveStreamUsageData"));
+                                add(new BasicNameValuePair("Action", "DescribeLicenseDRM"));
+                                add(new BasicNameValuePair("Version", "2023-01-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("DescribeCertDRM", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "GET");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DescribeCertDRM"));
+                                add(new BasicNameValuePair("Version", "2023-01-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("DescribeEncryptDRM", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DescribeEncryptDRM"));
+                                add(new BasicNameValuePair("Version", "2023-01-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("BindEncryptDRM", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "BindEncryptDRM"));
+                                add(new BasicNameValuePair("Version", "2023-01-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("UnBindEncryptDRM", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "UnBindEncryptDRM"));
+                                add(new BasicNameValuePair("Version", "2023-01-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("ListBindEncryptDRM", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "ListBindEncryptDRM"));
                                 add(new BasicNameValuePair("Version", "2023-01-01"));
                             }
                         });

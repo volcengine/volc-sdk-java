@@ -28,17 +28,17 @@ public final class ListVhostWatermarkPresetResResultWatermarkPresetListItem  {
     private Integer iD;
 
     /**
-     * <p>直播画面方向。</p>
+     * <p>需要添加水印的直播画面方向。</p>
      *
-     * <p>- vertical：竖屏；</p>
+     * <p>- `vertical`：竖屏；</p>
      *
-     * <p>- horizontal：横屏。</p>
+     * <p>- `horizontal`：横屏。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Orientation")
     private String orientation;
 
     /**
-     * <p>水印图片链接。</p>
+     * <p>水印图片编码字符串。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Picture")
     private String picture;
@@ -68,7 +68,7 @@ public final class ListVhostWatermarkPresetResResultWatermarkPresetListItem  {
     private Float relativeWidth;
 
     /**
-     * <p>域名空间名称。</p>
+     * <p>域名空间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;

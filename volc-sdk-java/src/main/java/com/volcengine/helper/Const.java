@@ -483,6 +483,22 @@ public class Const {
     public static final String DeleteProgram = "DeleteProgram";
     public static final String MediaCut = "MediaCut";
 
+    public static final String GetActivityLinks = "GetActivityLinks";
+
+    public static final String GetAudienceGroupConfig = "GetAudienceGroupConfig";
+
+    public static final String UpdateAudienceGroupConfig = "UpdateAudienceGroupConfig";
+
+    public static final String ListAudienceGroupUser = "ListAudienceGroupUser";
+
+    public static final String AddAudienceGroup = "AddAudienceGroup";
+
+    public static final String UpdateAudienceGroupUserConfig = "UpdateAudienceGroupUserConfig";
+
+    public static final String DeleteAudienceGroup = "DeleteAudienceGroup";
+
+    public static final String ModifyAudienceGroup = "ModifyAudienceGroup";
+
     // translate
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";

@@ -16,19 +16,17 @@ public final class ListWatermarkPresetResResultPreset  {
     private String app;
 
     /**
-     * <p>直播画面方向。</p>
+     * <p>需要添加水印的直播画面方向。</p>
      *
+     * <p>- `vertical`：竖屏；</p>
      *
-     *
-     * <p>- vertical：竖屏；</p>
-     *
-     * <p>- horizontal：横屏。</p>
+     * <p>- `horizontal`：横屏。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Orientation")
     private String orientation;
 
     /**
-     * <p>水印图片链接。</p>
+     * <p>水印图片编码字符串。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Picture")
     private String picture;
@@ -64,19 +62,19 @@ public final class ListWatermarkPresetResResultPreset  {
     private String pictureKey;
 
     /**
-     * <p>水印模版 ID。</p>
+     * <p>水印配置的 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ID")
     private Integer iD;
 
     /**
-     * <p>域名空间名称。</p>
+     * <p>域名空间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;
 
     /**
-     * <p>水印图片对应的 HTTP 地址。与水印图片字符串字段二选一传入，同时传入时，以水印图片字符串参数为准。</p>
+     * <p>水印图片对应的 HTTP 地址。与水印图片编码字符串字段二选一传入，同时传入时，以水印图片编码字符串参数为准。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PictureURL")
     private String pictureURL;

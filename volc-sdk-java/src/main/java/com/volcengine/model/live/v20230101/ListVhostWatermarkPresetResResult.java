@@ -17,13 +17,13 @@ public final class ListVhostWatermarkPresetResResult  {
     private String staticsMsg;
 
     /**
-     * <p>获取模板失败的列表，返回获取失败的模版及获取失败的原因。</p>
+     * <p>获取配置失败的列表，返回获取失败的配置信息及获取失败的原因。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "WatermarkErrMsgList")
     private List<ListVhostWatermarkPresetResResultWatermarkErrMsgListItem> watermarkErrMsgList;
 
     /**
-     * <p>水印模版列表。</p>
+     * <p>水印配置列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "WatermarkPresetList")
     private List<ListVhostWatermarkPresetResResultWatermarkPresetListItem> watermarkPresetList;

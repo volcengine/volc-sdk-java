@@ -10,19 +10,19 @@ import com.alibaba.fastjson.JSON;
 public final class DeleteSnapshotPresetBody  {
 
     /**
-     * <p>应用名称，由 1 到 30 位数字、字母、下划线及"-"和"."组成。</p>
+     * <p>应用名称，您可以调用 [ListVhostSnapshotPresetV2](https://www.volcengine.com/docs/6469/1208858) 接口，获取待更新截图配置的 App 取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>截图配置名称。</p>
+     * <p>截图配置的名称，您可以调用 [ListVhostSnapshotPresetV2](https://www.volcengine.com/docs/6469/1208858) 接口获取，取值与 `Name` 字段取值相同。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Preset")
     private String preset;
 
     /**
-     * <p>域名空间名称。</p>
+     * <p>域名空间，您可以调用 [ListVhostSnapshotPresetV2](https://www.volcengine.com/docs/6469/1208858) 接口，获取待删除截图配置的 Vhost 取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;

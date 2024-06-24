@@ -17,23 +17,13 @@ public final class DescribeLivePullToPushBandwidthDataResResult  {
     private List<String> domainList;
 
     /**
-     * <p>推流地址类型。</p>
-     *
-     * <p>- Live：非第三方；</p>
-     *
-     * <p>- Third：第三方。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "DstAddrTypeList")
-    private List<String> dstAddrTypeList;
-
-    /**
-     * <p>查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     * <p>查询的开始时间，RFC3339 格式的时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     * <p>查询的结束时间，RFC3339 格式的时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
@@ -41,11 +31,11 @@ public final class DescribeLivePullToPushBandwidthDataResResult  {
     /**
      * <p>数据聚合的时间粒度，单位为秒。</p>
      *
-     * <p>- 300：5 分钟；</p>
+     * <p>- `300`：5 分钟；</p>
      *
-     * <p>- 3600：1 小时；</p>
+     * <p>- `3600`：1 小时；</p>
      *
-     * <p>- 86400：1 天。</p>
+     * <p>- `86400`：1 天。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;
@@ -53,9 +43,9 @@ public final class DescribeLivePullToPushBandwidthDataResResult  {
     /**
      * <p>数据拆分的维度，维度说明如下。</p>
      *
-     * <p>- Domain：域名；</p>
+     * <p>- `Domain`：域名；</p>
      *
-     * <p>- DstAddrType：推流地址类型。</p>
+     * <p>- `DstAddrType`：推流地址类型。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DetailField")
     private List<String> detailField;
@@ -73,7 +63,13 @@ public final class DescribeLivePullToPushBandwidthDataResResult  {
     private List<DescribeLivePullToPushBandwidthDataResResultBandwidthDataListItem> bandwidthDataList;
 
     /**
-     * <p>按维度拆分的数据。</p>
+     * <p>按维度拆分后的数据。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>当配置了数据拆分的维度时，对应的维度参数传入多个值才会返回按维度拆分的数据。</p>
+     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "BandwidthDetailDataList")
     private List<DescribeLivePullToPushBandwidthDataResResultBandwidthDetailDataListItem> bandwidthDetailDataList;

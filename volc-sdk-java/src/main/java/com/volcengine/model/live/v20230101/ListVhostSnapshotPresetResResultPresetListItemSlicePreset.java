@@ -2,7 +2,6 @@ package com.volcengine.model.live.v20230101;
 
 
 import com.alibaba.fastjson.JSON;
-import java.util.List;
 
 /**
  * ListVhostSnapshotPresetResResultPresetListItemSlicePreset
@@ -20,7 +19,7 @@ public final class ListVhostSnapshotPresetResResultPresetListItemSlicePreset  {
      * <p>回调信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CallbackDetail")
-    private List<ListVhostSnapshotPresetResResultPresetListItemSlicePresetCallbackDetailItem> callbackDetail;
+    private ListVhostSnapshotPresetResResultPresetListItemSlicePresetCallbackDetail callbackDetail;
 
     /**
      * <p>截图间隔时间。</p>

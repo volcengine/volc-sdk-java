@@ -34,13 +34,13 @@ public final class DescribeClosedStreamInfoByPageResResultStreamInfoListItem  {
     private String stream;
 
     /**
-     * <p>直播流的开始时间。</p>
+     * <p>直播流的开始时间，RFC3339 格式的 UTC 时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>直播流的结束时间。</p>
+     * <p>直播流的结束时间，RFC3339 格式的 UTC 时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;

@@ -12,7 +12,23 @@ public class VisualImg2ImgInpaintingResponse extends VisualBaseResponse{
     @Data
     public static class Img2ImgInpaintingResponseData {
 
+        @JSONField(name = "algorithm_base_resp")
+        AlgorithmBaseResp algorithmBaseResp;
+
         @JSONField(name = "binary_data_base64")
         ArrayList<String> binaryDataBase64;
+
+        @JSONField(name = "image_urls")
+        ArrayList<String> imageUrls;
+    }
+
+    @Data
+    public static class AlgorithmBaseResp {
+
+        @JSONField(name = "status_code")
+        int statusCode;
+
+        @JSONField(name = "status_message")
+        String statusMessage;
     }
 }

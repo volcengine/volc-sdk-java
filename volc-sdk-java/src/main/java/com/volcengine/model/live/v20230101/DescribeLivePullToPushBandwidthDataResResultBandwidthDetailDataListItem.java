@@ -12,10 +12,6 @@ public final class DescribeLivePullToPushBandwidthDataResResultBandwidthDetailDa
 
     /**
      * <p>按推流地址类型维度进行数据拆分时的地址类型信息。</p>
-     *
-     * <p>- Live：非第三方；</p>
-     *
-     * <p>- Third：第三方。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DstAddrType")
     private String dstAddrType;
@@ -27,7 +23,7 @@ public final class DescribeLivePullToPushBandwidthDataResResultBandwidthDetailDa
     private String domain;
 
     /**
-     * <p>按维度进行数据拆分后，当前维度下的拉流转推峰值带宽，单位为 Mbps。</p>
+     * <p>查询时间范围内的维度下的拉流转推峰值带宽，单位为 Mbps。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PeakUpBandwidth")
     private Float peakUpBandwidth;

@@ -12,9 +12,9 @@ public final class ListVhostSnapshotPresetV2ResResultPresetListItemSlicePresetV2
     /**
      * <p>截图是否使用 TOS 存储，取值及含义如下所示。</p>
      *
-     * <p>- false：不使用；</p>
+     * <p>- `false`：不使用；</p>
      *
-     * <p>- true：使用。</p>
+     * <p>- `true`：使用。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Enable")
     private Boolean enable;
@@ -22,7 +22,7 @@ public final class ListVhostSnapshotPresetV2ResResultPresetListItemSlicePresetV2
     /**
      * <p>TOS 存储对应的 Bucket。</p>
      *
-     * <p>例如，存储路径为 live-test-tos-example/live/liveapp 时，Bucket 取值为 live-test-tos-example。</p>
+     * <p>例如，存储路径为 live-test-tos-example/live/liveapp 时，Bucket 取值为 `live-test-tos-example`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Bucket")
     private String bucket;
@@ -30,7 +30,7 @@ public final class ListVhostSnapshotPresetV2ResResultPresetListItemSlicePresetV2
     /**
      * <p>Bucket 目录。</p>
      *
-     * <p>例如，存储路径为 live-test-tos-example/live/liveapp 时，StorageDir 取值为 live/liveapp。</p>
+     * <p>例如，存储路径为 live-test-tos-example/live/liveapp 时，StorageDir 取值为 `live/liveapp`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StorageDir")
     private String storageDir;

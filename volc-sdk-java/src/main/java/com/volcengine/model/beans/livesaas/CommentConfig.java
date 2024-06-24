@@ -39,4 +39,6 @@ public class CommentConfig  {
     java.lang.String MenuName;
     @JSONField(name = "IsViewerDeleteCommentsEnable")
     Integer IsViewerDeleteCommentsEnable;
+    @JSONField(name = "IsSendCommentEnable")
+    Integer IsSendCommentEnable;
 }

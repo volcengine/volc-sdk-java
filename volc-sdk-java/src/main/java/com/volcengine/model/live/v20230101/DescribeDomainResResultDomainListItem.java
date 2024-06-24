@@ -52,9 +52,9 @@ public final class DescribeDomainResResultDomainListItem  {
     /**
      * <p>域名加速区域，包含以下类型。</p>
      *
-     * <p>- `cn`：中国大陆；</p>
+     * <p>- `cn`：中国内地；</p>
      *
-     * <p>- `cn-global`：全球；</p>
+     * <p>- `cn-global`：全球加速；</p>
      *
      * <p>- `cn-oversea`：海外及港澳台。</p>
      */
@@ -86,9 +86,9 @@ public final class DescribeDomainResResultDomainListItem  {
     /**
      * <p>ICP 备案校验是否通过，是否过期信息。</p>
      *
-     * <p>- 1：备案正常，未过期；</p>
+     * <p>- `1`：备案正常，未过期；</p>
      *
-     * <p>- 2：查存不到备案信息。</p>
+     * <p>- `2`：查存不到备案信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ICPCheck")
     private Integer iCPCheck;

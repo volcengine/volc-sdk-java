@@ -2081,6 +2081,20 @@ public class LivesaasConfig {
                         }
                     }
             ));
+            put(Const.GetActivityLinks, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetActivityLinks));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.ListAwardConfigs, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -2453,6 +2467,104 @@ public class LivesaasConfig {
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.GetBusinessAccountInfo));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetAudienceGroupConfig, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetAudienceGroupConfig));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateAudienceGroupConfig, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateAudienceGroupConfig));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListAudienceGroupUser, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListAudienceGroupUser));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.AddAudienceGroup, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AddAudienceGroup));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateAudienceGroupUserConfig, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateAudienceGroupUserConfig));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DeleteAudienceGroup, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DeleteAudienceGroup));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ModifyAudienceGroup, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ModifyAudienceGroup));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });

@@ -14,6 +14,12 @@ public class VisualImg2ImgInpaintingEditRequest {
     @JSONField(name = "binary_data_base64")
     ArrayList<String> binary_data_base64;
 
+    @JSONField(name = "image_urls")
+    ArrayList<String> imageUrls;
+
+    @JSONField(name = "return_url")
+    boolean returnUrl=false;
+
     @JSONField(name = "custom_prompt")
     String customPrompt;
 

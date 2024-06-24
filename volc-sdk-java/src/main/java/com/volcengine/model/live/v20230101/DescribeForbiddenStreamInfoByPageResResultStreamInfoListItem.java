@@ -34,13 +34,13 @@ public final class DescribeForbiddenStreamInfoByPageResResultStreamInfoListItem 
     private String stream;
 
     /**
-     * <p>禁推流被禁推的开始时间。</p>
+     * <p>禁推流被禁推的开始时间，RFC3339 格式的 UTC 时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CreateTime")
     private String createTime;
 
     /**
-     * <p>禁推流结束禁推的时间。</p>
+     * <p>禁推流结束禁推的时间，RFC3339 格式的 UTC 时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;

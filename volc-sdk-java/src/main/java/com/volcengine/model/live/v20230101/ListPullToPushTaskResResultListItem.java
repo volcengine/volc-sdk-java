@@ -43,19 +43,27 @@ public final class ListPullToPushTaskResResultListItem  {
     /**
      * <p>拉流来源类型，支持的取值及含义如下。</p>
      *
-     * <p>- 0：直播源；</p>
+     * <p>- `0`：直播源；</p>
      *
-     * <p>- 1：点播视频。</p>
+     * <p>- `1`：点播视频。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Type")
     private Integer type;
 
     /**
-     * <p>点播视频文件循环播放模式，当拉流来源类型为点播视频（Type 为 1）时配置生效，参数取值及含义如下所示。</p>
+     * <p>点播视频文件循环播放模式，当拉流来源类型为点播视频时配置生效，参数取值及含义如下所示。</p>
      *
-     * <p>- -1：无限循环，至任务结束；</p>
      *
-     * <p>- 0：有限次循环，循环次数为 PlayTimes 取值为准。</p>
+     *
+     * <p>- `-1`：无限次循环，至任务结束；</p>
+     *
+     * <p>- `0`：有限次循环，循环次数以 PlayTimes 取值为准；</p>
+     *
+     * <p>- `>0`：有限次循环，循环次数由 CycleMode 和 PlayTimes 共同决定:</p>
+     *
+     * <p>	- PlayTimes 为 0 时，循环次数以 CycleMode 为准；</p>
+     *
+     * <p>	- PlayTimes 为正整数时，循环次数以 PlayTimes为准。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CycleMode")
     private Integer cycleMode;
@@ -67,13 +75,13 @@ public final class ListPullToPushTaskResResultListItem  {
     private String dstAddr;
 
     /**
-     * <p>直播源的拉流地址，拉流来源类型为直播源（Type 为 0）时返回此值。</p>
+     * <p>直播源的拉流地址，拉流来源类型为直播源时返回此值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SrcAddr")
     private String srcAddr;
 
     /**
-     * <p>点播视频播放地址列表，拉流来源类型为点播视频（type 为 1）时返回此值。</p>
+     * <p>点播视频播放地址列表，拉流来源类型为点播视频时返回此值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SrcAddrS")
     private List<String> srcAddrS;
@@ -83,13 +91,13 @@ public final class ListPullToPushTaskResResultListItem  {
      *
      *
      *
-     * <p>- 停用；</p>
+     * <p>- `停用`；</p>
      *
-     * <p>- 未开始；</p>
+     * <p>- `未开始`；</p>
      *
-     * <p>- 生效中；</p>
+     * <p>- `生效中`；</p>
      *
-     * <p>- 已结束。</p>
+     * <p>- `已结束`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Status")
     private String status;
@@ -99,9 +107,9 @@ public final class ListPullToPushTaskResResultListItem  {
      *
      *
      *
-     * <p>- 1：非第三方，即推流地址域名已添加到视频直播。</p>
+     * <p>- `1`：非第三方，即推流地址域名已添加到视频直播。</p>
      *
-     * <p>- 2：第三方，即推流地址域名未添加到视频直播。</p>
+     * <p>- `2`：第三方，即推流地址域名未添加到视频直播。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DstAddrType")
     private Integer dstAddrType;
@@ -113,39 +121,35 @@ public final class ListPullToPushTaskResResultListItem  {
     private ListPullToPushTaskResResultListItemWatermark watermark;
 
     /**
-     * <p>续播策略，续播策略指转推点播视频进行直播时出现断流并恢复后，如何继续播放的策略，拉流来源类型为点播视频（Type 为 1）时参数生效，支持的取值及含义如下。</p>
+     * <p>续播策略，续播策略指转推点播视频进行直播时出现断流并恢复后，如何继续播放的策略，拉流来源类型为点播视频时参数生效，支持的取值及含义如下。</p>
      *
      *
      *
-     * <p>0：从断流处续播（默认值）；</p>
+     * <p>- `0`：从断流处续播（默认值）；</p>
      *
-     * <p>1：从断流处+自然流逝时长处续播。</p>
+     * <p>- `1`：从断流处+自然流逝时长处续播。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ContinueStrategy")
     private Integer continueStrategy;
 
     /**
-     * <p>点播文件启播时间偏移值，单位为秒，数量与拉流地址列表中地址数量相等，缺省情况下为空表示不进行偏移。</p>
-     *
-     * <p>拉流来源类型为点播视频（Type 为 1）时，参数生效。</p>
+     * <p>点播文件启播时间偏移值，单位为秒，数量与拉流地址列表中地址数量相等，缺省情况下为空表示不进行偏移。拉流来源类型为点播视频时，参数生效。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "OffsetS")
     private List<Float> offsetS;
 
     /**
-     * <p>点播视频文件循环播放次数，当循环播放模式为有限次循环（CycleMode为0）时配置生效。</p>
+     * <p>点播视频文件循环播放次数，当循环播放模式为有限次循环时为必选参数，取值范围为 0 或正整数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PlayTimes")
     private Integer playTimes;
 
     /**
-     * <p>是否开启点播预热，开启点播预热后，系统会自动将点播视频文件缓存到 CDN 节点上，当用户请求直播时，可以直播从 CDN 节点获取视频，从而提高直播流畅度。</p>
+     * <p>是否开启点播预热，开启点播预热后，系统会自动将点播视频文件缓存到 CDN 节点上，当用户请求直播时，可以直播从 CDN 节点获取视频，从而提高直播流畅度。拉流来源类型为点播视频时，参数生效。</p>
      *
-     * <p>拉流来源类型为点播视频（Type 为 1）时，参数生效。</p>
+     * <p>- `0`：不开启；</p>
      *
-     * <p>- 0：不开启；</p>
-     *
-     * <p>- 1：开启。</p>
+     * <p>- `1`：开启。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PreDownload")
     private Integer preDownload;

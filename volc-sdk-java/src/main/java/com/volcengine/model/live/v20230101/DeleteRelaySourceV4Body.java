@@ -10,19 +10,19 @@ import com.alibaba.fastjson.JSON;
 public final class DeleteRelaySourceV4Body  {
 
     /**
-     * <p>应用名称，由 1 到 30 位数字、字母、下划线及"-"和"."组成。</p>
+     * <p>应用名称，您可以调用 [ListRelaySourceV4](https://www.volcengine.com/docs/6469/1126878) 接口，获取待删除固定回源配置的 App 取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>流名称，由 1 到 100 位数字、字母、下划线及"-"和"."组成。</p>
+     * <p>流名称，您可以调用 [ListRelaySourceV4](https://www.volcengine.com/docs/6469/1126878) 接口，获取待删除固定回源配置的 Stream 取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
     private String stream;
 
     /**
-     * <p>推流域名。</p>
+     * <p>拉流域名，您可以调用 [ListRelaySourceV4](https://www.volcengine.com/docs/6469/1126878) 接口，获取待删除固定回源配置的 Domain 取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;

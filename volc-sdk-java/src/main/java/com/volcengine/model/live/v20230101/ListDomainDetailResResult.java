@@ -17,7 +17,7 @@ public final class ListDomainDetailResResult  {
     private List<ListDomainDetailResResultDomainListItem> domainList;
 
     /**
-     * <p>按当前筛选条件查询的结果数量。</p>
+     * <p>总记录数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Total")
     private Integer total;

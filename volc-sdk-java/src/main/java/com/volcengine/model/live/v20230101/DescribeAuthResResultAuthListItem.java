@@ -23,11 +23,11 @@ public final class DescribeAuthResResultAuthListItem  {
     private List<DescribeAuthResResultAuthListItemAuthDetailListItem> authDetailList;
 
     /**
-     * <p>是否开启 URL 地址鉴权。</p>
+     * <p>是否开启 URL 地址鉴权，取值及含义如下所示。</p>
      *
-     * <p>- false：关闭；</p>
+     * <p>- `false`：关闭；</p>
      *
-     * <p>- true：开启。</p>
+     * <p>- `true`：开启。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AuthStatus")
     private Boolean authStatus;
@@ -49,7 +49,7 @@ public final class DescribeAuthResResultAuthListItem  {
     private String sceneType;
 
     /**
-     * <p>鉴权生成时长，单位为秒。</p>
+     * <p>鉴权生效时长，单位为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ValidDuration")
     private Integer validDuration;

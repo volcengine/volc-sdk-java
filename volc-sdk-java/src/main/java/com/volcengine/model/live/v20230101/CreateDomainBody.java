@@ -18,6 +18,8 @@ public final class CreateDomainBody  {
     /**
      * <p>域名类型，包含两种类型。</p>
      *
+     *
+     *
      * <p>- `push`：推流域名；</p>
      *
      * <p>- `pull-flv`：拉流域名，包含 RTMP、FLV、HLS 格式。</p>
@@ -26,11 +28,13 @@ public final class CreateDomainBody  {
     private String type;
 
     /**
-     * <p>域名加速区域，默认指为 `cn`，包含以下类型。</p>
+     * <p>域名加速区域，默认值为 `cn`，包含以下类型。</p>
      *
-     * <p>- `cn`：中国大陆；</p>
      *
-     * <p>- `cn-global`：全球；</p>
+     *
+     * <p>- `cn`：中国内地；</p>
+     *
+     * <p>- `cn-global`：全球加速；</p>
      *
      * <p>- `cn-oversea`：海外及港澳台。</p>
      */

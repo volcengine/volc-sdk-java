@@ -92,15 +92,7 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
         return JSON.parseObject(response.getData(), RiskDetectionResponse.class);
     }
 
-    @Override
-    public MobileStatusResponse MobileStatus(RiskDetectionRequest riskDetectionRequest) throws Exception {
-        RawResponse response = json(Const.MobileStatus, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
 
-        return JSON.parseObject(response.getData(), MobileStatusResponse.class);
-    }
 
     @Override
     public MobileStatusResponseV2 MobileStatusV2(RiskDetectionRequest riskDetectionRequest) throws Exception {
@@ -112,15 +104,7 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
         return JSON.parseObject(response.getData(), MobileStatusResponseV2.class);
     }
 
-    @Override
-    public ElementVerifyResponse ElementVerify(RiskDetectionRequest riskDetectionRequest) throws Exception {
-        RawResponse response = json(Const.ElementVerify, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
 
-        return JSON.parseObject(response.getData(), ElementVerifyResponse.class);
-    }
 
     @Override
     public ElementVerifyResponseV2 ElementVerifyV2(RiskDetectionRequest riskDetectionRequest) throws Exception {

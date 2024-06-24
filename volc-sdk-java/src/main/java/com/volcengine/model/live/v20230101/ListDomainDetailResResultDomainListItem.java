@@ -25,6 +25,8 @@ public final class ListDomainDetailResResultDomainListItem  {
     /**
      * <p>域名状态，取值及含义如下所示。</p>
      *
+     *
+     *
      * <p>- `0`：正常；</p>
      *
      * <p>- `1`：审核中；</p>
@@ -43,6 +45,8 @@ public final class ListDomainDetailResResultDomainListItem  {
     /**
      * <p>域名类型，取值及含义如下所示。</p>
      *
+     *
+     *
      * <p>- `push`：推流域名；</p>
      *
      * <p>- `pull-flv`：拉流域名，包含 RTMP、FLV、HLS 格式。</p>
@@ -52,6 +56,8 @@ public final class ListDomainDetailResResultDomainListItem  {
 
     /**
      * <p>域名加速区域，取值及含义如下所示。</p>
+     *
+     *
      *
      * <p>- `cn`：中国大陆；</p>
      *
@@ -65,6 +71,8 @@ public final class ListDomainDetailResResultDomainListItem  {
     /**
      * <p>CNAME 状态，取值及含义如下所示。</p>
      *
+     *
+     *
      * <p>- `0`：未配置 CNAME；</p>
      *
      * <p>- `1`：已配置 CNAME。</p>
@@ -74,6 +82,8 @@ public final class ListDomainDetailResResultDomainListItem  {
 
     /**
      * <p>域名是否可用的状态，取值及含义如下所示。</p>
+     *
+     *
      *
      * <p>- `0`：正常，域名为可用状态；</p>
      *
@@ -87,9 +97,11 @@ public final class ListDomainDetailResResultDomainListItem  {
     /**
      * <p>ICP 备案校验是否通过，是否过期信息。</p>
      *
-     * <p>- 1：备案正常，未过期；</p>
      *
-     * <p>- 2：查存不到备案信息。</p>
+     *
+     * <p>- `1`：备案正常，未过期；</p>
+     *
+     * <p>- `2`：查存不到备案信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ICPCheck")
     private Integer iCPCheck;

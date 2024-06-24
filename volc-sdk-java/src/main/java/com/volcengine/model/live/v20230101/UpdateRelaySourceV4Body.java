@@ -39,19 +39,19 @@ public final class UpdateRelaySourceV4Body  {
     private Integer endTime;
 
     /**
-     * <p>应用名称，即直播流地址的 `AppName` 字段取值，支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（\_）、短横线（-）和句点（.）组成，长度为 1 到 30 个字符。</p>
+     * <p>应用名称，拉流域名，您可以调用 [ListRelaySourceV4](https://www.volcengine.com/docs/6469/1126878) 接口，获取待更新固定回源配置的 App 取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>流名称，即直播流地址的 `StreamName` 字段取值，支持由大小写字母（A - Z、a - z）、数字（0 - 9）、字母、下划线（\_）、短横线（-）和句点（.）组成，长度为 1 到 100 个字符。</p>
+     * <p>流名称，您可以调用 [ListRelaySourceV4](https://www.volcengine.com/docs/6469/1126878) 接口，获取待更新固定回源配置的 Domain 取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
     private String stream;
 
     /**
-     * <p>直播流使用的域名。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console-stable.volcanicengine.com/live/main/domain/list)页面，查看直播流使用的域名。</p>
+     * <p>拉流域名，您可以调用 [ListRelaySourceV4](https://www.volcengine.com/docs/6469/1126878) 接口，获取待更新固定回源配置的 Domain 取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;

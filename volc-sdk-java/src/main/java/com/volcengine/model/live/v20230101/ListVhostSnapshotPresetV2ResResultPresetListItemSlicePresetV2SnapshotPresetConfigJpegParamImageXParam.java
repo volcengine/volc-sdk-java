@@ -12,9 +12,9 @@ public final class ListVhostSnapshotPresetV2ResResultPresetListItemSlicePresetV2
     /**
      * <p>截图是否使用 veImageX 存储，取值及含义如下所示。</p>
      *
-     * <p>- false：不使用；</p>
+     * <p>- `false`：不使用；</p>
      *
-     * <p>- true：使用。</p>
+     * <p>- `true`：使用。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Enable")
     private Boolean enable;

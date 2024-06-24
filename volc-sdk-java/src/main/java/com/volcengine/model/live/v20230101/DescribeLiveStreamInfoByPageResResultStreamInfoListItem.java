@@ -40,7 +40,7 @@ public final class DescribeLiveStreamInfoByPageResResultStreamInfoListItem  {
     private String stream;
 
     /**
-     * <p>在线流的开始时间。</p>
+     * <p>在线流的开始时间，RFC3339 格式的 UTC 时间戳，精度为毫秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SessionStartTime")
     private String sessionStartTime;

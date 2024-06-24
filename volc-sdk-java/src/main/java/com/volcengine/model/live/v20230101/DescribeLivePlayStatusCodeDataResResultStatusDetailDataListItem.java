@@ -11,7 +11,7 @@ import java.util.List;
 public final class DescribeLivePlayStatusCodeDataResResultStatusDetailDataListItem  {
 
     /**
-     * <p>域名。</p>
+     * <p>拉流域名。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;

@@ -25,9 +25,9 @@ public final class CreateDomainV2Body  {
     /**
      * <p>域名加速区域，包含以下类型。</p>
      *
-     * <p>- `cn`：中国大陆；</p>
+     * <p>- `cn`：中国内地；</p>
      *
-     * <p>- `cn-global`：全球；</p>
+     * <p>- `cn-global`：全球加速；</p>
      *
      * <p>- `cn-oversea`：海外及港澳台。</p>
      */

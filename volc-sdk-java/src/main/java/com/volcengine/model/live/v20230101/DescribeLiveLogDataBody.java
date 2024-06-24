@@ -11,7 +11,7 @@ import java.util.List;
 public final class DescribeLiveLogDataBody  {
 
     /**
-     * <p>查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     * <p>查询的开始时间，RFC3339 格式的时间戳，精度为秒。</p>
      *
      * <p>:::tip</p>
      *
@@ -25,17 +25,17 @@ public final class DescribeLiveLogDataBody  {
     private String startTime;
 
     /**
-     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     * <p>查询的结束时间，RFC3339 格式的时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
 
     /**
-     * <p>域名列表，缺省情况下表示当前用户的所有推流域名和拉流域名。</p>
+     * <p>域名列表，默认为空，表示查询您视频直播产品下所有域名的日志文件信息。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，获取待查询的域名。</p>
      *
      * <p>:::tip</p>
      *
-     * <p>日志类型为拉流转推日志（Type=relay）时，该参数无效。</p>
+     * <p>日志类型为拉流转推日志（Type 取值为 `relay`）时，该参数无效。</p>
      *
      * <p>:::</p>
      */
@@ -45,13 +45,13 @@ public final class DescribeLiveLogDataBody  {
     /**
      * <p>日志类型，支持的类型如下所示。</p>
      *
-     * <p>- pull：拉流日志</p>
+     * <p>- `pull`：拉流日志；</p>
      *
-     * <p>- push：推流日志</p>
+     * <p>- `push`：推流日志；</p>
      *
-     * <p>- source：回源日志</p>
+     * <p>- `source`：回源日志；</p>
      *
-     * <p>- relay：拉流转推日志</p>
+     * <p>- `relay`：拉流转推日志。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Type")
     private String type;

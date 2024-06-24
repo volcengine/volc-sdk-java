@@ -10,13 +10,13 @@ import com.alibaba.fastjson.JSON;
 public final class UpdateSnapshotPresetV2BodySnapshotPresetConfigJpegParamTOSParam  {
 
     /**
-     * <p>截图是否使用 TOS 存储，默认为 false，取值及含义如下所示。</p>
+     * <p>截图是否使用 TOS 存储，取值及含义如下所示。</p>
      *
      *
      *
-     * <p>- false：不使用；</p>
+     * <p>- `false`：（默认值）不使用；</p>
      *
-     * <p>- true：使用。</p>
+     * <p>- `true`：使用。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Enable")
     private Boolean enable;
@@ -24,7 +24,7 @@ public final class UpdateSnapshotPresetV2BodySnapshotPresetConfigJpegParamTOSPar
     /**
      * <p>TOS 存储对应的 Bucket。</p>
      *
-     * <p>例如，存储路径为 live-test-tos-example/live/liveapp 时，Bucket 取值为 live-test-tos-example。</p>
+     * <p>例如，存储路径为 live-test-tos-example/live/liveapp 时，Bucket 取值为 `live-test-tos-example`。</p>
      *
      * <p>:::tip</p>
      *
@@ -38,7 +38,7 @@ public final class UpdateSnapshotPresetV2BodySnapshotPresetConfigJpegParamTOSPar
     /**
      * <p>Bucket 目录，默认为空。</p>
      *
-     * <p>例如，存储路径为 live-test-tos-example/live/liveapp 时，StorageDir 取值为 live/liveapp。</p>
+     * <p>例如，存储路径为 live-test-tos-example/live/liveapp 时，StorageDir 取值为 `live/liveapp`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StorageDir")
     private String storageDir;

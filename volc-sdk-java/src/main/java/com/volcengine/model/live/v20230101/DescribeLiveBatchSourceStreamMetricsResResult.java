@@ -29,13 +29,13 @@ public final class DescribeLiveBatchSourceStreamMetricsResResult  {
     private String stream;
 
     /**
-     * <p>查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     * <p>查询的开始时间，RFC3339 格式的时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     * <p>查询的结束时间，RFC3339 格式的时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
@@ -45,15 +45,15 @@ public final class DescribeLiveBatchSourceStreamMetricsResResult  {
      *
      *
      *
-     * <p>- 30：30 秒；</p>
+     * <p>- `30`：30 秒；</p>
      *
-     * <p>- 60：1 分钟。</p>
+     * <p>- `60`：1 分钟。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;
 
     /**
-     * <p>流的监控数据。</p>
+     * <p>回源流信息，包含域名、应用名称、流名称和监控数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StreamMetricList")
     private List<DescribeLiveBatchSourceStreamMetricsResResultStreamMetricListItem> streamMetricList;

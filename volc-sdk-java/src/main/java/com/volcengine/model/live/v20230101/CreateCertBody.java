@@ -37,6 +37,12 @@ public final class CreateCertBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "UseWay")
     private String useWay;
 
+    /**
+     * <p>项目名称，默认值为 `default`，您可以登录[访问控制](https://console.volcengine.com/iam/resourcemanage/project)获取项目名称。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ProjectName")
+    private String projectName;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

@@ -576,6 +576,36 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public GetHotChatAPIResponse getHotChatAPI(GetHotChatAPIRequest getHotChatAPIRequest) throws Exception {
+        RawResponse response = query(Const.GetHotChatAPI, Utils.paramsToPair(getHotChatAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetHotChatAPIResponse res = JSON.parseObject(response.getData(), GetHotChatAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetTopChatAPIResponse getTopChatAPI(GetTopChatAPIRequest getTopChatAPIRequest) throws Exception {
+        RawResponse response = query(Const.GetTopChatAPI, Utils.paramsToPair(getTopChatAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetTopChatAPIResponse res = JSON.parseObject(response.getData(), GetTopChatAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public CommonStatusResponse deleteChatAPI(DeleteChatAPIRequest deleteChatAPIRequest) throws Exception {
         RawResponse response = json(Const.DeleteChatAPI, new ArrayList<>(), JSON.toJSONString(deleteChatAPIRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -2265,6 +2295,21 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public GetActivityLinksResponse getActivityLinks(GetActivityLinksRequest getActivityLinksRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityLinks, Utils.paramsToPair(getActivityLinksRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityLinksResponse res = JSON.parseObject(response.getData(), GetActivityLinksResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public GetLiveTrafficPostPayDataResponse getLiveTrafficPostPayData(GetLiveTrafficPostPayDataRequest getLiveTrafficPostPayDataRequest) throws Exception {
         RawResponse response = json(Const.GetLiveTrafficPostPayData, new ArrayList<>(), JSON.toJSONString(getLiveTrafficPostPayDataRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -2661,6 +2706,111 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
             throw response.getException();
         }
         GetBusinessAccountInfoResponse res = JSON.parseObject(response.getData(), GetBusinessAccountInfoResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetAudienceGroupConfigResponse getAudienceGroupConfig(GetAudienceGroupConfigRequest getAudienceGroupConfigRequest) throws Exception {
+        RawResponse response = query(Const.GetAudienceGroupConfig, Utils.paramsToPair(getAudienceGroupConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetAudienceGroupConfigResponse res = JSON.parseObject(response.getData(), GetAudienceGroupConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateAudienceGroupConfigResponse updateAudienceGroupConfig(UpdateAudienceGroupConfigRequest updateAudienceGroupConfigRequest) throws Exception {
+        RawResponse response = json(Const.UpdateAudienceGroupConfig, new ArrayList<>(), JSON.toJSONString(updateAudienceGroupConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateAudienceGroupConfigResponse res = JSON.parseObject(response.getData(), UpdateAudienceGroupConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListAudienceGroupUserResponse listAudienceGroupUser(ListAudienceGroupUserRequest listAudienceGroupUserRequest) throws Exception {
+        RawResponse response = query(Const.ListAudienceGroupUser, Utils.paramsToPair(listAudienceGroupUserRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListAudienceGroupUserResponse res = JSON.parseObject(response.getData(), ListAudienceGroupUserResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public AddAudienceGroupResponse addAudienceGroup(AddAudienceGroupRequest addAudienceGroupRequest) throws Exception {
+        RawResponse response = json(Const.AddAudienceGroup, new ArrayList<>(), JSON.toJSONString(addAudienceGroupRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        AddAudienceGroupResponse res = JSON.parseObject(response.getData(), AddAudienceGroupResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateAudienceGroupUserConfigResponse updateAudienceGroupUserConfig(UpdateAudienceGroupUserConfigRequest updateAudienceGroupUserConfig) throws Exception {
+        RawResponse response = json(Const.UpdateAudienceGroupUserConfig, new ArrayList<>(), JSON.toJSONString(updateAudienceGroupUserConfig));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateAudienceGroupUserConfigResponse res = JSON.parseObject(response.getData(), UpdateAudienceGroupUserConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteAudienceGroupResponse deleteAudienceGroup(DeleteAudienceGroupRequest deleteAudienceGroupRequest) throws Exception {
+        RawResponse response = json(Const.DeleteAudienceGroup, new ArrayList<>(), JSON.toJSONString(deleteAudienceGroupRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteAudienceGroupResponse res = JSON.parseObject(response.getData(), DeleteAudienceGroupResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ModifyAudienceGroupResponse modifyAudienceGroup(ModifyAudienceGroupRequest modifyAudienceGroupRequest) throws Exception {
+        RawResponse response = json(Const.ModifyAudienceGroup, new ArrayList<>(), JSON.toJSONString(modifyAudienceGroupRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ModifyAudienceGroupResponse res = JSON.parseObject(response.getData(), ModifyAudienceGroupResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());

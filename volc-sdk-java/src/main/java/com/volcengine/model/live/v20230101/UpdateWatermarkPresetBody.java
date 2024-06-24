@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class UpdateWatermarkPresetBody  {
 
     /**
-     * <p>应用名称，由 1 到 30 位数字、字母、下划线及"-"和"."组成。</p>
+     * <p>应用名称，您可以调用 [ListVhostWatermarkPreset](https://www.volcengine.com/docs/6469/1126889) 接口，查看待更新水印配置的 App 取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
@@ -18,9 +18,9 @@ public final class UpdateWatermarkPresetBody  {
     /**
      * <p>直播画面方向，支持 2 种取值。</p>
      *
-     * <p>- vertical：竖屏；</p>
+     * <p>- `vertical`：竖屏；</p>
      *
-     * <p>- horizontal：横屏。</p>
+     * <p>- `horizontal`：横屏。</p>
      *
      * <p>:::tip</p>
      *
@@ -32,7 +32,7 @@ public final class UpdateWatermarkPresetBody  {
     private String orientation;
 
     /**
-     * <p>水印图片链接，图片最大 2MB，最小 100Bytes，最大分辨率为 1080×1080。图片使用 data URI 协议，格式为：`data:[<mediatype>];[base64],<data>`。</p>
+     * <p>水印图片编码字符串，图片最大 2MB，最小 100Bytes，最大分辨率为 1080×1080。图片使用 data URI 协议，格式为：`data:[<mediatype>];[base64],<data>`。</p>
      *
      * <p>- `mediatype`：图片类型，支持 png、jpg、jpeg 格式；</p>
      *
@@ -68,13 +68,13 @@ public final class UpdateWatermarkPresetBody  {
     private Float relativeWidth;
 
     /**
-     * <p>域名空间名称，由 1 到 60 位数字、字母、下划线及"-"和"."组成。</p>
+     * <p>域名空间，您可以调用 [ListVhostWatermarkPreset](https://www.volcengine.com/docs/6469/1126889) 接口，查看待更新水印配置的 Vhost 取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;
 
     /**
-     * <p>水印图片对应的 HTTP 地址。与水印图片字符串字段二选一传入。同时传入时，以水印图片字符串参数为准。</p>
+     * <p>水印图片对应的 HTTP 地址。与水印图片编码字符串字段二选一传入。同时传入时，以水印图片编码字符串参数为准。</p>
      *
      * <p>:::warning</p>
      *

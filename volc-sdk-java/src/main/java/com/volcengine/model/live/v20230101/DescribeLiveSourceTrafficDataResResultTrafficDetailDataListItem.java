@@ -23,7 +23,7 @@ public final class DescribeLiveSourceTrafficDataResResultTrafficDetailDataListIt
     private String iSP;
 
     /**
-     * <p>按维度进行数据拆分后，当前维度的回源中总流量，单位为 GB。</p>
+     * <p>按维度进行数据拆分后，当前维度的回源总流量，单位为 GB。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TotalTraffic")
     private Float totalTraffic;

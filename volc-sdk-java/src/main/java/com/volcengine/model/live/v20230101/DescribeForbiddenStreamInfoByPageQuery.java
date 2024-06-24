@@ -22,25 +22,25 @@ public final class DescribeForbiddenStreamInfoByPageQuery  {
     private Integer pageSize;
 
     /**
-     * <p>域名空间，取值与禁推直播流时设置的域名空间相同，默认为空，表示查询所有域名空间（`Vhost`）下的禁推流。您可以调用 [`ListDomainDetail`](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console-stable.volcanicengine.com/live/main/domain/list)页面，查看需要查询的禁推流使用的域名所属的域名空间。</p>
+     * <p>域名空间，取值与禁推直播流时设置的域名空间相同，默认为空，表示查询所有域名空间下的禁推流。您可以调用 [`ListDomainDetail`](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，查看需要查询的禁推流使用的域名所属的域名空间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;
 
     /**
-     * <p>直播流使用的域名，取值与禁推直播流时设置的应用名称相同，默认为空，表示查询所有当前域名空间（`Vhost`）下的禁推直播流。您可以调用 [`ListDomainDetail`](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console-stable.volcanicengine.com/live/main/domain/list)页面，查看需要查询的禁推直播流使用的域名。 </p>
+     * <p>直播流使用的域名，取值与禁推直播流时设置的应用名称相同，默认为空，表示查询所有当前域名空间下的禁推直播流。您可以调用 [`ListDomainDetail`](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，查看需要查询的禁推直播流使用的域名。 </p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;
 
     /**
-     * <p>应用名称，取值与禁推直播流时设置的应用名称相同，默认为空，表示查询当前域名空间（`Vhost`）下所有的禁推流。支持由大小写字母（A - Z、a - z）、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到 30 个字符。</p>
+     * <p>应用名称，取值与禁推直播流时设置的应用名称相同，默认为空，表示查询当前域名空间下所有的禁推流。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到 30 个字符。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>流名称，取值与禁推直播流时设置的流名称相同，默认查询所有流名称，由 1 到 100 位数字、字母、下划线及"-"和"."组成，如果指定 `Stream`，必须同时指定 `App` 的值。</p>
+     * <p>流名称，取值与禁推直播流时设置的流名称相同，默认为空，表示查询所有流名称。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到 100 个字符。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
     private String stream;

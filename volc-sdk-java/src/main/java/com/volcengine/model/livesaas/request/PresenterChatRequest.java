@@ -12,4 +12,6 @@ public class PresenterChatRequest {
     Long ActivityId;
     @JSONField(name = "Comment")
     String Comment;
+    @JSONField(name = "AudienceGroupId")
+    Long AudienceGroupId;
 }

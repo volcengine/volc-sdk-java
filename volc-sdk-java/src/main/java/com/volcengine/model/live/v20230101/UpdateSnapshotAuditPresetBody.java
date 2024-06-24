@@ -11,7 +11,7 @@ import java.util.List;
 public final class UpdateSnapshotAuditPresetBody  {
 
     /**
-     * <p>域名空间名称。</p>
+     * <p>域名空间，您可以调用 [ListVhostSnapshotAuditPreset](https://www.volcengine.com/docs/6469/1126870) 接口，获取待删除截图配置的 Vhost 取值。</p>
      *
      * <p>:::tip</p>
      *
@@ -23,7 +23,7 @@ public final class UpdateSnapshotAuditPresetBody  {
     private String vhost;
 
     /**
-     * <p>推流域名。</p>
+     * <p>推流域名，您可以调用 [ListVhostSnapshotAuditPreset](https://www.volcengine.com/docs/6469/1126870) 接口，获取待删除截图配置的 Domain 取值。</p>
      *
      * <p>:::tip</p>
      *
@@ -35,19 +35,19 @@ public final class UpdateSnapshotAuditPresetBody  {
     private String domain;
 
     /**
-     * <p>应用名称，由 1 到 30 位数字、字母、下划线及"-"和"."组成。</p>
+     * <p>应用名称，您可以调用 [ListVhostSnapshotAuditPreset](https://www.volcengine.com/docs/6469/1126870) 接口，获取待删除截图配置的 App 取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>截图间隔时间，单位秒，取值范围为[0.1,10]，支持保留两位小数。</p>
+     * <p>截图间隔时间，单位为秒，取值范围为 [0.1,10]，支持保留两位小数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Interval")
     private Float interval;
 
     /**
-     * <p>截图审核配置的名称，您可以通过调用[查询截图审核配置列表](https://www.volcengine.com/docs/6469/1126870)接口获取。</p>
+     * <p>截图审核配置名称，您可以调用 [ListVhostSnapshotAuditPreset](https://www.volcengine.com/docs/6469/1126870) 接口，获取待删除截图配置的 PresetName 取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PresetName")
     private String presetName;
@@ -67,7 +67,7 @@ public final class UpdateSnapshotAuditPresetBody  {
     /**
      * <p>ToS 存储对应 Bucket 下的存储目录，默认为空。</p>
      *
-     * <p>例如，存储位置为 live-test-tos-example/live/liveapp 时，StorageDir 取值为 live/liveapp。</p>
+     * <p>例如，存储位置为 live-test-tos-example/live/liveapp 时，StorageDir 取值为 `live/liveapp`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StorageDir")
     private String storageDir;
@@ -93,37 +93,37 @@ public final class UpdateSnapshotAuditPresetBody  {
     /**
      * <p>存储策略。支持以下取值。</p>
      *
-     * <p>- 0：触发存储，只存储有风险图片；</p>
+     * <p>- `0`：触发存储，只存储有风险图片；</p>
      *
-     * <p>- 1：全部存储，存储全部图片。</p>
+     * <p>- `1`：全部存储，存储全部图片。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StorageStrategy")
     private Integer storageStrategy;
 
     /**
-     * <p>审核标签，缺省情况下取值为 301、302、302、305 和 306，支持的取值及含义如下。</p>
+     * <p>审核标签，缺省情况下取值为 `301`、`302`、`302`、`305` 和 `306`，支持的取值及含义如下。</p>
      *
-     * <p>- 301：涉黄；</p>
+     * <p>- `301`：涉黄；</p>
      *
-     * <p>- 302：涉敏1；</p>
+     * <p>- `302`：涉敏1；</p>
      *
-     * <p>- 303：涉敏2；</p>
+     * <p>- `303`：涉敏2；</p>
      *
-     * <p>- 304：广告；</p>
+     * <p>- `304`：广告；</p>
      *
-     * <p>- 305：引人不适；</p>
+     * <p>- `305`：引人不适；</p>
      *
-     * <p>- 306：违禁；</p>
+     * <p>- `306`：违禁；</p>
      *
-     * <p>- 307：二维码；</p>
+     * <p>- `307`：二维码；</p>
      *
-     * <p>- 308：诈骗；</p>
+     * <p>- `308`：诈骗；</p>
      *
-     * <p>- 309：不良画面；</p>
+     * <p>- `309`：不良画面；</p>
      *
-     * <p>- 310：未成年相关；</p>
+     * <p>- `310`：未成年相关；</p>
      *
-     * <p>- 320：文字违规。</p>
+     * <p>- `320`：文字违规。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Label")
     private List<String> label;

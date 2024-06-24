@@ -16,4 +16,6 @@ public class PollingChatAPIRequest {
     Long ChatId;
     @JSONField(name = "Count")
     Integer Count;
+    @JSONField(name = "AudienceGroupId")
+    Long AudienceGroupId;
 }

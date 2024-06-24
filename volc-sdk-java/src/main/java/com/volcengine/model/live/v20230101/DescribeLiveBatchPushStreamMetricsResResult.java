@@ -29,13 +29,13 @@ public final class DescribeLiveBatchPushStreamMetricsResResult  {
     private String stream;
 
     /**
-     * <p>查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     * <p>查询的开始时间，RFC3339 格式的时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     * <p>查询的结束时间，RFC3339 格式的时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
@@ -43,17 +43,17 @@ public final class DescribeLiveBatchPushStreamMetricsResResult  {
     /**
      * <p>数据聚合的时间粒度，单位为秒。</p>
      *
-     * <p>- 5：5 秒；</p>
+     * <p>- `5`：5 秒；</p>
      *
-     * <p>- 30：30 秒；</p>
+     * <p>- `30`：30 秒；</p>
      *
-     * <p>- 60：1 分钟。</p>
+     * <p>- `60`：1 分钟。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;
 
     /**
-     * <p>按指定时间粒度聚合的监控数据。</p>
+     * <p>直推流的信息，包含域名、应用名称、流名称和监控数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StreamMetricList")
     private List<DescribeLiveBatchPushStreamMetricsResResultStreamMetricListItem> streamMetricList;

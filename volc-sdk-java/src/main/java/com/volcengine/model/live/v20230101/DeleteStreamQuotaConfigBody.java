@@ -12,7 +12,7 @@ public final class DeleteStreamQuotaConfigBody  {
     /**
      *
      *
-     * <p>待删除限额配置的推流域名或拉流域名。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console-stable.volcanicengine.com/live/main/domain/list)页面，查看域名信息。</p>
+     * <p>待删除限额配置的推流域名或拉流域名。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，查看域名信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;

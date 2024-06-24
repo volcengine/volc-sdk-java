@@ -16,7 +16,7 @@ public final class BindCertBody  {
     private String chainID;
 
     /**
-     * <p>填写需要配置 HTTPS 证书的域名。 您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console-stable.volcanicengine.com/live/main/domain/list)页面，查看需要绑定证书的域名。</p>
+     * <p>填写需要配置 HTTPS 证书的域名。 您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，查看需要绑定证书的域名。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;

@@ -37,29 +37,29 @@ public final class DescribeLiveSourceBandwidthDataResResult  {
     /**
      * <p>提供网络接入服务的运营商标识符，标识符与运营商的对应关系如下。</p>
      *
-     * <p>- unicom：联通；</p>
+     * <p>- `unicom`：联通；</p>
      *
-     * <p>- railcom：铁通；</p>
+     * <p>- `railcom`：铁通；</p>
      *
-     * <p>- telecom：电信；</p>
+     * <p>- `telecom`：电信；</p>
      *
-     * <p>- mobile：移动；</p>
+     * <p>- `mobile`：移动；</p>
      *
-     * <p>- cernet：教育网；</p>
+     * <p>- `cernet`：教育网；</p>
      *
-     * <p>- tianwei：天威；</p>
+     * <p>- `tianwei`：天威；</p>
      *
-     * <p>- alibaba：阿里巴巴；</p>
+     * <p>- `alibaba`：阿里巴巴；</p>
      *
-     * <p>- tencent：腾讯；</p>
+     * <p>- `tencent`：腾讯；</p>
      *
-     * <p>- drpeng：鹏博士；</p>
+     * <p>- `drpeng`：鹏博士；</p>
      *
-     * <p>- btvn：广电；</p>
+     * <p>- `btvn`：广电；</p>
      *
-     * <p>- huashu：华数；</p>
+     * <p>- `huashu`：华数；</p>
      *
-     * <p>- other：其他。</p>
+     * <p>- `other`：其他。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ISPList")
     private List<String> iSPList;
@@ -68,26 +68,26 @@ public final class DescribeLiveSourceBandwidthDataResResult  {
      * <p>客户端 IP 所属区域列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "UserRegionList")
-    private List<DescribeLiveSourceBandwidthDataResResultUserRegionListItem> userRegionList;
+    private List<respRegion20230101> userRegionList;
 
     /**
      * <p>数据拆分的维度，维度说明如下所示。</p>
      *
-     * <p>- Domain：域名；</p>
+     * <p>- `Domain`：域名；</p>
      *
-     * <p>- ISP：运营商。</p>
+     * <p>- `ISP`：运营商。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DetailField")
     private List<String> detailField;
 
     /**
-     * <p>查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     * <p>查询的开始时间，RFC3339 格式的时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     * <p>查询的结束时间，RFC3339 格式的时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
@@ -97,11 +97,11 @@ public final class DescribeLiveSourceBandwidthDataResResult  {
      *
      *
      *
-     * <p>- 60：1 分钟；</p>
+     * <p>- `60`：1 分钟；</p>
      *
-     * <p>- 300：5 分钟；</p>
+     * <p>- `300`：5 分钟；</p>
      *
-     * <p>- 3600：1 小时。</p>
+     * <p>- `3600`：1 小时。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;

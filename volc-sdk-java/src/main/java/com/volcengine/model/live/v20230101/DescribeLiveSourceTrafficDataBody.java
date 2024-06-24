@@ -11,7 +11,9 @@ import java.util.List;
 public final class DescribeLiveSourceTrafficDataBody  {
 
     /**
-     * <p>拉流域名列表，缺省情况表示当前用户的所有推拉流域名。</p>
+     * <p>拉流域名列表，默认为空，表示查询所有域名的回源流量监控数据。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，获取待查询的拉流域名。</p>
+     *
+     *
      *
      * <p>:::tip</p>
      *
@@ -23,11 +25,11 @@ public final class DescribeLiveSourceTrafficDataBody  {
     private List<String> domainList;
 
     /**
-     * <p>查询流粒度数据时的域名，支持拉流域名。</p>
+     * <p>拉流域名，您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，获取待查询的拉流域名。</p>
      *
      * <p>:::tip</p>
      *
-     * <p>使用 `Domain` 构造请求时，需要同时定义 `App` 和 `Stream` 参数，不可缺省。</p>
+     * <p>查询流粒度的回源流量监控数据时，需同时指定 `Domain` 、`App` 和 `Stream` 来指定回源流。</p>
      *
      * <p>:::</p>
      */
@@ -35,11 +37,11 @@ public final class DescribeLiveSourceTrafficDataBody  {
     private String domain;
 
     /**
-     * <p>查询流粒度数据时的应用名称。</p>
+     * <p>回源流的应用名称，查询流粒度数据时必传，且需同时传入 `Domain` 和 `Stream`。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（\_）、短横线（-）和句点（.）组成，长度为 1 到 30 个字符。</p>
      *
      * <p>:::tip</p>
      *
-     * <p>使用 `App` 构造请求时，需要同时定义 `Domain` 和 `Stream` 参数，不可缺省。</p>
+     * <p>查询流粒度的回源流量监控数据时，需同时指定 `Domain` 、`App` 和 `Stream` 来指定回源流。</p>
      *
      * <p>:::</p>
      */
@@ -47,11 +49,11 @@ public final class DescribeLiveSourceTrafficDataBody  {
     private String app;
 
     /**
-     * <p>查询流粒度数据时的流名称。</p>
+     * <p>回源流的流名称，查询流粒度数据时必传，且需同时传入 `Domain` 和 `App`。支持由大小写字母（A - Z、a - z）、下划线（\_）、短横线（-）和句点（.）组成，长度为 1 到 100 个字符。</p>
      *
      * <p>:::tip</p>
      *
-     * <p>使用 `Stream` 构造请求时，需要同时定义 `Domain` 和 `App` 参数，不可缺省。</p>
+     * <p>查询流粒度的回源流量监控数据时，需同时指定 `Domain` 、`App` 和 `Stream` 来指定回源流。</p>
      *
      * <p>:::</p>
      */
@@ -63,29 +65,29 @@ public final class DescribeLiveSourceTrafficDataBody  {
      *
      *
      *
-     * <p>- unicom：联通；</p>
+     * <p>- `unicom`：联通；</p>
      *
-     * <p>- railcom：铁通；</p>
+     * <p>- `railcom`：铁通；</p>
      *
-     * <p>- telecom：电信；</p>
+     * <p>- `telecom`：电信；</p>
      *
-     * <p>- mobile：移动；</p>
+     * <p>- `mobile`：移动；</p>
      *
-     * <p>- cernet：教育网；</p>
+     * <p>- `cernet`：教育网；</p>
      *
-     * <p>- tianwei：天威；</p>
+     * <p>- `tianwei`：天威；</p>
      *
-     * <p>- alibaba：阿里巴巴；</p>
+     * <p>- `alibaba`：阿里巴巴；</p>
      *
-     * <p>- tencent：腾讯；</p>
+     * <p>- `tencent`：腾讯；</p>
      *
-     * <p>- drpeng：鹏博士；</p>
+     * <p>- `drpeng`：鹏博士；</p>
      *
-     * <p>- btvn：广电；</p>
+     * <p>- `btvn`：广电；</p>
      *
-     * <p>- huashu：华数；</p>
+     * <p>- `huashu`：华数；</p>
      *
-     * <p>- other：其他。</p>
+     * <p>- `other`：其他。</p>
      *
      *
      *
@@ -98,16 +100,16 @@ public final class DescribeLiveSourceTrafficDataBody  {
      * <p>客户端 IP 所属区域的列表，缺省情况下表示所有区域。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "UserRegionList")
-    private List<DescribeLiveSourceTrafficDataBodyUserRegionListItem> userRegionList;
+    private List<reqRegion20230101> userRegionList;
 
     /**
-     * <p>查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     * <p>查询的开始时间，RFC3339 格式的时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     * <p>查询的结束时间，RFC3339 格式的时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
@@ -117,27 +119,27 @@ public final class DescribeLiveSourceTrafficDataBody  {
      *
      *
      *
-     * <p>- 60：1 分钟。时间粒度为 1 分钟时，单次查询最大时间跨度为 24 小时，历史查询时间范围为 366 天；</p>
+     * <p>- `60`：1 分钟。时间粒度为 1 分钟时，单次查询最大时间跨度为 24 小时，历史查询时间范围为 366 天；</p>
      *
-     * <p>- 300：（默认值）5 分钟。时间粒度为 5 分钟时，单次查询最大时间跨度为 31 天，历史查询时间范围为 366 天；</p>
+     * <p>- `300`：（默认值）5 分钟。时间粒度为 5 分钟时，单次查询最大时间跨度为 31 天，历史查询时间范围为 366 天；</p>
      *
-     * <p>- 3600：1 小时。时间粒度为 1 小时时，单次查询最大时间跨度为 93 天，历史查询时间范围为 366 天。</p>
+     * <p>- `3600`：1 小时。时间粒度为 1 小时时，单次查询最大时间跨度为 93 天，历史查询时间范围为 366 天。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;
 
     /**
-     * <p>数据拆分的维度，缺省情况下不进行数据拆分，支持的维度如下所示。</p>
+     * <p>数据拆分的维度，默认为空表示按维度进行数据拆分，支持的维度如下所示。</p>
      *
-     * <p>- Domain：域名；</p>
+     * <p>- `Domain`：域名；</p>
      *
-     * <p>- ISP：运营商。</p>
+     * <p>- `ISP`：运营商。</p>
      *
      *
      *
      * <p>:::tip</p>
      *
-     * <p>配置数据拆分维度时，对应的维度参数传入多个值时会返回按维度进行拆分的数据；对应的维度只传入一个值时不返回按维度进行拆分的数据。</p>
+     * <p>配置数据拆分的维度时，对应的维度参数传入多个值时才会返回按此维度拆分的数据。例如，配置按 Domain 进行数据拆分时， DomainList 传入多个 Domain 值时，才会返回按 Domain 拆分的数据。</p>
      *
      * <p>:::</p>
      */

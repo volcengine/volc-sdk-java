@@ -67,7 +67,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>deleteTranscodePreset</p>
      * <p>删除转码配置</p>
      *
-     * <p>依据模版名称、域名名称和 `App` 信息，删除指定模板。首先解除 `App` 和模版之间的绑定，再判断若没有其它 `App` 绑定该模版，则安全删除该模版。</p>
+     * <p>调用 `DeleteTranscodePreset` 接口，删除已创建的转码配置。   </p>
      *
      * @param body body payload
      * @return response data
@@ -82,7 +82,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>updateTranscodePreset</p>
      * <p>更新转码配置</p>
      *
-     * <p>调用 UpdateTranscodePreset 接口，更新转码配置。   </p>
+     * <p>调用 `UpdateTranscodePreset` 接口，更新已添加的转码配置。   </p>
      *
      * @param body body payload
      * @return response data
@@ -97,7 +97,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>listCommonTransPresetDetail</p>
      * <p>查询内置转码档位的详细配置</p>
      *
-     * <p>调用该接口查询直播系统内置转码档位的详细配置。</p>
+     * <p>调用 `ListCommonTransPresetDetail` 接口，查询内置转码档位的详细配置。</p>
      *
      * @param body body payload
      * @return response data
@@ -109,10 +109,25 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>transcodingJobStatus</p>
+     * <p>查询转码任务</p>
+     *
+     * <p>调用 `TranscodingJobStatus` 接口，查询直播流在近 3 天的转码记录和当前转码任务的状态。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public TranscodingJobStatusRes transcodingJobStatus(TranscodingJobStatusQuery query) throws Exception {
+        RawResponse rawResponse = json("TranscodingJobStatus", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, TranscodingJobStatusRes.class);
+    }
+
+    /**
      * <p>listVhostTransCodePreset</p>
      * <p>查询转码配置列表</p>
      *
-     * <p>调用 ListVhostTransCodePreset 接口，查询转码配置列表。   </p>
+     * <p>调用 `ListVhostTransCodePreset` 接口，查询转码配置列表。   </p>
      *
      * @param body body payload
      * @return response data
@@ -139,10 +154,25 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>restartTranscodingJob</p>
+     * <p>重启转码任务</p>
+     *
+     * <p>调用 `RestartTranscodingJob` 接口，重启状态异常的转码任务。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public RestartTranscodingJobRes restartTranscodingJob(RestartTranscodingJobQuery query) throws Exception {
+        RawResponse rawResponse = json("RestartTranscodingJob", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, RestartTranscodingJobRes.class);
+    }
+
+    /**
      * <p>createWatermarkPreset</p>
      * <p>添加水印</p>
      *
-     * <p>为指定的 App 添加水印。支持设置水印图片、位置、尺寸等参数。  </p>
+     * <p>调用 `CreateWatermarkPreset` 接口，为转码流添加水印配置。   </p>
      *
      * @param body body payload
      * @return response data
@@ -157,7 +187,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>updateWatermarkPreset</p>
      * <p>更新水印</p>
      *
-     * <p>修改指定 App 的水印。支持修改水印图片、位置、尺寸等参数。</p>
+     * <p>调用 `UpdateWatermarkPreset` 接口，更新已添加的水印配置。   </p>
      *
      * @param body body payload
      * @return response data
@@ -172,7 +202,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>deleteWatermarkPreset</p>
      * <p>删除水印</p>
      *
-     * <p>删除指定 App 的水印。 </p>
+     * <p>调用 `DeleteWatermarkPreset` 接口，删除已添加的水印配置。   </p>
      *
      * @param body body payload
      * @return response data
@@ -187,7 +217,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>listWatermarkPreset</p>
      * <p>查询水印</p>
      *
-     * <p>查询指定 App 的水印信息。 </p>
+     * <p>调用 `ListWatermarkPreset` 接口，查询单个水印配置的信息。   </p>
      *
      * @param body body payload
      * @return response data
@@ -202,7 +232,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>listVhostWatermarkPreset</p>
      * <p>查询水印列表</p>
      *
-     * <p>查询视频直播配置空间 `Vhost` 下的水印列表。 </p>
+     * <p>调用 `ListVhostWatermarkPreset` 接口，查询指定域名空间的所有水印配置。   </p>
      *
      * @param body body payload
      * @return response data
@@ -232,7 +262,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>createLiveStreamRecordIndexFiles</p>
      * <p>创建录制索引文件</p>
      *
-     * <p>本接口支持生成指定开始时间和结束时间的m3u8录制文件</p>
+     * <p>调用 `CreateLiveStreamRecordIndexFiles` 接口，通过已存在的录制文件重新生成指定开始时间和结束时间的 M3U8 格式录制文件。</p>
      *
      * @param body body payload
      * @return response data
@@ -367,15 +397,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>deleteSnapshotPreset</p>
      * <p>删除截图配置</p>
      *
-     * <p>调用接口删除截图模版配置。调用后，根据模版名称、域名和应用名称信息，先解除应用和模版之间的绑定；其次判断如果没有其它应用绑定这个模版，则安全删除这个模版。</p>
-     *
-     *
-     *
-     * <p>:::tip</p>
-     *
-     * <p>删除截图配置不会同步删除相关回调配置。</p>
-     *
-     * <p>:::</p>
+     * <p>调用 `DeleteSnapshotPreset` 接口，删除已添加的截图配置。</p>
      *
      * @param body body payload
      * @return response data
@@ -390,7 +412,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>updateSnapshotPresetV2</p>
      * <p>更新截图配置</p>
      *
-     * <p>调用 UpdateSnapshotPresetV2 接口，更新截图配置。</p>
+     * <p>调用 `UpdateSnapshotPresetV2` 接口，更新已添加的截图配置。</p>
      *
      * @param body body payload
      * @return response data
@@ -411,7 +433,7 @@ public class LiveTrait extends BaseServiceImpl {
      *
      * <p>:::tip</p>
      *
-     * <p>调用 [UpdateCallback](https://www.volcengine.com/docs/6469/1126929) 和 [UpdateSnapshotPreset](https://www.volcengine.com/docs/6469/1126863) API，都可以更新截图回调配置，当重复调用以上两个接口更新截图回调配置时，**以最后一次调用的配置为准**。例如，您先调用 UpdateCallback 为某域名空间下的 App 配置了回调地址`https://live.example.com/callback`，之后调用  UpdateSnapshotPreset 再次对该域名空间下的同一 App 配置了回调地址 `https://live.example.com/callback1`，则最终生效的回调地址为 `https://live.example.com/callback1`。</p>
+     * <p>该接口属于历史版本 API，我们计划于 2024 年 04 月 25 日**停止对其进行维护**，并于 2024 年 07 月 25 日**下线文档**，建议您使用新版[UpdateSnapshotPresetV2](https://www.volcengine.com/docs/6469/1208857)接口。</p>
      *
      * <p>:::   </p>
      *
@@ -428,7 +450,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeCDNSnapshotHistory</p>
      * <p>查询截图历史详情</p>
      *
-     * <p>调用接口查询指定 `Vhost` 下的直播截图历史详情。</p>
+     * <p>调用 `DescribeCDNSnapshotHistory` 接口，查询直播流的截图文件信息。</p>
      *
      * @param body body payload
      * @return response data
@@ -443,7 +465,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>listVhostSnapshotPresetV2</p>
      * <p>查询截图配置列表</p>
      *
-     * <p>调用 ListVhostSnapshotPresetV2 接口，查询截图配置列表。</p>
+     * <p>调用 `ListVhostSnapshotPresetV2` 接口，查询指定 Vhost 下的所有截图配置信息。</p>
      *
      * @param body body payload
      * @return response data
@@ -460,6 +482,12 @@ public class LiveTrait extends BaseServiceImpl {
      *
      * <p>查询域名维度下所有的 App 名称，以及 App 关联的截图模板。   </p>
      *
+     * <p>:::tip</p>
+     *
+     * <p>该接口属于历史版本 API，我们计划于 2024 年 04 月 25 日**停止对其进行维护**，并于 2024 年 07 月 25 日**下线文档**，建议您使用新版[ListVhostSnapshotPresetV2](https://www.volcengine.com/docs/6469/1208858)接口。</p>
+     *
+     * <p>:::</p>
+     *
      * @param body body payload
      * @return response data
      * @throws Exception error during request
@@ -473,7 +501,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>createSnapshotPresetV2</p>
      * <p>添加截图配置</p>
      *
-     * <p>调用 CreateSnapshotPresetV2 接口，添加截图配置。</p>
+     * <p>调用 `CreateSnapshotPresetV2` 接口，添加截图配置，当直播流在截图配置生效范围内时，将对直播流进行截图保存。</p>
      *
      * @param body body payload
      * @return response data
@@ -494,7 +522,7 @@ public class LiveTrait extends BaseServiceImpl {
      *
      * <p>:::tip</p>
      *
-     * <p>调用 [UpdateCallback](https://www.volcengine.com/docs/6469/1126929) 和 [CreateSnapshotPreset](https://www.volcengine.com/docs/6469/1126861) API，都可以更新截图回调配置，当重复调用以上两个接口更新截图回调配置时，**以最后一次调用的配置为准**。例如，您先调用 UpdateCallback 为某域名空间下的 App 配置了回调地址`https://live.example.com/callback`，之后调用  CreateSnapshotPreset 再次对该域名空间下的同一 App 配置了回调地址 `https://live.example.com/callback1`，则最终生效的回调地址为 `https://live.example.com/callback1`。</p>
+     * <p>该接口属于历史版本 API，我们计划于 2024 年 04 月 25 日**停止对其进行维护**，并于 2024 年 7 月 25 日**下线文档**，建议您使用新版[CreateSnapshotPresetV2](https://www.volcengine.com/docs/6469/1208856)接口。</p>
      *
      * <p>:::   </p>
      *
@@ -511,7 +539,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>deleteTimeShiftPresetV3</p>
      * <p>删除直播时移配置</p>
      *
-     * <p>调用 `DeleteTimeShiftPresetV3` 接口，删除指定的时移配置。   </p>
+     * <p>调用 `DeleteTimeShiftPresetV3` 接口，删除指定的时移配置。</p>
      *
      * @param body body payload
      * @return response data
@@ -526,7 +554,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>updateTimeShiftPresetV3</p>
      * <p>更新直播时移配置</p>
      *
-     * <p>调用 `UpdateTimeShiftPresetV3` 接口，更新已添加的时移配置。 </p>
+     * <p>调用 `UpdateTimeShiftPresetV3` 接口，更新已添加的时移配置。</p>
      *
      * @param body body payload
      * @return response data
@@ -586,7 +614,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeCallback</p>
      * <p>查询回调配置</p>
      *
-     * <p>调用 `DescribeCallback` 接口，查询已添加的回调配置。   </p>
+     * <p>调用 `DescribeCallback` 接口，查询已添加的回调配置。</p>
      *
      * @param body body payload
      * @return response data
@@ -703,36 +731,6 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>createVerifyContent</p>
-     * <p>查询校验归属权内容</p>
-     *
-     * <p>调用CreateVerifyContent查询归属校验内容。</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public CreateVerifyContentRes createVerifyContent(CreateVerifyContentBody body) throws Exception {
-        RawResponse rawResponse = json("CreateVerifyContent", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, CreateVerifyContentRes.class);
-    }
-
-    /**
-     * <p>verifyDomainOwner</p>
-     * <p>校验域名归属权</p>
-     *
-     * <p>调用VerifyDomainOwner对域名归属权进行校验。</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public VerifyDomainOwnerRes verifyDomainOwner(VerifyDomainOwnerBody body) throws Exception {
-        RawResponse rawResponse = json("VerifyDomainOwner", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, VerifyDomainOwnerRes.class);
-    }
-
-    /**
      * <p>deleteDomain</p>
      * <p>删除域名</p>
      *
@@ -811,7 +809,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>listDomainDetail</p>
      * <p>查询域名列表</p>
      *
-     * <p>调用 `ListDomainDetail` 接口，根据域名状态、类别等信息，过滤查询当前账号下的的域名列表信息。   </p>
+     * <p>调用 `ListDomainDetail` 接口，根据域名状态、类别等信息，查询当前账号下的的域名列表信息。</p>
      *
      * @param body body payload
      * @return response data
@@ -826,7 +824,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>createDomain</p>
      * <p>添加域名</p>
      *
-     * <p>调用 `CreateDomain` 接口，将待使用的推拉流域名添加到视频直播服务，并为域名选择加速区域。 </p>
+     * <p>调用 `CreateDomain` 接口，将待使用的推拉流域名添加到视频直播服务，并为域名选择加速区域。</p>
      *
      * @param body body payload
      * @return response data
@@ -856,7 +854,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>stopPullToPushTask</p>
      * <p>停用拉流转推任务</p>
      *
-     * <p>创建拉流转推任务成功后，使用该接口停用任务。 </p>
+     * <p>调用 `StopPullToPushTask` 接口，停用状态为未开始或生效中的拉流转推任务。</p>
      *
      * @param body body payload
      * @return response data
@@ -871,7 +869,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>createPullToPushTask</p>
      * <p>创建拉流转推任务</p>
      *
-     * <p>创建一个拉流转推任务，支持从点播拉流与从直播拉流两种方式。 </p>
+     * <p>调用 `CreatePullToPushTask` 接口，创建拉流转推任务，将其他直播源或点播视频以直播形式推送到指定地址，同时支持为转推视频添加水印。</p>
      *
      * @param body body payload
      * @return response data
@@ -886,7 +884,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>deletePullToPushTask</p>
      * <p>删除拉流转推任务</p>
      *
-     * <p>创建拉流转推任务成功后，使用该接口删除任务。 </p>
+     * <p>调用 `DeletePullToPushTask` 接口，删除已创建的拉流转推任务。</p>
      *
      * @param body body payload
      * @return response data
@@ -901,7 +899,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>restartPullToPushTask</p>
      * <p>启用拉流转推任务</p>
      *
-     * <p>创建拉流转推任务成功后，使用该接口启用任务。 </p>
+     * <p>调用 `RestartPullToPushTask` 接口，启用任务状态为已停用的拉流转推任务。</p>
      *
      * @param body body payload
      * @return response data
@@ -916,7 +914,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>updatePullToPushTask</p>
      * <p>更新拉流转推任务</p>
      *
-     * <p>创建拉流转推任务成功后，使用该接口修改任务参数。 </p>
+     * <p>调用 `UpdatePullToPushTask` 接口，更新拉流转推任务信息。</p>
      *
      * @param body body payload
      * @return response data
@@ -931,7 +929,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>listPullToPushTask</p>
      * <p>获取拉流转推任务列表</p>
      *
-     * <p>获取当前账号下，已经创建的拉流转推任务列表。</p>
+     * <p>调用 `ListPullToPushTask` 接口，分页查询拉流转推任务列表，支持以任务名称进行模糊查询。</p>
      *
      * @param query query arguments
      * @return response data
@@ -946,7 +944,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>deleteRelaySourceV4</p>
      * <p>删除固定回源配置</p>
      *
-     * <p>本接口支持删除域名空间下指定的固定回源（含永久回源）配置。 </p>
+     * <p>调用 `DeleteRelaySourceV4` 接口，删除已添加的固定回源配置。</p>
      *
      * @param body body payload
      * @return response data
@@ -961,7 +959,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>deleteRelaySourceV3</p>
      * <p>删除播放触发回源配置</p>
      *
-     * <p>删除指定范围内的拉流回源配置。 </p>
+     * <p>调用 `DeleteRelaySourceV3` 接口，删除播放触发回源配置。</p>
      *
      * @param body body payload
      * @return response data
@@ -976,7 +974,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>updateRelaySourceV4</p>
      * <p>更新固定回源配置</p>
      *
-     * <p>本接口支持更新域名空间下指定的固定回源（含永久回源）配置。 </p>
+     * <p>调用 `UpdateRelaySourceV4` 接口，更新已添加的固定回源配置。</p>
      *
      * @param body body payload
      * @return response data
@@ -991,7 +989,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>listRelaySourceV4</p>
      * <p>查询固定回源配置列表</p>
      *
-     * <p>本接口支持查询域名空间的固定回源（含永久回源）配置列表。</p>
+     * <p>调用 `ListRelaySourceV4` 接口，查询固定回源配置列表。</p>
      *
      * @param body body payload
      * @return response data
@@ -1006,7 +1004,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeRelaySourceV3</p>
      * <p>查询播放触发回源配置</p>
      *
-     * <p>本接口支持根据 `Vhost` 信息，查询对应的播放触发的拉流回源配置信息。</p>
+     * <p>调用 `DescribeRelaySourceV3` 接口，查询播放触发回源配置。</p>
      *
      * @param body body payload
      * @return response data
@@ -1021,7 +1019,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>createRelaySourceV4</p>
      * <p>添加固定回源配置</p>
      *
-     * <p>本接口支持对域名空间下指定的 App 和 Stream 添加固定回源（含永久回源）配置。</p>
+     * <p>调用 `CreateRelaySourceV4` 接口，添加固定触发回源配置，固定触发指根据您设置的回源时间定时从源服务器拉取直播流数据，不论是否有观众观看；这种方式可以确保 CDN 节点始终拥有最新的直播流数据，降低观众在观看时的等待时间，提高观看体验。</p>
      *
      * @param body body payload
      * @return response data
@@ -1036,7 +1034,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>updateRelaySourceV3</p>
      * <p>添加或更新播放触发回源配置</p>
      *
-     * <p>添加回源配置。本接口支持在指定应用名称后，选择相应的回源协议和回源地址，添加新的拉流回源配置。</p>
+     * <p>调用 `UpdateRelaySourceV3` 接口，添加或更新播放触发回源配置，播放触发指回源仅在有观众观看时才会触发，可以节省源服务器的带宽资源，提高系统的整体效率。</p>
      *
      * @param body body payload
      * @return response data
@@ -1066,7 +1064,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeClosedStreamInfoByPage</p>
      * <p>查询历史流列表</p>
      *
-     * <p>调用接口分页查询历史流信息。</p>
+     * <p>调用 `DescribeClosedStreamInfoByPage` 接口，分页查询历史流信息。   </p>
      *
      * @param query query arguments
      * @return response data
@@ -1081,7 +1079,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveStreamInfoByPage</p>
      * <p>查询在线流列表</p>
      *
-     * <p>调用接口分页查询在线流列表信息。</p>
+     * <p>调用 `DescribeLiveStreamInfoByPage` 接口，分页查询在线流信息。   </p>
      *
      * @param query query arguments
      * @return response data
@@ -1096,7 +1094,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveStreamState</p>
      * <p>查询流状态</p>
      *
-     * <p>调用接口查询指定流的当前推流状态。</p>
+     * <p>调用 `DescribeLiveStreamState` 接口，查询直播流类型和状态。</p>
      *
      * @param query query arguments
      * @return response data
@@ -1111,7 +1109,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeForbiddenStreamInfoByPage</p>
      * <p>查询禁推流列表</p>
      *
-     * <p>调用接口分页查询禁止直播推流的流列表。</p>
+     * <p>调用 `DescribeForbiddenStreamInfoByPage` 接口，分页查询禁推流信息。</p>
      *
      * @param query query arguments
      * @return response data
@@ -1126,7 +1124,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>forbidStream</p>
      * <p>禁推直播流</p>
      *
-     * <p>调用接口禁止指定在线流的推流。 </p>
+     * <p>调用 `ForbidStream` 接口，禁止直推流的推送或禁止回源流的拉流播放，支持设置禁推结束时间。</p>
      *
      * @param body body payload
      * @return response data
@@ -1171,7 +1169,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>generatePushURL</p>
      * <p>生成推流地址</p>
      *
-     * <p>调用 `GeneratePushURL` 接口，生成直播推流地址。   </p>
+     * <p>调用 `GeneratePushURL` 接口，生成直播推流地址。</p>
      *
      * @param body body payload
      * @return response data
@@ -1228,85 +1226,10 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>listVqosMetricsDimensions</p>
-     * <p>获取图表指标维度信息</p>
-     *
-     * <p>获取图表指标维度信息</p>
-     *
-     * @param query query arguments
-     * @return response data
-     * @throws Exception error during request
-     */
-    public ListVqosMetricsDimensionsRes listVqosMetricsDimensions(ListVqosMetricsDimensionsQuery query) throws Exception {
-        RawResponse rawResponse = json("ListVqosMetricsDimensions", Utils.paramsToPair(query), "");
-        return parseRawResponse(rawResponse, ListVqosMetricsDimensionsRes.class);
-    }
-
-    /**
-     * <p>stopPullCDNSnapshotTask</p>
-     * <p>停止直播截图任务</p>
-     *
-     * <p>调用 StopPullCDNSnapshotTask 接口，停止拉流截图任务。</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public StopPullCDNSnapshotTaskRes stopPullCDNSnapshotTask(StopPullCDNSnapshotTaskBody body) throws Exception {
-        RawResponse rawResponse = json("StopPullCDNSnapshotTask", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, StopPullCDNSnapshotTaskRes.class);
-    }
-
-    /**
-     * <p>createPullCDNSnapshotTask</p>
-     * <p>创建直播截图任务</p>
-     *
-     * <p>调用 CreatePullCDNSnapshotTask 接口，创建直播截图任务。</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public CreatePullCDNSnapshotTaskRes createPullCDNSnapshotTask(CreatePullCDNSnapshotTaskBody body) throws Exception {
-        RawResponse rawResponse = json("CreatePullCDNSnapshotTask", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, CreatePullCDNSnapshotTaskRes.class);
-    }
-
-    /**
-     * <p>getPullCDNSnapshotTask</p>
-     * <p>查询单个直播截图任务</p>
-     *
-     * <p>调用 GetPullCDNSnapshotTask 接口，查询单个直播截图任务的信息。</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public GetPullCDNSnapshotTaskRes getPullCDNSnapshotTask(GetPullCDNSnapshotTaskBody body) throws Exception {
-        RawResponse rawResponse = json("GetPullCDNSnapshotTask", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, GetPullCDNSnapshotTaskRes.class);
-    }
-
-    /**
-     * <p>listPullCDNSnapshotTask</p>
-     * <p>查询所有直播截图任务</p>
-     *
-     * <p>调用 ListPullCDNSnapshotTask 接口，查询所有直播截图任务。</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public ListPullCDNSnapshotTaskRes listPullCDNSnapshotTask(ListPullCDNSnapshotTaskBody body) throws Exception {
-        RawResponse rawResponse = json("ListPullCDNSnapshotTask", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, ListPullCDNSnapshotTaskRes.class);
-    }
-
-    /**
      * <p>deleteSnapshotAuditPreset</p>
      * <p>删除截图审核配置</p>
      *
-     * <p>调用 DeleteSnapshotAuditPreset 接口，删除截图审核配置。 </p>
+     * <p>调用 `DeleteSnapshotAuditPreset` 接口，删除已添加的截图审核配置。 </p>
      *
      * @param body body payload
      * @return response data
@@ -1321,7 +1244,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>updateSnapshotAuditPreset</p>
      * <p>更新截图审核配置</p>
      *
-     * <p>调用 UpdateSnapshotAuditPreset 接口，更新截图审核配置。  </p>
+     * <p>调用 `UpdateSnapshotAuditPreset` 接口，更新已添加的截图审核配置。  </p>
      *
      * @param body body payload
      * @return response data
@@ -1333,25 +1256,10 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>describeSnapshotAuditPresetDetail</p>
-     * <p>查询截图审核模板详情</p>
-     *
-     * <p>查询截图审核模板详情</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public DescribeSnapshotAuditPresetDetailRes describeSnapshotAuditPresetDetail(DescribeSnapshotAuditPresetDetailBody body) throws Exception {
-        RawResponse rawResponse = json("DescribeSnapshotAuditPresetDetail", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, DescribeSnapshotAuditPresetDetailRes.class);
-    }
-
-    /**
      * <p>listVhostSnapshotAuditPreset</p>
      * <p>查询截图审核配置列表</p>
      *
-     * <p>查询截图审核配置。</p>
+     * <p>调用 `ListVhostSnapshotAuditPreset` 接口，查询截图审核配置列表。  </p>
      *
      * @param body body payload
      * @return response data
@@ -1366,7 +1274,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>createSnapshotAuditPreset</p>
      * <p>添加截图审核配置</p>
      *
-     * <p>调用 CreateSnapshotAuditPreset 接口，添加截图审核配置。</p>
+     * <p>调用 `CreateSnapshotAuditPreset` 接口，添加截图审核配置，当直播流在截图审核配置生效范围内时，将对直播流进行截图审核。</p>
      *
      * @param body body payload
      * @return response data
@@ -1381,7 +1289,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeIpInfo</p>
      * <p>查询 IP 地址归属的 CDN 节点</p>
      *
-     * <p>本接口用于查询指定 IP 地址是否属于火山引擎 CDN 节点。 </p>
+     * <p>调用 `DescribeIpInfo` 接口，查询 IP 地址是否为火山引擎归属的 CDN 节点，以及节点的区域和运营商信息。</p>
      *
      * @param body body payload
      * @return response data
@@ -1396,7 +1304,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveRegionData</p>
      * <p>查询区域标识符</p>
      *
-     * <p>查询用户所在的区域标识符。</p>
+     * <p>调用 `DescribeLiveRegionData` 接口，查询火山引擎视频直播服务覆盖的区域标识符。获取区域标识符后您可以在支持以区域为查询维度的接口中使用区域标识符查询指定区域的维度数据。</p>
      *
      * @return response data
      * @throws Exception error during request
@@ -1410,7 +1318,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveSourceStreamMetrics</p>
      * <p>查询单路回源流监控数据</p>
      *
-     * <p>支持查询一定时间范围内单路直播回源流的音视频帧率、码率等信息，用于判断回源流的健康程度。</p>
+     * <p>调用 `DescribeLiveSourceStreamMetrics` 接口，查询指定时间范围内单路回源流的音视频帧率、码率等监控数据，用于判断回源流的健康程度。</p>
      *
      * @param body body payload
      * @return response data
@@ -1425,7 +1333,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLivePushStreamMetrics</p>
      * <p>查询单路推流监控数据</p>
      *
-     * <p>支持查询一定时间范围内单路直播推流的音视频帧率、码率等信息，用于判断直播推流的健康程度。支持查询删除域名的直播推流数据。</p>
+     * <p>调用 `DescribeLivePushStreamMetrics` 接口，查询指定时间范围内单路直推流的音视频帧率、码率等监控数据，用于判断直播流的健康程度。</p>
      *
      * @param body body payload
      * @return response data
@@ -1440,7 +1348,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLivePlayStatusCodeData</p>
      * <p>查询域名状态码占比</p>
      *
-     * <p>查询一定时间范围内直播拉流请求的状态码占比数据，支持按地区和运营商区分。支持查询删除域名的状态码数据。</p>
+     * <p>调用 `DescribeLivePlayStatusCodeData` 接口，查询指定时间范围内域名请求的状态码占比数据，包含推流请求、拉流请求和回源请求。</p>
      *
      * @param body body payload
      * @return response data
@@ -1455,7 +1363,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveBatchSourceStreamMetrics</p>
      * <p>查询多路回源流监控数据</p>
      *
-     * <p>支持查询一定时间范围内多路直播回源流的音视频帧率、码率等信息，用于判断回源流的健康程度。</p>
+     * <p>调用 `DescribeLiveBatchSourceStreamMetrics` 接口，查询指定时间范围内指定拉流域名下所有回源流或指定回源流的音视频帧率、码率等监控数据，用于判断回源流的健康程度。</p>
      *
      * @param body body payload
      * @return response data
@@ -1470,7 +1378,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveBatchSourceStreamAvgMetrics</p>
      * <p>查询多路回源流监控数据平均值指标</p>
      *
-     * <p>支持查询一定时间范围内多路直播回源流的音视频帧率、码率等信息，用于判断回源流的健康程度。</p>
+     * <p>调用 `DescribeLiveBatchSourceStreamAvgMetrics` 接口，查询指定时间范围内指定拉流域名下所有回源流或指定回源流的音视频帧率、码率等监控数据的平均值，用于判断回源流的健康程度。</p>
      *
      * @param body body payload
      * @return response data
@@ -1485,7 +1393,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveBatchPushStreamMetrics</p>
      * <p>查询多路推流监控数据</p>
      *
-     * <p>支持查询一定时间范围内指定推流域名下直播推流的音视频帧率、码率等信息，用于判断直播推流的健康程度。支持查询删除域名的直播推流数据。</p>
+     * <p>调用 `DescribeLiveBatchPushStreamMetrics` 接口，查询指定时间范围内指定推流域名下所有直推流或指定直推流的音视频帧率、码率等监控数据，用于判断直播流的健康程度。</p>
      *
      * @param body body payload
      * @return response data
@@ -1500,7 +1408,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveBatchPushStreamAvgMetrics</p>
      * <p>查询多路推流监控数据平均值</p>
      *
-     * <p>支持查询一定时间范围内指定推流域名下直播推流的音视频帧率、码率等平均值指标，用于判断直播推流的健康程度。支持查询删除域名的直播推流数据。</p>
+     * <p>调用 `DescribeLiveBatchPushStreamAvgMetrics` 接口，查询指定时间范围内指定推流域名下所有直推流或指定直推流的音视频帧率、码率等监控数据的平均值，用于判断直播流的健康程度。</p>
      *
      * @param body body payload
      * @return response data
@@ -1512,25 +1420,10 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>describeLiveBatchStreamTranscodeData</p>
-     * <p>查询多路流的转码数据</p>
-     *
-     * <p>调用接口分页查询指定域名下所有流的转码总量，及每条流的流名、编码格式和转码时长等信息。</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public DescribeLiveBatchStreamTranscodeDataRes describeLiveBatchStreamTranscodeData(DescribeLiveBatchStreamTranscodeDataBody body) throws Exception {
-        RawResponse rawResponse = json("DescribeLiveBatchStreamTranscodeData", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, DescribeLiveBatchStreamTranscodeDataRes.class);
-    }
-
-    /**
      * <p>describeLiveStreamCountData</p>
      * <p>查询峰值流数</p>
      *
-     * <p>查询推流、拉流、回源流、转码流的峰值流数。</p>
+     * <p>调用 `DescribeLiveStreamCountData` 接口，查询时间范围内指定推流、回源流或转码流的峰值数量。</p>
      *
      * @param body body payload
      * @return response data
@@ -1545,7 +1438,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLivePushStreamCountData</p>
      * <p>查询推流峰值流数</p>
      *
-     * <p>查询推流峰值流数数据。</p>
+     * <p>调用 `DescribeLivePushStreamCountData` 接口，查询指定时间范围内推流域名下推流数量的峰值。</p>
      *
      * @param body body payload
      * @return response data
@@ -1560,7 +1453,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLivePushStreamInfoData</p>
      * <p>查询推流流信息</p>
      *
-     * <p>查询推流流信息以及流断开原因</p>
+     * <p>调用 `DescribeLivePushStreamInfoData` 接口，查询已断开的推流流信息以及推流断开的原因。</p>
      *
      * @param body body payload
      * @return response data
@@ -1572,10 +1465,25 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>describeLiveTranscodeInfoData</p>
+     * <p>查询直播域名转码数据明细</p>
+     *
+     * <p>调用 `DescribeLiveTranscodeInfoData` 接口，查询指定时间范围内直播域名或直播流的转码任务 ID、流名称、转码后缀、转码开始时间和结束时间数据等明细数据。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeLiveTranscodeInfoDataRes describeLiveTranscodeInfoData(DescribeLiveTranscodeInfoDataBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeLiveTranscodeInfoData", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeLiveTranscodeInfoDataRes.class);
+    }
+
+    /**
      * <p>describeLiveSourceBandwidthData</p>
      * <p>查询直播流或域名的回源带宽监控数据</p>
      *
-     * <p>查询一定时间范围内直播拉流或域名的回源带宽监控数据。  </p>
+     * <p>调用 `DescribeLiveSourceBandwidthData` 接口，查询指定时间范围内拉流域名或回源流产生的回源带宽监控数据。</p>
      *
      * @param body body payload
      * @return response data
@@ -1590,7 +1498,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveSourceTrafficData</p>
      * <p>查询直播流或域名的回源流量监控数据</p>
      *
-     * <p>查询一定时间范围内直播拉流或域名的回源流量监控数据。 </p>
+     * <p>调用 `DescribeLiveSourceTrafficData` 接口，查询指定时间范围内拉流域名或回源流产生的回源流量监控数据。</p>
      *
      * @param body body payload
      * @return response data
@@ -1605,15 +1513,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveMetricBandwidthData</p>
      * <p>查询直播流或域名的带宽监控数据</p>
      *
-     * <p>查询一定时间范围内的直播推/拉流或域名的带宽监控数据。支持查询删除域名的带宽数据。</p>
-     *
-     *
-     *
-     * <p>:::tip</p>
-     *
-     * <p>本接口用于数据监控，数据采集处理方式不同于计费。如需获取对账的带宽用量，请使用 [DescribeLiveBandwidthData](https://www.volcengine.com/docs/6469/1126898)接口。</p>
-     *
-     * <p>:::</p>
+     * <p>调用 `DescribeLiveMetricBandwidthData` 接口，查询指定时间范围内直播域名或直播流的带宽监控数据。</p>
      *
      * @param body body payload
      * @return response data
@@ -1628,15 +1528,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveMetricTrafficData</p>
      * <p>查询直播流或域名的流量监控数据</p>
      *
-     * <p>查询一定时间范围内的直播推/拉流或域名的流量监控数据。支持查询删除域名的流量数据。</p>
-     *
-     *
-     *
-     * <p>:::tip</p>
-     *
-     * <p>本接口用于数据监控，数据采集处理方式不同于计费。如需获取对账的流量用量，请使用 [DescribeLiveTrafficData](https://www.volcengine.com/docs/6469/1126899)接口。</p>
-     *
-     * <p>:::</p>
+     * <p>调用 `DescribeLiveMetricTrafficData` 接口，查询指定时间范围内直播域名或直播流的流量监控数据。</p>
      *
      * @param body body payload
      * @return response data
@@ -1648,25 +1540,10 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>describeLiveBatchStreamTrafficData</p>
-     * <p>查询直播流的流量数据</p>
-     *
-     * <p>调用接口分页查询指定域名下所有流的上总流量、下行总流量，及每条流的流名、协议和上下行流量等信息。</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public DescribeLiveBatchStreamTrafficDataRes describeLiveBatchStreamTrafficData(DescribeLiveBatchStreamTrafficDataBody body) throws Exception {
-        RawResponse rawResponse = json("DescribeLiveBatchStreamTrafficData", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, DescribeLiveBatchStreamTrafficDataRes.class);
-    }
-
-    /**
      * <p>describeLiveStreamSessionData</p>
      * <p>查询直播流请求数和在线人数</p>
      *
-     * <p>支持查询一定时间范围内的直播拉流的在线人数和拉流请求数，支持按拉流协议区分。支持查询删除域名的直播流请求数和在线人数。</p>
+     * <p>调用 `DescribeLiveStreamSessionData` 接口，查询指定时间范围内域名下所有直播流或指定直播流的请求数和最大在线人数。</p>
      *
      * @param body body payload
      * @return response data
@@ -1681,7 +1558,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveISPData</p>
      * <p>查询运营商标识符</p>
      *
-     * <p>查询提供网络接入服务的运营商标识符。</p>
+     * <p>调用 `DescribeLiveISPData` 接口，查询所有为火山引擎视频直播提供网络接入服务的运营商标识符。获取运营商标识符后您可以在支持以运营商为查询维度的接口中使用运营商标识符查询指定运营商的维度数据。</p>
      *
      * @return response data
      * @throws Exception error during request
@@ -1695,7 +1572,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveP95PeakBandwidthData</p>
      * <p>查询 95 带宽峰值</p>
      *
-     * <p>调用 DescribeLiveP95PeakBandwidthData 接口，查询 95 峰值带宽用量。</p>
+     * <p>调用 `DescribeLiveP95PeakBandwidthData` 接口，查询指定时间范围内直播域名产生的 95 峰值带宽用量，包含推流域名的上行 95 峰值带宽和拉流域名的下行 95 峰值带宽。</p>
      *
      * @param body body payload
      * @return response data
@@ -1710,7 +1587,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveAuditData</p>
      * <p>查询截图审核用量</p>
      *
-     * <p>调用 DescribeLiveAuditData 接口，查询截图审核用量。</p>
+     * <p>调用 `DescribeLiveAuditData` 接口，查询指定时间内直播域名产生的截图审核张数用量。</p>
      *
      * @param body body payload
      * @return response data
@@ -1725,7 +1602,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLivePullToPushBandwidthData</p>
      * <p>查询拉流转推带宽用量</p>
      *
-     * <p>调用 DescribeLivePullToPushBandwidthData 接口，查询拉流转推带宽用量。</p>
+     * <p>调用 `DescribeLivePullToPushBandwidthData` 接口，查询指定时间范围内产生的拉流转推带宽用量。</p>
      *
      * @param body body payload
      * @return response data
@@ -1740,7 +1617,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLivePullToPushData</p>
      * <p>查询拉流转推时长用量</p>
      *
-     * <p>调用 DescribeLivePullToPushData 接口，查询拉流转推时长用量。</p>
+     * <p>调用 `DescribeLivePullToPushData` 接口，查询指定时间范围内域名产生的所有拉流转推任务进行时长用量。</p>
      *
      * @param body body payload
      * @return response data
@@ -1755,7 +1632,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveBandwidthData</p>
      * <p>查询直播域名带宽用量</p>
      *
-     * <p>调用 DescribeLiveBandwidthData 接口，查询直播域名带宽用量。</p>
+     * <p>调用 `DescribeLiveBandwidthData` 接口，查询指定时间范围内直播域名带宽用量，包含推流域名的上行峰值带宽和拉流域名的下行峰值带宽。</p>
      *
      * @param body body payload
      * @return response data
@@ -1770,7 +1647,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveRecordData</p>
      * <p>查询直播域名录制用量</p>
      *
-     * <p>支持按照域名维度（含删除域名）查询录制用量，日录制用量为一个自然日内的录制并发路数峰值。录制用量查询支持 5 分钟、1 小时、1 天和 1 月的粒度聚合。</p>
+     * <p>调用 `DescribeLiveRecordData` 接口，查询指定时间范围内直播域名录制用量即录制并发路数的最大值。</p>
      *
      * @param body body payload
      * @return response data
@@ -1785,7 +1662,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveSnapshotData</p>
      * <p>查询直播域名截图张数</p>
      *
-     * <p>调用 DescribeLiveSnapshotData 接口，查询直播域名截图张数。</p>
+     * <p>调用 `DescribeLiveSnapshotData` 接口，查询指定时间范围内直播域名使用截图功能产生的截图张数。</p>
      *
      * @param body body payload
      * @return response data
@@ -1800,7 +1677,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveTrafficData</p>
      * <p>查询直播域名流量用量</p>
      *
-     * <p>调用 DescribeLiveTrafficData 接口，查询直播域名流量用量。</p>
+     * <p>调用 `DescribeLiveTrafficData` 接口，查询指定时间范围内直播域名流量用量，包含推流域名的上行流量数据和拉流域名的下行流量数据。</p>
      *
      * @param body body payload
      * @return response data
@@ -1815,7 +1692,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveTranscodeData</p>
      * <p>查询直播域名转码用量</p>
      *
-     * <p>支持查询用户直播转码时长数据。支持按照域名维度（含删除域名）查询，按天粒度聚合。</p>
+     * <p>调用 `DescribeLiveTranscodeData` 接口，查询指定时间范围内直播域名的转码时长用量。</p>
      *
      * @param body body payload
      * @return response data
@@ -1830,15 +1707,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveTimeShiftData</p>
      * <p>查询直播时移存储用量</p>
      *
-     * <p>指定时间范围，查询每日直播时移功能的存储用量。  </p>
-     *
-     *
-     *
-     * <p>:::warning</p>
-     *
-     * <p>该接口适用于**视频直播提供时移能力**的场景，如时移文件存储于视频点播 VoD 或对象存储 ToS，请联系我们，获取用量查询方法。</p>
-     *
-     * <p>:::</p>
+     * <p>调用 `DescribeLiveTimeShiftData` 接口，查询指定时间范围内直播时移功能产生的存储用量。</p>
      *
      * @param body body payload
      * @return response data
@@ -1850,25 +1719,10 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>describeLiveCustomizedLogData</p>
-     * <p>查询定制化客户日志文件信息</p>
-     *
-     * <p>查询定制化客户指定域名下、指定日志类型的日志文件下载链接等信息。</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public DescribeLiveCustomizedLogDataRes describeLiveCustomizedLogData(DescribeLiveCustomizedLogDataBody body) throws Exception {
-        RawResponse rawResponse = json("DescribeLiveCustomizedLogData", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, DescribeLiveCustomizedLogDataRes.class);
-    }
-
-    /**
      * <p>describeLiveLogData</p>
      * <p>查询日志文件信息</p>
      *
-     * <p>查询指定域名下、指定日志类型的日志文件下载链接等信息。</p>
+     * <p>调用 `DescribeLiveLogData` 接口，查询指定时间范围内指定日志类型的离线日志文件及下载信息。</p>
      *
      * @param body body payload
      * @return response data
@@ -2045,40 +1899,114 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>describeLiveActivityBandwidthData</p>
-     * <p>DescribeLiveActivityBandwidthData</p>
+     * <p>updateEncryptDRM</p>
+     * <p>更新 DRM 证书管理平台访问密钥和 FairPlay 证书</p>
      *
-     * <p>活动带宽接口</p>
+     * <p>调用 `UpdateEncryptDRM` 接口，更新 DRM 证书管理平台访问密钥和 FairPlay 证书。</p>
      *
      * @param body body payload
      * @return response data
      * @throws Exception error during request
      */
-    public DescribeLiveActivityBandwidthDataRes describeLiveActivityBandwidthData(DescribeLiveActivityBandwidthDataBody body) throws Exception {
-        RawResponse rawResponse = json("DescribeLiveActivityBandwidthData", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, DescribeLiveActivityBandwidthDataRes.class);
+    public UpdateEncryptDRMRes updateEncryptDRM(UpdateEncryptDRMBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateEncryptDRM", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateEncryptDRMRes.class);
     }
 
     /**
-     * <p>describeLiveStreamUsageData</p>
-     * <p>查询指定时间流和协议维度的数据</p>
+     * <p>describeLicenseDRM</p>
+     * <p>获取 DRM  授权许可文件</p>
      *
-     * <p>查询指定时间流和协议维度的带宽、在线人数和请求数接口</p>
+     * <p>调用 `DescribeLicenseDRM` 接口，视频直播服务向 DRM 证书管理平台发起请求获取 DRM 授权许可文件。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeLicenseDRMRes describeLicenseDRM(DescribeLicenseDRMQuery query) throws Exception {
+        RawResponse rawResponse = json("DescribeLicenseDRM", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, DescribeLicenseDRMRes.class);
+    }
+
+    /**
+     * <p>describeCertDRM</p>
+     * <p>获取 FairPlay 证书文件</p>
+     *
+     * <p>调用 `DescribeCertDRM` 接口，获取 FairPlay 证书文件。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeCertDRMRes describeCertDRM(DescribeCertDRMQuery query) throws Exception {
+        RawResponse rawResponse = json("DescribeCertDRM", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, DescribeCertDRMRes.class);
+    }
+
+    /**
+     * <p>describeEncryptDRM</p>
+     * <p>查看 DRM 证书管理平台访问密钥和 FairPlay 证书</p>
+     *
+     * <p>调用 `DescribeEncryptDRM` 接口，查看已配置的 DRM 证书管理平台访问密钥和 FairPlay 证书信息。</p>
+     *
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeEncryptDRMRes describeEncryptDRM() throws Exception {
+        RawResponse rawResponse = json("DescribeEncryptDRM", null, "");
+        return parseRawResponse(rawResponse, DescribeEncryptDRMRes.class);
+    }
+
+    /**
+     * <p>bindEncryptDRM</p>
+     * <p>添加或更新 DRM 加密配置</p>
+     *
+     * <p>调用 `BindEncryptDRM` 接口，添加或更新 DRM 加密配置。</p>
      *
      * @param body body payload
      * @return response data
      * @throws Exception error during request
      */
-    public DescribeLiveStreamUsageDataRes describeLiveStreamUsageData(DescribeLiveStreamUsageDataBody body) throws Exception {
-        RawResponse rawResponse = json("DescribeLiveStreamUsageData", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, DescribeLiveStreamUsageDataRes.class);
+    public BindEncryptDRMRes bindEncryptDRM(BindEncryptDRMBody body) throws Exception {
+        RawResponse rawResponse = json("BindEncryptDRM", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, BindEncryptDRMRes.class);
+    }
+
+    /**
+     * <p>unBindEncryptDRM</p>
+     * <p>删除 DRM 加密配置</p>
+     *
+     * <p>调用 `UnBindEncryptDRM` 接口，删除指定的 DRM 加密配置。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UnBindEncryptDRMRes unBindEncryptDRM(UnBindEncryptDRMBody body) throws Exception {
+        RawResponse rawResponse = json("UnBindEncryptDRM", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UnBindEncryptDRMRes.class);
+    }
+
+    /**
+     * <p>listBindEncryptDRM</p>
+     * <p>查询 DRM 加密配置</p>
+     *
+     * <p>调用 `ListBindEncryptDRM` 接口，查询指定域名空间和应用名称的 DRM 加密配置或查看指定域名空间下所有 DRM 加密配置。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public ListBindEncryptDRMRes listBindEncryptDRM(ListBindEncryptDRMBody body) throws Exception {
+        RawResponse rawResponse = json("ListBindEncryptDRM", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, ListBindEncryptDRMRes.class);
     }
 
     /**
      * <p>deleteIPAccessRule</p>
      * <p>删除ip访问限制</p>
      *
-     * <p>更新ip访问限制</p>
+     * <p>调用 `DeleteIPAccessRule` 接口，删除域名的 IP 访问限制。</p>
      *
      * @param body body payload
      * @return response data
@@ -2093,7 +2021,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>updateIPAccessRule</p>
      * <p>更新ip访问限制</p>
      *
-     * <p>更新ip访问限制</p>
+     * <p>调用 `UpdateIPAccessRule` 接口，创建或更新域名的 IP 访问限制。</p>
      *
      * @param body body payload
      * @return response data
@@ -2108,7 +2036,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeIPAccessRule</p>
      * <p>查询ip访问限制</p>
      *
-     * <p>查询ip访问限制</p>
+     * <p>调用 `DescribeIPAccessRule` 接口，查询域名的 IP 访问限制配置。</p>
      *
      * @param body body payload
      * @return response data

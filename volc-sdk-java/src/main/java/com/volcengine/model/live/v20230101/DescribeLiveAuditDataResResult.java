@@ -17,29 +17,25 @@ public final class DescribeLiveAuditDataResResult  {
     private List<String> domainList;
 
     /**
-     * <p>查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     * <p>查询的开始时间，RFC3339 格式的时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     * <p>查询的结束时间，RFC3339 格式的时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
 
     /**
      * <p>数据聚合的时间粒度，单位为秒。</p>
-     *
-     * <p>- 86400：1 天。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;
 
     /**
-     * <p>数据拆分的维度，维度说明如下。</p>
-     *
-     * <p>- Domain：域名。</p>
+     * <p>数据拆分的维度，当前接口仅支持按 Domain 即域名维度进行数据拆分。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DetailField")
     private List<String> detailField;

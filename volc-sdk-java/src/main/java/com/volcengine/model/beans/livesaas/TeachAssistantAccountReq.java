@@ -19,4 +19,6 @@ public class TeachAssistantAccountReq {
     Long Id;
     @JSONField(name = "TeachAssistantFeatures")
     List<Integer> TeachAssistantFeatures;
+    @JSONField(name = "AudienceGroupIds")
+    List<Long> AudienceGroupIds;
 }

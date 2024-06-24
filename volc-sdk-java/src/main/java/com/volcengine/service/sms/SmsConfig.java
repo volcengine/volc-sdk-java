@@ -324,6 +324,51 @@ public class SmsConfig {
                         }
                     }
             ));
+
+            put("GetSignatureIdentList", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetSignatureIdentList"));
+                                    add(new BasicNameValuePair("Version", "2021-01-11"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put("BatchBindSignatureIdent", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "BatchBindSignatureIdent"));
+                                    add(new BasicNameValuePair("Version", "2021-01-11"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put("ApplySignatureIdent", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ApplySignatureIdent"));
+                                    add(new BasicNameValuePair("Version", "2021-01-11"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

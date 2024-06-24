@@ -11,13 +11,13 @@ import java.util.List;
 public final class ListDomainDetailBody  {
 
     /**
-     * <p>查询数据的页码，取值为 1 时表示查询第一页的数据，取值范围为 [1,1000]。</p>
+     * <p>查询数据的页码，取值为 1 时表示查询第一页的数据，取值范围为 \[1,1000\]。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageNum")
     private Integer pageNum;
 
     /**
-     * <p>每页显示的数据条数，取值为 10 时表示每页展示 10 条域名信息，取值范围为 [1, 1000]。</p>
+     * <p>每页显示的数据条数，取值为 10 时表示每页展示 10 条域名信息，取值范围为 \[1, 1000\]。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageSize")
     private Integer pageSize;
@@ -59,9 +59,11 @@ public final class ListDomainDetailBody  {
     /**
      * <p>域名加速区域列表，缺省情况下表示查看全部。支持的取值如下所示。</p>
      *
-     * <p>- `cn`：中国大陆；</p>
      *
-     * <p>- `cn-global`：全球；</p>
+     *
+     * <p>- `cn`：中国内地；</p>
+     *
+     * <p>- `cn-global`：全球加速；</p>
      *
      * <p>- `cn-oversea`：海外及港澳台。</p>
      */
@@ -69,7 +71,7 @@ public final class ListDomainDetailBody  {
     private List<String> domainRegionList;
 
     /**
-     * <p>域名名称列表，缺省情况下表示全部域名。</p>
+     * <p>域名名称列表，缺省情况下表示全部。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DomainNameList")
     private List<String> domainNameList;

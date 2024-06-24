@@ -11,13 +11,13 @@ import java.util.List;
 public final class DescribeLiveLogDataResResult  {
 
     /**
-     * <p>查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     * <p>查询的开始时间，RFC3339 格式的时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>查询的结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     * <p>查询的结束时间，RFC3339 格式的时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
@@ -31,13 +31,13 @@ public final class DescribeLiveLogDataResResult  {
     /**
      * <p>日志类型，类型说明如下所示。</p>
      *
-     * <p>- pull：拉流日志</p>
+     * <p>- `pull`：拉流日志</p>
      *
-     * <p>- push：推流日志</p>
+     * <p>- `push`：推流日志</p>
      *
-     * <p>- source：回源日志</p>
+     * <p>- `source`：回源日志</p>
      *
-     * <p>- relay：拉流转推日志</p>
+     * <p>- `relay`：拉流转推日志</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Type")
     private String type;

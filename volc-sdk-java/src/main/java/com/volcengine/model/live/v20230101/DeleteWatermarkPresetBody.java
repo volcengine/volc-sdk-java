@@ -10,13 +10,13 @@ import com.alibaba.fastjson.JSON;
 public final class DeleteWatermarkPresetBody  {
 
     /**
-     * <p>应用名称，由 1 到 30 位数字、字母、下划线及"-"和"."组成。</p>
+     * <p>应用名称，您可以调用 [ListVhostWatermarkPreset](https://www.volcengine.com/docs/6469/1126889) 接口，查看待删除水印配置的 App 取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>域名空间名称，由 1 到 60 位数字、字母、下划线及"-"和"."组成。</p>
+     * <p>域名空间，您可以调用 [ListVhostWatermarkPreset](https://www.volcengine.com/docs/6469/1126889) 接口，查看待删除水印配置的 Vhost 取值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;

@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class CreateWatermarkPresetBody  {
 
     /**
-     * <p>应用名称，由 1 到 30 位数字、字母、下划线及"-"和"."组成。</p>
+     * <p>应用名称，取值与直播流地址中 AppName 字段取值相同。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（\_）、短横线（-）和句点（.）组成，长度为 1 到 30 个字符。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
@@ -18,9 +18,9 @@ public final class CreateWatermarkPresetBody  {
     /**
      * <p>需要添加水印的直播画面方向，支持 2 种取值。</p>
      *
-     * <p>- vertical：竖屏；</p>
+     * <p>- `vertical`：竖屏；</p>
      *
-     * <p>- horizontal：横屏。</p>
+     * <p>- `horizontal`：横屏。</p>
      *
      * <p>:::tip</p>
      *
@@ -32,7 +32,7 @@ public final class CreateWatermarkPresetBody  {
     private String orientation;
 
     /**
-     * <p>水印图片字符串，图片最大 2MB，最小 100Bytes，最大分辨率为 1080×1080。图片 Data URL 格式为：`data:[<mediatype>];[base64],<data>`。</p>
+     * <p>水印图片编码字符串，图片最大 2MB，最小 100Bytes，最大分辨率为 1080×1080。图片 Data URL 格式为：`data:[<mediatype>];[base64],<data>`。</p>
      *
      * <p>- `mediatype`：图片类型，支持 png、jpg、jpeg 格式；</p>
      *
@@ -60,13 +60,13 @@ public final class CreateWatermarkPresetBody  {
     private Float relativeWidth;
 
     /**
-     * <p>域名空间名称，由 1 到 60 位数字、字母、下划线及"-"和"."组成。</p>
+     * <p>域名空间，即直播流地址的域名所属的域名空间。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，查看直播流使用的域名所属的域名空间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;
 
     /**
-     * <p>水印图片对应的 HTTP 地址。与水印图片字符串字段二选一传入，同时传入时，以水印图片字符串参数为准。</p>
+     * <p>水印图片对应的 HTTP 地址。与水印图片编码字符串字段二选一传入，同时传入时，以水印图片编码字符串参数为准。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PictureUrl")
     private String pictureUrl;

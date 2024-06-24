@@ -11,7 +11,7 @@ import java.util.List;
 public final class ListVhostSnapshotAuditPresetResResultPresetListItemAuditPreset  {
 
     /**
-     * <p>截图间隔时间，单位秒，取值范围为[0.1,10]，支持保留两位小数。</p>
+     * <p>截图间隔时间，单位为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Interval")
     private Float interval;
@@ -61,9 +61,9 @@ public final class ListVhostSnapshotAuditPresetResResultPresetListItemAuditPrese
     /**
      * <p>存储策略，取值及含义如下。</p>
      *
-     * <p>- 0：触发存储，只存储有风险图片；</p>
+     * <p>- `0`：触发存储，只存储有风险图片；</p>
      *
-     * <p>- 1：全部存储，存储全部图片。</p>
+     * <p>- `1`：全部存储，存储全部图片。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StorageStrategy")
     private Integer storageStrategy;
@@ -71,27 +71,27 @@ public final class ListVhostSnapshotAuditPresetResResultPresetListItemAuditPrese
     /**
      * <p>审核标签名称，取值及含义如下。</p>
      *
-     * <p>- 301：涉黄；</p>
+     * <p>- `301`：涉黄；</p>
      *
-     * <p>- 302：涉敏1；</p>
+     * <p>- `302`：涉敏1；</p>
      *
-     * <p>- 303：涉敏2；</p>
+     * <p>- `303`：涉敏2；</p>
      *
-     * <p>- 304：广告；</p>
+     * <p>- `304`：广告；</p>
      *
-     * <p>- 305：引人不适；</p>
+     * <p>- `305`：引人不适；</p>
      *
-     * <p>- 306：违禁；</p>
+     * <p>- `306`：违禁；</p>
      *
-     * <p>- 307：二维码；</p>
+     * <p>- `307`：二维码；</p>
      *
-     * <p>- 308：诈骗；</p>
+     * <p>- `308`：诈骗；</p>
      *
-     * <p>- 309：不良画面；</p>
+     * <p>- `309`：不良画面；</p>
      *
-     * <p>- 310：未成年相关；</p>
+     * <p>- `310`：未成年相关；</p>
      *
-     * <p>- 320：文字违规。</p>
+     * <p>- `320`：文字违规。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Label")
     private List<String> label;

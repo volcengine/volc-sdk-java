@@ -11,21 +11,21 @@ import java.util.List;
 public final class UpdateIPAccessRuleBodyIPAccessRule  {
 
     /**
-     * <p>IP 访问限制的类型，取值及含义如下。</p>
+     * <p>IP 访问限制的类型，取值及含义如下所示。</p>
      *
-     * <p>- allow: 白名单；</p>
+     * <p>- `allow`: 白名单；</p>
      *
-     * <p>- deny: 黑名单。</p>
+     * <p>- `deny`: 黑名单。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Type")
     private String type;
 
     /**
-     * <p>是否开启当前限制，取值及含义如下。</p>
+     * <p>是否开启当前限制，取值及含义如下所示。</p>
      *
-     * <p>- true: 开启；</p>
+     * <p>- `true`: 开启；</p>
      *
-     * <p>- false: 关闭。</p>
+     * <p>- `false`: 关闭。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Enable")
     private Boolean enable;

@@ -38,6 +38,8 @@ public class GetHotChatAPIResponse {
         Integer LikeCount;
         @JSONField(name = "IsPresenter")
         Boolean IsPresenter;
+        @JSONField(name = "AudienceGroupId")
+        Long AudienceGroupId;
     }
 
     @Data

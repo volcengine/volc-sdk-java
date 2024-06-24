@@ -16,13 +16,13 @@ public final class GetPullRecordTaskResResult  {
     private String taskId;
 
     /**
-     * <p>任务开始时间。</p>
+     * <p>任务开始时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>任务结束时间。</p>
+     * <p>任务结束时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;

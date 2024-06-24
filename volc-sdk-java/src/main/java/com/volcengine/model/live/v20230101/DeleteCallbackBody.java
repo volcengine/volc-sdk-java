@@ -24,19 +24,15 @@ public final class DeleteCallbackBody  {
     /**
      * <p>消息类型，与创建回调时传的值一致。您可以调用 [DescribeCallback](https://www.volcengine.com/docs/6469/1126931) 接口查看待删除回调配置的 `MessageType` 取值。</p>
      *
+     * <p>- `push`：推流开始回调；</p>
      *
+     * <p>- `push_end`：推流结束回调；</p>
      *
-     * <p>缺省情况下为空，表示删除符合 Vhost、Domain、App 配置下的所有回调类型配置。包括以下类型。</p>
+     * <p>- `snapshot`：截图回调；</p>
      *
-     * <p>- push：推流开始回调；</p>
+     * <p>- `record`：录制任务状态回调；</p>
      *
-     * <p>- push_end：推流结束回调；</p>
-     *
-     * <p>- snapshot：截图回调；</p>
-     *
-     * <p>- record：录制任务状态回调；</p>
-     *
-     * <p>- audit_snapshot：截图审核结果回调。</p>
+     * <p>- `audit_snapshot`：截图审核结果回调。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "MessageType")
     private String messageType;

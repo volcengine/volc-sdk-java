@@ -38,6 +38,8 @@ public class PollingChatAPIResponse {
         Boolean IsDelete;
         @JSONField(name = "LikeCount")
         Integer LikeCount;
+        @JSONField(name = "AudienceGroupId")
+        Long AudienceGroupId;
     }
 
     @Data

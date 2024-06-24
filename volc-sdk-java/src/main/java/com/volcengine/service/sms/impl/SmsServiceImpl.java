@@ -311,6 +311,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     }
 
 
+
     private SmsSendResponse getSmsSendResponse(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -585,6 +586,67 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
             throw response.getException();
         }
         GetSmsSendDetailsResponse res = JSON.parseObject(response.getData(), GetSmsSendDetailsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+
+
+    @Override
+    public ApplySignatureIdentResponse applySignatureIdent(ApplySignatureIdentRequest applySignatureIdentRequest) throws Exception {
+        RawResponse response =
+                json("ApplySmsSignature", new ArrayList<>(), JSON.toJSONString(applySignatureIdentRequest));
+        return applySignatureIdentResponse(response);
+    }
+
+    public ApplySignatureIdentResponse applySignatureIdentResponse(RawResponse response) throws Exception{
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ApplySignatureIdentResponse res = JSON.parseObject(response.getData(), ApplySignatureIdentResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+    @Override
+    public GetSignatureIdentListResponse getSignatureIdentList(GetSignatureIdentListRequest getSignatureIdentListRequest) throws Exception {
+        RawResponse response =
+                json("GetSignatureIdentList", new ArrayList<>(), JSON.toJSONString(getSignatureIdentListRequest));
+        return getSignatureIdentListResponse(response);
+    }
+
+    public GetSignatureIdentListResponse getSignatureIdentListResponse(RawResponse response)throws Exception{
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetSignatureIdentListResponse res = JSON.parseObject(response.getData(), GetSignatureIdentListResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    @Override
+    public BatchBindSignatureIdentResponse batchBindSignatureIdent(BatchBindSignatureIdentRequest batchBindSignatureIdentRequest) throws Exception {
+        RawResponse response =
+                json("BatchBindSignatureIdent", new ArrayList<>(), JSON.toJSONString(batchBindSignatureIdentRequest));
+        return batchBindSignatureIdentResponse(response);
+    }
+
+    public BatchBindSignatureIdentResponse batchBindSignatureIdentResponse(RawResponse response)throws Exception{
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        BatchBindSignatureIdentResponse res = JSON.parseObject(response.getData(), BatchBindSignatureIdentResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());

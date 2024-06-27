@@ -30,4 +30,8 @@ public class CreateActivityAPIRequest {
     Integer LiveMode;
     @JSONField(name = "VerticalCoverImage")
     String VerticalCoverImage;
+    @JSONField(name = "EndTime")
+    Long EndTime;
+    @JSONField(name = "IsAutoEndEnable")
+    Integer IsAutoEndEnable;
 }

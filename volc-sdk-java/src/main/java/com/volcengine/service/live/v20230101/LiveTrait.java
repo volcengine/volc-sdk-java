@@ -1345,6 +1345,36 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>describeLiveBatchStreamSessionData</p>
+     * <p>查询域名下所有直播流的拉流数据</p>
+     *
+     * <p>调用 `DescribeLiveBatchStreamSessionData` 接口，查询指定时间范围内域名下所有直播流的请求数和最大在线人数。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeLiveBatchStreamSessionDataRes describeLiveBatchStreamSessionData(DescribeLiveBatchStreamSessionDataBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeLiveBatchStreamSessionData", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeLiveBatchStreamSessionDataRes.class);
+    }
+
+    /**
+     * <p>describeLiveStreamSessionData</p>
+     * <p>查询域名或单个直播流的拉流数据</p>
+     *
+     * <p>调用 `DescribeLiveStreamSessionData` 接口，查询指定时间范围内指定拉流域名或指定直播流的请求数和最大在线人数。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeLiveStreamSessionDataRes describeLiveStreamSessionData(DescribeLiveStreamSessionDataBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeLiveStreamSessionData", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeLiveStreamSessionDataRes.class);
+    }
+
+    /**
      * <p>describeLivePlayStatusCodeData</p>
      * <p>查询域名状态码占比</p>
      *
@@ -1540,18 +1570,18 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>describeLiveStreamSessionData</p>
-     * <p>查询直播流请求数和在线人数</p>
+     * <p>describeLiveBatchStreamTrafficData</p>
+     * <p>查询直播流的流量数据</p>
      *
-     * <p>调用 `DescribeLiveStreamSessionData` 接口，查询指定时间范围内域名下所有直播流或指定直播流的请求数和最大在线人数。</p>
+     * <p>调用 `DescribeLiveBatchStreamTrafficData` 接口，查询指定时间范围内的上下行流量数据及其详细数据。</p>
      *
      * @param body body payload
      * @return response data
      * @throws Exception error during request
      */
-    public DescribeLiveStreamSessionDataRes describeLiveStreamSessionData(DescribeLiveStreamSessionDataBody body) throws Exception {
-        RawResponse rawResponse = json("DescribeLiveStreamSessionData", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, DescribeLiveStreamSessionDataRes.class);
+    public DescribeLiveBatchStreamTrafficDataRes describeLiveBatchStreamTrafficData(DescribeLiveBatchStreamTrafficDataBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeLiveBatchStreamTrafficData", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeLiveBatchStreamTrafficDataRes.class);
     }
 
     /**

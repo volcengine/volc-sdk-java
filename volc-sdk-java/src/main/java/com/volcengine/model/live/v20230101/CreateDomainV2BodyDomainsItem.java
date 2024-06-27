@@ -16,7 +16,7 @@ public final class CreateDomainV2BodyDomainsItem  {
     private String domainName;
 
     /**
-     * <p>证书链 ID。</p>
+     * <p>HTTPS 证书链 ID，默认为空表示不为域名绑定 HTTPS 证书。您可以调用 [ListCertV2](https://www.volcengine.com/docs/6469/1126823) 接口或在视频直播控制台的[证书管理](https://console.volcengine.com/live/main/certificate)页面，获取待绑定的证书链 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ChainID")
     private String chainID;
@@ -30,6 +30,18 @@ public final class CreateDomainV2BodyDomainsItem  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Type")
     private String type;
+
+    /**
+     * <p>域名加速区域，取值及含义如下所示。</p>
+     *
+     * <p>- `cn`：中国内地加速；</p>
+     *
+     * <p>- `cn-global`：全球加速；</p>
+     *
+     * <p>- `cn-oversea`：海外及港澳台加速。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Region")
+    private String region;
 
     @Override
     public String toString() {

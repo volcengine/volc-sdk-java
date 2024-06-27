@@ -1222,6 +1222,34 @@ public class LiveConfig {
                     }
                 }     
             ));
+            put("DescribeLiveBatchStreamSessionData", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DescribeLiveBatchStreamSessionData"));
+                                add(new BasicNameValuePair("Version", "2023-01-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("DescribeLiveStreamSessionData", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DescribeLiveStreamSessionData"));
+                                add(new BasicNameValuePair("Version", "2023-01-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
             put("DescribeLivePlayStatusCodeData", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -1404,14 +1432,14 @@ public class LiveConfig {
                     }
                 }     
             ));
-            put("DescribeLiveStreamSessionData", new ApiInfo(
+            put("DescribeLiveBatchStreamTrafficData", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
                         put(Const.Method, "POST");
                         put(Const.Path, "/");
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
-                                add(new BasicNameValuePair("Action", "DescribeLiveStreamSessionData"));
+                                add(new BasicNameValuePair("Action", "DescribeLiveBatchStreamTrafficData"));
                                 add(new BasicNameValuePair("Version", "2023-01-01"));
                             }
                         });

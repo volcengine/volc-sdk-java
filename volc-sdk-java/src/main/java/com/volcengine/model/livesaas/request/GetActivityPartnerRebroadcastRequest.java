@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class GetActivityLinksRequest {
+public class GetActivityPartnerRebroadcastRequest {
     @JSONField(name = "ActivityId")
     Long ActivityId;
 }

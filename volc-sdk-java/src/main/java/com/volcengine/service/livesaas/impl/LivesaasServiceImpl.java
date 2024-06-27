@@ -171,6 +171,21 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public GetDownloadLiveClientResponse getDownloadLiveClient(GetDownloadLiveClientRequest getDownloadLiveClientRequest) throws Exception {
+        RawResponse response = json(Const.GetDownloadLiveClient, new ArrayList<>(), JSON.toJSONString(getDownloadLiveClientRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetDownloadLiveClientResponse res = JSON.parseObject(response.getData(), GetDownloadLiveClientResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public GetWebPushLiveClientAPIResponse getWebPushLiveClientAPI(CommonRequest commonRequest) throws Exception {
         RawResponse response = query(Const.GetWebPushLiveClientAPI, Utils.paramsToPair(commonRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -2811,6 +2826,51 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
             throw response.getException();
         }
         ModifyAudienceGroupResponse res = JSON.parseObject(response.getData(), ModifyAudienceGroupResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public AddActivityPartnerRebroadcastResponse addActivityPartnerRebroadcast(AddActivityPartnerRebroadcastRequest addActivityPartnerRebroadcastRequest) throws Exception {
+        RawResponse response = json(Const.AddActivityPartnerRebroadcast, new ArrayList<>(), JSON.toJSONString(addActivityPartnerRebroadcastRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        AddActivityPartnerRebroadcastResponse res = JSON.parseObject(response.getData(), AddActivityPartnerRebroadcastResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteActivityPartnerRebroadcastResponse deleteActivityPartnerRebroadcast(DeleteActivityPartnerRebroadcastRequest deleteActivityPartnerRebroadcastRequest) throws Exception {
+        RawResponse response = json(Const.DeleteActivityPartnerRebroadcast, new ArrayList<>(), JSON.toJSONString(deleteActivityPartnerRebroadcastRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteActivityPartnerRebroadcastResponse res = JSON.parseObject(response.getData(), DeleteActivityPartnerRebroadcastResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetActivityPartnerRebroadcastResponse getActivityPartnerRebroadcast(GetActivityPartnerRebroadcastRequest getActivityPartnerRebroadcastRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityPartnerRebroadcast, Utils.paramsToPair(getActivityPartnerRebroadcastRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityPartnerRebroadcastResponse res = JSON.parseObject(response.getData(), GetActivityPartnerRebroadcastResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());

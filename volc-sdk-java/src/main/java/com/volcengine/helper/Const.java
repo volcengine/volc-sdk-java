@@ -174,6 +174,7 @@ public class Const {
     public static final String ListActivityAPI = "ListActivityAPI";
 
     public static final String GetDownloadLiveClientAPI = "GetDownloadLiveClientAPI";
+    public static final String GetDownloadLiveClient = "GetDownloadLiveClient";
 
     public static final String GetWebPushLiveClientAPI = "GetWebPushLiveClientAPI";
 
@@ -482,6 +483,9 @@ public class Const {
     public static final String UpdateProgram = "UpdateProgram";
     public static final String DeleteProgram = "DeleteProgram";
     public static final String MediaCut = "MediaCut";
+    public static final String AddActivityPartnerRebroadcast = "AddActivityPartnerRebroadcast";
+    public static final String DeleteActivityPartnerRebroadcast = "DeleteActivityPartnerRebroadcast";
+    public static final String GetActivityPartnerRebroadcast = "GetActivityPartnerRebroadcast";
 
     public static final String GetActivityLinks = "GetActivityLinks";
 

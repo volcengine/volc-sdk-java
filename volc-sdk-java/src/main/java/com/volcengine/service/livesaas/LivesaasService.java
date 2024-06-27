@@ -79,6 +79,15 @@ public interface LivesaasService extends IBaseService {
     GetDownloadLiveClientAPIResponse getDownloadLiveClientAPI(CommonRequest commonRequest) throws Exception;
 
     /**
+     * getDownloadLiveClient
+     *
+     * @param getDownloadLiveClientRequest GetDownloadLiveClientRequest
+     * @return GetDownloadLiveClientResponse
+     * @throws Exception the exception
+     */
+    GetDownloadLiveClientResponse getDownloadLiveClient(GetDownloadLiveClientRequest getDownloadLiveClientRequest) throws Exception;
+
+    /**
      * GetWebPushLiveClientAPI
      *
      * @param commonRequest CommonRequest
@@ -441,7 +450,7 @@ public interface LivesaasService extends IBaseService {
     /**
      * UpdateActivityProductAPI
      *
-     * @param updateActivityProductVUpdateActivityProductV2RequestRequest 2
+     * @param updateActivityProductV2Request UpdateActivityProductV2Request
      * @return CommonStatusResponse
      * @throws Exception the exception
      */
@@ -1619,4 +1628,31 @@ public interface LivesaasService extends IBaseService {
      */
     ModifyAudienceGroupResponse modifyAudienceGroup(ModifyAudienceGroupRequest modifyAudienceGroupRequest) throws Exception;
 
+
+    /**
+     * addActivityPartnerRebroadcast
+     *
+     * @param addActivityPartnerRebroadcastRequest addActivityPartnerRebroadcast
+     * @return AddActivityPartnerRebroadcastResponse
+     * @throws Exception the exception
+     */
+    AddActivityPartnerRebroadcastResponse addActivityPartnerRebroadcast(AddActivityPartnerRebroadcastRequest addActivityPartnerRebroadcastRequest) throws Exception;
+
+    /**
+     * deleteActivityPartnerRebroadcast
+     *
+     * @param deleteActivityPartnerRebroadcastRequest DeleteActivityPartnerRebroadcastRequest
+     * @return DeleteActivityPartnerRebroadcastResponse
+     * @throws Exception the exception
+     */
+    DeleteActivityPartnerRebroadcastResponse deleteActivityPartnerRebroadcast(DeleteActivityPartnerRebroadcastRequest deleteActivityPartnerRebroadcastRequest) throws Exception;
+
+    /**
+     * getActivityPartnerRebroadcast
+     *
+     * @param getActivityPartnerRebroadcastRequest GetActivityPartnerRebroadcastRequest
+     * @return GetActivityPartnerRebroadcastResponse
+     * @throws Exception the exception
+     */
+    GetActivityPartnerRebroadcastResponse getActivityPartnerRebroadcast(GetActivityPartnerRebroadcastRequest getActivityPartnerRebroadcastRequest) throws Exception;
 }

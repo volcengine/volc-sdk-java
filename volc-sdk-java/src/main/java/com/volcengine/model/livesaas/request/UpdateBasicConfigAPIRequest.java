@@ -150,6 +150,10 @@ public class UpdateBasicConfigAPIRequest {
     List<String> ThumbUpEffectUrls;
     @JSONField(name = "UseDefaultThumbUpEffect")
     Integer UseDefaultThumbUpEffect;
+    @JSONField(name = "EndTime")
+    Long EndTime;
+    @JSONField(name = "IsAutoEndEnable")
+    Integer IsAutoEndEnable;
 
     @Data
     public static class RiskWarningSetting {

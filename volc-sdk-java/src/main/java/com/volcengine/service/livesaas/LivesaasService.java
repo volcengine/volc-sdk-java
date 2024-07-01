@@ -1655,4 +1655,41 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetActivityPartnerRebroadcastResponse getActivityPartnerRebroadcast(GetActivityPartnerRebroadcastRequest getActivityPartnerRebroadcastRequest) throws Exception;
+
+    /**
+     * updateLiveChannelConfig
+     *
+     * @param updateLiveChannelConfigRequest UpdateLiveChannelConfigRequest
+     * @return UpdateLiveChannelConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateLiveChannelConfigResponse updateLiveChannelConfig(UpdateLiveChannelConfigRequest updateLiveChannelConfigRequest) throws Exception;
+
+    /**
+     * createLiveChannelConfig
+     *
+     * @param createLiveChannelConfigRequest CreateLiveChannelConfigRequest
+     * @return CreateLiveChannelConfigResponse
+     * @throws Exception the exception
+     */
+    CreateLiveChannelConfigResponse createLiveChannelConfig(CreateLiveChannelConfigRequest createLiveChannelConfigRequest) throws Exception;
+
+    /**
+     * deleteLiveChannelConfig
+     *
+     * @param deleteLiveChannelConfigRequest DeleteLiveChannelConfigRequest
+     * @return DefaultResponse
+     * @throws Exception the exception
+     */
+    DefaultResponse deleteLiveChannelConfig(DeleteLiveChannelConfigRequest deleteLiveChannelConfigRequest) throws Exception;
+
+    /**
+     * listLiveChannelConfig
+     *
+     * @param listLiveChannelConfigRequest CommonRequest
+     * @return DefaultResponse
+     * @throws Exception the exception
+     */
+    ListLiveChannelConfigResponse listLiveChannelConfig(CommonRequest listLiveChannelConfigRequest) throws Exception;
+
 }

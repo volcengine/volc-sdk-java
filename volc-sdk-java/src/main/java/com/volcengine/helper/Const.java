@@ -503,6 +503,14 @@ public class Const {
 
     public static final String ModifyAudienceGroup = "ModifyAudienceGroup";
 
+    public static final String UpdateLiveChannelConfig = "UpdateLiveChannelConfig";
+
+    public static final String DeleteLiveChannelConfig = "DeleteLiveChannelConfig";
+
+    public static final String CreateLiveChannelConfig = "CreateLiveChannelConfig";
+
+    public static final String ListLiveChannelConfig = "ListLiveChannelConfig";
+
     // translate
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";

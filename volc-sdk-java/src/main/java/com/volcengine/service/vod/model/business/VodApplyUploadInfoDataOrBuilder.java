@@ -33,4 +33,31 @@ public interface VodApplyUploadInfoDataOrBuilder extends
    * <code>.Volcengine.Vod.Models.Business.VodUploadAddress UploadAddress = 1;</code>
    */
   com.volcengine.service.vod.model.business.VodUploadAddressOrBuilder getUploadAddressOrBuilder();
+
+  /**
+   * <pre>
+   * 1001 阶段返回候选上传地址用于降级 
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.CandidateUploadAddresses CandidateUploadAddresses = 2;</code>
+   * @return Whether the candidateUploadAddresses field is set.
+   */
+  boolean hasCandidateUploadAddresses();
+  /**
+   * <pre>
+   * 1001 阶段返回候选上传地址用于降级 
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.CandidateUploadAddresses CandidateUploadAddresses = 2;</code>
+   * @return The candidateUploadAddresses.
+   */
+  com.volcengine.service.vod.model.business.CandidateUploadAddresses getCandidateUploadAddresses();
+  /**
+   * <pre>
+   * 1001 阶段返回候选上传地址用于降级 
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.CandidateUploadAddresses CandidateUploadAddresses = 2;</code>
+   */
+  com.volcengine.service.vod.model.business.CandidateUploadAddressesOrBuilder getCandidateUploadAddressesOrBuilder();
 }

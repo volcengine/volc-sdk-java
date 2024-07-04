@@ -123,4 +123,24 @@ public interface TranscodeVideoOverrideOrBuilder extends
    */
   com.google.protobuf.ByteString
       getFileNameBytes();
+
+  /**
+   * <pre>
+   * 指定水印模板Id
+   * </pre>
+   *
+   * <code>string LogoTemplateId = 5;</code>
+   * @return The logoTemplateId.
+   */
+  java.lang.String getLogoTemplateId();
+  /**
+   * <pre>
+   * 指定水印模板Id
+   * </pre>
+   *
+   * <code>string LogoTemplateId = 5;</code>
+   * @return The bytes for logoTemplateId.
+   */
+  com.google.protobuf.ByteString
+      getLogoTemplateIdBytes();
 }

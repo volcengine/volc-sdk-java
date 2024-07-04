@@ -107,6 +107,11 @@ private static final long serialVersionUID = 0L;
             clientIDCMode_ = s;
             break;
           }
+          case 80: {
+
+            needFallback_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -491,6 +496,21 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int NEEDFALLBACK_FIELD_NUMBER = 10;
+  private boolean needFallback_;
+  /**
+   * <pre>
+   * 是否支持降级域名调度 true-支持降级，false-不支持降级
+   * </pre>
+   *
+   * <code>bool NeedFallback = 10;</code>
+   * @return The needFallback.
+   */
+  @java.lang.Override
+  public boolean getNeedFallback() {
+    return needFallback_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -532,6 +552,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientIDCMode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, clientIDCMode_);
     }
+    if (needFallback_ != false) {
+      output.writeBool(10, needFallback_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -570,6 +593,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientIDCMode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, clientIDCMode_);
     }
+    if (needFallback_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(10, needFallback_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -604,6 +631,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getClientNetWorkMode())) return false;
     if (!getClientIDCMode()
         .equals(other.getClientIDCMode())) return false;
+    if (getNeedFallback()
+        != other.getNeedFallback()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -634,6 +663,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getClientNetWorkMode().hashCode();
     hash = (37 * hash) + CLIENTIDCMODE_FIELD_NUMBER;
     hash = (53 * hash) + getClientIDCMode().hashCode();
+    hash = (37 * hash) + NEEDFALLBACK_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getNeedFallback());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -785,6 +817,8 @@ private static final long serialVersionUID = 0L;
 
       clientIDCMode_ = "";
 
+      needFallback_ = false;
+
       return this;
     }
 
@@ -820,6 +854,7 @@ private static final long serialVersionUID = 0L;
       result.fileExtension_ = fileExtension_;
       result.clientNetWorkMode_ = clientNetWorkMode_;
       result.clientIDCMode_ = clientIDCMode_;
+      result.needFallback_ = needFallback_;
       onBuilt();
       return result;
     }
@@ -901,6 +936,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getClientIDCMode().isEmpty()) {
         clientIDCMode_ = other.clientIDCMode_;
         onChanged();
+      }
+      if (other.getNeedFallback() != false) {
+        setNeedFallback(other.getNeedFallback());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1685,6 +1723,49 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       clientIDCMode_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean needFallback_ ;
+    /**
+     * <pre>
+     * 是否支持降级域名调度 true-支持降级，false-不支持降级
+     * </pre>
+     *
+     * <code>bool NeedFallback = 10;</code>
+     * @return The needFallback.
+     */
+    @java.lang.Override
+    public boolean getNeedFallback() {
+      return needFallback_;
+    }
+    /**
+     * <pre>
+     * 是否支持降级域名调度 true-支持降级，false-不支持降级
+     * </pre>
+     *
+     * <code>bool NeedFallback = 10;</code>
+     * @param value The needFallback to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNeedFallback(boolean value) {
+      
+      needFallback_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 是否支持降级域名调度 true-支持降级，false-不支持降级
+     * </pre>
+     *
+     * <code>bool NeedFallback = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNeedFallback() {
+      
+      needFallback_ = false;
       onChanged();
       return this;
     }

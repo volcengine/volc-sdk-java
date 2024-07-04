@@ -1,6 +1,7 @@
 package com.volcengine.helper;
 
 import com.alibaba.fastjson.JSONObject;
+import com.volcengine.service.vod.UploadException;
 import com.volcengine.service.vod.impl.VodServiceImpl;
 import com.volcengine.service.vod.model.business.VodHeaderPair;
 import org.apache.http.HttpResponse;
@@ -47,6 +48,15 @@ public abstract class VodUploadAbstractStrategy implements IVodUploadStrategy {
         }
         String entity = EntityUtils.toString(httpResponse.getEntity());
         JSONObject result = JSONObject.parseObject(entity);
+
+        if (result.getIntValue("success") != 0) {
+            JSONObject errObj = result.getJSONObject("error");
+            throw new UploadException(
+                    errObj.getIntValue("code"),
+                    errObj.getIntValue("error_code"),
+                    errObj.getString("message")
+            );
+        }
 
         VodServiceImpl.UploadPartResponse.UploadPartResponseBuilder builder = VodServiceImpl.UploadPartResponse.builder()
                 .checkSum(checkSum);

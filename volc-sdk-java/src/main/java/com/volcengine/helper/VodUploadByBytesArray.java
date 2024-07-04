@@ -1,6 +1,7 @@
 package com.volcengine.helper;
 
 import com.github.rholder.retry.Retryer;
+import com.volcengine.service.vod.UploadException;
 import com.volcengine.service.vod.impl.VodServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpResponse;
@@ -26,8 +27,11 @@ public class VodUploadByBytesArray extends VodUploadAbstractStrategy {
         Map<String, String> headers = new HashMap<>();
         fillDirectUploadCommonHeaders(headers, uploadHeaderList, auth, checkSum, storageClass);
 
-        retryer.call(() -> vodService.putData(url, bytes, headers));
+        boolean response = (boolean) retryer.call(() -> vodService.putData(url, bytes, headers));
         com.volcengine.helper.VodUploadProgressListenerHelper.sendVodUploadEvent(listener, com.volcengine.helper.VodUploadProgressEventType.UPLOAD_BYTES_EVENT, file.length() - 1);
+        if (!response){
+            throw new UploadException(-1, -1, "");
+        }
     }
 
     @Override

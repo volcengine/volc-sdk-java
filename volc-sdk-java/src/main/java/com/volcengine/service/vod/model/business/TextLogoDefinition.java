@@ -111,6 +111,26 @@ private static final long serialVersionUID = 0L;
             sizeY_ = input.readInt32();
             break;
           }
+          case 97: {
+
+            posRatioX_ = input.readDouble();
+            break;
+          }
+          case 105: {
+
+            posRatioY_ = input.readDouble();
+            break;
+          }
+          case 113: {
+
+            sizeRatioX_ = input.readDouble();
+            break;
+          }
+          case 121: {
+
+            sizeRatioY_ = input.readDouble();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -372,6 +392,50 @@ private static final long serialVersionUID = 0L;
     return sizeY_;
   }
 
+  public static final int POSRATIOX_FIELD_NUMBER = 12;
+  private double posRatioX_;
+  /**
+   * <code>double PosRatioX = 12;</code>
+   * @return The posRatioX.
+   */
+  @java.lang.Override
+  public double getPosRatioX() {
+    return posRatioX_;
+  }
+
+  public static final int POSRATIOY_FIELD_NUMBER = 13;
+  private double posRatioY_;
+  /**
+   * <code>double PosRatioY = 13;</code>
+   * @return The posRatioY.
+   */
+  @java.lang.Override
+  public double getPosRatioY() {
+    return posRatioY_;
+  }
+
+  public static final int SIZERATIOX_FIELD_NUMBER = 14;
+  private double sizeRatioX_;
+  /**
+   * <code>double SizeRatioX = 14;</code>
+   * @return The sizeRatioX.
+   */
+  @java.lang.Override
+  public double getSizeRatioX() {
+    return sizeRatioX_;
+  }
+
+  public static final int SIZERATIOY_FIELD_NUMBER = 15;
+  private double sizeRatioY_;
+  /**
+   * <code>double SizeRatioY = 15;</code>
+   * @return The sizeRatioY.
+   */
+  @java.lang.Override
+  public double getSizeRatioY() {
+    return sizeRatioY_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -418,6 +482,18 @@ private static final long serialVersionUID = 0L;
     }
     if (sizeY_ != 0) {
       output.writeInt32(11, sizeY_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(posRatioX_) != 0) {
+      output.writeDouble(12, posRatioX_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(posRatioY_) != 0) {
+      output.writeDouble(13, posRatioY_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(sizeRatioX_) != 0) {
+      output.writeDouble(14, sizeRatioX_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(sizeRatioY_) != 0) {
+      output.writeDouble(15, sizeRatioY_);
     }
     unknownFields.writeTo(output);
   }
@@ -468,6 +544,22 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(11, sizeY_);
     }
+    if (java.lang.Double.doubleToRawLongBits(posRatioX_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(12, posRatioX_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(posRatioY_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(13, posRatioY_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(sizeRatioX_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(14, sizeRatioX_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(sizeRatioY_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(15, sizeRatioY_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -505,6 +597,18 @@ private static final long serialVersionUID = 0L;
         != other.getSizeX()) return false;
     if (getSizeY()
         != other.getSizeY()) return false;
+    if (java.lang.Double.doubleToLongBits(getPosRatioX())
+        != java.lang.Double.doubleToLongBits(
+            other.getPosRatioX())) return false;
+    if (java.lang.Double.doubleToLongBits(getPosRatioY())
+        != java.lang.Double.doubleToLongBits(
+            other.getPosRatioY())) return false;
+    if (java.lang.Double.doubleToLongBits(getSizeRatioX())
+        != java.lang.Double.doubleToLongBits(
+            other.getSizeRatioX())) return false;
+    if (java.lang.Double.doubleToLongBits(getSizeRatioY())
+        != java.lang.Double.doubleToLongBits(
+            other.getSizeRatioY())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -538,6 +642,18 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getSizeX();
     hash = (37 * hash) + SIZEY_FIELD_NUMBER;
     hash = (53 * hash) + getSizeY();
+    hash = (37 * hash) + POSRATIOX_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getPosRatioX()));
+    hash = (37 * hash) + POSRATIOY_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getPosRatioY()));
+    hash = (37 * hash) + SIZERATIOX_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getSizeRatioX()));
+    hash = (37 * hash) + SIZERATIOY_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getSizeRatioY()));
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -693,6 +809,14 @@ private static final long serialVersionUID = 0L;
 
       sizeY_ = 0;
 
+      posRatioX_ = 0D;
+
+      posRatioY_ = 0D;
+
+      sizeRatioX_ = 0D;
+
+      sizeRatioY_ = 0D;
+
       return this;
     }
 
@@ -730,6 +854,10 @@ private static final long serialVersionUID = 0L;
       result.posY_ = posY_;
       result.sizeX_ = sizeX_;
       result.sizeY_ = sizeY_;
+      result.posRatioX_ = posRatioX_;
+      result.posRatioY_ = posRatioY_;
+      result.sizeRatioX_ = sizeRatioX_;
+      result.sizeRatioY_ = sizeRatioY_;
       onBuilt();
       return result;
     }
@@ -814,6 +942,18 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getSizeY() != 0) {
         setSizeY(other.getSizeY());
+      }
+      if (other.getPosRatioX() != 0D) {
+        setPosRatioX(other.getPosRatioX());
+      }
+      if (other.getPosRatioY() != 0D) {
+        setPosRatioY(other.getPosRatioY());
+      }
+      if (other.getSizeRatioX() != 0D) {
+        setSizeRatioX(other.getSizeRatioX());
+      }
+      if (other.getSizeRatioY() != 0D) {
+        setSizeRatioY(other.getSizeRatioY());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1361,6 +1501,130 @@ private static final long serialVersionUID = 0L;
     public Builder clearSizeY() {
       
       sizeY_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private double posRatioX_ ;
+    /**
+     * <code>double PosRatioX = 12;</code>
+     * @return The posRatioX.
+     */
+    @java.lang.Override
+    public double getPosRatioX() {
+      return posRatioX_;
+    }
+    /**
+     * <code>double PosRatioX = 12;</code>
+     * @param value The posRatioX to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPosRatioX(double value) {
+      
+      posRatioX_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>double PosRatioX = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPosRatioX() {
+      
+      posRatioX_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private double posRatioY_ ;
+    /**
+     * <code>double PosRatioY = 13;</code>
+     * @return The posRatioY.
+     */
+    @java.lang.Override
+    public double getPosRatioY() {
+      return posRatioY_;
+    }
+    /**
+     * <code>double PosRatioY = 13;</code>
+     * @param value The posRatioY to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPosRatioY(double value) {
+      
+      posRatioY_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>double PosRatioY = 13;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPosRatioY() {
+      
+      posRatioY_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private double sizeRatioX_ ;
+    /**
+     * <code>double SizeRatioX = 14;</code>
+     * @return The sizeRatioX.
+     */
+    @java.lang.Override
+    public double getSizeRatioX() {
+      return sizeRatioX_;
+    }
+    /**
+     * <code>double SizeRatioX = 14;</code>
+     * @param value The sizeRatioX to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSizeRatioX(double value) {
+      
+      sizeRatioX_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>double SizeRatioX = 14;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSizeRatioX() {
+      
+      sizeRatioX_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private double sizeRatioY_ ;
+    /**
+     * <code>double SizeRatioY = 15;</code>
+     * @return The sizeRatioY.
+     */
+    @java.lang.Override
+    public double getSizeRatioY() {
+      return sizeRatioY_;
+    }
+    /**
+     * <code>double SizeRatioY = 15;</code>
+     * @param value The sizeRatioY to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSizeRatioY(double value) {
+      
+      sizeRatioY_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>double SizeRatioY = 15;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSizeRatioY() {
+      
+      sizeRatioY_ = 0D;
       onChanged();
       return this;
     }

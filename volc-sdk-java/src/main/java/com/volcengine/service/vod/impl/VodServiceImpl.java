@@ -5,13 +5,19 @@
 
 package com.volcengine.service.vod.impl;
 
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.google.protobuf.util.JsonFormat;
 import com.google.common.base.Predicates;
+import com.volcengine.service.vod.UploadException;
+import com.volcengine.service.vod.model.business.CandidateUploadAddresses;
+import com.volcengine.service.vod.model.business.UploadAddress;
+import com.volcengine.service.vod.model.business.VodHeaderPair;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -20,9 +26,11 @@ import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
 import com.github.rholder.retry.*;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringUtils;
+
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl implements com.volcengine.service.vod.IVodService {
@@ -118,7 +126,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 
     @Override
     public String getSubtitleAuthToken(com.volcengine.service.vod.model.request.VodGetSubtitleInfoListRequest input, Long expireSeconds) throws Exception {
-        if(input.getVid() == "") {
+        if("".equals(input.getVid())) {
             throw new Exception("传入的Vid为空");
         }
         Map<String, String> params = new HashMap<>();
@@ -276,44 +284,87 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
                 .setStorageClass(storageClass)
                 .setClientNetWorkMode(clientNetWorkMode)
                 .setClientIDCMode(clientIDCMode)
+                .setNeedFallback(true)
                 .build();
 
         com.volcengine.service.vod.model.response.VodApplyUploadInfoResponse vodApplyUploadInfoResponse = applyUploadInfo(vodApplyUploadInfoRequest);
         if (vodApplyUploadInfoResponse.getResponseMetadata().hasError()) {
             throw new Exception(vodApplyUploadInfoResponse.getResponseMetadata().getError().getMessage());
         }
-        com.volcengine.service.vod.model.business.VodUploadAddress vodUploadAddress = vodApplyUploadInfoResponse.getResult().getData().getUploadAddress();
-        if (!vodApplyUploadInfoResponse.hasResult() || vodUploadAddress.getStoreInfosCount() == 0) {
-            throw new Exception("apply upload result is null");
-        }
-
-        String oid = vodUploadAddress.getStoreInfos(0).getStoreUri();
-        String sessionKey = vodUploadAddress.getSessionKey();
-        String auth = vodUploadAddress.getStoreInfos(0).getAuth();
-        String host = vodUploadAddress.getUploadHosts(0);
-        List<com.volcengine.service.vod.model.business.VodHeaderPair> uploadHeaderList = vodUploadAddress.getUploadHeaderList();
 
         Retryer retryer = RetryerBuilder.newBuilder()
-                .retryIfException()
-                .retryIfResult(Predicates.equalTo(false))
-                .retryIfResult(Predicates.isNull())
-                .withWaitStrategy(WaitStrategies.exponentialWait())
-                .withStopStrategy(StopStrategies.stopAfterAttempt(3))
-                .build();
+                        .retryIfException()
+                        .retryIfResult(Predicates.equalTo(false))
+                        .retryIfResult(Predicates.isNull())
+                        .withWaitStrategy(WaitStrategies.exponentialWait())
+                        .withStopStrategy(StopStrategies.stopAfterAttempt(3))
+                        .build();
 
-        com.volcengine.helper.IVodUploadStrategy vodUploadCoreInstance = com.volcengine.helper.Utils.getVodUploadCoreInstance(uploadStrategy);
+        CandidateUploadAddresses candidateUploadAddresses = vodApplyUploadInfoResponse.getResult().getData().getCandidateUploadAddresses();
+        List<UploadAddress> allUploadAddress = new ArrayList<>();
+        allUploadAddress.addAll(candidateUploadAddresses.getMainUploadAddressesList());
+        allUploadAddress.addAll(candidateUploadAddresses.getBackupUploadAddressesList());
+        allUploadAddress.addAll(candidateUploadAddresses.getFallbackUploadAddressesList());
+        com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = null;
 
-        if (file.length() < com.volcengine.service.vod.Const.MinChunkSize) {
-            vodUploadCoreInstance.directUpload(this, host, oid, auth, uploadHeaderList, file, retryer, storageClass, listener);
+        if (!allUploadAddress.isEmpty()) {
+            for (UploadAddress uploadAddress : allUploadAddress) {
+                if (uploadAddress.getUploadHostsList().isEmpty() || uploadAddress.getStoreInfosList().isEmpty() || uploadAddress.getStoreInfosList().get(0) == null) {
+                    continue;
+                }
+                String tosHost = uploadAddress.getUploadHosts(0);
+                String oid = uploadAddress.getStoreInfos(0).getStoreUri();
+                String sessionKey = uploadAddress.getSessionKey();
+                String auth = uploadAddress.getStoreInfos(0).getAuth();
+                final List<VodHeaderPair> uploadHeaderList = new ArrayList<>();
+                // convert to VodHeaderPair
+                uploadAddress.getUploadHeaderList().forEach(ac -> uploadHeaderList.add(VodHeaderPair.newBuilder().setKey(ac.getKey()).setValue(ac.getValue()).build()));
+                com.volcengine.helper.IVodUploadStrategy vodUploadCoreInstance = com.volcengine.helper.Utils.getVodUploadCoreInstance(uploadStrategy);
+
+                try {
+                    if (file.length() < com.volcengine.service.vod.Const.MinChunkSize) {
+                        vodUploadCoreInstance.directUpload(this, tosHost, oid, auth, uploadHeaderList, file, retryer, storageClass, listener);
+                    } else {
+                        vodUploadCoreInstance.chunkUpload(this, tosHost, oid, auth, uploadHeaderList, file, true, retryer, storageClass, listener);
+                    }
+                    uploadCompleteInfo = new com.volcengine.model.beans.UploadCompleteInfo(oid, sessionKey);
+                    break;
+                } catch (UploadException | RetryException e1) {
+                    continue;
+                }
+            }
         } else {
-            vodUploadCoreInstance.chunkUpload(this, host, oid, auth, uploadHeaderList, file, true, retryer, storageClass, listener);
+            com.volcengine.service.vod.model.business.VodUploadAddress vodUploadAddress = vodApplyUploadInfoResponse.getResult().getData().getUploadAddress();
+            if (!vodApplyUploadInfoResponse.hasResult() || vodUploadAddress.getStoreInfosCount() == 0) {
+                throw new Exception("apply upload result is null");
+            }
+
+            String oid = vodUploadAddress.getStoreInfos(0).getStoreUri();
+            String sessionKey = vodUploadAddress.getSessionKey();
+            String auth = vodUploadAddress.getStoreInfos(0).getAuth();
+            String host = vodUploadAddress.getUploadHosts(0);
+            List<VodHeaderPair> uploadHeaderList = vodUploadAddress.getUploadHeaderList();
+
+            com.volcengine.helper.IVodUploadStrategy vodUploadCoreInstance = com.volcengine.helper.Utils.getVodUploadCoreInstance(uploadStrategy);
+
+
+            if (file.length() < com.volcengine.service.vod.Const.MinChunkSize) {
+                vodUploadCoreInstance.directUpload(this, host, oid, auth, uploadHeaderList, file, retryer, storageClass, listener);
+            } else {
+                vodUploadCoreInstance.chunkUpload(this, host, oid, auth, uploadHeaderList, file, true, retryer, storageClass, listener);
+            }
+
+            uploadCompleteInfo = new com.volcengine.model.beans.UploadCompleteInfo(oid, sessionKey);
         }
 
-        com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = new com.volcengine.model.beans.UploadCompleteInfo(oid, sessionKey);
+        if (uploadCompleteInfo == null) {
+            throw new Exception("uploadToB failed");
+        }
+
         return uploadCompleteInfo;
     }
 
-    public String initUploadPart(String host, String oid, String auth, boolean isLargeFile, List<com.volcengine.service.vod.model.business.VodHeaderPair> uploadHeaderList, Retryer retryer, int storageClass) throws ExecutionException, RetryException, IOException {
+    public String initUploadPart(String host, String oid, String auth, boolean isLargeFile, List<VodHeaderPair> uploadHeaderList, Retryer retryer, int storageClass) throws ExecutionException, RetryException, IOException {
         String oidEncode = StringUtils.replace(oid, " ", "%20");
         String url = String.format("https://%s/%s?uploads", host, oidEncode);
         Map<String, String> headers = new HashMap<>();
@@ -337,6 +388,14 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         }
         String entity = EntityUtils.toString(httpResponse.getEntity());
         JSONObject result = JSONObject.parseObject(entity);
+        if (result.getIntValue("success") != 0) {
+            JSONObject errObj = result.getJSONObject("error");
+            throw new UploadException(
+                    errObj.getIntValue("code"),
+                    errObj.getIntValue("error_code"),
+                    errObj.getString("message")
+            );
+        }
         return result.getJSONObject("payload").getInnerMap().get("uploadID").toString();
     }
 
@@ -362,7 +421,10 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         if (storageClass == com.volcengine.service.vod.model.business.StorageClassType.IA_VALUE) {
             headers.put("X-Upload-Storage-Class", "ia");
         }
-        retryer.call(() -> putData(url, body.getBytes(), headers));
+        boolean response = (boolean) retryer.call(() -> putData(url, body.getBytes(), headers));
+        if (!response) {
+            throw new UploadException(-1, -1, "");
+        }
     }
 
     @Override

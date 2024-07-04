@@ -96,4 +96,28 @@ public interface TextLogoDefinitionOrBuilder extends
    * @return The sizeY.
    */
   int getSizeY();
+
+  /**
+   * <code>double PosRatioX = 12;</code>
+   * @return The posRatioX.
+   */
+  double getPosRatioX();
+
+  /**
+   * <code>double PosRatioY = 13;</code>
+   * @return The posRatioY.
+   */
+  double getPosRatioY();
+
+  /**
+   * <code>double SizeRatioX = 14;</code>
+   * @return The sizeRatioX.
+   */
+  double getSizeRatioX();
+
+  /**
+   * <code>double SizeRatioY = 15;</code>
+   * @return The sizeRatioY.
+   */
+  double getSizeRatioY();
 }

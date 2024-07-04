@@ -166,4 +166,14 @@ public interface VodApplyUploadInfoRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getClientIDCModeBytes();
+
+  /**
+   * <pre>
+   * 是否支持降级域名调度 true-支持降级，false-不支持降级
+   * </pre>
+   *
+   * <code>bool NeedFallback = 10;</code>
+   * @return The needFallback.
+   */
+  boolean getNeedFallback();
 }

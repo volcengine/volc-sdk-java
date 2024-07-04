@@ -2,6 +2,7 @@ package com.volcengine.helper;
 
 import com.github.rholder.retry.Retryer;
 import com.volcengine.model.beans.PartInputStream;
+import com.volcengine.service.vod.UploadException;
 import com.volcengine.service.vod.impl.VodServiceImpl;
 import com.volcengine.service.vod.model.business.VodHeaderPair;
 import org.apache.commons.lang3.StringUtils;
@@ -28,8 +29,11 @@ public class VodUploadByStream extends VodUploadAbstractStrategy {
             Map<String, String> headers = new HashMap<>();
             fillDirectUploadCommonHeaders(headers, uploadHeaderList, auth, checkSum, storageClass);
 
-            retryer.call(() -> vodService.putData(url, inputStream, headers));
+            boolean response = (boolean) retryer.call(() -> vodService.putData(url, inputStream, headers));
             com.volcengine.helper.VodUploadProgressListenerHelper.sendVodUploadEvent(listener, com.volcengine.helper.VodUploadProgressEventType.UPLOAD_BYTES_EVENT, file.length() - 1);
+            if (!response){
+                throw new UploadException(-1, -1, "");
+            }
         }
     }
 

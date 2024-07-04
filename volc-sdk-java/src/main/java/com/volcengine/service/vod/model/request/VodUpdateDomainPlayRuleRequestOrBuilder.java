@@ -44,18 +44,8 @@ public interface VodUpdateDomainPlayRuleRequestOrBuilder extends
    * 0 随机模式 1 默认域名模式
    * </pre>
    *
-   * <code>string PlayRule = 3;</code>
+   * <code>int32 PlayRule = 3;</code>
    * @return The playRule.
    */
-  java.lang.String getPlayRule();
-  /**
-   * <pre>
-   * 0 随机模式 1 默认域名模式
-   * </pre>
-   *
-   * <code>string PlayRule = 3;</code>
-   * @return The bytes for playRule.
-   */
-  com.google.protobuf.ByteString
-      getPlayRuleBytes();
+  int getPlayRule();
 }

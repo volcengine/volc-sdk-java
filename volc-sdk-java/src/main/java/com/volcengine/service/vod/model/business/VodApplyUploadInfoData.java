@@ -61,6 +61,19 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 18: {
+            com.volcengine.service.vod.model.business.CandidateUploadAddresses.Builder subBuilder = null;
+            if (candidateUploadAddresses_ != null) {
+              subBuilder = candidateUploadAddresses_.toBuilder();
+            }
+            candidateUploadAddresses_ = input.readMessage(com.volcengine.service.vod.model.business.CandidateUploadAddresses.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(candidateUploadAddresses_);
+              candidateUploadAddresses_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -131,6 +144,44 @@ private static final long serialVersionUID = 0L;
     return getUploadAddress();
   }
 
+  public static final int CANDIDATEUPLOADADDRESSES_FIELD_NUMBER = 2;
+  private com.volcengine.service.vod.model.business.CandidateUploadAddresses candidateUploadAddresses_;
+  /**
+   * <pre>
+   * 1001 阶段返回候选上传地址用于降级 
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.CandidateUploadAddresses CandidateUploadAddresses = 2;</code>
+   * @return Whether the candidateUploadAddresses field is set.
+   */
+  @java.lang.Override
+  public boolean hasCandidateUploadAddresses() {
+    return candidateUploadAddresses_ != null;
+  }
+  /**
+   * <pre>
+   * 1001 阶段返回候选上传地址用于降级 
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.CandidateUploadAddresses CandidateUploadAddresses = 2;</code>
+   * @return The candidateUploadAddresses.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.CandidateUploadAddresses getCandidateUploadAddresses() {
+    return candidateUploadAddresses_ == null ? com.volcengine.service.vod.model.business.CandidateUploadAddresses.getDefaultInstance() : candidateUploadAddresses_;
+  }
+  /**
+   * <pre>
+   * 1001 阶段返回候选上传地址用于降级 
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.CandidateUploadAddresses CandidateUploadAddresses = 2;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.CandidateUploadAddressesOrBuilder getCandidateUploadAddressesOrBuilder() {
+    return getCandidateUploadAddresses();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -148,6 +199,9 @@ private static final long serialVersionUID = 0L;
     if (uploadAddress_ != null) {
       output.writeMessage(1, getUploadAddress());
     }
+    if (candidateUploadAddresses_ != null) {
+      output.writeMessage(2, getCandidateUploadAddresses());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -160,6 +214,10 @@ private static final long serialVersionUID = 0L;
     if (uploadAddress_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getUploadAddress());
+    }
+    if (candidateUploadAddresses_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, getCandidateUploadAddresses());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -181,6 +239,11 @@ private static final long serialVersionUID = 0L;
       if (!getUploadAddress()
           .equals(other.getUploadAddress())) return false;
     }
+    if (hasCandidateUploadAddresses() != other.hasCandidateUploadAddresses()) return false;
+    if (hasCandidateUploadAddresses()) {
+      if (!getCandidateUploadAddresses()
+          .equals(other.getCandidateUploadAddresses())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -195,6 +258,10 @@ private static final long serialVersionUID = 0L;
     if (hasUploadAddress()) {
       hash = (37 * hash) + UPLOADADDRESS_FIELD_NUMBER;
       hash = (53 * hash) + getUploadAddress().hashCode();
+    }
+    if (hasCandidateUploadAddresses()) {
+      hash = (37 * hash) + CANDIDATEUPLOADADDRESSES_FIELD_NUMBER;
+      hash = (53 * hash) + getCandidateUploadAddresses().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -335,6 +402,12 @@ private static final long serialVersionUID = 0L;
         uploadAddress_ = null;
         uploadAddressBuilder_ = null;
       }
+      if (candidateUploadAddressesBuilder_ == null) {
+        candidateUploadAddresses_ = null;
+      } else {
+        candidateUploadAddresses_ = null;
+        candidateUploadAddressesBuilder_ = null;
+      }
       return this;
     }
 
@@ -365,6 +438,11 @@ private static final long serialVersionUID = 0L;
         result.uploadAddress_ = uploadAddress_;
       } else {
         result.uploadAddress_ = uploadAddressBuilder_.build();
+      }
+      if (candidateUploadAddressesBuilder_ == null) {
+        result.candidateUploadAddresses_ = candidateUploadAddresses_;
+      } else {
+        result.candidateUploadAddresses_ = candidateUploadAddressesBuilder_.build();
       }
       onBuilt();
       return result;
@@ -416,6 +494,9 @@ private static final long serialVersionUID = 0L;
       if (other == com.volcengine.service.vod.model.business.VodApplyUploadInfoData.getDefaultInstance()) return this;
       if (other.hasUploadAddress()) {
         mergeUploadAddress(other.getUploadAddress());
+      }
+      if (other.hasCandidateUploadAddresses()) {
+        mergeCandidateUploadAddresses(other.getCandidateUploadAddresses());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -599,6 +680,161 @@ private static final long serialVersionUID = 0L;
         uploadAddress_ = null;
       }
       return uploadAddressBuilder_;
+    }
+
+    private com.volcengine.service.vod.model.business.CandidateUploadAddresses candidateUploadAddresses_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.CandidateUploadAddresses, com.volcengine.service.vod.model.business.CandidateUploadAddresses.Builder, com.volcengine.service.vod.model.business.CandidateUploadAddressesOrBuilder> candidateUploadAddressesBuilder_;
+    /**
+     * <pre>
+     * 1001 阶段返回候选上传地址用于降级 
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.CandidateUploadAddresses CandidateUploadAddresses = 2;</code>
+     * @return Whether the candidateUploadAddresses field is set.
+     */
+    public boolean hasCandidateUploadAddresses() {
+      return candidateUploadAddressesBuilder_ != null || candidateUploadAddresses_ != null;
+    }
+    /**
+     * <pre>
+     * 1001 阶段返回候选上传地址用于降级 
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.CandidateUploadAddresses CandidateUploadAddresses = 2;</code>
+     * @return The candidateUploadAddresses.
+     */
+    public com.volcengine.service.vod.model.business.CandidateUploadAddresses getCandidateUploadAddresses() {
+      if (candidateUploadAddressesBuilder_ == null) {
+        return candidateUploadAddresses_ == null ? com.volcengine.service.vod.model.business.CandidateUploadAddresses.getDefaultInstance() : candidateUploadAddresses_;
+      } else {
+        return candidateUploadAddressesBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * 1001 阶段返回候选上传地址用于降级 
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.CandidateUploadAddresses CandidateUploadAddresses = 2;</code>
+     */
+    public Builder setCandidateUploadAddresses(com.volcengine.service.vod.model.business.CandidateUploadAddresses value) {
+      if (candidateUploadAddressesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        candidateUploadAddresses_ = value;
+        onChanged();
+      } else {
+        candidateUploadAddressesBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 1001 阶段返回候选上传地址用于降级 
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.CandidateUploadAddresses CandidateUploadAddresses = 2;</code>
+     */
+    public Builder setCandidateUploadAddresses(
+        com.volcengine.service.vod.model.business.CandidateUploadAddresses.Builder builderForValue) {
+      if (candidateUploadAddressesBuilder_ == null) {
+        candidateUploadAddresses_ = builderForValue.build();
+        onChanged();
+      } else {
+        candidateUploadAddressesBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 1001 阶段返回候选上传地址用于降级 
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.CandidateUploadAddresses CandidateUploadAddresses = 2;</code>
+     */
+    public Builder mergeCandidateUploadAddresses(com.volcengine.service.vod.model.business.CandidateUploadAddresses value) {
+      if (candidateUploadAddressesBuilder_ == null) {
+        if (candidateUploadAddresses_ != null) {
+          candidateUploadAddresses_ =
+            com.volcengine.service.vod.model.business.CandidateUploadAddresses.newBuilder(candidateUploadAddresses_).mergeFrom(value).buildPartial();
+        } else {
+          candidateUploadAddresses_ = value;
+        }
+        onChanged();
+      } else {
+        candidateUploadAddressesBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 1001 阶段返回候选上传地址用于降级 
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.CandidateUploadAddresses CandidateUploadAddresses = 2;</code>
+     */
+    public Builder clearCandidateUploadAddresses() {
+      if (candidateUploadAddressesBuilder_ == null) {
+        candidateUploadAddresses_ = null;
+        onChanged();
+      } else {
+        candidateUploadAddresses_ = null;
+        candidateUploadAddressesBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 1001 阶段返回候选上传地址用于降级 
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.CandidateUploadAddresses CandidateUploadAddresses = 2;</code>
+     */
+    public com.volcengine.service.vod.model.business.CandidateUploadAddresses.Builder getCandidateUploadAddressesBuilder() {
+      
+      onChanged();
+      return getCandidateUploadAddressesFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * 1001 阶段返回候选上传地址用于降级 
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.CandidateUploadAddresses CandidateUploadAddresses = 2;</code>
+     */
+    public com.volcengine.service.vod.model.business.CandidateUploadAddressesOrBuilder getCandidateUploadAddressesOrBuilder() {
+      if (candidateUploadAddressesBuilder_ != null) {
+        return candidateUploadAddressesBuilder_.getMessageOrBuilder();
+      } else {
+        return candidateUploadAddresses_ == null ?
+            com.volcengine.service.vod.model.business.CandidateUploadAddresses.getDefaultInstance() : candidateUploadAddresses_;
+      }
+    }
+    /**
+     * <pre>
+     * 1001 阶段返回候选上传地址用于降级 
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.CandidateUploadAddresses CandidateUploadAddresses = 2;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.CandidateUploadAddresses, com.volcengine.service.vod.model.business.CandidateUploadAddresses.Builder, com.volcengine.service.vod.model.business.CandidateUploadAddressesOrBuilder> 
+        getCandidateUploadAddressesFieldBuilder() {
+      if (candidateUploadAddressesBuilder_ == null) {
+        candidateUploadAddressesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.CandidateUploadAddresses, com.volcengine.service.vod.model.business.CandidateUploadAddresses.Builder, com.volcengine.service.vod.model.business.CandidateUploadAddressesOrBuilder>(
+                getCandidateUploadAddresses(),
+                getParentForChildren(),
+                isClean());
+        candidateUploadAddresses_ = null;
+      }
+      return candidateUploadAddressesBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

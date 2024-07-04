@@ -19,6 +19,7 @@ private static final long serialVersionUID = 0L;
     templateId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     outputIndex_ = emptyIntList();
     fileName_ = "";
+    logoTemplateId_ = "";
   }
 
   @java.lang.Override
@@ -99,6 +100,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             fileName_ = s;
+            break;
+          }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            logoTemplateId_ = s;
             break;
           }
           default: {
@@ -314,6 +321,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int LOGOTEMPLATEID_FIELD_NUMBER = 5;
+  private volatile java.lang.Object logoTemplateId_;
+  /**
+   * <pre>
+   * 指定水印模板Id
+   * </pre>
+   *
+   * <code>string LogoTemplateId = 5;</code>
+   * @return The logoTemplateId.
+   */
+  @java.lang.Override
+  public java.lang.String getLogoTemplateId() {
+    java.lang.Object ref = logoTemplateId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      logoTemplateId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 指定水印模板Id
+   * </pre>
+   *
+   * <code>string LogoTemplateId = 5;</code>
+   * @return The bytes for logoTemplateId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getLogoTemplateIdBytes() {
+    java.lang.Object ref = logoTemplateId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      logoTemplateId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -344,6 +397,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, fileName_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(logoTemplateId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, logoTemplateId_);
     }
     unknownFields.writeTo(output);
   }
@@ -383,6 +439,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, fileName_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(logoTemplateId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, logoTemplateId_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -409,6 +468,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getOutputIndexList())) return false;
     if (!getFileName()
         .equals(other.getFileName())) return false;
+    if (!getLogoTemplateId()
+        .equals(other.getLogoTemplateId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -434,6 +495,8 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + FILENAME_FIELD_NUMBER;
     hash = (53 * hash) + getFileName().hashCode();
+    hash = (37 * hash) + LOGOTEMPLATEID_FIELD_NUMBER;
+    hash = (53 * hash) + getLogoTemplateId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -579,6 +642,8 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00000002);
       fileName_ = "";
 
+      logoTemplateId_ = "";
+
       return this;
     }
 
@@ -622,6 +687,7 @@ private static final long serialVersionUID = 0L;
       }
       result.outputIndex_ = outputIndex_;
       result.fileName_ = fileName_;
+      result.logoTemplateId_ = logoTemplateId_;
       onBuilt();
       return result;
     }
@@ -695,6 +761,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getFileName().isEmpty()) {
         fileName_ = other.fileName_;
+        onChanged();
+      }
+      if (!other.getLogoTemplateId().isEmpty()) {
+        logoTemplateId_ = other.logoTemplateId_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1227,6 +1297,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       fileName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object logoTemplateId_ = "";
+    /**
+     * <pre>
+     * 指定水印模板Id
+     * </pre>
+     *
+     * <code>string LogoTemplateId = 5;</code>
+     * @return The logoTemplateId.
+     */
+    public java.lang.String getLogoTemplateId() {
+      java.lang.Object ref = logoTemplateId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        logoTemplateId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 指定水印模板Id
+     * </pre>
+     *
+     * <code>string LogoTemplateId = 5;</code>
+     * @return The bytes for logoTemplateId.
+     */
+    public com.google.protobuf.ByteString
+        getLogoTemplateIdBytes() {
+      java.lang.Object ref = logoTemplateId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        logoTemplateId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 指定水印模板Id
+     * </pre>
+     *
+     * <code>string LogoTemplateId = 5;</code>
+     * @param value The logoTemplateId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLogoTemplateId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      logoTemplateId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 指定水印模板Id
+     * </pre>
+     *
+     * <code>string LogoTemplateId = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLogoTemplateId() {
+      
+      logoTemplateId_ = getDefaultInstance().getLogoTemplateId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 指定水印模板Id
+     * </pre>
+     *
+     * <code>string LogoTemplateId = 5;</code>
+     * @param value The bytes for logoTemplateId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLogoTemplateIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      logoTemplateId_ = value;
       onChanged();
       return this;
     }

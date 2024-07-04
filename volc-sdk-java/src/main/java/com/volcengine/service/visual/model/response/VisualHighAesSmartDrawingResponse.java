@@ -17,6 +17,9 @@ public class VisualHighAesSmartDrawingResponse extends VisualBaseResponse {
 
         @JSONField(name = "binary_data_base64")
         ArrayList<String> binaryDataBase64;
+
+        @JSONField(name = "image_urls")
+        ArrayList<String> imageUrls;
     }
 
     @Data

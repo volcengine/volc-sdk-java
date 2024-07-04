@@ -4,27 +4,26 @@
 package com.volcengine.service.vod.model.request;
 
 /**
- * Protobuf type {@code Volcengine.Vod.Models.Request.VodUpdateDomainPlayRuleRequest}
+ * Protobuf type {@code Volcengine.Vod.Models.Request.VodListPCDNDomainRequest}
  */
-public final class VodUpdateDomainPlayRuleRequest extends
+public final class VodListPCDNDomainRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Request.VodUpdateDomainPlayRuleRequest)
-    VodUpdateDomainPlayRuleRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Request.VodListPCDNDomainRequest)
+    VodListPCDNDomainRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use VodUpdateDomainPlayRuleRequest.newBuilder() to construct.
-  private VodUpdateDomainPlayRuleRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use VodListPCDNDomainRequest.newBuilder() to construct.
+  private VodListPCDNDomainRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private VodUpdateDomainPlayRuleRequest() {
+  private VodListPCDNDomainRequest() {
     spaceName_ = "";
-    defaultDomain_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new VodUpdateDomainPlayRuleRequest();
+    return new VodListPCDNDomainRequest();
   }
 
   @java.lang.Override
@@ -32,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VodUpdateDomainPlayRuleRequest(
+  private VodListPCDNDomainRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -56,15 +55,14 @@ private static final long serialVersionUID = 0L;
             spaceName_ = s;
             break;
           }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 16: {
 
-            defaultDomain_ = s;
+            offset_ = input.readInt32();
             break;
           }
           case 24: {
 
-            playRule_ = input.readInt32();
+            limit_ = input.readInt32();
             break;
           }
           default: {
@@ -88,20 +86,24 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodUpdateDomainPlayRuleRequest_descriptor;
+    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodListPCDNDomainRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodUpdateDomainPlayRuleRequest_fieldAccessorTable
+    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodListPCDNDomainRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest.class, com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest.Builder.class);
+            com.volcengine.service.vod.model.request.VodListPCDNDomainRequest.class, com.volcengine.service.vod.model.request.VodListPCDNDomainRequest.Builder.class);
   }
 
   public static final int SPACENAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object spaceName_;
   /**
+   * <pre>
+   * 空间名 
+   * </pre>
+   *
    * <code>string SpaceName = 1;</code>
    * @return The spaceName.
    */
@@ -119,6 +121,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 空间名 
+   * </pre>
+   *
    * <code>string SpaceName = 1;</code>
    * @return The bytes for spaceName.
    */
@@ -137,65 +143,34 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int DEFAULTDOMAIN_FIELD_NUMBER = 2;
-  private volatile java.lang.Object defaultDomain_;
+  public static final int OFFSET_FIELD_NUMBER = 2;
+  private int offset_;
   /**
    * <pre>
-   *默认域名
+   *设置跨域名页数。传 0 表示获取第一页。每页大小默认为 10 条域名结果
    * </pre>
    *
-   * <code>string DefaultDomain = 2;</code>
-   * @return The defaultDomain.
+   * <code>int32 Offset = 2;</code>
+   * @return The offset.
    */
   @java.lang.Override
-  public java.lang.String getDefaultDomain() {
-    java.lang.Object ref = defaultDomain_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      defaultDomain_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   *默认域名
-   * </pre>
-   *
-   * <code>string DefaultDomain = 2;</code>
-   * @return The bytes for defaultDomain.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getDefaultDomainBytes() {
-    java.lang.Object ref = defaultDomain_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      defaultDomain_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public int getOffset() {
+    return offset_;
   }
 
-  public static final int PLAYRULE_FIELD_NUMBER = 3;
-  private int playRule_;
+  public static final int LIMIT_FIELD_NUMBER = 3;
+  private int limit_;
   /**
    * <pre>
-   * 0 随机模式 1 默认域名模式
+   *当前页数量条数（默认10）
    * </pre>
    *
-   * <code>int32 PlayRule = 3;</code>
-   * @return The playRule.
+   * <code>int32 Limit = 3;</code>
+   * @return The limit.
    */
   @java.lang.Override
-  public int getPlayRule() {
-    return playRule_;
+  public int getLimit() {
+    return limit_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -215,11 +190,11 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(spaceName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, spaceName_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultDomain_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, defaultDomain_);
+    if (offset_ != 0) {
+      output.writeInt32(2, offset_);
     }
-    if (playRule_ != 0) {
-      output.writeInt32(3, playRule_);
+    if (limit_ != 0) {
+      output.writeInt32(3, limit_);
     }
     unknownFields.writeTo(output);
   }
@@ -233,12 +208,13 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(spaceName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, spaceName_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultDomain_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, defaultDomain_);
-    }
-    if (playRule_ != 0) {
+    if (offset_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(3, playRule_);
+        .computeInt32Size(2, offset_);
+    }
+    if (limit_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(3, limit_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -250,17 +226,17 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest)) {
+    if (!(obj instanceof com.volcengine.service.vod.model.request.VodListPCDNDomainRequest)) {
       return super.equals(obj);
     }
-    com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest other = (com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest) obj;
+    com.volcengine.service.vod.model.request.VodListPCDNDomainRequest other = (com.volcengine.service.vod.model.request.VodListPCDNDomainRequest) obj;
 
     if (!getSpaceName()
         .equals(other.getSpaceName())) return false;
-    if (!getDefaultDomain()
-        .equals(other.getDefaultDomain())) return false;
-    if (getPlayRule()
-        != other.getPlayRule()) return false;
+    if (getOffset()
+        != other.getOffset()) return false;
+    if (getLimit()
+        != other.getLimit()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -274,78 +250,78 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + SPACENAME_FIELD_NUMBER;
     hash = (53 * hash) + getSpaceName().hashCode();
-    hash = (37 * hash) + DEFAULTDOMAIN_FIELD_NUMBER;
-    hash = (53 * hash) + getDefaultDomain().hashCode();
-    hash = (37 * hash) + PLAYRULE_FIELD_NUMBER;
-    hash = (53 * hash) + getPlayRule();
+    hash = (37 * hash) + OFFSET_FIELD_NUMBER;
+    hash = (53 * hash) + getOffset();
+    hash = (37 * hash) + LIMIT_FIELD_NUMBER;
+    hash = (53 * hash) + getLimit();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodListPCDNDomainRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodListPCDNDomainRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodListPCDNDomainRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodListPCDNDomainRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest parseFrom(byte[] data)
+  public static com.volcengine.service.vod.model.request.VodListPCDNDomainRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodListPCDNDomainRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest parseFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.request.VodListPCDNDomainRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodListPCDNDomainRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.request.VodListPCDNDomainRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest parseDelimitedFrom(
+  public static com.volcengine.service.vod.model.request.VodListPCDNDomainRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodListPCDNDomainRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodListPCDNDomainRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -358,7 +334,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest prototype) {
+  public static Builder newBuilder(com.volcengine.service.vod.model.request.VodListPCDNDomainRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -374,26 +350,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code Volcengine.Vod.Models.Request.VodUpdateDomainPlayRuleRequest}
+   * Protobuf type {@code Volcengine.Vod.Models.Request.VodListPCDNDomainRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Request.VodUpdateDomainPlayRuleRequest)
-      com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Request.VodListPCDNDomainRequest)
+      com.volcengine.service.vod.model.request.VodListPCDNDomainRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodUpdateDomainPlayRuleRequest_descriptor;
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodListPCDNDomainRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodUpdateDomainPlayRuleRequest_fieldAccessorTable
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodListPCDNDomainRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest.class, com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest.Builder.class);
+              com.volcengine.service.vod.model.request.VodListPCDNDomainRequest.class, com.volcengine.service.vod.model.request.VodListPCDNDomainRequest.Builder.class);
     }
 
-    // Construct using com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest.newBuilder()
+    // Construct using com.volcengine.service.vod.model.request.VodListPCDNDomainRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -413,9 +389,9 @@ private static final long serialVersionUID = 0L;
       super.clear();
       spaceName_ = "";
 
-      defaultDomain_ = "";
+      offset_ = 0;
 
-      playRule_ = 0;
+      limit_ = 0;
 
       return this;
     }
@@ -423,17 +399,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodUpdateDomainPlayRuleRequest_descriptor;
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodListPCDNDomainRequest_descriptor;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest getDefaultInstanceForType() {
-      return com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest.getDefaultInstance();
+    public com.volcengine.service.vod.model.request.VodListPCDNDomainRequest getDefaultInstanceForType() {
+      return com.volcengine.service.vod.model.request.VodListPCDNDomainRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest build() {
-      com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest result = buildPartial();
+    public com.volcengine.service.vod.model.request.VodListPCDNDomainRequest build() {
+      com.volcengine.service.vod.model.request.VodListPCDNDomainRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -441,11 +417,11 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest buildPartial() {
-      com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest result = new com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest(this);
+    public com.volcengine.service.vod.model.request.VodListPCDNDomainRequest buildPartial() {
+      com.volcengine.service.vod.model.request.VodListPCDNDomainRequest result = new com.volcengine.service.vod.model.request.VodListPCDNDomainRequest(this);
       result.spaceName_ = spaceName_;
-      result.defaultDomain_ = defaultDomain_;
-      result.playRule_ = playRule_;
+      result.offset_ = offset_;
+      result.limit_ = limit_;
       onBuilt();
       return result;
     }
@@ -484,26 +460,25 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest) {
-        return mergeFrom((com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest)other);
+      if (other instanceof com.volcengine.service.vod.model.request.VodListPCDNDomainRequest) {
+        return mergeFrom((com.volcengine.service.vod.model.request.VodListPCDNDomainRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest other) {
-      if (other == com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.volcengine.service.vod.model.request.VodListPCDNDomainRequest other) {
+      if (other == com.volcengine.service.vod.model.request.VodListPCDNDomainRequest.getDefaultInstance()) return this;
       if (!other.getSpaceName().isEmpty()) {
         spaceName_ = other.spaceName_;
         onChanged();
       }
-      if (!other.getDefaultDomain().isEmpty()) {
-        defaultDomain_ = other.defaultDomain_;
-        onChanged();
+      if (other.getOffset() != 0) {
+        setOffset(other.getOffset());
       }
-      if (other.getPlayRule() != 0) {
-        setPlayRule(other.getPlayRule());
+      if (other.getLimit() != 0) {
+        setLimit(other.getLimit());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -520,11 +495,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest parsedMessage = null;
+      com.volcengine.service.vod.model.request.VodListPCDNDomainRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.service.vod.model.request.VodListPCDNDomainRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -536,6 +511,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object spaceName_ = "";
     /**
+     * <pre>
+     * 空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @return The spaceName.
      */
@@ -552,6 +531,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @return The bytes for spaceName.
      */
@@ -569,6 +552,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @param value The spaceName to set.
      * @return This builder for chaining.
@@ -584,6 +571,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @return This builder for chaining.
      */
@@ -594,6 +585,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 空间名 
+     * </pre>
+     *
      * <code>string SpaceName = 1;</code>
      * @param value The bytes for spaceName to set.
      * @return This builder for chaining.
@@ -610,141 +605,88 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object defaultDomain_ = "";
+    private int offset_ ;
     /**
      * <pre>
-     *默认域名
+     *设置跨域名页数。传 0 表示获取第一页。每页大小默认为 10 条域名结果
      * </pre>
      *
-     * <code>string DefaultDomain = 2;</code>
-     * @return The defaultDomain.
+     * <code>int32 Offset = 2;</code>
+     * @return The offset.
      */
-    public java.lang.String getDefaultDomain() {
-      java.lang.Object ref = defaultDomain_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        defaultDomain_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override
+    public int getOffset() {
+      return offset_;
     }
     /**
      * <pre>
-     *默认域名
+     *设置跨域名页数。传 0 表示获取第一页。每页大小默认为 10 条域名结果
      * </pre>
      *
-     * <code>string DefaultDomain = 2;</code>
-     * @return The bytes for defaultDomain.
-     */
-    public com.google.protobuf.ByteString
-        getDefaultDomainBytes() {
-      java.lang.Object ref = defaultDomain_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        defaultDomain_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     *默认域名
-     * </pre>
-     *
-     * <code>string DefaultDomain = 2;</code>
-     * @param value The defaultDomain to set.
+     * <code>int32 Offset = 2;</code>
+     * @param value The offset to set.
      * @return This builder for chaining.
      */
-    public Builder setDefaultDomain(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      defaultDomain_ = value;
+    public Builder setOffset(int value) {
+      
+      offset_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *默认域名
+     *设置跨域名页数。传 0 表示获取第一页。每页大小默认为 10 条域名结果
      * </pre>
      *
-     * <code>string DefaultDomain = 2;</code>
+     * <code>int32 Offset = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearDefaultDomain() {
+    public Builder clearOffset() {
       
-      defaultDomain_ = getDefaultInstance().getDefaultDomain();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *默认域名
-     * </pre>
-     *
-     * <code>string DefaultDomain = 2;</code>
-     * @param value The bytes for defaultDomain to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDefaultDomainBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      defaultDomain_ = value;
+      offset_ = 0;
       onChanged();
       return this;
     }
 
-    private int playRule_ ;
+    private int limit_ ;
     /**
      * <pre>
-     * 0 随机模式 1 默认域名模式
+     *当前页数量条数（默认10）
      * </pre>
      *
-     * <code>int32 PlayRule = 3;</code>
-     * @return The playRule.
+     * <code>int32 Limit = 3;</code>
+     * @return The limit.
      */
     @java.lang.Override
-    public int getPlayRule() {
-      return playRule_;
+    public int getLimit() {
+      return limit_;
     }
     /**
      * <pre>
-     * 0 随机模式 1 默认域名模式
+     *当前页数量条数（默认10）
      * </pre>
      *
-     * <code>int32 PlayRule = 3;</code>
-     * @param value The playRule to set.
+     * <code>int32 Limit = 3;</code>
+     * @param value The limit to set.
      * @return This builder for chaining.
      */
-    public Builder setPlayRule(int value) {
+    public Builder setLimit(int value) {
       
-      playRule_ = value;
+      limit_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 0 随机模式 1 默认域名模式
+     *当前页数量条数（默认10）
      * </pre>
      *
-     * <code>int32 PlayRule = 3;</code>
+     * <code>int32 Limit = 3;</code>
      * @return This builder for chaining.
      */
-    public Builder clearPlayRule() {
+    public Builder clearLimit() {
       
-      playRule_ = 0;
+      limit_ = 0;
       onChanged();
       return this;
     }
@@ -761,41 +703,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Request.VodUpdateDomainPlayRuleRequest)
+    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Request.VodListPCDNDomainRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Request.VodUpdateDomainPlayRuleRequest)
-  private static final com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Request.VodListPCDNDomainRequest)
+  private static final com.volcengine.service.vod.model.request.VodListPCDNDomainRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest();
+    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.request.VodListPCDNDomainRequest();
   }
 
-  public static com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest getDefaultInstance() {
+  public static com.volcengine.service.vod.model.request.VodListPCDNDomainRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<VodUpdateDomainPlayRuleRequest>
-      PARSER = new com.google.protobuf.AbstractParser<VodUpdateDomainPlayRuleRequest>() {
+  private static final com.google.protobuf.Parser<VodListPCDNDomainRequest>
+      PARSER = new com.google.protobuf.AbstractParser<VodListPCDNDomainRequest>() {
     @java.lang.Override
-    public VodUpdateDomainPlayRuleRequest parsePartialFrom(
+    public VodListPCDNDomainRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VodUpdateDomainPlayRuleRequest(input, extensionRegistry);
+      return new VodListPCDNDomainRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<VodUpdateDomainPlayRuleRequest> parser() {
+  public static com.google.protobuf.Parser<VodListPCDNDomainRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<VodUpdateDomainPlayRuleRequest> getParserForType() {
+  public com.google.protobuf.Parser<VodListPCDNDomainRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest getDefaultInstanceForType() {
+  public com.volcengine.service.vod.model.request.VodListPCDNDomainRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -136,4 +136,43 @@ package com.volcengine.service.cdn;
         // 查询计费结果数据: 
         CDN.DescribeAccountingSummaryResponse describeAccountingSummary(CDN.DescribeAccountingSummaryRequest request) throws Exception;
 
+        // 获取访问统计的细分数据: 
+        CDN.DescribeDistrictDataResponse describeDistrictData(CDN.DescribeDistrictDataRequest request) throws Exception;
+
+        // 获取计费区域的细分数据: 
+        CDN.DescribeEdgeDataResponse describeEdgeData(CDN.DescribeEdgeDataRequest request) throws Exception;
+
+        // 获取访问统计的汇总数据: 
+        CDN.DescribeDistrictSummaryResponse describeDistrictSummary(CDN.DescribeDistrictSummaryRequest request) throws Exception;
+
+        // 获取计费区域的汇总数据: 
+        CDN.DescribeEdgeSummaryResponse describeEdgeSummary(CDN.DescribeEdgeSummaryRequest request) throws Exception;
+
+        // 获取回源统计的细分数据: 
+        CDN.DescribeOriginDataResponse describeOriginData(CDN.DescribeOriginDataRequest request) throws Exception;
+
+        // 获取回源统计的汇总数据: 
+        CDN.DescribeOriginSummaryResponse describeOriginSummary(CDN.DescribeOriginSummaryRequest request) throws Exception;
+
+        // 获取独立访客的细分数据: 
+        CDN.DescribeUserDataResponse describeUserData(CDN.DescribeUserDataRequest request) throws Exception;
+
+        // 获取访问数据的统计排名: 
+        CDN.DescribeDistrictRankingResponse describeDistrictRanking(CDN.DescribeDistrictRankingRequest request) throws Exception;
+
+        // 获取计费区域的统计排名: 
+        CDN.DescribeEdgeRankingResponse describeEdgeRanking(CDN.DescribeEdgeRankingRequest request) throws Exception;
+
+        // 获取回源数据的统计排名: 
+        CDN.DescribeOriginRankingResponse describeOriginRanking(CDN.DescribeOriginRankingRequest request) throws Exception;
+
+        // 获取访问状态码排名数据: 
+        CDN.DescribeEdgeStatusCodeRankingResponse describeEdgeStatusCodeRanking(CDN.DescribeEdgeStatusCodeRankingRequest request) throws Exception;
+
+        // 获取回源状态码的统计排名: 
+        CDN.DescribeOriginStatusCodeRankingResponse describeOriginStatusCodeRanking(CDN.DescribeOriginStatusCodeRankingRequest request) throws Exception;
+
+        // 获取热门对象的统计排名: 
+        CDN.DescribeStatisticalRankingResponse describeStatisticalRanking(CDN.DescribeStatisticalRankingRequest request) throws Exception;
+
 }

@@ -736,6 +736,214 @@ public class CDNConfig {
                     }
             ));
 
+            // 获取访问统计的细分数据: 
+            put("DescribeDistrictData", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeDistrictData"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 获取计费区域的细分数据: 
+            put("DescribeEdgeData", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeEdgeData"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 获取访问统计的汇总数据: 
+            put("DescribeDistrictSummary", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeDistrictSummary"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 获取计费区域的汇总数据: 
+            put("DescribeEdgeSummary", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeEdgeSummary"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 获取回源统计的细分数据: 
+            put("DescribeOriginData", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeOriginData"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 获取回源统计的汇总数据: 
+            put("DescribeOriginSummary", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeOriginSummary"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 获取独立访客的细分数据: 
+            put("DescribeUserData", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeUserData"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 获取访问数据的统计排名: 
+            put("DescribeDistrictRanking", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeDistrictRanking"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 获取计费区域的统计排名: 
+            put("DescribeEdgeRanking", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeEdgeRanking"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 获取回源数据的统计排名: 
+            put("DescribeOriginRanking", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeOriginRanking"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 获取访问状态码排名数据: 
+            put("DescribeEdgeStatusCodeRanking", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeEdgeStatusCodeRanking"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 获取回源状态码的统计排名: 
+            put("DescribeOriginStatusCodeRanking", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeOriginStatusCodeRanking"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 获取热门对象的统计排名: 
+            put("DescribeStatisticalRanking", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeStatisticalRanking"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
 
         }
     };

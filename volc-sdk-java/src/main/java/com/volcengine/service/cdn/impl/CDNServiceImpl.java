@@ -438,4 +438,121 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
         }
         return JSON.parseObject(response.getData(), CDN.DescribeAccountingSummaryResponse.class);
     }
+
+    @Override
+    public CDN.DescribeDistrictDataResponse describeDistrictData(CDN.DescribeDistrictDataRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeDistrictData", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeDistrictDataResponse.class);
+    }
+
+    @Override
+    public CDN.DescribeEdgeDataResponse describeEdgeData(CDN.DescribeEdgeDataRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeEdgeData", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeEdgeDataResponse.class);
+    }
+
+    @Override
+    public CDN.DescribeDistrictSummaryResponse describeDistrictSummary(CDN.DescribeDistrictSummaryRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeDistrictSummary", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeDistrictSummaryResponse.class);
+    }
+
+    @Override
+    public CDN.DescribeEdgeSummaryResponse describeEdgeSummary(CDN.DescribeEdgeSummaryRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeEdgeSummary", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeEdgeSummaryResponse.class);
+    }
+
+    @Override
+    public CDN.DescribeOriginDataResponse describeOriginData(CDN.DescribeOriginDataRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeOriginData", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeOriginDataResponse.class);
+    }
+
+    @Override
+    public CDN.DescribeOriginSummaryResponse describeOriginSummary(CDN.DescribeOriginSummaryRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeOriginSummary", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeOriginSummaryResponse.class);
+    }
+
+    @Override
+    public CDN.DescribeUserDataResponse describeUserData(CDN.DescribeUserDataRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeUserData", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeUserDataResponse.class);
+    }
+
+    @Override
+    public CDN.DescribeDistrictRankingResponse describeDistrictRanking(CDN.DescribeDistrictRankingRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeDistrictRanking", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeDistrictRankingResponse.class);
+    }
+
+    @Override
+    public CDN.DescribeEdgeRankingResponse describeEdgeRanking(CDN.DescribeEdgeRankingRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeEdgeRanking", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeEdgeRankingResponse.class);
+    }
+
+    @Override
+    public CDN.DescribeOriginRankingResponse describeOriginRanking(CDN.DescribeOriginRankingRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeOriginRanking", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeOriginRankingResponse.class);
+    }
+
+    @Override
+    public CDN.DescribeEdgeStatusCodeRankingResponse describeEdgeStatusCodeRanking(CDN.DescribeEdgeStatusCodeRankingRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeEdgeStatusCodeRanking", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeEdgeStatusCodeRankingResponse.class);
+    }
+
+    @Override
+    public CDN.DescribeOriginStatusCodeRankingResponse describeOriginStatusCodeRanking(CDN.DescribeOriginStatusCodeRankingRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeOriginStatusCodeRanking", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeOriginStatusCodeRankingResponse.class);
+    }
+
+    @Override
+    public CDN.DescribeStatisticalRankingResponse describeStatisticalRanking(CDN.DescribeStatisticalRankingRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeStatisticalRanking", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeStatisticalRankingResponse.class);
+    }
 }

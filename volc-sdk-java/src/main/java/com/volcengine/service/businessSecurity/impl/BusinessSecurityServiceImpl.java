@@ -261,6 +261,34 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
         return JSON.parseObject(response.getData(), GetDailyMarketingPackageResponse.class);
     }
 
+    @Override
+    public ActivateRiskResultResponse ActivateRiskResult(ActivateRiskResultRequest request) throws Exception {
+        RawResponse response = json(Const.ActivateRiskResult, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), ActivateRiskResultResponse.class);
+    }
+
+    @Override
+    public ActivateRiskSampleDataResponse ActivateRiskSampleData(ActivateRiskSampleDataRequest request) throws Exception {
+        RawResponse response = json(Const.ActivateRiskSampleData, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ActivateRiskSampleDataResponse.class);
+    }
+
+    @Override
+    public ActivateRiskBasePackageResponse ActivateRiskBasePackage(ActivateRiskBasePackageRequest request) throws Exception {
+        RawResponse response = json(Const.ActivateRiskBasePackage, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), ActivateRiskBasePackageResponse.class);
+    }
+
     @Data
     static class FileInfo{
         private long fileSize;

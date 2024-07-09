@@ -116,6 +116,12 @@ public class Const {
 
     public static final String GetDailyMarketingPackage = "GetDailyMarketingPackage";
 
+
+    public static final String ActivateRiskBasePackage = "ActivateRiskBasePackage";
+    public static final String ActivateRiskSampleData = "ActivateRiskSampleData";
+    public static final String ActivateRiskResult = "ActivateRiskResult";
+
+
     // content security
     public static final String ImageContentRisk = "ImageContentRisk";
     public static final String ImageContentRiskV2 = "ImageContentRiskV2";

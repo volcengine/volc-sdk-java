@@ -181,6 +181,51 @@ public class BusinessSecurityConfig {
                         }
                     }
             ));
+            put(Const.ActivateRiskSampleData,new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ActivateRiskSampleData"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                            put(Const.Header, headers);
+                        }
+                    }
+            ));
+            put(Const.ActivateRiskBasePackage,new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ActivateRiskBasePackage"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                            put(Const.Header, headers);
+                        }
+                    }
+            ));
+            put(Const.ActivateRiskResult,new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ActivateRiskResult"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                            put(Const.Header, headers);
+                        }
+                    }
+            ));
             put(Const.ElementVerifyEncrypted, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -332,6 +377,7 @@ public class BusinessSecurityConfig {
                         }
                     }
             ));
+
 
 
         }

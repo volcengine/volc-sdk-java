@@ -2,27 +2,23 @@ package com.volcengine.service.businessSecurity.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.volcengine.model.request.*;
-import com.volcengine.model.response.GetDailyMarketingPackageResponse;
-import com.volcengine.model.response.ListAppsResponse;
-import com.volcengine.model.response.PushTrafficRiskDataResponse;
-import com.volcengine.model.response.RiskStatResponse;
+import com.volcengine.model.response.*;
 import com.volcengine.service.businessSecurity.BusinessSecurityConfig;
 import com.volcengine.service.businessSecurity.BusinessSecurityService;
 import junit.framework.TestCase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BusinessSecurityServiceTest extends TestCase {
     private BusinessSecurityService initService() {
         BusinessSecurityService service = BusinessSecurityServiceImpl.getInstance();
-        service.setAccessKey("AK");
-        service.setSecretKey("SK");
         return service;
     }
 
     private BusinessSecurityService initService(String service) {
         BusinessSecurityConfig.init();
         BusinessSecurityService serviceOpenapi = BusinessSecurityServiceImpl.getInstanceOpenapi();
-        serviceOpenapi.setAccessKey("AK");
-        serviceOpenapi.setSecretKey("SK");
         return serviceOpenapi;
     }
 
@@ -77,7 +73,7 @@ public class BusinessSecurityServiceTest extends TestCase {
     }
 
     public void testSendSamplePackage()throws Exception{
-        BusinessSecurityService service = initService("Business");
+        BusinessSecurityService service = initService();
         PushTrafficRiskDataRequest request = new PushTrafficRiskDataRequest();
         request.setAppId(579824l);
         request.setFilePath("/tmp/权重测试222.csv");
@@ -94,6 +90,46 @@ public class BusinessSecurityServiceTest extends TestCase {
         request.setPlanName("测试计划");
         request.setCustomerPackageId(1);
         GetDailyMarketingPackageResponse response = service.GetDailyMarketingPackage(request);
+    }
+
+
+    public void testActivateBasePackage()throws Exception{
+        BusinessSecurityService service = initService();
+        ActivateRiskBasePackageRequest request = new ActivateRiskBasePackageRequest();
+        request.setPackageId("A1234567");
+        request.setTotalPackageNum(1);
+        request.setPackageSeq(1);
+        request.setDataType("1");
+        List<String> list = new ArrayList<>(1);
+        list.add("cfcd208495d565ef66e7dff9f98764da");
+        request.setData(list);
+        ActivateRiskBasePackageResponse response = service.ActivateRiskBasePackage(request);
+        System.out.println(response);
+    }
+
+
+    public void testActivateSampleData()throws Exception{
+        BusinessSecurityService service = initService();
+        ActivateRiskSampleDataRequest request = new ActivateRiskSampleDataRequest();
+        request.setPackageId("A123456");
+        request.setBusinessType("A1");
+        request.setPackageSeq(1);
+        request.setTotalPackageNum(1);
+        request.setDataType("1");
+        List<ActivateRiskSampleDataRequest.SampleData> list = new ArrayList<>();
+        list.add(new ActivateRiskSampleDataRequest.SampleData("cfcd208495d565ef66e7dff9f98764da","X","Y","abcde"));
+        request.setData(list);
+        ActivateRiskSampleDataResponse response = service.ActivateRiskSampleData(request);
+        System.out.println(response);
+    }
+
+    public void testActivateResult()throws Exception{
+        BusinessSecurityService service = initService();
+        ActivateRiskResultRequest request = new ActivateRiskResultRequest();
+        request.setActivateCode("9a5f5a89-6f06-4e49-bbf7-940eb2f5359a");
+        request.setPlanId(10);
+        ActivateRiskResultResponse response = service.ActivateRiskResult(request);
+        System.out.println(response);
     }
 
 }

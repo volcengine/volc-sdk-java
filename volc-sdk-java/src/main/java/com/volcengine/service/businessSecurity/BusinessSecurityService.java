@@ -131,4 +131,11 @@ public interface BusinessSecurityService extends IBaseService {
     ListAppsResponse.CommonListAppsResponse ListApps(ListAppsRequest listAppsRequest)throws Exception;
 
     GetDailyMarketingPackageResponse  GetDailyMarketingPackage(GetDailyMarketingPackageRequest request)throws Exception;
+
+    ActivateRiskResultResponse ActivateRiskResult(ActivateRiskResultRequest request)throws Exception;
+
+    ActivateRiskSampleDataResponse ActivateRiskSampleData(ActivateRiskSampleDataRequest request)throws Exception;
+
+    ActivateRiskBasePackageResponse ActivateRiskBasePackage(ActivateRiskBasePackageRequest request)throws Exception;
+
 }

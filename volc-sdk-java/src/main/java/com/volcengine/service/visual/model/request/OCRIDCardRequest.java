@@ -7,7 +7,10 @@ import lombok.Data;
 public class OCRIDCardRequest {
     
     @JSONField(name = "image_base64")
-    String imageBase64;
+    String imageBase64="";
+
+    @JSONField(name = "image_url")
+    String imageUrl;
 
     @JSONField(name = "version")
     String version = "v1";

@@ -22,6 +22,9 @@ public class OCRIDCardResponse extends VisualBaseResponse {
 
         @JSONField(name = "card_corners")
         List<Integer> cardCorners;
+
+        @JSONField(name = "quality_code")
+        String qualityCode;
     }
 
     @Data

@@ -6,8 +6,11 @@ package com.volcengine.example.vod.upload;
 
 import com.volcengine.service.vod.IVodService;
 import com.volcengine.service.vod.impl.VodServiceImpl;
+import com.volcengine.service.vod.model.business.VodUploadTemplate;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class VodUploadMediaByUrlDemo {
@@ -28,6 +31,16 @@ public class VodUploadMediaByUrlDemo {
             Map<String, String> customUrlHeaders = new HashMap<>();
             customUrlHeaders.put("your header key", "your header value");
             uRLSetsBuilder.putAllCustomURLHeaders(customUrlHeaders);
+            VodUploadTemplate impTemplate = VodUploadTemplate.newBuilder()
+                    .addTemplateIds("imp template id")
+                    .setTemplateType("imp")
+                    .build();
+            VodUploadTemplate transcodeTemplate = VodUploadTemplate.newBuilder()
+                    .addTemplateIds( "transcode template id")
+                    .setTemplateType("transcode")
+                    .build();
+            uRLSetsBuilder.addTemplates(impTemplate);
+            uRLSetsBuilder.addTemplates(transcodeTemplate);
             reqBuilder.addURLSets(uRLSetsBuilder);
 
             com.volcengine.service.vod.model.response.VodUrlUploadResponse resp = vodService.uploadMediaByUrl(reqBuilder.build());

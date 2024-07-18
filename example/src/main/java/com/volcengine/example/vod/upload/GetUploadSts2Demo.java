@@ -16,11 +16,13 @@ public class GetUploadSts2Demo {
         vodService.setAccessKey("your ak");
         vodService.setSecretKey("your sk");
 
+        //set expire time
         SecurityToken2 sts2WithExpire = vodService.getUploadSts2WithExpire(Time.Hour);
         System.out.println(JSON.toJSONString(sts2WithExpire));
 
 
-        SecurityToken2 sts2 = vodService.getUploadSts2WithExpire(Time.Hour);
+        //expire after one hour by default
+        SecurityToken2 sts2 = vodService.getUploadSts2();
         System.out.println(JSON.toJSONString(sts2));
 
     }

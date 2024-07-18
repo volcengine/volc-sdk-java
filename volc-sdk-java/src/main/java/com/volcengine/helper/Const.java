@@ -516,6 +516,7 @@ public class Const {
     public static final String CreateLiveChannelConfig = "CreateLiveChannelConfig";
 
     public static final String ListLiveChannelConfig = "ListLiveChannelConfig";
+    public static final String GenerateActivityStreamSlice = "GenerateActivityStreamSlice";
 
     // translate
     public static final String LangDetect = "LangDetect";

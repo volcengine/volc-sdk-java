@@ -168,7 +168,7 @@ public class VikingDBService extends BaseServiceImpl {
                 throw new Exception(res.getException().getMessage());
             } catch (Exception e) {
                 LinkedTreeMap<String,Object> resJson = gson.fromJson(e.getMessage(), new TypeToken<LinkedTreeMap<String, Object>>() {}.getType());
-                Integer code = (Integer)resJson.get("code");
+                Long code = (Long)resJson.get("code");
                 String requestId = (String)resJson.get("request_id");
                 String message = (String)resJson.get("message");
                 VikingDBException vikingDBException = new VikingDBException(code, requestId, message);
@@ -177,7 +177,7 @@ public class VikingDBService extends BaseServiceImpl {
         }
         String resData =new String(res.getData(), StandardCharsets.UTF_8);
         LinkedTreeMap<String,Object> data = gson.fromJson(resData,new TypeToken<LinkedTreeMap<String, Object>>() {}.getType());
-        // System.out.println(data);
+
         return data;
     }
 
@@ -269,7 +269,7 @@ public class VikingDBService extends BaseServiceImpl {
                 // if(item.containsKey("default_val")) field.setDefaultVal((Object)item.get("default_val")).resetDefaultVal();
                 if(item.containsKey("default_val")) field.setDefaultVal((Object)item.get("default_val"));
                 if(item.containsKey("dim")){
-                    field.setDim((Integer)item.get("dim"));
+                    field.setDim((Long)item.get("dim"));
                 }
                 if(item.containsKey("pipeline_name")) field.setPipelineName((String)item.get("pipeline_name"));
                 if(res.containsKey("primary_key")){
@@ -327,7 +327,7 @@ public class VikingDBService extends BaseServiceImpl {
                     if(retData.containsKey("field_type")) field.setFieldType((String)retData.get("field_type"));
                     if(retData.containsKey("default_val")) field.setDefaultVal((Object)retData.get("default_val"));
                     if(retData.containsKey("dim")){
-                        field.setDim((Integer)retData.get("dim"));
+                        field.setDim((Long)retData.get("dim"));
                     }
                     if(retData.containsKey("pipeline_name")) field.setPipelineName((String)retData.get("pipeline_name"));
                     if(item.containsKey("primary_key")){
@@ -400,13 +400,13 @@ public class VikingDBService extends BaseServiceImpl {
             if(vectorIndexMap.containsKey("distance")) vectorIndexParams.setDistance((String)vectorIndexMap.get("distance"));
             if(vectorIndexMap.containsKey("quant")) vectorIndexParams.setQuant((String)vectorIndexMap.get("quant"));
             if(vectorIndexMap.containsKey("hnsw_m")){
-                vectorIndexParams.setHnswM((Integer)vectorIndexMap.get("hnsw_m"));
+                vectorIndexParams.setHnswM(((Long)vectorIndexMap.get("hnsw_m")));
             }
             if(vectorIndexMap.containsKey("hnsw_sef")){
-                vectorIndexParams.setHnswSef((Integer)vectorIndexMap.get("hnsw_sef"));
+                vectorIndexParams.setHnswSef(((Long)vectorIndexMap.get("hnsw_sef")));
             }
             if(vectorIndexMap.containsKey("hnsw_cef")){
-                vectorIndexParams.setHnswCef((Integer)vectorIndexMap.get("hnsw_cef"));
+                vectorIndexParams.setHnswCef(((Long)vectorIndexMap.get("hnsw_cef")));
             }
             index.setVectorIndex(vectorIndexParams);
         }
@@ -433,14 +433,14 @@ public class VikingDBService extends BaseServiceImpl {
         index.setScalarIndex(scalarIndex);
         if(res.containsKey("description")) index.setDescription((String)res.get("description"));
         if(res.containsKey("cpu_quota")){
-            index.setCpuQuota((Integer)res.get("cpu_quota"));
+            index.setCpuQuota((Long)res.get("cpu_quota"));
         }
         if(res.containsKey("partition_by")) index.setPartitionBy((String)res.get("partition_by"));
         if(res.containsKey("status")) index.setStat((String)res.get("status"));
         if(res.containsKey("create_time")) index.setCreateTime((String)res.get("create_time"));
         if(res.containsKey("update_time")) index.setUpdateTime((String)res.get("update_time"));
         if(res.containsKey("update_person")) index.setUpdatePerson((String)res.get("update_person"));
-        if(res.containsKey("shard_count")) index.setShardCount((Integer)res.get("shard_count"));
+        if(res.containsKey("shard_count")) index.setShardCount(((Long)res.get("shard_count")));
         if(res.containsKey("index_cost")){
             HashMap<String,Object> indexCost = convertLinkedTreeMapToHashMap((LinkedTreeMap<String,Object>)res.get("index_cost"));
             index.setIndexCost(indexCost);
@@ -694,11 +694,7 @@ class ObjectTypeAdapterRewrite extends TypeAdapter<Object> {
                 // 判断数字是否为整数值
                 long lngNum = (long) dbNum;
                 if (dbNum == lngNum) {
-                    try {
-                        return (int) lngNum;
-                    } catch (Exception e) {
-                        return lngNum;
-                    }
+                    return lngNum;
                 } else {
                     return dbNum;
                 }

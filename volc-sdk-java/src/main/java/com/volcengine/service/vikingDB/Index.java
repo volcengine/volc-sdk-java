@@ -46,6 +46,23 @@ public class Index {
         
 
     }
+
+    public void setCpuQuota(Integer cpuQuota) {
+        this.cpuQuota = cpuQuota;
+    }
+    
+    public void setCpuQuota(Long cpuQuota) {
+        this.cpuQuota = cpuQuota.intValue();
+    }
+    
+    public void setShardCount(Integer shardCount) {
+        this.shardCount = shardCount;
+    }
+    
+    public void setShardCount(Long shardCount) {
+        this.shardCount = shardCount.intValue();
+    }
+    
     public String requestPrimaryKey() throws Exception{
         if(this.primaryKey != null) return this.primaryKey;
 
@@ -305,7 +322,7 @@ public class Index {
                 if(item.get(requestPrimaryKey()) instanceof String){
                     id = (String)item.get(requestPrimaryKey());
                 } else {
-                    id = (Integer)item.get(requestPrimaryKey());
+                    id = (Long)item.get(requestPrimaryKey());
                 }
                 HashMap<String,Object> fields = new HashMap<>();
                 if(outputFields == null || outputFields.size() != 0){
@@ -326,7 +343,7 @@ public class Index {
                                     .setText(text)
                                     .setScore((Double)item.get("score"));
                 } else {
-                    Integer score = (Integer)item.get("score");
+                    Long score = (Long) item.get("score");
                     dataObject = new DataObject()
                                     .setFields(fields)
                                     .setId(id)

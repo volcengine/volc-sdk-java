@@ -1,9 +1,12 @@
 package com.volcengine.model.beans;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.service.vod.model.business.VodUploadTemplate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -39,7 +42,11 @@ public class Functions {
     }
 
     public static Functions StartWorkFlowFunction(String templateId) {
-        return new Functions("StartWorkflow", new FunctionsWorkflowInput(templateId));
+        return new Functions("StartWorkflow", new FunctionsWorkflowInput(templateId, null));
+    }
+
+    public static Functions StartWorkFlowFunction(List<FunctionsWorkflowTemplate> templates) {
+        return new Functions("StartWorkflow", new FunctionsWorkflowInput("", templates));
     }
 
 }

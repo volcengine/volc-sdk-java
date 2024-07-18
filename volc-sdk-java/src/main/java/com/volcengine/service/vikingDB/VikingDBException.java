@@ -14,6 +14,11 @@ public class VikingDBException extends Exception{
         this.message = String.format("%s, code:%s, request_id:%s", message, this.code, this.requestId);
 
     }
+    public VikingDBException(Long code, String requestId, String message){
+        this.code = code.intValue();
+        this.requestId = requestId;
+        this.message = String.format("%s, code:%s, request_id:%s", message, this.code, this.requestId);
+    }
     public VikingDBException(){}
     public Exception getErrorCodeException(Integer code, String requestId, String message) {
         if(code == 1000001) return new UnauthorizedException(code, requestId, message);
@@ -46,6 +51,11 @@ public class VikingDBException extends Exception{
         else return new VikingDBServerException(code, requestId, message);
 
     }
+    
+    public Exception getErrorCodeException(Long code, String requestId, String message){
+        return getErrorCodeException(code.intValue(), requestId, message);
+    }
+    
     @Override
     public String toString() {
         String s = getClass().getName();

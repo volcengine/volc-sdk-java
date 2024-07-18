@@ -310,4 +310,48 @@ public interface VodUrlUploadURLSetOrBuilder extends
 
   java.lang.String getCustomURLHeadersOrThrow(
       java.lang.String key);
+
+  /**
+   * <pre>
+   * 工作流模板 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 16;</code>
+   */
+  java.util.List<com.volcengine.service.vod.model.business.VodUploadTemplate> 
+      getTemplatesList();
+  /**
+   * <pre>
+   * 工作流模板 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 16;</code>
+   */
+  com.volcengine.service.vod.model.business.VodUploadTemplate getTemplates(int index);
+  /**
+   * <pre>
+   * 工作流模板 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 16;</code>
+   */
+  int getTemplatesCount();
+  /**
+   * <pre>
+   * 工作流模板 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 16;</code>
+   */
+  java.util.List<? extends com.volcengine.service.vod.model.business.VodUploadTemplateOrBuilder> 
+      getTemplatesOrBuilderList();
+  /**
+   * <pre>
+   * 工作流模板 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 16;</code>
+   */
+  com.volcengine.service.vod.model.business.VodUploadTemplateOrBuilder getTemplatesOrBuilder(
+      int index);
 }

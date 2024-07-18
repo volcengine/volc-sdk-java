@@ -204,4 +204,28 @@ public interface VodUploadFunctionInputOrBuilder extends
    */
   com.google.protobuf.ByteString
       getHlsMediaSizeBytes();
+
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 20;</code>
+   */
+  java.util.List<com.volcengine.service.vod.model.business.VodUploadTemplate> 
+      getTemplatesList();
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 20;</code>
+   */
+  com.volcengine.service.vod.model.business.VodUploadTemplate getTemplates(int index);
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 20;</code>
+   */
+  int getTemplatesCount();
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 20;</code>
+   */
+  java.util.List<? extends com.volcengine.service.vod.model.business.VodUploadTemplateOrBuilder> 
+      getTemplatesOrBuilderList();
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 20;</code>
+   */
+  com.volcengine.service.vod.model.business.VodUploadTemplateOrBuilder getTemplatesOrBuilder(
+      int index);
 }

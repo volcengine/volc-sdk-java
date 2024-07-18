@@ -1692,4 +1692,12 @@ public interface LivesaasService extends IBaseService {
      */
     ListLiveChannelConfigResponse listLiveChannelConfig(CommonRequest listLiveChannelConfigRequest) throws Exception;
 
+    /**
+     * generateActivityStreamSlice
+     *
+     * @param generateActivityStreamSliceResponse GenerateActivityStreamSliceRequest
+     * @return GenerateActivityStreamSliceResponse
+     * @throws Exception the exception
+     */
+    GenerateActivityStreamSliceResponse generateActivityStreamSlice(GenerateActivityStreamSliceRequest generateActivityStreamSliceResponse) throws Exception;
 }

@@ -38,12 +38,24 @@ public class VectorIndexParams {
         this.hnswM = hnswM;
         return this;
     }
+    public VectorIndexParams setHnswM(Long hnswM) {
+        this.hnswM = hnswM.intValue();
+        return this;
+    }
     public VectorIndexParams setHnswCef(Integer hnswCef) {
         this.hnswCef = hnswCef;
         return this;
     }
+    public VectorIndexParams setHnswCef(Long hnswCef) {
+        this.hnswCef = hnswCef.intValue();
+        return this;
+    }
     public VectorIndexParams setHnswSef(Integer hnswSef) {
         this.hnswSef = hnswSef;
+        return this;
+    }
+    public VectorIndexParams setHnswSef(Long hnswSef) {
+        this.hnswSef = hnswSef.intValue();
         return this;
     }
     public VectorIndexParams build(){

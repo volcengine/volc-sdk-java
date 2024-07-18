@@ -4,8 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.helper.VodUploadMediaProcessListener;
 import com.volcengine.helper.VodUploadProgressListener;
 import com.volcengine.model.beans.Functions;
+import com.volcengine.model.beans.FunctionsWorkflowTemplate;
 import com.volcengine.service.vod.IVodService;
 import com.volcengine.service.vod.impl.VodServiceImpl;
+import com.volcengine.service.vod.model.business.VodUploadTemplate;
 import com.volcengine.service.vod.model.request.VodUploadMediaRequest;
 import com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse;
 
@@ -33,6 +35,22 @@ public class VodUploadMediaDemo {
 
         Functions addOptionInfo = Functions.AddOptionInfoFunction("hls测试视频", "test", "素材测试，视频文件", 0, true);
         functionsList.add(addOptionInfo);
+
+
+        List<String> impTemplateIds = new ArrayList<>();
+        impTemplateIds.add("imp template id");
+        FunctionsWorkflowTemplate impTemplate = new FunctionsWorkflowTemplate(impTemplateIds, "imp");
+
+        List<String> transcodeTemplateIds = new ArrayList<>();
+        transcodeTemplateIds.add("transcode template id");
+        FunctionsWorkflowTemplate transcodeTemplate = new FunctionsWorkflowTemplate(transcodeTemplateIds,
+                "transcode");
+
+        List<FunctionsWorkflowTemplate> templates = new ArrayList<>();
+        templates.add(impTemplate);
+        templates.add(transcodeTemplate);
+        Functions workflowFunc = Functions.StartWorkFlowFunction(templates);
+        functionsList.add(workflowFunc);
 
         VodUploadMediaRequest vodUploadMediaRequest = VodUploadMediaRequest.newBuilder()
                 .setSpaceName(space)

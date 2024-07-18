@@ -17,6 +17,8 @@ private static final long serialVersionUID = 0L;
   }
   private VodUploadOptionInfo() {
     templateId_ = "";
+    templateIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    templates_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -39,6 +41,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -53,6 +56,24 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             templateId_ = s;
+            break;
+          }
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              templateIds_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            templateIds_.add(s);
+            break;
+          }
+          case 26: {
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              templates_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodUploadTemplate>();
+              mutable_bitField0_ |= 0x00000002;
+            }
+            templates_.add(
+                input.readMessage(com.volcengine.service.vod.model.business.VodUploadTemplate.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -70,6 +91,12 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        templateIds_ = templateIds_.getUnmodifiableView();
+      }
+      if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        templates_ = java.util.Collections.unmodifiableList(templates_);
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -125,6 +152,81 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int TEMPLATEIDS_FIELD_NUMBER = 2;
+  private com.google.protobuf.LazyStringList templateIds_;
+  /**
+   * <code>repeated string TemplateIds = 2;</code>
+   * @return A list containing the templateIds.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getTemplateIdsList() {
+    return templateIds_;
+  }
+  /**
+   * <code>repeated string TemplateIds = 2;</code>
+   * @return The count of templateIds.
+   */
+  public int getTemplateIdsCount() {
+    return templateIds_.size();
+  }
+  /**
+   * <code>repeated string TemplateIds = 2;</code>
+   * @param index The index of the element to return.
+   * @return The templateIds at the given index.
+   */
+  public java.lang.String getTemplateIds(int index) {
+    return templateIds_.get(index);
+  }
+  /**
+   * <code>repeated string TemplateIds = 2;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the templateIds at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getTemplateIdsBytes(int index) {
+    return templateIds_.getByteString(index);
+  }
+
+  public static final int TEMPLATES_FIELD_NUMBER = 3;
+  private java.util.List<com.volcengine.service.vod.model.business.VodUploadTemplate> templates_;
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.volcengine.service.vod.model.business.VodUploadTemplate> getTemplatesList() {
+    return templates_;
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.volcengine.service.vod.model.business.VodUploadTemplateOrBuilder> 
+      getTemplatesOrBuilderList() {
+    return templates_;
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+   */
+  @java.lang.Override
+  public int getTemplatesCount() {
+    return templates_.size();
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodUploadTemplate getTemplates(int index) {
+    return templates_.get(index);
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodUploadTemplateOrBuilder getTemplatesOrBuilder(
+      int index) {
+    return templates_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -142,6 +244,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(templateId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, templateId_);
     }
+    for (int i = 0; i < templateIds_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, templateIds_.getRaw(i));
+    }
+    for (int i = 0; i < templates_.size(); i++) {
+      output.writeMessage(3, templates_.get(i));
+    }
     unknownFields.writeTo(output);
   }
 
@@ -153,6 +261,18 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(templateId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, templateId_);
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < templateIds_.size(); i++) {
+        dataSize += computeStringSizeNoTag(templateIds_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getTemplateIdsList().size();
+    }
+    for (int i = 0; i < templates_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, templates_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -171,6 +291,10 @@ private static final long serialVersionUID = 0L;
 
     if (!getTemplateId()
         .equals(other.getTemplateId())) return false;
+    if (!getTemplateIdsList()
+        .equals(other.getTemplateIdsList())) return false;
+    if (!getTemplatesList()
+        .equals(other.getTemplatesList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -184,6 +308,14 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + TEMPLATEID_FIELD_NUMBER;
     hash = (53 * hash) + getTemplateId().hashCode();
+    if (getTemplateIdsCount() > 0) {
+      hash = (37 * hash) + TEMPLATEIDS_FIELD_NUMBER;
+      hash = (53 * hash) + getTemplateIdsList().hashCode();
+    }
+    if (getTemplatesCount() > 0) {
+      hash = (37 * hash) + TEMPLATES_FIELD_NUMBER;
+      hash = (53 * hash) + getTemplatesList().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -312,6 +444,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getTemplatesFieldBuilder();
       }
     }
     @java.lang.Override
@@ -319,6 +452,14 @@ private static final long serialVersionUID = 0L;
       super.clear();
       templateId_ = "";
 
+      templateIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      if (templatesBuilder_ == null) {
+        templates_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      } else {
+        templatesBuilder_.clear();
+      }
       return this;
     }
 
@@ -345,7 +486,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.volcengine.service.vod.model.business.VodUploadOptionInfo buildPartial() {
       com.volcengine.service.vod.model.business.VodUploadOptionInfo result = new com.volcengine.service.vod.model.business.VodUploadOptionInfo(this);
+      int from_bitField0_ = bitField0_;
       result.templateId_ = templateId_;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        templateIds_ = templateIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      }
+      result.templateIds_ = templateIds_;
+      if (templatesBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          templates_ = java.util.Collections.unmodifiableList(templates_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.templates_ = templates_;
+      } else {
+        result.templates_ = templatesBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -398,6 +554,42 @@ private static final long serialVersionUID = 0L;
         templateId_ = other.templateId_;
         onChanged();
       }
+      if (!other.templateIds_.isEmpty()) {
+        if (templateIds_.isEmpty()) {
+          templateIds_ = other.templateIds_;
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          ensureTemplateIdsIsMutable();
+          templateIds_.addAll(other.templateIds_);
+        }
+        onChanged();
+      }
+      if (templatesBuilder_ == null) {
+        if (!other.templates_.isEmpty()) {
+          if (templates_.isEmpty()) {
+            templates_ = other.templates_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureTemplatesIsMutable();
+            templates_.addAll(other.templates_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.templates_.isEmpty()) {
+          if (templatesBuilder_.isEmpty()) {
+            templatesBuilder_.dispose();
+            templatesBuilder_ = null;
+            templates_ = other.templates_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+            templatesBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getTemplatesFieldBuilder() : null;
+          } else {
+            templatesBuilder_.addAllMessages(other.templates_);
+          }
+        }
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -426,6 +618,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object templateId_ = "";
     /**
@@ -501,6 +694,356 @@ private static final long serialVersionUID = 0L;
       templateId_ = value;
       onChanged();
       return this;
+    }
+
+    private com.google.protobuf.LazyStringList templateIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureTemplateIdsIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        templateIds_ = new com.google.protobuf.LazyStringArrayList(templateIds_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+    /**
+     * <code>repeated string TemplateIds = 2;</code>
+     * @return A list containing the templateIds.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getTemplateIdsList() {
+      return templateIds_.getUnmodifiableView();
+    }
+    /**
+     * <code>repeated string TemplateIds = 2;</code>
+     * @return The count of templateIds.
+     */
+    public int getTemplateIdsCount() {
+      return templateIds_.size();
+    }
+    /**
+     * <code>repeated string TemplateIds = 2;</code>
+     * @param index The index of the element to return.
+     * @return The templateIds at the given index.
+     */
+    public java.lang.String getTemplateIds(int index) {
+      return templateIds_.get(index);
+    }
+    /**
+     * <code>repeated string TemplateIds = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the templateIds at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getTemplateIdsBytes(int index) {
+      return templateIds_.getByteString(index);
+    }
+    /**
+     * <code>repeated string TemplateIds = 2;</code>
+     * @param index The index to set the value at.
+     * @param value The templateIds to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTemplateIds(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTemplateIdsIsMutable();
+      templateIds_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string TemplateIds = 2;</code>
+     * @param value The templateIds to add.
+     * @return This builder for chaining.
+     */
+    public Builder addTemplateIds(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTemplateIdsIsMutable();
+      templateIds_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string TemplateIds = 2;</code>
+     * @param values The templateIds to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllTemplateIds(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureTemplateIdsIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, templateIds_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string TemplateIds = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTemplateIds() {
+      templateIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string TemplateIds = 2;</code>
+     * @param value The bytes of the templateIds to add.
+     * @return This builder for chaining.
+     */
+    public Builder addTemplateIdsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureTemplateIdsIsMutable();
+      templateIds_.add(value);
+      onChanged();
+      return this;
+    }
+
+    private java.util.List<com.volcengine.service.vod.model.business.VodUploadTemplate> templates_ =
+      java.util.Collections.emptyList();
+    private void ensureTemplatesIsMutable() {
+      if (!((bitField0_ & 0x00000002) != 0)) {
+        templates_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodUploadTemplate>(templates_);
+        bitField0_ |= 0x00000002;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodUploadTemplate, com.volcengine.service.vod.model.business.VodUploadTemplate.Builder, com.volcengine.service.vod.model.business.VodUploadTemplateOrBuilder> templatesBuilder_;
+
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.VodUploadTemplate> getTemplatesList() {
+      if (templatesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(templates_);
+      } else {
+        return templatesBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+     */
+    public int getTemplatesCount() {
+      if (templatesBuilder_ == null) {
+        return templates_.size();
+      } else {
+        return templatesBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodUploadTemplate getTemplates(int index) {
+      if (templatesBuilder_ == null) {
+        return templates_.get(index);
+      } else {
+        return templatesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+     */
+    public Builder setTemplates(
+        int index, com.volcengine.service.vod.model.business.VodUploadTemplate value) {
+      if (templatesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTemplatesIsMutable();
+        templates_.set(index, value);
+        onChanged();
+      } else {
+        templatesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+     */
+    public Builder setTemplates(
+        int index, com.volcengine.service.vod.model.business.VodUploadTemplate.Builder builderForValue) {
+      if (templatesBuilder_ == null) {
+        ensureTemplatesIsMutable();
+        templates_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        templatesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+     */
+    public Builder addTemplates(com.volcengine.service.vod.model.business.VodUploadTemplate value) {
+      if (templatesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTemplatesIsMutable();
+        templates_.add(value);
+        onChanged();
+      } else {
+        templatesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+     */
+    public Builder addTemplates(
+        int index, com.volcengine.service.vod.model.business.VodUploadTemplate value) {
+      if (templatesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTemplatesIsMutable();
+        templates_.add(index, value);
+        onChanged();
+      } else {
+        templatesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+     */
+    public Builder addTemplates(
+        com.volcengine.service.vod.model.business.VodUploadTemplate.Builder builderForValue) {
+      if (templatesBuilder_ == null) {
+        ensureTemplatesIsMutable();
+        templates_.add(builderForValue.build());
+        onChanged();
+      } else {
+        templatesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+     */
+    public Builder addTemplates(
+        int index, com.volcengine.service.vod.model.business.VodUploadTemplate.Builder builderForValue) {
+      if (templatesBuilder_ == null) {
+        ensureTemplatesIsMutable();
+        templates_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        templatesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+     */
+    public Builder addAllTemplates(
+        java.lang.Iterable<? extends com.volcengine.service.vod.model.business.VodUploadTemplate> values) {
+      if (templatesBuilder_ == null) {
+        ensureTemplatesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, templates_);
+        onChanged();
+      } else {
+        templatesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+     */
+    public Builder clearTemplates() {
+      if (templatesBuilder_ == null) {
+        templates_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+      } else {
+        templatesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+     */
+    public Builder removeTemplates(int index) {
+      if (templatesBuilder_ == null) {
+        ensureTemplatesIsMutable();
+        templates_.remove(index);
+        onChanged();
+      } else {
+        templatesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodUploadTemplate.Builder getTemplatesBuilder(
+        int index) {
+      return getTemplatesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodUploadTemplateOrBuilder getTemplatesOrBuilder(
+        int index) {
+      if (templatesBuilder_ == null) {
+        return templates_.get(index);  } else {
+        return templatesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+     */
+    public java.util.List<? extends com.volcengine.service.vod.model.business.VodUploadTemplateOrBuilder> 
+         getTemplatesOrBuilderList() {
+      if (templatesBuilder_ != null) {
+        return templatesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(templates_);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodUploadTemplate.Builder addTemplatesBuilder() {
+      return getTemplatesFieldBuilder().addBuilder(
+          com.volcengine.service.vod.model.business.VodUploadTemplate.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodUploadTemplate.Builder addTemplatesBuilder(
+        int index) {
+      return getTemplatesFieldBuilder().addBuilder(
+          index, com.volcengine.service.vod.model.business.VodUploadTemplate.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodUploadTemplate Templates = 3;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.VodUploadTemplate.Builder> 
+         getTemplatesBuilderList() {
+      return getTemplatesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodUploadTemplate, com.volcengine.service.vod.model.business.VodUploadTemplate.Builder, com.volcengine.service.vod.model.business.VodUploadTemplateOrBuilder> 
+        getTemplatesFieldBuilder() {
+      if (templatesBuilder_ == null) {
+        templatesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.service.vod.model.business.VodUploadTemplate, com.volcengine.service.vod.model.business.VodUploadTemplate.Builder, com.volcengine.service.vod.model.business.VodUploadTemplateOrBuilder>(
+                templates_,
+                ((bitField0_ & 0x00000002) != 0),
+                getParentForChildren(),
+                isClean());
+        templates_ = null;
+      }
+      return templatesBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

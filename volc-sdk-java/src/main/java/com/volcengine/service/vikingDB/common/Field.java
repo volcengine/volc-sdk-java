@@ -29,6 +29,10 @@ public class Field {
         this.dim = dim;
         return this;
     }
+    public Field setDim(Long dim) {
+        this.dim = dim.intValue();
+        return this;
+    }
     public Field setPrimaryKey(Boolean primaryKey) {
         this.isPrimaryKey = primaryKey;
         return this;

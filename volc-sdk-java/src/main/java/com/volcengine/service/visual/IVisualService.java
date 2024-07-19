@@ -641,4 +641,12 @@ public interface IVisualService extends IBaseService {
      */
     MultiPhotoPortraitManageTaskResponse multiPhotoPortraitManageTask(MultiPhotoPortraitManageTaskRequest request) throws Exception;
 
+    /**
+     * 人像保持
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Img2ImgAnimeAcceleratedMaintainIDResponse img2ImgAnimeAcceleratedMaintainID(Object request) throws Exception;
+
 }

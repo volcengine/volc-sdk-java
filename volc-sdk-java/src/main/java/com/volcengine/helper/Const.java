@@ -73,6 +73,7 @@ public class Const {
     public static final String Img2ImgInpainting = "Img2ImgInpainting";
     public static final String Img2ImgInpaintingEdit = "Img2ImgInpaintingEdit";
     public static final String Img2ImgOutpainting = "Img2ImgOutpainting";
+    public static final String Img2ImgAnimeAcceleratedMaintainID = "Img2ImgAnimeAcceleratedMaintainID";
     // billing
     public static final String ListBill = "ListBill";
     public static final String ListBillDetail = "ListBillDetail";

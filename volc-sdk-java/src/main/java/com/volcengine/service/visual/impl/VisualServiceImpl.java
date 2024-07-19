@@ -832,5 +832,13 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), MultiPhotoPortraitManageTaskResponse.class);
     }
+    @Override
+    public Img2ImgAnimeAcceleratedMaintainIDResponse img2ImgAnimeAcceleratedMaintainID(Object request) throws Exception {
+        RawResponse response = json(Const.Img2ImgAnimeAcceleratedMaintainID, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), Img2ImgAnimeAcceleratedMaintainIDResponse.class);
+    }
 }
 

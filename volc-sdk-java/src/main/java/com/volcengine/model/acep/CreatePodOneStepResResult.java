@@ -1,0 +1,34 @@
+package com.volcengine.model.acep;
+
+
+import com.alibaba.fastjson.JSON;
+
+/**
+ * CreatePodOneStepResResult
+ */
+@lombok.Data
+public final class CreatePodOneStepResResult  {
+
+    /**
+     * <p>实例 ID。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "PodId")
+    private String podId;
+
+    /**
+     * <p>任务 ID。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "TaskId")
+    private String taskId;
+
+    /**
+     * <p>任务类型。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "TaskAction")
+    private String taskAction;
+
+    @Override
+    public String toString() {
+        return JSON.toJSONString(this);
+    }
+}

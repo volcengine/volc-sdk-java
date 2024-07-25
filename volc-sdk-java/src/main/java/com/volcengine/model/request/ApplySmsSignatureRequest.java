@@ -39,4 +39,7 @@ public class ApplySmsSignatureRequest {
 
     @JSONField(name = "from")
     String from;
+
+    @JSONField(name = "signatureIdentificationID")
+    int signatureIdentificationID;
 }

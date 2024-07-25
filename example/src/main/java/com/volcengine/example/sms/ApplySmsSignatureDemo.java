@@ -39,6 +39,7 @@ public class ApplySmsSignatureDemo {
         req.setSource(SignSourceType.SignSourceTypeCompany);
         req.setDomain("www.xxx.com"); // 必填
         req.setPurpose(PurposeType.SignPurposeForOwn);
+        req.setSignatureIdentificationID(1); // 实名资质id
         SignAuthFile filePgn = new SignAuthFile(DocType.ThreeInOne, Base64.getEncoder().encodeToString(bytes), ImageType.JPG.getImageType());
         req.setUploadFileList(new ArrayList<>(Collections.singletonList(filePgn)));
         try {

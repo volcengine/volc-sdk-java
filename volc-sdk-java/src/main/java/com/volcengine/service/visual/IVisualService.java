@@ -649,4 +649,12 @@ public interface IVisualService extends IBaseService {
      */
     Img2ImgAnimeAcceleratedMaintainIDResponse img2ImgAnimeAcceleratedMaintainID(Object request) throws Exception;
 
+    /**
+     * 智能分割
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualEntitySegmentResponse entitySegment(VisualEntitySegmentRequest request) throws Exception;
+
 }

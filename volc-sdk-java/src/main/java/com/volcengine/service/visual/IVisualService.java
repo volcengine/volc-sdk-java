@@ -657,4 +657,12 @@ public interface IVisualService extends IBaseService {
      */
     VisualEntitySegmentResponse entitySegment(VisualEntitySegmentRequest request) throws Exception;
 
+    /**
+     * 智能绘图（漫画版）
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Img2ImgAnimeAcceleratedMaintainIDForSmartDrawingAnimeResponse  Img2ImgAnimeAcceleratedMaintainIDForSmartDrawingAnime(Object request) throws Exception;
+
 }

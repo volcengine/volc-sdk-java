@@ -1314,6 +1314,20 @@ public class VisualConfig {
                         }
                     }
             ));
+            put(Const.Img2ImgAnimeAcceleratedMaintainIDForSmartDrawingAnime, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.Img2ImgAnimeAcceleratedMaintainIDForSmartDrawingAnime));
+                                    add(new BasicNameValuePair("Version", "2022-08-31"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

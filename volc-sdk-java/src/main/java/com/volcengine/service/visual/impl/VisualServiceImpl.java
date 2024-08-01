@@ -849,5 +849,14 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualEntitySegmentResponse.class);
     }
+
+    @Override
+    public Img2ImgAnimeAcceleratedMaintainIDForSmartDrawingAnimeResponse Img2ImgAnimeAcceleratedMaintainIDForSmartDrawingAnime(Object request) throws Exception {
+        RawResponse response = json(Const.Img2ImgAnimeAcceleratedMaintainIDForSmartDrawingAnime, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), Img2ImgAnimeAcceleratedMaintainIDForSmartDrawingAnimeResponse.class);
+    }
 }
 

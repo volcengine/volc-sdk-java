@@ -16,8 +16,6 @@ public final class DeleteImageMigrateTaskQuery  {
      *
      * <p>- `cn`：国内</p>
      *
-     * <p>- `va`：美东</p>
-     *
      * <p>- `sg`：新加坡</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Region")

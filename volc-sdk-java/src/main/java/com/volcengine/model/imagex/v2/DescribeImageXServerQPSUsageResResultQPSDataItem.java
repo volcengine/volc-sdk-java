@@ -11,7 +11,7 @@ import java.util.List;
 public final class DescribeImageXServerQPSUsageResResultQPSDataItem  {
 
     /**
-     * <p>QPS 类型，取值：</p>
+     * <p>QPS 类型，取值如下所示：</p>
      *
      * <p>- `Request`：专有图像处理和高效压缩</p>
      *

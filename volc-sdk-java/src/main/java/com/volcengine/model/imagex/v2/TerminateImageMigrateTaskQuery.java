@@ -10,13 +10,11 @@ import com.alibaba.fastjson.JSON;
 public final class TerminateImageMigrateTaskQuery  {
 
     /**
-     * <p>任务地区(即任务目标服务的地区)，默认空，返回国内任务。</p>
+     * <p>任务地区（即任务目标服务的地区），默认空，返回国内任务。</p>
      *
      *
      *
      * <p>- `cn`：国内</p>
-     *
-     * <p>- `va`：美东</p>
      *
      * <p>- `sg`：新加坡</p>
      */

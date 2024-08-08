@@ -16,7 +16,7 @@ public final class DescribeImageXMirrorRequestTrafficResResultDataItem  {
     private String timeStamp;
 
     /**
-     * <p>流量，单位为 byte。例如`11836259138`。</p>
+     * <p>流量，单位为 byte。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Value")
     private Integer value;

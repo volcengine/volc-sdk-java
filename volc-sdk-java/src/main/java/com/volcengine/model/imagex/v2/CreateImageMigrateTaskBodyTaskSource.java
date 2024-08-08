@@ -83,6 +83,12 @@ public final class CreateImageMigrateTaskBodyTaskSource  {
      *
      * <p>- 仅当`Vendor`为`URL`时，需填写 URL 列表文件地址（公网 URL 地址）。</p>
      *
+     * <p> :::tip</p>
+     *
+     * <p>支持指定迁移文件和转码后迁移文件进行重命名，详见 [URL 列表迁移文件说明](https://www.volcengine.com/docs/508/1263268)。</p>
+     *
+     * <p> :::</p>
+     *
      * <p>- 当`Vendor`为其他时，请填写对应云服务商所需迁移数据的 Bucket 名称。您可参考[云数据迁移准备](https://www.volcengine.com/docs/508/129213)获取对应阿里云OSS、腾讯云COS、七牛云KODO、百度云BOS、华为云OBS、 优刻得（Ucloud File)、AWS国际站的 Bucket 名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Bucket")

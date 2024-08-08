@@ -88,7 +88,7 @@ public final class UpdateImageAuditTaskBody  {
      * <p>- `1`：指定范围</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EnableAuditRange")
-    private String enableAuditRange;
+    private Integer enableAuditRange;
 
     /**
      * <p>仅当 `EnableAuditRange` 取值 `1` 时，配置生效。</p>

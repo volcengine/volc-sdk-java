@@ -520,7 +520,14 @@ public class Const {
     public static final String CreateLiveChannelConfig = "CreateLiveChannelConfig";
 
     public static final String ListLiveChannelConfig = "ListLiveChannelConfig";
+
     public static final String GenerateActivityStreamSlice = "GenerateActivityStreamSlice";
+
+    public static final String GetLoginLivesaasSts = "GetLoginLivesaasSts";
+
+    public static final String GetMediaStoragePayData = "GetMediaStoragePayData";
+
+    public static final String GetVideoTrafficPayData = "GetVideoTrafficPayData";
 
     // translate
     public static final String LangDetect = "LangDetect";

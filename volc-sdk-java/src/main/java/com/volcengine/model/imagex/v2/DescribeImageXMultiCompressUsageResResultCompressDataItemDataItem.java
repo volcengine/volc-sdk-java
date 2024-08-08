@@ -16,7 +16,7 @@ public final class DescribeImageXMultiCompressUsageResResultCompressDataItemData
     private String timeStamp;
 
     /**
-     * <p>压缩量，单位Byte。</p>
+     * <p>压缩量，单位为 Byte。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Value")
     private Double value;

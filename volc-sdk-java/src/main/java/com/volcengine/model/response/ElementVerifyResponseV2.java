@@ -46,5 +46,7 @@ public class ElementVerifyResponseV2 {
         private String IdCardNo;
         @JSONField(name = "IdCardName")
         private String IdCardName;
+        @JSONField(name = "Reason")
+        private Integer Reason;
     }
 }

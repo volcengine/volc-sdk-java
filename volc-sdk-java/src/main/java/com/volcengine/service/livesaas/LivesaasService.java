@@ -1687,11 +1687,19 @@ public interface LivesaasService extends IBaseService {
      * listLiveChannelConfig
      *
      * @param listLiveChannelConfigRequest CommonRequest
-     * @return DefaultResponse
+     * @return ListLiveChannelConfigResponse
      * @throws Exception the exception
      */
     ListLiveChannelConfigResponse listLiveChannelConfig(CommonRequest listLiveChannelConfigRequest) throws Exception;
 
+    /**
+     * getLoginLivesaasSts
+     *
+     * @param getLoginLivesaasStsRequest GetLoginLivesaasStsRequest
+     * @return GetLoginLivesaasStsResponse
+     * @throws Exception the exception
+     */
+    GetLoginLivesaasStsResponse getLoginLivesaasSts(GetLoginLivesaasStsRequest getLoginLivesaasStsRequest) throws Exception;
     /**
      * generateActivityStreamSlice
      *
@@ -1700,4 +1708,21 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GenerateActivityStreamSliceResponse generateActivityStreamSlice(GenerateActivityStreamSliceRequest generateActivityStreamSliceResponse) throws Exception;
+    /**
+     * getVideoTrafficPayData
+     *
+     * @param getVideoTrafficPayDataRequest GetVideoTrafficPayDataRequest
+     * @return GetVideoTrafficPayDataResponse
+     * @throws Exception the exception
+     */
+    GetVideoTrafficPayDataResponse getVideoTrafficPayData(GetVideoTrafficPayDataRequest getVideoTrafficPayDataRequest) throws Exception;
+
+    /**
+     * getMediaStoragePayData
+     *
+     * @param getMediaStoragePayDataRequest GetMediaStoragePayDataRequest
+     * @return GetMediaStoragePayDataResponse
+     * @throws Exception the exception
+     */
+    GetMediaStoragePayDataResponse getMediaStoragePayData(GetMediaStoragePayDataRequest getMediaStoragePayDataRequest) throws Exception;
 }

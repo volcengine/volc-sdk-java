@@ -98,7 +98,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>delDomain</p>
      * <p>删除域名</p>
      *
-     * <p>本接口支持通过指定域名删除该域名。</p>
+     * <p>本接口支持删除指定服务下的域名。</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -162,7 +162,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>setDefaultDomain</p>
      * <p>更新默认域名配置</p>
      *
-     * <p>本接口通过指定默认默认域名来更改默认域名信息。</p>
+     * <p>本接口支持更改默认域名。</p>
      *
      * @param body body payload
      * @return response data
@@ -193,7 +193,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>getResponseHeaderValidateKeys</p>
      * <p>获取响应头允许的key列表</p>
      *
-     * <p>支持获取当前账号全部合法的响应头 key 信息。</p>
+     * <p>本接口支持获取当前账号全部合法的响应头 key 信息。</p>
      *
      * @return response data
      * @throws Exception error during request
@@ -251,23 +251,23 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>| --- | --- | --- |</p>
      *
-     * <p>| 阿里云OSS | AK、SK、Bucket | [迁移准备](https://www.volcengine.com/docs/508/129214) |</p>
+     * <p>| 阿里云OSS | Access Key、Secret Key、Bucket | [迁移准备](https://www.volcengine.com/docs/508/129214) |</p>
      *
-     * <p>| 腾讯云COS | AK、SK、Bucket、Region | [迁移准备](https://www.volcengine.com/docs/508/129215) |</p>
+     * <p>| 腾讯云COS | Access Key、Secret Key、Bucket、Region | [迁移准备](https://www.volcengine.com/docs/508/129215) |</p>
      *
-     * <p>| 七牛云Kodo | AK、SK、Bucket | [迁移准备](https://www.volcengine.com/docs/508/129216) |</p>
+     * <p>| 七牛云Kodo | Access Key、Secret Key、Bucket | [迁移准备](https://www.volcengine.com/docs/508/129216) |</p>
      *
-     * <p>| 百度云BOS | AK、SK、Bucket、Region | [迁移准备](https://www.volcengine.com/docs/508/129219) |</p>
+     * <p>| 百度云BOS | Access Key、Secret Key、Bucket、Region | [迁移准备](https://www.volcengine.com/docs/508/129219) |</p>
      *
-     * <p>| 华为云OBS | AK、SK、Bucket、Region | [迁移准备](https://www.volcengine.com/docs/508/129220) |</p>
+     * <p>| 华为云OBS | Access Key、Secret Key、Bucket、Region | [迁移准备](https://www.volcengine.com/docs/508/129220) |</p>
      *
-     * <p>| 优刻得（Ucloud File） | AK、SK、Bucket、Region | [迁移准备](https://www.volcengine.com/docs/508/129217) |</p>
+     * <p>| 优刻得（Ucloud File） | Access Key、Secret Key、Bucket、Region | [迁移准备](https://www.volcengine.com/docs/508/129217) |</p>
      *
-     * <p>| AWS国际站 | AK、SK、Bucket | [迁移准备](https://www.volcengine.com/docs/508/129218) |</p>
+     * <p>| AWS国际站 | Access Key、Secret Key、Bucket | [迁移准备](https://www.volcengine.com/docs/508/129218) |</p>
      *
-     * <p>| 其他 S3 协议存储 | AK、SK、Bucket、Region、Endpoint | 请根据实际源站获取 |</p>
+     * <p>| 其他 S3 协议存储 | Access Key、Secret Key、Bucket、Region、Endpoint | 请根据实际源站获取 |</p>
      *
-     * <p>| URL | 迁移 URL 列表文件（.txt）公网访问地址 | \- |</p>
+     * <p>| URL | 迁移 URL 列表文件（.txt）的公网访问地址 | [URL 列表迁移说明](https://www.volcengine.com/docs/508/1263268) |</p>
      *
      * @param body body payload
      * @return response data
@@ -333,7 +333,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>terminateImageMigrateTask</p>
      * <p>结束迁移任务</p>
      *
-     * <p>过指定任务 ID 来结束该迁移任务。结束迁移任务将停止后续的迁移文件，已完成的迁移文件不被删除。</p>
+     * <p>通过指定任务 ID 来结束该迁移任务。结束迁移任务将停止后续的迁移文件，已完成的迁移文件不被删除。</p>
      *
      * <p>:::tip</p>
      *
@@ -399,6 +399,51 @@ public class ImagexTrait extends BaseServiceImpl {
     public RerunImageMigrateTaskRes rerunImageMigrateTask(RerunImageMigrateTaskQuery query) throws Exception {
         RawResponse rawResponse = json("RerunImageMigrateTask", Utils.paramsToPair(query), "");
         return parseRawResponse(rawResponse, RerunImageMigrateTaskRes.class);
+    }
+
+    /**
+     * <p>describeImageXSourceRequestBandwidth</p>
+     * <p>查询回源带宽用量</p>
+     *
+     * <p>本接口支持通过自定义查询时间段，查询该时间段的回源带宽用量。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeImageXSourceRequestBandwidthRes describeImageXSourceRequestBandwidth(DescribeImageXSourceRequestBandwidthQuery query) throws Exception {
+        RawResponse rawResponse = json("DescribeImageXSourceRequestBandwidth", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, DescribeImageXSourceRequestBandwidthRes.class);
+    }
+
+    /**
+     * <p>describeImageXSourceRequestTraffic</p>
+     * <p>查询回源流量用量</p>
+     *
+     * <p>本接口支持通过自定义查询时间段，查询该时间段的回源流量用量。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeImageXSourceRequestTrafficRes describeImageXSourceRequestTraffic(DescribeImageXSourceRequestTrafficQuery query) throws Exception {
+        RawResponse rawResponse = json("DescribeImageXSourceRequestTraffic", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, DescribeImageXSourceRequestTrafficRes.class);
+    }
+
+    /**
+     * <p>describeImageXSourceRequest</p>
+     * <p>查询回源请求次</p>
+     *
+     * <p>本接口支持通过自定义查询时间段，查询该时间段的回源请求次数。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeImageXSourceRequestRes describeImageXSourceRequest(DescribeImageXSourceRequestQuery query) throws Exception {
+        RawResponse rawResponse = json("DescribeImageXSourceRequest", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, DescribeImageXSourceRequestRes.class);
     }
 
     /**
@@ -471,7 +516,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>describeImageXDomainBandwidthNinetyFiveData</p>
      * <p>查询带宽95值</p>
      *
-     * <p>本接口支持通过自定义时间段，查询域名带宽用量。</p>
+     * <p>本接口支持通过自定义时间段，查询域名的 95 峰值带宽用量。</p>
      *
      * @param query query arguments
      * @return response data
@@ -1796,7 +1841,15 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>updateImageResourceStatus</p>
      * <p>修改上传文件状态</p>
      *
-     * <p>修改上传文件状态</p>
+     * <p>本接口支持修改指定服务下资源的封禁状态。</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>若您在封禁服务`ServiceId`开启了[重名覆盖上传](https://www.volcengine.com/docs/508/1119912)，当封禁的资源被上传的重名文件覆盖后，该资源的封禁状态会重置为正常。</p>
+     *
+     * <p>:::</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -1875,7 +1928,25 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>applyImageUpload</p>
      * <p>获取文件上传地址</p>
      *
-     * <p>通过服务 ID 获取该服务下文件的上传详情。</p>
+     * <p>本接口用于指定上传文件信息，并获取文件上传地址和凭证。成功获取到上传地址和凭证后，使用[公网域名](https://www.volcengine.com/docs/508/477196#%E4%B8%8A%E4%BC%A0%E7%9B%B8%E5%85%B3%E5%9F%9F%E5%90%8D)上传您指定的文件二进制数据，对返回的上传地址发起 PUT 请求上传文件。（**可选操作**：通过调用 [CommitImageUpload](https://www.volcengine.com/docs/508/9398) 接口，确认文件上传并获取上报上传结果。）</p>
+     *
+     * <p>推荐您使用[服务端 SDK](https://www.volcengine.com/docs/508/9397#%E6%9C%8D%E5%8A%A1%E7%AB%AF-sdk) 进行文件上传，具体上传流程请参考[服务端上传](https://www.volcengine.com/docs/508/477196#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B8%8A%E4%BC%A0)。</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>强烈不建议您依赖 [CommitImageUpload](https://www.volcengine.com/docs/508/9398) 返回的图片 meta 信息，有获取 meta 需求推荐在上传完成后拼接`~info`模板获取[图片 meta 信息](https://www.volcengine.com/docs/508/64085)。原因请见[为什么不建议依赖 Commit 阶段返回的图片 meta 信息？](https://www.volcengine.com/docs/508/477196#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%BB%BA%E8%AE%AE%E4%BE%9D%E8%B5%96-commit-%E9%98%B6%E6%AE%B5%E8%BF%94%E5%9B%9E%E7%9A%84%E5%9B%BE%E7%89%87-meta-%E4%BF%A1%E6%81%AF%EF%BC%9F)</p>
+     *
+     * <p>:::</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>veImageX 在全球多个区域部署，每个区域有自己对应的 OpenAPI 域名，不支持跨区域调用。具体详情请查看[服务地址](https://www.volcengine.com/docs/508/14106)。</p>
+     *
+     * <p>:::</p>
      *
      * @param query query arguments
      * @return response data
@@ -1958,11 +2029,12 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>本接口支持查询图片服务的开通状态详情，支持返回账号 ID、已购商品和已购商品配置等信息。</p>
      *
+     * @param query query arguments
      * @return response data
      * @throws Exception error during request
      */
-    public GetImageServiceSubscriptionRes getImageServiceSubscription() throws Exception {
-        RawResponse rawResponse = json("GetImageServiceSubscription", null, "");
+    public GetImageServiceSubscriptionRes getImageServiceSubscription(GetImageServiceSubscriptionQuery query) throws Exception {
+        RawResponse rawResponse = json("GetImageServiceSubscription", Utils.paramsToPair(query), "");
         return parseRawResponse(rawResponse, GetImageServiceSubscriptionRes.class);
     }
 
@@ -2583,7 +2655,17 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>createHiddenWatermarkImage</p>
      * <p>创建盲水印前背景图层</p>
      *
-     * <p>创建盲水印前背景图层</p>
+     * <p>本接口支持生成含有盲水印的 png 格式透明图（前景水印图层）。在实际使用中，您需要将该图层无缩放且平铺至您的网页顶层，从而实现给网页添加盲水印的目的。适用于纯色或彩色背景网页被截图外发后，对截图者进行身份溯源的场景。</p>
+     *
+     *
+     *
+     * <p>:::warning</p>
+     *
+     * <p>- 提取水印时，若直接提供本接口返回的 PNG 前景水印图层，将无法提取出水印内容。请**务必**提供已融合盲水印透明图的背景网页的**截图**。</p>
+     *
+     * <p>- 为了确保能够正常提取截图中的水印，请**不要**对生成的盲水印 PNG 背景图层执行其他图片处理操作。</p>
+     *
+     * <p>:::</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -2616,6 +2698,16 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>提取盲水印</p>
      *
      * <p>本接口支持指定服务以及提取源图片，获取该图片中的盲水印信息。</p>
+     *
+     *
+     *
+     * <p>:::warning</p>
+     *
+     * <p>- 对同一张图片，请确保在提取水印时指定的模型，与添加水印时指定的模型为同一种，以免无法正常提取水印。</p>
+     *
+     * <p>- 在诸如电子邮件附件、社交媒体平台（如 Facebook、Instagram）、实时通讯应用（如微信）等传输媒介中传输图片时往往会自动压缩图片的分辨率，此时，图片水印也可能无法正常提取。</p>
+     *
+     * <p>:::</p>
      *
      * @param query query arguments
      * @return response data
@@ -2720,7 +2812,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>updateImageAuthKey</p>
      * <p>更新主备鉴权Key</p>
      *
-     * <p>本接口支持通过指定服务 ID 以及新的主备鉴权，来修改鉴权信息。</p>
+     * <p>本接口支持更新指定服务 ID 下的主备鉴权 Key，来修改鉴权信息。</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -2736,7 +2828,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>updateServiceName</p>
      * <p>更新服务名称</p>
      *
-     * <p>通过指定服务 ID 修改该服务的名称。</p>
+     * <p>本接口支持修改指定服务 ID 的服务名称。</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -2752,7 +2844,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>updateImageObjectAccess</p>
      * <p>更新源地址访问配置</p>
      *
-     * <p>本接口通过指定服务 ID 以及设置是否开启源地址访问，来更新指定服务下的源地址访问配置。</p>
+     * <p>本接口更新指定服务 ID 下的源地址访问配置。</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -2790,7 +2882,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>getImageAuthKey</p>
      * <p>获取主备鉴权Key</p>
      *
-     * <p>本接口支持通过输入服务 ID 获取服务的主备鉴权信息。</p>
+     * <p>本接口支持获取指定服务 ID 配置的主备鉴权信息。</p>
      *
      * @param query query arguments
      * @return response data

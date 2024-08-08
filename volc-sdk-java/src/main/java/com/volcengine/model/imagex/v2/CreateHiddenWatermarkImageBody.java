@@ -10,7 +10,21 @@ import com.alibaba.fastjson.JSON;
 public final class CreateHiddenWatermarkImageBody  {
 
     /**
-     * <p>获取盲水印图的算法模型，仅支持取值 `tracev1`。该模型可以生成带有水印的透明图像，但仅适用于纯色网页泄露溯源场景。该模型可有效抵抗常见的社交软件传播。然而，该算法对页面背景色的影响相对较大，因此不适合用于保护多彩页面或图片，例如商品页面。</p>
+     * <p>盲水印模型，取值如下所示：</p>
+     *
+     * <p>- `tracev1`：前景图层水印模型（纯色背景适用）。</p>
+     *
+     * <p>	</p>
+     *
+     * <p>	该模型可以生成带有水印的透明图像，但仅适用于**纯色**网页泄露溯源场景。该模型可有效抵抗常见的社交软件传播。然而，该算法对页面背景色的影响相对较大，因此不适合用于保护多彩页面或图片，例如商品页面。</p>
+     *
+     * <p>	</p>
+     *
+     * <p>- `tracev2`：前景图层水印模型（彩色背景通用）</p>
+     *
+     *
+     *
+     * <p>	该模型可以生成含水印的透明图像，主要应用在前端页面截图泄露溯源场景。该模型生成的水印纹理密集，在正常界面添加后肉眼基本不可见（截图放大后存在肉眼可见的水印纹理），可抵抗常见的社交软件传播。	</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Algorithm")
     private String algorithm;
@@ -28,7 +42,7 @@ public final class CreateHiddenWatermarkImageBody  {
     private String strength;
 
     /**
-     * <p>自定义盲水印文本信息。最大支持 128 个字符，若全部是中文则不超过 42 个字符。</p>
+     * <p>自定义盲水印文本信息，最多支持 128 个字符。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Info")
     private String info;

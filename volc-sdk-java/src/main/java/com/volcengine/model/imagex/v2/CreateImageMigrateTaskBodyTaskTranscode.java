@@ -51,6 +51,32 @@ public final class CreateImageMigrateTaskBodyTaskTranscode  {
     @com.alibaba.fastjson.annotation.JSONField(name = "EnableExif")
     private Boolean enableExif;
 
+    /**
+     * <p>对带有 CMYK 色彩空间的图片，是否跳过转码处理直接存储原图。取值如下所示：</p>
+     *
+     *
+     *
+     * <p>- `true`：是</p>
+     *
+     * <p>- `false`：（默认）否</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "SkipCMYK")
+    private Boolean skipCMYK;
+
+    /**
+     * <p>仅当转码/降级格式为 heic、webp、jpeg 时生效。</p>
+     *
+     *
+     *
+     * <p>是否开启自适应转码。</p>
+     *
+     * <p>- `true`：开启。开启后，将根据 `Format` 或者 `DemotionFmt` 指定格式进行自适应转码处理。</p>
+     *
+     * <p>- `false`：（默认）关闭</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Adapt")
+    private Boolean adapt;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

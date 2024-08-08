@@ -22,11 +22,9 @@ public final class GetImageXQueryAppsResResultAppsItem  {
     private String appName;
 
     /**
-     * <p>App 所属地区。</p>
+     * <p>App 所属地区，取值如下所示：</p>
      *
      * <p>* `cn`：国内。</p>
-     *
-     * <p>* `va`：美东。</p>
      *
      * <p>* `sg`：新加坡。</p>
      */

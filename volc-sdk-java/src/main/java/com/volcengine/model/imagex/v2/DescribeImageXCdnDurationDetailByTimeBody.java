@@ -15,7 +15,7 @@ public final class DescribeImageXCdnDurationDetailByTimeBody  {
      *
      * <p>:::tip</p>
      *
-     * <p>您可以通过调用[获取应用列表](https://www.volcengine.com/docs/508/19511)的方式获取所需的 AppID。</p>
+     * <p>您可以通过调用[获取应用列表](https://www.volcengine.com/docs/508/1213042)的方式获取所需的 AppID。</p>
      *
      * <p>:::</p>
      */
@@ -127,7 +127,7 @@ public final class DescribeImageXCdnDurationDetailByTimeBody  {
      *
      * <p>- 公共维度：`Appid`、`OS`、`AppVer`、`SdkVer`、`ImageType`、`Country`、`Province`、`Isp`、`Domain`</p>
      *
-     * <p>- 自定义维度：您可以通过调用 [GetImageXQueryDims](https://www.volcengine.com/docs/508/34554)接口获取自定义维度指标。</p>
+     * <p>- 自定义维度：您可以通过调用 [获取自定义维度列表](https://www.volcengine.com/docs/508/1213048)接口获取自定义维度指标。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "GroupBy")
     private String groupBy;

@@ -96,6 +96,12 @@ public final class GetImageAnalyzeTasksResResultTasksItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "UpdateAt")
     private String updateAt;
 
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Id")
+    private String id;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

@@ -17,7 +17,7 @@ public class VodUpdateDomainPlayRuleDemo {
             com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest.Builder reqBuilder = com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest.newBuilder();
 			reqBuilder.setSpaceName("your SpaceName");
 			reqBuilder.setDefaultDomain("your DefaultDomain");
-			reqBuilder.setPlayRule("your PlayRule");
+			reqBuilder.setPlayRule(0);
 			
             com.volcengine.service.vod.model.response.VodUpdateDomainPlayRuleResponse resp = vodService.updateDomainPlayRule(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

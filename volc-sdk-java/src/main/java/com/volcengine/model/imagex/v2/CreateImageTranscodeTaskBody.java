@@ -11,13 +11,13 @@ import java.util.List;
 public final class CreateImageTranscodeTaskBody  {
 
     /**
-     * <p>任务队列名称 ID。缺省情况下提交至账号默认任务队列。您可通过调用[GetImageTranscodeQueues](https://www.volcengine.com/docs/508/1107341)获取该账号下全部任务队列 ID。</p>
+     * <p>任务队列名称 ID。缺省情况下提交至账号默认任务队列。您可通过调用[GetImageTranscodeQueues](https://www.volcengine.com/docs/508/1160404)获取该账号下全部任务队列 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "QueueId")
     private String queueId;
 
     /**
-     * <p>服务 ID。若`DataType`取值`uri`，则提交的图片 URI 列表需在该服务可访问范围内。</p>
+     * <p>服务 ID。</p>
      *
      *
      *
@@ -39,37 +39,59 @@ public final class CreateImageTranscodeTaskBody  {
      *
      *
      *
-     * <p>- uri</p>
+     * <p>- `uri`：指定 ServiceId 下存储 URI。</p>
      *
-     * <p>- url</p>
+     * <p>- `url`：公网可访问的 URL。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DataType")
     private String dataType;
 
     /**
-     * <p>待转码的图片 uri 或 url 列表。</p>
+     * <p>`DataList`和`Filelist`二选一必填，同时配置时，`DataList`优先生效。</p>
      *
-     * <p>`DataList`和`Filelist`都不为空时，`DataList`优先生效。</p>
      *
-     * <p>:::warning</p>
      *
-     * <p>若`DataType`取值`uri`，则待转码图片 URI 必须为指定ServiceId下的存储 URI。您可通过调用 [GetImageUploadFiles](https://www.volcengine.com/docs/508/9392) 获取指定服务下全部的上传文件存储 URI。</p>
+     * <p>待转码的图片 uri 或 url 列表，最多支持 10 万条。</p>
      *
-     * <p>:::</p>
+     *
+     *
+     * <p>- 若`DataType`取值`uri`，此处请传入指定 ServiceId 下的存储 URI。</p>
+     *
+     * <p>- 若`DataType`取值`url`，此处请传入公网可访问的 URL。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DataList")
     private List<String> dataList;
 
     /**
-     * <p>待转码的图片 uri 或 url 文件列表。</p>
+     * <p>`DataList`和`Filelist`二选一必填，同时配置时，`DataList`优先生效。</p>
      *
-     * <p>`DataList`和`Filelist`都不为空时，`DataList`优先生效。</p>
+     *
+     *
+     * <p>待转码的图片 uri 或 url 文件列表。具体使用方式如下：</p>
+     *
+     *
+     *
+     * <p>1. 在 txt、csv 文件内填写指定数据类型的待转码图片地址，每行填写一个，最多不超过 10 万条。</p>
+     *
+     * <p>2. 将该文件上传至指定服务后，获取其存储 URI。</p>
+     *
+     * <p>3. 将该存储 URI，传入 `FileList`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "FileList")
     private List<String> fileList;
 
     /**
-     * <p>转码产物的 Storekey 列表，仅当`DataList`不为空时有效，长度需与`DataList`长度一致。不传时默认使用固定规则生成产物的 Storekey。</p>
+     * <p>转码产物的 Storekey 列表，仅当`DataList`不为空时有效，长度需与`DataList`长度一致。不传时默认使用固定规则生成产物的 Storekey。填写规则如下：</p>
+     *
+     *
+     *
+     * <p>- 使用 UTF-8 编码。</p>
+     *
+     * <p>- 长度必须在 1～1024 个字符之间。</p>
+     *
+     * <p>- 不能以反斜线（\）开头。</p>
+     *
+     * <p>- 不支持 `\a`、`\b`、`\t`、`\n`、`\v`、`\f`、`\r` 字符。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ResKeyList")
     private List<String> resKeyList;

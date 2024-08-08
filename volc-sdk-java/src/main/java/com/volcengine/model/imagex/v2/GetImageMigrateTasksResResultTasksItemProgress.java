@@ -18,7 +18,7 @@ public final class GetImageMigrateTasksResResultTasksItemProgress  {
     private Long successCnt;
 
     /**
-     * <p>失败原因。仅当 Status=Failed 时有值</p>
+     * <p>失败原因。仅当 `Status`=`Failed` 时有值。</p>
      *
      *
      */
@@ -26,7 +26,7 @@ public final class GetImageMigrateTasksResResultTasksItemProgress  {
     private String errMsg;
 
     /**
-     * <p>失败错误码。仅当 Status=Failed 时有值</p>
+     * <p>失败错误码。仅当 `Status`=`Failed` 时有值。</p>
      *
      *
      */

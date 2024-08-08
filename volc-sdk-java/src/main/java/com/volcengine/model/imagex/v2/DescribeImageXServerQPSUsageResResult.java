@@ -11,7 +11,7 @@ import java.util.List;
 public final class DescribeImageXServerQPSUsageResResult  {
 
     /**
-     * <p>数据列表。</p>
+     * <p>QPS 用量</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "QPSData")
     private List<DescribeImageXServerQPSUsageResResultQPSDataItem> qPSData;

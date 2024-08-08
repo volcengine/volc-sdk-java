@@ -15,11 +15,11 @@ public final class ApplyImageUploadResResultUploadAddress  {
      *
      *
      *
+     * <p>:::tip</p>
+     *
      * <p>数量由请求参数中的 `UploadNum` 决定。</p>
      *
-     *
-     *
-     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StoreInfos")
     private List<ApplyImageUploadResResultUploadAddressStoreInfosItem> storeInfos;
@@ -33,11 +33,7 @@ public final class ApplyImageUploadResResultUploadAddress  {
     /**
      * <p>一次上传会话 Key。</p>
      *
-     *
-     *
      * <p>上传完成上报时使用该值，该 Key 可以在解码后提取信息及参数校验。</p>
-     *
-     *
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SessionKey")
     private String sessionKey;

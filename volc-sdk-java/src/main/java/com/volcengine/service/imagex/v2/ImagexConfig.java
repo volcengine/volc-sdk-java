@@ -212,7 +212,7 @@ public class ImagexConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "CreateImageMigrateTask"));
-                                add(new BasicNameValuePair("Version", "2018-08-01"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
                             }
                         });
                     }
@@ -226,7 +226,7 @@ public class ImagexConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "DeleteImageMigrateTask"));
-                                add(new BasicNameValuePair("Version", "2018-08-01"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
                             }
                         });
                     }
@@ -240,7 +240,7 @@ public class ImagexConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "ExportFailedMigrateTask"));
-                                add(new BasicNameValuePair("Version", "2018-08-01"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
                             }
                         });
                     }
@@ -254,7 +254,7 @@ public class ImagexConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "UpdateImageTaskStrategy"));
-                                add(new BasicNameValuePair("Version", "2018-08-01"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
                             }
                         });
                     }
@@ -268,7 +268,7 @@ public class ImagexConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "TerminateImageMigrateTask"));
-                                add(new BasicNameValuePair("Version", "2018-08-01"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
                             }
                         });
                     }
@@ -282,7 +282,7 @@ public class ImagexConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "GetVendorBuckets"));
-                                add(new BasicNameValuePair("Version", "2018-08-01"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
                             }
                         });
                     }
@@ -296,7 +296,7 @@ public class ImagexConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "GetImageMigrateTasks"));
-                                add(new BasicNameValuePair("Version", "2018-08-01"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
                             }
                         });
                     }
@@ -310,7 +310,49 @@ public class ImagexConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "RerunImageMigrateTask"));
-                                add(new BasicNameValuePair("Version", "2018-08-01"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("DescribeImageXSourceRequestBandwidth", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "GET");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DescribeImageXSourceRequestBandwidth"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("DescribeImageXSourceRequestTraffic", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "GET");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DescribeImageXSourceRequestTraffic"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("DescribeImageXSourceRequest", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "GET");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DescribeImageXSourceRequest"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
                             }
                         });
                     }
@@ -1612,7 +1654,7 @@ public class ImagexConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "CreateImageFromUri"));
-                                add(new BasicNameValuePair("Version", "2018-08-01"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
                             }
                         });
                     }

@@ -16,8 +16,6 @@ public final class GetImageMigrateTasksQuery  {
      *
      * <p>- `cn`：国内</p>
      *
-     * <p>- `va`：美东</p>
-     *
      * <p>- `sg`：新加坡</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Region")
@@ -36,13 +34,19 @@ public final class GetImageMigrateTasksQuery  {
     private String serviceId;
 
     /**
-     * <p>分页偏移量。默认值为 0，表示从最新一个开始获取。</p>
+     * <p>分页偏移量，用于控制分页查询返回结果的起始位置，以便对数据进行分页展示和浏览。默认值为 0。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>例如，指定分页条数 Limit = 10，分页偏移量 Offset = 10，表示从查询结果的第 11 条记录开始返回数据，共展示 10 条数据。</p>
+     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Offset")
     private Long offset;
 
     /**
-     * <p>分页条数。默认值为 10，最大值为 1000。</p>
+     * <p>分页查询时，显示的每页数据的最大条数。默认值为 10，最大值为 1000。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Limit")
     private Integer limit;
@@ -54,7 +58,7 @@ public final class GetImageMigrateTasksQuery  {
     private String taskNamePtn;
 
     /**
-     * <p>任务状态，填入多个时使用半角逗号分隔。取值如下所示：</p>
+     * <p>任务状态，填入多个时使用英文逗号分隔。取值如下所示：</p>
      *
      * <p>- `Initial`：创建中</p>
      *

@@ -11,13 +11,13 @@ import java.util.List;
 public final class DescribeImageXSensibleTopUnknownURLBody  {
 
     /**
-     * <p>应用 ID。默认为空，不传则匹配账号下的所有的 App ID。您可以通过调用[获取应用列表](https://www.volcengine.com/docs/508/19511)的方式获取所需的 AppID。</p>
+     * <p>应用 ID。默认为空，缺省情况下匹配账号下的所有的 App ID。您可以通过调用[GetImageXQueryApps](https://www.volcengine.com/docs/508/1213042)的方式获取所需的 AppID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Appid")
     private String appid;
 
     /**
-     * <p>需要匹配的系统类型，不传则匹配非 WEB 端的所有系统。取值如下所示：</p>
+     * <p>需要匹配的系统类型，缺省情况下匹配非 WEB 端的所有系统。取值如下所示：</p>
      *
      *
      *
@@ -31,13 +31,13 @@ public final class DescribeImageXSensibleTopUnknownURLBody  {
     private String oS;
 
     /**
-     * <p>需要匹配 App 版本，缺省情况下则匹配 App 的所有版本。</p>
+     * <p>需要匹配 App 版本，缺省情况下匹配 App 的所有版本。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AppVer")
     private List<String> appVer;
 
     /**
-     * <p>需要匹配的 SDK 版本，不传则匹配所有版本。</p>
+     * <p>需要匹配的 SDK 版本，缺省情况下匹配所有版本。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SdkVer")
     private List<String> sdkVer;
@@ -63,6 +63,10 @@ public final class DescribeImageXSensibleTopUnknownURLBody  {
      *
      * <p>- `VVIC`</p>
      *
+     * <p>- `AVIF`</p>
+     *
+     * <p>- `AVIS`</p>
+     *
      * <p>- `其他`</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ImageType")
@@ -87,7 +91,7 @@ public final class DescribeImageXSensibleTopUnknownURLBody  {
     private String endTime;
 
     /**
-     * <p>查询 Top URL 条数，取值范围为(0,1000]。缺省情况下默认为 1000。</p>
+     * <p>查询 Top URL 条数，取值范围为(0,1000]。默认值为 1000。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Top")
     private Integer top;

@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class GetImageXQueryAppsQuery  {
 
     /**
-     * <p>数据来源，账号下近 60 天内有数据上报的应用 ID，缺省情况下返回账号对应的全部应用 ID。</p>
+     * <p>数据来源，账号下近 60 天内有数据上报的应用 ID，缺省情况下返回账号对应的全部应用 ID。取值如下所示：</p>
      *
      * <p>* `upload`：上传 1.0 数据。</p>
      *

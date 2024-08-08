@@ -16,7 +16,7 @@ public final class DescribeImageXEdgeRequestBandwidthResResultBpsDataItemDataIte
     private String timeStamp;
 
     /**
-     * <p>带宽，单位为 bps。</p>
+     * <p>带宽用量，单位为 bps。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Value")
     private Double value;

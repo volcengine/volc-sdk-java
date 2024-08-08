@@ -10,27 +10,19 @@ import com.alibaba.fastjson.JSON;
 public final class DescribeImageXEdgeRequestQuery  {
 
     /**
-     * <p>服务 ID。为空时表示不筛选，支持查询多个服务，使用逗号分隔不同的服务。</p>
-     *
-     *
-     *
-     * <p>- 您可以在 veImageX 控制台[服务管理](https://console.volcengine.com/imagex/service_manage/)页面，在创建好的图片服务中获取服务 ID。</p>
-     *
-     * <p>- 您也可以通过 OpenAPI 的方式获取服务 ID，具体请参考 [GetAllImageServices](https://www.volcengine.com/docs/508/9360)。</p>
+     * <p>服务 ID。支持查询多个服务，传入多个时用英文逗号“,”分割，缺省情况下表示查询所有服务。您可以在 veImageX 控制台的[服务管理](https://console.volcengine.com/imagex/service_manage/)模块或者调用 [GetAllImageServices](https://www.volcengine.com/docs/508/9360) 接口获取服务 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ServiceIds")
     private String serviceIds;
 
     /**
-     * <p>域名。为空时表示不筛选，支持查询多个域名，不同的域名使用逗号分隔。</p>
-     *
-     * <p>您可以通过调用 [GetServiceDomains](https://www.volcengine.com/docs/508/9379) 获取服务下所有域名信息。</p>
+     * <p>域名。支持查询多个域名，传入多个时用英文逗号“,”分割，缺省情况下表示查询所有域名。您可以通过调用 [GetServiceDomains](https://www.volcengine.com/docs/508/9379) 获取服务下所有域名信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DomainNames")
     private String domainNames;
 
     /**
-     * <p>区域。传入多个时用英文逗号作为分割符，缺省情况下表示查询所有区域。取值如下所示：</p>
+     * <p>计费区域。支持查询多个区域，传入多个时用英文逗号“,”分割，缺省情况下表示查询所有区域。取值如下所示：</p>
      *
      *
      *
@@ -54,7 +46,7 @@ public final class DescribeImageXEdgeRequestQuery  {
     private String regions;
 
     /**
-     * <p>客户端国家。传入多个时用英文逗号作为分割符，缺省情况下表示不过滤。可调用[获取边缘分发地区列表](https://www.volcengine.com/docs/508/177111)获取 IP 解析后的客户端国家。取值如下所示：</p>
+     * <p>客户端国家。支持查询多个国家，传入多个时用英文逗号“,”分割，缺省情况下表示查询所有国家。您可通过调用 [DescribeImageXEdgeRequestRegions](https://www.volcengine.com/docs/508/1209574) 获取 IP 解析后的客户端国家。取值如下所示：</p>
      *
      *
      *
@@ -66,13 +58,13 @@ public final class DescribeImageXEdgeRequestQuery  {
     private String userCountry;
 
     /**
-     * <p>客户端省份。传入多个用英文逗号分割。缺省情况下表示不过滤。可调用[获取边缘分发地区列表](https://www.volcengine.com/docs/508/177111)获取 IP 解析后的客户端省份。</p>
+     * <p>客户端省份。支持查询多个省份，传入多个时用英文逗号“,”分割，缺省情况下表示查询所有省份。可调用 [DescribeImageXEdgeRequestRegions](https://www.volcengine.com/docs/508/1209574) 获取 IP 解析后的客户端省份。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "UserProvince")
     private String userProvince;
 
     /**
-     * <p>过滤网络协议。传入多个用英文逗号分割。缺省情况下表示不过滤。取值如下所示：</p>
+     * <p>过滤网络协议。传入多个用英文逗号分割，缺省情况下表示不过滤。取值如下所示：</p>
      *
      *
      *
@@ -106,7 +98,7 @@ public final class DescribeImageXEdgeRequestQuery  {
     private String isp;
 
     /**
-     * <p>状态码。传入多个时用英文逗号分隔。支持以下取值：</p>
+     * <p>状态码，传入多个时用英文逗号分隔。取值如下所示：</p>
      *
      *
      *
@@ -124,7 +116,7 @@ public final class DescribeImageXEdgeRequestQuery  {
     private String dataTypes;
 
     /**
-     * <p>需要分组查询的参数。传入多个用英文逗号分割。支持以下取值：</p>
+     * <p>需要分组查询的参数，传入多个用英文逗号分割。取值如下所示：</p>
      *
      *
      *
@@ -136,7 +128,7 @@ public final class DescribeImageXEdgeRequestQuery  {
     private String groupBy;
 
     /**
-     * <p>获取数据起始时间点。日期格式按照`ISO8601`表示法，格式为：`YYYY-MM-DDThh:mm:ss±hh:mm`，比如`2019-06-02T00:00:00+08:00`。</p>
+     * <p>获取数据起始时间点。日期格式按照 ISO8601 表示法，格式为：YYYY-MM-DDThh:mm:ss±hh:mm，比如`2019-06-02T00:00:00+08:00`。</p>
      *
      * <p>:::tip</p>
      *
@@ -148,7 +140,7 @@ public final class DescribeImageXEdgeRequestQuery  {
     private String startTime;
 
     /**
-     * <p>获取数据结束时间点。日期格式按照`ISO8601`表示法，格式为：`YYYY-MM-DDThh:mm:ss±hh:mm`，比如`2019-06-02T00:00:00+08:00`。</p>
+     * <p>获取数据结束时间点。日期格式按照 ISO8601 表示法，格式为：YYYY-MM-DDThh:mm:ss±hh:mm，比如`2019-06-02T00:00:00+08:00`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
@@ -180,7 +172,7 @@ public final class DescribeImageXEdgeRequestQuery  {
     private String interval;
 
     /**
-     * <p>是否拆分状态码。取值如下所示：</p>
+     * <p>是否拆分状态码，取值如下所示：</p>
      *
      *
      *

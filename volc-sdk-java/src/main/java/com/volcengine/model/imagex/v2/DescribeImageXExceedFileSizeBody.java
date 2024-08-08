@@ -11,13 +11,7 @@ import java.util.List;
 public final class DescribeImageXExceedFileSizeBody  {
 
     /**
-     * <p>应用 ID。默认为空，不传则匹配账号下的所有的 App ID。</p>
-     *
-     * <p>:::tip</p>
-     *
-     * <p>您可以通过调用[获取应用列表](https://www.volcengine.com/docs/508/19511)的方式获取所需的 AppID。</p>
-     *
-     * <p>:::</p>
+     * <p>应用 ID。默认为空，不传则匹配账号下的所有的 AppID。您可以通过调用[获取应用列表](https://www.volcengine.com/docs/508/1213042)的方式获取所需的 AppID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Appid")
     private String appid;
@@ -65,6 +59,10 @@ public final class DescribeImageXExceedFileSizeBody  {
      *
      * <p>- `VVIC`</p>
      *
+     * <p>- `AVIF`</p>
+     *
+     * <p>- `AVIS`</p>
+     *
      * <p>- `其他`</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ImageType")
@@ -83,29 +81,25 @@ public final class DescribeImageXExceedFileSizeBody  {
      *
      * <p>- 公共维度：`Appid`、`OS`、`AppVer`、`SdkVer`、`ImageType`、`Country`、`Province`、`Isp`、`Domain`</p>
      *
-     * <p>- 自定义维度：您可以通过调用 [GetImageXQueryDims](https://www.volcengine.com/docs/508/34554)接口获取自定义维度指标</p>
+     * <p>- 自定义维度：您可以通过调用[获取自定义维度列表](https://www.volcengine.com/docs/508/1213048)接口获取自定义维度指标</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "GroupBy")
     private String groupBy;
 
     /**
-     * <p>获取数据起始时间点。</p>
-     *
-     * <p>* 日期格式按照`ISO8601`表示法，格式为：`YYYY-MM-DDThh:mm:ss±hh:mm`，比如`2019-06-02T00:00:00+08:00`。</p>
+     * <p>获取数据起始时间点。日期格式按照`ISO8601`表示法，格式为：`YYYY-MM-DDThh:mm:ss±hh:mm`，比如`2019-06-02T00:00:00+08:00`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>获取数据结束时间点，需在起始时间点之后。</p>
-     *
-     * <p>* 日期格式按照`ISO8601`表示法，格式为：`YYYY-MM-DDThh:mm:ss±hh:mm`，比如`2019-06-02T00:00:00+08:00`。</p>
+     * <p>获取数据结束时间点，需在起始时间点之后。日期格式按照`ISO8601`表示法，格式为：`YYYY-MM-DDThh:mm:ss±hh:mm`，比如`2019-06-02T00:00:00+08:00`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
 
     /**
-     * <p>返回数据的时间粒度。</p>
+     * <p>返回数据的时间粒度，取值如下所示：</p>
      *
      * <p>* `5m`：5 分钟；</p>
      *

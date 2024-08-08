@@ -11,9 +11,7 @@ import java.util.List;
 public final class DescribeImageXExceedFileSizeResResultFSizeDataItem  {
 
     /**
-     * <p>数据类型。</p>
-     *
-     * <p>当`GroupBy`为空或`Duration`时，取值avg/pct25/pct50/pct90/pct99/min/max，否则取值为指定拆分维度的各个值。</p>
+     * <p>数据类型。当`GroupBy`为空或`Duration`时，取值avg/pct25/pct50/pct90/pct99/min/max，否则取值为指定拆分维度的各个值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Type")
     private String type;

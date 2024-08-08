@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
+import com.volcengine.model.ApiInfo;
 import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.service.BaseServiceImpl;
@@ -16,6 +17,7 @@ import org.apache.http.message.BasicNameValuePair;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class VisualServiceImpl extends BaseServiceImpl implements IVisualService {
@@ -857,6 +859,51 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
             throw response.getException();
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), Img2ImgAnimeAcceleratedMaintainIDForSmartDrawingAnimeResponse.class);
+    }
+
+    @Override
+    public Object visualCommonRequestForJson(Object request,String action,String version) throws Exception {
+        apiInfoList.put(action, new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", action));
+                                add(new BasicNameValuePair("Version", version));
+                            }
+                        });
+                    }
+                }
+        ));
+        RawResponse response = json(action, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"));
+    }
+    @Override
+    public Object visualCommonRequestForForm(Object request,String action,String version) throws Exception {
+        apiInfoList.put(action, new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", action));
+                                add(new BasicNameValuePair("Version", version));
+                            }
+                        });
+                    }
+                }
+        ));
+        RawResponse response = post(action, null, convertNameValuePair(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"));
     }
 }
 

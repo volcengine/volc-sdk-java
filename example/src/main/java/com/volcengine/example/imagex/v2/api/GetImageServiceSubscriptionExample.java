@@ -10,8 +10,10 @@ public class GetImageServiceSubscriptionExample {
         service.setAccessKey("ak");
         service.setSecretKey("sk");
 
+        GetImageServiceSubscriptionQuery query = new GetImageServiceSubscriptionQuery();
+
         try {
-            GetImageServiceSubscriptionRes resp = service.getImageServiceSubscription();
+            GetImageServiceSubscriptionRes resp = service.getImageServiceSubscription(query);
             System.out.println(resp);
         } catch (Exception e) {
             e.printStackTrace();

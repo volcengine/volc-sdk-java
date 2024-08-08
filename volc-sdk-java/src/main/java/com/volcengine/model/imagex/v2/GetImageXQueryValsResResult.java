@@ -11,7 +11,7 @@ import java.util.List;
 public final class GetImageXQueryValsResResult  {
 
     /**
-     * <p>60 天内上报数据中出现的维度值信息，按出现次数降序排列。</p>
+     * <p>90 天内上报数据中出现的维度值列表，按上报次数降序排列，仅返回前1000条数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DimVal")
     private List<String> dimVal;

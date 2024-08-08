@@ -11,7 +11,7 @@ import java.util.List;
 public final class DescribeImageXExceedFileSizeResResult  {
 
     /**
-     * <p>客户端文件大小分布数据。</p>
+     * <p>客户端文件体积大小分布数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "FSizeData")
     private List<DescribeImageXExceedFileSizeResResultFSizeDataItem> fSizeData;

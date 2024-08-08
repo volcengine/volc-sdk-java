@@ -2939,6 +2939,21 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         return res;
     }
 
+    public GetLoginLivesaasStsResponse getLoginLivesaasSts(GetLoginLivesaasStsRequest getLoginLivesaasStsRequest) throws Exception {
+        RawResponse response = query(Const.GetLoginLivesaasSts, Utils.paramsToPair(getLoginLivesaasStsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetLoginLivesaasStsResponse res = JSON.parseObject(response.getData(), GetLoginLivesaasStsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+}
+
     @Override
     public GenerateActivityStreamSliceResponse generateActivityStreamSlice(GenerateActivityStreamSliceRequest generateActivityStreamSliceRequest) throws Exception {
         RawResponse response = json(Const.GenerateActivityStreamSlice, new ArrayList<>(), JSON.toJSONString(generateActivityStreamSliceRequest));
@@ -2946,6 +2961,36 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
             throw response.getException();
         }
         GenerateActivityStreamSliceResponse res = JSON.parseObject(response.getData(), GenerateActivityStreamSliceResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetVideoTrafficPayDataResponse getVideoTrafficPayData(GetVideoTrafficPayDataRequest getVideoTrafficPayDataRequest) throws Exception {
+        RawResponse response = json(Const.GetVideoTrafficPayData, new ArrayList<>(), JSON.toJSONString(getVideoTrafficPayDataRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetVideoTrafficPayDataResponse res = JSON.parseObject(response.getData(), GetVideoTrafficPayDataResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetMediaStoragePayDataResponse getMediaStoragePayData(GetMediaStoragePayDataRequest getMediaStoragePayDataRequest) throws Exception {
+        RawResponse response = json(Const.GetMediaStoragePayData, new ArrayList<>(), JSON.toJSONString(getMediaStoragePayDataRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetMediaStoragePayDataResponse res = JSON.parseObject(response.getData(), GetMediaStoragePayDataResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());

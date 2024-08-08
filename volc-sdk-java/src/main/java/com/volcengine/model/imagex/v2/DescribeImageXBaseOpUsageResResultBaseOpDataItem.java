@@ -16,6 +16,12 @@ public final class DescribeImageXBaseOpUsageResResultBaseOpDataItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Data")
     private List<DescribeImageXBaseOpUsageResResultBaseOpDataItemDataItem> data;
 
+    /**
+     * <p>服务 ID。当 `GroupBy` 中包含 `ServiceId` 时，有返回值。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ServiceId")
+    private String serviceId;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

@@ -22,9 +22,7 @@ public final class DescribeImageXClientQueueDurationByTimeResResultDurationDataI
     private Integer count;
 
     /**
-     * <p>数据对应时间点。</p>
-     *
-     * <p>* 日期格式按照`ISO8601`表示法，格式为：`YYYY-MM-DDThh:mm:ss±hh:mm`。</p>
+     * <p>数据对应时间点。日期格式按照`ISO8601`表示法，格式为：`YYYY-MM-DDThh:mm:ss±hh:mm`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Timestamp")
     private String timestamp;

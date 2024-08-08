@@ -16,19 +16,19 @@ public final class DescribeImageXExceedResolutionRatioAllResResultResolutionRati
     private Long count;
 
     /**
-     * <p>宽比，即为图片宽/view宽取整</p>
+     * <p>宽比，为图片宽/view 宽的整数值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "WidthRatio")
     private Integer widthRatio;
 
     /**
-     * <p>高比，即为图片高/view高取整</p>
+     * <p>高比，为图片高/view 高的整数值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "HeightRatio")
     private Integer heightRatio;
 
     /**
-     * <p>格式为：宽比-高比</p>
+     * <p>比率，格式为：宽比-高比。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Ratio")
     private String ratio;

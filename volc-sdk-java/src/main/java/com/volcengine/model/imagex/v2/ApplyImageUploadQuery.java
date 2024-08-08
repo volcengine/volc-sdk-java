@@ -85,7 +85,21 @@ public final class ApplyImageUploadQuery  {
     private String fileExtension;
 
     /**
-     * <p>覆盖上传</p>
+     * <p>是否开启重名文件覆盖上传，取值如下所示：</p>
+     *
+     *
+     *
+     * <p>- `true`：开启</p>
+     *
+     * <p>- `false`：（默认）关闭</p>
+     *
+     *
+     *
+     * <p>:::warning</p>
+     *
+     * <p>在指定 `Overwrite` 为 `true` 前，请确保您指定的 `ServiceId` 对应服务已[开启了覆盖上传](https://www.volcengine.com/docs/508/1119912)能力。</p>
+     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Overwrite")
     private Boolean overwrite;

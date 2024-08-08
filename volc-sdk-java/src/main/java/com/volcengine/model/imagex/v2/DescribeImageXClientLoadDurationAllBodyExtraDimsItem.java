@@ -15,7 +15,7 @@ public final class DescribeImageXClientLoadDurationAllBodyExtraDimsItem  {
      *
      * <p>:::tip</p>
      *
-     * <p>您可以通过调用[获取自定义维度列表](https://www.volcengine.com/docs/508/34554)来获取。</p>
+     * <p>您可以通过调用[获取自定义维度列表](https://www.volcengine.com/docs/508/1213048)来获取。</p>
      *
      * <p>:::</p>
      */
@@ -27,7 +27,7 @@ public final class DescribeImageXClientLoadDurationAllBodyExtraDimsItem  {
      *
      * <p>:::tip</p>
      *
-     * <p>您可以通过调用[获取自定义维度值](https://www.volcengine.com/docs/508/34555)来获取。</p>
+     * <p>您可以通过调用[获取自定义维度值](https://www.volcengine.com/docs/508/1213050)来获取。</p>
      *
      * <p>:::</p>
      */

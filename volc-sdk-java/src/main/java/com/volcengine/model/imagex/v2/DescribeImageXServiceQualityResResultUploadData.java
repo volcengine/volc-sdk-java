@@ -28,7 +28,7 @@ public final class DescribeImageXServiceQualityResResultUploadData  {
     private Integer uploadCount;
 
     /**
-     * <p>上传文件平均大小，单位字节。</p>
+     * <p>上传文件平均大小，单位为字节。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AvgSize")
     private Double avgSize;

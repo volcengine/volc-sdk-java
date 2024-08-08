@@ -10,27 +10,19 @@ import com.alibaba.fastjson.JSON;
 public final class DescribeImageXHitRateRequestDataQuery  {
 
     /**
-     * <p>限制查询的服务 ID，传入多个时用英文逗号分割。缺省情况下表示不限制服务 ID。</p>
-     *
-     *
-     *
-     * <p>- 您可以在 veImageX 控制台[服务管理](https://console.volcengine.com/imagex/service_manage/)页面，在创建好的图片服务中获取服务 ID。</p>
-     *
-     * <p>- 您也可以通过 OpenAPI 的方式获取服务 ID，具体请参考 [GetAllImageServices](https://www.volcengine.com/docs/508/9360)。</p>
+     * <p>服务 ID。支持查询多个服务，传入多个时用英文逗号“,”分割，缺省情况下表示查询所有服务。您可以在 veImageX 控制台的[服务管理](https://console.volcengine.com/imagex/service_manage/)模块或者调用 [GetAllImageServices](https://www.volcengine.com/docs/508/9360) 接口获取服务 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ServiceIds")
     private String serviceIds;
 
     /**
-     * <p>限制查询的域名，传入多个时用英文逗号分割。缺省情况下表示不限制域名。</p>
-     *
-     * <p>您可以通过调用 [GetServiceDomains](https://www.volcengine.com/docs/508/9379) 获取服务下所有域名信息。</p>
+     * <p>域名。支持查询多个域名，传入多个时用英文逗号“,”分割，缺省情况下表示查询所有域名。您可以通过调用 [GetServiceDomains](https://www.volcengine.com/docs/508/9379) 获取服务下所有域名信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DomainNames")
     private String domainNames;
 
     /**
-     * <p>需要分组查询的参数。仅支持取值`DomainName`。</p>
+     * <p>需要分组查询的参数。取值仅支持`DomainName`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "GroupBy")
     private String groupBy;

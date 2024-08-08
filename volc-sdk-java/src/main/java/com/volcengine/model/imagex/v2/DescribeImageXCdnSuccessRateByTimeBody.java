@@ -11,11 +11,11 @@ import java.util.List;
 public final class DescribeImageXCdnSuccessRateByTimeBody  {
 
     /**
-     * <p>应用 ID。默认为空，不传则匹配账号下的所有的 App ID。</p>
+     * <p>应用 ID。默认为空，不传则匹配账号下的所有的 AppID。</p>
      *
      * <p>:::tip</p>
      *
-     * <p>您可以通过调用[获取应用列表](https://www.volcengine.com/docs/508/19511)的方式获取所需的 AppID。</p>
+     * <p>您可以通过调用[获取应用列表](https://www.volcengine.com/docs/508/1213042)的方式获取所需的 AppID。</p>
      *
      * <p>:::</p>
      */
@@ -63,7 +63,7 @@ public final class DescribeImageXCdnSuccessRateByTimeBody  {
     private String province;
 
     /**
-     * <p>需要匹配的运营商名称，不传则匹配所有运营商。支持取值如下：</p>
+     * <p>需要匹配的运营商名称，不传则匹配所有运营商。取值如下所示：</p>
      *
      * <p>- `电信`</p>
      *
@@ -89,7 +89,7 @@ public final class DescribeImageXCdnSuccessRateByTimeBody  {
     private List<String> domain;
 
     /**
-     * <p>需要匹配的图片类型，不传则匹配所有图片类型。</p>
+     * <p>需要匹配的图片类型，不传则匹配所有图片类型。取值如下所示：</p>
      *
      * <p>- `GIF`</p>
      *
@@ -123,7 +123,7 @@ public final class DescribeImageXCdnSuccessRateByTimeBody  {
      *
      * <p>- 公共维度：`Appid`、`OS`、`AppVer`、`SdkVer`、`ImageType`、`Country`、`Province`、`Isp`、`Domain`</p>
      *
-     * <p>- 自定义维度：您可以通过调用 [GetImageXQueryDims](https://www.volcengine.com/docs/508/34554)接口获取自定义维度指标。</p>
+     * <p>- 自定义维度：您可以通过调用 [获取自定义维度列表](https://www.volcengine.com/docs/508/1213048)接口获取自定义维度指标。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "GroupBy")
     private String groupBy;
@@ -145,7 +145,7 @@ public final class DescribeImageXCdnSuccessRateByTimeBody  {
     private String endTime;
 
     /**
-     * <p>返回数据的时间粒度。</p>
+     * <p>返回数据的时间粒度。取值如下所示：</p>
      *
      * <p>* `5m`：5 分钟；</p>
      *

@@ -11,7 +11,7 @@ import java.util.List;
 public final class DescribeImageXExceedCountByTimeResResult  {
 
     /**
-     * <p>客户端上报量数据。</p>
+     * <p>大图样本量上报数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ExceedCountData")
     private List<DescribeImageXExceedCountByTimeResResultExceedCountDataItem> exceedCountData;

@@ -11,21 +11,13 @@ import java.util.List;
 public final class DescribeImageXMirrorRequestHttpCodeByTimeBody  {
 
     /**
-     * <p>限制查询的服务 ID，传入多个时用英文逗号分割。缺省情况下表示不限制服务 ID。</p>
-     *
-     *
-     *
-     * <p>- 您可以在 veImageX 控制台[服务管理](https://console.volcengine.com/imagex/service_manage/)页面，在创建好的图片服务中获取服务 ID。</p>
-     *
-     * <p>- 您也可以通过 OpenAPI 的方式获取服务 ID，具体请参考 [GetAllImageServices](https://www.volcengine.com/docs/508/9360)。</p>
+     * <p>服务 ID。支持查询多个服务，传入多个时用英文逗号“,”分割，缺省情况下表示查询所有服务。您可以在 veImageX 控制台的[服务管理](https://console.volcengine.com/imagex/service_manage/)模块或者调用 [GetAllImageServices](https://www.volcengine.com/docs/508/9360) 接口获取服务 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ServiceIds")
     private List<String> serviceIds;
 
     /**
-     * <p>限制查询的域名，传入多个时用英文逗号分割。缺省情况下表示不限制域名。</p>
-     *
-     * <p>您可以通过调用 [GetServiceDomains](https://www.volcengine.com/docs/508/9379) 获取服务下所有域名信息。</p>
+     * <p>域名。支持查询多个域名，传入多个时用英文逗号“,”分割，缺省情况下表示查询所有域名。您可以通过调用 [GetServiceDomains](https://www.volcengine.com/docs/508/9379) 获取服务下所有域名信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DomainNames")
     private List<String> domainNames;
@@ -49,7 +41,7 @@ public final class DescribeImageXMirrorRequestHttpCodeByTimeBody  {
     private String endTime;
 
     /**
-     * <p>查询数据的时间粒度，单位为秒。缺省时查询`StartTime`和`EndTime`时间段全部数据，此时单次查询最大时间跨度为 93 天。支持以下取值：</p>
+     * <p>查询数据的时间粒度，单位为秒。缺省时查询`StartTime`和`EndTime`时间段全部数据，此时单次查询最大时间跨度为 93 天。取值如下所示：</p>
      *
      * <p>- `60`：单次查询最大时间跨度为 6 小时</p>
      *
@@ -73,7 +65,7 @@ public final class DescribeImageXMirrorRequestHttpCodeByTimeBody  {
     private String interval;
 
     /**
-     * <p>状态码是否聚合。支持以下取值：</p>
+     * <p>状态码是否聚合，取值如下所示：</p>
      *
      *
      *

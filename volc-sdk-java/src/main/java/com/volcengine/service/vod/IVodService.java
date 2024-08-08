@@ -918,6 +918,24 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodUpdateDomainUrlAuthConfigV2Response updateDomainUrlAuthConfig(com.volcengine.service.vod.model.request.VodUpdateDomainUrlAuthConfigV2Request input) throws Exception;
 	
 	/**
+     * updateDomainConfig.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodUpdateDomainConfigRequest
+     * @return com.volcengine.service.vod.model.response.VodUpdateDomainConfigResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodUpdateDomainConfigResponse updateDomainConfig(com.volcengine.service.vod.model.request.VodUpdateDomainConfigRequest input) throws Exception;
+	
+	/**
+     * describeDomainConfig.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDescribeDomainConfigRequest
+     * @return com.volcengine.service.vod.model.response.VodDescribeDomainConfigResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodDescribeDomainConfigResponse describeDomainConfig(com.volcengine.service.vod.model.request.VodDescribeDomainConfigRequest input) throws Exception;
+	
+	/**
      * addCallbackSubscription.
      *
      * @param input com.volcengine.service.vod.model.request.VodAddCallbackSubscriptionRequest
@@ -1078,5 +1096,23 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.DescribeVodMostPlayedStatisDataResponse describeVodMostPlayedStatisData(com.volcengine.service.vod.model.request.DescribeVodMostPlayedStatisDataRequest input) throws Exception;
+	
+	/**
+     * describeVodRealtimeMediaData.
+     *
+     * @param input com.volcengine.service.vod.model.request.DescribeVodRealtimeMediaDataRequest
+     * @return com.volcengine.service.vod.model.response.DescribeVodRealtimeMediaDataResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.DescribeVodRealtimeMediaDataResponse describeVodRealtimeMediaData(com.volcengine.service.vod.model.request.DescribeVodRealtimeMediaDataRequest input) throws Exception;
+	
+	/**
+     * describeVodRealtimeMediaDetailData.
+     *
+     * @param input com.volcengine.service.vod.model.request.DescribeVodRealtimeMediaDetailDataRequest
+     * @return com.volcengine.service.vod.model.response.DescribeVodRealtimeMediaDetailDataResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.DescribeVodRealtimeMediaDetailDataResponse describeVodRealtimeMediaDetailData(com.volcengine.service.vod.model.request.DescribeVodRealtimeMediaDetailDataRequest input) throws Exception;
 	
 }  // end of service interface

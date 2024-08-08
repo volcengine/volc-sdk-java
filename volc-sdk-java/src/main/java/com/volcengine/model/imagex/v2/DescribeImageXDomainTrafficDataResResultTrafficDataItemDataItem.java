@@ -16,7 +16,7 @@ public final class DescribeImageXDomainTrafficDataResResultTrafficDataItemDataIt
     private String timeStamp;
 
     /**
-     * <p>流量，单位：Byte。</p>
+     * <p>流量用量，单位为 Byte。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Value")
     private Double value;

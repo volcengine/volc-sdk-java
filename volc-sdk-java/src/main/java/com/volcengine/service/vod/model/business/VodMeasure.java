@@ -194,6 +194,31 @@ public final class VodMeasure {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_DescribeVodMostPlayedStatisDataResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDataItem_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDataItem_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDataDetail_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDataDetail_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDataResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDataResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDetailDataItem_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDetailDataItem_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDetailDataResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDetailDataResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -391,12 +416,39 @@ public final class VodMeasure {
       "\022\017\n\007EndTime\030\003 \001(\t\022\021\n\tOrderType\030\004 \001(\t\022\014\n\004" +
       "TopN\030\005 \001(\003\022Z\n\rPlayStatInfos\030\006 \003(\0132C.Volc" +
       "engine.Vod.Models.Business.DescribeVodMo" +
-      "stPlayedStatisDataItemB\313\001\n)com.volcengin" +
-      "e.service.vod.model.businessB\nVodMeasure" +
-      "P\001ZAgithub.com/volcengine/volc-sdk-golan" +
-      "g/service/vod/models/business\240\001\001\330\001\001\312\002 Vo" +
-      "lc\\Service\\Vod\\Models\\Business\342\002#Volc\\Se" +
-      "rvice\\Vod\\Models\\GPBMetadatab\006proto3"
+      "stPlayedStatisDataItem\"?\n DescribeVodRea" +
+      "ltimeMediaDataItem\022\014\n\004Time\030\001 \001(\t\022\r\n\005Coun" +
+      "t\030\002 \001(\003\"\243\001\n\"DescribeVodRealtimeMediaData" +
+      "Detail\022\r\n\005Space\030\001 \001(\t\022\r\n\005Total\030\002 \001(\003\022_\n\025" +
+      "RealtimeMediaDataList\030\003 \003(\0132@.Volcengine" +
+      ".Vod.Models.Business.DescribeVodRealtime" +
+      "MediaDataItem\"\210\003\n\"DescribeVodRealtimeMed" +
+      "iaDataResult\022\021\n\tSpaceList\030\001 \003(\t\022\021\n\tStart" +
+      "Time\030\002 \001(\t\022\017\n\007EndTime\030\003 \001(\t\022\023\n\013ProcessTy" +
+      "pe\030\004 \001(\t\022\023\n\013Aggregation\030\005 \001(\003\022\027\n\017DetailF" +
+      "ieldList\030\006 \003(\t\022\036\n\026TotalRealtimeMediaData" +
+      "\030\007 \001(\003\022_\n\025RealtimeMediaDataList\030\010 \003(\0132@." +
+      "Volcengine.Vod.Models.Business.DescribeV" +
+      "odRealtimeMediaDataItem\022g\n\033RealtimeMedia" +
+      "DetailDataList\030\t \003(\0132B.Volcengine.Vod.Mo" +
+      "dels.Business.DescribeVodRealtimeMediaDa" +
+      "taDetail\"\226\001\n&DescribeVodRealtimeMediaDet" +
+      "ailDataItem\022\017\n\007TraceId\030\001 \001(\t\022\021\n\tStartTim" +
+      "e\030\002 \001(\t\022\017\n\007EndTime\030\003 \001(\t\022\020\n\010FileName\030\004 \001" +
+      "(\t\022\017\n\007Command\030\005 \001(\t\022\024\n\014ResponseCode\030\006 \001(" +
+      "\t\"\210\002\n(DescribeVodRealtimeMediaDetailData" +
+      "Result\022\016\n\006Region\030\001 \001(\t\022\r\n\005Space\030\002 \001(\t\022\021\n" +
+      "\tStartTime\030\003 \001(\t\022\017\n\007EndTime\030\004 \001(\t\022\020\n\010Pag" +
+      "eSize\030\005 \001(\003\022\017\n\007PageNum\030\006 \001(\003\022\r\n\005Total\030\007 " +
+      "\001(\003\022g\n\027RealtimeMediaDetailData\030\010 \003(\0132F.V" +
+      "olcengine.Vod.Models.Business.DescribeVo" +
+      "dRealtimeMediaDetailDataItemB\313\001\n)com.vol" +
+      "cengine.service.vod.model.businessB\nVodM" +
+      "easureP\001ZAgithub.com/volcengine/volc-sdk" +
+      "-golang/service/vod/models/business\240\001\001\330\001" +
+      "\001\312\002 Volc\\Service\\Vod\\Models\\Business\342\002#V" +
+      "olc\\Service\\Vod\\Models\\GPBMetadatab\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -618,6 +670,36 @@ public final class VodMeasure {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_DescribeVodMostPlayedStatisDataResult_descriptor,
         new java.lang.String[] { "Space", "StartTime", "EndTime", "OrderType", "TopN", "PlayStatInfos", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDataItem_descriptor =
+      getDescriptor().getMessageTypes().get(36);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDataItem_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDataItem_descriptor,
+        new java.lang.String[] { "Time", "Count", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDataDetail_descriptor =
+      getDescriptor().getMessageTypes().get(37);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDataDetail_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDataDetail_descriptor,
+        new java.lang.String[] { "Space", "Total", "RealtimeMediaDataList", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDataResult_descriptor =
+      getDescriptor().getMessageTypes().get(38);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDataResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDataResult_descriptor,
+        new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "ProcessType", "Aggregation", "DetailFieldList", "TotalRealtimeMediaData", "RealtimeMediaDataList", "RealtimeMediaDetailDataList", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDetailDataItem_descriptor =
+      getDescriptor().getMessageTypes().get(39);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDetailDataItem_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDetailDataItem_descriptor,
+        new java.lang.String[] { "TraceId", "StartTime", "EndTime", "FileName", "Command", "ResponseCode", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDetailDataResult_descriptor =
+      getDescriptor().getMessageTypes().get(40);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDetailDataResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDetailDataResult_descriptor,
+        new java.lang.String[] { "Region", "Space", "StartTime", "EndTime", "PageSize", "PageNum", "Total", "RealtimeMediaDetailData", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

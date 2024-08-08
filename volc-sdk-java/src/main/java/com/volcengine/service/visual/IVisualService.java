@@ -665,4 +665,19 @@ public interface IVisualService extends IBaseService {
      */
     Img2ImgAnimeAcceleratedMaintainIDForSmartDrawingAnimeResponse  Img2ImgAnimeAcceleratedMaintainIDForSmartDrawingAnime(Object request) throws Exception;
 
+    /**
+     * 通用请求Json类型
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object visualCommonRequestForJson(Object request,String action,String version) throws Exception;
+
+    /**
+     * 通用请求form类型
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object visualCommonRequestForForm(Object request,String action,String version) throws Exception;
 }

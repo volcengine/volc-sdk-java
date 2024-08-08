@@ -14,21 +14,13 @@ public final class GetComprehensiveEnhanceImageBody  {
      *
      *
      *
-     * <p>- 您可以在 veImageX 控制台 [服务管理](https://console.volcengine.com/imagex/service_manage/)页面，在创建好的图片服务中获取服务 ID。</p>
      *
-     * <p>- 您也可以通过 OpenAPI 的方式获取服务 ID，具体请参考[获取所有服务信息](https://www.volcengine.com/docs/508/9360)。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ServiceId")
     private String serviceId;
 
     /**
-     * <p>图片存储 URI 或访问 URL。</p>
-     *
-     *
-     *
-     * <p>- 图片 URI 格式，例如：tos-example/7a7979974.jpeg</p>
-     *
-     * <p>- 图片 URL 格式，可公网访问。例如：https://example.org/tos-example/7a7979974.jpeg~tplv.png</p>
+     * <p>待增强图片的存储 URI 或访问 URL（公网可访问）。您可在控制台资源管理获取图片的[存储 URI](https://www.volcengine.com/docs/508/1205057) 以及[访问 URL](https://www.volcengine.com/docs/508/1205054)。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ImageUri")
     private String imageUri;
@@ -50,7 +42,7 @@ public final class GetComprehensiveEnhanceImageBody  {
     private Integer mode;
 
     /**
-     * <p>内是否启用高级配置，取值如下所示：</p>
+     * <p>是否启用高级配置，取值如下所示：</p>
      *
      * <p>- `true`：开启。开启后，下述高级配置才会生效。</p>
      *
@@ -112,12 +104,20 @@ public final class GetComprehensiveEnhanceImageBody  {
     private Integer multiple;
 
     /**
+     * <p>`EnableSuperResolution` 取值为 `true` 时，为必填。</p>
+     *
+     *
+     *
      * <p>执行超分处理的短边范围最小值，仅当满足图像边界输入的图像执行超分处理。单位为 px。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ShortMin")
     private Integer shortMin;
 
     /**
+     * <p>`EnableSuperResolution` 取值为 `true` 时，为必填。</p>
+     *
+     *
+     *
      * <p>执行超分处理的短边范围最大值，仅当满足图像边界输入的图像执行超分处理。单位为 px。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ShortMax")
@@ -182,10 +182,30 @@ public final class GetComprehensiveEnhanceImageBody  {
     private Double saturation;
 
     /**
+     * <p>`EnableConfig` 取值为 `true` 时，为必填。</p>
+     *
+     *
+     *
      * <p>亮度，取值范围为[90,100]。取值越小，亮度提升越明显。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Brightness")
     private Integer brightness;
+
+    /**
+     * <p>是否使用文字增强，取值如下所示：</p>
+     *
+     * <p>- `false`：（默认）不使用</p>
+     *
+     * <p>- `true`：使用</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "EnableTextEnhance")
+    private Boolean enableTextEnhance;
+
+    /**
+     * <p>文字增强强度，取值范围[0,1]，默认值为 0.5。取值越大文字增强效果越强，但也更容易出现白边、色偏、对比度增大、非 CG 文字与背景产生割裂感等问题。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "TextEnhanceStrength")
+    private Double textEnhanceStrength;
 
     @Override
     public String toString() {

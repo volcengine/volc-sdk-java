@@ -20,6 +20,8 @@ public class GetLiveTrafficPostPayDataResponse {
         List<LiveTrafficData> EstimatedResult;
         @JSONField(name = "ActualResult")
         List<LiveTrafficData> ActualResult;
+        @JSONField(name = "ActualPrePayResult")
+        List<LiveTrafficData> ActualPrePayResult;
     }
 
     @Data

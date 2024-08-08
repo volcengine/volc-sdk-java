@@ -16,7 +16,7 @@ public final class CreateImageMigrateTaskBodyTaskCallbackCfg  {
     private String method;
 
     /**
-     * <p>回调地址。`Method`取值`http`时，填写公网可访问的 URL 地址，任务结束将向该地址发送 HTTP POST 请求。具体回调参数请参考[回调内容](#回调内容)。</p>
+     * <p>回调地址。`Method`取值`http`时，填写公网可访问的 URL 地址，任务结束将向该地址发送 HTTP POST 请求。具体回调参数请参考[回调内容](#回调参数)。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Addr")
     private String addr;
@@ -24,7 +24,7 @@ public final class CreateImageMigrateTaskBodyTaskCallbackCfg  {
     /**
      * <p>回调信息中是否包含具体迁移任务条目信息。取值如下所示：</p>
      *
-     * <p>- `true`：包含。仅包含迁移成功的任务条目信息，迁移失败的任务列表请在迁移完成后调用 [ExportFailedMigrateTask](https://www.volcengine.com/docs/508/1108675) 接口获取。</p>
+     * <p>- `true`：包含。仅包含迁移成功的任务条目信息，迁移失败的任务列表请在迁移完成后调用 [ExportFailedMigrateTask](https://www.volcengine.com/docs/508/1261309) 接口获取。</p>
      *
      * <p>- `false`：（默认）不包含。</p>
      *
@@ -36,6 +36,12 @@ public final class CreateImageMigrateTaskBodyTaskCallbackCfg  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "IncludeEntry")
     private Boolean includeEntry;
+
+    /**
+     * <p>任务维度自定义回调参数，最多可输入 1024 个任意类型字符，并在回调的 `CallbackArgs` 中返回。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "CallbackArgs")
+    private String callbackArgs;
 
     @Override
     public String toString() {

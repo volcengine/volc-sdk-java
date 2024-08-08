@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class CreateHiddenWatermarkImageQuery  {
 
     /**
-     * <p>服务 ID。</p>
+     * <p>用于存储结果图和计量计费的服务 ID。</p>
      *
      * <p>- 您可以在 veImageX 控制台 [服务管理](https://console.volcengine.com/imagex/service_manage/)页面，在创建好的图片服务中获取服务 ID。</p>
      *

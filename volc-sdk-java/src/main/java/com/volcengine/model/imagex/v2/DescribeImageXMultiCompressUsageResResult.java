@@ -11,7 +11,7 @@ import java.util.List;
 public final class DescribeImageXMultiCompressUsageResResult  {
 
     /**
-     * <p>多文件压缩用量数据。</p>
+     * <p>多文件压缩用量数据</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CompressData")
     private List<DescribeImageXMultiCompressUsageResResultCompressDataItem> compressData;

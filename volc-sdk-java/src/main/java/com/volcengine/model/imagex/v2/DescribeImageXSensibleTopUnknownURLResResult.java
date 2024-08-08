@@ -11,7 +11,7 @@ import java.util.List;
 public final class DescribeImageXSensibleTopUnknownURLResResult  {
 
     /**
-     * <p>TODO</p>
+     * <p>Top URL 详情</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TopUrlData")
     private List<DescribeImageXSensibleTopUnknownURLResResultTopUrlDataItem> topUrlData;

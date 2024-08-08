@@ -11,7 +11,7 @@ import java.util.List;
 public final class DescribeImageXExceedResolutionRatioAllResResult  {
 
     /**
-     * <p>客户端文件大小分布数据。</p>
+     * <p>客户端大图分辨率分布数据。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ResolutionRatioData")
     private List<DescribeImageXExceedResolutionRatioAllResResultResolutionRatioDataItem> resolutionRatioData;

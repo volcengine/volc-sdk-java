@@ -79,15 +79,13 @@ public final class GetImageMigrateTasksResResultTasksItemSource  {
     private String endpoint;
 
     /**
-     * <p>sk</p>
-     *
-     *
+     * <p>Secret Key</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SK")
     private String sK;
 
     /**
-     * <p>ak</p>
+     * <p>Access Key</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AK")
     private String aK;

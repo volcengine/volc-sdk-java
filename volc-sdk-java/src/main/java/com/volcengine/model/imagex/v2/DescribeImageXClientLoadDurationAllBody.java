@@ -11,11 +11,11 @@ import java.util.List;
 public final class DescribeImageXClientLoadDurationAllBody  {
 
     /**
-     * <p>应用 ID。默认为空，不传则匹配账号下的所有的 App ID。</p>
+     * <p>应用 ID。默认为空，不传则匹配账号下的所有的 AppID。</p>
      *
      * <p>:::tip</p>
      *
-     * <p>您可以通过调用[获取应用列表](https://www.volcengine.com/docs/508/19511)的方式获取所需的 AppID。</p>
+     * <p>您可以通过调用[获取应用列表](https://www.volcengine.com/docs/508/1213042)的方式获取所需的 AppID。</p>
      *
      * <p>:::</p>
      */
@@ -63,7 +63,7 @@ public final class DescribeImageXClientLoadDurationAllBody  {
     private String province;
 
     /**
-     * <p>需要匹配的运营商名称，不传则匹配所有运营商。支持取值如下：</p>
+     * <p>需要匹配的运营商名称，不传则匹配所有运营商。取值如下所示：</p>
      *
      * <p>- `电信`</p>
      *
@@ -89,7 +89,7 @@ public final class DescribeImageXClientLoadDurationAllBody  {
     private List<String> domain;
 
     /**
-     * <p>需要匹配的图片类型，不传则匹配所有图片类型。</p>
+     * <p>需要匹配的图片类型，不传则匹配所有图片类型。取值如下所示：</p>
      *
      * <p>- `GIF`</p>
      *
@@ -119,7 +119,7 @@ public final class DescribeImageXClientLoadDurationAllBody  {
     private List<DescribeImageXClientLoadDurationAllBodyExtraDimsItem> extraDims;
 
     /**
-     * <p>聚合维度。</p>
+     * <p>聚合维度，取值如下所示：</p>
      *
      * <p>- `Domain`：域名</p>
      *
@@ -133,7 +133,7 @@ public final class DescribeImageXClientLoadDurationAllBody  {
     /**
      * <p>获取数据起始时间点。</p>
      *
-     * <p>* 日期格式按照`ISO8601`表示法，格式为：`YYYY-MM-DDThh:mm:ss±hh:mm`，比如`2019-06-02T00:00:00+08:00`。</p>
+     * <p>日期格式按照`ISO8601`表示法，格式为：`YYYY-MM-DDThh:mm:ss±hh:mm`，比如`2019-06-02T00:00:00+08:00`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
@@ -141,13 +141,13 @@ public final class DescribeImageXClientLoadDurationAllBody  {
     /**
      * <p>获取数据结束时间点，需在起始时间点之后。</p>
      *
-     * <p>* 日期格式按照`ISO8601`表示法，格式为：`YYYY-MM-DDThh:mm:ss±hh:mm`，比如`2019-06-02T00:00:00+08:00`。</p>
+     * <p>日期格式按照`ISO8601`表示法，格式为：`YYYY-MM-DDThh:mm:ss±hh:mm`，比如`2019-06-02T00:00:00+08:00`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
 
     /**
-     * <p>排序依据</p>
+     * <p>排序依据，取值如下所示：</p>
      *
      * <p>* `Duration`：按耗时排序。</p>
      *
@@ -157,7 +157,11 @@ public final class DescribeImageXClientLoadDurationAllBody  {
     private String orderBy;
 
     /**
-     * <p>是否升序排序。不传则默认降序排序。</p>
+     * <p>是否升序排序。取值如下所示：</p>
+     *
+     * <p>- `true`：是，表示升序排序。</p>
+     *
+     * <p>- `false`：（默认）否，表示降序排序。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "OrderAsc")
     private Boolean orderAsc;

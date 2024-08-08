@@ -11,7 +11,7 @@ import java.util.List;
 public final class DescribeImageXScreenshotUsageResResultScreenshotDataItem  {
 
     /**
-     * <p>TODO</p>
+     * <p>时序数据</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Data")
     private List<DescribeImageXScreenshotUsageResResultScreenshotDataItemDataItem> data;

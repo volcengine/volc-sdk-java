@@ -16,7 +16,7 @@ public final class DescribeImageXBaseOpUsageResResultBaseOpDataItemDataItem  {
     private String timeStamp;
 
     /**
-     * <p>基础处理量，单位为：Byte。</p>
+     * <p>基础处理量，单位为 Byte。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Value")
     private Double value;

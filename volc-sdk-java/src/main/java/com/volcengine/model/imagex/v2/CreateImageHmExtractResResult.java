@@ -31,6 +31,16 @@ public final class CreateImageHmExtractResResult  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Info")
     private String info;
 
+    /**
+     * <p>仅当 `Algorithm` 取值为 `tracev2` 时，有返回值。</p>
+     *
+     *
+     *
+     * <p>编码附加信息。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "AdditionInfo")
+    private CreateImageHmExtractResResultAdditionInfo additionInfo;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

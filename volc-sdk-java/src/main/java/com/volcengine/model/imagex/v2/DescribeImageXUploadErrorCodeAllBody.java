@@ -11,11 +11,11 @@ import java.util.List;
 public final class DescribeImageXUploadErrorCodeAllBody  {
 
     /**
-     * <p>应用 ID。默认为空，不传则匹配账号下的所有的 App ID。</p>
+     * <p>应用 ID。默认为空，不传则匹配账号下的所有的 AppID。</p>
      *
      * <p>:::tip</p>
      *
-     * <p>您可以通过调用[获取应用列表](https://www.volcengine.com/docs/508/19511)的方式获取所需的 AppID。</p>
+     * <p>您可以通过调用[获取应用列表](https://www.volcengine.com/docs/508/1213042)的方式获取所需的 AppID。</p>
      *
      * <p>:::</p>
      */
@@ -29,13 +29,19 @@ public final class DescribeImageXUploadErrorCodeAllBody  {
     private List<String> appVer;
 
     /**
-     * <p>需要匹配的系统类型，不传则匹配非 WEB 端的所有系统。取值如下所示：</p>
+     * <p>需要匹配的系统类型。取值如下所示：</p>
      *
-     * <p>- `iOS`</p>
+     * <p>- 不传或传空字符串：Android+iOS。</p>
      *
-     * <p>- `Android`</p>
+     * <p>- `iOS`：iOS。</p>
      *
-     * <p>- `WEB`</p>
+     * <p>- `Android`：Android。</p>
+     *
+     * <p>- `WEB`：web+小程序。</p>
+     *
+     * <p>- `Web`：web。</p>
+     *
+     * <p>- `Imp`：小程序。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "OS")
     private String oS;
@@ -63,7 +69,7 @@ public final class DescribeImageXUploadErrorCodeAllBody  {
     private String province;
 
     /**
-     * <p>需要匹配的运营商名称，不传则匹配所有运营商。支持取值如下：</p>
+     * <p>需要匹配的运营商名称，不传则匹配所有运营商。取值如下所示：</p>
      *
      * <p>- `电信`</p>
      *
@@ -89,7 +95,7 @@ public final class DescribeImageXUploadErrorCodeAllBody  {
     private List<DescribeImageXUploadErrorCodeAllBodyExtraDimsItem> extraDims;
 
     /**
-     * <p>聚合维度。</p>
+     * <p>聚合维度。取值如下所示：</p>
      *
      * <p>* `ErrorCode`：错误码</p>
      *
@@ -101,7 +107,7 @@ public final class DescribeImageXUploadErrorCodeAllBody  {
     private String groupBy;
 
     /**
-     * <p>上传类型，默认为空，返回上传 1.0 数据。</p>
+     * <p>上传类型，默认为空，返回上传 1.0 数据。取值如下所示：</p>
      *
      * <p>* `1`：上传 1.0。</p>
      *
@@ -133,7 +139,11 @@ public final class DescribeImageXUploadErrorCodeAllBody  {
     private String orderBy;
 
     /**
-     * <p>是否升序排序。不传则默认为 false，表示降序排序。</p>
+     * <p>是否升序排序。取值如下所示：</p>
+     *
+     * <p>- `true`：是，表示升序排序。</p>
+     *
+     * <p>- `false`：（默认）否，表示降序排序。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "OrderAsc")
     private Boolean orderAsc;

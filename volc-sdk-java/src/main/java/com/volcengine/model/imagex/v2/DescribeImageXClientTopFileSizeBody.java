@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class DescribeImageXClientTopFileSizeBody  {
 
     /**
-     * <p>应用 ID。默认为空，不传则匹配账号下的所有的 App ID。您可以通过调用[获取应用列表](https://www.volcengine.com/docs/508/19511)的方式获取所需的 AppID。</p>
+     * <p>应用 ID。默认为空，不传则匹配账号下的所有的 App ID。您可以通过调用[获取应用列表](https://www.volcengine.com/docs/508/1213042)的方式获取所需的 AppID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Appid")
     private String appid;

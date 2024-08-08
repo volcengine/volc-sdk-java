@@ -141,6 +141,9 @@ public class Const {
 
     public static final String UpdateDomainUrlAuthConfig = "UpdateDomainUrlAuthConfig";
 
+    public static final String DescribeDomainConfig = "DescribeDomainConfig";
+    public static final String UpdateDomainConfig = "UpdateDomainConfig";
+
     //vod-callback
     public static final String AddCallbackSubscription = "AddCallbackSubscription";
     public static final String SetCallbackEvent = "SetCallbackEvent";
@@ -163,6 +166,8 @@ public class Const {
     public static final String DescribeVodSpaceEditStatisData = "DescribeVodSpaceEditStatisData";
     public static final String DescribeVodPlayedStatisData = "DescribeVodPlayedStatisData";
     public static final String DescribeVodMostPlayedStatisData = "DescribeVodMostPlayedStatisData";
+    public static final String DescribeVodRealtimeMediaData = "DescribeVodRealtimeMediaData";
+    public static final String DescribeVodRealtimeMediaDetailData = "DescribeVodRealtimeMediaDetailData";
 
 
 

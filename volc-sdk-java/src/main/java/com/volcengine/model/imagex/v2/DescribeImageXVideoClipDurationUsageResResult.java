@@ -11,7 +11,7 @@ import java.util.List;
 public final class DescribeImageXVideoClipDurationUsageResResult  {
 
     /**
-     * <p>TODO</p>
+     * <p>小视频转动图转换时长</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "VideoClipDurationData")
     private List<DescribeImageXVideoClipDurationUsageResResultVideoClipDurationDataItem> videoClipDurationData;

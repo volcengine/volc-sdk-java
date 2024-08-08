@@ -19,11 +19,9 @@ public final class CreateImageServiceBody  {
     /**
      * <p>服务地域，取值如下所示：</p>
      *
-     * <p>* `cn`：中国；</p>
+     * <p>* `cn`：中国</p>
      *
-     * <p>* `va`：美东；</p>
-     *
-     * <p>* `sg`：新加坡。</p>
+     * <p>* `sg`：新加坡</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ServiceRegion")
     private String serviceRegion;
@@ -31,9 +29,9 @@ public final class CreateImageServiceBody  {
     /**
      * <p>服务类型，取值如下所示：</p>
      *
-     * <p>* `StaticRc`：素材托管服务，支持任何合法资源的存储和分发。</p>
+     * <p>* `StaticRc`：素材托管服务，支持任意类型资源的存储和分发。</p>
      *
-     * <p>* `Image`：图片处理服务，除支持存储任意合法资源外，还支持对图片进行实时处理。</p>
+     * <p>* `Image`：图片处理服务，除支持任意类型资源的存储和分发外，还支持对图片进行实时处理。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ServiceType")
     private String serviceType;
@@ -43,14 +41,6 @@ public final class CreateImageServiceBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domains")
     private List<CreateImageServiceBodyDomainsItem> domains;
-
-    /**
-     * <p>服务的存储有效期。若资源有效期到期，veImageX 将自动删除指定服务内的资源。单位为秒，取值范围为 [600, 7776000]。</p>
-     *
-     * <p>若取值超过整天，则默认向上取整，例如当`TTL`取值为`86401`时，实际有效期被设置为 2 天。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "StorageTTL")
-    private Long storageTTL;
 
     /**
      * <p>服务绑定的项目，默认值为 `default`。项目是在火山引擎访问控制中资源分组的概念，您需要将服务加入某一个项目中。您可以在火山引擎控制台[项目管理](https://console.volcengine.com/iam/projcetmanage/)页面中获取项目名称。</p>

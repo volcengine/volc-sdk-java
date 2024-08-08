@@ -11,7 +11,7 @@ import java.util.List;
 public final class DescribeImageXEdgeRequestBandwidthResResultBpsDataItem  {
 
     /**
-     * <p>具体数据</p>
+     * <p>时序数据</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Data")
     private List<DescribeImageXEdgeRequestBandwidthResResultBpsDataItemDataItem> data;

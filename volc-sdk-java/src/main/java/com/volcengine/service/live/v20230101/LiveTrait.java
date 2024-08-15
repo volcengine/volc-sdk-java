@@ -170,7 +170,7 @@ public class LiveTrait extends BaseServiceImpl {
 
     /**
      * <p>createWatermarkPreset</p>
-     * <p>添加水印</p>
+     * <p>添加水印配置</p>
      *
      * <p>调用 `CreateWatermarkPreset` 接口，为转码流添加水印配置。   </p>
      *
@@ -185,7 +185,7 @@ public class LiveTrait extends BaseServiceImpl {
 
     /**
      * <p>updateWatermarkPreset</p>
-     * <p>更新水印</p>
+     * <p>更新水印配置</p>
      *
      * <p>调用 `UpdateWatermarkPreset` 接口，更新已添加的水印配置。   </p>
      *
@@ -200,7 +200,7 @@ public class LiveTrait extends BaseServiceImpl {
 
     /**
      * <p>deleteWatermarkPreset</p>
-     * <p>删除水印</p>
+     * <p>删除水印配置</p>
      *
      * <p>调用 `DeleteWatermarkPreset` 接口，删除已添加的水印配置。   </p>
      *
@@ -215,7 +215,7 @@ public class LiveTrait extends BaseServiceImpl {
 
     /**
      * <p>listWatermarkPreset</p>
-     * <p>查询水印</p>
+     * <p>查询水印配置</p>
      *
      * <p>调用 `ListWatermarkPreset` 接口，查询单个水印配置的信息。   </p>
      *
@@ -230,7 +230,7 @@ public class LiveTrait extends BaseServiceImpl {
 
     /**
      * <p>listVhostWatermarkPreset</p>
-     * <p>查询水印列表</p>
+     * <p>查询水印配置列表</p>
      *
      * <p>调用 `ListVhostWatermarkPreset` 接口，查询指定域名空间的所有水印配置。   </p>
      *
@@ -262,7 +262,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>createLiveStreamRecordIndexFiles</p>
      * <p>创建录制索引文件</p>
      *
-     * <p>调用 `CreateLiveStreamRecordIndexFiles` 接口，通过已存在的录制文件重新生成指定开始时间和结束时间的 M3U8 格式录制文件。</p>
+     * <p>调用 `CreateLiveStreamRecordIndexFiles` 接口，通过已存在的录制文件重新生成指定开始时间和结束时间的 M3U8 格式录制文件，并将新生成的录制文件存储在指定的 TOS Bucket 中。</p>
      *
      * @param body body payload
      * @return response data
@@ -277,7 +277,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>createPullRecordTask</p>
      * <p>创建直播录制任务</p>
      *
-     * <p>调用 `CreatePullRecordTask` 接口，创建一个在指定时间启动和结束的直播拉流录制任务，创建成功后，可以在直播过程中录制单路直播流并保存为视频文件。</p>
+     * <p>调用 `CreatePullRecordTask` 接口，创建一个在指定时间启动和结束的直播拉流录制任务，创建成功后，可以在直播过程中录制任意时长单路直播流并保存为视频文件。</p>
      *
      * @param body body payload
      * @return response data
@@ -659,7 +659,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeCertDetailSecretV2</p>
      * <p>查看证书详情</p>
      *
-     * <p>调用 `DescribeCertDetailSecretV2` 接口，通过证书示例 ID 或证书链 ID 查询证书详情。   </p>
+     * <p>调用 `DescribeCertDetailSecretV2` 接口，通过证书 ID 或证书链 ID 查询证书详情。   </p>
      *
      * @param body body payload
      * @return response data
@@ -848,6 +848,66 @@ public class LiveTrait extends BaseServiceImpl {
     public DisableDomainRes disableDomain(DisableDomainBody body) throws Exception {
         RawResponse rawResponse = json("DisableDomain", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, DisableDomainRes.class);
+    }
+
+    /**
+     * <p>createLiveVideoQualityAnalysisTask</p>
+     * <p>创建画质测评任务</p>
+     *
+     * <p>调用 `CreateLiveVideoQualityAnalysisTask` 接口，创建一个指定时长的画质测评任务。任务将根据您设置的测评间隔获取每个测评点的实时码率，并对测评点的画面画质进行评分，您可以使用查询单个画质测评任务详情接口来查看测评结果。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateLiveVideoQualityAnalysisTaskRes createLiveVideoQualityAnalysisTask(CreateLiveVideoQualityAnalysisTaskBody body) throws Exception {
+        RawResponse rawResponse = json("CreateLiveVideoQualityAnalysisTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateLiveVideoQualityAnalysisTaskRes.class);
+    }
+
+    /**
+     * <p>deleteLiveVideoQualityAnalysisTask</p>
+     * <p>删除画质测评任务</p>
+     *
+     * <p>调用 `DeleteLiveVideoQualityAnalysisTask` 接口，删除画质测评任务，您可以删除已完成的和进行中的任务。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteLiveVideoQualityAnalysisTaskRes deleteLiveVideoQualityAnalysisTask(DeleteLiveVideoQualityAnalysisTaskBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteLiveVideoQualityAnalysisTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteLiveVideoQualityAnalysisTaskRes.class);
+    }
+
+    /**
+     * <p>getLiveVideoQualityAnalysisTaskDetail</p>
+     * <p>查询单个画质测评任务详情</p>
+     *
+     * <p>调用 `GetLiveVideoQualityAnalysisTaskDetail` 接口，查询单个画质测评任务的测评详情，包含指定截图时间获取的视频码率和画质测试分数。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetLiveVideoQualityAnalysisTaskDetailRes getLiveVideoQualityAnalysisTaskDetail(GetLiveVideoQualityAnalysisTaskDetailBody body) throws Exception {
+        RawResponse rawResponse = json("GetLiveVideoQualityAnalysisTaskDetail", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetLiveVideoQualityAnalysisTaskDetailRes.class);
+    }
+
+    /**
+     * <p>listLiveVideoQualityAnalysisTasks</p>
+     * <p>查询画质测评任务列表</p>
+     *
+     * <p>调用 `ListLiveVideoQualityAnalysisTasks` 接口，查询画质测评任务列表信息。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public ListLiveVideoQualityAnalysisTasksRes listLiveVideoQualityAnalysisTasks(ListLiveVideoQualityAnalysisTasksBody body) throws Exception {
+        RawResponse rawResponse = json("ListLiveVideoQualityAnalysisTasks", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, ListLiveVideoQualityAnalysisTasksRes.class);
     }
 
     /**
@@ -1363,7 +1423,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveStreamSessionData</p>
      * <p>查询域名或单个直播流的拉流数据</p>
      *
-     * <p>调用 `DescribeLiveStreamSessionData` 接口，查询指定时间范围内指定拉流域名或指定直播流的请求数和最大在线人数。</p>
+     * <p>调用 `DescribeLiveStreamSessionData` 接口，查询指定时间范围内域名下所有直播流或指定直播流的请求数和最大在线人数。 </p>
      *
      * @param body body payload
      * @return response data
@@ -1632,7 +1692,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLivePullToPushBandwidthData</p>
      * <p>查询拉流转推带宽用量</p>
      *
-     * <p>调用 `DescribeLivePullToPushBandwidthData` 接口，查询指定时间范围内产生的拉流转推带宽用量。</p>
+     * <p>调用 `DescribeLivePullToPushBandwidthData` 接口，查询指定时间范围内拉流转推至第三方域名时产生的拉流转推带宽用量。</p>
      *
      * @param body body payload
      * @return response data
@@ -1647,7 +1707,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLivePullToPushData</p>
      * <p>查询拉流转推时长用量</p>
      *
-     * <p>调用 `DescribeLivePullToPushData` 接口，查询指定时间范围内域名产生的所有拉流转推任务进行时长用量。</p>
+     * <p>调用 `DescribeLivePullToPushData` 接口，查询指定时间范围内产生的所有拉流转推任务进行时长用量。</p>
      *
      * @param body body payload
      * @return response data
@@ -1944,6 +2004,50 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>updateEncryptHLS</p>
+     * <p>更新 HLS 密钥获取配置</p>
+     *
+     * <p>调用 `UpdateEncryptHLS` 接口，添加或更新 HLS 标准加密使用的自建密钥管理服务地址和视频直播更新密钥的周期。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateEncryptHLSRes updateEncryptHLS(UpdateEncryptHLSBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateEncryptHLS", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateEncryptHLSRes.class);
+    }
+
+    /**
+     * <p>getHLSEncryptDataKey</p>
+     * <p>查询 HLS 加密密钥</p>
+     *
+     * <p>调用 `GetHLSEncryptDataKey` 接口，查询视频直播服务端生成的用于 HLS 标准加密使用的密钥。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetHLSEncryptDataKeyRes getHLSEncryptDataKey(GetHLSEncryptDataKeyQuery query) throws Exception {
+        RawResponse rawResponse = json("GetHLSEncryptDataKey", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetHLSEncryptDataKeyRes.class);
+    }
+
+    /**
+     * <p>describeEncryptHLS</p>
+     * <p>查询 HLS 密钥获取配置</p>
+     *
+     * <p>调用 `DescribeEncryptHLS` 接口，查询 HLS 标准加密使用的自建密钥管理服务地址和视频直播更新密钥的周期。</p>
+     *
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeEncryptHLSRes describeEncryptHLS() throws Exception {
+        RawResponse rawResponse = json("DescribeEncryptHLS", null, "");
+        return parseRawResponse(rawResponse, DescribeEncryptHLSRes.class);
+    }
+
+    /**
      * <p>describeLicenseDRM</p>
      * <p>获取 DRM  授权许可文件</p>
      *
@@ -1989,9 +2093,9 @@ public class LiveTrait extends BaseServiceImpl {
 
     /**
      * <p>bindEncryptDRM</p>
-     * <p>添加或更新 DRM 加密配置</p>
+     * <p>添加或更新加密配置</p>
      *
-     * <p>调用 `BindEncryptDRM` 接口，添加或更新 DRM 加密配置。</p>
+     * <p>调用 `BindEncryptDRM` 接口，添加或更新直播加密配置。</p>
      *
      * @param body body payload
      * @return response data
@@ -2004,9 +2108,9 @@ public class LiveTrait extends BaseServiceImpl {
 
     /**
      * <p>unBindEncryptDRM</p>
-     * <p>删除 DRM 加密配置</p>
+     * <p>删除加密配置</p>
      *
-     * <p>调用 `UnBindEncryptDRM` 接口，删除指定的 DRM 加密配置。</p>
+     * <p>调用 `UnBindEncryptDRM` 接口，删除已创建的加密配置。</p>
      *
      * @param body body payload
      * @return response data
@@ -2019,9 +2123,9 @@ public class LiveTrait extends BaseServiceImpl {
 
     /**
      * <p>listBindEncryptDRM</p>
-     * <p>查询 DRM 加密配置</p>
+     * <p>查询加密配置</p>
      *
-     * <p>调用 `ListBindEncryptDRM` 接口，查询指定域名空间和应用名称的 DRM 加密配置或查看指定域名空间下所有 DRM 加密配置。</p>
+     * <p>调用 `ListBindEncryptDRM` 接口，查询指定域名空间和应用名称的加密配置或查看指定域名空间下所有加密配置。</p>
      *
      * @param body body payload
      * @return response data
@@ -2075,6 +2179,66 @@ public class LiveTrait extends BaseServiceImpl {
     public DescribeIPAccessRuleRes describeIPAccessRule(DescribeIPAccessRuleBody body) throws Exception {
         RawResponse rawResponse = json("DescribeIPAccessRule", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, DescribeIPAccessRuleRes.class);
+    }
+
+    /**
+     * <p>deleteSubtitleTranscodePreset</p>
+     * <p>删除字幕配置</p>
+     *
+     * <p>调用 `DeleteSubtitleTranscodePreset` 接口，删除已添加的字幕配置。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteSubtitleTranscodePresetRes deleteSubtitleTranscodePreset(DeleteSubtitleTranscodePresetBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteSubtitleTranscodePreset", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteSubtitleTranscodePresetRes.class);
+    }
+
+    /**
+     * <p>updateSubtitleTranscodePreset</p>
+     * <p>更新字幕配置</p>
+     *
+     * <p>调用 `UpdateSubtitleTranscodePreset` 接口，更新已添加的字幕配置。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateSubtitleTranscodePresetRes updateSubtitleTranscodePreset(UpdateSubtitleTranscodePresetBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateSubtitleTranscodePreset", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateSubtitleTranscodePresetRes.class);
+    }
+
+    /**
+     * <p>listVhostSubtitleTranscodePreset</p>
+     * <p>查询字幕配置列表</p>
+     *
+     * <p>调用 `ListVhostSubtitleTranscodePreset` 接口，查询指定域名空下所有字幕配置列表。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public ListVhostSubtitleTranscodePresetRes listVhostSubtitleTranscodePreset(ListVhostSubtitleTranscodePresetBody body) throws Exception {
+        RawResponse rawResponse = json("ListVhostSubtitleTranscodePreset", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, ListVhostSubtitleTranscodePresetRes.class);
+    }
+
+    /**
+     * <p>createSubtitleTranscodePreset</p>
+     * <p>添加字幕配置</p>
+     *
+     * <p>调用 `CreateSubtitleTranscodePreset` 接口，为转码流添加字幕配置。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateSubtitleTranscodePresetRes createSubtitleTranscodePreset(CreateSubtitleTranscodePresetBody body) throws Exception {
+        RawResponse rawResponse = json("CreateSubtitleTranscodePreset", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateSubtitleTranscodePresetRes.class);
     }
 
 }

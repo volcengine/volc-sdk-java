@@ -29,7 +29,7 @@ public final class ListCertV2ResResultCertListItem  {
     private String chainID;
 
     /**
-     * <p>证书实例 ID。</p>
+     * <p>证书 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CertID")
     private String certID;

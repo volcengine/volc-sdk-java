@@ -11,7 +11,7 @@ import static com.volcengine.model.tls.Const.TIME;
 @NoArgsConstructor
 public class HistogramInfo {
     @JSONField(name = TIME)
-    Integer time;
+    long time;
     @JSONField(name = COUNT)
-    Integer count;
+    long count;
 }

@@ -18,14 +18,11 @@ import static com.volcengine.model.tls.Const.*;
 public class DescribeHistogramResponse extends CommonResponse {
     @JSONField(name = RESULT_STATUS)
     String resultStatus;
-
     @JSONField(name = INTERVAL)
-    Integer interval;
-
+    long interval;
     @JSONField(name = TOTAL_COUNT)
-    Integer totalCount;
-
-    @JSONField(name = HISTOGRAM_INFOS)
+    long totalCount;
+    @JSONField(name = HISTOGRAM)
     List<HistogramInfo> histogramInfos;
 
     public DescribeHistogramResponse(Header[] headers) {

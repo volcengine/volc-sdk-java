@@ -101,7 +101,7 @@ public final class DescribeLiveBatchStreamSessionDataResResult  {
     private Integer totalRequest;
 
     /**
-     * <p>查询时间范围内的所有流在线人数峰值的最大值。</p>
+     * <p>查询时间范围内的在线人数峰值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PeakOnlineUser")
     private Integer peakOnlineUser;

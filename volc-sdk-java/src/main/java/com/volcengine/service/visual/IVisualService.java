@@ -680,4 +680,28 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     Object visualCommonRequestForForm(Object request,String action,String version) throws Exception;
+
+    /**
+     * 通用XL pro-文生图
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object  text2ImgXLSft(Object request) throws Exception;
+
+    /**
+     * 通用XL pro-图生图
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object  img2ImgXLSft(Object request) throws Exception;
+
+    /**
+     * 智能分割
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object saliencySeg(Object request) throws Exception;
 }

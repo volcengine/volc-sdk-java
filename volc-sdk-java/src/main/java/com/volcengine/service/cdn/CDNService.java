@@ -175,4 +175,19 @@ package com.volcengine.service.cdn;
         // 获取热门对象的统计排名: 
         CDN.DescribeStatisticalRankingResponse describeStatisticalRanking(CDN.DescribeStatisticalRankingRequest request) throws Exception;
 
+        // 批量更新加速域名: 
+        CDN.BatchUpdateCdnConfigResponse batchUpdateCdnConfig(CDN.BatchUpdateCdnConfigRequest request) throws Exception;
+
+        // 上传证书新版: 
+        CDN.AddCertificateResponse addCertificate(CDN.AddCertificateRequest request) throws Exception;
+
+        // 删除用量导出任务: 
+        CDN.DeleteUsageReportResponse deleteUsageReport(CDN.DeleteUsageReportRequest request) throws Exception;
+
+        // 创建用量导出任务: 
+        CDN.CreateUsageReportResponse createUsageReport(CDN.CreateUsageReportRequest request) throws Exception;
+
+        // 获取用量导出任务列表: 
+        CDN.ListUsageReportsResponse listUsageReports(CDN.ListUsageReportsRequest request) throws Exception;
+
 }

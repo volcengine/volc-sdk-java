@@ -76,7 +76,9 @@ public class Const {
     public static final String Img2ImgAnimeAcceleratedMaintainID = "Img2ImgAnimeAcceleratedMaintainID";
     public static final String EntitySegment = "EntitySegment";
     public static final String Img2ImgAnimeAcceleratedMaintainIDForSmartDrawingAnime = "Img2ImgAnimeAcceleratedMaintainIDForSmartDrawingAnime";
-
+    public static final String Text2ImgXLSft = "Text2ImgXLSft";
+    public static final String Img2ImgXLSft = "Img2ImgXLSft";
+    public static final String SaliencySeg = "SaliencySeg";
     // billing
     public static final String ListBill = "ListBill";
     public static final String ListBillDetail = "ListBillDetail";

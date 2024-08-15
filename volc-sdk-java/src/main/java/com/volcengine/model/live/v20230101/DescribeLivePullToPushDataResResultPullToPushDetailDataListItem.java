@@ -11,12 +11,6 @@ import java.util.List;
 public final class DescribeLivePullToPushDataResResultPullToPushDetailDataListItem  {
 
     /**
-     * <p>按域名维度进行数据拆分时的域名信息。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
-    private String domain;
-
-    /**
      * <p>按维度进行数据拆分后，当前维度的拉流转推总时长，单位分钟。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TotalDuration")
@@ -27,6 +21,12 @@ public final class DescribeLivePullToPushDataResResultPullToPushDetailDataListIt
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PullToPushDataList")
     private List<DescribeLivePullToPushDataResResultPullToPushDetailDataListItemPullToPushDataListItem> pullToPushDataList;
+
+    /**
+     * <p>按任务群组维度进行数据拆分时的群组信息。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Group")
+    private String group;
 
     @Override
     public String toString() {

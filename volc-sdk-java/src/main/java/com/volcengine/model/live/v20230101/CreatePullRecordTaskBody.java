@@ -16,7 +16,7 @@ public final class CreatePullRecordTaskBody  {
     private String vhost;
 
     /**
-     * <p>直播流使用的域名。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，查看直播流使用的域名。</p>
+     * <p>直播流使用的推流域名或拉流域名。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，查看直播流使用的域名。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;
@@ -35,18 +35,24 @@ public final class CreatePullRecordTaskBody  {
 
     /**
      * <p>待录制直播流的拉流地址。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>当前仅支持 FLV 格式的拉流地址。</p>
+     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StreamURL")
     private String streamURL;
 
     /**
-     * <p>录制的开始时间，RFC3339 格式的时间戳，精度为秒。</p>
+     * <p>指定录制任务的开始时间，RFC3339 格式的时间戳，精度为秒。默认为空，表示立即开始。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
 
     /**
-     * <p>录制的结束时间，RFC3339 格式的时间戳，精度为秒。</p>
+     * <p>指定录制任务的结束时间，RFC3339 格式的时间戳，精度为秒，默认为空，表示录制到直播流结束。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;

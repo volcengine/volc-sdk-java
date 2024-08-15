@@ -35,20 +35,24 @@ public final class DescribeLivePullToPushBandwidthDataBody  {
     private Integer aggregation;
 
     /**
-     * <p>数据拆分的维度，默认为空表示不按维度进行数据拆分，支持的维度如下所示。</p>
+     * <p>数据拆分的维度，默认为空表示不按维度进行数据拆分，当前支持按 `Group` 维度进行拆分。</p>
      *
-     * <p>- `Domain`：域名；</p>
      *
-     * <p>- `DstAddrType`：推流地址类型。</p>
      *
      * <p>:::tip</p>
      *
-     * <p>配置数据拆分的维度时，对应的维度参数传入多个值时才会返回按此维度拆分的数据。例如，配置按 Domain 进行数据拆分时， DomainList 传入多个 Domain 值时，才会返回按 Domain 拆分的数据。</p>
+     * <p>配置数据拆分的维度时，对应的维度参数传入多个值时才会返回按此维度拆分的数据。例如，配置按 Group 进行数据拆分时， GroupList 传入多个 Group 值时，才会返回按 Group 拆分的数据。</p>
      *
      * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DetailField")
     private List<String> detailField;
+
+    /**
+     * <p>拉流转推任务群组列表，默认为空，表示查询所有拉流转推任务群组的时长用量。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "GroupList")
+    private List<String> groupList;
 
     @Override
     public String toString() {

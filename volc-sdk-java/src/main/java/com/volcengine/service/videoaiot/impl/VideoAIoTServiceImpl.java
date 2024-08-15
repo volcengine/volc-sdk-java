@@ -78,6 +78,7 @@ public class VideoAIoTServiceImpl extends BaseServiceImpl implements VideoAIoTSe
             {
                 add(new BasicNameValuePair("PageNumber", Integer.toString(listSpaceRequest.getPageNumber())));
                 add(new BasicNameValuePair("PageSize", Integer.toString(listSpaceRequest.getPageSize())));
+                add(new BasicNameValuePair("Order", Integer.toString(listSpaceRequest.getOrder())));
             }
         });
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

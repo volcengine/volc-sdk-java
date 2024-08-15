@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.volcengine.service.videoaiot.impl.BaseTest.setTest;
-import static com.volcengine.service.videoaiot.impl.BaseTest.videoAIoTService;
 
 public class StreamTest {
     @Test
@@ -38,6 +37,21 @@ public class StreamTest {
 
     @Test
     public void getStreamStatusByStreamTag() throws Exception {
+        VideoAIoTServiceImpl videoAIoTService1 = (VideoAIoTServiceImpl) videoAIoTService;
+        List<NameValuePair> query = new ArrayList<>();
+        query.add(new BasicNameValuePair("StreamTag", "{domain}:{appname}:{streamname}"));
+        RawResponse stream = videoAIoTService1.query("GetStream", query);
+        if (stream.getException() != null) {
+            throw stream.getException();
+        }
+        GetStreamResponse resp = JSON.parseObject(stream.getData(), GetStreamResponse.class);
+        if (resp.getResponseMetadata().getError() != null) {
+            throw new Exception(resp.getResponseMetadata().getError().getMessage());
+        }
+        System.out.println(resp.getStream().getStatus());
+    }
+    @Test
+    public void getStream() throws Exception {
         VideoAIoTServiceImpl videoAIoTService1 = (VideoAIoTServiceImpl) videoAIoTService;
         List<NameValuePair> query = new ArrayList<>();
         query.add(new BasicNameValuePair("StreamTag", "{domain}:{appname}:{streamname}"));

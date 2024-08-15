@@ -262,7 +262,7 @@ public class Const {
     public static final String CONSUME_TOPIC = "ConsumeTopic";
     public static final String INTERVAL = "Interval";
     public static final String TOTAL_COUNT = "TotalCount";
-    public static final String HISTOGRAM_INFOS = "HistogramInfos";
+    public static final String HISTOGRAM = "Histogram";
     public static final String ALLOW_CONSUME = "AllowConsume";
 
     //log

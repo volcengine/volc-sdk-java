@@ -25,7 +25,7 @@ public final class DescribeLiveStreamSessionDataBody  {
     private List<String> domainList;
 
     /**
-     * <p>拉流域名，查询流粒度数据时必传，且需同时传入 `App` 和 `Stream`。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，获取待查询的拉流域名。</p>
+     * <p>拉流域名，您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，获取待查询的拉流域名。</p>
      *
      * <p>:::tip</p>
      *

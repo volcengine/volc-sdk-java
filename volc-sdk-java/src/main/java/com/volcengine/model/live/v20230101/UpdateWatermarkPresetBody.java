@@ -103,6 +103,12 @@ public final class UpdateWatermarkPresetBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "RelativeHeight")
     private Float relativeHeight;
 
+    /**
+     * <p>流名称，您可以调用 [ListVhostWatermarkPreset](https://www.volcengine.com/docs/6469/1126889) 接口，查看待更新水印配置的 Stream 取值。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
+    private String stream;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

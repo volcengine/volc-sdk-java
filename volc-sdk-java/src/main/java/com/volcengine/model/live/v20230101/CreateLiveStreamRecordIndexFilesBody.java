@@ -40,13 +40,27 @@ public final class CreateLiveStreamRecordIndexFilesBody  {
     private String endTime;
 
     /**
-     * <p>将录制文件存储到 TOS 时的 Bucket，默认为空，表示与对应录制配置中的 TOS 存储配置一致。</p>
+     * <p>指定录制文件存储的 TOS Bucket。默认为空，表示与对应录制配置中的存储配置一致。</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>- `OutputBucket` 参数用于覆盖录制配置中的 TOS 存储的 `Bucket` 参数，`OutputObject` 参数用于覆盖录制配置中 TOS 存储的 `ExactObject` 参数。</p>
+     *
+     *
+     *
+     * <p>- 当您的录制配置存储位置为 VOD ，且创建录制任务仍需存储至 VOD 时，请勿配置 `OutputBucket` 和 `OutputObject`。</p>
+     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "OutputBucket")
     private String outputBucket;
 
     /**
-     * <p>将录制文件存储到 TOS 时的存储规则，最大长度为 200 个字符，支持以 `record/{PubDomain}/{App}/{Stream}/{StartTime}_{EndTime}` 样式设置存储规则，支持输入字母（A - Z、a - z）、数字（0 - 9）、短横线（-）、叹号（!）、下划线（\_）、句点（.）、星号（\*）及占位符。默认为空，表示与对应录制配置中的存储规则配置一致。</p>
+     * <p>指定录制文件存储到 TOS 是的存储规则，默认为空，表示与对应录制配置中的存储规则配置一致。</p>
+     *
+     * <p>支持以 `record/{PubDomain}/{App}/{Stream}/{StartTime}_{EndTime}` 样式设置存储规则，支持输入字母（A - Z、a - z）、数字（0 - 9）、短横线（-）、叹号（!）、下划线（\_）、句点（.）、星号（\*）及占位符，最大长度 200 个字符。</p>
      *
      *
      *

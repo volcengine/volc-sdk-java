@@ -11,19 +11,19 @@ import java.util.List;
 public final class ListVhostWatermarkPresetResResult  {
 
     /**
-     * <p>统计消息，提供查询成功和失败的数量。</p>
+     * <p>统计消息，提供可用配置和不可用配置的数量。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StaticsMsg")
     private String staticsMsg;
 
     /**
-     * <p>获取配置失败的列表，返回获取失败的配置信息及获取失败的原因。</p>
+     * <p>不可正常使用的水印配置列表，如水印图片获取失败等原因导致的配置不可用。返回不可正常使用的水印配置信息及配置不可用的原因。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "WatermarkErrMsgList")
     private List<ListVhostWatermarkPresetResResultWatermarkErrMsgListItem> watermarkErrMsgList;
 
     /**
-     * <p>水印配置列表。</p>
+     * <p>可正常使用的水印配置列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "WatermarkPresetList")
     private List<ListVhostWatermarkPresetResResultWatermarkPresetListItem> watermarkPresetList;

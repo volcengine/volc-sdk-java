@@ -11,12 +11,6 @@ import java.util.List;
 public final class DescribeLivePullToPushBandwidthDataResResult  {
 
     /**
-     * <p>域名列表。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "DomainList")
-    private List<String> domainList;
-
-    /**
      * <p>查询的开始时间，RFC3339 格式的时间戳，精度为秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
@@ -41,11 +35,7 @@ public final class DescribeLivePullToPushBandwidthDataResResult  {
     private Integer aggregation;
 
     /**
-     * <p>数据拆分的维度，维度说明如下。</p>
-     *
-     * <p>- `Domain`：域名；</p>
-     *
-     * <p>- `DstAddrType`：推流地址类型。</p>
+     * <p>数据拆分的维度。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DetailField")
     private List<String> detailField;
@@ -73,6 +63,12 @@ public final class DescribeLivePullToPushBandwidthDataResResult  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "BandwidthDetailDataList")
     private List<DescribeLivePullToPushBandwidthDataResResultBandwidthDetailDataListItem> bandwidthDetailDataList;
+
+    /**
+     * <p>拉流转推任务群组列表。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "GroupList")
+    private List<String> groupList;
 
     @Override
     public String toString() {

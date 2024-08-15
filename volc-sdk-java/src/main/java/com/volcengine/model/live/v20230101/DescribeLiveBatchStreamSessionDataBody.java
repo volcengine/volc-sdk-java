@@ -11,10 +11,6 @@ import java.util.List;
 public final class DescribeLiveBatchStreamSessionDataBody  {
 
     /**
-     * <p>域名列表，缺省情况下表示当前账号下的所有推拉流域名。</p>
-     *
-     *
-     *
      * <p>拉流域名列表，默认为空，表示查询所有域名的请求数和在线人数。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，获取待查询的拉流域名。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DomainList")

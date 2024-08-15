@@ -21,6 +21,12 @@ public final class DeleteWatermarkPresetBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;
 
+    /**
+     * <p>流名称，您可以调用 [ListVhostWatermarkPreset](https://www.volcengine.com/docs/6469/1126889) 接口，查看待删除水印配置的 Stream 取值。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
+    private String stream;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

@@ -25,7 +25,8 @@ public class GetStreamDataResponse {
         List<DataProject> bAudio;
         @JSONField(name = "FPS")
         List<DataProject> fps;
-
+        @JSONField(name = "VCodec")
+        String vCodec;
     }
 
     @Data

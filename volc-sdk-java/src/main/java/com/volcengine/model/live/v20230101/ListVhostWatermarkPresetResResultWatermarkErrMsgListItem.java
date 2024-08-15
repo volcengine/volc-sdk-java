@@ -28,7 +28,7 @@ public final class ListVhostWatermarkPresetResResultWatermarkErrMsgListItem  {
     private String errMsg;
 
     /**
-     * <p>域名空间名称。</p>
+     * <p>域名空间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;

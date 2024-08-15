@@ -555,4 +555,49 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
         }
         return JSON.parseObject(response.getData(), CDN.DescribeStatisticalRankingResponse.class);
     }
+
+    @Override
+    public CDN.BatchUpdateCdnConfigResponse batchUpdateCdnConfig(CDN.BatchUpdateCdnConfigRequest request) throws Exception {
+        RawResponse response = requestProxy("BatchUpdateCdnConfig", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.BatchUpdateCdnConfigResponse.class);
+    }
+
+    @Override
+    public CDN.AddCertificateResponse addCertificate(CDN.AddCertificateRequest request) throws Exception {
+        RawResponse response = requestProxy("AddCertificate", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.AddCertificateResponse.class);
+    }
+
+    @Override
+    public CDN.DeleteUsageReportResponse deleteUsageReport(CDN.DeleteUsageReportRequest request) throws Exception {
+        RawResponse response = requestProxy("DeleteUsageReport", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DeleteUsageReportResponse.class);
+    }
+
+    @Override
+    public CDN.CreateUsageReportResponse createUsageReport(CDN.CreateUsageReportRequest request) throws Exception {
+        RawResponse response = requestProxy("CreateUsageReport", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.CreateUsageReportResponse.class);
+    }
+
+    @Override
+    public CDN.ListUsageReportsResponse listUsageReports(CDN.ListUsageReportsRequest request) throws Exception {
+        RawResponse response = requestProxy("ListUsageReports", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.ListUsageReportsResponse.class);
+    }
 }

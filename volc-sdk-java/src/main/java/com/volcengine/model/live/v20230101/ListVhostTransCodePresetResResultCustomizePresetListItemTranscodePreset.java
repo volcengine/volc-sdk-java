@@ -209,7 +209,7 @@ public final class ListVhostTransCodePresetResResultCustomizePresetListItemTrans
      * <p>- 1：开启</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "FISwitch")
-    private String fISwitch;
+    private Long fISwitch;
 
     /**
      * <p>转码模板参数的类型</p>

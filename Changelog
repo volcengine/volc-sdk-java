@@ -1,6 +1,9 @@
 Change log
 
-2024-08-08 Bumped to version v1.0.177 
+2024-08-15 Bumped to version v1.0.178
+- Updated apis for video_aiot/tls/vikingDB/live/visual/cdn
+
+2024-08-08 Bumped to version v1.0.177
 - Updated apis for vod/visual/livesaas/acep/imagex/sts/businessSecurity
 
 2024-08-01 Bumped to version v1.0.176

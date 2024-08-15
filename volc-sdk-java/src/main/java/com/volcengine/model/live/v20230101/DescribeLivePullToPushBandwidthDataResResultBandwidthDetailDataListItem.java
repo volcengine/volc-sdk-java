@@ -17,12 +17,6 @@ public final class DescribeLivePullToPushBandwidthDataResResultBandwidthDetailDa
     private String dstAddrType;
 
     /**
-     * <p>按域名维度进行数据拆分时的域名信息。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
-    private String domain;
-
-    /**
      * <p>查询时间范围内的维度下的拉流转推峰值带宽，单位为 Mbps。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PeakUpBandwidth")
@@ -33,6 +27,12 @@ public final class DescribeLivePullToPushBandwidthDataResResultBandwidthDetailDa
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "BandwidthDataList")
     private List<DescribeLivePullToPushBandwidthDataResResultBandwidthDetailDataListItemBandwidthDataListItem> bandwidthDataList;
+
+    /**
+     * <p>按任务群组维度进行数据拆分时的群组信息。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Group")
+    private String group;
 
     @Override
     public String toString() {

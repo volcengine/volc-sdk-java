@@ -31,6 +31,7 @@ import org.apache.http.message.BasicHeader;
 
 import java.beans.IndexedPropertyDescriptor;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -681,23 +682,39 @@ class ObjectTypeAdapterRewrite extends TypeAdapter<Object> {
  
             case STRING:
                 return in.nextString();
- 
+            
             case NUMBER:
                 /**
                  * 改写数字的处理逻辑，将数字值分为整型与浮点型。
                  */
-                double dbNum = in.nextDouble();
-                // 数字超过long的最大值，返回浮点类型
-                if (dbNum > Long.MAX_VALUE) {
-                    return dbNum;
-                }
-                // 判断数字是否为整数值
-                long lngNum = (long) dbNum;
-                if (dbNum == lngNum) {
-                    return lngNum;
+                
+                    // 读取数字，并尝试转换为 BigDecimal
+                BigDecimal decimalValue = new BigDecimal(in.nextString());
+
+                // 检查是否超出 long 的范围
+                if (decimalValue.compareTo(new BigDecimal(Long.MIN_VALUE)) < 0 ||
+                    decimalValue.compareTo(new BigDecimal(Long.MAX_VALUE)) > 0) {
+                    // 超出 long 范围，使用 double
+                    return decimalValue.doubleValue();
+                } else if (decimalValue.scale() > 0) { 
+                    // BigDecimal.scale() > 0 表示小数部分存在，转换为 double
+                    return decimalValue.doubleValue();
                 } else {
-                    return dbNum;
+                    // 没有小数且在 long 范围内，转换为 long
+                    return decimalValue.longValue();
                 }
+                // double dbNum = 
+                // // 数字超过long的最大值，返回浮点类型
+                // if (dbNum > Long.MAX_VALUE) {
+                //     return dbNum;
+                // }
+                // // 判断数字是否为整数值
+                // long lngNum = (long) dbNum;
+                // if (dbNum == lngNum) {
+                //     return lngNum;
+                // } else {
+                //     return dbNum;
+                // }
  
             case BOOLEAN:
                 return in.nextBoolean();

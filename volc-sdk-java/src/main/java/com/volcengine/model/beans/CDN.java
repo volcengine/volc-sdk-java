@@ -269,6 +269,60 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class AddCertificateRequest {
+
+        @JSONField(name = "CertType")
+        String CertType;
+
+        @JSONField(name = "Certificate")
+        String Certificate;
+
+        @JSONField(name = "CloseSigCheck")
+        Boolean CloseSigCheck;
+
+        @JSONField(name = "Desc")
+        String Desc;
+
+        @JSONField(name = "EncryType")
+        String EncryType;
+
+        @JSONField(name = "EncryptionCert")
+        String EncryptionCert;
+
+        @JSONField(name = "EncryptionKey")
+        String EncryptionKey;
+
+        @JSONField(name = "PrivateKey")
+        String PrivateKey;
+
+        @JSONField(name = "Repeatable")
+        Boolean Repeatable;
+
+        @JSONField(name = "Source")
+        String Source;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class AddCertificateResponse {
+
+        @JSONField(name = "ResponseMetadata")
+        ResponseMetadata ResponseMetadata;
+
+        @JSONField(name = "Result")
+        AddCertificateResult Result;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class AddCertificateResult {
+
+        @JSONField(name = "CertId")
+        String CertId;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class AddResourceTagsRequest {
 
         @JSONField(name = "ResourceTags")
@@ -457,6 +511,171 @@ public class CDN {
 
         @JSONField(name = "DeployResult")
         List<CertDeployStatus> DeployResult;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class BatchUpdateCdnConfigRequest {
+
+        @JSONField(name = "Aggregate")
+        Boolean Aggregate;
+
+        @JSONField(name = "AreaAccessRule")
+        AreaAccessRule AreaAccessRule;
+
+        @JSONField(name = "BandwidthLimit")
+        BandwidthLimit BandwidthLimit;
+
+        @JSONField(name = "BrowserCache")
+        List<BrowserCacheControlRule> BrowserCache;
+
+        @JSONField(name = "Cache")
+        List<CacheControlRule> Cache;
+
+        @JSONField(name = "CacheHost")
+        CacheHost CacheHost;
+
+        @JSONField(name = "CacheKey")
+        List<CacheKeyRule> CacheKey;
+
+        @JSONField(name = "Compression")
+        Compression Compression;
+
+        @JSONField(name = "ConditionalOrigin")
+        ConditionalOrigin ConditionalOrigin;
+
+        @JSONField(name = "CustomErrorPage")
+        CustomErrorPage CustomErrorPage;
+
+        @JSONField(name = "CustomizeAccessRule")
+        CustomizeAccessRule CustomizeAccessRule;
+
+        @JSONField(name = "Domains")
+        List<String> Domains;
+
+        @JSONField(name = "DownloadSpeedLimit")
+        DownloadSpeedLimit DownloadSpeedLimit;
+
+        @JSONField(name = "FollowRedirect")
+        Boolean FollowRedirect;
+
+        @JSONField(name = "HTTPS")
+        HTTPS HTTPS;
+
+        @JSONField(name = "HttpForcedRedirect")
+        HttpForcedRedirect HttpForcedRedirect;
+
+        @JSONField(name = "IPv6")
+        IPv6 IPv6;
+
+        @JSONField(name = "IpAccessRule")
+        IpAccessRule IpAccessRule;
+
+        @JSONField(name = "IpFreqLimit")
+        IpFreqLimit IpFreqLimit;
+
+        @JSONField(name = "MethodDeniedRule")
+        MethodDeniedRule MethodDeniedRule;
+
+        @JSONField(name = "NegativeCache")
+        List<NegativeCache> NegativeCache;
+
+        @JSONField(name = "Origin")
+        List<OriginRule> Origin;
+
+        @JSONField(name = "OriginAccessRule")
+        OriginAccessRule OriginAccessRule;
+
+        @JSONField(name = "OriginArg")
+        List<OriginArgRule> OriginArg;
+
+        @JSONField(name = "OriginCertCheck")
+        OriginCertCheck OriginCertCheck;
+
+        @JSONField(name = "OriginHost")
+        String OriginHost;
+
+        @JSONField(name = "OriginIPv6")
+        String OriginIPv6;
+
+        @JSONField(name = "OriginProtocol")
+        String OriginProtocol;
+
+        @JSONField(name = "OriginRange")
+        Boolean OriginRange;
+
+        @JSONField(name = "OriginRetry")
+        OriginRetry OriginRetry;
+
+        @JSONField(name = "OriginRewrite")
+        OriginRewrite OriginRewrite;
+
+        @JSONField(name = "OriginSni")
+        OriginSni OriginSni;
+
+        @JSONField(name = "PageOptimization")
+        PageOptimization PageOptimization;
+
+        @JSONField(name = "Quic")
+        Quic Quic;
+
+        @JSONField(name = "RedirectionRewrite")
+        RedirectionRewrite RedirectionRewrite;
+
+        @JSONField(name = "RefererAccessRule")
+        RefererAccessRule RefererAccessRule;
+
+        @JSONField(name = "RemoteAuth")
+        RemoteAuth RemoteAuth;
+
+        @JSONField(name = "RequestBlockRule")
+        RequestBlockRule RequestBlockRule;
+
+        @JSONField(name = "RequestHeader")
+        List<RequestHeaderRule> RequestHeader;
+
+        @JSONField(name = "ResponseHeader")
+        List<ResponseHeaderRule> ResponseHeader;
+
+        @JSONField(name = "RewriteHLS")
+        RewriteHLS RewriteHLS;
+
+        @JSONField(name = "ServiceRegion")
+        String ServiceRegion;
+
+        @JSONField(name = "SignedUrlAuth")
+        SignedUrlAuth SignedUrlAuth;
+
+        @JSONField(name = "Timeout")
+        Timeout Timeout;
+
+        @JSONField(name = "UaAccessRule")
+        UserAgentAccessRule UaAccessRule;
+
+        @JSONField(name = "UrlNormalize")
+        URLNormalize UrlNormalize;
+
+        @JSONField(name = "VideoDrag")
+        VideoDrag VideoDrag;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class BatchUpdateCdnConfigResponse {
+
+        @JSONField(name = "ResponseMetadata")
+        ResponseMetadata ResponseMetadata;
+
+        @JSONField(name = "Result")
+        BatchUpdateCdnConfigResult Result;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class BatchUpdateCdnConfigResult {
+
+        @JSONField(name = "DeployResult")
+        List<DeployResult> DeployResult;
     }
 
     @Data
@@ -891,6 +1110,66 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class CreateUsageReportRequest {
+
+        @JSONField(name = "Aggregate")
+        String Aggregate;
+
+        @JSONField(name = "BillingCode")
+        String BillingCode;
+
+        @JSONField(name = "BillingRegion")
+        String BillingRegion;
+
+        @JSONField(name = "CalculationMethod")
+        String CalculationMethod;
+
+        @JSONField(name = "Domain")
+        String Domain;
+
+        @JSONField(name = "EndTime")
+        Long EndTime;
+
+        @JSONField(name = "ExportType")
+        String ExportType;
+
+        @JSONField(name = "FreeTimeTrafficCompute")
+        Boolean FreeTimeTrafficCompute;
+
+        @JSONField(name = "Metric")
+        String Metric;
+
+        @JSONField(name = "StartTime")
+        Long StartTime;
+
+        @JSONField(name = "TaskName")
+        String TaskName;
+
+        @JSONField(name = "TlsTopic")
+        String TlsTopic;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class CreateUsageReportResponse {
+
+        @JSONField(name = "ResponseMetadata")
+        ResponseMetadata ResponseMetadata;
+
+        @JSONField(name = "Result")
+        CreateUsageReportResult Result;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class CreateUsageReportResult {
+
+        @JSONField(name = "TaskId")
+        String TaskId;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class CustomErrorPage {
 
         @JSONField(name = "ErrorPageRule")
@@ -1029,6 +1308,47 @@ public class CDN {
 
         @JSONField(name = "ResponseMetadata")
         ResponseMetadata ResponseMetadata;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DeleteUsageReportRequest {
+
+        @JSONField(name = "TaskId")
+        String TaskId;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DeleteUsageReportResponse {
+
+        @JSONField(name = "ResponseMetadata")
+        ResponseMetadata ResponseMetadata;
+
+        @JSONField(name = "Result")
+        DeleteUsageReportResult Result;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DeleteUsageReportResult {
+
+        @JSONField(name = "TaskIds")
+        List<String> TaskIds;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DeployResult {
+
+        @JSONField(name = "Domain")
+        String Domain;
+
+        @JSONField(name = "ErrorMsg")
+        String ErrorMsg;
+
+        @JSONField(name = "Status")
+        String Status;
     }
 
     @Data
@@ -3889,6 +4209,54 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class ListUsageReportsRequest {
+
+        @JSONField(name = "ExportType")
+        String ExportType;
+
+        @JSONField(name = "PageNum")
+        Long PageNum;
+
+        @JSONField(name = "PageSize")
+        Long PageSize;
+
+        @JSONField(name = "Status")
+        Long Status;
+
+        @JSONField(name = "TaskName")
+        String TaskName;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class ListUsageReportsResponse {
+
+        @JSONField(name = "ResponseMetadata")
+        ResponseMetadata ResponseMetadata;
+
+        @JSONField(name = "Result")
+        ListUsageReportsResult Result;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class ListUsageReportsResult {
+
+        @JSONField(name = "PageNum")
+        Long PageNum;
+
+        @JSONField(name = "PageSize")
+        Long PageSize;
+
+        @JSONField(name = "Total")
+        Long Total;
+
+        @JSONField(name = "UsageReportsDetails")
+        List<UsageReportsDetail> UsageReportsDetails;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class MassCompression {
 
         @JSONField(name = "MassCompressionRule")
@@ -4191,6 +4559,9 @@ public class CDN {
     @Data
     @Accessors(chain = true)
     public static class OriginRewriteAction {
+
+        @JSONField(name = "RewriteType")
+        String RewriteType;
 
         @JSONField(name = "SourcePath")
         String SourcePath;
@@ -5560,6 +5931,47 @@ public class CDN {
 
         @JSONField(name = "ResponseMetadata")
         ResponseMetadata ResponseMetadata;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class UsageReportsDetail {
+
+        @JSONField(name = "BillingCode")
+        String BillingCode;
+
+        @JSONField(name = "BillingRegion")
+        String BillingRegion;
+
+        @JSONField(name = "CalculationMethod")
+        String CalculationMethod;
+
+        @JSONField(name = "CreateTime")
+        Long CreateTime;
+
+        @JSONField(name = "DownLoadUrl")
+        String DownLoadUrl;
+
+        @JSONField(name = "EndTime")
+        Long EndTime;
+
+        @JSONField(name = "ExportType")
+        String ExportType;
+
+        @JSONField(name = "Metric")
+        String Metric;
+
+        @JSONField(name = "StartTime")
+        Long StartTime;
+
+        @JSONField(name = "Status")
+        Long Status;
+
+        @JSONField(name = "TaskId")
+        String TaskId;
+
+        @JSONField(name = "TaskName")
+        String TaskName;
     }
 
     @Data

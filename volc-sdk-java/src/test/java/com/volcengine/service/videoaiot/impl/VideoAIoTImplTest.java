@@ -1030,6 +1030,9 @@ public class VideoAIoTImplTest extends TestCase {
         StreamRequest streamRequest = new StreamRequest();
         streamRequest.setStreamID("15795af1-86fb-434f-af1a-3f604fec1df7");
         streamRequest.setIgnoreAudio(true);
+        streamRequest.setEnableAudioTranscode(false);
+        streamRequest.setStreamingIndex(0);
+        streamRequest.setResolution("");
         try {
             StartStreamResponse startStreamResponse = videoAIoTService.startStream(streamRequest);
             System.out.println(JSON.toJSONString(startStreamResponse));

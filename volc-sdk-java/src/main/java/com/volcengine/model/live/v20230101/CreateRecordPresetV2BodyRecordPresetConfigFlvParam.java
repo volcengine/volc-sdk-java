@@ -28,17 +28,19 @@ public final class CreateRecordPresetV2BodyRecordPresetConfigFlvParam  {
      *
      * <p>- 取值为 `-1` 时，表示不限制录制时长，录制结束后生成一个完整的录制文件。</p>
      *
-     * <p>- 取值为 [300,86400] 之间的值时，表示根据设置的录制文件时分段长生成录制文件，完成录制后一起上传。</p>
+     * <p>- 取值为 [300,86400] 之间的值时，表示根据设置的录制文件时长，到达时长立即生成录制文件，完成录制后一起上传。</p>
      *
      *
      *
      * <p>:::tip</p>
      *
-     * <p>断流录制场景仅在录制格式为 HLS 时生效，且断流录制和实时录制为二选一配置。</p>
+     * <p>- 断流录制场景仅在录制格式为 HLS 时生效，且断流录制和实时录制为二选一配置。</p>
+     *
+     * <p>- 如录制过程中出现断流，对应生成的录制文件时长也会相应缩短。</p>
+     *
+     *
      *
      * <p>:::</p>
-     *
-     *
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Duration")
     private Integer duration;
@@ -51,6 +53,12 @@ public final class CreateRecordPresetV2BodyRecordPresetConfigFlvParam  {
 
     /**
      * <p>实时录制场景下，单文件录制时长，单位为秒，默认值为 `1800`，取值范围为 [300,21600]。录制时间到达设置的单文件录制时长时，会立即生成录制文件实时上传存储。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>如录制过程中出现断流，对应生成的录制文件时长也会相应缩短。</p>
+     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RealtimeRecordDuration")
     private Integer realtimeRecordDuration;

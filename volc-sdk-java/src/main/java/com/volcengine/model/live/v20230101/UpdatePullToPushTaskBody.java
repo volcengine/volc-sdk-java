@@ -73,11 +73,7 @@ public final class UpdatePullToPushTaskBody  {
      *
      * <p>- `0`：有限次循环，循环次数以 PlayTimes 取值为准；</p>
      *
-     * <p>- `>0`：有限次循环，循环次数由 CycleMode 和 PlayTimes 共同决定:</p>
-     *
-     * <p>	- PlayTimes 为 0 时，循环次数以 CycleMode 为准；</p>
-     *
-     * <p>	- PlayTimes 为正整数时，循环次数以 PlayTimes为准。</p>
+     * <p>- `>0`：有限次循环，循环次数以 CycleMode 取值为准。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CycleMode")
     private Integer cycleMode;
@@ -163,10 +159,30 @@ public final class UpdatePullToPushTaskBody  {
     private Float offset;
 
     /**
-     * <p>点播视频文件循环播放次数，当循环播放模式为有限次循环时为必选参数，取值范围为 0 或正整数。</p>
+     * <p>点播视频文件循环播放次数，当 CycleMode 取值为 0 时，PlayTimes 取值将作为循环播放次数。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>PlayTimes 为冗余参数，您可以将 PlayTimes 置 0 后直接使用 CycleMode 指定点播视频文件循环播放次数。</p>
+     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PlayTimes")
     private Integer playTimes;
+
+    /**
+     * <p>点播文件地址和开始播放、结束播放的时间设置。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>- 当 Type 为点播类型时配置生效。</p>
+     *
+     * <p>- 与 SrcAddrS 和 OffsetS 字段不可同时填写。</p>
+     *
+     * <p>:::</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "VodSrcAddrs")
+    private List<UpdatePullToPushTaskBodyVodSrcAddrsItem> vodSrcAddrs;
 
     @Override
     public String toString() {

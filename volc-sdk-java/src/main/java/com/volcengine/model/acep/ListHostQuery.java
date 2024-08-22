@@ -60,17 +60,21 @@ public final class ListHostQuery  {
     private String dc;
 
     /**
-     * <p>资源所在大区。取值如下：</p>
+     * <p>云机所在的大区 ID。</p>
      *
-     * <p>- `cn-north`：华北</p>
+     * <p>- 当资源所在区域选择中国大陆，即 `VolcRegion` 设置为 `inner` 时，该参数可选值包含：</p>
      *
-     * <p>- `cn-south`：华南</p>
+     * <p>	- `cn-north`：华北</p>
      *
-     * <p>- `cn-east`：华东</p>
+     * <p>	- `cn-south`：华南</p>
      *
-     * <p>- `cn-middle`：华中</p>
+     * <p>	- `cn-east`：华东</p>
      *
-     * <p>- `cn-southwest`：西南</p>
+     * <p>	- `cn-middle`：华中</p>
+     *
+     * <p>	- `cn-southwest`：西南</p>
+     *
+     * <p>- 当资源所在区域选择中国香港，即 `VolcRegion` 设置为 `cn-hongkong-pop` 时，该参数可选值为 `cn-hongkong-pop`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Region")
     private String region;
@@ -126,10 +130,32 @@ public final class ListHostQuery  {
     private String configurationCode;
 
     /**
-     * <p>资源ID</p>
+     * <p>资源所在的物理区域，包含以下选项：</p>
+     *
+     *
+     *
+     * <p>`inner`：中国大陆（默认值）</p>
+     *
+     * <p>`cn-hongkong-pop`：中国香港</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "VolcRegion")
+    private String volcRegion;
+
+    /**
+     * <p>资源 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ResourceSetId")
     private String resourceSetId;
+
+    /**
+     * <p>云机运维授权状态：</p>
+     *
+     * <p>- `1`：未授权；</p>
+     *
+     * <p>- `2`：已授权。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "AuthorityStatus")
+    private Integer authorityStatus;
 
     /**
      * <p>分页偏移量，默认值为 0。</p>

@@ -2,6 +2,7 @@ package com.volcengine.model.acep;
 
 
 import com.alibaba.fastjson.JSON;
+
 import java.util.List;
 
 /**
@@ -49,9 +50,9 @@ public final class DistributeFileBody  {
     /**
      * <p>分发 `.zip/.tar` 文件后，是否自动解压缩文件：</p>
      *
-     * <p>- 0：（默认设置）自动解压文件；</p>
+     * <p>- 0：（默认设置）不自动解压文件；</p>
      *
-     * <p>- 1：不自动解压文件。</p>
+     * <p>- 1：自动解压文件。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AutoUnzip")
     private Integer autoUnzip;

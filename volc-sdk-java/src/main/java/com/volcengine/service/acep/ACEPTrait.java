@@ -1,13 +1,13 @@
 package com.volcengine.service.acep;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
 import com.volcengine.model.ServiceInfo;
+import com.volcengine.model.acep.*;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.response.ResponseMetadata;
-import com.alibaba.fastjson.JSON;
-import com.volcengine.model.acep.*;
 import com.volcengine.service.BaseServiceImpl;
 import lombok.Data;
 
@@ -207,7 +207,7 @@ public class ACEPTrait extends BaseServiceImpl {
      * <p>powerOffPod</p>
      * <p>实例停机</p>
      *
-     * <p>对指定实例执行停机操作，释放 CPU 算力。返回结果包含对每个实例的停机操作执行结果。</p>
+     * <p>对指定实例执行关机操作，释放 CPU 算力。返回结果包含对每个实例的关机操作执行结果。</p>
      *
      * @param body body payload
      * @return response data
@@ -312,7 +312,7 @@ public class ACEPTrait extends BaseServiceImpl {
      * <p>banUser</p>
      * <p>封禁用户</p>
      *
-     * <p>封禁或断开指定用户连接云手机实例。</p>
+     * <p>*封禁或断开指定客户端用户连接云手机实例*。</p>
      *
      * @param body body payload
      * @return response data
@@ -648,6 +648,66 @@ public class ACEPTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>listPortMappingRule</p>
+     * <p>查询端口映射列表</p>
+     *
+     * <p>查询业务下已创建的端口映射规则列表信息。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public ListPortMappingRuleRes listPortMappingRule(ListPortMappingRuleQuery query) throws Exception {
+        RawResponse rawResponse = json("ListPortMappingRule", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, ListPortMappingRuleRes.class);
+    }
+
+    /**
+     * <p>detailPortMappingRule</p>
+     * <p>查询端口映射详情</p>
+     *
+     * <p>查询指定端口映射规则的详细信息。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DetailPortMappingRuleRes detailPortMappingRule(DetailPortMappingRuleQuery query) throws Exception {
+        RawResponse rawResponse = json("DetailPortMappingRule", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, DetailPortMappingRuleRes.class);
+    }
+
+    /**
+     * <p>bindPortMappingRule</p>
+     * <p>绑定端口映射</p>
+     *
+     * <p>此接口用于实例绑定端口映射规则。您可通过 `ProductId` 、`PodIdList`、`PortMappingRuleIdList` 参数，绑定端口映射规则。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public BindPortMappingRuleRes bindPortMappingRule(BindPortMappingRuleBody body) throws Exception {
+        RawResponse rawResponse = json("BindPortMappingRule", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, BindPortMappingRuleRes.class);
+    }
+
+    /**
+     * <p>unbindPortMappingRule</p>
+     * <p>解绑端口映射</p>
+     *
+     * <p>此接口用于实例解绑端口映射规则，您可通过 `ProductId` 、`PodIdList`、`PortMappingRuleIdList` 参数，解绑端口映射规则。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UnbindPortMappingRuleRes unbindPortMappingRule(UnbindPortMappingRuleBody body) throws Exception {
+        RawResponse rawResponse = json("UnbindPortMappingRule", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UnbindPortMappingRuleRes.class);
+    }
+
+    /**
      * <p>attachTag</p>
      * <p>实例打标签</p>
      *
@@ -950,6 +1010,38 @@ public class ACEPTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>createAppImage</p>
+     * <p>创建应用镜像</p>
+     *
+     * <p>该接口发起异步任务，基于用户指定云手机实例中已经安装的应用程序包，自动打包并生成一个可部署的应用镜像。</p>
+     *
+     * <p>此操作允许用户将特定实例的应用程序环境，转换为可在云手机平台上重复使用的标准化镜像。用户可以轻松复制和部署到具有相同应用环境的多个实例中，从而提高应用部署的一致性和效率。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateAppImageRes createAppImage(CreateAppImageBody body) throws Exception {
+        RawResponse rawResponse = json("CreateAppImage", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateAppImageRes.class);
+    }
+
+    /**
+     * <p>detailAppVersionImage</p>
+     * <p>查询应用镜像信息</p>
+     *
+     * <p>获取指定应用镜像的详细信息</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DetailAppVersionImageRes detailAppVersionImage(DetailAppVersionImageQuery query) throws Exception {
+        RawResponse rawResponse = json("DetailAppVersionImage", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, DetailAppVersionImageRes.class);
+    }
+
+    /**
      * <p>createImageOneStep</p>
      * <p>镜像内置应用</p>
      *
@@ -962,6 +1054,38 @@ public class ACEPTrait extends BaseServiceImpl {
     public CreateImageOneStepRes createImageOneStep(CreateImageOneStepBody body) throws Exception {
         RawResponse rawResponse = json("CreateImageOneStep", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, CreateImageOneStepRes.class);
+    }
+
+    /**
+     * <p>listImageResource</p>
+     * <p>镜像分布列表</p>
+     *
+     * <p>查询当前业务下使用的所有镜像 ID，以及每个镜像所关联的实例数量。</p>
+     *
+     * <p>查询结果为调用接口前最后一次数据库刷新的数据，而非实时数据。如果在最后一次数据库刷新之后至本次接口调用期间有新镜像被实例化，这些新增实例将不会被包含在返回的结果中。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public ListImageResourceRes listImageResource(ListImageResourceQuery query) throws Exception {
+        RawResponse rawResponse = json("ListImageResource", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, ListImageResourceRes.class);
+    }
+
+    /**
+     * <p>getImagePreheating</p>
+     * <p>镜像预热信息</p>
+     *
+     * <p>查询指定镜像的预热进度。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImagePreheatingRes getImagePreheating(GetImagePreheatingQuery query) throws Exception {
+        RawResponse rawResponse = json("GetImagePreheating", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetImagePreheatingRes.class);
     }
 
     /**

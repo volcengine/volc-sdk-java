@@ -2,6 +2,7 @@ package com.volcengine.model.acep;
 
 
 import com.alibaba.fastjson.JSON;
+
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ public final class AttachTagBody  {
     private String tagId;
 
     /**
-     * <p>实例 ID 列表，可通过 `ListPod` 接口获取。</p>
+     * <p>实例 ID 列表，可通过 `ListPod` 接口获取，最大长度为 1000。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PodIdList")
     private List<String> podIdList;

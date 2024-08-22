@@ -22,17 +22,17 @@ public final class BanUserBody  {
     private String podId;
 
     /**
-     * <p>封禁用户的 ID。</p>
+     * <p>目标封禁用户的 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "UserId")
     private String userId;
 
     /**
-     * <p>封禁时长，单位：秒，取值范围为 \[60, 259290\]：</p>
+     * <p>封禁时长，单位：秒，取值范围为 [60, 259290]：</p>
      *
      *
      *
-     * <p>- 若传入值为空或 0 表示允许用户重新连接云手机；</p>
+     * <p>- 若传入值为空或 0 表示允许该用户重新连接云手机；</p>
      *
      * <p>	</p>
      *

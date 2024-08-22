@@ -49,5 +49,13 @@ public class GetCheckInListAPIResponse {
         Integer IsSendComment;
         @JSONField(name = "CommentContent")
         String CommentContent;
+        @JSONField(name = "DeadlineSecond")
+        Integer DeadlineSecond;
+        @JSONField(name = "CannotWatchLiveWhenNotCheckIn")
+        Integer CannotWatchLiveWhenNotCheckIn;
+        @JSONField(name = "SendType")
+        Integer SendType;
+        @JSONField(name = "AutoSendTime")
+        Long AutoSendTime;
     }
 }

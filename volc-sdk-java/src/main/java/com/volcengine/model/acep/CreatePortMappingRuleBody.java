@@ -48,7 +48,7 @@ public final class CreatePortMappingRuleBody  {
      *
      * <p>:::warning</p>
      *
-     * <p>该参数目前仅在华北/石家庄、华东/扬州、华南/广州等部分机房节点支持设置，若有涉及，请联系技术支持团队确认。</p>
+     * <p>当前在中国大陆内，该参数仅在华北/石家庄、华东/扬州、华南/广州等部分机房节点支持设置，若有涉及，请联系技术支持团队确认。</p>
      *
      * <p>:::</p>
      */
@@ -58,22 +58,36 @@ public final class CreatePortMappingRuleBody  {
     /**
      * <p>运营商信息。取值如下：</p>
      *
-     * <p>- 1：移动（默认）</p>
+     * <p>- 1：移动（默认）。</p>
      *
-     * <p>- 2：联通</p>
+     * <p>- 2：联通。</p>
      *
-     * <p>- 4：电信</p>
+     * <p>- 4：电信。</p>
      *
-     * <p>- 7：三条运营商线路各开一个</p>
+     * <p>- 7：三条运营商线路各开一个。</p>
+     *
+     * <p>- 8：BGP，香港地区。当 `VolcRegion` 设为 `cn-hongkong-pop` 时生效。</p>
      *
      * <p>:::warning</p>
      *
-     * <p>该参数目前仅在华北/石家庄、华东/扬州、华南/广州等部分机房节点支持设置，若有涉及，请联系技术支持团队确认。</p>
+     * <p>当前在中国大陆内，该参数仅在华北/石家庄、华东/扬州、华南/广州等部分机房节点支持设置，若有涉及，请联系技术支持团队确认。</p>
      *
      * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Isp")
     private Integer isp;
+
+    /**
+     * <p>资源所在的物理区域，包含以下选项：</p>
+     *
+     *
+     *
+     * <p>- `inner`：中国大陆（默认值）</p>
+     *
+     * <p>- `cn-hongkong-pop`：中国香港</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "VolcRegion")
+    private String volcRegion;
 
     @Override
     public String toString() {

@@ -28,7 +28,19 @@ public final class ResultPodResourceSet  {
     private Integer term;
 
     /**
-     * <p>资源所在大区，资源不分大区时为空。</p>
+     * <p>资源所在大区，资源不分大区时为空。包含以下取值：</p>
+     *
+     * <p>- `cn-north`：中国大陆华北</p>
+     *
+     * <p>- `cn-south`：中国大陆华南</p>
+     *
+     * <p>- `cn-east`：中国大陆华东</p>
+     *
+     * <p>- `cn-middle`：中国大陆华中</p>
+     *
+     * <p>- `cn-southwest`：中国大陆西南</p>
+     *
+     * <p>- `cn-hongkong-pop`：中国香港</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Region")
     private String region;
@@ -70,9 +82,9 @@ public final class ResultPodResourceSet  {
      *
      *
      *
-     * <p>- inner：中国大陆（默认值）</p>
+     * <p>- `inner`：中国大陆</p>
      *
-     * <p>- cn-hongkong-pop：中国香港</p>
+     * <p>- `cn-hongkong-pop`：中国香港</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "VolcRegion")
     private String volcRegion;

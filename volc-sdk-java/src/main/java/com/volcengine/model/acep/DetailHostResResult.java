@@ -2,6 +2,7 @@ package com.volcengine.model.acep;
 
 
 import com.alibaba.fastjson.JSON;
+
 import java.util.List;
 
 /**
@@ -49,19 +50,21 @@ public final class DetailHostResResult  {
     private Integer status;
 
     /**
-     * <p>云机所在区域。取值如下：</p>
+     * <p>云机所在大区 ID。包含以下取值：</p>
      *
      *
      *
-     * <p>- `cn-north`：华北</p>
+     * <p>- `cn-north`：中国大陆华北</p>
      *
-     * <p>- `cn-south`：华南</p>
+     * <p>- `cn-south`：中国大陆华南</p>
      *
-     * <p>- `cn-east`：华东</p>
+     * <p>- `cn-east`：中国大陆华东</p>
      *
-     * <p>- `cn-middle`：华中</p>
+     * <p>- `cn-middle`：中国大陆华中</p>
      *
-     * <p>- `cn-southwest`：西南</p>
+     * <p>- `cn-southwest`：中国大陆西南</p>
+     *
+     * <p>- `cn-hongkong-pop`中国香港</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Region")
     private String region;
@@ -141,10 +144,30 @@ public final class DetailHostResResult  {
     private Integer podNumAvailable;
 
     /**
-     * <p>资源物理区域</p>
+     * <p>资源所在物理区域，包含以下取值：</p>
+     *
+     * <p>- `inner`：中国大陆</p>
+     *
+     * <p>- `cn-hongkong-pop`：中国香港</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "VolcRegion")
     private String volcRegion;
+
+    /**
+     * <p>云机运维授权过期时间，unix 时间戳，若为 0 则代表未授权。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "AuthorityExpireTime")
+    private Long authorityExpireTime;
+
+    /**
+     * <p>云机运维授权状态：</p>
+     *
+     * <p>- `1`：未授权；</p>
+     *
+     * <p>- `2`：已授权。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "AuthorityStatus")
+    private Integer authorityStatus;
 
     @Override
     public String toString() {

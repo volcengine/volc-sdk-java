@@ -15,6 +15,18 @@ public final class GetProductResourceQuery  {
     @com.alibaba.fastjson.annotation.JSONField(name = "ProductId")
     private String productId;
 
+    /**
+     * <p>资源所在的物理区域，包含以下选项：</p>
+     *
+     *
+     *
+     * <p>- `inner`：中国大陆（默认值）</p>
+     *
+     * <p>- `cn-hongkong-pop`：中国香港</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "VolcRegion")
+    private String volcRegion;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

@@ -2,6 +2,7 @@ package com.volcengine.model.acep.v20231030;
 
 
 import com.alibaba.fastjson.JSON;
+
 import java.util.Map;
 
 /**
@@ -69,6 +70,12 @@ public final class ResultDisplayLayout  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "IsSystemConfig")
     private Boolean isSystemConfig;
+
+    /**
+     * <p>每个音区拆分路数</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "AudioChannelsPerZone")
+    private Integer audioChannelsPerZone;
 
     @Override
     public String toString() {

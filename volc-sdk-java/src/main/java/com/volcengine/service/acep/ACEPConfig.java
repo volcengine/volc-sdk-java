@@ -564,6 +564,62 @@ public class ACEPConfig {
                     }
                 }     
             ));
+            put("ListPortMappingRule", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "GET");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "ListPortMappingRule"));
+                                add(new BasicNameValuePair("Version", "2023-10-30"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("DetailPortMappingRule", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "GET");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DetailPortMappingRule"));
+                                add(new BasicNameValuePair("Version", "2023-10-30"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("BindPortMappingRule", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "BindPortMappingRule"));
+                                add(new BasicNameValuePair("Version", "2023-10-30"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("UnbindPortMappingRule", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "UnbindPortMappingRule"));
+                                add(new BasicNameValuePair("Version", "2023-10-30"));
+                            }
+                        });
+                    }
+                }     
+            ));
             put("AttachTag", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -844,6 +900,34 @@ public class ACEPConfig {
                     }
                 }     
             ));
+            put("CreateAppImage", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "CreateAppImage"));
+                                add(new BasicNameValuePair("Version", "2023-10-30"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("DetailAppVersionImage", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "GET");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DetailAppVersionImage"));
+                                add(new BasicNameValuePair("Version", "2023-10-30"));
+                            }
+                        });
+                    }
+                }     
+            ));
             put("CreateImageOneStep", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -852,6 +936,34 @@ public class ACEPConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "CreateImageOneStep"));
+                                add(new BasicNameValuePair("Version", "2023-10-30"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("ListImageResource", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "GET");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "ListImageResource"));
+                                add(new BasicNameValuePair("Version", "2023-10-30"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("GetImagePreheating", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "GET");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "GetImagePreheating"));
                                 add(new BasicNameValuePair("Version", "2023-10-30"));
                             }
                         });

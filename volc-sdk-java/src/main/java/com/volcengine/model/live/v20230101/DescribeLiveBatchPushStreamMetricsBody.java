@@ -71,6 +71,16 @@ public final class DescribeLiveBatchPushStreamMetricsBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;
 
+    /**
+     * <p>数据聚合时间粒度内，动态指标的聚合算法，取值及含义如下所示。</p>
+     *
+     * <p>- `max`：（默认值）计算聚合时间粒度内的最大值；</p>
+     *
+     * <p>- `avg`：计算聚合时间粒度内的平均值。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "AggType")
+    private String aggType;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

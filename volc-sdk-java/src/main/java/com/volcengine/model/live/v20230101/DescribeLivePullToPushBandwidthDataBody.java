@@ -49,7 +49,7 @@ public final class DescribeLivePullToPushBandwidthDataBody  {
     private List<String> detailField;
 
     /**
-     * <p>拉流转推任务群组列表，默认为空，表示查询所有拉流转推任务群组的时长用量。</p>
+     * <p>拉流转推任务群组列表，默认为空，表示查询所有拉流转推任务群组的带宽用量。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "GroupList")
     private List<String> groupList;

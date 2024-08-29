@@ -34,6 +34,12 @@ public final class DescribeLiveBatchPushStreamMetricsResResultStreamMetricListIt
     @com.alibaba.fastjson.annotation.JSONField(name = "MetricList")
     private List<DescribeLiveBatchPushStreamMetricsResResultStreamMetricListItemMetricListItem> metricList;
 
+    /**
+     * <p>标记一路推流的唯一 ID。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "SessionID")
+    private String sessionID;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

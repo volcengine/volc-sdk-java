@@ -155,6 +155,26 @@ public final class VodCdn {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_ContentTask_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_IPv6_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_IPv6_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_OriginLine_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_OriginLine_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_OriginAction_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_OriginAction_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_CdnOriginRule_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_CdnOriginRule_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderInstance_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -317,50 +337,59 @@ public final class VodCdn {
       "ls.Business.ContentTask\"`\n\013ContentTask\022\013" +
       "\n\003Url\030\001 \001(\t\022\016\n\006Status\030\002 \001(\t\022\020\n\010TaskType\030" +
       "\003 \001(\t\022\022\n\nCreateTime\030\004 \001(\003\022\016\n\006TaskID\030\005 \001(" +
-      "\t\"w\n\031VodResponseHeaderInstance\022\016\n\006Action" +
-      "\030\001 \001(\t\022\013\n\003Key\030\002 \001(\t\022\021\n\tValueType\030\003 \001(\t\022\033" +
-      "\n\023AccessOriginControl\030\004 \001(\010\022\r\n\005Value\030\005 \001" +
-      "(\t\"u\n\027VodResponseHeaderAction\022Z\n\027Respons" +
-      "eHeaderInstances\030\001 \003(\01329.Volcengine.Vod." +
-      "Models.Business.VodResponseHeaderInstanc" +
-      "e\"n\n\025VodResponseHeaderRule\022U\n\024ResponseHe" +
-      "aderAction\030\001 \001(\01327.Volcengine.Vod.Models" +
-      ".Business.VodResponseHeaderAction\"i\n\030Vod" +
-      "ResponseHeaderControl\022M\n\016ResponseHeader\030" +
-      "\001 \003(\01325.Volcengine.Vod.Models.Business.V" +
-      "odResponseHeaderRule\"j\n\017VodDomainConfig\022" +
-      "W\n\025ResponseHeaderControl\030\001 \001(\01328.Volceng" +
-      "ine.Vod.Models.Business.VodResponseHeade" +
-      "rControl\"q\n\022VodDomainBasicInfo\022\016\n\006Domain" +
-      "\030\001 \001(\t\022\r\n\005Cname\030\002 \001(\t\022\024\n\014ConfigStatus\030\003 " +
-      "\001(\t\022\022\n\nCreateTime\030\004 \001(\t\022\022\n\nLockStatus\030\005 " +
-      "\001(\t\"\267\001\n\035VodDescribeDomainConfigResult\022\021\n" +
-      "\tSpaceName\030\001 \001(\t\022B\n\006Domain\030\002 \001(\01322.Volce" +
-      "ngine.Vod.Models.Business.VodDomainBasic" +
-      "Info\022?\n\006Config\030\003 \001(\0132/.Volcengine.Vod.Mo" +
-      "dels.Business.VodDomainConfig\"\241\001\n\027VodPCD" +
-      "NDomainConfigInfo\022\021\n\tSpaceName\030\001 \001(\t\022T\n\020" +
-      "PCDNInstanceInfo\030\002 \001(\0132:.Volcengine.Vod." +
-      "Models.Business.VodPCDNDomainInstanceInf" +
-      "os\022\r\n\005Total\030\003 \001(\003\022\016\n\006Offset\030\004 \001(\003\"`\n\032Vod" +
-      "PCDNDomainInstanceInfos\022B\n\007Domains\030\001 \003(\013" +
-      "21.Volcengine.Vod.Models.Business.VodPCD" +
-      "NDomainInfo\"[\n\021VodPCDNDomainInfo\022\016\n\006Doma" +
-      "in\030\001 \001(\t\022\016\n\006Status\030\002 \001(\t\022\022\n\nCreateTime\030\003" +
-      " \001(\t\022\022\n\nUpdateTime\030\004 \001(\t*\222\001\n\032VodDomainSo" +
-      "urceStationType\022\'\n#UndefinedVodDomainSou" +
-      "rceStationType\020\000\022!\n\035VodVodDomainSourceSt" +
-      "ationType\020\001\022(\n$ThirdPartyVodDomainSource" +
-      "StationType\020\002*\251\001\n!VodDomainSourceStation" +
-      "AddressType\022.\n*UndefinedVodDomainSourceS" +
-      "tationAddressType\020\000\022+\n\'DomainVodDomainSo" +
-      "urceStationAddressType\020\001\022\'\n#IPVodDomainS" +
-      "ourceStationAddressType\020\002B\312\001\n)com.volcen" +
-      "gine.service.vod.model.businessB\006VodCdnP" +
-      "\001ZAgithub.com/volcengine/volc-sdk-golang" +
-      "/service/vod/models/business\240\001\001\330\001\001\302\002\000\312\002 " +
-      "Volc\\Service\\Vod\\Models\\Business\342\002#Volc\\" +
-      "Service\\Vod\\Models\\GPBMetadatab\006proto3"
+      "\t\"\026\n\004IPv6\022\016\n\006Switch\030\001 \001(\010\"\220\001\n\nOriginLine" +
+      "\022\017\n\007Address\030\001 \001(\t\022\020\n\010HttpPort\030\002 \001(\t\022\021\n\tH" +
+      "ttpsPort\030\003 \001(\t\022\024\n\014InstanceType\030\004 \001(\t\022\022\n\n" +
+      "OriginHost\030\005 \001(\t\022\022\n\nOriginType\030\006 \001(\t\022\016\n\006" +
+      "Weight\030\007 \001(\t\"O\n\014OriginAction\022?\n\013OriginLi" +
+      "nes\030\001 \003(\0132*.Volcengine.Vod.Models.Busine" +
+      "ss.OriginLine\"S\n\rCdnOriginRule\022B\n\014Origin" +
+      "Action\030\001 \001(\0132,.Volcengine.Vod.Models.Bus" +
+      "iness.OriginAction\"w\n\031VodResponseHeaderI" +
+      "nstance\022\016\n\006Action\030\001 \001(\t\022\013\n\003Key\030\002 \001(\t\022\021\n\t" +
+      "ValueType\030\003 \001(\t\022\033\n\023AccessOriginControl\030\004" +
+      " \001(\010\022\r\n\005Value\030\005 \001(\t\"u\n\027VodResponseHeader" +
+      "Action\022Z\n\027ResponseHeaderInstances\030\001 \003(\0132" +
+      "9.Volcengine.Vod.Models.Business.VodResp" +
+      "onseHeaderInstance\"n\n\025VodResponseHeaderR" +
+      "ule\022U\n\024ResponseHeaderAction\030\001 \001(\01327.Volc" +
+      "engine.Vod.Models.Business.VodResponseHe" +
+      "aderAction\"i\n\030VodResponseHeaderControl\022M" +
+      "\n\016ResponseHeader\030\001 \003(\01325.Volcengine.Vod." +
+      "Models.Business.VodResponseHeaderRule\"j\n" +
+      "\017VodDomainConfig\022W\n\025ResponseHeaderContro" +
+      "l\030\001 \001(\01328.Volcengine.Vod.Models.Business" +
+      ".VodResponseHeaderControl\"q\n\022VodDomainBa" +
+      "sicInfo\022\016\n\006Domain\030\001 \001(\t\022\r\n\005Cname\030\002 \001(\t\022\024" +
+      "\n\014ConfigStatus\030\003 \001(\t\022\022\n\nCreateTime\030\004 \001(\t" +
+      "\022\022\n\nLockStatus\030\005 \001(\t\"\267\001\n\035VodDescribeDoma" +
+      "inConfigResult\022\021\n\tSpaceName\030\001 \001(\t\022B\n\006Dom" +
+      "ain\030\002 \001(\01322.Volcengine.Vod.Models.Busine" +
+      "ss.VodDomainBasicInfo\022?\n\006Config\030\003 \001(\0132/." +
+      "Volcengine.Vod.Models.Business.VodDomain" +
+      "Config\"\241\001\n\027VodPCDNDomainConfigInfo\022\021\n\tSp" +
+      "aceName\030\001 \001(\t\022T\n\020PCDNInstanceInfo\030\002 \001(\0132" +
+      ":.Volcengine.Vod.Models.Business.VodPCDN" +
+      "DomainInstanceInfos\022\r\n\005Total\030\003 \001(\003\022\016\n\006Of" +
+      "fset\030\004 \001(\003\"`\n\032VodPCDNDomainInstanceInfos" +
+      "\022B\n\007Domains\030\001 \003(\01321.Volcengine.Vod.Model" +
+      "s.Business.VodPCDNDomainInfo\"[\n\021VodPCDND" +
+      "omainInfo\022\016\n\006Domain\030\001 \001(\t\022\016\n\006Status\030\002 \001(" +
+      "\t\022\022\n\nCreateTime\030\003 \001(\t\022\022\n\nUpdateTime\030\004 \001(" +
+      "\t*\222\001\n\032VodDomainSourceStationType\022\'\n#Unde" +
+      "finedVodDomainSourceStationType\020\000\022!\n\035Vod" +
+      "VodDomainSourceStationType\020\001\022(\n$ThirdPar" +
+      "tyVodDomainSourceStationType\020\002*\251\001\n!VodDo" +
+      "mainSourceStationAddressType\022.\n*Undefine" +
+      "dVodDomainSourceStationAddressType\020\000\022+\n\'" +
+      "DomainVodDomainSourceStationAddressType\020" +
+      "\001\022\'\n#IPVodDomainSourceStationAddressType" +
+      "\020\002B\312\001\n)com.volcengine.service.vod.model." +
+      "businessB\006VodCdnP\001ZAgithub.com/volcengin" +
+      "e/volc-sdk-golang/service/vod/models/bus" +
+      "iness\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Models" +
+      "\\Business\342\002#Volc\\Service\\Vod\\Models\\GPBM" +
+      "etadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -535,62 +564,86 @@ public final class VodCdn {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_ContentTask_descriptor,
         new java.lang.String[] { "Url", "Status", "TaskType", "CreateTime", "TaskID", });
-    internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderInstance_descriptor =
+    internal_static_Volcengine_Vod_Models_Business_IPv6_descriptor =
       getDescriptor().getMessageTypes().get(28);
+    internal_static_Volcengine_Vod_Models_Business_IPv6_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_IPv6_descriptor,
+        new java.lang.String[] { "Switch", });
+    internal_static_Volcengine_Vod_Models_Business_OriginLine_descriptor =
+      getDescriptor().getMessageTypes().get(29);
+    internal_static_Volcengine_Vod_Models_Business_OriginLine_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_OriginLine_descriptor,
+        new java.lang.String[] { "Address", "HttpPort", "HttpsPort", "InstanceType", "OriginHost", "OriginType", "Weight", });
+    internal_static_Volcengine_Vod_Models_Business_OriginAction_descriptor =
+      getDescriptor().getMessageTypes().get(30);
+    internal_static_Volcengine_Vod_Models_Business_OriginAction_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_OriginAction_descriptor,
+        new java.lang.String[] { "OriginLines", });
+    internal_static_Volcengine_Vod_Models_Business_CdnOriginRule_descriptor =
+      getDescriptor().getMessageTypes().get(31);
+    internal_static_Volcengine_Vod_Models_Business_CdnOriginRule_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_CdnOriginRule_descriptor,
+        new java.lang.String[] { "OriginAction", });
+    internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderInstance_descriptor =
+      getDescriptor().getMessageTypes().get(32);
     internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderInstance_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderInstance_descriptor,
         new java.lang.String[] { "Action", "Key", "ValueType", "AccessOriginControl", "Value", });
     internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderAction_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderAction_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderAction_descriptor,
         new java.lang.String[] { "ResponseHeaderInstances", });
     internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderRule_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderRule_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderRule_descriptor,
         new java.lang.String[] { "ResponseHeaderAction", });
     internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderControl_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderControl_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderControl_descriptor,
         new java.lang.String[] { "ResponseHeader", });
     internal_static_Volcengine_Vod_Models_Business_VodDomainConfig_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_Volcengine_Vod_Models_Business_VodDomainConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainConfig_descriptor,
         new java.lang.String[] { "ResponseHeaderControl", });
     internal_static_Volcengine_Vod_Models_Business_VodDomainBasicInfo_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_Volcengine_Vod_Models_Business_VodDomainBasicInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainBasicInfo_descriptor,
         new java.lang.String[] { "Domain", "Cname", "ConfigStatus", "CreateTime", "LockStatus", });
     internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainConfigResult_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainConfigResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainConfigResult_descriptor,
         new java.lang.String[] { "SpaceName", "Domain", "Config", });
     internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainConfigInfo_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainConfigInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainConfigInfo_descriptor,
         new java.lang.String[] { "SpaceName", "PCDNInstanceInfo", "Total", "Offset", });
     internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainInstanceInfos_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(40);
     internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainInstanceInfos_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainInstanceInfos_descriptor,
         new java.lang.String[] { "Domains", });
     internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainInfo_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainInfo_descriptor,

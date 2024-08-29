@@ -660,6 +660,44 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 	
 	
 	/**
+     * submitBlockObjectTasks.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodSubmitBlockObjectTasksRequest
+     * @return com.volcengine.service.vod.model.response.VodSubmitBlockObjectTasksResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodSubmitBlockObjectTasksResponse submitBlockObjectTasks(com.volcengine.service.vod.model.request.VodSubmitBlockObjectTasksRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.SubmitBlockObjectTasks, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodSubmitBlockObjectTasksResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodSubmitBlockObjectTasksResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * listBlockObjectTasks.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodListBlockObjectTasksRequest
+     * @return com.volcengine.service.vod.model.response.VodListBlockObjectTasksResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodListBlockObjectTasksResponse listBlockObjectTasks(com.volcengine.service.vod.model.request.VodListBlockObjectTasksRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.ListBlockObjectTasks, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodListBlockObjectTasksResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodListBlockObjectTasksResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
      * uploadMediaByUrl.
      *
      * @param input com.volcengine.service.vod.model.request.VodUrlUploadRequest

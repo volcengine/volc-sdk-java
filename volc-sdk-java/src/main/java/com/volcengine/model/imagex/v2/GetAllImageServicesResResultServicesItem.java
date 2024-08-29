@@ -116,7 +116,7 @@ public final class GetAllImageServicesResResultServicesItem  {
      * <p>- `false`：否</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CompactURL")
-    private String compactURL;
+    private Boolean compactURL;
 
     /**
      * <p>镜像回源配置。</p>

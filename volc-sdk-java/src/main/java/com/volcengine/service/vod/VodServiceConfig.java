@@ -21,6 +21,7 @@ public class VodServiceConfig {
                         {
                             put(com.volcengine.helper.Const.CONNECTION_TIMEOUT, 5000);
                             put(com.volcengine.helper.Const.SOCKET_TIMEOUT, 5000);
+                            put(com.volcengine.helper.Const.Scheme, "https");
                             put(com.volcengine.helper.Const.Host, "vod.volcengineapi.com");
                             put(com.volcengine.helper.Const.Header, new ArrayList<Header>() {
                                 {
@@ -1232,6 +1233,36 @@ public class VodServiceConfig {
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.ListFileMetaInfosByFileNames));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.SubmitBlockObjectTasks, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "POST");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.SubmitBlockObjectTasks));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListBlockObjectTasks, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "POST");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListBlockObjectTasks));
                                     add(new BasicNameValuePair("Version", "2023-07-01"));
 
                                 }

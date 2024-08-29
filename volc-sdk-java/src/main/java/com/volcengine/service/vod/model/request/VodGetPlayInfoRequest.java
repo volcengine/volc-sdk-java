@@ -181,6 +181,11 @@ private static final long serialVersionUID = 0L;
             forceExpire_ = s;
             break;
           }
+          case 160: {
+
+            getAll_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -1093,6 +1098,21 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int GETALL_FIELD_NUMBER = 20;
+  private boolean getAll_;
+  /**
+   * <pre>
+   *获取全部流 默认不开启 开启后将没有降级策略 返回Vid下的所有转码流
+   * </pre>
+   *
+   * <code>bool GetAll = 20;</code>
+   * @return The getAll.
+   */
+  @java.lang.Override
+  public boolean getGetAll() {
+    return getAll_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1164,6 +1184,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(forceExpire_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 19, forceExpire_);
     }
+    if (getAll_ != false) {
+      output.writeBool(20, getAll_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -1230,6 +1253,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(forceExpire_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(19, forceExpire_);
     }
+    if (getAll_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(20, getAll_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1283,6 +1310,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getNeedOriginal())) return false;
     if (!getForceExpire()
         .equals(other.getForceExpire())) return false;
+    if (getGetAll()
+        != other.getGetAll()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1332,6 +1361,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getNeedOriginal().hashCode();
     hash = (37 * hash) + FORCEEXPIRE_FIELD_NUMBER;
     hash = (53 * hash) + getForceExpire().hashCode();
+    hash = (37 * hash) + GETALL_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getGetAll());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1503,6 +1535,8 @@ private static final long serialVersionUID = 0L;
 
       forceExpire_ = "";
 
+      getAll_ = false;
+
       return this;
     }
 
@@ -1548,6 +1582,7 @@ private static final long serialVersionUID = 0L;
       result.playConfig_ = playConfig_;
       result.needOriginal_ = needOriginal_;
       result.forceExpire_ = forceExpire_;
+      result.getAll_ = getAll_;
       onBuilt();
       return result;
     }
@@ -1671,6 +1706,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getForceExpire().isEmpty()) {
         forceExpire_ = other.forceExpire_;
         onChanged();
+      }
+      if (other.getGetAll() != false) {
+        setGetAll(other.getGetAll());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -3536,6 +3574,49 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       forceExpire_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean getAll_ ;
+    /**
+     * <pre>
+     *获取全部流 默认不开启 开启后将没有降级策略 返回Vid下的所有转码流
+     * </pre>
+     *
+     * <code>bool GetAll = 20;</code>
+     * @return The getAll.
+     */
+    @java.lang.Override
+    public boolean getGetAll() {
+      return getAll_;
+    }
+    /**
+     * <pre>
+     *获取全部流 默认不开启 开启后将没有降级策略 返回Vid下的所有转码流
+     * </pre>
+     *
+     * <code>bool GetAll = 20;</code>
+     * @param value The getAll to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGetAll(boolean value) {
+      
+      getAll_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *获取全部流 默认不开启 开启后将没有降级策略 返回Vid下的所有转码流
+     * </pre>
+     *
+     * <code>bool GetAll = 20;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearGetAll() {
+      
+      getAll_ = false;
       onChanged();
       return this;
     }

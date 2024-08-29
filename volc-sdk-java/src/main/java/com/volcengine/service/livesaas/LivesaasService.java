@@ -1700,6 +1700,7 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetLoginLivesaasStsResponse getLoginLivesaasSts(GetLoginLivesaasStsRequest getLoginLivesaasStsRequest) throws Exception;
+
     /**
      * generateActivityStreamSlice
      *
@@ -1708,6 +1709,16 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GenerateActivityStreamSliceResponse generateActivityStreamSlice(GenerateActivityStreamSliceRequest generateActivityStreamSliceResponse) throws Exception;
+
+    /**
+     * ListActivityUsers
+     *
+     * @param listActivityUsersRequest ListActivityUsersRequest
+     * @return ListActivityUsersResponse
+     * @throws Exception the exception
+     */
+    ListActivityUsersResponse listActivityUsers(ListActivityUsersRequest listActivityUsersRequest) throws Exception;
+
     /**
      * getVideoTrafficPayData
      *
@@ -1725,4 +1736,76 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetMediaStoragePayDataResponse getMediaStoragePayData(GetMediaStoragePayDataRequest getMediaStoragePayDataRequest) throws Exception;
+
+    /**
+     * ListRobotNickNamesNames
+     *
+     * @param listRobotNickNamesRequest ListRobotNickNamesRequest
+     * @return ListRobotNickNamesResponse
+     * @throws Exception the exception
+     */
+    ListRobotNickNamesResponse listRobotNickNames(ListRobotNickNamesRequest listRobotNickNamesRequest) throws Exception;
+
+    /**
+     * DeleteRobotComments
+     *
+     * @param DeleteRobotCommentsRequest DeleteRobotCommentsRequest
+     * @return DeleteRobotCommentsResponse
+     * @throws Exception the exception
+     */
+    DeleteRobotCommentsResponse DeleteRobotComments(DeleteRobotCommentsRequest DeleteRobotCommentsRequest) throws Exception;
+
+    /**
+     * AddRobotComments
+     *
+     * @param AddRobotCommentsRequest AddRobotCommentsRequest
+     * @return AddRobotCommentsResponse
+     * @throws Exception the exception
+     */
+    AddRobotCommentsResponse AddRobotComments(AddRobotCommentsRequest AddRobotCommentsRequest) throws Exception;
+
+    /**
+     * ListRobotComments
+     *
+     * @param ListRobotCommentsRequest ListRobotCommentsRequest
+     * @return ListRobotCommentsResponse
+     * @throws Exception the exception
+     */
+    ListRobotCommentsResponse ListRobotComments(ListRobotCommentsRequest ListRobotCommentsRequest) throws Exception;
+
+    /**
+     * DeleteRobotNickNames
+     *
+     * @param DeleteRobotNickNamesRequest DeleteRobotNickNamesRequest
+     * @return DeleteRobotNickNamesResponse
+     * @throws Exception the exception
+     */
+    DeleteRobotNickNamesResponse DeleteRobotNickNames(DeleteRobotNickNamesRequest DeleteRobotNickNamesRequest) throws Exception;
+
+    /**
+     * AddRobotNickNames
+     *
+     * @param AddRobotNickNamesRequest AddRobotNickNamesRequest
+     * @return AddRobotNickNamesResponse
+     * @throws Exception the exception
+     */
+    AddRobotNickNamesResponse AddRobotNickNames(AddRobotNickNamesRequest AddRobotNickNamesRequest) throws Exception;
+
+    /**
+     * GetActivityRobotCommentConfig
+     *
+     * @param GetActivityRobotCommentConfigRequest GetActivityRobotCommentConfigRequest
+     * @return GetActivityRobotCommentConfigResponse
+     * @throws Exception the exception
+     */
+    GetActivityRobotCommentConfigResponse GetActivityRobotCommentConfig(GetActivityRobotCommentConfigRequest GetActivityRobotCommentConfigRequest) throws Exception;
+
+    /**
+     * UpdateActivityRobotCommentConfig
+     *
+     * @param UpdateActivityRobotCommentConfigRequest UpdateActivityRobotCommentConfigRequest
+     * @return UpdateActivityRobotCommentConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityRobotCommentConfigResponse UpdateActivityRobotCommentConfig(UpdateActivityRobotCommentConfigRequest UpdateActivityRobotCommentConfigRequest) throws Exception;
 }

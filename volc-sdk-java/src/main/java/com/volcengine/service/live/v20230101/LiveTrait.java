@@ -169,6 +169,66 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>deleteWatermarkPresetV2</p>
+     * <p>删除水印模板</p>
+     *
+     * <p>调用 `DeleteWatermarkPresetV2` 接口，删除指定水印模板。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteWatermarkPresetV2Res deleteWatermarkPresetV2(DeleteWatermarkPresetV2Body body) throws Exception {
+        RawResponse rawResponse = json("DeleteWatermarkPresetV2", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteWatermarkPresetV2Res.class);
+    }
+
+    /**
+     * <p>updateWatermarkPresetV2</p>
+     * <p>更新水印模板</p>
+     *
+     * <p>调用 `UpdateWatermarkPresetV2` 接口，更新已添加的水印模板。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateWatermarkPresetV2Res updateWatermarkPresetV2(UpdateWatermarkPresetV2Body body) throws Exception {
+        RawResponse rawResponse = json("UpdateWatermarkPresetV2", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateWatermarkPresetV2Res.class);
+    }
+
+    /**
+     * <p>listWatermarkPresetDetail</p>
+     * <p>查询水印模板列表</p>
+     *
+     * <p>调用 `ListWatermarkPresetDetail` 接口，查询水印配置列表。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public ListWatermarkPresetDetailRes listWatermarkPresetDetail(ListWatermarkPresetDetailBody body) throws Exception {
+        RawResponse rawResponse = json("ListWatermarkPresetDetail", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, ListWatermarkPresetDetailRes.class);
+    }
+
+    /**
+     * <p>createWatermarkPresetV2</p>
+     * <p>添加水印模板</p>
+     *
+     * <p>调用 `CreateWatermarkPresetV2` 接口，添加水印模板。添加完成后您需要在推流时将直播流与水印模板绑定，在完成水印模板绑定后，当前直播流的所有转码流都会携带该水印。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateWatermarkPresetV2Res createWatermarkPresetV2(CreateWatermarkPresetV2Body body) throws Exception {
+        RawResponse rawResponse = json("CreateWatermarkPresetV2", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateWatermarkPresetV2Res.class);
+    }
+
+    /**
      * <p>createWatermarkPreset</p>
      * <p>添加水印配置</p>
      *
@@ -941,6 +1001,21 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>createPullToPushGroup</p>
+     * <p>创建拉流转推群组</p>
+     *
+     * <p>调用 `CreatePullToPushGroup` 接口，创建拉流转推任务群组，为群组绑定项目，您可以通过设置群组实现基于项目的子账号权限细分。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreatePullToPushGroupRes createPullToPushGroup(CreatePullToPushGroupBody body) throws Exception {
+        RawResponse rawResponse = json("CreatePullToPushGroup", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreatePullToPushGroupRes.class);
+    }
+
+    /**
      * <p>deletePullToPushTask</p>
      * <p>删除拉流转推任务</p>
      *
@@ -953,6 +1028,21 @@ public class LiveTrait extends BaseServiceImpl {
     public DeletePullToPushTaskRes deletePullToPushTask(DeletePullToPushTaskBody body) throws Exception {
         RawResponse rawResponse = json("DeletePullToPushTask", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, DeletePullToPushTaskRes.class);
+    }
+
+    /**
+     * <p>deletePullToPushGroup</p>
+     * <p>删除拉流转推群组</p>
+     *
+     * <p>调用 `DeletePullToPushGroup` 接口，删除拉流转推群组。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeletePullToPushGroupRes deletePullToPushGroup(DeletePullToPushGroupBody body) throws Exception {
+        RawResponse rawResponse = json("DeletePullToPushGroup", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeletePullToPushGroupRes.class);
     }
 
     /**
@@ -986,6 +1076,36 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>updatePullToPushGroup</p>
+     * <p>更新拉流转推群组</p>
+     *
+     * <p>调用 `UpdatePullToPushGroup` 接口，更新已创建的拉流转推群组标签信息。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdatePullToPushGroupRes updatePullToPushGroup(UpdatePullToPushGroupBody body) throws Exception {
+        RawResponse rawResponse = json("UpdatePullToPushGroup", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdatePullToPushGroupRes.class);
+    }
+
+    /**
+     * <p>listPullToPushGroup</p>
+     * <p>查询拉流转推群组列表</p>
+     *
+     * <p>调用 `ListPullToPushGroup` 接口，查询拉流转推任务群出列表信息。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public ListPullToPushGroupRes listPullToPushGroup(ListPullToPushGroupBody body) throws Exception {
+        RawResponse rawResponse = json("ListPullToPushGroup", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, ListPullToPushGroupRes.class);
+    }
+
+    /**
      * <p>listPullToPushTask</p>
      * <p>获取拉流转推任务列表</p>
      *
@@ -998,6 +1118,21 @@ public class LiveTrait extends BaseServiceImpl {
     public ListPullToPushTaskRes listPullToPushTask(ListPullToPushTaskQuery query) throws Exception {
         RawResponse rawResponse = json("ListPullToPushTask", Utils.paramsToPair(query), "");
         return parseRawResponse(rawResponse, ListPullToPushTaskRes.class);
+    }
+
+    /**
+     * <p>listPullToPushTaskV2</p>
+     * <p>获取拉流转推任务列表</p>
+     *
+     * <p>调用 `ListPullToPushTaskV2` 接口，分页查询拉流转推任务列表，支持以任务名称进行模糊查询。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public ListPullToPushTaskV2Res listPullToPushTaskV2(ListPullToPushTaskV2Body body) throws Exception {
+        RawResponse rawResponse = json("ListPullToPushTaskV2", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, ListPullToPushTaskV2Res.class);
     }
 
     /**
@@ -1199,7 +1334,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>resumeStream</p>
      * <p>解禁直播流</p>
      *
-     * <p>调用接口指定某个被禁推的直播流，恢复该直播流的推流。 </p>
+     * <p>调用 `ResumeStream` 接口，解禁被禁推的直播流。   </p>
      *
      * @param body body payload
      * @return response data

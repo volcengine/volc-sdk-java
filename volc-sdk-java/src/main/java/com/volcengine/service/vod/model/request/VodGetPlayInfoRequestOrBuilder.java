@@ -392,4 +392,14 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getForceExpireBytes();
+
+  /**
+   * <pre>
+   *获取全部流 默认不开启 开启后将没有降级策略 返回Vid下的所有转码流
+   * </pre>
+   *
+   * <code>bool GetAll = 20;</code>
+   * @return The getAll.
+   */
+  boolean getGetAll();
 }

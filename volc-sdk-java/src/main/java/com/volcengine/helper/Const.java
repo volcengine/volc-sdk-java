@@ -524,6 +524,14 @@ public class Const {
     public static final String ListLiveChannelConfig = "ListLiveChannelConfig";
 
     public static final String GenerateActivityStreamSlice = "GenerateActivityStreamSlice";
+    public static final String DeleteRobotNickNames = "DeleteRobotNickNames";
+    public static final String AddRobotNickNames = "AddRobotNickNames";
+    public static final String ListRobotNickNames = "ListRobotNickNames";
+    public static final String DeleteRobotComments = "DeleteRobotComments";
+    public static final String AddRobotComments = "AddRobotComments";
+    public static final String ListRobotComments = "ListRobotComments";
+    public static final String GetActivityRobotCommentConfig = "GetActivityRobotCommentConfig";
+    public static final String UpdateActivityRobotCommentConfig = "UpdateActivityRobotCommentConfig";
 
     public static final String GetLoginLivesaasSts = "GetLoginLivesaasSts";
 
@@ -997,4 +1005,6 @@ public class Const {
     // report
     public static final String ExportReports = "ExportReports";
     public static final String ReportVersion = "2024-01-01";
+
+    public static final String ListActivityUsers = "ListActivityUsers";
 }

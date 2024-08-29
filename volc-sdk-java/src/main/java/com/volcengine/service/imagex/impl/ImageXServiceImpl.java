@@ -67,7 +67,13 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     static private <R> Retryer<R> createUploadDefaultRetryer() {
-        return RetryerBuilder.<R>newBuilder().retryIfException().retryIfResult(it -> Objects.equals(it, false)).retryIfResult(Objects::isNull).withWaitStrategy(WaitStrategies.exponentialWait()).withStopStrategy(StopStrategies.stopAfterAttempt(3)).build();
+        return RetryerBuilder.<R>newBuilder()
+                .retryIfException()
+                .retryIfResult(it -> Objects.equals(it, false))
+                .retryIfResult(Objects::isNull)
+                .withWaitStrategy(WaitStrategies.exponentialWait())
+                .withStopStrategy(StopStrategies.stopAfterAttempt(3))
+                .build();
     }
 
 
@@ -132,11 +138,30 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         headers.put("Authorization", storeInfo.getAuth());
 
         long startTime = System.currentTimeMillis();
-        uploadRetryer.call(() -> putData(url, imageData, headers));
+        uploadRetryer.call(() -> putImageXData(url, imageData, headers));
         long endTime = System.currentTimeMillis();
         long cost = endTime - startTime;
         float avgSpeed = (float) imageData.length / (float) cost;
         System.out.printf("upload image cost {%d} ms, avgSpeed: {%f} KB/s%n", cost, avgSpeed);
+    }
+
+    private boolean putImageXData(String url, byte[] data, Map<String, String> headers) {
+        HttpResponse response = putDataWithResponse(url, data, headers);
+        if (response == null) {
+            LOG.log(Level.WARNING, "upload " + url + " error, response is empty");
+            return false;
+        }
+        if (response.getStatusLine().getStatusCode() != 200) {
+            String bodyStr = "";
+            try {
+                bodyStr = EntityUtils.toString(response.getEntity());
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            LOG.log(Level.WARNING, "upload " + url + " error, msg is " + response.getStatusLine().getStatusCode() + ", body is " + bodyStr);
+            return false;
+        }
+        return true;
     }
 
     private void chunkUpload(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, InputStream content, Long size, boolean isLargeFile) throws Exception {
@@ -199,7 +224,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         if (isLargeFile) {
             headers.put("X-Storage-Mode", "gateway");
         }
-        uploadRetryer.call(() -> putData(url, data, headers));
+        uploadRetryer.call(() -> putImageXData(url, data, headers));
         return checkSum;
     }
 
@@ -212,7 +237,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
         if (isLargeFile) {
             headers.put("X-Storage-Mode", "gateway");
         }
-        uploadRetryer.call(() -> putData(url, body.getBytes(), headers));
+        uploadRetryer.call(() -> putImageXData(url, body.getBytes(), headers));
     }
 
 
@@ -581,7 +606,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     @Override
-    public CreateHiddenWatermarkImageResponse createHiddenWatermarkImage(CreateHiddenWatermarkImageRequest req) throws Exception{
+    public CreateHiddenWatermarkImageResponse createHiddenWatermarkImage(CreateHiddenWatermarkImageRequest req) throws Exception {
         Map<String, String> params = new HashMap<>();
         params.put("ServiceId", req.getServiceId());
         RawResponse response = json("CreateHiddenWatermarkImage", Utils.mapToPairList(params), JSON.toJSONString(req));
@@ -677,12 +702,12 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     @Override
-    public GetBatchTaskInfoResp getBatchTaskInfo(GetBatchTaskInfoReq req) throws Exception{
+    public GetBatchTaskInfoResp getBatchTaskInfo(GetBatchTaskInfoReq req) throws Exception {
         return this.getImageX("GetBatchTaskInfo", Utils.paramsToMap(req), GetBatchTaskInfoResp.class).getResult();
     }
 
     @Override
-    public CreateBatchProcessTaskResp createBatchProcessTask(CreateBatchProcessTaskReq req) throws Exception{
+    public CreateBatchProcessTaskResp createBatchProcessTask(CreateBatchProcessTaskReq req) throws Exception {
         Map<String, String> params = new HashMap<>();
         params.put("ServiceId", req.getServiceId());
         return this.postImageX("CreateBatchProcessTask", Utils.paramsToMap(params), req, CreateBatchProcessTaskResp.class).getResult();

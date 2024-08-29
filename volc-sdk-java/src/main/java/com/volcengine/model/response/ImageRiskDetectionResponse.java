@@ -38,6 +38,8 @@ public class ImageRiskDetectionResponse {
         private List<ImageLabelResult> results;
         @JSONField(name = "OcrDetails")
         private List<ImageContentFrameDetail> ocrDetails;
+        @JSONField(name = "QrcodeDetails")
+        private  List<QrcodeData> qrcodeDetails;
     }
 
     @Data
@@ -70,6 +72,14 @@ public class ImageRiskDetectionResponse {
         @JSONField(name = "Positions")
         private List<Positions> positions;
     }
+    @Data
+    public static class QrcodeData{
+        @JSONField(name = "Id")
+        private Double id;
+        @JSONField(name = "QrcodeResult")
+        private List<String> qrcodeResult;
+    }
+
     @Data
     public static class Positions  {
         @JSONField(name = "DetPointsRelative")

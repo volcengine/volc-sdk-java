@@ -181,4 +181,7 @@ public class Const {
     public static final String StopDomain = "StopDomain";
     public static final String GetFileInfos = "GetFileInfos";
     public static final String UpdateFileStorageClass = "UpdateFileStorageClass";
+    public static final String SubmitBlockObjectTasks = "SubmitBlockObjectTasks";
+    public static final String ListBlockObjectTasks = "ListBlockObjectTasks";
+
 }

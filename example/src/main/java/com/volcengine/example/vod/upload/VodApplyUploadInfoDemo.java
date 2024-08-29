@@ -24,6 +24,7 @@ public class VodApplyUploadInfoDemo {
 			reqBuilder.setFileExtension("your FileExtension");
 			reqBuilder.setClientNetWorkMode("your ClientNetWorkMode");
 			reqBuilder.setClientIDCMode("your ClientIDCMode");
+			reqBuilder.setNeedFallback(false);
 			
             com.volcengine.service.vod.model.response.VodApplyUploadInfoResponse resp = vodService.applyUploadInfo(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

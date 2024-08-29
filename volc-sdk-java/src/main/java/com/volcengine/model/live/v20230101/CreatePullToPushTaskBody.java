@@ -192,6 +192,20 @@ public final class CreatePullToPushTaskBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "VodSrcAddrs")
     private List<CreatePullToPushTaskBodyVodSrcAddrsItem> vodSrcAddrs;
 
+    /**
+     * <p>群组所属名称，您可以调用 [ListPullToPushGroup](https://www.volcengine.com/docs/6469/1327382) 获取可用的群组。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>- 使用主账号调用时，为非必填，默认加入 default 群组，default 群组不存在时会默认创建，并绑定 default 项目。</p>
+     *
+     * <p>- 使用子账号调用时，为必填。</p>
+     *
+     * <p>:::</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "GroupName")
+    private String groupName;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

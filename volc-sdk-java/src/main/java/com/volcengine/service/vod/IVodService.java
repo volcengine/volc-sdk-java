@@ -189,6 +189,24 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodGetPlayInfoWithLiveTimeShiftSceneResponse getPlayInfoWithLiveTimeShiftScene(com.volcengine.service.vod.model.request.VodGetPlayInfoWithLiveTimeShiftSceneRequest input) throws Exception;
 	
 	/**
+     * submitBlockObjectTasks.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodSubmitBlockObjectTasksRequest
+     * @return com.volcengine.service.vod.model.response.VodSubmitBlockObjectTasksResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodSubmitBlockObjectTasksResponse submitBlockObjectTasks(com.volcengine.service.vod.model.request.VodSubmitBlockObjectTasksRequest input) throws Exception;
+	
+	/**
+     * listBlockObjectTasks.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodListBlockObjectTasksRequest
+     * @return com.volcengine.service.vod.model.response.VodListBlockObjectTasksResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodListBlockObjectTasksResponse listBlockObjectTasks(com.volcengine.service.vod.model.request.VodListBlockObjectTasksRequest input) throws Exception;
+	
+	/**
      * uploadMediaByUrl.
      *
      * @param input com.volcengine.service.vod.model.request.VodUrlUploadRequest

@@ -103,7 +103,7 @@ public final class DescribeLiveBatchPushStreamMetricsResResultStreamMetricListIt
      * <p>推流开始时间，使用 Unix 时间戳表示，单位为毫秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StreamBeginTime")
-    private Integer streamBeginTime;
+    private Long streamBeginTime;
 
     /**
      * <p>视频编码格式。</p>

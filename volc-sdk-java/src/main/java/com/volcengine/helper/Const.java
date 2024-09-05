@@ -535,9 +535,25 @@ public class Const {
 
     public static final String GetLoginLivesaasSts = "GetLoginLivesaasSts";
 
+    public static final String UpdateViewingRestriction="UpdateViewingRestriction";
+
+    public static final String InsertWhiteList="InsertWhiteList";
+
+    public static final String DeleteWhiteList="DeleteWhiteList";
+
+    public static final String InsertPhoneList="InsertPhoneList";
+
+    public static final String DeletePhoneList="DeletePhoneList";
+
     public static final String GetMediaStoragePayData = "GetMediaStoragePayData";
 
     public static final String GetVideoTrafficPayData = "GetVideoTrafficPayData";
+
+    public static final String GetViewingRestrictionInfo="GetViewingRestrictionInfo";
+    
+    public static final String GetWhiteList="GetWhiteList";
+
+    public static final String GetPhoneList="GetPhoneList";
 
     // translate
     public static final String LangDetect = "LangDetect";

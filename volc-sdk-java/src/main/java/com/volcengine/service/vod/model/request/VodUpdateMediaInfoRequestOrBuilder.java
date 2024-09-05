@@ -161,4 +161,40 @@ public interface VodUpdateMediaInfoRequestOrBuilder extends
    * <code>.google.protobuf.Int64Value ClassificationId = 6;</code>
    */
   com.google.protobuf.Int64ValueOrBuilder getClassificationIdOrBuilder();
+
+  /**
+   * <pre>
+   * 媒资文件过期时间,采用ISO日期格式. 不传或传空,不修改.
+   * 填"9999-12-31T23:59:59Z"表示永不过期.
+   * 过期后该媒资文件及其相关资源（转码结果、封面图等）将被永久删除.
+   * 示例值:2024-08-30T20:10:11+08:00 
+   * </pre>
+   *
+   * <code>.google.protobuf.StringValue ExpireTime = 7;</code>
+   * @return Whether the expireTime field is set.
+   */
+  boolean hasExpireTime();
+  /**
+   * <pre>
+   * 媒资文件过期时间,采用ISO日期格式. 不传或传空,不修改.
+   * 填"9999-12-31T23:59:59Z"表示永不过期.
+   * 过期后该媒资文件及其相关资源（转码结果、封面图等）将被永久删除.
+   * 示例值:2024-08-30T20:10:11+08:00 
+   * </pre>
+   *
+   * <code>.google.protobuf.StringValue ExpireTime = 7;</code>
+   * @return The expireTime.
+   */
+  com.google.protobuf.StringValue getExpireTime();
+  /**
+   * <pre>
+   * 媒资文件过期时间,采用ISO日期格式. 不传或传空,不修改.
+   * 填"9999-12-31T23:59:59Z"表示永不过期.
+   * 过期后该媒资文件及其相关资源（转码结果、封面图等）将被永久删除.
+   * 示例值:2024-08-30T20:10:11+08:00 
+   * </pre>
+   *
+   * <code>.google.protobuf.StringValue ExpireTime = 7;</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getExpireTimeOrBuilder();
 }

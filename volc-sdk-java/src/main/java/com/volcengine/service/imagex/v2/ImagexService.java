@@ -124,24 +124,6 @@ public class ImagexService extends ImagexTrait {
         doUpload(host, storeInfo, buffer.toByteArray());
     }
 
-    private boolean putImageXData(String url, byte[] data, Map<String, String> headers) {
-        HttpResponse response = putDataWithResponse(url, data, headers);
-        if (response == null) {
-            LOG.log(Level.WARNING, "upload " + url + " error, response is empty");
-            return false;
-        }
-        if (response.getStatusLine().getStatusCode() != 200) {
-            String bodyStr = "";
-            try {
-                bodyStr = EntityUtils.toString(response.getEntity());
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-            LOG.log(Level.WARNING, "upload " + url + " error, msg is " + response.getStatusLine().getStatusCode() + ", body is " + bodyStr);
-            return false;
-        }
-        return true;
-    }
 
     private void doUpload(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, byte[] imageData) throws Exception {
         long crc32 = Utils.crc32(imageData);
@@ -152,7 +134,7 @@ public class ImagexService extends ImagexTrait {
         headers.put("Authorization", storeInfo.getAuth());
 
         long startTime = System.currentTimeMillis();
-        uploadRetryer.call(() -> putImageXData(url, imageData, headers));
+        uploadRetryer.call(() -> putData(url, imageData, headers));
         long endTime = System.currentTimeMillis();
         long cost = endTime - startTime;
         float avgSpeed = (float) imageData.length / (float) cost;
@@ -219,7 +201,7 @@ public class ImagexService extends ImagexTrait {
         if (isLargeFile) {
             headers.put("X-Storage-Mode", "gateway");
         }
-        uploadRetryer.call(() -> putImageXData(url, data, headers));
+        uploadRetryer.call(() -> putData(url, data, headers));
         return checkSum;
     }
 
@@ -232,7 +214,7 @@ public class ImagexService extends ImagexTrait {
         if (isLargeFile) {
             headers.put("X-Storage-Mode", "gateway");
         }
-        uploadRetryer.call(() -> putImageXData(url, body.getBytes(), headers));
+        uploadRetryer.call(() -> putData(url, body.getBytes(), headers));
     }
 
 

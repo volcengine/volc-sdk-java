@@ -46,4 +46,24 @@ public interface DirectUrlOrBuilder extends
    */
   com.google.protobuf.ByteString
       getBucketNameBytes();
+
+  /**
+   * <pre>
+   * 空间名
+   * </pre>
+   *
+   * <code>string SpaceName = 3;</code>
+   * @return The spaceName.
+   */
+  java.lang.String getSpaceName();
+  /**
+   * <pre>
+   * 空间名
+   * </pre>
+   *
+   * <code>string SpaceName = 3;</code>
+   * @return The bytes for spaceName.
+   */
+  com.google.protobuf.ByteString
+      getSpaceNameBytes();
 }

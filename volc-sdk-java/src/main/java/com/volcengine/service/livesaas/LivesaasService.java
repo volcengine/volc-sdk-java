@@ -1808,4 +1808,15 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     UpdateActivityRobotCommentConfigResponse UpdateActivityRobotCommentConfig(UpdateActivityRobotCommentConfigRequest UpdateActivityRobotCommentConfigRequest) throws Exception;
+
+    GetViewingRestrictionInfoResponse getViewingRestrictionInfo(GetViewingRestrictionInfoRequest getViewingRestrictionInfoRequest) throws Exception;
+    UpdateViewingRestrictionResponse updateViewingRestriction(UpdateViewingRestrictionRequest updateViewingRestrictionRequest) throws Exception;
+
+    InsertWhiteListResponse insertWhiteList(InsertWhiteListRequest insertWhitelistRequest) throws Exception;
+    GetWhiteListResponse getWhiteList(GetWhiteListRequest getWhitelistRequest) throws Exception;
+    DeleteWhiteListResponse deleteWhiteList(DeleteWhiteListRequest deleteWhitelistRequest) throws Exception;
+
+    InsertPhoneListResponse insertPhoneList(InsertPhoneListRequest insertPhonelistRequest) throws Exception;
+    GetPhoneListResponse getPhoneList(GetPhoneListRequest getPhonelistRequest) throws Exception;
+    DeletePhoneListResponse deletePhoneList(DeletePhoneListRequest deletePhonelistRequest) throws Exception;
 }

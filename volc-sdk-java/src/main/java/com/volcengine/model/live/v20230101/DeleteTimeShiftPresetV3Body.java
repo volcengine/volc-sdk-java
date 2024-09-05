@@ -21,6 +21,12 @@ public final class DeleteTimeShiftPresetV3Body  {
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
+    /**
+    * <p>流名称。</p>
+    */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
+    private String stream;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

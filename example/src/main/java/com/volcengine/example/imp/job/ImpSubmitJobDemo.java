@@ -30,6 +30,7 @@ public class ImpSubmitJobDemo {
 
             Params.Builder params = Params.newBuilder();
             OverrideParams.Builder overrideParams = OverrideParams.newBuilder();
+            // SmartEraseOverrideParams
             SmartEraseOverrideParams.Builder smartEraseOverrideParams = SmartEraseOverrideParams.newBuilder();
             Watermark.Builder watermark = Watermark.newBuilder();
             DetectRect.Builder watermarkDetectRect = DetectRect.newBuilder();
@@ -49,6 +50,16 @@ public class ImpSubmitJobDemo {
             smartEraseOverrideParams.setWatermark(watermark.build());
             smartEraseOverrideParams.setOCR(ocr.build());
             overrideParams.addSmartErase(0, smartEraseOverrideParams.build());
+            // OutputOverrideParams
+            OutputOverrideParams.Builder outputOverrideParams = OutputOverrideParams.newBuilder();
+            OutputPath.Builder outputPath = OutputPath.newBuilder();
+            outputPath.setType("your storage type");
+            outputPath.setVodSpaceName("your vod spaceName");
+            outputPath.setTosBucket("your tos bucketName");
+            outputPath.setFileName("output FileName");
+            outputOverrideParams.addActivityId("*");
+            outputOverrideParams.setOutputPath(outputPath.build());
+            overrideParams.addOutput(0, outputOverrideParams.build());
             params.setOverrideParams(overrideParams.build());
             submitJobRequest.setParams(params.build());
 

@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private OverrideParams() {
     smartErase_ = java.util.Collections.emptyList();
+    output_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -59,6 +60,15 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(com.volcengine.service.imp.model.business.SmartEraseOverrideParams.parser(), extensionRegistry));
             break;
           }
+          case 18: {
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              output_ = new java.util.ArrayList<com.volcengine.service.imp.model.business.OutputOverrideParams>();
+              mutable_bitField0_ |= 0x00000002;
+            }
+            output_.add(
+                input.readMessage(com.volcengine.service.imp.model.business.OutputOverrideParams.parser(), extensionRegistry));
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -76,6 +86,9 @@ private static final long serialVersionUID = 0L;
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
         smartErase_ = java.util.Collections.unmodifiableList(smartErase_);
+      }
+      if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        output_ = java.util.Collections.unmodifiableList(output_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -134,6 +147,46 @@ private static final long serialVersionUID = 0L;
     return smartErase_.get(index);
   }
 
+  public static final int OUTPUT_FIELD_NUMBER = 2;
+  private java.util.List<com.volcengine.service.imp.model.business.OutputOverrideParams> output_;
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.volcengine.service.imp.model.business.OutputOverrideParams> getOutputList() {
+    return output_;
+  }
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.volcengine.service.imp.model.business.OutputOverrideParamsOrBuilder> 
+      getOutputOrBuilderList() {
+    return output_;
+  }
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+   */
+  @java.lang.Override
+  public int getOutputCount() {
+    return output_.size();
+  }
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.imp.model.business.OutputOverrideParams getOutput(int index) {
+    return output_.get(index);
+  }
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.imp.model.business.OutputOverrideParamsOrBuilder getOutputOrBuilder(
+      int index) {
+    return output_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -151,6 +204,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < smartErase_.size(); i++) {
       output.writeMessage(1, smartErase_.get(i));
     }
+    for (int i = 0; i < output_.size(); i++) {
+      output.writeMessage(2, output_.get(i));
+    }
     unknownFields.writeTo(output);
   }
 
@@ -163,6 +219,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < smartErase_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, smartErase_.get(i));
+    }
+    for (int i = 0; i < output_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, output_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -181,6 +241,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getSmartEraseList()
         .equals(other.getSmartEraseList())) return false;
+    if (!getOutputList()
+        .equals(other.getOutputList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -195,6 +257,10 @@ private static final long serialVersionUID = 0L;
     if (getSmartEraseCount() > 0) {
       hash = (37 * hash) + SMARTERASE_FIELD_NUMBER;
       hash = (53 * hash) + getSmartEraseList().hashCode();
+    }
+    if (getOutputCount() > 0) {
+      hash = (37 * hash) + OUTPUT_FIELD_NUMBER;
+      hash = (53 * hash) + getOutputList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -325,6 +391,7 @@ private static final long serialVersionUID = 0L;
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
         getSmartEraseFieldBuilder();
+        getOutputFieldBuilder();
       }
     }
     @java.lang.Override
@@ -335,6 +402,12 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
       } else {
         smartEraseBuilder_.clear();
+      }
+      if (outputBuilder_ == null) {
+        output_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      } else {
+        outputBuilder_.clear();
       }
       return this;
     }
@@ -371,6 +444,15 @@ private static final long serialVersionUID = 0L;
         result.smartErase_ = smartErase_;
       } else {
         result.smartErase_ = smartEraseBuilder_.build();
+      }
+      if (outputBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          output_ = java.util.Collections.unmodifiableList(output_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.output_ = output_;
+      } else {
+        result.output_ = outputBuilder_.build();
       }
       onBuilt();
       return result;
@@ -443,6 +525,32 @@ private static final long serialVersionUID = 0L;
                  getSmartEraseFieldBuilder() : null;
           } else {
             smartEraseBuilder_.addAllMessages(other.smartErase_);
+          }
+        }
+      }
+      if (outputBuilder_ == null) {
+        if (!other.output_.isEmpty()) {
+          if (output_.isEmpty()) {
+            output_ = other.output_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureOutputIsMutable();
+            output_.addAll(other.output_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.output_.isEmpty()) {
+          if (outputBuilder_.isEmpty()) {
+            outputBuilder_.dispose();
+            outputBuilder_ = null;
+            output_ = other.output_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+            outputBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getOutputFieldBuilder() : null;
+          } else {
+            outputBuilder_.addAllMessages(other.output_);
           }
         }
       }
@@ -714,6 +822,246 @@ private static final long serialVersionUID = 0L;
         smartErase_ = null;
       }
       return smartEraseBuilder_;
+    }
+
+    private java.util.List<com.volcengine.service.imp.model.business.OutputOverrideParams> output_ =
+      java.util.Collections.emptyList();
+    private void ensureOutputIsMutable() {
+      if (!((bitField0_ & 0x00000002) != 0)) {
+        output_ = new java.util.ArrayList<com.volcengine.service.imp.model.business.OutputOverrideParams>(output_);
+        bitField0_ |= 0x00000002;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.imp.model.business.OutputOverrideParams, com.volcengine.service.imp.model.business.OutputOverrideParams.Builder, com.volcengine.service.imp.model.business.OutputOverrideParamsOrBuilder> outputBuilder_;
+
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+     */
+    public java.util.List<com.volcengine.service.imp.model.business.OutputOverrideParams> getOutputList() {
+      if (outputBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(output_);
+      } else {
+        return outputBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+     */
+    public int getOutputCount() {
+      if (outputBuilder_ == null) {
+        return output_.size();
+      } else {
+        return outputBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+     */
+    public com.volcengine.service.imp.model.business.OutputOverrideParams getOutput(int index) {
+      if (outputBuilder_ == null) {
+        return output_.get(index);
+      } else {
+        return outputBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+     */
+    public Builder setOutput(
+        int index, com.volcengine.service.imp.model.business.OutputOverrideParams value) {
+      if (outputBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOutputIsMutable();
+        output_.set(index, value);
+        onChanged();
+      } else {
+        outputBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+     */
+    public Builder setOutput(
+        int index, com.volcengine.service.imp.model.business.OutputOverrideParams.Builder builderForValue) {
+      if (outputBuilder_ == null) {
+        ensureOutputIsMutable();
+        output_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        outputBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+     */
+    public Builder addOutput(com.volcengine.service.imp.model.business.OutputOverrideParams value) {
+      if (outputBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOutputIsMutable();
+        output_.add(value);
+        onChanged();
+      } else {
+        outputBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+     */
+    public Builder addOutput(
+        int index, com.volcengine.service.imp.model.business.OutputOverrideParams value) {
+      if (outputBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOutputIsMutable();
+        output_.add(index, value);
+        onChanged();
+      } else {
+        outputBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+     */
+    public Builder addOutput(
+        com.volcengine.service.imp.model.business.OutputOverrideParams.Builder builderForValue) {
+      if (outputBuilder_ == null) {
+        ensureOutputIsMutable();
+        output_.add(builderForValue.build());
+        onChanged();
+      } else {
+        outputBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+     */
+    public Builder addOutput(
+        int index, com.volcengine.service.imp.model.business.OutputOverrideParams.Builder builderForValue) {
+      if (outputBuilder_ == null) {
+        ensureOutputIsMutable();
+        output_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        outputBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+     */
+    public Builder addAllOutput(
+        java.lang.Iterable<? extends com.volcengine.service.imp.model.business.OutputOverrideParams> values) {
+      if (outputBuilder_ == null) {
+        ensureOutputIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, output_);
+        onChanged();
+      } else {
+        outputBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+     */
+    public Builder clearOutput() {
+      if (outputBuilder_ == null) {
+        output_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+      } else {
+        outputBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+     */
+    public Builder removeOutput(int index) {
+      if (outputBuilder_ == null) {
+        ensureOutputIsMutable();
+        output_.remove(index);
+        onChanged();
+      } else {
+        outputBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+     */
+    public com.volcengine.service.imp.model.business.OutputOverrideParams.Builder getOutputBuilder(
+        int index) {
+      return getOutputFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+     */
+    public com.volcengine.service.imp.model.business.OutputOverrideParamsOrBuilder getOutputOrBuilder(
+        int index) {
+      if (outputBuilder_ == null) {
+        return output_.get(index);  } else {
+        return outputBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+     */
+    public java.util.List<? extends com.volcengine.service.imp.model.business.OutputOverrideParamsOrBuilder> 
+         getOutputOrBuilderList() {
+      if (outputBuilder_ != null) {
+        return outputBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(output_);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+     */
+    public com.volcengine.service.imp.model.business.OutputOverrideParams.Builder addOutputBuilder() {
+      return getOutputFieldBuilder().addBuilder(
+          com.volcengine.service.imp.model.business.OutputOverrideParams.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+     */
+    public com.volcengine.service.imp.model.business.OutputOverrideParams.Builder addOutputBuilder(
+        int index) {
+      return getOutputFieldBuilder().addBuilder(
+          index, com.volcengine.service.imp.model.business.OutputOverrideParams.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+     */
+    public java.util.List<com.volcengine.service.imp.model.business.OutputOverrideParams.Builder> 
+         getOutputBuilderList() {
+      return getOutputFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.imp.model.business.OutputOverrideParams, com.volcengine.service.imp.model.business.OutputOverrideParams.Builder, com.volcengine.service.imp.model.business.OutputOverrideParamsOrBuilder> 
+        getOutputFieldBuilder() {
+      if (outputBuilder_ == null) {
+        outputBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.service.imp.model.business.OutputOverrideParams, com.volcengine.service.imp.model.business.OutputOverrideParams.Builder, com.volcengine.service.imp.model.business.OutputOverrideParamsOrBuilder>(
+                output_,
+                ((bitField0_ & 0x00000002) != 0),
+                getParentForChildren(),
+                isClean());
+        output_ = null;
+      }
+      return outputBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

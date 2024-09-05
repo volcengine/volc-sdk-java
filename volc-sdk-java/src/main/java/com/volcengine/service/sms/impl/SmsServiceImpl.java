@@ -599,7 +599,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     @Override
     public ApplySignatureIdentResponse applySignatureIdent(ApplySignatureIdentRequest applySignatureIdentRequest) throws Exception {
         RawResponse response =
-                json("ApplySmsSignature", new ArrayList<>(), JSON.toJSONString(applySignatureIdentRequest));
+                json("ApplySignatureIdent", new ArrayList<>(), JSON.toJSONString(applySignatureIdentRequest));
         return applySignatureIdentResponse(response);
     }
 

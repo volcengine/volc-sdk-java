@@ -1,6 +1,7 @@
 package com.volcengine.service.sms;
 
 import com.volcengine.helper.Const;
+import com.volcengine.http.ClientConfiguration;
 import lombok.Data;
 import org.apache.http.HttpHost;
 
@@ -55,8 +56,8 @@ public class SmsServiceInfoConfig {
                 .setHost("sms.volcengineapi.com")
                 .setRegion(Const.REGION_CN_NORTH_1)
                 .setScheme(Const.HTTPS)
-                .setConnectionTimeout(5000)
-                .setSocketTimeout(5000);
+                .setConnectionTimeout(ClientConfiguration.DEFAULT_CONNECTION_TIMEOUT)
+                .setSocketTimeout(ClientConfiguration.DEFAULT_SOCKET_TIMEOUT);
     }
 
     public SmsServiceInfoConfig setConnectionTimeout(int connectionTimeout) {

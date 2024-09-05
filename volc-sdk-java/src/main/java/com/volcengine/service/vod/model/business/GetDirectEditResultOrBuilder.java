@@ -126,4 +126,24 @@ public interface GetDirectEditResultOrBuilder extends
    */
   com.google.protobuf.ByteString
       getOutputVidBytes();
+
+  /**
+   * <pre>
+   * 错误信息
+   * </pre>
+   *
+   * <code>string Message = 8;</code>
+   * @return The message.
+   */
+  java.lang.String getMessage();
+  /**
+   * <pre>
+   * 错误信息
+   * </pre>
+   *
+   * <code>string Message = 8;</code>
+   * @return The bytes for message.
+   */
+  com.google.protobuf.ByteString
+      getMessageBytes();
 }

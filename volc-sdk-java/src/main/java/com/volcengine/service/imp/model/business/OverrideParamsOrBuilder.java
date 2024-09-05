@@ -30,4 +30,28 @@ public interface OverrideParamsOrBuilder extends
    */
   com.volcengine.service.imp.model.business.SmartEraseOverrideParamsOrBuilder getSmartEraseOrBuilder(
       int index);
+
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+   */
+  java.util.List<com.volcengine.service.imp.model.business.OutputOverrideParams> 
+      getOutputList();
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+   */
+  com.volcengine.service.imp.model.business.OutputOverrideParams getOutput(int index);
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+   */
+  int getOutputCount();
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+   */
+  java.util.List<? extends com.volcengine.service.imp.model.business.OutputOverrideParamsOrBuilder> 
+      getOutputOrBuilderList();
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.OutputOverrideParams Output = 2;</code>
+   */
+  com.volcengine.service.imp.model.business.OutputOverrideParamsOrBuilder getOutputOrBuilder(
+      int index);
 }

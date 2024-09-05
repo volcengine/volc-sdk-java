@@ -114,6 +114,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
     */
     com.volcengine.service.vod.model.response.VodSubmitDirectEditTaskAsyncResponse submitDirectEditTaskAsync(com.volcengine.service.vod.model.request.VodSubmitDirectEditTaskAsyncRequest input) throws Exception;
 
+	/**
+    * submitDirectEditTaskSync.
+    *
+    * @param input com.volcengine.service.vod.model.request.VodSubmitDirectEditTaskSyncRequest
+    * @return com.volcengine.service.vod.model.response.VodSubmitDirectEditTaskSyncResponse
+    * @throws Exception the exception
+    */
+    com.volcengine.service.vod.model.response.VodSubmitDirectEditTaskSyncResponse submitDirectEditTaskSync(com.volcengine.service.vod.model.request.VodSubmitDirectEditTaskSyncRequest input) throws Exception;
+
     /**
     * getDirectEditResult.
     *

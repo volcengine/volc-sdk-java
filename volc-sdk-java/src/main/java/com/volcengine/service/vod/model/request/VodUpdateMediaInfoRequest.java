@@ -120,6 +120,19 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 58: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (expireTime_ != null) {
+              subBuilder = expireTime_.toBuilder();
+            }
+            expireTime_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(expireTime_);
+              expireTime_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -388,6 +401,53 @@ private static final long serialVersionUID = 0L;
     return getClassificationId();
   }
 
+  public static final int EXPIRETIME_FIELD_NUMBER = 7;
+  private com.google.protobuf.StringValue expireTime_;
+  /**
+   * <pre>
+   * 媒资文件过期时间,采用ISO日期格式. 不传或传空,不修改.
+   * 填"9999-12-31T23:59:59Z"表示永不过期.
+   * 过期后该媒资文件及其相关资源（转码结果、封面图等）将被永久删除.
+   * 示例值:2024-08-30T20:10:11+08:00 
+   * </pre>
+   *
+   * <code>.google.protobuf.StringValue ExpireTime = 7;</code>
+   * @return Whether the expireTime field is set.
+   */
+  @java.lang.Override
+  public boolean hasExpireTime() {
+    return expireTime_ != null;
+  }
+  /**
+   * <pre>
+   * 媒资文件过期时间,采用ISO日期格式. 不传或传空,不修改.
+   * 填"9999-12-31T23:59:59Z"表示永不过期.
+   * 过期后该媒资文件及其相关资源（转码结果、封面图等）将被永久删除.
+   * 示例值:2024-08-30T20:10:11+08:00 
+   * </pre>
+   *
+   * <code>.google.protobuf.StringValue ExpireTime = 7;</code>
+   * @return The expireTime.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getExpireTime() {
+    return expireTime_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : expireTime_;
+  }
+  /**
+   * <pre>
+   * 媒资文件过期时间,采用ISO日期格式. 不传或传空,不修改.
+   * 填"9999-12-31T23:59:59Z"表示永不过期.
+   * 过期后该媒资文件及其相关资源（转码结果、封面图等）将被永久删除.
+   * 示例值:2024-08-30T20:10:11+08:00 
+   * </pre>
+   *
+   * <code>.google.protobuf.StringValue ExpireTime = 7;</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getExpireTimeOrBuilder() {
+    return getExpireTime();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -420,6 +480,9 @@ private static final long serialVersionUID = 0L;
     if (classificationId_ != null) {
       output.writeMessage(6, getClassificationId());
     }
+    if (expireTime_ != null) {
+      output.writeMessage(7, getExpireTime());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -451,6 +514,10 @@ private static final long serialVersionUID = 0L;
     if (classificationId_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getClassificationId());
+    }
+    if (expireTime_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, getExpireTime());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -494,6 +561,11 @@ private static final long serialVersionUID = 0L;
       if (!getClassificationId()
           .equals(other.getClassificationId())) return false;
     }
+    if (hasExpireTime() != other.hasExpireTime()) return false;
+    if (hasExpireTime()) {
+      if (!getExpireTime()
+          .equals(other.getExpireTime())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -526,6 +598,10 @@ private static final long serialVersionUID = 0L;
     if (hasClassificationId()) {
       hash = (37 * hash) + CLASSIFICATIONID_FIELD_NUMBER;
       hash = (53 * hash) + getClassificationId().hashCode();
+    }
+    if (hasExpireTime()) {
+      hash = (37 * hash) + EXPIRETIME_FIELD_NUMBER;
+      hash = (53 * hash) + getExpireTime().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -692,6 +768,12 @@ private static final long serialVersionUID = 0L;
         classificationId_ = null;
         classificationIdBuilder_ = null;
       }
+      if (expireTimeBuilder_ == null) {
+        expireTime_ = null;
+      } else {
+        expireTime_ = null;
+        expireTimeBuilder_ = null;
+      }
       return this;
     }
 
@@ -743,6 +825,11 @@ private static final long serialVersionUID = 0L;
         result.classificationId_ = classificationId_;
       } else {
         result.classificationId_ = classificationIdBuilder_.build();
+      }
+      if (expireTimeBuilder_ == null) {
+        result.expireTime_ = expireTime_;
+      } else {
+        result.expireTime_ = expireTimeBuilder_.build();
       }
       onBuilt();
       return result;
@@ -810,6 +897,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasClassificationId()) {
         mergeClassificationId(other.getClassificationId());
+      }
+      if (other.hasExpireTime()) {
+        mergeExpireTime(other.getExpireTime());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1709,6 +1799,188 @@ private static final long serialVersionUID = 0L;
         classificationId_ = null;
       }
       return classificationIdBuilder_;
+    }
+
+    private com.google.protobuf.StringValue expireTime_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> expireTimeBuilder_;
+    /**
+     * <pre>
+     * 媒资文件过期时间,采用ISO日期格式. 不传或传空,不修改.
+     * 填"9999-12-31T23:59:59Z"表示永不过期.
+     * 过期后该媒资文件及其相关资源（转码结果、封面图等）将被永久删除.
+     * 示例值:2024-08-30T20:10:11+08:00 
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue ExpireTime = 7;</code>
+     * @return Whether the expireTime field is set.
+     */
+    public boolean hasExpireTime() {
+      return expireTimeBuilder_ != null || expireTime_ != null;
+    }
+    /**
+     * <pre>
+     * 媒资文件过期时间,采用ISO日期格式. 不传或传空,不修改.
+     * 填"9999-12-31T23:59:59Z"表示永不过期.
+     * 过期后该媒资文件及其相关资源（转码结果、封面图等）将被永久删除.
+     * 示例值:2024-08-30T20:10:11+08:00 
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue ExpireTime = 7;</code>
+     * @return The expireTime.
+     */
+    public com.google.protobuf.StringValue getExpireTime() {
+      if (expireTimeBuilder_ == null) {
+        return expireTime_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : expireTime_;
+      } else {
+        return expireTimeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * 媒资文件过期时间,采用ISO日期格式. 不传或传空,不修改.
+     * 填"9999-12-31T23:59:59Z"表示永不过期.
+     * 过期后该媒资文件及其相关资源（转码结果、封面图等）将被永久删除.
+     * 示例值:2024-08-30T20:10:11+08:00 
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue ExpireTime = 7;</code>
+     */
+    public Builder setExpireTime(com.google.protobuf.StringValue value) {
+      if (expireTimeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expireTime_ = value;
+        onChanged();
+      } else {
+        expireTimeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 媒资文件过期时间,采用ISO日期格式. 不传或传空,不修改.
+     * 填"9999-12-31T23:59:59Z"表示永不过期.
+     * 过期后该媒资文件及其相关资源（转码结果、封面图等）将被永久删除.
+     * 示例值:2024-08-30T20:10:11+08:00 
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue ExpireTime = 7;</code>
+     */
+    public Builder setExpireTime(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (expireTimeBuilder_ == null) {
+        expireTime_ = builderForValue.build();
+        onChanged();
+      } else {
+        expireTimeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 媒资文件过期时间,采用ISO日期格式. 不传或传空,不修改.
+     * 填"9999-12-31T23:59:59Z"表示永不过期.
+     * 过期后该媒资文件及其相关资源（转码结果、封面图等）将被永久删除.
+     * 示例值:2024-08-30T20:10:11+08:00 
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue ExpireTime = 7;</code>
+     */
+    public Builder mergeExpireTime(com.google.protobuf.StringValue value) {
+      if (expireTimeBuilder_ == null) {
+        if (expireTime_ != null) {
+          expireTime_ =
+            com.google.protobuf.StringValue.newBuilder(expireTime_).mergeFrom(value).buildPartial();
+        } else {
+          expireTime_ = value;
+        }
+        onChanged();
+      } else {
+        expireTimeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 媒资文件过期时间,采用ISO日期格式. 不传或传空,不修改.
+     * 填"9999-12-31T23:59:59Z"表示永不过期.
+     * 过期后该媒资文件及其相关资源（转码结果、封面图等）将被永久删除.
+     * 示例值:2024-08-30T20:10:11+08:00 
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue ExpireTime = 7;</code>
+     */
+    public Builder clearExpireTime() {
+      if (expireTimeBuilder_ == null) {
+        expireTime_ = null;
+        onChanged();
+      } else {
+        expireTime_ = null;
+        expireTimeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 媒资文件过期时间,采用ISO日期格式. 不传或传空,不修改.
+     * 填"9999-12-31T23:59:59Z"表示永不过期.
+     * 过期后该媒资文件及其相关资源（转码结果、封面图等）将被永久删除.
+     * 示例值:2024-08-30T20:10:11+08:00 
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue ExpireTime = 7;</code>
+     */
+    public com.google.protobuf.StringValue.Builder getExpireTimeBuilder() {
+      
+      onChanged();
+      return getExpireTimeFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * 媒资文件过期时间,采用ISO日期格式. 不传或传空,不修改.
+     * 填"9999-12-31T23:59:59Z"表示永不过期.
+     * 过期后该媒资文件及其相关资源（转码结果、封面图等）将被永久删除.
+     * 示例值:2024-08-30T20:10:11+08:00 
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue ExpireTime = 7;</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getExpireTimeOrBuilder() {
+      if (expireTimeBuilder_ != null) {
+        return expireTimeBuilder_.getMessageOrBuilder();
+      } else {
+        return expireTime_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : expireTime_;
+      }
+    }
+    /**
+     * <pre>
+     * 媒资文件过期时间,采用ISO日期格式. 不传或传空,不修改.
+     * 填"9999-12-31T23:59:59Z"表示永不过期.
+     * 过期后该媒资文件及其相关资源（转码结果、封面图等）将被永久删除.
+     * 示例值:2024-08-30T20:10:11+08:00 
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue ExpireTime = 7;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getExpireTimeFieldBuilder() {
+      if (expireTimeBuilder_ == null) {
+        expireTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getExpireTime(),
+                getParentForChildren(),
+                isClean());
+        expireTime_ = null;
+      }
+      return expireTimeBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

@@ -101,6 +101,7 @@ public class Const {
     public static final String DeleteWatermarkTemplate = "DeleteWatermarkTemplate";
     //vod-edit
     public static final String SubmitDirectEditTaskAsync = "SubmitDirectEditTaskAsync";
+    public static final String SubmitDirectEditTaskSync = "SubmitDirectEditTaskSync";
     public static final String GetDirectEditResult = "GetDirectEditResult";
     public static final String GetDirectEditProgress = "GetDirectEditProgress";
     public static final String CancelDirectEditTask = "CancelDirectEditTask";

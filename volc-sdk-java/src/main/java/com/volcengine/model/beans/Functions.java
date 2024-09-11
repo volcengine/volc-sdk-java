@@ -1,7 +1,6 @@
 package com.volcengine.model.beans;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.volcengine.service.vod.model.business.VodUploadTemplate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -47,6 +46,10 @@ public class Functions {
 
     public static Functions StartWorkFlowFunction(List<FunctionsWorkflowTemplate> templates) {
         return new Functions("StartWorkflow", new FunctionsWorkflowInput("", templates));
+    }
+
+    public static Functions CaptionUploadFunction(FunctionsCaptionInput input) {
+        return new Functions("CaptionUpload", input);
     }
 
 }

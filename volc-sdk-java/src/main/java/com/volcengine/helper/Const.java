@@ -79,6 +79,12 @@ public class Const {
     public static final String Text2ImgXLSft = "Text2ImgXLSft";
     public static final String Img2ImgXLSft = "Img2ImgXLSft";
     public static final String SaliencySeg = "SaliencySeg";
+    public static final String CVGetResult = "CVGetResult";
+    public static final String CVSubmitTask = "CVSubmitTask";
+    public static final String CVSync2AsyncGetResult = "CVSync2AsyncGetResult";
+    public static final String CVSync2AsyncSubmitTask = "CVSync2AsyncSubmitTask";
+    public static final String CVProcess = "CVProcess";
+
     // billing
     public static final String ListBill = "ListBill";
     public static final String ListBillDetail = "ListBillDetail";
@@ -548,6 +554,11 @@ public class Const {
     public static final String GetMediaStoragePayData = "GetMediaStoragePayData";
 
     public static final String GetVideoTrafficPayData = "GetVideoTrafficPayData";
+    public static final String CreateLLMTask = "CreateLLMTask";
+    public static final String GetLLMReport = "GetLLMReport";
+    public static final String ListLLMTasks = "ListLLMTasks";
+
+    public static final String UpdateAccountBanStatus = "UpdateAccountBanStatus";
 
     public static final String GetViewingRestrictionInfo="GetViewingRestrictionInfo";
     

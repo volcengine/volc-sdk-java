@@ -30,7 +30,7 @@ public final class GetImageDuplicateDetectionResResult  {
     private String taskId;
 
     /**
-     * <p>回调地址。</p>
+     * <p>回调地址，与请求参数中的`Callback`相同。具体异步去重信息请参考 [GetDedupTaskStatus](https://www.volcengine.com/docs/508/138909)接口。具体回调内容请参考[回调参数](https://www.volcengine.com/docs/508/138658#%E5%9B%9E%E8%B0%83%E5%8F%82%E6%95%B0) 。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Callback")
     private String callback;

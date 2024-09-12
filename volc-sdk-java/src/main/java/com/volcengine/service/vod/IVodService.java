@@ -1142,4 +1142,31 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      */
 	com.volcengine.service.vod.model.response.DescribeVodRealtimeMediaDetailDataResponse describeVodRealtimeMediaDetailData(com.volcengine.service.vod.model.request.DescribeVodRealtimeMediaDetailDataRequest input) throws Exception;
 	
+	/**
+     * setCloudMigrateJob.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodSetCloudMigrateJobRequest
+     * @return com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse setCloudMigrateJob(com.volcengine.service.vod.model.request.VodSetCloudMigrateJobRequest input) throws Exception;
+	
+	/**
+     * submitCloudMigrateJob.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest
+     * @return com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse submitCloudMigrateJob(com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest input) throws Exception;
+	
+	/**
+     * getCloudMigrateJob.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetCloudMigrateJobRequest
+     * @return com.volcengine.service.vod.model.response.VodGetCloudMigrateJobResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodGetCloudMigrateJobResponse getCloudMigrateJob(com.volcengine.service.vod.model.request.VodGetCloudMigrateJobRequest input) throws Exception;
+	
 }  // end of service interface

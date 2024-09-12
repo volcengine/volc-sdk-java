@@ -27,4 +27,8 @@ public class ListAccountUserDataRequest {
     String PageToken;
     @JSONField(name = "SortMode")
     String SortMode;
+    @JSONField(name = "BanStatus")
+    Integer BanStatus;
+    @JSONField(name = "UserIds")
+    List<Long> UserIds;
 }

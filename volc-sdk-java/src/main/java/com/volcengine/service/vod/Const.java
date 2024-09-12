@@ -185,4 +185,8 @@ public class Const {
     public static final String SubmitBlockObjectTasks = "SubmitBlockObjectTasks";
     public static final String ListBlockObjectTasks = "ListBlockObjectTasks";
 
+    public static final String SetCloudMigrateJob = "SetCloudMigrateJob";
+    public static final String GetCloudMigrateJob = "GetCloudMigrateJob";
+    public static final String SubmitCloudMigrateJob = "SubmitCloudMigrateJob";
+
 }

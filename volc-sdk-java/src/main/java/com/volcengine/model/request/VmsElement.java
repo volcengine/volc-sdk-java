@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class VmsElement {
-    @JSONField(name = "SourceType")
+    @JSONField(name = "sourceType")
     String sourceType;
     @JSONField(name = "content")
     String content;

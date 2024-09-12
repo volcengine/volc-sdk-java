@@ -14,23 +14,23 @@ public class GetSubAccountListResponse {
 
     @Data
     public static class ResultBean {
-        @JSONField(name = "List")
+        @JSONField(name = "list")
         List<SmsSubAccountInfo> list;
-        @JSONField(name = "Total")
+        @JSONField(name = "total")
         int total;
     }
 
     @Data
     public static class SmsSubAccountInfo {
-        @JSONField(name = "SubAccountId")
+        @JSONField(name = "subAccountId")
         String subAccountId;
-        @JSONField(name = "SubAccountName")
+        @JSONField(name = "subAccountName")
         String subAccountName;
-        @JSONField(name = "CreatedTime")
+        @JSONField(name = "createdTime")
         int createdTime;
-        @JSONField(name = "Status")
+        @JSONField(name = "status")
         int status;
-        @JSONField(name = "Desc")
+        @JSONField(name = "desc")
         String desc;
     }
 }

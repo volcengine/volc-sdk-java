@@ -15,6 +15,12 @@ public final class CreateImageContentTaskResResult  {
     @com.alibaba.fastjson.annotation.JSONField(name = "TaskId")
     private String taskId;
 
+    /**
+     * <p>完成结果提示信息</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Msg")
+    private String msg;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

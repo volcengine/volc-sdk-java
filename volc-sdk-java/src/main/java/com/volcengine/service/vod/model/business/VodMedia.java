@@ -400,39 +400,39 @@ public final class VodMedia {
       "e\030\004 \001(\t\"\222\001\n\023VodGetFileInfosData\022>\n\tFileI" +
       "nfos\030\001 \003(\0132+.Volcengine.Vod.Models.Busin" +
       "ess.VodFileInfo\022\031\n\021NotExistFileNames\030\002 \003" +
-      "(\t\022 \n\030NotExistEncodedFileNames\030\003 \003(\t\"\211\001\n" +
+      "(\t\022 \n\030NotExistEncodedFileNames\030\003 \003(\t\"\236\001\n" +
       "\013VodFileInfo\022\020\n\010FileName\030\001 \001(\t\022\030\n\020LastMo" +
       "difiedTime\030\002 \001(\t\022\014\n\004Size\030\003 \001(\003\022\024\n\014Storag" +
       "eClass\030\004 \001(\t\022\021\n\tHashCrc64\030\005 \001(\t\022\027\n\017Encod" +
-      "edFileName\030\006 \001(\t\";\n\021VodFileUpdateInfo\022\020\n" +
-      "\010FileName\030\001 \001(\t\022\024\n\014StorageClass\030\002 \001(\t\":\n" +
-      "\035VodUpdateFileStorageClassData\022\031\n\021NotExi" +
-      "stFileNames\030\001 \003(\t\"6\n\036VodUpdateMediaStora" +
-      "geClassData\022\024\n\014NotExistVids\030\001 \003(\t\"b\n\035Vod" +
-      "SubmitBlockMediaTaskResult\022\024\n\014NotExistVi" +
-      "ds\030\001 \003(\t\022\023\n\013BlockedVids\030\002 \003(\t\022\026\n\016Unblock" +
-      "ingVids\030\003 \003(\t\"d\n\037VodSubmitUnblockMediaTa" +
-      "skResult\022\024\n\014NotExistVids\030\001 \003(\t\022\025\n\rUnbloc" +
-      "kedVids\030\002 \003(\t\022\024\n\014BlockingVids\030\003 \003(\t\"\204\001\n\036" +
-      "VodQueryMediaBlockStatusResult\022\024\n\014NotExi" +
-      "stVids\030\001 \003(\t\022L\n\022MediaBlockStatuses\030\002 \003(\013" +
-      "20.Volcengine.Vod.Models.Business.MediaB" +
-      "lockStatus\"/\n\020MediaBlockStatus\022\013\n\003Vid\030\001 " +
-      "\001(\t\022\016\n\006Status\030\002 \001(\t*\320\002\n VodFrameExtracti" +
-      "ngOptionForAudit\022-\n)UndefinedVodFrameExt" +
-      "ractingOptionForAudit\020\000\022\'\n#FpsVodFrameEx" +
-      "tractingOptionForAudit\020\001\0222\n.NumberOfFram" +
-      "esVodFrameExtractingOptionForAudit\020\002\022,\n(" +
-      "CutTimesVodFrameExtractingOptionForAudit" +
-      "\020\003\022:\n6FpsLimitNumberOfFramesVodFrameExtr" +
-      "actingOptionForAudit\020\004\0226\n2OnlyFirstLastF" +
-      "rameVodFrameExtractingOptionForAudit\020\005B\314" +
-      "\001\n)com.volcengine.service.vod.model.busi" +
-      "nessB\010VodMediaP\001ZAgithub.com/volcengine/" +
-      "volc-sdk-golang/service/vod/models/busin" +
-      "ess\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Models\\B" +
-      "usiness\342\002#Volc\\Service\\Vod\\Models\\GPBMet" +
-      "adatab\006proto3"
+      "edFileName\030\006 \001(\t\022\023\n\013DownloadUrl\030\007 \001(\t\";\n" +
+      "\021VodFileUpdateInfo\022\020\n\010FileName\030\001 \001(\t\022\024\n\014" +
+      "StorageClass\030\002 \001(\t\":\n\035VodUpdateFileStora" +
+      "geClassData\022\031\n\021NotExistFileNames\030\001 \003(\t\"6" +
+      "\n\036VodUpdateMediaStorageClassData\022\024\n\014NotE" +
+      "xistVids\030\001 \003(\t\"b\n\035VodSubmitBlockMediaTas" +
+      "kResult\022\024\n\014NotExistVids\030\001 \003(\t\022\023\n\013Blocked" +
+      "Vids\030\002 \003(\t\022\026\n\016UnblockingVids\030\003 \003(\t\"d\n\037Vo" +
+      "dSubmitUnblockMediaTaskResult\022\024\n\014NotExis" +
+      "tVids\030\001 \003(\t\022\025\n\rUnblockedVids\030\002 \003(\t\022\024\n\014Bl" +
+      "ockingVids\030\003 \003(\t\"\204\001\n\036VodQueryMediaBlockS" +
+      "tatusResult\022\024\n\014NotExistVids\030\001 \003(\t\022L\n\022Med" +
+      "iaBlockStatuses\030\002 \003(\01320.Volcengine.Vod.M" +
+      "odels.Business.MediaBlockStatus\"/\n\020Media" +
+      "BlockStatus\022\013\n\003Vid\030\001 \001(\t\022\016\n\006Status\030\002 \001(\t" +
+      "*\320\002\n VodFrameExtractingOptionForAudit\022-\n" +
+      ")UndefinedVodFrameExtractingOptionForAud" +
+      "it\020\000\022\'\n#FpsVodFrameExtractingOptionForAu" +
+      "dit\020\001\0222\n.NumberOfFramesVodFrameExtractin" +
+      "gOptionForAudit\020\002\022,\n(CutTimesVodFrameExt" +
+      "ractingOptionForAudit\020\003\022:\n6FpsLimitNumbe" +
+      "rOfFramesVodFrameExtractingOptionForAudi" +
+      "t\020\004\0226\n2OnlyFirstLastFrameVodFrameExtract" +
+      "ingOptionForAudit\020\005B\314\001\n)com.volcengine.s" +
+      "ervice.vod.model.businessB\010VodMediaP\001ZAg" +
+      "ithub.com/volcengine/volc-sdk-golang/ser" +
+      "vice/vod/models/business\240\001\001\330\001\001\302\002\000\312\002 Volc" +
+      "\\Service\\Vod\\Models\\Business\342\002#Volc\\Serv" +
+      "ice\\Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -678,7 +678,7 @@ public final class VodMedia {
     internal_static_Volcengine_Vod_Models_Business_VodFileInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodFileInfo_descriptor,
-        new java.lang.String[] { "FileName", "LastModifiedTime", "Size", "StorageClass", "HashCrc64", "EncodedFileName", });
+        new java.lang.String[] { "FileName", "LastModifiedTime", "Size", "StorageClass", "HashCrc64", "EncodedFileName", "DownloadUrl", });
     internal_static_Volcengine_Vod_Models_Business_VodFileUpdateInfo_descriptor =
       getDescriptor().getMessageTypes().get(40);
     internal_static_Volcengine_Vod_Models_Business_VodFileUpdateInfo_fieldAccessorTable = new

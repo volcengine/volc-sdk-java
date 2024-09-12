@@ -18,6 +18,9 @@ public class VodGetFileInfosDemo {
 			reqBuilder.setSpaceName("your SpaceName");
 			reqBuilder.setEncodedFileNames("your EncodedFileNames");
 			reqBuilder.setBucketName("your BucketName");
+			reqBuilder.setNeedDownloadUrl(false);
+			reqBuilder.setDownloadUrlNetworkType("your DownloadUrlNetworkType");
+			reqBuilder.setDownloadUrlExpire(0);
 			
             com.volcengine.service.vod.model.response.VodGetFileInfosResponse resp = vodService.getFileInfos(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

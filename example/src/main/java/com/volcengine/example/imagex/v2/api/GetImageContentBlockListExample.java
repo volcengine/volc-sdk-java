@@ -10,11 +10,10 @@ public class GetImageContentBlockListExample {
         service.setAccessKey("ak");
         service.setSecretKey("sk");
 
-        GetImageContentBlockListQuery query = new GetImageContentBlockListQuery();
         GetImageContentBlockListBody body = new GetImageContentBlockListBody();
-        
+
         try {
-            GetImageContentBlockListRes resp = service.getImageContentBlockList(query, body);
+            GetImageContentBlockListRes resp = service.getImageContentBlockList(body);
             System.out.println(resp);
         } catch (Exception e) {
             e.printStackTrace();

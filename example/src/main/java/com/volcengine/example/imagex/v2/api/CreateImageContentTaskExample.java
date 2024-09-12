@@ -10,11 +10,10 @@ public class CreateImageContentTaskExample {
         service.setAccessKey("ak");
         service.setSecretKey("sk");
 
-        CreateImageContentTaskQuery query = new CreateImageContentTaskQuery();
         CreateImageContentTaskBody body = new CreateImageContentTaskBody();
-        
+
         try {
-            CreateImageContentTaskRes resp = service.createImageContentTask(query, body);
+            CreateImageContentTaskRes resp = service.createImageContentTask(body);
             System.out.println(resp);
         } catch (Exception e) {
             e.printStackTrace();

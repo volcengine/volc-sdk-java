@@ -10,13 +10,13 @@ import com.alibaba.fastjson.JSON;
 public final class GetImageContentBlockListBody  {
 
     /**
-     * <p>每页最大记录数，取值范围是[10,1000]。默认值为 100。</p>
+     * <p>每页条数，取值范围是[10,1000]。默认值为 100。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageSize")
     private Integer pageSize;
 
     /**
-     * <p>页码，系统将仅返回该页面上的任务。默认值为 1。</p>
+     * <p>页码，仅返回该页码上的任务。默认值为 1。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageNum")
     private Integer pageNum;
@@ -48,7 +48,7 @@ public final class GetImageContentBlockListBody  {
     private String state;
 
     /**
-     * <p>指定 URL，缺省情况下查询当前服务所有禁用任务列表。</p>
+     * <p>指定要查询的 URL，缺省情况下查询当前服务所有禁用任务列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Url")
     private String url;
@@ -62,6 +62,12 @@ public final class GetImageContentBlockListBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Order")
     private String order;
+
+    /**
+     * <p>域名，指定后将返回包含该域名的 URL 禁用任务。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
+    private String domain;
 
     @Override
     public String toString() {

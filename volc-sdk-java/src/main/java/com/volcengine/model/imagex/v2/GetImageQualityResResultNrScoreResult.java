@@ -99,6 +99,12 @@ public final class GetImageQualityResResultNrScoreResult  {
     @com.alibaba.fastjson.annotation.JSONField(name = "AdvColor")
     private Double advColor;
 
+    /**
+     * <p>文字质量分数</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "TextQualityScore")
+    private Double textQualityScore;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

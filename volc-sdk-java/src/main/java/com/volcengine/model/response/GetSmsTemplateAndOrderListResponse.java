@@ -14,9 +14,9 @@ public class GetSmsTemplateAndOrderListResponse {
     ResultBean result;
     @Data
     public static class ResultBean {
-        @JSONField(name = "List")
+        @JSONField(name = "list")
         List<SmsTemplateInfo> list;
-        @JSONField(name = "Total")
+        @JSONField(name = "total")
         int total;
     }
 

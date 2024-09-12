@@ -6,25 +6,25 @@ import lombok.Data;
 
 @Data
 public class ApplySmsTemplateRequest {
-    @JSONField(name = "SubAccount")
+    @JSONField(name = "subAccount")
     String subAccount;
 
-    @JSONField(name = "Area")
+    @JSONField(name = "area")
     String area;
 
-    @JSONField(name = "ChannelType")
+    @JSONField(name = "channelType")
     String channelType;
 
-    @JSONField(name = "Content")
+    @JSONField(name = "content")
     String content;
 
-    @JSONField(name = "Desc")
+    @JSONField(name = "desc")
     String desc;
 
-    @JSONField(name = "Name")
+    @JSONField(name = "name")
     String name;
 
-    @JSONField(name = "ShortUrlConfig")
+    @JSONField(name = "shortUrlConfig")
     ShortUrlConfig shortUrlConfig;
 }
 

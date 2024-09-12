@@ -5,12 +5,12 @@ import lombok.Data;
 
 @Data
 public class DeleteSmsTemplateRequest {
-    @JSONField(name = "SubAccount")
+    @JSONField(name = "subAccount")
     String subAccount;
 
-    @JSONField(name = "Id")
+    @JSONField(name = "id")
     String id;
 
-    @JSONField(name = "IsOrder")
+    @JSONField(name = "isOrder")
     boolean isOrder;
 }

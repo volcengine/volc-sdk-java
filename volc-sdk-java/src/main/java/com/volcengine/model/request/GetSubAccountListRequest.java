@@ -5,15 +5,15 @@ import lombok.Data;
 
 @Data
 public class GetSubAccountListRequest {
-    @JSONField(name = "SubAccount")
+    @JSONField(name = "subAccount")
     String subAccount;
 
-    @JSONField(name = "SubAccountName")
+    @JSONField(name = "subAccountName")
     String subAccountName;
 
-    @JSONField(name = "PageIndex")
+    @JSONField(name = "pageIndex")
     int pageIndex;
 
-    @JSONField(name = "PageSize")
+    @JSONField(name = "pageSize")
     int pageSize;
 }

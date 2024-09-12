@@ -77,6 +77,16 @@ public final class CreateImageMigrateTaskBodyTaskTranscode  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Adapt")
     private Boolean adapt;
 
+    /**
+     * <p>当 jpeg 原图在迁移中指定转码为 heic 图时， heic 图是否需要存储原图大小的数据。</p>
+     *
+     * <p>- `true`：是</p>
+     *
+     * <p>- `false`：（默认）否</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ReserveJpegSize")
+    private Boolean reserveJpegSize;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

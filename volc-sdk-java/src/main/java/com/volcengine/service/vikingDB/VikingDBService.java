@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
@@ -165,20 +166,38 @@ public class VikingDBService extends BaseServiceImpl {
         Gson gson = new GsonBuilder().registerTypeAdapter(new TypeToken<LinkedTreeMap<String, Object>>() {}.getType(), new ObjectTypeAdapterRewrite()).create();
         RawResponse res = json(api,params, gson.toJson(body));
         if (res.getCode() != 0){
+            Long code = null;
+            String requestId = null;
+            String message = null;
+            LinkedTreeMap<String,Object> resJson = null;
+            VikingDBException vikingDBException = new VikingDBException();
             try {
-                throw new Exception(res.getException().getMessage());
-            } catch (Exception e) {
-                LinkedTreeMap<String,Object> resJson = gson.fromJson(e.getMessage(), new TypeToken<LinkedTreeMap<String, Object>>() {}.getType());
-                Long code = (Long)resJson.get("code");
-                String requestId = (String)resJson.get("request_id");
-                String message = (String)resJson.get("message");
-                VikingDBException vikingDBException = new VikingDBException(code, requestId, message);
+                resJson = gson.fromJson(res.getException().getMessage(), new TypeToken<LinkedTreeMap<String, Object>>() {}.getType());
+            } catch (JsonSyntaxException e) {
+                throw new RuntimeException("Exception from Vikingdb_Server failed to parse JSON: " + e.getMessage(), e);
+            } 
+            if (resJson != null) {
+                code = (Long)resJson.get("code");
+                requestId = (String)resJson.get("request_id");
+                message = (String)resJson.get("message");
+                vikingDBException = new VikingDBException(code, requestId, message);
                 throw vikingDBException.getErrorCodeException(code, requestId, message);
+            } else {
+                throw new Exception("return code is not 0 and res is null:"+res);
             }
+            // Long code = (Long)resJson.get("code");
+            // String requestId = (String)resJson.get("request_id");
+            // String message = (String)resJson.get("message");
+            // VikingDBException vikingDBException = new VikingDBException(code, requestId, message);
+            // throw vikingDBException.getErrorCodeException(code, requestId, message);
         }
-        String resData =new String(res.getData(), StandardCharsets.UTF_8);
-        LinkedTreeMap<String,Object> data = gson.fromJson(resData,new TypeToken<LinkedTreeMap<String, Object>>() {}.getType());
-
+        LinkedTreeMap<String,Object> data = null;
+        try {
+            String resData =new String(res.getData(), StandardCharsets.UTF_8);
+            data = gson.fromJson(resData,new TypeToken<LinkedTreeMap<String, Object>>() {}.getType());
+        } catch (JsonSyntaxException e) {
+            throw new RuntimeException("Exception from Vikingdb_Server failed to parse JSON: " + e.getMessage(), e);
+        } 
         return data;
     }
 
@@ -367,6 +386,7 @@ public class VikingDBService extends BaseServiceImpl {
         if(createIndexParam.getVectorIndex() != null) params.put("vector_index", createIndexParam.getVectorIndex().dict());
         if(createIndexParam.getScalarIndex() != null) params.put("scalar_index", createIndexParam.getScalarIndex());
         if(createIndexParam.getShardCount() != null) params.put("shard_count", createIndexParam.getShardCount());
+        if(createIndexParam.getShardPolicy() != null) params.put("shard_policy", createIndexParam.getShardPolicy());
         // System.out.println(params);
         doRequest("CreateIndex",null, params);
         Index index = new Index(createIndexParam.getCollectionName(), createIndexParam.getIndexName(),
@@ -375,6 +395,8 @@ public class VikingDBService extends BaseServiceImpl {
         index.setDescription(createIndexParam.getDescription());
         index.setPartitionBy(createIndexParam.getPartitionBy());
         index.setCpuQuota(createIndexParam.getCpuQuoat());
+        index.setShardCount(createIndexParam.getShardCount());
+        index.setShardPolicy(createIndexParam.getShardPolicy());
         index.requestPrimaryKey();
         return index;
     }
@@ -442,6 +464,7 @@ public class VikingDBService extends BaseServiceImpl {
         if(res.containsKey("update_time")) index.setUpdateTime((String)res.get("update_time"));
         if(res.containsKey("update_person")) index.setUpdatePerson((String)res.get("update_person"));
         if(res.containsKey("shard_count")) index.setShardCount(((Long)res.get("shard_count")));
+        if(res.containsKey("shard_policy")) index.setShardPolicy((String)res.get("shard_policy"));
         if(res.containsKey("index_cost")){
             HashMap<String,Object> indexCost = convertLinkedTreeMapToHashMap((LinkedTreeMap<String,Object>)res.get("index_cost"));
             index.setIndexCost(indexCost);

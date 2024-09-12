@@ -71,6 +71,12 @@ public final class GetImageContentTaskDetailResResultDataItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "UpdateTime")
     private Long updateTime;
 
+    /**
+     * <p>完成结果提示信息</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Msg")
+    private String msg;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

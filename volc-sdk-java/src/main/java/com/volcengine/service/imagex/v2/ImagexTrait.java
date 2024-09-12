@@ -1997,7 +1997,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>getImageUpdateFiles</p>
      * <p>获取服务下的更新文件</p>
      *
-     * <p>通过指定服务 ID 以及获取文件类型，从而得到符合条件的文件 URL 详情。</p>
+     * <p>本接口支持查询某服务下指定条件（刷新/禁用）的文件 URL 列表详情。</p>
      *
      * @param query query arguments
      * @return response data
@@ -2012,7 +2012,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>previewImageUploadFile</p>
      * <p>预览服务下的文件</p>
      *
-     * <p>通过指定服务 ID 以及上传文件 Uri，来获取指定文件的详细信息。</p>
+     * <p>本接口支持获取指定服务下存储文件的详细信息。</p>
      *
      * @param query query arguments
      * @return response data
@@ -2021,21 +2021,6 @@ public class ImagexTrait extends BaseServiceImpl {
     public PreviewImageUploadFileRes previewImageUploadFile(PreviewImageUploadFileQuery query) throws Exception {
         RawResponse rawResponse = json("PreviewImageUploadFile", Utils.paramsToPair(query), "");
         return parseRawResponse(rawResponse, PreviewImageUploadFileRes.class);
-    }
-
-    /**
-     * <p>getImageServiceSubscription</p>
-     * <p>查询服务开通状态</p>
-     *
-     * <p>本接口支持查询图片服务的开通状态详情，支持返回账号 ID、已购商品和已购商品配置等信息。</p>
-     *
-     * @param query query arguments
-     * @return response data
-     * @throws Exception error during request
-     */
-    public GetImageServiceSubscriptionRes getImageServiceSubscription(GetImageServiceSubscriptionQuery query) throws Exception {
-        RawResponse rawResponse = json("GetImageServiceSubscription", Utils.paramsToPair(query), "");
-        return parseRawResponse(rawResponse, GetImageServiceSubscriptionRes.class);
     }
 
     /**
@@ -2072,11 +2057,11 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>createImageCompressTask</p>
      * <p>创建多文件压缩异步任务</p>
      *
-     * <p>本接口支持通过指定压缩文件/文件夹及其他配置创建异步压缩任务，系统将执行压缩打包处理并将压缩包存储至指定服务内。支持以下两种压缩文件提交方式：</p>
+     * <p>本接口支持将指定的若干文件进行压缩并打包为 ZIP 包，并将结果上传至指定服务。同时，在打包的过程中，支持对各文件重命名，以及自定义压缩规则与压缩包名称。支持以下两种待压缩文件提交方式：</p>
      *
      *
      *
-     * <p>- 方式 1：[FlieList 方式](https://www.volcengine.com/docs/508/1112504#filelist)：需配置公网可访问的待压缩文件 URL 与 Alias，Folder 配置，不得超过 500。</p>
+     * <p>- 方式 1：[FlieList 方式](https://www.volcengine.com/docs/508/1112504#filelist)：需配置公网可访问的待压缩文件 URL 与 Alias，Folder 配置，不得超过 3000。</p>
      *
      * <p>- 方式 2：[IndexFile 方式](https://www.volcengine.com/docs/508/1112504#indexfile)：在 .txt 文件（索引文件）内填写待压缩文件相关配置，每行需填写 `StoreUri/URL,Alias,Folder`相关配置 ，并将该索引文件上传至指定服务，并获取索引文件 StoreUri。</p>
      *
@@ -2182,7 +2167,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>getResourceURL</p>
      * <p>获取资源URL</p>
      *
-     * <p>支持指定服务 ID 、域名以及上传图像资源 Uri 后，获取资源访问地址；若指定模板，也支持获取模板处理后结果图访问地址。</p>
+     * <p>本接口支持获取指定服务下单个文件的原文件访问地址，若指定模板，可获取模板处理后结果图访问地址。</p>
      *
      * @param query query arguments
      * @return response data
@@ -2197,7 +2182,17 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>createImageFromUri</p>
      * <p>资源迁移</p>
      *
-     * <p>资源迁移</p>
+     * <p>本接口支持将源服务`OriServiceId`内的存储资源，复制到目标服务`ServiceId`。</p>
+     *
+     *
+     *
+     * <p>:::warning</p>
+     *
+     * <p>- 源服务与目标服务需所属同一个火山引擎账号，所属地域需保持一致。</p>
+     *
+     * <p>- 归档与冷归档文件需[恢复资源](https://www.volcengine.com/docs/508/1205056)后，才能复制。</p>
+     *
+     * <p>:::</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -2229,15 +2224,14 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>createImageContentTask</p>
      * <p>创建刷新预热禁用解禁任务</p>
      *
-     * <p>本接口支持在指定服务 ID 、待更改操作的文件和文件操作类型（刷新 URL、刷新目录（包含根目录）、预热 URL、禁用 URL 和解禁 URL）后创建相关文件管理任务。</p>
+     * <p>本接口支持创建一个内容管理任务（包括刷新 URL、刷新目录（包含根目录）、预热 URL、禁用 URL 以及解禁 URL）。</p>
      *
-     * @param query query arguments
      * @param body body payload
      * @return response data
      * @throws Exception error during request
      */
-    public CreateImageContentTaskRes createImageContentTask(CreateImageContentTaskQuery query, CreateImageContentTaskBody body) throws Exception {
-        RawResponse rawResponse = json("CreateImageContentTask", Utils.paramsToPair(query), JSON.toJSONString(body));
+    public CreateImageContentTaskRes createImageContentTask(CreateImageContentTaskBody body) throws Exception {
+        RawResponse rawResponse = json("CreateImageContentTask", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, CreateImageContentTaskRes.class);
     }
 
@@ -2262,13 +2256,12 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>本接口支持获取近 30 天内的已被禁用的 URL 列表详情，若 URL 解禁成功，则无法被查询。</p>
      *
-     * @param query query arguments
      * @param body body payload
      * @return response data
      * @throws Exception error during request
      */
-    public GetImageContentBlockListRes getImageContentBlockList(GetImageContentBlockListQuery query, GetImageContentBlockListBody body) throws Exception {
-        RawResponse rawResponse = json("GetImageContentBlockList", Utils.paramsToPair(query), JSON.toJSONString(body));
+    public GetImageContentBlockListRes getImageContentBlockList(GetImageContentBlockListBody body) throws Exception {
+        RawResponse rawResponse = json("GetImageContentBlockList", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, GetImageContentBlockListRes.class);
     }
 
@@ -2493,7 +2486,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>getImageDuplicateDetection</p>
      * <p>使用图片去重获取结果值</p>
      *
-     * <p>本接口支持指定服务 ID 以及待去重原图 URL 数组，获取去重结果。</p>
+     * <p>本接口支持通过对图片的特征提取、特征比较、相似度计算，获取相似度分值和相似图片分组。</p>
      *
      *
      *
@@ -2675,6 +2668,30 @@ public class ImagexTrait extends BaseServiceImpl {
     public CreateHiddenWatermarkImageRes createHiddenWatermarkImage(CreateHiddenWatermarkImageQuery query, CreateHiddenWatermarkImageBody body) throws Exception {
         RawResponse rawResponse = json("CreateHiddenWatermarkImage", Utils.paramsToPair(query), JSON.toJSONString(body));
         return parseRawResponse(rawResponse, CreateHiddenWatermarkImageRes.class);
+    }
+
+    /**
+     * <p>updateImageExifData</p>
+     * <p>图片EXIF数据修改</p>
+     *
+     * <p>本接口支持同步新增、删除和修改 JPEG/PNG/WEBP/HEIC/AVIF 格式的静图 EXIF 数据。</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>您可参考[查询图片 meta 信息](https://www.volcengine.com/docs/508/64085)，获取图片中存在的 EXIF 信息。</p>
+     *
+     * <p>:::</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageExifDataRes updateImageExifData(UpdateImageExifDataQuery query, UpdateImageExifDataBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageExifData", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageExifDataRes.class);
     }
 
     /**
@@ -2879,6 +2896,21 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>getImageServiceSubscription</p>
+     * <p>查询服务开通状态</p>
+     *
+     * <p>本接口支持查询图片服务的开通状态详情，支持返回账号 ID、已购商品和已购商品配置等信息。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageServiceSubscriptionRes getImageServiceSubscription(GetImageServiceSubscriptionQuery query) throws Exception {
+        RawResponse rawResponse = json("GetImageServiceSubscription", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetImageServiceSubscriptionRes.class);
+    }
+
+    /**
      * <p>getImageAuthKey</p>
      * <p>获取主备鉴权Key</p>
      *
@@ -3042,7 +3074,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>deleteTemplatesFromBin</p>
      * <p>删除回收站模板</p>
      *
-     * <p>本接口支持通过指定服务 ID 以及模板名称，删除该服务回收站内对应的模板。</p>
+     * <p>本接口支持删除指定服务下回收站内的模板。删除后，该模板不可恢复。</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -3074,13 +3106,13 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>createTemplatesFromBin</p>
      * <p>恢复回收站模板</p>
      *
-     * <p>本接口支持通过指定服务 ID 以及待恢复的模板名称，恢复该服务回收站内对应的模板。</p>
+     * <p>本接口支持恢复指定服务回收站内的模板。</p>
      *
      *
      *
      * <p>:::tip</p>
      *
-     * <p>当已经有同名模版的时候，此时恢复模版会递增版本号。</p>
+     * <p>当已经有同名模板的时候，此时恢复模板会递增版本号。</p>
      *
      * <p>:::</p>
      *

@@ -116,4 +116,24 @@ public interface VodFileInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getEncodedFileNameBytes();
+
+  /**
+   * <pre>
+   * 文件下载链接
+   * </pre>
+   *
+   * <code>string DownloadUrl = 7;</code>
+   * @return The downloadUrl.
+   */
+  java.lang.String getDownloadUrl();
+  /**
+   * <pre>
+   * 文件下载链接
+   * </pre>
+   *
+   * <code>string DownloadUrl = 7;</code>
+   * @return The bytes for downloadUrl.
+   */
+  com.google.protobuf.ByteString
+      getDownloadUrlBytes();
 }

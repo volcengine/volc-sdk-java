@@ -3027,8 +3027,8 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
-    public DeleteRobotCommentsResponse DeleteRobotComments(DeleteRobotCommentsRequest DeleteRobotCommentsRequest) throws Exception {
-        RawResponse response = json(Const.DeleteRobotComments, new ArrayList<>(), JSON.toJSONString(DeleteRobotCommentsRequest));
+    public DeleteRobotCommentsResponse DeleteRobotComments(DeleteRobotCommentsRequest deleteRobotCommentsRequest) throws Exception {
+        RawResponse response = json(Const.DeleteRobotComments, new ArrayList<>(), JSON.toJSONString(deleteRobotCommentsRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -3041,8 +3041,8 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         return res;
     }
 
-    public AddRobotCommentsResponse AddRobotComments(AddRobotCommentsRequest AddRobotCommentsRequest) throws Exception {
-        RawResponse response = json(Const.AddRobotComments, new ArrayList<>(), JSON.toJSONString(AddRobotCommentsRequest));
+    public AddRobotCommentsResponse AddRobotComments(AddRobotCommentsRequest addRobotCommentsRequest) throws Exception {
+        RawResponse response = json(Const.AddRobotComments, new ArrayList<>(), JSON.toJSONString(addRobotCommentsRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -3056,8 +3056,8 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
-    public ListRobotCommentsResponse ListRobotComments(ListRobotCommentsRequest ListRobotCommentsRequest) throws Exception {
-        RawResponse response = query(Const.ListRobotComments, Utils.paramsToPair(ListRobotCommentsRequest));
+    public ListRobotCommentsResponse ListRobotComments(ListRobotCommentsRequest listRobotCommentsRequest) throws Exception {
+        RawResponse response = query(Const.ListRobotComments, Utils.paramsToPair(listRobotCommentsRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -3071,8 +3071,8 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
-    public DeleteRobotNickNamesResponse DeleteRobotNickNames(DeleteRobotNickNamesRequest DeleteRobotNickNamesRequest) throws Exception {
-        RawResponse response = json(Const.DeleteRobotNickNames, new ArrayList<>(), JSON.toJSONString(DeleteRobotNickNamesRequest));
+    public DeleteRobotNickNamesResponse DeleteRobotNickNames(DeleteRobotNickNamesRequest deleteRobotNickNamesRequest) throws Exception {
+        RawResponse response = json(Const.DeleteRobotNickNames, new ArrayList<>(), JSON.toJSONString(deleteRobotNickNamesRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -3086,8 +3086,8 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
-    public AddRobotNickNamesResponse AddRobotNickNames(AddRobotNickNamesRequest AddRobotNickNamesRequest) throws Exception {
-        RawResponse response = json(Const.AddRobotNickNames, new ArrayList<>(), JSON.toJSONString(AddRobotNickNamesRequest));
+    public AddRobotNickNamesResponse AddRobotNickNames(AddRobotNickNamesRequest addRobotNickNamesRequest) throws Exception {
+        RawResponse response = json(Const.AddRobotNickNames, new ArrayList<>(), JSON.toJSONString(addRobotNickNamesRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -3101,8 +3101,8 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
-    public GetActivityRobotCommentConfigResponse GetActivityRobotCommentConfig(GetActivityRobotCommentConfigRequest GetActivityRobotCommentConfigRequest) throws Exception {
-        RawResponse response = query(Const.GetActivityRobotCommentConfig, Utils.paramsToPair(GetActivityRobotCommentConfigRequest));
+    public GetActivityRobotCommentConfigResponse GetActivityRobotCommentConfig(GetActivityRobotCommentConfigRequest getActivityRobotCommentConfigRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityRobotCommentConfig, Utils.paramsToPair(getActivityRobotCommentConfigRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -3116,8 +3116,8 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
-    public UpdateActivityRobotCommentConfigResponse UpdateActivityRobotCommentConfig(UpdateActivityRobotCommentConfigRequest UpdateActivityRobotCommentConfigRequest) throws Exception {
-        RawResponse response = json(Const.UpdateActivityRobotCommentConfig, new ArrayList<>(), JSON.toJSONString(UpdateActivityRobotCommentConfigRequest));
+    public UpdateActivityRobotCommentConfigResponse UpdateActivityRobotCommentConfig(UpdateActivityRobotCommentConfigRequest updateActivityRobotCommentConfigRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityRobotCommentConfig, new ArrayList<>(), JSON.toJSONString(updateActivityRobotCommentConfigRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -3131,6 +3131,20 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public UpdateAccountBanStatusResponse UpdateAccountBanStatus(UpdateAccountBanStatusRequest updateAccountBanStatusRequest) throws Exception {
+        RawResponse response = json(Const.UpdateAccountBanStatus, new ArrayList<>(), JSON.toJSONString(updateAccountBanStatusRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateAccountBanStatusResponse res = JSON.parseObject(response.getData(), UpdateAccountBanStatusResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
     public GetViewingRestrictionInfoResponse getViewingRestrictionInfo(GetViewingRestrictionInfoRequest getViewingRestrictionInfoRequest) throws Exception {
         RawResponse response = query(Const.GetViewingRestrictionInfo, Utils.paramsToPair(getViewingRestrictionInfoRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -3242,6 +3256,51 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
             throw response.getException();
         }
         DeletePhoneListResponse res = JSON.parseObject(response.getData(), DeletePhoneListResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public CreateLLMTaskResponse createLLMTask(CreateLLMTaskRequest createLLMTaskRequest) throws Exception {
+        RawResponse response = json(Const.CreateLLMTask, new ArrayList<>(), JSON.toJSONString(createLLMTaskRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CreateLLMTaskResponse res = JSON.parseObject(response.getData(), CreateLLMTaskResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListLLMTasksResponse listLLMTasks(ListLLMTasksRequest listLLMTasksRequest) throws Exception {
+        RawResponse response = query(Const.ListLLMTasks, Utils.paramsToPair(listLLMTasksRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListLLMTasksResponse res = JSON.parseObject(response.getData(), ListLLMTasksResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetLLMReportResponse getLLMReport(GetLLMReportRequest getLLMReportRequest) throws Exception {
+        RawResponse response = query(Const.GetLLMReport, Utils.paramsToPair(getLLMReportRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetLLMReportResponse res = JSON.parseObject(response.getData(), GetLLMReportResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());

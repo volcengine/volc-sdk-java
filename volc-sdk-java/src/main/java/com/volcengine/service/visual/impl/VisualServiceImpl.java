@@ -932,5 +932,49 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
         }
         return JSON.parseObject(new String(response.getData(), "UTF-8"), Object.class);
     }
+
+    public Object cvGetResult(Object request) throws Exception {
+        RawResponse response = json(Const.CVGetResult, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), Object.class);
+    }
+
+    @Override
+    public Object cvSubmitTask(Object request) throws Exception {
+        RawResponse response = json(Const.CVSubmitTask, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), Object.class);
+    }
+
+    @Override
+    public Object cvSync2AsyncGetResult(Object request) throws Exception {
+        RawResponse response = json(Const.CVSync2AsyncGetResult, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), Object.class);
+    }
+
+    @Override
+    public Object cvSync2AsyncSubmitTask(Object request) throws Exception {
+        RawResponse response = json(Const.CVSync2AsyncSubmitTask, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), Object.class);
+    }
+
+    @Override
+    public Object cvProcess(Object request) throws Exception {
+        RawResponse response = json(Const.CVProcess, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), Object.class);
+    }
 }
 

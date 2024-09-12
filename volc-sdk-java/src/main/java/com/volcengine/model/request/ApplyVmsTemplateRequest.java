@@ -7,16 +7,16 @@ import java.util.List;
 
 @Data
 public class ApplyVmsTemplateRequest {
-    @JSONField(name = "SubAccount")
+    @JSONField(name = "subAccount")
     String subAccount;
-    @JSONField(name = "ChannelType")
+    @JSONField(name = "channelType")
     String channelType;
-    @JSONField(name = "Name")
+    @JSONField(name = "name")
     String name;
-    @JSONField(name = "Theme")
+    @JSONField(name = "theme")
     String theme;
-    @JSONField(name = "Signature")
+    @JSONField(name = "signature")
     String signature;
-    @JSONField(name = "Contents")
+    @JSONField(name = "contents")
     List<VmsElement> contents;
 }

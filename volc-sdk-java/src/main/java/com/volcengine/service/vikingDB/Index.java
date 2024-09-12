@@ -33,6 +33,7 @@ public class Index {
     private String updateTime=null;
     private String updatePerson=null;
     private Integer shardCount=null;
+    private String shardPolicy=null;
     private HashMap<String,Object> indexCost=null;
     public Index(){}
     public Index(String collectionName, String indexName, VectorIndexParams vectorIndex, 
@@ -61,6 +62,10 @@ public class Index {
     
     public void setShardCount(Long shardCount) {
         this.shardCount = shardCount.intValue();
+    }
+
+    public void setShardPolicy(String shardPolicy) {
+        this.shardPolicy = shardPolicy;
     }
     
     public String requestPrimaryKey() throws Exception{

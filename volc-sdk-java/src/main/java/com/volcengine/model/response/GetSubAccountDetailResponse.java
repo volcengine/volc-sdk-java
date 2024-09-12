@@ -14,27 +14,27 @@ public class GetSubAccountDetailResponse {
 
     @Data
     public static class SmsSubAccountDetail {
-        @JSONField(name = "SubAccountId")
+        @JSONField(name = "subAccountId")
         String subAccountId;
-        @JSONField(name = "SubAccountName")
+        @JSONField(name = "subAccountName")
         String subAccountName;
-        @JSONField(name = "CreatedTime")
+        @JSONField(name = "createdTime")
         int createdTime;
-        @JSONField(name = "Status")
+        @JSONField(name = "status")
         int status;
-        @JSONField(name = "Desc")
+        @JSONField(name = "desc")
         String desc;
-        @JSONField(name = "EnabledChannelType")
+        @JSONField(name = "enabledChannelType")
         List<EnabledChannelType> enabledChannelType;
     }
 
     @Data
     public static class EnabledChannelType {
-        @JSONField(name = "Name")
+        @JSONField(name = "name")
         String name;
-        @JSONField(name = "Value")
+        @JSONField(name = "value")
         String value;
-        @JSONField(name = "Area")
+        @JSONField(name = "area")
         String area;
     }
 }

@@ -9,7 +9,6 @@ import com.volcengine.service.vikingDB.Collection;
 import com.volcengine.service.vikingDB.Index;
 import com.volcengine.service.vikingDB.VikingDBService;
 import com.volcengine.service.vikingDB.common.*;
-
 // import static com.volcengine.service.vikingDB.test.genRandomVector;
 
 
@@ -23,7 +22,53 @@ public class test {
     }
     
     public static void main(String[] args) throws Exception {
+
         VikingDBService vikingDBService = new VikingDBService("", "", "", "","");
+
+        // List<Field> fields = new ArrayList<>();
+        // fields.add(new Field().setFieldName("doc_id").setFieldType(FieldType.Int64).setPrimaryKey(true).build());
+        // fields.add(new Field().setFieldName("text_vector").setFieldType(FieldType.Vector).setDim(12).build());
+        // fields.add(new Field().setFieldName("text_sparse_vector").setFieldType(FieldType.Sparse_Vector).build());
+        // fields.add(new Field().setFieldName("like").setFieldType(FieldType.Int64).setDefaultVal(0).build());
+        // fields.add(new Field().setFieldName("price").setFieldType(FieldType.Float32).setDefaultVal(2.2).build());
+        // fields.add(new Field().setFieldName("aim").setFieldType(FieldType.Bool).setDefaultVal(false).build());
+        // fields.add(new Field().setFieldName("author").setFieldType(FieldType.List_String).build());
+        // CreateCollectionParam createCollectionParam = new CreateCollectionParam()
+        //                                                .setCollectionName("t")
+        //                                                .setFields(fields)
+        //                                                .build();
+        // Collection collection = vikingDBService.createCollection(createCollectionParam);
+
+        // VectorIndexParams vectorIndex = new VectorIndexParams()
+        //                                 .setDistance(DistanceType.COSINE)
+        //                                 .setIndexType(IndexType.HNSW_HYBRID)
+        //                                 .setQuant(QuantType.Float)
+        //                                 .build();
+        // List<String> scalarIndex = new ArrayList<>();
+        // scalarIndex.add("price");
+        // scalarIndex.add("aim");
+        // CreateIndexParam createIndexParam = new CreateIndexParam()
+        //                                 .setCollectionName("t")
+        //                                 .setIndexName("t3")
+        //                                 .setDescription("this is a test for index")
+        //                                 .setCpuQuoat(5)
+        //                                 .setVectorIndex(vectorIndex)
+        //                                 .setScalarIndex(scalarIndex)
+        //                                 .setPartitionBy("like")
+        //                                 .setShardPolicy(ShardType.Auto)
+        //                                 .setShardCount(10)
+        //                                 .build();
+        // Index index = vikingDBService.createIndex(createIndexParam);
+        // System.out.println(index);
+
+        Index index = vikingDBService.getIndex("t", "t4");
+        System.out.println(index);
+
+        // List<Index> indexes = vikingDBService.listIndexes("t");
+        // for (Index index: indexes){
+        //     System.out.println("----");
+        //     System.out.println(index);
+        // }
         
 //        101.126.33.217   180.184.64.90
 //        List<Field> fields = new ArrayList<>();
@@ -240,7 +285,7 @@ public class test {
         // 支持 no_order
 
 ////
-       List<String> outputField = new ArrayList<>();
+    //    List<String> outputField = new ArrayList<>();
 //        outputField.add("doc_id");
 //        outputField.add("like");
 //        outputField.add("text_vector");
@@ -248,18 +293,18 @@ public class test {
 //        outputField.add("aim");
 //        outputField.add("List_String");
 //        outputField.add("List_Int64");
-       HashMap<String,Object> sparse = new HashMap<String,Object>();
-       sparse.put("hello", 0.5);
-       SearchByVectorParam searchByVectorParam = new SearchByVectorParam()
-               .setVector(genRandomVector(4))
-               .setSparseVectors(sparse)
-//                .setOutputFields(outputField)
-               .setLimit(5)
-               .build();
-       Index index = vikingDBService.getIndex("test44", "test_index44");
+//        HashMap<String,Object> sparse = new HashMap<String,Object>();
+//        sparse.put("hello", 0.5);
+//        SearchByVectorParam searchByVectorParam = new SearchByVectorParam()
+//                .setVector(genRandomVector(4))
+//                .setSparseVectors(sparse)
+// //                .setOutputFields(outputField)
+//                .setLimit(5)
+//                .build();
+//        Index index = vikingDBService.getIndex("test44", "test_index44");
 
-       List<DataObject> datas = index.searchByVector(searchByVectorParam); // 向量检索
-       System.out.println(datas);
+//        List<DataObject> datas = index.searchByVector(searchByVectorParam); // 向量检索
+//        System.out.println(datas);
 ////
 //        Index index = vikingDBService.getIndex("test3333", "test_index2");
 //        List<DataObject> datas = index.search(new SearchParam()

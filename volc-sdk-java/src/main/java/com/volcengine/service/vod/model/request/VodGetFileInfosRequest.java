@@ -19,6 +19,7 @@ private static final long serialVersionUID = 0L;
     spaceName_ = "";
     encodedFileNames_ = "";
     bucketName_ = "";
+    downloadUrlNetworkType_ = "";
   }
 
   @java.lang.Override
@@ -67,6 +68,22 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             bucketName_ = s;
+            break;
+          }
+          case 32: {
+
+            needDownloadUrl_ = input.readBool();
+            break;
+          }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            downloadUrlNetworkType_ = s;
+            break;
+          }
+          case 48: {
+
+            downloadUrlExpire_ = input.readInt64();
             break;
           }
           default: {
@@ -223,6 +240,82 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int NEEDDOWNLOADURL_FIELD_NUMBER = 4;
+  private boolean needDownloadUrl_;
+  /**
+   * <pre>
+   * 是否需要下载链接
+   * </pre>
+   *
+   * <code>bool NeedDownloadUrl = 4;</code>
+   * @return The needDownloadUrl.
+   */
+  @java.lang.Override
+  public boolean getNeedDownloadUrl() {
+    return needDownloadUrl_;
+  }
+
+  public static final int DOWNLOADURLNETWORKTYPE_FIELD_NUMBER = 5;
+  private volatile java.lang.Object downloadUrlNetworkType_;
+  /**
+   * <pre>
+   *下载链接网络类型
+   * </pre>
+   *
+   * <code>string DownloadUrlNetworkType = 5;</code>
+   * @return The downloadUrlNetworkType.
+   */
+  @java.lang.Override
+  public java.lang.String getDownloadUrlNetworkType() {
+    java.lang.Object ref = downloadUrlNetworkType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      downloadUrlNetworkType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *下载链接网络类型
+   * </pre>
+   *
+   * <code>string DownloadUrlNetworkType = 5;</code>
+   * @return The bytes for downloadUrlNetworkType.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDownloadUrlNetworkTypeBytes() {
+    java.lang.Object ref = downloadUrlNetworkType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      downloadUrlNetworkType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int DOWNLOADURLEXPIRE_FIELD_NUMBER = 6;
+  private long downloadUrlExpire_;
+  /**
+   * <pre>
+   *下载链接过期时间
+   * </pre>
+   *
+   * <code>int64 DownloadUrlExpire = 6;</code>
+   * @return The downloadUrlExpire.
+   */
+  @java.lang.Override
+  public long getDownloadUrlExpire() {
+    return downloadUrlExpire_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -246,6 +339,15 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bucketName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, bucketName_);
     }
+    if (needDownloadUrl_ != false) {
+      output.writeBool(4, needDownloadUrl_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(downloadUrlNetworkType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, downloadUrlNetworkType_);
+    }
+    if (downloadUrlExpire_ != 0L) {
+      output.writeInt64(6, downloadUrlExpire_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -263,6 +365,17 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bucketName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, bucketName_);
+    }
+    if (needDownloadUrl_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(4, needDownloadUrl_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(downloadUrlNetworkType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, downloadUrlNetworkType_);
+    }
+    if (downloadUrlExpire_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(6, downloadUrlExpire_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -285,6 +398,12 @@ private static final long serialVersionUID = 0L;
         .equals(other.getEncodedFileNames())) return false;
     if (!getBucketName()
         .equals(other.getBucketName())) return false;
+    if (getNeedDownloadUrl()
+        != other.getNeedDownloadUrl()) return false;
+    if (!getDownloadUrlNetworkType()
+        .equals(other.getDownloadUrlNetworkType())) return false;
+    if (getDownloadUrlExpire()
+        != other.getDownloadUrlExpire()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -302,6 +421,14 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getEncodedFileNames().hashCode();
     hash = (37 * hash) + BUCKETNAME_FIELD_NUMBER;
     hash = (53 * hash) + getBucketName().hashCode();
+    hash = (37 * hash) + NEEDDOWNLOADURL_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getNeedDownloadUrl());
+    hash = (37 * hash) + DOWNLOADURLNETWORKTYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getDownloadUrlNetworkType().hashCode();
+    hash = (37 * hash) + DOWNLOADURLEXPIRE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getDownloadUrlExpire());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -441,6 +568,12 @@ private static final long serialVersionUID = 0L;
 
       bucketName_ = "";
 
+      needDownloadUrl_ = false;
+
+      downloadUrlNetworkType_ = "";
+
+      downloadUrlExpire_ = 0L;
+
       return this;
     }
 
@@ -470,6 +603,9 @@ private static final long serialVersionUID = 0L;
       result.spaceName_ = spaceName_;
       result.encodedFileNames_ = encodedFileNames_;
       result.bucketName_ = bucketName_;
+      result.needDownloadUrl_ = needDownloadUrl_;
+      result.downloadUrlNetworkType_ = downloadUrlNetworkType_;
+      result.downloadUrlExpire_ = downloadUrlExpire_;
       onBuilt();
       return result;
     }
@@ -529,6 +665,16 @@ private static final long serialVersionUID = 0L;
       if (!other.getBucketName().isEmpty()) {
         bucketName_ = other.bucketName_;
         onChanged();
+      }
+      if (other.getNeedDownloadUrl() != false) {
+        setNeedDownloadUrl(other.getNeedDownloadUrl());
+      }
+      if (!other.getDownloadUrlNetworkType().isEmpty()) {
+        downloadUrlNetworkType_ = other.downloadUrlNetworkType_;
+        onChanged();
+      }
+      if (other.getDownloadUrlExpire() != 0L) {
+        setDownloadUrlExpire(other.getDownloadUrlExpire());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -803,6 +949,188 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       bucketName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean needDownloadUrl_ ;
+    /**
+     * <pre>
+     * 是否需要下载链接
+     * </pre>
+     *
+     * <code>bool NeedDownloadUrl = 4;</code>
+     * @return The needDownloadUrl.
+     */
+    @java.lang.Override
+    public boolean getNeedDownloadUrl() {
+      return needDownloadUrl_;
+    }
+    /**
+     * <pre>
+     * 是否需要下载链接
+     * </pre>
+     *
+     * <code>bool NeedDownloadUrl = 4;</code>
+     * @param value The needDownloadUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNeedDownloadUrl(boolean value) {
+      
+      needDownloadUrl_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 是否需要下载链接
+     * </pre>
+     *
+     * <code>bool NeedDownloadUrl = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNeedDownloadUrl() {
+      
+      needDownloadUrl_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object downloadUrlNetworkType_ = "";
+    /**
+     * <pre>
+     *下载链接网络类型
+     * </pre>
+     *
+     * <code>string DownloadUrlNetworkType = 5;</code>
+     * @return The downloadUrlNetworkType.
+     */
+    public java.lang.String getDownloadUrlNetworkType() {
+      java.lang.Object ref = downloadUrlNetworkType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        downloadUrlNetworkType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *下载链接网络类型
+     * </pre>
+     *
+     * <code>string DownloadUrlNetworkType = 5;</code>
+     * @return The bytes for downloadUrlNetworkType.
+     */
+    public com.google.protobuf.ByteString
+        getDownloadUrlNetworkTypeBytes() {
+      java.lang.Object ref = downloadUrlNetworkType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        downloadUrlNetworkType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *下载链接网络类型
+     * </pre>
+     *
+     * <code>string DownloadUrlNetworkType = 5;</code>
+     * @param value The downloadUrlNetworkType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDownloadUrlNetworkType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      downloadUrlNetworkType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *下载链接网络类型
+     * </pre>
+     *
+     * <code>string DownloadUrlNetworkType = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDownloadUrlNetworkType() {
+      
+      downloadUrlNetworkType_ = getDefaultInstance().getDownloadUrlNetworkType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *下载链接网络类型
+     * </pre>
+     *
+     * <code>string DownloadUrlNetworkType = 5;</code>
+     * @param value The bytes for downloadUrlNetworkType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDownloadUrlNetworkTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      downloadUrlNetworkType_ = value;
+      onChanged();
+      return this;
+    }
+
+    private long downloadUrlExpire_ ;
+    /**
+     * <pre>
+     *下载链接过期时间
+     * </pre>
+     *
+     * <code>int64 DownloadUrlExpire = 6;</code>
+     * @return The downloadUrlExpire.
+     */
+    @java.lang.Override
+    public long getDownloadUrlExpire() {
+      return downloadUrlExpire_;
+    }
+    /**
+     * <pre>
+     *下载链接过期时间
+     * </pre>
+     *
+     * <code>int64 DownloadUrlExpire = 6;</code>
+     * @param value The downloadUrlExpire to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDownloadUrlExpire(long value) {
+      
+      downloadUrlExpire_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *下载链接过期时间
+     * </pre>
+     *
+     * <code>int64 DownloadUrlExpire = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDownloadUrlExpire() {
+      
+      downloadUrlExpire_ = 0L;
       onChanged();
       return this;
     }

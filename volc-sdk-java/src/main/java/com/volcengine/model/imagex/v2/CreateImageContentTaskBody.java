@@ -42,6 +42,16 @@ public final class CreateImageContentTaskBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Urls")
     private List<String> urls;
 
+    /**
+     * <p>仅当 `TaskType` 为 `refresh_dir` 使用目录刷新时，可通过此配置开启前缀刷新。取值如下所示：  </p>
+     *
+     * <p>- `true`：开启前缀刷新 </p>
+     *
+     * <p>- `false`：（默认）关闭前缀刷新，进行标准的目录匹配刷新。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "PrefixRefreshDir")
+    private Boolean prefixRefreshDir;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

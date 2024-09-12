@@ -1520,20 +1520,6 @@ public class ImagexConfig {
                     }
                 }     
             ));
-            put("GetImageServiceSubscription", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "GET");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "GetImageServiceSubscription"));
-                                add(new BasicNameValuePair("Version", "2023-05-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
             put("GetImageService", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -2024,6 +2010,20 @@ public class ImagexConfig {
                     }
                 }     
             ));
+            put("UpdateImageExifData", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "UpdateImageExifData"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
             put("GetImageDetectResult", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -2187,6 +2187,20 @@ public class ImagexConfig {
                             {
                                 add(new BasicNameValuePair("Action", "UpdateImageMirrorConf"));
                                 add(new BasicNameValuePair("Version", "2018-08-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("GetImageServiceSubscription", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "GET");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "GetImageServiceSubscription"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
                             }
                         });
                     }

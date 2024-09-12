@@ -159,6 +159,42 @@ public final class CreateImageTemplateBodyOutputExtra  {
     @com.alibaba.fastjson.annotation.JSONField(name = "heic.demfmt")
     private String heicDemfmt;
 
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "heic.jpeg.size.reserve")
+    private String heicJpegSizeReserve;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "jpeg.size.recover")
+    private String jpegSizeRecover;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "vvic.aq.mode")
+    private String vvicAqMode;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "vvic.quality.adapt.pixlimit")
+    private String vvicQualityAdaptPixlimit;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "vvic.quality.adapt.version")
+    private String vvicQualityAdaptVersion;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "vvic.roi")
+    private String vvicRoi;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

@@ -94,6 +94,8 @@ public class ListAccountUserDataResponse {
         String Country;
         @JSONField(name = "WatchType")
         String WatchType;
+        @JSONField(name = "BanStatus")
+        Integer BanStatus;
     }
 
     @Data

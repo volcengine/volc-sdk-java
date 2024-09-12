@@ -11,7 +11,7 @@ import java.util.List;
 public final class CreateTemplatesFromBinResResult  {
 
     /**
-     * <p>返回各模版恢复的结果。</p>
+     * <p>返回各模板恢复的结果。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Results")
     private List<CreateTemplatesFromBinResResultResultsItem> results;

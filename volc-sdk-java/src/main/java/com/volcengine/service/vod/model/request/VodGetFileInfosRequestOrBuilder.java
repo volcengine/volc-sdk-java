@@ -50,4 +50,44 @@ public interface VodGetFileInfosRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getBucketNameBytes();
+
+  /**
+   * <pre>
+   * 是否需要下载链接
+   * </pre>
+   *
+   * <code>bool NeedDownloadUrl = 4;</code>
+   * @return The needDownloadUrl.
+   */
+  boolean getNeedDownloadUrl();
+
+  /**
+   * <pre>
+   *下载链接网络类型
+   * </pre>
+   *
+   * <code>string DownloadUrlNetworkType = 5;</code>
+   * @return The downloadUrlNetworkType.
+   */
+  java.lang.String getDownloadUrlNetworkType();
+  /**
+   * <pre>
+   *下载链接网络类型
+   * </pre>
+   *
+   * <code>string DownloadUrlNetworkType = 5;</code>
+   * @return The bytes for downloadUrlNetworkType.
+   */
+  com.google.protobuf.ByteString
+      getDownloadUrlNetworkTypeBytes();
+
+  /**
+   * <pre>
+   *下载链接过期时间
+   * </pre>
+   *
+   * <code>int64 DownloadUrlExpire = 6;</code>
+   * @return The downloadUrlExpire.
+   */
+  long getDownloadUrlExpire();
 }

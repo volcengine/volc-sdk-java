@@ -67,5 +67,13 @@ public class GetUserBehaviorListResponseAPIV2 {
         String ChannelName;
         @JSONField(name = "UserCredit")
         Integer UserCredit;
+        @JSONField(name = "InviterId")
+        Long InviterId;
+        @JSONField(name = "CheckInNumber")
+        Integer CheckInNumber;
+        @JSONField(name = "InviterName")
+        String InviterName;
+        @JSONField(name = "Os")
+        String Os;
     }
 }

@@ -16,6 +16,7 @@ public class CreateIndexParam {
     private String partitionBy = "";
     private List<String> scalarIndex = null;
     private Integer shardCount = null;
+    private String shardPolicy = null;
     private Integer isBuild = 0;
     public CreateIndexParam setCollectionName(String collectionName) {
         this.collectionName = collectionName;
@@ -47,6 +48,10 @@ public class CreateIndexParam {
     }
     public CreateIndexParam setShardCount(Integer shardCount) {
         this.shardCount = shardCount;
+        return this;
+    }
+    public CreateIndexParam setShardPolicy(String shardPolicy) {
+        this.shardPolicy = shardPolicy;
         return this;
     }
     public CreateIndexParam build() throws Exception{

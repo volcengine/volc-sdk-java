@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class GetImageContentTaskDetailBody  {
 
     /**
-     * <p>内容管理任务类型，取值如下所示：</p>
+     * <p>内容管理任务类型，缺省情况下表示查询全部任务。取值如下所示：</p>
      *
      * <p>* `refresh`：刷新任务，包含刷新 URL 和刷新目录。</p>
      *
@@ -82,10 +82,16 @@ public final class GetImageContentTaskDetailBody  {
     private Integer pageNum;
 
     /**
-     * <p>每页最大记录数，取值范围是[10,1000]。默认值为 100。</p>
+     * <p>每页条数，取值范围为 [10,1000]。默认值为 100。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageSize")
     private Integer pageSize;
+
+    /**
+     * <p>域名，指定后返回包含该域名的 URL 任务。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
+    private String domain;
 
     @Override
     public String toString() {

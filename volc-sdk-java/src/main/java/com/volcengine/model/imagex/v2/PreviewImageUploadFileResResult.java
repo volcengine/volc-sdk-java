@@ -16,7 +16,7 @@ public final class PreviewImageUploadFileResResult  {
     private String serviceId;
 
     /**
-     * <p>文件 Uri。</p>
+     * <p>文件存储 URI。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StoreUri")
     private String storeUri;
@@ -28,7 +28,7 @@ public final class PreviewImageUploadFileResResult  {
     private String imageFormat;
 
     /**
-     * <p>图片字节数。</p>
+     * <p>图片大小，单位为字节。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ImageSize")
     private Integer imageSize;
@@ -58,7 +58,7 @@ public final class PreviewImageUploadFileResResult  {
     private Integer imageDuration;
 
     /**
-     * <p>底层存储的content-type值</p>
+     * <p>图片的 Content-Type 值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StorageContentType")
     private String storageContentType;

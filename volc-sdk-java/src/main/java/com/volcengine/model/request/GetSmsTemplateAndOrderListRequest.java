@@ -5,27 +5,27 @@ import lombok.Data;
 
 @Data
 public class GetSmsTemplateAndOrderListRequest {
-    @JSONField(name = "SubAccount")
+    @JSONField(name = "subAccount")
     String subAccount;
 
-    @JSONField(name = "TemplateId")
+    @JSONField(name = "templateId")
     String templateId;
 
-    @JSONField(name = "Name")
+    @JSONField(name = "name")
     String name;
 
-    @JSONField(name = "Area")
+    @JSONField(name = "area")
     String area;
 
-    @JSONField(name = "ChannelType")
+    @JSONField(name = "channelType")
     String channelType;
 
-    @JSONField(name = "Content")
+    @JSONField(name = "content")
     String content;
 
-    @JSONField(name = "PageIndex")
+    @JSONField(name = "pageIndex")
     int pageIndex;
 
-    @JSONField(name = "PageSize")
+    @JSONField(name = "pageSize")
     int pageSize;
 }

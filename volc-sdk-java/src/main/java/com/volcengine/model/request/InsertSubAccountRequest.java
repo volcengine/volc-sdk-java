@@ -10,9 +10,9 @@ import lombok.Data;
  */
 @Data
 public class InsertSubAccountRequest {
-    @JSONField(name = "SubAccountName")
+    @JSONField(name = "subAccountName")
     private String subAccountName;
 
-    @JSONField(name = "Desc")
+    @JSONField(name = "desc")
     private String desc;
 }

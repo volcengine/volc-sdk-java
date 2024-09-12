@@ -704,4 +704,44 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     Object saliencySeg(Object request) throws Exception;
+
+    /**
+     * 通用查询任务接口
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object cvGetResult(Object request) throws Exception;
+
+    /**
+     * 通用提交任务接口
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object cvSubmitTask(Object request) throws Exception;
+
+    /**
+     * 同步转异步查询接口通用
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object cvSync2AsyncGetResult(Object request) throws Exception;
+
+    /**
+     * 同步转异步提交接口通用
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object cvSync2AsyncSubmitTask(Object request) throws Exception;
+
+    /**
+     * 通用同步接口
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object cvProcess(Object request) throws Exception;
 }

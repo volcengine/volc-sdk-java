@@ -1749,66 +1749,74 @@ public interface LivesaasService extends IBaseService {
     /**
      * DeleteRobotComments
      *
-     * @param DeleteRobotCommentsRequest DeleteRobotCommentsRequest
+     * @param deleteRobotCommentsRequest DeleteRobotCommentsRequest
      * @return DeleteRobotCommentsResponse
      * @throws Exception the exception
      */
-    DeleteRobotCommentsResponse DeleteRobotComments(DeleteRobotCommentsRequest DeleteRobotCommentsRequest) throws Exception;
+    DeleteRobotCommentsResponse DeleteRobotComments(DeleteRobotCommentsRequest deleteRobotCommentsRequest) throws Exception;
 
     /**
      * AddRobotComments
      *
-     * @param AddRobotCommentsRequest AddRobotCommentsRequest
+     * @param addRobotCommentsRequest AddRobotCommentsRequest
      * @return AddRobotCommentsResponse
      * @throws Exception the exception
      */
-    AddRobotCommentsResponse AddRobotComments(AddRobotCommentsRequest AddRobotCommentsRequest) throws Exception;
+    AddRobotCommentsResponse AddRobotComments(AddRobotCommentsRequest addRobotCommentsRequest) throws Exception;
 
     /**
      * ListRobotComments
      *
-     * @param ListRobotCommentsRequest ListRobotCommentsRequest
+     * @param listRobotCommentsRequest ListRobotCommentsRequest
      * @return ListRobotCommentsResponse
      * @throws Exception the exception
      */
-    ListRobotCommentsResponse ListRobotComments(ListRobotCommentsRequest ListRobotCommentsRequest) throws Exception;
+    ListRobotCommentsResponse ListRobotComments(ListRobotCommentsRequest listRobotCommentsRequest) throws Exception;
 
     /**
      * DeleteRobotNickNames
      *
-     * @param DeleteRobotNickNamesRequest DeleteRobotNickNamesRequest
+     * @param deleteRobotNickNamesRequest DeleteRobotNickNamesRequest
      * @return DeleteRobotNickNamesResponse
      * @throws Exception the exception
      */
-    DeleteRobotNickNamesResponse DeleteRobotNickNames(DeleteRobotNickNamesRequest DeleteRobotNickNamesRequest) throws Exception;
+    DeleteRobotNickNamesResponse DeleteRobotNickNames(DeleteRobotNickNamesRequest deleteRobotNickNamesRequest) throws Exception;
 
     /**
      * AddRobotNickNames
      *
-     * @param AddRobotNickNamesRequest AddRobotNickNamesRequest
+     * @param addRobotNickNamesRequest AddRobotNickNamesRequest
      * @return AddRobotNickNamesResponse
      * @throws Exception the exception
      */
-    AddRobotNickNamesResponse AddRobotNickNames(AddRobotNickNamesRequest AddRobotNickNamesRequest) throws Exception;
+    AddRobotNickNamesResponse AddRobotNickNames(AddRobotNickNamesRequest addRobotNickNamesRequest) throws Exception;
 
     /**
      * GetActivityRobotCommentConfig
      *
-     * @param GetActivityRobotCommentConfigRequest GetActivityRobotCommentConfigRequest
+     * @param getActivityRobotCommentConfigRequest GetActivityRobotCommentConfigRequest
      * @return GetActivityRobotCommentConfigResponse
      * @throws Exception the exception
      */
-    GetActivityRobotCommentConfigResponse GetActivityRobotCommentConfig(GetActivityRobotCommentConfigRequest GetActivityRobotCommentConfigRequest) throws Exception;
+    GetActivityRobotCommentConfigResponse GetActivityRobotCommentConfig(GetActivityRobotCommentConfigRequest getActivityRobotCommentConfigRequest) throws Exception;
 
     /**
      * UpdateActivityRobotCommentConfig
      *
-     * @param UpdateActivityRobotCommentConfigRequest UpdateActivityRobotCommentConfigRequest
+     * @param updateActivityRobotCommentConfigRequest UpdateActivityRobotCommentConfigRequest
      * @return UpdateActivityRobotCommentConfigResponse
      * @throws Exception the exception
      */
-    UpdateActivityRobotCommentConfigResponse UpdateActivityRobotCommentConfig(UpdateActivityRobotCommentConfigRequest UpdateActivityRobotCommentConfigRequest) throws Exception;
+    UpdateActivityRobotCommentConfigResponse UpdateActivityRobotCommentConfig(UpdateActivityRobotCommentConfigRequest updateActivityRobotCommentConfigRequest) throws Exception;
 
+    /**
+     * UpdateAccountBanStatus
+     *
+     * @param updateAccountBanStatusRequest UpdateAccountBanStatusRequest
+     * @return UpdateAccountBanStatusResponse
+     * @throws Exception the exception
+     */
+    UpdateAccountBanStatusResponse UpdateAccountBanStatus(UpdateAccountBanStatusRequest updateAccountBanStatusRequest) throws Exception;
     GetViewingRestrictionInfoResponse getViewingRestrictionInfo(GetViewingRestrictionInfoRequest getViewingRestrictionInfoRequest) throws Exception;
     UpdateViewingRestrictionResponse updateViewingRestriction(UpdateViewingRestrictionRequest updateViewingRestrictionRequest) throws Exception;
 
@@ -1819,4 +1827,31 @@ public interface LivesaasService extends IBaseService {
     InsertPhoneListResponse insertPhoneList(InsertPhoneListRequest insertPhonelistRequest) throws Exception;
     GetPhoneListResponse getPhoneList(GetPhoneListRequest getPhonelistRequest) throws Exception;
     DeletePhoneListResponse deletePhoneList(DeletePhoneListRequest deletePhonelistRequest) throws Exception;
+
+    /**
+     * createLLMTask
+     *
+     * @param createLLMTaskRequest CreateLLMTaskRequest
+     * @return CreateLLMTaskResponse
+     * @throws Exception the exception
+     */
+    CreateLLMTaskResponse createLLMTask(CreateLLMTaskRequest createLLMTaskRequest) throws Exception;
+
+    /**
+     * getLLMReport
+     *
+     * @param getLLMReportRequest GetLLMReportRequest
+     * @return GetLLMReportResponse
+     * @throws Exception the exception
+     */
+    GetLLMReportResponse getLLMReport(GetLLMReportRequest getLLMReportRequest) throws Exception;
+
+    /**
+     * getLLMReport
+     *
+     * @param listLLMTasksRequest ListLLMTasksRequest
+     * @return GetLLMReportResponse
+     * @throws Exception the exception
+     */
+    ListLLMTasksResponse listLLMTasks(ListLLMTasksRequest listLLMTasksRequest) throws Exception;
 }

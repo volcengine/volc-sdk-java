@@ -5,28 +5,28 @@ import lombok.Data;
 
 @Data
 public class SmsTemplateInfo {
-    @JSONField(name = "Id")
+    @JSONField(name = "id")
     String id;
-    @JSONField(name = "ApplyId")
+    @JSONField(name = "applyId")
     String applyId;
-    @JSONField(name = "TemplateId")
+    @JSONField(name = "templateId")
     String templateId;
-    @JSONField(name = "ChannelType")
+    @JSONField(name = "channelType")
     String channelType;
-    @JSONField(name = "ChannelTypeName")
+    @JSONField(name = "channelTypeName")
     String channelTypeName;
-    @JSONField(name = "Name")
+    @JSONField(name = "name")
     String name;
-    @JSONField(name = "Content")
+    @JSONField(name = "content")
     String content;
-    @JSONField(name = "Status")
+    @JSONField(name = "status")
     int status;
-    @JSONField(name = "IsOrder")
+    @JSONField(name = "isOrder")
     boolean isOrder = true;
-    @JSONField(name = "Reason")
+    @JSONField(name = "reason")
     String reason;
-    @JSONField(name = "CreatedTime")
+    @JSONField(name = "createdTime")
     long createdTime;
-    @JSONField(name = "ShortUrlConfig")
+    @JSONField(name = "shortUrlConfig")
     ShortUrlConfig shortUrlConfig;
 }

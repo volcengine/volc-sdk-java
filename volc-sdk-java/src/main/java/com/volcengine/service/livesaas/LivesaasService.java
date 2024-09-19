@@ -1854,4 +1854,13 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     ListLLMTasksResponse listLLMTasks(ListLLMTasksRequest listLLMTasksRequest) throws Exception;
+
+    /**
+     * getLarkSubAccountInfo
+     *
+     * @param getLarkSubAccountInfoRequest GetLarkSubAccountInfoRequest
+     * @return GetLarkSubAccountInfoResponse
+     * @throws Exception the exception
+     */
+    GetLarkSubAccountInfoResponse getLarkSubAccountInfo(GetLarkSubAccountInfoRequest getLarkSubAccountInfoRequest) throws Exception;
 }

@@ -71,6 +71,12 @@ public final class CreateImageHmEmbedBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "StrengthLevel")
     private String strengthLevel;
 
+    /**
+     * <p>待添加盲水印的可公网访问原图 Url。当 StoreUri 和 ImageUrl 均不为空，以 StoreUri 取值为准。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ImageUrl")
+    private String imageUrl;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

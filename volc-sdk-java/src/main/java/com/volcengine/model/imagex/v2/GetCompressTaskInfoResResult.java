@@ -61,6 +61,12 @@ public final class GetCompressTaskInfoResResult  {
     @com.alibaba.fastjson.annotation.JSONField(name = "TaskId")
     private String taskId;
 
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ResUri")
+    private String resUri;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

@@ -75,5 +75,7 @@ public class GetUserBehaviorListResponseAPIV2 {
         String InviterName;
         @JSONField(name = "Os")
         String Os;
+        @JSONField(name = "EmployeeNo")
+        String EmployeeNo;
     }
 }

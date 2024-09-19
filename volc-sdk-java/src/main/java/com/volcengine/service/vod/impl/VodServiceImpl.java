@@ -11,11 +11,15 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.google.protobuf.util.JsonFormat;
 import com.google.common.base.Predicates;
+import com.volcengine.model.Credentials;
+import com.volcengine.model.ServiceInfo;
 import com.volcengine.service.vod.UploadException;
 import com.volcengine.service.vod.model.business.CandidateUploadAddresses;
 import com.volcengine.service.vod.model.business.UploadAddress;
 import com.volcengine.service.vod.model.business.VodHeaderPair;
+import org.apache.http.Header;
 import org.apache.http.HttpResponse;
+import org.apache.http.message.BasicHeader;
 import org.apache.http.util.EntityUtils;
 
 import java.io.*;
@@ -46,22 +50,40 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 
     // private构造方法保证外部无法实例化:
     protected VodServiceImpl(String region) {
-        super(com.volcengine.service.vod.VodServiceConfig.ServiceInfoMap.get(region), com.volcengine.service.vod.VodServiceConfig.apiInfoList);
+        super(getRegionServiceInfo(region), com.volcengine.service.vod.VodServiceConfig.apiInfoList);
+    }
+    private static ServiceInfo getRegionServiceInfo(String region){
+        if (com.volcengine.service.vod.VodServiceConfig.ServiceInfoMap.containsKey(region)){
+            return com.volcengine.service.vod.VodServiceConfig.ServiceInfoMap.get(region);
+        }
+        return new ServiceInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(com.volcengine.helper.Const.CONNECTION_TIMEOUT, 5000);
+                        put(com.volcengine.helper.Const.SOCKET_TIMEOUT, 5000);
+                        put(com.volcengine.helper.Const.Scheme, "https");
+                        put(com.volcengine.helper.Const.Host, String.format("vod-%s.volcengineapi.com",region));
+                        put(com.volcengine.helper.Const.Header, new ArrayList<Header>() {
+                            {
+                                add(new BasicHeader("Accept", "application/json"));
+                            }
+                        });
+                        put(com.volcengine.helper.Const.Credentials, new Credentials(region, "vod"));
+                    }
+                }
+        );
     }
 
     public static com.volcengine.service.vod.IVodService getInstance(String region) throws Exception {
-        com.volcengine.model.ServiceInfo serviceInfo = com.volcengine.service.vod.VodServiceConfig.ServiceInfoMap.get(region);
-        if (serviceInfo == null) {
-            throw new Exception("Cant find the region, please check it carefully");
-        }
         switch (region) {
             case com.volcengine.helper.Const.REGION_CN_NORTH_1:
                 return CN_NORTH_1_SERVICE;
             case com.volcengine.helper.Const.REGION_AP_SOUTHEAST_1:
                 return AP_SOUTHEAST_1_SERVICE;
             default:
-                throw new Exception("Cant find the region, please check it carefully");
+                return new VodServiceImpl(region);
         }
+
     }
 
     @Override

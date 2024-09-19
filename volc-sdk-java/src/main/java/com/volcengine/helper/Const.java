@@ -566,6 +566,8 @@ public class Const {
 
     public static final String GetPhoneList="GetPhoneList";
 
+    public static final String GetLarkSubAccountInfo = "GetLarkSubAccountInfo";
+
     // translate
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";

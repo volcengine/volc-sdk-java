@@ -134,6 +134,8 @@ public interface BusinessSecurityService extends IBaseService {
 
     ActivateRiskResultResponse ActivateRiskResult(ActivateRiskResultRequest request)throws Exception;
 
+    CancelActivateRiskResultResponse CancelActivateRiskResult(CancelActivateRiskResultRequest request)throws Exception;
+
     ActivateRiskSampleDataResponse ActivateRiskSampleData(ActivateRiskSampleDataRequest request)throws Exception;
 
     ActivateRiskBasePackageResponse ActivateRiskBasePackage(ActivateRiskBasePackageRequest request)throws Exception;

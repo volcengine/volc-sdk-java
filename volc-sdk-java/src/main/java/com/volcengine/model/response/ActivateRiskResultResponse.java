@@ -13,6 +13,9 @@ public class ActivateRiskResultResponse {
     public static class ActivateRiskResultResult {
         @JSONField(name = "Success")
         Boolean success;
+
+        @JSONField(name = "ResultId")
+        String ResultId;
     }
 
 }

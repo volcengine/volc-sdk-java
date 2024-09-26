@@ -289,6 +289,40 @@ public final class CreatePodBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "ResourceType")
     private Integer resourceType;
 
+    /**
+     * <p>选择想要使用的机型参数名称，选填。当 `UserPropertyRule` 设置为 1 时，若该参数置空，则从机型库中随机选择一条规则。</p>
+     *
+     * <p>:::warning</p>
+     *
+     * <p>对于同一属性，通过 `OverlaySettings`、`OverlayProperty`、`OverlayPersistProperty` 设置的值优先级高于本参数中预设的值。</p>
+     *
+     * <p>:::</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "PropertyRuleName")
+    private String propertyRuleName;
+
+    /**
+     * <p>是否使用预设的机型参数。</p>
+     *
+     *
+     *
+     * <p>- 1：使用；</p>
+     *
+     *
+     *
+     * <p>- 2：不使用，默认设置。</p>
+     *
+     *
+     *
+     * <p>:::warning</p>
+     *
+     * <p>前提：已通过 `AddPropertyRule` 创建机型参数规则。</p>
+     *
+     * <p>:::</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "UsePropertyRule")
+    private Integer usePropertyRule;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

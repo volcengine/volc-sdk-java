@@ -226,6 +226,21 @@ public class BusinessSecurityConfig {
                         }
                     }
             ));
+            put(Const.CancelActivateRiskResult,new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "CancelActivateRiskResult"));
+                                    add(new BasicNameValuePair("Version", "2023-10-01"));
+                                }
+                            });
+                            put(Const.Header, headers);
+                        }
+                    }
+            ));
             put(Const.ElementVerifyEncrypted, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

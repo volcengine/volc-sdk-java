@@ -73,6 +73,12 @@ public final class InstallAppBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "ImageId")
     private String imageId;
 
+    /**
+     * <p>是否为预安装应用, 默认false: 非安装应用, 应用保存在/data/app目录; true: 预安装应用, 应用保存在/data/overlay_app目录</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "IsPreinstall")
+    private Boolean isPreinstall;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

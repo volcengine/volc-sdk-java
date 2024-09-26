@@ -10,21 +10,21 @@ import com.alibaba.fastjson.JSON;
 public final class UploadAppBody  {
 
     /**
-     * <p>业务 ID，可在「云手机控制台-业务管理-业务详情」中获取。</p>
+     * <p>应用上传的目标业务 ID，可在「云手机控制台-业务管理-业务详情」中获取。</p>
+     *
+     * <p>:::warning</p>
+     *
+     * <p>若指定 AppMode 为 Private，则该参数必填。</p>
+     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ProductId")
     private String productId;
 
     /**
-     * <p>自定义应用 ID：</p>
+     * <p>应用 ID。</p>
      *
-     *
-     *
-     * <p>- 如不指定，则自动生成</p>
-     *
-     * <p>	</p>
-     *
-     * <p>- 如指定，需保证应用 ID 在业务维度唯一</p>
+     * <p>如不指定，则自动生成；如指定，需保证应用 ID 在账号下唯一。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AppId")
     private String appId;
@@ -40,23 +40,23 @@ public final class UploadAppBody  {
      *
      *
      *
-     * <p>- 0：其他</p>
+     * <p>- `0`：其他</p>
      *
      * <p>	</p>
      *
-     * <p>- 1：视频</p>
+     * <p>- `1`：视频</p>
      *
      * <p>	</p>
      *
-     * <p>- 2：游戏</p>
+     * <p>- `2`：游戏</p>
      *
      * <p>	</p>
      *
-     * <p>- 3：效率</p>
+     * <p>- `3`：效率</p>
      *
      * <p>	</p>
      *
-     * <p>- 4：办公</p>
+     * <p>- `4`：办公</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AppType")
     private Integer appType;
@@ -66,11 +66,11 @@ public final class UploadAppBody  {
      *
      *
      *
-     * <p>- 0：竖屏</p>
+     * <p>- `0`：竖屏</p>
      *
      * <p>	</p>
      *
-     * <p>- 270：横屏</p>
+     * <p>- `270`：横屏</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Rotation")
     private Integer rotation;
@@ -98,11 +98,11 @@ public final class UploadAppBody  {
      *
      *
      *
-     * <p>- 0，解析；前向兼容，默认解析并且转存到火山引擎对象存储</p>
+     * <p>- `0`，解析；前向兼容，默认解析并且转存到火山引擎对象存储</p>
      *
      * <p>	</p>
      *
-     * <p>- 1，不解析，透传地址，不转存到火山引擎对象存储</p>
+     * <p>- `1`，不解析，透传地址，不转存到火山引擎对象存储</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ParseFlag")
     private Integer parseFlag;
@@ -112,6 +112,16 @@ public final class UploadAppBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ExtraInfo")
     private com.volcengine.model.acep.v20231030.RequestAppUploadExtra extraInfo;
+
+    /**
+     * <p>应用可安装范围：</p>
+     *
+     * <p>- `Public`：应用设为共享模式，允许在同一个账户下不同业务的实例中安装；</p>
+     *
+     * <p>- `Private`：默认设置，应用设为非共享模式，仅允许在某一业务的实例中安装。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "AppMode")
+    private String appMode;
 
     @Override
     public String toString() {

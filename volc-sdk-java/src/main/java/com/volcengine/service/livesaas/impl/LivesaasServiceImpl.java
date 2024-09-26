@@ -7,6 +7,8 @@ import com.volcengine.helper.Utils;
 import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.livesaas.request.*;
 import com.volcengine.model.livesaas.response.*;
+import com.volcengine.model.request.ListActivityQuizConfigsRequest;
+import com.volcengine.model.response.ListActivityQuizConfigsResponse;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.response.ResponseMetadata;
 import com.volcengine.service.BaseServiceImpl;
@@ -1277,6 +1279,36 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
             throw response.getException();
         }
         GetQuizDataAPIResponse res = JSON.parseObject(response.getData(), GetQuizDataAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateActivityQuizConfigResponse updateActivityQuizConfig(UpdateActivityQuizConfigRequest updateActivityQuizConfigRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityQuizConfig, new ArrayList<>(), JSON.toJSONString(updateActivityQuizConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateActivityQuizConfigResponse res = JSON.parseObject(response.getData(), UpdateActivityQuizConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListActivityQuizConfigsResponse listActivityQuizConfigs(ListActivityQuizConfigsRequest listActivityQuizConfigsRequest) throws Exception {
+        RawResponse response = json(Const.ListActivityQuizConfigs, new ArrayList<>(), JSON.toJSONString(listActivityQuizConfigsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListActivityQuizConfigsResponse res = JSON.parseObject(response.getData(), ListActivityQuizConfigsResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
@@ -3293,6 +3325,22 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public UpdateAnswerRepetitionResponse updateAnswerRepetition(UpdateAnswerRepetitionRequest updateAnswerRepetitionRequest) throws Exception {
+        RawResponse response = json(Const.UpdateAnswerRepetition, new ArrayList<>(),JSON.toJSONString(updateAnswerRepetitionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateAnswerRepetitionResponse res = JSON.parseObject(response.getData(), UpdateAnswerRepetitionResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
 
     @Override
     public GetLLMReportResponse getLLMReport(GetLLMReportRequest getLLMReportRequest) throws Exception {

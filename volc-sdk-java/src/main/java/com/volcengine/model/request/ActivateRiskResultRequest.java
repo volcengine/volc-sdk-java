@@ -5,6 +5,8 @@ import lombok.Data;
 
 @Data
 public class ActivateRiskResultRequest {
+    @JSONField(name = "AppId")
+    Integer appId;
     @JSONField(name = "ActivateCode")
     String activateCode;
     @JSONField(name = "PlanId")

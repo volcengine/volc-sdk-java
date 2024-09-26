@@ -47,6 +47,12 @@ public final class CreateAppImageBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "LocalPath")
     private String localPath;
 
+    /**
+     * <p>Public 公有镜像，Private 私有镜像</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ImageMode")
+    private String imageMode;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

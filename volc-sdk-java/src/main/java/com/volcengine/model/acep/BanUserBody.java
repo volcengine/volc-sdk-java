@@ -45,6 +45,12 @@ public final class BanUserBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "ForbiddenInterval")
     private Integer forbiddenInterval;
 
+    /**
+     * <p>是否为小流模式</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "IsPreviewStream")
+    private Boolean isPreviewStream;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

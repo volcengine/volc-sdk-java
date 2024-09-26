@@ -82,7 +82,7 @@ public final class DescribeLiveBatchPushStreamMetricsResResultStreamMetricListIt
     private String clientIp;
 
     /**
-     * <p>收到首帧的时间，使用 Unix 时间戳表示，单位为毫秒。</p>
+     * <p>从推流建立连接开始算起，收到首帧的耗时，单位为毫秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "FirstFrameTime")
     private Integer firstFrameTime;

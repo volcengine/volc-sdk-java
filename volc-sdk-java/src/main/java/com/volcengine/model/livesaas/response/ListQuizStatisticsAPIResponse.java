@@ -42,5 +42,7 @@ public class ListQuizStatisticsAPIResponse {
         Long TotalCount;
         @JSONField(name = "QuizTitle")
         String QuizTitle;
+        @JSONField(name = "QuizType")
+        Long QuizType;
     }
 }

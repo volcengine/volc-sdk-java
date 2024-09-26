@@ -142,6 +142,21 @@ public class ACEPTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>addPropertyRule</p>
+     * <p>创建机型参数规则</p>
+     *
+     * <p>创建机型参数库，创建云手机时可从机型库里匹配一组预设参数。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public AddPropertyRuleRes addPropertyRule(AddPropertyRuleBody body) throws Exception {
+        RawResponse rawResponse = json("AddPropertyRule", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, AddPropertyRuleRes.class);
+    }
+
+    /**
      * <p>deletePod</p>
      * <p>删除实例</p>
      *
@@ -312,7 +327,7 @@ public class ACEPTrait extends BaseServiceImpl {
      * <p>banUser</p>
      * <p>封禁用户</p>
      *
-     * <p>*封禁或断开指定客户端用户连接云手机实例*。</p>
+     * <p>封禁或断开指定客户端用户连接云手机实例。</p>
      *
      * @param body body payload
      * @return response data
@@ -558,6 +573,21 @@ public class ACEPTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>listPropertyRule</p>
+     * <p>查询机型参数规则列表</p>
+     *
+     * <p>查询已创建的机型参数规则列表。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public ListPropertyRuleRes listPropertyRule(ListPropertyRuleQuery query) throws Exception {
+        RawResponse rawResponse = json("ListPropertyRule", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, ListPropertyRuleRes.class);
+    }
+
+    /**
      * <p>podDataDelete</p>
      * <p>清除用户数据</p>
      *
@@ -570,6 +600,21 @@ public class ACEPTrait extends BaseServiceImpl {
     public PodDataDeleteRes podDataDelete(PodDataDeleteBody body) throws Exception {
         RawResponse rawResponse = json("PodDataDelete", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, PodDataDeleteRes.class);
+    }
+
+    /**
+     * <p>removePropertyRule</p>
+     * <p>移除机型参数规则</p>
+     *
+     * <p>移除机型参数规则，立即生效。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public RemovePropertyRuleRes removePropertyRule(RemovePropertyRuleBody body) throws Exception {
+        RawResponse rawResponse = json("RemovePropertyRule", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, RemovePropertyRuleRes.class);
     }
 
     /**
@@ -600,6 +645,21 @@ public class ACEPTrait extends BaseServiceImpl {
     public GetPodAppListRes getPodAppList(GetPodAppListQuery query) throws Exception {
         RawResponse rawResponse = json("GetPodAppList", Utils.paramsToPair(query), "");
         return parseRawResponse(rawResponse, GetPodAppListRes.class);
+    }
+
+    /**
+     * <p>setProxy</p>
+     * <p>设置代理服务</p>
+     *
+     * <p>为指定实例设置代理服务，并配置代理规则。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public SetProxyRes setProxy(SetProxyBody body) throws Exception {
+        RawResponse rawResponse = json("SetProxy", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, SetProxyRes.class);
     }
 
     /**
@@ -786,7 +846,7 @@ public class ACEPTrait extends BaseServiceImpl {
      * <p>uploadApp</p>
      * <p>应用上传</p>
      *
-     * <p>上传应用安装文件到指定业务的应用管理中心（异步任务）。</p>
+     * <p>上传应用安装文件到应用管理中心（异步任务）。</p>
      *
      * @param body body payload
      * @return response data
@@ -846,7 +906,7 @@ public class ACEPTrait extends BaseServiceImpl {
      * <p>deleteApp</p>
      * <p>应用删除</p>
      *
-     * <p>删除业务下的指定应用及应用信息。</p>
+     * <p>删除账号下的指定应用及应用信息。</p>
      *
      * @param body body payload
      * @return response data
@@ -893,7 +953,7 @@ public class ACEPTrait extends BaseServiceImpl {
      * <p>installApps</p>
      * <p>应用批量安装</p>
      *
-     * <p>此接口用于将多个应用批量安装部署到指定云实例中（异步任务）。</p>
+     * <p>此接口用于将多个应用批量安装部署到指定云机实例中（异步任务）。</p>
      *
      * @param body body payload
      * @return response data

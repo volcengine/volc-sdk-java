@@ -3,6 +3,8 @@ package com.volcengine.service.livesaas;
 
 import com.volcengine.model.livesaas.request.*;
 import com.volcengine.model.livesaas.response.*;
+import com.volcengine.model.request.ListActivityQuizConfigsRequest;
+import com.volcengine.model.response.ListActivityQuizConfigsResponse;
 import com.volcengine.service.IBaseService;
 public interface LivesaasService extends IBaseService {
 
@@ -744,6 +746,24 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetQuizDataAPIResponse getQuizDataAPI(GetQuizDataAPIRequest getQuizDataAPIRequest) throws Exception;
+
+    /**
+     * UpdateActivityQuizConfig
+     *
+     * @param updateActivityQuizConfigRequest UpdateActivityQuizConfigRequest
+     * @return UpdateActivityQuizConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityQuizConfigResponse updateActivityQuizConfig(UpdateActivityQuizConfigRequest updateActivityQuizConfigRequest) throws Exception;
+
+    /**
+     * ListActivityQuizConfigs
+     *
+     * @param listActivityQuizConfigsRequest ListActivityQuizConfigsRequest
+     * @return ListActivityQuizConfigsResponse
+     * @throws Exception the exception
+     */
+    ListActivityQuizConfigsResponse listActivityQuizConfigs(ListActivityQuizConfigsRequest listActivityQuizConfigsRequest) throws Exception;
 
     /**
      * GetTaskAwardItemListAPI
@@ -1863,4 +1883,6 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetLarkSubAccountInfoResponse getLarkSubAccountInfo(GetLarkSubAccountInfoRequest getLarkSubAccountInfoRequest) throws Exception;
+
+    UpdateAnswerRepetitionResponse updateAnswerRepetition(UpdateAnswerRepetitionRequest updateAnswerRepetitionRequest) throws Exception;
 }

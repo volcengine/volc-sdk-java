@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Random;
+
+import org.apache.http.HttpHost;
+
 import java.util.Map;
 import com.volcengine.service.vikingDB.Collection;
 import com.volcengine.service.vikingDB.Index;
@@ -22,8 +25,8 @@ public class test {
     }
     
     public static void main(String[] args) throws Exception {
-
-        VikingDBService vikingDBService = new VikingDBService("", "", "", "","");
+        HttpHost proxy = new HttpHost("");
+        VikingDBService vikingDBService = new VikingDBService("", "", "", "","", proxy);
 
         // List<Field> fields = new ArrayList<>();
         // fields.add(new Field().setFieldName("doc_id").setFieldType(FieldType.Int64).setPrimaryKey(true).build());
@@ -61,8 +64,8 @@ public class test {
         // Index index = vikingDBService.createIndex(createIndexParam);
         // System.out.println(index);
 
-        Index index = vikingDBService.getIndex("t", "t4");
-        System.out.println(index);
+        Collection collection = vikingDBService.getCollection("sparse_go");
+        System.out.println(collection);
 
         // List<Index> indexes = vikingDBService.listIndexes("t");
         // for (Index index: indexes){

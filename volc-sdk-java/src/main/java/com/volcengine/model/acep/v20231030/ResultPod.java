@@ -31,6 +31,12 @@ public final class ResultPod  {
     private ResultTag tag;
 
     /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "DNSId")
+    private String dNSId;
+
+    /**
      * <p>实例 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PodId")

@@ -116,6 +116,20 @@ public class ACEPConfig {
                     }
                 }     
             ));
+            put("AddPropertyRule", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "AddPropertyRule"));
+                                add(new BasicNameValuePair("Version", "2023-10-30"));
+                            }
+                        });
+                    }
+                }     
+            ));
             put("DeletePod", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -480,6 +494,20 @@ public class ACEPConfig {
                     }
                 }     
             ));
+            put("ListPropertyRule", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "GET");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "ListPropertyRule"));
+                                add(new BasicNameValuePair("Version", "2023-10-30"));
+                            }
+                        });
+                    }
+                }     
+            ));
             put("PodDataDelete", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -488,6 +516,20 @@ public class ACEPConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "PodDataDelete"));
+                                add(new BasicNameValuePair("Version", "2023-10-30"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("RemovePropertyRule", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "RemovePropertyRule"));
                                 add(new BasicNameValuePair("Version", "2023-10-30"));
                             }
                         });
@@ -516,6 +558,20 @@ public class ACEPConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "GetPodAppList"));
+                                add(new BasicNameValuePair("Version", "2023-10-30"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("SetProxy", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "SetProxy"));
                                 add(new BasicNameValuePair("Version", "2023-10-30"));
                             }
                         });

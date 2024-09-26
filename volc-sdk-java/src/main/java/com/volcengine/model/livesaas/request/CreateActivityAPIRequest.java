@@ -34,4 +34,6 @@ public class CreateActivityAPIRequest {
     Long EndTime;
     @JSONField(name = "IsAutoEndEnable")
     Integer IsAutoEndEnable;
+    @JSONField(name="IsAnswerRepetitionEnable")
+    Integer IsAnswerRepetitionEnable;
 }

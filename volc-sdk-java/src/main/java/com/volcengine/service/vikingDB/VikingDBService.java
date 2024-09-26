@@ -27,6 +27,7 @@ import com.volcengine.service.vikingDB.common.UpdateIndexParam;
 import com.volcengine.service.vikingDB.common.VectorIndexParams;
 
 import org.apache.http.Header;
+import org.apache.http.HttpHost;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicHeader;
 
@@ -48,14 +49,21 @@ public class VikingDBService extends BaseServiceImpl {
 
     public VikingDBService(String host, String region, String ak, String sk, String scheme) throws Exception {
         super(getServiceInfo(host, region, ak, sk, scheme), getApiInfo());
+        requestPing();
+    }
+    public VikingDBService(String host, String region, String ak, String sk, String scheme, HttpHost proxy) throws Exception {
+        super(getServiceInfo(host, region, ak, sk, scheme), proxy, getApiInfo());
+        requestPing();
+    }
 
+    public void requestPing() throws Exception{
         HashMap<String,Object> map = new HashMap<>();
         RawResponse res = json("Ping", null, JSON.toJSONString(map));
-        if (res.getCode() != 0){
-            throw new Exception("host or region is incorrect");
+        if (res.getCode() != 0){     
+            throw new Exception("host or region is incorrect" + res);
         }
-
     }
+
     public static ServiceInfo getServiceInfo(String host, String region, String ak, String sk, String scheme){
         Map<String, Object> params = new HashMap<>();
         params.put(Host, host);

@@ -38,6 +38,12 @@ public final class ResultPodResource  {
     private String region;
 
     /**
+     * <p>机房所属的区域 ID。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ZoneId")
+    private String zoneId;
+
+    /**
      * <p>已订购实例总数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ApplyNum")

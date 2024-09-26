@@ -59,7 +59,7 @@ public final class UpdateRecordPresetV2BodyRecordPresetConfig  {
     private Integer sliceDuration;
 
     /**
-     * <p>转码流后缀列表，转码流录制配置为根据转码流列表匹配（`TranscodeRecord` 取值为 `2`）时生效，`TranscodeSuffixList` 默认配置为空，效果等同于录制全部转码流。</p>
+     * <p>转码流后缀列表，是否录制转码设置为根据转码流列表匹配（`TranscodeRecord` 取值为 `2`）时生效，`TranscodeSuffixList` 默认配置为空，效果等同于录制全部转码流。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TranscodeSuffixList")
     private List<String> transcodeSuffixList;

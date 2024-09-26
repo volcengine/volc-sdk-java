@@ -30,7 +30,23 @@ public final class RequestSettings  {
     private String settingsType;
 
     /**
-     * <p>属性值。</p>
+     * <p>属性值。各类型属性取值示例如下：</p>
+     *
+     *
+     *
+     * <p>- bool: "true"、"false"</p>
+     *
+     * <p>	</p>
+     *
+     * <p>- int\long: "21312"</p>
+     *
+     * <p>	</p>
+     *
+     * <p>- float: "2131.09"</p>
+     *
+     * <p>	</p>
+     *
+     * <p>- string: "safehg"</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SettingsValue")
     private String settingsValue;

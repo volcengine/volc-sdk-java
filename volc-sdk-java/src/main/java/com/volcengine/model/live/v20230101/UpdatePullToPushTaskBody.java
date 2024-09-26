@@ -47,7 +47,7 @@ public final class UpdatePullToPushTaskBody  {
     private Integer endTime;
 
     /**
-     * <p>接收拉流转推任务状态回调的地址，最大长度为 2000 个字符。</p>
+     * <p>接收拉流转推任务状态回调的地址，最大长度为 512 个字符。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CallbackURL")
     private String callbackURL;

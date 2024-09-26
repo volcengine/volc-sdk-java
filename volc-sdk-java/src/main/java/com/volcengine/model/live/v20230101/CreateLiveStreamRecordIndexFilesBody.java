@@ -60,7 +60,9 @@ public final class CreateLiveStreamRecordIndexFilesBody  {
     /**
      * <p>指定录制文件存储到 TOS 是的存储规则，默认为空，表示与对应录制配置中的存储规则配置一致。</p>
      *
-     * <p>支持以 `record/{PubDomain}/{App}/{Stream}/{StartTime}_{EndTime}` 样式设置存储规则，支持输入字母（A - Z、a - z）、数字（0 - 9）、短横线（-）、叹号（!）、下划线（\_）、句点（.）、星号（\*）及占位符，最大长度 200 个字符。</p>
+     *
+     *
+     * <p>自定义存储规则时，支持以 `record/{PubDomain}/{App}/{Stream}/{StartTime}_{EndTime}.m3u8` 样式设置存储规则，支持输入字母（A - Z、a - z）、数字（0 - 9）、短横线（-）、叹号（!）、下划线（\_）、句点（.）、星号（\*）及占位符，最大长度 200 个字符。</p>
      *
      *
      *
@@ -80,7 +82,9 @@ public final class CreateLiveStreamRecordIndexFilesBody  {
      *
      * <p>- {StartTime} 取值为录制的开始时间戳；</p>
      *
-     * <p>- {EndTime} 取值为录制的结束时间戳。</p>
+     * <p>- {EndTime} 取值为录制的结束时间戳；</p>
+     *
+     * <p>- 需设置文件后缀为`m3u8`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "OutputObject")
     private String outputObject;

@@ -53,6 +53,14 @@ public final class UpdateAppBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "AppDesc")
     private String appDesc;
 
+    /**
+     * <p>修改应用生效范围。调用 [UploadApp](https://www.volcengine.com/docs/6394/1262199) 时设置的应用可安装范围可通过该参数进行修改。</p>
+     *
+     * <p>当前仅支持将 Private 应用修改为 Public 应用，即将非共享应用修改为账号下多业务可共享的应用。若无需修改，则该参数可置空。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "AppMode")
+    private String appMode;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

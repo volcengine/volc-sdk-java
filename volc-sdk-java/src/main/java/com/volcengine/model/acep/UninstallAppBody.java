@@ -26,7 +26,7 @@ public final class UninstallAppBody  {
     private String appId;
 
     /**
-     * <p>指定实例 ID 列表进行应用卸载。</p>
+     * <p>指定实例 ID 列表进行应用卸载。单次接口调用最多支持对 1000 个实例进行应用卸载。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PodIdList")
     private List<String> podIdList;

@@ -271,6 +271,15 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
     }
 
     @Override
+    public CancelActivateRiskResultResponse CancelActivateRiskResult(CancelActivateRiskResultRequest request) throws Exception {
+        RawResponse response = json(Const.CancelActivateRiskResult, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CancelActivateRiskResultResponse.class);
+    }
+
+    @Override
     public ActivateRiskSampleDataResponse ActivateRiskSampleData(ActivateRiskSampleDataRequest request) throws Exception {
         RawResponse response = json(Const.ActivateRiskSampleData, new ArrayList<>(), JSON.toJSONString(request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

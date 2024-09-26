@@ -2317,6 +2317,81 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>createCloudMixTask</p>
+     * <p>创建云端混流任务</p>
+     *
+     * <p>调用 `CreateCloudMixTask` 接口，创建云端混流任务，支持将直播流、点播视频和图片等输入源重新布局混流后推送到指定推流地址。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateCloudMixTaskRes createCloudMixTask(CreateCloudMixTaskBody body) throws Exception {
+        RawResponse rawResponse = json("CreateCloudMixTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateCloudMixTaskRes.class);
+    }
+
+    /**
+     * <p>updateCloudMixTask</p>
+     * <p>更新云端混流任务</p>
+     *
+     * <p>调用 `UpdateCloudMixTask` 接口，更新运行中的云端混流任务。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateCloudMixTaskRes updateCloudMixTask(UpdateCloudMixTaskBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateCloudMixTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateCloudMixTaskRes.class);
+    }
+
+    /**
+     * <p>getCloudMixTaskDetail</p>
+     * <p>查看云端混流任务</p>
+     *
+     * <p>调用 `GetCloudMixTaskDetail` 接口，查看云端混流任务详细信息。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetCloudMixTaskDetailRes getCloudMixTaskDetail(GetCloudMixTaskDetailBody body) throws Exception {
+        RawResponse rawResponse = json("GetCloudMixTaskDetail", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetCloudMixTaskDetailRes.class);
+    }
+
+    /**
+     * <p>listCloudMixTask</p>
+     * <p>查看云端混流任务列表</p>
+     *
+     * <p>调用 `ListCloudMixTask` 接口，查看云端混流任务列表。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public ListCloudMixTaskRes listCloudMixTask(ListCloudMixTaskBody body) throws Exception {
+        RawResponse rawResponse = json("ListCloudMixTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, ListCloudMixTaskRes.class);
+    }
+
+    /**
+     * <p>deleteCloudMixTask</p>
+     * <p>结束云端混流任务</p>
+     *
+     * <p>调用 `DeleteCloudMixTask` 接口，结束正在进行中的云端混流任务。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteCloudMixTaskRes deleteCloudMixTask(DeleteCloudMixTaskBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteCloudMixTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteCloudMixTaskRes.class);
+    }
+
+    /**
      * <p>deleteSubtitleTranscodePreset</p>
      * <p>删除字幕配置</p>
      *

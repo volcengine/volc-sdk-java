@@ -24,6 +24,16 @@ public final class ResultApp  {
     private String appDesc;
 
     /**
+     * <p>应用生效范围：</p>
+     *
+     * <p>- `Public`：多业务的共享应用；</p>
+     *
+     * <p>- `Private`：单一业务的非共享应用。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "AppMode")
+    private String appMode;
+
+    /**
      * <p>应用名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AppName")

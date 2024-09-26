@@ -133,6 +133,8 @@ public class Const {
     public static final String ActivateRiskSampleData = "ActivateRiskSampleData";
     public static final String ActivateRiskResult = "ActivateRiskResult";
 
+    public static final String CancelActivateRiskResult = "CancelActivateRiskResult";
+
 
     // content security
     public static final String ImageContentRisk = "ImageContentRisk";
@@ -335,6 +337,10 @@ public class Const {
     public static final String ListQuizStatisticsAPI = "ListQuizStatisticsAPI";
 
     public static final String GetQuizDataAPI = "GetQuizDataAPI";
+
+    public static final String ListActivityQuizConfigs = "ListActivityQuizConfigs";
+
+    public static final String UpdateActivityQuizConfig = "UpdateActivityQuizConfig";
 
     public static final String GetTaskAwardItemListAPI = "GetTaskAwardItemListAPI";
 
@@ -557,6 +563,8 @@ public class Const {
     public static final String CreateLLMTask = "CreateLLMTask";
     public static final String GetLLMReport = "GetLLMReport";
     public static final String ListLLMTasks = "ListLLMTasks";
+
+    public static final String UpdateAnswerRepetition = "UpdateAnswerRepetition";
 
     public static final String UpdateAccountBanStatus = "UpdateAccountBanStatus";
 

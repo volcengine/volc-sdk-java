@@ -28,11 +28,11 @@ public final class ResetPodBody  {
      *
      *
      *
-     * <p>- `0`：全部重置，清理应用和文件、包括实例属性</p>
+     * <p>- `0`：全部重置，清除实例属性；</p>
      *
      * <p>	</p>
      *
-     * <p>- `1`：清理应用和文件，但保留实例属性</p>
+     * <p>- `1`：保留实例属性。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ResetType")
     private Integer resetType;
@@ -102,11 +102,11 @@ public final class ResetPodBody  {
      *
      *
      *
-     * <p>- 0：（默认值）实例重置时，清除该实例中全部应用和数据；</p>
+     * <p>- `0`：（默认值）实例重置时，清除该实例中全部应用和数据；</p>
      *
-     * <p>- 1：实例重置时，保留系统目录内的应用和数据，清除系统目录外的全部应用和数据；</p>
+     * <p>- `1`：实例重置时，保留系统目录内的应用和数据，清除系统目录外的全部应用和数据；</p>
      *
-     * <p>- 2：实例重置时，保留系统目录外的应用和数据，清除系统目录内的全部应用和数据。</p>
+     * <p>- `2`：实例重置时，保留系统目录外的应用和数据，清除系统目录内的全部应用和数据。</p>
      *
      * <p>> 注意：</p>
      *
@@ -116,6 +116,16 @@ public final class ResetPodBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SystemDirPersistedType")
     private Integer systemDirPersistedType;
+
+    /**
+     * <p>预安装应用保留策略：</p>
+     *
+     * <p>- `0`：默认设置，清除预安装应用及相关数据；</p>
+     *
+     * <p>- `1`：保留预安装应用，仅清理相关数据。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "PreInstallAppPersistedType")
+    private Integer preInstallAppPersistedType;
 
     @Override
     public String toString() {

@@ -259,6 +259,24 @@ public final class CreatePodOneStepBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "ResourceType")
     private Integer resourceType;
 
+    /**
+     * <p>是否为预安装应用, 默认false: 非安装应用, 应用保存在/data/app目录; true: 预安装应用, 应用保存在/data/overlay_app目录</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "IsPreinstall")
+    private Boolean isPreinstall;
+
+    /**
+     * <p>机型参数名称</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "PropertyRuleName")
+    private String propertyRuleName;
+
+    /**
+     * <p>是否使用机型参数组，1：使用，2：不使用，默认为不使用</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "UsePropertyRule")
+    private Integer usePropertyRule;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

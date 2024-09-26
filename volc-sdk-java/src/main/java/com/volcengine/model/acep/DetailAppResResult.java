@@ -134,10 +134,20 @@ public final class DetailAppResResult  {
     private Integer rotation;
 
     /**
-     * <p>应用版本列表（ListApp 接口不返回，DetailApp 接口返回）</p>
+     * <p>应用版本列表，参看 [AppVersion](#appversion) 数据结构说明。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "VersionList")
     private List<com.volcengine.model.acep.v20231030.ResultAppVersion> versionList;
+
+    /**
+     * <p>应用生效范围：</p>
+     *
+     * <p>- `Public`：多业务的共享应用；</p>
+     *
+     * <p>- `Private`：单一业务的非共享应用。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "AppMode")
+    private String appMode;
 
     @Override
     public String toString() {

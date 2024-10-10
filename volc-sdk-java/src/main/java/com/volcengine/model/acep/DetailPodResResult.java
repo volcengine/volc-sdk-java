@@ -302,6 +302,12 @@ public final class DetailPodResResult  {
     @com.alibaba.fastjson.annotation.JSONField(name = "SNATId")
     private String sNATId;
 
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "DNSId")
+    private String dNSId;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

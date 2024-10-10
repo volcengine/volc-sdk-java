@@ -176,4 +176,24 @@ public interface VodApplyUploadInfoRequestOrBuilder extends
    * @return The needFallback.
    */
   boolean getNeedFallback();
+
+  /**
+   * <pre>
+   * 上传域名偏好 
+   * </pre>
+   *
+   * <code>string UploadHostPrefer = 11;</code>
+   * @return The uploadHostPrefer.
+   */
+  java.lang.String getUploadHostPrefer();
+  /**
+   * <pre>
+   * 上传域名偏好 
+   * </pre>
+   *
+   * <code>string UploadHostPrefer = 11;</code>
+   * @return The bytes for uploadHostPrefer.
+   */
+  com.google.protobuf.ByteString
+      getUploadHostPreferBytes();
 }

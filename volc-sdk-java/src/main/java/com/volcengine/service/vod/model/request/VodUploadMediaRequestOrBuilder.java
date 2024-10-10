@@ -242,4 +242,24 @@ public interface VodUploadMediaRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getExpireTimeBytes();
+
+  /**
+   * <pre>
+   * 上传域名偏好 
+   * </pre>
+   *
+   * <code>string UploadHostPrefer = 14;</code>
+   * @return The uploadHostPrefer.
+   */
+  java.lang.String getUploadHostPrefer();
+  /**
+   * <pre>
+   * 上传域名偏好 
+   * </pre>
+   *
+   * <code>string UploadHostPrefer = 14;</code>
+   * @return The bytes for uploadHostPrefer.
+   */
+  com.google.protobuf.ByteString
+      getUploadHostPreferBytes();
 }

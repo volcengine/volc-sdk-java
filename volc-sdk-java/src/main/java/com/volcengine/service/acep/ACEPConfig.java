@@ -1012,6 +1012,20 @@ public class ACEPConfig {
                     }
                 }     
             ));
+            put("ListImage", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "GET");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "ListImage"));
+                                add(new BasicNameValuePair("Version", "2023-10-30"));
+                            }
+                        });
+                    }
+                }     
+            ));
             put("GetImagePreheating", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -1230,6 +1244,76 @@ public class ACEPConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "ResetHost"));
+                                add(new BasicNameValuePair("Version", "2023-10-30"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("CreateDNSRule", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "CreateDNSRule"));
+                                add(new BasicNameValuePair("Version", "2023-10-30"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("DeleteDNSRule", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DeleteDNSRule"));
+                                add(new BasicNameValuePair("Version", "2023-10-30"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("UpdateDNSRule", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "UpdateDNSRule"));
+                                add(new BasicNameValuePair("Version", "2023-10-30"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("DetailDNSRule", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DetailDNSRule"));
+                                add(new BasicNameValuePair("Version", "2023-10-30"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("ListDNSRule", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "ListDNSRule"));
                                 add(new BasicNameValuePair("Version", "2023-10-30"));
                             }
                         });

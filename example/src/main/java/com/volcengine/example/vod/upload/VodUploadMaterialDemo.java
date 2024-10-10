@@ -42,6 +42,7 @@ public class VodUploadMaterialDemo {
                 .setFilePath(filePath)
                 .setFileType(Const.FileTypeMedia)
                 .setFunctions(JSON.toJSONString(functionsList))
+//                .setUploadHostPrefer("")
                 .build();
 
         try {

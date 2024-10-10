@@ -200,7 +200,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 
     @Override
     public com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadMedia(com.volcengine.service.vod.model.request.VodUploadMediaRequest vodUploadMediaRequest, com.volcengine.helper.VodUploadProgressListener listener) throws Exception {
-        com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = uploadToB(vodUploadMediaRequest.getSpaceName(), vodUploadMediaRequest.getFilePath(), "media", vodUploadMediaRequest.getFileName(), vodUploadMediaRequest.getFileExtension(), vodUploadMediaRequest.getClientNetWorkMode(), vodUploadMediaRequest.getClientIDCMode(), vodUploadMediaRequest.getStorageClass(), vodUploadMediaRequest.getUploadStrategy(), listener);
+        com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = uploadToB(vodUploadMediaRequest.getSpaceName(), vodUploadMediaRequest.getFilePath(), "media", vodUploadMediaRequest.getFileName(), vodUploadMediaRequest.getFileExtension(), vodUploadMediaRequest.getClientNetWorkMode(), vodUploadMediaRequest.getClientIDCMode(), vodUploadMediaRequest.getStorageClass(), vodUploadMediaRequest.getUploadStrategy(),vodUploadMediaRequest.getUploadHostPrefer(), listener);
         com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest vodCommitUploadInfoRequest = com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest.newBuilder()
                 .setSpaceName(vodUploadMediaRequest.getSpaceName())
                 .setSessionKey(uploadCompleteInfo.getSessionKey())
@@ -251,7 +251,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
             com.volcengine.helper.VodUploadProgressListenerHelper.sendVodUploadEvent(listener, com.volcengine.helper.VodUploadProgressEventType.UPLOAD_BYTES_EVENT, fileSizeMap.get(tsFilePaths.get(i)));
         }
 
-        com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = uploadToB(vodUploadM3u8Request.getSpaceName(), vodUploadM3u8Request.getFilePath(), "media", vodUploadM3u8Request.getFileName(), vodUploadM3u8Request.getFileExtension(), vodUploadM3u8Request.getClientNetWorkMode(), vodUploadM3u8Request.getClientIDCMode(), vodUploadM3u8Request.getStorageClass(), vodUploadM3u8Request.getUploadStrategy(), null);
+        com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = uploadToB(vodUploadM3u8Request.getSpaceName(), vodUploadM3u8Request.getFilePath(), "media", vodUploadM3u8Request.getFileName(), vodUploadM3u8Request.getFileExtension(), vodUploadM3u8Request.getClientNetWorkMode(), vodUploadM3u8Request.getClientIDCMode(), vodUploadM3u8Request.getStorageClass(), vodUploadM3u8Request.getUploadStrategy(),vodUploadM3u8Request.getUploadHostPrefer(), null);
         com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest vodCommitUploadInfoRequest = com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest.newBuilder()
                 .setSpaceName(vodUploadM3u8Request.getSpaceName())
                 .setSessionKey(uploadCompleteInfo.getSessionKey())
@@ -277,7 +277,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 
     @Override
     public com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadObject(com.volcengine.service.vod.model.request.VodUploadMediaRequest vodUploadMediaRequest, com.volcengine.helper.VodUploadProgressListener listener) throws Exception {
-        com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = uploadToB(vodUploadMediaRequest.getSpaceName(), vodUploadMediaRequest.getFilePath(), "object", vodUploadMediaRequest.getFileName(), vodUploadMediaRequest.getFileExtension(), vodUploadMediaRequest.getClientNetWorkMode(), vodUploadMediaRequest.getClientIDCMode(), vodUploadMediaRequest.getStorageClass(), vodUploadMediaRequest.getUploadStrategy(), listener);
+        com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = uploadToB(vodUploadMediaRequest.getSpaceName(), vodUploadMediaRequest.getFilePath(), "object", vodUploadMediaRequest.getFileName(), vodUploadMediaRequest.getFileExtension(), vodUploadMediaRequest.getClientNetWorkMode(), vodUploadMediaRequest.getClientIDCMode(), vodUploadMediaRequest.getStorageClass(), vodUploadMediaRequest.getUploadStrategy(),vodUploadMediaRequest.getUploadHostPrefer(), listener);
         com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest vodCommitUploadInfoRequest = com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest.newBuilder()
                 .setSpaceName(vodUploadMediaRequest.getSpaceName())
                 .setSessionKey(uploadCompleteInfo.getSessionKey())
@@ -292,7 +292,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         return vodCommitUploadInfoResponse;
     }
 
-    private com.volcengine.model.beans.UploadCompleteInfo uploadToB(String spaceName, String filePath, String fileType, String fileName, String fileExtension, String clientNetWorkMode, String clientIDCMode, int storageClass, int uploadStrategy, com.volcengine.helper.VodUploadProgressListener listener) throws Exception {
+    private com.volcengine.model.beans.UploadCompleteInfo uploadToB(String spaceName, String filePath, String fileType, String fileName, String fileExtension, String clientNetWorkMode, String clientIDCMode, int storageClass, int uploadStrategy,String uploadHostPrefer, com.volcengine.helper.VodUploadProgressListener listener) throws Exception {
         java.io.File file = new java.io.File(filePath);
         if (!(file.isFile() && file.exists())) {
             throw new Exception(com.volcengine.error.SdkError.getErrorDesc(com.volcengine.error.SdkError.ENOFILE));
@@ -309,6 +309,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
                 .setClientNetWorkMode(clientNetWorkMode)
                 .setClientIDCMode(clientIDCMode)
                 .setNeedFallback(true)
+                .setUploadHostPrefer(uploadHostPrefer)
                 .build();
 
         com.volcengine.service.vod.model.response.VodApplyUploadInfoResponse vodApplyUploadInfoResponse = applyUploadInfo(vodApplyUploadInfoRequest);
@@ -453,7 +454,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 
     @Override
     public com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadMaterial(com.volcengine.service.vod.model.request.VodUploadMaterialRequest vodUploadMaterialRequest, com.volcengine.helper.VodUploadProgressListener listener) throws Exception {
-        com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = uploadToB(vodUploadMaterialRequest.getSpaceName(), vodUploadMaterialRequest.getFilePath(), vodUploadMaterialRequest.getFileType(), vodUploadMaterialRequest.getFileName(), vodUploadMaterialRequest.getFileExtension(), vodUploadMaterialRequest.getClientNetWorkMode(), vodUploadMaterialRequest.getClientIDCMode(), 0, vodUploadMaterialRequest.getUploadStrategy(), listener);
+        com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = uploadToB(vodUploadMaterialRequest.getSpaceName(), vodUploadMaterialRequest.getFilePath(), vodUploadMaterialRequest.getFileType(), vodUploadMaterialRequest.getFileName(), vodUploadMaterialRequest.getFileExtension(), vodUploadMaterialRequest.getClientNetWorkMode(), vodUploadMaterialRequest.getClientIDCMode(), 0, vodUploadMaterialRequest.getUploadStrategy(),vodUploadMaterialRequest.getUploadHostPrefer(), listener);
 
         com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest vodCommitUploadInfoRequest = com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest.newBuilder()
                 .setSpaceName(vodUploadMaterialRequest.getSpaceName())

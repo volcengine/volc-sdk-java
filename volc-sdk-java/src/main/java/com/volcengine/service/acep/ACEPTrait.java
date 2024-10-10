@@ -1134,6 +1134,21 @@ public class ACEPTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>listImage</p>
+     * <p>镜像列表</p>
+     *
+     * <p>查询指定公共镜像或自定义镜像相关信息。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public ListImageRes listImage(ListImageQuery query) throws Exception {
+        RawResponse rawResponse = json("ListImage", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, ListImageRes.class);
+    }
+
+    /**
      * <p>getImagePreheating</p>
      * <p>镜像预热信息</p>
      *
@@ -1373,6 +1388,87 @@ public class ACEPTrait extends BaseServiceImpl {
     public ResetHostRes resetHost(ResetHostBody body) throws Exception {
         RawResponse rawResponse = json("ResetHost", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, ResetHostRes.class);
+    }
+
+    /**
+     * <p>createDNSRule</p>
+     * <p>创建DNS规则</p>
+     *
+     * <p>为同一机房（Dc）内的云手机实例创建自定义 DNS 解析规则。您可以通过定制 DNS 解析行为，将指定域名定向到特定的 IP 地址。</p>
+     *
+     * <p>该接口适用于需要优化网络性能、增强数据可控性的场景，如加速内部网络中的文件下载，或对网络流量进行精确控制和分发。</p>
+     *
+     * <p>使用本接口可将云手机的 DNS 请求指向自己的服务器进行处理，为特定域名的解析结果进行定制，或为云手机实例设置默认 DNS 服务器，从而满足特定的业务需求。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateDNSRuleRes createDNSRule(CreateDNSRuleBody body) throws Exception {
+        RawResponse rawResponse = json("CreateDNSRule", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateDNSRuleRes.class);
+    }
+
+    /**
+     * <p>deleteDNSRule</p>
+     * <p>删除DNS规则</p>
+     *
+     * <p>删除创建的自定义 DNS 解析规则。</p>
+     *
+     * <p>删除某规则后，所有与之关联的云手机实例将会在下一次开机时自动恢复使用默认 DNS 设置；若无默认 DNS，则恢复使用集群公共 DNS。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteDNSRuleRes deleteDNSRule(DeleteDNSRuleBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteDNSRule", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteDNSRuleRes.class);
+    }
+
+    /**
+     * <p>updateDNSRule</p>
+     * <p>更新DNS规则</p>
+     *
+     * <p>更新或修改已创建的 DNS 解析规则。若使用该接口修改的 DNS 规则已关联某实例，则修改后的配置将在关联实例重启后生效。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateDNSRuleRes updateDNSRule(UpdateDNSRuleBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateDNSRule", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateDNSRuleRes.class);
+    }
+
+    /**
+     * <p>detailDNSRule</p>
+     * <p>查看DNS规则详情</p>
+     *
+     * <p>查询某个已创建的自定义 DNS 解析规则详情。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DetailDNSRuleRes detailDNSRule(DetailDNSRuleBody body) throws Exception {
+        RawResponse rawResponse = json("DetailDNSRule", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DetailDNSRuleRes.class);
+    }
+
+    /**
+     * <p>listDNSRule</p>
+     * <p>查询DNS规则列表</p>
+     *
+     * <p>查询业务下已创建的自定义 DNS 解析规则详情列表。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public ListDNSRuleRes listDNSRule(ListDNSRuleBody body) throws Exception {
+        RawResponse rawResponse = json("ListDNSRule", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, ListDNSRuleRes.class);
     }
 
 }

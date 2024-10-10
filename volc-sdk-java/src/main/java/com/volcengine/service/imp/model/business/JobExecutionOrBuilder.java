@@ -119,16 +119,16 @@ public interface JobExecutionOrBuilder extends
       getStatusBytes();
 
   /**
-   * <code>string CreateAt = 5;</code>
-   * @return The createAt.
+   * <code>string CreatedAt = 5;</code>
+   * @return The createdAt.
    */
-  java.lang.String getCreateAt();
+  java.lang.String getCreatedAt();
   /**
-   * <code>string CreateAt = 5;</code>
-   * @return The bytes for createAt.
+   * <code>string CreatedAt = 5;</code>
+   * @return The bytes for createdAt.
    */
   com.google.protobuf.ByteString
-      getCreateAtBytes();
+      getCreatedAtBytes();
 
   /**
    * <code>string FinishedAt = 6;</code>

@@ -186,6 +186,12 @@ public final class ListPodQuery  {
     private String hostId;
 
     /**
+     * <p>筛选条件, 自定义dns id</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "DNSId")
+    private String dNSId;
+
+    /**
      * <p>分页偏移量。默认值为 0。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Offset")

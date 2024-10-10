@@ -62,6 +62,7 @@ public class VodUploadMediaDemo {
                 .setFileName("hello/vod/video.mp4")
                 .setFunctions(JSON.toJSONString(functionsList))
                 .setStorageClass(0)
+//                .setUploadHostPrefer("")
                 .build();
         // 需要进度条功能时添加相应 listener，如无需求，传 null 值即可
         VodUploadProgressListener listener = new VodUploadMediaProcessListener();

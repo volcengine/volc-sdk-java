@@ -16,7 +16,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.volcengine.service.vod.Const.MinChunkSize;
+
 public class VodUploadByBytesArray extends VodUploadAbstractStrategy {
+    private final long chunkSize;
+
+    public VodUploadByBytesArray(long chunkSize) {
+        this.chunkSize = chunkSize;
+    }
+
+    public VodUploadByBytesArray(){
+        this.chunkSize = MinChunkSize;
+    }
+
     @Override
     public void directUpload(VodServiceImpl vodService, String host, String oid, String auth, List<com.volcengine.service.vod.model.business.VodHeaderPair> uploadHeaderList, File file, Retryer retryer, int storageClass, com.volcengine.helper.VodUploadProgressListener listener) throws Exception {
         String oidEncode = StringUtils.replace(oid, " ", "%20");
@@ -29,7 +41,7 @@ public class VodUploadByBytesArray extends VodUploadAbstractStrategy {
 
         boolean response = (boolean) retryer.call(() -> vodService.putData(url, bytes, headers));
         com.volcengine.helper.VodUploadProgressListenerHelper.sendVodUploadEvent(listener, com.volcengine.helper.VodUploadProgressEventType.UPLOAD_BYTES_EVENT, file.length() - 1);
-        if (!response){
+        if (!response) {
             throw new UploadException(-1, -1, "");
         }
     }
@@ -37,9 +49,9 @@ public class VodUploadByBytesArray extends VodUploadAbstractStrategy {
     @Override
     public void chunkUpload(VodServiceImpl vodService, String host, String oid, String auth, List<com.volcengine.service.vod.model.business.VodHeaderPair> uploadHeaderList, File file, boolean isLargeFile, Retryer retryer, int storageClass, com.volcengine.helper.VodUploadProgressListener listener) throws Exception {
         String uploadID = vodService.initUploadPart(host, oid, auth, isLargeFile, uploadHeaderList, retryer, storageClass);
-        byte[] data = new byte[com.volcengine.service.vod.Const.MinChunkSize];
+        byte[] data = new byte[(int)chunkSize];
         List<String> parts = new ArrayList<>();
-        long num = file.length() / com.volcengine.service.vod.Const.MinChunkSize;
+        long num = file.length() / chunkSize;
         long lastNum = num - 1;
         long partNumber;
         String objectContentType = "";
@@ -54,7 +66,7 @@ public class VodUploadByBytesArray extends VodUploadAbstractStrategy {
                 }
                 com.volcengine.helper.VodUploadProgressListenerHelper.sendVodUploadEvent(listener, com.volcengine.helper.VodUploadProgressEventType.UPLOAD_BYTES_EVENT, data.length);
             }
-            long readCount = (long) com.volcengine.service.vod.Const.MinChunkSize * lastNum;
+            long readCount = (long) chunkSize * lastNum;
             int len = (int) (file.length() - readCount);
             byte[] lastPart = new byte[len];
             bis.read(lastPart);

@@ -140,6 +140,11 @@ private static final long serialVersionUID = 0L;
             uploadHostPrefer_ = s;
             break;
           }
+          case 120: {
+
+            chunkSize_ = input.readInt64();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -729,6 +734,21 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int CHUNKSIZE_FIELD_NUMBER = 15;
+  private long chunkSize_;
+  /**
+   * <pre>
+   * 大文件上传分片大小，最小20MB 
+   * </pre>
+   *
+   * <code>int64 ChunkSize = 15;</code>
+   * @return The chunkSize.
+   */
+  @java.lang.Override
+  public long getChunkSize() {
+    return chunkSize_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -785,6 +805,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uploadHostPrefer_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 14, uploadHostPrefer_);
     }
+    if (chunkSize_ != 0L) {
+      output.writeInt64(15, chunkSize_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -839,6 +862,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uploadHostPrefer_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, uploadHostPrefer_);
     }
+    if (chunkSize_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(15, chunkSize_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -882,6 +909,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getExpireTime())) return false;
     if (!getUploadHostPrefer()
         .equals(other.getUploadHostPrefer())) return false;
+    if (getChunkSize()
+        != other.getChunkSize()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -921,6 +950,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getExpireTime().hashCode();
     hash = (37 * hash) + UPLOADHOSTPREFER_FIELD_NUMBER;
     hash = (53 * hash) + getUploadHostPrefer().hashCode();
+    hash = (37 * hash) + CHUNKSIZE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getChunkSize());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1082,6 +1114,8 @@ private static final long serialVersionUID = 0L;
 
       uploadHostPrefer_ = "";
 
+      chunkSize_ = 0L;
+
       return this;
     }
 
@@ -1122,6 +1156,7 @@ private static final long serialVersionUID = 0L;
       result.clientIDCMode_ = clientIDCMode_;
       result.expireTime_ = expireTime_;
       result.uploadHostPrefer_ = uploadHostPrefer_;
+      result.chunkSize_ = chunkSize_;
       onBuilt();
       return result;
     }
@@ -1222,6 +1257,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getUploadHostPrefer().isEmpty()) {
         uploadHostPrefer_ = other.uploadHostPrefer_;
         onChanged();
+      }
+      if (other.getChunkSize() != 0L) {
+        setChunkSize(other.getChunkSize());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2448,6 +2486,49 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       uploadHostPrefer_ = value;
+      onChanged();
+      return this;
+    }
+
+    private long chunkSize_ ;
+    /**
+     * <pre>
+     * 大文件上传分片大小，最小20MB 
+     * </pre>
+     *
+     * <code>int64 ChunkSize = 15;</code>
+     * @return The chunkSize.
+     */
+    @java.lang.Override
+    public long getChunkSize() {
+      return chunkSize_;
+    }
+    /**
+     * <pre>
+     * 大文件上传分片大小，最小20MB 
+     * </pre>
+     *
+     * <code>int64 ChunkSize = 15;</code>
+     * @param value The chunkSize to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChunkSize(long value) {
+      
+      chunkSize_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 大文件上传分片大小，最小20MB 
+     * </pre>
+     *
+     * <code>int64 ChunkSize = 15;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearChunkSize() {
+      
+      chunkSize_ = 0L;
       onChanged();
       return this;
     }

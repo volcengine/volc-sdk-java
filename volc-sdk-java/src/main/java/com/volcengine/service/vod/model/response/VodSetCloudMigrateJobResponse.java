@@ -24,14 +24,14 @@ private static final long serialVersionUID = 0L;
   private VodSetCloudMigrateJobResponse() {
   }
 
-  @Override
+  @java.lang.Override
   @SuppressWarnings({"unused"})
-  protected Object newInstance(
+  protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
     return new VodSetCloudMigrateJobResponse();
   }
 
-  @Override
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -42,7 +42,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new NullPointerException();
+      throw new java.lang.NullPointerException();
     }
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -101,15 +101,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return VodResponse.internal_static_Volcengine_Vod_Models_Response_VodSetCloudMigrateJobResponse_descriptor;
+    return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodSetCloudMigrateJobResponse_descriptor;
   }
 
-  @Override
-  protected FieldAccessorTable
+  @java.lang.Override
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return VodResponse.internal_static_Volcengine_Vod_Models_Response_VodSetCloudMigrateJobResponse_fieldAccessorTable
+    return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodSetCloudMigrateJobResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            VodSetCloudMigrateJobResponse.class, Builder.class);
+            com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse.class, com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse.Builder.class);
   }
 
   public static final int RESPONSEMETADATA_FIELD_NUMBER = 1;
@@ -118,7 +118,7 @@ private static final long serialVersionUID = 0L;
    * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    * @return Whether the responseMetadata field is set.
    */
-  @Override
+  @java.lang.Override
   public boolean hasResponseMetadata() {
     return responseMetadata_ != null;
   }
@@ -126,14 +126,14 @@ private static final long serialVersionUID = 0L;
    * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    * @return The responseMetadata.
    */
-  @Override
+  @java.lang.Override
   public com.volcengine.service.base.model.base.ResponseMetadata getResponseMetadata() {
     return responseMetadata_ == null ? com.volcengine.service.base.model.base.ResponseMetadata.getDefaultInstance() : responseMetadata_;
   }
   /**
    * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    */
-  @Override
+  @java.lang.Override
   public com.volcengine.service.base.model.base.ResponseMetadataOrBuilder getResponseMetadataOrBuilder() {
     return getResponseMetadata();
   }
@@ -144,7 +144,7 @@ private static final long serialVersionUID = 0L;
    * <code>.Volcengine.Vod.Models.Business.VodSetCloudMigrateJobResult Result = 2;</code>
    * @return Whether the result field is set.
    */
-  @Override
+  @java.lang.Override
   public boolean hasResult() {
     return result_ != null;
   }
@@ -152,20 +152,20 @@ private static final long serialVersionUID = 0L;
    * <code>.Volcengine.Vod.Models.Business.VodSetCloudMigrateJobResult Result = 2;</code>
    * @return The result.
    */
-  @Override
+  @java.lang.Override
   public com.volcengine.service.vod.model.business.VodSetCloudMigrateJobResult getResult() {
     return result_ == null ? com.volcengine.service.vod.model.business.VodSetCloudMigrateJobResult.getDefaultInstance() : result_;
   }
   /**
    * <code>.Volcengine.Vod.Models.Business.VodSetCloudMigrateJobResult Result = 2;</code>
    */
-  @Override
+  @java.lang.Override
   public com.volcengine.service.vod.model.business.VodSetCloudMigrateJobResultOrBuilder getResultOrBuilder() {
     return getResult();
   }
 
   private byte memoizedIsInitialized = -1;
-  @Override
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -175,7 +175,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @Override
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (responseMetadata_ != null) {
@@ -187,7 +187,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  @Override
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -206,15 +206,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @Override
-  public boolean equals(final Object obj) {
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof VodSetCloudMigrateJobResponse)) {
+    if (!(obj instanceof com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse)) {
       return super.equals(obj);
     }
-    VodSetCloudMigrateJobResponse other = (VodSetCloudMigrateJobResponse) obj;
+    com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse other = (com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse) obj;
 
     if (hasResponseMetadata() != other.hasResponseMetadata()) return false;
     if (hasResponseMetadata()) {
@@ -230,7 +230,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -250,69 +250,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static VodSetCloudMigrateJobResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static VodSetCloudMigrateJobResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static VodSetCloudMigrateJobResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static VodSetCloudMigrateJobResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static VodSetCloudMigrateJobResponse parseFrom(byte[] data)
+  public static com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static VodSetCloudMigrateJobResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static VodSetCloudMigrateJobResponse parseFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static VodSetCloudMigrateJobResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static VodSetCloudMigrateJobResponse parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static VodSetCloudMigrateJobResponse parseDelimitedFrom(
+  public static com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static VodSetCloudMigrateJobResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static VodSetCloudMigrateJobResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -320,23 +320,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @Override
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(VodSetCloudMigrateJobResponse prototype) {
+  public static Builder newBuilder(com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @Override
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @Override
+  @java.lang.Override
   protected Builder newBuilderForType(
-      BuilderParent parent) {
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -352,18 +352,18 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Response.VodSetCloudMigrateJobResponse)
-      VodSetCloudMigrateJobResponseOrBuilder {
+      com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return VodResponse.internal_static_Volcengine_Vod_Models_Response_VodSetCloudMigrateJobResponse_descriptor;
+      return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodSetCloudMigrateJobResponse_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return VodResponse.internal_static_Volcengine_Vod_Models_Response_VodSetCloudMigrateJobResponse_fieldAccessorTable
+      return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodSetCloudMigrateJobResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              VodSetCloudMigrateJobResponse.class, Builder.class);
+              com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse.class, com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse.Builder.class);
     }
 
     // Construct using com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse.newBuilder()
@@ -372,7 +372,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -381,7 +381,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @Override
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       if (responseMetadataBuilder_ == null) {
@@ -399,29 +399,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return VodResponse.internal_static_Volcengine_Vod_Models_Response_VodSetCloudMigrateJobResponse_descriptor;
+      return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodSetCloudMigrateJobResponse_descriptor;
     }
 
-    @Override
-    public VodSetCloudMigrateJobResponse getDefaultInstanceForType() {
-      return VodSetCloudMigrateJobResponse.getDefaultInstance();
+    @java.lang.Override
+    public com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse getDefaultInstanceForType() {
+      return com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse.getDefaultInstance();
     }
 
-    @Override
-    public VodSetCloudMigrateJobResponse build() {
-      VodSetCloudMigrateJobResponse result = buildPartial();
+    @java.lang.Override
+    public com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse build() {
+      com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @Override
-    public VodSetCloudMigrateJobResponse buildPartial() {
-      VodSetCloudMigrateJobResponse result = new VodSetCloudMigrateJobResponse(this);
+    @java.lang.Override
+    public com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse buildPartial() {
+      com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse result = new com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse(this);
       if (responseMetadataBuilder_ == null) {
         result.responseMetadata_ = responseMetadata_;
       } else {
@@ -436,50 +436,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public Builder clone() {
       return super.clone();
     }
-    @Override
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return super.setField(field, value);
     }
-    @Override
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @Override
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @Override
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, Object value) {
+        int index, java.lang.Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @Override
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return super.addRepeatedField(field, value);
     }
-    @Override
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof VodSetCloudMigrateJobResponse) {
-        return mergeFrom((VodSetCloudMigrateJobResponse)other);
+      if (other instanceof com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse) {
+        return mergeFrom((com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(VodSetCloudMigrateJobResponse other) {
-      if (other == VodSetCloudMigrateJobResponse.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse other) {
+      if (other == com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse.getDefaultInstance()) return this;
       if (other.hasResponseMetadata()) {
         mergeResponseMetadata(other.getResponseMetadata());
       }
@@ -491,21 +491,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      VodSetCloudMigrateJobResponse parsedMessage = null;
+      com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (VodSetCloudMigrateJobResponse) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -752,13 +752,13 @@ private static final long serialVersionUID = 0L;
       }
       return resultBuilder_;
     }
-    @Override
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @Override
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -769,18 +769,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Response.VodSetCloudMigrateJobResponse)
-  private static final VodSetCloudMigrateJobResponse DEFAULT_INSTANCE;
+  private static final com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new VodSetCloudMigrateJobResponse();
+    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse();
   }
 
-  public static VodSetCloudMigrateJobResponse getDefaultInstance() {
+  public static com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<VodSetCloudMigrateJobResponse>
       PARSER = new com.google.protobuf.AbstractParser<VodSetCloudMigrateJobResponse>() {
-    @Override
+    @java.lang.Override
     public VodSetCloudMigrateJobResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -793,13 +793,13 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @Override
+  @java.lang.Override
   public com.google.protobuf.Parser<VodSetCloudMigrateJobResponse> getParserForType() {
     return PARSER;
   }
 
-  @Override
-  public VodSetCloudMigrateJobResponse getDefaultInstanceForType() {
+  @java.lang.Override
+  public com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

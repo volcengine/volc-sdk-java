@@ -17,7 +17,7 @@ public interface VodGetCloudMigrateJobRequestOrBuilder extends
    * <code>string SpaceName = 2;</code>
    * @return The spaceName.
    */
-  String getSpaceName();
+  java.lang.String getSpaceName();
   /**
    * <code>string SpaceName = 2;</code>
    * @return The bytes for spaceName.

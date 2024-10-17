@@ -23,14 +23,14 @@ private static final long serialVersionUID = 0L;
     spaceName_ = "";
   }
 
-  @Override
+  @java.lang.Override
   @SuppressWarnings({"unused"})
-  protected Object newInstance(
+  protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
     return new VodSubmitCloudMigrateJobRequest();
   }
 
-  @Override
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -41,7 +41,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new NullPointerException();
+      throw new java.lang.NullPointerException();
     }
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -59,31 +59,31 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            String s = input.readStringRequireUtf8();
+            java.lang.String s = input.readStringRequireUtf8();
 
             subAppId_ = s;
             break;
           }
           case 26: {
-            String s = input.readStringRequireUtf8();
+            java.lang.String s = input.readStringRequireUtf8();
 
             sourceVid_ = s;
             break;
           }
           case 34: {
-            String s = input.readStringRequireUtf8();
+            java.lang.String s = input.readStringRequireUtf8();
 
             targetVid_ = s;
             break;
           }
           case 42: {
-            String s = input.readStringRequireUtf8();
+            java.lang.String s = input.readStringRequireUtf8();
 
             callbackArgs_ = s;
             break;
           }
           case 50: {
-            String s = input.readStringRequireUtf8();
+            java.lang.String s = input.readStringRequireUtf8();
 
             spaceName_ = s;
             break;
@@ -109,15 +109,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitCloudMigrateJobRequest_descriptor;
+    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitCloudMigrateJobRequest_descriptor;
   }
 
-  @Override
-  protected FieldAccessorTable
+  @java.lang.Override
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitCloudMigrateJobRequest_fieldAccessorTable
+    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitCloudMigrateJobRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            VodSubmitCloudMigrateJobRequest.class, Builder.class);
+            com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest.class, com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest.Builder.class);
   }
 
   public static final int JOBID_FIELD_NUMBER = 1;
@@ -126,26 +126,26 @@ private static final long serialVersionUID = 0L;
    * <code>int64 JobId = 1;</code>
    * @return The jobId.
    */
-  @Override
+  @java.lang.Override
   public long getJobId() {
     return jobId_;
   }
 
   public static final int SUBAPPID_FIELD_NUMBER = 2;
-  private volatile Object subAppId_;
+  private volatile java.lang.Object subAppId_;
   /**
    * <code>string SubAppId = 2;</code>
    * @return The subAppId.
    */
-  @Override
-  public String getSubAppId() {
-    Object ref = subAppId_;
-    if (ref instanceof String) {
-      return (String) ref;
+  @java.lang.Override
+  public java.lang.String getSubAppId() {
+    java.lang.Object ref = subAppId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
+      java.lang.String s = bs.toStringUtf8();
       subAppId_ = s;
       return s;
     }
@@ -154,14 +154,14 @@ private static final long serialVersionUID = 0L;
    * <code>string SubAppId = 2;</code>
    * @return The bytes for subAppId.
    */
-  @Override
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getSubAppIdBytes() {
-    Object ref = subAppId_;
-    if (ref instanceof String) {
+    java.lang.Object ref = subAppId_;
+    if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
+              (java.lang.String) ref);
       subAppId_ = b;
       return b;
     } else {
@@ -170,20 +170,20 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCEVID_FIELD_NUMBER = 3;
-  private volatile Object sourceVid_;
+  private volatile java.lang.Object sourceVid_;
   /**
    * <code>string SourceVid = 3;</code>
    * @return The sourceVid.
    */
-  @Override
-  public String getSourceVid() {
-    Object ref = sourceVid_;
-    if (ref instanceof String) {
-      return (String) ref;
+  @java.lang.Override
+  public java.lang.String getSourceVid() {
+    java.lang.Object ref = sourceVid_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
+      java.lang.String s = bs.toStringUtf8();
       sourceVid_ = s;
       return s;
     }
@@ -192,14 +192,14 @@ private static final long serialVersionUID = 0L;
    * <code>string SourceVid = 3;</code>
    * @return The bytes for sourceVid.
    */
-  @Override
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getSourceVidBytes() {
-    Object ref = sourceVid_;
-    if (ref instanceof String) {
+    java.lang.Object ref = sourceVid_;
+    if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
+              (java.lang.String) ref);
       sourceVid_ = b;
       return b;
     } else {
@@ -208,20 +208,20 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TARGETVID_FIELD_NUMBER = 4;
-  private volatile Object targetVid_;
+  private volatile java.lang.Object targetVid_;
   /**
    * <code>string TargetVid = 4;</code>
    * @return The targetVid.
    */
-  @Override
-  public String getTargetVid() {
-    Object ref = targetVid_;
-    if (ref instanceof String) {
-      return (String) ref;
+  @java.lang.Override
+  public java.lang.String getTargetVid() {
+    java.lang.Object ref = targetVid_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
+      java.lang.String s = bs.toStringUtf8();
       targetVid_ = s;
       return s;
     }
@@ -230,14 +230,14 @@ private static final long serialVersionUID = 0L;
    * <code>string TargetVid = 4;</code>
    * @return The bytes for targetVid.
    */
-  @Override
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTargetVidBytes() {
-    Object ref = targetVid_;
-    if (ref instanceof String) {
+    java.lang.Object ref = targetVid_;
+    if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
+              (java.lang.String) ref);
       targetVid_ = b;
       return b;
     } else {
@@ -246,20 +246,20 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CALLBACKARGS_FIELD_NUMBER = 5;
-  private volatile Object callbackArgs_;
+  private volatile java.lang.Object callbackArgs_;
   /**
    * <code>string CallbackArgs = 5;</code>
    * @return The callbackArgs.
    */
-  @Override
-  public String getCallbackArgs() {
-    Object ref = callbackArgs_;
-    if (ref instanceof String) {
-      return (String) ref;
+  @java.lang.Override
+  public java.lang.String getCallbackArgs() {
+    java.lang.Object ref = callbackArgs_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
+      java.lang.String s = bs.toStringUtf8();
       callbackArgs_ = s;
       return s;
     }
@@ -268,14 +268,14 @@ private static final long serialVersionUID = 0L;
    * <code>string CallbackArgs = 5;</code>
    * @return The bytes for callbackArgs.
    */
-  @Override
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getCallbackArgsBytes() {
-    Object ref = callbackArgs_;
-    if (ref instanceof String) {
+    java.lang.Object ref = callbackArgs_;
+    if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
+              (java.lang.String) ref);
       callbackArgs_ = b;
       return b;
     } else {
@@ -284,20 +284,20 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPACENAME_FIELD_NUMBER = 6;
-  private volatile Object spaceName_;
+  private volatile java.lang.Object spaceName_;
   /**
    * <code>string SpaceName = 6;</code>
    * @return The spaceName.
    */
-  @Override
-  public String getSpaceName() {
-    Object ref = spaceName_;
-    if (ref instanceof String) {
-      return (String) ref;
+  @java.lang.Override
+  public java.lang.String getSpaceName() {
+    java.lang.Object ref = spaceName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
+      java.lang.String s = bs.toStringUtf8();
       spaceName_ = s;
       return s;
     }
@@ -306,14 +306,14 @@ private static final long serialVersionUID = 0L;
    * <code>string SpaceName = 6;</code>
    * @return The bytes for spaceName.
    */
-  @Override
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getSpaceNameBytes() {
-    Object ref = spaceName_;
-    if (ref instanceof String) {
+    java.lang.Object ref = spaceName_;
+    if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
+              (java.lang.String) ref);
       spaceName_ = b;
       return b;
     } else {
@@ -322,7 +322,7 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
-  @Override
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -332,7 +332,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @Override
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (jobId_ != 0L) {
@@ -356,7 +356,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  @Override
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -386,15 +386,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @Override
-  public boolean equals(final Object obj) {
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof VodSubmitCloudMigrateJobRequest)) {
+    if (!(obj instanceof com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest)) {
       return super.equals(obj);
     }
-    VodSubmitCloudMigrateJobRequest other = (VodSubmitCloudMigrateJobRequest) obj;
+    com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest other = (com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest) obj;
 
     if (getJobId()
         != other.getJobId()) return false;
@@ -412,7 +412,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -437,69 +437,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static VodSubmitCloudMigrateJobRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static VodSubmitCloudMigrateJobRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static VodSubmitCloudMigrateJobRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static VodSubmitCloudMigrateJobRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static VodSubmitCloudMigrateJobRequest parseFrom(byte[] data)
+  public static com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static VodSubmitCloudMigrateJobRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static VodSubmitCloudMigrateJobRequest parseFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static VodSubmitCloudMigrateJobRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static VodSubmitCloudMigrateJobRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static VodSubmitCloudMigrateJobRequest parseDelimitedFrom(
+  public static com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static VodSubmitCloudMigrateJobRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static VodSubmitCloudMigrateJobRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -507,23 +507,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @Override
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(VodSubmitCloudMigrateJobRequest prototype) {
+  public static Builder newBuilder(com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @Override
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @Override
+  @java.lang.Override
   protected Builder newBuilderForType(
-      BuilderParent parent) {
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -533,18 +533,18 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Request.VodSubmitCloudMigrateJobRequest)
-      VodSubmitCloudMigrateJobRequestOrBuilder {
+      com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitCloudMigrateJobRequest_descriptor;
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitCloudMigrateJobRequest_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitCloudMigrateJobRequest_fieldAccessorTable
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitCloudMigrateJobRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              VodSubmitCloudMigrateJobRequest.class, Builder.class);
+              com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest.class, com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest.Builder.class);
     }
 
     // Construct using com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest.newBuilder()
@@ -553,7 +553,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -562,7 +562,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @Override
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       jobId_ = 0L;
@@ -580,29 +580,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitCloudMigrateJobRequest_descriptor;
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitCloudMigrateJobRequest_descriptor;
     }
 
-    @Override
-    public VodSubmitCloudMigrateJobRequest getDefaultInstanceForType() {
-      return VodSubmitCloudMigrateJobRequest.getDefaultInstance();
+    @java.lang.Override
+    public com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest getDefaultInstanceForType() {
+      return com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest.getDefaultInstance();
     }
 
-    @Override
-    public VodSubmitCloudMigrateJobRequest build() {
-      VodSubmitCloudMigrateJobRequest result = buildPartial();
+    @java.lang.Override
+    public com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest build() {
+      com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @Override
-    public VodSubmitCloudMigrateJobRequest buildPartial() {
-      VodSubmitCloudMigrateJobRequest result = new VodSubmitCloudMigrateJobRequest(this);
+    @java.lang.Override
+    public com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest buildPartial() {
+      com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest result = new com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest(this);
       result.jobId_ = jobId_;
       result.subAppId_ = subAppId_;
       result.sourceVid_ = sourceVid_;
@@ -613,50 +613,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public Builder clone() {
       return super.clone();
     }
-    @Override
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return super.setField(field, value);
     }
-    @Override
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @Override
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @Override
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, Object value) {
+        int index, java.lang.Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @Override
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return super.addRepeatedField(field, value);
     }
-    @Override
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof VodSubmitCloudMigrateJobRequest) {
-        return mergeFrom((VodSubmitCloudMigrateJobRequest)other);
+      if (other instanceof com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest) {
+        return mergeFrom((com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(VodSubmitCloudMigrateJobRequest other) {
-      if (other == VodSubmitCloudMigrateJobRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest other) {
+      if (other == com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest.getDefaultInstance()) return this;
       if (other.getJobId() != 0L) {
         setJobId(other.getJobId());
       }
@@ -685,21 +685,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      VodSubmitCloudMigrateJobRequest parsedMessage = null;
+      com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (VodSubmitCloudMigrateJobRequest) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -714,7 +714,7 @@ private static final long serialVersionUID = 0L;
      * <code>int64 JobId = 1;</code>
      * @return The jobId.
      */
-    @Override
+    @java.lang.Override
     public long getJobId() {
       return jobId_;
     }
@@ -740,21 +740,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private Object subAppId_ = "";
+    private java.lang.Object subAppId_ = "";
     /**
      * <code>string SubAppId = 2;</code>
      * @return The subAppId.
      */
-    public String getSubAppId() {
-      Object ref = subAppId_;
-      if (!(ref instanceof String)) {
+    public java.lang.String getSubAppId() {
+      java.lang.Object ref = subAppId_;
+      if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         subAppId_ = s;
         return s;
       } else {
-        return (String) ref;
+        return (java.lang.String) ref;
       }
     }
     /**
@@ -763,11 +763,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getSubAppIdBytes() {
-      Object ref = subAppId_;
+      java.lang.Object ref = subAppId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         subAppId_ = b;
         return b;
       } else {
@@ -780,7 +780,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSubAppId(
-        String value) {
+        java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -816,21 +816,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private Object sourceVid_ = "";
+    private java.lang.Object sourceVid_ = "";
     /**
      * <code>string SourceVid = 3;</code>
      * @return The sourceVid.
      */
-    public String getSourceVid() {
-      Object ref = sourceVid_;
-      if (!(ref instanceof String)) {
+    public java.lang.String getSourceVid() {
+      java.lang.Object ref = sourceVid_;
+      if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         sourceVid_ = s;
         return s;
       } else {
-        return (String) ref;
+        return (java.lang.String) ref;
       }
     }
     /**
@@ -839,11 +839,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getSourceVidBytes() {
-      Object ref = sourceVid_;
+      java.lang.Object ref = sourceVid_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         sourceVid_ = b;
         return b;
       } else {
@@ -856,7 +856,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSourceVid(
-        String value) {
+        java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -892,21 +892,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private Object targetVid_ = "";
+    private java.lang.Object targetVid_ = "";
     /**
      * <code>string TargetVid = 4;</code>
      * @return The targetVid.
      */
-    public String getTargetVid() {
-      Object ref = targetVid_;
-      if (!(ref instanceof String)) {
+    public java.lang.String getTargetVid() {
+      java.lang.Object ref = targetVid_;
+      if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         targetVid_ = s;
         return s;
       } else {
-        return (String) ref;
+        return (java.lang.String) ref;
       }
     }
     /**
@@ -915,11 +915,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getTargetVidBytes() {
-      Object ref = targetVid_;
+      java.lang.Object ref = targetVid_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         targetVid_ = b;
         return b;
       } else {
@@ -932,7 +932,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTargetVid(
-        String value) {
+        java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -968,21 +968,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private Object callbackArgs_ = "";
+    private java.lang.Object callbackArgs_ = "";
     /**
      * <code>string CallbackArgs = 5;</code>
      * @return The callbackArgs.
      */
-    public String getCallbackArgs() {
-      Object ref = callbackArgs_;
-      if (!(ref instanceof String)) {
+    public java.lang.String getCallbackArgs() {
+      java.lang.Object ref = callbackArgs_;
+      if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         callbackArgs_ = s;
         return s;
       } else {
-        return (String) ref;
+        return (java.lang.String) ref;
       }
     }
     /**
@@ -991,11 +991,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getCallbackArgsBytes() {
-      Object ref = callbackArgs_;
+      java.lang.Object ref = callbackArgs_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         callbackArgs_ = b;
         return b;
       } else {
@@ -1008,7 +1008,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCallbackArgs(
-        String value) {
+        java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -1044,21 +1044,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private Object spaceName_ = "";
+    private java.lang.Object spaceName_ = "";
     /**
      * <code>string SpaceName = 6;</code>
      * @return The spaceName.
      */
-    public String getSpaceName() {
-      Object ref = spaceName_;
-      if (!(ref instanceof String)) {
+    public java.lang.String getSpaceName() {
+      java.lang.Object ref = spaceName_;
+      if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         spaceName_ = s;
         return s;
       } else {
-        return (String) ref;
+        return (java.lang.String) ref;
       }
     }
     /**
@@ -1067,11 +1067,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getSpaceNameBytes() {
-      Object ref = spaceName_;
+      java.lang.Object ref = spaceName_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         spaceName_ = b;
         return b;
       } else {
@@ -1084,7 +1084,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSpaceName(
-        String value) {
+        java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -1119,13 +1119,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-    @Override
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @Override
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -1136,18 +1136,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Request.VodSubmitCloudMigrateJobRequest)
-  private static final VodSubmitCloudMigrateJobRequest DEFAULT_INSTANCE;
+  private static final com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new VodSubmitCloudMigrateJobRequest();
+    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest();
   }
 
-  public static VodSubmitCloudMigrateJobRequest getDefaultInstance() {
+  public static com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<VodSubmitCloudMigrateJobRequest>
       PARSER = new com.google.protobuf.AbstractParser<VodSubmitCloudMigrateJobRequest>() {
-    @Override
+    @java.lang.Override
     public VodSubmitCloudMigrateJobRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1160,13 +1160,13 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @Override
+  @java.lang.Override
   public com.google.protobuf.Parser<VodSubmitCloudMigrateJobRequest> getParserForType() {
     return PARSER;
   }
 
-  @Override
-  public VodSubmitCloudMigrateJobRequest getDefaultInstanceForType() {
+  @java.lang.Override
+  public com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

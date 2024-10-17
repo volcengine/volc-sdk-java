@@ -32,7 +32,7 @@ public interface VodSetCloudMigrateJobRequestOrBuilder extends
    * <code>string CallbackAddress = 3;</code>
    * @return The callbackAddress.
    */
-  String getCallbackAddress();
+  java.lang.String getCallbackAddress();
   /**
    * <code>string CallbackAddress = 3;</code>
    * @return The bytes for callbackAddress.
@@ -44,7 +44,7 @@ public interface VodSetCloudMigrateJobRequestOrBuilder extends
    * <code>string SpaceName = 4;</code>
    * @return The spaceName.
    */
-  String getSpaceName();
+  java.lang.String getSpaceName();
   /**
    * <code>string SpaceName = 4;</code>
    * @return The bytes for spaceName.

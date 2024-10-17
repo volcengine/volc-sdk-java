@@ -206,4 +206,14 @@ public interface VodUploadObjectRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getUploadHostPreferBytes();
+
+  /**
+   * <pre>
+   * 大文件上传分片大小，最小20MB 
+   * </pre>
+   *
+   * <code>int64 ChunkSize = 12;</code>
+   * @return The chunkSize.
+   */
+  long getChunkSize();
 }

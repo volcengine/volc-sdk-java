@@ -11,7 +11,7 @@ public interface VodCloudMigrateJobSourceInfoOrBuilder extends
    * <code>string Vendor = 1;</code>
    * @return The vendor.
    */
-  String getVendor();
+  java.lang.String getVendor();
   /**
    * <code>string Vendor = 1;</code>
    * @return The bytes for vendor.
@@ -23,7 +23,7 @@ public interface VodCloudMigrateJobSourceInfoOrBuilder extends
    * <code>string SourceAK = 2;</code>
    * @return The sourceAK.
    */
-  String getSourceAK();
+  java.lang.String getSourceAK();
   /**
    * <code>string SourceAK = 2;</code>
    * @return The bytes for sourceAK.
@@ -35,7 +35,7 @@ public interface VodCloudMigrateJobSourceInfoOrBuilder extends
    * <code>string SourceSK = 3;</code>
    * @return The sourceSK.
    */
-  String getSourceSK();
+  java.lang.String getSourceSK();
   /**
    * <code>string SourceSK = 3;</code>
    * @return The bytes for sourceSK.
@@ -47,7 +47,7 @@ public interface VodCloudMigrateJobSourceInfoOrBuilder extends
    * <code>string SourceDomain = 4;</code>
    * @return The sourceDomain.
    */
-  String getSourceDomain();
+  java.lang.String getSourceDomain();
   /**
    * <code>string SourceDomain = 4;</code>
    * @return The bytes for sourceDomain.
@@ -59,7 +59,7 @@ public interface VodCloudMigrateJobSourceInfoOrBuilder extends
    * <code>string SourceDomainKey = 5;</code>
    * @return The sourceDomainKey.
    */
-  String getSourceDomainKey();
+  java.lang.String getSourceDomainKey();
   /**
    * <code>string SourceDomainKey = 5;</code>
    * @return The bytes for sourceDomainKey.

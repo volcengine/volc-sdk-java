@@ -48,4 +48,19 @@ public interface ApplyResponseOrBuilder extends
    */
   com.google.protobuf.ByteString
       getSDKParamBytes();
+
+  /**
+   * <code>.Volcengine.Vod.Models.Business.VpcTosUploadAddress VpcTosUploadAddress = 5;</code>
+   * @return Whether the vpcTosUploadAddress field is set.
+   */
+  boolean hasVpcTosUploadAddress();
+  /**
+   * <code>.Volcengine.Vod.Models.Business.VpcTosUploadAddress VpcTosUploadAddress = 5;</code>
+   * @return The vpcTosUploadAddress.
+   */
+  com.volcengine.service.vod.model.business.VpcTosUploadAddress getVpcTosUploadAddress();
+  /**
+   * <code>.Volcengine.Vod.Models.Business.VpcTosUploadAddress VpcTosUploadAddress = 5;</code>
+   */
+  com.volcengine.service.vod.model.business.VpcTosUploadAddressOrBuilder getVpcTosUploadAddressOrBuilder();
 }

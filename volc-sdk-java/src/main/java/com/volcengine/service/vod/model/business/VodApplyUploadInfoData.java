@@ -74,6 +74,19 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 26: {
+            com.volcengine.service.vod.model.business.VpcTosUploadAddress.Builder subBuilder = null;
+            if (vpcTosUploadAddress_ != null) {
+              subBuilder = vpcTosUploadAddress_.toBuilder();
+            }
+            vpcTosUploadAddress_ = input.readMessage(com.volcengine.service.vod.model.business.VpcTosUploadAddress.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(vpcTosUploadAddress_);
+              vpcTosUploadAddress_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -182,6 +195,44 @@ private static final long serialVersionUID = 0L;
     return getCandidateUploadAddresses();
   }
 
+  public static final int VPCTOSUPLOADADDRESS_FIELD_NUMBER = 3;
+  private com.volcengine.service.vod.model.business.VpcTosUploadAddress vpcTosUploadAddress_;
+  /**
+   * <pre>
+   * 1001 阶段返回内网上传信息 
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VpcTosUploadAddress VpcTosUploadAddress = 3;</code>
+   * @return Whether the vpcTosUploadAddress field is set.
+   */
+  @java.lang.Override
+  public boolean hasVpcTosUploadAddress() {
+    return vpcTosUploadAddress_ != null;
+  }
+  /**
+   * <pre>
+   * 1001 阶段返回内网上传信息 
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VpcTosUploadAddress VpcTosUploadAddress = 3;</code>
+   * @return The vpcTosUploadAddress.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VpcTosUploadAddress getVpcTosUploadAddress() {
+    return vpcTosUploadAddress_ == null ? com.volcengine.service.vod.model.business.VpcTosUploadAddress.getDefaultInstance() : vpcTosUploadAddress_;
+  }
+  /**
+   * <pre>
+   * 1001 阶段返回内网上传信息 
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VpcTosUploadAddress VpcTosUploadAddress = 3;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VpcTosUploadAddressOrBuilder getVpcTosUploadAddressOrBuilder() {
+    return getVpcTosUploadAddress();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -202,6 +253,9 @@ private static final long serialVersionUID = 0L;
     if (candidateUploadAddresses_ != null) {
       output.writeMessage(2, getCandidateUploadAddresses());
     }
+    if (vpcTosUploadAddress_ != null) {
+      output.writeMessage(3, getVpcTosUploadAddress());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -218,6 +272,10 @@ private static final long serialVersionUID = 0L;
     if (candidateUploadAddresses_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getCandidateUploadAddresses());
+    }
+    if (vpcTosUploadAddress_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getVpcTosUploadAddress());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -244,6 +302,11 @@ private static final long serialVersionUID = 0L;
       if (!getCandidateUploadAddresses()
           .equals(other.getCandidateUploadAddresses())) return false;
     }
+    if (hasVpcTosUploadAddress() != other.hasVpcTosUploadAddress()) return false;
+    if (hasVpcTosUploadAddress()) {
+      if (!getVpcTosUploadAddress()
+          .equals(other.getVpcTosUploadAddress())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -262,6 +325,10 @@ private static final long serialVersionUID = 0L;
     if (hasCandidateUploadAddresses()) {
       hash = (37 * hash) + CANDIDATEUPLOADADDRESSES_FIELD_NUMBER;
       hash = (53 * hash) + getCandidateUploadAddresses().hashCode();
+    }
+    if (hasVpcTosUploadAddress()) {
+      hash = (37 * hash) + VPCTOSUPLOADADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getVpcTosUploadAddress().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -408,6 +475,12 @@ private static final long serialVersionUID = 0L;
         candidateUploadAddresses_ = null;
         candidateUploadAddressesBuilder_ = null;
       }
+      if (vpcTosUploadAddressBuilder_ == null) {
+        vpcTosUploadAddress_ = null;
+      } else {
+        vpcTosUploadAddress_ = null;
+        vpcTosUploadAddressBuilder_ = null;
+      }
       return this;
     }
 
@@ -443,6 +516,11 @@ private static final long serialVersionUID = 0L;
         result.candidateUploadAddresses_ = candidateUploadAddresses_;
       } else {
         result.candidateUploadAddresses_ = candidateUploadAddressesBuilder_.build();
+      }
+      if (vpcTosUploadAddressBuilder_ == null) {
+        result.vpcTosUploadAddress_ = vpcTosUploadAddress_;
+      } else {
+        result.vpcTosUploadAddress_ = vpcTosUploadAddressBuilder_.build();
       }
       onBuilt();
       return result;
@@ -497,6 +575,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasCandidateUploadAddresses()) {
         mergeCandidateUploadAddresses(other.getCandidateUploadAddresses());
+      }
+      if (other.hasVpcTosUploadAddress()) {
+        mergeVpcTosUploadAddress(other.getVpcTosUploadAddress());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -835,6 +916,161 @@ private static final long serialVersionUID = 0L;
         candidateUploadAddresses_ = null;
       }
       return candidateUploadAddressesBuilder_;
+    }
+
+    private com.volcengine.service.vod.model.business.VpcTosUploadAddress vpcTosUploadAddress_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VpcTosUploadAddress, com.volcengine.service.vod.model.business.VpcTosUploadAddress.Builder, com.volcengine.service.vod.model.business.VpcTosUploadAddressOrBuilder> vpcTosUploadAddressBuilder_;
+    /**
+     * <pre>
+     * 1001 阶段返回内网上传信息 
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VpcTosUploadAddress VpcTosUploadAddress = 3;</code>
+     * @return Whether the vpcTosUploadAddress field is set.
+     */
+    public boolean hasVpcTosUploadAddress() {
+      return vpcTosUploadAddressBuilder_ != null || vpcTosUploadAddress_ != null;
+    }
+    /**
+     * <pre>
+     * 1001 阶段返回内网上传信息 
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VpcTosUploadAddress VpcTosUploadAddress = 3;</code>
+     * @return The vpcTosUploadAddress.
+     */
+    public com.volcengine.service.vod.model.business.VpcTosUploadAddress getVpcTosUploadAddress() {
+      if (vpcTosUploadAddressBuilder_ == null) {
+        return vpcTosUploadAddress_ == null ? com.volcengine.service.vod.model.business.VpcTosUploadAddress.getDefaultInstance() : vpcTosUploadAddress_;
+      } else {
+        return vpcTosUploadAddressBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * 1001 阶段返回内网上传信息 
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VpcTosUploadAddress VpcTosUploadAddress = 3;</code>
+     */
+    public Builder setVpcTosUploadAddress(com.volcengine.service.vod.model.business.VpcTosUploadAddress value) {
+      if (vpcTosUploadAddressBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        vpcTosUploadAddress_ = value;
+        onChanged();
+      } else {
+        vpcTosUploadAddressBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 1001 阶段返回内网上传信息 
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VpcTosUploadAddress VpcTosUploadAddress = 3;</code>
+     */
+    public Builder setVpcTosUploadAddress(
+        com.volcengine.service.vod.model.business.VpcTosUploadAddress.Builder builderForValue) {
+      if (vpcTosUploadAddressBuilder_ == null) {
+        vpcTosUploadAddress_ = builderForValue.build();
+        onChanged();
+      } else {
+        vpcTosUploadAddressBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 1001 阶段返回内网上传信息 
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VpcTosUploadAddress VpcTosUploadAddress = 3;</code>
+     */
+    public Builder mergeVpcTosUploadAddress(com.volcengine.service.vod.model.business.VpcTosUploadAddress value) {
+      if (vpcTosUploadAddressBuilder_ == null) {
+        if (vpcTosUploadAddress_ != null) {
+          vpcTosUploadAddress_ =
+            com.volcengine.service.vod.model.business.VpcTosUploadAddress.newBuilder(vpcTosUploadAddress_).mergeFrom(value).buildPartial();
+        } else {
+          vpcTosUploadAddress_ = value;
+        }
+        onChanged();
+      } else {
+        vpcTosUploadAddressBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 1001 阶段返回内网上传信息 
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VpcTosUploadAddress VpcTosUploadAddress = 3;</code>
+     */
+    public Builder clearVpcTosUploadAddress() {
+      if (vpcTosUploadAddressBuilder_ == null) {
+        vpcTosUploadAddress_ = null;
+        onChanged();
+      } else {
+        vpcTosUploadAddress_ = null;
+        vpcTosUploadAddressBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 1001 阶段返回内网上传信息 
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VpcTosUploadAddress VpcTosUploadAddress = 3;</code>
+     */
+    public com.volcengine.service.vod.model.business.VpcTosUploadAddress.Builder getVpcTosUploadAddressBuilder() {
+      
+      onChanged();
+      return getVpcTosUploadAddressFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * 1001 阶段返回内网上传信息 
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VpcTosUploadAddress VpcTosUploadAddress = 3;</code>
+     */
+    public com.volcengine.service.vod.model.business.VpcTosUploadAddressOrBuilder getVpcTosUploadAddressOrBuilder() {
+      if (vpcTosUploadAddressBuilder_ != null) {
+        return vpcTosUploadAddressBuilder_.getMessageOrBuilder();
+      } else {
+        return vpcTosUploadAddress_ == null ?
+            com.volcengine.service.vod.model.business.VpcTosUploadAddress.getDefaultInstance() : vpcTosUploadAddress_;
+      }
+    }
+    /**
+     * <pre>
+     * 1001 阶段返回内网上传信息 
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VpcTosUploadAddress VpcTosUploadAddress = 3;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VpcTosUploadAddress, com.volcengine.service.vod.model.business.VpcTosUploadAddress.Builder, com.volcengine.service.vod.model.business.VpcTosUploadAddressOrBuilder> 
+        getVpcTosUploadAddressFieldBuilder() {
+      if (vpcTosUploadAddressBuilder_ == null) {
+        vpcTosUploadAddressBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.VpcTosUploadAddress, com.volcengine.service.vod.model.business.VpcTosUploadAddress.Builder, com.volcengine.service.vod.model.business.VpcTosUploadAddressOrBuilder>(
+                getVpcTosUploadAddress(),
+                getParentForChildren(),
+                isClean());
+        vpcTosUploadAddress_ = null;
+      }
+      return vpcTosUploadAddressBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

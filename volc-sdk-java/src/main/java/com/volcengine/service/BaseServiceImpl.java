@@ -25,6 +25,7 @@ import org.apache.http.*;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.*;
@@ -216,6 +217,34 @@ public abstract class BaseServiceImpl implements IBaseService {
     public boolean putData(String url, InputStream inputStream, Map<String, String> headers) {
         HttpEntity httpEntity = new InputStreamEntity(inputStream);
         return doPut(url, httpEntity, headers);
+    }
+
+    public HttpResponse postDataWithResponse(String url,byte[] data, Map<String, String> headers) {
+        HttpPost httpPost = new HttpPost(url);
+        HttpEntity httpEntity = new ByteArrayEntity(data);
+        if (headers != null && headers.size() > 0) {
+            for (Map.Entry<String, String> entry : headers.entrySet()) {
+                httpPost.setHeader(entry.getKey(), entry.getValue());
+            }
+        }
+        httpPost.setEntity(httpEntity);
+        HttpResponse response = null;
+        try {
+            HttpClient client;
+            if (getHttpClient() != null) {
+                client = getHttpClient();
+            } else {
+                client = HttpClients.createDefault();
+            }
+            return client.execute(httpPost);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (response != null) {
+                EntityUtils.consumeQuietly(response.getEntity());
+            }
+        }
+        return null;
     }
 
     public HttpResponse putDataWithResponse(String url, InputStream inputStream, Map<String, String> headers) {

@@ -22,17 +22,17 @@ public interface VodGetCloudMigrateJobResultOrBuilder extends
    * <code>.Volcengine.Vod.Models.Business.VodCloudMigrateJobSourceInfo JobSourceInfo = 2;</code>
    * @return The jobSourceInfo.
    */
-  VodCloudMigrateJobSourceInfo getJobSourceInfo();
+  com.volcengine.service.vod.model.business.VodCloudMigrateJobSourceInfo getJobSourceInfo();
   /**
    * <code>.Volcengine.Vod.Models.Business.VodCloudMigrateJobSourceInfo JobSourceInfo = 2;</code>
    */
-  VodCloudMigrateJobSourceInfoOrBuilder getJobSourceInfoOrBuilder();
+  com.volcengine.service.vod.model.business.VodCloudMigrateJobSourceInfoOrBuilder getJobSourceInfoOrBuilder();
 
   /**
    * <code>string CallbackAddress = 3;</code>
    * @return The callbackAddress.
    */
-  String getCallbackAddress();
+  java.lang.String getCallbackAddress();
   /**
    * <code>string CallbackAddress = 3;</code>
    * @return The bytes for callbackAddress.

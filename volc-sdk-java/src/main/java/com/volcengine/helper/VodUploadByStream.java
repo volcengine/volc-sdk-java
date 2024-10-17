@@ -16,7 +16,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.volcengine.service.vod.Const.MinChunkSize;
+
 public class VodUploadByStream extends VodUploadAbstractStrategy {
+    private final long chunkSize;
+
+    public VodUploadByStream(long chunkSize) {
+        this.chunkSize = chunkSize;
+    }
+
+    public VodUploadByStream(){
+        this.chunkSize = MinChunkSize;
+    }
+
     @Override
     public void directUpload(VodServiceImpl vodService, String host, String oid, String auth, List<VodHeaderPair> uploadHeaderList, File file, Retryer retryer, int storageClass, VodUploadProgressListener listener) throws Exception {
         String oidEncode = StringUtils.replace(oid, " ", "%20");
@@ -41,27 +53,27 @@ public class VodUploadByStream extends VodUploadAbstractStrategy {
     public void chunkUpload(VodServiceImpl vodService, String host, String oid, String auth, List<com.volcengine.service.vod.model.business.VodHeaderPair> uploadHeaderList, File file, boolean isLargeFile, Retryer retryer, int storageClass, com.volcengine.helper.VodUploadProgressListener listener) throws Exception {
         String uploadID = vodService.initUploadPart(host, oid, auth, isLargeFile, uploadHeaderList, retryer, storageClass);
         List<String> parts = new ArrayList<>();
-        long num = file.length() / com.volcengine.service.vod.Const.MinChunkSize;
+        long num = file.length() / chunkSize;
         long lastNum = num - 1;
         long partNumber;
         String objectContentType = "";
         for (long i = 0; i < lastNum; i++) {
             try (InputStream fileInputStream = new FileInputStream(file)) {
-                fileInputStream.skip(i * com.volcengine.service.vod.Const.MinChunkSize);
-                try (InputStream inputStream = com.volcengine.helper.Utils.newRepeatableInputStream(new PartInputStream(fileInputStream, com.volcengine.service.vod.Const.MinChunkSize))) {
+                fileInputStream.skip(i * chunkSize);
+                try (InputStream inputStream = com.volcengine.helper.Utils.newRepeatableInputStream(new PartInputStream(fileInputStream, chunkSize))) {
                     partNumber = isLargeFile ? i + 1 : i;
                     VodServiceImpl.UploadPartResponse uploadPartResponse = uploadPart(vodService, host, oid, auth, uploadID, partNumber, inputStream, isLargeFile, retryer, storageClass);
                     parts.add(uploadPartResponse.getCheckSum());
                     if (partNumber == 1) {
                         objectContentType = uploadPartResponse.getObjectContentType();
                     }
-                    com.volcengine.helper.VodUploadProgressListenerHelper.sendVodUploadEvent(listener, com.volcengine.helper.VodUploadProgressEventType.UPLOAD_BYTES_EVENT, com.volcengine.service.vod.Const.MinChunkSize);
+                    com.volcengine.helper.VodUploadProgressListenerHelper.sendVodUploadEvent(listener, com.volcengine.helper.VodUploadProgressEventType.UPLOAD_BYTES_EVENT, chunkSize);
                 } catch (Exception e) {
                     throw e;
                 }
             }
         }
-        long readCount = (long) com.volcengine.service.vod.Const.MinChunkSize * lastNum;
+        long readCount = (long) chunkSize * lastNum;
         int len = (int) (file.length() - readCount);
         try (InputStream fileInputStream = new FileInputStream(file)) {
             fileInputStream.skip(readCount);

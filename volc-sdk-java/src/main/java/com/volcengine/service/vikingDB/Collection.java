@@ -31,7 +31,7 @@ public class Collection {
         this.primaryKey = primaryKey;
     }
     public Collection(){}
-    public void upsertData(DataObject dataObject) throws Exception{
+    public HashMap<String,Object> validAndPackageData(DataObject dataObject, Boolean asyncUpsert) throws Exception {
         if(dataObject.getIsBuild() == 0){
             VikingDBException vikingDBException = new VikingDBException(1000031, null, "Param dose not build");
             throw vikingDBException.getErrorCodeException(1000031, null, "Param dose not build");
@@ -47,12 +47,12 @@ public class Collection {
         params.put("collection_name", collectionName);
         params.put("fields", fieldList);
         params.put("ttl", ttl);
-        // System.out.println(params);
-        vikingDBService.doRequest("UpsertData", null, params);
-
+        if (asyncUpsert) {
+            params.put("async", asyncUpsert);
+        }
+        return params;
     }
-    public void upsertData(List<DataObject> dataObjects) throws Exception{
-        List<HashMap<String,Object>> fieldList = new ArrayList<>();
+    public HashMap<Integer, ArrayList<Object>> validAndPackageDatas(List<DataObject> dataObjects) throws Exception {
         HashMap<Integer, ArrayList<Object>> record = new HashMap<>();
         for(DataObject item: dataObjects){
             if(item.getIsBuild() == 0){
@@ -70,7 +70,22 @@ public class Collection {
                 record.put(item.getTTL(), fields);
             }
         }
+        return record;
+    }
+    public void upsertData(DataObject dataObject) throws Exception{
+        HashMap<String,Object> params = validAndPackageData(dataObject, false);
+        // System.out.println(params);
+        vikingDBService.doRequest("UpsertData", null, params);
 
+    }
+    public void upsertData(DataObject dataObject, Boolean asyncUpsert) throws Exception{
+        HashMap<String,Object> params = validAndPackageData(dataObject, asyncUpsert);
+        // System.out.println(params);
+        vikingDBService.doRequest("UpsertData", null, params);
+
+    }
+    public void upsertData(List<DataObject> dataObjects) throws Exception{
+        HashMap<Integer, ArrayList<Object>> record = validAndPackageDatas(dataObjects);
         for (Integer key : record.keySet()) {
             HashMap<String,Object> params = new HashMap<String,Object>();
             params.put("collection_name", collectionName);
@@ -79,8 +94,20 @@ public class Collection {
             // System.out.println(params);
             vikingDBService.doRequest("UpsertData", null, params);
         }
-
-
+    }
+    public void upsertData(List<DataObject> dataObjects, Boolean asyncUpsert) throws Exception{
+        HashMap<Integer, ArrayList<Object>> record = validAndPackageDatas(dataObjects);
+        for (Integer key : record.keySet()) {
+            HashMap<String,Object> params = new HashMap<String,Object>();
+            params.put("collection_name", collectionName);
+            params.put("fields", record.get(key));
+            params.put("ttl", key);
+            if (asyncUpsert) {
+                params.put("async", asyncUpsert);
+            }
+            // System.out.println(params);
+            vikingDBService.doRequest("UpsertData", null, params);
+        }
     }
     public <T>void deleteData(T id) throws Exception{
         HashMap<String,Object> params = new HashMap<String,Object>();

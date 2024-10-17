@@ -37,7 +37,7 @@ public final class VodMigrate {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
+    java.lang.String[] descriptorData = {
       "\n)volcengine/vod/business/vod_migrate.pr" +
       "oto\022\036Volcengine.Vod.Models.Business\"\201\001\n\034" +
       "VodCloudMigrateJobSourceInfo\022\016\n\006Vendor\030\001" +
@@ -64,19 +64,19 @@ public final class VodMigrate {
     internal_static_Volcengine_Vod_Models_Business_VodCloudMigrateJobSourceInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodCloudMigrateJobSourceInfo_descriptor,
-        new String[] { "Vendor", "SourceAK", "SourceSK", "SourceDomain", "SourceDomainKey", });
+        new java.lang.String[] { "Vendor", "SourceAK", "SourceSK", "SourceDomain", "SourceDomainKey", });
     internal_static_Volcengine_Vod_Models_Business_VodSetCloudMigrateJobResult_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Volcengine_Vod_Models_Business_VodSetCloudMigrateJobResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodSetCloudMigrateJobResult_descriptor,
-        new String[] { "JobId", });
+        new java.lang.String[] { "JobId", });
     internal_static_Volcengine_Vod_Models_Business_VodGetCloudMigrateJobResult_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_Volcengine_Vod_Models_Business_VodGetCloudMigrateJobResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodGetCloudMigrateJobResult_descriptor,
-        new String[] { "JobId", "JobSourceInfo", "CallbackAddress", });
+        new java.lang.String[] { "JobId", "JobSourceInfo", "CallbackAddress", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

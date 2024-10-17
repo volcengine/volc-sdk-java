@@ -60,4 +60,31 @@ public interface VodApplyUploadInfoDataOrBuilder extends
    * <code>.Volcengine.Vod.Models.Business.CandidateUploadAddresses CandidateUploadAddresses = 2;</code>
    */
   com.volcengine.service.vod.model.business.CandidateUploadAddressesOrBuilder getCandidateUploadAddressesOrBuilder();
+
+  /**
+   * <pre>
+   * 1001 阶段返回内网上传信息 
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VpcTosUploadAddress VpcTosUploadAddress = 3;</code>
+   * @return Whether the vpcTosUploadAddress field is set.
+   */
+  boolean hasVpcTosUploadAddress();
+  /**
+   * <pre>
+   * 1001 阶段返回内网上传信息 
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VpcTosUploadAddress VpcTosUploadAddress = 3;</code>
+   * @return The vpcTosUploadAddress.
+   */
+  com.volcengine.service.vod.model.business.VpcTosUploadAddress getVpcTosUploadAddress();
+  /**
+   * <pre>
+   * 1001 阶段返回内网上传信息 
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VpcTosUploadAddress VpcTosUploadAddress = 3;</code>
+   */
+  com.volcengine.service.vod.model.business.VpcTosUploadAddressOrBuilder getVpcTosUploadAddressOrBuilder();
 }

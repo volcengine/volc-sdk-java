@@ -4,25 +4,25 @@
 package com.volcengine.service.vod.model.response;
 
 /**
- * Protobuf type {@code Volcengine.Vod.Models.Response.VodSubmitCloudMigrateJobResponse}
+ * Protobuf type {@code Volcengine.Vod.Models.Response.VodDeleteMaterialResponse}
  */
-public final class VodSubmitCloudMigrateJobResponse extends
+public final class VodDeleteMaterialResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Response.VodSubmitCloudMigrateJobResponse)
-    VodSubmitCloudMigrateJobResponseOrBuilder {
+    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Response.VodDeleteMaterialResponse)
+    VodDeleteMaterialResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use VodSubmitCloudMigrateJobResponse.newBuilder() to construct.
-  private VodSubmitCloudMigrateJobResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use VodDeleteMaterialResponse.newBuilder() to construct.
+  private VodDeleteMaterialResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private VodSubmitCloudMigrateJobResponse() {
+  private VodDeleteMaterialResponse() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new VodSubmitCloudMigrateJobResponse();
+    return new VodDeleteMaterialResponse();
   }
 
   @java.lang.Override
@@ -30,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VodSubmitCloudMigrateJobResponse(
+  private VodDeleteMaterialResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -82,20 +82,24 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodSubmitCloudMigrateJobResponse_descriptor;
+    return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodDeleteMaterialResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodSubmitCloudMigrateJobResponse_fieldAccessorTable
+    return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodDeleteMaterialResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse.class, com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse.Builder.class);
+            com.volcengine.service.vod.model.response.VodDeleteMaterialResponse.class, com.volcengine.service.vod.model.response.VodDeleteMaterialResponse.Builder.class);
   }
 
   public static final int RESPONSEMETADATA_FIELD_NUMBER = 1;
   private com.volcengine.service.base.model.base.ResponseMetadata responseMetadata_;
   /**
+   * <pre>
+   *响应通用信息
+   * </pre>
+   *
    * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    * @return Whether the responseMetadata field is set.
    */
@@ -104,6 +108,10 @@ private static final long serialVersionUID = 0L;
     return responseMetadata_ != null;
   }
   /**
+   * <pre>
+   *响应通用信息
+   * </pre>
+   *
    * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    * @return The responseMetadata.
    */
@@ -112,6 +120,10 @@ private static final long serialVersionUID = 0L;
     return responseMetadata_ == null ? com.volcengine.service.base.model.base.ResponseMetadata.getDefaultInstance() : responseMetadata_;
   }
   /**
+   * <pre>
+   *响应通用信息
+   * </pre>
+   *
    * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
    */
   @java.lang.Override
@@ -159,10 +171,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse)) {
+    if (!(obj instanceof com.volcengine.service.vod.model.response.VodDeleteMaterialResponse)) {
       return super.equals(obj);
     }
-    com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse other = (com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse) obj;
+    com.volcengine.service.vod.model.response.VodDeleteMaterialResponse other = (com.volcengine.service.vod.model.response.VodDeleteMaterialResponse) obj;
 
     if (hasResponseMetadata() != other.hasResponseMetadata()) return false;
     if (hasResponseMetadata()) {
@@ -189,69 +201,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodDeleteMaterialResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodDeleteMaterialResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodDeleteMaterialResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodDeleteMaterialResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse parseFrom(byte[] data)
+  public static com.volcengine.service.vod.model.response.VodDeleteMaterialResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodDeleteMaterialResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse parseFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.response.VodDeleteMaterialResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodDeleteMaterialResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.response.VodDeleteMaterialResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse parseDelimitedFrom(
+  public static com.volcengine.service.vod.model.response.VodDeleteMaterialResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodDeleteMaterialResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse parseFrom(
+  public static com.volcengine.service.vod.model.response.VodDeleteMaterialResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -264,7 +276,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse prototype) {
+  public static Builder newBuilder(com.volcengine.service.vod.model.response.VodDeleteMaterialResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -280,26 +292,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code Volcengine.Vod.Models.Response.VodSubmitCloudMigrateJobResponse}
+   * Protobuf type {@code Volcengine.Vod.Models.Response.VodDeleteMaterialResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Response.VodSubmitCloudMigrateJobResponse)
-      com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Response.VodDeleteMaterialResponse)
+      com.volcengine.service.vod.model.response.VodDeleteMaterialResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodSubmitCloudMigrateJobResponse_descriptor;
+      return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodDeleteMaterialResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodSubmitCloudMigrateJobResponse_fieldAccessorTable
+      return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodDeleteMaterialResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse.class, com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse.Builder.class);
+              com.volcengine.service.vod.model.response.VodDeleteMaterialResponse.class, com.volcengine.service.vod.model.response.VodDeleteMaterialResponse.Builder.class);
     }
 
-    // Construct using com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse.newBuilder()
+    // Construct using com.volcengine.service.vod.model.response.VodDeleteMaterialResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -329,17 +341,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodSubmitCloudMigrateJobResponse_descriptor;
+      return com.volcengine.service.vod.model.response.VodResponse.internal_static_Volcengine_Vod_Models_Response_VodDeleteMaterialResponse_descriptor;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse getDefaultInstanceForType() {
-      return com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse.getDefaultInstance();
+    public com.volcengine.service.vod.model.response.VodDeleteMaterialResponse getDefaultInstanceForType() {
+      return com.volcengine.service.vod.model.response.VodDeleteMaterialResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse build() {
-      com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse result = buildPartial();
+    public com.volcengine.service.vod.model.response.VodDeleteMaterialResponse build() {
+      com.volcengine.service.vod.model.response.VodDeleteMaterialResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -347,8 +359,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse buildPartial() {
-      com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse result = new com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse(this);
+    public com.volcengine.service.vod.model.response.VodDeleteMaterialResponse buildPartial() {
+      com.volcengine.service.vod.model.response.VodDeleteMaterialResponse result = new com.volcengine.service.vod.model.response.VodDeleteMaterialResponse(this);
       if (responseMetadataBuilder_ == null) {
         result.responseMetadata_ = responseMetadata_;
       } else {
@@ -392,16 +404,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse) {
-        return mergeFrom((com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse)other);
+      if (other instanceof com.volcengine.service.vod.model.response.VodDeleteMaterialResponse) {
+        return mergeFrom((com.volcengine.service.vod.model.response.VodDeleteMaterialResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse other) {
-      if (other == com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.volcengine.service.vod.model.response.VodDeleteMaterialResponse other) {
+      if (other == com.volcengine.service.vod.model.response.VodDeleteMaterialResponse.getDefaultInstance()) return this;
       if (other.hasResponseMetadata()) {
         mergeResponseMetadata(other.getResponseMetadata());
       }
@@ -420,11 +432,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse parsedMessage = null;
+      com.volcengine.service.vod.model.response.VodDeleteMaterialResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.service.vod.model.response.VodDeleteMaterialResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -438,6 +450,10 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.volcengine.service.base.model.base.ResponseMetadata, com.volcengine.service.base.model.base.ResponseMetadata.Builder, com.volcengine.service.base.model.base.ResponseMetadataOrBuilder> responseMetadataBuilder_;
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      * @return Whether the responseMetadata field is set.
      */
@@ -445,6 +461,10 @@ private static final long serialVersionUID = 0L;
       return responseMetadataBuilder_ != null || responseMetadata_ != null;
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      * @return The responseMetadata.
      */
@@ -456,6 +476,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public Builder setResponseMetadata(com.volcengine.service.base.model.base.ResponseMetadata value) {
@@ -472,6 +496,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public Builder setResponseMetadata(
@@ -486,6 +514,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public Builder mergeResponseMetadata(com.volcengine.service.base.model.base.ResponseMetadata value) {
@@ -504,6 +536,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public Builder clearResponseMetadata() {
@@ -518,6 +554,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public com.volcengine.service.base.model.base.ResponseMetadata.Builder getResponseMetadataBuilder() {
@@ -526,6 +566,10 @@ private static final long serialVersionUID = 0L;
       return getResponseMetadataFieldBuilder().getBuilder();
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     public com.volcengine.service.base.model.base.ResponseMetadataOrBuilder getResponseMetadataOrBuilder() {
@@ -537,6 +581,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *响应通用信息
+     * </pre>
+     *
      * <code>.Volcengine.Base.Models.Base.ResponseMetadata ResponseMetadata = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -565,41 +613,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Response.VodSubmitCloudMigrateJobResponse)
+    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Response.VodDeleteMaterialResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Response.VodSubmitCloudMigrateJobResponse)
-  private static final com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Response.VodDeleteMaterialResponse)
+  private static final com.volcengine.service.vod.model.response.VodDeleteMaterialResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse();
+    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.response.VodDeleteMaterialResponse();
   }
 
-  public static com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse getDefaultInstance() {
+  public static com.volcengine.service.vod.model.response.VodDeleteMaterialResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<VodSubmitCloudMigrateJobResponse>
-      PARSER = new com.google.protobuf.AbstractParser<VodSubmitCloudMigrateJobResponse>() {
+  private static final com.google.protobuf.Parser<VodDeleteMaterialResponse>
+      PARSER = new com.google.protobuf.AbstractParser<VodDeleteMaterialResponse>() {
     @java.lang.Override
-    public VodSubmitCloudMigrateJobResponse parsePartialFrom(
+    public VodDeleteMaterialResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VodSubmitCloudMigrateJobResponse(input, extensionRegistry);
+      return new VodDeleteMaterialResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<VodSubmitCloudMigrateJobResponse> parser() {
+  public static com.google.protobuf.Parser<VodDeleteMaterialResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<VodSubmitCloudMigrateJobResponse> getParserForType() {
+  public com.google.protobuf.Parser<VodDeleteMaterialResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse getDefaultInstanceForType() {
+  public com.volcengine.service.vod.model.response.VodDeleteMaterialResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

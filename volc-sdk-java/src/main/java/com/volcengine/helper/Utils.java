@@ -141,6 +141,17 @@ public class Utils {
         return crc.getValue();
     }
 
+    public static long crc64Ecma(InputStream inputStream) throws Exception {
+        byte[] buffer = new byte[8];
+        Crc64Ecma crc = new Crc64Ecma();
+        crc.reset();
+        int n = 0;
+        while (-1 != (n = inputStream.read(buffer))) {
+            crc.update(buffer, 0, n);
+        }
+        return crc.getValue();
+    }
+
     public static InputStream newRepeatableInputStream(PartInputStream original) throws IOException {
         InputStream repeatable = null;
         if (!original.markSupported()) {
@@ -169,6 +180,13 @@ public class Utils {
         }
 
         return (InputStream) repeatable;
+    }
+
+    public static IVodUploadStrategy getVodUploadCoreInstance(int uploadStrategy, long chunkSize) {
+        if (uploadStrategy == 1) {
+            return new VodUploadByStream(chunkSize);
+        }
+        return new VodUploadByBytesArray(chunkSize);
     }
 
     public static IVodUploadStrategy getVodUploadCoreInstance(int uploadStrategy) {

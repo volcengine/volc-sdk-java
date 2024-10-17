@@ -256,6 +256,8 @@ public class VikingDBService extends BaseServiceImpl {
                 _field.put("pipeline_name", field.getPipelineName());
             fields.add(_field);
         }
+        if(primaryKey == null)
+            primaryKey = "__AUTO_ID__";
         params.put("primary_key", primaryKey);
         params.put("fields", fields);
         doRequest("CreateCollection", null, params);
@@ -285,6 +287,11 @@ public class VikingDBService extends BaseServiceImpl {
             HashMap<String, Object> stat = convertLinkedTreeMapToHashMap((LinkedTreeMap<String, Object>)res.get("stat"));
             collection.setStat(stat);
         }
+
+        if(res.containsKey("primary_key")){
+            if(res.get("primary_key") instanceof String)
+                primarykey = (String)res.get("primary_key");
+        }
         ArrayList<Field> fields = new ArrayList<>();
         if(res.containsKey("fields")){
             @SuppressWarnings("unchecked")
@@ -300,14 +307,7 @@ public class VikingDBService extends BaseServiceImpl {
                     field.setDim((Long)item.get("dim"));
                 }
                 if(item.containsKey("pipeline_name")) field.setPipelineName((String)item.get("pipeline_name"));
-                if(res.containsKey("primary_key")){
-                    String pk = (String)res.get("primary_key");
-
-                    if(pk.equals((String)item.get("field_name"))){
-                        field.setIsPrimaryKey(true);
-                        primarykey = pk;
-                    }
-                }
+                if(primarykey.equals((String)item.get("field_name"))) field.setIsPrimaryKey(true);
                 fields.add(field);
             }
         }
@@ -343,7 +343,10 @@ public class VikingDBService extends BaseServiceImpl {
                 HashMap<String, Object> stat = convertLinkedTreeMapToHashMap((LinkedTreeMap<String, Object>)item.get("stat"));
                 collection.setStat(stat);
             }
-            
+            if(item.containsKey("primary_key")){
+                if(item.get("primary_key") instanceof String)
+                    primarykey = (String)item.get("primary_key");
+            }
             ArrayList<Field> fields = new ArrayList<>();
             if(item.containsKey("fields")){
                 @SuppressWarnings("unchecked")
@@ -358,17 +361,9 @@ public class VikingDBService extends BaseServiceImpl {
                         field.setDim((Long)retData.get("dim"));
                     }
                     if(retData.containsKey("pipeline_name")) field.setPipelineName((String)retData.get("pipeline_name"));
-                    if(item.containsKey("primary_key")){
-                        if(item.get("primary_key") instanceof String){
-                            String pk = (String)item.get("primary_key");
-                            if(pk.equals((String)retData.get("field_name"))){
-                                field.setIsPrimaryKey(true);
-                                primarykey = pk;
-                            }
-                        } else {
-                            primarykey = null;
-                        }
-                    }
+
+                    if(primarykey.equals((String)retData.get("field_name"))) field.setIsPrimaryKey(true);
+
                     fields.add(field);
                 }
             }

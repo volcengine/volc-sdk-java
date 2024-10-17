@@ -17,7 +17,7 @@ public interface VodSubmitCloudMigrateJobRequestOrBuilder extends
    * <code>string SubAppId = 2;</code>
    * @return The subAppId.
    */
-  String getSubAppId();
+  java.lang.String getSubAppId();
   /**
    * <code>string SubAppId = 2;</code>
    * @return The bytes for subAppId.
@@ -29,7 +29,7 @@ public interface VodSubmitCloudMigrateJobRequestOrBuilder extends
    * <code>string SourceVid = 3;</code>
    * @return The sourceVid.
    */
-  String getSourceVid();
+  java.lang.String getSourceVid();
   /**
    * <code>string SourceVid = 3;</code>
    * @return The bytes for sourceVid.
@@ -41,7 +41,7 @@ public interface VodSubmitCloudMigrateJobRequestOrBuilder extends
    * <code>string TargetVid = 4;</code>
    * @return The targetVid.
    */
-  String getTargetVid();
+  java.lang.String getTargetVid();
   /**
    * <code>string TargetVid = 4;</code>
    * @return The bytes for targetVid.
@@ -53,7 +53,7 @@ public interface VodSubmitCloudMigrateJobRequestOrBuilder extends
    * <code>string CallbackArgs = 5;</code>
    * @return The callbackArgs.
    */
-  String getCallbackArgs();
+  java.lang.String getCallbackArgs();
   /**
    * <code>string CallbackArgs = 5;</code>
    * @return The bytes for callbackArgs.
@@ -65,7 +65,7 @@ public interface VodSubmitCloudMigrateJobRequestOrBuilder extends
    * <code>string SpaceName = 6;</code>
    * @return The spaceName.
    */
-  String getSpaceName();
+  java.lang.String getSpaceName();
   /**
    * <code>string SpaceName = 6;</code>
    * @return The bytes for spaceName.

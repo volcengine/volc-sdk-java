@@ -1885,4 +1885,31 @@ public interface LivesaasService extends IBaseService {
     GetLarkSubAccountInfoResponse getLarkSubAccountInfo(GetLarkSubAccountInfoRequest getLarkSubAccountInfoRequest) throws Exception;
 
     UpdateAnswerRepetitionResponse updateAnswerRepetition(UpdateAnswerRepetitionRequest updateAnswerRepetitionRequest) throws Exception;
+
+    /**
+     * getAwardItemList
+     *
+     * @param getAwardItemListRequest GetAwardItemListRequest
+     * @return GetAwardItemListResponse
+     * @throws Exception the exception
+     */
+    GetAwardItemListResponse getAwardItemList(GetAwardItemListRequest getAwardItemListRequest) throws Exception;
+
+    /**
+     * updateAwardItem
+     *
+     * @param updateAwardItemRequest UpdateAwardItemRequest
+     * @return UpdateAwardItemResponse
+     * @throws Exception the exception
+     */
+    UpdateAwardItemResponse updateAwardItem(UpdateAwardItemRequest updateAwardItemRequest) throws Exception;
+
+    /**
+     * deleteAwardItem
+     *
+     * @param deleteAwardItemRequest DeleteAwardItemRequest
+     * @return DeleteAwardItemResponse
+     * @throws Exception the exception
+     */
+    DeleteAwardItemResponse deleteAwardItem(DeleteAwardItemRequest deleteAwardItemRequest) throws Exception;
 }

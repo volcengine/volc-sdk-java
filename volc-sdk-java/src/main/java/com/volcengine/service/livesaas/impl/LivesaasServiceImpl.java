@@ -3371,4 +3371,49 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public GetAwardItemListResponse getAwardItemList(GetAwardItemListRequest getAwardItemListRequest) throws Exception {
+        RawResponse response = query(Const.GetAwardItemList, Utils.paramsToPair(getAwardItemListRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetAwardItemListResponse res = JSON.parseObject(response.getData(), GetAwardItemListResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateAwardItemResponse updateAwardItem(UpdateAwardItemRequest updateAwardItemRequest) throws Exception {
+        RawResponse response = json(Const.UpdateAwardItem, new ArrayList<>(),JSON.toJSONString(updateAwardItemRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateAwardItemResponse res = JSON.parseObject(response.getData(), UpdateAwardItemResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteAwardItemResponse deleteAwardItem(DeleteAwardItemRequest deleteAwardItemRequest) throws Exception {
+        RawResponse response = json(Const.DeleteAwardItem, new ArrayList<>(),JSON.toJSONString(deleteAwardItemRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteAwardItemResponse res = JSON.parseObject(response.getData(), DeleteAwardItemResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

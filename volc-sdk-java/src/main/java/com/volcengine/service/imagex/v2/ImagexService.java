@@ -100,6 +100,7 @@ public class ImagexService extends ImagexTrait {
         CommitImageUploadRequestBody reqBody = new CommitImageUploadRequestBody();
         reqBody.setSessionKey(req.getSessionKey());
         reqBody.setOptionInfos(req.getOptionInfos());
+        reqBody.setSuccessOids(req.getSuccessOids());
 
         RawResponse response = json("CommitImageUpload", Utils.mapToPairList(params), JSON.toJSONString(reqBody));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

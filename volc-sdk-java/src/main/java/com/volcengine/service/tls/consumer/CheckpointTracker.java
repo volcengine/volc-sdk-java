@@ -45,16 +45,17 @@ public class CheckpointTracker {
         }, 0L, this.consumerConfig.getFlushCheckpointIntervalInSecond(), TimeUnit.SECONDS);
     }
 
-    public synchronized void setCheckpoint(CheckpointInfo checkpointInfo) {
+    public void setCheckpoint(CheckpointInfo checkpointInfo) {
         this.checkpoint = checkpointInfo.getCheckpoint();
     }
 
-    public synchronized void uploadCheckpoint() throws Exception {
+    public void uploadCheckpoint() throws Exception {
         String projectID = this.consumerConfig.getProjectID();
         String consumerGroupName = this.consumerConfig.getConsumerGroupName();
         String topicID = this.consumeShard.getTopicID();
         int shardID = this.consumeShard.getShardID();
-        if (this.checkpoint != null && !this.lastCheckpoint.equals(this.checkpoint)) {
+        String checkpoint = this.checkpoint;
+        if (checkpoint != null && !this.lastCheckpoint.equals(checkpoint)) {
             ModifyCheckpointRequest req = new ModifyCheckpointRequest(projectID, topicID, shardID, consumerGroupName, checkpoint);
             this.tlsClient.modifyCheckPoint(req);
             this.lastCheckpoint = checkpoint;

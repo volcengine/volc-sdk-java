@@ -15,4 +15,6 @@ public class CommitImageUploadRequestBody {
     List<Functions> functions;
     @JSONField(name = "OptionInfos")
     List<ImageOption> optionInfos;
+    @JSONField(name = "SuccessOids")
+    List<String> successOids;
 }

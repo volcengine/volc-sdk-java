@@ -64,6 +64,7 @@ public class Const {
     public static final String DeleteMedia = "DeleteMedia";
     public static final String DeleteTranscodes = "DeleteTranscodes";
     public static final String GetMediaList = "GetMediaList";
+    public static final String DeleteMaterial = "DeleteMaterial";
     public static final String GetSubtitleInfoList = "GetSubtitleInfoList";
     public static final String UpdateSubtitleStatus = "UpdateSubtitleStatus";
     public static final String UpdateSubtitleInfo = "UpdateSubtitleInfo";

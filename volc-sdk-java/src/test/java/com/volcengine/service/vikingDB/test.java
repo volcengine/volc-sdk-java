@@ -25,8 +25,7 @@ public class test {
     }
     
     public static void main(String[] args) throws Exception {
-        HttpHost proxy = new HttpHost("");
-        VikingDBService vikingDBService = new VikingDBService("", "", "", "","", proxy);
+        VikingDBService vikingDBService = new VikingDBService("", "", "", "","");
 
         // List<Field> fields = new ArrayList<>();
         // fields.add(new Field().setFieldName("doc_id").setFieldType(FieldType.Int64).setPrimaryKey(true).build());
@@ -64,8 +63,8 @@ public class test {
         // Index index = vikingDBService.createIndex(createIndexParam);
         // System.out.println(index);
 
-        Collection collection = vikingDBService.getCollection("sparse_go");
-        System.out.println(collection);
+        Index index = vikingDBService.getIndex("sparse", "sparse");
+        System.out.println(index);
 
         // List<Index> indexes = vikingDBService.listIndexes("t");
         // for (Index index: indexes){

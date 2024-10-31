@@ -20,6 +20,7 @@ import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.vikingDB.common.CreateCollectionParam;
 import com.volcengine.service.vikingDB.common.CreateIndexParam;
 import com.volcengine.service.vikingDB.common.EmbModel;
+import com.volcengine.service.vikingDB.common.ExceptionDetails;
 import com.volcengine.service.vikingDB.common.Field;
 import com.volcengine.service.vikingDB.common.RawData;
 import com.volcengine.service.vikingDB.common.UpdateCollectionParam;
@@ -41,6 +42,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static com.volcengine.helper.Const.*;
 
@@ -193,11 +196,6 @@ public class VikingDBService extends BaseServiceImpl {
             } else {
                 throw new Exception("return code is not 0 and res is null:"+res);
             }
-            // Long code = (Long)resJson.get("code");
-            // String requestId = (String)resJson.get("request_id");
-            // String message = (String)resJson.get("message");
-            // VikingDBException vikingDBException = new VikingDBException(code, requestId, message);
-            // throw vikingDBException.getErrorCodeException(code, requestId, message);
         }
         LinkedTreeMap<String,Object> data = null;
         try {
@@ -221,6 +219,20 @@ public class VikingDBService extends BaseServiceImpl {
             hashMap.put(key, value);
         }
         return hashMap;
+    }
+    public ExceptionDetails extractExceptionDetails(String exceptionMessage) {
+        String pattern = "message:(.*?), code:(\\d+), request_id:([a-fA-F0-9]+)";
+        Pattern regexPattern = Pattern.compile(pattern);
+        Matcher matcher = regexPattern.matcher(exceptionMessage);
+
+        if (matcher.find()) {
+            String message = matcher.group(1).trim();
+            int code = Integer.parseInt(matcher.group(2).trim());
+            String requestId = matcher.group(3).trim();
+            return new ExceptionDetails(message, code, requestId);
+        } else {
+            return new ExceptionDetails(null, -1, null);
+        }
     }
 
     public Collection createCollection(CreateCollectionParam createCollectionParam) throws Exception{
@@ -271,7 +283,25 @@ public class VikingDBService extends BaseServiceImpl {
     public Collection getCollection(String collectionName) throws Exception{
         HashMap<String,Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
-        LinkedTreeMap<String,Object> resData = doRequest("GetCollection",null, params);
+        int retryCount = 3;
+        LinkedTreeMap<String,Object> resData = null;
+        for (int i = 0; i < 3; i++) {
+            try {
+                resData = doRequest("GetCollection",null, params);
+            } catch (Exception e){
+                ExceptionDetails exceptionDetails = extractExceptionDetails(e.toString());
+                if (exceptionDetails.getCode() == -1) {
+                    throw e;
+                }
+                if (exceptionDetails.getCode() == 1000029 && i != retryCount - 1) {
+                    Thread.sleep((i * 2 + 1) * 1000);
+                    continue;
+                } else {
+                    throw e;
+                }
+            }
+            break;
+        }
         @SuppressWarnings("unchecked")
         LinkedTreeMap<String,Object> res = (LinkedTreeMap<String, Object>)resData.get("data");
         // System.out.println(res);
@@ -408,11 +438,28 @@ public class VikingDBService extends BaseServiceImpl {
         HashMap<String,Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);
-        LinkedTreeMap<String,Object> resData = doRequest("GetIndex",null, params);
+
+        int retryCount = 3;
+        LinkedTreeMap<String,Object> resData = null;
+        for (int i = 0; i < 3; i++) {
+            try {
+                resData = doRequest("GetIndex",null, params);
+            } catch (Exception e){
+                ExceptionDetails exceptionDetails = extractExceptionDetails(e.toString());
+                if (exceptionDetails.getCode() == -1) {
+                    throw e;
+                }
+                if (exceptionDetails.getCode() == 1000029 && i != retryCount - 1) {
+                    Thread.sleep((i * 2 + 1) * 1000);
+                    continue;
+                } else {
+                    throw e;
+                }
+            }
+            break;
+        }
         @SuppressWarnings("unchecked")
         LinkedTreeMap<String,Object> res = (LinkedTreeMap<String, Object>)resData.get("data");
-        // System.out.println(res);
-
         Index index = new Index();
         index.setCollectionName(collectionName);
         index.setIndexName(indexName);

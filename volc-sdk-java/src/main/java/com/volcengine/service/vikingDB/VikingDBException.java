@@ -11,13 +11,13 @@ public class VikingDBException extends Exception{
     public VikingDBException(Integer code, String requestId, String message){
         this.code = code;
         this.requestId = requestId;
-        this.message = String.format("%s, code:%s, request_id:%s", message, this.code, this.requestId);
+        this.message = String.format("message:%s, code:%s, request_id:%s", message, this.code, this.requestId);
 
     }
     public VikingDBException(Long code, String requestId, String message){
         this.code = code.intValue();
         this.requestId = requestId;
-        this.message = String.format("%s, code:%s, request_id:%s", message, this.code, this.requestId);
+        this.message = String.format("message:%s, code:%s, request_id:%s", message, this.code, this.requestId);
     }
     public VikingDBException(){}
     public Exception getErrorCodeException(Integer code, String requestId, String message) {
@@ -45,9 +45,14 @@ public class VikingDBException extends Exception{
         else if(code == 1000024) return new APINotImplementedException(code, requestId, message);
         else if(code == 1000025) return new CalcEmbeddingFailedException(code, requestId, message);
         else if(code == 1000026) return new ListEmbeddingModelsException(code, requestId, message);
+        else if(code == 1000028) return new InternalException(code, requestId, message);
+        else if(code == 1000029) return new QuotaLimiterException(code, requestId, message);
         else if(code == 1000030) return new ParamsNotExistException(message);
         else if(code == 1000031) return new ParamsNotBuildException(message);
         else if(code == 1000032) return new PrimaryKeyErrorException(message);
+        else if(code == 1000033) return new UserOverdueException(code, requestId, message);
+        else if(code == 1000034) return new HttpException(code, requestId, message);
+        else if(code == 1000035) return new TaskNotFoundException(code, requestId, message);
         else return new VikingDBServerException(code, requestId, message);
 
     }
@@ -225,6 +230,42 @@ class ListEmbeddingModelsException extends VikingDBException{
     }
     public ListEmbeddingModelsException(){}
 }
+
+class InternalException extends VikingDBException{
+    public InternalException(Integer code, String requestId, String message){
+        super(code, requestId, message);
+    }
+    public InternalException(){}
+}
+
+class QuotaLimiterException extends VikingDBException{
+    public QuotaLimiterException(Integer code, String requestId, String message){
+        super(code, requestId, message);
+    }
+    public QuotaLimiterException(){}
+}
+
+class UserOverdueException extends VikingDBException{
+    public UserOverdueException(Integer code, String requestId, String message){
+        super(code, requestId, message);
+    }
+    public UserOverdueException(){}
+}
+
+class HttpException extends VikingDBException{
+    public HttpException(Integer code, String requestId, String message){
+        super(code, requestId, message);
+    }
+    public HttpException(){}
+}
+
+class TaskNotFoundException extends VikingDBException{
+    public TaskNotFoundException(Integer code, String requestId, String message){
+        super(code, requestId, message);
+    }
+    public TaskNotFoundException(){}
+}
+
 class VikingDBServerException extends VikingDBException{
     private String message = "";
     public VikingDBServerException(Integer code, String requestId, String message){

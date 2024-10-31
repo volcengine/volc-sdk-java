@@ -30,4 +30,8 @@ public class ListActivityAPIRequest {
     Integer LiveReviewStatus;
     @JSONField(name = "LiveMode")
     Integer LiveMode;
+    @JSONField(name = "SortBy")
+    String SortBy;
+    @JSONField(name = "SortOrder")
+    String SortOrder;
 }

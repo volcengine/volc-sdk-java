@@ -33,6 +33,7 @@ public class ProducerImpl implements Producer {
     private final Mover mover;
 
     public ProducerImpl(ProducerConfig producerConfig) throws LogException {
+        producerConfig.validConfig();
         this.producerConfig = producerConfig;
         this.name = TLS + Const.SEPARATOR + INSTANCE_ID.incrementAndGet();
         BlockingQueue<BatchLog> successQueue = new LinkedBlockingQueue<BatchLog>();
@@ -72,13 +73,13 @@ public class ProducerImpl implements Producer {
             throws InterruptedException, LogException {
         // 1 check params
         if (topicId == null || logGroup == null || logGroup.getLogsList() == null || logGroup.getLogsList().size() == 0) {
-            throw new LogException("InvalidArgument", String.format("topic id: %s, log group: %s", topicId, logGroup), null);
+            throw new LogException("InvalidArgument", String.format("topic id: %s, log group is empty", topicId), null);
         }
 
         // check batch count
-        if (logGroup.getLogsList().size() > producerConfig.getMaxBatchCount()) {
+        if (logGroup.getLogsList().size() > ProducerConfig.MAX_LOG_GROUP_COUNT) {
             throw new LogException("InvalidArgument", String.format("log list size %d is greater than threshold %d",
-                    logGroup.getLogsList().size(), producerConfig.getMaxBatchCount()), null);
+                    logGroup.getLogsList().size(), ProducerConfig.MAX_LOG_GROUP_COUNT), null);
         }
 
         // 2 create batch log and add to dispatcher
@@ -105,9 +106,9 @@ public class ProducerImpl implements Producer {
         }
 
         // check batch count
-        if (logs.size() > producerConfig.getMaxBatchCount()) {
+        if (logs.size() > ProducerConfig.MAX_LOG_GROUP_COUNT) {
             throw new LogException("InvalidArgument", String.format("log list size %d is greater than threshold %d",
-                    logs.size(), producerConfig.getMaxBatchCount()), null);
+                    logs.size(), ProducerConfig.MAX_LOG_GROUP_COUNT), null);
         }
 
         // 2 create batch log and add to dispatcher
@@ -126,7 +127,6 @@ public class ProducerImpl implements Producer {
 
     @Override
     public void start() throws LogException {
-        producerConfig.validConfig();
         dispatcher.start();
         retryManager.start();
         successHandler.start();

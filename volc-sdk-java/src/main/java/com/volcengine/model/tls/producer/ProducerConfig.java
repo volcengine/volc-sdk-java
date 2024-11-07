@@ -16,7 +16,8 @@ public class ProducerConfig {
     public static final int DEFAULT_MAX_BATCH_SIZE = 512 * 1024;
     public static final int MAX_BATCH_SIZE = 10 * 1024 * 1024;
     public static final int DEFAULT_MAX_BATCH_COUNT = 4096;
-    public static final int MAX_BATCH_COUNT = 4096 * 10;
+    public static final int MAX_BATCH_COUNT = 32768;
+    public static final int MAX_LOG_GROUP_COUNT = 10000;
     public static final int DEFAULT_LINGER_MS = 2000;
     public static final int TOO_MANY_REQUEST_ERROR = 429;
     public static final int EXTERNAL_ERROR = 500;

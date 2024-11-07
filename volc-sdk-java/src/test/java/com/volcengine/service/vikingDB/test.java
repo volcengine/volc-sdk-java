@@ -26,6 +26,28 @@ public class test {
     
     public static void main(String[] args) throws Exception {
         VikingDBService vikingDBService = new VikingDBService("", "", "", "","");
+        // HashMap<String, Object> taskParams = new HashMap<>();
+        // taskParams.put("tos_path", "demo-1028/demo_1030");
+        // taskParams.put("ignore_error", false);
+        // taskParams.put("collection_name", "sparse");
+        // taskParams.put("file_type", "json");
+        // CreateTaskParam taskParam = new CreateTaskParam()
+        //                             .setTaskType(TaskType.DataImport)
+        //                             .setTaskParams(taskParams)
+        //                             .build();
+        // String id = vikingDBService.createTask(taskParam);
+        // System.out.println(id);
+
+        // Task task = vikingDBService.getTask("");
+        // System.out.println(task);
+
+        // List<Task> tasks = vikingDBService.listTasks();
+        // System.out.println(tasks);
+
+        // vikingDBService.dropTask("");
+
+
+
 
         // List<Field> fields = new ArrayList<>();
         // fields.add(new Field().setFieldName("doc_id").setFieldType(FieldType.Int64).setPrimaryKey(true).build());
@@ -63,8 +85,8 @@ public class test {
         // Index index = vikingDBService.createIndex(createIndexParam);
         // System.out.println(index);
 
-        Index index = vikingDBService.getIndex("sparse", "sparse");
-        System.out.println(index);
+        // Index index = vikingDBService.getIndex("sparse", "sparse");
+        // System.out.println(index);
 
         // List<Index> indexes = vikingDBService.listIndexes("t");
         // for (Index index: indexes){

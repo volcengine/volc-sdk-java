@@ -3253,6 +3253,86 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>getCVTextGenerateImage</p>
+     * <p>文生图</p>
+     *
+     * <p>该接口支持调用豆包大模型中的智能生图 API 能力，并根据豆包模型请求信息生成相应的一张图片。同时您可指定 veIamgeX 的图片处理模板，对智能生成的图片进行进一步的个性化图片处理，并同步输出结果图 URI。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetCVTextGenerateImageRes getCVTextGenerateImage(GetCVTextGenerateImageQuery query, GetCVTextGenerateImageBody body) throws Exception {
+        RawResponse rawResponse = json("GetCVTextGenerateImage", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetCVTextGenerateImageRes.class);
+    }
+
+    /**
+     * <p>createCVImageGenerateTask</p>
+     * <p>创建文生图异步任务</p>
+     *
+     * <p>该接口支持调用豆包大模型中的智能生图 API 能力，并根据豆包模型请求信息生成相应图片。同时您可指定 veIamgeX 的图片处理模板，对文生图进行定制化的图片处理。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateCVImageGenerateTaskRes createCVImageGenerateTask(CreateCVImageGenerateTaskQuery query, CreateCVImageGenerateTaskBody body) throws Exception {
+        RawResponse rawResponse = json("CreateCVImageGenerateTask", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateCVImageGenerateTaskRes.class);
+    }
+
+    /**
+     * <p>getCVImageGenerateTask</p>
+     * <p>查询文生图任务</p>
+     *
+     * <p>本接口支持获取文生图异步任务生成的结果图存储 URI。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetCVImageGenerateTaskRes getCVImageGenerateTask(GetCVImageGenerateTaskQuery query, GetCVImageGenerateTaskBody body) throws Exception {
+        RawResponse rawResponse = json("GetCVImageGenerateTask", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetCVImageGenerateTaskRes.class);
+    }
+
+    /**
+     * <p>getCVAnimeGenerateImage</p>
+     * <p>漫画文/图生图</p>
+     *
+     * <p>该接口支持调用豆包大模型中的智能生图 API 能力，并根据豆包模型请求信息生成相应的一张图片。同时您可指定 veIamgeX 的图片处理模板，对智能生成的图片进行进一步的个性化图片处理，获取同步输出的结果图 URI。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetCVAnimeGenerateImageRes getCVAnimeGenerateImage(GetCVAnimeGenerateImageQuery query, GetCVAnimeGenerateImageBody body) throws Exception {
+        RawResponse rawResponse = json("GetCVAnimeGenerateImage", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetCVAnimeGenerateImageRes.class);
+    }
+    
+    /**
+     * <p>getCVImageGenerateResult</p>
+     * <p>图生图</p>
+     *
+     * <p>该接口支持调用豆包大模型中的智能生图 API 能力，并根据豆包模型请求信息生成相应的一张图片。同时您可指定 veIamgeX 的图片处理模板，对智能生成的图片进行进一步的个性化图片处理，获取同步输出的结果图 URI。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetCVImageGenerateResultRes getCVImageGenerateResult(GetCVImageGenerateResultQuery query, GetCVImageGenerateResultBody body) throws Exception {
+        RawResponse rawResponse = json("GetCVImageGenerateResult", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetCVImageGenerateResultRes.class);
+    }
+
+    /**
      * <p>getImageAuditTasks</p>
      * <p>查询所有审核任务</p>
      *
@@ -3295,6 +3375,21 @@ public class ImagexTrait extends BaseServiceImpl {
     public GetAuditEntrysCountRes getAuditEntrysCount(GetAuditEntrysCountQuery query) throws Exception {
         RawResponse rawResponse = json("GetAuditEntrysCount", Utils.paramsToPair(query), "");
         return parseRawResponse(rawResponse, GetAuditEntrysCountRes.class);
+    }
+
+    /**
+     * <p>getSyncAuditResult</p>
+     * <p>同步单条审核</p>
+     *
+     * <p>同步审核单条</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetSyncAuditResultRes getSyncAuditResult(GetSyncAuditResultBody body) throws Exception {
+        RawResponse rawResponse = json("GetSyncAuditResult", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetSyncAuditResultRes.class);
     }
 
     /**

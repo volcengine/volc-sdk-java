@@ -42,5 +42,7 @@ public class GetActivityAPIResponse {
         Long EndTime;
         @JSONField(name = "IsAutoEndEnable")
         Integer IsAutoEndEnable;
+        @JSONField(name = "LiveLayout")
+        Integer LiveLayout;
     }
 }

@@ -34,4 +34,6 @@ public class ListActivityAPIRequest {
     String SortBy;
     @JSONField(name = "SortOrder")
     String SortOrder;
+    @JSONField(name = "LiveLayout")
+    Integer LiveLayout;
 }

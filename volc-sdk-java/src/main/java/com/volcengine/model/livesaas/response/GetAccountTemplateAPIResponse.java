@@ -43,5 +43,7 @@ public class GetAccountTemplateAPIResponse {
         Long TemplateId;
         @JSONField(name = "TemplateName")
         String TemplateName;
+        @JSONField(name = "LiveLayout")
+        Integer LiveLayout;
     }
 }

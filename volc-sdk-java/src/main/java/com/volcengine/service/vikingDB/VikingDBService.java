@@ -19,6 +19,7 @@ import com.volcengine.model.response.RawResponse;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.vikingDB.common.CreateCollectionParam;
 import com.volcengine.service.vikingDB.common.CreateIndexParam;
+import com.volcengine.service.vikingDB.common.CreateTaskParam;
 import com.volcengine.service.vikingDB.common.EmbModel;
 import com.volcengine.service.vikingDB.common.ExceptionDetails;
 import com.volcengine.service.vikingDB.common.Field;
@@ -156,6 +157,18 @@ public class VikingDBService extends BaseServiceImpl {
 
         paramsPost.put(Const.Path, "/api/data/embedding/version/2");
         apiInfo.put("EmbeddingV2", new ApiInfo(paramsPost));
+
+        paramsPost.put(Const.Path, "/api/task/create");
+        apiInfo.put("CreateTask", new ApiInfo(paramsPost));
+
+        paramsPost.put(Const.Path, "/api/task/info");
+        apiInfo.put("GetTask", new ApiInfo(paramsPost));
+
+        paramsPost.put(Const.Path, "/api/task/list");
+        apiInfo.put("ListTasks", new ApiInfo(paramsPost));
+
+        paramsPost.put(Const.Path, "/api/task/drop");
+        apiInfo.put("DropTask", new ApiInfo(paramsPost));
 
         return apiInfo;
     }
@@ -722,6 +735,77 @@ public class VikingDBService extends BaseServiceImpl {
         @SuppressWarnings("unchecked")
         Map<String, Object> res = (Map<String, Object>)resData.get("data");
         return res;
+    }
+
+    public Task packageTask(Map<String, Object> res) throws Exception{
+        Task task = new Task();
+        if(res.containsKey("collection_name")) task.setCollectionName((String)res.get("collection_name"));
+        if(res.containsKey("create_time")) task.setCreateTime((String)res.get("create_time"));
+        if(res.containsKey("task_id")) task.setTaskId((String)res.get("task_id"));
+        if(res.containsKey("task_status")) task.setTaskStatus((String)res.get("task_status"));
+        if(res.containsKey("task_type")) task.setTaskType((String)res.get("task_type"));
+        if(res.containsKey("update_person")) task.setUpdatePerson((String)res.get("update_person"));
+        if(res.containsKey("update_time")) task.setUpdateTime((String)res.get("update_time"));
+        if(res.containsKey("process_info")) {
+            // 兼容
+            if (res.get("process_info") instanceof String){
+                HashMap<String, Object> tmp = new HashMap<>();
+                task.setProcessInfo(tmp);
+            } else {
+                HashMap<String, Object> processInfo = convertLinkedTreeMapToHashMap((LinkedTreeMap<String, Object>)res.get("process_info"));
+                task.setProcessInfo(processInfo);
+            }
+        }
+        if(res.containsKey("task_params")) {
+            HashMap<String, Object> taskParams = convertLinkedTreeMapToHashMap((LinkedTreeMap<String, Object>)res.get("task_params"));
+            task.setTaskParams(taskParams);
+        }
+        return task;
+    }
+
+    public String createTask(CreateTaskParam createTaskParam) throws Exception{
+        if(createTaskParam.getIsBuild() == 0){
+            VikingDBException vikingDBException = new VikingDBException(1000031, null, "Param dose not build");
+            throw vikingDBException.getErrorCodeException(1000031, null, "Param dose not build");
+        }
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("task_type", createTaskParam.getTaskType());
+        params.put("task_params", createTaskParam.getTaskParams());
+        LinkedTreeMap<String,Object>  res = doRequest("CreateTask", null, params);
+        if (res.containsKey("data")) {
+            @SuppressWarnings("unchecked")
+            Map<String, Object> resdata = (Map<String, Object>)res.get("data");
+            if (resdata.containsKey("task_id")) {
+                return (String)resdata.get("task_id");
+            }
+        }
+        return "";
+    }
+
+    public Task getTask(String taskId) throws Exception{
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("task_id", taskId);
+        LinkedTreeMap<String,Object> resData = doRequest("GetTask",null, params);;
+        @SuppressWarnings("unchecked")
+        Map<String, Object> res = (Map<String, Object>)resData.get("data");
+        return packageTask(res);
+    }
+
+    public List<Task> listTasks() throws Exception{
+        LinkedTreeMap<String,Object> resData = doRequest("ListTasks",null, null);
+        @SuppressWarnings("unchecked")
+        List<Map<String, Object>> res = (List<Map<String, Object>>)resData.get("data");
+        List<Task> tasks = new ArrayList<>();
+        for(Map<String, Object> item : res){
+            tasks.add(packageTask(item));
+        }
+        return tasks;
+    }
+
+    public void dropTask(String taskId) throws Exception{
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("task_id", taskId);
+        doRequest("DropTask",null, params);
     }
 
 

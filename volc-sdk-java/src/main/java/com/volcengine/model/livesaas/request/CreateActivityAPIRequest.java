@@ -36,4 +36,6 @@ public class CreateActivityAPIRequest {
     Integer IsAutoEndEnable;
     @JSONField(name="IsAnswerRepetitionEnable")
     Integer IsAnswerRepetitionEnable;
+    @JSONField(name = "LiveLayout")
+    Integer LiveLayout;
 }

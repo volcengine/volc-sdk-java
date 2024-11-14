@@ -170,6 +170,7 @@ public class Const {
     public static final String DescribeVodMostPlayedStatisData = "DescribeVodMostPlayedStatisData";
     public static final String DescribeVodRealtimeMediaData = "DescribeVodRealtimeMediaData";
     public static final String DescribeVodRealtimeMediaDetailData = "DescribeVodRealtimeMediaDetailData";
+    public static final String DescribeVodVidTrafficFileLog = "DescribeVodVidTrafficFileLog";
 
 
 

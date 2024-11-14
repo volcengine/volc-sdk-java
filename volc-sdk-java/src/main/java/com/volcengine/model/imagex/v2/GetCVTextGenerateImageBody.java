@@ -48,7 +48,7 @@ public final class GetCVTextGenerateImageBody  {
     private Boolean overwrite;
 
     /**
-     * <p>[文生图系列模型](#使用说明)的接口的请求 JSON 字符串。</p>
+     * <p>在[文生图系列模型](#使用说明)中选择一个本次调用的智能生图模型，并并传入该模型对应接口的请求 JSON 字符串。</p>
      *
      *
      *
@@ -84,7 +84,7 @@ public final class GetCVTextGenerateImageBody  {
     private Map<String, Object> reqJson;
 
     /**
-     * <p>[文生图系列模型](#使用说明)的接口 Version 名称。</p>
+     * <p>在[文生图系列模型](#使用说明)中选择一个本次调用的智能生图模型，并并传入该模型对应接口的 Version 名称。</p>
      *
      *
      *
@@ -94,7 +94,7 @@ public final class GetCVTextGenerateImageBody  {
     private String modelVersion;
 
     /**
-     * <p>[文生图系列模型](#使用说明)的接口 Action 名称。</p>
+     * <p>在[文生图系列模型](#使用说明)中选择一个本次调用的智能生图模型，并并传入该模型对应接口的 Action 名称。</p>
      *
      *
      *

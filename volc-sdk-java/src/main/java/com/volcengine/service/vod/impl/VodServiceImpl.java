@@ -2891,6 +2891,25 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 	
 	
 	/**
+     * describeVodVidTrafficFileLog.
+     *
+     * @param input com.volcengine.service.vod.model.request.DescribeVodVidTrafficFileLogRequest
+     * @return com.volcengine.service.vod.model.response.DescribeVodVidTrafficFileLogResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.DescribeVodVidTrafficFileLogResponse describeVodVidTrafficFileLog(com.volcengine.service.vod.model.request.DescribeVodVidTrafficFileLogRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.DescribeVodVidTrafficFileLog, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.DescribeVodVidTrafficFileLogResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.DescribeVodVidTrafficFileLogResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
      * setCloudMigrateJob.
      *
      * @param input com.volcengine.service.vod.model.request.VodSetCloudMigrateJobRequest

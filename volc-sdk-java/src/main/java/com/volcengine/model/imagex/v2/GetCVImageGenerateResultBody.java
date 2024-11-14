@@ -60,75 +60,7 @@ public final class GetCVImageGenerateResultBody  {
     private Boolean overwrite;
 
     /**
-     * <p>[通用 XL pro-图生图](https://www.volcengine.com/docs/6791/1330203)模型接口的请求 JSON 字符串。例如：</p>
-     *
-     * <p>```json</p>
-     *
-     * <p>{</p>
-     *
-     * <p>    "req_key": "i2i_xl_sft",</p>
-     *
-     * <p>    "image_urls": [</p>
-     *
-     * <p>        "https://xxx"</p>
-     *
-     * <p>    ],</p>
-     *
-     * <p>    "prompt": "美女",</p>
-     *
-     * <p>    "seed": -1,</p>
-     *
-     * <p>    "ddim_steps": 20,</p>
-     *
-     * <p>    "scale": 7.0,</p>
-     *
-     * <p>    "controlnet_args": [</p>
-     *
-     * <p>        {</p>
-     *
-     * <p>            "type": "canny",</p>
-     *
-     * <p>            "strength": 0.4,</p>
-     *
-     * <p>            "binary_data_index": 0</p>
-     *
-     * <p>        }</p>
-     *
-     * <p>    ],</p>
-     *
-     * <p>    "style_reference_args": {</p>
-     *
-     * <p>        "id_weight": 0.2,</p>
-     *
-     * <p>        "style_weight": 0.0,</p>
-     *
-     * <p>        "binary_data_index": 0</p>
-     *
-     * <p>    },</p>
-     *
-     * <p>    "etta_args": {</p>
-     *
-     * <p>        "binary_data_index": 0</p>
-     *
-     * <p>    },</p>
-     *
-     * <p>    "return_url": true,</p>
-     *
-     * <p>    "logo_info": {</p>
-     *
-     * <p>        "add_logo": true,</p>
-     *
-     * <p>        "position": 2,</p>
-     *
-     * <p>        "language": 0,</p>
-     *
-     * <p>        "logo_text_content": "这里是明水印内容"</p>
-     *
-     * <p>    }</p>
-     *
-     * <p>}</p>
-     *
-     * <p>```</p>
+     * <p>[通用 XL pro-图生图](https://www.volcengine.com/docs/6791/1330203)模型接口的请求 JSON 字符串。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ReqJson")
     private Map<String, Object> reqJson;

@@ -46,10 +46,16 @@ public final class GetCVAnimeGenerateImageResResult  {
     private Map<String, Object> respJson;
 
     /**
-     * <p>最终上传至 veImageX 服务的结果图存储 URI，数量为 1。</p>
+     * <p>最终上传至 veImageX 服务的结果图访问 URL，数量为 1。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ImageUrls")
     private List<String> imageUrls;
+
+    /**
+     * <p>存储URI。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StoreUris")
+    private List<String> storeUris;
 
     @Override
     public String toString() {

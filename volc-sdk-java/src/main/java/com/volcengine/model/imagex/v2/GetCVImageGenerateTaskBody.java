@@ -21,21 +21,9 @@ public final class GetCVImageGenerateTaskBody  {
      *
      *
      *
-     * <p>例如，使用[查询通用 2.0L-文生图异步任务](https://www.volcengine.com/docs/6791/1359424#%E6%9F%A5%E8%AF%A2%E4%BB%BB%E5%8A%A1)，则 `ReqJson` 需要取值为：</p>
+     * <p>例如，使用[查询通用 2.0L-文生图异步任务](https://www.volcengine.com/docs/6791/1359424#%E6%9F%A5%E8%AF%A2%E4%BB%BB%E5%8A%A1)，则 `ReqJson` 需要按示例进行传值。</p>
      *
-     * <p>```json</p>
      *
-     * <p>{</p>
-     *
-     * <p>    "req_key": "high_aes_general_v20_L",</p>
-     *
-     * <p>    "task_id": "7418049665255653414",</p>
-     *
-     * <p>    "req_json": "{\"logo_info\":{\"add_logo\":true,\"position\":0,\"language\":0,\"logo_text_content\":\"这里是明水印内容\"},\"return_url\":true}"</p>
-     *
-     * <p>}</p>
-     *
-     * <p>```</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ReqJson")
     private Map<String, Object> reqJson;

@@ -2,6 +2,7 @@ package com.volcengine.model.imagex.v2;
 
 
 import com.alibaba.fastjson.JSON;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,16 +30,6 @@ public final class CreateCVImageGenerateTaskBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Template")
     private String template;
-
-    /**
-     * <p>指定输出图片的文件名，输入限制如下所示：</p>
-     *
-     * <p>- 不支持空格。</p>
-     *
-     * <p>- 不支持以/开头或结尾，不支持/连续出现，最大长度限制为 180 个字节。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "Output")
-    private String output;
 
     /**
      * <p>是否覆盖服务下同名文件，取值如下所示：</p>
@@ -111,6 +102,12 @@ public final class CreateCVImageGenerateTaskBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ModelVersion")
     private String modelVersion;
+
+    /**
+     * <p>参数输出。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Outputs")
+    private List<String> outputs;
 
     @Override
     public String toString() {

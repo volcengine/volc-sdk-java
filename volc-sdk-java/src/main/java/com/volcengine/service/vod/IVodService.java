@@ -1152,6 +1152,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.DescribeVodRealtimeMediaDetailDataResponse describeVodRealtimeMediaDetailData(com.volcengine.service.vod.model.request.DescribeVodRealtimeMediaDetailDataRequest input) throws Exception;
 	
 	/**
+     * describeVodVidTrafficFileLog.
+     *
+     * @param input com.volcengine.service.vod.model.request.DescribeVodVidTrafficFileLogRequest
+     * @return com.volcengine.service.vod.model.response.DescribeVodVidTrafficFileLogResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.DescribeVodVidTrafficFileLogResponse describeVodVidTrafficFileLog(com.volcengine.service.vod.model.request.DescribeVodVidTrafficFileLogRequest input) throws Exception;
+	
+	/**
      * setCloudMigrateJob.
      *
      * @param input com.volcengine.service.vod.model.request.VodSetCloudMigrateJobRequest

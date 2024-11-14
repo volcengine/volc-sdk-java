@@ -22,6 +22,8 @@ public class VisualCertH5ConfigInitRequest {
     @JSONField(name = "callback_info")
     CallBackInfo callbackInfo;
 
+    @JSONField(name = "expire_duration")
+    int expireDuration=900;
 
     @Data
     public static class H5Config {

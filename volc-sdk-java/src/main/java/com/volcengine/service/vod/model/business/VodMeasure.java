@@ -219,6 +219,16 @@ public final class VodMeasure {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDetailDataResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodVidTrafficFileLogItem_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodVidTrafficFileLogItem_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodVidTrafficFileLogResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DescribeVodVidTrafficFileLogResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -442,13 +452,19 @@ public final class VodMeasure {
       "eSize\030\005 \001(\003\022\017\n\007PageNum\030\006 \001(\003\022\r\n\005Total\030\007 " +
       "\001(\003\022g\n\027RealtimeMediaDetailData\030\010 \003(\0132F.V" +
       "olcengine.Vod.Models.Business.DescribeVo" +
-      "dRealtimeMediaDetailDataItemB\313\001\n)com.vol" +
-      "cengine.service.vod.model.businessB\nVodM" +
-      "easureP\001ZAgithub.com/volcengine/volc-sdk" +
-      "-golang/service/vod/models/business\240\001\001\330\001" +
-      "\001\312\002 Volc\\Service\\Vod\\Models\\Business\342\002#V" +
-      "olc\\Service\\Vod\\Models\\GPBMetadatab\006prot" +
-      "o3"
+      "dRealtimeMediaDetailDataItem\"T\n Describe" +
+      "VodVidTrafficFileLogItem\022\014\n\004Date\030\001 \001(\t\022\r" +
+      "\n\005Space\030\002 \001(\t\022\023\n\013DownloadUrl\030\003 \001(\t\"\257\001\n\"D" +
+      "escribeVodVidTrafficFileLogResult\022\021\n\tSpa" +
+      "ceList\030\001 \003(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007EndTi" +
+      "me\030\003 \001(\t\022R\n\010FileList\030\004 \003(\0132@.Volcengine." +
+      "Vod.Models.Business.DescribeVodVidTraffi" +
+      "cFileLogItemB\313\001\n)com.volcengine.service." +
+      "vod.model.businessB\nVodMeasureP\001ZAgithub" +
+      ".com/volcengine/volc-sdk-golang/service/" +
+      "vod/models/business\240\001\001\330\001\001\312\002 Volc\\Service" +
+      "\\Vod\\Models\\Business\342\002#Volc\\Service\\Vod\\" +
+      "Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -700,6 +716,18 @@ public final class VodMeasure {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_DescribeVodRealtimeMediaDetailDataResult_descriptor,
         new java.lang.String[] { "Region", "Space", "StartTime", "EndTime", "PageSize", "PageNum", "Total", "RealtimeMediaDetailData", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodVidTrafficFileLogItem_descriptor =
+      getDescriptor().getMessageTypes().get(41);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodVidTrafficFileLogItem_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodVidTrafficFileLogItem_descriptor,
+        new java.lang.String[] { "Date", "Space", "DownloadUrl", });
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodVidTrafficFileLogResult_descriptor =
+      getDescriptor().getMessageTypes().get(42);
+    internal_static_Volcengine_Vod_Models_Business_DescribeVodVidTrafficFileLogResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DescribeVodVidTrafficFileLogResult_descriptor,
+        new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "FileList", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -15,6 +15,7 @@ public class SearchByTextParam {
     private Object partition = "default";
     private Integer isBuild = 0;
     private Double denseWeight = null;
+    private Boolean retry=false;
     public SearchByTextParam setText(Text text){
         this.text = text;
         return this;
@@ -37,6 +38,10 @@ public class SearchByTextParam {
     }
     public SearchByTextParam setDenseWeight(Double denseWeight){
         this.denseWeight = denseWeight;
+        return this;
+    }
+    public SearchByTextParam setRetry(Boolean retry){
+        this.retry = retry;
         return this;
     }
     public SearchByTextParam build() throws Exception{

@@ -8,6 +8,7 @@ import org.hamcrest.core.IsInstanceOf;
 
 import com.google.gson.internal.LinkedTreeMap;
 import com.volcengine.model.stream.SearchAuthorResponse;
+import com.volcengine.service.vikingDB.common.Constant;
 import com.volcengine.service.vikingDB.common.DataObject;
 import com.volcengine.service.vikingDB.common.FetchDataParam;
 import com.volcengine.service.vikingDB.common.SearchByIdParam;
@@ -124,8 +125,8 @@ public class Index {
             params.put("collection_name", collectionName);
             params.put("index_name", indexName);
             params.put("search", search);
-
-            LinkedTreeMap<String,Object> resData = vikingDBService.doRequest("SearchIndex",null, params);
+            Integer remainingRetries = searchParam.getRetry() ? Constant.MAX_RETRIES : 0;
+            LinkedTreeMap<String,Object> resData = vikingDBService.retryRequest("SearchIndex",null, params, remainingRetries);
             res =  getDatas(resData, searchParam.getOutputFields());
         } else {
             HashMap<String,Object> search = new HashMap<>();
@@ -139,8 +140,8 @@ public class Index {
             params.put("collection_name", collectionName);
             params.put("index_name", indexName);
             params.put("search", search);
-
-            LinkedTreeMap<String,Object> resData = vikingDBService.doRequest("SearchIndex",null, params);
+            Integer remainingRetries = searchParam.getRetry() ? Constant.MAX_RETRIES : 0;
+            LinkedTreeMap<String,Object> resData = vikingDBService.retryRequest("SearchIndex",null, params, remainingRetries);
             res =  getDatas(resData, searchParam.getOutputFields());
         }
         return res;
@@ -171,8 +172,8 @@ public class Index {
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);
         params.put("search", search);
-
-        LinkedTreeMap<String,Object> resData = vikingDBService.doRequest("SearchIndex",null, params);
+        Integer remainingRetries = searchByIdParam.getRetry() ? Constant.MAX_RETRIES : 0;
+        LinkedTreeMap<String,Object> resData = vikingDBService.retryRequest("SearchIndex",null, params, remainingRetries);
         return getDatas(resData, searchByIdParam.getOutputFields());
 
     }
@@ -208,8 +209,8 @@ public class Index {
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);
         params.put("search", search);
-
-        LinkedTreeMap<String,Object> resData = vikingDBService.doRequest("SearchIndex",null, params);
+        Integer remainingRetries = searchByVectorParam.getRetry() ? Constant.MAX_RETRIES : 0;
+        LinkedTreeMap<String,Object> resData = vikingDBService.retryRequest("SearchIndex",null, params, remainingRetries);
         // System.out.println(resData);
         return getDatas(resData, searchByVectorParam.getOutputFields());
     }
@@ -236,8 +237,8 @@ public class Index {
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);
         params.put("search", search);
-
-        LinkedTreeMap<String,Object> resData = vikingDBService.doRequest("SearchIndex",null, params);
+        Integer remainingRetries = searchByTextParam.getRetry() ? Constant.MAX_RETRIES : 0;
+        LinkedTreeMap<String,Object> resData = vikingDBService.retryRequest("SearchIndex",null, params, remainingRetries);
         return getDatas(resData, searchByTextParam.getOutputFields());
     }
 
@@ -253,7 +254,7 @@ public class Index {
             params.put("output_fields", fetchDataParam.getOutputFields());
         
 
-        LinkedTreeMap<String,Object> resData = vikingDBService.doRequest("FetchIndexData",null, params);
+        LinkedTreeMap<String,Object> resData = vikingDBService.retryRequest("FetchIndexData",null, params, Constant.MAX_RETRIES);
         // System.out.println(resData);
         @SuppressWarnings("unchecked")
         ArrayList<LinkedTreeMap<String,Object>> res = (ArrayList<LinkedTreeMap<String,Object>>)resData.get("data");
@@ -285,7 +286,7 @@ public class Index {
         if(fetchDataParam.getOutputFields() != null) 
             params.put("output_fields", fetchDataParam.getOutputFields());
         
-        LinkedTreeMap<String,Object> resData = vikingDBService.doRequest("FetchIndexData",null, params);
+        LinkedTreeMap<String,Object> resData = vikingDBService.retryRequest("FetchIndexData",null, params, Constant.MAX_RETRIES);
         // System.out.println(resData);
         @SuppressWarnings("unchecked")
         ArrayList<LinkedTreeMap<String,Object>> res = (ArrayList<LinkedTreeMap<String,Object>>)resData.get("data");

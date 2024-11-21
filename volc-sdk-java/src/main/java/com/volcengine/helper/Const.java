@@ -578,6 +578,19 @@ public class Const {
     public static final String GetAwardItemList = "GetAwardItemList";
     public static final String UpdateAwardItem = "UpdateAwardItem";
     public static final String DeleteAwardItem = "DeleteAwardItem";
+    public static final String CreateCoupons = "CreateCoupons";
+    public static final String UpdateCoupon = "UpdateCoupon";
+    public static final String DeleteCoupons = "DeleteCoupons";
+    public static final String ListCoupons = "ListCoupons";
+    public static final String GetCoupon = "GetCoupon";
+    public static final String CreateActivityCoupons = "CreateActivityCoupons";
+    public static final String UpdateActivityCoupon = "UpdateActivityCoupon";
+    public static final String DeleteActivityCoupons = "DeleteActivityCoupons";
+    public static final String ListActivityCoupons = "ListActivityCoupons";
+    public static final String SendActivityCoupon = "SendActivityCoupon";
+    public static final String StopActivityCoupon = "StopActivityCoupon";
+    public static final String GetActivityCouponPickData = "GetActivityCouponPickData";
+    public static final String GetActivityAllCouponsPickData = "GetActivityAllCouponsPickData";
 
     // translate
     public static final String LangDetect = "LangDetect";

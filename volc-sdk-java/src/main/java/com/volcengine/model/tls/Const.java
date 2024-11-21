@@ -18,6 +18,8 @@ public class Const {
     public static final String DESCRIBE_LOG_CONTEXT = "/DescribeLogContext";
     public static final String WEB_TRACKS = "/WebTracks";
     public static final String DESCRIBE_HISTOGRAM = "/DescribeHistogram";
+    public static final String DESCRIBE_HISTOGRAM_V1 = "/DescribeHistogramV1";
+
 
     //interface-index
     public static final String CREATE_INDEX = "/CreateIndex";

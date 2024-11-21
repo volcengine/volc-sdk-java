@@ -15,6 +15,7 @@ public class SearchByIdParam {
     private Object partition = "default";
     private Integer isBuild = 0;
     private Double denseWeight = null;
+    private Boolean retry=false;
     public SearchByIdParam setId(Object id){
         this.id = id;
         return this;
@@ -37,6 +38,10 @@ public class SearchByIdParam {
     }
     public SearchByIdParam setDenseWeight(Double denseWeight){
         this.denseWeight = denseWeight;
+        return this;
+    }
+    public SearchByIdParam setRetry(Boolean retry){
+        this.retry = retry;
         return this;
     }
     public SearchByIdParam build() throws Exception{

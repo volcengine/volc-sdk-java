@@ -17,6 +17,7 @@ import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.service.BaseServiceImpl;
+import com.volcengine.service.vikingDB.common.Constant;
 import com.volcengine.service.vikingDB.common.CreateCollectionParam;
 import com.volcengine.service.vikingDB.common.CreateIndexParam;
 import com.volcengine.service.vikingDB.common.CreateTaskParam;
@@ -42,6 +43,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -220,6 +222,61 @@ public class VikingDBService extends BaseServiceImpl {
         return data;
     }
 
+    public LinkedTreeMap<String,Object> retryRequest(String api, List<NameValuePair> params, HashMap<String,Object> body, Integer remainingRetries) throws Exception{
+        // Gson gson = new Gson();
+        Gson gson = new GsonBuilder().registerTypeAdapter(new TypeToken<LinkedTreeMap<String, Object>>() {}.getType(), new ObjectTypeAdapterRewrite()).create();
+        RawResponse res = json(api,params, gson.toJson(body));
+        if (res.getCode() != 0){
+            Long code = null;
+            String requestId = null;
+            String message = null;
+            LinkedTreeMap<String,Object> resJson = null;
+            VikingDBException vikingDBException = new VikingDBException();
+            try {
+                resJson = gson.fromJson(res.getException().getMessage(), new TypeToken<LinkedTreeMap<String, Object>>() {}.getType());
+            } catch (JsonSyntaxException e) {
+                throw new RuntimeException("Exception from Vikingdb_Server failed to parse JSON: " + e.getMessage(), e);
+            } 
+            if (resJson != null) {
+                code = (Long)resJson.get("code");
+                requestId = (String)resJson.get("request_id");
+                message = (String)resJson.get("message");
+                if (code == 1000029 && remainingRetries > 0) {
+                    remainingRetries = remainingRetries - 1;
+                    Double timeout = this.calculateRetryTimeout(remainingRetries);
+                    try {
+                        Thread.sleep((long) (timeout * 1000)); 
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    return this.retryRequest(api, params, body, remainingRetries);
+
+                }
+                vikingDBException = new VikingDBException(code, requestId, message);
+                throw vikingDBException.getErrorCodeException(code, requestId, message);
+            } else {
+                throw new Exception("return code is not 0 and res is null:"+res);
+            }
+        }
+        LinkedTreeMap<String,Object> data = null;
+        try {
+            String resData =new String(res.getData(), StandardCharsets.UTF_8);
+            data = gson.fromJson(resData,new TypeToken<LinkedTreeMap<String, Object>>() {}.getType());
+        } catch (JsonSyntaxException e) {
+            throw new RuntimeException("Exception from Vikingdb_Server failed to parse JSON: " + e.getMessage(), e);
+        } 
+        return data;
+    }
+
+    public double calculateRetryTimeout(int remainingRetries) {
+        int nbRetries = Constant.MAX_RETRIES - remainingRetries;
+        double sleepSeconds = Math.min(Constant.INITIAL_RETRY_DELAY * Math.pow(2.0, nbRetries), Constant.MAX_RETRY_DELAY);
+        Random random = new Random();
+        double jitter = 1 - 0.25 * random.nextDouble();
+        double timeout = sleepSeconds * jitter;
+        return timeout >= 0 ? timeout : 0;
+    }
+
     public static LinkedTreeMap<String,Object> convertStringToLinkedTreeMap(String x){
         Gson gson = new Gson();
         LinkedTreeMap<String,Object> data = gson.fromJson(x,new TypeToken<LinkedTreeMap<String, Object>>() {}.getType());
@@ -296,25 +353,8 @@ public class VikingDBService extends BaseServiceImpl {
     public Collection getCollection(String collectionName) throws Exception{
         HashMap<String,Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
-        int retryCount = 3;
         LinkedTreeMap<String,Object> resData = null;
-        for (int i = 0; i < 3; i++) {
-            try {
-                resData = doRequest("GetCollection",null, params);
-            } catch (Exception e){
-                ExceptionDetails exceptionDetails = extractExceptionDetails(e.toString());
-                if (exceptionDetails.getCode() == -1) {
-                    throw e;
-                }
-                if (exceptionDetails.getCode() == 1000029 && i != retryCount - 1) {
-                    Thread.sleep((i * 2 + 1) * 1000);
-                    continue;
-                } else {
-                    throw e;
-                }
-            }
-            break;
-        }
+        resData = retryRequest("GetCollection",null, params, Constant.MAX_RETRIES);
         @SuppressWarnings("unchecked")
         LinkedTreeMap<String,Object> res = (LinkedTreeMap<String, Object>)resData.get("data");
         // System.out.println(res);
@@ -451,26 +491,8 @@ public class VikingDBService extends BaseServiceImpl {
         HashMap<String,Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);
-
-        int retryCount = 3;
         LinkedTreeMap<String,Object> resData = null;
-        for (int i = 0; i < 3; i++) {
-            try {
-                resData = doRequest("GetIndex",null, params);
-            } catch (Exception e){
-                ExceptionDetails exceptionDetails = extractExceptionDetails(e.toString());
-                if (exceptionDetails.getCode() == -1) {
-                    throw e;
-                }
-                if (exceptionDetails.getCode() == 1000029 && i != retryCount - 1) {
-                    Thread.sleep((i * 2 + 1) * 1000);
-                    continue;
-                } else {
-                    throw e;
-                }
-            }
-            break;
-        }
+        resData = this.retryRequest("GetIndex",null, params, Constant.MAX_RETRIES);
         @SuppressWarnings("unchecked")
         LinkedTreeMap<String,Object> res = (LinkedTreeMap<String, Object>)resData.get("data");
         Index index = new Index();

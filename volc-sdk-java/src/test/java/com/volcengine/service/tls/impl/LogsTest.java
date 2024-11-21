@@ -17,6 +17,7 @@ import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
 public class LogsTest extends BaseTest {
+
     @Test
     public void testLog() {
         SimpleDateFormat sdf = new SimpleDateFormat(Const.DATE_FORMAT);
@@ -28,7 +29,7 @@ public class LogsTest extends BaseTest {
         try {
             //create project
             String projectName = prefix + separator + formatDate + separator + currentTimeMillis;
-            String region = "your-region";
+            String region = clientConfig.getRegion();
             String description = "test project";
             CreateProjectRequest project = new CreateProjectRequest(projectName, region, description);
             CreateProjectResponse createProjectResponse = client.createProject(project);
@@ -58,6 +59,21 @@ public class LogsTest extends BaseTest {
                     client.describeHistogram(request);
                 });
             }
+
+            // describeHistogramV1 before creating index
+             {
+                 Exception exception = assertThrows(LogException.class, () -> {
+                     DescribeHistogramV1Request request = new DescribeHistogramV1Request();
+                     {
+                         request.setQuery("*");
+                         request.setTopicId("076793b3-c128-4a94-810b-1b935003439b");
+                         request.setStartTime(System.currentTimeMillis() - 1000 * 10);
+                         request.setEndTime(System.currentTimeMillis());
+                         request.setInterval(1000L);
+                     }
+                     client.describeHistogramV1(request);
+                 });
+             }
 
             //create index
             CreateIndexRequest createIndexRequest = new CreateIndexRequest(createTopicResponse.getTopicId(),
@@ -177,6 +193,20 @@ public class LogsTest extends BaseTest {
                 }
                 DescribeHistogramResponse response = client.describeHistogram(request);
                 System.out.println("describe histogram success, response: " + response);
+            }
+
+            // describeHistogramV1
+            {
+                DescribeHistogramV1Request request = new DescribeHistogramV1Request();
+                {
+                    request.setQuery("*");
+                    request.setTopicId(topicId);
+                    request.setStartTime(System.currentTimeMillis() - 1000 * 10);
+                    request.setEndTime(System.currentTimeMillis());
+                    request.setInterval(1000L);
+                }
+                DescribeHistogramV1Response response = client.describeHistogramV1(request);
+                System.out.println("describe histogram v1 success, response: " + response);
             }
 
             // webtracks

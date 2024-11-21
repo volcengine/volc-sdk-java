@@ -120,6 +120,8 @@ public class ListAccountUserDataResponse {
         Long MuteNumber;
         @JSONField(name = "NoInteractNumber")
         Long NoInteractNumber;
+        @JSONField(name = "CouponPickupCount")
+        Long CouponPickupCount;
     }
 
     @Data

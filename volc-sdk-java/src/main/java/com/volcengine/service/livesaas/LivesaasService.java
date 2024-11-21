@@ -1912,4 +1912,121 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     DeleteAwardItemResponse deleteAwardItem(DeleteAwardItemRequest deleteAwardItemRequest) throws Exception;
+
+    /**
+     * createCoupons
+     *
+     * @param createCouponsRequest CreateCouponsRequest
+     * @return CreateCouponsResponse
+     * @throws Exception the exception
+     */
+    CreateCouponsResponse createCoupons(CreateCouponsRequest createCouponsRequest) throws Exception;
+
+    /**
+     * updateCoupon
+     *
+     * @param updateCouponRequest UpdateCouponRequest
+     * @return UpdateCouponResponse
+     * @throws Exception the exception
+     */
+    UpdateCouponResponse updateCoupon(UpdateCouponRequest updateCouponRequest) throws Exception;
+
+    /**
+     * deleteCoupons
+     *
+     * @param deleteCouponsRequest DeleteCouponsRequest
+     * @return DeleteCouponsResponse
+     * @throws Exception the exception
+     */
+    DeleteCouponsResponse deleteCoupons(DeleteCouponsRequest deleteCouponsRequest) throws Exception;
+
+    /**
+     * listCoupons
+     *
+     * @param listCouponsRequest ListCouponsRequest
+     * @return ListCouponsResponse
+     * @throws Exception the exception
+     */
+    ListCouponsResponse listCoupons(ListCouponsRequest listCouponsRequest) throws Exception;
+
+    /**
+     * getCoupon
+     *
+     * @param getCouponRequest GetCouponRequest
+     * @return GetCouponResponse
+     * @throws Exception the exception
+     */
+    GetCouponResponse getCoupon(GetCouponRequest getCouponRequest) throws Exception;
+
+    /**
+     * createActivityCoupons
+     *
+     * @param createActivityCouponsRequest CreateActivityCouponsRequest
+     * @return CreateActivityCouponsResponse
+     * @throws Exception the exception
+     */
+    CreateActivityCouponsResponse createActivityCoupons(CreateActivityCouponsRequest createActivityCouponsRequest) throws Exception;
+
+    /**
+     * updateActivityCoupon
+     *
+     * @param updateActivityCouponRequest UpdateActivityCouponRequest
+     * @return UpdateActivityCouponResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityCouponResponse updateActivityCoupon(UpdateActivityCouponRequest updateActivityCouponRequest) throws Exception;
+
+    /**
+     * deleteActivityCoupons
+     *
+     * @param deleteActivityCouponsRequest DeleteActivityCouponsRequest
+     * @return DeleteActivityCouponsResponse
+     * @throws Exception the exception
+     */
+    DeleteActivityCouponsResponse deleteActivityCoupons(DeleteActivityCouponsRequest deleteActivityCouponsRequest) throws Exception;
+
+    /**
+     * listActivityCoupons
+     *
+     * @param listActivityCouponsRequest ListActivityCouponsRequest
+     * @return ListActivityCouponsResponse
+     * @throws Exception the exception
+     */
+    ListActivityCouponsResponse listActivityCoupons(ListActivityCouponsRequest listActivityCouponsRequest) throws Exception;
+
+    /**
+     * sendActivityCoupon
+     *
+     * @param sendActivityCouponRequest SendActivityCouponRequest
+     * @return SendActivityCouponResponse
+     * @throws Exception the exception
+     */
+    SendActivityCouponResponse sendActivityCoupon(SendActivityCouponRequest sendActivityCouponRequest) throws Exception;
+
+    /**
+     * stopActivityCoupon
+     *
+     * @param stopActivityCouponRequest StopActivityCouponRequest
+     * @return StopActivityCouponResponse
+     * @throws Exception the exception
+     */
+    StopActivityCouponResponse stopActivityCoupon(StopActivityCouponRequest stopActivityCouponRequest) throws Exception;
+
+    /**
+     * getActivityCouponPickData
+     *
+     * @param getActivityCouponPickDataRequest GetActivityCouponPickDataRequest
+     * @return GetActivityCouponPickDataResponse
+     * @throws Exception the exception
+     */
+    GetActivityCouponPickDataResponse getActivityCouponPickData(GetActivityCouponPickDataRequest getActivityCouponPickDataRequest) throws Exception;
+
+    /**
+     * getActivityAllCouponsPickData
+     *
+     * @param getActivityAllCouponsPickDataRequest GetActivityAllCouponsPickDataRequest
+     * @return GetActivityAllCouponsPickDataResponse
+     * @throws Exception the exception
+     */
+    GetActivityAllCouponsPickDataResponse getActivityAllCouponsPickData(GetActivityAllCouponsPickDataRequest getActivityAllCouponsPickDataRequest) throws Exception;
 }

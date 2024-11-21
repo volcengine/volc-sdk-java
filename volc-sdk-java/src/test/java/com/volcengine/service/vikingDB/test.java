@@ -116,8 +116,8 @@ public class test {
 //        Collection collection = vikingDBService.createCollection(createCollectionParam);
 //        System.out.println(collection);
 
-//     //    Collection aa = vikingDBService.getCollection("test66");  // 查询数据集
-//     //    System.out.println(aa);
+    //    Collection aa = vikingDBService.getCollection("sparse_go");  // 查询数据集
+    //    System.out.println(aa);
 
 //     //    vikingDBService.dropCollection("test66"); // 删除数据集
 //     //    System.out.println(vikingDBService);
@@ -125,90 +125,26 @@ public class test {
 //         // List<Collection> collections = vikingDBService.listCollections();  // 查询数据集列表
 //         // System.out.println(collections);
 
-// //////
-    //    HashMap<String,Object> field1 = new HashMap<String,Object>();
-    //    List<String> a = new ArrayList<>();a.add("1");a.add("2");
-    //    List<String> b = new ArrayList<>();b.add("1");b.add("2");
     //    HashMap<String,Double> sparse = new HashMap<String,Double>();
     //    sparse.put("hello", 0.5);
-    //    HashMap<String,String> text1 = new HashMap<>();
-    // //    text1.put("text", "aaaaaa");
-    //    field1.put("doc_id1", "45");
-    //    field1.put("text_vector", genRandomVector(4));
-    //    field1.put("sparse_vector", sparse);
-    //    field1.put("like", 1);
-    //    field1.put("price", 1.11);
-    //    field1.put("aim", true);
-    //    field1.put("List_String", a);
-    //    field1.put("List_Int64", b);
-    // //    field1.put("text", text1);
-    //    DataObject dataObject1 = new DataObject()
-    //            .setFields(field1)
-    //            .setTTL(0)
-    //            .build();
-    //    HashMap<String,Object> field2 = new HashMap<String,Object>();
-    //    HashMap<String,String> text2 = new HashMap<>();
-    // //    text2.put("text", "bbbbbbbbbbbbbbb");
-    //    field2.put("doc_id1", "46");
-    //    field2.put("text_vector", genRandomVector(4));
-    //    field2.put("sparse_vector", sparse);
-    //    field2.put("like", 1);
-    //    field2.put("price", 1.11);
-    //    field2.put("aim", true);
-    //    field2.put("List_String", a);
-    //    field2.put("List_Int64", b);
-    // //    field2.put("text", text2);
-    //    DataObject dataObject2 = new DataObject()
-    //            .setFields(field2)
-    //            .setTTL(0)
-    //            .build();
     //    HashMap<String,Object> field3 = new HashMap<String,Object>();
-    //    HashMap<String,String> text3 = new HashMap<>();
-    // //    text3.put("text", "ccccccccccccccc");
-    //    field3.put("doc_id1", "47");
-    //    field3.put("text_vector", genRandomVector(4));
-    //    field3.put("sparse_vector", sparse);
-    //    field3.put("like", 3);
-    //    field3.put("price", 3.33);
-    //    field3.put("aim", false);
-    //    field3.put("List_String", a);
-    //    field3.put("List_Int64", b);
-    // //    field3.put("text", text3);
+
+    //    field3.put("vector", genRandomVector(12));
     //    DataObject dataObject3 = new DataObject()
     //            .setFields(field3)
     //            .setTTL(0)
     //            .build();
-    //    HashMap<String,Object> field4 = new HashMap<String,Object>();
-    //    HashMap<String,String> text4 = new HashMap<>();
-    // //    text4.put("text", "dddddddddd");
-    //    field4.put("doc_id1", "50");
-    //    field4.put("text_vector", genRandomVector(4));
-    //    field4.put("sparse_vector", sparse);
-    //    field4.put("like", 2147483648L);
-    //    field4.put("price", 4.44);
-    //    field4.put("aim", false);
-    //    field4.put("List_String", a);
-    //    field4.put("List_Int64", b);
-    // //    field4.put("text", text4);
-    //    DataObject dataObject4 = new DataObject()
-    //            .setFields(field4)
-    //            .setTTL(200)
-    //            .build();
-               
-    //    Collection collection = vikingDBService.getCollection("test44");
+            
+    //    Collection collection = vikingDBService.getCollection("sparse_go");
     //    List<DataObject> dataObjects = new ArrayList<>();
-    //    dataObjects.add(dataObject1);
-    //    dataObjects.add(dataObject2);
     //    dataObjects.add(dataObject3);
-    //    dataObjects.add(dataObject4);
     //    collection.upsertData(dataObjects);
-    //    System.out.println(collection);  // 写入数据
 
     //    Collection collection = vikingDBService.getCollection("test66");  // 删除数据
     //    collection.deleteData("48");
 
-    //    Collection aa = vikingDBService.getCollection("test44"); // 数据集查询数据
-    //    DataObject dataObject = aa.fetchData("50");
+    //    Collection aa = vikingDBService.getCollection("sparse_go"); // 数据集查询数据
+    //    DataObject dataObject = aa.fetchData("123");
     //    System.out.println(dataObject);
 
     //    List<Field> fields = new ArrayList<>();
@@ -275,13 +211,12 @@ public class test {
 // //        outputField.add("List_Int64");
 // //        outputField.add("text_vector");
 //        ArrayList<String> ids = new ArrayList<>();
-//        ids.add("50");
+//        ids.add("123");
 // //        ids.add("22");
 // //        ids.add("33");
 // //        ids.add("44");
-//        Index index = vikingDBService.getIndex("test44", "test_index44");
-//        System.out.println(index);
-//        List<DataObject> dataObject = index.fetchData(ids, new FetchDataParam().setPartition("2").build());  // 索引数据查询
+//        Index index = vikingDBService.getIndex("sparse_go", "sparse_go_test5");
+//        DataObject dataObject = index.fetchData("123", new FetchDataParam().build());  // 索引数据查询
 //        System.out.println(dataObject);
 
     //    List<String> outputField = new ArrayList<>();
@@ -295,18 +230,18 @@ public class test {
 ////        filter.put("lt", 100.0);
 ////
     //    SearchByIdParam searchByIdParam = new SearchByIdParam()
-    //         //    .setOutputFields(outputField)
-    //            .setId("47")
+    //            .setId(111)
+    //            .setRetry(true)
     //            .build();
-    //    Index index = vikingDBService.getIndex("test44", "test_index44");
+    //    Index index = vikingDBService.getIndex("sparse_go", "sparse_go_test5");
     //    List<DataObject> datas = index.searchById(searchByIdParam);  // 向量id检索
-//        List<DataObject> datas = index.search(new SearchParam()
-//                .setOutputFields(outputField)
-//                .setFilter(filter)
-//                .setLimit(10)
-//                .build());
+    //    List<DataObject> datas = index.search(new SearchParam()
+    //            .setOutputFields(outputField)
+    //            .setFilter(filter)
+    //            .setLimit(10)
+    //            .build());
     //    System.out.println(datas);
-        // 支持 no_order
+    //     // 支持 no_order
 
 ////
     //    List<String> outputField = new ArrayList<>();
@@ -320,12 +255,13 @@ public class test {
 //        HashMap<String,Object> sparse = new HashMap<String,Object>();
 //        sparse.put("hello", 0.5);
 //        SearchByVectorParam searchByVectorParam = new SearchByVectorParam()
-//                .setVector(genRandomVector(4))
+//                .setVector(genRandomVector(12))
 //                .setSparseVectors(sparse)
 // //                .setOutputFields(outputField)
 //                .setLimit(5)
+//                .setRetry(true)
 //                .build();
-//        Index index = vikingDBService.getIndex("test44", "test_index44");
+//        Index index = vikingDBService.getIndex("sparse_go", "sparse_go_test5");
 
 //        List<DataObject> datas = index.searchByVector(searchByVectorParam); // 向量检索
 //        System.out.println(datas);

@@ -300,6 +300,7 @@ public class TLSLogClientImpl implements TLSLogClient {
     }
 
     @Override
+    @Deprecated
     public DescribeHistogramResponse describeHistogram(DescribeHistogramRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
@@ -314,6 +315,22 @@ public class TLSLogClientImpl implements TLSLogClient {
 
         // 3. parse response
         return new DescribeHistogramResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeHistogramResponse.class);
+    }
+
+    public DescribeHistogramV1Response describeHistogramV1(DescribeHistogramV1Request request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 1. prepare request
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 2. check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_HISTOGRAM_V1, params, requestBody);
+        int a = 1;
+        // 3. parse response
+        return new DescribeHistogramV1Response(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeHistogramV1Response.class);
     }
 
     /**

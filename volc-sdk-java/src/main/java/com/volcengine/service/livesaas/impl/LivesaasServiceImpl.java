@@ -3416,4 +3416,199 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public CreateCouponsResponse createCoupons(CreateCouponsRequest createCouponsRequest) throws Exception {
+        RawResponse response = json(Const.CreateCoupons, new ArrayList<>(),JSON.toJSONString(createCouponsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CreateCouponsResponse res = JSON.parseObject(response.getData(), CreateCouponsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateCouponResponse updateCoupon(UpdateCouponRequest updateCouponRequest) throws Exception {
+        RawResponse response = json(Const.UpdateCoupon, new ArrayList<>(),JSON.toJSONString(updateCouponRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateCouponResponse res = JSON.parseObject(response.getData(), UpdateCouponResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteCouponsResponse deleteCoupons(DeleteCouponsRequest deleteCouponsRequest) throws Exception {
+        RawResponse response = json(Const.DeleteCoupons, new ArrayList<>(),JSON.toJSONString(deleteCouponsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteCouponsResponse res = JSON.parseObject(response.getData(), DeleteCouponsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListCouponsResponse listCoupons(ListCouponsRequest listCouponsRequest) throws Exception {
+        RawResponse response = query(Const.ListCoupons, Utils.paramsToPair(listCouponsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListCouponsResponse res = JSON.parseObject(response.getData(), ListCouponsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetCouponResponse getCoupon(GetCouponRequest getCouponRequest) throws Exception {
+        RawResponse response = query(Const.GetCoupon, Utils.paramsToPair(getCouponRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetCouponResponse res = JSON.parseObject(response.getData(), GetCouponResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public CreateActivityCouponsResponse createActivityCoupons(CreateActivityCouponsRequest createActivityCouponsRequest) throws Exception {
+        RawResponse response = json(Const.CreateActivityCoupons, new ArrayList<>(),JSON.toJSONString(createActivityCouponsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CreateActivityCouponsResponse res = JSON.parseObject(response.getData(), CreateActivityCouponsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateActivityCouponResponse updateActivityCoupon(UpdateActivityCouponRequest updateActivityCouponRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityCoupon, new ArrayList<>(),JSON.toJSONString(updateActivityCouponRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateActivityCouponResponse res = JSON.parseObject(response.getData(), UpdateActivityCouponResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteActivityCouponsResponse deleteActivityCoupons(DeleteActivityCouponsRequest deleteActivityCouponsRequest) throws Exception {
+        RawResponse response = json(Const.DeleteActivityCoupons, new ArrayList<>(),JSON.toJSONString(deleteActivityCouponsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteActivityCouponsResponse res = JSON.parseObject(response.getData(), DeleteActivityCouponsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListActivityCouponsResponse listActivityCoupons(ListActivityCouponsRequest listActivityCouponsRequest) throws Exception {
+        RawResponse response = query(Const.ListActivityCoupons, Utils.paramsToPair(listActivityCouponsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListActivityCouponsResponse res = JSON.parseObject(response.getData(), ListActivityCouponsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public SendActivityCouponResponse sendActivityCoupon(SendActivityCouponRequest sendActivityCouponRequest) throws Exception {
+        RawResponse response = json(Const.SendActivityCoupon, new ArrayList<>(),JSON.toJSONString(sendActivityCouponRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        SendActivityCouponResponse res = JSON.parseObject(response.getData(), SendActivityCouponResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public StopActivityCouponResponse stopActivityCoupon(StopActivityCouponRequest stopActivityCouponRequest) throws Exception {
+        RawResponse response = json(Const.StopActivityCoupon, new ArrayList<>(),JSON.toJSONString(stopActivityCouponRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        StopActivityCouponResponse res = JSON.parseObject(response.getData(), StopActivityCouponResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetActivityCouponPickDataResponse getActivityCouponPickData(GetActivityCouponPickDataRequest getActivityCouponPickDataRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityCouponPickData, Utils.paramsToPair(getActivityCouponPickDataRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityCouponPickDataResponse res = JSON.parseObject(response.getData(), GetActivityCouponPickDataResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetActivityAllCouponsPickDataResponse getActivityAllCouponsPickData(GetActivityAllCouponsPickDataRequest getActivityAllCouponsPickDataRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityAllCouponsPickData, Utils.paramsToPair(getActivityAllCouponsPickDataRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityAllCouponsPickDataResponse res = JSON.parseObject(response.getData(), GetActivityAllCouponsPickDataResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

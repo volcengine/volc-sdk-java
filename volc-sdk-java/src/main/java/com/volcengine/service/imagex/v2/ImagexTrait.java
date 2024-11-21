@@ -95,6 +95,22 @@ public class ImagexTrait extends BaseServiceImpl {
 
 
     /**
+     * <p>updateImageDomainVolcOrigin</p>
+     * <p>修改源站配置</p>
+     *
+
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageDomainVolcOriginRes updateImageDomainVolcOrigin(UpdateImageDomainVolcOriginQuery query, UpdateImageDomainVolcOriginBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageDomainVolcOrigin", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageDomainVolcOriginRes.class);
+    }
+
+    /**
      * <p>delDomain</p>
      * <p>删除域名</p>
      *
@@ -108,6 +124,38 @@ public class ImagexTrait extends BaseServiceImpl {
     public DelDomainRes delDomain(DelDomainQuery query, DelDomainBody body) throws Exception {
         RawResponse rawResponse = json("DelDomain", Utils.paramsToPair(query), JSON.toJSONString(body));
         return parseRawResponse(rawResponse, DelDomainRes.class);
+    }
+
+    /**
+     * <p>addDomainV1</p>
+     * <p>新增域名</p>
+     *
+     * <p>本接口支持通过指定服务 ID 以及输入域名等相关配置项，向该服务新增域名。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public AddDomainV1Res addDomainV1(AddDomainV1Query query, AddDomainV1Body body) throws Exception {
+        RawResponse rawResponse = json("AddDomainV1", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, AddDomainV1Res.class);
+    }
+
+    /**
+     * <p>updateImageDomainIPAuth</p>
+     * <p>更新 IP 黑白名单配置</p>
+     *
+     * <p>本接口支持修改指定服务 ID 下域名的 IP 黑白名单配置。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageDomainIPAuthRes updateImageDomainIPAuth(UpdateImageDomainIPAuthQuery query, UpdateImageDomainIPAuthBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageDomainIPAuth", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageDomainIPAuthRes.class);
     }
 
     /**
@@ -127,6 +175,22 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>updateImageDomainUaAccess</p>
+     * <p>更新 UA 黑白名单配置</p>
+     *
+     * <p>本接口支持通过指定服务 ID、域名来配置 UA 访问限制。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageDomainUaAccessRes updateImageDomainUaAccess(UpdateImageDomainUaAccessQuery query, UpdateImageDomainUaAccessBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageDomainUaAccess", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageDomainUaAccessRes.class);
+    }
+
+    /**
      * <p>updateHttps</p>
      * <p>更新 https 配置</p>
      *
@@ -143,6 +207,22 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>updateImageDomainDownloadSpeedLimit</p>
+     * <p>更新下载限速配置</p>
+     *
+     * <p>本接口支持通过指定服务 ID 和域名更新下载限速相关配置。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageDomainDownloadSpeedLimitRes updateImageDomainDownloadSpeedLimit(UpdateImageDomainDownloadSpeedLimitQuery query, UpdateImageDomainDownloadSpeedLimitBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageDomainDownloadSpeedLimit", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageDomainDownloadSpeedLimitRes.class);
+    }
+
+    /**
      * <p>updateResponseHeader</p>
      * <p>更新响应头配置</p>
      *
@@ -156,6 +236,110 @@ public class ImagexTrait extends BaseServiceImpl {
     public UpdateResponseHeaderRes updateResponseHeader(UpdateResponseHeaderQuery query, UpdateResponseHeaderBody body) throws Exception {
         RawResponse rawResponse = json("UpdateResponseHeader", Utils.paramsToPair(query), JSON.toJSONString(body));
         return parseRawResponse(rawResponse, UpdateResponseHeaderRes.class);
+    }
+
+    /**
+     * <p>updateImageDomainAreaAccess</p>
+     * <p>更新地域访问限制配置</p>
+     *
+     * <p>本接口支持通过指定服务 ID、域名等配置区域访问限制。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageDomainAreaAccessRes updateImageDomainAreaAccess(UpdateImageDomainAreaAccessQuery query, UpdateImageDomainAreaAccessBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageDomainAreaAccess", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageDomainAreaAccessRes.class);
+    }
+
+    /**
+     * <p>updateDomainAdaptiveFmt</p>
+     * <p>更新域名自适应格式配置</p>
+     *
+     * <p>本接口支持修改指定服务 ID 下域名的自适应格式配置。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateDomainAdaptiveFmtRes updateDomainAdaptiveFmt(UpdateDomainAdaptiveFmtQuery query, UpdateDomainAdaptiveFmtBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateDomainAdaptiveFmt", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateDomainAdaptiveFmtRes.class);
+    }
+
+    /**
+     * <p>updateImageDomainConfig</p>
+     * <p>更新域名配置</p>
+     *
+     * <p>本接口支持服务的多个域名批量更新域名各配置。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageDomainConfigRes updateImageDomainConfig(UpdateImageDomainConfigQuery query, UpdateImageDomainConfigBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageDomainConfig", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageDomainConfigRes.class);
+    }
+
+    /**
+     * <p>updateAdvance</p>
+     * <p>更新域名高级配置</p>
+     *
+     * <p>本接口支持更新指定服务和域名下的域名高级配置，如 IPV6，智能压缩。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateAdvanceRes updateAdvance(UpdateAdvanceQuery query, UpdateAdvanceBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateAdvance", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateAdvanceRes.class);
+    }
+
+    /**
+     * <p>updateImageDomainBandwidthLimit</p>
+     * <p>更新带宽限制配置</p>
+     *
+     * <p>本接口支持通过指定服务 ID 和域名更新带宽限速相关配置，如带宽阈值、控制策略等。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageDomainBandwidthLimitRes updateImageDomainBandwidthLimit(UpdateImageDomainBandwidthLimitQuery query, UpdateImageDomainBandwidthLimitBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageDomainBandwidthLimit", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageDomainBandwidthLimitRes.class);
+    }
+
+    /**
+     * <p>updateSlimConfig</p>
+     * <p>更新集智瘦身配置</p>
+     *
+     * <p>本接口支持修改指定服务 ID 下域名的集智瘦身配置。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>* 集智瘦身支持[模板配置](https://www.volcengine.com/docs/508/114402)和域名配置，但仅支持运行一种处理方式。请选择其中一种配置，来使用集智瘦身功能。</p>
+     *
+     * <p>* 使用域名配置的效果一般会低于模板配置。</p>
+     *
+     * <p>:::</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateSlimConfigRes updateSlimConfig(UpdateSlimConfigQuery query, UpdateSlimConfigBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateSlimConfig", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateSlimConfigRes.class);
     }
 
     /**
@@ -234,6 +418,216 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>deleteImageMonitorRules</p>
+     * <p>删除告警规则</p>
+     *
+     * <p>本接口支持删除指定的告警规则。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteImageMonitorRulesRes deleteImageMonitorRules(DeleteImageMonitorRulesBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteImageMonitorRules", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteImageMonitorRulesRes.class);
+    }
+
+    /**
+     * <p>deleteImageMonitorRecords</p>
+     * <p>删除告警记录</p>
+     *
+     * <p>本接口支持通过指定待删除的告警记录 ID 列表来删除对应告警记录。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteImageMonitorRecordsRes deleteImageMonitorRecords(DeleteImageMonitorRecordsBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteImageMonitorRecords", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteImageMonitorRecordsRes.class);
+    }
+
+    /**
+     * <p>createImageMonitorRule</p>
+     * <p>新建告警规则</p>
+     *
+     * <p>本接口支持在账号下创建一条告警规则。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateImageMonitorRuleRes createImageMonitorRule(CreateImageMonitorRuleBody body) throws Exception {
+        RawResponse rawResponse = json("CreateImageMonitorRule", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateImageMonitorRuleRes.class);
+    }
+
+    /**
+     * <p>updateImageMonitorRule</p>
+     * <p>更新告警规则</p>
+     *
+     * <p>本接口支持更新指定告警规则的配置，如规则名称、监控应用等。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageMonitorRuleRes updateImageMonitorRule(UpdateImageMonitorRuleBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageMonitorRule", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageMonitorRuleRes.class);
+    }
+
+    /**
+     * <p>updateImageMonitorRuleStatus</p>
+     * <p>更新告警规则状态</p>
+     *
+     * <p>本接口支持修改指定告警规则的开启状态。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageMonitorRuleStatusRes updateImageMonitorRuleStatus(UpdateImageMonitorRuleStatusBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageMonitorRuleStatus", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageMonitorRuleStatusRes.class);
+    }
+
+    /**
+     * <p>getImageAlertRecords</p>
+     * <p>获取所含有报警记录</p>
+     *
+     * <p>获取所含有报警记录</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageAlertRecordsRes getImageAlertRecords(GetImageAlertRecordsBody body) throws Exception {
+        RawResponse rawResponse = json("GetImageAlertRecords", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetImageAlertRecordsRes.class);
+    }
+
+    /**
+     * <p>getImageMonitorRules</p>
+     * <p>获取所有告警规则</p>
+     *
+     * <p>本接口支持获取该账号下全部的报警规则详情，包含规则 ID、创建时间和更新时间等。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageMonitorRulesRes getImageMonitorRules(GetImageMonitorRulesQuery query) throws Exception {
+        RawResponse rawResponse = json("GetImageMonitorRules", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetImageMonitorRulesRes.class);
+    }
+
+    /**
+     * <p>createImageSettingRule</p>
+     * <p>创建配置规则</p>
+     *
+     * <p>本接口支持创建指定配置项的规则。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateImageSettingRuleRes createImageSettingRule(CreateImageSettingRuleBody body) throws Exception {
+        RawResponse rawResponse = json("CreateImageSettingRule", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateImageSettingRuleRes.class);
+    }
+
+    /**
+     * <p>deleteImageSettingRule</p>
+     * <p>删除配置项规则</p>
+     *
+     * <p>本接口支持删除指定应用中某个配置项的规则。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteImageSettingRuleRes deleteImageSettingRule(DeleteImageSettingRuleBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteImageSettingRule", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteImageSettingRuleRes.class);
+    }
+
+    /**
+     * <p>updateImageSettingRulePriority</p>
+     * <p>更新规则优先级</p>
+     *
+     * <p>本接口支持通过指定应用 ID、配置项 ID 以及待更新后的全部规则 ID 及规则优先级，来更新配置项下的规则优先级。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageSettingRulePriorityRes updateImageSettingRulePriority(UpdateImageSettingRulePriorityBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageSettingRulePriority", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageSettingRulePriorityRes.class);
+    }
+
+    /**
+     * <p>updateImageSettingRule</p>
+     * <p>更新配置规则</p>
+     *
+     * <p>本接口支持更新指定应用中配置项的规则。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageSettingRuleRes updateImageSettingRule(UpdateImageSettingRuleBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageSettingRule", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageSettingRuleRes.class);
+    }
+
+    /**
+     * <p>getImageSettings</p>
+     * <p>查看配置</p>
+     *
+     * <p>本接口支持通过指定应用 ID 以及所属组件，来获取当前组件配置项列表信息。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageSettingsRes getImageSettings(GetImageSettingsQuery query) throws Exception {
+        RawResponse rawResponse = json("GetImageSettings", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetImageSettingsRes.class);
+    }
+
+    /**
+     * <p>getImageSettingRuleHistory</p>
+     * <p>查看配置历史</p>
+     *
+     * <p>本接口支持查询指定应用中配置的规则修改历史。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageSettingRuleHistoryRes getImageSettingRuleHistory(GetImageSettingRuleHistoryQuery query) throws Exception {
+        RawResponse rawResponse = json("GetImageSettingRuleHistory", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetImageSettingRuleHistoryRes.class);
+    }
+
+    /**
+     * <p>getImageSettingRules</p>
+     * <p>查看配置规则</p>
+     *
+     * <p>本接口支持指定应用以及具体配置项，来获取配置项下的配置的规则列表信息。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageSettingRulesRes getImageSettingRules(GetImageSettingRulesQuery query) throws Exception {
+        RawResponse rawResponse = json("GetImageSettingRules", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetImageSettingRulesRes.class);
+    }
+
+    /**
      * <p>createImageMigrateTask</p>
      * <p>创建数据迁移任务</p>
      *
@@ -245,27 +639,37 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>已支持迁移数据源与迁移准备内容如下表所示。</p>
+     * <p>您需要在迁移前根据迁移方式在源存储服务商处获取以下配置参数。</p>
+     *
+     *
      *
      * <p>| 源服务商 | 准备内容 | 文档地址 |</p>
      *
      * <p>| --- | --- | --- |</p>
      *
-     * <p>| 阿里云OSS | Access Key、Secret Key、Bucket | [迁移准备](https://www.volcengine.com/docs/508/129214) |</p>
+     * <p>| 阿里云OSS | 桶遍历方式：Access Key、Secret Key、Bucket | [迁移准备](https://www.volcengine.com/docs/508/129214) |</p>
      *
-     * <p>| 腾讯云COS | Access Key、Secret Key、Bucket、Region | [迁移准备](https://www.volcengine.com/docs/508/129215) |</p>
+     * <p>| 腾讯云COS | - 桶遍历方式：Access Key、Secret Key、Bucket、Region | [迁移准备](https://www.volcengine.com/docs/508/129215) |\</p>
      *
-     * <p>| 七牛云Kodo | Access Key、Secret Key、Bucket | [迁移准备](https://www.volcengine.com/docs/508/129216) |</p>
+     * <p>|  | - 桶清单方式：Access Key、Secret Key、Bucket、Region、BucketInventoryDir、BucketInventorySchema |  |\</p>
      *
-     * <p>| 百度云BOS | Access Key、Secret Key、Bucket、Region | [迁移准备](https://www.volcengine.com/docs/508/129219) |</p>
+     * <p>|  | :::tip |  |\</p>
      *
-     * <p>| 华为云OBS | Access Key、Secret Key、Bucket、Region | [迁移准备](https://www.volcengine.com/docs/508/129220) |</p>
+     * <p>|  | 桶清单方式完整迁移流程详见[使用桶清单方式进行数据迁移](https://www.volcengine.com/docs/508/1347855)。 |  |\</p>
      *
-     * <p>| 优刻得（Ucloud File） | Access Key、Secret Key、Bucket、Region | [迁移准备](https://www.volcengine.com/docs/508/129217) |</p>
+     * <p>|  | ::: |  |</p>
      *
-     * <p>| AWS国际站 | Access Key、Secret Key、Bucket | [迁移准备](https://www.volcengine.com/docs/508/129218) |</p>
+     * <p>| 七牛云Kodo | 桶遍历方式：Access Key、Secret Key、Bucket | [迁移准备](https://www.volcengine.com/docs/508/129216) |</p>
      *
-     * <p>| 其他 S3 协议存储 | Access Key、Secret Key、Bucket、Region、Endpoint | 请根据实际源站获取 |</p>
+     * <p>| 百度云BOS | 桶遍历方式：Access Key、Secret Key、Bucket、Region | [迁移准备](https://www.volcengine.com/docs/508/129219) |</p>
+     *
+     * <p>| 华为云OBS | 桶遍历方式：Access Key、Secret Key、Bucket、Region | [迁移准备](https://www.volcengine.com/docs/508/129220) |</p>
+     *
+     * <p>| 优刻得（Ucloud File） | 桶遍历方式：Access Key、Secret Key、Bucket、Region | [迁移准备](https://www.volcengine.com/docs/508/129217) |</p>
+     *
+     * <p>| AWS国际站 | 桶遍历方式：Access Key、Secret Key、Bucket | [迁移准备](https://www.volcengine.com/docs/508/129218) |</p>
+     *
+     * <p>| 其他 S3 协议存储 | 桶遍历方式：Access Key、Secret Key、Bucket、Region、Endpoint | 请根据实际源站获取 |</p>
      *
      * <p>| URL | 迁移 URL 列表文件（.txt）的公网访问地址 | [URL 列表迁移说明](https://www.volcengine.com/docs/508/1263268) |</p>
      *
@@ -399,6 +803,21 @@ public class ImagexTrait extends BaseServiceImpl {
     public RerunImageMigrateTaskRes rerunImageMigrateTask(RerunImageMigrateTaskQuery query) throws Exception {
         RawResponse rawResponse = json("RerunImageMigrateTask", Utils.paramsToPair(query), "");
         return parseRawResponse(rawResponse, RerunImageMigrateTaskRes.class);
+    }
+
+    /**
+     * <p>getImageAddOnTag</p>
+     * <p>获取组件标签列表详情</p>
+     *
+     * <p>本接口支持通过指定组件标签 key 获取已发布且对应账号可见的组件相关标签值。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageAddOnTagRes getImageAddOnTag(GetImageAddOnTagQuery query) throws Exception {
+        RawResponse rawResponse = json("GetImageAddOnTag", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetImageAddOnTagRes.class);
     }
 
     /**
@@ -843,6 +1262,144 @@ public class ImagexTrait extends BaseServiceImpl {
     public DescribeImageXCDNTopRequestDataRes describeImageXCDNTopRequestData(DescribeImageXCDNTopRequestDataQuery query) throws Exception {
         RawResponse rawResponse = json("DescribeImageXCDNTopRequestData", Utils.paramsToPair(query), "");
         return parseRawResponse(rawResponse, DescribeImageXCDNTopRequestDataRes.class);
+    }
+
+    /**
+     * <p>describeImageXHeifEncodeFileInSizeByTime</p>
+     * <p>查询heif编码前文件大小时序数据</p>
+     *
+     * <p>本接口支持通过指定查询维度，来获取 HEIF 编码监控的编码前文件大小时序数据。</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>单次查询的时间跨度不能超过 **90** 天。</p>
+     *
+     * <p>:::</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeImageXHeifEncodeFileInSizeByTimeRes describeImageXHeifEncodeFileInSizeByTime(DescribeImageXHeifEncodeFileInSizeByTimeBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeImageXHeifEncodeFileInSizeByTime", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeImageXHeifEncodeFileInSizeByTimeRes.class);
+    }
+
+    /**
+     * <p>describeImageXHeifEncodeFileOutSizeByTime</p>
+     * <p>查询heif编码后文件大小时序数据</p>
+     *
+     * <p>本接口支持通过指定查询维度，来获取 HEIF 编码监控的编码后文件大小时序数据。</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>单次查询的时间跨度不能超过 **90** 天。</p>
+     *
+     * <p>:::</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeImageXHeifEncodeFileOutSizeByTimeRes describeImageXHeifEncodeFileOutSizeByTime(DescribeImageXHeifEncodeFileOutSizeByTimeBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeImageXHeifEncodeFileOutSizeByTime", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeImageXHeifEncodeFileOutSizeByTimeRes.class);
+    }
+
+    /**
+     * <p>describeImageXHeifEncodeSuccessCountByTime</p>
+     * <p>查询heif编码成功次数时序数据</p>
+     *
+     * <p>本接口支持通过指定查询维度，来获取 HEIF 编码监控的编码成功次数时序数据。</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>单次查询的时间跨度不能超过 **90** 天。</p>
+     *
+     * <p>:::</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeImageXHeifEncodeSuccessCountByTimeRes describeImageXHeifEncodeSuccessCountByTime(DescribeImageXHeifEncodeSuccessCountByTimeBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeImageXHeifEncodeSuccessCountByTime", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeImageXHeifEncodeSuccessCountByTimeRes.class);
+    }
+
+    /**
+     * <p>describeImageXHeifEncodeSuccessRateByTime</p>
+     * <p>查询heif编码成功率时序数据</p>
+     *
+     * <p>本接口支持通过指定查询维度，来获取 HEIF 编码监控的编码成功率时序数据。</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>单次查询的时间跨度不能超过 **90** 天。</p>
+     *
+     * <p>:::</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeImageXHeifEncodeSuccessRateByTimeRes describeImageXHeifEncodeSuccessRateByTime(DescribeImageXHeifEncodeSuccessRateByTimeBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeImageXHeifEncodeSuccessRateByTime", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeImageXHeifEncodeSuccessRateByTimeRes.class);
+    }
+
+    /**
+     * <p>describeImageXHeifEncodeDurationByTime</p>
+     * <p>查询heif编码耗时时序数据</p>
+     *
+     * <p>本接口支持通过指定查询维度，来获取 HEIF 编码监控的编码耗时时序数据。</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>单次查询的时间跨度不能超过 **90** 天。</p>
+     *
+     * <p>:::</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeImageXHeifEncodeDurationByTimeRes describeImageXHeifEncodeDurationByTime(DescribeImageXHeifEncodeDurationByTimeBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeImageXHeifEncodeDurationByTime", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeImageXHeifEncodeDurationByTimeRes.class);
+    }
+
+    /**
+     * <p>describeImageXHeifEncodeErrorCodeByTime</p>
+     * <p>查询heif编码错误码时序数据</p>
+     *
+     * <p>本接口支持通过指定查询维度，来获取 HEIF 编码监控的编码错误码时序数据。</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>单次查询的时间跨度不能超过 **90** 天。</p>
+     *
+     * <p>:::</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeImageXHeifEncodeErrorCodeByTimeRes describeImageXHeifEncodeErrorCodeByTime(DescribeImageXHeifEncodeErrorCodeByTimeBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeImageXHeifEncodeErrorCodeByTime", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeImageXHeifEncodeErrorCodeByTimeRes.class);
     }
 
     /**
@@ -1838,6 +2395,53 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>createBatchProcessTask</p>
+     * <p>创建批量处理异步任务</p>
+     *
+     * <p>创建批量处理异步任务</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateBatchProcessTaskRes createBatchProcessTask(CreateBatchProcessTaskQuery query, CreateBatchProcessTaskBody body) throws Exception {
+        RawResponse rawResponse = json("CreateBatchProcessTask", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateBatchProcessTaskRes.class);
+    }
+
+    /**
+     * <p>getBatchProcessResult</p>
+     * <p>同步批量处理</p>
+     *
+     * <p>同步批量处理</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetBatchProcessResultRes getBatchProcessResult(GetBatchProcessResultQuery query, GetBatchProcessResultBody body) throws Exception {
+        RawResponse rawResponse = json("GetBatchProcessResult", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetBatchProcessResultRes.class);
+    }
+
+    /**
+     * <p>getBatchTaskInfo</p>
+     * <p>查询异步批量处理任务详情</p>
+     *
+     * <p>查询异步批量处理任务详情</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetBatchTaskInfoRes getBatchTaskInfo(GetBatchTaskInfoQuery query) throws Exception {
+        RawResponse rawResponse = json("GetBatchTaskInfo", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetBatchTaskInfoRes.class);
+    }
+
+    /**
      * <p>updateImageResourceStatus</p>
      * <p>修改上传文件状态</p>
      *
@@ -1859,6 +2463,22 @@ public class ImagexTrait extends BaseServiceImpl {
     public UpdateImageResourceStatusRes updateImageResourceStatus(UpdateImageResourceStatusQuery query, UpdateImageResourceStatusBody body) throws Exception {
         RawResponse rawResponse = json("UpdateImageResourceStatus", Utils.paramsToPair(query), JSON.toJSONString(body));
         return parseRawResponse(rawResponse, UpdateImageResourceStatusRes.class);
+    }
+
+    /**
+     * <p>updateFileStorageClass</p>
+     * <p>修改文件存储类型</p>
+     *
+     * <p>修改文件存储类型</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateFileStorageClassRes updateFileStorageClass(UpdateFileStorageClassQuery query, UpdateFileStorageClassBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateFileStorageClass", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateFileStorageClassRes.class);
     }
 
     /**
@@ -1893,6 +2513,22 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>createFileRestore</p>
+     * <p>恢复文件</p>
+     *
+     * <p>恢复文件</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateFileRestoreRes createFileRestore(CreateFileRestoreQuery query, CreateFileRestoreBody body) throws Exception {
+        RawResponse rawResponse = json("CreateFileRestore", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateFileRestoreRes.class);
+    }
+
+    /**
      * <p>updateImageUploadFiles</p>
      * <p>指定服务下多个文件URL状态</p>
      *
@@ -1922,6 +2558,22 @@ public class ImagexTrait extends BaseServiceImpl {
     public CommitImageUploadRes commitImageUpload(CommitImageUploadQuery query, CommitImageUploadBody body) throws Exception {
         RawResponse rawResponse = json("CommitImageUpload", Utils.paramsToPair(query), JSON.toJSONString(body));
         return parseRawResponse(rawResponse, CommitImageUploadRes.class);
+    }
+
+    /**
+     * <p>updateImageFileCT</p>
+     * <p>更新文件的存储content-type</p>
+     *
+     * <p>本接口支持更新指定服务下文件的 Content-Type 值。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageFileCTRes updateImageFileCT(UpdateImageFileCTQuery query, UpdateImageFileCTBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageFileCT", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageFileCTRes.class);
     }
 
     /**
@@ -2473,6 +3125,8 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>本接口支持通过输入待处理图像地址，经超分处理后得到处理后的图片 URI。</p>
      *
+     *
+     *
      * @param body body payload
      * @return response data
      * @throws Exception error during request
@@ -2480,6 +3134,22 @@ public class ImagexTrait extends BaseServiceImpl {
     public GetImageSuperResolutionResultRes getImageSuperResolutionResult(GetImageSuperResolutionResultBody body) throws Exception {
         RawResponse rawResponse = json("GetImageSuperResolutionResult", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, GetImageSuperResolutionResultRes.class);
+    }
+
+    /**
+     * <p>getDenoisingImage</p>
+     * <p>使用图像降噪获取结果图</p>
+     *
+     * <p>本接口支持通过指定服务 ID 以及降噪配置，获取降噪结果图。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetDenoisingImageRes getDenoisingImage(GetDenoisingImageQuery query, GetDenoisingImageBody body) throws Exception {
+        RawResponse rawResponse = json("GetDenoisingImage", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetDenoisingImageRes.class);
     }
 
     /**
@@ -2629,6 +3299,22 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>getLicensePlateDetection</p>
+     * <p>使用车牌检测获取车牌位置</p>
+     *
+     * <p>本接口支持通过指定服务 ID 和原图 URI，获取该图片上所有检测到的车牌位置坐标。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetLicensePlateDetectionRes getLicensePlateDetection(GetLicensePlateDetectionQuery query, GetLicensePlateDetectionBody body) throws Exception {
+        RawResponse rawResponse = json("GetLicensePlateDetection", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetLicensePlateDetectionRes.class);
+    }
+
+    /**
      * <p>getPrivateImageType</p>
      * <p>使用隐私分类获取分类信息</p>
      *
@@ -2642,6 +3328,22 @@ public class ImagexTrait extends BaseServiceImpl {
     public GetPrivateImageTypeRes getPrivateImageType(GetPrivateImageTypeQuery query, GetPrivateImageTypeBody body) throws Exception {
         RawResponse rawResponse = json("GetPrivateImageType", Utils.paramsToPair(query), JSON.toJSONString(body));
         return parseRawResponse(rawResponse, GetPrivateImageTypeRes.class);
+    }
+
+    /**
+     * <p>createCVImageGenerateTask</p>
+     * <p>创建文生图异步任务</p>
+     *
+     * <p>该接口支持调用豆包大模型中的智能生图 API 能力，并根据豆包模型请求信息生成相应图片。同时您可指定 veIamgeX 的图片处理模板，对文生图进行定制化的图片处理。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateCVImageGenerateTaskRes createCVImageGenerateTask(CreateCVImageGenerateTaskQuery query, CreateCVImageGenerateTaskBody body) throws Exception {
+        RawResponse rawResponse = json("CreateCVImageGenerateTask", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateCVImageGenerateTaskRes.class);
     }
 
     /**
@@ -2711,6 +3413,22 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>getCVImageGenerateResult</p>
+     * <p>图生图</p>
+     *
+     * <p>该接口支持调用豆包大模型中的智能生图 API 能力，并根据豆包模型请求信息生成相应的一张图片。同时您可指定 veIamgeX 的图片处理模板，对智能生成的图片进行进一步的个性化图片处理，获取同步输出的结果图 URI。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetCVImageGenerateResultRes getCVImageGenerateResult(GetCVImageGenerateResultQuery query, GetCVImageGenerateResultBody body) throws Exception {
+        RawResponse rawResponse = json("GetCVImageGenerateResult", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetCVImageGenerateResultRes.class);
+    }
+
+    /**
      * <p>createImageHmExtract</p>
      * <p>提取盲水印</p>
      *
@@ -2736,6 +3454,38 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>getCVTextGenerateImage</p>
+     * <p>文生图</p>
+     *
+     * <p>该接口支持调用豆包大模型中的智能生图 API 能力，并根据豆包模型请求信息生成相应的一张图片。同时您可指定 veIamgeX 的图片处理模板，对智能生成的图片进行进一步的个性化图片处理，并同步输出结果图 URI。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetCVTextGenerateImageRes getCVTextGenerateImage(GetCVTextGenerateImageQuery query, GetCVTextGenerateImageBody body) throws Exception {
+        RawResponse rawResponse = json("GetCVTextGenerateImage", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetCVTextGenerateImageRes.class);
+    }
+
+    /**
+     * <p>getCVImageGenerateTask</p>
+     * <p>查询文生图任务</p>
+     *
+     * <p>本接口支持获取文生图异步任务生成的结果图 Url。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetCVImageGenerateTaskRes getCVImageGenerateTask(GetCVImageGenerateTaskQuery query, GetCVImageGenerateTaskBody body) throws Exception {
+        RawResponse rawResponse = json("GetCVImageGenerateTask", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetCVImageGenerateTaskRes.class);
+    }
+
+    /**
      * <p>createImageHmEmbed</p>
      * <p>添加盲水印</p>
      *
@@ -2751,6 +3501,22 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>getCVAnimeGenerateImage</p>
+     * <p>漫画文/图生图</p>
+     *
+     * <p>该接口支持调用豆包大模型中的智能生图 API 能力，并根据豆包模型请求信息生成相应的一张图片。同时您可指定 veIamgeX 的图片处理模板，对智能生成的图片进行进一步的个性化图片处理，获取同步输出的结果图 URI。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetCVAnimeGenerateImageRes getCVAnimeGenerateImage(GetCVAnimeGenerateImageQuery query, GetCVAnimeGenerateImageBody body) throws Exception {
+        RawResponse rawResponse = json("GetCVAnimeGenerateImage", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetCVAnimeGenerateImageRes.class);
+    }
+
+    /**
      * <p>getComprehensiveEnhanceImage</p>
      * <p>综合增强</p>
      *
@@ -2763,6 +3529,63 @@ public class ImagexTrait extends BaseServiceImpl {
     public GetComprehensiveEnhanceImageRes getComprehensiveEnhanceImage(GetComprehensiveEnhanceImageBody body) throws Exception {
         RawResponse rawResponse = json("GetComprehensiveEnhanceImage", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, GetComprehensiveEnhanceImageRes.class);
+    }
+
+    /**
+     * <p>getImageAiGenerateTask</p>
+     * <p>获取 AIGC 异步任务详情</p>
+     *
+     * <p>本接口支持通过任务 ID 获取 AIGC 任务详情。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageAiGenerateTaskRes getImageAiGenerateTask(GetImageAiGenerateTaskQuery query) throws Exception {
+        RawResponse rawResponse = json("GetImageAiGenerateTask", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetImageAiGenerateTaskRes.class);
+    }
+
+    /**
+     * <p>getProductAIGCResult</p>
+     * <p>获取AIGC图片</p>
+     *
+     * <p>通过文本描述或场景图引导的方式，使用 AIGC 智能算法对输入的商品主体图进行智能场景扩展，助力商家和电商平台批量产出媲美专业设计师的高质素材，单图产出时间 < 1 分钟，能有效提升商品图的素材生产效率。</p>
+     *
+     *
+     *
+     * <p>- **商品场景图**：支持通过预设场景或文字描述等多种方式，为商品添加丰富背景，自然的光影融合效果结合细腻的写实画面，还原真实使用场景。</p>
+     *
+     * <p>	</p>
+     *
+     * <p>- **商品卖点图**：支持输入商品简述、评论和商品详情页图像等信息，AI 提取商品核心卖点并合成商品卖点图。</p>
+     *
+     *
+     *
+     * <p>示例：</p>
+     *
+     *
+     *
+     *
+     *
+     * <p>| 原图 | 商品图 |</p>
+     *
+     * <p>| --- | --- |</p>
+     *
+     * <p>| <img src="https://portal.volccdn.com/obj/volcfe/cloud-universal-doc/upload_0aaef3c801516c319cfd32a8470fa8d6.jpeg" width="300" style="border: 1px solid #dfe2e5;">  | <img src="https://portal.volccdn.com/obj/volcfe/cloud-universal-doc/upload_f16dff48566f281e5ed82d617a769f17.jpeg" width="300" style="border: 1px solid #dfe2e5;"> |</p>
+     *
+     *
+     *
+     *
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetProductAIGCResultRes getProductAIGCResult(GetProductAIGCResultQuery query, GetProductAIGCResultBody body) throws Exception {
+        RawResponse rawResponse = json("GetProductAIGCResult", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetProductAIGCResultRes.class);
     }
 
     /**
@@ -2842,6 +3665,22 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>updateResEventRule</p>
+     * <p>更新事件通知规则</p>
+     *
+     * <p>本接口支持指定服务 ID 更新该服务的事件通知规则。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateResEventRuleRes updateResEventRule(UpdateResEventRuleQuery query, UpdateResEventRuleBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateResEventRule", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateResEventRuleRes.class);
+    }
+
+    /**
      * <p>updateServiceName</p>
      * <p>更新服务名称</p>
      *
@@ -2858,6 +3697,22 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>updateStorageRules</p>
+     * <p>更新服务存储策略</p>
+     *
+     * <p>更新服务存储策略</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateStorageRulesRes updateStorageRules(UpdateStorageRulesQuery query, UpdateStorageRulesBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateStorageRules", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateStorageRulesRes.class);
+    }
+
+    /**
      * <p>updateImageObjectAccess</p>
      * <p>更新源地址访问配置</p>
      *
@@ -2871,6 +3726,22 @@ public class ImagexTrait extends BaseServiceImpl {
     public UpdateImageObjectAccessRes updateImageObjectAccess(UpdateImageObjectAccessQuery query, UpdateImageObjectAccessBody body) throws Exception {
         RawResponse rawResponse = json("UpdateImageObjectAccess", Utils.paramsToPair(query), JSON.toJSONString(body));
         return parseRawResponse(rawResponse, UpdateImageObjectAccessRes.class);
+    }
+
+    /**
+     * <p>updateImageUploadOverwrite</p>
+     * <p>更新重名覆盖上传配置</p>
+     *
+     * <p>本接口支持更新指定服务的重名覆盖上传配置。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageUploadOverwriteRes updateImageUploadOverwrite(UpdateImageUploadOverwriteQuery query, UpdateImageUploadOverwriteBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageUploadOverwrite", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageUploadOverwriteRes.class);
     }
 
     /**
@@ -3031,6 +3902,199 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>deleteImageElements</p>
+     * <p>删除常用图片/背景/蒙版要素</p>
+     *
+     * <p>在样式的要素列表删除常用的图片、背景或蒙版等要素记录，如果删除失败将返回失败的要素 URI。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteImageElementsRes deleteImageElements(DeleteImageElementsBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteImageElements", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteImageElementsRes.class);
+    }
+
+    /**
+     * <p>deleteImageBackgroundColors</p>
+     * <p>删除常用颜色</p>
+     *
+     * <p>通过输入待删除的颜色（RGB/RGBA 值），删除颜色列表内对应的颜色。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteImageBackgroundColorsRes deleteImageBackgroundColors(DeleteImageBackgroundColorsBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteImageBackgroundColors", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteImageBackgroundColorsRes.class);
+    }
+
+    /**
+     * <p>deleteImageStyle</p>
+     * <p>删除样式</p>
+     *
+     * <p>通过输入样式 ID 来删除该 ID 对应的创意魔方样式。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteImageStyleRes deleteImageStyle(DeleteImageStyleBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteImageStyle", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteImageStyleRes.class);
+    }
+
+    /**
+     * <p>createImageStyle</p>
+     * <p>新建样式</p>
+     *
+     * <p>使用本接口来创建创意魔方样式，您可以自定义样式名称、样式画布高度/宽度等参数，并得到返回的样式 ID。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateImageStyleRes createImageStyle(CreateImageStyleBody body) throws Exception {
+        RawResponse rawResponse = json("CreateImageStyle", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateImageStyleRes.class);
+    }
+
+    /**
+     * <p>updateImageStyleMeta</p>
+     * <p>更新样式元数据</p>
+     *
+     * <p>通过输入样式 ID 以及更新的样式名称来修改已创建完成的创意魔方样式名称。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageStyleMetaRes updateImageStyleMeta(UpdateImageStyleMetaBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageStyleMeta", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageStyleMetaRes.class);
+    }
+
+    /**
+     * <p>addImageElements</p>
+     * <p>添加常用图片/背景/蒙版要素</p>
+     *
+     * <p>在要素列表添加常用的图片、背景或蒙版等要素，如果添加失败将返回失败的要素 URI。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public AddImageElementsRes addImageElements(AddImageElementsBody body) throws Exception {
+        RawResponse rawResponse = json("AddImageElements", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, AddImageElementsRes.class);
+    }
+
+    /**
+     * <p>addImageBackgroundColors</p>
+     * <p>添加常用颜色</p>
+     *
+     * <p>通过输入待添加的常用颜色（RGB/RGBA 值），在颜色列表内添加对应的颜色。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public AddImageBackgroundColorsRes addImageBackgroundColors(AddImageBackgroundColorsBody body) throws Exception {
+        RawResponse rawResponse = json("AddImageBackgroundColors", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, AddImageBackgroundColorsRes.class);
+    }
+
+    /**
+     * <p>updateImageStyle</p>
+     * <p>编辑样式</p>
+     *
+     * <p>对当前已创建的创意魔方样式的各元素（如图片、文字等）进行新的编辑操作，并选择是否对上传图片按照当前样式数据进行样式渲染以及渲染结果图的存储。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageStyleRes updateImageStyle(UpdateImageStyleBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageStyle", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageStyleRes.class);
+    }
+
+    /**
+     * <p>getImageFonts</p>
+     * <p>获取可用字体</p>
+     *
+     * <p>获取创意魔方内当前可用的字体中文名称、字体资源 Uri 等可用字体详情。</p>
+     *
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageFontsRes getImageFonts() throws Exception {
+        RawResponse rawResponse = json("GetImageFonts", null, "");
+        return parseRawResponse(rawResponse, GetImageFontsRes.class);
+    }
+
+    /**
+     * <p>getImageElements</p>
+     * <p>获取常用图片/背景/蒙版要素</p>
+     *
+     * <p>在要素列表通过指定要查询的要素类型（图片/背景/蒙版），获取当前已添加为常用的该类型要素详情（如 URI 和添加时间等）。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageElementsRes getImageElements(GetImageElementsQuery query) throws Exception {
+        RawResponse rawResponse = json("GetImageElements", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetImageElementsRes.class);
+    }
+
+    /**
+     * <p>getImageBackgroundColors</p>
+     * <p>获取常用颜色</p>
+     *
+     * <p>获取当前颜色列表内的所有颜色。</p>
+     *
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageBackgroundColorsRes getImageBackgroundColors() throws Exception {
+        RawResponse rawResponse = json("GetImageBackgroundColors", null, "");
+        return parseRawResponse(rawResponse, GetImageBackgroundColorsRes.class);
+    }
+
+    /**
+     * <p>getImageStyles</p>
+     * <p>获取样式列表</p>
+     *
+     * <p>通过输入样式类型等数据，获取分页返回的样式数据信息，如：样式 ID、样式名称和结果图 Uri等参数。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageStylesRes getImageStyles(GetImageStylesQuery query) throws Exception {
+        RawResponse rawResponse = json("GetImageStyles", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetImageStylesRes.class);
+    }
+
+    /**
+     * <p>getImageStyleDetail</p>
+     * <p>获取样式详情</p>
+     *
+     * <p>本接口支持通过输入样式 ID，获取该样式各要素（图片、文字、二维码、背景等）的配置项详情。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageStyleDetailRes getImageStyleDetail(GetImageStyleDetailQuery query) throws Exception {
+        RawResponse rawResponse = json("GetImageStyleDetail", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetImageStyleDetailRes.class);
+    }
+
+    /**
      * <p>getImageStyleResult</p>
      * <p>获取结果图 URI</p>
      *
@@ -3052,6 +4116,64 @@ public class ImagexTrait extends BaseServiceImpl {
     public GetImageStyleResultRes getImageStyleResult(GetImageStyleResultQuery query, GetImageStyleResultBody body) throws Exception {
         RawResponse rawResponse = json("GetImageStyleResult", Utils.paramsToPair(query), JSON.toJSONString(body));
         return parseRawResponse(rawResponse, GetImageStyleResultRes.class);
+    }
+
+    /**
+     * <p>downloadCert</p>
+     * <p>下载证书</p>
+     *
+     * <p>本接口支持通过指定证书 ID 下载该证书，并获取返回的证书文件压缩名等信息。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DownloadCertRes downloadCert(DownloadCertQuery query) throws Exception {
+        RawResponse rawResponse = json("DownloadCert", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, DownloadCertRes.class);
+    }
+
+    /**
+     * <p>getImageAllDomainCert</p>
+     * <p>获取所有域名及证书信息</p>
+     *
+     * <p>本接口支持获取所有域名以及证书信息。</p>
+     *
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageAllDomainCertRes getImageAllDomainCert() throws Exception {
+        RawResponse rawResponse = json("GetImageAllDomainCert", null, "");
+        return parseRawResponse(rawResponse, GetImageAllDomainCertRes.class);
+    }
+
+    /**
+     * <p>getCertInfo</p>
+     * <p>获取证书详情</p>
+     *
+     * <p>本接口支持通过指定证书 ID 获取该证书的详细信息。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetCertInfoRes getCertInfo(GetCertInfoQuery query) throws Exception {
+        RawResponse rawResponse = json("GetCertInfo", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetCertInfoRes.class);
+    }
+
+    /**
+     * <p>getAllCerts</p>
+     * <p>获取账号下全部证书</p>
+     *
+     * <p>本接口支持获取当前账号下所有证书信息。</p>
+     *
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetAllCertsRes getAllCerts() throws Exception {
+        RawResponse rawResponse = json("GetAllCerts", null, "");
+        return parseRawResponse(rawResponse, GetAllCertsRes.class);
     }
 
     /**
@@ -3100,6 +4222,37 @@ public class ImagexTrait extends BaseServiceImpl {
     public DeleteImageTemplateRes deleteImageTemplate(DeleteImageTemplateQuery query, DeleteImageTemplateBody body) throws Exception {
         RawResponse rawResponse = json("DeleteImageTemplate", Utils.paramsToPair(query), JSON.toJSONString(body));
         return parseRawResponse(rawResponse, DeleteImageTemplateRes.class);
+    }
+
+    /**
+     * <p>createImageTemplatesByImport</p>
+     * <p>导入模板</p>
+     *
+     * <p>本接口支持通过指定服务 ID 以及模板的 JSON 内容，来向该服务导入图片模板。</p>
+     *
+     * <p>* 如果导入成功，则返回模板名称。</p>
+     *
+     * <p>* 如果导入失败，则返回失败原因。</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     *
+     *
+     * <p>* 包含附加组件的模板不做导入，直接忽略。</p>
+     *
+     * <p>* 包含图文水印的模板，需上传水印文件到目标服务，并替换模板内容中的水印 URI。</p>
+     *
+     * <p>:::</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateImageTemplatesByImportRes createImageTemplatesByImport(CreateImageTemplatesByImportBody body) throws Exception {
+        RawResponse rawResponse = json("CreateImageTemplatesByImport", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateImageTemplatesByImportRes.class);
     }
 
     /**
@@ -3202,6 +4355,21 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>getSyncAuditResult</p>
+     * <p>同步单条审核</p>
+     *
+     * <p>同步审核单条</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetSyncAuditResultRes getSyncAuditResult(GetSyncAuditResultBody body) throws Exception {
+        RawResponse rawResponse = json("GetSyncAuditResult", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetSyncAuditResultRes.class);
+    }
+
+    /**
      * <p>updateImageAuditTaskStatus</p>
      * <p>更新审核任务状态</p>
      *
@@ -3253,86 +4421,6 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>getCVTextGenerateImage</p>
-     * <p>文生图</p>
-     *
-     * <p>该接口支持调用豆包大模型中的智能生图 API 能力，并根据豆包模型请求信息生成相应的一张图片。同时您可指定 veIamgeX 的图片处理模板，对智能生成的图片进行进一步的个性化图片处理，并同步输出结果图 URI。</p>
-     *
-     * @param query query arguments
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public GetCVTextGenerateImageRes getCVTextGenerateImage(GetCVTextGenerateImageQuery query, GetCVTextGenerateImageBody body) throws Exception {
-        RawResponse rawResponse = json("GetCVTextGenerateImage", Utils.paramsToPair(query), JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, GetCVTextGenerateImageRes.class);
-    }
-
-    /**
-     * <p>createCVImageGenerateTask</p>
-     * <p>创建文生图异步任务</p>
-     *
-     * <p>该接口支持调用豆包大模型中的智能生图 API 能力，并根据豆包模型请求信息生成相应图片。同时您可指定 veIamgeX 的图片处理模板，对文生图进行定制化的图片处理。</p>
-     *
-     * @param query query arguments
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public CreateCVImageGenerateTaskRes createCVImageGenerateTask(CreateCVImageGenerateTaskQuery query, CreateCVImageGenerateTaskBody body) throws Exception {
-        RawResponse rawResponse = json("CreateCVImageGenerateTask", Utils.paramsToPair(query), JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, CreateCVImageGenerateTaskRes.class);
-    }
-
-    /**
-     * <p>getCVImageGenerateTask</p>
-     * <p>查询文生图任务</p>
-     *
-     * <p>本接口支持获取文生图异步任务生成的结果图存储 URI。</p>
-     *
-     * @param query query arguments
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public GetCVImageGenerateTaskRes getCVImageGenerateTask(GetCVImageGenerateTaskQuery query, GetCVImageGenerateTaskBody body) throws Exception {
-        RawResponse rawResponse = json("GetCVImageGenerateTask", Utils.paramsToPair(query), JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, GetCVImageGenerateTaskRes.class);
-    }
-
-    /**
-     * <p>getCVAnimeGenerateImage</p>
-     * <p>漫画文/图生图</p>
-     *
-     * <p>该接口支持调用豆包大模型中的智能生图 API 能力，并根据豆包模型请求信息生成相应的一张图片。同时您可指定 veIamgeX 的图片处理模板，对智能生成的图片进行进一步的个性化图片处理，获取同步输出的结果图 URI。</p>
-     *
-     * @param query query arguments
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public GetCVAnimeGenerateImageRes getCVAnimeGenerateImage(GetCVAnimeGenerateImageQuery query, GetCVAnimeGenerateImageBody body) throws Exception {
-        RawResponse rawResponse = json("GetCVAnimeGenerateImage", Utils.paramsToPair(query), JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, GetCVAnimeGenerateImageRes.class);
-    }
-    
-    /**
-     * <p>getCVImageGenerateResult</p>
-     * <p>图生图</p>
-     *
-     * <p>该接口支持调用豆包大模型中的智能生图 API 能力，并根据豆包模型请求信息生成相应的一张图片。同时您可指定 veIamgeX 的图片处理模板，对智能生成的图片进行进一步的个性化图片处理，获取同步输出的结果图 URI。</p>
-     *
-     * @param query query arguments
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public GetCVImageGenerateResultRes getCVImageGenerateResult(GetCVImageGenerateResultQuery query, GetCVImageGenerateResultBody body) throws Exception {
-        RawResponse rawResponse = json("GetCVImageGenerateResult", Utils.paramsToPair(query), JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, GetCVImageGenerateResultRes.class);
-    }
-
-    /**
      * <p>getImageAuditTasks</p>
      * <p>查询所有审核任务</p>
      *
@@ -3375,21 +4463,6 @@ public class ImagexTrait extends BaseServiceImpl {
     public GetAuditEntrysCountRes getAuditEntrysCount(GetAuditEntrysCountQuery query) throws Exception {
         RawResponse rawResponse = json("GetAuditEntrysCount", Utils.paramsToPair(query), "");
         return parseRawResponse(rawResponse, GetAuditEntrysCountRes.class);
-    }
-
-    /**
-     * <p>getSyncAuditResult</p>
-     * <p>同步单条审核</p>
-     *
-     * <p>同步审核单条</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public GetSyncAuditResultRes getSyncAuditResult(GetSyncAuditResultBody body) throws Exception {
-        RawResponse rawResponse = json("GetSyncAuditResult", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, GetSyncAuditResultRes.class);
     }
 
     /**

@@ -98,12 +98,6 @@ public final class FetchImageUrlBody  {
     private String mD5;
 
     /**
-     * <p>透传给业务的回调内容，当`Callback`不为空时为必填，取值需要符合`CallbackBodyType`指定格式。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "CallbackBodyType")
-    private String callbackBodyType;
-
-    /**
      * <p>透传给业务的回调内容格式。当`CallbackBody`不为空时为必填。取值如下所示：</p>
      *
      *
@@ -111,6 +105,16 @@ public final class FetchImageUrlBody  {
      * <p>- `application/json`</p>
      *
      * <p>- `application/x-www-form-urlencoded`</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "CallbackBodyType")
+    private String callbackBodyType;
+
+    /**
+     *
+     *
+     *
+     *
+     * <p>透传给业务的回调内容，当`Callback`不为空时为必填，取值需要符合`CallbackBodyType`指定格式。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CallbackBody")
     private String callbackBody;
@@ -134,11 +138,13 @@ public final class FetchImageUrlBody  {
     private Boolean ignoreSameKey;
 
     /**
-     * <p>文件在抓取时，是否不执行解码操作，取值如下所示：</p>
+     * <p>是否仅迁移文件，取值如下所示：</p>
      *
-     * <p>- `true`：文件仅下载上传，不执行解码操作。</p>
      *
-     * <p>- `false`：（默认）文件在下载上传同时执行解码操作。</p>
+     *
+     * <p>- `true`：仅将文件迁移至目标服务对应的存储。适用于文件快速迁移且无需获取图片元信息场景，例如对时间敏感度极高的文件传输任务。</p>
+     *
+     * <p>- `false`：（默认）迁移文件的同时，对图片类文件进行解码处理。适用于需要获取图片元信息而对迁移时间要求不高的场景。解码图片资源后，您可在返回参数获取图片的元信息，包括图片宽高、图片类型、动图的时间和帧数等，便于后续的图片分析和管理。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "FetchOnly")
     private Boolean fetchOnly;

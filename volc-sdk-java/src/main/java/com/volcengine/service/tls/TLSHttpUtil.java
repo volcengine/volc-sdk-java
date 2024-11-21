@@ -518,6 +518,16 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         }
                     }
             ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_HISTOGRAM_V1, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_HISTOGRAM_V1);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
             put(com.volcengine.model.tls.Const.MODIFY_HOST_GROUPS_AUTO_UPDATE, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

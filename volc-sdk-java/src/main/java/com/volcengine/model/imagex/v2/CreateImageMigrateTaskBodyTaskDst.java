@@ -54,7 +54,7 @@ public final class CreateImageMigrateTaskBodyTaskDst  {
      *
      * <p>- `0`：（默认）直接覆盖同名文件</p>
      *
-     * <p>- `1`：增加文件名后缀，后缀为 任务 ID</p>
+     * <p>- `1`：增加文件名后缀，后缀为任务 ID</p>
      *
      * <p>- `2`：跳过同名文件，即不做迁移</p>
      *

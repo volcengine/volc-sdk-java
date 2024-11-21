@@ -187,7 +187,7 @@ public final class CreateImageMigrateTaskBodyTaskSource  {
      *
      *
      *
-     * <p>桶清单文件的表头信息，需要传入实际桶清单文件内每列数据对应字段名称，并遵循原文件所在位置。您可参考[获取桶清单文件解析位置](https://www.volcengine.com/docs/508/1347855#%E8%8E%B7%E5%8F%96%E6%A1%B6%E6%B8%85%E5%8D%95%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90%E4%BD%8D%E7%BD%AE)获取解析 csv 文件所需的字段信息。</p>
+     * <p>桶清单文件的表头信息，需要传入实际桶清单文件内每列数据对应字段名称，并遵循原字段位置进行填写。您可参考[获取桶清单文件解析位置](https://www.volcengine.com/docs/508/1347855#%E8%8E%B7%E5%8F%96%E6%A1%B6%E6%B8%85%E5%8D%95%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90%E4%BD%8D%E7%BD%AE)获取解析 csv 文件所需的字段信息。</p>
      *
      *
      *

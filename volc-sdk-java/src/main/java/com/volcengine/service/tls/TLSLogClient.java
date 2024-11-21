@@ -38,7 +38,10 @@ public interface TLSLogClient {
 
     WebTracksResponse webTracks(WebTracksRequest request) throws LogException;
 
+    @Deprecated
     DescribeHistogramResponse describeHistogram(DescribeHistogramRequest request) throws LogException;
+
+    DescribeHistogramV1Response describeHistogramV1(DescribeHistogramV1Request request) throws LogException;
 
     /**
      * project

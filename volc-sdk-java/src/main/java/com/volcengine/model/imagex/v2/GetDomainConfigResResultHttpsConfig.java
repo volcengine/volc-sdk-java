@@ -116,6 +116,12 @@ public final class GetDomainConfigResResultHttpsConfig  {
     @com.alibaba.fastjson.annotation.JSONField(name = "tls_versions")
     private List<String> tlsVersions;
 
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "cert")
+    private GetDomainConfigResResultHttpsConfigCert cert;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

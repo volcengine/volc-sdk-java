@@ -1,4 +1,4 @@
-package com.volcengine.model.imagex;
+package com.volcengine.model.imagex.v2;
 
 
 import com.alibaba.fastjson.JSON;

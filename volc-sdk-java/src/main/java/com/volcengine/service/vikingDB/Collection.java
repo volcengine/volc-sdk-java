@@ -1,6 +1,7 @@
 package com.volcengine.service.vikingDB;
 
 import com.google.gson.internal.LinkedTreeMap;
+import com.volcengine.service.vikingDB.common.Constant;
 import com.volcengine.service.vikingDB.common.DataObject;
 import com.volcengine.service.vikingDB.common.Field;
 import com.volcengine.service.vikingDB.common.ID;
@@ -75,13 +76,13 @@ public class Collection {
     public void upsertData(DataObject dataObject) throws Exception{
         HashMap<String,Object> params = validAndPackageData(dataObject, false);
         // System.out.println(params);
-        vikingDBService.doRequest("UpsertData", null, params);
+        vikingDBService.retryRequest("UpsertData", null, params, Constant.MAX_RETRIES);
 
     }
     public void upsertData(DataObject dataObject, Boolean asyncUpsert) throws Exception{
         HashMap<String,Object> params = validAndPackageData(dataObject, asyncUpsert);
         // System.out.println(params);
-        vikingDBService.doRequest("UpsertData", null, params);
+        vikingDBService.retryRequest("UpsertData", null, params, Constant.MAX_RETRIES);
 
     }
     public void upsertData(List<DataObject> dataObjects) throws Exception{
@@ -92,7 +93,7 @@ public class Collection {
             params.put("fields", record.get(key));
             params.put("ttl", key);
             // System.out.println(params);
-            vikingDBService.doRequest("UpsertData", null, params);
+            vikingDBService.retryRequest("UpsertData", null, params, Constant.MAX_RETRIES);
         }
     }
     public void upsertData(List<DataObject> dataObjects, Boolean asyncUpsert) throws Exception{
@@ -106,7 +107,7 @@ public class Collection {
                 params.put("async", asyncUpsert);
             }
             // System.out.println(params);
-            vikingDBService.doRequest("UpsertData", null, params);
+            vikingDBService.retryRequest("UpsertData", null, params, Constant.MAX_RETRIES);
         }
     }
     public <T>void deleteData(T id) throws Exception{
@@ -120,7 +121,7 @@ public class Collection {
         HashMap<String,Object> params = new HashMap<String,Object>();
         params.put("collection_name", collectionName);
         params.put("primary_keys", id);
-        LinkedTreeMap<String,Object> resData = vikingDBService.doRequest("FetchData",null, params);
+        LinkedTreeMap<String,Object> resData = vikingDBService.retryRequest("FetchData",null, params, Constant.MAX_RETRIES);
         // System.out.println(resData);
         @SuppressWarnings("unchecked")
         ArrayList<LinkedTreeMap<String,Object>> res = (ArrayList<LinkedTreeMap<String,Object>>)resData.get("data");
@@ -137,7 +138,7 @@ public class Collection {
         HashMap<String,Object> params = new HashMap<String,Object>();
         params.put("collection_name", collectionName);
         params.put("primary_keys", ids);
-        LinkedTreeMap<String,Object> resData = vikingDBService.doRequest("FetchData",null, params);
+        LinkedTreeMap<String,Object> resData = vikingDBService.retryRequest("FetchData",null, params, Constant.MAX_RETRIES);
         // System.out.println(resData);
         @SuppressWarnings("unchecked")
         ArrayList<LinkedTreeMap<String,Object>> res = (ArrayList<LinkedTreeMap<String,Object>>)resData.get("data");

@@ -2029,4 +2029,85 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetActivityAllCouponsPickDataResponse getActivityAllCouponsPickData(GetActivityAllCouponsPickDataRequest getActivityAllCouponsPickDataRequest) throws Exception;
+
+    /**
+     * createSubAccount
+     *
+     * @param createSubAccountRequest CreateSubAccountRequest
+     * @return CreateSubAccountResponse
+     * @throws Exception the exception
+     */
+    CreateSubAccountResponse createSubAccount(CreateSubAccountRequest createSubAccountRequest) throws Exception;
+
+    /**
+     * updateSubAccount
+     *
+     * @param updateSubAccountRequest UpdateSubAccountRequest
+     * @return UpdateSubAccountResponse
+     * @throws Exception the exception
+     */
+    UpdateSubAccountResponse updateSubAccount(UpdateSubAccountRequest updateSubAccountRequest) throws Exception;
+
+    /**
+     * deleteSubAccount
+     *
+     * @param deleteSubAccountRequest DeleteSubAccountRequest
+     * @return DeleteSubAccountResponse
+     * @throws Exception the exception
+     */
+    DeleteSubAccountResponse deleteSubAccount(DeleteSubAccountRequest deleteSubAccountRequest) throws Exception;
+
+    /**
+     * listSubAccounts
+     *
+     * @param listSubAccountsRequest ListSubAccountsRequest
+     * @return ListSubAccountsResponse
+     * @throws Exception the exception
+     */
+    ListSubAccountsResponse listSubAccounts(ListSubAccountsRequest listSubAccountsRequest) throws Exception;
+
+    /**
+     * getSubAccount
+     *
+     * @param getSubAccountRequest GetSubAccountRequest
+     * @return GetSubAccountResponse
+     * @throws Exception the exception
+     */
+    GetSubAccountResponse getSubAccount(GetSubAccountRequest getSubAccountRequest) throws Exception;
+
+    /**
+     * listSubAccountRoles
+     *
+     * @param listSubAccountRolesRequest ListSubAccountRolesRequest
+     * @return ListSubAccountRolesResponse
+     * @throws Exception the exception
+     */
+    ListSubAccountRolesResponse listSubAccountRoles(ListSubAccountRolesRequest listSubAccountRolesRequest) throws Exception;
+
+    /**
+     * listSubAccountOrganizations
+     *
+     * @param listSubAccountOrganizationsRequest ListSubAccountOrganizationsRequest
+     * @return ListSubAccountOrganizationsResponse
+     * @throws Exception the exception
+     */
+    ListSubAccountOrganizationsResponse listSubAccountOrganizations(ListSubAccountOrganizationsRequest listSubAccountOrganizationsRequest) throws Exception;
+
+    /**
+     * exportActivityData
+     *
+     * @param exportActivityDataRequest ExportActivityDataRequest
+     * @return ExportActivityDataResponse
+     * @throws Exception the exception
+     */
+    ExportActivityDataResponse exportActivityData(ExportActivityDataRequest exportActivityDataRequest) throws Exception;
+
+    /**
+     * getActivityExportFile
+     *
+     * @param getActivityExportFileRequest GetActivityExportFileRequest
+     * @return GetActivityExportFileResponse
+     * @throws Exception the exception
+     */
+    GetActivityExportFileResponse getActivityExportFile(GetActivityExportFileRequest getActivityExportFileRequest) throws Exception;
 }

@@ -591,6 +591,15 @@ public class Const {
     public static final String StopActivityCoupon = "StopActivityCoupon";
     public static final String GetActivityCouponPickData = "GetActivityCouponPickData";
     public static final String GetActivityAllCouponsPickData = "GetActivityAllCouponsPickData";
+    public static final String CreateSubAccount = "CreateSubAccount";
+    public static final String UpdateSubAccount = "UpdateSubAccount";
+    public static final String DeleteSubAccount = "DeleteSubAccount";
+    public static final String ListSubAccounts = "ListSubAccounts";
+    public static final String GetSubAccount = "GetSubAccount";
+    public static final String ListSubAccountRoles = "ListSubAccountRoles";
+    public static final String ListSubAccountOrganizations = "ListSubAccountOrganizations";
+    public static final String ExportActivityData = "ExportActivityData";
+    public static final String GetActivityExportFile = "GetActivityExportFile";
 
     // translate
     public static final String LangDetect = "LangDetect";

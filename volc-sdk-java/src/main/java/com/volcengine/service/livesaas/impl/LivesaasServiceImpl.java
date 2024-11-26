@@ -3611,4 +3611,139 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public CreateSubAccountResponse createSubAccount(CreateSubAccountRequest createSubAccountRequest) throws Exception {
+        RawResponse response = json(Const.CreateSubAccount, new ArrayList<>(),JSON.toJSONString(createSubAccountRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CreateSubAccountResponse res = JSON.parseObject(response.getData(), CreateSubAccountResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateSubAccountResponse updateSubAccount(UpdateSubAccountRequest updateSubAccountRequest) throws Exception {
+        RawResponse response = json(Const.UpdateSubAccount, new ArrayList<>(),JSON.toJSONString(updateSubAccountRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateSubAccountResponse res = JSON.parseObject(response.getData(), UpdateSubAccountResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteSubAccountResponse deleteSubAccount(DeleteSubAccountRequest deleteSubAccountRequest) throws Exception {
+        RawResponse response = json(Const.DeleteSubAccount, new ArrayList<>(),JSON.toJSONString(deleteSubAccountRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteSubAccountResponse res = JSON.parseObject(response.getData(), DeleteSubAccountResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListSubAccountsResponse listSubAccounts(ListSubAccountsRequest listSubAccountsRequest) throws Exception {
+        RawResponse response = query(Const.ListSubAccounts, Utils.paramsToPair(listSubAccountsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListSubAccountsResponse res = JSON.parseObject(response.getData(), ListSubAccountsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetSubAccountResponse getSubAccount(GetSubAccountRequest getSubAccountRequest) throws Exception {
+        RawResponse response = query(Const.GetSubAccount, Utils.paramsToPair(getSubAccountRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetSubAccountResponse res = JSON.parseObject(response.getData(), GetSubAccountResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListSubAccountRolesResponse listSubAccountRoles(ListSubAccountRolesRequest listSubAccountRolesRequest) throws Exception {
+        RawResponse response = query(Const.ListSubAccountRoles, Utils.paramsToPair(listSubAccountRolesRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListSubAccountRolesResponse res = JSON.parseObject(response.getData(), ListSubAccountRolesResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListSubAccountOrganizationsResponse listSubAccountOrganizations(ListSubAccountOrganizationsRequest listSubAccountOrganizationsRequest) throws Exception {
+        RawResponse response = query(Const.ListSubAccountOrganizations, Utils.paramsToPair(listSubAccountOrganizationsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListSubAccountOrganizationsResponse res = JSON.parseObject(response.getData(), ListSubAccountOrganizationsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ExportActivityDataResponse exportActivityData(ExportActivityDataRequest exportActivityDataRequest) throws Exception {
+        RawResponse response = json(Const.ExportActivityData, new ArrayList<>(),JSON.toJSONString(exportActivityDataRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ExportActivityDataResponse res = JSON.parseObject(response.getData(), ExportActivityDataResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetActivityExportFileResponse getActivityExportFile(GetActivityExportFileRequest getActivityExportFileRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityExportFile, Utils.paramsToPair(getActivityExportFileRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityExportFileResponse res = JSON.parseObject(response.getData(), GetActivityExportFileResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

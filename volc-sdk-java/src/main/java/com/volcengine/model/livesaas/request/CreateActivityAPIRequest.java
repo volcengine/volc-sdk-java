@@ -38,4 +38,6 @@ public class CreateActivityAPIRequest {
     Integer IsAnswerRepetitionEnable;
     @JSONField(name = "LiveLayout")
     Integer LiveLayout;
+    @JSONField(name = "CreatorName")
+    String CreatorName;
 }

@@ -18,5 +18,9 @@ public class GetWebPushLiveClientAPIResponse {
     public static class GetWebPushLiveClientAPIBody {
         @JSONField(name = "Url")
         String Url;
+        @JSONField(name="TmpUrl")
+        String TmpUrl;
+        @JSONField(name="ExpireTime")
+        Long ExpireTime;
     }
 }

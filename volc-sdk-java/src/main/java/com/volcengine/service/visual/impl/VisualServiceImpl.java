@@ -416,7 +416,14 @@ public class VisualServiceImpl extends BaseServiceImpl implements IVisualService
             return JSON.parseObject(new String(response.getData()));
         }
     }
-
+    @Override
+    public VisualCertLivenessVerifyQueryResponse CertLivenessVerifyQuery(VisualCertLivenessVerifyQueryRequest request) throws Exception {
+        RawResponse response = json(Const.CertLivenessVerifyQuery, null, JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(new String(response.getData(), "UTF-8"), VisualCertLivenessVerifyQueryResponse.class);
+    }
 
     @Override
     public VisualImg2Video3DResponse img2Video3D(VisualImg2Video3DRequest request) throws Exception {

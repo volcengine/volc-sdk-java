@@ -120,4 +120,68 @@ public interface ImpSubmitJobRequestOrBuilder extends
    * <code>.Volcengine.Imp.Models.Business.Params Params = 5;</code>
    */
   com.volcengine.service.imp.model.business.ParamsOrBuilder getParamsOrBuilder();
+
+  /**
+   * <code>.Volcengine.Imp.Models.Business.OutputPath OutputPath = 6;</code>
+   * @return Whether the outputPath field is set.
+   */
+  boolean hasOutputPath();
+  /**
+   * <code>.Volcengine.Imp.Models.Business.OutputPath OutputPath = 6;</code>
+   * @return The outputPath.
+   */
+  com.volcengine.service.imp.model.business.OutputPath getOutputPath();
+  /**
+   * <code>.Volcengine.Imp.Models.Business.OutputPath OutputPath = 6;</code>
+   */
+  com.volcengine.service.imp.model.business.OutputPathOrBuilder getOutputPathOrBuilder();
+
+  /**
+   * <code>.Volcengine.Imp.Models.Business.Job Job = 7;</code>
+   * @return Whether the job field is set.
+   */
+  boolean hasJob();
+  /**
+   * <code>.Volcengine.Imp.Models.Business.Job Job = 7;</code>
+   * @return The job.
+   */
+  com.volcengine.service.imp.model.business.Job getJob();
+  /**
+   * <code>.Volcengine.Imp.Models.Business.Job Job = 7;</code>
+   */
+  com.volcengine.service.imp.model.business.JobOrBuilder getJobOrBuilder();
+
+  /**
+   * <code>string CallbackUri = 8;</code>
+   * @return Whether the callbackUri field is set.
+   */
+  boolean hasCallbackUri();
+  /**
+   * <code>string CallbackUri = 8;</code>
+   * @return The callbackUri.
+   */
+  java.lang.String getCallbackUri();
+  /**
+   * <code>string CallbackUri = 8;</code>
+   * @return The bytes for callbackUri.
+   */
+  com.google.protobuf.ByteString
+      getCallbackUriBytes();
+
+  /**
+   * <code>string CallbackContentType = 9;</code>
+   * @return Whether the callbackContentType field is set.
+   */
+  boolean hasCallbackContentType();
+  /**
+   * <code>string CallbackContentType = 9;</code>
+   * @return The callbackContentType.
+   */
+  java.lang.String getCallbackContentType();
+  /**
+   * <code>string CallbackContentType = 9;</code>
+   * @return The bytes for callbackContentType.
+   */
+  com.google.protobuf.ByteString
+      getCallbackContentTypeBytes();
 }

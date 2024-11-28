@@ -20,5 +20,9 @@ public class GetTemporaryLoginTokenResponse {
         String SecretKey;
         @JSONField(name = "ActivityId")
         Long ActivityId;
+        @JSONField(name="TmpSecretKey")
+        String TmpSecretKey;
+        @JSONField(name="ExpireTime")
+        Long ExpireTime;
     }
 }

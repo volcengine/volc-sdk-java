@@ -201,4 +201,43 @@ public interface JobExecutionOrBuilder extends
    */
   com.google.protobuf.ByteString
       getJobSourceBytes();
+
+  /**
+   * <code>.Volcengine.Imp.Models.Business.Job Job = 10;</code>
+   * @return Whether the job field is set.
+   */
+  boolean hasJob();
+  /**
+   * <code>.Volcengine.Imp.Models.Business.Job Job = 10;</code>
+   * @return The job.
+   */
+  com.volcengine.service.imp.model.business.Job getJob();
+  /**
+   * <code>.Volcengine.Imp.Models.Business.Job Job = 10;</code>
+   */
+  com.volcengine.service.imp.model.business.JobOrBuilder getJobOrBuilder();
+
+  /**
+   * <code>string CallbackUri = 11;</code>
+   * @return The callbackUri.
+   */
+  java.lang.String getCallbackUri();
+  /**
+   * <code>string CallbackUri = 11;</code>
+   * @return The bytes for callbackUri.
+   */
+  com.google.protobuf.ByteString
+      getCallbackUriBytes();
+
+  /**
+   * <code>string CallbackContentType = 12;</code>
+   * @return The callbackContentType.
+   */
+  java.lang.String getCallbackContentType();
+  /**
+   * <code>string CallbackContentType = 12;</code>
+   * @return The bytes for callbackContentType.
+   */
+  com.google.protobuf.ByteString
+      getCallbackContentTypeBytes();
 }

@@ -9,5 +9,5 @@ public class LLMTask {
     @JSONField(name = "TaskDetail")
     TaskDetail TaskDetail;
     @JSONField(name = "TaskResult")
-    TaskResult TaskResult;
+    ListTaskResult TaskResult;
 }

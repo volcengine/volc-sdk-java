@@ -31,12 +31,20 @@ public class GetActivityLinksResponse {
     public static class WebPushHostLink {
         @JSONField(name = "Url")
         String Url;
+        @JSONField(name="TmpUrl")
+        String TmpUrl;
+        @JSONField(name="ExpireTime")
+        Long ExpireTime;
     }
 
     @Data
     public static class LiveClientLink {
         @JSONField(name = "Url")
         String Url;
+        @JSONField(name="TmpUrl")
+        String TmpUrl;
+        @JSONField(name="ExpireTime")
+        Long ExpireTime;
     }
 
     @Data

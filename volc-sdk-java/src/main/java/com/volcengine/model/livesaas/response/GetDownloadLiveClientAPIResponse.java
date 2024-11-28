@@ -18,5 +18,9 @@ public class GetDownloadLiveClientAPIResponse {
     public static class GetDownloadLiveClientAPIResponseBody {
         @JSONField(name = "Url")
         String Url;
+        @JSONField(name="TmpUrl")
+        String TmpUrl;
+        @JSONField(name="ExpireTime")
+        Long ExpireTime;
     }
 }

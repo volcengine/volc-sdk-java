@@ -43,6 +43,10 @@ public class VisualCertH5ConfigInitRequest {
         String enableRecord="1";
         @JSONField(name = "redirect_url")
         String redirectUrl;
+        @JSONField(name = "ignore_homepage_agreement")
+        Boolean ignoreHomepageAgreement=false;
+        @JSONField(name = "ignore_bottom_text")
+        Boolean ignoreBottomText=false;
 
     }
     @Data

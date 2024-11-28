@@ -155,7 +155,7 @@ public class VikingDBService extends BaseServiceImpl {
         apiInfo.put("BatchRerank", new ApiInfo(paramsPost));
 
         paramsGet.put(Const.Path, "/api/viking_db/data/ping");
-        apiInfo.put("Ping", new ApiInfo(paramsPost));
+        apiInfo.put("Ping", new ApiInfo(paramsGet));
 
         paramsPost.put(Const.Path, "/api/data/embedding/version/2");
         apiInfo.put("EmbeddingV2", new ApiInfo(paramsPost));
@@ -171,6 +171,9 @@ public class VikingDBService extends BaseServiceImpl {
 
         paramsPost.put(Const.Path, "/api/task/drop");
         apiInfo.put("DropTask", new ApiInfo(paramsPost));
+
+        paramsPost.put(Const.Path, "/api/task/update");
+        apiInfo.put("UpdateTask", new ApiInfo(paramsPost));
 
         return apiInfo;
     }
@@ -828,6 +831,13 @@ public class VikingDBService extends BaseServiceImpl {
         HashMap<String,Object> params = new HashMap<>();
         params.put("task_id", taskId);
         doRequest("DropTask",null, params);
+    }
+
+    public void updateTask(String taskId, String task_status) throws Exception{
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("task_id", taskId);
+        params.put("task_status", task_status);
+        doRequest("UpdateTask",null, params);
     }
 
 

@@ -47,4 +47,10 @@ public class AwardConfigStatistic {
     List<AwardItemInfo> AwardItemInfo;
     @JSONField(name = "IsHideAwardNum")
     Integer IsHideAwardNum;
+    @JSONField(name = "AwardSendType")
+    Integer AwardSendType;
+    @JSONField(name = "AwardSendTime")
+    Long AwardSendTime;
+    @JSONField(name = "DeadLineSecond")
+    Long DeadLineSecond;
 }

@@ -307,6 +307,13 @@ public interface IVisualService extends IBaseService {
      */
     Object certQueryProV2(VisualCertQueryProRequest request) ;
     /**
+     * 身份认证单活体Query服务
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    VisualCertLivenessVerifyQueryResponse CertLivenessVerifyQuery(VisualCertLivenessVerifyQueryRequest request) throws Exception;
+    /**
      * 希区柯克V2(3D运镜)
      * @param request
      * @return

@@ -85,6 +85,8 @@ public class Const {
     public static final String CVSync2AsyncSubmitTask = "CVSync2AsyncSubmitTask";
     public static final String CVProcess = "CVProcess";
 
+    public static final String CertLivenessVerifyQuery = "CertLivenessVerifyQuery";
+
     // billing
     public static final String ListBill = "ListBill";
     public static final String ListBillDetail = "ListBillDetail";

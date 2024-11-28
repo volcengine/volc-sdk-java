@@ -10,7 +10,7 @@ public class GetLLMReportData {
     @JSONField(name = "TaskDetail")
     TaskDetail TaskDetail;
     @JSONField(name = "TaskResult")
-    ListTaskResult TaskResult;
+    TaskResult TaskResult;
     @JSONField(name = "ViolationDetails")
     List<ViolationDetail> ViolationDetails;
 }

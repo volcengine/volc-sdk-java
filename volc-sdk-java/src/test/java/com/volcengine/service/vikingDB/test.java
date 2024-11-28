@@ -26,19 +26,24 @@ public class test {
     
     public static void main(String[] args) throws Exception {
         VikingDBService vikingDBService = new VikingDBService("", "", "", "","");
+        
+        // vikingDBService.updateTask("09c7070d-b902-5da3-ba37-d412a9053f1e", TaskStatus.Confirmed);
+        
         // HashMap<String, Object> taskParams = new HashMap<>();
-        // taskParams.put("tos_path", "demo-1028/demo_1030");
-        // taskParams.put("ignore_error", false);
-        // taskParams.put("collection_name", "sparse");
-        // taskParams.put("file_type", "json");
+        // List<Integer> s = new ArrayList<>();
+        // s.add(4);
+        // HashMap<String, Object> filter = new HashMap<>();
+        // filter.put("like", s);
+        // taskParams.put("filter", filter);
+        // taskParams.put("collection_name", "example");
         // CreateTaskParam taskParam = new CreateTaskParam()
-        //                             .setTaskType(TaskType.DataImport)
+        //                             .setTaskType(TaskType.FilterDelete)
         //                             .setTaskParams(taskParams)
         //                             .build();
         // String id = vikingDBService.createTask(taskParam);
         // System.out.println(id);
 
-        // Task task = vikingDBService.getTask("");
+        // Task task = vikingDBService.getTask("09c7070d-b902-5da3-ba37-d412a9053f1e");
         // System.out.println(task);
 
         // List<Task> tasks = vikingDBService.listTasks();
@@ -143,8 +148,8 @@ public class test {
     //    Collection collection = vikingDBService.getCollection("test66");  // 删除数据
     //    collection.deleteData("48");
 
-    //    Collection aa = vikingDBService.getCollection("sparse_go"); // 数据集查询数据
-    //    DataObject dataObject = aa.fetchData("123");
+    //    Collection aa = vikingDBService.getCollection("example"); // 数据集查询数据
+    //    DataObject dataObject = aa.fetchData("444");
     //    System.out.println(dataObject);
 
     //    List<Field> fields = new ArrayList<>();

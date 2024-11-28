@@ -24,6 +24,8 @@ private static final long serialVersionUID = 0L;
     templateId_ = "";
     enableLowPriority_ = "";
     jobSource_ = "";
+    callbackUri_ = "";
+    callbackContentType_ = "";
   }
 
   @java.lang.Override
@@ -119,6 +121,31 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             jobSource_ = s;
+            break;
+          }
+          case 82: {
+            com.volcengine.service.imp.model.business.Job.Builder subBuilder = null;
+            if (job_ != null) {
+              subBuilder = job_.toBuilder();
+            }
+            job_ = input.readMessage(com.volcengine.service.imp.model.business.Job.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(job_);
+              job_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 90: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            callbackUri_ = s;
+            break;
+          }
+          case 98: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            callbackContentType_ = s;
             break;
           }
           default: {
@@ -560,6 +587,108 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int JOB_FIELD_NUMBER = 10;
+  private com.volcengine.service.imp.model.business.Job job_;
+  /**
+   * <code>.Volcengine.Imp.Models.Business.Job Job = 10;</code>
+   * @return Whether the job field is set.
+   */
+  @java.lang.Override
+  public boolean hasJob() {
+    return job_ != null;
+  }
+  /**
+   * <code>.Volcengine.Imp.Models.Business.Job Job = 10;</code>
+   * @return The job.
+   */
+  @java.lang.Override
+  public com.volcengine.service.imp.model.business.Job getJob() {
+    return job_ == null ? com.volcengine.service.imp.model.business.Job.getDefaultInstance() : job_;
+  }
+  /**
+   * <code>.Volcengine.Imp.Models.Business.Job Job = 10;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.imp.model.business.JobOrBuilder getJobOrBuilder() {
+    return getJob();
+  }
+
+  public static final int CALLBACKURI_FIELD_NUMBER = 11;
+  private volatile java.lang.Object callbackUri_;
+  /**
+   * <code>string CallbackUri = 11;</code>
+   * @return The callbackUri.
+   */
+  @java.lang.Override
+  public java.lang.String getCallbackUri() {
+    java.lang.Object ref = callbackUri_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      callbackUri_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string CallbackUri = 11;</code>
+   * @return The bytes for callbackUri.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCallbackUriBytes() {
+    java.lang.Object ref = callbackUri_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      callbackUri_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CALLBACKCONTENTTYPE_FIELD_NUMBER = 12;
+  private volatile java.lang.Object callbackContentType_;
+  /**
+   * <code>string CallbackContentType = 12;</code>
+   * @return The callbackContentType.
+   */
+  @java.lang.Override
+  public java.lang.String getCallbackContentType() {
+    java.lang.Object ref = callbackContentType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      callbackContentType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string CallbackContentType = 12;</code>
+   * @return The bytes for callbackContentType.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCallbackContentTypeBytes() {
+    java.lang.Object ref = callbackContentType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      callbackContentType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -601,6 +730,15 @@ private static final long serialVersionUID = 0L;
     if (!getJobSourceBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, jobSource_);
     }
+    if (job_ != null) {
+      output.writeMessage(10, getJob());
+    }
+    if (!getCallbackUriBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, callbackUri_);
+    }
+    if (!getCallbackContentTypeBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, callbackContentType_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -639,6 +777,16 @@ private static final long serialVersionUID = 0L;
     if (!getJobSourceBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, jobSource_);
     }
+    if (job_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(10, getJob());
+    }
+    if (!getCallbackUriBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, callbackUri_);
+    }
+    if (!getCallbackContentTypeBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, callbackContentType_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -675,6 +823,15 @@ private static final long serialVersionUID = 0L;
         .equals(other.getEnableLowPriority())) return false;
     if (!getJobSource()
         .equals(other.getJobSource())) return false;
+    if (hasJob() != other.hasJob()) return false;
+    if (hasJob()) {
+      if (!getJob()
+          .equals(other.getJob())) return false;
+    }
+    if (!getCallbackUri()
+        .equals(other.getCallbackUri())) return false;
+    if (!getCallbackContentType()
+        .equals(other.getCallbackContentType())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -708,6 +865,14 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getEnableLowPriority().hashCode();
     hash = (37 * hash) + JOBSOURCE_FIELD_NUMBER;
     hash = (53 * hash) + getJobSource().hashCode();
+    if (hasJob()) {
+      hash = (37 * hash) + JOB_FIELD_NUMBER;
+      hash = (53 * hash) + getJob().hashCode();
+    }
+    hash = (37 * hash) + CALLBACKURI_FIELD_NUMBER;
+    hash = (53 * hash) + getCallbackUri().hashCode();
+    hash = (37 * hash) + CALLBACKCONTENTTYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getCallbackContentType().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -868,6 +1033,16 @@ private static final long serialVersionUID = 0L;
 
       jobSource_ = "";
 
+      if (jobBuilder_ == null) {
+        job_ = null;
+      } else {
+        job_ = null;
+        jobBuilder_ = null;
+      }
+      callbackUri_ = "";
+
+      callbackContentType_ = "";
+
       return this;
     }
 
@@ -916,6 +1091,13 @@ private static final long serialVersionUID = 0L;
       result.templateId_ = templateId_;
       result.enableLowPriority_ = enableLowPriority_;
       result.jobSource_ = jobSource_;
+      if (jobBuilder_ == null) {
+        result.job_ = job_;
+      } else {
+        result.job_ = jobBuilder_.build();
+      }
+      result.callbackUri_ = callbackUri_;
+      result.callbackContentType_ = callbackContentType_;
       onBuilt();
       return result;
     }
@@ -1019,6 +1201,17 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getJobSource().isEmpty()) {
         jobSource_ = other.jobSource_;
+        onChanged();
+      }
+      if (other.hasJob()) {
+        mergeJob(other.getJob());
+      }
+      if (!other.getCallbackUri().isEmpty()) {
+        callbackUri_ = other.callbackUri_;
+        onChanged();
+      }
+      if (!other.getCallbackContentType().isEmpty()) {
+        callbackContentType_ = other.callbackContentType_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -2146,6 +2339,277 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       jobSource_ = value;
+      onChanged();
+      return this;
+    }
+
+    private com.volcengine.service.imp.model.business.Job job_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.imp.model.business.Job, com.volcengine.service.imp.model.business.Job.Builder, com.volcengine.service.imp.model.business.JobOrBuilder> jobBuilder_;
+    /**
+     * <code>.Volcengine.Imp.Models.Business.Job Job = 10;</code>
+     * @return Whether the job field is set.
+     */
+    public boolean hasJob() {
+      return jobBuilder_ != null || job_ != null;
+    }
+    /**
+     * <code>.Volcengine.Imp.Models.Business.Job Job = 10;</code>
+     * @return The job.
+     */
+    public com.volcengine.service.imp.model.business.Job getJob() {
+      if (jobBuilder_ == null) {
+        return job_ == null ? com.volcengine.service.imp.model.business.Job.getDefaultInstance() : job_;
+      } else {
+        return jobBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.Volcengine.Imp.Models.Business.Job Job = 10;</code>
+     */
+    public Builder setJob(com.volcengine.service.imp.model.business.Job value) {
+      if (jobBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        job_ = value;
+        onChanged();
+      } else {
+        jobBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Volcengine.Imp.Models.Business.Job Job = 10;</code>
+     */
+    public Builder setJob(
+        com.volcengine.service.imp.model.business.Job.Builder builderForValue) {
+      if (jobBuilder_ == null) {
+        job_ = builderForValue.build();
+        onChanged();
+      } else {
+        jobBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Volcengine.Imp.Models.Business.Job Job = 10;</code>
+     */
+    public Builder mergeJob(com.volcengine.service.imp.model.business.Job value) {
+      if (jobBuilder_ == null) {
+        if (job_ != null) {
+          job_ =
+            com.volcengine.service.imp.model.business.Job.newBuilder(job_).mergeFrom(value).buildPartial();
+        } else {
+          job_ = value;
+        }
+        onChanged();
+      } else {
+        jobBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Volcengine.Imp.Models.Business.Job Job = 10;</code>
+     */
+    public Builder clearJob() {
+      if (jobBuilder_ == null) {
+        job_ = null;
+        onChanged();
+      } else {
+        job_ = null;
+        jobBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Volcengine.Imp.Models.Business.Job Job = 10;</code>
+     */
+    public com.volcengine.service.imp.model.business.Job.Builder getJobBuilder() {
+      
+      onChanged();
+      return getJobFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.Volcengine.Imp.Models.Business.Job Job = 10;</code>
+     */
+    public com.volcengine.service.imp.model.business.JobOrBuilder getJobOrBuilder() {
+      if (jobBuilder_ != null) {
+        return jobBuilder_.getMessageOrBuilder();
+      } else {
+        return job_ == null ?
+            com.volcengine.service.imp.model.business.Job.getDefaultInstance() : job_;
+      }
+    }
+    /**
+     * <code>.Volcengine.Imp.Models.Business.Job Job = 10;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.imp.model.business.Job, com.volcengine.service.imp.model.business.Job.Builder, com.volcengine.service.imp.model.business.JobOrBuilder> 
+        getJobFieldBuilder() {
+      if (jobBuilder_ == null) {
+        jobBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.imp.model.business.Job, com.volcengine.service.imp.model.business.Job.Builder, com.volcengine.service.imp.model.business.JobOrBuilder>(
+                getJob(),
+                getParentForChildren(),
+                isClean());
+        job_ = null;
+      }
+      return jobBuilder_;
+    }
+
+    private java.lang.Object callbackUri_ = "";
+    /**
+     * <code>string CallbackUri = 11;</code>
+     * @return The callbackUri.
+     */
+    public java.lang.String getCallbackUri() {
+      java.lang.Object ref = callbackUri_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        callbackUri_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string CallbackUri = 11;</code>
+     * @return The bytes for callbackUri.
+     */
+    public com.google.protobuf.ByteString
+        getCallbackUriBytes() {
+      java.lang.Object ref = callbackUri_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        callbackUri_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string CallbackUri = 11;</code>
+     * @param value The callbackUri to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCallbackUri(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      callbackUri_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string CallbackUri = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCallbackUri() {
+      
+      callbackUri_ = getDefaultInstance().getCallbackUri();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string CallbackUri = 11;</code>
+     * @param value The bytes for callbackUri to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCallbackUriBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      callbackUri_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object callbackContentType_ = "";
+    /**
+     * <code>string CallbackContentType = 12;</code>
+     * @return The callbackContentType.
+     */
+    public java.lang.String getCallbackContentType() {
+      java.lang.Object ref = callbackContentType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        callbackContentType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string CallbackContentType = 12;</code>
+     * @return The bytes for callbackContentType.
+     */
+    public com.google.protobuf.ByteString
+        getCallbackContentTypeBytes() {
+      java.lang.Object ref = callbackContentType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        callbackContentType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string CallbackContentType = 12;</code>
+     * @param value The callbackContentType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCallbackContentType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      callbackContentType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string CallbackContentType = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCallbackContentType() {
+      
+      callbackContentType_ = getDefaultInstance().getCallbackContentType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string CallbackContentType = 12;</code>
+     * @param value The bytes for callbackContentType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCallbackContentTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      callbackContentType_ = value;
       onChanged();
       return this;
     }

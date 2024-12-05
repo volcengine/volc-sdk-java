@@ -600,4 +600,49 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
         }
         return JSON.parseObject(response.getData(), CDN.ListUsageReportsResponse.class);
     }
+
+    @Override
+    public CDN.DescribeSharedConfigResponse describeSharedConfig(CDN.DescribeSharedConfigRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeSharedConfig", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeSharedConfigResponse.class);
+    }
+
+    @Override
+    public CDN.ListSharedConfigResponse listSharedConfig(CDN.ListSharedConfigRequest request) throws Exception {
+        RawResponse response = requestProxy("ListSharedConfig", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.ListSharedConfigResponse.class);
+    }
+
+    @Override
+    public CDN.DeleteSharedConfigResponse deleteSharedConfig(CDN.DeleteSharedConfigRequest request) throws Exception {
+        RawResponse response = requestProxy("DeleteSharedConfig", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DeleteSharedConfigResponse.class);
+    }
+
+    @Override
+    public CDN.UpdateSharedConfigResponse updateSharedConfig(CDN.UpdateSharedConfigRequest request) throws Exception {
+        RawResponse response = requestProxy("UpdateSharedConfig", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.UpdateSharedConfigResponse.class);
+    }
+
+    @Override
+    public CDN.AddSharedConfigResponse addSharedConfig(CDN.AddSharedConfigRequest request) throws Exception {
+        RawResponse response = requestProxy("AddSharedConfig", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.AddSharedConfigResponse.class);
+    }
 }

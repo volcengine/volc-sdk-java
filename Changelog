@@ -1,5 +1,8 @@
 Change log
 
+2024-12-05 Bumped to version v1.0.196
+- Updated apis for vod/cdn/tls/livesaas
+
 2024-11-28 Bumped to version v1.0.195
 - Updated apis for livesaas/visual/vikingDB/imp
 

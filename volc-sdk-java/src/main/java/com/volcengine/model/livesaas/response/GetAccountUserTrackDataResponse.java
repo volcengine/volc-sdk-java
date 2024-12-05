@@ -86,6 +86,8 @@ public class GetAccountUserTrackDataResponse {
         Long NoInteractNumber;
         @JSONField(name = "CouponPickupCount")
         Long CouponPickupCount;
+        @JSONField(name = "ThumbUpNumber")
+        Long ThumbUpNumber;
     }
 
     @Data

@@ -23,9 +23,9 @@ public class CreateTopicRequest {
     @JSONField(name = SHARD_COUNT)
     Integer shardCount;
     @JSONField(name = AUTO_SPLIT)
-    Boolean autoSplit;
+    Boolean autoSplit = true;
     @JSONField(name = MAX_SPLIT_SHARD)
-    Integer maxSplitShard;
+    Integer maxSplitShard = 50;
     @JSONField(name = ENABLE_TRACKING)
     Boolean enableTracking;
     @JSONField(name = TIME_KEY)

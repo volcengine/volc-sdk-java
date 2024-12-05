@@ -1477,6 +1477,12 @@ public class TLSLogClientImpl implements TLSLogClient {
         code = SdkError.getErrorDesc(SdkError.getError(response.getCode()));
         if (response.getException() != null) {
             message = response.getException().getMessage();
+            try {
+                LogException logException = JSON.parseObject(message, LogException.class);
+                code = logException.getErrorCode();
+                message = logException.getErrorMessage();
+            } catch (Exception ignored) {
+            }
         }
         return new String[]{code, message};
     }

@@ -190,4 +190,19 @@ package com.volcengine.service.cdn;
         // 获取用量导出任务列表: 
         CDN.ListUsageReportsResponse listUsageReports(CDN.ListUsageReportsRequest request) throws Exception;
 
+        // 查询全局配置: 
+        CDN.DescribeSharedConfigResponse describeSharedConfig(CDN.DescribeSharedConfigRequest request) throws Exception;
+
+        // 查询全局配置列表: 
+        CDN.ListSharedConfigResponse listSharedConfig(CDN.ListSharedConfigRequest request) throws Exception;
+
+        // 删除全局配置: 
+        CDN.DeleteSharedConfigResponse deleteSharedConfig(CDN.DeleteSharedConfigRequest request) throws Exception;
+
+        // 修改全局配置: 
+        CDN.UpdateSharedConfigResponse updateSharedConfig(CDN.UpdateSharedConfigRequest request) throws Exception;
+
+        // 新增全局配置: 
+        CDN.AddSharedConfigResponse addSharedConfig(CDN.AddSharedConfigRequest request) throws Exception;
+
 }

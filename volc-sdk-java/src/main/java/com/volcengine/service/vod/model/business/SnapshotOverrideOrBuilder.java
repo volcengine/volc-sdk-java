@@ -155,4 +155,42 @@ public interface SnapshotOverrideOrBuilder extends
    * @return The sampleOffsets at the given index.
    */
   float getSampleOffsets(int index);
+
+  /**
+   * <pre>
+   * 截图宽度，单位：px；目前仅支持采样截图
+   * </pre>
+   *
+   * <code>optional int32 Width = 7;</code>
+   * @return Whether the width field is set.
+   */
+  boolean hasWidth();
+  /**
+   * <pre>
+   * 截图宽度，单位：px；目前仅支持采样截图
+   * </pre>
+   *
+   * <code>optional int32 Width = 7;</code>
+   * @return The width.
+   */
+  int getWidth();
+
+  /**
+   * <pre>
+   * 截图高度，单位：px；目前仅支持采样截图
+   * </pre>
+   *
+   * <code>optional int32 Height = 8;</code>
+   * @return Whether the height field is set.
+   */
+  boolean hasHeight();
+  /**
+   * <pre>
+   * 截图高度，单位：px；目前仅支持采样截图
+   * </pre>
+   *
+   * <code>optional int32 Height = 8;</code>
+   * @return The height.
+   */
+  int getHeight();
 }

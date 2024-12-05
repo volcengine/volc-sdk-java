@@ -77,5 +77,7 @@ public class GetUserBehaviorListResponseAPIV2 {
         String Os;
         @JSONField(name = "EmployeeNo")
         String EmployeeNo;
+        @JSONField(name = "ThumbUpNumber")
+        Long ThumbUpNumber;
     }
 }

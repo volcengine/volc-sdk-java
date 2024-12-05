@@ -57,5 +57,7 @@ public class GetUserBehaviorListResponse {
         String AccessTime;
         @JSONField(name = "SilenceStatus")
         Integer SilenceStatus;
+        @JSONField(name = "ThumbUpNumber")
+        Long ThumbUpNumber;
     }
 }

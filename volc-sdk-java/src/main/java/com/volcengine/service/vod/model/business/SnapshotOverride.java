@@ -122,6 +122,16 @@ private static final long serialVersionUID = 0L;
             input.popLimit(limit);
             break;
           }
+          case 56: {
+            bitField0_ |= 0x00000001;
+            width_ = input.readInt32();
+            break;
+          }
+          case 64: {
+            bitField0_ |= 0x00000002;
+            height_ = input.readInt32();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -163,6 +173,7 @@ private static final long serialVersionUID = 0L;
             com.volcengine.service.vod.model.business.SnapshotOverride.class, com.volcengine.service.vod.model.business.SnapshotOverride.Builder.class);
   }
 
+  private int bitField0_;
   public static final int TEMPLATEID_FIELD_NUMBER = 1;
   private com.google.protobuf.LazyStringList templateId_;
   /**
@@ -401,6 +412,60 @@ private static final long serialVersionUID = 0L;
   }
   private int sampleOffsetsMemoizedSerializedSize = -1;
 
+  public static final int WIDTH_FIELD_NUMBER = 7;
+  private int width_;
+  /**
+   * <pre>
+   * 截图宽度，单位：px；目前仅支持采样截图
+   * </pre>
+   *
+   * <code>optional int32 Width = 7;</code>
+   * @return Whether the width field is set.
+   */
+  @java.lang.Override
+  public boolean hasWidth() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <pre>
+   * 截图宽度，单位：px；目前仅支持采样截图
+   * </pre>
+   *
+   * <code>optional int32 Width = 7;</code>
+   * @return The width.
+   */
+  @java.lang.Override
+  public int getWidth() {
+    return width_;
+  }
+
+  public static final int HEIGHT_FIELD_NUMBER = 8;
+  private int height_;
+  /**
+   * <pre>
+   * 截图高度，单位：px；目前仅支持采样截图
+   * </pre>
+   *
+   * <code>optional int32 Height = 8;</code>
+   * @return Whether the height field is set.
+   */
+  @java.lang.Override
+  public boolean hasHeight() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <pre>
+   * 截图高度，单位：px；目前仅支持采样截图
+   * </pre>
+   *
+   * <code>optional int32 Height = 8;</code>
+   * @return The height.
+   */
+  @java.lang.Override
+  public int getHeight() {
+    return height_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -441,6 +506,12 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < sampleOffsets_.size(); i++) {
       output.writeFloatNoTag(sampleOffsets_.getFloat(i));
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeInt32(7, width_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      output.writeInt32(8, height_);
     }
     unknownFields.writeTo(output);
   }
@@ -494,6 +565,14 @@ private static final long serialVersionUID = 0L;
       }
       sampleOffsetsMemoizedSerializedSize = dataSize;
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(7, width_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(8, height_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -521,6 +600,16 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFileIndex())) return false;
     if (!getSampleOffsetsList()
         .equals(other.getSampleOffsetsList())) return false;
+    if (hasWidth() != other.hasWidth()) return false;
+    if (hasWidth()) {
+      if (getWidth()
+          != other.getWidth()) return false;
+    }
+    if (hasHeight() != other.hasHeight()) return false;
+    if (hasHeight()) {
+      if (getHeight()
+          != other.getHeight()) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -549,6 +638,14 @@ private static final long serialVersionUID = 0L;
     if (getSampleOffsetsCount() > 0) {
       hash = (37 * hash) + SAMPLEOFFSETS_FIELD_NUMBER;
       hash = (53 * hash) + getSampleOffsetsList().hashCode();
+    }
+    if (hasWidth()) {
+      hash = (37 * hash) + WIDTH_FIELD_NUMBER;
+      hash = (53 * hash) + getWidth();
+    }
+    if (hasHeight()) {
+      hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
+      hash = (53 * hash) + getHeight();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -695,6 +792,10 @@ private static final long serialVersionUID = 0L;
 
       sampleOffsets_ = emptyFloatList();
       bitField0_ = (bitField0_ & ~0x00000004);
+      width_ = 0;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      height_ = 0;
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -722,6 +823,7 @@ private static final long serialVersionUID = 0L;
     public com.volcengine.service.vod.model.business.SnapshotOverride buildPartial() {
       com.volcengine.service.vod.model.business.SnapshotOverride result = new com.volcengine.service.vod.model.business.SnapshotOverride(this);
       int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         templateId_ = templateId_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -740,6 +842,15 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.sampleOffsets_ = sampleOffsets_;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.width_ = width_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.height_ = height_;
+        to_bitField0_ |= 0x00000002;
+      }
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -828,6 +939,12 @@ private static final long serialVersionUID = 0L;
           sampleOffsets_.addAll(other.sampleOffsets_);
         }
         onChanged();
+      }
+      if (other.hasWidth()) {
+        setWidth(other.getWidth());
+      }
+      if (other.hasHeight()) {
+        setHeight(other.getHeight());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1450,6 +1567,116 @@ private static final long serialVersionUID = 0L;
     public Builder clearSampleOffsets() {
       sampleOffsets_ = emptyFloatList();
       bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
+      return this;
+    }
+
+    private int width_ ;
+    /**
+     * <pre>
+     * 截图宽度，单位：px；目前仅支持采样截图
+     * </pre>
+     *
+     * <code>optional int32 Width = 7;</code>
+     * @return Whether the width field is set.
+     */
+    @java.lang.Override
+    public boolean hasWidth() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <pre>
+     * 截图宽度，单位：px；目前仅支持采样截图
+     * </pre>
+     *
+     * <code>optional int32 Width = 7;</code>
+     * @return The width.
+     */
+    @java.lang.Override
+    public int getWidth() {
+      return width_;
+    }
+    /**
+     * <pre>
+     * 截图宽度，单位：px；目前仅支持采样截图
+     * </pre>
+     *
+     * <code>optional int32 Width = 7;</code>
+     * @param value The width to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWidth(int value) {
+      bitField0_ |= 0x00000008;
+      width_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 截图宽度，单位：px；目前仅支持采样截图
+     * </pre>
+     *
+     * <code>optional int32 Width = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearWidth() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      width_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int height_ ;
+    /**
+     * <pre>
+     * 截图高度，单位：px；目前仅支持采样截图
+     * </pre>
+     *
+     * <code>optional int32 Height = 8;</code>
+     * @return Whether the height field is set.
+     */
+    @java.lang.Override
+    public boolean hasHeight() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <pre>
+     * 截图高度，单位：px；目前仅支持采样截图
+     * </pre>
+     *
+     * <code>optional int32 Height = 8;</code>
+     * @return The height.
+     */
+    @java.lang.Override
+    public int getHeight() {
+      return height_;
+    }
+    /**
+     * <pre>
+     * 截图高度，单位：px；目前仅支持采样截图
+     * </pre>
+     *
+     * <code>optional int32 Height = 8;</code>
+     * @param value The height to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHeight(int value) {
+      bitField0_ |= 0x00000010;
+      height_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 截图高度，单位：px；目前仅支持采样截图
+     * </pre>
+     *
+     * <code>optional int32 Height = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHeight() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      height_ = 0;
       onChanged();
       return this;
     }

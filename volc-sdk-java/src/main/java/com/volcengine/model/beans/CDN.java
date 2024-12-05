@@ -342,6 +342,43 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class AddSharedConfigRequest {
+
+        @JSONField(name = "AllowIpAccessRule")
+        GlobalIPAccessRule AllowIpAccessRule;
+
+        @JSONField(name = "AllowRefererAccessRule")
+        GlobalRefererAccessRule AllowRefererAccessRule;
+
+        @JSONField(name = "CommonMatchList")
+        CommonMatchList CommonMatchList;
+
+        @JSONField(name = "ConfigName")
+        String ConfigName;
+
+        @JSONField(name = "ConfigType")
+        String ConfigType;
+
+        @JSONField(name = "DenyIpAccessRule")
+        GlobalIPAccessRule DenyIpAccessRule;
+
+        @JSONField(name = "DenyRefererAccessRule")
+        GlobalRefererAccessRule DenyRefererAccessRule;
+
+        @JSONField(name = "Project")
+        String Project;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class AddSharedConfigResponse {
+
+        @JSONField(name = "ResponseMetadata")
+        ResponseMetadata ResponseMetadata;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class AreaAccessRule {
 
         @JSONField(name = "Area")
@@ -643,6 +680,9 @@ public class CDN {
         @JSONField(name = "ServiceRegion")
         String ServiceRegion;
 
+        @JSONField(name = "ServiceType")
+        String ServiceType;
+
         @JSONField(name = "SignedUrlAuth")
         SignedUrlAuth SignedUrlAuth;
 
@@ -929,6 +969,14 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class CommonMatchList {
+
+        @JSONField(name = "CommonType")
+        GlobalRefererCommonType CommonType;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class CommonReferType {
 
         @JSONField(name = "IgnoreCase")
@@ -964,6 +1012,9 @@ public class CDN {
 
         @JSONField(name = "CompressionType")
         List<String> CompressionType;
+
+        @JSONField(name = "MaxFileSizeKB")
+        Long MaxFileSizeKB;
 
         @JSONField(name = "MinFileSizeKB")
         Long MinFileSizeKB;
@@ -1252,6 +1303,9 @@ public class CDN {
     @Accessors(chain = true)
     public static class DataPoint {
 
+        @JSONField(name = "Item")
+        String Item;
+
         @JSONField(name = "TimeStamp")
         Long TimeStamp;
 
@@ -1305,6 +1359,22 @@ public class CDN {
     @Data
     @Accessors(chain = true)
     public static class DeleteResourceTagsResponse {
+
+        @JSONField(name = "ResponseMetadata")
+        ResponseMetadata ResponseMetadata;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DeleteSharedConfigRequest {
+
+        @JSONField(name = "ConfigName")
+        String ConfigName;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DeleteSharedConfigResponse {
 
         @JSONField(name = "ResponseMetadata")
         ResponseMetadata ResponseMetadata;
@@ -3192,6 +3262,57 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class DescribeSharedConfigRequest {
+
+        @JSONField(name = "ConfigName")
+        String ConfigName;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DescribeSharedConfigResponse {
+
+        @JSONField(name = "ResponseMetadata")
+        ResponseMetadata ResponseMetadata;
+
+        @JSONField(name = "Result")
+        DescribeSharedConfigResult Result;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DescribeSharedConfigResult {
+
+        @JSONField(name = "AllowIpAccessRule")
+        GlobalIPAccessRule AllowIpAccessRule;
+
+        @JSONField(name = "AllowRefererAccessRule")
+        GlobalRefererAccessRule AllowRefererAccessRule;
+
+        @JSONField(name = "CommonMatchList")
+        CommonMatchList CommonMatchList;
+
+        @JSONField(name = "ConfigName")
+        String ConfigName;
+
+        @JSONField(name = "ConfigType")
+        String ConfigType;
+
+        @JSONField(name = "DenyIpAccessRule")
+        GlobalIPAccessRule DenyIpAccessRule;
+
+        @JSONField(name = "DenyRefererAccessRule")
+        GlobalRefererAccessRule DenyRefererAccessRule;
+
+        @JSONField(name = "ErrorPageRule")
+        GlobalErrorPageRule ErrorPageRule;
+
+        @JSONField(name = "Project")
+        String Project;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class DescribeStatisticalRankingRequest {
 
         @JSONField(name = "Area")
@@ -3748,6 +3869,50 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class GlobalErrorPageRule {
+
+        @JSONField(name = "RuleContent")
+        String RuleContent;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class GlobalIPAccessRule {
+
+        @JSONField(name = "Option")
+        String Option;
+
+        @JSONField(name = "Rules")
+        List<String> Rules;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class GlobalRefererAccessRule {
+
+        @JSONField(name = "AllowEmpty")
+        Boolean AllowEmpty;
+
+        @JSONField(name = "CommonType")
+        GlobalRefererCommonType CommonType;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class GlobalRefererCommonType {
+
+        @JSONField(name = "IgnoreCase")
+        Boolean IgnoreCase;
+
+        @JSONField(name = "Option")
+        String Option;
+
+        @JSONField(name = "Rules")
+        List<String> Rules;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class HTTPS {
 
         @JSONField(name = "CertCheck")
@@ -4205,6 +4370,57 @@ public class CDN {
 
         @JSONField(name = "ResourceTags")
         List<ResourceTag> ResourceTags;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class ListSharedConfigRequest {
+
+        @JSONField(name = "ConfigName")
+        String ConfigName;
+
+        @JSONField(name = "ConfigType")
+        String ConfigType;
+
+        @JSONField(name = "ConfigTypeList")
+        List<String> ConfigTypeList;
+
+        @JSONField(name = "PageNum")
+        Long PageNum;
+
+        @JSONField(name = "PageSize")
+        Long PageSize;
+
+        @JSONField(name = "Project")
+        String Project;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class ListSharedConfigResponse {
+
+        @JSONField(name = "ResponseMetadata")
+        ResponseMetadata ResponseMetadata;
+
+        @JSONField(name = "Result")
+        ListSharedConfigResult Result;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class ListSharedConfigResult {
+
+        @JSONField(name = "ConfigData")
+        List<SharedConfig> ConfigData;
+
+        @JSONField(name = "PageNum")
+        Long PageNum;
+
+        @JSONField(name = "PageSize")
+        Long PageSize;
+
+        @JSONField(name = "Total")
+        Long Total;
     }
 
     @Data
@@ -5075,6 +5291,27 @@ public class CDN {
         Boolean TransferEncoding;
     }
 
+
+    @Data
+    @Accessors(chain = true)
+    public static class SharedConfig {
+
+        @JSONField(name = "ConfigName")
+        String ConfigName;
+
+        @JSONField(name = "ConfigType")
+        String ConfigType;
+
+        @JSONField(name = "DomainCount")
+        Long DomainCount;
+
+        @JSONField(name = "Project")
+        String Project;
+
+        @JSONField(name = "UpdateTime")
+        Long UpdateTime;
+    }
+
     @Data
     @Accessors(chain = true)
     public static class SignedOriginAuth {
@@ -5928,6 +6165,37 @@ public class CDN {
     @Data
     @Accessors(chain = true)
     public static class UpdateResourceTagsResponse {
+
+        @JSONField(name = "ResponseMetadata")
+        ResponseMetadata ResponseMetadata;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class UpdateSharedConfigRequest {
+
+        @JSONField(name = "AllowIpAccessRule")
+        GlobalIPAccessRule AllowIpAccessRule;
+
+        @JSONField(name = "AllowRefererAccessRule")
+        GlobalRefererAccessRule AllowRefererAccessRule;
+
+        @JSONField(name = "CommonMatchList")
+        CommonMatchList CommonMatchList;
+
+        @JSONField(name = "ConfigName")
+        String ConfigName;
+
+        @JSONField(name = "DenyIpAccessRule")
+        GlobalIPAccessRule DenyIpAccessRule;
+
+        @JSONField(name = "DenyRefererAccessRule")
+        GlobalRefererAccessRule DenyRefererAccessRule;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class UpdateSharedConfigResponse {
 
         @JSONField(name = "ResponseMetadata")
         ResponseMetadata ResponseMetadata;

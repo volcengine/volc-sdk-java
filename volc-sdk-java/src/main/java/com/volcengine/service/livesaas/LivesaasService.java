@@ -2110,4 +2110,22 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetActivityExportFileResponse getActivityExportFile(GetActivityExportFileRequest getActivityExportFileRequest) throws Exception;
+
+    /**
+     * listWaitLinkAudience
+     *
+     * @param listWaitLinkAudienceRequest ListWaitLinkAudienceRequest
+     * @return ListWaitLinkAudienceResponse
+     * @throws Exception the exception
+     */
+    ListWaitLinkAudienceResponse listWaitLinkAudience(ListWaitLinkAudienceRequest listWaitLinkAudienceRequest) throws Exception;
+
+    /**
+     * getLinkUserAmount
+     *
+     * @param getLinkUserAmountRequest GetLinkUserAmountRequest
+     * @return GetLinkUserAmountResponse
+     * @throws Exception the exception
+     */
+    GetLinkUserAmountResponse getLinkUserAmount(GetLinkUserAmountRequest getLinkUserAmountRequest) throws Exception;
 }

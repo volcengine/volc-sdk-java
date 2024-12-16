@@ -81,9 +81,7 @@ public final class DescribeLiveBatchStreamSessionDataResResult  {
      *
      * <p>- `btvn`：广电；</p>
      *
-     * <p>- `huashu`：华数；</p>
-     *
-     * <p>- `other`：其他。</p>
+     * <p>- `huashu`：华数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ISPList")
     private List<String> iSPList;

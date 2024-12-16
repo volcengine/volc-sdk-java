@@ -13,7 +13,7 @@ public final class UpdateSubtitleTranscodePresetBodySourceLanguageBorder  {
      * <p>描边的宽度，单位为 px。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Width")
-    private Integer width;
+    private Float width;
 
     /**
      * <p>描边的颜色，支持以下几种方法进行定义。</p>

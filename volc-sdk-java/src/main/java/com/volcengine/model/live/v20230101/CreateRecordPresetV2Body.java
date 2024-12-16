@@ -30,7 +30,7 @@ public final class CreateRecordPresetV2Body  {
     private String app;
 
     /**
-     * <p>流名称，取值与直播流地址的 StreamName 字段取值相同，支持填写星号（*）或由 1 到 100 位数字（0 - 9）、字母、下划线（_）、短横线（-）和句点（.）组成。</p>
+     * <p>流名称，取值与直播流地址的 StreamName 字段取值相同，由 1 到 100 位数字（0 - 9）、大写小字母（A - Z、a - z）、下划线（_）、短横线（-）和句点（.）组成。</p>
      *
      *
      *

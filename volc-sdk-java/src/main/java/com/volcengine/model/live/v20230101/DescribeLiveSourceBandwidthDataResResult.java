@@ -57,9 +57,7 @@ public final class DescribeLiveSourceBandwidthDataResResult  {
      *
      * <p>- `btvn`：广电；</p>
      *
-     * <p>- `huashu`：华数；</p>
-     *
-     * <p>- `other`：其他。</p>
+     * <p>- `huashu`：华数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ISPList")
     private List<String> iSPList;
@@ -68,7 +66,7 @@ public final class DescribeLiveSourceBandwidthDataResResult  {
      * <p>客户端 IP 所属区域列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "UserRegionList")
-    private List<respRegion20230101> userRegionList;
+    private List<DescribeLiveSourceBandwidthDataResResultUserRegionListItem> userRegionList;
 
     /**
      * <p>数据拆分的维度，维度说明如下所示。</p>

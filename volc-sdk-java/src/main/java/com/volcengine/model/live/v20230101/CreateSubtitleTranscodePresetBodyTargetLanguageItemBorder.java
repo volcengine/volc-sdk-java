@@ -13,7 +13,7 @@ public final class CreateSubtitleTranscodePresetBodyTargetLanguageItemBorder  {
      * <p>填0的时候后端根据字体大小进行计算，字体大小/32*1.25</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Width")
-    private Integer width;
+    private Float width;
 
     /**
      * <p>阴影颜色</p>

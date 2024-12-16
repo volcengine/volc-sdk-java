@@ -29,6 +29,8 @@ public final class CreateLiveStreamRecordIndexFilesBody  {
 
     /**
      * <p>录制索引文件的开始时间，RFC3339 格式的时间戳，精度为秒。</p>
+     *
+     * <p>旧参数实际只能传入格式是2006-01-02T16:04:05Z的时间，不是支持rfc3339。所以使用了新字段代替</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
@@ -128,6 +130,18 @@ public final class CreateLiveStreamRecordIndexFilesBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TSScheme")
     private String tSScheme;
+
+    /**
+     * <p>录制索引文件的结束时间，RFC3339 格式的时间戳，精度为秒。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "EndTimeUTC")
+    private String endTimeUTC;
+
+    /**
+     * <p>录制索引文件的开始时间，RFC3339 格式的时间戳，精度为秒。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StartTimeUTC")
+    private String startTimeUTC;
 
     @Override
     public String toString() {

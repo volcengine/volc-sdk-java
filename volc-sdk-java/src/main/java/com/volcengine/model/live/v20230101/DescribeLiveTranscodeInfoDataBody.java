@@ -85,7 +85,7 @@ public final class DescribeLiveTranscodeInfoDataBody  {
     private Integer pageNum;
 
     /**
-     * <p>每页显示的数据条数，默认为 20，最大值为 100000。</p>
+     * <p>每页显示的数据条数。默认为 20，最大值为 100000。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageSize")
     private Integer pageSize;

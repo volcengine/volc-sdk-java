@@ -603,6 +603,9 @@ public class Const {
     public static final String ExportActivityData = "ExportActivityData";
     public static final String GetActivityExportFile = "GetActivityExportFile";
 
+    public static final String ListWaitLinkAudience = "ListWaitLinkAudience";
+    public static final String GetLinkUserAmount = "GetLinkUserAmount";
+
     // translate
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";

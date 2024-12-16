@@ -37,11 +37,11 @@ public final class DescribeLiveStreamSessionDataBody  {
     private String domain;
 
     /**
-     * <p>应用名称，取值与直播流地址中的 AppName 字段取值相同，查询流粒度数据时必传，且需同时传入 `Domain` 和 `Stream`。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（\_）、短横线（-）和句点（.）组成，长度为 1 到 30 个字符。</p>
+     * <p>应用名称，取值与直播流地址中的 AppName 字段取值相同。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（\_）、短横线（-）和句点（.）组成，长度为 1 到 30 个字符。</p>
      *
      * <p>:::tip</p>
      *
-     * <p>查询流粒度的回源流量监控数据时，需同时指定 `Domain` 、`App` 和 `Stream` 来指定回源流。</p>
+     * <p>查询流粒度的请求数和在线人数数据时，需同时指定 `Domain` 、`App` 和 `Stream` 来指定直播流。</p>
      *
      * <p>:::</p>
      */
@@ -49,11 +49,11 @@ public final class DescribeLiveStreamSessionDataBody  {
     private String app;
 
     /**
-     * <p>流名称，取值与直播流地址中的 StreamName 字段取值相同，查询流粒度数据时必传，且需同时传入 `Domain` 和 `App`。支持由大小写字母（A - Z、a - z）、下划线（\_）、短横线（-）和句点（.）组成，长度为 1 到 100 个字符。</p>
+     * <p>流名称，取值与直播流地址中的 StreamName 字段取值相同。支持由大小写字母（A - Z、a - z）、下划线（\_）、短横线（-）和句点（.）组成，长度为 1 到 100 个字符。</p>
      *
      * <p>:::tip</p>
      *
-     * <p>查询流粒度的回源流量监控数据时，需同时指定 `Domain` 、`App` 和 `Stream` 来指定回源流。</p>
+     * <p>查询流粒度的请求数和在线人数数据时，需同时指定 `Domain` 、`App` 和 `Stream` 来指定直播流。</p>
      *
      * <p>:::</p>
      */
@@ -119,9 +119,7 @@ public final class DescribeLiveStreamSessionDataBody  {
      *
      * <p>- `btvn`：广电；</p>
      *
-     * <p>- `huashu`：华数；</p>
-     *
-     * <p>- `other`：其他。</p>
+     * <p>- `huashu`：华数。</p>
      *
      *
      *
@@ -134,7 +132,7 @@ public final class DescribeLiveStreamSessionDataBody  {
      * <p>CDN 节点 IP 所属区域的列表，缺省情况下表示所有区域。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RegionList")
-    private List<reqRegion20230101> regionList;
+    private List<DescribeLiveStreamSessionDataBodyRegionListItem> regionList;
 
     /**
      * <p>查询的开始时间，RFC3339 格式的时间戳，精度为秒。</p>
@@ -157,7 +155,7 @@ public final class DescribeLiveStreamSessionDataBody  {
      *
      * <p>- `300`：（默认值）5 分钟。时间粒度为 5 分钟时，单次查询最大时间跨度为 31 天，历史查询时间范围为 366 天；</p>
      *
-     * <p>- `3600`：1 天。时间粒度为 1 天时，单次查询最大时间跨度为 93 天，历史查询时间范围为 366 天。</p>
+     * <p>- `3600`：1 小时。时间粒度为 1 小时时，单次查询最大时间跨度为 93 天，历史查询时间范围为 366 天。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;
@@ -183,6 +181,16 @@ public final class DescribeLiveStreamSessionDataBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DetailField")
     private List<String> detailField;
+
+    /**
+     * <p>在线人数统计方式，取值及含义如下所示：</p>
+     *
+     * <p>- `Online`（默认值）：以 1 分钟瞬时连接的 session 数作为 1 分钟粒度的在线人数数量；</p>
+     *
+     * <p>- `Viewer`：以 1 分钟内的 session 链接总数作为 1 分钟粒度的在线人数数量。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "OnlineUserType")
+    private String onlineUserType;
 
     @Override
     public String toString() {

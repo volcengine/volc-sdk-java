@@ -45,6 +45,10 @@ public class GetAudioLiveRiskResponse {
         private Integer startTime;
         @JSONField(name = "EndTime")
         private Integer endTime;
+        @JSONField(name = "StartTimeStamp")
+        private Long startTimeStamp;
+        @JSONField(name = "EndTimeStamp")
+        private Long endTimeStamp;
         @JSONField(name = "FrameUrl")
         private String frameUrl;
         @JSONField(name = "AudioText")

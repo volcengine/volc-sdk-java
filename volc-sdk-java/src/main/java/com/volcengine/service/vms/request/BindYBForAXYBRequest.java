@@ -33,4 +33,6 @@ public class BindYBForAXYBRequest {
     private String degradeCityList;
 
     private String userData;
+
+    private Integer randomFlag;
 }

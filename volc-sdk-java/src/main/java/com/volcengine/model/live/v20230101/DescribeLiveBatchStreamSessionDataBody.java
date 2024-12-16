@@ -103,9 +103,7 @@ public final class DescribeLiveBatchStreamSessionDataBody  {
      *
      * <p>- `btvn`：广电；</p>
      *
-     * <p>- `huashu`：华数；</p>
-     *
-     * <p>- `other`：其他。</p>
+     * <p>- `huashu`：华数。</p>
      *
      *
      *
@@ -119,6 +117,16 @@ public final class DescribeLiveBatchStreamSessionDataBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RegionList")
     private List<DescribeLiveBatchStreamSessionDataBodyRegionListItem> regionList;
+
+    /**
+     * <p>在线人数统计方式，取值及含义如下所示：</p>
+     *
+     * <p>- `Online`：以 1 分钟瞬时连接的 session 数作为 1 分钟粒度的在线人数数量；</p>
+     *
+     * <p>- `Viewer`（默认值）：以 1 分钟内的 session 链接总数作为 1 分钟粒度的在线人数数量。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "OnlineUserType")
+    private String onlineUserType;
 
     @Override
     public String toString() {

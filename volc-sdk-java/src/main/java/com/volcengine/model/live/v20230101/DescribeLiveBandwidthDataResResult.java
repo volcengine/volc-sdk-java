@@ -63,9 +63,7 @@ public final class DescribeLiveBandwidthDataResResult  {
      *
      * <p>- `btvn`：广电；</p>
      *
-     * <p>- `huashu`：华数；</p>
-     *
-     * <p>- `other`：其他。</p>
+     * <p>- `huashu`：华数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ISPList")
     private List<String> iSPList;
@@ -74,13 +72,13 @@ public final class DescribeLiveBandwidthDataResResult  {
      * <p>CDN 节点 IP 所属区域列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RegionList")
-    private List<respRegion20230101> regionList;
+    private List<DescribeLiveBandwidthDataResResultRegionListItem> regionList;
 
     /**
      * <p>客户端 IP 所属区域列表。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "UserRegionList")
-    private List<respRegion20230101> userRegionList;
+    private List<DescribeLiveBandwidthDataResResultUserRegionListItem> userRegionList;
 
     /**
      * <p>查询的开始时间，RFC3339 格式的时间戳，精度为秒。</p>

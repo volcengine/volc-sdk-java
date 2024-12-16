@@ -13,7 +13,7 @@ public final class UpdateSubtitleTranscodePresetBodyTargetLanguageItemBorder  {
      * <p>TODO</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Width")
-    private Integer width;
+    private Float width;
 
     /**
      * <p>TODO</p>

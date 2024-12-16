@@ -23,16 +23,6 @@ public final class ListBindEncryptDRMResResultDRMBindingListItem  {
     private String app;
 
     /**
-     * <p>当前 DRM 配置是否开启，取值及含义如下所示。</p>
-     *
-     * <p>- `true`：开启；</p>
-     *
-     * <p>- `false`：关闭。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "Enable")
-    private Boolean enable;
-
-    /**
      * <p>进行 DRM 加密的转码流对应的转码流后缀配置。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EncryptTranscodeSuffix")

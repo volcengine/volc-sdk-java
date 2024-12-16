@@ -112,7 +112,7 @@ public final class CreateTranscodePresetBody  {
     private Integer fPS;
 
     /**
-     * <p>IDR 帧之间的最大间隔时间，单位为秒，默认值为 `4`，取值范围为 [1,20]。</p>
+     * <p>IDR 帧之间的最大间隔时间，单位为秒，取值范围为 [1,30]。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "GOP")
     private Integer gOP;

@@ -46,7 +46,7 @@ public final class DescribeLivePushStreamInfoDataResResultPushStreamInfoDataList
     private String iP;
 
     /**
-     * <p>推流断开原因，常见的断流原因参见[回调内容说明-断流错误原因](https://www.volcengine.com/docs/6469/1126932#断流错误原因)。</p>
+     * <p>推流断开原因，常见的断流原因参见[回调内容说明-断流错误原因](https://www.volcengine.com/docs/6469/1126932)。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StreamBreakReason")
     private String streamBreakReason;

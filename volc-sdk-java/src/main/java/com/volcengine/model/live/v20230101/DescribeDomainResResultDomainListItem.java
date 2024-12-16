@@ -123,6 +123,12 @@ public final class DescribeDomainResResultDomainListItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "CNAME")
     private String cNAME;
 
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "EnableCloudMonitor")
+    private Boolean enableCloudMonitor;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

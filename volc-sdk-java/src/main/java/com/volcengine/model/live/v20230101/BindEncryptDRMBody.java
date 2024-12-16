@@ -23,16 +23,6 @@ public final class BindEncryptDRMBody  {
     private String app;
 
     /**
-     * <p>是否开启当前 DRM 加密配置，取值及含义如下所示。</p>
-     *
-     * <p>- `true`：（默认值）开启；</p>
-     *
-     * <p>- `false`：关闭。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "Enable")
-    private Boolean enable;
-
-    /**
      * <p>开启转码流加密时待加密的转码流对应的转码流后缀配置。您可以调用[查询转码配置列表](https://www.volcengine.com/docs/6469/1126853)接口或在视频直播控制台的[转码配置](https://console.volcengine.com/live/main/application/transcode)页面，查看转码配置的转码流后缀。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EncryptTranscodeSuffix")
@@ -66,6 +56,12 @@ public final class BindEncryptDRMBody  {
      * <p>- `true`：开启；</p>
      *
      * <p>- `fasle`：不开启。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>源流和转码流至少有一个需要开启录制。</p>
+     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EncryptOriginStream")
     private Boolean encryptOriginStream;
@@ -76,6 +72,12 @@ public final class BindEncryptDRMBody  {
      * <p>- `true`：开启；</p>
      *
      * <p>- `fasle`：不开启。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>源流和转码流至少有一个需要开启录制。</p>
+     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EncryptTranscodeStream")
     private Boolean encryptTranscodeStream;

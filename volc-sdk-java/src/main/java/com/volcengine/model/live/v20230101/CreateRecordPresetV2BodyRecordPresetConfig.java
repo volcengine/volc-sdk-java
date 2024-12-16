@@ -77,7 +77,7 @@ public final class CreateRecordPresetV2BodyRecordPresetConfig  {
     private CreateRecordPresetV2BodyRecordPresetConfigFlvParam flvParam;
 
     /**
-     * <p>录制为 HLS 合适时的录制参数。</p>
+     * <p>录制为 HLS 格式时的录制参数。</p>
      *
      * <p>:::tip</p>
      *

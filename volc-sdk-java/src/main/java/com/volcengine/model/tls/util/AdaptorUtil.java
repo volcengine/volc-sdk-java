@@ -39,12 +39,21 @@ public class AdaptorUtil {
 
     public static PutLogRequest.Log logItem2PbLog(LogItem item) {
         PutLogRequest.Log.Builder logBuilder = PutLogRequest.Log.newBuilder();
-        logBuilder.setTime(item.getTime());
+        if (item.getTime() == 0) {
+            logBuilder.setTime(System.currentTimeMillis());
+        } else {
+            logBuilder.setTime(item.getTime());
+        }
         List<LogContent> contents = item.getContents();
         if (contents != null && contents.size() > 0) {
             for (LogContent content : contents) {
                 PutLogRequest.LogContent.Builder contentBuilder = PutLogRequest.LogContent.newBuilder();
-                contentBuilder.setKey(content.getKey()).setValue(content.getValue());
+                contentBuilder.setKey(content.getKey());
+                if (content.getValue() == null) {
+                    contentBuilder.setValue("");
+                } else {
+                    contentBuilder.setValue(content.getValue());
+                }
                 logBuilder.addContents(contentBuilder.build());
             }
         }

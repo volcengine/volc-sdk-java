@@ -43,31 +43,31 @@ public final class DescribeLiveBatchSourceStreamAvgMetricsResResultStreamMetricL
      * <p>当前数据聚合时间粒度内，最后一个音频帧的显示时间戳 PTS（Presentation Time Stamp），单位为毫秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AudioPts")
-    private Integer audioPts;
+    private Double audioPts;
 
     /**
      * <p>当前数据聚合时间粒度内，最后一个视频帧的显示时间戳 PTS（Presentation Time Stamp），单位为毫秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "VideoPts")
-    private Integer videoPts;
+    private Double videoPts;
 
     /**
      * <p>当前数据聚合时间粒度内，所有音视频帧显示时间戳差值的平均值，即所有 AudioPts 与 VideoPts 差值的平均值，单位为毫秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PtsDelta")
-    private Integer ptsDelta;
+    private Float ptsDelta;
 
     /**
      * <p>当前数据聚合时间粒度内，相邻音频帧显示时间戳差值的平均值，单位为毫秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AudioFrameGap")
-    private Integer audioFrameGap;
+    private Float audioFrameGap;
 
     /**
      * <p>当前数据聚合时间粒度内，相邻视频帧显示时间戳差值的平均值，单位为毫秒。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "VideoFrameGap")
-    private Integer videoFrameGap;
+    private Float videoFrameGap;
 
     @Override
     public String toString() {

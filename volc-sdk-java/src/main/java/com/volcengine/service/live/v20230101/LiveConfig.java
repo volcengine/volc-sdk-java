@@ -438,20 +438,6 @@ public class LiveConfig {
                     }
                 }     
             ));
-            put("UpdateSnapshotPreset", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "UpdateSnapshotPreset"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
             put("DescribeCDNSnapshotHistory", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -480,20 +466,6 @@ public class LiveConfig {
                     }
                 }     
             ));
-            put("ListVhostSnapshotPreset", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "ListVhostSnapshotPreset"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
             put("CreateSnapshotPresetV2", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -502,20 +474,6 @@ public class LiveConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "CreateSnapshotPresetV2"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
-            put("CreateSnapshotPreset", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "CreateSnapshotPreset"));
                                 add(new BasicNameValuePair("Version", "2023-01-01"));
                             }
                         });
@@ -1362,6 +1320,20 @@ public class LiveConfig {
                     }
                 }     
             ));
+            put("DescribeLiveTopPlayData", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DescribeLiveTopPlayData"));
+                                add(new BasicNameValuePair("Version", "2023-01-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
             put("DescribeLiveRegionData", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -1810,20 +1782,6 @@ public class LiveConfig {
                     }
                 }     
             ));
-            put("DescribeDenyConfig", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "DescribeDenyConfig"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
             put("DescribeReferer", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -1846,20 +1804,6 @@ public class LiveConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "DescribeAuth"));
-                                add(new BasicNameValuePair("Version", "2023-01-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
-            put("UpdateDenyConfig", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "UpdateDenyConfig"));
                                 add(new BasicNameValuePair("Version", "2023-01-01"));
                             }
                         });

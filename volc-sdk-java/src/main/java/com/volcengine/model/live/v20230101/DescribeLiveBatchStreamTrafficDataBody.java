@@ -103,9 +103,7 @@ public final class DescribeLiveBatchStreamTrafficDataBody  {
      *
      * <p>- `btvn`：广电；</p>
      *
-     * <p>- `huashu`：华数；</p>
-     *
-     * <p>- `other`：其他。</p>
+     * <p>- `huashu`：华数。</p>
      *
      *
      *

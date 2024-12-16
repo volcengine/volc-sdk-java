@@ -34,7 +34,7 @@ public final class GeneratePushURLBody  {
     private String stream;
 
     /**
-     * <p>推流地址的有效时长，单位为秒，超过有效时长后需要重新生成。缺省情况下表示 7 天，取值范围为正整数。</p>
+     * <p>推流地址的有效时长，单位为秒，超过有效时长后需要重新生成。默认值为 604800 表示 7 天，取值范围为正整数。</p>
      *
      * <p>:::tip</p>
      *

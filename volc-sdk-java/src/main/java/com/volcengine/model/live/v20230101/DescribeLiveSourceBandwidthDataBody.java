@@ -83,9 +83,7 @@ public final class DescribeLiveSourceBandwidthDataBody  {
      *
      * <p>- `btvn`：广电；</p>
      *
-     * <p>- `huashu`：华数；</p>
-     *
-     * <p>- `other`：其他。</p>
+     * <p>- `huashu`：华数。</p>
      *
      *
      *
@@ -98,7 +96,7 @@ public final class DescribeLiveSourceBandwidthDataBody  {
      * <p>客户端 IP 所属区域的列表，缺省情况下表示所有区域。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "UserRegionList")
-    private List<reqRegion20230101> userRegionList;
+    private List<DescribeLiveSourceBandwidthDataBodyUserRegionListItem> userRegionList;
 
     /**
      * <p>查询的开始时间，RFC3339 格式的时间戳，精度为秒。</p>

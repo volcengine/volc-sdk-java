@@ -3746,4 +3746,35 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public ListWaitLinkAudienceResponse listWaitLinkAudience(ListWaitLinkAudienceRequest listWaitLinkAudienceRequest) throws Exception {
+        RawResponse response = query(Const.ListWaitLinkAudience, Utils.paramsToPair(listWaitLinkAudienceRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListWaitLinkAudienceResponse res = JSON.parseObject(response.getData(), ListWaitLinkAudienceResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetLinkUserAmountResponse getLinkUserAmount(GetLinkUserAmountRequest getLinkUserAmountRequest) throws Exception {
+        RawResponse response = query(Const.GetLinkUserAmount, Utils.paramsToPair(getLinkUserAmountRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetLinkUserAmountResponse res = JSON.parseObject(response.getData(), GetLinkUserAmountResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
 }

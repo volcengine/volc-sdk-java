@@ -75,9 +75,7 @@ public final class DescribeLiveStreamSessionDataResResult  {
      *
      * <p>- `btvn`：广电；</p>
      *
-     * <p>- `huashu`：华数；</p>
-     *
-     * <p>- `other`：其他。</p>
+     * <p>- `huashu`：华数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ISPList")
     private List<String> iSPList;
@@ -92,7 +90,7 @@ public final class DescribeLiveStreamSessionDataResResult  {
      * <p>CDN 节点 IP 所属的区域列表，缺省情况下表示所有区域。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RegionList")
-    private List<respRegion20230101> regionList;
+    private List<DescribeLiveStreamSessionDataResResultRegionListItem> regionList;
 
     /**
      * <p>查询的开始时间，RFC3339 格式的时间戳，精度为秒。</p>
@@ -108,14 +106,6 @@ public final class DescribeLiveStreamSessionDataResResult  {
 
     /**
      * <p>数据聚合的时间粒度，单位为秒。</p>
-     *
-     *
-     *
-     * <p>- `60`：1 分钟；</p>
-     *
-     * <p>- `300`：5 分钟；</p>
-     *
-     * <p>- `3600`：1 天。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;

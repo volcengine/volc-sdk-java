@@ -127,7 +127,7 @@ public class TLSLogClientImpl implements TLSLogClient {
     @Override
     public PutLogsResponse putLogsV2(PutLogsRequestV2 request) throws LogException {
         // 1、check params, topic id is required params
-        if (request == null || StringUtils.isEmpty(request.getTopicId()) || request.getLogs() == null) {
+        if (request == null || StringUtils.isEmpty(request.getTopicId()) || request.getLogs() == null || request.getLogs().isEmpty()) {
             throw new LogException("InvalidArgument", "Request is:" + request, null);
         }
         // 2、prepare request

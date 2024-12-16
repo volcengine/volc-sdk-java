@@ -28,18 +28,6 @@ public final class CreateLiveStreamRecordIndexFilesResResult  {
     private String stream;
 
     /**
-     * <p>录制索引文件的开始时间，RFC3339 格式的时间戳，精度为秒。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
-    private String startTime;
-
-    /**
-     * <p>录制索引文件的结束时间，RFC3339 格式的时间戳，精度为秒。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
-    private String endTime;
-
-    /**
      * <p>录制流的高度，单位为 px。当 `NeedFFProbe` 配置为 `true` 时返回此参数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Height")
@@ -56,12 +44,6 @@ public final class CreateLiveStreamRecordIndexFilesResResult  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Duration")
     private Float duration;
-
-    /**
-     * <p>创建录制索引文件任务的时间，RFC3339 格式的 UTC 时间戳，精度为秒。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "CreateTime")
-    private String createTime;
 
     /**
      * <p>生成的录制索引文件网网络访问地址。</p>
@@ -98,6 +80,24 @@ public final class CreateLiveStreamRecordIndexFilesResResult  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "URI")
     private String uRI;
+
+    /**
+     * <p>创建录制索引文件任务的时间，RFC3339 格式的 UTC 时间戳，精度为秒。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "CreateTimeUTC")
+    private String createTimeUTC;
+
+    /**
+     * <p>录制索引文件的结束时间，RFC3339 格式的 UTC 时间戳，精度为秒。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "EndTimeUTC")
+    private String endTimeUTC;
+
+    /**
+     * <p>录制索引文件的开始时间，RFC3339 格式的 UTC 时间戳，精度为秒。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StartTimeUTC")
+    private String startTimeUTC;
 
     @Override
     public String toString() {

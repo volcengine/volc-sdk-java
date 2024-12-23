@@ -6,6 +6,9 @@ import com.volcengine.model.livesaas.response.*;
 import com.volcengine.model.request.ListActivityQuizConfigsRequest;
 import com.volcengine.model.response.ListActivityQuizConfigsResponse;
 import com.volcengine.service.IBaseService;
+
+import java.util.ArrayList;
+
 public interface LivesaasService extends IBaseService {
 
     /**
@@ -2111,6 +2114,25 @@ public interface LivesaasService extends IBaseService {
      */
     GetActivityExportFileResponse getActivityExportFile(GetActivityExportFileRequest getActivityExportFileRequest) throws Exception;
 
+
+    /**
+     * getActivityPoster
+     *
+     * @param getActivityPosterRequest GetActivityPosterRequest
+     * @return GetActivityPosterResponse
+     * @throws Exception the exception
+     */
+    GetActivityPosterResponse getActivityPoster(GetActivityPosterRequest getActivityPosterRequest) throws Exception;
+
+    /**
+     * updateActivityPoster
+     *
+     * @param updateActivityPosterRequest UpdateActivityPosterRequest
+     * @return UpdateActivityPosterResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityPosterResponse updateActivityPoster(UpdateActivityPosterRequest updateActivityPosterRequest) throws Exception;
+
     /**
      * listWaitLinkAudience
      *
@@ -2128,4 +2150,39 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetLinkUserAmountResponse getLinkUserAmount(GetLinkUserAmountRequest getLinkUserAmountRequest) throws Exception;
+
+    /**
+     * getInviterToken
+     *
+     * @param getInviterTokenRequest GetInviterTokenRequest
+     * @return GetInviterTokenResponse
+     * @throws Exception the exception
+     */
+    GetInviterTokenResponse getInviterToken(GetInviterTokenRequest getInviterTokenRequest) throws Exception;
+
+    /**
+     * getUploadSts2
+     *
+     * @return the upload sts2 auth
+     * @throws Exception the exception
+     */
+    com.volcengine.model.sts2.SecurityToken2 getLivesaasSts2(ArrayList<String> actions) throws Exception;
+
+    /**
+     * sendActivityRobotComment
+     *
+     * @param sendActivityRobotCommentRequest SendActivityRobotCommentRequest
+     * @return SendActivityRobotCommentResponse
+     * @throws Exception the exception
+     */
+    SendActivityRobotCommentResponse sendActivityRobotComment(SendActivityRobotCommentRequest sendActivityRobotCommentRequest) throws Exception;
+
+    /**
+     * batchSendActivityRobotComment
+     *
+     * @param batchSendActivityRobotCommentRequest BatchSendActivityRobotCommentRequest
+     * @return BatchSendActivityRobotCommentResponse
+     * @throws Exception the exception
+     */
+    BatchSendActivityRobotCommentResponse batchSendActivityRobotComment(BatchSendActivityRobotCommentRequest batchSendActivityRobotCommentRequest) throws Exception;
 }

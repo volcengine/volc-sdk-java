@@ -69,6 +69,8 @@ public class GetUserBehaviorListResponseAPIV2 {
         Integer UserCredit;
         @JSONField(name = "InviterId")
         Long InviterId;
+        @JSONField(name = "InviterExternalId")
+        String InviterExternalId;
         @JSONField(name = "CheckInNumber")
         Integer CheckInNumber;
         @JSONField(name = "InviterName")

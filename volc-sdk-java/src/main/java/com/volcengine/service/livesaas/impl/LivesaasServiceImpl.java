@@ -17,6 +17,7 @@ import com.volcengine.service.livesaas.LivesaasService;
 import org.apache.http.HttpHost;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasService {
     private static LivesaasService INSTANCE = new LivesaasServiceImpl();
@@ -3777,4 +3778,57 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         return res;
     }
 
+    @Override
+    public GetInviterTokenResponse getInviterToken(GetInviterTokenRequest getInviterTokenRequest) throws Exception {
+        RawResponse response = query(Const.GetInviterToken, Utils.paramsToPair(getInviterTokenRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetInviterTokenResponse res = JSON.parseObject(response.getData(), GetInviterTokenResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public com.volcengine.model.sts2.SecurityToken2 getLivesaasSts2(ArrayList<String> actions) throws Exception {
+        com.volcengine.model.sts2.Policy inlinePolicy = new com.volcengine.model.sts2.Policy();
+        List<String> resources = new ArrayList<>();
+        com.volcengine.model.sts2.Statement statement = com.volcengine.util.Sts2Utils.newAllowStatement(actions, resources);
+        inlinePolicy.addStatement(statement);
+        return signSts2(inlinePolicy, com.volcengine.util.Time.Hour*24);
+    }
+
+    @Override
+    public SendActivityRobotCommentResponse sendActivityRobotComment(SendActivityRobotCommentRequest sendActivityRobotCommentRequest) throws Exception {
+        RawResponse response = json(Const.SendActivityRobotComment, new ArrayList<>(),JSON.toJSONString(sendActivityRobotCommentRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        SendActivityRobotCommentResponse res = JSON.parseObject(response.getData(), SendActivityRobotCommentResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public BatchSendActivityRobotCommentResponse batchSendActivityRobotComment(BatchSendActivityRobotCommentRequest batchSendActivityRobotCommentRequest) throws Exception {
+        RawResponse response = json(Const.BatchSendActivityRobotComment, new ArrayList<>(),JSON.toJSONString(batchSendActivityRobotCommentRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        BatchSendActivityRobotCommentResponse res = JSON.parseObject(response.getData(), BatchSendActivityRobotCommentResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

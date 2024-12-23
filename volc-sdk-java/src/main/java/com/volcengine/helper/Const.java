@@ -602,9 +602,14 @@ public class Const {
     public static final String ListSubAccountOrganizations = "ListSubAccountOrganizations";
     public static final String ExportActivityData = "ExportActivityData";
     public static final String GetActivityExportFile = "GetActivityExportFile";
+    public static final String GetActivityPoster = "GetActivityPoster";
+    public static final String UpdateActivityPoster = "UpdateActivityPoster";
+    public static final String SendActivityRobotComment = "SendActivityRobotComment";
+    public static final String BatchSendActivityRobotComment = "BatchSendActivityRobotComment";
 
     public static final String ListWaitLinkAudience = "ListWaitLinkAudience";
     public static final String GetLinkUserAmount = "GetLinkUserAmount";
+    public static final String GetInviterToken = "GetInviterToken";
 
     // translate
     public static final String LangDetect = "LangDetect";

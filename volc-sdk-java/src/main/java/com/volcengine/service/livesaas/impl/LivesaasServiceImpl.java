@@ -3764,6 +3764,36 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public GetActivityPosterResponse getActivityPoster(GetActivityPosterRequest getActivityPosterRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityPoster, Utils.paramsToPair(getActivityPosterRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityPosterResponse res = JSON.parseObject(response.getData(), GetActivityPosterResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateActivityPosterResponse updateActivityPoster(UpdateActivityPosterRequest updateActivityPosterRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityPoster, new ArrayList<>(),JSON.toJSONString(updateActivityPosterRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateActivityPosterResponse res = JSON.parseObject(response.getData(), UpdateActivityPosterResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public GetLinkUserAmountResponse getLinkUserAmount(GetLinkUserAmountRequest getLinkUserAmountRequest) throws Exception {
         RawResponse response = query(Const.GetLinkUserAmount, Utils.paramsToPair(getLinkUserAmountRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

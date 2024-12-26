@@ -81,4 +81,28 @@ public interface TranscodeVideoJobOrBuilder extends
    * <code>.Volcengine.Imp.Models.Business.Segment Segment = 7;</code>
    */
   com.volcengine.service.imp.model.business.SegmentOrBuilder getSegmentOrBuilder();
+
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+   */
+  java.util.List<com.volcengine.service.imp.model.business.LogoDefinition> 
+      getLogosList();
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+   */
+  com.volcengine.service.imp.model.business.LogoDefinition getLogos(int index);
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+   */
+  int getLogosCount();
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+   */
+  java.util.List<? extends com.volcengine.service.imp.model.business.LogoDefinitionOrBuilder> 
+      getLogosOrBuilderList();
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+   */
+  com.volcengine.service.imp.model.business.LogoDefinitionOrBuilder getLogosOrBuilder(
+      int index);
 }

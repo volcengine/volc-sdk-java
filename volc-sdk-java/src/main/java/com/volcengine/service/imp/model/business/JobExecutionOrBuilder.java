@@ -240,4 +240,28 @@ public interface JobExecutionOrBuilder extends
    */
   com.google.protobuf.ByteString
       getCallbackContentTypeBytes();
+
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+   */
+  java.util.List<com.volcengine.service.imp.model.business.Input> 
+      getMultiInputsList();
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+   */
+  com.volcengine.service.imp.model.business.Input getMultiInputs(int index);
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+   */
+  int getMultiInputsCount();
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+   */
+  java.util.List<? extends com.volcengine.service.imp.model.business.InputOrBuilder> 
+      getMultiInputsOrBuilderList();
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+   */
+  com.volcengine.service.imp.model.business.InputOrBuilder getMultiInputsOrBuilder(
+      int index);
 }

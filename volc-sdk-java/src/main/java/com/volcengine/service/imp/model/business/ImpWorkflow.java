@@ -20,6 +20,16 @@ public final class ImpWorkflow {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Imp_Models_Business_InputPath_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Imp_Models_Business_Input_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Imp_Models_Business_Input_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Imp_Models_Business_Clip_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Imp_Models_Business_Clip_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Imp_Models_Business_JobOutput_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -104,6 +114,31 @@ public final class ImpWorkflow {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Imp_Models_Business_Segment_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Imp_Models_Business_LogoDefinition_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Imp_Models_Business_LogoDefinition_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Imp_Models_Business_TextLogoDefinition_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Imp_Models_Business_TextLogoDefinition_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Imp_Models_Business_ImageLogoDefinition_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Imp_Models_Business_ImageLogoDefinition_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Imp_Models_Business_LogoPosition_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Imp_Models_Business_LogoPosition_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Imp_Models_Business_TimeLine_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Imp_Models_Business_TimeLine_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -116,77 +151,104 @@ public final class ImpWorkflow {
       "\n\035imp/business/imp_common.proto\022\036Volceng" +
       "ine.Imp.Models.Business\"R\n\tInputPath\022\014\n\004" +
       "Type\030\001 \001(\t\022\021\n\tTosBucket\030\002 \001(\t\022\024\n\014VodSpac" +
-      "eName\030\003 \001(\t\022\016\n\006FileId\030\004 \001(\t\"\310\001\n\tJobOutpu" +
-      "t\022\022\n\nTemplateId\030\001 \001(\t\022\022\n\nProperties\030\002 \001(" +
-      "\t\022\014\n\004Code\030\003 \001(\t\022\025\n\rFileMessageId\030\004 \001(\t\022\020" +
-      "\n\010TaskType\030\005 \001(\t\022\016\n\006Status\030\006 \001(\t\022\022\n\nActi" +
-      "vityId\030\007 \001(\t\022\021\n\tStartTime\030\010 \001(\t\022\017\n\007EndTi" +
-      "me\030\t \001(\t\022\024\n\014TemplateName\030\n \001(\t\"\363\002\n\014JobEx" +
-      "ecution\022\r\n\005JobId\030\001 \001(\t\022<\n\tInputPath\030\002 \001(" +
-      "\0132).Volcengine.Imp.Models.Business.Input" +
-      "Path\0229\n\006Output\030\003 \003(\0132).Volcengine.Imp.Mo" +
-      "dels.Business.JobOutput\022\016\n\006Status\030\004 \001(\t\022" +
-      "\021\n\tCreatedAt\030\005 \001(\t\022\022\n\nFinishedAt\030\006 \001(\t\022\022" +
-      "\n\nTemplateId\030\007 \001(\t\022\031\n\021EnableLowPriority\030" +
-      "\010 \001(\t\022\021\n\tJobSource\030\t \001(\t\0220\n\003Job\030\n \001(\0132#." +
-      "Volcengine.Imp.Models.Business.Job\022\023\n\013Ca" +
-      "llbackUri\030\013 \001(\t\022\033\n\023CallbackContentType\030\014" +
-      " \001(\t\"P\n\006Params\022F\n\016OverrideParams\030\001 \001(\0132." +
-      ".Volcengine.Imp.Models.Business.Override" +
-      "Params\"\244\001\n\016OverrideParams\022L\n\nSmartErase\030" +
-      "\001 \003(\01328.Volcengine.Imp.Models.Business.S" +
-      "martEraseOverrideParams\022D\n\006Output\030\002 \003(\0132" +
-      "4.Volcengine.Imp.Models.Business.OutputO" +
-      "verrideParams\"\236\001\n\030SmartEraseOverridePara" +
-      "ms\022\022\n\nActivityId\030\001 \003(\t\022<\n\tWatermark\030\002 \001(" +
-      "\0132).Volcengine.Imp.Models.Business.Water" +
-      "mark\0220\n\003OCR\030\003 \001(\0132#.Volcengine.Imp.Model" +
-      "s.Business.OCR\"K\n\tWatermark\022>\n\nDetectRec" +
-      "t\030\001 \003(\0132*.Volcengine.Imp.Models.Business" +
-      ".DetectRect\"E\n\003OCR\022>\n\nDetectRect\030\001 \003(\0132*" +
-      ".Volcengine.Imp.Models.Business.DetectRe" +
-      "ct\"<\n\nDetectRect\022\n\n\002X1\030\001 \001(\001\022\n\n\002Y1\030\002 \001(\001" +
-      "\022\n\n\002X2\030\003 \001(\001\022\n\n\002Y2\030\004 \001(\001\"j\n\024OutputOverri" +
-      "deParams\022\022\n\nActivityId\030\001 \003(\t\022>\n\nOutputPa" +
-      "th\030\002 \001(\0132*.Volcengine.Imp.Models.Busines" +
-      "s.OutputPath\"U\n\nOutputPath\022\014\n\004Type\030\001 \001(\t" +
-      "\022\021\n\tTosBucket\030\002 \001(\t\022\024\n\014VodSpaceName\030\003 \001(" +
-      "\t\022\020\n\010FileName\030\004 \001(\t\"\213\001\n\003Job\022I\n\016Transcode" +
-      "Video\030\001 \001(\01321.Volcengine.Imp.Models.Busi" +
-      "ness.TranscodeVideoJob\0229\n\006ByteHD\030\002 \001(\0132)" +
-      ".Volcengine.Imp.Models.Business.ByteHDJo" +
-      "b\"\215\002\n\021TranscodeVideoJob\022\021\n\tContainer\030\001 \001" +
-      "(\t\0224\n\005Video\030\002 \001(\0132%.Volcengine.Imp.Model" +
-      "s.Business.Video\0224\n\005Audio\030\003 \001(\0132%.Volcen" +
-      "gine.Imp.Models.Business.Audio\022\023\n\013Enable" +
-      "Remux\030\004 \001(\010\022\024\n\014DisableVideo\030\005 \001(\010\022\024\n\014Dis" +
-      "ableAudio\030\006 \001(\010\0228\n\007Segment\030\007 \001(\0132\'.Volce" +
-      "ngine.Imp.Models.Business.Segment\"\304\001\n\tBy" +
-      "teHDJob\022\021\n\tContainer\030\001 \001(\t\0224\n\005Video\030\002 \001(" +
-      "\0132%.Volcengine.Imp.Models.Business.Video" +
-      "\0224\n\005Audio\030\003 \001(\0132%.Volcengine.Imp.Models." +
-      "Business.Audio\0228\n\007Segment\030\004 \001(\0132\'.Volcen" +
-      "gine.Imp.Models.Business.Segment\"\325\001\n\005Vid" +
-      "eo\022\r\n\005Codec\030\001 \001(\t\022\021\n\tScaleType\030\002 \001(\005\022\022\n\n" +
-      "ScaleWidth\030\003 \001(\005\022\023\n\013ScaleHeight\030\004 \001(\005\022\022\n" +
-      "\nScaleShort\030\005 \001(\005\022\021\n\tScaleLong\030\006 \001(\005\022\017\n\007" +
-      "Bitrate\030\007 \001(\005\022\016\n\006MaxFps\030\010 \001(\005\022\020\n\003Crf\030\t \001" +
-      "(\005H\000\210\001\001\022\017\n\007Profile\030\n \001(\t\022\016\n\006PixFmt\030\013 \001(\t" +
-      "B\006\n\004_Crf\"\234\001\n\006Volume\022\016\n\006Method\030\001 \001(\t\022\037\n\022I" +
-      "ntegratedLoudness\030\002 \001(\001H\000\210\001\001\022\025\n\010TruePeak" +
-      "\030\003 \001(\001H\001\210\001\001\022\027\n\nVolumeTime\030\004 \001(\001H\002\210\001\001B\025\n\023" +
-      "_IntegratedLoudnessB\013\n\t_TruePeakB\r\n\013_Vol" +
-      "umeTime\"\226\001\n\005Audio\022\r\n\005Codec\030\001 \001(\t\022\017\n\007Prof" +
-      "ile\030\002 \001(\t\022\022\n\nSampleRate\030\003 \001(\005\022\017\n\007Bitrate" +
-      "\030\004 \001(\005\022\020\n\010Channels\030\005 \001(\005\0226\n\006Volume\030\006 \001(\013" +
-      "2&.Volcengine.Imp.Models.Business.Volume" +
-      "\"9\n\007Segment\022\016\n\006Format\030\001 \001(\t\022\014\n\004Type\030\002 \001(" +
-      "\t\022\020\n\010Duration\030\003 \001(\005B\314\001\n)com.volcengine.s" +
-      "ervice.imp.model.businessB\013ImpWorkflowP\001" +
-      "ZAgithub.com/volcengine/volc-sdk-golang/" +
-      "service/imp/models/business\240\001\001\330\001\001\312\002 Volc" +
-      "\\Service\\Imp\\Models\\Business\342\002#Volc\\Serv" +
-      "ice\\Imp\\Models\\GPBMetadatab\006proto3"
+      "eName\030\003 \001(\t\022\016\n\006FileId\030\004 \001(\t\"y\n\005Input\022<\n\t" +
+      "InputPath\030\001 \001(\0132).Volcengine.Imp.Models." +
+      "Business.InputPath\0222\n\004Clip\030\002 \001(\0132$.Volce" +
+      "ngine.Imp.Models.Business.Clip\"*\n\004Clip\022\021" +
+      "\n\tStartTime\030\001 \001(\005\022\017\n\007EndTime\030\002 \001(\005\"\310\001\n\tJ" +
+      "obOutput\022\022\n\nTemplateId\030\001 \001(\t\022\022\n\nProperti" +
+      "es\030\002 \001(\t\022\014\n\004Code\030\003 \001(\t\022\025\n\rFileMessageId\030" +
+      "\004 \001(\t\022\020\n\010TaskType\030\005 \001(\t\022\016\n\006Status\030\006 \001(\t\022" +
+      "\022\n\nActivityId\030\007 \001(\t\022\021\n\tStartTime\030\010 \001(\t\022\017" +
+      "\n\007EndTime\030\t \001(\t\022\024\n\014TemplateName\030\n \001(\t\"\257\003" +
+      "\n\014JobExecution\022\r\n\005JobId\030\001 \001(\t\022<\n\tInputPa" +
+      "th\030\002 \001(\0132).Volcengine.Imp.Models.Busines" +
+      "s.InputPath\0229\n\006Output\030\003 \003(\0132).Volcengine" +
+      ".Imp.Models.Business.JobOutput\022\016\n\006Status" +
+      "\030\004 \001(\t\022\021\n\tCreatedAt\030\005 \001(\t\022\022\n\nFinishedAt\030" +
+      "\006 \001(\t\022\022\n\nTemplateId\030\007 \001(\t\022\031\n\021EnableLowPr" +
+      "iority\030\010 \001(\t\022\021\n\tJobSource\030\t \001(\t\0220\n\003Job\030\n" +
+      " \001(\0132#.Volcengine.Imp.Models.Business.Jo" +
+      "b\022\023\n\013CallbackUri\030\013 \001(\t\022\033\n\023CallbackConten" +
+      "tType\030\014 \001(\t\022:\n\013MultiInputs\030\r \003(\0132%.Volce" +
+      "ngine.Imp.Models.Business.Input\"P\n\006Param" +
+      "s\022F\n\016OverrideParams\030\001 \001(\0132..Volcengine.I" +
+      "mp.Models.Business.OverrideParams\"\244\001\n\016Ov" +
+      "errideParams\022L\n\nSmartErase\030\001 \003(\01328.Volce" +
+      "ngine.Imp.Models.Business.SmartEraseOver" +
+      "rideParams\022D\n\006Output\030\002 \003(\01324.Volcengine." +
+      "Imp.Models.Business.OutputOverrideParams" +
+      "\"\236\001\n\030SmartEraseOverrideParams\022\022\n\nActivit" +
+      "yId\030\001 \003(\t\022<\n\tWatermark\030\002 \001(\0132).Volcengin" +
+      "e.Imp.Models.Business.Watermark\0220\n\003OCR\030\003" +
+      " \001(\0132#.Volcengine.Imp.Models.Business.OC" +
+      "R\"K\n\tWatermark\022>\n\nDetectRect\030\001 \003(\0132*.Vol" +
+      "cengine.Imp.Models.Business.DetectRect\"E" +
+      "\n\003OCR\022>\n\nDetectRect\030\001 \003(\0132*.Volcengine.I" +
+      "mp.Models.Business.DetectRect\"<\n\nDetectR" +
+      "ect\022\n\n\002X1\030\001 \001(\001\022\n\n\002Y1\030\002 \001(\001\022\n\n\002X2\030\003 \001(\001\022" +
+      "\n\n\002Y2\030\004 \001(\001\"j\n\024OutputOverrideParams\022\022\n\nA" +
+      "ctivityId\030\001 \003(\t\022>\n\nOutputPath\030\002 \001(\0132*.Vo" +
+      "lcengine.Imp.Models.Business.OutputPath\"" +
+      "U\n\nOutputPath\022\014\n\004Type\030\001 \001(\t\022\021\n\tTosBucket" +
+      "\030\002 \001(\t\022\024\n\014VodSpaceName\030\003 \001(\t\022\020\n\010FileName" +
+      "\030\004 \001(\t\"\213\001\n\003Job\022I\n\016TranscodeVideo\030\001 \001(\01321" +
+      ".Volcengine.Imp.Models.Business.Transcod" +
+      "eVideoJob\0229\n\006ByteHD\030\002 \001(\0132).Volcengine.I" +
+      "mp.Models.Business.ByteHDJob\"\314\002\n\021Transco" +
+      "deVideoJob\022\021\n\tContainer\030\001 \001(\t\0224\n\005Video\030\002" +
+      " \001(\0132%.Volcengine.Imp.Models.Business.Vi" +
+      "deo\0224\n\005Audio\030\003 \001(\0132%.Volcengine.Imp.Mode" +
+      "ls.Business.Audio\022\023\n\013EnableRemux\030\004 \001(\010\022\024" +
+      "\n\014DisableVideo\030\005 \001(\010\022\024\n\014DisableAudio\030\006 \001" +
+      "(\010\0228\n\007Segment\030\007 \001(\0132\'.Volcengine.Imp.Mod" +
+      "els.Business.Segment\022=\n\005Logos\030\010 \003(\0132..Vo" +
+      "lcengine.Imp.Models.Business.LogoDefinit" +
+      "ion\"\203\002\n\tByteHDJob\022\021\n\tContainer\030\001 \001(\t\0224\n\005" +
+      "Video\030\002 \001(\0132%.Volcengine.Imp.Models.Busi" +
+      "ness.Video\0224\n\005Audio\030\003 \001(\0132%.Volcengine.I" +
+      "mp.Models.Business.Audio\0228\n\007Segment\030\004 \001(" +
+      "\0132\'.Volcengine.Imp.Models.Business.Segme" +
+      "nt\022=\n\005Logos\030\005 \003(\0132..Volcengine.Imp.Model" +
+      "s.Business.LogoDefinition\"\325\001\n\005Video\022\r\n\005C" +
+      "odec\030\001 \001(\t\022\021\n\tScaleType\030\002 \001(\005\022\022\n\nScaleWi" +
+      "dth\030\003 \001(\005\022\023\n\013ScaleHeight\030\004 \001(\005\022\022\n\nScaleS" +
+      "hort\030\005 \001(\005\022\021\n\tScaleLong\030\006 \001(\005\022\017\n\007Bitrate" +
+      "\030\007 \001(\005\022\016\n\006MaxFps\030\010 \001(\005\022\020\n\003Crf\030\t \001(\005H\000\210\001\001" +
+      "\022\017\n\007Profile\030\n \001(\t\022\016\n\006PixFmt\030\013 \001(\tB\006\n\004_Cr" +
+      "f\"\234\001\n\006Volume\022\016\n\006Method\030\001 \001(\t\022\037\n\022Integrat" +
+      "edLoudness\030\002 \001(\001H\000\210\001\001\022\025\n\010TruePeak\030\003 \001(\001H" +
+      "\001\210\001\001\022\027\n\nVolumeTime\030\004 \001(\001H\002\210\001\001B\025\n\023_Integr" +
+      "atedLoudnessB\013\n\t_TruePeakB\r\n\013_VolumeTime" +
+      "\"\226\001\n\005Audio\022\r\n\005Codec\030\001 \001(\t\022\017\n\007Profile\030\002 \001" +
+      "(\t\022\022\n\nSampleRate\030\003 \001(\005\022\017\n\007Bitrate\030\004 \001(\005\022" +
+      "\020\n\010Channels\030\005 \001(\005\0226\n\006Volume\030\006 \001(\0132&.Volc" +
+      "engine.Imp.Models.Business.Volume\"9\n\007Seg" +
+      "ment\022\016\n\006Format\030\001 \001(\t\022\014\n\004Type\030\002 \001(\t\022\020\n\010Du" +
+      "ration\030\003 \001(\005\"\274\002\n\016LogoDefinition\022\014\n\004Type\030" +
+      "\001 \001(\t\022N\n\022TextLogoDefinition\030\002 \001(\01322.Volc" +
+      "engine.Imp.Models.Business.TextLogoDefin" +
+      "ition\022P\n\023ImageLogoDefinition\030\003 \001(\01323.Vol" +
+      "cengine.Imp.Models.Business.ImageLogoDef" +
+      "inition\022>\n\010Position\030\004 \001(\0132,.Volcengine.I" +
+      "mp.Models.Business.LogoPosition\022:\n\010TimeL" +
+      "ine\030\005 \001(\0132(.Volcengine.Imp.Models.Busine" +
+      "ss.TimeLine\"\\\n\022TextLogoDefinition\022\017\n\007Con" +
+      "tent\030\001 \001(\t\022\020\n\010FontType\030\002 \001(\t\022\020\n\010FontSize" +
+      "\030\003 \001(\005\022\021\n\tFontColor\030\004 \001(\t\"\216\001\n\023ImageLogoD" +
+      "efinition\022:\n\007Content\030\001 \001(\0132).Volcengine." +
+      "Imp.Models.Business.InputPath\022\021\n\tLoopTim" +
+      "es\030\002 \001(\005\022\022\n\nRepeatLast\030\003 \001(\010\022\024\n\014Transpar" +
+      "ency\030\004 \001(\005\"X\n\014LogoPosition\022\014\n\004PosX\030\001 \001(\t" +
+      "\022\014\n\004PosY\030\002 \001(\t\022\r\n\005SizeX\030\004 \001(\t\022\r\n\005SizeY\030\005" +
+      " \001(\t\022\016\n\006Locate\030\006 \001(\t\".\n\010TimeLine\022\021\n\tStar" +
+      "tTime\030\001 \001(\005\022\017\n\007EndTime\030\002 \001(\005B\314\001\n)com.vol" +
+      "cengine.service.imp.model.businessB\013ImpW" +
+      "orkflowP\001ZAgithub.com/volcengine/volc-sd" +
+      "k-golang/service/imp/models/business\240\001\001\330" +
+      "\001\001\312\002 Volc\\Service\\Imp\\Models\\Business\342\002#" +
+      "Volc\\Service\\Imp\\Models\\GPBMetadatab\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -198,108 +260,150 @@ public final class ImpWorkflow {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_InputPath_descriptor,
         new java.lang.String[] { "Type", "TosBucket", "VodSpaceName", "FileId", });
-    internal_static_Volcengine_Imp_Models_Business_JobOutput_descriptor =
+    internal_static_Volcengine_Imp_Models_Business_Input_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_Volcengine_Imp_Models_Business_Input_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Imp_Models_Business_Input_descriptor,
+        new java.lang.String[] { "InputPath", "Clip", });
+    internal_static_Volcengine_Imp_Models_Business_Clip_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_Volcengine_Imp_Models_Business_Clip_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Imp_Models_Business_Clip_descriptor,
+        new java.lang.String[] { "StartTime", "EndTime", });
+    internal_static_Volcengine_Imp_Models_Business_JobOutput_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_Volcengine_Imp_Models_Business_JobOutput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_JobOutput_descriptor,
         new java.lang.String[] { "TemplateId", "Properties", "Code", "FileMessageId", "TaskType", "Status", "ActivityId", "StartTime", "EndTime", "TemplateName", });
     internal_static_Volcengine_Imp_Models_Business_JobExecution_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_Volcengine_Imp_Models_Business_JobExecution_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_JobExecution_descriptor,
-        new java.lang.String[] { "JobId", "InputPath", "Output", "Status", "CreatedAt", "FinishedAt", "TemplateId", "EnableLowPriority", "JobSource", "Job", "CallbackUri", "CallbackContentType", });
+        new java.lang.String[] { "JobId", "InputPath", "Output", "Status", "CreatedAt", "FinishedAt", "TemplateId", "EnableLowPriority", "JobSource", "Job", "CallbackUri", "CallbackContentType", "MultiInputs", });
     internal_static_Volcengine_Imp_Models_Business_Params_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_Volcengine_Imp_Models_Business_Params_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_Params_descriptor,
         new java.lang.String[] { "OverrideParams", });
     internal_static_Volcengine_Imp_Models_Business_OverrideParams_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_Volcengine_Imp_Models_Business_OverrideParams_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_OverrideParams_descriptor,
         new java.lang.String[] { "SmartErase", "Output", });
     internal_static_Volcengine_Imp_Models_Business_SmartEraseOverrideParams_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_Volcengine_Imp_Models_Business_SmartEraseOverrideParams_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_SmartEraseOverrideParams_descriptor,
         new java.lang.String[] { "ActivityId", "Watermark", "OCR", });
     internal_static_Volcengine_Imp_Models_Business_Watermark_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_Volcengine_Imp_Models_Business_Watermark_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_Watermark_descriptor,
         new java.lang.String[] { "DetectRect", });
     internal_static_Volcengine_Imp_Models_Business_OCR_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_Volcengine_Imp_Models_Business_OCR_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_OCR_descriptor,
         new java.lang.String[] { "DetectRect", });
     internal_static_Volcengine_Imp_Models_Business_DetectRect_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_Volcengine_Imp_Models_Business_DetectRect_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_DetectRect_descriptor,
         new java.lang.String[] { "X1", "Y1", "X2", "Y2", });
     internal_static_Volcengine_Imp_Models_Business_OutputOverrideParams_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_Volcengine_Imp_Models_Business_OutputOverrideParams_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_OutputOverrideParams_descriptor,
         new java.lang.String[] { "ActivityId", "OutputPath", });
     internal_static_Volcengine_Imp_Models_Business_OutputPath_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_Volcengine_Imp_Models_Business_OutputPath_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_OutputPath_descriptor,
         new java.lang.String[] { "Type", "TosBucket", "VodSpaceName", "FileName", });
     internal_static_Volcengine_Imp_Models_Business_Job_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_Volcengine_Imp_Models_Business_Job_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_Job_descriptor,
         new java.lang.String[] { "TranscodeVideo", "ByteHD", });
     internal_static_Volcengine_Imp_Models_Business_TranscodeVideoJob_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_Volcengine_Imp_Models_Business_TranscodeVideoJob_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_TranscodeVideoJob_descriptor,
-        new java.lang.String[] { "Container", "Video", "Audio", "EnableRemux", "DisableVideo", "DisableAudio", "Segment", });
+        new java.lang.String[] { "Container", "Video", "Audio", "EnableRemux", "DisableVideo", "DisableAudio", "Segment", "Logos", });
     internal_static_Volcengine_Imp_Models_Business_ByteHDJob_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_Volcengine_Imp_Models_Business_ByteHDJob_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_ByteHDJob_descriptor,
-        new java.lang.String[] { "Container", "Video", "Audio", "Segment", });
+        new java.lang.String[] { "Container", "Video", "Audio", "Segment", "Logos", });
     internal_static_Volcengine_Imp_Models_Business_Video_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_Volcengine_Imp_Models_Business_Video_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_Video_descriptor,
         new java.lang.String[] { "Codec", "ScaleType", "ScaleWidth", "ScaleHeight", "ScaleShort", "ScaleLong", "Bitrate", "MaxFps", "Crf", "Profile", "PixFmt", "Crf", });
     internal_static_Volcengine_Imp_Models_Business_Volume_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_Volcengine_Imp_Models_Business_Volume_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_Volume_descriptor,
         new java.lang.String[] { "Method", "IntegratedLoudness", "TruePeak", "VolumeTime", "IntegratedLoudness", "TruePeak", "VolumeTime", });
     internal_static_Volcengine_Imp_Models_Business_Audio_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_Volcengine_Imp_Models_Business_Audio_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_Audio_descriptor,
         new java.lang.String[] { "Codec", "Profile", "SampleRate", "Bitrate", "Channels", "Volume", });
     internal_static_Volcengine_Imp_Models_Business_Segment_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_Volcengine_Imp_Models_Business_Segment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Imp_Models_Business_Segment_descriptor,
         new java.lang.String[] { "Format", "Type", "Duration", });
+    internal_static_Volcengine_Imp_Models_Business_LogoDefinition_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_Volcengine_Imp_Models_Business_LogoDefinition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Imp_Models_Business_LogoDefinition_descriptor,
+        new java.lang.String[] { "Type", "TextLogoDefinition", "ImageLogoDefinition", "Position", "TimeLine", });
+    internal_static_Volcengine_Imp_Models_Business_TextLogoDefinition_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_Volcengine_Imp_Models_Business_TextLogoDefinition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Imp_Models_Business_TextLogoDefinition_descriptor,
+        new java.lang.String[] { "Content", "FontType", "FontSize", "FontColor", });
+    internal_static_Volcengine_Imp_Models_Business_ImageLogoDefinition_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_Volcengine_Imp_Models_Business_ImageLogoDefinition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Imp_Models_Business_ImageLogoDefinition_descriptor,
+        new java.lang.String[] { "Content", "LoopTimes", "RepeatLast", "Transparency", });
+    internal_static_Volcengine_Imp_Models_Business_LogoPosition_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_Volcengine_Imp_Models_Business_LogoPosition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Imp_Models_Business_LogoPosition_descriptor,
+        new java.lang.String[] { "PosX", "PosY", "SizeX", "SizeY", "Locate", });
+    internal_static_Volcengine_Imp_Models_Business_TimeLine_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_Volcengine_Imp_Models_Business_TimeLine_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Imp_Models_Business_TimeLine_descriptor,
+        new java.lang.String[] { "StartTime", "EndTime", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

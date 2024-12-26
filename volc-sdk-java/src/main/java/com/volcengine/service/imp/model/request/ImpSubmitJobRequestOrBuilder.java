@@ -184,4 +184,48 @@ public interface ImpSubmitJobRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getCallbackContentTypeBytes();
+
+  /**
+   * <pre>
+   * 多输入
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 10;</code>
+   */
+  java.util.List<com.volcengine.service.imp.model.business.Input> 
+      getMultiInputsList();
+  /**
+   * <pre>
+   * 多输入
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 10;</code>
+   */
+  com.volcengine.service.imp.model.business.Input getMultiInputs(int index);
+  /**
+   * <pre>
+   * 多输入
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 10;</code>
+   */
+  int getMultiInputsCount();
+  /**
+   * <pre>
+   * 多输入
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 10;</code>
+   */
+  java.util.List<? extends com.volcengine.service.imp.model.business.InputOrBuilder> 
+      getMultiInputsOrBuilderList();
+  /**
+   * <pre>
+   * 多输入
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 10;</code>
+   */
+  com.volcengine.service.imp.model.business.InputOrBuilder getMultiInputsOrBuilder(
+      int index);
 }

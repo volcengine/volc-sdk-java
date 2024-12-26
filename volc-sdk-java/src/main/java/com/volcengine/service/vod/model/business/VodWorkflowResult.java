@@ -24,6 +24,7 @@ private static final long serialVersionUID = 0L;
     status_ = "";
     transcodeInfos_ = java.util.Collections.emptyList();
     snapshots_ = java.util.Collections.emptyList();
+    clientToken_ = "";
   }
 
   @java.lang.Override
@@ -122,6 +123,12 @@ private static final long serialVersionUID = 0L;
             }
             snapshots_.add(
                 input.readMessage(com.volcengine.service.vod.model.business.SnapshotResult.parser(), extensionRegistry));
+            break;
+          }
+          case 82: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            clientToken_ = s;
             break;
           }
           default: {
@@ -496,6 +503,44 @@ private static final long serialVersionUID = 0L;
     return snapshots_.get(index);
   }
 
+  public static final int CLIENTTOKEN_FIELD_NUMBER = 10;
+  private volatile java.lang.Object clientToken_;
+  /**
+   * <code>string ClientToken = 10;</code>
+   * @return The clientToken.
+   */
+  @java.lang.Override
+  public java.lang.String getClientToken() {
+    java.lang.Object ref = clientToken_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      clientToken_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string ClientToken = 10;</code>
+   * @return The bytes for clientToken.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getClientTokenBytes() {
+    java.lang.Object ref = clientToken_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      clientToken_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -537,6 +582,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < snapshots_.size(); i++) {
       output.writeMessage(9, snapshots_.get(i));
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientToken_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, clientToken_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -576,6 +624,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, snapshots_.get(i));
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientToken_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, clientToken_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -612,6 +663,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTranscodeInfosList())) return false;
     if (!getSnapshotsList()
         .equals(other.getSnapshotsList())) return false;
+    if (!getClientToken()
+        .equals(other.getClientToken())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -647,6 +700,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SNAPSHOTS_FIELD_NUMBER;
       hash = (53 * hash) + getSnapshotsList().hashCode();
     }
+    hash = (37 * hash) + CLIENTTOKEN_FIELD_NUMBER;
+    hash = (53 * hash) + getClientToken().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -812,6 +867,8 @@ private static final long serialVersionUID = 0L;
       } else {
         snapshotsBuilder_.clear();
       }
+      clientToken_ = "";
+
       return this;
     }
 
@@ -868,6 +925,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.snapshots_ = snapshotsBuilder_.build();
       }
+      result.clientToken_ = clientToken_;
       onBuilt();
       return result;
     }
@@ -994,6 +1052,10 @@ private static final long serialVersionUID = 0L;
             snapshotsBuilder_.addAllMessages(other.snapshots_);
           }
         }
+      }
+      if (!other.getClientToken().isEmpty()) {
+        clientToken_ = other.clientToken_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2078,6 +2140,82 @@ private static final long serialVersionUID = 0L;
         snapshots_ = null;
       }
       return snapshotsBuilder_;
+    }
+
+    private java.lang.Object clientToken_ = "";
+    /**
+     * <code>string ClientToken = 10;</code>
+     * @return The clientToken.
+     */
+    public java.lang.String getClientToken() {
+      java.lang.Object ref = clientToken_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        clientToken_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string ClientToken = 10;</code>
+     * @return The bytes for clientToken.
+     */
+    public com.google.protobuf.ByteString
+        getClientTokenBytes() {
+      java.lang.Object ref = clientToken_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        clientToken_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string ClientToken = 10;</code>
+     * @param value The clientToken to set.
+     * @return This builder for chaining.
+     */
+    public Builder setClientToken(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      clientToken_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string ClientToken = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearClientToken() {
+      
+      clientToken_ = getDefaultInstance().getClientToken();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string ClientToken = 10;</code>
+     * @param value The bytes for clientToken to set.
+     * @return This builder for chaining.
+     */
+    public Builder setClientTokenBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      clientToken_ = value;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

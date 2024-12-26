@@ -26,6 +26,7 @@ private static final long serialVersionUID = 0L;
     templateId_ = "";
     callbackArgs_ = "";
     taskListId_ = "";
+    clientToken_ = "";
   }
 
   @java.lang.Override
@@ -116,6 +117,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             taskListId_ = s;
+            break;
+          }
+          case 74: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            clientToken_ = s;
             break;
           }
           default: {
@@ -432,6 +439,44 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int CLIENTTOKEN_FIELD_NUMBER = 9;
+  private volatile java.lang.Object clientToken_;
+  /**
+   * <code>string ClientToken = 9;</code>
+   * @return The clientToken.
+   */
+  @java.lang.Override
+  public java.lang.String getClientToken() {
+    java.lang.Object ref = clientToken_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      clientToken_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string ClientToken = 9;</code>
+   * @return The bytes for clientToken.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getClientTokenBytes() {
+    java.lang.Object ref = clientToken_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      clientToken_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -470,6 +515,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(taskListId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, taskListId_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientToken_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, clientToken_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -506,6 +554,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(taskListId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, taskListId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientToken_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, clientToken_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -544,6 +595,8 @@ private static final long serialVersionUID = 0L;
     }
     if (!getTaskListId()
         .equals(other.getTaskListId())) return false;
+    if (!getClientToken()
+        .equals(other.getClientToken())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -576,6 +629,8 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + TASKLISTID_FIELD_NUMBER;
     hash = (53 * hash) + getTaskListId().hashCode();
+    hash = (37 * hash) + CLIENTTOKEN_FIELD_NUMBER;
+    hash = (53 * hash) + getClientToken().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -739,6 +794,8 @@ private static final long serialVersionUID = 0L;
       }
       taskListId_ = "";
 
+      clientToken_ = "";
+
       return this;
     }
 
@@ -781,6 +838,7 @@ private static final long serialVersionUID = 0L;
         result.directUrl_ = directUrlBuilder_.build();
       }
       result.taskListId_ = taskListId_;
+      result.clientToken_ = clientToken_;
       onBuilt();
       return result;
     }
@@ -855,6 +913,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTaskListId().isEmpty()) {
         taskListId_ = other.taskListId_;
+        onChanged();
+      }
+      if (!other.getClientToken().isEmpty()) {
+        clientToken_ = other.clientToken_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1642,6 +1704,82 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       taskListId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object clientToken_ = "";
+    /**
+     * <code>string ClientToken = 9;</code>
+     * @return The clientToken.
+     */
+    public java.lang.String getClientToken() {
+      java.lang.Object ref = clientToken_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        clientToken_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string ClientToken = 9;</code>
+     * @return The bytes for clientToken.
+     */
+    public com.google.protobuf.ByteString
+        getClientTokenBytes() {
+      java.lang.Object ref = clientToken_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        clientToken_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string ClientToken = 9;</code>
+     * @param value The clientToken to set.
+     * @return This builder for chaining.
+     */
+    public Builder setClientToken(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      clientToken_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string ClientToken = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearClientToken() {
+      
+      clientToken_ = getDefaultInstance().getClientToken();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string ClientToken = 9;</code>
+     * @param value The bytes for clientToken to set.
+     * @return This builder for chaining.
+     */
+    public Builder setClientTokenBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      clientToken_ = value;
       onChanged();
       return this;
     }

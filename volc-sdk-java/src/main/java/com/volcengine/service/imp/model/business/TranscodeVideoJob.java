@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private TranscodeVideoJob() {
     container_ = "";
+    logos_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -39,6 +40,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -109,6 +111,15 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 66: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              logos_ = new java.util.ArrayList<com.volcengine.service.imp.model.business.LogoDefinition>();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            logos_.add(
+                input.readMessage(com.volcengine.service.imp.model.business.LogoDefinition.parser(), extensionRegistry));
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -124,6 +135,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        logos_ = java.util.Collections.unmodifiableList(logos_);
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -290,6 +304,46 @@ private static final long serialVersionUID = 0L;
     return getSegment();
   }
 
+  public static final int LOGOS_FIELD_NUMBER = 8;
+  private java.util.List<com.volcengine.service.imp.model.business.LogoDefinition> logos_;
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.volcengine.service.imp.model.business.LogoDefinition> getLogosList() {
+    return logos_;
+  }
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.volcengine.service.imp.model.business.LogoDefinitionOrBuilder> 
+      getLogosOrBuilderList() {
+    return logos_;
+  }
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+   */
+  @java.lang.Override
+  public int getLogosCount() {
+    return logos_.size();
+  }
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.imp.model.business.LogoDefinition getLogos(int index) {
+    return logos_.get(index);
+  }
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.imp.model.business.LogoDefinitionOrBuilder getLogosOrBuilder(
+      int index) {
+    return logos_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -324,6 +378,9 @@ private static final long serialVersionUID = 0L;
     }
     if (segment_ != null) {
       output.writeMessage(7, getSegment());
+    }
+    for (int i = 0; i < logos_.size(); i++) {
+      output.writeMessage(8, logos_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -360,6 +417,10 @@ private static final long serialVersionUID = 0L;
     if (segment_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getSegment());
+    }
+    for (int i = 0; i < logos_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, logos_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -399,6 +460,8 @@ private static final long serialVersionUID = 0L;
       if (!getSegment()
           .equals(other.getSegment())) return false;
     }
+    if (!getLogosList()
+        .equals(other.getLogosList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -432,6 +495,10 @@ private static final long serialVersionUID = 0L;
     if (hasSegment()) {
       hash = (37 * hash) + SEGMENT_FIELD_NUMBER;
       hash = (53 * hash) + getSegment().hashCode();
+    }
+    if (getLogosCount() > 0) {
+      hash = (37 * hash) + LOGOS_FIELD_NUMBER;
+      hash = (53 * hash) + getLogosList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -561,6 +628,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getLogosFieldBuilder();
       }
     }
     @java.lang.Override
@@ -592,6 +660,12 @@ private static final long serialVersionUID = 0L;
         segment_ = null;
         segmentBuilder_ = null;
       }
+      if (logosBuilder_ == null) {
+        logos_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      } else {
+        logosBuilder_.clear();
+      }
       return this;
     }
 
@@ -618,6 +692,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.volcengine.service.imp.model.business.TranscodeVideoJob buildPartial() {
       com.volcengine.service.imp.model.business.TranscodeVideoJob result = new com.volcengine.service.imp.model.business.TranscodeVideoJob(this);
+      int from_bitField0_ = bitField0_;
       result.container_ = container_;
       if (videoBuilder_ == null) {
         result.video_ = video_;
@@ -636,6 +711,15 @@ private static final long serialVersionUID = 0L;
         result.segment_ = segment_;
       } else {
         result.segment_ = segmentBuilder_.build();
+      }
+      if (logosBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          logos_ = java.util.Collections.unmodifiableList(logos_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.logos_ = logos_;
+      } else {
+        result.logos_ = logosBuilder_.build();
       }
       onBuilt();
       return result;
@@ -707,6 +791,32 @@ private static final long serialVersionUID = 0L;
       if (other.hasSegment()) {
         mergeSegment(other.getSegment());
       }
+      if (logosBuilder_ == null) {
+        if (!other.logos_.isEmpty()) {
+          if (logos_.isEmpty()) {
+            logos_ = other.logos_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureLogosIsMutable();
+            logos_.addAll(other.logos_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.logos_.isEmpty()) {
+          if (logosBuilder_.isEmpty()) {
+            logosBuilder_.dispose();
+            logosBuilder_ = null;
+            logos_ = other.logos_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            logosBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getLogosFieldBuilder() : null;
+          } else {
+            logosBuilder_.addAllMessages(other.logos_);
+          }
+        }
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -735,6 +845,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object container_ = "";
     /**
@@ -1260,6 +1371,246 @@ private static final long serialVersionUID = 0L;
         segment_ = null;
       }
       return segmentBuilder_;
+    }
+
+    private java.util.List<com.volcengine.service.imp.model.business.LogoDefinition> logos_ =
+      java.util.Collections.emptyList();
+    private void ensureLogosIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        logos_ = new java.util.ArrayList<com.volcengine.service.imp.model.business.LogoDefinition>(logos_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.imp.model.business.LogoDefinition, com.volcengine.service.imp.model.business.LogoDefinition.Builder, com.volcengine.service.imp.model.business.LogoDefinitionOrBuilder> logosBuilder_;
+
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+     */
+    public java.util.List<com.volcengine.service.imp.model.business.LogoDefinition> getLogosList() {
+      if (logosBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(logos_);
+      } else {
+        return logosBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+     */
+    public int getLogosCount() {
+      if (logosBuilder_ == null) {
+        return logos_.size();
+      } else {
+        return logosBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+     */
+    public com.volcengine.service.imp.model.business.LogoDefinition getLogos(int index) {
+      if (logosBuilder_ == null) {
+        return logos_.get(index);
+      } else {
+        return logosBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+     */
+    public Builder setLogos(
+        int index, com.volcengine.service.imp.model.business.LogoDefinition value) {
+      if (logosBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureLogosIsMutable();
+        logos_.set(index, value);
+        onChanged();
+      } else {
+        logosBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+     */
+    public Builder setLogos(
+        int index, com.volcengine.service.imp.model.business.LogoDefinition.Builder builderForValue) {
+      if (logosBuilder_ == null) {
+        ensureLogosIsMutable();
+        logos_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        logosBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+     */
+    public Builder addLogos(com.volcengine.service.imp.model.business.LogoDefinition value) {
+      if (logosBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureLogosIsMutable();
+        logos_.add(value);
+        onChanged();
+      } else {
+        logosBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+     */
+    public Builder addLogos(
+        int index, com.volcengine.service.imp.model.business.LogoDefinition value) {
+      if (logosBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureLogosIsMutable();
+        logos_.add(index, value);
+        onChanged();
+      } else {
+        logosBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+     */
+    public Builder addLogos(
+        com.volcengine.service.imp.model.business.LogoDefinition.Builder builderForValue) {
+      if (logosBuilder_ == null) {
+        ensureLogosIsMutable();
+        logos_.add(builderForValue.build());
+        onChanged();
+      } else {
+        logosBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+     */
+    public Builder addLogos(
+        int index, com.volcengine.service.imp.model.business.LogoDefinition.Builder builderForValue) {
+      if (logosBuilder_ == null) {
+        ensureLogosIsMutable();
+        logos_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        logosBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+     */
+    public Builder addAllLogos(
+        java.lang.Iterable<? extends com.volcengine.service.imp.model.business.LogoDefinition> values) {
+      if (logosBuilder_ == null) {
+        ensureLogosIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, logos_);
+        onChanged();
+      } else {
+        logosBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+     */
+    public Builder clearLogos() {
+      if (logosBuilder_ == null) {
+        logos_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+      } else {
+        logosBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+     */
+    public Builder removeLogos(int index) {
+      if (logosBuilder_ == null) {
+        ensureLogosIsMutable();
+        logos_.remove(index);
+        onChanged();
+      } else {
+        logosBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+     */
+    public com.volcengine.service.imp.model.business.LogoDefinition.Builder getLogosBuilder(
+        int index) {
+      return getLogosFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+     */
+    public com.volcengine.service.imp.model.business.LogoDefinitionOrBuilder getLogosOrBuilder(
+        int index) {
+      if (logosBuilder_ == null) {
+        return logos_.get(index);  } else {
+        return logosBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+     */
+    public java.util.List<? extends com.volcengine.service.imp.model.business.LogoDefinitionOrBuilder> 
+         getLogosOrBuilderList() {
+      if (logosBuilder_ != null) {
+        return logosBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(logos_);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+     */
+    public com.volcengine.service.imp.model.business.LogoDefinition.Builder addLogosBuilder() {
+      return getLogosFieldBuilder().addBuilder(
+          com.volcengine.service.imp.model.business.LogoDefinition.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+     */
+    public com.volcengine.service.imp.model.business.LogoDefinition.Builder addLogosBuilder(
+        int index) {
+      return getLogosFieldBuilder().addBuilder(
+          index, com.volcengine.service.imp.model.business.LogoDefinition.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.LogoDefinition Logos = 8;</code>
+     */
+    public java.util.List<com.volcengine.service.imp.model.business.LogoDefinition.Builder> 
+         getLogosBuilderList() {
+      return getLogosFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.imp.model.business.LogoDefinition, com.volcengine.service.imp.model.business.LogoDefinition.Builder, com.volcengine.service.imp.model.business.LogoDefinitionOrBuilder> 
+        getLogosFieldBuilder() {
+      if (logosBuilder_ == null) {
+        logosBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.service.imp.model.business.LogoDefinition, com.volcengine.service.imp.model.business.LogoDefinition.Builder, com.volcengine.service.imp.model.business.LogoDefinitionOrBuilder>(
+                logos_,
+                ((bitField0_ & 0x00000001) != 0),
+                getParentForChildren(),
+                isClean());
+        logos_ = null;
+      }
+      return logosBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

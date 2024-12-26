@@ -26,6 +26,7 @@ private static final long serialVersionUID = 0L;
     jobSource_ = "";
     callbackUri_ = "";
     callbackContentType_ = "";
+    multiInputs_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -148,6 +149,15 @@ private static final long serialVersionUID = 0L;
             callbackContentType_ = s;
             break;
           }
+          case 106: {
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              multiInputs_ = new java.util.ArrayList<com.volcengine.service.imp.model.business.Input>();
+              mutable_bitField0_ |= 0x00000002;
+            }
+            multiInputs_.add(
+                input.readMessage(com.volcengine.service.imp.model.business.Input.parser(), extensionRegistry));
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -165,6 +175,9 @@ private static final long serialVersionUID = 0L;
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
         output_ = java.util.Collections.unmodifiableList(output_);
+      }
+      if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        multiInputs_ = java.util.Collections.unmodifiableList(multiInputs_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -689,6 +702,46 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int MULTIINPUTS_FIELD_NUMBER = 13;
+  private java.util.List<com.volcengine.service.imp.model.business.Input> multiInputs_;
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.volcengine.service.imp.model.business.Input> getMultiInputsList() {
+    return multiInputs_;
+  }
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.volcengine.service.imp.model.business.InputOrBuilder> 
+      getMultiInputsOrBuilderList() {
+    return multiInputs_;
+  }
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+   */
+  @java.lang.Override
+  public int getMultiInputsCount() {
+    return multiInputs_.size();
+  }
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.imp.model.business.Input getMultiInputs(int index) {
+    return multiInputs_.get(index);
+  }
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.imp.model.business.InputOrBuilder getMultiInputsOrBuilder(
+      int index) {
+    return multiInputs_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -739,6 +792,9 @@ private static final long serialVersionUID = 0L;
     if (!getCallbackContentTypeBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, callbackContentType_);
     }
+    for (int i = 0; i < multiInputs_.size(); i++) {
+      output.writeMessage(13, multiInputs_.get(i));
+    }
     unknownFields.writeTo(output);
   }
 
@@ -787,6 +843,10 @@ private static final long serialVersionUID = 0L;
     if (!getCallbackContentTypeBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, callbackContentType_);
     }
+    for (int i = 0; i < multiInputs_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(13, multiInputs_.get(i));
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -832,6 +892,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCallbackUri())) return false;
     if (!getCallbackContentType()
         .equals(other.getCallbackContentType())) return false;
+    if (!getMultiInputsList()
+        .equals(other.getMultiInputsList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -873,6 +935,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getCallbackUri().hashCode();
     hash = (37 * hash) + CALLBACKCONTENTTYPE_FIELD_NUMBER;
     hash = (53 * hash) + getCallbackContentType().hashCode();
+    if (getMultiInputsCount() > 0) {
+      hash = (37 * hash) + MULTIINPUTS_FIELD_NUMBER;
+      hash = (53 * hash) + getMultiInputsList().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1002,6 +1068,7 @@ private static final long serialVersionUID = 0L;
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
         getOutputFieldBuilder();
+        getMultiInputsFieldBuilder();
       }
     }
     @java.lang.Override
@@ -1043,6 +1110,12 @@ private static final long serialVersionUID = 0L;
 
       callbackContentType_ = "";
 
+      if (multiInputsBuilder_ == null) {
+        multiInputs_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      } else {
+        multiInputsBuilder_.clear();
+      }
       return this;
     }
 
@@ -1098,6 +1171,15 @@ private static final long serialVersionUID = 0L;
       }
       result.callbackUri_ = callbackUri_;
       result.callbackContentType_ = callbackContentType_;
+      if (multiInputsBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          multiInputs_ = java.util.Collections.unmodifiableList(multiInputs_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.multiInputs_ = multiInputs_;
+      } else {
+        result.multiInputs_ = multiInputsBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -1213,6 +1295,32 @@ private static final long serialVersionUID = 0L;
       if (!other.getCallbackContentType().isEmpty()) {
         callbackContentType_ = other.callbackContentType_;
         onChanged();
+      }
+      if (multiInputsBuilder_ == null) {
+        if (!other.multiInputs_.isEmpty()) {
+          if (multiInputs_.isEmpty()) {
+            multiInputs_ = other.multiInputs_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureMultiInputsIsMutable();
+            multiInputs_.addAll(other.multiInputs_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.multiInputs_.isEmpty()) {
+          if (multiInputsBuilder_.isEmpty()) {
+            multiInputsBuilder_.dispose();
+            multiInputsBuilder_ = null;
+            multiInputs_ = other.multiInputs_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+            multiInputsBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getMultiInputsFieldBuilder() : null;
+          } else {
+            multiInputsBuilder_.addAllMessages(other.multiInputs_);
+          }
+        }
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2612,6 +2720,246 @@ private static final long serialVersionUID = 0L;
       callbackContentType_ = value;
       onChanged();
       return this;
+    }
+
+    private java.util.List<com.volcengine.service.imp.model.business.Input> multiInputs_ =
+      java.util.Collections.emptyList();
+    private void ensureMultiInputsIsMutable() {
+      if (!((bitField0_ & 0x00000002) != 0)) {
+        multiInputs_ = new java.util.ArrayList<com.volcengine.service.imp.model.business.Input>(multiInputs_);
+        bitField0_ |= 0x00000002;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.imp.model.business.Input, com.volcengine.service.imp.model.business.Input.Builder, com.volcengine.service.imp.model.business.InputOrBuilder> multiInputsBuilder_;
+
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+     */
+    public java.util.List<com.volcengine.service.imp.model.business.Input> getMultiInputsList() {
+      if (multiInputsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(multiInputs_);
+      } else {
+        return multiInputsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+     */
+    public int getMultiInputsCount() {
+      if (multiInputsBuilder_ == null) {
+        return multiInputs_.size();
+      } else {
+        return multiInputsBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+     */
+    public com.volcengine.service.imp.model.business.Input getMultiInputs(int index) {
+      if (multiInputsBuilder_ == null) {
+        return multiInputs_.get(index);
+      } else {
+        return multiInputsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+     */
+    public Builder setMultiInputs(
+        int index, com.volcengine.service.imp.model.business.Input value) {
+      if (multiInputsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMultiInputsIsMutable();
+        multiInputs_.set(index, value);
+        onChanged();
+      } else {
+        multiInputsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+     */
+    public Builder setMultiInputs(
+        int index, com.volcengine.service.imp.model.business.Input.Builder builderForValue) {
+      if (multiInputsBuilder_ == null) {
+        ensureMultiInputsIsMutable();
+        multiInputs_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        multiInputsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+     */
+    public Builder addMultiInputs(com.volcengine.service.imp.model.business.Input value) {
+      if (multiInputsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMultiInputsIsMutable();
+        multiInputs_.add(value);
+        onChanged();
+      } else {
+        multiInputsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+     */
+    public Builder addMultiInputs(
+        int index, com.volcengine.service.imp.model.business.Input value) {
+      if (multiInputsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMultiInputsIsMutable();
+        multiInputs_.add(index, value);
+        onChanged();
+      } else {
+        multiInputsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+     */
+    public Builder addMultiInputs(
+        com.volcengine.service.imp.model.business.Input.Builder builderForValue) {
+      if (multiInputsBuilder_ == null) {
+        ensureMultiInputsIsMutable();
+        multiInputs_.add(builderForValue.build());
+        onChanged();
+      } else {
+        multiInputsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+     */
+    public Builder addMultiInputs(
+        int index, com.volcengine.service.imp.model.business.Input.Builder builderForValue) {
+      if (multiInputsBuilder_ == null) {
+        ensureMultiInputsIsMutable();
+        multiInputs_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        multiInputsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+     */
+    public Builder addAllMultiInputs(
+        java.lang.Iterable<? extends com.volcengine.service.imp.model.business.Input> values) {
+      if (multiInputsBuilder_ == null) {
+        ensureMultiInputsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, multiInputs_);
+        onChanged();
+      } else {
+        multiInputsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+     */
+    public Builder clearMultiInputs() {
+      if (multiInputsBuilder_ == null) {
+        multiInputs_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+      } else {
+        multiInputsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+     */
+    public Builder removeMultiInputs(int index) {
+      if (multiInputsBuilder_ == null) {
+        ensureMultiInputsIsMutable();
+        multiInputs_.remove(index);
+        onChanged();
+      } else {
+        multiInputsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+     */
+    public com.volcengine.service.imp.model.business.Input.Builder getMultiInputsBuilder(
+        int index) {
+      return getMultiInputsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+     */
+    public com.volcengine.service.imp.model.business.InputOrBuilder getMultiInputsOrBuilder(
+        int index) {
+      if (multiInputsBuilder_ == null) {
+        return multiInputs_.get(index);  } else {
+        return multiInputsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+     */
+    public java.util.List<? extends com.volcengine.service.imp.model.business.InputOrBuilder> 
+         getMultiInputsOrBuilderList() {
+      if (multiInputsBuilder_ != null) {
+        return multiInputsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(multiInputs_);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+     */
+    public com.volcengine.service.imp.model.business.Input.Builder addMultiInputsBuilder() {
+      return getMultiInputsFieldBuilder().addBuilder(
+          com.volcengine.service.imp.model.business.Input.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+     */
+    public com.volcengine.service.imp.model.business.Input.Builder addMultiInputsBuilder(
+        int index) {
+      return getMultiInputsFieldBuilder().addBuilder(
+          index, com.volcengine.service.imp.model.business.Input.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.Input MultiInputs = 13;</code>
+     */
+    public java.util.List<com.volcengine.service.imp.model.business.Input.Builder> 
+         getMultiInputsBuilderList() {
+      return getMultiInputsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.imp.model.business.Input, com.volcengine.service.imp.model.business.Input.Builder, com.volcengine.service.imp.model.business.InputOrBuilder> 
+        getMultiInputsFieldBuilder() {
+      if (multiInputsBuilder_ == null) {
+        multiInputsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.service.imp.model.business.Input, com.volcengine.service.imp.model.business.Input.Builder, com.volcengine.service.imp.model.business.InputOrBuilder>(
+                multiInputs_,
+                ((bitField0_ & 0x00000002) != 0),
+                getParentForChildren(),
+                isClean());
+        multiInputs_ = null;
+      }
+      return multiInputsBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

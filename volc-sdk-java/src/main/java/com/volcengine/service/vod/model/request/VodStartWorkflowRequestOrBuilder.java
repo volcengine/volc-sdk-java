@@ -152,4 +152,16 @@ public interface VodStartWorkflowRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTaskListIdBytes();
+
+  /**
+   * <code>string ClientToken = 9;</code>
+   * @return The clientToken.
+   */
+  java.lang.String getClientToken();
+  /**
+   * <code>string ClientToken = 9;</code>
+   * @return The bytes for clientToken.
+   */
+  com.google.protobuf.ByteString
+      getClientTokenBytes();
 }

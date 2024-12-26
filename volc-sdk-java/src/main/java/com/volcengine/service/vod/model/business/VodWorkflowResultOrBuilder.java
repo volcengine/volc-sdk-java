@@ -141,4 +141,16 @@ public interface VodWorkflowResultOrBuilder extends
    */
   com.volcengine.service.vod.model.business.SnapshotResultOrBuilder getSnapshotsOrBuilder(
       int index);
+
+  /**
+   * <code>string ClientToken = 10;</code>
+   * @return The clientToken.
+   */
+  java.lang.String getClientToken();
+  /**
+   * <code>string ClientToken = 10;</code>
+   * @return The bytes for clientToken.
+   */
+  com.google.protobuf.ByteString
+      getClientTokenBytes();
 }

@@ -645,4 +645,22 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
         }
         return JSON.parseObject(response.getData(), CDN.AddSharedConfigResponse.class);
     }
+
+    @Override
+    public CDN.CheckDomainResponse checkDomain(CDN.CheckDomainRequest request) throws Exception {
+        RawResponse response = requestProxy("CheckDomain", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.CheckDomainResponse.class);
+    }
+
+    @Override
+    public CDN.DescribeRetrieveInfoResponse describeRetrieveInfo(CDN.DescribeRetrieveInfoRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeRetrieveInfo", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeRetrieveInfoResponse.class);
+    }
 }

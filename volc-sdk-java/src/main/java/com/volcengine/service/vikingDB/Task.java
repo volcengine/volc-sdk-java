@@ -1,8 +1,9 @@
 package com.volcengine.service.vikingDB;
 
+import lombok.Data;
+
 import java.util.HashMap;
 
-import lombok.Data;
 @Data
 public class Task {
     private String collectionName = "";
@@ -14,6 +15,7 @@ public class Task {
     private String taskType = "";
     private String updatePerson = "";
     private String updateTime = "";
+
     public Task(String collectionName, String createTime, HashMap<String, Object> processInfo, String taskId, HashMap<String, Object> taskParams, String taskStatus, String taskType, String updatePerson, String updateTime) {
         this.collectionName = collectionName;
         this.createTime = createTime;
@@ -25,5 +27,7 @@ public class Task {
         this.updatePerson = updatePerson;
         this.updateTime = updateTime;
     }
-    public Task(){}
+
+    public Task() {
+    }
 }   

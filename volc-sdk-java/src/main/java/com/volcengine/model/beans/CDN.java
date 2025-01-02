@@ -10,6 +10,26 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class AccessInfo {
+
+        @JSONField(name = "Access")
+        Boolean Access;
+
+        @JSONField(name = "Domain")
+        String Domain;
+
+        @JSONField(name = "ErrorMsg")
+        String ErrorMsg;
+
+        @JSONField(name = "ErrorType")
+        Long ErrorType;
+
+        @JSONField(name = "RetrieveStatus")
+        String RetrieveStatus;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class AccountingData {
 
         @JSONField(name = "Metric")
@@ -167,6 +187,9 @@ public class CDN {
 
         @JSONField(name = "NegativeCache")
         List<NegativeCache> NegativeCache;
+
+        @JSONField(name = "OfflineCache")
+        OfflineCache OfflineCache;
 
         @JSONField(name = "Origin")
         List<OriginRule> Origin;
@@ -529,6 +552,9 @@ public class CDN {
 
         @JSONField(name = "Domain")
         String Domain;
+
+        @JSONField(name = "TargetConfig")
+        String TargetConfig;
     }
 
     @Data
@@ -616,6 +642,9 @@ public class CDN {
 
         @JSONField(name = "NegativeCache")
         List<NegativeCache> NegativeCache;
+
+        @JSONField(name = "OfflineCache")
+        OfflineCache OfflineCache;
 
         @JSONField(name = "Origin")
         List<OriginRule> Origin;
@@ -957,6 +986,36 @@ public class CDN {
 
         @JSONField(name = "PrivateKey")
         String PrivateKey;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class CheckDomainRequest {
+
+        @JSONField(name = "Domain")
+        String Domain;
+
+        @JSONField(name = "ServiceRegion")
+        String ServiceRegion;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class CheckDomainResponse {
+
+        @JSONField(name = "ResponseMetadata")
+        ResponseMetadata ResponseMetadata;
+
+        @JSONField(name = "Result")
+        CheckDomainResult Result;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class CheckDomainResult {
+
+        @JSONField(name = "Data")
+        List<AccessInfo> Data;
     }
 
     @Data
@@ -1869,6 +1928,9 @@ public class CDN {
 
         @JSONField(name = "IpVersion")
         String IpVersion;
+
+        @JSONField(name = "RsIp")
+        Boolean RsIp;
     }
 
     @Data
@@ -1911,6 +1973,9 @@ public class CDN {
 
         @JSONField(name = "Status")
         String Status;
+
+        @JSONField(name = "TargetConfig")
+        String TargetConfig;
     }
 
     @Data
@@ -3262,6 +3327,39 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class DescribeRetrieveInfoRequest {
+
+        @JSONField(name = "Domain")
+        String Domain;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DescribeRetrieveInfoResponse {
+
+        @JSONField(name = "ResponseMetadata")
+        ResponseMetadata ResponseMetadata;
+
+        @JSONField(name = "Result")
+        DescribeRetrieveInfoResult Result;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class DescribeRetrieveInfoResult {
+
+        @JSONField(name = "Host")
+        String Host;
+
+        @JSONField(name = "RecordType")
+        String RecordType;
+
+        @JSONField(name = "RecordValue")
+        String RecordValue;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class DescribeSharedConfigRequest {
 
         @JSONField(name = "ConfigName")
@@ -3514,6 +3612,9 @@ public class CDN {
 
         @JSONField(name = "NegativeCache")
         List<NegativeCache> NegativeCache;
+
+        @JSONField(name = "OfflineCache")
+        OfflineCache OfflineCache;
 
         @JSONField(name = "Origin")
         List<OriginRule> Origin;
@@ -4309,6 +4410,9 @@ public class CDN {
         @JSONField(name = "PageSize")
         Long PageSize;
 
+        @JSONField(name = "SearchCertName")
+        String SearchCertName;
+
         @JSONField(name = "SetPagination")
         Boolean SetPagination;
 
@@ -4642,6 +4746,20 @@ public class CDN {
 
     @Data
     @Accessors(chain = true)
+    public static class OfflineCache {
+
+        @JSONField(name = "Object")
+        String Object;
+
+        @JSONField(name = "StatusCode")
+        String StatusCode;
+
+        @JSONField(name = "Switch")
+        Boolean Switch;
+    }
+
+    @Data
+    @Accessors(chain = true)
     public static class OriginAccessRule {
 
         @JSONField(name = "AllowEmpty")
@@ -4704,6 +4822,9 @@ public class CDN {
     @Data
     @Accessors(chain = true)
     public static class OriginCertCheck {
+
+        @JSONField(name = "CertInfoList")
+        List<CertInfo> CertInfoList;
 
         @JSONField(name = "Switch")
         Boolean Switch;
@@ -6051,6 +6172,9 @@ public class CDN {
 
         @JSONField(name = "NegativeCache")
         List<NegativeCache> NegativeCache;
+
+        @JSONField(name = "OfflineCache")
+        OfflineCache OfflineCache;
 
         @JSONField(name = "Origin")
         List<OriginRule> Origin;

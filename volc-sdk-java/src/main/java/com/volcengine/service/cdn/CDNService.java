@@ -205,4 +205,10 @@ package com.volcengine.service.cdn;
         // 新增全局配置: 
         CDN.AddSharedConfigResponse addSharedConfig(CDN.AddSharedConfigRequest request) throws Exception;
 
+        // 接入域名校验: 
+        CDN.CheckDomainResponse checkDomain(CDN.CheckDomainRequest request) throws Exception;
+
+        // DNS校验信息生成: 
+        CDN.DescribeRetrieveInfoResponse describeRetrieveInfo(CDN.DescribeRetrieveInfoRequest request) throws Exception;
+
 }

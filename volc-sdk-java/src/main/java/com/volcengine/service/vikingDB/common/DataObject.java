@@ -1,11 +1,10 @@
 package com.volcengine.service.vikingDB.common;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.volcengine.service.vikingDB.VikingDBException;
-
 import lombok.Data;
+
+import java.util.HashMap;
+
 @Data
 public class DataObject {
     private Object id = null;
@@ -15,34 +14,43 @@ public class DataObject {
     private Double score = null;
     private String text = null;
     private Integer isBuild = 0;
-    public DataObject(){}
+
+    public DataObject() {
+    }
+
     public DataObject setId(Object id) {
         this.id = id;
         return this;
     }
+
     public DataObject setFields(HashMap<String, Object> fields) {
         this.fields = fields;
         return this;
     }
+
     public DataObject setText(String text) {
         this.text = text;
         return this;
     }
+
     public DataObject setTimestamp(String timestamp) {
         this.timestamp = timestamp;
         return this;
     }
+
     public DataObject setTTL(Integer TTL) {
         this.TTL = TTL;
         return this;
     }
+
     public DataObject setScore(Double score) {
         this.score = score;
         return this;
     }
-    public DataObject build() throws Exception{
+
+    public DataObject build() throws Exception {
         VikingDBException vikingDBException = new VikingDBException(1000030, null, "Params does not exist");
-        if(this.fields == null){
+        if (this.fields == null) {
             throw vikingDBException.getErrorCodeException(1000030, null, "Fields does not exist");
         } else {
             this.isBuild = 1;

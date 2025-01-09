@@ -41,4 +41,8 @@ public class CommentConfig  {
     Integer IsViewerDeleteCommentsEnable;
     @JSONField(name = "IsSendCommentEnable")
     Integer IsSendCommentEnable;
+    @JSONField(name = "IsViewInPurchaseEnable")
+    Integer IsViewInPurchaseEnable;
+    @JSONField(name = "IsViewOrderEnable")
+    Integer IsViewOrderEnable;
 }

@@ -51,10 +51,10 @@ public interface LivesaasService extends IBaseService {
      * CreateActivityAPIV2
      *
      * @param createActivityAPIRequest CreateActivityAPIRequest
-     * @return CommonResponse
+     * @return CreateActivityAPIResponse
      * @throws Exception the exception
      */
-    CommonResponse createActivityAPIV2(CreateActivityAPIRequest createActivityAPIRequest) throws Exception;
+    CreateActivityAPIResponse createActivityAPIV2(CreateActivityAPIRequest createActivityAPIRequest) throws Exception;
 
     /**
      * DeleteActivityAPI
@@ -2114,6 +2114,78 @@ public interface LivesaasService extends IBaseService {
      */
     GetActivityExportFileResponse getActivityExportFile(GetActivityExportFileRequest getActivityExportFileRequest) throws Exception;
 
+    /**
+     * listAreaConfig
+     *
+     * @param listAreaConfigRequest ListAreaConfigRequest
+     * @return ListAreaConfigResponse
+     * @throws Exception the exception
+     */
+    ListAreaConfigResponse listAreaConfig(ListAreaConfigRequest listAreaConfigRequest) throws Exception;
+
+    /**
+     * createAreaConfig
+     *
+     * @param createAreaConfigRequest CreateAreaConfigRequest
+     * @return CreateAreaConfigResponse
+     * @throws Exception the exception
+     */
+    CreateAreaConfigResponse createAreaConfig(CreateAreaConfigRequest createAreaConfigRequest) throws Exception;
+
+    /**
+     * updateAreaConfig
+     *
+     * @param updateAreaConfigRequest UpdateAreaConfigRequest
+     * @return UpdateAreaConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateAreaConfigResponse updateAreaConfig(UpdateAreaConfigRequest updateAreaConfigRequest) throws Exception;
+
+    /**
+     * deleteAreaConfig
+     *
+     * @param deleteAreaConfigRequest DeleteAreaConfigRequest
+     * @return DeleteAreaConfigResponse
+     * @throws Exception the exception
+     */
+    DeleteAreaConfigResponse deleteAreaConfig(DeleteAreaConfigRequest deleteAreaConfigRequest) throws Exception;
+
+    /**
+     * listOfficeConfig
+     *
+     * @param listOfficeConfigRequest ListOfficeConfigRequest
+     * @return ListOfficeConfigResponse
+     * @throws Exception the exception
+     */
+    ListOfficeConfigResponse listOfficeConfig(ListOfficeConfigRequest listOfficeConfigRequest) throws Exception;
+
+    /**
+     * createOfficeConfig
+     *
+     * @param createOfficeConfigRequest CreateOfficeConfigRequest
+     * @return CreateOfficeConfigResponse
+     * @throws Exception the exception
+     */
+    CreateOfficeConfigResponse createOfficeConfig(CreateOfficeConfigRequest createOfficeConfigRequest) throws Exception;
+
+    /**
+     * updateOfficeConfig
+     *
+     * @param updateOfficeConfigRequest UpdateOfficeConfigRequest
+     * @return UpdateOfficeConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateOfficeConfigResponse updateOfficeConfig(UpdateOfficeConfigRequest updateOfficeConfigRequest) throws Exception;
+
+    /**
+     * deleteOfficeConfig
+     *
+     * @param deleteOfficeConfigRequest DeleteOfficeConfigRequest
+     * @return DeleteOfficeConfigResponse
+     * @throws Exception the exception
+     */
+    DeleteOfficeConfigResponse deleteOfficeConfig(DeleteOfficeConfigRequest deleteOfficeConfigRequest) throws Exception;
+
 
     /**
      * getActivityPoster
@@ -2185,4 +2257,21 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     BatchSendActivityRobotCommentResponse batchSendActivityRobotComment(BatchSendActivityRobotCommentRequest batchSendActivityRobotCommentRequest) throws Exception;
+    /**
+     * updateProductReminderInfo
+     *
+     * @param updateProductReminderInfoRequest UpdateProductReminderInfoRequest
+     * @return UpdateProductReminderInfoResponse
+     * @throws Exception the exception
+     */
+    UpdateProductReminderInfoResponse updateProductReminderInfo(UpdateProductReminderInfoRequest updateProductReminderInfoRequest) throws Exception;
+
+    /**
+     * sendProductOrderMessage
+     *
+     * @param sendProductOrderMessageRequest SendProductOrderMessageRequest
+     * @return SendProductOrderMessageResponse
+     * @throws Exception the exception
+     */
+    SendProductOrderMessageResponse sendProductOrderMessage(SendProductOrderMessageRequest sendProductOrderMessageRequest) throws Exception;
 }

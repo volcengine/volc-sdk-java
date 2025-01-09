@@ -128,6 +128,9 @@ public class VikingDBService extends BaseServiceImpl {
         paramsPost.put(Const.Path, "/api/collection/upsert_data");
         apiInfo.put("UpsertData", new ApiInfo(paramsPost));
 
+        paramsPost.put(Const.Path, "/api/collection/update_data");
+        apiInfo.put("UpdateData", new ApiInfo(paramsPost));
+
         paramsPost.put(Const.Path, "/api/collection/del_data");
         apiInfo.put("DeleteData", new ApiInfo(paramsPost));
 

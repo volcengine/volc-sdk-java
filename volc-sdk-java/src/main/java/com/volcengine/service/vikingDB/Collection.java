@@ -112,6 +112,22 @@ public class Collection {
             vikingDBService.retryRequest("UpsertData", null, params, Constant.MAX_RETRIES);
         }
     }
+  
+    public void updateData(DataObject dataObject) throws Exception {
+      HashMap<String, Object> params = validAndPackageData(dataObject, false);
+      vikingDBService.retryRequest("UpdateData", null, params, Constant.MAX_RETRIES);
+    }
+
+    public void updateData(List<DataObject> dataObjects) throws Exception {
+      HashMap<Integer, ArrayList<Object>> record = validAndPackageDatas(dataObjects);
+      for (Integer key : record.keySet()) {
+          HashMap<String, Object> params = new HashMap<String, Object>();
+          params.put("collection_name", collectionName);
+          params.put("fields", record.get(key));
+          params.put("ttl", key);
+          vikingDBService.retryRequest("UpdateData", null, params, Constant.MAX_RETRIES);
+      }
+    }
 
     public <T> void deleteData(T id) throws Exception {
         HashMap<String, Object> params = new HashMap<String, Object>();

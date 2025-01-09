@@ -14,6 +14,16 @@ public final class VodCallback {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_BianqueEvent_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_BianqueEvent_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_CallbackRecords_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_CallbackRecords_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -24,20 +34,41 @@ public final class VodCallback {
   static {
     java.lang.String[] descriptorData = {
       "\n*volcengine/vod/business/vod_callback.p" +
-      "roto\022\036Volcengine.Vod.Models.Business*V\n\023" +
-      "VodCallbackAuthType\022\037\n\033VodCallbackAuthTy" +
-      "peDisabled\020\000\022\036\n\032VodCallbackAuthTypeEnabl" +
-      "ed\020\001B\317\001\n)com.volcengine.service.vod.mode" +
-      "l.businessB\013VodCallbackP\001ZAgithub.com/vo" +
-      "lcengine/volc-sdk-golang/service/vod/mod" +
-      "els/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod" +
-      "\\Models\\Business\342\002#Volc\\Service\\Vod\\Mode" +
-      "ls\\GPBMetadatab\006proto3"
+      "roto\022\036Volcengine.Vod.Models.Business\"\320\001\n" +
+      "\014BianqueEvent\022\013\n\003Vid\030\001 \001(\t\022\021\n\tEventType\030" +
+      "\002 \001(\t\022\024\n\014CallbackName\030\003 \001(\t\022\024\n\014CallbackT" +
+      "ype\030\004 \001(\t\022\023\n\013CallbackUrl\030\005 \001(\t\022\027\n\017Callba" +
+      "ckMessage\030\007 \001(\t\022\016\n\006Status\030\010 \001(\t\022\021\n\tEvent" +
+      "Time\030\t \001(\001\022\024\n\014ErrorMessage\030\n \001(\t\022\r\n\005LogI" +
+      "d\030\013 \001(\t\"\201\001\n\017CallbackRecords\022D\n\016CallbackE" +
+      "vents\030\001 \003(\0132,.Volcengine.Vod.Models.Busi" +
+      "ness.BianqueEvent\022\031\n\021ContinuationToken\030\002" +
+      " \001(\t\022\r\n\005Limit\030\003 \001(\005*V\n\023VodCallbackAuthTy" +
+      "pe\022\037\n\033VodCallbackAuthTypeDisabled\020\000\022\036\n\032V" +
+      "odCallbackAuthTypeEnabled\020\001B\317\001\n)com.volc" +
+      "engine.service.vod.model.businessB\013VodCa" +
+      "llbackP\001ZAgithub.com/volcengine/volc-sdk" +
+      "-golang/service/vod/models/business\240\001\001\330\001" +
+      "\001\302\002\000\312\002 Volc\\Service\\Vod\\Models\\Business\342" +
+      "\002#Volc\\Service\\Vod\\Models\\GPBMetadatab\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
+    internal_static_Volcengine_Vod_Models_Business_BianqueEvent_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_Volcengine_Vod_Models_Business_BianqueEvent_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_BianqueEvent_descriptor,
+        new java.lang.String[] { "Vid", "EventType", "CallbackName", "CallbackType", "CallbackUrl", "CallbackMessage", "Status", "EventTime", "ErrorMessage", "LogId", });
+    internal_static_Volcengine_Vod_Models_Business_CallbackRecords_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_Volcengine_Vod_Models_Business_CallbackRecords_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_CallbackRecords_descriptor,
+        new java.lang.String[] { "CallbackEvents", "ContinuationToken", "Limit", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

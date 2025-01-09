@@ -1,11 +1,11 @@
 package com.volcengine.service.vikingDB;
 
 import com.volcengine.service.vikingDB.common.CreateIndexParam;
+import com.volcengine.service.vikingDB.common.DistanceType;
+import com.volcengine.service.vikingDB.common.IndexType;
+import com.volcengine.service.vikingDB.common.QuantType;
 import com.volcengine.service.vikingDB.common.ShardType;
 import com.volcengine.service.vikingDB.common.VectorIndexParams;
-import com.volcengine.service.vikingDB.common.IndexType;
-import com.volcengine.service.vikingDB.common.DistanceType;
-import com.volcengine.service.vikingDB.common.QuantType;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -48,6 +48,13 @@ public class IndexTest {
                         .build())
                 .build();
         vikingDBService.createIndex(createIndexParam);
+    }
+
+    @Test
+    public void testIndexInfo() throws Exception {
+        VikingDBService vikingDBService = BaseService.getService();
+        Index index = vikingDBService.getIndex("test_coll_for_java_sdk", "index_hnsw");
+        System.out.println(index);
     }
 
     @Test

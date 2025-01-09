@@ -13,8 +13,12 @@ public class SearchByTextParam {
     private Integer limit = 10;
     private List<String> outputFields = null;
     private Object partition = "default";
-    private Integer isBuild = 0;
     private Double denseWeight = null;
+    private List<Object> primaryKeyIn = null;
+    private List<Object> primaryKeyNotIn = null;
+    private Integer postProcessInputLimit = null;
+    private List<Map<String, Object>> postProcessOps = null;
+    private Integer isBuild = 0;
     private Boolean retry = false;
 
     public SearchByTextParam setText(Text text) {
@@ -44,6 +48,26 @@ public class SearchByTextParam {
 
     public SearchByTextParam setDenseWeight(Double denseWeight) {
         this.denseWeight = denseWeight;
+        return this;
+    }
+
+    public SearchByTextParam setPrimaryKeyIn(List<Object> primaryKeyIn) {
+        this.primaryKeyIn = primaryKeyIn;
+        return this;
+    }
+
+    public SearchByTextParam setPrimaryKeyNotIn(List<Object> primaryKeyNotIn) {
+        this.primaryKeyNotIn = primaryKeyNotIn;
+        return this;
+    }
+
+    public SearchByTextParam setPostProcessInputLimit(Integer postProcessInputLimit) {
+        this.postProcessInputLimit = postProcessInputLimit;
+        return this;
+    }
+
+    public SearchByTextParam setPostProcessOps(List<Map<String, Object>> postProcessOps) {
+        this.postProcessOps = postProcessOps;
         return this;
     }
 

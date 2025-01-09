@@ -13,9 +13,13 @@ public class SearchByVectorParam {
     private Integer limit = 10;
     private List<String> outputFields = null;
     private Object partition = "default";
-    private Integer isBuild = 0;
     private Map<String, Object> sparseVectors = null;
     private Double denseWeight = null;
+    private List<Object> primaryKeyIn = null;
+    private List<Object> primaryKeyNotIn = null;
+    private Integer postProcessInputLimit = null;
+    private List<Map<String, Object>> postProcessOps = null;
+    private Integer isBuild = 0;
     private Boolean retry = false;
 
     public SearchByVectorParam setVector(List<Double> vector) {
@@ -50,6 +54,26 @@ public class SearchByVectorParam {
 
     public SearchByVectorParam setDenseWeight(Double denseWeight) {
         this.denseWeight = denseWeight;
+        return this;
+    }
+
+    public SearchByVectorParam setPrimaryKeyIn(List<Object> primaryKeyIn) {
+        this.primaryKeyIn = primaryKeyIn;
+        return this;
+    }
+
+    public SearchByVectorParam setPrimaryKeyNotIn(List<Object> primaryKeyNotIn) {
+        this.primaryKeyNotIn = primaryKeyNotIn;
+        return this;
+    }
+
+    public SearchByVectorParam setPostProcessInputLimit(Integer postProcessInputLimit) {
+        this.postProcessInputLimit = postProcessInputLimit;
+        return this;
+    }
+
+    public SearchByVectorParam setPostProcessOps(List<Map<String, Object>> postProcessOps) {
+        this.postProcessOps = postProcessOps;
         return this;
     }
 

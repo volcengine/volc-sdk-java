@@ -1522,6 +1522,22 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.GetCallbackRecord, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.CONNECTION_TIMEOUT, 5000);
+                            put(com.volcengine.helper.Const.SOCKET_TIMEOUT, 15000);
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetCallbackRecord));
+                                    add(new BasicNameValuePair("Version", "2023-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             // **********************************************************************
             // 计量计费
             // **********************************************************************

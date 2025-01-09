@@ -610,6 +610,14 @@ public class Const {
     public static final String ListWaitLinkAudience = "ListWaitLinkAudience";
     public static final String GetLinkUserAmount = "GetLinkUserAmount";
     public static final String GetInviterToken = "GetInviterToken";
+    public static final String ListAreaConfig = "ListAreaConfig";
+    public static final String CreateAreaConfig = "CreateAreaConfig";
+    public static final String UpdateAreaConfig = "UpdateAreaConfig";
+    public static final String DeleteAreaConfig = "DeleteAreaConfig";
+    public static final String ListOfficeConfig = "ListOfficeConfig";
+    public static final String CreateOfficeConfig = "CreateOfficeConfig";
+    public static final String UpdateOfficeConfig = "UpdateOfficeConfig";
+    public static final String DeleteOfficeConfig = "DeleteOfficeConfig";
 
     // translate
     public static final String LangDetect = "LangDetect";
@@ -1079,4 +1087,8 @@ public class Const {
     public static final String ReportVersion = "2024-01-01";
 
     public static final String ListActivityUsers = "ListActivityUsers";
+
+    public static final String UpdateProductReminderInfo = "UpdateProductReminderInfo";
+
+    public static final String SendProductOrderMessage = "SendProductOrderMessage";
 }

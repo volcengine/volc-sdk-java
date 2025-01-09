@@ -105,5 +105,19 @@ public class ListProductCardsResponse {
         String RedirectImage;
         @JSONField(name = "ExplainTime")
         Long ExplainTime;
+        @JSONField(name = "SellingPointTag")
+        String SellingPointTag;
+        @JSONField(name = "ReminderType")
+        Integer ReminderType;
+        @JSONField(name = "HotSale")
+        String HotSale;
+        @JSONField(name = "Stock")
+        String Stock;
+        @JSONField(name = "PromotionTagUrl")
+        String PromotionTagUrl;
+        @JSONField(name = "PromotionTagType")
+        Integer PromotionTagType;
+        @JSONField(name = "IsOrderMsgEnable")
+        Integer IsOrderMsgEnable;
     }
 }

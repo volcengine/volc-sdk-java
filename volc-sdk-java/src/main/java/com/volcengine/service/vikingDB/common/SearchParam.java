@@ -16,6 +16,10 @@ public class SearchParam {
     private Object partition = "default";
     private Integer isBuild = 0;
     private Double denseWeight = null;
+    private List<Object> primaryKeyIn = null;
+    private List<Object> primaryKeyNotIn = null;
+    private Integer postProcessInputLimit = null;
+    private List<Map<String, Object>> postProcessOps = null;
     private Boolean retry = false;
 
     public SearchParam setVectorOrder(VectorOrder vectorOrder) {
@@ -50,6 +54,26 @@ public class SearchParam {
 
     public SearchParam setDenseWeight(Double denseWeight) {
         this.denseWeight = denseWeight;
+        return this;
+    }
+
+    public SearchParam setPrimaryKeyIn(List<Object> primaryKeyIn) {
+        this.primaryKeyIn = primaryKeyIn;
+        return this;
+    }
+
+    public SearchParam setPrimaryKeyNotIn(List<Object> primaryKeyNotIn) {
+        this.primaryKeyNotIn = primaryKeyNotIn;
+        return this;
+    }
+
+    public SearchParam setPostProcessInputLimit(Integer postProcessInputLimit) {
+        this.postProcessInputLimit = postProcessInputLimit;
+        return this;
+    }
+
+    public SearchParam setPostProcessOps(List<Map<String, Object>> postProcessOps) {
+        this.postProcessOps = postProcessOps;
         return this;
     }
 

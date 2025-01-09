@@ -13,8 +13,12 @@ public class SearchByIdParam {
     private Integer limit = 10;
     private List<String> outputFields = null;
     private Object partition = "default";
-    private Integer isBuild = 0;
     private Double denseWeight = null;
+    private List<Object> primaryKeyIn = null;
+    private List<Object> primaryKeyNotIn = null;
+    private Integer postProcessInputLimit = null;
+    private List<Map<String, Object>> postProcessOps = null;
+    private Integer isBuild = 0;
     private Boolean retry = false;
 
     public SearchByIdParam setId(Object id) {
@@ -46,6 +50,27 @@ public class SearchByIdParam {
         this.denseWeight = denseWeight;
         return this;
     }
+
+    public SearchByIdParam setPrimaryKeyIn(List<Object> primaryKeyIn) {
+        this.primaryKeyIn = primaryKeyIn;
+        return this;
+    }
+
+    public SearchByIdParam setPrimaryKeyNotIn(List<Object> primaryKeyNotIn) {
+        this.primaryKeyNotIn = primaryKeyNotIn;
+        return this;
+    }
+
+    public SearchByIdParam setPostProcessInputLimit(Integer postProcessInputLimit) {
+        this.postProcessInputLimit = postProcessInputLimit;
+        return this;
+    }
+
+    public SearchByIdParam setPostProcessOps(List<Map<String, Object>> postProcessOps) {
+        this.postProcessOps = postProcessOps;
+        return this;
+    }
+
 
     public SearchByIdParam setRetry(Boolean retry) {
         this.retry = retry;

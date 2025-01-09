@@ -114,12 +114,12 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
-    public CommonResponse createActivityAPIV2(CreateActivityAPIRequest createActivityAPIRequest) throws Exception {
+    public CreateActivityAPIResponse createActivityAPIV2(CreateActivityAPIRequest createActivityAPIRequest) throws Exception {
         RawResponse response = json(Const.CreateActivityAPIV2, new ArrayList<>(), JSON.toJSONString(createActivityAPIRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        CommonResponse res = JSON.parseObject(response.getData(), CommonResponse.class);
+        CreateActivityAPIResponse res = JSON.parseObject(response.getData(), CreateActivityAPIResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
@@ -3854,6 +3854,156 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
             throw response.getException();
         }
         BatchSendActivityRobotCommentResponse res = JSON.parseObject(response.getData(), BatchSendActivityRobotCommentResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public SendProductOrderMessageResponse sendProductOrderMessage(SendProductOrderMessageRequest sendProductOrderMessageRequest) throws Exception {
+        RawResponse response = json(Const.SendProductOrderMessage, new ArrayList<>(),JSON.toJSONString(sendProductOrderMessageRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        SendProductOrderMessageResponse res = JSON.parseObject(response.getData(), SendProductOrderMessageResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateProductReminderInfoResponse updateProductReminderInfo(UpdateProductReminderInfoRequest updateProductReminderInfoRequest) throws Exception {
+        RawResponse response = json(Const.UpdateProductReminderInfo, new ArrayList<>(),JSON.toJSONString(updateProductReminderInfoRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateProductReminderInfoResponse res = JSON.parseObject(response.getData(), UpdateProductReminderInfoResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListAreaConfigResponse listAreaConfig(ListAreaConfigRequest listAreaConfigRequest) throws Exception {
+        RawResponse response = query(Const.ListAreaConfig, Utils.paramsToPair(listAreaConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListAreaConfigResponse res = JSON.parseObject(response.getData(), ListAreaConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListOfficeConfigResponse listOfficeConfig(ListOfficeConfigRequest listOfficeConfigRequest) throws Exception {
+        RawResponse response = query(Const.ListOfficeConfig, Utils.paramsToPair(listOfficeConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListOfficeConfigResponse res = JSON.parseObject(response.getData(), ListOfficeConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public CreateAreaConfigResponse createAreaConfig(CreateAreaConfigRequest createAreaConfigRequest) throws Exception {
+        RawResponse response = json(Const.CreateAreaConfig, new ArrayList<>(),JSON.toJSONString(createAreaConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CreateAreaConfigResponse res = JSON.parseObject(response.getData(), CreateAreaConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateAreaConfigResponse updateAreaConfig(UpdateAreaConfigRequest updateAreaConfigRequest) throws Exception {
+        RawResponse response = json(Const.UpdateAreaConfig, new ArrayList<>(),JSON.toJSONString(updateAreaConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateAreaConfigResponse res = JSON.parseObject(response.getData(), UpdateAreaConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteAreaConfigResponse deleteAreaConfig(DeleteAreaConfigRequest deleteAreaConfigRequest) throws Exception {
+        RawResponse response = json(Const.DeleteAreaConfig, new ArrayList<>(),JSON.toJSONString(deleteAreaConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteAreaConfigResponse res = JSON.parseObject(response.getData(), DeleteAreaConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public CreateOfficeConfigResponse createOfficeConfig(CreateOfficeConfigRequest createOfficeConfigRequest) throws Exception {
+        RawResponse response = json(Const.CreateOfficeConfig, new ArrayList<>(),JSON.toJSONString(createOfficeConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CreateOfficeConfigResponse res = JSON.parseObject(response.getData(), CreateOfficeConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateOfficeConfigResponse updateOfficeConfig(UpdateOfficeConfigRequest updateOfficeConfigRequest) throws Exception {
+        RawResponse response = json(Const.UpdateOfficeConfig, new ArrayList<>(),JSON.toJSONString(updateOfficeConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateOfficeConfigResponse res = JSON.parseObject(response.getData(), UpdateOfficeConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteOfficeConfigResponse deleteOfficeConfig(DeleteOfficeConfigRequest deleteOfficeConfigRequest) throws Exception {
+        RawResponse response = json(Const.DeleteOfficeConfig, new ArrayList<>(),JSON.toJSONString(deleteOfficeConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteOfficeConfigResponse res = JSON.parseObject(response.getData(), DeleteOfficeConfigResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());

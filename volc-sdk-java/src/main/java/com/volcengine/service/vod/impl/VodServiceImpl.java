@@ -1254,8 +1254,8 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}
-	
-	
+
+
 	/**
      * getSubtitleInfoList.
      *
@@ -2546,7 +2546,26 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}
-	
+
+
+	/**
+     * getCallbackRecord.
+     *
+     * @param input com.volcengine.service.vod.model.request.GetCallbackRecordRequest
+     * @return com.volcengine.service.vod.model.response.GetCallbackRecordResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.GetCallbackRecordResponse getCallbackRecord(com.volcengine.service.vod.model.request.GetCallbackRecordRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.GetCallbackRecord, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.GetCallbackRecordResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.GetCallbackRecordResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+
 	
 	/**
      * getSmartStrategyLitePlayInfo.

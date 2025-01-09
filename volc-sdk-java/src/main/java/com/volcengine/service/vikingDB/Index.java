@@ -97,6 +97,10 @@ public class Index {
                         .setVector(searchParam.getVectorOrder().getVector())
                         .setDenseWeight(searchParam.getDenseWeight())
                         .setSparseVectors(searchParam.getVectorOrder().getSparseVectors())
+                        .setPrimaryKeyIn(searchParam.getPrimaryKeyIn())
+                        .setPrimaryKeyNotIn(searchParam.getPrimaryKeyNotIn())
+                        .setPostProcessInputLimit(searchParam.getPostProcessInputLimit())
+                        .setPostProcessOps(searchParam.getPostProcessOps())
                         .build();
                 return searchByVector(searchByVectorParam);
             } else if (searchParam.getVectorOrder().getId() != null) {
@@ -107,6 +111,10 @@ public class Index {
                         .setPartition(searchParam.getPartition())
                         .setId(searchParam.getVectorOrder().getId())
                         .setDenseWeight(searchParam.getDenseWeight())
+                        .setPrimaryKeyIn(searchParam.getPrimaryKeyIn())
+                        .setPrimaryKeyNotIn(searchParam.getPrimaryKeyNotIn())
+                        .setPostProcessInputLimit(searchParam.getPostProcessInputLimit())
+                        .setPostProcessOps(searchParam.getPostProcessOps())
                         .build();
                 res = searchById(searchByIdParam);
             }
@@ -118,6 +126,8 @@ public class Index {
             search.put("order_by_scalar", orderByScalar);
             search.put("limit", searchParam.getLimit());
             search.put("partition", searchParam.getPartition());
+            maybeSetPostProcessOps(searchParam, search);
+            maybeSetPrimaryKeyFilter(searchParam, search);
             if (searchParam.getOutputFields() != null)
                 search.put("output_fields", searchParam.getOutputFields());
             if (searchParam.getFilter() != null)
@@ -140,6 +150,8 @@ public class Index {
                 search.put("output_fields", searchParam.getOutputFields());
             if (searchParam.getFilter() != null)
                 search.put("filter", searchParam.getFilter());
+            maybeSetPostProcessOps(searchParam, search);
+            maybeSetPrimaryKeyFilter(searchParam, search);
             HashMap<String, Object> params = new HashMap<>();
             params.put("collection_name", collectionName);
             params.put("index_name", indexName);
@@ -174,6 +186,18 @@ public class Index {
             search.put("filter", searchByIdParam.getFilter());
         if (searchByIdParam.getDenseWeight() != null)
             search.put("dense_weight", searchByIdParam.getDenseWeight());
+        if (searchByIdParam.getPrimaryKeyIn() != null) {
+            search.put("primary_key_in", searchByIdParam.getPrimaryKeyIn());
+        }
+        if (searchByIdParam.getPrimaryKeyNotIn() != null) {
+            search.put("primary_key_not_in", searchByIdParam.getPrimaryKeyNotIn());
+        }
+        if (searchByIdParam.getPostProcessInputLimit() != null) {
+            search.put("post_process_input_limit", searchByIdParam.getPostProcessInputLimit());
+        }
+        if (searchByIdParam.getPostProcessOps() != null) {
+            search.put("post_process_ops", searchByIdParam.getPostProcessOps());
+        }
         HashMap<String, Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);
@@ -206,6 +230,18 @@ public class Index {
         search.put("order_by_vector", orderByVector);
         search.put("limit", searchByVectorParam.getLimit());
         search.put("partition", searchByVectorParam.getPartition());
+        if (searchByVectorParam.getPrimaryKeyIn() != null) {
+            search.put("primary_key_in", searchByVectorParam.getPrimaryKeyIn());
+        }
+        if (searchByVectorParam.getPrimaryKeyNotIn() != null) {
+            search.put("primary_key_not_in", searchByVectorParam.getPrimaryKeyNotIn());
+        }
+        if (searchByVectorParam.getPostProcessInputLimit() != null) {
+            search.put("post_process_input_limit", searchByVectorParam.getPostProcessInputLimit());
+        }
+        if (searchByVectorParam.getPostProcessOps() != null) {
+            search.put("post_process_ops", searchByVectorParam.getPostProcessOps());
+        }
         if (searchByVectorParam.getOutputFields() != null)
             search.put("output_fields", searchByVectorParam.getOutputFields());
         if (searchByVectorParam.getFilter() != null)
@@ -242,6 +278,18 @@ public class Index {
             search.put("filter", searchByTextParam.getFilter());
         if (searchByTextParam.getDenseWeight() != null)
             search.put("dense_weight", searchByTextParam.getDenseWeight());
+        if (searchByTextParam.getPrimaryKeyIn() != null) {
+            search.put("primary_key_in", searchByTextParam.getPrimaryKeyIn());
+        }
+        if (searchByTextParam.getPrimaryKeyNotIn() != null) {
+            search.put("primary_key_not_in", searchByTextParam.getPrimaryKeyNotIn());
+        }
+        if (searchByTextParam.getPostProcessInputLimit() != null) {
+            search.put("post_process_input_limit", searchByTextParam.getPostProcessInputLimit());
+        }
+        if (searchByTextParam.getPostProcessOps() != null) {
+            search.put("post_process_ops", searchByTextParam.getPostProcessOps());
+        }
         HashMap<String, Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);
@@ -252,6 +300,26 @@ public class Index {
             throw new Exception(Constant.NO_RESPONSE_DATA);
         }
         return getDatas(resData, searchByTextParam.getOutputFields());
+    }
+
+    private static void maybeSetPrimaryKeyFilter(SearchParam searchParam, HashMap<String, Object> params) {
+        if (searchParam == null) return;
+        if (searchParam.getPrimaryKeyIn() != null) {
+            params.put("primary_key_in", searchParam.getPrimaryKeyIn());
+        }
+        if (searchParam.getPrimaryKeyNotIn() != null) {
+            params.put("primary_key_not_in", searchParam.getPrimaryKeyNotIn());
+        }
+    }
+
+    private static void maybeSetPostProcessOps(SearchParam searchParam, HashMap<String, Object> params) {
+        if (searchParam == null) return;
+        if (searchParam.getPostProcessInputLimit() != null) {
+            params.put("post_process_input_limit", searchParam.getPostProcessInputLimit());
+        }
+        if (searchParam.getPostProcessOps() != null) {
+            params.put("post_process_ops", searchParam.getPostProcessOps());
+        }
     }
 
     public <T> IndexSortResult<T> sort(IndexSortParam<T> indexSortParam) throws Exception {

@@ -7,53 +7,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DescribeConsumerGroupsRequest {
     String projectID;
+    String projectName;
+    String consumerGroupName;
+    String topicId;
     Integer pageNumber;
     Integer pageSize;
 
     public DescribeConsumerGroupsRequest(String projectID) {
         this.projectID = projectID;
-    }
-
-    /**
-     * @return 日志项目ID
-     */
-    public String getProjectID() {
-        return projectID;
-    }
-
-    /**
-     * @param projectID 日志项目ID
-     */
-    public void setProjectID(String projectID) {
-        this.projectID = projectID;
-    }
-
-    /**
-     * @return 分页查询时的页码
-     */
-    public Integer getPageNumber() {
-        return pageNumber;
-    }
-
-    /**
-     * @param pageNumber 分页查询时的页码
-     */
-    public void setPageNumber(Integer pageNumber) {
-        this.pageNumber = pageNumber;
-    }
-
-    /**
-     * @return 分页大小
-     */
-    public Integer getPageSize() {
-        return pageSize;
-    }
-
-    /**
-     * @param pageSize 分页大小
-     */
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
     }
 
     /**

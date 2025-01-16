@@ -8,6 +8,7 @@ import com.volcengine.model.ApiInfo;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.tls.ClientConfig;
 import com.volcengine.model.tls.Const;
+import com.volcengine.model.tls.ConsumerGroup;
 import com.volcengine.model.tls.DescribeRulesRequest;
 import com.volcengine.model.tls.exception.LogException;
 import com.volcengine.model.tls.pb.PutLogRequest;
@@ -1364,6 +1365,15 @@ public class TLSLogClientImpl implements TLSLogClient {
         // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair(PROJECT_ID, request.getProjectID()));
+        if (request.getProjectName() != null) {
+            params.add(new BasicNameValuePair(PROJECT_NAME, request.getProjectName()));
+        }
+        if (request.getConsumerGroupName() != null) {
+            params.add(new BasicNameValuePair(CONSUMER_GROUP_NAME, request.getConsumerGroupName()));
+        }
+        if (request.getTopicId() != null) {
+            params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
+        }
         if (request.getPageNumber() != null) {
             params.add(new BasicNameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
         }

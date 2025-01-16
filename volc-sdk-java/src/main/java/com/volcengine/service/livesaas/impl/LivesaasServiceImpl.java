@@ -5,6 +5,7 @@ import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
 import com.volcengine.model.ServiceInfo;
+import com.volcengine.model.beans.livesaas.ActivityMessageConfig;
 import com.volcengine.model.livesaas.request.*;
 import com.volcengine.model.livesaas.response.*;
 import com.volcengine.model.request.ListActivityQuizConfigsRequest;
@@ -3809,6 +3810,35 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public GetActivityMessageConfigResponse getActivityMessageConfig(GetActivityMessageConfigRequest getActivityMessageConfigRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityMessageConfig, Utils.paramsToPair(getActivityMessageConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityMessageConfigResponse res = JSON.parseObject(response.getData(), GetActivityMessageConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateActivityMessageConfigResponse updateActivityMessageConfig(ActivityMessageConfig updateActivityMessageConfigRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityMessageConfig, new ArrayList<>(),JSON.toJSONString(updateActivityMessageConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateActivityMessageConfigResponse res = JSON.parseObject(response.getData(), UpdateActivityMessageConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+    @Override
     public GetInviterTokenResponse getInviterToken(GetInviterTokenRequest getInviterTokenRequest) throws Exception {
         RawResponse response = query(Const.GetInviterToken, Utils.paramsToPair(getInviterTokenRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -4004,6 +4034,36 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
             throw response.getException();
         }
         DeleteOfficeConfigResponse res = JSON.parseObject(response.getData(), DeleteOfficeConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetActivityReplayPlayerConfigResponse getActivityReplayPlayerConfig(GetActivityReplayPlayerConfigRequest getActivityReplayPlayerConfigRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityReplayPlayerConfig, Utils.paramsToPair(getActivityReplayPlayerConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityReplayPlayerConfigResponse res = JSON.parseObject(response.getData(), GetActivityReplayPlayerConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateActivityReplayPlayerConfigResponse updateActivityReplayPlayerConfig(UpdateActivityReplayPlayerConfigRequest updateActivityReplayPlayerConfigRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityReplayPlayerConfig, new ArrayList<>(),JSON.toJSONString(updateActivityReplayPlayerConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateActivityReplayPlayerConfigResponse res = JSON.parseObject(response.getData(), UpdateActivityReplayPlayerConfigResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());

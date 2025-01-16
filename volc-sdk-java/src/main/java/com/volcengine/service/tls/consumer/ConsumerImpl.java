@@ -1,11 +1,14 @@
 package com.volcengine.service.tls.consumer;
 
 import com.volcengine.model.tls.ClientBuilder;
+import com.volcengine.model.tls.ConsumerGroup;
 import com.volcengine.model.tls.consumer.ConsumeShard;
 import com.volcengine.model.tls.consumer.ConsumerConfig;
 import com.volcengine.model.tls.consumer.ConsumerStatus;
 import com.volcengine.model.tls.exception.LogException;
 import com.volcengine.model.tls.request.CreateConsumerGroupRequest;
+import com.volcengine.model.tls.request.DescribeConsumerGroupsRequest;
+import com.volcengine.model.tls.response.DescribeConsumerGroupsResponse;
 import com.volcengine.service.tls.TLSLogClient;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -94,14 +97,32 @@ public class ConsumerImpl implements Consumer {
         int heartbeatTTL = 3 * this.consumerConfig.getHeartbeatIntervalInSecond();
         boolean orderedConsume = this.consumerConfig.isOrderedConsume();
 
-        CreateConsumerGroupRequest req = new CreateConsumerGroupRequest(projectID, topicIDList, consumerGroupName, heartbeatTTL, orderedConsume);
+        boolean consumerGroupExists = false;
 
-        try {
-            this.tlsClient.createConsumerGroup(req);
-        } catch (LogException e) {
-            if (!e.getErrorMessage().contains(ERROR_CONSUMER_GROUP_ALREADY_EXISTS)) {
-                LOG.error("Calling CreateConsumerGroup failed.");
-                throw e;
+        DescribeConsumerGroupsRequest describeConsumerGroupsRequest = new DescribeConsumerGroupsRequest();
+        describeConsumerGroupsRequest.setProjectID(projectID);
+        describeConsumerGroupsRequest.setConsumerGroupName(consumerGroupName);
+        DescribeConsumerGroupsResponse describeConsumerGroupsResponse = this.tlsClient.describeConsumerGroups(describeConsumerGroupsRequest);
+
+        if (describeConsumerGroupsResponse.getConsumerGroups() != null) {
+            for (ConsumerGroup consumerGroup : describeConsumerGroupsResponse.getConsumerGroups()) {
+                if (consumerGroup.getConsumerGroupName().equals(consumerGroupName)) {
+                    consumerGroupExists = true;
+                    break;
+                }
+            }
+        }
+
+        if (!consumerGroupExists) {
+            CreateConsumerGroupRequest req = new CreateConsumerGroupRequest(projectID, topicIDList, consumerGroupName, heartbeatTTL, orderedConsume);
+
+            try {
+                this.tlsClient.createConsumerGroup(req);
+            } catch (LogException e) {
+                if (!e.getErrorMessage().contains(ERROR_CONSUMER_GROUP_ALREADY_EXISTS)) {
+                    LOG.error("Calling CreateConsumerGroup failed.");
+                    throw e;
+                }
             }
         }
 

@@ -1,6 +1,7 @@
 package com.volcengine.service.livesaas;
 
 
+import com.volcengine.model.beans.livesaas.ActivityMessageConfig;
 import com.volcengine.model.livesaas.request.*;
 import com.volcengine.model.livesaas.response.*;
 import com.volcengine.model.request.ListActivityQuizConfigsRequest;
@@ -2224,6 +2225,24 @@ public interface LivesaasService extends IBaseService {
     GetLinkUserAmountResponse getLinkUserAmount(GetLinkUserAmountRequest getLinkUserAmountRequest) throws Exception;
 
     /**
+     * getActivityMessageConfig
+     *
+     * @param getActivityMessageConfigRequest GetActivityMessageConfigRequest
+     * @return GetActivityMessageConfigResponse
+     * @throws Exception the exception
+     */
+    GetActivityMessageConfigResponse getActivityMessageConfig(GetActivityMessageConfigRequest getActivityMessageConfigRequest) throws Exception;
+
+    /**
+     * updateActivityMessageConfig
+     *
+     * @param updateActivityMessageConfigRequest ActivityMessageConfig
+     * @return UpdateActivityMessageConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityMessageConfigResponse updateActivityMessageConfig(ActivityMessageConfig updateActivityMessageConfigRequest) throws Exception;
+
+    /**
      * getInviterToken
      *
      * @param getInviterTokenRequest GetInviterTokenRequest
@@ -2274,4 +2293,22 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     SendProductOrderMessageResponse sendProductOrderMessage(SendProductOrderMessageRequest sendProductOrderMessageRequest) throws Exception;
+
+    /**
+     * getActivityReplayPlayerConfig
+     *
+     * @param getActivityReplayPlayerConfigRequest GetActivityReplayPlayerConfigRequest
+     * @return GetActivityReplayPlayerConfigResponse
+     * @throws Exception the exception
+     */
+    GetActivityReplayPlayerConfigResponse getActivityReplayPlayerConfig(GetActivityReplayPlayerConfigRequest getActivityReplayPlayerConfigRequest) throws Exception;
+
+    /**
+     * updateActivityReplayPlayerConfig
+     *
+     * @param updateActivityReplayPlayerConfigRequest UpdateActivityReplayPlayerConfigRequest
+     * @return UpdateActivityReplayPlayerConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityReplayPlayerConfigResponse updateActivityReplayPlayerConfig(UpdateActivityReplayPlayerConfigRequest updateActivityReplayPlayerConfigRequest) throws Exception;
 }

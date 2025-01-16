@@ -618,6 +618,11 @@ public class Const {
     public static final String CreateOfficeConfig = "CreateOfficeConfig";
     public static final String UpdateOfficeConfig = "UpdateOfficeConfig";
     public static final String DeleteOfficeConfig = "DeleteOfficeConfig";
+    public static final String GetActivityReplayPlayerConfig = "GetActivityReplayPlayerConfig";
+    public static final String UpdateActivityReplayPlayerConfig = "UpdateActivityReplayPlayerConfig";
+
+    public static final String GetActivityMessageConfig = "GetActivityMessageConfig";
+    public static final String UpdateActivityMessageConfig = "UpdateActivityMessageConfig";
 
     // translate
     public static final String LangDetect = "LangDetect";

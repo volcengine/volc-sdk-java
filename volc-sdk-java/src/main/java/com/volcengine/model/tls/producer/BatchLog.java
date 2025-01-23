@@ -32,6 +32,11 @@ public class BatchLog implements Delayed {
     int attemptCount;
     long createMs;
     long nextRetryMs;
+    long retryBackoffMs;
+    long maxRetryBackoffMs;
+    long baseRetryBackoffMs;
+    long baseIncreaseBackoffMs;
+
     private static final Log LOG = LogFactory.getLog(BatchLog.class);
 
     private BatchLog() {
@@ -45,6 +50,10 @@ public class BatchLog implements Delayed {
         this.attemptCount = 0;
         this.reservedAttempts = EvictingQueue.create(producerConfig.getMaxReservedAttempts());
         this.createMs = System.currentTimeMillis();
+        this.retryBackoffMs = 0;
+        this.maxRetryBackoffMs = 10 * 1000;
+        this.baseRetryBackoffMs = 1000;
+        this.baseIncreaseBackoffMs = 1000;
     }
 
     public boolean tryAdd(PutLogRequest.LogGroup logGroup, int batchSize, CallBack callBack) {
@@ -89,6 +98,17 @@ public class BatchLog implements Delayed {
         Attempt attempt = Iterables.getLast(attempts);
         Result result = new Result(attempt.isSuccess(), attempts, attemptCount);
         fireCallbacks(result);
+    }
+
+    public void handleNextTry() {
+        if (attemptCount == 1) {
+            retryBackoffMs += baseRetryBackoffMs;
+        } else {
+            double increaseBackoffMs = Math.random() * baseIncreaseBackoffMs;
+            retryBackoffMs += (long) increaseBackoffMs;
+        }
+        retryBackoffMs = Math.min(retryBackoffMs, maxRetryBackoffMs);
+        nextRetryMs = System.currentTimeMillis() + retryBackoffMs;
     }
 
     private void fireCallbacks(Result result) {
@@ -174,6 +194,11 @@ public class BatchLog implements Delayed {
                 ", reservedAttempts=" + reservedAttempts +
                 ", attemptCount=" + attemptCount +
                 ", createMs=" + createMs +
+                ", nextRetryMs=" + nextRetryMs +
+                ", retryBackoffMs=" + retryBackoffMs +
+                ", maxRetryBackoffMs=" + nextRetryMs +
+                ", baseRetryBackoffMs=" + baseRetryBackoffMs +
+                ", baseIncreaseBackoffMs=" + baseIncreaseBackoffMs +
                 '}';
     }
 }

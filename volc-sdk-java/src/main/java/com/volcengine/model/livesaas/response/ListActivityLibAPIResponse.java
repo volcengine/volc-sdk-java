@@ -70,6 +70,8 @@ public class ListActivityLibAPIResponse {
         String FolderName;
         @JSONField(name = "FolderId")
         Long FolderId;
+        @JSONField(name = "InteractionScriptId")
+        Long InteractionScriptId;
     }
 
     @Data

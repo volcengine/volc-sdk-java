@@ -618,11 +618,18 @@ public class Const {
     public static final String CreateOfficeConfig = "CreateOfficeConfig";
     public static final String UpdateOfficeConfig = "UpdateOfficeConfig";
     public static final String DeleteOfficeConfig = "DeleteOfficeConfig";
+    
     public static final String GetActivityReplayPlayerConfig = "GetActivityReplayPlayerConfig";
     public static final String UpdateActivityReplayPlayerConfig = "UpdateActivityReplayPlayerConfig";
 
     public static final String GetActivityMessageConfig = "GetActivityMessageConfig";
     public static final String UpdateActivityMessageConfig = "UpdateActivityMessageConfig";
+    public static final String ListInteractionScriptComments = "ListInteractionScriptComments";
+    public static final String CreateInteractionScript = "CreateInteractionScript";
+    public static final String AddInteractionScriptComments = "AddInteractionScriptComments";
+    public static final String EditInteractionScriptComment = "EditInteractionScriptComment";
+    public static final String DeleteInteractionScriptComment = "DeleteInteractionScriptComment";
+    public static final String UpdateActivityMediaInfo = "UpdateActivityMediaInfo";
 
     // translate
     public static final String LangDetect = "LangDetect";

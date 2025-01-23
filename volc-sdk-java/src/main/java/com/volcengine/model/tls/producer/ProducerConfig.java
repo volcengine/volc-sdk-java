@@ -22,7 +22,7 @@ public class ProducerConfig {
     public static final int TOO_MANY_REQUEST_ERROR = 429;
     public static final int EXTERNAL_ERROR = 500;
     public static final int MIN_WAIT_MS = 100;
-    public static final int DEFAULT_RETRY_COUNT = 2;
+    public static final int DEFAULT_RETRY_COUNT = 10;
     public static final int DEFAULT_RESERVED_ATTEMPTS = DEFAULT_RETRY_COUNT + 1;
     public static final int MAX_RETRY_COUNT = 4;
     public static final int MAX_RESERVED_ATTEMPTS = MAX_RETRY_COUNT + 1;

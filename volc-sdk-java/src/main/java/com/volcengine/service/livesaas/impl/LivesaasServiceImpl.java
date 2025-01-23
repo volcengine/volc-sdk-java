@@ -4071,4 +4071,95 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+
+    @Override
+    public ListInteractionScriptCommentsResponse listInteractionScriptComments(ListInteractionScriptCommentsRequest listInteractionScriptCommentsRequest) throws Exception {
+        RawResponse response = query(Const.ListInteractionScriptComments, Utils.paramsToPair(listInteractionScriptCommentsRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListInteractionScriptCommentsResponse res = JSON.parseObject(response.getData(), ListInteractionScriptCommentsResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public CreateInteractionScriptResponse createInteractionScript(CreateInteractionScriptRequest createInteractionScriptRequest) throws Exception {
+        RawResponse response = json(Const.CreateInteractionScript, new ArrayList<>(), JSON.toJSONString(createInteractionScriptRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CreateInteractionScriptResponse res = JSON.parseObject(response.getData(), CreateInteractionScriptResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public AddInteractionScriptCommentsResponse addInteractionScriptComments(AddInteractionScriptCommentsRequest addInteractionScriptCommentsRequest) throws Exception {
+        RawResponse response = json(Const.AddInteractionScriptComments, new ArrayList<>(), JSON.toJSONString(addInteractionScriptCommentsRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        AddInteractionScriptCommentsResponse res = JSON.parseObject(response.getData(), AddInteractionScriptCommentsResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public EditInteractionScriptCommentResponse editInteractionScriptComment(EditInteractionScriptCommentRequest editInteractionScriptCommentRequest) throws Exception {
+        RawResponse response = json(Const.EditInteractionScriptComment, new ArrayList<>(), JSON.toJSONString(editInteractionScriptCommentRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        EditInteractionScriptCommentResponse res = JSON.parseObject(response.getData(), EditInteractionScriptCommentResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteInteractionScriptCommentResponse deleteInteractionScriptComment(DeleteInteractionScriptCommentRequest deleteInteractionScriptCommentRequest) throws Exception {
+        RawResponse response = json(Const.DeleteInteractionScriptComment, new ArrayList<>(), JSON.toJSONString(deleteInteractionScriptCommentRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteInteractionScriptCommentResponse res = JSON.parseObject(response.getData(), DeleteInteractionScriptCommentResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateActivityMediaInfoResponse updateActivityMediaInfo(UpdateActivityMediaInfoRequest updateActivityMediaInfoRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityMediaInfo, new ArrayList<>(), JSON.toJSONString(updateActivityMediaInfoRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateActivityMediaInfoResponse res = JSON.parseObject(response.getData(), UpdateActivityMediaInfoResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

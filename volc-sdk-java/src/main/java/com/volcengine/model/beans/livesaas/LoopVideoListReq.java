@@ -13,4 +13,8 @@ public class LoopVideoListReq {
     String VideoName;
     @JSONField(name = "Offset")
     Long Offset;
+    @JSONField(name = "InteractionScriptEnabled")
+    Boolean InteractionScriptEnabled;
+    @JSONField(name = "InteractionScriptId")
+    Long InteractionScriptId;
 }

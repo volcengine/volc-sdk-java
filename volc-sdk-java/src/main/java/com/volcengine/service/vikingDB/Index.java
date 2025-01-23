@@ -6,6 +6,8 @@ import com.volcengine.service.vikingDB.common.DataObject;
 import com.volcengine.service.vikingDB.common.FetchDataParam;
 import com.volcengine.service.vikingDB.common.IndexSortParam;
 import com.volcengine.service.vikingDB.common.IndexSortResult;
+import com.volcengine.service.vikingDB.common.SearchAggParam;
+import com.volcengine.service.vikingDB.common.SearchAggResult;
 import com.volcengine.service.vikingDB.common.SearchByIdParam;
 import com.volcengine.service.vikingDB.common.SearchByTextParam;
 import com.volcengine.service.vikingDB.common.SearchByVectorParam;
@@ -278,6 +280,8 @@ public class Index {
             search.put("filter", searchByTextParam.getFilter());
         if (searchByTextParam.getDenseWeight() != null)
             search.put("dense_weight", searchByTextParam.getDenseWeight());
+        if (searchByTextParam.getNeedInstruction() != null)
+            search.put("need_instruction", searchByTextParam.getNeedInstruction());
         if (searchByTextParam.getPrimaryKeyIn() != null) {
             search.put("primary_key_in", searchByTextParam.getPrimaryKeyIn());
         }
@@ -322,6 +326,51 @@ public class Index {
         }
     }
 
+    public SearchAggResult searchAgg(SearchAggParam searchAggParam) throws Exception {
+        if (searchAggParam.getIsBuild() == 0) {
+            VikingDBException vikingDBException = new VikingDBException(1000031, null, "Param dose not build");
+            throw vikingDBException.getErrorCodeException(1000031, null, "Param dose not build");
+        }
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("collection_name", collectionName);
+        params.put("index_name", indexName);
+        params.put("agg", searchAggParam.getAgg());
+        HashMap<String, Object> search = new HashMap<>();
+        search.put("filter", searchAggParam.getFilter());
+        search.put("partition", searchAggParam.getPartition());
+        params.put("search", search);
+        Integer remainingRetries = searchAggParam.getRetry() ? Constant.MAX_RETRIES : 0;
+        LinkedTreeMap<String, Object> resData = vikingDBService.retryRequest("SearchIndexAgg", null, params, remainingRetries);
+        if (resData == null) {
+            throw new Exception(Constant.NO_RESPONSE_DATA);
+        }
+        @SuppressWarnings("unchecked")
+        LinkedTreeMap<String, Object> data = (LinkedTreeMap<String, Object>) resData.get("data");
+        if (data == null) {
+            throw new Exception(Constant.NO_RESPONSE_DATA);
+        }
+        SearchAggResult searchAggResult = new SearchAggResult();
+        Object aggOp = data.get("agg_op");
+        if (aggOp instanceof String) {
+            @SuppressWarnings("unchecked")
+            String aggOpValue = (String) aggOp;
+            searchAggResult.setAggOp(aggOpValue);
+        }
+        Object groupByField = data.get("group_by_field");
+        if (groupByField instanceof String) {
+            @SuppressWarnings("unchecked")
+            String groupByFieldValue = (String) groupByField;
+            searchAggResult.setGroupByField(groupByFieldValue);
+        }
+        Object aggResult = data.get("agg_result");
+        if (aggResult instanceof LinkedTreeMap) {
+            @SuppressWarnings("unchecked")
+            LinkedTreeMap<String, Object> aggResultValue = (LinkedTreeMap<String, Object>) aggResult;
+            searchAggResult.setAggResult(aggResultValue);
+        }
+        return searchAggResult;
+    }
+
     public <T> IndexSortResult<T> sort(IndexSortParam<T> indexSortParam) throws Exception {
         if (indexSortParam.getIsBuild() == 0) {
             VikingDBException vikingDBException = new VikingDBException(1000031, null, "Param dose not build");
@@ -336,6 +385,9 @@ public class Index {
         params.put("sort", sortSubParam);
         Integer remainingRetries = indexSortParam.getRetry() ? Constant.MAX_RETRIES : 0;
         LinkedTreeMap<String, Object> resData = vikingDBService.retryRequest("IndexSort", null, params, remainingRetries);
+        if (resData == null) {
+            throw new Exception(Constant.NO_RESPONSE_DATA);
+        }
 
         @SuppressWarnings("unchecked")
         LinkedTreeMap<String, Object> data = (LinkedTreeMap<String, Object>) resData.get("data");

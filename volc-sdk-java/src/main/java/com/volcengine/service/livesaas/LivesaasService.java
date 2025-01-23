@@ -2311,4 +2311,58 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     UpdateActivityReplayPlayerConfigResponse updateActivityReplayPlayerConfig(UpdateActivityReplayPlayerConfigRequest updateActivityReplayPlayerConfigRequest) throws Exception;
+
+    /**
+     * listInteractionScriptComments
+     *
+     * @param listInteractionScriptCommentsRequest ListInteractionScriptCommentsRequest
+     * @return ListInteractionScriptCommentsResponse
+     * @throws Exception the exception
+     */
+    ListInteractionScriptCommentsResponse listInteractionScriptComments(ListInteractionScriptCommentsRequest listInteractionScriptCommentsRequest) throws Exception;
+
+
+    /**
+     * createInteractionScript
+     *
+     * @param createInteractionScriptRequest CreateInteractionScriptRequest
+     * @return CreateInteractionScriptResponse
+     * @throws Exception the exception
+     */
+    CreateInteractionScriptResponse createInteractionScript(CreateInteractionScriptRequest createInteractionScriptRequest) throws Exception;
+
+    /**
+     * addInteractionScriptComments
+     *
+     * @param addInteractionScriptCommentsRequest AddInteractionScriptCommentsRequest
+     * @return AddInteractionScriptCommentsResponse
+     * @throws Exception the exception
+     */
+    AddInteractionScriptCommentsResponse addInteractionScriptComments(AddInteractionScriptCommentsRequest addInteractionScriptCommentsRequest) throws Exception;
+
+    /**
+     * editInteractionScriptComment
+     *
+     * @param editInteractionScriptCommentRequest EditInteractionScriptCommentRequest
+     * @return EditInteractionScriptCommentResponse
+     * @throws Exception the exception
+     */
+    EditInteractionScriptCommentResponse editInteractionScriptComment(EditInteractionScriptCommentRequest editInteractionScriptCommentRequest) throws Exception;
+    /**
+     * deleteInteractionScriptComment
+     *
+     * @param deleteInteractionScriptCommentRequest DeleteInteractionScriptCommentRequest
+     * @return DeleteInteractionScriptCommentResponse
+     * @throws Exception the exception
+     */
+    DeleteInteractionScriptCommentResponse deleteInteractionScriptComment(DeleteInteractionScriptCommentRequest deleteInteractionScriptCommentRequest) throws Exception;
+
+    /**
+     * updateActivityMediaInfo
+     *
+     * @param updateActivityMediaInfoRequest UpdateActivityMediaInfoRequest
+     * @return UpdateActivityMediaInfoResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityMediaInfoResponse updateActivityMediaInfo(UpdateActivityMediaInfoRequest updateActivityMediaInfoRequest) throws Exception;
 }

@@ -13,4 +13,6 @@ public class CreateCouponModel {
     String ThirdPartyId;
     @JSONField(name = "Pic")
     String Pic;
+    @JSONField(name = "OwnerSubAccountName")
+    String OwnerSubAccountName;
 }

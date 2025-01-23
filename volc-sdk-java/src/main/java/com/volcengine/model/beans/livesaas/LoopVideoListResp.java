@@ -25,4 +25,8 @@ public class LoopVideoListResp {
     Integer WarmupProgress;
     @JSONField(name = "MediaDuration")
     Integer MediaDuration;
+    @JSONField(name = "InteractionScriptEnabled")
+    Boolean InteractionScriptEnabled;
+    @JSONField(name = "InteractionScriptId")
+    Long InteractionScriptId;
 }

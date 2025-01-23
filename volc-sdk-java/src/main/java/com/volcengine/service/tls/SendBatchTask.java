@@ -44,33 +44,13 @@ public class SendBatchTask implements Runnable {
         try {
             putLogsResponse = client.putLogs(putLogsRequest);
         } catch (LogException e) {
-            LOG.error("send batch failed, batch:" + batchLog, e);
-            Attempt fail = new Attempt(false, e.getRequestId(), e.getErrorCode(), e.getErrorMessage(), e.getHttpCode());
-            batchLog.addAttempt(fail);
-            batchLog.setNextRetryMs(System.currentTimeMillis() + 5000);
-            if (!ProducerConfig.needRetry(e.getHttpCode()) || batchLog.getAttemptCount() > producerConfig.getRetryCount() || retryManager.isClosed()) {
-                putBatchLogToFailureQueue();
-            } else {
-                try {
-                    retryManager.put(batchLog);
-                    LOG.info("retry queue add batch success, batch: " + batchLog);
-                } catch (LogException ex) {
-                    LOG.warn("retry manager is closed and put batch log to failure queue");
-                    putBatchLogToFailureQueue();
-                }
-            }
+            handleLogException(e);
             return;
         } catch (Exception e) {
-            LOG.error("send batch failed, batch:" + batchLog, e);
-            Attempt fail = new Attempt(false, null, e.getClass().getName(), e.getMessage());
-            batchLog.addAttempt(fail);
-            putBatchLogToFailureQueue();
+            handleException(e);
             return;
         }
-        Attempt success = new Attempt(true, putLogsResponse.getRequestId(), null, null, HTTP_STATUS_OK);
-        batchLog.addAttempt(success);
-        successQueue.add(batchLog);
-        LOG.debug("send batch success, batch: " + batchLog);
+        handleSuccess(putLogsResponse);
     }
 
     private void putBatchLogToFailureQueue() {
@@ -80,5 +60,44 @@ public class SendBatchTask implements Runnable {
         } catch (InterruptedException ex) {
             LOG.error("failure queue add batch failed, batch: " + batchLog, ex);
         }
+    }
+
+    private boolean needRetry(LogException e) {
+        return ProducerConfig.needRetry(e.getHttpCode()) &&
+                batchLog.getAttemptCount() <= producerConfig.getRetryCount() &&
+                !retryManager.isClosed();
+    }
+
+    private void handleLogException(LogException e) {
+        LOG.error("send batch failed, batch:" + batchLog, e);
+        Attempt fail = new Attempt(false, e.getRequestId(), e.getErrorCode(), e.getErrorMessage(), e.getHttpCode());
+        batchLog.addAttempt(fail);
+        batchLog.handleNextTry();
+        if (needRetry(e)) {
+            try {
+                retryManager.put(batchLog);
+                LOG.info("retry queue add batch success, batch: " + batchLog);
+                return;
+            } catch (LogException ex) {
+                LOG.warn("retry manager is closed and put batch log to failure queue");
+            }
+        }
+
+        putBatchLogToFailureQueue();
+    }
+
+    private void handleException(Exception e) {
+        LOG.error("send batch failed, batch:" + batchLog, e);
+        Attempt fail = new Attempt(false, null, e.getClass().getName(), e.getMessage());
+        batchLog.addAttempt(fail);
+        putBatchLogToFailureQueue();
+    }
+
+    private void handleSuccess(PutLogsResponse putLogsResponse) {
+        Attempt success = new Attempt(true, putLogsResponse.getRequestId(), null, null, HTTP_STATUS_OK);
+        batchLog.addAttempt(success);
+        batchLog.setRetryBackoffMs(0);
+        successQueue.add(batchLog);
+        LOG.debug("send batch success, batch: " + batchLog);
     }
 }

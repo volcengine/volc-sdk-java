@@ -143,6 +143,9 @@ public class VikingDBService extends BaseServiceImpl {
         paramsPost.put(Const.Path, "/api/index/search");
         apiInfo.put("SearchIndex", new ApiInfo(paramsPost));
 
+        paramsPost.put(Const.Path, "/api/index/search/agg");
+        apiInfo.put("SearchIndexAgg", new ApiInfo(paramsPost));
+
         paramsPost.put(Const.Path, "/api/index/sort");
         apiInfo.put("IndexSort", new ApiInfo(paramsPost));
 

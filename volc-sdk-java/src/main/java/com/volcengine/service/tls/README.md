@@ -204,8 +204,8 @@ public class Demo {
 | maxBatchSizeBytes   | int  | 512 * 1024        | 当一个BatchLog中缓存的日志大小大于等于maxBatchSizeBytes时，该batch将被发送，单位为B，默认为512KB，最大可设置为10MB。                       |
 | maxBatchCount       | int  | 4096              | 当一个BatchLog中缓存的日志条数大于等于maxBatchCount时，该batch将被发送，默认为4096，最大可设置为40960。                                |
 | lingerMs            | int  | 2 * 1000          | 一个BatchLog从创建到可发送的等待时间，单位为毫秒，默认为2秒，最小可设置成100毫秒。                                                      |
-| retryCount          | int  | 2                 | 如果某个BatchLog首次发送失败，Producer对其自动重试的次数，默认为2次。                                                          |
-| maxReservedAttempts | int  | 3                 | 每个BatchLog每次尝试发送都对应着一个Attempt，此参数用来控制返回给用户的Attempt个数，默认只保留最近3次Attempt信息。该参数越大，您可追溯的信息越多，但同时也会消耗更多内存。 |
+| retryCount          | int  | 10                | 如果某个BatchLog首次发送失败，Producer对其自动重试的次数，默认为10次。                                                         |
+| maxReservedAttempts | int  | 11                | 每个BatchLog每次尝试发送都对应着一个Attempt，此参数用来控制返回给用户的Attempt个数，默认只保留最近3次Attempt信息。该参数越大，您可追溯的信息越多，但同时也会消耗更多内存。 |
 
 ## 通过 Consumer 消费日志数据
 

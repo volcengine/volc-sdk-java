@@ -14,6 +14,7 @@ public class SearchByTextParam {
     private List<String> outputFields = null;
     private Object partition = "default";
     private Double denseWeight = null;
+    private Boolean needInstruction = null;
     private List<Object> primaryKeyIn = null;
     private List<Object> primaryKeyNotIn = null;
     private Integer postProcessInputLimit = null;
@@ -48,6 +49,11 @@ public class SearchByTextParam {
 
     public SearchByTextParam setDenseWeight(Double denseWeight) {
         this.denseWeight = denseWeight;
+        return this;
+    }
+
+    public SearchByTextParam setNeedInstruction(Boolean needInstruction) {
+        this.needInstruction = needInstruction;
         return this;
     }
 

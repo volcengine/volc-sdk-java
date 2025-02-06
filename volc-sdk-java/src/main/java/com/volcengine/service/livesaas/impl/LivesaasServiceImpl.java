@@ -3980,36 +3980,6 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
-    public SendProductOrderMessageResponse sendProductOrderMessage(SendProductOrderMessageRequest sendProductOrderMessageRequest) throws Exception {
-        RawResponse response = json(Const.SendProductOrderMessage, new ArrayList<>(),JSON.toJSONString(sendProductOrderMessageRequest));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-        SendProductOrderMessageResponse res = JSON.parseObject(response.getData(), SendProductOrderMessageResponse.class);
-        if (res.getResponseMetadata().getError() != null) {
-            ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-        }
-        res.getResponseMetadata().setService("livesaas");
-        return res;
-    }
-
-    @Override
-    public UpdateProductReminderInfoResponse updateProductReminderInfo(UpdateProductReminderInfoRequest updateProductReminderInfoRequest) throws Exception {
-        RawResponse response = json(Const.UpdateProductReminderInfo, new ArrayList<>(),JSON.toJSONString(updateProductReminderInfoRequest));
-        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            throw response.getException();
-        }
-        UpdateProductReminderInfoResponse res = JSON.parseObject(response.getData(), UpdateProductReminderInfoResponse.class);
-        if (res.getResponseMetadata().getError() != null) {
-            ResponseMetadata meta = res.getResponseMetadata();
-            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
-        }
-        res.getResponseMetadata().setService("livesaas");
-        return res;
-    }
-
-    @Override
     public ListAreaConfigResponse listAreaConfig(ListAreaConfigRequest listAreaConfigRequest) throws Exception {
         RawResponse response = query(Const.ListAreaConfig, Utils.paramsToPair(listAreaConfigRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

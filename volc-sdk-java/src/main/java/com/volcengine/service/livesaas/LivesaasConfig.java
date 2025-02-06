@@ -3734,34 +3734,6 @@ public class LivesaasConfig {
                         }
                     }
             ));
-            put(Const.UpdateProductReminderInfo,new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "POST");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action",Const.UpdateProductReminderInfo));
-                                    add(new BasicNameValuePair("Version", "2023-08-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
-            put(Const.SendProductOrderMessage,new ApiInfo(
-                    new HashMap<String, Object>() {
-                        {
-                            put(Const.Method, "POST");
-                            put(Const.Path, "/");
-                            put(Const.Query, new ArrayList<NameValuePair>() {
-                                {
-                                    add(new BasicNameValuePair("Action",Const.SendProductOrderMessage));
-                                    add(new BasicNameValuePair("Version", "2023-08-01"));
-                                }
-                            });
-                        }
-                    }
-            ));
             put(Const.UpdateActivityUserBanStatus,new ApiInfo(
                     new HashMap<String, Object>() {
                         {

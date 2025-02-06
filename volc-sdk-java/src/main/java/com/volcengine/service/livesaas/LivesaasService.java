@@ -2277,24 +2277,6 @@ public interface LivesaasService extends IBaseService {
      */
     BatchSendActivityRobotCommentResponse batchSendActivityRobotComment(BatchSendActivityRobotCommentRequest batchSendActivityRobotCommentRequest) throws Exception;
     /**
-     * updateProductReminderInfo
-     *
-     * @param updateProductReminderInfoRequest UpdateProductReminderInfoRequest
-     * @return UpdateProductReminderInfoResponse
-     * @throws Exception the exception
-     */
-    UpdateProductReminderInfoResponse updateProductReminderInfo(UpdateProductReminderInfoRequest updateProductReminderInfoRequest) throws Exception;
-
-    /**
-     * sendProductOrderMessage
-     *
-     * @param sendProductOrderMessageRequest SendProductOrderMessageRequest
-     * @return SendProductOrderMessageResponse
-     * @throws Exception the exception
-     */
-    SendProductOrderMessageResponse sendProductOrderMessage(SendProductOrderMessageRequest sendProductOrderMessageRequest) throws Exception;
-
-    /**
      * updateActivityUserBanStatus
      *
      * @param updateActivityUserBanStatusRequest UpdateActivityUserBanStatusRequest

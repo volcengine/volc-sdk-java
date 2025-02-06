@@ -265,8 +265,8 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
-    public GetStreamsAPIResponse getStreamsAPI(CommonRequest commonRequest) throws Exception {
-        RawResponse response = query(Const.GetStreamsAPI, Utils.paramsToPair(commonRequest));
+    public GetStreamsAPIResponse getStreamsAPI(GetStreamsAPIRequest getStreamsAPIRequest) throws Exception {
+        RawResponse response = query(Const.GetStreamsAPI, Utils.paramsToPair(getStreamsAPIRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -3884,6 +3884,93 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
             throw response.getException();
         }
         BatchSendActivityRobotCommentResponse res = JSON.parseObject(response.getData(), BatchSendActivityRobotCommentResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public SendProductOrderMessageResponse sendProductOrderMessage(SendProductOrderMessageRequest sendProductOrderMessageRequest) throws Exception {
+        RawResponse response = json(Const.SendProductOrderMessage, new ArrayList<>(),JSON.toJSONString(sendProductOrderMessageRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        SendProductOrderMessageResponse res = JSON.parseObject(response.getData(), SendProductOrderMessageResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateProductReminderInfoResponse updateProductReminderInfo(UpdateProductReminderInfoRequest updateProductReminderInfoRequest) throws Exception {
+        RawResponse response = json(Const.UpdateProductReminderInfo, new ArrayList<>(),JSON.toJSONString(updateProductReminderInfoRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateProductReminderInfoResponse res = JSON.parseObject(response.getData(), UpdateProductReminderInfoResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateActivityUserBanStatusResponse updateActivityUserBanStatus(UpdateActivityUserBanStatusRequest updateActivityUserBanStatusRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityUserBanStatus, new ArrayList<>(),JSON.toJSONString(updateActivityUserBanStatusRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateActivityUserBanStatusResponse res = JSON.parseObject(response.getData(), UpdateActivityUserBanStatusResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+    @Override
+    public GetActivityBanUsersResponse getActivityBanUsers(GetActivityBanUsersRequest getActivityBanUsersRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityBanUsers, Utils.paramsToPair(getActivityBanUsersRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityBanUsersResponse res = JSON.parseObject(response.getData(), GetActivityBanUsersResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+    @Override
+    public UpdateActivityIpBanStatusResponse updateActivityIpBanStatus(UpdateActivityIpBanStatusRequest updateActivityIpBanStatusRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityIpBanStatus, new ArrayList<>(),JSON.toJSONString(updateActivityIpBanStatusRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateActivityIpBanStatusResponse res = JSON.parseObject(response.getData(), UpdateActivityIpBanStatusResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+    @Override
+    public GetActivityBanIpsResponse getActivityBanIps(GetActivityBanIpsRequest getActivityBanIpsRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityBanIps, Utils.paramsToPair(getActivityBanIpsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityBanIpsResponse res = JSON.parseObject(response.getData(), GetActivityBanIpsResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());

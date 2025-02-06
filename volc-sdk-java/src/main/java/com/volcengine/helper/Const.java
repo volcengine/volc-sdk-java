@@ -610,6 +610,10 @@ public class Const {
     public static final String ListWaitLinkAudience = "ListWaitLinkAudience";
     public static final String GetLinkUserAmount = "GetLinkUserAmount";
     public static final String GetInviterToken = "GetInviterToken";
+    public static final String UpdateActivityUserBanStatus = "UpdateActivityUserBanStatus";
+    public static final String GetActivityBanUsers = "GetActivityBanUsers";
+    public static final String UpdateActivityIpBanStatus = "UpdateActivityIpBanStatus";
+    public static final String GetActivityBanIps = "GetActivityBanIps";
     public static final String ListAreaConfig = "ListAreaConfig";
     public static final String CreateAreaConfig = "CreateAreaConfig";
     public static final String UpdateAreaConfig = "UpdateAreaConfig";

@@ -40,4 +40,6 @@ public class CreateActivityAPIRequest {
     Integer LiveLayout;
     @JSONField(name = "CreatorName")
     String CreatorName;
+    @JSONField(name = "IsReplayAutoOnlineEnable")
+    Integer IsReplayAutoOnlineEnable;
 }

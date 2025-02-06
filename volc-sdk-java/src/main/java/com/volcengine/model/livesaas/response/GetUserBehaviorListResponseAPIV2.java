@@ -81,5 +81,7 @@ public class GetUserBehaviorListResponseAPIV2 {
         String EmployeeNo;
         @JSONField(name = "ThumbUpNumber")
         Long ThumbUpNumber;
+        @JSONField(name = "Cookie")
+        Long Cookie;
     }
 }

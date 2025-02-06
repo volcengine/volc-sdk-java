@@ -141,11 +141,11 @@ public interface LivesaasService extends IBaseService {
     /**
      * GetStreamsAPI
      *
-     * @param commonRequest CommonRequest
+     * @param getStreamsAPIRequest GetStreamsAPIRequest
      * @return GetStreamsAPIResponse
      * @throws Exception the exception
      */
-    GetStreamsAPIResponse getStreamsAPI(CommonRequest commonRequest) throws Exception;
+    GetStreamsAPIResponse getStreamsAPI(GetStreamsAPIRequest getStreamsAPIRequest) throws Exception;
 
     /**
      * UpdateActivityBasicConfigAPI
@@ -2276,6 +2276,59 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     BatchSendActivityRobotCommentResponse batchSendActivityRobotComment(BatchSendActivityRobotCommentRequest batchSendActivityRobotCommentRequest) throws Exception;
+    /**
+     * updateProductReminderInfo
+     *
+     * @param updateProductReminderInfoRequest UpdateProductReminderInfoRequest
+     * @return UpdateProductReminderInfoResponse
+     * @throws Exception the exception
+     */
+    UpdateProductReminderInfoResponse updateProductReminderInfo(UpdateProductReminderInfoRequest updateProductReminderInfoRequest) throws Exception;
+
+    /**
+     * sendProductOrderMessage
+     *
+     * @param sendProductOrderMessageRequest SendProductOrderMessageRequest
+     * @return SendProductOrderMessageResponse
+     * @throws Exception the exception
+     */
+    SendProductOrderMessageResponse sendProductOrderMessage(SendProductOrderMessageRequest sendProductOrderMessageRequest) throws Exception;
+
+    /**
+     * updateActivityUserBanStatus
+     *
+     * @param updateActivityUserBanStatusRequest UpdateActivityUserBanStatusRequest
+     * @return UpdateActivityUserBanStatusResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityUserBanStatusResponse updateActivityUserBanStatus(UpdateActivityUserBanStatusRequest updateActivityUserBanStatusRequest) throws Exception;
+
+    /**
+     * getActivityBanUsers
+     *
+     * @param getActivityBanUsersRequest GetActivityBanUsersRequest
+     * @return GetActivityBanUsersResponse
+     * @throws Exception the exception
+     */
+    GetActivityBanUsersResponse getActivityBanUsers(GetActivityBanUsersRequest getActivityBanUsersRequest) throws Exception;
+
+    /**
+     * updateActivityIpBanStatus
+     *
+     * @param updateActivityIpBanStatusRequest UpdateActivityIpBanStatusRequest
+     * @return UpdateActivityIpBanStatusResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityIpBanStatusResponse updateActivityIpBanStatus(UpdateActivityIpBanStatusRequest updateActivityIpBanStatusRequest) throws Exception;
+
+    /**
+     * getActivityBanIps
+     *
+     * @param getActivityBanIpsRequest GetActivityBanIpsRequest
+     * @return GetActivityBanIpsResponse
+     * @throws Exception the exception
+     */
+    GetActivityBanIpsResponse getActivityBanIps(GetActivityBanIpsRequest getActivityBanIpsRequest) throws Exception;
     /**
      * updateProductReminderInfo
      *

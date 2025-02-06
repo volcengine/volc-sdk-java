@@ -36,4 +36,6 @@ public class ListActivityAPIRequest {
     String SortOrder;
     @JSONField(name = "LiveLayout")
     Integer LiveLayout;
+    @JSONField(name = "FollowerUserName")
+    String FollowerUserName;
 }

@@ -61,6 +61,8 @@ public class ListActivityAPIResponse {
         Integer LiveReviewStatus;
         @JSONField(name = "LiveLayout")
         Integer LiveLayout;
+        @JSONField(name = "SubAccountName")
+        String SubAccountName;
     }
 
     @Data

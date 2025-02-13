@@ -136,6 +136,13 @@ public class Collection {
         vikingDBService.doRequest("DeleteData", null, params);
     }
 
+    public void deleteAllData() throws Exception {
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        params.put("collection_name", collectionName);
+        params.put("del_all", true);
+        vikingDBService.doRequest("DeleteData", null, params);
+    }
+
     public <T> DataObject fetchData(T id) throws Exception {
         DataObject dataObject;
         HashMap<String, Object> params = new HashMap<String, Object>();

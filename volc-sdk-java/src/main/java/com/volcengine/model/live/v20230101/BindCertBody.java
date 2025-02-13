@@ -59,6 +59,16 @@ public final class BindCertBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "MinTLSVersion")
     private String minTLSVersion;
 
+    /**
+     * <p>是否开启 HTTP/2 协议，默认为 `false`。取值如下：</p>
+     *
+     * <p>- `false`: 关闭 HTTP/2 协议。</p>
+     *
+     * <p>- `true`: 开启 HTTP/2 协议。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "HTTP2")
+    private Boolean hTTP2;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

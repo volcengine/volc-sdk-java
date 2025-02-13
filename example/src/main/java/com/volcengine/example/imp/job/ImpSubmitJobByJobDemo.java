@@ -30,13 +30,13 @@ public class ImpSubmitJobDemo {
             Job.Builder job = Job.newBuilder();
             TranscodeVideoJob.Builder transcodeVideoJob = TranscodeVideoJob.newBuilder();
             Video.Builder video = Video.newBuilder();
-            video.setCodec("h264");
+            video.setCodec("your video codec");
             video.setBitrate(4000);
             Audio.Builder audio = Audio.newBuilder();
-            audio.setCodec("aac");
+            audio.setCodec("your audio codec");
             audio.setBitrate(128);
             audio.setChannels(2);
-            transcodeVideoJob.setContainer("MP4");
+            transcodeVideoJob.setContainer("your container");
             transcodeVideoJob.setVideo(video.build());
             transcodeVideoJob.setAudio(audio.build());
             job.setTranscodeVideo(transcodeVideoJob.build());

@@ -127,7 +127,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>listVhostTransCodePreset</p>
      * <p>查询转码配置列表</p>
      *
-     * <p>查询指定域名空间下的全部应用以及与其相关联的转码配置。</p>
+     * <p>调用 `ListVhostTransCodePreset` 接口，查询转码配置列表。</p>
      *
      * @param body body payload
      * @return response data
@@ -787,7 +787,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeDomain</p>
      * <p>查询域名信息</p>
      *
-     * <p>*调用* `DescribeDomain` 接口，查询域名的详细信息，包括但不限于域名所属域名空间、CNAME、类型、域名状态。</p>
+     * <p>调用 `DescribeDomain` 接口，查询域名的详细信息，包括但不限于域名所属域名空间、CNAME、类型、域名状态。</p>
      *
      * @param body body payload
      * @return response data
@@ -1177,7 +1177,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>killStream</p>
      * <p>断开直播流</p>
      *
-     * <p>调用接口断开指定的在线流。</p>
+     * <p>调用 `KillStream` 接口，断开指定的直推在线流推流连接，断开后还可以重新推流；或断开指定的回源流的用户拉流，断开后还可以重新拉流播放。</p>
      *
      * @param body body payload
      * @return response data
@@ -1553,6 +1553,12 @@ public class LiveTrait extends BaseServiceImpl {
      *
      * <p>调用 `DescribeLiveBatchSourceStreamAvgMetrics` 接口，查询指定时间范围内指定拉流域名下所有回源流或指定回源流的音视频帧率、码率等监控数据的平均值，用于判断回源流的健康程度。</p>
      *
+     *
+     *
+     *
+     *
+     * <p>该接口属于历史版本 API，我们计划于 2025 年 02 月 18 日停止对其进行维护，并于 2025 年 05 月 18 日下线文档，您可以使用 [DescribeLiveBatchSourceStreamMetrics](https://www.volcengine.com/docs/6469/1126918) 接口，查询多路推流监控数据的平均值或最大值。</p>
+     *
      * @param body body payload
      * @return response data
      * @throws Exception error during request
@@ -1617,6 +1623,10 @@ public class LiveTrait extends BaseServiceImpl {
      *
      * <p>调用 `DescribeLivePushStreamCountData` 接口，查询指定时间范围内推流域名下推流数量的峰值。</p>
      *
+     *
+     *
+     * <p>该接口属于历史版本 API，我们计划于 2025 年 02 月 18 日停止对其进行维护，并于 2025 年 05 月 18 日下线文档，建议您使用 [DescribeLiveStreamCountData](https://www.volcengine.com/docs/6469/1134317) 接口，查询推流、回源流或转码流的峰值流数。</p>
+     *
      * @param body body payload
      * @return response data
      * @throws Exception error during request
@@ -1662,6 +1672,10 @@ public class LiveTrait extends BaseServiceImpl {
      *
      * <p>调用 `DescribeLiveSourceBandwidthData` 接口，查询指定时间范围内拉流域名或回源流产生的回源带宽监控数据。</p>
      *
+     *
+     *
+     * <p>该接口属于历史版本 API，我们计划于 2025 年 02 月 18 日停止对其进行维护，并于 2025 年 05 月 18 日下线文档，建议您使用 [DescribeLiveSourceTrafficData](https://www.volcengine.com/docs/6469/1126923) 接口，查询直播流或域名的回源流量和带宽监控数据。</p>
+     *
      * @param body body payload
      * @return response data
      * @throws Exception error during request
@@ -1673,9 +1687,9 @@ public class LiveTrait extends BaseServiceImpl {
 
     /**
      * <p>describeLiveSourceTrafficData</p>
-     * <p>查询直播流或域名的回源流量监控数据</p>
+     * <p>查询直播流或域名的回源流量和带宽监控数据</p>
      *
-     * <p>调用 `DescribeLiveSourceTrafficData` 接口，查询指定时间范围内拉流域名或回源流产生的回源流量监控数据。</p>
+     * <p>调用 `DescribeLiveSourceTrafficData` 接口，查询指定时间范围内拉流域名或回源流产生的回源流量和带宽监控数据。</p>
      *
      * @param body body payload
      * @return response data
@@ -1692,6 +1706,10 @@ public class LiveTrait extends BaseServiceImpl {
      *
      * <p>调用 `DescribeLiveMetricBandwidthData` 接口，查询指定时间范围内直播域名或直播流的带宽监控数据。</p>
      *
+     *
+     *
+     * <p>该接口属于历史版本 API，我们计划于 2025 年 02 月 18 日停止对其进行维护，并于 2025 年 05 月 18 日下线文档，建议您使用新版 [DescribeLiveEdgeStatData](https://www.volcengine.com/docs/6469/1399004) 接口，查询直播流的上下行流量、上下行峰值带宽和请求数。</p>
+     *
      * @param body body payload
      * @return response data
      * @throws Exception error during request
@@ -1706,6 +1724,10 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>查询直播流或域名的流量监控数据</p>
      *
      * <p>调用 `DescribeLiveMetricTrafficData` 接口，查询指定时间范围内直播域名或直播流的流量监控数据。</p>
+     *
+     *
+     *
+     * <p>该接口属于历史版本 API，我们计划于 2025 年 02 月 18 日停止对其进行维护，并于 2025 年 05 月 18 日下线文档，建议您使用新版 [DescribeLiveEdgeStatData](https://www.volcengine.com/docs/6469/1399004) 接口，查询直播流的上下行流量、上下行峰值带宽和请求数。</p>
      *
      * @param body body payload
      * @return response data
@@ -1729,6 +1751,21 @@ public class LiveTrait extends BaseServiceImpl {
     public DescribeLiveBatchStreamTrafficDataRes describeLiveBatchStreamTrafficData(DescribeLiveBatchStreamTrafficDataBody body) throws Exception {
         RawResponse rawResponse = json("DescribeLiveBatchStreamTrafficData", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, DescribeLiveBatchStreamTrafficDataRes.class);
+    }
+
+    /**
+     * <p>describeLiveEdgeStatData</p>
+     * <p>查询边缘数据</p>
+     *
+     * <p>调用 `DescribeLiveEdgeStatData` 接口，查询指定协议、运营商、区域、时间范围下，直播流产生的上下行流量、上下行峰值带宽和请求数等数据。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeLiveEdgeStatDataRes describeLiveEdgeStatData(DescribeLiveEdgeStatDataBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeLiveEdgeStatData", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeLiveEdgeStatDataRes.class);
     }
 
     /**
@@ -2371,6 +2408,96 @@ public class LiveTrait extends BaseServiceImpl {
     public CreateSubtitleTranscodePresetRes createSubtitleTranscodePreset(CreateSubtitleTranscodePresetBody body) throws Exception {
         RawResponse rawResponse = json("CreateSubtitleTranscodePreset", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, CreateSubtitleTranscodePresetRes.class);
+    }
+
+    /**
+     * <p>createLivePadPreset</p>
+     * <p>创建直播垫片配置</p>
+     *
+     * <p>调用 `CreateLivePadPreset` 接口创建一个直播垫片配置，当直播流断开（包括主动断开直播流的情况）时，直播画面能够自动切换至已配置的素材或者直播的最后一帧画面。而当直播恢复后，会将垫片替换掉，恢复正常直播画面。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateLivePadPresetRes createLivePadPreset(CreateLivePadPresetBody body) throws Exception {
+        RawResponse rawResponse = json("CreateLivePadPreset", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateLivePadPresetRes.class);
+    }
+
+    /**
+     * <p>deleteLivePadPreset</p>
+     * <p>删除直播垫片配置</p>
+     *
+     *
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteLivePadPresetRes deleteLivePadPreset(DeleteLivePadPresetBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteLivePadPreset", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteLivePadPresetRes.class);
+    }
+
+    /**
+     * <p>stopLivePadStream</p>
+     * <p>断开正在播放垫片的直播流</p>
+     *
+     *
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public StopLivePadStreamRes stopLivePadStream(StopLivePadStreamBody body) throws Exception {
+        RawResponse rawResponse = json("StopLivePadStream", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, StopLivePadStreamRes.class);
+    }
+
+    /**
+     * <p>updateLivePadPreset</p>
+     * <p>更新直播垫片配置</p>
+     *
+     *
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateLivePadPresetRes updateLivePadPreset(UpdateLivePadPresetBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateLivePadPreset", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateLivePadPresetRes.class);
+    }
+
+    /**
+     * <p>describeLivePadStreamList</p>
+     * <p>查询正在播放垫片的直播流</p>
+     *
+     *
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeLivePadStreamListRes describeLivePadStreamList(DescribeLivePadStreamListBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeLivePadStreamList", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeLivePadStreamListRes.class);
+    }
+
+    /**
+     * <p>describeLivePadPresetDetail</p>
+     * <p>查询直播垫片配置列表</p>
+     *
+     *
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeLivePadPresetDetailRes describeLivePadPresetDetail(DescribeLivePadPresetDetailBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeLivePadPresetDetail", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeLivePadPresetDetailRes.class);
     }
 
 }

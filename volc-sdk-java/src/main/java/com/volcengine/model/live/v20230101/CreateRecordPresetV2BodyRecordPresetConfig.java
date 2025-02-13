@@ -59,7 +59,7 @@ public final class CreateRecordPresetV2BodyRecordPresetConfig  {
     private Integer originRecord;
 
     /**
-     * <p>录制为 HLS 格式时，单个 TS 切片时长，单位为秒，默认值为 `10`，取值范围为 [5,30]。</p>
+     * <p>录制为 HLS 格式时，单个 TS 切片时长，单位为秒，默认值为 `10`，取值范围为 [2,100]。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SliceDuration")
     private Integer sliceDuration;

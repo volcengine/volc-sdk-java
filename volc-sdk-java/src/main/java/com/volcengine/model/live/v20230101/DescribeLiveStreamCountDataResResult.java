@@ -35,9 +35,7 @@ public final class DescribeLiveStreamCountDataResResult  {
      *
      * <p>- `300`：5 分钟；</p>
      *
-     * <p>- `3600`：1 小时；</p>
-     *
-     * <p>- `86400`：1 天。</p>
+     * <p>- `3600`：1 小时。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;
@@ -61,7 +59,7 @@ public final class DescribeLiveStreamCountDataResResult  {
     private List<String> streamType;
 
     /**
-     * <p>当前查询条件下流数最大值。</p>
+     * <p>当前查询条件时流数最大值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PeakCount")
     private Integer peakCount;
@@ -77,6 +75,18 @@ public final class DescribeLiveStreamCountDataResResult  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StreamDetailDataList")
     private List<DescribeLiveStreamCountDataResResultStreamDetailDataListItem> streamDetailDataList;
+
+    /**
+     * <p>ISP 列表。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ISPList")
+    private List<String> iSPList;
+
+    /**
+     * <p>用户区域列表。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "UserRegionList")
+    private List<DescribeLiveStreamCountDataResResultUserRegionListItem> userRegionList;
 
     @Override
     public String toString() {

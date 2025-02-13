@@ -56,5 +56,11 @@ public class GetActivityPosterResponse {
         String InviteContent;
         @JSONField(name = "InviteShowPeople")
         Integer InviteShowPeople;
+        @JSONField(name = "EnableMiniApp")
+        Boolean EnableMiniApp;
+        @JSONField(name = "MiniAppId")
+        String MiniAppId;
+        @JSONField(name = "MiniAppRedirectUrl")
+        String MiniAppRedirectUrl;
     }
 }

@@ -22,7 +22,7 @@ public class TopicTest extends BaseTest {
         try {
             //create project
             String projectName = prefix + separator + date + separator + System.currentTimeMillis();
-            String region = "your-region";
+            String region = System.getenv("region");
             String description = "test project";
             CreateProjectRequest project = new CreateProjectRequest(projectName, region, description);
             CreateProjectResponse createProjectResponse = client.createProject(project);
@@ -35,9 +35,13 @@ public class TopicTest extends BaseTest {
             createTopicRequest.setTopicName(topicName);
             createTopicRequest.setProjectId(projectId);
             createTopicRequest.setTtl(500);
+            createTopicRequest.setEnableHotTtl(true);
+            createTopicRequest.setHotTtl(100);
+            createTopicRequest.setColdTtl(100);
+            createTopicRequest.setArchiveTtl(300);
             CreateTopicResponse createTopicResponse = client.createTopic(createTopicRequest);
             System.out.println("create topic success,response:" + createTopicResponse);
-            assertTrue(createTopicResponse.getTopicId().length() > 0);
+            assertFalse(createTopicResponse.getTopicId().isEmpty());
 
             Exception exception = assertThrows(LogException.class, () -> {
                 client.createTopic(createTopicRequest);
@@ -65,6 +69,11 @@ public class TopicTest extends BaseTest {
             ModifyTopicRequest modifyTopicRequest = new ModifyTopicRequest();
             modifyTopicRequest.setTopicId(createTopicResponse.getTopicId());
             modifyTopicRequest.setTopicName(topicName + separator + System.currentTimeMillis());
+            modifyTopicRequest.setEnableHotTtl(true);
+            modifyTopicRequest.setTtl(500);
+            modifyTopicRequest.setHotTtl(100);
+            modifyTopicRequest.setColdTtl(200);
+            modifyTopicRequest.setArchiveTtl(200);
             ModifyTopicResponse modifyTopicResponse = client.modifyTopic(modifyTopicRequest);
             System.out.println("modify topic success,response:" + modifyTopicResponse);
             describeTopicResponse = client.describeTopic(new DescribeTopicRequest(createTopicResponse.getTopicId()));
@@ -80,6 +89,7 @@ public class TopicTest extends BaseTest {
 
             //describe topics
             DescribeTopicsRequest describeTopicsRequest = new DescribeTopicsRequest();
+            describeTopicsRequest.setProjectName(projectName);
             describeTopicsRequest.setProjectId(createProjectResponse.getProjectId());
             DescribeTopicsResponse describeTopicsResponse = client.describeTopics(describeTopicsRequest);
             System.out.println("describe topics success,response:" + describeTopicsResponse);
@@ -97,7 +107,7 @@ public class TopicTest extends BaseTest {
             DeleteTopicResponse deleteTopicResponse = client.deleteTopic(
                     new DeleteTopicRequest(createTopicResponse.getTopicId()));
             System.out.println("delete topic success,response:" + deleteTopicResponse);
-            assertTrue(deleteTopicResponse.getRequestId().length() > 0);
+            assertFalse(deleteTopicResponse.getRequestId().isEmpty());
             exception = assertThrows(LogException.class, () -> {
                 client.deleteTopic(
                         new DeleteTopicRequest(createTopicResponse.getTopicId()));

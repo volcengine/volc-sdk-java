@@ -11,7 +11,7 @@ import java.util.List;
 public final class DescribeLiveSourceTrafficDataBody  {
 
     /**
-     * <p>拉流域名列表，默认为空，表示查询所有域名的回源流量监控数据。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，获取待查询的拉流域名。</p>
+     * <p>拉流域名列表，默认为空，表示查询所有域名的回源流量带宽监控数据。您可以调用 [ListDomainDetail](https://www.volcengine.com/docs/6469/1126815) 接口或在视频直播控制台的[域名管理](https://console.volcengine.com/live/main/domain/list)页面，获取待查询的拉流域名。</p>
      *
      *
      *
@@ -29,7 +29,7 @@ public final class DescribeLiveSourceTrafficDataBody  {
      *
      * <p>:::tip</p>
      *
-     * <p>查询流粒度的回源流量监控数据时，需同时指定 `Domain` 、`App` 和 `Stream` 来指定回源流。</p>
+     * <p>查询流粒度数据时，需同时指定 `Domain` 、`App` 和 `Stream` 来指定回源流。</p>
      *
      * <p>:::</p>
      */
@@ -41,7 +41,7 @@ public final class DescribeLiveSourceTrafficDataBody  {
      *
      * <p>:::tip</p>
      *
-     * <p>查询流粒度的回源流量监控数据时，需同时指定 `Domain` 、`App` 和 `Stream` 来指定回源流。</p>
+     * <p>查询流粒度数据时，需同时指定 `Domain` 、`App` 和 `Stream` 来指定回源流。</p>
      *
      * <p>:::</p>
      */
@@ -53,7 +53,7 @@ public final class DescribeLiveSourceTrafficDataBody  {
      *
      * <p>:::tip</p>
      *
-     * <p>查询流粒度的回源流量监控数据时，需同时指定 `Domain` 、`App` 和 `Stream` 来指定回源流。</p>
+     * <p>查询流粒度数据时，需同时指定 `Domain` 、`App` 和 `Stream` 来指定回源流。</p>
      *
      * <p>:::</p>
      */
@@ -102,6 +102,28 @@ public final class DescribeLiveSourceTrafficDataBody  {
 
     /**
      * <p>查询的开始时间，RFC3339 格式的时间戳，精度为秒。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>历史查询最大时间范围为 366 天，单次查询最大时间跨度与数据拆分维度和数据聚合时间粒度有关，详细如下。</p>
+     *
+     * <p>- 当不进行维度拆分或只使用一个维度拆分数据时：</p>
+     *
+     * <p>	- 数据以 60 秒聚合时，单次查询最大时间跨度为 24 小时；</p>
+     *
+     * <p>	- 数据以 300 秒聚合时，单次查询最大时间跨度为 31 天；</p>
+     *
+     * <p>	- 数据以 3600 秒聚合时，单次查询最大时间跨度为 31 天。</p>
+     *
+     * <p>- 当使用两个或两个以上维度拆分数据时：</p>
+     *
+     * <p>	- 数据以 60 秒聚合时，单次查询最大时间跨度为 3 小时；</p>
+     *
+     * <p>	- 数据以 300 秒聚合时，单次查询最大时间跨度为 24 小时；</p>
+     *
+     * <p>	- 数据以 3600 秒聚合时，单次查询最大时间跨度为 7 天。</p>
+     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
@@ -115,19 +137,17 @@ public final class DescribeLiveSourceTrafficDataBody  {
     /**
      * <p>数据聚合的时间粒度，单位为秒，支持的时间粒度如下所示。</p>
      *
+     * <p>- `60`：1 分钟。</p>
      *
+     * <p>- `300`：（默认值）5 分钟。</p>
      *
-     * <p>- `60`：1 分钟。时间粒度为 1 分钟时，单次查询最大时间跨度为 24 小时，历史查询时间范围为 366 天；</p>
-     *
-     * <p>- `300`：（默认值）5 分钟。时间粒度为 5 分钟时，单次查询最大时间跨度为 31 天，历史查询时间范围为 366 天；</p>
-     *
-     * <p>- `3600`：1 小时。时间粒度为 1 小时时，单次查询最大时间跨度为 93 天，历史查询时间范围为 366 天。</p>
+     * <p>- `3600`：1 小时。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;
 
     /**
-     * <p>数据拆分的维度，默认为空表示按维度进行数据拆分，支持的维度如下所示。</p>
+     * <p>数据拆分的维度，默认为空表示不按维度进行数据拆分，支持的维度如下所示。</p>
      *
      * <p>- `Domain`：域名；</p>
      *

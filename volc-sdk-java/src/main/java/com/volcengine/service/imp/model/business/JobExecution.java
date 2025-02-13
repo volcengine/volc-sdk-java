@@ -756,7 +756,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getJobIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(jobId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, jobId_);
     }
     if (inputPath_ != null) {
@@ -765,31 +765,31 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < output_.size(); i++) {
       output.writeMessage(3, output_.get(i));
     }
-    if (!getStatusBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, status_);
     }
-    if (!getCreatedAtBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(createdAt_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, createdAt_);
     }
-    if (!getFinishedAtBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(finishedAt_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, finishedAt_);
     }
-    if (!getTemplateIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(templateId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, templateId_);
     }
-    if (!getEnableLowPriorityBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(enableLowPriority_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, enableLowPriority_);
     }
-    if (!getJobSourceBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(jobSource_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, jobSource_);
     }
     if (job_ != null) {
       output.writeMessage(10, getJob());
     }
-    if (!getCallbackUriBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackUri_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 11, callbackUri_);
     }
-    if (!getCallbackContentTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackContentType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, callbackContentType_);
     }
     for (int i = 0; i < multiInputs_.size(); i++) {
@@ -804,7 +804,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getJobIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(jobId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, jobId_);
     }
     if (inputPath_ != null) {
@@ -815,32 +815,32 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, output_.get(i));
     }
-    if (!getStatusBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, status_);
     }
-    if (!getCreatedAtBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(createdAt_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, createdAt_);
     }
-    if (!getFinishedAtBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(finishedAt_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, finishedAt_);
     }
-    if (!getTemplateIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(templateId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, templateId_);
     }
-    if (!getEnableLowPriorityBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(enableLowPriority_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, enableLowPriority_);
     }
-    if (!getJobSourceBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(jobSource_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, jobSource_);
     }
     if (job_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, getJob());
     }
-    if (!getCallbackUriBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackUri_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, callbackUri_);
     }
-    if (!getCallbackContentTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackContentType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, callbackContentType_);
     }
     for (int i = 0; i < multiInputs_.size(); i++) {

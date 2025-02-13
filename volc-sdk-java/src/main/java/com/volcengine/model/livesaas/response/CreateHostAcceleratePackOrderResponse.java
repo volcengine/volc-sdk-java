@@ -26,8 +26,8 @@ public class CreateHostAcceleratePackOrderResponse {
        String OrderId;
        @JSONField(name = "Uid")
        String Uid;
-       @JSONField(name = "DouyinId")
-       String DouyinId;
+       @JSONField(name = "DouyinUid")
+       String DouyinUid;
        @JSONField(name = "StartTime")
        String StartTime;
        @JSONField(name = "EndTime")

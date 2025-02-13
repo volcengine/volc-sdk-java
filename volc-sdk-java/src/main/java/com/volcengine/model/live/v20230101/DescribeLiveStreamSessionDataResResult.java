@@ -81,12 +81,6 @@ public final class DescribeLiveStreamSessionDataResResult  {
     private List<String> iSPList;
 
     /**
-     * <p>拉流请求的 Referer 信息。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "RefererList")
-    private List<String> refererList;
-
-    /**
      * <p>CDN 节点 IP 所属的区域列表，缺省情况下表示所有区域。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "RegionList")
@@ -118,8 +112,6 @@ public final class DescribeLiveStreamSessionDataResResult  {
      * <p>- `ISP`：运营商；</p>
      *
      * <p>- `Protocol`：推拉流协议；</p>
-     *
-     * <p>- `Referer`：请求的 Referer 信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DetailField")
     private List<String> detailField;

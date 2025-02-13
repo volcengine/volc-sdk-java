@@ -18,6 +18,7 @@ private static final long serialVersionUID = 0L;
   private OverrideParams() {
     smartErase_ = java.util.Collections.emptyList();
     output_ = java.util.Collections.emptyList();
+    smartEmoticon_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -69,6 +70,15 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(com.volcengine.service.imp.model.business.OutputOverrideParams.parser(), extensionRegistry));
             break;
           }
+          case 26: {
+            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+              smartEmoticon_ = new java.util.ArrayList<com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams>();
+              mutable_bitField0_ |= 0x00000004;
+            }
+            smartEmoticon_.add(
+                input.readMessage(com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams.parser(), extensionRegistry));
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -89,6 +99,9 @@ private static final long serialVersionUID = 0L;
       }
       if (((mutable_bitField0_ & 0x00000002) != 0)) {
         output_ = java.util.Collections.unmodifiableList(output_);
+      }
+      if (((mutable_bitField0_ & 0x00000004) != 0)) {
+        smartEmoticon_ = java.util.Collections.unmodifiableList(smartEmoticon_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -187,6 +200,46 @@ private static final long serialVersionUID = 0L;
     return output_.get(index);
   }
 
+  public static final int SMARTEMOTICON_FIELD_NUMBER = 3;
+  private java.util.List<com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams> smartEmoticon_;
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams> getSmartEmoticonList() {
+    return smartEmoticon_;
+  }
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.volcengine.service.imp.model.business.SmartEmoticonOverrideParamsOrBuilder> 
+      getSmartEmoticonOrBuilderList() {
+    return smartEmoticon_;
+  }
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+   */
+  @java.lang.Override
+  public int getSmartEmoticonCount() {
+    return smartEmoticon_.size();
+  }
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams getSmartEmoticon(int index) {
+    return smartEmoticon_.get(index);
+  }
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.imp.model.business.SmartEmoticonOverrideParamsOrBuilder getSmartEmoticonOrBuilder(
+      int index) {
+    return smartEmoticon_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -207,6 +260,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < output_.size(); i++) {
       output.writeMessage(2, output_.get(i));
     }
+    for (int i = 0; i < smartEmoticon_.size(); i++) {
+      output.writeMessage(3, smartEmoticon_.get(i));
+    }
     unknownFields.writeTo(output);
   }
 
@@ -223,6 +279,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < output_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, output_.get(i));
+    }
+    for (int i = 0; i < smartEmoticon_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, smartEmoticon_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -243,6 +303,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSmartEraseList())) return false;
     if (!getOutputList()
         .equals(other.getOutputList())) return false;
+    if (!getSmartEmoticonList()
+        .equals(other.getSmartEmoticonList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -261,6 +323,10 @@ private static final long serialVersionUID = 0L;
     if (getOutputCount() > 0) {
       hash = (37 * hash) + OUTPUT_FIELD_NUMBER;
       hash = (53 * hash) + getOutputList().hashCode();
+    }
+    if (getSmartEmoticonCount() > 0) {
+      hash = (37 * hash) + SMARTEMOTICON_FIELD_NUMBER;
+      hash = (53 * hash) + getSmartEmoticonList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -392,6 +458,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
         getSmartEraseFieldBuilder();
         getOutputFieldBuilder();
+        getSmartEmoticonFieldBuilder();
       }
     }
     @java.lang.Override
@@ -408,6 +475,12 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
       } else {
         outputBuilder_.clear();
+      }
+      if (smartEmoticonBuilder_ == null) {
+        smartEmoticon_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      } else {
+        smartEmoticonBuilder_.clear();
       }
       return this;
     }
@@ -453,6 +526,15 @@ private static final long serialVersionUID = 0L;
         result.output_ = output_;
       } else {
         result.output_ = outputBuilder_.build();
+      }
+      if (smartEmoticonBuilder_ == null) {
+        if (((bitField0_ & 0x00000004) != 0)) {
+          smartEmoticon_ = java.util.Collections.unmodifiableList(smartEmoticon_);
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.smartEmoticon_ = smartEmoticon_;
+      } else {
+        result.smartEmoticon_ = smartEmoticonBuilder_.build();
       }
       onBuilt();
       return result;
@@ -551,6 +633,32 @@ private static final long serialVersionUID = 0L;
                  getOutputFieldBuilder() : null;
           } else {
             outputBuilder_.addAllMessages(other.output_);
+          }
+        }
+      }
+      if (smartEmoticonBuilder_ == null) {
+        if (!other.smartEmoticon_.isEmpty()) {
+          if (smartEmoticon_.isEmpty()) {
+            smartEmoticon_ = other.smartEmoticon_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureSmartEmoticonIsMutable();
+            smartEmoticon_.addAll(other.smartEmoticon_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.smartEmoticon_.isEmpty()) {
+          if (smartEmoticonBuilder_.isEmpty()) {
+            smartEmoticonBuilder_.dispose();
+            smartEmoticonBuilder_ = null;
+            smartEmoticon_ = other.smartEmoticon_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+            smartEmoticonBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getSmartEmoticonFieldBuilder() : null;
+          } else {
+            smartEmoticonBuilder_.addAllMessages(other.smartEmoticon_);
           }
         }
       }
@@ -1062,6 +1170,246 @@ private static final long serialVersionUID = 0L;
         output_ = null;
       }
       return outputBuilder_;
+    }
+
+    private java.util.List<com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams> smartEmoticon_ =
+      java.util.Collections.emptyList();
+    private void ensureSmartEmoticonIsMutable() {
+      if (!((bitField0_ & 0x00000004) != 0)) {
+        smartEmoticon_ = new java.util.ArrayList<com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams>(smartEmoticon_);
+        bitField0_ |= 0x00000004;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams, com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams.Builder, com.volcengine.service.imp.model.business.SmartEmoticonOverrideParamsOrBuilder> smartEmoticonBuilder_;
+
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+     */
+    public java.util.List<com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams> getSmartEmoticonList() {
+      if (smartEmoticonBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(smartEmoticon_);
+      } else {
+        return smartEmoticonBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+     */
+    public int getSmartEmoticonCount() {
+      if (smartEmoticonBuilder_ == null) {
+        return smartEmoticon_.size();
+      } else {
+        return smartEmoticonBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+     */
+    public com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams getSmartEmoticon(int index) {
+      if (smartEmoticonBuilder_ == null) {
+        return smartEmoticon_.get(index);
+      } else {
+        return smartEmoticonBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+     */
+    public Builder setSmartEmoticon(
+        int index, com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams value) {
+      if (smartEmoticonBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSmartEmoticonIsMutable();
+        smartEmoticon_.set(index, value);
+        onChanged();
+      } else {
+        smartEmoticonBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+     */
+    public Builder setSmartEmoticon(
+        int index, com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams.Builder builderForValue) {
+      if (smartEmoticonBuilder_ == null) {
+        ensureSmartEmoticonIsMutable();
+        smartEmoticon_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        smartEmoticonBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+     */
+    public Builder addSmartEmoticon(com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams value) {
+      if (smartEmoticonBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSmartEmoticonIsMutable();
+        smartEmoticon_.add(value);
+        onChanged();
+      } else {
+        smartEmoticonBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+     */
+    public Builder addSmartEmoticon(
+        int index, com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams value) {
+      if (smartEmoticonBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSmartEmoticonIsMutable();
+        smartEmoticon_.add(index, value);
+        onChanged();
+      } else {
+        smartEmoticonBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+     */
+    public Builder addSmartEmoticon(
+        com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams.Builder builderForValue) {
+      if (smartEmoticonBuilder_ == null) {
+        ensureSmartEmoticonIsMutable();
+        smartEmoticon_.add(builderForValue.build());
+        onChanged();
+      } else {
+        smartEmoticonBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+     */
+    public Builder addSmartEmoticon(
+        int index, com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams.Builder builderForValue) {
+      if (smartEmoticonBuilder_ == null) {
+        ensureSmartEmoticonIsMutable();
+        smartEmoticon_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        smartEmoticonBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+     */
+    public Builder addAllSmartEmoticon(
+        java.lang.Iterable<? extends com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams> values) {
+      if (smartEmoticonBuilder_ == null) {
+        ensureSmartEmoticonIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, smartEmoticon_);
+        onChanged();
+      } else {
+        smartEmoticonBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+     */
+    public Builder clearSmartEmoticon() {
+      if (smartEmoticonBuilder_ == null) {
+        smartEmoticon_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+      } else {
+        smartEmoticonBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+     */
+    public Builder removeSmartEmoticon(int index) {
+      if (smartEmoticonBuilder_ == null) {
+        ensureSmartEmoticonIsMutable();
+        smartEmoticon_.remove(index);
+        onChanged();
+      } else {
+        smartEmoticonBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+     */
+    public com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams.Builder getSmartEmoticonBuilder(
+        int index) {
+      return getSmartEmoticonFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+     */
+    public com.volcengine.service.imp.model.business.SmartEmoticonOverrideParamsOrBuilder getSmartEmoticonOrBuilder(
+        int index) {
+      if (smartEmoticonBuilder_ == null) {
+        return smartEmoticon_.get(index);  } else {
+        return smartEmoticonBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+     */
+    public java.util.List<? extends com.volcengine.service.imp.model.business.SmartEmoticonOverrideParamsOrBuilder> 
+         getSmartEmoticonOrBuilderList() {
+      if (smartEmoticonBuilder_ != null) {
+        return smartEmoticonBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(smartEmoticon_);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+     */
+    public com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams.Builder addSmartEmoticonBuilder() {
+      return getSmartEmoticonFieldBuilder().addBuilder(
+          com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+     */
+    public com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams.Builder addSmartEmoticonBuilder(
+        int index) {
+      return getSmartEmoticonFieldBuilder().addBuilder(
+          index, com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+     */
+    public java.util.List<com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams.Builder> 
+         getSmartEmoticonBuilderList() {
+      return getSmartEmoticonFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams, com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams.Builder, com.volcengine.service.imp.model.business.SmartEmoticonOverrideParamsOrBuilder> 
+        getSmartEmoticonFieldBuilder() {
+      if (smartEmoticonBuilder_ == null) {
+        smartEmoticonBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams, com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams.Builder, com.volcengine.service.imp.model.business.SmartEmoticonOverrideParamsOrBuilder>(
+                smartEmoticon_,
+                ((bitField0_ & 0x00000004) != 0),
+                getParentForChildren(),
+                isClean());
+        smartEmoticon_ = null;
+      }
+      return smartEmoticonBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

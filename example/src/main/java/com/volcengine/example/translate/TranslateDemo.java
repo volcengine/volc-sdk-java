@@ -41,5 +41,7 @@ public class TranslateDemo {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        translateService.destroy();
     }
 }

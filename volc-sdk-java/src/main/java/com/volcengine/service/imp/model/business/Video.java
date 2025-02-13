@@ -261,7 +261,7 @@ private static final long serialVersionUID = 0L;
   public static final int CRF_FIELD_NUMBER = 9;
   private int crf_;
   /**
-   * <code>int32 Crf = 9;</code>
+   * <code>optional int32 Crf = 9;</code>
    * @return Whether the crf field is set.
    */
   @java.lang.Override
@@ -269,7 +269,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>int32 Crf = 9;</code>
+   * <code>optional int32 Crf = 9;</code>
    * @return The crf.
    */
   @java.lang.Override
@@ -367,7 +367,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getCodecBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codec_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, codec_);
     }
     if (scaleType_ != 0) {
@@ -394,10 +394,10 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeInt32(9, crf_);
     }
-    if (!getProfileBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(profile_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, profile_);
     }
-    if (!getPixFmtBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pixFmt_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 11, pixFmt_);
     }
     unknownFields.writeTo(output);
@@ -409,7 +409,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getCodecBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codec_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, codec_);
     }
     if (scaleType_ != 0) {
@@ -444,10 +444,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(9, crf_);
     }
-    if (!getProfileBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(profile_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, profile_);
     }
-    if (!getPixFmtBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pixFmt_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, pixFmt_);
     }
     size += unknownFields.getSerializedSize();
@@ -1132,7 +1132,7 @@ private static final long serialVersionUID = 0L;
 
     private int crf_ ;
     /**
-     * <code>int32 Crf = 9;</code>
+     * <code>optional int32 Crf = 9;</code>
      * @return Whether the crf field is set.
      */
     @java.lang.Override
@@ -1140,7 +1140,7 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>int32 Crf = 9;</code>
+     * <code>optional int32 Crf = 9;</code>
      * @return The crf.
      */
     @java.lang.Override
@@ -1148,7 +1148,7 @@ private static final long serialVersionUID = 0L;
       return crf_;
     }
     /**
-     * <code>int32 Crf = 9;</code>
+     * <code>optional int32 Crf = 9;</code>
      * @param value The crf to set.
      * @return This builder for chaining.
      */
@@ -1159,7 +1159,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 Crf = 9;</code>
+     * <code>optional int32 Crf = 9;</code>
      * @return This builder for chaining.
      */
     public Builder clearCrf() {

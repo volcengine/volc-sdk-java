@@ -36,7 +36,7 @@ public final class ListPullToPushGroupResResultListItem  {
      * <p>- `1`: 已删除，不可用。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Status")
-    private Float status;
+    private Integer status;
 
     @Override
     public String toString() {

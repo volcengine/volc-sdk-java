@@ -77,6 +77,12 @@ public final class UpdateRecordPresetV2BodyRecordPresetConfigMp4ParamVODParam  {
     @com.alibaba.fastjson.annotation.JSONField(name = "ExactObject")
     private String exactObject;
 
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ExactObjectName")
+    private String exactObjectName;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

@@ -2,7 +2,6 @@ package com.volcengine.model.live.v20230101;
 
 
 import com.alibaba.fastjson.JSON;
-import java.util.Map;
 
 /**
  * CreateTimeShiftPresetV3Res
@@ -20,7 +19,7 @@ public final class CreateTimeShiftPresetV3Res  {
      * <p>视请求的接口而定</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Result")
-    private Map<String, Object> result;
+    private CreateTimeShiftPresetV3ResResult result;
 
     @Override
     public String toString() {

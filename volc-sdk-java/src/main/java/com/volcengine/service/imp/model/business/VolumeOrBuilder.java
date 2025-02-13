@@ -20,34 +20,34 @@ public interface VolumeOrBuilder extends
       getMethodBytes();
 
   /**
-   * <code>double IntegratedLoudness = 2;</code>
+   * <code>optional double IntegratedLoudness = 2;</code>
    * @return Whether the integratedLoudness field is set.
    */
   boolean hasIntegratedLoudness();
   /**
-   * <code>double IntegratedLoudness = 2;</code>
+   * <code>optional double IntegratedLoudness = 2;</code>
    * @return The integratedLoudness.
    */
   double getIntegratedLoudness();
 
   /**
-   * <code>double TruePeak = 3;</code>
+   * <code>optional double TruePeak = 3;</code>
    * @return Whether the truePeak field is set.
    */
   boolean hasTruePeak();
   /**
-   * <code>double TruePeak = 3;</code>
+   * <code>optional double TruePeak = 3;</code>
    * @return The truePeak.
    */
   double getTruePeak();
 
   /**
-   * <code>double VolumeTime = 4;</code>
+   * <code>optional double VolumeTime = 4;</code>
    * @return Whether the volumeTime field is set.
    */
   boolean hasVolumeTime();
   /**
-   * <code>double VolumeTime = 4;</code>
+   * <code>optional double VolumeTime = 4;</code>
    * @return The volumeTime.
    */
   double getVolumeTime();

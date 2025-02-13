@@ -62,12 +62,12 @@ public interface VideoOrBuilder extends
   int getMaxFps();
 
   /**
-   * <code>int32 Crf = 9;</code>
+   * <code>optional int32 Crf = 9;</code>
    * @return Whether the crf field is set.
    */
   boolean hasCrf();
   /**
-   * <code>int32 Crf = 9;</code>
+   * <code>optional int32 Crf = 9;</code>
    * @return The crf.
    */
   int getCrf();

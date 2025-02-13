@@ -21,6 +21,12 @@ public final class DescribeLiveSourceTrafficDataResResultTrafficDetailDataListIt
     @com.alibaba.fastjson.annotation.JSONField(name = "Traffic")
     private Float traffic;
 
+    /**
+     * <p>带宽。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Bandwidth")
+    private Float bandwidth;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

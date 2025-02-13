@@ -36,6 +36,14 @@ public class CreateTopicRequest {
     List<TagInfo> tags;
     @JSONField(name = LOG_PUBLIC_IP)
     Boolean logPublicIP;
+    @JSONField(name = ENABLE_HOT_TTL)
+    boolean enableHotTtl;
+    @JSONField(name = HOT_TTL)
+    Integer hotTtl;
+    @JSONField(name = COLD_TTL)
+    Integer coldTtl;
+    @JSONField(name = ARCHIVE_TTL)
+    Integer archiveTtl;
 
     /**
      * @return 日志主题名称

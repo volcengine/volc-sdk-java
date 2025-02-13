@@ -512,6 +512,12 @@ public class TLSLogClientImpl implements TLSLogClient {
         if (StringUtils.isNotEmpty(request.getProjectName())) {
             params.add(new BasicNameValuePair(PROJECT_NAME, request.getProjectName()));
         }
+        if (StringUtils.isNotEmpty(request.getIamProjectName())) {
+            params.add(new BasicNameValuePair(IAM_PROJECT_NAME, request.getIamProjectName()));
+        }
+        if (request.getTags() != null && !request.getTags().isEmpty()) {
+            params.add(new BasicNameValuePair(TAGS, JSON.toJSONString(request.getTags())));
+        }
         if (request.getPageNumber() != null) {
             params.add(new BasicNameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
         }
@@ -603,6 +609,9 @@ public class TLSLogClientImpl implements TLSLogClient {
         // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair(PROJECT_ID, request.getProjectId()));
+        if (request.getProjectName() != null) {
+            params.add(new BasicNameValuePair(PROJECT_NAME, request.getProjectName()));
+        }
         if (request.getIsFullName() != null)
             params.add(new BasicNameValuePair(IS_FULL_NAME, String.valueOf(request.getIsFullName())));
         if (request.getPageNumber() != null) {

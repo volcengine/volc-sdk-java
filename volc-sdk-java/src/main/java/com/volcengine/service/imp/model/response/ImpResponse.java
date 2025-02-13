@@ -44,26 +44,26 @@ public final class ImpResponse {
   static {
     java.lang.String[] descriptorData = {
       "\n\037imp/response/response_imp.proto\022\036Volce" +
-      "ngine.Imp.Models.Response\032\017base/base.pro" +
-      "to\032\035imp/business/imp_common.proto\"o\n\024Imp" +
-      "SubmitJobResponse\022G\n\020ResponseMetadata\030\001 " +
-      "\001(\0132-.Volcengine.Base.Models.Base.Respon" +
-      "seMetadata\022\016\n\006Result\030\002 \001(\t\"]\n\022ImpKillJob" +
-      "Response\022G\n\020ResponseMetadata\030\001 \001(\0132-.Vol" +
-      "cengine.Base.Models.Base.ResponseMetadat" +
-      "a\"\222\002\n\026ImpRetrieveJobResponse\022G\n\020Response" +
+      "ngine.Imp.Models.Response\032\032volcengine/ba" +
+      "se/base.proto\032\035imp/business/imp_common.p" +
+      "roto\"o\n\024ImpSubmitJobResponse\022G\n\020Response" +
       "Metadata\030\001 \001(\0132-.Volcengine.Base.Models." +
-      "Base.ResponseMetadata\022R\n\006Result\030\002 \003(\0132B." +
-      "Volcengine.Imp.Models.Response.ImpRetrie" +
-      "veJobResponse.ResultEntry\032[\n\013ResultEntry" +
-      "\022\013\n\003key\030\001 \001(\t\022;\n\005value\030\002 \001(\0132,.Volcengin" +
-      "e.Imp.Models.Business.JobExecution:\0028\001B\314" +
-      "\001\n)com.volcengine.service.imp.model.resp" +
-      "onseB\013ImpResponseP\001ZAgithub.com/volcengi" +
-      "ne/volc-sdk-golang/service/imp/models/re" +
-      "sponse\240\001\001\330\001\001\312\002 Volc\\Service\\Imp\\Models\\R" +
-      "esponse\342\002#Volc\\Service\\Imp\\Models\\GPBMet" +
-      "adatab\006proto3"
+      "Base.ResponseMetadata\022\016\n\006Result\030\002 \001(\t\"]\n" +
+      "\022ImpKillJobResponse\022G\n\020ResponseMetadata\030" +
+      "\001 \001(\0132-.Volcengine.Base.Models.Base.Resp" +
+      "onseMetadata\"\222\002\n\026ImpRetrieveJobResponse\022" +
+      "G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine.B" +
+      "ase.Models.Base.ResponseMetadata\022R\n\006Resu" +
+      "lt\030\002 \003(\0132B.Volcengine.Imp.Models.Respons" +
+      "e.ImpRetrieveJobResponse.ResultEntry\032[\n\013" +
+      "ResultEntry\022\013\n\003key\030\001 \001(\t\022;\n\005value\030\002 \001(\0132" +
+      ",.Volcengine.Imp.Models.Business.JobExec" +
+      "ution:\0028\001B\314\001\n)com.volcengine.service.imp" +
+      ".model.responseB\013ImpResponseP\001ZAgithub.c" +
+      "om/volcengine/volc-sdk-golang/service/im" +
+      "p/models/response\240\001\001\330\001\001\312\002 Volc\\Service\\I" +
+      "mp\\Models\\Response\342\002#Volc\\Service\\Imp\\Mo" +
+      "dels\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

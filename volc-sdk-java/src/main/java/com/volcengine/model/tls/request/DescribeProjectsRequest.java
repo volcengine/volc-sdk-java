@@ -1,7 +1,10 @@
 package com.volcengine.model.tls.request;
 
+import com.volcengine.model.tls.TagInfo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -21,6 +24,10 @@ public class DescribeProjectsRequest {
      * false means fuzzy match
      */
     Boolean isFullName;
+
+    String IamProjectName;
+
+    List<TagInfo> Tags;
 
     /**
      * @return 分页查询时的页码。默认为 1

@@ -145,7 +145,7 @@ private static final long serialVersionUID = 0L;
   public static final int INTEGRATEDLOUDNESS_FIELD_NUMBER = 2;
   private double integratedLoudness_;
   /**
-   * <code>double IntegratedLoudness = 2;</code>
+   * <code>optional double IntegratedLoudness = 2;</code>
    * @return Whether the integratedLoudness field is set.
    */
   @java.lang.Override
@@ -153,7 +153,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>double IntegratedLoudness = 2;</code>
+   * <code>optional double IntegratedLoudness = 2;</code>
    * @return The integratedLoudness.
    */
   @java.lang.Override
@@ -164,7 +164,7 @@ private static final long serialVersionUID = 0L;
   public static final int TRUEPEAK_FIELD_NUMBER = 3;
   private double truePeak_;
   /**
-   * <code>double TruePeak = 3;</code>
+   * <code>optional double TruePeak = 3;</code>
    * @return Whether the truePeak field is set.
    */
   @java.lang.Override
@@ -172,7 +172,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000002) != 0);
   }
   /**
-   * <code>double TruePeak = 3;</code>
+   * <code>optional double TruePeak = 3;</code>
    * @return The truePeak.
    */
   @java.lang.Override
@@ -183,7 +183,7 @@ private static final long serialVersionUID = 0L;
   public static final int VOLUMETIME_FIELD_NUMBER = 4;
   private double volumeTime_;
   /**
-   * <code>double VolumeTime = 4;</code>
+   * <code>optional double VolumeTime = 4;</code>
    * @return Whether the volumeTime field is set.
    */
   @java.lang.Override
@@ -191,7 +191,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000004) != 0);
   }
   /**
-   * <code>double VolumeTime = 4;</code>
+   * <code>optional double VolumeTime = 4;</code>
    * @return The volumeTime.
    */
   @java.lang.Override
@@ -213,7 +213,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getMethodBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(method_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, method_);
     }
     if (((bitField0_ & 0x00000001) != 0)) {
@@ -234,7 +234,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getMethodBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(method_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, method_);
     }
     if (((bitField0_ & 0x00000001) != 0)) {
@@ -664,7 +664,7 @@ private static final long serialVersionUID = 0L;
 
     private double integratedLoudness_ ;
     /**
-     * <code>double IntegratedLoudness = 2;</code>
+     * <code>optional double IntegratedLoudness = 2;</code>
      * @return Whether the integratedLoudness field is set.
      */
     @java.lang.Override
@@ -672,7 +672,7 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>double IntegratedLoudness = 2;</code>
+     * <code>optional double IntegratedLoudness = 2;</code>
      * @return The integratedLoudness.
      */
     @java.lang.Override
@@ -680,7 +680,7 @@ private static final long serialVersionUID = 0L;
       return integratedLoudness_;
     }
     /**
-     * <code>double IntegratedLoudness = 2;</code>
+     * <code>optional double IntegratedLoudness = 2;</code>
      * @param value The integratedLoudness to set.
      * @return This builder for chaining.
      */
@@ -691,7 +691,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double IntegratedLoudness = 2;</code>
+     * <code>optional double IntegratedLoudness = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearIntegratedLoudness() {
@@ -703,7 +703,7 @@ private static final long serialVersionUID = 0L;
 
     private double truePeak_ ;
     /**
-     * <code>double TruePeak = 3;</code>
+     * <code>optional double TruePeak = 3;</code>
      * @return Whether the truePeak field is set.
      */
     @java.lang.Override
@@ -711,7 +711,7 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>double TruePeak = 3;</code>
+     * <code>optional double TruePeak = 3;</code>
      * @return The truePeak.
      */
     @java.lang.Override
@@ -719,7 +719,7 @@ private static final long serialVersionUID = 0L;
       return truePeak_;
     }
     /**
-     * <code>double TruePeak = 3;</code>
+     * <code>optional double TruePeak = 3;</code>
      * @param value The truePeak to set.
      * @return This builder for chaining.
      */
@@ -730,7 +730,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double TruePeak = 3;</code>
+     * <code>optional double TruePeak = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearTruePeak() {
@@ -742,7 +742,7 @@ private static final long serialVersionUID = 0L;
 
     private double volumeTime_ ;
     /**
-     * <code>double VolumeTime = 4;</code>
+     * <code>optional double VolumeTime = 4;</code>
      * @return Whether the volumeTime field is set.
      */
     @java.lang.Override
@@ -750,7 +750,7 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>double VolumeTime = 4;</code>
+     * <code>optional double VolumeTime = 4;</code>
      * @return The volumeTime.
      */
     @java.lang.Override
@@ -758,7 +758,7 @@ private static final long serialVersionUID = 0L;
       return volumeTime_;
     }
     /**
-     * <code>double VolumeTime = 4;</code>
+     * <code>optional double VolumeTime = 4;</code>
      * @param value The volumeTime to set.
      * @return This builder for chaining.
      */
@@ -769,7 +769,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double VolumeTime = 4;</code>
+     * <code>optional double VolumeTime = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearVolumeTime() {

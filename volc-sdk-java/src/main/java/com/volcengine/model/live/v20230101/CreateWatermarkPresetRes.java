@@ -2,7 +2,6 @@ package com.volcengine.model.live.v20230101;
 
 
 import com.alibaba.fastjson.JSON;
-import java.util.Map;
 
 /**
  * CreateWatermarkPresetRes
@@ -20,7 +19,7 @@ public final class CreateWatermarkPresetRes  {
      * <p>TODO</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Result")
-    private Map<String, Object> result;
+    private CreateWatermarkPresetResResult result;
 
     @Override
     public String toString() {

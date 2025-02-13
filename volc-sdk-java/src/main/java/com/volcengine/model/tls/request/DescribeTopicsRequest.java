@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DescribeTopicsRequest {
     String projectId;
+    String projectName;
     Integer pageNumber;
     Integer pageSize;
     Boolean IsFullName;

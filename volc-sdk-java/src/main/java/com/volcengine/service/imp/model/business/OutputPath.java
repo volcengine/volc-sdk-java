@@ -274,16 +274,16 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, type_);
     }
-    if (!getTosBucketBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tosBucket_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, tosBucket_);
     }
-    if (!getVodSpaceNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vodSpaceName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, vodSpaceName_);
     }
-    if (!getFileNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, fileName_);
     }
     unknownFields.writeTo(output);
@@ -295,16 +295,16 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, type_);
     }
-    if (!getTosBucketBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tosBucket_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, tosBucket_);
     }
-    if (!getVodSpaceNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vodSpaceName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, vodSpaceName_);
     }
-    if (!getFileNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, fileName_);
     }
     size += unknownFields.getSerializedSize();

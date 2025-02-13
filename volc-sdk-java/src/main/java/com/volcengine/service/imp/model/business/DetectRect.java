@@ -158,16 +158,16 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (x1_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(x1_) != 0) {
       output.writeDouble(1, x1_);
     }
-    if (y1_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(y1_) != 0) {
       output.writeDouble(2, y1_);
     }
-    if (x2_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(x2_) != 0) {
       output.writeDouble(3, x2_);
     }
-    if (y2_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(y2_) != 0) {
       output.writeDouble(4, y2_);
     }
     unknownFields.writeTo(output);
@@ -179,19 +179,19 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (x1_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(x1_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(1, x1_);
     }
-    if (y1_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(y1_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(2, y1_);
     }
-    if (x2_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(x2_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(3, x2_);
     }
-    if (y2_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(y2_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(4, y2_);
     }

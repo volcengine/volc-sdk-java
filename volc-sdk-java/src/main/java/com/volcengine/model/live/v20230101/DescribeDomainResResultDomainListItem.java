@@ -124,10 +124,14 @@ public final class DescribeDomainResResultDomainListItem  {
     private String cNAME;
 
     /**
-     * <p>TODO</p>
+     * <p>是否开启 HTTP/2 协议。取值如下：</p>
+     *
+     * <p>- `false`: 关闭 HTTP/2 协议。</p>
+     *
+     * <p>- `true`: 开启 HTTP/2 协议。</p>
      */
-    @com.alibaba.fastjson.annotation.JSONField(name = "EnableCloudMonitor")
-    private Boolean enableCloudMonitor;
+    @com.alibaba.fastjson.annotation.JSONField(name = "HTTP2")
+    private Boolean hTTP2;
 
     @Override
     public String toString() {

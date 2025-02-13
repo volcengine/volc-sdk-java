@@ -106,6 +106,7 @@ public class Const {
     public static final String INNER_NET_DOMIN = "InnerNetDomain";
     public static final String EMPTY_JSON = "{}";
     public static final String TOTAL_KEY = "Total";
+    public static final String PROJECT_TAGS = "Tags";
 
     //topicInfo
     public static final String TOPIC_NAME = "TopicName";
@@ -117,6 +118,10 @@ public class Const {
     public static final String ENABLE_TRACKING = "EnableTracking";
     public static final String TAGS = "Tags";
     public static final String LOG_PUBLIC_IP = "LogPublicIP";
+    public static final String ENABLE_HOT_TTL = "EnableHotTtl";
+    public static final String HOT_TTL = "HotTtl";
+    public static final String COLD_TTL = "ColdTtl";
+    public static final String ARCHIVE_TTL = "ArchiveTtl";
 
     //shard
     public static final String SHARDS = "Shards";

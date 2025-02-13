@@ -190,7 +190,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean containsResult(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     return internalGetResult().getMap().containsKey(key);
   }
   /**
@@ -217,7 +217,7 @@ private static final long serialVersionUID = 0L;
   public com.volcengine.service.imp.model.business.JobExecution getResultOrDefault(
       java.lang.String key,
       com.volcengine.service.imp.model.business.JobExecution defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.volcengine.service.imp.model.business.JobExecution> map =
         internalGetResult().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -229,7 +229,7 @@ private static final long serialVersionUID = 0L;
 
   public com.volcengine.service.imp.model.business.JobExecution getResultOrThrow(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.volcengine.service.imp.model.business.JobExecution> map =
         internalGetResult().getMap();
     if (!map.containsKey(key)) {
@@ -792,7 +792,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean containsResult(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetResult().getMap().containsKey(key);
     }
     /**
@@ -819,7 +819,7 @@ private static final long serialVersionUID = 0L;
     public com.volcengine.service.imp.model.business.JobExecution getResultOrDefault(
         java.lang.String key,
         com.volcengine.service.imp.model.business.JobExecution defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.volcengine.service.imp.model.business.JobExecution> map =
           internalGetResult().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -831,7 +831,7 @@ private static final long serialVersionUID = 0L;
 
     public com.volcengine.service.imp.model.business.JobExecution getResultOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.volcengine.service.imp.model.business.JobExecution> map =
           internalGetResult().getMap();
       if (!map.containsKey(key)) {
@@ -851,7 +851,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder removeResult(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableResult().getMutableMap()
           .remove(key);
       return this;
@@ -870,8 +870,11 @@ private static final long serialVersionUID = 0L;
     public Builder putResult(
         java.lang.String key,
         com.volcengine.service.imp.model.business.JobExecution value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
       internalGetMutableResult().getMutableMap()
           .put(key, value);
       return this;

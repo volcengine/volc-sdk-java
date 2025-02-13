@@ -54,4 +54,28 @@ public interface OverrideParamsOrBuilder extends
    */
   com.volcengine.service.imp.model.business.OutputOverrideParamsOrBuilder getOutputOrBuilder(
       int index);
+
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+   */
+  java.util.List<com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams> 
+      getSmartEmoticonList();
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+   */
+  com.volcengine.service.imp.model.business.SmartEmoticonOverrideParams getSmartEmoticon(int index);
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+   */
+  int getSmartEmoticonCount();
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+   */
+  java.util.List<? extends com.volcengine.service.imp.model.business.SmartEmoticonOverrideParamsOrBuilder> 
+      getSmartEmoticonOrBuilderList();
+  /**
+   * <code>repeated .Volcengine.Imp.Models.Business.SmartEmoticonOverrideParams SmartEmoticon = 3;</code>
+   */
+  com.volcengine.service.imp.model.business.SmartEmoticonOverrideParamsOrBuilder getSmartEmoticonOrBuilder(
+      int index);
 }

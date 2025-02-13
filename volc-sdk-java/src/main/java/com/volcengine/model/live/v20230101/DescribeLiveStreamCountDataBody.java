@@ -18,6 +18,28 @@ public final class DescribeLiveStreamCountDataBody  {
 
     /**
      * <p>查询的开始时间，RFC3339 格式的时间戳，精度为秒。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>历史查询最大时间范围为 366 天，单次查询最大时间跨度与数据拆分维度和数据聚合时间粒度有关，详细如下。</p>
+     *
+     * <p>- 当不进行维度拆分或只使用一个维度拆分数据时：</p>
+     *
+     * <p>	- 数据以 60 秒聚合时，单次查询最大时间跨度为 24 小时；</p>
+     *
+     * <p>	- 数据以 300 秒聚合时，单次查询最大时间跨度为 31 天；</p>
+     *
+     * <p>	- 数据以 3600 秒聚合时，单次查询最大时间跨度为 31 天。</p>
+     *
+     * <p>- 当使用两个或两个以上维度拆分数据时：</p>
+     *
+     * <p>	- 数据以 60 秒聚合时，单次查询最大时间跨度为 3 小时；</p>
+     *
+     * <p>	- 数据以 300 秒聚合时，单次查询最大时间跨度为 24 小时；</p>
+     *
+     * <p>	- 数据以 3600 秒聚合时，单次查询最大时间跨度为 7 天。</p>
+     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StartTime")
     private String startTime;
@@ -31,27 +53,21 @@ public final class DescribeLiveStreamCountDataBody  {
     /**
      * <p>聚合的时间粒度，单位为秒，支持的时间粒度如下所示。</p>
      *
-     * <p>- `60`：1 分钟。时间粒度为 1 分钟时，单次查询最大时间跨度为 24 小时，历史查询时间范围为 366 天；</p>
+     * <p>- `60`：1 分钟；</p>
      *
-     * <p>- `300`：（默认值）5 分钟。时间粒度为 5 分钟时，单次查询最大时间跨度为 31 天，历史查询时间范围为 366 天；</p>
+     * <p>- `300`：（默认值）5 分钟；</p>
      *
-     * <p>- `3600`：1 小时。时间粒度为 1 小时时，单次查询最大时间跨度为 93 天，历史查询时间范围为 366 天；</p>
-     *
-     * <p>- `86400`：1 天。时间粒度为 1 天时，单次查询最大时间跨度为 93 天，历史查询时间范围为 366 天。</p>
+     * <p>- `3600`：1 小时。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Aggregation")
     private Integer aggregation;
 
     /**
-     * <p>数据拆分的维度，默认为空表示不按维度进行数据拆分，当前支持填写 `Domain` 表示按查询的域名为维度进行数据拆分。</p>
+     * <p>数据拆分的维度，默认为空表示不按维度进行数据拆分，支持的维度如下所示。</p>
      *
+     * <p>- `Domain`：域名；</p>
      *
-     *
-     * <p>:::tip</p>
-     *
-     * <p>配置数据拆分的维度时，对应的维度参数传入多个值时才会返回按此维度拆分的数据。例如，配置按 Domain 进行数据拆分时， DomainList 传入多个 Domain 值时，才会返回按 Domain 拆分的数据。</p>
-     *
-     * <p>:::</p>
+     * <p>- `ISP`：运营商。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DetailField")
     private List<String> detailField;
@@ -67,6 +83,58 @@ public final class DescribeLiveStreamCountDataBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StreamType")
     private List<String> streamType;
+
+    /**
+     * <p>提供网络接入服务的运营商标识符，缺省情况下表示所有运营商，支持的运营商如下所示。</p>
+     *
+     *
+     *
+     * <p>- `unicom`：联通；</p>
+     *
+     * <p>- `railcom`：铁通；</p>
+     *
+     * <p>- `telecom`：电信；</p>
+     *
+     * <p>- `mobile`：移动；</p>
+     *
+     * <p>- `cernet`：教育网；</p>
+     *
+     * <p>- `tianwei`：天威；</p>
+     *
+     * <p>- `alibaba`：阿里巴巴；</p>
+     *
+     * <p>- `tencent`：腾讯；</p>
+     *
+     * <p>- `drpeng`：鹏博士；</p>
+     *
+     * <p>- `btvn`：广电；</p>
+     *
+     * <p>- `huashu`：华数。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>- 当流类型 `StreamType` 为推流 `push` 时支持使用运营商对查询数据进行筛选。</p>
+     *
+     * <p>- 您也可以通过 [DescribeLiveISPData](https://www.volcengine.com/docs/6469/1133974) 接口获取运营商对应的标识符。</p>
+     *
+     * <p>:::</p>
+     *
+     *
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ISPList")
+    private List<String> iSPList;
+
+    /**
+     * <p>客户端 IP 所属区域的列表，缺省情况下表示所有区域。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>当流类型 `StreamType` 为推流 `push` 时支持使用客户端 IP 所属的区域对查询数据进行筛选。</p>
+     *
+     * <p>:::</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "UserRegionList")
+    private List<DescribeLiveStreamCountDataBodyUserRegionListItem> userRegionList;
 
     @Override
     public String toString() {

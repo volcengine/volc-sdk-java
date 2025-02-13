@@ -34,6 +34,12 @@ public final class DescribeLiveSourceTrafficDataResResultTrafficDetailDataListIt
     @com.alibaba.fastjson.annotation.JSONField(name = "TrafficDataList")
     private List<DescribeLiveSourceTrafficDataResResultTrafficDetailDataListItemTrafficDataListItem> trafficDataList;
 
+    /**
+     * <p>按维度进行数据拆分后，当前维度的回源峰值带宽，单位为 Mbps。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "PeakBandwidth")
+    private Float peakBandwidth;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

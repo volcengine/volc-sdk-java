@@ -1,8 +1,11 @@
 package com.volcengine.model.tls.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.tls.TagInfo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 import static com.volcengine.model.tls.Const.*;
 
@@ -15,6 +18,10 @@ public class CreateProjectRequest {
     private String region;
     @JSONField(name = DESCRIPTION)
     private String description;
+    @JSONField(name = IAM_PROJECT_NAME)
+    private String iamProjectName;
+    @JSONField(name = PROJECT_TAGS)
+    private List<TagInfo> tags;
 
     /**
      * @param projectName 日志项目的名称
@@ -73,9 +80,6 @@ public class CreateProjectRequest {
      * @return 检验必填参数，true合法false不合法
      */
     public boolean CheckValidation() {
-        if (this.projectName == null || this.region == null) {
-            return false;
-        }
-        return true;
+        return this.projectName != null && this.region != null;
     }
 }

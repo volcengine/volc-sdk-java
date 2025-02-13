@@ -451,7 +451,7 @@ private static final long serialVersionUID = 0L;
   public static final int CALLBACKURI_FIELD_NUMBER = 8;
   private volatile java.lang.Object callbackUri_;
   /**
-   * <code>string CallbackUri = 8;</code>
+   * <code>optional string CallbackUri = 8;</code>
    * @return Whether the callbackUri field is set.
    */
   @java.lang.Override
@@ -459,7 +459,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>string CallbackUri = 8;</code>
+   * <code>optional string CallbackUri = 8;</code>
    * @return The callbackUri.
    */
   @java.lang.Override
@@ -476,7 +476,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string CallbackUri = 8;</code>
+   * <code>optional string CallbackUri = 8;</code>
    * @return The bytes for callbackUri.
    */
   @java.lang.Override
@@ -497,7 +497,7 @@ private static final long serialVersionUID = 0L;
   public static final int CALLBACKCONTENTTYPE_FIELD_NUMBER = 9;
   private volatile java.lang.Object callbackContentType_;
   /**
-   * <code>string CallbackContentType = 9;</code>
+   * <code>optional string CallbackContentType = 9;</code>
    * @return Whether the callbackContentType field is set.
    */
   @java.lang.Override
@@ -505,7 +505,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000002) != 0);
   }
   /**
-   * <code>string CallbackContentType = 9;</code>
+   * <code>optional string CallbackContentType = 9;</code>
    * @return The callbackContentType.
    */
   @java.lang.Override
@@ -522,7 +522,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string CallbackContentType = 9;</code>
+   * <code>optional string CallbackContentType = 9;</code>
    * @return The bytes for callbackContentType.
    */
   @java.lang.Override
@@ -617,13 +617,13 @@ private static final long serialVersionUID = 0L;
     if (inputPath_ != null) {
       output.writeMessage(1, getInputPath());
     }
-    if (!getTemplateIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(templateId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, templateId_);
     }
-    if (!getCallbackArgsBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackArgs_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, callbackArgs_);
     }
-    if (!getEnableLowPriorityBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(enableLowPriority_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, enableLowPriority_);
     }
     if (params_ != null) {
@@ -657,13 +657,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getInputPath());
     }
-    if (!getTemplateIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(templateId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, templateId_);
     }
-    if (!getCallbackArgsBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackArgs_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, callbackArgs_);
     }
-    if (!getEnableLowPriorityBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(enableLowPriority_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, enableLowPriority_);
     }
     if (params_ != null) {
@@ -2005,14 +2005,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object callbackUri_ = "";
     /**
-     * <code>string CallbackUri = 8;</code>
+     * <code>optional string CallbackUri = 8;</code>
      * @return Whether the callbackUri field is set.
      */
     public boolean hasCallbackUri() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>string CallbackUri = 8;</code>
+     * <code>optional string CallbackUri = 8;</code>
      * @return The callbackUri.
      */
     public java.lang.String getCallbackUri() {
@@ -2028,7 +2028,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string CallbackUri = 8;</code>
+     * <code>optional string CallbackUri = 8;</code>
      * @return The bytes for callbackUri.
      */
     public com.google.protobuf.ByteString
@@ -2045,7 +2045,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string CallbackUri = 8;</code>
+     * <code>optional string CallbackUri = 8;</code>
      * @param value The callbackUri to set.
      * @return This builder for chaining.
      */
@@ -2060,7 +2060,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string CallbackUri = 8;</code>
+     * <code>optional string CallbackUri = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearCallbackUri() {
@@ -2070,7 +2070,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string CallbackUri = 8;</code>
+     * <code>optional string CallbackUri = 8;</code>
      * @param value The bytes for callbackUri to set.
      * @return This builder for chaining.
      */
@@ -2088,14 +2088,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object callbackContentType_ = "";
     /**
-     * <code>string CallbackContentType = 9;</code>
+     * <code>optional string CallbackContentType = 9;</code>
      * @return Whether the callbackContentType field is set.
      */
     public boolean hasCallbackContentType() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>string CallbackContentType = 9;</code>
+     * <code>optional string CallbackContentType = 9;</code>
      * @return The callbackContentType.
      */
     public java.lang.String getCallbackContentType() {
@@ -2111,7 +2111,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string CallbackContentType = 9;</code>
+     * <code>optional string CallbackContentType = 9;</code>
      * @return The bytes for callbackContentType.
      */
     public com.google.protobuf.ByteString
@@ -2128,7 +2128,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string CallbackContentType = 9;</code>
+     * <code>optional string CallbackContentType = 9;</code>
      * @param value The callbackContentType to set.
      * @return This builder for chaining.
      */
@@ -2143,7 +2143,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string CallbackContentType = 9;</code>
+     * <code>optional string CallbackContentType = 9;</code>
      * @return This builder for chaining.
      */
     public Builder clearCallbackContentType() {
@@ -2153,7 +2153,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string CallbackContentType = 9;</code>
+     * <code>optional string CallbackContentType = 9;</code>
      * @param value The bytes for callbackContentType to set.
      * @return This builder for chaining.
      */

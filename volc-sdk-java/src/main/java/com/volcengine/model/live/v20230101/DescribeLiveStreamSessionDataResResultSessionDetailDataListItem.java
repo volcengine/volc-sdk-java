@@ -29,12 +29,6 @@ public final class DescribeLiveStreamSessionDataResResultSessionDetailDataListIt
     private String iSP;
 
     /**
-     * <p>按请求的 Referer 信息进行数据拆分时的 Referer 信息。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "Referer")
-    private String referer;
-
-    /**
      * <p>按维度进行数据拆分后，当前维度的请求数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TotalRequest")

@@ -152,34 +152,34 @@ public interface ImpSubmitJobRequestOrBuilder extends
   com.volcengine.service.imp.model.business.JobOrBuilder getJobOrBuilder();
 
   /**
-   * <code>string CallbackUri = 8;</code>
+   * <code>optional string CallbackUri = 8;</code>
    * @return Whether the callbackUri field is set.
    */
   boolean hasCallbackUri();
   /**
-   * <code>string CallbackUri = 8;</code>
+   * <code>optional string CallbackUri = 8;</code>
    * @return The callbackUri.
    */
   java.lang.String getCallbackUri();
   /**
-   * <code>string CallbackUri = 8;</code>
+   * <code>optional string CallbackUri = 8;</code>
    * @return The bytes for callbackUri.
    */
   com.google.protobuf.ByteString
       getCallbackUriBytes();
 
   /**
-   * <code>string CallbackContentType = 9;</code>
+   * <code>optional string CallbackContentType = 9;</code>
    * @return Whether the callbackContentType field is set.
    */
   boolean hasCallbackContentType();
   /**
-   * <code>string CallbackContentType = 9;</code>
+   * <code>optional string CallbackContentType = 9;</code>
    * @return The callbackContentType.
    */
   java.lang.String getCallbackContentType();
   /**
-   * <code>string CallbackContentType = 9;</code>
+   * <code>optional string CallbackContentType = 9;</code>
    * @return The bytes for callbackContentType.
    */
   com.google.protobuf.ByteString

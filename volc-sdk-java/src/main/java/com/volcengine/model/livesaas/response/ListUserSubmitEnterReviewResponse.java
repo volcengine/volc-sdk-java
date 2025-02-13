@@ -58,5 +58,7 @@ public class ListUserSubmitEnterReviewResponse {
         String Extra;
         @JSONField(name = "Email")
         String Email;
+        @JSONField(name = "UserForm")
+        String UserForm;
     }
 }

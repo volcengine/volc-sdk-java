@@ -376,7 +376,7 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodDeleteMaterialResponse deleteMaterial(com.volcengine.service.vod.model.request.VodDeleteMaterialRequest input) throws Exception;
-
+	
 	/**
      * getSubtitleInfoList.
      *
@@ -997,7 +997,7 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.GetCallbackRecordResponse getCallbackRecord(com.volcengine.service.vod.model.request.GetCallbackRecordRequest input) throws Exception;
-
+	
 	/**
      * getSmartStrategyLitePlayInfo.
      *

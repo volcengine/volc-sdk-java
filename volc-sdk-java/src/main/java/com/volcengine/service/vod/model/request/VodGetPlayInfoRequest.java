@@ -35,6 +35,8 @@ private static final long serialVersionUID = 0L;
     playConfig_ = "";
     needOriginal_ = "";
     forceExpire_ = "";
+    digitalWatermarkType_ = "";
+    userToken_ = "";
   }
 
   @java.lang.Override
@@ -184,6 +186,18 @@ private static final long serialVersionUID = 0L;
           case 160: {
 
             getAll_ = input.readBool();
+            break;
+          }
+          case 170: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            digitalWatermarkType_ = s;
+            break;
+          }
+          case 178: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            userToken_ = s;
             break;
           }
           default: {
@@ -360,7 +374,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object definition_;
   /**
    * <pre>
-   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe.默认返回全部
+   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe,auto.默认返回全部
    * </pre>
    *
    * <code>string Definition = 4;</code>
@@ -381,7 +395,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe.默认返回全部
+   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe,auto.默认返回全部
    * </pre>
    *
    * <code>string Definition = 4;</code>
@@ -1113,6 +1127,100 @@ private static final long serialVersionUID = 0L;
     return getAll_;
   }
 
+  public static final int DIGITALWATERMARKTYPE_FIELD_NUMBER = 21;
+  private volatile java.lang.Object digitalWatermarkType_;
+  /**
+   * <pre>
+   *"数字水印类型。取值：
+   *ABTraceStream：AB流溯源水印。"
+   * </pre>
+   *
+   * <code>string DigitalWatermarkType = 21;</code>
+   * @return The digitalWatermarkType.
+   */
+  @java.lang.Override
+  public java.lang.String getDigitalWatermarkType() {
+    java.lang.Object ref = digitalWatermarkType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      digitalWatermarkType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *"数字水印类型。取值：
+   *ABTraceStream：AB流溯源水印。"
+   * </pre>
+   *
+   * <code>string DigitalWatermarkType = 21;</code>
+   * @return The bytes for digitalWatermarkType.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDigitalWatermarkTypeBytes() {
+    java.lang.Object ref = digitalWatermarkType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      digitalWatermarkType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int USERTOKEN_FIELD_NUMBER = 22;
+  private volatile java.lang.Object userToken_;
+  /**
+   * <pre>
+   *下发AB流时设置的uid，当DigitalWatermarkType=ABTraceStream时需要传入这个参数，在下发的播放地址中会加入点播实时处理的query，并改写TypeA签算的uid。
+   * </pre>
+   *
+   * <code>string UserToken = 22;</code>
+   * @return The userToken.
+   */
+  @java.lang.Override
+  public java.lang.String getUserToken() {
+    java.lang.Object ref = userToken_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      userToken_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *下发AB流时设置的uid，当DigitalWatermarkType=ABTraceStream时需要传入这个参数，在下发的播放地址中会加入点播实时处理的query，并改写TypeA签算的uid。
+   * </pre>
+   *
+   * <code>string UserToken = 22;</code>
+   * @return The bytes for userToken.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUserTokenBytes() {
+    java.lang.Object ref = userToken_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      userToken_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1187,6 +1295,12 @@ private static final long serialVersionUID = 0L;
     if (getAll_ != false) {
       output.writeBool(20, getAll_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(digitalWatermarkType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 21, digitalWatermarkType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userToken_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 22, userToken_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -1257,6 +1371,12 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(20, getAll_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(digitalWatermarkType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(21, digitalWatermarkType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userToken_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(22, userToken_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1312,6 +1432,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getForceExpire())) return false;
     if (getGetAll()
         != other.getGetAll()) return false;
+    if (!getDigitalWatermarkType()
+        .equals(other.getDigitalWatermarkType())) return false;
+    if (!getUserToken()
+        .equals(other.getUserToken())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1364,6 +1488,10 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + GETALL_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getGetAll());
+    hash = (37 * hash) + DIGITALWATERMARKTYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getDigitalWatermarkType().hashCode();
+    hash = (37 * hash) + USERTOKEN_FIELD_NUMBER;
+    hash = (53 * hash) + getUserToken().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1537,6 +1665,10 @@ private static final long serialVersionUID = 0L;
 
       getAll_ = false;
 
+      digitalWatermarkType_ = "";
+
+      userToken_ = "";
+
       return this;
     }
 
@@ -1583,6 +1715,8 @@ private static final long serialVersionUID = 0L;
       result.needOriginal_ = needOriginal_;
       result.forceExpire_ = forceExpire_;
       result.getAll_ = getAll_;
+      result.digitalWatermarkType_ = digitalWatermarkType_;
+      result.userToken_ = userToken_;
       onBuilt();
       return result;
     }
@@ -1709,6 +1843,14 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getGetAll() != false) {
         setGetAll(other.getGetAll());
+      }
+      if (!other.getDigitalWatermarkType().isEmpty()) {
+        digitalWatermarkType_ = other.digitalWatermarkType_;
+        onChanged();
+      }
+      if (!other.getUserToken().isEmpty()) {
+        userToken_ = other.userToken_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2030,7 +2172,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object definition_ = "";
     /**
      * <pre>
-     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe.默认返回全部
+     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe,auto.默认返回全部
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -2050,7 +2192,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe.默认返回全部
+     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe,auto.默认返回全部
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -2071,7 +2213,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe.默认返回全部
+     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe,auto.默认返回全部
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -2090,7 +2232,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe.默认返回全部
+     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe,auto.默认返回全部
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -2104,7 +2246,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe.默认返回全部
+     * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe,auto.默认返回全部
      * </pre>
      *
      * <code>string Definition = 4;</code>
@@ -3617,6 +3759,203 @@ private static final long serialVersionUID = 0L;
     public Builder clearGetAll() {
       
       getAll_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object digitalWatermarkType_ = "";
+    /**
+     * <pre>
+     *"数字水印类型。取值：
+     *ABTraceStream：AB流溯源水印。"
+     * </pre>
+     *
+     * <code>string DigitalWatermarkType = 21;</code>
+     * @return The digitalWatermarkType.
+     */
+    public java.lang.String getDigitalWatermarkType() {
+      java.lang.Object ref = digitalWatermarkType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        digitalWatermarkType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *"数字水印类型。取值：
+     *ABTraceStream：AB流溯源水印。"
+     * </pre>
+     *
+     * <code>string DigitalWatermarkType = 21;</code>
+     * @return The bytes for digitalWatermarkType.
+     */
+    public com.google.protobuf.ByteString
+        getDigitalWatermarkTypeBytes() {
+      java.lang.Object ref = digitalWatermarkType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        digitalWatermarkType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *"数字水印类型。取值：
+     *ABTraceStream：AB流溯源水印。"
+     * </pre>
+     *
+     * <code>string DigitalWatermarkType = 21;</code>
+     * @param value The digitalWatermarkType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDigitalWatermarkType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      digitalWatermarkType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *"数字水印类型。取值：
+     *ABTraceStream：AB流溯源水印。"
+     * </pre>
+     *
+     * <code>string DigitalWatermarkType = 21;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDigitalWatermarkType() {
+      
+      digitalWatermarkType_ = getDefaultInstance().getDigitalWatermarkType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *"数字水印类型。取值：
+     *ABTraceStream：AB流溯源水印。"
+     * </pre>
+     *
+     * <code>string DigitalWatermarkType = 21;</code>
+     * @param value The bytes for digitalWatermarkType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDigitalWatermarkTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      digitalWatermarkType_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object userToken_ = "";
+    /**
+     * <pre>
+     *下发AB流时设置的uid，当DigitalWatermarkType=ABTraceStream时需要传入这个参数，在下发的播放地址中会加入点播实时处理的query，并改写TypeA签算的uid。
+     * </pre>
+     *
+     * <code>string UserToken = 22;</code>
+     * @return The userToken.
+     */
+    public java.lang.String getUserToken() {
+      java.lang.Object ref = userToken_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userToken_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *下发AB流时设置的uid，当DigitalWatermarkType=ABTraceStream时需要传入这个参数，在下发的播放地址中会加入点播实时处理的query，并改写TypeA签算的uid。
+     * </pre>
+     *
+     * <code>string UserToken = 22;</code>
+     * @return The bytes for userToken.
+     */
+    public com.google.protobuf.ByteString
+        getUserTokenBytes() {
+      java.lang.Object ref = userToken_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userToken_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *下发AB流时设置的uid，当DigitalWatermarkType=ABTraceStream时需要传入这个参数，在下发的播放地址中会加入点播实时处理的query，并改写TypeA签算的uid。
+     * </pre>
+     *
+     * <code>string UserToken = 22;</code>
+     * @param value The userToken to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserToken(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      userToken_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *下发AB流时设置的uid，当DigitalWatermarkType=ABTraceStream时需要传入这个参数，在下发的播放地址中会加入点播实时处理的query，并改写TypeA签算的uid。
+     * </pre>
+     *
+     * <code>string UserToken = 22;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUserToken() {
+      
+      userToken_ = getDefaultInstance().getUserToken();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *下发AB流时设置的uid，当DigitalWatermarkType=ABTraceStream时需要传入这个参数，在下发的播放地址中会加入点播实时处理的query，并改写TypeA签算的uid。
+     * </pre>
+     *
+     * <code>string UserToken = 22;</code>
+     * @param value The bytes for userToken to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserTokenBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      userToken_ = value;
       onChanged();
       return this;
     }

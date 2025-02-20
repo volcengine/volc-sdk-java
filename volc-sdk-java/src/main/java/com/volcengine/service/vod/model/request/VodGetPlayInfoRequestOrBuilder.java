@@ -69,7 +69,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe.默认返回全部
+   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe,auto.默认返回全部
    * </pre>
    *
    * <code>string Definition = 4;</code>
@@ -78,7 +78,7 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getDefinition();
   /**
    * <pre>
-   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe.默认返回全部
+   * 视频流清晰度，支持：240p,360p,480p,540p,720p,1080p,2k,4k,od,oe,auto.默认返回全部
    * </pre>
    *
    * <code>string Definition = 4;</code>
@@ -402,4 +402,46 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    * @return The getAll.
    */
   boolean getGetAll();
+
+  /**
+   * <pre>
+   *"数字水印类型。取值：
+   *ABTraceStream：AB流溯源水印。"
+   * </pre>
+   *
+   * <code>string DigitalWatermarkType = 21;</code>
+   * @return The digitalWatermarkType.
+   */
+  java.lang.String getDigitalWatermarkType();
+  /**
+   * <pre>
+   *"数字水印类型。取值：
+   *ABTraceStream：AB流溯源水印。"
+   * </pre>
+   *
+   * <code>string DigitalWatermarkType = 21;</code>
+   * @return The bytes for digitalWatermarkType.
+   */
+  com.google.protobuf.ByteString
+      getDigitalWatermarkTypeBytes();
+
+  /**
+   * <pre>
+   *下发AB流时设置的uid，当DigitalWatermarkType=ABTraceStream时需要传入这个参数，在下发的播放地址中会加入点播实时处理的query，并改写TypeA签算的uid。
+   * </pre>
+   *
+   * <code>string UserToken = 22;</code>
+   * @return The userToken.
+   */
+  java.lang.String getUserToken();
+  /**
+   * <pre>
+   *下发AB流时设置的uid，当DigitalWatermarkType=ABTraceStream时需要传入这个参数，在下发的播放地址中会加入点播实时处理的query，并改写TypeA签算的uid。
+   * </pre>
+   *
+   * <code>string UserToken = 22;</code>
+   * @return The bytes for userToken.
+   */
+  com.google.protobuf.ByteString
+      getUserTokenBytes();
 }

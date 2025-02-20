@@ -331,4 +331,34 @@ public interface VodPlayInfoModelOrBuilder extends
    * <code>.Volcengine.Vod.Models.Business.BarrageMaskInfo BarrageMaskInfo = 14;</code>
    */
   com.volcengine.service.vod.model.business.BarrageMaskInfoOrBuilder getBarrageMaskInfoOrBuilder();
+
+  /**
+   * <pre>
+   *不下发abr流时，为null。json里没有这个key
+   *下发abr流时，用于填充主文件信息。
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.AdaptiveBitrateStreamingInfo AdaptiveBitrateStreamingInfo = 15;</code>
+   * @return Whether the adaptiveBitrateStreamingInfo field is set.
+   */
+  boolean hasAdaptiveBitrateStreamingInfo();
+  /**
+   * <pre>
+   *不下发abr流时，为null。json里没有这个key
+   *下发abr流时，用于填充主文件信息。
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.AdaptiveBitrateStreamingInfo AdaptiveBitrateStreamingInfo = 15;</code>
+   * @return The adaptiveBitrateStreamingInfo.
+   */
+  com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo getAdaptiveBitrateStreamingInfo();
+  /**
+   * <pre>
+   *不下发abr流时，为null。json里没有这个key
+   *下发abr流时，用于填充主文件信息。
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.AdaptiveBitrateStreamingInfo AdaptiveBitrateStreamingInfo = 15;</code>
+   */
+  com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfoOrBuilder getAdaptiveBitrateStreamingInfoOrBuilder();
 }

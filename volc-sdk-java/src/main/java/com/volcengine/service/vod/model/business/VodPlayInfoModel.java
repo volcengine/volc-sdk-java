@@ -160,6 +160,19 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 122: {
+            com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo.Builder subBuilder = null;
+            if (adaptiveBitrateStreamingInfo_ != null) {
+              subBuilder = adaptiveBitrateStreamingInfo_.toBuilder();
+            }
+            adaptiveBitrateStreamingInfo_ = input.readMessage(com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(adaptiveBitrateStreamingInfo_);
+              adaptiveBitrateStreamingInfo_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -728,6 +741,47 @@ private static final long serialVersionUID = 0L;
     return getBarrageMaskInfo();
   }
 
+  public static final int ADAPTIVEBITRATESTREAMINGINFO_FIELD_NUMBER = 15;
+  private com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo adaptiveBitrateStreamingInfo_;
+  /**
+   * <pre>
+   *不下发abr流时，为null。json里没有这个key
+   *下发abr流时，用于填充主文件信息。
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.AdaptiveBitrateStreamingInfo AdaptiveBitrateStreamingInfo = 15;</code>
+   * @return Whether the adaptiveBitrateStreamingInfo field is set.
+   */
+  @java.lang.Override
+  public boolean hasAdaptiveBitrateStreamingInfo() {
+    return adaptiveBitrateStreamingInfo_ != null;
+  }
+  /**
+   * <pre>
+   *不下发abr流时，为null。json里没有这个key
+   *下发abr流时，用于填充主文件信息。
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.AdaptiveBitrateStreamingInfo AdaptiveBitrateStreamingInfo = 15;</code>
+   * @return The adaptiveBitrateStreamingInfo.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo getAdaptiveBitrateStreamingInfo() {
+    return adaptiveBitrateStreamingInfo_ == null ? com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo.getDefaultInstance() : adaptiveBitrateStreamingInfo_;
+  }
+  /**
+   * <pre>
+   *不下发abr流时，为null。json里没有这个key
+   *下发abr流时，用于填充主文件信息。
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.AdaptiveBitrateStreamingInfo AdaptiveBitrateStreamingInfo = 15;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfoOrBuilder getAdaptiveBitrateStreamingInfoOrBuilder() {
+    return getAdaptiveBitrateStreamingInfo();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -783,6 +837,9 @@ private static final long serialVersionUID = 0L;
     }
     if (barrageMaskInfo_ != null) {
       output.writeMessage(14, getBarrageMaskInfo());
+    }
+    if (adaptiveBitrateStreamingInfo_ != null) {
+      output.writeMessage(15, getAdaptiveBitrateStreamingInfo());
     }
     unknownFields.writeTo(output);
   }
@@ -845,6 +902,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(14, getBarrageMaskInfo());
     }
+    if (adaptiveBitrateStreamingInfo_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(15, getAdaptiveBitrateStreamingInfo());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -893,6 +954,11 @@ private static final long serialVersionUID = 0L;
     if (hasBarrageMaskInfo()) {
       if (!getBarrageMaskInfo()
           .equals(other.getBarrageMaskInfo())) return false;
+    }
+    if (hasAdaptiveBitrateStreamingInfo() != other.hasAdaptiveBitrateStreamingInfo()) return false;
+    if (hasAdaptiveBitrateStreamingInfo()) {
+      if (!getAdaptiveBitrateStreamingInfo()
+          .equals(other.getAdaptiveBitrateStreamingInfo())) return false;
     }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
@@ -944,6 +1010,10 @@ private static final long serialVersionUID = 0L;
     if (hasBarrageMaskInfo()) {
       hash = (37 * hash) + BARRAGEMASKINFO_FIELD_NUMBER;
       hash = (53 * hash) + getBarrageMaskInfo().hashCode();
+    }
+    if (hasAdaptiveBitrateStreamingInfo()) {
+      hash = (37 * hash) + ADAPTIVEBITRATESTREAMINGINFO_FIELD_NUMBER;
+      hash = (53 * hash) + getAdaptiveBitrateStreamingInfo().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -1129,6 +1199,12 @@ private static final long serialVersionUID = 0L;
         barrageMaskInfo_ = null;
         barrageMaskInfoBuilder_ = null;
       }
+      if (adaptiveBitrateStreamingInfoBuilder_ == null) {
+        adaptiveBitrateStreamingInfo_ = null;
+      } else {
+        adaptiveBitrateStreamingInfo_ = null;
+        adaptiveBitrateStreamingInfoBuilder_ = null;
+      }
       return this;
     }
 
@@ -1201,6 +1277,11 @@ private static final long serialVersionUID = 0L;
         result.barrageMaskInfo_ = barrageMaskInfo_;
       } else {
         result.barrageMaskInfo_ = barrageMaskInfoBuilder_.build();
+      }
+      if (adaptiveBitrateStreamingInfoBuilder_ == null) {
+        result.adaptiveBitrateStreamingInfo_ = adaptiveBitrateStreamingInfo_;
+      } else {
+        result.adaptiveBitrateStreamingInfo_ = adaptiveBitrateStreamingInfoBuilder_.build();
       }
       onBuilt();
       return result;
@@ -1364,6 +1445,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasBarrageMaskInfo()) {
         mergeBarrageMaskInfo(other.getBarrageMaskInfo());
+      }
+      if (other.hasAdaptiveBitrateStreamingInfo()) {
+        mergeAdaptiveBitrateStreamingInfo(other.getAdaptiveBitrateStreamingInfo());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -3269,6 +3353,170 @@ private static final long serialVersionUID = 0L;
         barrageMaskInfo_ = null;
       }
       return barrageMaskInfoBuilder_;
+    }
+
+    private com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo adaptiveBitrateStreamingInfo_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo, com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo.Builder, com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfoOrBuilder> adaptiveBitrateStreamingInfoBuilder_;
+    /**
+     * <pre>
+     *不下发abr流时，为null。json里没有这个key
+     *下发abr流时，用于填充主文件信息。
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.AdaptiveBitrateStreamingInfo AdaptiveBitrateStreamingInfo = 15;</code>
+     * @return Whether the adaptiveBitrateStreamingInfo field is set.
+     */
+    public boolean hasAdaptiveBitrateStreamingInfo() {
+      return adaptiveBitrateStreamingInfoBuilder_ != null || adaptiveBitrateStreamingInfo_ != null;
+    }
+    /**
+     * <pre>
+     *不下发abr流时，为null。json里没有这个key
+     *下发abr流时，用于填充主文件信息。
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.AdaptiveBitrateStreamingInfo AdaptiveBitrateStreamingInfo = 15;</code>
+     * @return The adaptiveBitrateStreamingInfo.
+     */
+    public com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo getAdaptiveBitrateStreamingInfo() {
+      if (adaptiveBitrateStreamingInfoBuilder_ == null) {
+        return adaptiveBitrateStreamingInfo_ == null ? com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo.getDefaultInstance() : adaptiveBitrateStreamingInfo_;
+      } else {
+        return adaptiveBitrateStreamingInfoBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     *不下发abr流时，为null。json里没有这个key
+     *下发abr流时，用于填充主文件信息。
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.AdaptiveBitrateStreamingInfo AdaptiveBitrateStreamingInfo = 15;</code>
+     */
+    public Builder setAdaptiveBitrateStreamingInfo(com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo value) {
+      if (adaptiveBitrateStreamingInfoBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        adaptiveBitrateStreamingInfo_ = value;
+        onChanged();
+      } else {
+        adaptiveBitrateStreamingInfoBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *不下发abr流时，为null。json里没有这个key
+     *下发abr流时，用于填充主文件信息。
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.AdaptiveBitrateStreamingInfo AdaptiveBitrateStreamingInfo = 15;</code>
+     */
+    public Builder setAdaptiveBitrateStreamingInfo(
+        com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo.Builder builderForValue) {
+      if (adaptiveBitrateStreamingInfoBuilder_ == null) {
+        adaptiveBitrateStreamingInfo_ = builderForValue.build();
+        onChanged();
+      } else {
+        adaptiveBitrateStreamingInfoBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *不下发abr流时，为null。json里没有这个key
+     *下发abr流时，用于填充主文件信息。
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.AdaptiveBitrateStreamingInfo AdaptiveBitrateStreamingInfo = 15;</code>
+     */
+    public Builder mergeAdaptiveBitrateStreamingInfo(com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo value) {
+      if (adaptiveBitrateStreamingInfoBuilder_ == null) {
+        if (adaptiveBitrateStreamingInfo_ != null) {
+          adaptiveBitrateStreamingInfo_ =
+            com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo.newBuilder(adaptiveBitrateStreamingInfo_).mergeFrom(value).buildPartial();
+        } else {
+          adaptiveBitrateStreamingInfo_ = value;
+        }
+        onChanged();
+      } else {
+        adaptiveBitrateStreamingInfoBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *不下发abr流时，为null。json里没有这个key
+     *下发abr流时，用于填充主文件信息。
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.AdaptiveBitrateStreamingInfo AdaptiveBitrateStreamingInfo = 15;</code>
+     */
+    public Builder clearAdaptiveBitrateStreamingInfo() {
+      if (adaptiveBitrateStreamingInfoBuilder_ == null) {
+        adaptiveBitrateStreamingInfo_ = null;
+        onChanged();
+      } else {
+        adaptiveBitrateStreamingInfo_ = null;
+        adaptiveBitrateStreamingInfoBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *不下发abr流时，为null。json里没有这个key
+     *下发abr流时，用于填充主文件信息。
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.AdaptiveBitrateStreamingInfo AdaptiveBitrateStreamingInfo = 15;</code>
+     */
+    public com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo.Builder getAdaptiveBitrateStreamingInfoBuilder() {
+      
+      onChanged();
+      return getAdaptiveBitrateStreamingInfoFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     *不下发abr流时，为null。json里没有这个key
+     *下发abr流时，用于填充主文件信息。
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.AdaptiveBitrateStreamingInfo AdaptiveBitrateStreamingInfo = 15;</code>
+     */
+    public com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfoOrBuilder getAdaptiveBitrateStreamingInfoOrBuilder() {
+      if (adaptiveBitrateStreamingInfoBuilder_ != null) {
+        return adaptiveBitrateStreamingInfoBuilder_.getMessageOrBuilder();
+      } else {
+        return adaptiveBitrateStreamingInfo_ == null ?
+            com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo.getDefaultInstance() : adaptiveBitrateStreamingInfo_;
+      }
+    }
+    /**
+     * <pre>
+     *不下发abr流时，为null。json里没有这个key
+     *下发abr流时，用于填充主文件信息。
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.AdaptiveBitrateStreamingInfo AdaptiveBitrateStreamingInfo = 15;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo, com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo.Builder, com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfoOrBuilder> 
+        getAdaptiveBitrateStreamingInfoFieldBuilder() {
+      if (adaptiveBitrateStreamingInfoBuilder_ == null) {
+        adaptiveBitrateStreamingInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo, com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfo.Builder, com.volcengine.service.vod.model.business.AdaptiveBitrateStreamingInfoOrBuilder>(
+                getAdaptiveBitrateStreamingInfo(),
+                getParentForChildren(),
+                isClean());
+        adaptiveBitrateStreamingInfo_ = null;
+      }
+      return adaptiveBitrateStreamingInfoBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

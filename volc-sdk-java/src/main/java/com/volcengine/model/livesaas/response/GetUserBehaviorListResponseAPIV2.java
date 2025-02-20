@@ -83,5 +83,7 @@ public class GetUserBehaviorListResponseAPIV2 {
         Long ThumbUpNumber;
         @JSONField(name = "Cookie")
         Long Cookie;
+        @JSONField(name = "ViewDuration")
+        Long ViewDuration;
     }
 }

@@ -11,4 +11,8 @@ public class RobotCommentConfig {
     Long RobotSendUnit;
     @JSONField(name = "RobotSendNum")
     Long RobotSendNum;
+    @JSONField(name = "RobotCommentRepositoryId")
+    Long RobotCommentRepositoryId;
+    @JSONField(name = "RobotCommentRepositoryName")
+    String RobotCommentRepositoryName;
 }

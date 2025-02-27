@@ -11,4 +11,6 @@ public class AddRobotCommentsRequest {
     Long ActivityId;
     @JSONField(name = "RobotCommentContents")
     List<String> RobotCommentContents;
+    @JSONField(name = "RobotCommentRepositoryId")
+    Long RobotCommentRepositoryId;
 }

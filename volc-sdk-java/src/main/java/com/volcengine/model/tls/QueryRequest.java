@@ -21,6 +21,10 @@ public class QueryRequest {
     int startTimeOffset;
     @JSONField(name = END_TIME_OFFSET)
     int endTimeOffset;
+    @JSONField(name = TIME_SPAN_TYPE)
+    String timeSpanType;
+    @JSONField(name = TRUNCATED_TIME)
+    String truncatedTime;
 
     /**
      * @return 告警策略执行的日志主题 ID

@@ -24,9 +24,6 @@ public class IndexTest {
                         .setIndexType(IndexType.HNSW)
                         .setDistance(DistanceType.IP)
                         .setQuant(QuantType.Float)
-                        .setHnswM(20)
-                        .setHnswCef(200)
-                        .setHnswSef(200)
                         .build())
                 .setScalarIndex(Arrays.asList("f_string", "f_int64", "f_float32"))
                 .build();

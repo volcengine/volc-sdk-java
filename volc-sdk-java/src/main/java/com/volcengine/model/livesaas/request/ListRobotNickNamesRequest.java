@@ -13,4 +13,6 @@ public class ListRobotNickNamesRequest {
     Integer PageNumber;
     @JSONField(name = "PageSize")
     Integer PageSize;
+    @JSONField(name = "RobotCommentRepositoryId")
+    Long RobotCommentRepositoryId;
 }

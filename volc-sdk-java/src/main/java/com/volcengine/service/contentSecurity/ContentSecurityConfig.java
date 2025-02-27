@@ -566,6 +566,90 @@ public class ContentSecurityConfig {
                         }
                     }
             ));
+            put(Const.GetTextStatisticsOpen, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetTextStatisticsOpen"));
+                                    add(new BasicNameValuePair("Version", "2022-12-23"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetImageStatisticsOpen, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetImageStatisticsOpen"));
+                                    add(new BasicNameValuePair("Version", "2022-12-23"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetVideoStatisticsOpen, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetVideoStatisticsOpen"));
+                                    add(new BasicNameValuePair("Version", "2022-12-23"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetAudioStatisticsOpen, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetAudioStatisticsOpen"));
+                                    add(new BasicNameValuePair("Version", "2022-12-23"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetAudioLiveStatisticsOpen, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetAudioLiveStatisticsOpen"));
+                                    add(new BasicNameValuePair("Version", "2022-12-23"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetVideoLiveStatisticsOpen, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "GetVideoLiveStatisticsOpen"));
+                                    add(new BasicNameValuePair("Version", "2022-12-23"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

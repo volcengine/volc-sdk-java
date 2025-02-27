@@ -954,6 +954,24 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodUpdateDomainUrlAuthConfigV2Response updateDomainUrlAuthConfig(com.volcengine.service.vod.model.request.VodUpdateDomainUrlAuthConfigV2Request input) throws Exception;
 	
 	/**
+     * verifyDomainOwner.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodVerifyDomainOwnerRequest
+     * @return com.volcengine.service.vod.model.response.VodVerifyDomainOwnerResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodVerifyDomainOwnerResponse verifyDomainOwner(com.volcengine.service.vod.model.request.VodVerifyDomainOwnerRequest input) throws Exception;
+	
+	/**
+     * describeDomainVerifyContent.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDescribeDomainVerifyContentRequest
+     * @return com.volcengine.service.vod.model.response.VodDescribeDomainVerifyContentResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodDescribeDomainVerifyContentResponse describeDomainVerifyContent(com.volcengine.service.vod.model.request.VodDescribeDomainVerifyContentRequest input) throws Exception;
+	
+	/**
      * updateDomainConfig.
      *
      * @param input com.volcengine.service.vod.model.request.VodUpdateDomainConfigRequest

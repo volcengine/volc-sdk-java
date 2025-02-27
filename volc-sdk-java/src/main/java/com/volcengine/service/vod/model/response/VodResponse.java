@@ -525,6 +525,16 @@ public final class VodResponse {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Response_VodUpdateDomainUrlAuthConfigV2Response_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Response_VodVerifyDomainOwnerResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Response_VodVerifyDomainOwnerResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Response_VodDescribeDomainVerifyContentResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Response_VodDescribeDomainVerifyContentResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Vod_Models_Response_VodListPCDNDomainResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -1153,169 +1163,179 @@ public final class VodResponse {
       "odels.Base.ResponseMetadata\"q\n&VodUpdate" +
       "DomainUrlAuthConfigV2Response\022G\n\020Respons" +
       "eMetadata\030\001 \001(\0132-.Volcengine.Base.Models" +
-      ".Base.ResponseMetadata\"\255\001\n\031VodListPCDNDo" +
-      "mainResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-" +
-      ".Volcengine.Base.Models.Base.ResponseMet" +
-      "adata\022G\n\006Result\030\002 \001(\01327.Volcengine.Vod.M" +
-      "odels.Business.VodPCDNDomainConfigInfo\"f" +
-      "\n\033VodCreatePCDNDomainResponse\022G\n\020Respons" +
-      "eMetadata\030\001 \001(\0132-.Volcengine.Base.Models" +
-      ".Base.ResponseMetadata\"e\n\032VodStartPCDNDo" +
-      "mainResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-" +
-      ".Volcengine.Base.Models.Base.ResponseMet" +
-      "adata\"d\n\031VodStopPCDNDomainResponse\022G\n\020Re" +
-      "sponseMetadata\030\001 \001(\0132-.Volcengine.Base.M" +
-      "odels.Base.ResponseMetadata\"f\n\033VodDelete" +
+      ".Base.ResponseMetadata\"\263\001\n\034VodVerifyDoma" +
+      "inOwnerResponse\022G\n\020ResponseMetadata\030\001 \001(" +
+      "\0132-.Volcengine.Base.Models.Base.Response" +
+      "Metadata\022J\n\006Result\030\002 \001(\0132:.Volcengine.Vo" +
+      "d.Models.Business.VodVerifyDomainOwnerRe" +
+      "sult\"\307\001\n&VodDescribeDomainVerifyContentR" +
+      "esponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volc" +
+      "engine.Base.Models.Base.ResponseMetadata" +
+      "\022T\n\006Result\030\002 \001(\0132D.Volcengine.Vod.Models" +
+      ".Business.VodDescribeDomainVerifyContent" +
+      "Result\"\255\001\n\031VodListPCDNDomainResponse\022G\n\020" +
+      "ResponseMetadata\030\001 \001(\0132-.Volcengine.Base" +
+      ".Models.Base.ResponseMetadata\022G\n\006Result\030" +
+      "\002 \001(\01327.Volcengine.Vod.Models.Business.V" +
+      "odPCDNDomainConfigInfo\"f\n\033VodCreatePCDND" +
+      "omainResponse\022G\n\020ResponseMetadata\030\001 \001(\0132" +
+      "-.Volcengine.Base.Models.Base.ResponseMe" +
+      "tadata\"e\n\032VodStartPCDNDomainResponse\022G\n\020" +
+      "ResponseMetadata\030\001 \001(\0132-.Volcengine.Base" +
+      ".Models.Base.ResponseMetadata\"d\n\031VodStop" +
       "PCDNDomainResponse\022G\n\020ResponseMetadata\030\001" +
       " \001(\0132-.Volcengine.Base.Models.Base.Respo" +
-      "nseMetadata\"h\n\035VodUpdateDomainConfigResp" +
-      "onse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volceng" +
-      "ine.Base.Models.Base.ResponseMetadata\"\271\001" +
-      "\n\037VodDescribeDomainConfigResponse\022G\n\020Res" +
-      "ponseMetadata\030\001 \001(\0132-.Volcengine.Base.Mo" +
-      "dels.Base.ResponseMetadata\022M\n\006Result\030\002 \001" +
-      "(\0132=.Volcengine.Vod.Models.Business.VodD" +
-      "escribeDomainConfigResult\"k\n AddOrUpdate" +
-      "CertificateV2Response\022G\n\020ResponseMetadat" +
-      "a\030\001 \001(\0132-.Volcengine.Base.Models.Base.Re" +
-      "sponseMetadata\"c\n\030UpdateDomainAreaRespon" +
+      "nseMetadata\"f\n\033VodDeletePCDNDomainRespon" +
       "se\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengin" +
-      "e.Base.Models.Base.ResponseMetadata\"m\n\"V" +
-      "odAddCallbackSubscriptionResponse\022G\n\020Res" +
-      "ponseMetadata\030\001 \001(\0132-.Volcengine.Base.Mo" +
-      "dels.Base.ResponseMetadata\"f\n\033VodSetCall" +
-      "backEventResponse\022G\n\020ResponseMetadata\030\001 " +
+      "e.Base.Models.Base.ResponseMetadata\"h\n\035V" +
+      "odUpdateDomainConfigResponse\022G\n\020Response" +
+      "Metadata\030\001 \001(\0132-.Volcengine.Base.Models." +
+      "Base.ResponseMetadata\"\271\001\n\037VodDescribeDom" +
+      "ainConfigResponse\022G\n\020ResponseMetadata\030\001 " +
       "\001(\0132-.Volcengine.Base.Models.Base.Respon" +
-      "seMetadata\"\245\001\n\031GetCallbackRecordResponse" +
-      "\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine." +
-      "Base.Models.Base.ResponseMetadata\022?\n\006Res" +
-      "ult\030\002 \001(\0132/.Volcengine.Vod.Models.Busine" +
-      "ss.CallbackRecords\"\311\001\n\'VodGetSmartStrate" +
-      "gyLitePlayInfoResponse\022G\n\020ResponseMetada" +
-      "ta\030\001 \001(\0132-.Volcengine.Base.Models.Base.R" +
-      "esponseMetadata\022U\n\006Result\030\002 \001(\0132E.Volcen" +
-      "gine.Vod.Models.Business.VodGetSmartStra" +
-      "tegyLitePlayInfoResult\"\245\001\n\025VodGetAppInfo" +
-      "Response\022G\n\020ResponseMetadata\030\001 \001(\0132-.Vol" +
-      "cengine.Base.Models.Base.ResponseMetadat" +
-      "a\022C\n\006Result\030\002 \001(\01323.Volcengine.Vod.Model" +
-      "s.Business.VodGetAppInfoResult\"\305\001\n%Descr" +
-      "ibeVodSpaceTranscodeDataResponse\022G\n\020Resp" +
-      "onseMetadata\030\001 \001(\0132-.Volcengine.Base.Mod" +
-      "els.Base.ResponseMetadata\022S\n\006Result\030\002 \001(" +
-      "\0132C.Volcengine.Vod.Models.Business.Descr" +
-      "ibeVodSpaceTranscodeDataResult\"\303\001\n$Descr" +
-      "ibeVodSpaceAIStatisDataResponse\022G\n\020Respo" +
-      "nseMetadata\030\001 \001(\0132-.Volcengine.Base.Mode" +
-      "ls.Base.ResponseMetadata\022R\n\006Result\030\002 \001(\013" +
-      "2B.Volcengine.Vod.Models.Business.Descri" +
-      "beVodSpaceAIStatisDataResult\"\317\001\n*Describ" +
-      "eVodSpaceSubtitleStatisDataResponse\022G\n\020R" +
-      "esponseMetadata\030\001 \001(\0132-.Volcengine.Base." +
-      "Models.Base.ResponseMetadata\022X\n\006Result\030\002" +
-      " \001(\0132H.Volcengine.Vod.Models.Business.De" +
-      "scribeVodSpaceSubtitleStatisDataResult\"\313" +
-      "\001\n(DescribeVodSpaceDetectStatisDataRespo" +
-      "nse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengi" +
-      "ne.Base.Models.Base.ResponseMetadata\022V\n\006" +
-      "Result\030\002 \001(\0132F.Volcengine.Vod.Models.Bus" +
-      "iness.DescribeVodSpaceDetectStatisDataRe" +
-      "sult\"\271\001\n\037DescribeVodSnapshotDataResponse" +
-      "\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine." +
-      "Base.Models.Base.ResponseMetadata\022M\n\006Res" +
-      "ult\030\002 \001(\0132=.Volcengine.Vod.Models.Busine" +
-      "ss.DescribeVodSnapshotDataResult\"\317\001\n*Des" +
-      "cribeVodSpaceWorkflowDetailDataResponse\022" +
-      "G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine.B" +
-      "ase.Models.Base.ResponseMetadata\022X\n\006Resu" +
-      "lt\030\002 \001(\0132H.Volcengine.Vod.Models.Busines" +
-      "s.DescribeVodSpaceWorkflowDetailDataResu" +
-      "lt\"\307\001\n&DescribeVodSpaceEditDetailDataRes" +
+      "seMetadata\022M\n\006Result\030\002 \001(\0132=.Volcengine." +
+      "Vod.Models.Business.VodDescribeDomainCon" +
+      "figResult\"k\n AddOrUpdateCertificateV2Res" +
       "ponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcen" +
-      "gine.Base.Models.Base.ResponseMetadata\022T" +
-      "\n\006Result\030\002 \001(\0132D.Volcengine.Vod.Models.B" +
-      "usiness.DescribeVodSpaceEditDetailDataRe" +
-      "sult\"\303\001\n$DescribeVodRealtimeMediaDataRes" +
-      "ponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcen" +
-      "gine.Base.Models.Base.ResponseMetadata\022R" +
-      "\n\006Result\030\002 \001(\0132B.Volcengine.Vod.Models.B" +
-      "usiness.DescribeVodRealtimeMediaDataResu" +
-      "lt\"\317\001\n*DescribeVodRealtimeMediaDetailDat" +
-      "aResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Vo" +
-      "lcengine.Base.Models.Base.ResponseMetada" +
-      "ta\022X\n\006Result\030\002 \001(\0132H.Volcengine.Vod.Mode" +
-      "ls.Business.DescribeVodRealtimeMediaDeta" +
-      "ilDataResult\"\307\001\n&DescribeVodPlayFileLogB" +
-      "yDomainResponse\022G\n\020ResponseMetadata\030\001 \001(" +
-      "\0132-.Volcengine.Base.Models.Base.Response" +
-      "Metadata\022T\n\006Result\030\002 \001(\0132D.Volcengine.Vo" +
-      "d.Models.Business.DescribeVodPlayFileLog" +
-      "ByDomainResult\"\301\001\n#DescribeVodEnhanceIma" +
-      "geDataResponse\022G\n\020ResponseMetadata\030\001 \001(\013" +
-      "2-.Volcengine.Base.Models.Base.ResponseM" +
-      "etadata\022Q\n\006Result\030\002 \001(\0132A.Volcengine.Vod" +
-      ".Models.Business.DescribeVodEnhanceImage" +
-      "DataResult\"\307\001\n&DescribeVodSpaceEditStati" +
-      "sDataResponse\022G\n\020ResponseMetadata\030\001 \001(\0132" +
-      "-.Volcengine.Base.Models.Base.ResponseMe" +
-      "tadata\022T\n\006Result\030\002 \001(\0132D.Volcengine.Vod." +
-      "Models.Business.DescribeVodSpaceEditStat" +
-      "isDataResult\"\301\001\n#DescribeVodPlayedStatis" +
-      "DataResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-" +
-      ".Volcengine.Base.Models.Base.ResponseMet" +
-      "adata\022Q\n\006Result\030\002 \001(\0132A.Volcengine.Vod.M" +
-      "odels.Business.DescribeVodPlayedStatisDa" +
-      "taResult\"\311\001\n\'DescribeVodMostPlayedStatis" +
-      "DataResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-" +
-      ".Volcengine.Base.Models.Base.ResponseMet" +
-      "adata\022U\n\006Result\030\002 \001(\0132E.Volcengine.Vod.M" +
-      "odels.Business.DescribeVodMostPlayedStat" +
-      "isDataResult\"\303\001\n$DescribeVodVidTrafficFi" +
-      "leLogResponse\022G\n\020ResponseMetadata\030\001 \001(\0132" +
-      "-.Volcengine.Base.Models.Base.ResponseMe" +
-      "tadata\022R\n\006Result\030\002 \001(\0132B.Volcengine.Vod." +
-      "Models.Business.DescribeVodVidTrafficFil" +
-      "eLogResult\"\271\001\n\037VodSubmitBlockMediaTaskRe" +
+      "gine.Base.Models.Base.ResponseMetadata\"c" +
+      "\n\030UpdateDomainAreaResponse\022G\n\020ResponseMe" +
+      "tadata\030\001 \001(\0132-.Volcengine.Base.Models.Ba" +
+      "se.ResponseMetadata\"m\n\"VodAddCallbackSub" +
+      "scriptionResponse\022G\n\020ResponseMetadata\030\001 " +
+      "\001(\0132-.Volcengine.Base.Models.Base.Respon" +
+      "seMetadata\"f\n\033VodSetCallbackEventRespons" +
+      "e\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine" +
+      ".Base.Models.Base.ResponseMetadata\"\245\001\n\031G" +
+      "etCallbackRecordResponse\022G\n\020ResponseMeta" +
+      "data\030\001 \001(\0132-.Volcengine.Base.Models.Base" +
+      ".ResponseMetadata\022?\n\006Result\030\002 \001(\0132/.Volc" +
+      "engine.Vod.Models.Business.CallbackRecor" +
+      "ds\"\311\001\n\'VodGetSmartStrategyLitePlayInfoRe" +
       "sponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volce" +
       "ngine.Base.Models.Base.ResponseMetadata\022" +
-      "M\n\006Result\030\002 \001(\0132=.Volcengine.Vod.Models." +
-      "Business.VodSubmitBlockMediaTaskResult\"\275" +
-      "\001\n!VodSubmitUnblockMediaTaskResponse\022G\n\020" +
-      "ResponseMetadata\030\001 \001(\0132-.Volcengine.Base" +
-      ".Models.Base.ResponseMetadata\022O\n\006Result\030" +
-      "\002 \001(\0132?.Volcengine.Vod.Models.Business.V" +
-      "odSubmitUnblockMediaTaskResult\"\273\001\n VodQu" +
-      "eryMediaBlockStatusResponse\022G\n\020ResponseM" +
+      "U\n\006Result\030\002 \001(\0132E.Volcengine.Vod.Models." +
+      "Business.VodGetSmartStrategyLitePlayInfo" +
+      "Result\"\245\001\n\025VodGetAppInfoResponse\022G\n\020Resp" +
+      "onseMetadata\030\001 \001(\0132-.Volcengine.Base.Mod" +
+      "els.Base.ResponseMetadata\022C\n\006Result\030\002 \001(" +
+      "\01323.Volcengine.Vod.Models.Business.VodGe" +
+      "tAppInfoResult\"\305\001\n%DescribeVodSpaceTrans" +
+      "codeDataResponse\022G\n\020ResponseMetadata\030\001 \001" +
+      "(\0132-.Volcengine.Base.Models.Base.Respons" +
+      "eMetadata\022S\n\006Result\030\002 \001(\0132C.Volcengine.V" +
+      "od.Models.Business.DescribeVodSpaceTrans" +
+      "codeDataResult\"\303\001\n$DescribeVodSpaceAISta" +
+      "tisDataResponse\022G\n\020ResponseMetadata\030\001 \001(" +
+      "\0132-.Volcengine.Base.Models.Base.Response" +
+      "Metadata\022R\n\006Result\030\002 \001(\0132B.Volcengine.Vo" +
+      "d.Models.Business.DescribeVodSpaceAIStat" +
+      "isDataResult\"\317\001\n*DescribeVodSpaceSubtitl" +
+      "eStatisDataResponse\022G\n\020ResponseMetadata\030" +
+      "\001 \001(\0132-.Volcengine.Base.Models.Base.Resp" +
+      "onseMetadata\022X\n\006Result\030\002 \001(\0132H.Volcengin" +
+      "e.Vod.Models.Business.DescribeVodSpaceSu" +
+      "btitleStatisDataResult\"\313\001\n(DescribeVodSp" +
+      "aceDetectStatisDataResponse\022G\n\020ResponseM" +
       "etadata\030\001 \001(\0132-.Volcengine.Base.Models.B" +
-      "ase.ResponseMetadata\022N\n\006Result\030\002 \001(\0132>.V" +
-      "olcengine.Vod.Models.Business.VodQueryMe" +
-      "diaBlockStatusResult\"\251\001\n\027VodListProjects" +
-      "Response\022G\n\020ResponseMetadata\030\001 \001(\0132-.Vol" +
-      "cengine.Base.Models.Base.ResponseMetadat" +
-      "a\022E\n\006Result\030\002 \001(\01325.Volcengine.Vod.Model" +
-      "s.Business.VodListProjectsResult\"\271\001\n Vod" +
-      "GetTradeConfigurationResponse\022G\n\020Respons" +
+      "ase.ResponseMetadata\022V\n\006Result\030\002 \001(\0132F.V" +
+      "olcengine.Vod.Models.Business.DescribeVo" +
+      "dSpaceDetectStatisDataResult\"\271\001\n\037Describ" +
+      "eVodSnapshotDataResponse\022G\n\020ResponseMeta" +
+      "data\030\001 \001(\0132-.Volcengine.Base.Models.Base" +
+      ".ResponseMetadata\022M\n\006Result\030\002 \001(\0132=.Volc" +
+      "engine.Vod.Models.Business.DescribeVodSn" +
+      "apshotDataResult\"\317\001\n*DescribeVodSpaceWor" +
+      "kflowDetailDataResponse\022G\n\020ResponseMetad" +
+      "ata\030\001 \001(\0132-.Volcengine.Base.Models.Base." +
+      "ResponseMetadata\022X\n\006Result\030\002 \001(\0132H.Volce" +
+      "ngine.Vod.Models.Business.DescribeVodSpa" +
+      "ceWorkflowDetailDataResult\"\307\001\n&DescribeV" +
+      "odSpaceEditDetailDataResponse\022G\n\020Respons" +
       "eMetadata\030\001 \001(\0132-.Volcengine.Base.Models" +
-      ".Base.ResponseMetadata\022L\n\006Result\030\002 \001(\0132<" +
-      ".Volcengine.Vod.Models.Business.TradeCon" +
-      "figurationInfoResult\"\265\001\n\035VodSetCloudMigr" +
-      "ateJobResponse\022G\n\020ResponseMetadata\030\001 \001(\013" +
-      "2-.Volcengine.Base.Models.Base.ResponseM" +
-      "etadata\022K\n\006Result\030\002 \001(\0132;.Volcengine.Vod" +
-      ".Models.Business.VodSetCloudMigrateJobRe" +
-      "sult\"k\n VodSubmitCloudMigrateJobResponse" +
-      "\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine." +
-      "Base.Models.Base.ResponseMetadata\"\265\001\n\035Vo" +
-      "dGetCloudMigrateJobResponse\022G\n\020ResponseM" +
-      "etadata\030\001 \001(\0132-.Volcengine.Base.Models.B" +
-      "ase.ResponseMetadata\022K\n\006Result\030\002 \001(\0132;.V" +
-      "olcengine.Vod.Models.Business.VodGetClou" +
-      "dMigrateJobResultB\314\001\n)com.volcengine.ser" +
-      "vice.vod.model.responseB\013VodResponseP\001ZA" +
-      "github.com/volcengine/volc-sdk-golang/se" +
-      "rvice/vod/models/response\240\001\001\330\001\001\312\002 Volc\\S" +
-      "ervice\\Vod\\Models\\Response\342\002#Volc\\Servic" +
-      "e\\Vod\\Models\\GPBMetadatab\006proto3"
+      ".Base.ResponseMetadata\022T\n\006Result\030\002 \001(\0132D" +
+      ".Volcengine.Vod.Models.Business.Describe" +
+      "VodSpaceEditDetailDataResult\"\303\001\n$Describ" +
+      "eVodRealtimeMediaDataResponse\022G\n\020Respons" +
+      "eMetadata\030\001 \001(\0132-.Volcengine.Base.Models" +
+      ".Base.ResponseMetadata\022R\n\006Result\030\002 \001(\0132B" +
+      ".Volcengine.Vod.Models.Business.Describe" +
+      "VodRealtimeMediaDataResult\"\317\001\n*DescribeV" +
+      "odRealtimeMediaDetailDataResponse\022G\n\020Res" +
+      "ponseMetadata\030\001 \001(\0132-.Volcengine.Base.Mo" +
+      "dels.Base.ResponseMetadata\022X\n\006Result\030\002 \001" +
+      "(\0132H.Volcengine.Vod.Models.Business.Desc" +
+      "ribeVodRealtimeMediaDetailDataResult\"\307\001\n" +
+      "&DescribeVodPlayFileLogByDomainResponse\022" +
+      "G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine.B" +
+      "ase.Models.Base.ResponseMetadata\022T\n\006Resu" +
+      "lt\030\002 \001(\0132D.Volcengine.Vod.Models.Busines" +
+      "s.DescribeVodPlayFileLogByDomainResult\"\301" +
+      "\001\n#DescribeVodEnhanceImageDataResponse\022G" +
+      "\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Ba" +
+      "se.Models.Base.ResponseMetadata\022Q\n\006Resul" +
+      "t\030\002 \001(\0132A.Volcengine.Vod.Models.Business" +
+      ".DescribeVodEnhanceImageDataResult\"\307\001\n&D" +
+      "escribeVodSpaceEditStatisDataResponse\022G\n" +
+      "\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Bas" +
+      "e.Models.Base.ResponseMetadata\022T\n\006Result" +
+      "\030\002 \001(\0132D.Volcengine.Vod.Models.Business." +
+      "DescribeVodSpaceEditStatisDataResult\"\301\001\n" +
+      "#DescribeVodPlayedStatisDataResponse\022G\n\020" +
+      "ResponseMetadata\030\001 \001(\0132-.Volcengine.Base" +
+      ".Models.Base.ResponseMetadata\022Q\n\006Result\030" +
+      "\002 \001(\0132A.Volcengine.Vod.Models.Business.D" +
+      "escribeVodPlayedStatisDataResult\"\311\001\n\'Des" +
+      "cribeVodMostPlayedStatisDataResponse\022G\n\020" +
+      "ResponseMetadata\030\001 \001(\0132-.Volcengine.Base" +
+      ".Models.Base.ResponseMetadata\022U\n\006Result\030" +
+      "\002 \001(\0132E.Volcengine.Vod.Models.Business.D" +
+      "escribeVodMostPlayedStatisDataResult\"\303\001\n" +
+      "$DescribeVodVidTrafficFileLogResponse\022G\n" +
+      "\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Bas" +
+      "e.Models.Base.ResponseMetadata\022R\n\006Result" +
+      "\030\002 \001(\0132B.Volcengine.Vod.Models.Business." +
+      "DescribeVodVidTrafficFileLogResult\"\271\001\n\037V" +
+      "odSubmitBlockMediaTaskResponse\022G\n\020Respon" +
+      "seMetadata\030\001 \001(\0132-.Volcengine.Base.Model" +
+      "s.Base.ResponseMetadata\022M\n\006Result\030\002 \001(\0132" +
+      "=.Volcengine.Vod.Models.Business.VodSubm" +
+      "itBlockMediaTaskResult\"\275\001\n!VodSubmitUnbl" +
+      "ockMediaTaskResponse\022G\n\020ResponseMetadata" +
+      "\030\001 \001(\0132-.Volcengine.Base.Models.Base.Res" +
+      "ponseMetadata\022O\n\006Result\030\002 \001(\0132?.Volcengi" +
+      "ne.Vod.Models.Business.VodSubmitUnblockM" +
+      "ediaTaskResult\"\273\001\n VodQueryMediaBlockSta" +
+      "tusResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-." +
+      "Volcengine.Base.Models.Base.ResponseMeta" +
+      "data\022N\n\006Result\030\002 \001(\0132>.Volcengine.Vod.Mo" +
+      "dels.Business.VodQueryMediaBlockStatusRe" +
+      "sult\"\251\001\n\027VodListProjectsResponse\022G\n\020Resp" +
+      "onseMetadata\030\001 \001(\0132-.Volcengine.Base.Mod" +
+      "els.Base.ResponseMetadata\022E\n\006Result\030\002 \001(" +
+      "\01325.Volcengine.Vod.Models.Business.VodLi" +
+      "stProjectsResult\"\271\001\n VodGetTradeConfigur" +
+      "ationResponse\022G\n\020ResponseMetadata\030\001 \001(\0132" +
+      "-.Volcengine.Base.Models.Base.ResponseMe" +
+      "tadata\022L\n\006Result\030\002 \001(\0132<.Volcengine.Vod." +
+      "Models.Business.TradeConfigurationInfoRe" +
+      "sult\"\265\001\n\035VodSetCloudMigrateJobResponse\022G" +
+      "\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Ba" +
+      "se.Models.Base.ResponseMetadata\022K\n\006Resul" +
+      "t\030\002 \001(\0132;.Volcengine.Vod.Models.Business" +
+      ".VodSetCloudMigrateJobResult\"k\n VodSubmi" +
+      "tCloudMigrateJobResponse\022G\n\020ResponseMeta" +
+      "data\030\001 \001(\0132-.Volcengine.Base.Models.Base" +
+      ".ResponseMetadata\"\265\001\n\035VodGetCloudMigrate" +
+      "JobResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-." +
+      "Volcengine.Base.Models.Base.ResponseMeta" +
+      "data\022K\n\006Result\030\002 \001(\0132;.Volcengine.Vod.Mo" +
+      "dels.Business.VodGetCloudMigrateJobResul" +
+      "tB\314\001\n)com.volcengine.service.vod.model.r" +
+      "esponseB\013VodResponseP\001ZAgithub.com/volce" +
+      "ngine/volc-sdk-golang/service/vod/models" +
+      "/response\240\001\001\330\001\001\312\002 Volc\\Service\\Vod\\Model" +
+      "s\\Response\342\002#Volc\\Service\\Vod\\Models\\GPB" +
+      "Metadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1950,224 +1970,236 @@ public final class VodResponse {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodUpdateDomainUrlAuthConfigV2Response_descriptor,
         new java.lang.String[] { "ResponseMetadata", });
-    internal_static_Volcengine_Vod_Models_Response_VodListPCDNDomainResponse_descriptor =
+    internal_static_Volcengine_Vod_Models_Response_VodVerifyDomainOwnerResponse_descriptor =
       getDescriptor().getMessageTypes().get(102);
+    internal_static_Volcengine_Vod_Models_Response_VodVerifyDomainOwnerResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Response_VodVerifyDomainOwnerResponse_descriptor,
+        new java.lang.String[] { "ResponseMetadata", "Result", });
+    internal_static_Volcengine_Vod_Models_Response_VodDescribeDomainVerifyContentResponse_descriptor =
+      getDescriptor().getMessageTypes().get(103);
+    internal_static_Volcengine_Vod_Models_Response_VodDescribeDomainVerifyContentResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Response_VodDescribeDomainVerifyContentResponse_descriptor,
+        new java.lang.String[] { "ResponseMetadata", "Result", });
+    internal_static_Volcengine_Vod_Models_Response_VodListPCDNDomainResponse_descriptor =
+      getDescriptor().getMessageTypes().get(104);
     internal_static_Volcengine_Vod_Models_Response_VodListPCDNDomainResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodListPCDNDomainResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_VodCreatePCDNDomainResponse_descriptor =
-      getDescriptor().getMessageTypes().get(103);
+      getDescriptor().getMessageTypes().get(105);
     internal_static_Volcengine_Vod_Models_Response_VodCreatePCDNDomainResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodCreatePCDNDomainResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", });
     internal_static_Volcengine_Vod_Models_Response_VodStartPCDNDomainResponse_descriptor =
-      getDescriptor().getMessageTypes().get(104);
+      getDescriptor().getMessageTypes().get(106);
     internal_static_Volcengine_Vod_Models_Response_VodStartPCDNDomainResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodStartPCDNDomainResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", });
     internal_static_Volcengine_Vod_Models_Response_VodStopPCDNDomainResponse_descriptor =
-      getDescriptor().getMessageTypes().get(105);
+      getDescriptor().getMessageTypes().get(107);
     internal_static_Volcengine_Vod_Models_Response_VodStopPCDNDomainResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodStopPCDNDomainResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", });
     internal_static_Volcengine_Vod_Models_Response_VodDeletePCDNDomainResponse_descriptor =
-      getDescriptor().getMessageTypes().get(106);
+      getDescriptor().getMessageTypes().get(108);
     internal_static_Volcengine_Vod_Models_Response_VodDeletePCDNDomainResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodDeletePCDNDomainResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", });
     internal_static_Volcengine_Vod_Models_Response_VodUpdateDomainConfigResponse_descriptor =
-      getDescriptor().getMessageTypes().get(107);
+      getDescriptor().getMessageTypes().get(109);
     internal_static_Volcengine_Vod_Models_Response_VodUpdateDomainConfigResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodUpdateDomainConfigResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", });
     internal_static_Volcengine_Vod_Models_Response_VodDescribeDomainConfigResponse_descriptor =
-      getDescriptor().getMessageTypes().get(108);
+      getDescriptor().getMessageTypes().get(110);
     internal_static_Volcengine_Vod_Models_Response_VodDescribeDomainConfigResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodDescribeDomainConfigResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_AddOrUpdateCertificateV2Response_descriptor =
-      getDescriptor().getMessageTypes().get(109);
+      getDescriptor().getMessageTypes().get(111);
     internal_static_Volcengine_Vod_Models_Response_AddOrUpdateCertificateV2Response_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_AddOrUpdateCertificateV2Response_descriptor,
         new java.lang.String[] { "ResponseMetadata", });
     internal_static_Volcengine_Vod_Models_Response_UpdateDomainAreaResponse_descriptor =
-      getDescriptor().getMessageTypes().get(110);
+      getDescriptor().getMessageTypes().get(112);
     internal_static_Volcengine_Vod_Models_Response_UpdateDomainAreaResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_UpdateDomainAreaResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", });
     internal_static_Volcengine_Vod_Models_Response_VodAddCallbackSubscriptionResponse_descriptor =
-      getDescriptor().getMessageTypes().get(111);
+      getDescriptor().getMessageTypes().get(113);
     internal_static_Volcengine_Vod_Models_Response_VodAddCallbackSubscriptionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodAddCallbackSubscriptionResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", });
     internal_static_Volcengine_Vod_Models_Response_VodSetCallbackEventResponse_descriptor =
-      getDescriptor().getMessageTypes().get(112);
+      getDescriptor().getMessageTypes().get(114);
     internal_static_Volcengine_Vod_Models_Response_VodSetCallbackEventResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodSetCallbackEventResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", });
     internal_static_Volcengine_Vod_Models_Response_GetCallbackRecordResponse_descriptor =
-      getDescriptor().getMessageTypes().get(113);
+      getDescriptor().getMessageTypes().get(115);
     internal_static_Volcengine_Vod_Models_Response_GetCallbackRecordResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_GetCallbackRecordResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_VodGetSmartStrategyLitePlayInfoResponse_descriptor =
-      getDescriptor().getMessageTypes().get(114);
+      getDescriptor().getMessageTypes().get(116);
     internal_static_Volcengine_Vod_Models_Response_VodGetSmartStrategyLitePlayInfoResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodGetSmartStrategyLitePlayInfoResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_VodGetAppInfoResponse_descriptor =
-      getDescriptor().getMessageTypes().get(115);
+      getDescriptor().getMessageTypes().get(117);
     internal_static_Volcengine_Vod_Models_Response_VodGetAppInfoResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodGetAppInfoResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceTranscodeDataResponse_descriptor =
-      getDescriptor().getMessageTypes().get(116);
+      getDescriptor().getMessageTypes().get(118);
     internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceTranscodeDataResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceTranscodeDataResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceAIStatisDataResponse_descriptor =
-      getDescriptor().getMessageTypes().get(117);
+      getDescriptor().getMessageTypes().get(119);
     internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceAIStatisDataResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceAIStatisDataResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceSubtitleStatisDataResponse_descriptor =
-      getDescriptor().getMessageTypes().get(118);
+      getDescriptor().getMessageTypes().get(120);
     internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceSubtitleStatisDataResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceSubtitleStatisDataResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceDetectStatisDataResponse_descriptor =
-      getDescriptor().getMessageTypes().get(119);
+      getDescriptor().getMessageTypes().get(121);
     internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceDetectStatisDataResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceDetectStatisDataResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_DescribeVodSnapshotDataResponse_descriptor =
-      getDescriptor().getMessageTypes().get(120);
+      getDescriptor().getMessageTypes().get(122);
     internal_static_Volcengine_Vod_Models_Response_DescribeVodSnapshotDataResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_DescribeVodSnapshotDataResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceWorkflowDetailDataResponse_descriptor =
-      getDescriptor().getMessageTypes().get(121);
+      getDescriptor().getMessageTypes().get(123);
     internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceWorkflowDetailDataResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceWorkflowDetailDataResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceEditDetailDataResponse_descriptor =
-      getDescriptor().getMessageTypes().get(122);
+      getDescriptor().getMessageTypes().get(124);
     internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceEditDetailDataResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceEditDetailDataResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_DescribeVodRealtimeMediaDataResponse_descriptor =
-      getDescriptor().getMessageTypes().get(123);
+      getDescriptor().getMessageTypes().get(125);
     internal_static_Volcengine_Vod_Models_Response_DescribeVodRealtimeMediaDataResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_DescribeVodRealtimeMediaDataResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_DescribeVodRealtimeMediaDetailDataResponse_descriptor =
-      getDescriptor().getMessageTypes().get(124);
+      getDescriptor().getMessageTypes().get(126);
     internal_static_Volcengine_Vod_Models_Response_DescribeVodRealtimeMediaDetailDataResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_DescribeVodRealtimeMediaDetailDataResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_DescribeVodPlayFileLogByDomainResponse_descriptor =
-      getDescriptor().getMessageTypes().get(125);
+      getDescriptor().getMessageTypes().get(127);
     internal_static_Volcengine_Vod_Models_Response_DescribeVodPlayFileLogByDomainResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_DescribeVodPlayFileLogByDomainResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_DescribeVodEnhanceImageDataResponse_descriptor =
-      getDescriptor().getMessageTypes().get(126);
+      getDescriptor().getMessageTypes().get(128);
     internal_static_Volcengine_Vod_Models_Response_DescribeVodEnhanceImageDataResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_DescribeVodEnhanceImageDataResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceEditStatisDataResponse_descriptor =
-      getDescriptor().getMessageTypes().get(127);
+      getDescriptor().getMessageTypes().get(129);
     internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceEditStatisDataResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_DescribeVodSpaceEditStatisDataResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_DescribeVodPlayedStatisDataResponse_descriptor =
-      getDescriptor().getMessageTypes().get(128);
+      getDescriptor().getMessageTypes().get(130);
     internal_static_Volcengine_Vod_Models_Response_DescribeVodPlayedStatisDataResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_DescribeVodPlayedStatisDataResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_DescribeVodMostPlayedStatisDataResponse_descriptor =
-      getDescriptor().getMessageTypes().get(129);
+      getDescriptor().getMessageTypes().get(131);
     internal_static_Volcengine_Vod_Models_Response_DescribeVodMostPlayedStatisDataResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_DescribeVodMostPlayedStatisDataResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_DescribeVodVidTrafficFileLogResponse_descriptor =
-      getDescriptor().getMessageTypes().get(130);
+      getDescriptor().getMessageTypes().get(132);
     internal_static_Volcengine_Vod_Models_Response_DescribeVodVidTrafficFileLogResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_DescribeVodVidTrafficFileLogResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_VodSubmitBlockMediaTaskResponse_descriptor =
-      getDescriptor().getMessageTypes().get(131);
+      getDescriptor().getMessageTypes().get(133);
     internal_static_Volcengine_Vod_Models_Response_VodSubmitBlockMediaTaskResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodSubmitBlockMediaTaskResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_VodSubmitUnblockMediaTaskResponse_descriptor =
-      getDescriptor().getMessageTypes().get(132);
+      getDescriptor().getMessageTypes().get(134);
     internal_static_Volcengine_Vod_Models_Response_VodSubmitUnblockMediaTaskResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodSubmitUnblockMediaTaskResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_VodQueryMediaBlockStatusResponse_descriptor =
-      getDescriptor().getMessageTypes().get(133);
+      getDescriptor().getMessageTypes().get(135);
     internal_static_Volcengine_Vod_Models_Response_VodQueryMediaBlockStatusResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodQueryMediaBlockStatusResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_VodListProjectsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(134);
+      getDescriptor().getMessageTypes().get(136);
     internal_static_Volcengine_Vod_Models_Response_VodListProjectsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodListProjectsResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_VodGetTradeConfigurationResponse_descriptor =
-      getDescriptor().getMessageTypes().get(135);
+      getDescriptor().getMessageTypes().get(137);
     internal_static_Volcengine_Vod_Models_Response_VodGetTradeConfigurationResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodGetTradeConfigurationResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_VodSetCloudMigrateJobResponse_descriptor =
-      getDescriptor().getMessageTypes().get(136);
+      getDescriptor().getMessageTypes().get(138);
     internal_static_Volcengine_Vod_Models_Response_VodSetCloudMigrateJobResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodSetCloudMigrateJobResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     internal_static_Volcengine_Vod_Models_Response_VodSubmitCloudMigrateJobResponse_descriptor =
-      getDescriptor().getMessageTypes().get(137);
+      getDescriptor().getMessageTypes().get(139);
     internal_static_Volcengine_Vod_Models_Response_VodSubmitCloudMigrateJobResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodSubmitCloudMigrateJobResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", });
     internal_static_Volcengine_Vod_Models_Response_VodGetCloudMigrateJobResponse_descriptor =
-      getDescriptor().getMessageTypes().get(138);
+      getDescriptor().getMessageTypes().get(140);
     internal_static_Volcengine_Vod_Models_Response_VodGetCloudMigrateJobResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodGetCloudMigrateJobResponse_descriptor,

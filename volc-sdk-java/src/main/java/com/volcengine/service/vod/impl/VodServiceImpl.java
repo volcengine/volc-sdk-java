@@ -2473,6 +2473,44 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 	
 	
 	/**
+     * verifyDomainOwner.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodVerifyDomainOwnerRequest
+     * @return com.volcengine.service.vod.model.response.VodVerifyDomainOwnerResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodVerifyDomainOwnerResponse verifyDomainOwner(com.volcengine.service.vod.model.request.VodVerifyDomainOwnerRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.VerifyDomainOwner, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodVerifyDomainOwnerResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodVerifyDomainOwnerResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * describeDomainVerifyContent.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDescribeDomainVerifyContentRequest
+     * @return com.volcengine.service.vod.model.response.VodDescribeDomainVerifyContentResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodDescribeDomainVerifyContentResponse describeDomainVerifyContent(com.volcengine.service.vod.model.request.VodDescribeDomainVerifyContentRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.DescribeDomainVerifyContent, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodDescribeDomainVerifyContentResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodDescribeDomainVerifyContentResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
      * updateDomainConfig.
      *
      * @param input com.volcengine.service.vod.model.request.VodUpdateDomainConfigRequest

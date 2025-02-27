@@ -2400,4 +2400,49 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     UpdateActivityMediaInfoResponse updateActivityMediaInfo(UpdateActivityMediaInfoRequest updateActivityMediaInfoRequest) throws Exception;
+
+    /**
+     * listActivityRobotCommentRepository
+     *
+     * @param listActivityRobotCommentRepositoryRequest ListActivityRobotCommentRepositoryRequest
+     * @return ListActivityRobotCommentRepositoryResponse
+     * @throws Exception the exception
+     */
+    ListActivityRobotCommentRepositoryResponse listActivityRobotCommentRepository(ListActivityRobotCommentRepositoryRequest listActivityRobotCommentRepositoryRequest) throws Exception;
+
+    /**
+     * addActivityRobotCommentRepository
+     *
+     * @param addActivityRobotCommentRepositoryRequest AddActivityRobotCommentRepositoryRequest
+     * @return AddActivityRobotCommentRepositoryResponse
+     * @throws Exception the exception
+     */
+    AddActivityRobotCommentRepositoryResponse addActivityRobotCommentRepository(AddActivityRobotCommentRepositoryRequest addActivityRobotCommentRepositoryRequest) throws Exception;
+
+    /**
+     * deleteActivityRobotCommentRepository
+     *
+     * @param deleteActivityRobotCommentRepositoryRequest DeleteActivityRobotCommentRepositoryRequest
+     * @return DeleteActivityRobotCommentRepositoryResponse
+     * @throws Exception the exception
+     */
+    DeleteActivityRobotCommentRepositoryResponse deleteActivityRobotCommentRepository(DeleteActivityRobotCommentRepositoryRequest deleteActivityRobotCommentRepositoryRequest) throws Exception;
+
+    /**
+     * updateRobotComment
+     *
+     * @param updateRobotCommentRequest UpdateRobotCommentRequest
+     * @return UpdateRobotCommentResponse
+     * @throws Exception the exception
+     */
+    UpdateRobotCommentResponse updateRobotComment(UpdateRobotCommentRequest updateRobotCommentRequest) throws Exception;
+
+    /**
+     * updateRobotNickName
+     *
+     * @param updateRobotNickNameRequest UpdateRobotNickNameRequest
+     * @return UpdateRobotNickNameResponse
+     * @throws Exception the exception
+     */
+    UpdateRobotNickNameResponse updateRobotNickName(UpdateRobotNickNameRequest updateRobotNickNameRequest) throws Exception;
 }

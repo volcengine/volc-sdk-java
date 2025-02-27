@@ -33,6 +33,7 @@ import java.io.InputStream;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.net.URI;
+import java.net.URLEncoder;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -133,7 +134,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     private void doUpload(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, byte[] imageData) throws Exception {
         long crc32 = Utils.crc32(imageData);
         String checkSum = String.format("%08x", crc32);
-        String url = String.format("https://%s/%s", host, storeInfo.getStoreUri());
+        String url = String.format("https://%s/%s", host, URLEncoder.encode(storeInfo.getStoreUri(), "UTF-8").replace("%2F", "/").replace("+", "%20"));
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-CRC32", checkSum);
         headers.put("Authorization", storeInfo.getAuth());
@@ -177,7 +178,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
     }
 
     private String initUploadPart(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, boolean isLargeFile) throws Exception {
-        String url = new URI("https", null, host, -1, "/" + storeInfo.getStoreUri(), "uploads", null).toASCIIString();
+        String url = new URI("https", null, host, -1, "/" + URLEncoder.encode(storeInfo.getStoreUri(), "UTF-8").replace("%2F", "/").replace("+", "%20"), "uploads", null).toASCIIString();
         Map<String, String> headers = new HashMap<>();
         headers.put("Authorization", storeInfo.getAuth());
         if (isLargeFile) {
@@ -198,7 +199,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
 
     private String uploadPart(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, String uploadID, long partNumber, byte[] data, boolean isLargeFile) throws Exception {
         String query = String.format("partNumber=%d&uploadID=%s", partNumber, uploadID);
-        String url = new URI("https", null, host, -1, "/" + storeInfo.getStoreUri(), query, null).toASCIIString();
+        String url = new URI("https", null, host, -1, "/" + URLEncoder.encode(storeInfo.getStoreUri(), "UTF-8").replace("%2F", "/").replace("+", "%20"), query, null).toASCIIString();
         Map<String, String> headers = new HashMap<>();
         headers.put("Authorization", storeInfo.getAuth());
         long crc32 = Utils.crc32(data);
@@ -213,7 +214,7 @@ public class ImageXServiceImpl extends BaseServiceImpl implements IImageXService
 
     private void uploadMergePart(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, String uploadID, String[] checkSum, boolean isLargeFile) throws Exception {
         String query = String.format("uploadID=%s", uploadID);
-        String url = new URI("https", null, host, -1, "/" + storeInfo.getStoreUri(), query, null).toASCIIString();
+        String url = new URI("https", null, host, -1, "/" + URLEncoder.encode(storeInfo.getStoreUri(), "UTF-8").replace("%2F", "/").replace("+", "%20"), query, null).toASCIIString();
         String body = IntStream.range(0, checkSum.length).mapToObj(i -> String.format("%d:%s", i, checkSum[i])).collect(Collectors.joining(",", "", ""));
         Map<String, String> headers = new HashMap<>();
         headers.put("Authorization", storeInfo.getAuth());

@@ -2,6 +2,7 @@ package com.volcengine.model.livesaas.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.volcengine.model.beans.livesaas.SiteActivityTag;
+import com.volcengine.model.beans.livesaas.UpdateActivityLoopVideo;
 import lombok.Data;
 
 import java.util.List;
@@ -42,4 +43,10 @@ public class CreateActivityAPIRequest {
     String CreatorName;
     @JSONField(name = "IsReplayAutoOnlineEnable")
     Integer IsReplayAutoOnlineEnable;
+    @JSONField(name = "ActivityType")
+    Integer ActivityType;
+    @JSONField(name = "IsAutoStartEnable")
+    Integer IsAutoStartEnable;
+    @JSONField(name = "LoopVideos")
+    List<UpdateActivityLoopVideo> LoopVideos;
 }

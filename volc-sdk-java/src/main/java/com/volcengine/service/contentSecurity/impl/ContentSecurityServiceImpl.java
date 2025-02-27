@@ -393,4 +393,64 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
 
         return JSON.parseObject(response.getData(), ContentSecurityUploadImgResponse.class);
     }
+
+    @Override
+    public ContentSecurityTextRiskStatisticsResponse GetTextStatistics(GetContentSecurityStatisticsRequest request) throws Exception {
+        RawResponse response = json(Const.GetTextStatisticsOpen, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityTextRiskStatisticsResponse.class);
+    }
+
+    @Override
+    public ContentSecurityImageRiskStatisticsResponse GetImageStatistics(GetContentSecurityStatisticsRequest request) throws Exception {
+        RawResponse response = json(Const.GetImageStatisticsOpen, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityImageRiskStatisticsResponse.class);
+    }
+
+    @Override
+    public ContentSecurityAudioRiskStatisticsResponse GetAudioStatistics(GetContentSecurityStatisticsRequest request) throws Exception {
+        RawResponse response = json(Const.GetAudioStatisticsOpen, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityAudioRiskStatisticsResponse.class);
+    }
+
+    @Override
+    public ContentSecurityVideoRiskStatisticsResponse GetVideoStatistics(GetContentSecurityStatisticsRequest request) throws Exception {
+        RawResponse response = json(Const.GetVideoStatisticsOpen, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityVideoRiskStatisticsResponse.class);
+    }
+
+    @Override
+    public ContentSecurityAudioRiskStatisticsResponse GetAudioLiveStatistics(GetContentSecurityStatisticsRequest request) throws Exception {
+        RawResponse response = json(Const.GetAudioLiveStatisticsOpen, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityAudioRiskStatisticsResponse.class);
+    }
+
+    @Override
+    public ContentSecurityVideoRiskStatisticsResponse GetVideoLiveStatistics(GetContentSecurityStatisticsRequest request) throws Exception {
+        RawResponse response = json(Const.GetVideoLiveStatisticsOpen, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), ContentSecurityVideoRiskStatisticsResponse.class);
+    }
 }

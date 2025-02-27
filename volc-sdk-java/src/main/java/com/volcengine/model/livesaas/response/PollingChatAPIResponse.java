@@ -40,6 +40,8 @@ public class PollingChatAPIResponse {
         Integer LikeCount;
         @JSONField(name = "AudienceGroupId")
         Long AudienceGroupId;
+        @JSONField(name = "LLMAnalyzeResult")
+        String LLMAnalyzeResult;
     }
 
     @Data

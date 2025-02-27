@@ -9,4 +9,6 @@ import java.util.List;
 public class GetActivityRobotCommentConfigRequest {
     @JSONField(name = "ActivityId")
     Long ActivityId;
+    @JSONField(name = "RobotCommentRepositoryId")
+    Long RobotCommentRepositoryId;
 }

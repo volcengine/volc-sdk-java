@@ -3,6 +3,7 @@ package com.volcengine.service.vikingDB;
 import com.volcengine.service.vikingDB.common.DataObject;
 import com.volcengine.service.vikingDB.common.ScalarOrder;
 import com.volcengine.service.vikingDB.common.SearchParam;
+import com.volcengine.service.vikingDB.common.SearchWithMultiModalParam;
 import com.volcengine.service.vikingDB.common.VectorOrder;
 import org.junit.Test;
 
@@ -74,5 +75,16 @@ public class IndexSearchTest {
         for (DataObject data : datas) {
             System.out.println(data);
         }
+    }
+
+    @Test
+    public void testIndexSearchWithMultiModal() throws Exception {
+        VikingDBService vikingDBService = BaseService.getService();
+        Index index = vikingDBService.getIndex("test_coll_for_sdk_with_vectorize", "index_hnsw_hybrid");
+        List<DataObject> datas = index.searchWithMultiModal(new SearchWithMultiModalParam()
+                .setText("1")
+                .setImage("tos://your_bucket/your_object")
+                .build());
+        System.out.println(datas);
     }
 }

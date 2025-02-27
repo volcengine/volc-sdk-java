@@ -17,7 +17,7 @@ public interface VodSubmitBlockTasksRequestOrBuilder extends
    * <code>string FileUrls = 1;</code>
    * @return The fileUrls.
    */
-  java.lang.String getFileUrls();
+  String getFileUrls();
   /**
    * <pre>
    *媒体Url列表：
@@ -39,7 +39,7 @@ public interface VodSubmitBlockTasksRequestOrBuilder extends
    * <code>string Operation = 2;</code>
    * @return The operation.
    */
-  java.lang.String getOperation();
+  String getOperation();
   /**
    * <pre>
    * forbid：禁播，recover：解禁。
@@ -50,4 +50,24 @@ public interface VodSubmitBlockTasksRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getOperationBytes();
+
+  /**
+   * <pre>
+   * 点播空间名，非必填
+   * </pre>
+   *
+   * <code>string SpaceName = 3;</code>
+   * @return The spaceName.
+   */
+  String getSpaceName();
+  /**
+   * <pre>
+   * 点播空间名，非必填
+   * </pre>
+   *
+   * <code>string SpaceName = 3;</code>
+   * @return The bytes for spaceName.
+   */
+  com.google.protobuf.ByteString
+      getSpaceNameBytes();
 }

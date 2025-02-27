@@ -327,4 +327,51 @@ public interface ContentSecurityService extends IBaseService {
      */
     ContentSecurityUploadImgResponse UploadCustImgLibContent(UploadContentSecurityCustImgLibRequest request) throws Exception;
 
+    /**
+     * Get Text Statistics
+     * @param request get content security statistic request
+     * @return text statistic response
+     * @throws Exception the exception
+     */
+    ContentSecurityTextRiskStatisticsResponse GetTextStatistics(GetContentSecurityStatisticsRequest request) throws Exception;
+
+    /**
+     * Get Image Statistics
+     * @param request get content security statistic request
+     * @return image statistic response
+     * @throws Exception the exception
+     */
+    ContentSecurityImageRiskStatisticsResponse GetImageStatistics(GetContentSecurityStatisticsRequest request) throws Exception;
+
+    /**
+     * Get Audio Statistics
+     * @param request get content security statistic request
+     * @return audio statistic response
+     * @throws Exception the exception
+     */
+    ContentSecurityAudioRiskStatisticsResponse GetAudioStatistics(GetContentSecurityStatisticsRequest request) throws Exception;
+
+    /**
+     * Get Video Statistics
+     * @param request get content security statistic request
+     * @return video statistic response
+     * @throws Exception the exception
+     */
+    ContentSecurityVideoRiskStatisticsResponse GetVideoStatistics(GetContentSecurityStatisticsRequest request) throws Exception;
+
+    /**
+     * Get Audio Live Statistics
+     * @param request get content security statistic request
+     * @return audio live statistic response
+     * @throws Exception the exception
+     */
+    ContentSecurityAudioRiskStatisticsResponse GetAudioLiveStatistics(GetContentSecurityStatisticsRequest request) throws Exception;
+
+    /**
+     * Get Video Live Statistics
+     * @param request get content security statistic request
+     * @return video live statistic response
+     * @throws Exception the exception
+     */
+    ContentSecurityVideoRiskStatisticsResponse GetVideoLiveStatistics(GetContentSecurityStatisticsRequest request) throws Exception;
 }

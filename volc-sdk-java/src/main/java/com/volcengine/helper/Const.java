@@ -180,6 +180,12 @@ public class Const {
     public static final String DeleteImageLibContent = "DeleteImageLibContent";
     public static final String UploadImageLibContent = "UploadImageLibContent";
 
+    public static final String GetTextStatisticsOpen = "GetTextStatisticsOpen";
+    public static final String GetImageStatisticsOpen = "GetImageStatisticsOpen";
+    public static final String GetVideoLiveStatisticsOpen = "GetVideoLiveStatisticsOpen";
+    public static final String GetAudioLiveStatisticsOpen = "GetAudioLiveStatisticsOpen";
+    public static final String GetAudioStatisticsOpen = "GetAudioStatisticsOpen";
+    public static final String GetVideoStatisticsOpen = "GetVideoStatisticsOpen";
     // livesaas
     public static final String ListSiteTagAPIV2 = "ListSiteTagAPIV2";
 
@@ -634,6 +640,11 @@ public class Const {
     public static final String EditInteractionScriptComment = "EditInteractionScriptComment";
     public static final String DeleteInteractionScriptComment = "DeleteInteractionScriptComment";
     public static final String UpdateActivityMediaInfo = "UpdateActivityMediaInfo";
+    public static final String ListActivityRobotCommentRepository = "ListActivityRobotCommentRepository";
+    public static final String AddActivityRobotCommentRepository = "AddActivityRobotCommentRepository";
+    public static final String DeleteActivityRobotCommentRepository = "DeleteActivityRobotCommentRepository";
+    public static final String UpdateRobotComment = "UpdateRobotComment";
+    public static final String UpdateRobotNickName = "UpdateRobotNickName";
 
     // translate
     public static final String LangDetect = "LangDetect";

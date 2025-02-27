@@ -11,4 +11,6 @@ public class AddRobotNickNamesRequest {
     Long ActivityId;
     @JSONField(name = "RobotNickNames")
     List<String> RobotNickNames;
+    @JSONField(name = "RobotCommentRepositoryId")
+    Long RobotCommentRepositoryId;
 }

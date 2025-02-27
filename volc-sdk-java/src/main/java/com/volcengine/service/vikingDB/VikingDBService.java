@@ -27,6 +27,7 @@ import com.volcengine.service.vikingDB.common.RawData;
 import com.volcengine.service.vikingDB.common.UpdateCollectionParam;
 import com.volcengine.service.vikingDB.common.UpdateIndexParam;
 import com.volcengine.service.vikingDB.common.VectorIndexParams;
+import com.volcengine.service.vikingDB.common.VectorizeTuple;
 import org.apache.http.Header;
 import org.apache.http.HttpHost;
 import org.apache.http.NameValuePair;
@@ -228,7 +229,7 @@ public class VikingDBService extends BaseServiceImpl {
             }
         }
         LinkedTreeMap<String, Object> data = null;
-        String resData =new String(res.getData(), StandardCharsets.UTF_8);
+        String resData = new String(res.getData(), StandardCharsets.UTF_8);
         try {
             data = gson.fromJson(resData, new TypeToken<LinkedTreeMap<String, Object>>() {
             }.getType());
@@ -276,7 +277,7 @@ public class VikingDBService extends BaseServiceImpl {
             }
         }
         LinkedTreeMap<String, Object> data = null;
-        String resData =new String(res.getData(), StandardCharsets.UTF_8);
+        String resData = new String(res.getData(), StandardCharsets.UTF_8);
         try {
             data = gson.fromJson(resData, new TypeToken<LinkedTreeMap<String, Object>>() {
             }.getType());
@@ -363,11 +364,17 @@ public class VikingDBService extends BaseServiceImpl {
             primaryKey = "__AUTO_ID__";
         params.put("primary_key", primaryKey);
         params.put("fields", fields);
+        List<Map<String, Object>> vectorize = VectorizeTuple.getVectorizeToMapList(
+                createCollectionParam.getVectorize());
+        if (vectorize != null) {
+            params.put("vectorize", vectorize);
+        }
         doRequest("CreateCollection", null, params);
         Collection collection = new Collection(createCollectionParam.getCollectionName(),
                 createCollectionParam.getFields(),
                 this, primaryKey);
         collection.setDescription(createCollectionParam.getDescription());
+        collection.setVectorize(createCollectionParam.getVectorize());
         return collection;
     }
 
@@ -412,10 +419,18 @@ public class VikingDBService extends BaseServiceImpl {
                 fields.add(field);
             }
         }
+        List<VectorizeTuple> vectorize = null;
+        if (res.containsKey("vectorize")) {
+            @SuppressWarnings("unchecked")
+            List<LinkedTreeMap<String, Object>> vectorizeList = (List<LinkedTreeMap<String, Object>>) res.get("vectorize");
+            vectorize = VectorizeTuple.getVectorizeFromList(vectorizeList);
+        }
+
         collection.setCollectionName(collectionName);
         collection.setVikingDBService(this);
         collection.setFields(fields);
         collection.setPrimaryKey(primarykey);
+        collection.setVectorize(vectorize);
 
         return collection;
 
@@ -469,9 +484,16 @@ public class VikingDBService extends BaseServiceImpl {
                 }
             }
             if (item.containsKey("collection_name")) collection.setCollectionName((String) item.get("collection_name"));
+            List<VectorizeTuple> vectorize = null;
+            if (item.containsKey("vectorize")) {
+                @SuppressWarnings("unchecked")
+                List<LinkedTreeMap<String, Object>> vectorizeList = (List<LinkedTreeMap<String, Object>>) item.get("vectorize");
+                vectorize = VectorizeTuple.getVectorizeFromList(vectorizeList);
+            }
             collection.setVikingDBService(this);
             collection.setFields(fields);
             collection.setPrimaryKey(primarykey);
+            collection.setVectorize(vectorize);
             collections.add(collection);
         }
         return collections;

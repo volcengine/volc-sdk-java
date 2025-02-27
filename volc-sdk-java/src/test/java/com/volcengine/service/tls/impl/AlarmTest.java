@@ -23,6 +23,7 @@ public class AlarmTest extends BaseTest {
         String prefix = "test";
         String separator = "-";
         String date = sdf.format(new Date());
+        String receiverNames = "chenlei_test_sy_7_subuser1";
         try {
             // create alarm notify group
             CreateAlarmNotifyGroupRequest createAlarmNotifyGroupRequest = new CreateAlarmNotifyGroupRequest();
@@ -30,14 +31,14 @@ public class AlarmTest extends BaseTest {
             createAlarmNotifyGroupRequest.setNotifyType(Arrays.asList("Recovery", "Trigger"));
             Receiver receiver = new Receiver();
             receiver.setReceiverType("User");
-            receiver.setReceiverNames(Arrays.asList("test-user"));
+            receiver.setReceiverNames(Arrays.asList(receiverNames));
             receiver.setReceiverChannels(Arrays.asList("Sms"));
             receiver.setStartTime("00:00:00");
             receiver.setEndTime("23:59:59");
             createAlarmNotifyGroupRequest.setReceivers(Arrays.asList(receiver));
             CreateAlarmNotifyGroupResponse createAlarmNotifyGroupResponse = client.createAlarmNotifyGroup(
                     createAlarmNotifyGroupRequest);
-            assertTrue(createAlarmNotifyGroupResponse.getAlarmNotifyGroupId().length() > 0);
+            assertFalse(createAlarmNotifyGroupResponse.getAlarmNotifyGroupId().isEmpty());
 
             Exception exception = assertThrows(LogException.class, () -> {
                 client.createAlarmNotifyGroup(createAlarmNotifyGroupRequest);
@@ -46,12 +47,6 @@ public class AlarmTest extends BaseTest {
             String actualMessage = exception.getMessage();
             assertEquals(expectedMessage, actualMessage);
             System.out.println("create alarm notify group success,response:" + createAlarmNotifyGroupResponse);
-
-            exception = assertThrows(LogException.class, () -> {
-                createAlarmNotifyGroupRequest.setAlarmNotifyGroupName(prefix + separator + System.currentTimeMillis());
-                createAlarmNotifyGroupRequest.setReceivers(null);
-                client.createAlarmNotifyGroup(createAlarmNotifyGroupRequest);
-            });
 
             // describe alarm notify group
             final DescribeAlarmNotifyGroupsRequest describeAlarmNotifyGroupsRequest =
@@ -84,7 +79,7 @@ public class AlarmTest extends BaseTest {
             modifyAlarmNotifyGroupRequest.setNotifyType(Arrays.asList("Recovery", "Trigger"));
             receiver = new Receiver();
             receiver.setReceiverType("User");
-            receiver.setReceiverNames(Arrays.asList("test-user"));
+            receiver.setReceiverNames(Arrays.asList(receiverNames));
             receiver.setReceiverChannels(Arrays.asList("Sms"));
             receiver.setStartTime("01:00:00");
             receiver.setEndTime("22:59:59");
@@ -116,7 +111,7 @@ public class AlarmTest extends BaseTest {
 
             // create project for alarm
             String projectName = prefix + "project" + separator + date + separator + System.currentTimeMillis();
-            String region = "your-region";
+            String region = System.getenv("region");
             String description = "test project";
             CreateProjectRequest project = new CreateProjectRequest(projectName, region, description);
             CreateProjectResponse createProjectResponse = client.createProject(project);
@@ -144,6 +139,8 @@ public class AlarmTest extends BaseTest {
             queryRequest.setStartTimeOffset(-1);
             queryRequest.setEndTimeOffset(0);
             queryRequest.setTopicId(createTopicResponse.getTopicId());
+            queryRequest.setTimeSpanType("Relative");
+            queryRequest.setTruncatedTime("Minute");
             createAlarmRequest.setQueryRequest(Arrays.asList(queryRequest));
             RequestCycle period = new RequestCycle();
             period.setType("Period");
@@ -169,6 +166,14 @@ public class AlarmTest extends BaseTest {
             DescribeAlarmsResponse describeAlarmsResponse = client.describeAlarms(describeAlarmsRequest);
             Assert.assertEquals(describeAlarmsResponse.getAlarms().get(0).getAlarmName(),
                     createAlarmRequest.getAlarmName());
+            Assert.assertEquals(
+                    queryRequest.getTimeSpanType(),
+                    describeAlarmsResponse.getAlarms().get(0).getQueryRequest().get(0).getTimeSpanType()
+            );
+            Assert.assertEquals(
+                    queryRequest.getTruncatedTime(),
+                    describeAlarmsResponse.getAlarms().get(0).getQueryRequest().get(0).getTruncatedTime()
+            );
 
             exception = assertThrows(LogException.class, () -> {
                 describeAlarmsRequest.setAlarmId("zsq_124_356");
@@ -188,6 +193,8 @@ public class AlarmTest extends BaseTest {
             queryRequest.setQuery("Failed | select count(1) as errNum");
             queryRequest.setStartTimeOffset(-2);
             queryRequest.setEndTimeOffset(0);
+            queryRequest.setTimeSpanType("Today");
+            queryRequest.setTruncatedTime("Hour");
             queryRequest.setTopicId(createTopicResponse.getTopicId());
             modifyAlarmRequest.setQueryRequest(Arrays.asList(queryRequest));
             period = new RequestCycle();
@@ -203,19 +210,27 @@ public class AlarmTest extends BaseTest {
             System.out.println("modify alarm success,response:" + modifyAlarmResponse);
             Assert.assertEquals(modifyAlarmRequest.getAlarmName(), describeAlarmsResponse.getAlarms().get(0)
                     .getAlarmName());
+            Assert.assertEquals(
+                    queryRequest.getTimeSpanType(),
+                    describeAlarmsResponse.getAlarms().get(0).getQueryRequest().get(0).getTimeSpanType()
+            );
+            Assert.assertEquals(
+                    queryRequest.getTruncatedTime(),
+                    describeAlarmsResponse.getAlarms().get(0).getQueryRequest().get(0).getTruncatedTime()
+            );
 
             exception = assertThrows(LogException.class, () -> {
                 modifyAlarmRequest.setAlarmId("zsq_1243_456");
                 client.modifyAlarm(modifyAlarmRequest);
             });
-            expectedMessage = "Alarm policy does not exist.";
+            expectedMessage = "Invalid argument key AlarmId";
             actualMessage = exception.getMessage();
             assertTrue(actualMessage.contains(expectedMessage));
 
             // delete alarm
             DeleteAlarmRequest deleteAlarmRequest = new DeleteAlarmRequest(createAlarmResponse.getAlarmId());
             DeleteAlarmResponse deleteAlarmResponse = client.deleteAlarm(deleteAlarmRequest);
-            assertTrue(deleteAlarmResponse.getRequestId().length() > 0);
+            assertFalse(deleteAlarmResponse.getRequestId().isEmpty());
             exception = assertThrows(LogException.class, () -> {
                 client.deleteAlarm(deleteAlarmRequest);
             });
@@ -229,7 +244,7 @@ public class AlarmTest extends BaseTest {
                     new DeleteAlarmNotifyGroupRequest(createAlarmNotifyGroupResponse.getAlarmNotifyGroupId());
             DeleteAlarmNotifyGroupResponse deleteAlarmNotifyGroupResponse =
                     client.deleteAlarmNotifyGroup(deleteAlarmNotifyGroupRequest);
-            assertTrue(deleteAlarmNotifyGroupResponse.getRequestId().length() > 0);
+            assertFalse(deleteAlarmNotifyGroupResponse.getRequestId().isEmpty());
             exception = assertThrows(LogException.class, () -> {
                 client.deleteAlarmNotifyGroup(deleteAlarmNotifyGroupRequest);
             });

@@ -9,6 +9,7 @@ public class FieldType {
     public static final String Float32 = "float32";
     public static final String Bool = "bool";
     public static final String Text = "text";
+    public static final String Image = "image";
     public static final String Sparse_Vector = "sparse_vector";
 
 }

@@ -253,6 +253,8 @@ public class Const {
     public static final String NUMBER = "Number";
     public static final String START_TIME_OFFSET = "StartTimeOffset";
     public static final String END_TIME_OFFSET = "EndTimeOffset";
+    public static final String TIME_SPAN_TYPE = "TimeSpanType";
+    public static final String TRUNCATED_TIME = "TruncatedTime";
     public static final String TIME = "Time";
     public static final String ALARM_NOTIFY_GROUPS = "AlarmNotifyGroups";
     public static final String ALARM_PERIOD = "AlarmPeriod";

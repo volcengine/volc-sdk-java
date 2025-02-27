@@ -7,8 +7,26 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DataTest {
+
+    @Test
+    public void testDataUpsertSingle() throws Exception {
+        VikingDBService vikingDBService = BaseService.getService();
+        Collection collection = vikingDBService.getCollection("test_coll_for_sdk_with_vectorize");
+        HashMap<String, Object> fields = new HashMap<>();
+        fields.put("f_id", 1);
+        fields.put("f_string", "doc1");
+        fields.put("f_text1", "text for 1");
+        fields.put("f_text2", "text for 2");
+        fields.put("f_image1", "tos://your_bucket/your_object1");
+        fields.put("f_image2", "tos://your_bucket/your_object2");
+        DataObject data = new DataObject()
+                .setFields(fields)
+                .build();
+        collection.upsertData(data);
+    }
 
     @Test
     public void testDataUpsertBatch() throws Exception {
@@ -17,14 +35,18 @@ public class DataTest {
         int dataNum = 100;
         List<DataObject> dataObjects = new ArrayList<>(dataNum);
         for (int i = 1; i <= dataNum; i++) {
-            HashMap<String,Object> field = new HashMap<>();
-            field.put("f_id", i);
-            field.put("f_vector", DataUtil.genRandomVector(4));
-            field.put("f_string", "doc" + i);
-            field.put("f_int64", DataUtil.genRandomInt64());
-            field.put("f_float32", DataUtil.genRandomDouble());
+            HashMap<String, Object> fields = new HashMap<>();
+            fields.put("f_id", Integer.toString(i));
+            fields.put("f_vector", DataUtil.genRandomVector(4));
+            fields.put("f_string", "doc" + i);
+            fields.put("f_int64", DataUtil.genRandomInt64());
+            fields.put("f_float32", DataUtil.genRandomDouble());
+            Map<String, Double> m = new HashMap<>();
+            m.put("你", DataUtil.genRandomDouble());
+            m.put("好", DataUtil.genRandomDouble());
+            fields.put("f_sparse_vector", m);
             DataObject dataObject1 = new DataObject()
-                    .setFields(field)
+                    .setFields(fields)
                     .setTTL(0)
                     .build();
             dataObjects.add(dataObject1);

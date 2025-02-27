@@ -12,6 +12,7 @@ import com.volcengine.service.vikingDB.common.SearchByIdParam;
 import com.volcengine.service.vikingDB.common.SearchByTextParam;
 import com.volcengine.service.vikingDB.common.SearchByVectorParam;
 import com.volcengine.service.vikingDB.common.SearchParam;
+import com.volcengine.service.vikingDB.common.SearchWithMultiModalParam;
 import com.volcengine.service.vikingDB.common.VectorIndexParams;
 import lombok.Data;
 
@@ -262,6 +263,59 @@ public class Index {
         return getDatas(resData, searchByVectorParam.getOutputFields());
     }
 
+    public List<DataObject> searchWithMultiModal(SearchWithMultiModalParam searchWithMultiModalParam) throws Exception {
+        if (searchWithMultiModalParam.getIsBuild() == 0) {
+            VikingDBException vikingDBException = new VikingDBException(1000031, null, "Param dose not build");
+            throw vikingDBException.getErrorCodeException(1000031, null, "Param dose not build");
+        }
+
+        HashMap<String, Object> orderByRaw = new HashMap<>();
+        if (searchWithMultiModalParam.getText() != null) {
+            orderByRaw.put("text", searchWithMultiModalParam.getText());
+        }
+        if (searchWithMultiModalParam.getImage() != null) {
+            orderByRaw.put("image", searchWithMultiModalParam.getImage());
+        }
+        HashMap<String, Object> search = new HashMap<>();
+        search.put("order_by_raw", orderByRaw);
+        search.put("limit", searchWithMultiModalParam.getLimit());
+        search.put("partition", searchWithMultiModalParam.getPartition());
+        if (searchWithMultiModalParam.getOutputFields() != null)
+            search.put("output_fields", searchWithMultiModalParam.getOutputFields());
+        if (searchWithMultiModalParam.getFilter() != null)
+            search.put("filter", searchWithMultiModalParam.getFilter());
+        if (searchWithMultiModalParam.getDenseWeight() != null)
+            search.put("dense_weight", searchWithMultiModalParam.getDenseWeight());
+        if (searchWithMultiModalParam.getNeedInstruction() != null)
+            search.put("need_instruction", searchWithMultiModalParam.getNeedInstruction());
+        if (searchWithMultiModalParam.getPrimaryKeyIn() != null) {
+            search.put("primary_key_in", searchWithMultiModalParam.getPrimaryKeyIn());
+        }
+        if (searchWithMultiModalParam.getPrimaryKeyNotIn() != null) {
+            search.put("primary_key_not_in", searchWithMultiModalParam.getPrimaryKeyNotIn());
+        }
+        if (searchWithMultiModalParam.getPostProcessInputLimit() != null) {
+            search.put("post_process_input_limit", searchWithMultiModalParam.getPostProcessInputLimit());
+        }
+        if (searchWithMultiModalParam.getPostProcessOps() != null) {
+            search.put("post_process_ops", searchWithMultiModalParam.getPostProcessOps());
+        }
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("collection_name", collectionName);
+        params.put("index_name", indexName);
+        params.put("search", search);
+        Integer remainingRetries = searchWithMultiModalParam.getRetry() ? Constant.MAX_RETRIES : 0;
+        LinkedTreeMap<String, Object> resData = vikingDBService.retryRequest("SearchIndex", null, params, remainingRetries);
+        if (resData == null) {
+            throw new Exception(Constant.NO_RESPONSE_DATA);
+        }
+        return getDatas(resData, searchWithMultiModalParam.getOutputFields());
+    }
+
+    /**
+     * 推荐使用多模态检索方法。支持 纯文本、图片、图文对 的方式检索
+     * @see #searchWithMultiModal
+     */
     public List<DataObject> searchByText(SearchByTextParam searchByTextParam) throws Exception {
         if (searchByTextParam.getIsBuild() == 0) {
             VikingDBException vikingDBException = new VikingDBException(1000031, null, "Param dose not build");

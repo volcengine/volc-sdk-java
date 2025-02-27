@@ -40,6 +40,8 @@ public class GetHotChatAPIResponse {
         Boolean IsPresenter;
         @JSONField(name = "AudienceGroupId")
         Long AudienceGroupId;
+        @JSONField(name = "LLMAnalyzeResult")
+        String LLMAnalyzeResult;
     }
 
     @Data

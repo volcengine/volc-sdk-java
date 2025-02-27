@@ -4,6 +4,7 @@ import com.google.gson.internal.LinkedTreeMap;
 import com.volcengine.service.vikingDB.common.Constant;
 import com.volcengine.service.vikingDB.common.DataObject;
 import com.volcengine.service.vikingDB.common.Field;
+import com.volcengine.service.vikingDB.common.VectorizeTuple;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class Collection {
     private String primaryKey;
     private List<String> indexes = null;
     private String description = "";
+    private List<VectorizeTuple> vectorize = null;
     private HashMap<String, Object> stat = null;
     private String createTime = null;
     private String updateTime = null;
@@ -112,21 +114,21 @@ public class Collection {
             vikingDBService.retryRequest("UpsertData", null, params, Constant.MAX_RETRIES);
         }
     }
-  
+
     public void updateData(DataObject dataObject) throws Exception {
-      HashMap<String, Object> params = validAndPackageData(dataObject, false);
-      vikingDBService.retryRequest("UpdateData", null, params, Constant.MAX_RETRIES);
+        HashMap<String, Object> params = validAndPackageData(dataObject, false);
+        vikingDBService.retryRequest("UpdateData", null, params, Constant.MAX_RETRIES);
     }
 
     public void updateData(List<DataObject> dataObjects) throws Exception {
-      HashMap<Integer, ArrayList<Object>> record = validAndPackageDatas(dataObjects);
-      for (Integer key : record.keySet()) {
-          HashMap<String, Object> params = new HashMap<String, Object>();
-          params.put("collection_name", collectionName);
-          params.put("fields", record.get(key));
-          params.put("ttl", key);
-          vikingDBService.retryRequest("UpdateData", null, params, Constant.MAX_RETRIES);
-      }
+        HashMap<Integer, ArrayList<Object>> record = validAndPackageDatas(dataObjects);
+        for (Integer key : record.keySet()) {
+            HashMap<String, Object> params = new HashMap<String, Object>();
+            params.put("collection_name", collectionName);
+            params.put("fields", record.get(key));
+            params.put("ttl", key);
+            vikingDBService.retryRequest("UpdateData", null, params, Constant.MAX_RETRIES);
+        }
     }
 
     public <T> void deleteData(T id) throws Exception {

@@ -4219,4 +4219,79 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public ListActivityRobotCommentRepositoryResponse listActivityRobotCommentRepository(ListActivityRobotCommentRepositoryRequest listActivityRobotCommentRepositoryRequest) throws Exception {
+        RawResponse response = query(Const.ListActivityRobotCommentRepository, Utils.paramsToPair(listActivityRobotCommentRepositoryRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListActivityRobotCommentRepositoryResponse res = JSON.parseObject(response.getData(), ListActivityRobotCommentRepositoryResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public AddActivityRobotCommentRepositoryResponse addActivityRobotCommentRepository(AddActivityRobotCommentRepositoryRequest addActivityRobotCommentRepositoryRequest) throws Exception {
+        RawResponse response = json(Const.AddActivityRobotCommentRepository, new ArrayList<>(), JSON.toJSONString(addActivityRobotCommentRepositoryRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        AddActivityRobotCommentRepositoryResponse res = JSON.parseObject(response.getData(), AddActivityRobotCommentRepositoryResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteActivityRobotCommentRepositoryResponse deleteActivityRobotCommentRepository(DeleteActivityRobotCommentRepositoryRequest deleteActivityRobotCommentRepositoryRequest) throws Exception {
+        RawResponse response = json(Const.DeleteActivityRobotCommentRepository, new ArrayList<>(), JSON.toJSONString(deleteActivityRobotCommentRepositoryRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteActivityRobotCommentRepositoryResponse res = JSON.parseObject(response.getData(), DeleteActivityRobotCommentRepositoryResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateRobotCommentResponse updateRobotComment(UpdateRobotCommentRequest updateRobotCommentRequest) throws Exception {
+        RawResponse response = json(Const.UpdateRobotComment, new ArrayList<>(), JSON.toJSONString(updateRobotCommentRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateRobotCommentResponse res = JSON.parseObject(response.getData(), UpdateRobotCommentResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateRobotNickNameResponse updateRobotNickName(UpdateRobotNickNameRequest updateRobotNickNameRequest) throws Exception {
+        RawResponse response = json(Const.UpdateRobotNickName, new ArrayList<>(), JSON.toJSONString(updateRobotNickNameRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateRobotNickNameResponse res = JSON.parseObject(response.getData(), UpdateRobotNickNameResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

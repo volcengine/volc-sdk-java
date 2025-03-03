@@ -1,5 +1,8 @@
 Change log
 
+2025-03-03 Bumped to version v1.0.208
+- Fixed a version detection bug that occurred when v1 and v2 SDKs were used simultaneously in the same application.
+
 2025-02-27 Bumped to version v1.0.207
 - Updated apis for contentSecurity/imagex/livesaas/vikingDB/vod
 

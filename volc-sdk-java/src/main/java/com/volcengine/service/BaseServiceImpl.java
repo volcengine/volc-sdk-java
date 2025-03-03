@@ -134,10 +134,11 @@ public abstract class BaseServiceImpl implements IBaseService {
 
         final Properties properties = new Properties();
         try {
-            properties.load(this.getClass().getClassLoader().getResourceAsStream("com/volcengine/version"));
+            properties.load(this.getClass().getClassLoader().getResourceAsStream("com/volcengine/sdkversion"));
             this.VERSION = properties.getProperty("version");
         } catch (IOException e) {
             LOG.error("Read file version file fail.");
+            this.VERSION = "UNKNOWN";
         }
     }
 

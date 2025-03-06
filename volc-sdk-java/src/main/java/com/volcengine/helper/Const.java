@@ -106,6 +106,7 @@ public class Const {
     public static final String GameProtect = "GameProtect";
     // business security
     public static final String RiskDetection = "RiskDetection";
+    public static final String DeviceId = "DeviceId";
     public static final String AsyncRiskDetection = "AsyncRiskDetection";
     public static  final  String CreateApp = "CreateApp";
     public static final String ListApps = "ListApps";
@@ -645,6 +646,14 @@ public class Const {
     public static final String DeleteActivityRobotCommentRepository = "DeleteActivityRobotCommentRepository";
     public static final String UpdateRobotComment = "UpdateRobotComment";
     public static final String UpdateRobotNickName = "UpdateRobotNickName";
+    public static final String CreateActivityRedPacket = "CreateActivityRedPacket";
+    public static final String UpdateActivityRedPacket = "UpdateActivityRedPacket";
+    public static final String DeleteActivityRedPacket = "DeleteActivityRedPacket";
+    public static final String ListActivityRedPacket = "ListActivityRedPacket";
+    public static final String GetActivityRedPacket = "GetActivityRedPacket";
+    public static final String CreateVipOrBlackListUserInfo = "CreateVipOrBlackListUserInfo";
+    public static final String GetVipOrBlackListUserInfo = "GetVipOrBlackListUserInfo";
+    public static final String DeleteVipOrBlackListUserInfo = "DeleteVipOrBlackListUserInfo";
 
     // translate
     public static final String LangDetect = "LangDetect";

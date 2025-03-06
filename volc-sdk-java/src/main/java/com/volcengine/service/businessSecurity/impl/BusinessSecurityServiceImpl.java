@@ -42,6 +42,15 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
     }
 
     @Override
+    public DeviceIdResponse DeviceId(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.DeviceId, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), DeviceIdResponse.class);
+    }
+    @Override
     public RiskDetectionResponse RiskDetection(RiskDetectionRequest riskDetectionRequest) throws Exception {
         RawResponse response = json(Const.RiskDetection, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

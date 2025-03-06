@@ -140,4 +140,5 @@ public interface BusinessSecurityService extends IBaseService {
 
     ActivateRiskBasePackageResponse ActivateRiskBasePackage(ActivateRiskBasePackageRequest request)throws Exception;
 
+    DeviceIdResponse DeviceId(RiskDetectionRequest request)throws Exception;
 }

@@ -107,6 +107,15 @@ public class BusinessSecurityServiceTest extends TestCase {
         System.out.println(response);
     }
 
+    public void testDeviceId()throws Exception{
+        BusinessSecurityService service = initService();
+        RiskDetectionRequest request = new RiskDetectionRequest();
+        request.setAppId(1);
+        request.setService("device_id");
+        request.setParameters("");
+        DeviceIdResponse response = service.DeviceId(request);
+        System.out.println(response);
+    }
 
     public void testActivateSampleData()throws Exception{
         BusinessSecurityService service = initService();

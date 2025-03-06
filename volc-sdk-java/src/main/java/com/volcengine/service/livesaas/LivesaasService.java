@@ -2445,4 +2445,68 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     UpdateRobotNickNameResponse updateRobotNickName(UpdateRobotNickNameRequest updateRobotNickNameRequest) throws Exception;
+
+    /**
+     * createActivityRedPacket
+     * @param createActivityRedPacketRequest CreateActivityRedPacketRequest
+     * @return CreateActivityRedPacketResponse
+     * @throws Exception the exception
+     */
+    CreateActivityRedPacketResponse createActivityRedPacket(CreateActivityRedPacketRequest createActivityRedPacketRequest) throws Exception;
+
+    /**
+     * updateActivityRedPacket
+     * @param updateActivityRedPacketRequest UpdateActivityRedPacketRequest
+     * @return UpdateActivityRedPacketResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityRedPacketResponse updateActivityRedPacket(UpdateActivityRedPacketRequest updateActivityRedPacketRequest) throws Exception;
+
+    /**
+     * deleteActivityRedPacket
+     * @param deleteActivityRedPacketRequest DeleteActivityRedPacketRequest
+     * @return DeleteActivityRedPacketResponse
+     * @throws Exception the exception
+     */
+    DeleteActivityRedPacketResponse deleteActivityRedPacket(DeleteActivityRedPacketRequest deleteActivityRedPacketRequest) throws Exception;
+
+    /**
+     * listActivityRedPacket
+     * @param listActivityRedPacketRequest ListActivityRedPacketRequest
+     * @return ListActivityRedPacketResponse
+     * @throws Exception the exception
+     */
+    ListActivityRedPacketResponse listActivityRedPacket(ListActivityRedPacketRequest listActivityRedPacketRequest) throws Exception;
+
+    /**
+     * getActivityRedPacket
+     * @param getActivityRedPacketRequest GetActivityRedPacketRequest
+     * @return GetActivityRedPacketResponse
+     * @throws Exception the exception
+     */
+    GetActivityRedPacketResponse getActivityRedPacket(GetActivityRedPacketRequest getActivityRedPacketRequest) throws Exception;
+
+    /**
+     * createVipOrBlackListUserInfo
+     * @param createVipOrBlackListUserInfoRequest CreateVipOrBlackListUserInfoRequest
+     * @return CreateVipOrBlackListUserInfoResponse
+     * @throws Exception the exception
+     */
+    CreateVipOrBlackListUserInfoResponse createVipOrBlackListUserInfo(CreateVipOrBlackListUserInfoRequest createVipOrBlackListUserInfoRequest) throws Exception;
+
+    /**
+     * getVipOrBlackListUserInfo
+     * @param getVipOrBlackListUserInfoRequest GetVipOrBlackListUserInfoRequest
+     * @return GetVipOrBlackListUserInfoResponse
+     * @throws Exception the exception
+     */
+    GetVipOrBlackListUserInfoResponse getVipOrBlackListUserInfo(GetVipOrBlackListUserInfoRequest getVipOrBlackListUserInfoRequest) throws Exception;
+
+    /**
+     * deleteVipOrBlackListUserInfo
+     * @param deleteVipOrBlackListUserInfoRequest DeleteVipOrBlackListUserInfoRequest
+     * @return DeleteVipOrBlackListUserInfoResponse
+     * @throws Exception the exception
+     */
+    DeleteVipOrBlackListUserInfoResponse deleteVipOrBlackListUserInfo(DeleteVipOrBlackListUserInfoRequest deleteVipOrBlackListUserInfoRequest) throws Exception;
 }

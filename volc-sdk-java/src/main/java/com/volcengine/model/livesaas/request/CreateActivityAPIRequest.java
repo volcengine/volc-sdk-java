@@ -43,6 +43,8 @@ public class CreateActivityAPIRequest {
     String CreatorName;
     @JSONField(name = "IsReplayAutoOnlineEnable")
     Integer IsReplayAutoOnlineEnable;
+    @JSONField(name = "Vid")
+    String Vid;
     @JSONField(name = "ActivityType")
     Integer ActivityType;
     @JSONField(name = "IsAutoStartEnable")

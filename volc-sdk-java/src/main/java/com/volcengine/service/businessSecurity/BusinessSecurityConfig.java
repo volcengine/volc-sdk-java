@@ -68,6 +68,20 @@ public class BusinessSecurityConfig {
                         }
                     }
             ));
+            put(Const.DeviceId, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DeviceId));
+                                    add(new BasicNameValuePair("Version", "2021-02-02"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.AsyncRiskDetection, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

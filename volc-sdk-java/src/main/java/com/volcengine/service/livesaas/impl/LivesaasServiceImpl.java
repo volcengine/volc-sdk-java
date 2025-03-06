@@ -4294,4 +4294,124 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public CreateActivityRedPacketResponse createActivityRedPacket(CreateActivityRedPacketRequest createActivityRedPacketRequest) throws Exception {
+        RawResponse response = json(Const.CreateActivityRedPacket, new ArrayList<>(), JSON.toJSONString(createActivityRedPacketRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CreateActivityRedPacketResponse res = JSON.parseObject(response.getData(), CreateActivityRedPacketResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateActivityRedPacketResponse updateActivityRedPacket(UpdateActivityRedPacketRequest updateActivityRedPacketRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityRedPacket, new ArrayList<>(), JSON.toJSONString(updateActivityRedPacketRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateActivityRedPacketResponse res = JSON.parseObject(response.getData(), UpdateActivityRedPacketResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteActivityRedPacketResponse deleteActivityRedPacket(DeleteActivityRedPacketRequest deleteActivityRedPacketRequest) throws Exception {
+        RawResponse response = json(Const.DeleteActivityRedPacket, new ArrayList<>(), JSON.toJSONString(deleteActivityRedPacketRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteActivityRedPacketResponse res = JSON.parseObject(response.getData(), DeleteActivityRedPacketResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListActivityRedPacketResponse listActivityRedPacket(ListActivityRedPacketRequest listActivityRedPacketRequest) throws Exception {
+        RawResponse response = query(Const.ListActivityRedPacket, Utils.paramsToPair(listActivityRedPacketRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListActivityRedPacketResponse res = JSON.parseObject(response.getData(), ListActivityRedPacketResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetActivityRedPacketResponse getActivityRedPacket(GetActivityRedPacketRequest getActivityRedPacketRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityRedPacket, Utils.paramsToPair(getActivityRedPacketRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityRedPacketResponse res = JSON.parseObject(response.getData(), GetActivityRedPacketResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public CreateVipOrBlackListUserInfoResponse createVipOrBlackListUserInfo(CreateVipOrBlackListUserInfoRequest createVipOrBlackListUserInfoRequest) throws Exception {
+        RawResponse response = json(Const.CreateVipOrBlackListUserInfo, new ArrayList<>(), JSON.toJSONString(createVipOrBlackListUserInfoRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CreateVipOrBlackListUserInfoResponse res = JSON.parseObject(response.getData(), CreateVipOrBlackListUserInfoResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetVipOrBlackListUserInfoResponse getVipOrBlackListUserInfo(GetVipOrBlackListUserInfoRequest getVipOrBlackListUserInfoRequest) throws Exception {
+        RawResponse response = query(Const.GetVipOrBlackListUserInfo, Utils.paramsToPair(getVipOrBlackListUserInfoRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetVipOrBlackListUserInfoResponse res = JSON.parseObject(response.getData(), GetVipOrBlackListUserInfoResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteVipOrBlackListUserInfoResponse deleteVipOrBlackListUserInfo(DeleteVipOrBlackListUserInfoRequest deleteVipOrBlackListUserInfoRequest) throws Exception {
+        RawResponse response = json(Const.DeleteVipOrBlackListUserInfo, new ArrayList<>(), JSON.toJSONString(deleteVipOrBlackListUserInfoRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteVipOrBlackListUserInfoResponse res = JSON.parseObject(response.getData(), DeleteVipOrBlackListUserInfoResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

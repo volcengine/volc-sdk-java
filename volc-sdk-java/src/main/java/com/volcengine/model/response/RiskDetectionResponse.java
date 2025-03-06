@@ -43,5 +43,7 @@ public class RiskDetectionResponse {
         private String devSecId;
         @JSONField(name = "TokenCreateTs")
         private Integer tokenCreateTs;
+        @JSONField(name = "AccDevSecID")
+        private String accDevSecId;
     }
 }

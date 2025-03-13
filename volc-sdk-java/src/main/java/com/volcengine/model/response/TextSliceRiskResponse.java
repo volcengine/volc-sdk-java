@@ -72,6 +72,7 @@ public class TextSliceRiskResponse {
         private List<Position> positions;
     }
 
+    @Data
     public static class Position {
         @JSONField(name = "StartPos")
         private int startPos;

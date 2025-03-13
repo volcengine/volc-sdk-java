@@ -34,4 +34,12 @@ public class GetUserBehaviorListRequestAPIV2 {
     Long ViewDurationGte;
     @JSONField(name = "ViewDurationLte")
     Long ViewDurationLte;
+    @JSONField(name = "UserId")
+    Long UserId;
+    @JSONField(name = "ExternalUserId")
+    String ExternalUserId;
+    @JSONField(name = "InviterId")
+    Long InviterId;
+    @JSONField(name = "InviterExternalId")
+    String InviterExternalId;
 }

@@ -13,7 +13,7 @@ public class SignAuthFile {
     private DocType fileType;
 
     /**
-     * val是图片list（火山控制台直接传图片 url）
+     * 图片的base64内容
      */
     @JSONField(name = "fileContent")
     private String fileContent;
@@ -24,6 +24,12 @@ public class SignAuthFile {
     @JSONField(name = "fileSuffix")
     private String fileSuffix;
 
+    /**
+     * 上传图片的url
+     */
+    @JSONField(name = "fileUrl")
+    private String fileUrl;
+
     public SignAuthFile() {
     }
 
@@ -31,5 +37,12 @@ public class SignAuthFile {
         this.fileContent = fileContent;
         this.fileSuffix = fileSuffix;
         this.fileType = fileType;
+    }
+
+    public SignAuthFile(DocType fileType, String fileContent, String fileSuffix, String fileUrl) {
+        this.fileContent = fileContent;
+        this.fileSuffix = fileSuffix;
+        this.fileType = fileType;
+        this.fileUrl = fileUrl;
     }
 }

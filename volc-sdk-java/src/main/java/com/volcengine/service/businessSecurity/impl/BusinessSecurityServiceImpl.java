@@ -50,6 +50,71 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
 
         return JSON.parseObject(response.getData(), DeviceIdResponse.class);
     }
+
+    @Override
+    public ActivationRiskUploadSampleDataResponse ActivationRiskUploadSampleData(ActivationRiskUploadSampleDataRequest request) throws Exception {
+        RawResponse response = json(Const.ActivationRiskUploadSampleData, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), ActivationRiskUploadSampleDataResponse.class);
+    }
+
+    @Override
+    public ActivationRiskUploadBasePackageResponse ActivationRiskUploadBasePackage(ActivationRiskUploadBasePackageRequest request) throws Exception {
+        RawResponse response = json(Const.ActivationRiskUploadBasePackage, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), ActivationRiskUploadBasePackageResponse.class);
+    }
+
+    @Override
+    public ActivationRiskCompleteBasePackageResponse ActivationRiskCompleteBasePackage(ActivationRiskCompleteBasePackageRequest request) throws Exception {
+        RawResponse response = json(Const.ActivationRiskCompleteBasePackage, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), ActivationRiskCompleteBasePackageResponse.class);
+    }
+
+    @Override
+    public ActivationRiskCompleteSampleDataResponse ActivationRiskCompleteSampleData(ActivationRiskCompleteSampleDataRequest request) throws Exception {
+
+        RawResponse response = json(Const.ActivationRiskCompleteSampleData, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), ActivationRiskCompleteSampleDataResponse.class);
+    }
+
+    @Override
+    public ActivationRiskDetectRiskResponse ActivationRiskDetectRisk(ActivationRiskDetectRiskRequest request) throws Exception {
+        RawResponse response = json(Const.ActivationRiskDetectRisk, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), ActivationRiskDetectRiskResponse.class);
+    }
+
+    @Override
+    public ActivationRiskAsyncDetectRiskResponse ActivationRiskAsyncDetectRisk(ActivationRiskAsyncDetectRiskRequest request) throws Exception {
+        RawResponse response = json(Const.ActivationRiskAsyncDetectRisk, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), ActivationRiskAsyncDetectRiskResponse.class);
+    }
+
+    @Override
+    public ActivationRiskCancelAsyncDetectRiskResponse ActivationRiskCancelAsyncDetectRisk(ActivationRiskCancelAsyncDetectRiskRequest request) throws Exception {
+        RawResponse response = json(Const.ActivationRiskCancelAsyncDetectRisk, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), ActivationRiskCancelAsyncDetectRiskResponse.class);
+    }
+
     @Override
     public RiskDetectionResponse RiskDetection(RiskDetectionRequest riskDetectionRequest) throws Exception {
         RawResponse response = json(Const.RiskDetection, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));

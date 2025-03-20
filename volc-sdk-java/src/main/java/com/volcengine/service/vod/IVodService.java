@@ -351,6 +351,24 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodUpdateFileStorageClassResponse updateFileStorageClass(com.volcengine.service.vod.model.request.VodUpdateFileStorageClassRequest input) throws Exception;
 	
 	/**
+     * getInnerAuditURLs.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetInnerAuditURLsRequest
+     * @return com.volcengine.service.vod.model.response.VodGetInnerAuditURLsResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodGetInnerAuditURLsResponse getInnerAuditURLs(com.volcengine.service.vod.model.request.VodGetInnerAuditURLsRequest input) throws Exception;
+
+	/**
+     * getAdAuditResultByVid.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetAdAuditResultByVidRequest
+     * @return com.volcengine.service.vod.model.response.VodGetAdAuditResultByVidResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodGetAdAuditResultByVidResponse getAdAuditResultByVid(com.volcengine.service.vod.model.request.VodGetAdAuditResultByVidRequest input) throws Exception;
+
+	/**
      * deleteMediaTosFile.
      *
      * @param input com.volcengine.service.vod.model.request.VodDeleteMediaTosFileRequest

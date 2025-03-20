@@ -48,6 +48,8 @@ public class Const {
     public static final String UpdateAccessKey = "UpdateAccessKey";
     public static final String CreatePolicy = "CreatePolicy";
     public static final String GetPolicy = "GetPolicy";
+
+
     public static final String UpdatePolicy = "UpdatePolicy";
     public static final String ListPolicies = "ListPolicies";
     public static final String DeletePolicy = "DeletePolicy";
@@ -139,6 +141,13 @@ public class Const {
     public static final String CancelActivateRiskResult = "CancelActivateRiskResult";
 
 
+    public static final String ActivationRiskUploadBasePackage = "ActivationRiskUploadBasePackage";
+    public static final String ActivationRiskUploadSampleData = "ActivationRiskUploadSampleData";
+    public static final String ActivationRiskCompleteBasePackage = "ActivationRiskCompleteBasePackage";
+    public static final String ActivationRiskCompleteSampleData = "ActivationRiskCompleteSampleData";
+    public static final String ActivationRiskDetectRisk = "ActivationRiskDetectRisk";
+    public static final String ActivationRiskAsyncDetectRisk = "ActivationRiskAsyncDetectRisk";
+    public static final String ActivationRiskCancelAsyncDetectRisk = "ActivationRiskCancelAsyncDetectRisk";
     // content security
     public static final String ImageContentRisk = "ImageContentRisk";
     public static final String ImageContentRiskV2 = "ImageContentRiskV2";
@@ -629,7 +638,7 @@ public class Const {
     public static final String CreateOfficeConfig = "CreateOfficeConfig";
     public static final String UpdateOfficeConfig = "UpdateOfficeConfig";
     public static final String DeleteOfficeConfig = "DeleteOfficeConfig";
-    
+
     public static final String GetActivityReplayPlayerConfig = "GetActivityReplayPlayerConfig";
     public static final String UpdateActivityReplayPlayerConfig = "UpdateActivityReplayPlayerConfig";
 

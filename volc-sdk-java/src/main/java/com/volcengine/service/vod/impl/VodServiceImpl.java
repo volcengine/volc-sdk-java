@@ -1197,6 +1197,44 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}
+
+
+	/**
+     * getInnerAuditURLs.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetInnerAuditURLsRequest
+     * @return com.volcengine.service.vod.model.response.VodGetInnerAuditURLsResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodGetInnerAuditURLsResponse getInnerAuditURLs(com.volcengine.service.vod.model.request.VodGetInnerAuditURLsRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = json(com.volcengine.service.vod.Const.GetInnerAuditURLs, new ArrayList<>(), JsonFormat.printer().print(input));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodGetInnerAuditURLsResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetInnerAuditURLsResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+
+
+	/**
+     * getAdAuditResultByVid.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetAdAuditResultByVidRequest
+     * @return com.volcengine.service.vod.model.response.VodGetAdAuditResultByVidResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodGetAdAuditResultByVidResponse getAdAuditResultByVid(com.volcengine.service.vod.model.request.VodGetAdAuditResultByVidRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = json(com.volcengine.service.vod.Const.GetAdAuditResultByVid, new ArrayList<>(), JsonFormat.printer().print(input));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodGetAdAuditResultByVidResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetAdAuditResultByVidResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
 	
 	
 	/**

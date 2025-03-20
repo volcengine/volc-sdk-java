@@ -225,6 +225,26 @@ public final class VodMedia {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodUpdateFileStorageClassData_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodGetInnerAuditURLsData_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodGetInnerAuditURLsData_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodGetAdAuditResultByVidData_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodGetAdAuditResultByVidData_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodAuditInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodAuditInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_AuditResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_AuditResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Vod_Models_Business_VodUpdateMediaStorageClassData_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -407,32 +427,45 @@ public final class VodMedia {
       "edFileName\030\006 \001(\t\022\023\n\013DownloadUrl\030\007 \001(\t\";\n" +
       "\021VodFileUpdateInfo\022\020\n\010FileName\030\001 \001(\t\022\024\n\014" +
       "StorageClass\030\002 \001(\t\":\n\035VodUpdateFileStora" +
-      "geClassData\022\031\n\021NotExistFileNames\030\001 \003(\t\"6" +
-      "\n\036VodUpdateMediaStorageClassData\022\024\n\014NotE" +
-      "xistVids\030\001 \003(\t\"b\n\035VodSubmitBlockMediaTas" +
-      "kResult\022\024\n\014NotExistVids\030\001 \003(\t\022\023\n\013Blocked" +
-      "Vids\030\002 \003(\t\022\026\n\016UnblockingVids\030\003 \003(\t\"d\n\037Vo" +
-      "dSubmitUnblockMediaTaskResult\022\024\n\014NotExis" +
-      "tVids\030\001 \003(\t\022\025\n\rUnblockedVids\030\002 \003(\t\022\024\n\014Bl" +
-      "ockingVids\030\003 \003(\t\"\204\001\n\036VodQueryMediaBlockS" +
-      "tatusResult\022\024\n\014NotExistVids\030\001 \003(\t\022L\n\022Med" +
-      "iaBlockStatuses\030\002 \003(\01320.Volcengine.Vod.M" +
-      "odels.Business.MediaBlockStatus\"/\n\020Media" +
-      "BlockStatus\022\013\n\003Vid\030\001 \001(\t\022\016\n\006Status\030\002 \001(\t" +
-      "*\320\002\n VodFrameExtractingOptionForAudit\022-\n" +
-      ")UndefinedVodFrameExtractingOptionForAud" +
-      "it\020\000\022\'\n#FpsVodFrameExtractingOptionForAu" +
-      "dit\020\001\0222\n.NumberOfFramesVodFrameExtractin" +
-      "gOptionForAudit\020\002\022,\n(CutTimesVodFrameExt" +
-      "ractingOptionForAudit\020\003\022:\n6FpsLimitNumbe" +
-      "rOfFramesVodFrameExtractingOptionForAudi" +
-      "t\020\004\0226\n2OnlyFirstLastFrameVodFrameExtract" +
-      "ingOptionForAudit\020\005B\314\001\n)com.volcengine.s" +
-      "ervice.vod.model.businessB\010VodMediaP\001ZAg" +
-      "ithub.com/volcengine/volc-sdk-golang/ser" +
-      "vice/vod/models/business\240\001\001\330\001\001\302\002\000\312\002 Volc" +
-      "\\Service\\Vod\\Models\\Business\342\002#Volc\\Serv" +
-      "ice\\Vod\\Models\\GPBMetadatab\006proto3"
+      "geClassData\022\031\n\021NotExistFileNames\030\001 \003(\t\"(" +
+      "\n\030VodGetInnerAuditURLsData\022\014\n\004Urls\030\001 \003(\t" +
+      "\"c\n\034VodGetAdAuditResultByVidData\022C\n\rVodA" +
+      "uditInfos\030\001 \003(\0132,.Volcengine.Vod.Models." +
+      "Business.VodAuditInfo\"\251\002\n\014VodAuditInfo\022\016" +
+      "\n\006FileId\030\001 \001(\t\022\020\n\010FileName\030\002 \001(\t\022\020\n\010File" +
+      "Type\030\003 \001(\t\022\022\n\nDefinition\030\004 \001(\t\022\016\n\006Format" +
+      "\030\005 \001(\t\022\r\n\005Codec\030\006 \001(\t\022\017\n\007Quality\030\007 \001(\t\022\017" +
+      "\n\007Bitrate\030\010 \001(\003\022\020\n\010CreateAt\030\t \001(\003\022\020\n\010Upd" +
+      "ateAt\030\n \001(\003\022\024\n\014AdvertiserId\030\013 \001(\003\022\024\n\014Bus" +
+      "inessType\030\014 \001(\t\022@\n\013AuditResult\030\r \001(\0132+.V" +
+      "olcengine.Vod.Models.Business.AuditResul" +
+      "t\"-\n\013AuditResult\022\016\n\006Status\030\001 \001(\t\022\016\n\006Reas" +
+      "on\030\002 \001(\t\"6\n\036VodUpdateMediaStorageClassDa" +
+      "ta\022\024\n\014NotExistVids\030\001 \003(\t\"b\n\035VodSubmitBlo" +
+      "ckMediaTaskResult\022\024\n\014NotExistVids\030\001 \003(\t\022" +
+      "\023\n\013BlockedVids\030\002 \003(\t\022\026\n\016UnblockingVids\030\003" +
+      " \003(\t\"d\n\037VodSubmitUnblockMediaTaskResult\022" +
+      "\024\n\014NotExistVids\030\001 \003(\t\022\025\n\rUnblockedVids\030\002" +
+      " \003(\t\022\024\n\014BlockingVids\030\003 \003(\t\"\204\001\n\036VodQueryM" +
+      "ediaBlockStatusResult\022\024\n\014NotExistVids\030\001 " +
+      "\003(\t\022L\n\022MediaBlockStatuses\030\002 \003(\01320.Volcen" +
+      "gine.Vod.Models.Business.MediaBlockStatu" +
+      "s\"/\n\020MediaBlockStatus\022\013\n\003Vid\030\001 \001(\t\022\016\n\006St" +
+      "atus\030\002 \001(\t*\320\002\n VodFrameExtractingOptionF" +
+      "orAudit\022-\n)UndefinedVodFrameExtractingOp" +
+      "tionForAudit\020\000\022\'\n#FpsVodFrameExtractingO" +
+      "ptionForAudit\020\001\0222\n.NumberOfFramesVodFram" +
+      "eExtractingOptionForAudit\020\002\022,\n(CutTimesV" +
+      "odFrameExtractingOptionForAudit\020\003\022:\n6Fps" +
+      "LimitNumberOfFramesVodFrameExtractingOpt" +
+      "ionForAudit\020\004\0226\n2OnlyFirstLastFrameVodFr" +
+      "ameExtractingOptionForAudit\020\005B\314\001\n)com.vo" +
+      "lcengine.service.vod.model.businessB\010Vod" +
+      "MediaP\001ZAgithub.com/volcengine/volc-sdk-" +
+      "golang/service/vod/models/business\240\001\001\330\001\001" +
+      "\302\002\000\312\002 Volc\\Service\\Vod\\Models\\Business\342\002" +
+      "#Volc\\Service\\Vod\\Models\\GPBMetadatab\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -691,32 +724,56 @@ public final class VodMedia {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodUpdateFileStorageClassData_descriptor,
         new java.lang.String[] { "NotExistFileNames", });
-    internal_static_Volcengine_Vod_Models_Business_VodUpdateMediaStorageClassData_descriptor =
+    internal_static_Volcengine_Vod_Models_Business_VodGetInnerAuditURLsData_descriptor =
       getDescriptor().getMessageTypes().get(42);
+    internal_static_Volcengine_Vod_Models_Business_VodGetInnerAuditURLsData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodGetInnerAuditURLsData_descriptor,
+        new java.lang.String[] { "Urls", });
+    internal_static_Volcengine_Vod_Models_Business_VodGetAdAuditResultByVidData_descriptor =
+      getDescriptor().getMessageTypes().get(43);
+    internal_static_Volcengine_Vod_Models_Business_VodGetAdAuditResultByVidData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodGetAdAuditResultByVidData_descriptor,
+        new java.lang.String[] { "VodAuditInfos", });
+    internal_static_Volcengine_Vod_Models_Business_VodAuditInfo_descriptor =
+      getDescriptor().getMessageTypes().get(44);
+    internal_static_Volcengine_Vod_Models_Business_VodAuditInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodAuditInfo_descriptor,
+        new java.lang.String[] { "FileId", "FileName", "FileType", "Definition", "Format", "Codec", "Quality", "Bitrate", "CreateAt", "UpdateAt", "AdvertiserId", "BusinessType", "AuditResult", });
+    internal_static_Volcengine_Vod_Models_Business_AuditResult_descriptor =
+      getDescriptor().getMessageTypes().get(45);
+    internal_static_Volcengine_Vod_Models_Business_AuditResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_AuditResult_descriptor,
+        new java.lang.String[] { "Status", "Reason", });
+    internal_static_Volcengine_Vod_Models_Business_VodUpdateMediaStorageClassData_descriptor =
+      getDescriptor().getMessageTypes().get(46);
     internal_static_Volcengine_Vod_Models_Business_VodUpdateMediaStorageClassData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodUpdateMediaStorageClassData_descriptor,
         new java.lang.String[] { "NotExistVids", });
     internal_static_Volcengine_Vod_Models_Business_VodSubmitBlockMediaTaskResult_descriptor =
-      getDescriptor().getMessageTypes().get(43);
+      getDescriptor().getMessageTypes().get(47);
     internal_static_Volcengine_Vod_Models_Business_VodSubmitBlockMediaTaskResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodSubmitBlockMediaTaskResult_descriptor,
         new java.lang.String[] { "NotExistVids", "BlockedVids", "UnblockingVids", });
     internal_static_Volcengine_Vod_Models_Business_VodSubmitUnblockMediaTaskResult_descriptor =
-      getDescriptor().getMessageTypes().get(44);
+      getDescriptor().getMessageTypes().get(48);
     internal_static_Volcengine_Vod_Models_Business_VodSubmitUnblockMediaTaskResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodSubmitUnblockMediaTaskResult_descriptor,
         new java.lang.String[] { "NotExistVids", "UnblockedVids", "BlockingVids", });
     internal_static_Volcengine_Vod_Models_Business_VodQueryMediaBlockStatusResult_descriptor =
-      getDescriptor().getMessageTypes().get(45);
+      getDescriptor().getMessageTypes().get(49);
     internal_static_Volcengine_Vod_Models_Business_VodQueryMediaBlockStatusResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodQueryMediaBlockStatusResult_descriptor,
         new java.lang.String[] { "NotExistVids", "MediaBlockStatuses", });
     internal_static_Volcengine_Vod_Models_Business_MediaBlockStatus_descriptor =
-      getDescriptor().getMessageTypes().get(46);
+      getDescriptor().getMessageTypes().get(50);
     internal_static_Volcengine_Vod_Models_Business_MediaBlockStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_MediaBlockStatus_descriptor,

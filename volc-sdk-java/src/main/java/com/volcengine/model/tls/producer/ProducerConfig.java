@@ -27,11 +27,11 @@ public class ProducerConfig {
     public static final int MAX_RETRY_COUNT = 4;
     public static final int MAX_RESERVED_ATTEMPTS = MAX_RETRY_COUNT + 1;
     public static final int AVAILABLE_PROCESSORS = Math.max(Runtime.getRuntime().availableProcessors(), 1);
-    public static final int MAX_THREAD_COUNT = Math.max(DEFAULT_MAX_THREAD_COUNT, AVAILABLE_PROCESSORS);
+    public static final int MAX_THREAD_COUNT = AVAILABLE_PROCESSORS;
     public static final int DEFAULT_SHARD_COUNT = 2;
     public static final long DEFAULT_BLOCK_MS = 60 * 1000L;
     private int totalSizeInBytes = DEFAULT_TOTAL_SIZE_IN_BYTES;
-    private int maxThreadCount = DEFAULT_MAX_THREAD_COUNT;
+    private int maxThreadCount = MAX_THREAD_COUNT;
     private int maxBatchSizeBytes = DEFAULT_MAX_BATCH_SIZE;
     private int maxBatchCount = DEFAULT_MAX_BATCH_COUNT;
     private int lingerMs = DEFAULT_LINGER_MS;
@@ -54,7 +54,7 @@ public class ProducerConfig {
 
     public void validConfig() throws LogException {
         totalSizeInBytes = (int) validNumber(totalSizeInBytes, 1, Integer.MAX_VALUE, DEFAULT_TOTAL_SIZE_IN_BYTES);
-        maxThreadCount = (int) validNumber(maxThreadCount, 1, MAX_THREAD_COUNT, AVAILABLE_PROCESSORS);
+        maxThreadCount = (int) validNumber(maxThreadCount, 1, MAX_THREAD_COUNT, MAX_THREAD_COUNT);
         maxBatchSizeBytes = (int) validNumber(maxBatchSizeBytes, 1, MAX_BATCH_SIZE, DEFAULT_MAX_BATCH_SIZE);
         maxBatchCount = (int) validNumber(maxBatchCount, 1, MAX_BATCH_COUNT, DEFAULT_MAX_BATCH_COUNT);
         lingerMs = (int) validNumber(lingerMs, MIN_WAIT_MS, Integer.MAX_VALUE, DEFAULT_LINGER_MS);

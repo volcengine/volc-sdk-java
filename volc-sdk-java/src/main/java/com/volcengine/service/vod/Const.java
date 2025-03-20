@@ -59,6 +59,8 @@ public class Const {
 
     public static final String UpdateMediaPublishStatus = "UpdateMediaPublishStatus";
     public static final String UpdateMediaStorageClass = "UpdateMediaStorageClass";
+    public static final String GetInnerAuditURLs = "GetInnerAuditURLs";
+    public static final String GetAdAuditResultByVid = "GetAdAuditResultByVid";
     public static final String GetMediaInfos = "GetMediaInfos";
     public static final String GetRecommendedPoster = "GetRecommendedPoster";
     public static final String DeleteMedia = "DeleteMedia";

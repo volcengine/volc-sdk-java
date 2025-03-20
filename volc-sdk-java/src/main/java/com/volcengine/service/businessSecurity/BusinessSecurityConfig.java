@@ -225,6 +225,8 @@ public class BusinessSecurityConfig {
                         }
                     }
             ));
+
+
             put(Const.ActivateRiskResult,new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -255,6 +257,114 @@ public class BusinessSecurityConfig {
                         }
                     }
             ));
+
+            //
+            put(Const.ActivationRiskUploadBasePackage,new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ActivationRiskUploadBasePackage"));
+                                    add(new BasicNameValuePair("Version", "2025-01-01"));
+                                }
+                            });
+                            put(Const.Header, headers);
+                        }
+                    }
+            ));
+            put(Const.ActivationRiskUploadSampleData,new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ActivationRiskUploadSampleData"));
+                                    add(new BasicNameValuePair("Version", "2025-01-01"));
+                                }
+                            });
+                            put(Const.Header, headers);
+                        }
+                    }
+            ));
+            put(Const.ActivationRiskCompleteBasePackage,new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "ActivationRiskCompleteBasePackage"));
+                                add(new BasicNameValuePair("Version", "2025-01-01"));
+                            }
+                        });
+                        put(Const.Header, headers);
+                    }
+                }
+            ));
+            put(Const.ActivationRiskCompleteSampleData,new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "ActivationRiskCompleteSampleData"));
+                                add(new BasicNameValuePair("Version", "2025-01-01"));
+                            }
+                        });
+                        put(Const.Header, headers);
+                    }
+                }
+            ));
+            put(Const.ActivationRiskDetectRisk,new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "ActivationRiskDetectRisk"));
+                                add(new BasicNameValuePair("Version", "2025-01-01"));
+                            }
+                        });
+                        put(Const.Header, headers);
+                    }
+                }
+            ));
+            put(Const.ActivationRiskAsyncDetectRisk,new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "ActivationRiskAsyncDetectRisk"));
+                                add(new BasicNameValuePair("Version", "2025-01-01"));
+                            }
+                        });
+                        put(Const.Header, headers);
+                    }
+                }
+            ));
+            put(Const.ActivationRiskCancelAsyncDetectRisk,new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "ActivationRiskCancelAsyncDetectRisk"));
+                                add(new BasicNameValuePair("Version", "2025-01-01"));
+                            }
+                        });
+                        put(Const.Header, headers);
+                    }
+                }
+            ));
+
             put(Const.ElementVerifyEncrypted, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

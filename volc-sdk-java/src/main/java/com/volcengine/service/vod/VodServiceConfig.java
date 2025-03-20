@@ -248,6 +248,34 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.GetInnerAuditURLs, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "POST");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetInnerAuditURLs));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetAdAuditResultByVid, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "POST");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetAdAuditResultByVid));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.GetMediaInfos, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

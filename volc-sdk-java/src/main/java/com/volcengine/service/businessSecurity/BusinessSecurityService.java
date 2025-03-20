@@ -141,4 +141,17 @@ public interface BusinessSecurityService extends IBaseService {
     ActivateRiskBasePackageResponse ActivateRiskBasePackage(ActivateRiskBasePackageRequest request)throws Exception;
 
     DeviceIdResponse DeviceId(RiskDetectionRequest request)throws Exception;
+
+    ActivationRiskUploadSampleDataResponse ActivationRiskUploadSampleData(ActivationRiskUploadSampleDataRequest request)throws Exception;
+    ActivationRiskUploadBasePackageResponse ActivationRiskUploadBasePackage(ActivationRiskUploadBasePackageRequest request)throws Exception;
+
+    ActivationRiskCompleteBasePackageResponse ActivationRiskCompleteBasePackage(ActivationRiskCompleteBasePackageRequest request)throws Exception;
+
+    ActivationRiskCompleteSampleDataResponse ActivationRiskCompleteSampleData(ActivationRiskCompleteSampleDataRequest request)throws Exception;
+
+    ActivationRiskDetectRiskResponse ActivationRiskDetectRisk(ActivationRiskDetectRiskRequest request)throws Exception;
+
+    ActivationRiskAsyncDetectRiskResponse ActivationRiskAsyncDetectRisk(ActivationRiskAsyncDetectRiskRequest request)throws Exception;
+
+    ActivationRiskCancelAsyncDetectRiskResponse ActivationRiskCancelAsyncDetectRisk(ActivationRiskCancelAsyncDetectRiskRequest request)throws Exception;
 }

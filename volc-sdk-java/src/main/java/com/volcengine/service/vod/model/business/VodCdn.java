@@ -252,7 +252,7 @@ public final class VodCdn {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
+    java.lang.String[] descriptorData = {
       "\n%volcengine/vod/business/vod_cdn.proto\022" +
       "\036Volcengine.Vod.Models.Business\032(volceng" +
       "ine/vod/business/vod_common.proto\"\207\002\n\023Vo" +
@@ -426,285 +426,285 @@ public final class VodCdn {
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          VodCommon.getDescriptor(),
+          com.volcengine.service.vod.model.business.VodCommon.getDescriptor(),
         });
     internal_static_Volcengine_Vod_Models_Business_VodDomainConfigInfo_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_Volcengine_Vod_Models_Business_VodDomainConfigInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainConfigInfo_descriptor,
-        new String[] { "SpaceName", "PlayInstanceInfo", "ImageInstanceInfo", "DefaultPlayDomain", "Total", "Offset", });
+        new java.lang.String[] { "SpaceName", "PlayInstanceInfo", "ImageInstanceInfo", "DefaultPlayDomain", "Total", "Offset", });
     internal_static_Volcengine_Vod_Models_Business_VodDomainInstanceInfos_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Volcengine_Vod_Models_Business_VodDomainInstanceInfos_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainInstanceInfos_descriptor,
-        new String[] { "ByteInstances", "OtherInstances", });
+        new java.lang.String[] { "ByteInstances", "OtherInstances", });
     internal_static_Volcengine_Vod_Models_Business_VodDomainInstanceInfo_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_Volcengine_Vod_Models_Business_VodDomainInstanceInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainInstanceInfo_descriptor,
-        new String[] { "Domains", });
+        new java.lang.String[] { "Domains", });
     internal_static_Volcengine_Vod_Models_Business_VodDomainoInfo_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_Volcengine_Vod_Models_Business_VodDomainoInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainoInfo_descriptor,
-        new String[] { "Domain", "Cname", "ConfigStatus", "CnameStatus", "Status", "Certificate", "CreateTime", "UpdateTime", "Region", "Sources", "LockStatus", "CdnStatus", });
+        new java.lang.String[] { "Domain", "Cname", "ConfigStatus", "CnameStatus", "Status", "Certificate", "CreateTime", "UpdateTime", "Region", "Sources", "LockStatus", "CdnStatus", });
     internal_static_Volcengine_Vod_Models_Business_VodDomainCertificateInfo_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_Volcengine_Vod_Models_Business_VodDomainCertificateInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainCertificateInfo_descriptor,
-        new String[] { "CertificateId", "CertificateName", "CertificatePub", "CertificatePri", "HttpsStatus", "ExpiredAt", "CertificateCenterCertificateId", });
+        new java.lang.String[] { "CertificateId", "CertificateName", "CertificatePub", "CertificatePri", "HttpsStatus", "ExpiredAt", "CertificateCenterCertificateId", });
     internal_static_Volcengine_Vod_Models_Business_VodCreateCdnTaskResult_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_Volcengine_Vod_Models_Business_VodCreateCdnTaskResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodCreateCdnTaskResult_descriptor,
-        new String[] { "TaskId", });
+        new java.lang.String[] { "TaskId", });
     internal_static_Volcengine_Vod_Models_Business_VodContentInfo_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_Volcengine_Vod_Models_Business_VodContentInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodContentInfo_descriptor,
-        new String[] { "ItemId", "Url", "Status", "TaskType", "CreateTimestamp", "TaskId", "Message", });
+        new java.lang.String[] { "ItemId", "Url", "Status", "TaskType", "CreateTimestamp", "TaskId", "Message", });
     internal_static_Volcengine_Vod_Models_Business_VodCdnTaskResult_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_Volcengine_Vod_Models_Business_VodCdnTaskResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodCdnTaskResult_descriptor,
-        new String[] { "TotalCount", "PageNum", "PageSize", "ContentInfos", });
+        new java.lang.String[] { "TotalCount", "PageNum", "PageSize", "ContentInfos", });
     internal_static_Volcengine_Vod_Models_Business_VodCdnAccessLogElement_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_Volcengine_Vod_Models_Business_VodCdnAccessLogElement_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodCdnAccessLogElement_descriptor,
-        new String[] { "DownloadUrl", "FileSize", "FileName", "StartTimestamp", "EndTimestamp", });
+        new java.lang.String[] { "DownloadUrl", "FileSize", "FileName", "StartTimestamp", "EndTimestamp", });
     internal_static_Volcengine_Vod_Models_Business_VodCdnAccessLogInfo_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_Volcengine_Vod_Models_Business_VodCdnAccessLogInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodCdnAccessLogInfo_descriptor,
-        new String[] { "Domain", "LogList", });
+        new java.lang.String[] { "Domain", "LogList", });
     internal_static_Volcengine_Vod_Models_Business_VodListCdnAccessLogResult_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_Volcengine_Vod_Models_Business_VodListCdnAccessLogResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodListCdnAccessLogResult_descriptor,
-        new String[] { "Logs", });
+        new java.lang.String[] { "Logs", });
     internal_static_Volcengine_Vod_Models_Business_VodCdnTopAccessUrlElement_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_Volcengine_Vod_Models_Business_VodCdnTopAccessUrlElement_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodCdnTopAccessUrlElement_descriptor,
-        new String[] { "Url", "Pv", "Flux", });
+        new java.lang.String[] { "Url", "Pv", "Flux", });
     internal_static_Volcengine_Vod_Models_Business_VodListCdnTopAccessUrlResult_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_Volcengine_Vod_Models_Business_VodListCdnTopAccessUrlResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodListCdnTopAccessUrlResult_descriptor,
-        new String[] { "UrlInfos", });
+        new java.lang.String[] { "UrlInfos", });
     internal_static_Volcengine_Vod_Models_Business_VodCdnTopAccessElement_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_Volcengine_Vod_Models_Business_VodCdnTopAccessElement_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodCdnTopAccessElement_descriptor,
-        new String[] { "ItemKey", "Value", });
+        new java.lang.String[] { "ItemKey", "Value", });
     internal_static_Volcengine_Vod_Models_Business_VodListCdnTopAccessResult_descriptor =
       getDescriptor().getMessageTypes().get(14);
     internal_static_Volcengine_Vod_Models_Business_VodListCdnTopAccessResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodListCdnTopAccessResult_descriptor,
-        new String[] { "ItemInfos", });
+        new java.lang.String[] { "ItemInfos", });
     internal_static_Volcengine_Vod_Models_Business_VodBandwidthData_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_Volcengine_Vod_Models_Business_VodBandwidthData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodBandwidthData_descriptor,
-        new String[] { "Time", "Bandwidth", });
+        new java.lang.String[] { "Time", "Bandwidth", });
     internal_static_Volcengine_Vod_Models_Business_VodDescribeVodDomainBandwidthDataResult_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_Volcengine_Vod_Models_Business_VodDescribeVodDomainBandwidthDataResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDescribeVodDomainBandwidthDataResult_descriptor,
-        new String[] { "DomainList", "DomainInSpaceList", "StartTime", "EndTime", "Aggregation", "BandwidthType", "Area", "RegionList", "PeakBandwidth", "PeakBandwidthTime", "Peak95Bandwidth", "Peak95BandwidthTime", "BandwidthDataList", });
+        new java.lang.String[] { "DomainList", "DomainInSpaceList", "StartTime", "EndTime", "Aggregation", "BandwidthType", "Area", "RegionList", "PeakBandwidth", "PeakBandwidthTime", "Peak95Bandwidth", "Peak95BandwidthTime", "BandwidthDataList", });
     internal_static_Volcengine_Vod_Models_Business_VodCdnStatisticsData_descriptor =
       getDescriptor().getMessageTypes().get(17);
     internal_static_Volcengine_Vod_Models_Business_VodCdnStatisticsData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodCdnStatisticsData_descriptor,
-        new String[] { "Name", "Metric", "DataType", "Points", "Region", "Isp", "BillingRegion", });
+        new java.lang.String[] { "Name", "Metric", "DataType", "Points", "Region", "Isp", "BillingRegion", });
     internal_static_Volcengine_Vod_Models_Business_VodCdnStatisticsCommonResult_descriptor =
       getDescriptor().getMessageTypes().get(18);
     internal_static_Volcengine_Vod_Models_Business_VodCdnStatisticsCommonResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodCdnStatisticsCommonResult_descriptor,
-        new String[] { "Datas", "NoPermissionDomains", });
+        new java.lang.String[] { "Datas", "NoPermissionDomains", });
     internal_static_Volcengine_Vod_Models_Business_VodCdnIpInfo_descriptor =
       getDescriptor().getMessageTypes().get(19);
     internal_static_Volcengine_Vod_Models_Business_VodCdnIpInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodCdnIpInfo_descriptor,
-        new String[] { "Ip", "CdnIp", "Location", "Isp", });
+        new java.lang.String[] { "Ip", "CdnIp", "Location", "Isp", });
     internal_static_Volcengine_Vod_Models_Business_VodDescribeIpInfoResult_descriptor =
       getDescriptor().getMessageTypes().get(20);
     internal_static_Volcengine_Vod_Models_Business_VodDescribeIpInfoResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDescribeIpInfoResult_descriptor,
-        new String[] { "Infos", });
+        new java.lang.String[] { "Infos", });
     internal_static_Volcengine_Vod_Models_Business_VodTrafficData_descriptor =
       getDescriptor().getMessageTypes().get(21);
     internal_static_Volcengine_Vod_Models_Business_VodTrafficData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodTrafficData_descriptor,
-        new String[] { "Time", "Traffic", });
+        new java.lang.String[] { "Time", "Traffic", });
     internal_static_Volcengine_Vod_Models_Business_VodDescribeVodDomainTrafficDataResult_descriptor =
       getDescriptor().getMessageTypes().get(22);
     internal_static_Volcengine_Vod_Models_Business_VodDescribeVodDomainTrafficDataResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDescribeVodDomainTrafficDataResult_descriptor,
-        new String[] { "DomainList", "DomainInSpaceList", "StartTime", "EndTime", "Aggregation", "TrafficType", "Area", "RegionList", "TotalTraffic", "TrafficDataList", });
+        new java.lang.String[] { "DomainList", "DomainInSpaceList", "StartTime", "EndTime", "Aggregation", "TrafficType", "Area", "RegionList", "TotalTraffic", "TrafficDataList", });
     internal_static_Volcengine_Vod_Models_Business_VodDomainSourceInfo_descriptor =
       getDescriptor().getMessageTypes().get(23);
     internal_static_Volcengine_Vod_Models_Business_VodDomainSourceInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainSourceInfo_descriptor,
-        new String[] { "SourceStationType", "SourceStationAddressType", "Origin", "Bucket", });
+        new java.lang.String[] { "SourceStationType", "SourceStationAddressType", "Origin", "Bucket", });
     internal_static_Volcengine_Vod_Models_Business_VodDomainOriginBucketInfo_descriptor =
       getDescriptor().getMessageTypes().get(24);
     internal_static_Volcengine_Vod_Models_Business_VodDomainOriginBucketInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainOriginBucketInfo_descriptor,
-        new String[] { "BucketName", "BucketSourceType", "BucketRegion", });
+        new java.lang.String[] { "BucketName", "BucketSourceType", "BucketRegion", });
     internal_static_Volcengine_Vod_Models_Business_VodSubmitBlockTasksResult_descriptor =
       getDescriptor().getMessageTypes().get(25);
     internal_static_Volcengine_Vod_Models_Business_VodSubmitBlockTasksResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodSubmitBlockTasksResult_descriptor,
-        new String[] { "TaskID", });
+        new java.lang.String[] { "TaskID", });
     internal_static_Volcengine_Vod_Models_Business_VodGetContentBlockTasksResult_descriptor =
       getDescriptor().getMessageTypes().get(26);
     internal_static_Volcengine_Vod_Models_Business_VodGetContentBlockTasksResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodGetContentBlockTasksResult_descriptor,
-        new String[] { "Total", "PageNum", "PageSize", "Data", });
+        new java.lang.String[] { "Total", "PageNum", "PageSize", "Data", });
     internal_static_Volcengine_Vod_Models_Business_ContentTask_descriptor =
       getDescriptor().getMessageTypes().get(27);
     internal_static_Volcengine_Vod_Models_Business_ContentTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_ContentTask_descriptor,
-        new String[] { "Url", "Status", "TaskType", "CreateTime", "TaskID", });
+        new java.lang.String[] { "Url", "Status", "TaskType", "CreateTime", "TaskID", });
     internal_static_Volcengine_Vod_Models_Business_IPv6_descriptor =
       getDescriptor().getMessageTypes().get(28);
     internal_static_Volcengine_Vod_Models_Business_IPv6_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_IPv6_descriptor,
-        new String[] { "Switch", });
+        new java.lang.String[] { "Switch", });
     internal_static_Volcengine_Vod_Models_Business_OriginLine_descriptor =
       getDescriptor().getMessageTypes().get(29);
     internal_static_Volcengine_Vod_Models_Business_OriginLine_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_OriginLine_descriptor,
-        new String[] { "Address", "HttpPort", "HttpsPort", "InstanceType", "OriginHost", "OriginType", "Weight", });
+        new java.lang.String[] { "Address", "HttpPort", "HttpsPort", "InstanceType", "OriginHost", "OriginType", "Weight", });
     internal_static_Volcengine_Vod_Models_Business_OriginAction_descriptor =
       getDescriptor().getMessageTypes().get(30);
     internal_static_Volcengine_Vod_Models_Business_OriginAction_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_OriginAction_descriptor,
-        new String[] { "OriginLines", });
+        new java.lang.String[] { "OriginLines", });
     internal_static_Volcengine_Vod_Models_Business_CdnOriginRule_descriptor =
       getDescriptor().getMessageTypes().get(31);
     internal_static_Volcengine_Vod_Models_Business_CdnOriginRule_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_CdnOriginRule_descriptor,
-        new String[] { "OriginAction", });
+        new java.lang.String[] { "OriginAction", });
     internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderInstance_descriptor =
       getDescriptor().getMessageTypes().get(32);
     internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderInstance_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderInstance_descriptor,
-        new String[] { "Action", "Key", "ValueType", "AccessOriginControl", "Value", });
+        new java.lang.String[] { "Action", "Key", "ValueType", "AccessOriginControl", "Value", });
     internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderAction_descriptor =
       getDescriptor().getMessageTypes().get(33);
     internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderAction_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderAction_descriptor,
-        new String[] { "ResponseHeaderInstances", });
+        new java.lang.String[] { "ResponseHeaderInstances", });
     internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderRule_descriptor =
       getDescriptor().getMessageTypes().get(34);
     internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderRule_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderRule_descriptor,
-        new String[] { "ResponseHeaderAction", });
+        new java.lang.String[] { "ResponseHeaderAction", });
     internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderControl_descriptor =
       getDescriptor().getMessageTypes().get(35);
     internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderControl_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderControl_descriptor,
-        new String[] { "ResponseHeader", });
+        new java.lang.String[] { "ResponseHeader", });
     internal_static_Volcengine_Vod_Models_Business_VodDomainConfig_descriptor =
       getDescriptor().getMessageTypes().get(36);
     internal_static_Volcengine_Vod_Models_Business_VodDomainConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainConfig_descriptor,
-        new String[] { "ResponseHeaderControl", });
+        new java.lang.String[] { "ResponseHeaderControl", });
     internal_static_Volcengine_Vod_Models_Business_VodDomainBasicInfo_descriptor =
       getDescriptor().getMessageTypes().get(37);
     internal_static_Volcengine_Vod_Models_Business_VodDomainBasicInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainBasicInfo_descriptor,
-        new String[] { "Domain", "Cname", "ConfigStatus", "CreateTime", "LockStatus", });
+        new java.lang.String[] { "Domain", "Cname", "ConfigStatus", "CreateTime", "LockStatus", });
     internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainConfigResult_descriptor =
       getDescriptor().getMessageTypes().get(38);
     internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainConfigResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainConfigResult_descriptor,
-        new String[] { "SpaceName", "Domain", "Config", });
+        new java.lang.String[] { "SpaceName", "Domain", "Config", });
     internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainConfigInfo_descriptor =
       getDescriptor().getMessageTypes().get(39);
     internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainConfigInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainConfigInfo_descriptor,
-        new String[] { "SpaceName", "PCDNInstanceInfo", "Total", "Offset", });
+        new java.lang.String[] { "SpaceName", "PCDNInstanceInfo", "Total", "Offset", });
     internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainInstanceInfos_descriptor =
       getDescriptor().getMessageTypes().get(40);
     internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainInstanceInfos_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainInstanceInfos_descriptor,
-        new String[] { "Domains", });
+        new java.lang.String[] { "Domains", });
     internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainInfo_descriptor =
       getDescriptor().getMessageTypes().get(41);
     internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainInfo_descriptor,
-        new String[] { "Domain", "Status", "CreateTime", "UpdateTime", });
+        new java.lang.String[] { "Domain", "Status", "CreateTime", "UpdateTime", });
     internal_static_Volcengine_Vod_Models_Business_VodVerifyDomainOwnerResult_descriptor =
       getDescriptor().getMessageTypes().get(42);
     internal_static_Volcengine_Vod_Models_Business_VodVerifyDomainOwnerResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodVerifyDomainOwnerResult_descriptor,
-        new String[] { "VerifyResult", "ErrorMessage", });
+        new java.lang.String[] { "VerifyResult", "ErrorMessage", });
     internal_static_Volcengine_Vod_Models_Business_VodDomainDNSVerifyInfo_descriptor =
       getDescriptor().getMessageTypes().get(43);
     internal_static_Volcengine_Vod_Models_Business_VodDomainDNSVerifyInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainDNSVerifyInfo_descriptor,
-        new String[] { "Host", "RecordType", "RecordValue", });
+        new java.lang.String[] { "Host", "RecordType", "RecordValue", });
     internal_static_Volcengine_Vod_Models_Business_VodDomainFileVerifyInfo_descriptor =
       getDescriptor().getMessageTypes().get(44);
     internal_static_Volcengine_Vod_Models_Business_VodDomainFileVerifyInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainFileVerifyInfo_descriptor,
-        new String[] { "VerifyDomains", "VerifyFileName", "VerifyFileContent", });
+        new java.lang.String[] { "VerifyDomains", "VerifyFileName", "VerifyFileContent", });
     internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainVerifyContentResult_descriptor =
       getDescriptor().getMessageTypes().get(45);
     internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainVerifyContentResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainVerifyContentResult_descriptor,
-        new String[] { "NeedVerify", "DNSVerifyInfo", "FileVerifyInfo", });
-    VodCommon.getDescriptor();
+        new java.lang.String[] { "NeedVerify", "DNSVerifyInfo", "FileVerifyInfo", });
+    com.volcengine.service.vod.model.business.VodCommon.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

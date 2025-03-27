@@ -15,7 +15,7 @@ public interface VodDescribeDomainVerifyContentRequestOrBuilder extends
    * <code>string Domain = 1;</code>
    * @return The domain.
    */
-  String getDomain();
+  java.lang.String getDomain();
   /**
    * <pre>
    * 需要校验归属权的域名

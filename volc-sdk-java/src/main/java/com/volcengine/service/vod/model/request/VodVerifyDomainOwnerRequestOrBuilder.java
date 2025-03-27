@@ -15,7 +15,7 @@ public interface VodVerifyDomainOwnerRequestOrBuilder extends
    * <code>string Domain = 1;</code>
    * @return The domain.
    */
-  String getDomain();
+  java.lang.String getDomain();
   /**
    * <pre>
    * 需要校验归属权的域名
@@ -35,7 +35,7 @@ public interface VodVerifyDomainOwnerRequestOrBuilder extends
    * <code>string VerifyType = 2;</code>
    * @return The verifyType.
    */
-  String getVerifyType();
+  java.lang.String getVerifyType();
   /**
    * <pre>
    * 验证方式: dns: DNS解析验证；file: 文件验证。

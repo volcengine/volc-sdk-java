@@ -18,14 +18,14 @@ private static final long serialVersionUID = 0L;
   private VodDescribeDomainVerifyContentResult() {
   }
 
-  @Override
+  @java.lang.Override
   @SuppressWarnings({"unused"})
-  protected Object newInstance(
+  protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
     return new VodDescribeDomainVerifyContentResult();
   }
 
-  @Override
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -36,7 +36,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new NullPointerException();
+      throw new java.lang.NullPointerException();
     }
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -54,11 +54,11 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            VodDomainDNSVerifyInfo.Builder subBuilder = null;
+            com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo.Builder subBuilder = null;
             if (dNSVerifyInfo_ != null) {
               subBuilder = dNSVerifyInfo_.toBuilder();
             }
-            dNSVerifyInfo_ = input.readMessage(VodDomainDNSVerifyInfo.parser(), extensionRegistry);
+            dNSVerifyInfo_ = input.readMessage(com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(dNSVerifyInfo_);
               dNSVerifyInfo_ = subBuilder.buildPartial();
@@ -67,11 +67,11 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 26: {
-            VodDomainFileVerifyInfo.Builder subBuilder = null;
+            com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo.Builder subBuilder = null;
             if (fileVerifyInfo_ != null) {
               subBuilder = fileVerifyInfo_.toBuilder();
             }
-            fileVerifyInfo_ = input.readMessage(VodDomainFileVerifyInfo.parser(), extensionRegistry);
+            fileVerifyInfo_ = input.readMessage(com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(fileVerifyInfo_);
               fileVerifyInfo_ = subBuilder.buildPartial();
@@ -100,15 +100,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return VodCdn.internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainVerifyContentResult_descriptor;
+    return com.volcengine.service.vod.model.business.VodCdn.internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainVerifyContentResult_descriptor;
   }
 
-  @Override
-  protected FieldAccessorTable
+  @java.lang.Override
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return VodCdn.internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainVerifyContentResult_fieldAccessorTable
+    return com.volcengine.service.vod.model.business.VodCdn.internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainVerifyContentResult_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            VodDescribeDomainVerifyContentResult.class, Builder.class);
+            com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult.class, com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult.Builder.class);
   }
 
   public static final int NEEDVERIFY_FIELD_NUMBER = 1;
@@ -121,13 +121,13 @@ private static final long serialVersionUID = 0L;
    * <code>bool NeedVerify = 1;</code>
    * @return The needVerify.
    */
-  @Override
+  @java.lang.Override
   public boolean getNeedVerify() {
     return needVerify_;
   }
 
   public static final int DNSVERIFYINFO_FIELD_NUMBER = 2;
-  private VodDomainDNSVerifyInfo dNSVerifyInfo_;
+  private com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo dNSVerifyInfo_;
   /**
    * <pre>
    * DNS校验信息（NeedVerify=true时返回）
@@ -136,7 +136,7 @@ private static final long serialVersionUID = 0L;
    * <code>.Volcengine.Vod.Models.Business.VodDomainDNSVerifyInfo DNSVerifyInfo = 2;</code>
    * @return Whether the dNSVerifyInfo field is set.
    */
-  @Override
+  @java.lang.Override
   public boolean hasDNSVerifyInfo() {
     return dNSVerifyInfo_ != null;
   }
@@ -148,9 +148,9 @@ private static final long serialVersionUID = 0L;
    * <code>.Volcengine.Vod.Models.Business.VodDomainDNSVerifyInfo DNSVerifyInfo = 2;</code>
    * @return The dNSVerifyInfo.
    */
-  @Override
-  public VodDomainDNSVerifyInfo getDNSVerifyInfo() {
-    return dNSVerifyInfo_ == null ? VodDomainDNSVerifyInfo.getDefaultInstance() : dNSVerifyInfo_;
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo getDNSVerifyInfo() {
+    return dNSVerifyInfo_ == null ? com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo.getDefaultInstance() : dNSVerifyInfo_;
   }
   /**
    * <pre>
@@ -159,13 +159,13 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.Volcengine.Vod.Models.Business.VodDomainDNSVerifyInfo DNSVerifyInfo = 2;</code>
    */
-  @Override
-  public VodDomainDNSVerifyInfoOrBuilder getDNSVerifyInfoOrBuilder() {
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfoOrBuilder getDNSVerifyInfoOrBuilder() {
     return getDNSVerifyInfo();
   }
 
   public static final int FILEVERIFYINFO_FIELD_NUMBER = 3;
-  private VodDomainFileVerifyInfo fileVerifyInfo_;
+  private com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo fileVerifyInfo_;
   /**
    * <pre>
    * 文件校验信息（NeedVerify=true时返回）
@@ -174,7 +174,7 @@ private static final long serialVersionUID = 0L;
    * <code>.Volcengine.Vod.Models.Business.VodDomainFileVerifyInfo FileVerifyInfo = 3;</code>
    * @return Whether the fileVerifyInfo field is set.
    */
-  @Override
+  @java.lang.Override
   public boolean hasFileVerifyInfo() {
     return fileVerifyInfo_ != null;
   }
@@ -186,9 +186,9 @@ private static final long serialVersionUID = 0L;
    * <code>.Volcengine.Vod.Models.Business.VodDomainFileVerifyInfo FileVerifyInfo = 3;</code>
    * @return The fileVerifyInfo.
    */
-  @Override
-  public VodDomainFileVerifyInfo getFileVerifyInfo() {
-    return fileVerifyInfo_ == null ? VodDomainFileVerifyInfo.getDefaultInstance() : fileVerifyInfo_;
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo getFileVerifyInfo() {
+    return fileVerifyInfo_ == null ? com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo.getDefaultInstance() : fileVerifyInfo_;
   }
   /**
    * <pre>
@@ -197,13 +197,13 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.Volcengine.Vod.Models.Business.VodDomainFileVerifyInfo FileVerifyInfo = 3;</code>
    */
-  @Override
-  public VodDomainFileVerifyInfoOrBuilder getFileVerifyInfoOrBuilder() {
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodDomainFileVerifyInfoOrBuilder getFileVerifyInfoOrBuilder() {
     return getFileVerifyInfo();
   }
 
   private byte memoizedIsInitialized = -1;
-  @Override
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -213,7 +213,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @Override
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (needVerify_ != false) {
@@ -228,7 +228,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  @Override
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -251,15 +251,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @Override
-  public boolean equals(final Object obj) {
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof VodDescribeDomainVerifyContentResult)) {
+    if (!(obj instanceof com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult)) {
       return super.equals(obj);
     }
-    VodDescribeDomainVerifyContentResult other = (VodDescribeDomainVerifyContentResult) obj;
+    com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult other = (com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult) obj;
 
     if (getNeedVerify()
         != other.getNeedVerify()) return false;
@@ -277,7 +277,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -300,69 +300,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static VodDescribeDomainVerifyContentResult parseFrom(
+  public static com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static VodDescribeDomainVerifyContentResult parseFrom(
+  public static com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static VodDescribeDomainVerifyContentResult parseFrom(
+  public static com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static VodDescribeDomainVerifyContentResult parseFrom(
+  public static com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static VodDescribeDomainVerifyContentResult parseFrom(byte[] data)
+  public static com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static VodDescribeDomainVerifyContentResult parseFrom(
+  public static com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static VodDescribeDomainVerifyContentResult parseFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static VodDescribeDomainVerifyContentResult parseFrom(
+  public static com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static VodDescribeDomainVerifyContentResult parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static VodDescribeDomainVerifyContentResult parseDelimitedFrom(
+  public static com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static VodDescribeDomainVerifyContentResult parseFrom(
+  public static com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static VodDescribeDomainVerifyContentResult parseFrom(
+  public static com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -370,23 +370,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @Override
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(VodDescribeDomainVerifyContentResult prototype) {
+  public static Builder newBuilder(com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @Override
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @Override
+  @java.lang.Override
   protected Builder newBuilderForType(
-      BuilderParent parent) {
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -396,18 +396,18 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Business.VodDescribeDomainVerifyContentResult)
-      VodDescribeDomainVerifyContentResultOrBuilder {
+      com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResultOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return VodCdn.internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainVerifyContentResult_descriptor;
+      return com.volcengine.service.vod.model.business.VodCdn.internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainVerifyContentResult_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return VodCdn.internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainVerifyContentResult_fieldAccessorTable
+      return com.volcengine.service.vod.model.business.VodCdn.internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainVerifyContentResult_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              VodDescribeDomainVerifyContentResult.class, Builder.class);
+              com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult.class, com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult.Builder.class);
     }
 
     // Construct using com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult.newBuilder()
@@ -416,7 +416,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -425,7 +425,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @Override
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       needVerify_ = false;
@@ -445,29 +445,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return VodCdn.internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainVerifyContentResult_descriptor;
+      return com.volcengine.service.vod.model.business.VodCdn.internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainVerifyContentResult_descriptor;
     }
 
-    @Override
-    public VodDescribeDomainVerifyContentResult getDefaultInstanceForType() {
-      return VodDescribeDomainVerifyContentResult.getDefaultInstance();
+    @java.lang.Override
+    public com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult getDefaultInstanceForType() {
+      return com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult.getDefaultInstance();
     }
 
-    @Override
-    public VodDescribeDomainVerifyContentResult build() {
-      VodDescribeDomainVerifyContentResult result = buildPartial();
+    @java.lang.Override
+    public com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult build() {
+      com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @Override
-    public VodDescribeDomainVerifyContentResult buildPartial() {
-      VodDescribeDomainVerifyContentResult result = new VodDescribeDomainVerifyContentResult(this);
+    @java.lang.Override
+    public com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult buildPartial() {
+      com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult result = new com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult(this);
       result.needVerify_ = needVerify_;
       if (dNSVerifyInfoBuilder_ == null) {
         result.dNSVerifyInfo_ = dNSVerifyInfo_;
@@ -483,50 +483,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public Builder clone() {
       return super.clone();
     }
-    @Override
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return super.setField(field, value);
     }
-    @Override
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @Override
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @Override
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, Object value) {
+        int index, java.lang.Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @Override
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return super.addRepeatedField(field, value);
     }
-    @Override
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof VodDescribeDomainVerifyContentResult) {
-        return mergeFrom((VodDescribeDomainVerifyContentResult)other);
+      if (other instanceof com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult) {
+        return mergeFrom((com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(VodDescribeDomainVerifyContentResult other) {
-      if (other == VodDescribeDomainVerifyContentResult.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult other) {
+      if (other == com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult.getDefaultInstance()) return this;
       if (other.getNeedVerify() != false) {
         setNeedVerify(other.getNeedVerify());
       }
@@ -541,21 +541,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      VodDescribeDomainVerifyContentResult parsedMessage = null;
+      com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (VodDescribeDomainVerifyContentResult) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -574,7 +574,7 @@ private static final long serialVersionUID = 0L;
      * <code>bool NeedVerify = 1;</code>
      * @return The needVerify.
      */
-    @Override
+    @java.lang.Override
     public boolean getNeedVerify() {
       return needVerify_;
     }
@@ -608,9 +608,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private VodDomainDNSVerifyInfo dNSVerifyInfo_;
+    private com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo dNSVerifyInfo_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        VodDomainDNSVerifyInfo, VodDomainDNSVerifyInfo.Builder, VodDomainDNSVerifyInfoOrBuilder> dNSVerifyInfoBuilder_;
+        com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo, com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo.Builder, com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfoOrBuilder> dNSVerifyInfoBuilder_;
     /**
      * <pre>
      * DNS校验信息（NeedVerify=true时返回）
@@ -630,9 +630,9 @@ private static final long serialVersionUID = 0L;
      * <code>.Volcengine.Vod.Models.Business.VodDomainDNSVerifyInfo DNSVerifyInfo = 2;</code>
      * @return The dNSVerifyInfo.
      */
-    public VodDomainDNSVerifyInfo getDNSVerifyInfo() {
+    public com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo getDNSVerifyInfo() {
       if (dNSVerifyInfoBuilder_ == null) {
-        return dNSVerifyInfo_ == null ? VodDomainDNSVerifyInfo.getDefaultInstance() : dNSVerifyInfo_;
+        return dNSVerifyInfo_ == null ? com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo.getDefaultInstance() : dNSVerifyInfo_;
       } else {
         return dNSVerifyInfoBuilder_.getMessage();
       }
@@ -644,7 +644,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.Volcengine.Vod.Models.Business.VodDomainDNSVerifyInfo DNSVerifyInfo = 2;</code>
      */
-    public Builder setDNSVerifyInfo(VodDomainDNSVerifyInfo value) {
+    public Builder setDNSVerifyInfo(com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo value) {
       if (dNSVerifyInfoBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -665,7 +665,7 @@ private static final long serialVersionUID = 0L;
      * <code>.Volcengine.Vod.Models.Business.VodDomainDNSVerifyInfo DNSVerifyInfo = 2;</code>
      */
     public Builder setDNSVerifyInfo(
-        VodDomainDNSVerifyInfo.Builder builderForValue) {
+        com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo.Builder builderForValue) {
       if (dNSVerifyInfoBuilder_ == null) {
         dNSVerifyInfo_ = builderForValue.build();
         onChanged();
@@ -682,11 +682,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.Volcengine.Vod.Models.Business.VodDomainDNSVerifyInfo DNSVerifyInfo = 2;</code>
      */
-    public Builder mergeDNSVerifyInfo(VodDomainDNSVerifyInfo value) {
+    public Builder mergeDNSVerifyInfo(com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo value) {
       if (dNSVerifyInfoBuilder_ == null) {
         if (dNSVerifyInfo_ != null) {
           dNSVerifyInfo_ =
-            VodDomainDNSVerifyInfo.newBuilder(dNSVerifyInfo_).mergeFrom(value).buildPartial();
+            com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo.newBuilder(dNSVerifyInfo_).mergeFrom(value).buildPartial();
         } else {
           dNSVerifyInfo_ = value;
         }
@@ -722,7 +722,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.Volcengine.Vod.Models.Business.VodDomainDNSVerifyInfo DNSVerifyInfo = 2;</code>
      */
-    public VodDomainDNSVerifyInfo.Builder getDNSVerifyInfoBuilder() {
+    public com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo.Builder getDNSVerifyInfoBuilder() {
       
       onChanged();
       return getDNSVerifyInfoFieldBuilder().getBuilder();
@@ -734,12 +734,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.Volcengine.Vod.Models.Business.VodDomainDNSVerifyInfo DNSVerifyInfo = 2;</code>
      */
-    public VodDomainDNSVerifyInfoOrBuilder getDNSVerifyInfoOrBuilder() {
+    public com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfoOrBuilder getDNSVerifyInfoOrBuilder() {
       if (dNSVerifyInfoBuilder_ != null) {
         return dNSVerifyInfoBuilder_.getMessageOrBuilder();
       } else {
         return dNSVerifyInfo_ == null ?
-            VodDomainDNSVerifyInfo.getDefaultInstance() : dNSVerifyInfo_;
+            com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo.getDefaultInstance() : dNSVerifyInfo_;
       }
     }
     /**
@@ -750,11 +750,11 @@ private static final long serialVersionUID = 0L;
      * <code>.Volcengine.Vod.Models.Business.VodDomainDNSVerifyInfo DNSVerifyInfo = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        VodDomainDNSVerifyInfo, VodDomainDNSVerifyInfo.Builder, VodDomainDNSVerifyInfoOrBuilder>
+        com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo, com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo.Builder, com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfoOrBuilder> 
         getDNSVerifyInfoFieldBuilder() {
       if (dNSVerifyInfoBuilder_ == null) {
         dNSVerifyInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            VodDomainDNSVerifyInfo, VodDomainDNSVerifyInfo.Builder, VodDomainDNSVerifyInfoOrBuilder>(
+            com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo, com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo.Builder, com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfoOrBuilder>(
                 getDNSVerifyInfo(),
                 getParentForChildren(),
                 isClean());
@@ -763,9 +763,9 @@ private static final long serialVersionUID = 0L;
       return dNSVerifyInfoBuilder_;
     }
 
-    private VodDomainFileVerifyInfo fileVerifyInfo_;
+    private com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo fileVerifyInfo_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        VodDomainFileVerifyInfo, VodDomainFileVerifyInfo.Builder, VodDomainFileVerifyInfoOrBuilder> fileVerifyInfoBuilder_;
+        com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo, com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo.Builder, com.volcengine.service.vod.model.business.VodDomainFileVerifyInfoOrBuilder> fileVerifyInfoBuilder_;
     /**
      * <pre>
      * 文件校验信息（NeedVerify=true时返回）
@@ -785,9 +785,9 @@ private static final long serialVersionUID = 0L;
      * <code>.Volcengine.Vod.Models.Business.VodDomainFileVerifyInfo FileVerifyInfo = 3;</code>
      * @return The fileVerifyInfo.
      */
-    public VodDomainFileVerifyInfo getFileVerifyInfo() {
+    public com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo getFileVerifyInfo() {
       if (fileVerifyInfoBuilder_ == null) {
-        return fileVerifyInfo_ == null ? VodDomainFileVerifyInfo.getDefaultInstance() : fileVerifyInfo_;
+        return fileVerifyInfo_ == null ? com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo.getDefaultInstance() : fileVerifyInfo_;
       } else {
         return fileVerifyInfoBuilder_.getMessage();
       }
@@ -799,7 +799,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.Volcengine.Vod.Models.Business.VodDomainFileVerifyInfo FileVerifyInfo = 3;</code>
      */
-    public Builder setFileVerifyInfo(VodDomainFileVerifyInfo value) {
+    public Builder setFileVerifyInfo(com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo value) {
       if (fileVerifyInfoBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -820,7 +820,7 @@ private static final long serialVersionUID = 0L;
      * <code>.Volcengine.Vod.Models.Business.VodDomainFileVerifyInfo FileVerifyInfo = 3;</code>
      */
     public Builder setFileVerifyInfo(
-        VodDomainFileVerifyInfo.Builder builderForValue) {
+        com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo.Builder builderForValue) {
       if (fileVerifyInfoBuilder_ == null) {
         fileVerifyInfo_ = builderForValue.build();
         onChanged();
@@ -837,11 +837,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.Volcengine.Vod.Models.Business.VodDomainFileVerifyInfo FileVerifyInfo = 3;</code>
      */
-    public Builder mergeFileVerifyInfo(VodDomainFileVerifyInfo value) {
+    public Builder mergeFileVerifyInfo(com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo value) {
       if (fileVerifyInfoBuilder_ == null) {
         if (fileVerifyInfo_ != null) {
           fileVerifyInfo_ =
-            VodDomainFileVerifyInfo.newBuilder(fileVerifyInfo_).mergeFrom(value).buildPartial();
+            com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo.newBuilder(fileVerifyInfo_).mergeFrom(value).buildPartial();
         } else {
           fileVerifyInfo_ = value;
         }
@@ -877,7 +877,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.Volcengine.Vod.Models.Business.VodDomainFileVerifyInfo FileVerifyInfo = 3;</code>
      */
-    public VodDomainFileVerifyInfo.Builder getFileVerifyInfoBuilder() {
+    public com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo.Builder getFileVerifyInfoBuilder() {
       
       onChanged();
       return getFileVerifyInfoFieldBuilder().getBuilder();
@@ -889,12 +889,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.Volcengine.Vod.Models.Business.VodDomainFileVerifyInfo FileVerifyInfo = 3;</code>
      */
-    public VodDomainFileVerifyInfoOrBuilder getFileVerifyInfoOrBuilder() {
+    public com.volcengine.service.vod.model.business.VodDomainFileVerifyInfoOrBuilder getFileVerifyInfoOrBuilder() {
       if (fileVerifyInfoBuilder_ != null) {
         return fileVerifyInfoBuilder_.getMessageOrBuilder();
       } else {
         return fileVerifyInfo_ == null ?
-            VodDomainFileVerifyInfo.getDefaultInstance() : fileVerifyInfo_;
+            com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo.getDefaultInstance() : fileVerifyInfo_;
       }
     }
     /**
@@ -905,11 +905,11 @@ private static final long serialVersionUID = 0L;
      * <code>.Volcengine.Vod.Models.Business.VodDomainFileVerifyInfo FileVerifyInfo = 3;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        VodDomainFileVerifyInfo, VodDomainFileVerifyInfo.Builder, VodDomainFileVerifyInfoOrBuilder>
+        com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo, com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo.Builder, com.volcengine.service.vod.model.business.VodDomainFileVerifyInfoOrBuilder> 
         getFileVerifyInfoFieldBuilder() {
       if (fileVerifyInfoBuilder_ == null) {
         fileVerifyInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            VodDomainFileVerifyInfo, VodDomainFileVerifyInfo.Builder, VodDomainFileVerifyInfoOrBuilder>(
+            com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo, com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo.Builder, com.volcengine.service.vod.model.business.VodDomainFileVerifyInfoOrBuilder>(
                 getFileVerifyInfo(),
                 getParentForChildren(),
                 isClean());
@@ -917,13 +917,13 @@ private static final long serialVersionUID = 0L;
       }
       return fileVerifyInfoBuilder_;
     }
-    @Override
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @Override
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -934,18 +934,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Business.VodDescribeDomainVerifyContentResult)
-  private static final VodDescribeDomainVerifyContentResult DEFAULT_INSTANCE;
+  private static final com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new VodDescribeDomainVerifyContentResult();
+    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult();
   }
 
-  public static VodDescribeDomainVerifyContentResult getDefaultInstance() {
+  public static com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<VodDescribeDomainVerifyContentResult>
       PARSER = new com.google.protobuf.AbstractParser<VodDescribeDomainVerifyContentResult>() {
-    @Override
+    @java.lang.Override
     public VodDescribeDomainVerifyContentResult parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -958,13 +958,13 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @Override
+  @java.lang.Override
   public com.google.protobuf.Parser<VodDescribeDomainVerifyContentResult> getParserForType() {
     return PARSER;
   }
 
-  @Override
-  public VodDescribeDomainVerifyContentResult getDefaultInstanceForType() {
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodDescribeDomainVerifyContentResult getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

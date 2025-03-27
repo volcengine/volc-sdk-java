@@ -15,7 +15,7 @@ public interface VodDomainFileVerifyInfoOrBuilder extends
    * <code>repeated string VerifyDomains = 1;</code>
    * @return A list containing the verifyDomains.
    */
-  java.util.List<String>
+  java.util.List<java.lang.String>
       getVerifyDomainsList();
   /**
    * <pre>
@@ -35,7 +35,7 @@ public interface VodDomainFileVerifyInfoOrBuilder extends
    * @param index The index of the element to return.
    * @return The verifyDomains at the given index.
    */
-  String getVerifyDomains(int index);
+  java.lang.String getVerifyDomains(int index);
   /**
    * <pre>
    * 文件校验域名列表，可通过返回的任意一个域名完成校验。
@@ -56,7 +56,7 @@ public interface VodDomainFileVerifyInfoOrBuilder extends
    * <code>string VerifyFileName = 2;</code>
    * @return The verifyFileName.
    */
-  String getVerifyFileName();
+  java.lang.String getVerifyFileName();
   /**
    * <pre>
    * 校验文件名称，需以该文件名命名校验文件。
@@ -76,7 +76,7 @@ public interface VodDomainFileVerifyInfoOrBuilder extends
    * <code>string VerifyFileContent = 3;</code>
    * @return The verifyFileContent.
    */
-  String getVerifyFileContent();
+  java.lang.String getVerifyFileContent();
   /**
    * <pre>
    * 校验文件内容，需将该内容写入校验文件并上传到指定校验域名根目录下。

@@ -149,8 +149,33 @@ public interface IVodService extends com.volcengine.service.IBaseService {
     * @throws Exception the exception
     */
     com.volcengine.service.vod.model.response.VodCancelDirectEditTaskResponse cancelDirectEditTask(com.volcengine.service.vod.model.request.VodCancelDirectEditTaskRequest input) throws Exception;
-    
 
+	/**
+	 * streamUploadMedia
+	 *
+	 * @param vodStreamUploadMediaRequest com.volcengine.model.request.vod.VodStreamUploadRequest
+	 * @return com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse
+	 * @throws Exception the exception
+	 */
+	com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse streamUploadMedia(com.volcengine.model.request.vod.VodStreamUploadRequest vodStreamUploadMediaRequest) throws Exception;
+
+	/**
+	 * streamUploadMaterial
+	 *
+	 * @param vodStreamUploadMaterialRequest com.volcengine.model.request.vod.VodStreamUploadRequest
+	 * @return com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse
+	 * @throws Exception the exception
+	 */
+	com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse streamUploadMaterial(com.volcengine.model.request.vod.VodStreamUploadRequest vodStreamUploadMaterialRequest) throws Exception;
+
+	/**
+	 * streamUploadObject
+	 *
+	 * @param vodStreamUploadObjectRequest com.volcengine.model.request.vod.VodStreamUploadRequest
+	 * @return com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse
+	 * @throws Exception the exception
+	 */
+	com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse streamUploadObject(com.volcengine.model.request.vod.VodStreamUploadRequest vodStreamUploadObjectRequest) throws Exception;
 
 	/**
      * getAllPlayInfo.
@@ -358,7 +383,7 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodGetInnerAuditURLsResponse getInnerAuditURLs(com.volcengine.service.vod.model.request.VodGetInnerAuditURLsRequest input) throws Exception;
-
+	
 	/**
      * getAdAuditResultByVid.
      *
@@ -367,7 +392,7 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      * @throws Exception the exception
      */
 	com.volcengine.service.vod.model.response.VodGetAdAuditResultByVidResponse getAdAuditResultByVid(com.volcengine.service.vod.model.request.VodGetAdAuditResultByVidRequest input) throws Exception;
-
+	
 	/**
      * deleteMediaTosFile.
      *

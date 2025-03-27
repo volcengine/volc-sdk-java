@@ -10,6 +10,7 @@ public class Const {
     public static final String FORMAT_ORIGINAL = "image";
 
     public static final int MinChunkSize = 1024 * 1024 * 20;
+    public static final int StreamMinChunkSize = 1024 * 1024 * 5;
 
     public static final String DSAHmacSha1 = "HMAC-SHA1";
     public static final String DSAHmacSha256 = "HMAC-SHA256";

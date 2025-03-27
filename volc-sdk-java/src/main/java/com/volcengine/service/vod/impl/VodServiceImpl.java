@@ -780,6 +780,293 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         return responseBuilder.build();
     }
 
+     @Override
+        public com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse streamUploadMaterial(com.volcengine.model.request.vod.VodStreamUploadRequest vodStreamUploadMediaRequest) throws Exception {
+            com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = streamUploadToB(vodStreamUploadMediaRequest);
+            com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest vodCommitUploadInfoRequest = com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest.newBuilder()
+                    .setSpaceName(vodStreamUploadMediaRequest.getSpaceName())
+                    .setSessionKey(uploadCompleteInfo.getSessionKey())
+                    .setFunctions(vodStreamUploadMediaRequest.getFunctions())
+                    .setCallbackArgs(vodStreamUploadMediaRequest.getCallbackArgs())
+                    .setExpireTime(vodStreamUploadMediaRequest.getExpireTime())
+                    .build();
+
+            return commitUploadInfo(vodCommitUploadInfoRequest);
+        }
+
+        @Override
+        public com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse streamUploadObject(com.volcengine.model.request.vod.VodStreamUploadRequest vodStreamUploadMediaRequest) throws Exception {
+            vodStreamUploadMediaRequest.setFileType("object");
+            com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = streamUploadToB(vodStreamUploadMediaRequest);
+            com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest vodCommitUploadInfoRequest = com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest.newBuilder()
+                    .setSpaceName(vodStreamUploadMediaRequest.getSpaceName())
+                    .setSessionKey(uploadCompleteInfo.getSessionKey())
+                    .setFunctions(vodStreamUploadMediaRequest.getFunctions())
+                    .setCallbackArgs(vodStreamUploadMediaRequest.getCallbackArgs())
+                    .setExpireTime(vodStreamUploadMediaRequest.getExpireTime())
+                    .build();
+
+            return commitUploadInfo(vodCommitUploadInfoRequest);
+        }
+
+        @Override
+        public com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse streamUploadMedia(com.volcengine.model.request.vod.VodStreamUploadRequest vodStreamUploadMediaRequest) throws Exception {
+            vodStreamUploadMediaRequest.setFileType("media");
+            com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = streamUploadToB(vodStreamUploadMediaRequest);
+            com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest vodCommitUploadInfoRequest = com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest.newBuilder()
+                    .setSpaceName(vodStreamUploadMediaRequest.getSpaceName())
+                    .setSessionKey(uploadCompleteInfo.getSessionKey())
+                    .setFunctions(vodStreamUploadMediaRequest.getFunctions())
+                    .setCallbackArgs(vodStreamUploadMediaRequest.getCallbackArgs())
+                    .setExpireTime(vodStreamUploadMediaRequest.getExpireTime())
+                    .build();
+
+            return commitUploadInfo(vodCommitUploadInfoRequest);
+        }
+
+        private com.volcengine.model.beans.UploadCompleteInfo streamUploadToB(com.volcengine.model.request.vod.VodStreamUploadRequest vodStreamUploadMediaRequest) throws Exception {
+            if (vodStreamUploadMediaRequest.getChunkSize() == 0){
+                vodStreamUploadMediaRequest.setChunkSize((long) com.volcengine.service.vod.Const.MinChunkSize);
+            }
+            if (vodStreamUploadMediaRequest.getChunkSize() < com.volcengine.service.vod.Const.StreamMinChunkSize){
+                throw new Exception("chunk size must be greater than 5MB");
+            }
+            if (vodStreamUploadMediaRequest.getContent() == null){
+                throw new Exception("content is null");
+            }
+            if (vodStreamUploadMediaRequest.getSize() == 0 || vodStreamUploadMediaRequest.getSize() > vodStreamUploadMediaRequest.getChunkSize()){
+                long comparedChunkSize = vodStreamUploadMediaRequest.getChunkSize();
+                if ((int)comparedChunkSize != comparedChunkSize){
+                    throw new Exception("chunk size too big");
+                }
+            }
+            if (vodStreamUploadMediaRequest.getClientNetWorkMode().equals("vpc-inner")){
+                throw new Exception("vpc upload not support");
+            }
+
+            com.volcengine.service.vod.model.request.VodApplyUploadInfoRequest vodApplyUploadInfoRequest = com.volcengine.service.vod.model.request.VodApplyUploadInfoRequest.newBuilder()
+                    .setSpaceName(vodStreamUploadMediaRequest.getSpaceName())
+                    .setFileName(vodStreamUploadMediaRequest.getFileName())
+                    .setFileType(vodStreamUploadMediaRequest.getFileType())
+                    .setFileExtension(vodStreamUploadMediaRequest.getFileExtension())
+                    .setStorageClass(vodStreamUploadMediaRequest.getStorageClass())
+                    .setClientNetWorkMode(vodStreamUploadMediaRequest.getClientNetWorkMode())
+                    .setClientIDCMode(vodStreamUploadMediaRequest.getClientIDCMode())
+                    .setNeedFallback(true)
+                    .setUploadHostPrefer(vodStreamUploadMediaRequest.getUploadHostPrefer())
+                    .setFileSize(vodStreamUploadMediaRequest.getSize())
+                    .build();
+
+            com.volcengine.service.vod.model.response.VodApplyUploadInfoResponse vodApplyUploadInfoResponse = applyUploadInfo(vodApplyUploadInfoRequest);
+            if (vodApplyUploadInfoResponse.getResponseMetadata().hasError()) {
+                throw new Exception(vodApplyUploadInfoResponse.getResponseMetadata().getError().getMessage());
+            }
+
+            CandidateUploadAddresses candidateUploadAddresses = vodApplyUploadInfoResponse.getResult().getData().getCandidateUploadAddresses();
+            List<UploadAddress> allUploadAddress = new ArrayList<>();
+            allUploadAddress.addAll(candidateUploadAddresses.getMainUploadAddressesList());
+            allUploadAddress.addAll(candidateUploadAddresses.getBackupUploadAddressesList());
+            allUploadAddress.addAll(candidateUploadAddresses.getFallbackUploadAddressesList());
+            com.volcengine.model.beans.UploadCompleteInfo uploadCompleteInfo = null;
+
+
+            String tosHost = null, oid = null, sessionKey = null, auth = null;
+            List<com.volcengine.service.vod.model.business.VodHeaderPair> uploadHeaderList = new ArrayList<>();
+            if (!allUploadAddress.isEmpty()) {
+                for (UploadAddress uploadAddress : allUploadAddress) {
+                    if (uploadAddress.getUploadHostsList().isEmpty() || uploadAddress.getStoreInfosList().isEmpty() || uploadAddress.getStoreInfosList().get(0) == null) {
+                        continue;
+                    }
+                    tosHost = uploadAddress.getUploadHosts(0);
+                    oid = uploadAddress.getStoreInfos(0).getStoreUri();
+                    sessionKey = uploadAddress.getSessionKey();
+                    auth = uploadAddress.getStoreInfos(0).getAuth();
+                    // convert to VodHeaderPair
+                    final List<VodHeaderPair> tempUploadHeaderList = new ArrayList<>();
+                    // convert to VodHeaderPair
+                    uploadAddress.getUploadHeaderList().forEach(ac -> tempUploadHeaderList.add(VodHeaderPair.newBuilder().setKey(ac.getKey()).setValue(ac.getValue()).build()));
+                    uploadHeaderList = tempUploadHeaderList;
+
+                    break;
+                }
+                if (tosHost == null) {
+                    throw new Exception("miss necessary upload param");
+                }
+            } else {
+                com.volcengine.service.vod.model.business.VodUploadAddress vodUploadAddress = vodApplyUploadInfoResponse.getResult().getData().getUploadAddress();
+                if (!vodApplyUploadInfoResponse.hasResult() || vodUploadAddress.getStoreInfosCount() == 0) {
+                    throw new Exception("apply upload result is null");
+                }
+
+                oid = vodUploadAddress.getStoreInfos(0).getStoreUri();
+                sessionKey = vodUploadAddress.getSessionKey();
+                auth = vodUploadAddress.getStoreInfos(0).getAuth();
+                tosHost = vodUploadAddress.getUploadHosts(0);
+                uploadHeaderList = vodUploadAddress.getUploadHeaderList();
+            }
+
+            uploadCompleteInfo = new com.volcengine.model.beans.UploadCompleteInfo(oid, sessionKey);
+
+            Retryer retryer = RetryerBuilder.newBuilder()
+                    .retryIfException()
+                    .retryIfResult(Predicates.equalTo(false))
+                    .retryIfResult(Predicates.isNull())
+                    .withWaitStrategy(WaitStrategies.exponentialWait())
+                    .withStopStrategy(StopStrategies.stopAfterAttempt(3))
+                    .build();
+
+            InputStream content = vodStreamUploadMediaRequest.getContent();
+
+            if (vodStreamUploadMediaRequest.getSize() == 0){
+                int bufferChunkSize = Math.toIntExact(vodStreamUploadMediaRequest.getChunkSize());
+                byte[] buffer = new byte[bufferChunkSize];
+                int readBytes = readFully(content, buffer);
+    //            int readBytes = content.read(buffer);
+
+                if (readBytes < bufferChunkSize){
+                    // 需要截断一部分
+                    InputStream directContent = new com.volcengine.model.beans.PartInputStream(new ByteArrayInputStream(buffer), readBytes);
+                    directUploadStream(tosHost, oid, auth, directContent, uploadHeaderList, vodStreamUploadMediaRequest.getStorageClass());
+                } else {
+                    //gateway upload only
+                    String uploadID = initUploadPart(tosHost, oid, auth, true, uploadHeaderList, retryer, vodStreamUploadMediaRequest.getStorageClass());
+
+                    String objectContentType = null;
+                    long partNumber = 1;
+                    List<String> parts = new ArrayList<>();
+
+                    while (true) {
+                        InputStream partInputStream = new com.volcengine.model.beans.PartInputStream(new ByteArrayInputStream(buffer), readBytes);
+                        UploadPartResponse uploadPartResponse = uploadPartStream(tosHost, oid, auth, uploadID, partNumber, partInputStream);
+                        parts.add(uploadPartResponse.getCheckSum());
+                        if (partNumber == 1) {
+                            objectContentType = uploadPartResponse.getObjectContentType();
+                        }
+                        partNumber++;
+
+                        readBytes = readFully(content, buffer);
+                        if (readBytes == -1) {
+                            break;
+                        }
+                    }
+                    uploadMergePart(tosHost, oid, auth, uploadID, parts.stream().toArray(String[]::new), true, retryer, vodStreamUploadMediaRequest.getStorageClass(), objectContentType);
+                }
+                return uploadCompleteInfo;
+            } else if (vodStreamUploadMediaRequest.getSize() < vodStreamUploadMediaRequest.getChunkSize()){
+                InputStream partInputStream = new com.volcengine.model.beans.PartInputStream(vodStreamUploadMediaRequest.getContent(), vodStreamUploadMediaRequest.getSize());
+                directUploadStream(tosHost, oid, auth, partInputStream, uploadHeaderList, vodStreamUploadMediaRequest.getStorageClass());
+                return uploadCompleteInfo;
+            }
+
+            //gateway upload only
+            String uploadID = initUploadPart(tosHost, oid, auth, true, uploadHeaderList, retryer, vodStreamUploadMediaRequest.getStorageClass());
+
+            String objectContentType = null;
+            long partNumber = 1;
+            List<String> parts = new ArrayList<>();
+            long remainingBytes = vodStreamUploadMediaRequest.getSize();
+            int bufferChunkSize = Math.toIntExact(vodStreamUploadMediaRequest.getChunkSize());
+            byte[] buffer = new byte[bufferChunkSize];
+
+
+            while (remainingBytes > 0) {
+                long toUploadBytes = remainingBytes > vodStreamUploadMediaRequest.getChunkSize() ? vodStreamUploadMediaRequest.getChunkSize() : remainingBytes;
+                int readBytes = readFully(content, buffer);
+                if (readBytes != toUploadBytes) {
+                    throw new Exception(String.format("read content error: read bytes %d, to upload bytes %d", readBytes, toUploadBytes));
+                }
+                InputStream partInputStream = new com.volcengine.model.beans.PartInputStream(new ByteArrayInputStream(buffer), readBytes);
+
+                UploadPartResponse uploadPartResponse = uploadPartStream(tosHost, oid, auth, uploadID, partNumber, partInputStream);
+                parts.add(uploadPartResponse.getCheckSum());
+                if (partNumber == 1) {
+                    objectContentType = uploadPartResponse.getObjectContentType();
+                }
+                remainingBytes-=toUploadBytes;
+                partNumber++;
+            }
+            uploadMergePart(tosHost, oid, auth, uploadID, parts.stream().toArray(String[]::new), true, retryer, vodStreamUploadMediaRequest.getStorageClass(), objectContentType);
+
+            return uploadCompleteInfo;
+        }
+
+        public void directUploadStream(String host, String oid, String auth,InputStream content,  List<com.volcengine.service.vod.model.business.VodHeaderPair> uploadHeaderList, int storageClass) throws Exception {
+            String oidEncode = StringUtils.replace(oid, " ", "%20");
+            String url = String.format("https://%s/%s", host, oidEncode);
+
+            Map<String, String> headers = new HashMap<>();
+            headers.put("Authorization", auth);
+            headers.put("Content-CRC32", "Ignore");
+            uploadHeaderList.forEach(vodHeaderPair -> headers.put(vodHeaderPair.getKey(), vodHeaderPair.getValue()));
+
+            if (storageClass == com.volcengine.service.vod.model.business.StorageClassType.Archive_VALUE) {
+                headers.put("X-Upload-Storage-Class", "archive");
+            }
+            if (storageClass == com.volcengine.service.vod.model.business.StorageClassType.IA_VALUE) {
+                headers.put("X-Upload-Storage-Class", "ia");
+            }
+
+            boolean response = putData(url, content, headers);
+            if (!response){
+                throw new UploadException(-1, -1, "");
+            }
+        }
+
+        private UploadPartResponse uploadPartStream(String host, String oid, String auth, String uploadID, long partNumber, InputStream inputStream) throws Exception {
+            String oidEncode = StringUtils.replace(oid, " ", "%20");
+            String url = String.format("https://%s/%s?partNumber=%d&uploadID=%s", host, oidEncode, partNumber, uploadID);
+            Map<String, String> headers = new HashMap<>();
+            headers.put("Authorization", auth);
+            headers.put("Content-CRC32", "Ignore");
+            headers.put("X-Storage-Mode", "gateway");
+
+            HttpResponse httpResponse = putDataWithResponse(url, inputStream, headers);
+            if (httpResponse == null) {
+                throw new RuntimeException("upload part error,response is empty");
+            }
+            if (httpResponse.getStatusLine().getStatusCode() != 200) {
+                throw new RuntimeException("http code is " + httpResponse.getStatusLine().getStatusCode());
+            }
+
+            String entity = EntityUtils.toString(httpResponse.getEntity());
+            JSONObject result = JSONObject.parseObject(entity);
+
+            if (result.getIntValue("success") != 0) {
+                JSONObject errObj = result.getJSONObject("error");
+                throw new UploadException(
+                        errObj.getIntValue("code"),
+                        errObj.getIntValue("error_code"),
+                        errObj.getString("message")
+                );
+            }
+
+            if (result.getJSONObject("payload") == null) {
+                throw new RuntimeException("upload part error,payload is empty");
+            }
+            VodServiceImpl.UploadPartResponse.UploadPartResponseBuilder builder = VodServiceImpl.UploadPartResponse.builder()
+                    .checkSum(result.getJSONObject("payload").getString("crc32"));
+            if (result.getJSONObject("payload").getJSONObject("meta") != null){
+                builder.objectContentType(result.getJSONObject("payload").getJSONObject("meta").getString("ObjectContentType"));
+            }
+            return builder.build();
+        }
+
+        private int readFully(InputStream inputStream, byte[] buffer) throws IOException {
+            int totalRead = 0;
+            int remaining = buffer.length;
+
+            while (remaining > 0){
+                int read = inputStream.read(buffer, totalRead, remaining);
+                if (read == -1) {
+                    return (totalRead > 0)? totalRead : -1;
+                }
+                totalRead += read;
+                remaining -= read;
+            }
+
+            return totalRead;
+        }
+
 
 	/**
      * getAllPlayInfo.
@@ -1197,8 +1484,8 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}
-
-
+	
+	
 	/**
      * getInnerAuditURLs.
      *
@@ -1216,8 +1503,8 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}
-
-
+	
+	
 	/**
      * getAdAuditResultByVid.
      *

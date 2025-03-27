@@ -21,14 +21,14 @@ private static final long serialVersionUID = 0L;
     spaceName_ = "";
   }
 
-  @Override
+  @java.lang.Override
   @SuppressWarnings({"unused"})
-  protected Object newInstance(
+  protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
     return new VodSubmitBlockTasksRequest();
   }
 
-  @Override
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -39,7 +39,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new NullPointerException();
+      throw new java.lang.NullPointerException();
     }
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -52,19 +52,19 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            String s = input.readStringRequireUtf8();
+            java.lang.String s = input.readStringRequireUtf8();
 
             fileUrls_ = s;
             break;
           }
           case 18: {
-            String s = input.readStringRequireUtf8();
+            java.lang.String s = input.readStringRequireUtf8();
 
             operation_ = s;
             break;
           }
           case 26: {
-            String s = input.readStringRequireUtf8();
+            java.lang.String s = input.readStringRequireUtf8();
 
             spaceName_ = s;
             break;
@@ -90,19 +90,19 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitBlockTasksRequest_descriptor;
+    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitBlockTasksRequest_descriptor;
   }
 
-  @Override
-  protected FieldAccessorTable
+  @java.lang.Override
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitBlockTasksRequest_fieldAccessorTable
+    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitBlockTasksRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            VodSubmitBlockTasksRequest.class, Builder.class);
+            com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest.class, com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest.Builder.class);
   }
 
   public static final int FILEURLS_FIELD_NUMBER = 1;
-  private volatile Object fileUrls_;
+  private volatile java.lang.Object fileUrls_;
   /**
    * <pre>
    *媒体Url列表：
@@ -113,15 +113,15 @@ private static final long serialVersionUID = 0L;
    * <code>string FileUrls = 1;</code>
    * @return The fileUrls.
    */
-  @Override
-  public String getFileUrls() {
-    Object ref = fileUrls_;
-    if (ref instanceof String) {
-      return (String) ref;
+  @java.lang.Override
+  public java.lang.String getFileUrls() {
+    java.lang.Object ref = fileUrls_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
+      java.lang.String s = bs.toStringUtf8();
       fileUrls_ = s;
       return s;
     }
@@ -136,14 +136,14 @@ private static final long serialVersionUID = 0L;
    * <code>string FileUrls = 1;</code>
    * @return The bytes for fileUrls.
    */
-  @Override
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getFileUrlsBytes() {
-    Object ref = fileUrls_;
-    if (ref instanceof String) {
+    java.lang.Object ref = fileUrls_;
+    if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
+              (java.lang.String) ref);
       fileUrls_ = b;
       return b;
     } else {
@@ -152,7 +152,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OPERATION_FIELD_NUMBER = 2;
-  private volatile Object operation_;
+  private volatile java.lang.Object operation_;
   /**
    * <pre>
    * forbid：禁播，recover：解禁。
@@ -161,15 +161,15 @@ private static final long serialVersionUID = 0L;
    * <code>string Operation = 2;</code>
    * @return The operation.
    */
-  @Override
-  public String getOperation() {
-    Object ref = operation_;
-    if (ref instanceof String) {
-      return (String) ref;
+  @java.lang.Override
+  public java.lang.String getOperation() {
+    java.lang.Object ref = operation_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
+      java.lang.String s = bs.toStringUtf8();
       operation_ = s;
       return s;
     }
@@ -182,14 +182,14 @@ private static final long serialVersionUID = 0L;
    * <code>string Operation = 2;</code>
    * @return The bytes for operation.
    */
-  @Override
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getOperationBytes() {
-    Object ref = operation_;
-    if (ref instanceof String) {
+    java.lang.Object ref = operation_;
+    if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
+              (java.lang.String) ref);
       operation_ = b;
       return b;
     } else {
@@ -198,7 +198,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPACENAME_FIELD_NUMBER = 3;
-  private volatile Object spaceName_;
+  private volatile java.lang.Object spaceName_;
   /**
    * <pre>
    * 点播空间名，非必填
@@ -207,15 +207,15 @@ private static final long serialVersionUID = 0L;
    * <code>string SpaceName = 3;</code>
    * @return The spaceName.
    */
-  @Override
-  public String getSpaceName() {
-    Object ref = spaceName_;
-    if (ref instanceof String) {
-      return (String) ref;
+  @java.lang.Override
+  public java.lang.String getSpaceName() {
+    java.lang.Object ref = spaceName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
+      java.lang.String s = bs.toStringUtf8();
       spaceName_ = s;
       return s;
     }
@@ -228,14 +228,14 @@ private static final long serialVersionUID = 0L;
    * <code>string SpaceName = 3;</code>
    * @return The bytes for spaceName.
    */
-  @Override
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getSpaceNameBytes() {
-    Object ref = spaceName_;
-    if (ref instanceof String) {
+    java.lang.Object ref = spaceName_;
+    if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
+              (java.lang.String) ref);
       spaceName_ = b;
       return b;
     } else {
@@ -244,7 +244,7 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
-  @Override
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -254,7 +254,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @Override
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileUrls_)) {
@@ -269,7 +269,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  @Override
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -289,15 +289,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @Override
-  public boolean equals(final Object obj) {
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof VodSubmitBlockTasksRequest)) {
+    if (!(obj instanceof com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest)) {
       return super.equals(obj);
     }
-    VodSubmitBlockTasksRequest other = (VodSubmitBlockTasksRequest) obj;
+    com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest other = (com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest) obj;
 
     if (!getFileUrls()
         .equals(other.getFileUrls())) return false;
@@ -309,7 +309,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -327,69 +327,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static VodSubmitBlockTasksRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static VodSubmitBlockTasksRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static VodSubmitBlockTasksRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static VodSubmitBlockTasksRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static VodSubmitBlockTasksRequest parseFrom(byte[] data)
+  public static com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static VodSubmitBlockTasksRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static VodSubmitBlockTasksRequest parseFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static VodSubmitBlockTasksRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static VodSubmitBlockTasksRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static VodSubmitBlockTasksRequest parseDelimitedFrom(
+  public static com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static VodSubmitBlockTasksRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static VodSubmitBlockTasksRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -397,23 +397,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @Override
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(VodSubmitBlockTasksRequest prototype) {
+  public static Builder newBuilder(com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @Override
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @Override
+  @java.lang.Override
   protected Builder newBuilderForType(
-      BuilderParent parent) {
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -423,18 +423,18 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Request.VodSubmitBlockTasksRequest)
-      VodSubmitBlockTasksRequestOrBuilder {
+      com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitBlockTasksRequest_descriptor;
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitBlockTasksRequest_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitBlockTasksRequest_fieldAccessorTable
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitBlockTasksRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              VodSubmitBlockTasksRequest.class, Builder.class);
+              com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest.class, com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest.Builder.class);
     }
 
     // Construct using com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest.newBuilder()
@@ -443,7 +443,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -452,7 +452,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @Override
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       fileUrls_ = "";
@@ -464,29 +464,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitBlockTasksRequest_descriptor;
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodSubmitBlockTasksRequest_descriptor;
     }
 
-    @Override
-    public VodSubmitBlockTasksRequest getDefaultInstanceForType() {
-      return VodSubmitBlockTasksRequest.getDefaultInstance();
+    @java.lang.Override
+    public com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest getDefaultInstanceForType() {
+      return com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest.getDefaultInstance();
     }
 
-    @Override
-    public VodSubmitBlockTasksRequest build() {
-      VodSubmitBlockTasksRequest result = buildPartial();
+    @java.lang.Override
+    public com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest build() {
+      com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @Override
-    public VodSubmitBlockTasksRequest buildPartial() {
-      VodSubmitBlockTasksRequest result = new VodSubmitBlockTasksRequest(this);
+    @java.lang.Override
+    public com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest buildPartial() {
+      com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest result = new com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest(this);
       result.fileUrls_ = fileUrls_;
       result.operation_ = operation_;
       result.spaceName_ = spaceName_;
@@ -494,50 +494,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public Builder clone() {
       return super.clone();
     }
-    @Override
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return super.setField(field, value);
     }
-    @Override
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @Override
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @Override
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, Object value) {
+        int index, java.lang.Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @Override
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return super.addRepeatedField(field, value);
     }
-    @Override
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof VodSubmitBlockTasksRequest) {
-        return mergeFrom((VodSubmitBlockTasksRequest)other);
+      if (other instanceof com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest) {
+        return mergeFrom((com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(VodSubmitBlockTasksRequest other) {
-      if (other == VodSubmitBlockTasksRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest other) {
+      if (other == com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest.getDefaultInstance()) return this;
       if (!other.getFileUrls().isEmpty()) {
         fileUrls_ = other.fileUrls_;
         onChanged();
@@ -555,21 +555,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      VodSubmitBlockTasksRequest parsedMessage = null;
+      com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (VodSubmitBlockTasksRequest) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -579,7 +579,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private Object fileUrls_ = "";
+    private java.lang.Object fileUrls_ = "";
     /**
      * <pre>
      *媒体Url列表：
@@ -590,16 +590,16 @@ private static final long serialVersionUID = 0L;
      * <code>string FileUrls = 1;</code>
      * @return The fileUrls.
      */
-    public String getFileUrls() {
-      Object ref = fileUrls_;
-      if (!(ref instanceof String)) {
+    public java.lang.String getFileUrls() {
+      java.lang.Object ref = fileUrls_;
+      if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         fileUrls_ = s;
         return s;
       } else {
-        return (String) ref;
+        return (java.lang.String) ref;
       }
     }
     /**
@@ -614,11 +614,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getFileUrlsBytes() {
-      Object ref = fileUrls_;
+      java.lang.Object ref = fileUrls_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         fileUrls_ = b;
         return b;
       } else {
@@ -637,7 +637,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFileUrls(
-        String value) {
+        java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -685,7 +685,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private Object operation_ = "";
+    private java.lang.Object operation_ = "";
     /**
      * <pre>
      * forbid：禁播，recover：解禁。
@@ -694,16 +694,16 @@ private static final long serialVersionUID = 0L;
      * <code>string Operation = 2;</code>
      * @return The operation.
      */
-    public String getOperation() {
-      Object ref = operation_;
-      if (!(ref instanceof String)) {
+    public java.lang.String getOperation() {
+      java.lang.Object ref = operation_;
+      if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         operation_ = s;
         return s;
       } else {
-        return (String) ref;
+        return (java.lang.String) ref;
       }
     }
     /**
@@ -716,11 +716,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getOperationBytes() {
-      Object ref = operation_;
+      java.lang.Object ref = operation_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         operation_ = b;
         return b;
       } else {
@@ -737,7 +737,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOperation(
-        String value) {
+        java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -781,7 +781,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private Object spaceName_ = "";
+    private java.lang.Object spaceName_ = "";
     /**
      * <pre>
      * 点播空间名，非必填
@@ -790,16 +790,16 @@ private static final long serialVersionUID = 0L;
      * <code>string SpaceName = 3;</code>
      * @return The spaceName.
      */
-    public String getSpaceName() {
-      Object ref = spaceName_;
-      if (!(ref instanceof String)) {
+    public java.lang.String getSpaceName() {
+      java.lang.Object ref = spaceName_;
+      if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         spaceName_ = s;
         return s;
       } else {
-        return (String) ref;
+        return (java.lang.String) ref;
       }
     }
     /**
@@ -812,11 +812,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getSpaceNameBytes() {
-      Object ref = spaceName_;
+      java.lang.Object ref = spaceName_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         spaceName_ = b;
         return b;
       } else {
@@ -833,7 +833,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSpaceName(
-        String value) {
+        java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -876,13 +876,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-    @Override
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @Override
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -893,18 +893,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Request.VodSubmitBlockTasksRequest)
-  private static final VodSubmitBlockTasksRequest DEFAULT_INSTANCE;
+  private static final com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new VodSubmitBlockTasksRequest();
+    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest();
   }
 
-  public static VodSubmitBlockTasksRequest getDefaultInstance() {
+  public static com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<VodSubmitBlockTasksRequest>
       PARSER = new com.google.protobuf.AbstractParser<VodSubmitBlockTasksRequest>() {
-    @Override
+    @java.lang.Override
     public VodSubmitBlockTasksRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -917,13 +917,13 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @Override
+  @java.lang.Override
   public com.google.protobuf.Parser<VodSubmitBlockTasksRequest> getParserForType() {
     return PARSER;
   }
 
-  @Override
-  public VodSubmitBlockTasksRequest getDefaultInstanceForType() {
+  @java.lang.Override
+  public com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

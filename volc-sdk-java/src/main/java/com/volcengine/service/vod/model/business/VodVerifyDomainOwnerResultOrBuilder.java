@@ -25,7 +25,7 @@ public interface VodVerifyDomainOwnerResultOrBuilder extends
    * <code>string ErrorMessage = 2;</code>
    * @return The errorMessage.
    */
-  String getErrorMessage();
+  java.lang.String getErrorMessage();
   /**
    * <pre>
    * 校验失败的原因（Status=false时返回）

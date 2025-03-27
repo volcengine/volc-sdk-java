@@ -34,7 +34,7 @@ public interface VodDescribeDomainVerifyContentResultOrBuilder extends
    * <code>.Volcengine.Vod.Models.Business.VodDomainDNSVerifyInfo DNSVerifyInfo = 2;</code>
    * @return The dNSVerifyInfo.
    */
-  VodDomainDNSVerifyInfo getDNSVerifyInfo();
+  com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfo getDNSVerifyInfo();
   /**
    * <pre>
    * DNS校验信息（NeedVerify=true时返回）
@@ -42,7 +42,7 @@ public interface VodDescribeDomainVerifyContentResultOrBuilder extends
    *
    * <code>.Volcengine.Vod.Models.Business.VodDomainDNSVerifyInfo DNSVerifyInfo = 2;</code>
    */
-  VodDomainDNSVerifyInfoOrBuilder getDNSVerifyInfoOrBuilder();
+  com.volcengine.service.vod.model.business.VodDomainDNSVerifyInfoOrBuilder getDNSVerifyInfoOrBuilder();
 
   /**
    * <pre>
@@ -61,7 +61,7 @@ public interface VodDescribeDomainVerifyContentResultOrBuilder extends
    * <code>.Volcengine.Vod.Models.Business.VodDomainFileVerifyInfo FileVerifyInfo = 3;</code>
    * @return The fileVerifyInfo.
    */
-  VodDomainFileVerifyInfo getFileVerifyInfo();
+  com.volcengine.service.vod.model.business.VodDomainFileVerifyInfo getFileVerifyInfo();
   /**
    * <pre>
    * 文件校验信息（NeedVerify=true时返回）
@@ -69,5 +69,5 @@ public interface VodDescribeDomainVerifyContentResultOrBuilder extends
    *
    * <code>.Volcengine.Vod.Models.Business.VodDomainFileVerifyInfo FileVerifyInfo = 3;</code>
    */
-  VodDomainFileVerifyInfoOrBuilder getFileVerifyInfoOrBuilder();
+  com.volcengine.service.vod.model.business.VodDomainFileVerifyInfoOrBuilder getFileVerifyInfoOrBuilder();
 }

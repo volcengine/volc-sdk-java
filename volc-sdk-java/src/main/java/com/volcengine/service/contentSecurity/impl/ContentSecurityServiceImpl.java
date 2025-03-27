@@ -11,6 +11,8 @@ import com.volcengine.service.contentSecurity.ContentSecurityConfig;
 import com.volcengine.service.contentSecurity.ContentSecurityService;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 public class ContentSecurityServiceImpl extends BaseServiceImpl implements ContentSecurityService {
     private ContentSecurityServiceImpl() {
@@ -35,7 +37,11 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
 
     @Override
     public ImageRiskDetectionResponse ImageRiskDetectionV2(RiskDetectionRequest riskDetectionRequest) throws Exception {
-        RawResponse response = json(Const.ImageContentRiskV2, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        String aid = Integer.toString(riskDetectionRequest.getAppId());
+        Map<String, String> aidMap = new HashMap<String, String>(){{
+            put("aid", aid);
+        }};
+        RawResponse response = json(Const.ImageContentRiskV2, Utils.mapToPairList(aidMap), JSON.toJSONString(riskDetectionRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -216,7 +222,12 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
 
     @Override
     public TextSliceRiskResponse TextSliceRisk(RiskDetectionRequest riskDetectionRequest) throws Exception {
-        RawResponse response = json(Const.TextSliceRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        String aid = Integer.toString(riskDetectionRequest.getAppId());
+        Map<String, String> aidMap = new HashMap<String, String>(){{
+            put("aid", aid);
+        }};
+
+        RawResponse response = json(Const.TextSliceRisk, Utils.mapToPairList(aidMap), JSON.toJSONString(riskDetectionRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }

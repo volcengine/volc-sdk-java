@@ -15,7 +15,7 @@ public interface VodDomainDNSVerifyInfoOrBuilder extends
    * <code>string Host = 1;</code>
    * @return The host.
    */
-  String getHost();
+  java.lang.String getHost();
   /**
    * <pre>
    * 主机记录，表示该 TXT 记录中的主机名。
@@ -35,7 +35,7 @@ public interface VodDomainDNSVerifyInfoOrBuilder extends
    * <code>string RecordType = 2;</code>
    * @return The recordType.
    */
-  String getRecordType();
+  java.lang.String getRecordType();
   /**
    * <pre>
    * 记录类型，表示该 DNS 记录的类型。该参数值是 TXT，表示 TXT 记录。
@@ -55,7 +55,7 @@ public interface VodDomainDNSVerifyInfoOrBuilder extends
    * <code>string RecordValue = 3;</code>
    * @return The recordValue.
    */
-  String getRecordValue();
+  java.lang.String getRecordValue();
   /**
    * <pre>
    * 记录值，表示该 TXT 记录的记录值。

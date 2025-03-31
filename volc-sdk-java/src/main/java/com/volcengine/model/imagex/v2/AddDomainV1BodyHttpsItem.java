@@ -10,13 +10,21 @@ import com.alibaba.fastjson.JSON;
 public final class AddDomainV1BodyHttpsItem  {
 
     /**
-     * <p>是否开启 Https，取值如下所示：* true：强制* false：不强制</p>
+     * <p>是否开启 Https，取值如下所示：</p>
+     *
+     * <p>- `true`：开启</p>
+     *
+     * <p>- `false`：关闭</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "enable_https")
     private Boolean enableHttps;
 
     /**
      * <p>是否强制使用 Https，取值如下所示：</p>
+     *
+     * <p>- `true`：强制</p>
+     *
+     * <p>- `false`：不强制</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "force_https")
     private Boolean forceHttps;

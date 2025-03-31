@@ -2,6 +2,7 @@ package com.volcengine.model.imagex.v2;
 
 
 import com.alibaba.fastjson.JSON;
+import java.util.List;
 
 /**
  * GetImageTranscodeDetailsResResultExecInfoItemExecOutput
@@ -10,7 +11,7 @@ import com.alibaba.fastjson.JSON;
 public final class GetImageTranscodeDetailsResResultExecInfoItemExecOutput  {
 
     /**
-     * <p>转码结果图大小，单位为 byte</p>
+     * <p>转码结果图大小，单位为 byte。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Size")
     private Long size;
@@ -38,6 +39,12 @@ public final class GetImageTranscodeDetailsResResultExecInfoItemExecOutput  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ErrCode")
     private String errCode;
+
+    /**
+     * <p>请提供具体的参数名字和类型。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Evals")
+    private List<GetImageTranscodeDetailsResResultExecInfoItemExecOutputEvalsItem> evals;
 
     @Override
     public String toString() {

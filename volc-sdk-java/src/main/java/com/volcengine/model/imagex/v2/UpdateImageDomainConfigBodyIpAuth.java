@@ -35,7 +35,7 @@ public final class UpdateImageDomainConfigBodyIpAuth  {
     private Boolean isWhiteMode;
 
     /**
-     * <p>黑白名单 IP 地址，最大限制为 100。</p>
+     * <p>黑白名单 IP 地址，最大限制为 1000。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "values")
     private List<String> values;

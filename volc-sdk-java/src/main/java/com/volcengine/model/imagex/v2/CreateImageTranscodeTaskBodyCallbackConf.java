@@ -39,6 +39,16 @@ public final class CreateImageTranscodeTaskBodyCallbackConf  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Args")
     private String args;
 
+    /**
+     * <p>回调的维度类型，缺省情况下按照条目级别进行回调。取值如下所示：</p>
+     *
+     * <p>- `task`：将按照任务级别进行回调。可分批回调，一个批次内最多一次性可回调 5000 条图片转码条目执行信息。</p>
+     *
+     * <p>- `entry`：将按照条目级别进行回调。当该条目执行完毕，将立即产生回调。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Type")
+    private String type;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

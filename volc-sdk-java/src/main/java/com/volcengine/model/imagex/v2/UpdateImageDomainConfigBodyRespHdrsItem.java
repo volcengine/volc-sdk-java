@@ -21,26 +21,6 @@ public final class UpdateImageDomainConfigBodyRespHdrsItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "value")
     private String value;
 
-    /**
-     * <p>开启跨域校验，取值如下所示：</p>
-     *
-     * <p>- `true`：开启</p>
-     *
-     * <p>- `false`：关闭</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "access_origin_control")
-    private Boolean accessOriginControl;
-
-    /**
-     * <p>表示对响应头的操作。该参数有以下取值： </p>
-     *
-     * <p>- `set`：表示设置一个头部。设置操作包括添加与修改。如果源站响应中已包含该头部，该头部的值会被覆盖。如果源站响应中没有包含该头部，该头部会被添加。 </p>
-     *
-     * <p>- `delete`：表示删除一个头部。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "action")
-    private String action;
-
     @Override
     public String toString() {
         return JSON.toJSONString(this);

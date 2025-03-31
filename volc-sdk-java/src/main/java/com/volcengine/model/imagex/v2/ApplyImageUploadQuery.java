@@ -43,15 +43,7 @@ public final class ApplyImageUploadQuery  {
      *
      * <p>* 数组长度和`UploadNum`保持一致。</p>
      *
-     * <p>* 不支持空格，如果中间有空格将会导致上传失败。</p>
-     *
-     * <p>* 不支持以/开头或结尾，不支持/连续出现，Key 值最大长度限制为 180 个字节。</p>
-     *
-     * <p>:::tip</p>
-     *
-     * <p>仅对于 veImageX 上传场景生效。</p>
-     *
-     * <p>:::</p>
+     * <p>* 存储 Key 详细命名规范请参看 [veImageX 存储 Key 通用字符规则](https://www.volcengine.com/docs/508/1458331)。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StoreKeys")
     private List<String> storeKeys;

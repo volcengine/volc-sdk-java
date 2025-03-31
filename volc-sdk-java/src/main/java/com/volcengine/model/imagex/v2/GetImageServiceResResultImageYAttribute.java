@@ -19,14 +19,26 @@ public final class GetImageServiceResResultImageYAttribute  {
      *
      * <p>- `false`：关闭</p>
      */
-    @com.alibaba.fastjson.annotation.JSONField(name = "ResourceProtect")
-    private Boolean resourceProtect;
+    @com.alibaba.fastjson.annotation.JSONField(name = "ImageProtect")
+    private Boolean imageProtect;
 
     /**
      * <p>样式分割符</p>
      */
-    @com.alibaba.fastjson.annotation.JSONField(name = "StyleSeparators")
-    private List<String> styleSeparators;
+    @com.alibaba.fastjson.annotation.JSONField(name = "ImageStyleSeparators")
+    private List<String> imageStyleSeparators;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "QnCosPreference")
+    private String qnCosPreference;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "QueryStyleCombine")
+    private Boolean queryStyleCombine;
 
     @Override
     public String toString() {

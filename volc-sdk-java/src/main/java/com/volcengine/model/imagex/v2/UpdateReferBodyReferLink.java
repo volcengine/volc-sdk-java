@@ -33,7 +33,7 @@ public final class UpdateReferBodyReferLink  {
     /**
      * <p>Referer 通用规则列表，根据是否为白名单，为对应的白/黑名单的值。您可以指定一个或者多个 IP 地址，域名和泛域名。支持填写二级域名，支持混合输入。</p>
      *
-     * <p>- IP 地址格式支持 IPv4 和 IPv6，最多可输入 100 个 IP 地址。</p>
+     * <p>- IP 地址格式支持 IPv4 和 IPv6，最多可输入 1000 个 IP 地址。</p>
      *
      * <p>- 域名无需包含`http://` 或 `https://`。</p>
      *
@@ -41,7 +41,9 @@ public final class UpdateReferBodyReferLink  {
      *
      * <p>:::tip</p>
      *
-     * <p>`values` 和 `regex_valses` 均存在时，两者同时生效。</p>
+     * <p>- `values` 和 `regex_valses` 均存在时，两者同时生效。</p>
+     *
+     * <p>- 若您需要对同类型名单内已设定的 `values` 地址进行增删处理，那么您可调用 [获取域名配置](https://www.volcengine.com/docs/508/9366#refer-link) 接口获取已配置的全部地址列表后，在此基础上添加或删除您期望变更的值，最后重新传入 `values`。</p>
      *
      * <p>:::</p>
      */
@@ -49,7 +51,7 @@ public final class UpdateReferBodyReferLink  {
     private List<String> values;
 
     /**
-     * <p>Referer 的正则表达式的列表，仅支持填写 IPv4 和 IPv6 格式的 IP 地址，参数长度范围为（1，1024）。不支持域名、泛域名、CIDR 网段。</p>
+     * <p>Referer 的正则表达式的列表，仅支持填写 IPv4 和 IPv6 格式的 IP 地址，参数长度范围为（1，1024）。不支持域名、泛域名、CIDR 网段。最多支持设置 100 条规则。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "regex_values")
     private List<String> regexValues;

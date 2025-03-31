@@ -53,6 +53,18 @@ public final class GetAllImageServicesResResultServicesItemStorageRulesItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Enable")
     private Boolean enable;
 
+    /**
+     * <p>历史版本文件在策略命中后需要执行的操作</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "NonCurrentAction")
+    private String nonCurrentAction;
+
+    /**
+     * <p>历史版本文件的策略天数</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "NonCurrentDay")
+    private Integer nonCurrentDay;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

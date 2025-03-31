@@ -102,6 +102,18 @@ public final class GetImageAnalyzeTasksResResultTasksItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Id")
     private String id;
 
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "EvalStages")
+    private List<String> evalStages;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "VqTypes")
+    private List<String> vqTypes;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

@@ -35,7 +35,7 @@ public final class UpdateImageDomainConfigBodyUserAgentAcl  {
     private String ruleType;
 
     /**
-     * <p>Agent 列表，最多可支持输入100个，支持通配符`*`匹配任意字符串。</p>
+     * <p>Agent 列表，最多可支持输入 1000 个，支持通配符 `*` 匹配任意字符串。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "user_agents")
     private List<String> userAgents;

@@ -218,6 +218,18 @@ public final class GetImageServiceResResult  {
     @com.alibaba.fastjson.annotation.JSONField(name = "ResourceLimitedVisit")
     private GetImageServiceResResultResourceLimitedVisit resourceLimitedVisit;
 
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StorageVersioning")
+    private Integer storageVersioning;
+
+    /**
+     * <p>存储规则。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StorageRulesV2")
+    private List<GetImageServiceResResultStorageRulesV2Item> storageRulesV2;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

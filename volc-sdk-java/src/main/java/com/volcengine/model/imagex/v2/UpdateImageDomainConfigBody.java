@@ -95,7 +95,15 @@ public final class UpdateImageDomainConfigBody  {
     private UpdateImageDomainConfigBodyPageOptimization pageOptimization;
 
     /**
-     * <p>TODO</p>
+     * <p>共享缓存配置。共享缓存允许同账号下多个加速域名共享同一份节点上的缓存。在 veImageX 中，您可以通过设置共享缓存配置，使各个子站点之间可共享相同的公共资源，以减少带宽的使用，提高资源命中率。详细功能说明参看[共享缓存](https://www.volcengine.com/docs/508/196769)。</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>共享缓存为白名单功能，请[提交工单](https://console.volcengine.com/workorder/create?step=2&SubProductID=P00000080)联系技术支持为您的账号开启配置能力。</p>
+     *
+     * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "share_cache")
     private UpdateImageDomainConfigBodyShareCache shareCache;

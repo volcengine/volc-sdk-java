@@ -57,6 +57,18 @@ public final class GetImageServiceResResultStorageRulesItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Enable")
     private Boolean enable;
 
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "NonCurrentAction")
+    private String nonCurrentAction;
+
+    /**
+     * <p>非当前天数。取值范围为 `[ ]`，单位为，默认值为``。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "NonCurrentDay")
+    private Integer nonCurrentDay;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

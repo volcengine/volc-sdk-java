@@ -67,18 +67,6 @@ public final class CreateImageAnalyzeTaskBody  {
     private List<String> resUri;
 
     /**
-     * <p>仅当`Type` 取值 `UriFile` 时，配置有效。</p>
-     *
-     * <p>是否模拟模板每阶段输出，取值如下所示：</p>
-     *
-     * <p>- `true`：是，一个模版中可以选择多种图像处理, 模拟输出时会将所有的处理逐步叠加并编码为最终图片格式运行并输出评估结果。</p>
-     *
-     * <p>- `false`：否。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "EvalPerStage")
-    private Boolean evalPerStage;
-
-    /**
      * <p>任务地区。当前仅支持取值 `cn`，表示国内。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Region")

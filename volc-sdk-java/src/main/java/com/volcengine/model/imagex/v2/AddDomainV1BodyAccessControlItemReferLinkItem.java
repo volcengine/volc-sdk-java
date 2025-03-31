@@ -11,13 +11,23 @@ import java.util.List;
 public final class AddDomainV1BodyAccessControlItemReferLinkItem  {
 
     /**
-     * <p>是否开启黑白名单配置，取值如下所示：* true：允许空 Refer* false：不允许空 Refer</p>
+     * <p>是否开启 Referer 防盗链，取值如下所示：</p>
+     *
+     * <p>* `true`：开启</p>
+     *
+     * <p>* `false`：关闭</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "enabled")
     private Boolean enabled;
 
     /**
-     * <p>是否选择白名单，取值如下所示：</p>
+     * <p>是否配置白名单，取值如下所示：</p>
+     *
+     *
+     *
+     * <p>- `true`：配置白名单</p>
+     *
+     * <p>- `false`：配置黑名单</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "is_white_mode")
     private Boolean isWhiteMode;
@@ -29,7 +39,11 @@ public final class AddDomainV1BodyAccessControlItemReferLinkItem  {
     private List<String> values;
 
     /**
-     * <p>是否允许空 Refer，取值如下所示：</p>
+     * <p>是否允许空 Referer，取值如下所示：</p>
+     *
+     * <p>- `true`：允许空 Referer</p>
+     *
+     * <p>- `false`：不允许空 Referer</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "allow_empty_refer")
     private Boolean allowEmptyRefer;

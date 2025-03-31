@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class GetImageTranscodeDetailsResResultExecInfoItemExecInput  {
 
     /**
-     * <p>图片 url 或 uri</p>
+     * <p>原图图片的 URL 或存储 URI。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Image")
     private String image;

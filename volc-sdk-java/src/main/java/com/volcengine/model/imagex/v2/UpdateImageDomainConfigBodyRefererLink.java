@@ -27,33 +27,33 @@ public final class UpdateImageDomainConfigBodyRefererLink  {
      *
      *
      *
-     * <p>- `true`：选择白名单</p>
+     * <p>- `true`：配置白名单</p>
      *
-     * <p>- `false`：不选择白名单</p>
+     * <p>- `false`：配置黑名单</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "is_white_mode")
     private Boolean isWhiteMode;
 
     /**
-     * <p>根据是否为白名单，为对应的白/黑名单的值。</p>
+     * <p>黑白名单 Referer 规则，可输入域名或 IP 地址，最大限制为 1000 条。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "values")
     private List<String> values;
 
     /**
-     * <p>正则表达式规则列表</p>
+     * <p>正则表达式规则列表，最大限制为 100 条。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "regex_values")
     private List<String> regexValues;
 
     /**
-     * <p>是否允许空 Refer，取值如下所示：</p>
+     * <p>是否允许空 Referer，取值如下所示：</p>
      *
      *
      *
-     * <p>- `true`：允许空 Refer</p>
+     * <p>- `true`：允许空 Referer</p>
      *
-     * <p>- `false`：不允许空 Refer</p>
+     * <p>- `false`：不允许空 Referer</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "allow_empty_refer")
     private Boolean allowEmptyRefer;

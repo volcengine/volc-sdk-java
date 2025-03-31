@@ -75,6 +75,18 @@ public final class GetImageUploadFileResResult  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Disabled")
     private Boolean disabled;
 
+    /**
+     * <p>恢复请求日期。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "RestoreRequestDate")
+    private String restoreRequestDate;
+
+    /**
+     * <p>恢复取回方式</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "RestoreTier")
+    private String restoreTier;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

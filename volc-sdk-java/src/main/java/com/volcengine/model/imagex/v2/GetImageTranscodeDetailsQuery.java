@@ -16,7 +16,13 @@ public final class GetImageTranscodeDetailsQuery  {
     private String queueId;
 
     /**
-     * <p>队列所在地区。默认当前地区。ToB取值枚举：cn、va、sg。</p>
+     * <p>任务 ID，缺省情况下查询指定队列下所有任务详情。您可通过调用 [GetImageTranscodeTasks](https://www.volcengine.com/docs/508/1356555)获取指定队列的全部任务 ID。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "TaskId")
+    private String taskId;
+
+    /**
+     * <p>队列所在地区。默认当前地区为 **cn**。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Region")
     private String region;

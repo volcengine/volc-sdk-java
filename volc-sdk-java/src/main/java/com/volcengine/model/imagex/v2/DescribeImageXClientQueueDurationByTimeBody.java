@@ -158,6 +158,16 @@ public final class DescribeImageXClientQueueDurationByTimeBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Granularity")
     private String granularity;
 
+    /**
+     * <p>取值为不等于的维度（默认为等于）。支持取值：</p>
+     *
+     * <p>- 公共维度：`AppVer`、`SdkVer`、`Country`、`Province`、`Isp`、`Domain`、`ImageType`</p>
+     *
+     * <p>- 自定义维度：您可以通过调用 [GetImageXQueryDims](https://www.volcengine.com/docs/508/1213048)接口获取自定义维度指标</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Not")
+    private List<String> not;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

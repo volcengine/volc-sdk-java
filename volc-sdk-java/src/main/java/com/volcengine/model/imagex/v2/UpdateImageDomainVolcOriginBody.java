@@ -10,12 +10,6 @@ import com.alibaba.fastjson.JSON;
 public final class UpdateImageDomainVolcOriginBody  {
 
     /**
-     * <p>域名</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "doamin")
-    private String doamin;
-
-    /**
      * <p>是否使用ImageX源站</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "use_imagex")
@@ -44,6 +38,12 @@ public final class UpdateImageDomainVolcOriginBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "origin_range")
     private Boolean originRange;
+
+    /**
+     * <p>域名</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "domain")
+    private String domain;
 
     @Override
     public String toString() {

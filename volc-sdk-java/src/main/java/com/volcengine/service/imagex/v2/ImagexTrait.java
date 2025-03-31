@@ -98,7 +98,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>updateImageDomainVolcOrigin</p>
      * <p>修改源站配置</p>
      *
-
+     *
      *
      * @param query query arguments
      * @param body body payload
@@ -324,13 +324,11 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>本接口支持修改指定服务 ID 下域名的集智瘦身配置。</p>
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>* 集智瘦身支持[模板配置](https://www.volcengine.com/docs/508/114402)和域名配置，但仅支持运行一种处理方式。请选择其中一种配置，来使用集智瘦身功能。</p>
      *
      * <p>* 使用域名配置的效果一般会低于模板配置。</p>
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -653,11 +651,11 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>|  | - 桶清单方式：Access Key、Secret Key、Bucket、Region、BucketInventoryDir、BucketInventorySchema |  |\</p>
      *
-     * <p>|  | :::tip |  |\</p>
+     * <p>|  |  |  |\</p>
      *
      * <p>|  | 桶清单方式完整迁移流程详见[使用桶清单方式进行数据迁移](https://www.volcengine.com/docs/508/1347855)。 |  |\</p>
      *
-     * <p>|  | ::: |  |</p>
+     * <p>|  |  |  |</p>
      *
      * <p>| 七牛云Kodo | 桶遍历方式：Access Key、Secret Key、Bucket | [迁移准备](https://www.volcengine.com/docs/508/129216) |</p>
      *
@@ -688,11 +686,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>本接口支持您通过指定任务 ID 来删除该迁移任务，仅对状态是非**运行中**外的任务生效。</p>
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>仅当状态非`Running`时，该删除操作有效。您可调用[GetImageMigrateTasks](https://www.volcengine.com/docs/508/1108670) 查看待结束任务的状态。</p>
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @return response data
@@ -739,11 +735,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>通过指定任务 ID 来结束该迁移任务。结束迁移任务将停止后续的迁移文件，已完成的迁移文件不被删除。</p>
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>仅当状态为`Initial`和`Running`时，该结束操作有效。您可调用[GetImageMigrateTasks](https://www.volcengine.com/docs/508/1108670) 查看待结束任务的状态。</p>
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @return response data
@@ -773,7 +767,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>getImageMigrateTasks</p>
      * <p>获取迁移任务详情</p>
      *
-     * <p>本接口支持分页获取当前账号下的迁移任务及其迁移详情。 </p>
+     * <p>本接口支持分页获取当前账号下的迁移任务及其迁移详情。</p>
      *
      * @param query query arguments
      * @return response data
@@ -790,11 +784,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>本接口支持您通过指定任务 ID 来重新启动该迁移任务（原任务基础上重试失败列表），仅对状态为部分迁移完成的任务生效。</p>
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>仅当状态为`Partial`时，该重启操作有效。您可调用[GetImageMigrateTasks](https://www.volcengine.com/docs/508/1108670) 查看待结束任务的状态。</p>
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @return response data
@@ -818,6 +810,21 @@ public class ImagexTrait extends BaseServiceImpl {
     public GetImageAddOnTagRes getImageAddOnTag(GetImageAddOnTagQuery query) throws Exception {
         RawResponse rawResponse = json("GetImageAddOnTag", Utils.paramsToPair(query), "");
         return parseRawResponse(rawResponse, GetImageAddOnTagRes.class);
+    }
+
+    /**
+     * <p>describeImageXCubeUsage</p>
+     * <p>查询创意魔方用量</p>
+     *
+     * <p>本接口支持通过自定义查询时间段，查询该时间段的创意魔方用量。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeImageXCubeUsageRes describeImageXCubeUsage(DescribeImageXCubeUsageQuery query) throws Exception {
+        RawResponse rawResponse = json("DescribeImageXCubeUsage", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, DescribeImageXCubeUsageRes.class);
     }
 
     /**
@@ -871,11 +878,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>本接口支持通过自定义查询时间段，查询该时间段的每天资源占用量。</p>
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询最大时间跨度为 93 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @return response data
@@ -884,6 +889,21 @@ public class ImagexTrait extends BaseServiceImpl {
     public DescribeImageXBucketRetrievalUsageRes describeImageXBucketRetrievalUsage(DescribeImageXBucketRetrievalUsageQuery query) throws Exception {
         RawResponse rawResponse = json("DescribeImageXBucketRetrievalUsage", Utils.paramsToPair(query), "");
         return parseRawResponse(rawResponse, DescribeImageXBucketRetrievalUsageRes.class);
+    }
+
+    /**
+     * <p>describeImageXAIRequestCntUsage</p>
+     * <p>查询附加组件智能处理请求次</p>
+     *
+     * <p>本接口支持通过自定义查询时间段，查询该时间段的附加组件智能处理请求次数。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeImageXAIRequestCntUsageRes describeImageXAIRequestCntUsage(DescribeImageXAIRequestCntUsageQuery query) throws Exception {
+        RawResponse rawResponse = json("DescribeImageXAIRequestCntUsage", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, DescribeImageXAIRequestCntUsageRes.class);
     }
 
     /**
@@ -952,11 +972,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>本接口支持通过自定义查询时间段，查询该时间段的每天资源占用量。</p>
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询最大时间跨度为 93 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @return response data
@@ -972,8 +990,6 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>获取附加组件通用请求次数</p>
      *
      * <p>本接口支持通过自定义查询时间段，获取该时间段的附加组件通用请求次数。</p>
-     *
-     *
      *
      * @param query query arguments
      * @return response data
@@ -1247,13 +1263,11 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>- URL/Refer/客户端IP/UA 最多支持展示 Top 1000 的数据。</p>
      *
      * <p>- 访问区域/运营商可展示展示全量数据。</p>
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @return response data
@@ -1272,11 +1286,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1295,11 +1307,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1318,11 +1328,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1341,11 +1349,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1364,11 +1370,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1387,11 +1391,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1410,11 +1412,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1433,11 +1433,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1456,11 +1454,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1569,11 +1565,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1592,11 +1586,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1615,11 +1607,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1636,11 +1626,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>本接口支持通过指定查询维度，来获取上传数据中的错误码信息以及时序数据等。</p>
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1659,11 +1647,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1682,11 +1668,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1705,11 +1689,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1728,11 +1710,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1751,11 +1731,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1774,11 +1752,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1797,11 +1773,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1820,11 +1794,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1843,11 +1815,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1866,11 +1836,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1889,11 +1857,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1912,11 +1878,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1935,11 +1899,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1958,11 +1920,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1981,11 +1941,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -2004,11 +1962,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -2027,11 +1983,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -2050,11 +2004,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -2073,11 +2025,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -2096,11 +2046,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -2119,11 +2067,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -2142,11 +2088,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -2178,11 +2122,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>本接口支持通过指定查询维度，来获取客户端状态监控的客户端上报量数据。</p>
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -2199,13 +2141,11 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>本接口支持通过指定查询维度，来获取客户端状态监控的黑白屏率时序数据。</p>
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>- 单次查询的时间跨度不能超过 **90** 天。</p>
      *
      * <p>- 黑白屏监控指客户端解码后出现纯黑、纯白、透明图占上报图片总数量的比例。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -2237,11 +2177,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>本接口支持通过指定查询维度，来获取客户端状态监控的处理降级成功率时序数据。</p>
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -2273,11 +2211,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>本接口支持通过指定查询时间段和时间粒度，获取画质评估上报数据。</p>
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -2296,11 +2232,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -2319,11 +2253,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>单次查询的时间跨度不能超过 **90** 天。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -2442,6 +2374,72 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>aIProcess</p>
+     * <p>AI图像处理</p>
+     *
+     * <p>提交一条 URL 或 URI 资源执行同步 AI 图像处理任务。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public AIProcessRes aIProcess(AIProcessBody body) throws Exception {
+        RawResponse rawResponse = json("AIProcess", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, AIProcessRes.class);
+    }
+
+    /**
+     * <p>createImageAITask</p>
+     * <p>创建离线AI图像处理任务</p>
+     *
+     * <p>提交一条或多条 URL 或 URI 资源执行异步 AI 图像处理任务。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateImageAITaskRes createImageAITask(CreateImageAITaskBody body) throws Exception {
+        RawResponse rawResponse = json("CreateImageAITask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateImageAITaskRes.class);
+    }
+
+    /**
+     * <p>getImageAITasks</p>
+     * <p>获取离线AI图像处理任务</p>
+     *
+     * <p>查询指定队列下提交的各个 AI 图像处理任务的执行信息。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageAITasksRes getImageAITasks(GetImageAITasksQuery query) throws Exception {
+        RawResponse rawResponse = json("GetImageAITasks", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetImageAITasksRes.class);
+    }
+
+    /**
+     * <p>getImageAIDetails</p>
+     * <p>获取离线AI图像处理任务执行详情</p>
+     *
+     * <p>指定任务 ID，查询 AI 图像处理任务的执行详情。</p>
+     *
+     *
+     *
+     *
+     *
+     * <p>仅支持查询结束时间在近 7 天的处理任务。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageAIDetailsRes getImageAIDetails(GetImageAIDetailsQuery query) throws Exception {
+        RawResponse rawResponse = json("GetImageAIDetails", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetImageAIDetailsRes.class);
+    }
+
+    /**
      * <p>updateImageResourceStatus</p>
      * <p>修改上传文件状态</p>
      *
@@ -2449,11 +2447,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>若您在封禁服务`ServiceId`开启了[重名覆盖上传](https://www.volcengine.com/docs/508/1119912)，当封禁的资源被上传的重名文件覆盖后，该资源的封禁状态会重置为正常。</p>
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -2469,7 +2465,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>updateFileStorageClass</p>
      * <p>修改文件存储类型</p>
      *
-     * <p>修改文件存储类型</p>
+     * <p>本接口支持修改单个文件的存储类型。</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -2485,7 +2481,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>getImageStorageFiles</p>
      * <p>列举服务下的文件</p>
      *
-     * <p>本接口支持列举指定服务下的全量文件。</p>
+     * <p>本接口列举并返回服务对应存储下的全量资源，并按照 `Key` 的字典序返回。列举资源包括您自行上传的资源，以及您开通持久化后 veImageX 通过服务持久化存储的资源。</p>
      *
      * @param query query arguments
      * @return response data
@@ -2500,7 +2496,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>deleteImageUploadFiles</p>
      * <p>删除服务下多个文件</p>
      *
-     * <p>通过指定服务 ID 以及上传文件的 Uri 列表，来删除指定的文件。</p>
+     * <p>通过指定服务 ID 以及文件 URI 列表来删除指定的文件，并返回成功删除的文件 URI 以及文件不存在的无效 URI。</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -2577,6 +2573,21 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>applyVpcUploadInfo</p>
+     * <p>获取文件Vpc内网上传地址</p>
+     *
+     * <p>本接口用于指定内网上传文件信息，并获取文件上传链接和 Header 信息。成功获取到上述信息后，按照链接及 Header 进行请求即可完成上传。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public ApplyVpcUploadInfoRes applyVpcUploadInfo(ApplyVpcUploadInfoQuery query) throws Exception {
+        RawResponse rawResponse = json("ApplyVpcUploadInfo", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, ApplyVpcUploadInfoRes.class);
+    }
+
+    /**
      * <p>applyImageUpload</p>
      * <p>获取文件上传地址</p>
      *
@@ -2586,19 +2597,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>强烈不建议您依赖 [CommitImageUpload](https://www.volcengine.com/docs/508/9398) 返回的图片 meta 信息，有获取 meta 需求推荐在上传完成后拼接`~info`模板获取[图片 meta 信息](https://www.volcengine.com/docs/508/64085)。原因请见[为什么不建议依赖 Commit 阶段返回的图片 meta 信息？](https://www.volcengine.com/docs/508/477196#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%BB%BA%E8%AE%AE%E4%BE%9D%E8%B5%96-commit-%E9%98%B6%E6%AE%B5%E8%BF%94%E5%9B%9E%E7%9A%84%E5%9B%BE%E7%89%87-meta-%E4%BF%A1%E6%81%AF%EF%BC%9F)</p>
-     *
-     * <p>:::</p>
-     *
-     *
-     *
-     * <p>:::tip</p>
-     *
-     * <p>veImageX 在全球多个区域部署，每个区域有自己对应的 OpenAPI 域名，不支持跨区域调用。具体详情请查看[服务地址](https://www.volcengine.com/docs/508/14106)。</p>
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @return response data
@@ -2630,11 +2631,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>通过指定服务 ID，获取当前服务下的上传文件信息。</p>
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>最多可返回 100 条上传文件信息。</p>
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @return response data
@@ -2729,11 +2728,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>	</p>
      *
-     * <p>	:::tip</p>
+     * <p>	</p>
      *
      * <p>	压缩文件类型不支持混用。</p>
-     *
-     * <p>	:::</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -2753,13 +2750,11 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>- 如果您的数据在本地 IDC 或者在本地磁盘中，同时通过本地服务器挂载云存储的资源迁移 veImageX 存储，推荐您使用[本地迁移与上传工具](https://www.volcengine.com/docs/508/67066)进行数据迁移。</p>
      *
      * <p>- 如果您的数据位于第三方云厂商或有可公网访问的 URL 本地数据，您可以登录 veImageX 使用[数据迁移](https://www.volcengine.com/docs/508/76309)功能迁移您的数据至 veImageX 存储。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -2838,13 +2833,11 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::warning</p>
+     *
      *
      * <p>- 源服务与目标服务需所属同一个火山引擎账号，所属地域需保持一致。</p>
      *
      * <p>- 归档与冷归档文件需[恢复资源](https://www.volcengine.com/docs/508/1205056)后，才能复制。</p>
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -2860,7 +2853,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>updateImageFileKey</p>
      * <p>重命名文件</p>
      *
-     * <p>重命名文件</p>
+     * <p>本接口支持通过指定源文件的 storekey 来对指定文件进行重命名操作。</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -2938,11 +2931,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>该接口支持通过指定待删除的任务队列 ID 在账号内删除该任务队列。</p>
      *
-     * <p>:::warning</p>
+     *
      *
      * <p>每个账号内置的一个默认任务队列不允许被删除。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -2989,10 +2980,6 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>本接口支持获取当前账号下已创建的任务队列详情。</p>
      *
-     *
-     *
-     *
-     *
      * @param query query arguments
      * @return response data
      * @throws Exception error during request
@@ -3010,13 +2997,11 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>- 仅当队列为运行中时可向该队列提交任务，请您在控制台或调用 [GetImageTranscodeQueues](https://www.volcengine.com/docs/508/1107341) 接口查看任务队列状态是否为运行中。</p>
      *
      * <p>- 一条任务队列（QueueId）可包含多个转码任务（TaskId），一个转码任务可由一条或多条 URL/URI 转码执行任务（EntryId）组成。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -3035,11 +3020,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>仅支持保存并查询任务结束时间在近 7 天的处理任务。</p>
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @return response data
@@ -3088,11 +3071,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>当前仅适用于营业执照类图像检测场景，其他图像检测类型还在持续开发中，敬请期待。</p>
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -3124,8 +3105,6 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>使用图像超分辨率获取结果图</p>
      *
      * <p>本接口支持通过输入待处理图像地址，经超分处理后得到处理后的图片 URI。</p>
-     *
-     *
      *
      * @param body body payload
      * @return response data
@@ -3160,17 +3139,13 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      *
      *
      * <p>* 支持同步或异步去重，如果输入两张以上图片推荐您使用异步去重处理。</p>
      *
      * <p>* 如果使用异步去重，则最终去重的图片评分以及图片分组结果请调用 [GetDedupTaskStatus](https://www.volcengine.com/docs/508/138909)接口查看。</p>
-     *
-     *
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -3267,11 +3242,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>您也可以通过调用 [GetImageEnhanceResultWithData](https://www.volcengine.com/docs/508/475346) 输入图片二进制数据，来获取经画质增强能力编码后的图片二进制数据。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -3354,13 +3327,11 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::warning</p>
+     *
      *
      * <p>- 提取水印时，若直接提供本接口返回的 PNG 前景水印图层，将无法提取出水印内容。请**务必**提供已融合盲水印透明图的背景网页的**截图**。</p>
      *
      * <p>- 为了确保能够正常提取截图中的水印，请**不要**对生成的盲水印 PNG 背景图层执行其他图片处理操作。</p>
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -3380,11 +3351,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>您可参考[查询图片 meta 信息](https://www.volcengine.com/docs/508/64085)，获取图片中存在的 EXIF 信息。</p>
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -3400,7 +3369,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>getImageDetectResult</p>
      * <p>图片内容检测</p>
      *
-     * <p>图片内容检测</p>
+     * <p>本接口支持检测指定服务下的图片中的人脸数据并返回对应坐标值。</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -3436,13 +3405,11 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::warning</p>
+     *
      *
      * <p>- 对同一张图片，请确保在提取水印时指定的模型，与添加水印时指定的模型为同一种，以免无法正常提取水印。</p>
      *
      * <p>- 在诸如电子邮件附件、社交媒体平台（如 Facebook、Instagram）、实时通讯应用（如微信）等传输媒介中传输图片时往往会自动压缩图片的分辨率，此时，图片水印也可能无法正常提取。</p>
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @return response data
@@ -3574,10 +3541,6 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>| <img src="https://portal.volccdn.com/obj/volcfe/cloud-universal-doc/upload_0aaef3c801516c319cfd32a8470fa8d6.jpeg" width="300" style="border: 1px solid #dfe2e5;">  | <img src="https://portal.volccdn.com/obj/volcfe/cloud-universal-doc/upload_f16dff48566f281e5ed82d617a769f17.jpeg" width="300" style="border: 1px solid #dfe2e5;"> |</p>
      *
-     *
-     *
-     *
-     *
      * @param query query arguments
      * @param body body payload
      * @return response data
@@ -3700,7 +3663,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>updateStorageRules</p>
      * <p>更新服务存储策略</p>
      *
-     * <p>更新服务存储策略</p>
+     * <p>本接口支持更新指定服务的存储策略。</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -3710,6 +3673,22 @@ public class ImagexTrait extends BaseServiceImpl {
     public UpdateStorageRulesRes updateStorageRules(UpdateStorageRulesQuery query, UpdateStorageRulesBody body) throws Exception {
         RawResponse rawResponse = json("UpdateStorageRules", Utils.paramsToPair(query), JSON.toJSONString(body));
         return parseRawResponse(rawResponse, UpdateStorageRulesRes.class);
+    }
+
+    /**
+     * <p>updateStorageRulesV2</p>
+     * <p>更新服务存储策略V2</p>
+     *
+     * <p>更新服务存储策略V2</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateStorageRulesV2Res updateStorageRulesV2(UpdateStorageRulesV2Query query, UpdateStorageRulesV2Body body) throws Exception {
+        RawResponse rawResponse = json("UpdateStorageRulesV2", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateStorageRulesV2Res.class);
     }
 
     /**
@@ -3750,11 +3729,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>根据服务 ID 以及输入的待更新的镜像回源配置详情，更新该服务的镜像回源配置。</p>
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>本接口全量更新配置，如果某个配置项为空，比如 Host 为空，接口会将对应的配置设为空。</p>
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -4236,15 +4213,13 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      *
      *
      * <p>* 包含附加组件的模板不做导入，直接忽略。</p>
      *
      * <p>* 包含图文水印的模板，需上传水印文件到目标服务，并替换模板内容中的水印 URI。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -4263,11 +4238,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>当已经有同名模板的时候，此时恢复模板会递增版本号。</p>
-     *
-     * <p>:::</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -4390,11 +4363,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>本接口支持对任务状态为已取消的审核任务，通过指定服务 ID 和任务 ID 来更新该条审核任务的各项配置。</p>
      *
-     * <p>:::tip</p>
+     *
      *
      * <p>您可通过调用[查询所有审核任务](https://www.volcengine.com/docs/508/1158717)查看所有审核任务的状态。</p>
-     *
-     * <p>:::</p>
      *
      * @param body body payload
      * @return response data

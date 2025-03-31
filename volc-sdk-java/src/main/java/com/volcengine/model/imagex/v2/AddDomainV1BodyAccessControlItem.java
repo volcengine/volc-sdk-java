@@ -11,7 +11,7 @@ import java.util.List;
 public final class AddDomainV1BodyAccessControlItem  {
 
     /**
-     * <p>Refer 配置</p>
+     * <p>Referer 配置。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "refer_link")
     private List<AddDomainV1BodyAccessControlItemReferLinkItem> referLink;

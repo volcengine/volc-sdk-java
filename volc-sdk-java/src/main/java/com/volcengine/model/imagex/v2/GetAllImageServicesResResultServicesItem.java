@@ -27,8 +27,6 @@ public final class GetAllImageServicesResResultServicesItem  {
      *
      * <p>* `cn`：中国</p>
      *
-     * <p>* `va`：美东</p>
-     *
      * <p>* `sg`：新加坡</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ServiceRegion")
@@ -197,10 +195,28 @@ public final class GetAllImageServicesResResultServicesItem  {
     private GetAllImageServicesResResultServicesItemVodSpace vodSpace;
 
     /**
-     * <p>TODO</p>
+     * <p>资源封禁配置</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ResourceLimitedVisit")
     private GetAllImageServicesResResultServicesItemResourceLimitedVisit resourceLimitedVisit;
+
+    /**
+     * <p>版本控制启用状态，取值如下所示：</p>
+     *
+     * <p>- `0`：未开启</p>
+     *
+     * <p>- `1`：已开启</p>
+     *
+     * <p>- `2`：暂停</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StorageVersioning")
+    private Integer storageVersioning;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ImageY")
+    private Boolean imageY;
 
     @Override
     public String toString() {

@@ -15,6 +15,12 @@ public final class CreateImageTranscodeCallbackBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "EntryId")
     private String entryId;
 
+    /**
+     * <p>地域。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Region")
+    private String region;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

@@ -42,7 +42,7 @@ public final class GetAllImageServicesResResultServicesItemMirror  {
      * <p>镜像回源下载原图时，携带的 HTTP 头部，键值都为 String 类型。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Headers")
-    private Map<String, Object> headers;
+    private Map<String, String> headers;
 
     @Override
     public String toString() {

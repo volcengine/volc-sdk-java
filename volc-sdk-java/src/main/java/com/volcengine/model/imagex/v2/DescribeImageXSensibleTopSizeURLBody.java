@@ -106,6 +106,16 @@ public final class DescribeImageXSensibleTopSizeURLBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "OrderByIdx")
     private Integer orderByIdx;
 
+    /**
+     * <p>取值为不等于的维度（默认为等于）。支持取值：</p>
+     *
+     * <p>- 公共维度：`AppVer`、`SdkVer`、`ImageType`</p>
+     *
+     * <p>- 自定义维度：您可以通过调用 [GetImageXQueryDims](https://www.volcengine.com/docs/508/1213048)接口获取自定义维度指标</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Not")
+    private List<String> not;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

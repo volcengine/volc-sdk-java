@@ -2,6 +2,8 @@ package com.volcengine.model.imagex.v2;
 
 
 import com.alibaba.fastjson.JSON;
+import java.util.List;
+import java.util.Map;
 
 /**
  * GetProductAIGCResultBody
@@ -280,6 +282,24 @@ public final class GetProductAIGCResultBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "UseDefaultBg")
     private Boolean useDefaultBg;
+
+    /**
+     * <p>Lora 配置。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "LoraConfig")
+    private String loraConfig;
+
+    /**
+     * <p>商品比例</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ProductRatios")
+    private List<List<Double>> productRatios;
+
+    /**
+     * <p>打分策略规则。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StrategyRules")
+    private Map<String, Object> strategyRules;
 
     @Override
     public String toString() {

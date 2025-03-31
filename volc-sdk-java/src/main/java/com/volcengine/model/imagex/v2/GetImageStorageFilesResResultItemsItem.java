@@ -31,7 +31,21 @@ public final class GetImageStorageFilesResResultItemsItem  {
      * <p>文件大小，单位为 byte。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "FileSize")
-    private Long fileSize;
+    private Integer fileSize;
+
+    /**
+     * <p>文件的存储类型，取值如下所示：</p>
+     *
+     * <p>- `STANDARD`：标准存储</p>
+     *
+     * <p>- `IA`：低频存储</p>
+     *
+     * <p>- `ARCHIVE`：归档存储</p>
+     *
+     * <p>- `COLD_ARCHIVE`：冷归档存储</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StorageClass")
+    private String storageClass;
 
     @Override
     public String toString() {

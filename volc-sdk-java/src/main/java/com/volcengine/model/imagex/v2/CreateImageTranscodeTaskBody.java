@@ -51,7 +51,7 @@ public final class CreateImageTranscodeTaskBody  {
      *
      *
      *
-     * <p>待转码的图片 uri 或 url 列表，最多支持 10 万条。</p>
+     * <p>待转码的图片 uri 或 url 列表，建议最多不超过 10 万条。</p>
      *
      *
      *
@@ -71,7 +71,7 @@ public final class CreateImageTranscodeTaskBody  {
      *
      *
      *
-     * <p>1. 在 txt、csv 文件内填写指定数据类型的待转码图片地址，每行填写一个，最多不超过 10 万条。</p>
+     * <p>1. 在 txt、csv 文件内填写指定数据类型的待转码图片地址，每行填写一个，建议最多不超过 10 万条。</p>
      *
      * <p>2. 将该文件上传至指定服务后，获取其存储 URI。</p>
      *
@@ -81,17 +81,11 @@ public final class CreateImageTranscodeTaskBody  {
     private List<String> fileList;
 
     /**
-     * <p>转码产物的 Storekey 列表，仅当`DataList`不为空时有效，长度需与`DataList`长度一致。不传时默认使用固定规则生成产物的 Storekey。填写规则如下：</p>
+     * <p>转码产物的存储 Key 列表，仅当 `DataList` 不为空时有效，长度需与`DataList`长度一致。不传时默认使用固定规则生成产物的存储 Key。</p>
      *
      *
      *
-     * <p>- 使用 UTF-8 编码。</p>
-     *
-     * <p>- 长度必须在 1～1024 个字符之间。</p>
-     *
-     * <p>- 不能以反斜线（\）开头。</p>
-     *
-     * <p>- 不支持 `\a`、`\b`、`\t`、`\n`、`\v`、`\f`、`\r` 字符。</p>
+     * <p>存储 Key 详细命名规范请参看 [veImageX 存储 Key 通用字符规则](https://www.volcengine.com/docs/508/1458331)。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ResKeyList")
     private List<String> resKeyList;

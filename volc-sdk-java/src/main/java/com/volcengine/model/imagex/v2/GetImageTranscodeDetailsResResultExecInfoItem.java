@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class GetImageTranscodeDetailsResResultExecInfoItem  {
 
     /**
-     * <p>执行条目 ID</p>
+     * <p>条目 ID</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EntryId")
     private String entryId;

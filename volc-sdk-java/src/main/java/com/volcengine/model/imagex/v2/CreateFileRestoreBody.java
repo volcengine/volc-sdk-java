@@ -25,6 +25,12 @@ public final class CreateFileRestoreBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Duration")
     private Integer duration;
 
+    /**
+     * <p>取回方式： Expedited：快速取回 Standard：标准取回 Bulk：批量取回；不设置默认standard</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Tier")
+    private String tier;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class DeleteImageUploadFilesQuery  {
 
     /**
-     * <p>服务 ID。</p>
+     * <p>待删除文件所在的服务 ID。</p>
      *
      * <p>- 您可以在 veImageX 控制台 [服务管理](https://console.volcengine.com/imagex/service_manage/)页面，在创建好的图片服务中获取服务 ID。</p>
      *

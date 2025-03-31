@@ -10,22 +10,10 @@ import com.alibaba.fastjson.JSON;
 public final class AddDomainV1ResResult  {
 
     /**
-     * <p>新增域名内容安全审核工单，仅对内</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "BPMLink")
-    private String bPMLink;
-
-    /**
-     * <p>TODO</p>
+     * <p>新增的域名。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Domain")
     private String domain;
-
-    /**
-     * <p>新增域名内容安全审核工单ID，仅对内</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "BPMID")
-    private String bPMID;
 
     @Override
     public String toString() {

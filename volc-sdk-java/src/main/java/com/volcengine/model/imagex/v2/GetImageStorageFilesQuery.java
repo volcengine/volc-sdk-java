@@ -44,7 +44,7 @@ public final class GetImageStorageFilesQuery  {
     private String prefix;
 
     /**
-     * <p>指定目录分隔符，默认值为 `/`。所有文件名字包含指定的前缀，第一次出现 `Delimiter` 字符之间的文件作为一组元素（即 `CommonPrefixe`）。</p>
+     * <p>指定目录分隔符，默认值为空。所有文件名字包含指定的前缀，第一次出现 `Delimiter` 字符之间的文件作为一组元素（即 `CommonPrefixe`）。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Delimiter")
     private String delimiter;

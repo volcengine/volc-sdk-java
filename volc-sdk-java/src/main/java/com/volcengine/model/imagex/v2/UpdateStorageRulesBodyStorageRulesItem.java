@@ -28,13 +28,13 @@ public final class UpdateStorageRulesBodyStorageRulesItem  {
     private String event;
 
     /**
-     * <p>策略天数，取值范围为 [1,365]，单位为天。按照 Event 事件 Day 天后执行 Action 事件，即当匹配文件的上传时间符合指定天数后，自动按照处理策略对资源进行处理。</p>
+     * <p>最新版本文件的策略天数，取值范围为 [1,365]，单位为天。按照 Event 事件 Day 天后执行 Action 事件，即当匹配文件的上传时间符合指定天数后，自动按照处理策略对资源进行处理。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Day")
     private Integer day;
 
     /**
-     * <p>策略命中后需要执行的操作，取值如下所示：</p>
+     * <p>最新版本文件在策略命中后需要执行的操作，取值如下所示：</p>
      *
      * <p>- `DELETE`：删除文件</p>
      *
@@ -58,6 +58,28 @@ public final class UpdateStorageRulesBodyStorageRulesItem  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Enable")
     private Boolean enable;
+
+    /**
+     * <p>历史版本文件在策略命中后需要执行的操作，取值如下所示：</p>
+     *
+     *
+     *
+     * <p>- `DELETE`：删除文件</p>
+     *
+     * <p>- `IA`：文件转低频存储</p>
+     *
+     * <p>- `ARCHIVE`：文件转归档存储</p>
+     *
+     * <p>- `COLD_ARCHIVE`：文件转冷归档存储</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "NonCurrentAction")
+    private String nonCurrentAction;
+
+    /**
+     * <p>历史版本文件的策略天数，取值范围为 [1,365]，单位为天。按照 Event 事件 NonCurrentDay 天后执行 NonCurrentAction 事件，即当匹配历史版本文件的上传时间符合指定天数后，自动按照处理策略对历史版本资源进行处理。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "NonCurrentDay")
+    private Integer nonCurrentDay;
 
     @Override
     public String toString() {

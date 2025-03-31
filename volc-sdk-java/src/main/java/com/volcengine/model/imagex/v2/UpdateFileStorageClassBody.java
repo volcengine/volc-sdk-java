@@ -28,6 +28,8 @@ public final class UpdateFileStorageClassBody  {
      *
      * <p>- `IA`：低频存储</p>
      *
+     * <p>- `ARCHIVE_FR`：归档闪回存储 </p>
+     *
      * <p>- `ARCHIVE`：归档存储</p>
      *
      * <p>- `COLD_ARCHIVE`：冷归档存储</p>

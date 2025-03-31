@@ -59,6 +59,12 @@ public final class GetProductAIGCResultResResult  {
     @com.alibaba.fastjson.annotation.JSONField(name = "ComposedJsons")
     private List<Map<String, Object>> composedJsons;
 
+    /**
+     * <p>AIGC图像评分。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "AigcImageScores")
+    private Map<String, List<Double>> aigcImageScores;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

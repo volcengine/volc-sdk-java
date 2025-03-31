@@ -11,7 +11,7 @@ import java.util.List;
 public final class UpdateImageDomainConfigBodyShareCache  {
 
     /**
-     * <p>TODO</p>
+     * <p>共享域名。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "domains")
     private List<String> domains;

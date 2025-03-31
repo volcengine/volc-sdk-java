@@ -23,7 +23,9 @@ public final class GetImageDetectResultResResultFacesItem  {
     private List<Long> box;
 
     /**
-     * <p>坐标置信度，表示识别内容可信程度。值越大内容越准确。</p>
+     * <p>坐标置信度，表示识别内容可信程度。</p>
+     *
+     * <p>值越大，代表可信程度越高。置信度高于 90% 表示高可信，60%～90% 建议人工二次确认，低于 60% 表示不可信。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Score")
     private Double score;

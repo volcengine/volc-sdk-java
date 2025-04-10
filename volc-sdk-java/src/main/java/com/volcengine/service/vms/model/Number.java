@@ -34,4 +34,8 @@ public class Number {
     private Integer serviceTypeCode;
 
     private String serviceTypeDesc;
+
+    private String qualificationNo;
+
+    private String currentBindCount;
 }

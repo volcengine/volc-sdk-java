@@ -9,9 +9,15 @@ import com.github.rholder.retry.WaitStrategies;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Utils;
 import com.volcengine.model.ServiceInfo;
+import com.volcengine.model.beans.PartInputStream;
+import com.volcengine.model.imagex.v2.ApplyVpcUploadInfoQuery;
+import com.volcengine.model.imagex.v2.ApplyVpcUploadInfoRes;
+import com.volcengine.model.imagex.v2.ApplyVpcUploadInfoResResult;
+import com.volcengine.model.imagex.v2.ApplyVpcUploadInfoResResultPartUploadInfo;
 import com.volcengine.model.request.ApplyImageUploadRequest;
 import com.volcengine.model.request.CommitImageUploadRequest;
 import com.volcengine.model.request.CommitImageUploadRequestBody;
+import com.volcengine.model.request.VpcUploadRequest;
 import com.volcengine.model.response.ApplyImageUploadResponse;
 import com.volcengine.model.response.CommitImageUploadResponse;
 import com.volcengine.model.response.RawResponse;
@@ -21,13 +27,12 @@ import com.volcengine.model.sts2.SecurityToken2;
 import com.volcengine.model.sts2.Statement;
 import com.volcengine.util.Sts2Utils;
 import com.volcengine.util.Time;
+import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.util.EntityUtils;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URI;
 import java.util.*;
 import java.util.logging.Level;
@@ -342,6 +347,218 @@ public class ImagexService extends ImagexTrait {
             commitRequest.setOptionInfos(request.getCommitParam().getOptionInfos());
         }
         return commitImageUpload(commitRequest);
+    }
+
+    public CommitImageUploadResponse vpcUploadImage(VpcUploadRequest request) throws Exception {
+        if ((request.getFilePath() == null || request.getFilePath().isEmpty()) && (request.getData() == null || request.getData().length == 0)) {
+            throw new Exception("filePath and data can not be empty or not empty at the same time");
+        }
+
+        if ((request.getFilePath() != null && !request.getFilePath().isEmpty()) && (request.getData() != null && request.getData().length != 0)) {
+            throw new Exception("filePath and data can not be not empty at the same time");
+        }
+
+        Long fileSize = 0L;
+        File file = null;
+        boolean isFile = false;
+        if (request.getFilePath() == null || request.getFilePath().isEmpty()) {
+            fileSize = (long) request.getData().length;
+        } else {
+            file = new File(request.getFilePath());
+            if (!(file.isFile() && file.exists())) {
+                throw new Exception(SdkError.getErrorDesc(SdkError.ENOFILE));
+            }
+            fileSize = file.length();
+            isFile = true;
+        }
+
+        ApplyVpcUploadInfoQuery applyVpcUploadInfoQuery = new ApplyVpcUploadInfoQuery();
+        applyVpcUploadInfoQuery.setServiceId(request.getServiceId());
+        applyVpcUploadInfoQuery.setStoreKey(request.getStoreKey());
+        applyVpcUploadInfoQuery.setPrefix(request.getPrefix());
+        applyVpcUploadInfoQuery.setFileExtension(request.getFileExtension());
+        applyVpcUploadInfoQuery.setContentType(request.getContentType());
+        applyVpcUploadInfoQuery.setOverwrite(request.getOverwrite());
+        applyVpcUploadInfoQuery.setStorageClass(request.getStorageClass());
+        applyVpcUploadInfoQuery.setPartSize(request.getPartSize());
+        applyVpcUploadInfoQuery.setFileSize(fileSize);
+
+        // apply upload
+        ApplyVpcUploadInfoRes applyVpcUploadInfoRes = applyVpcUploadInfo(applyVpcUploadInfoQuery);
+        ApplyVpcUploadInfoResResult uploadAddr = applyVpcUploadInfoRes.getResult();
+        if (applyVpcUploadInfoRes.getResponseMetadata() == null) {
+            throw new Exception("apply upload response metadata is null");
+        }
+        if (uploadAddr == null || uploadAddr.getUploadMode().isEmpty()) {
+            throw new Exception("apply upload result is null. request id:" + applyVpcUploadInfoRes.getResponseMetadata().getRequestId());
+        }
+
+        String sessionKey = uploadAddr.getSessionKey();
+
+        List<String> successOids = new ArrayList<String>();
+        CommitImageUploadRequest commitRequest = new CommitImageUploadRequest();
+        commitRequest.setServiceId(request.getServiceId());
+        commitRequest.setSkipMeta(request.getSkipMeta());
+        commitRequest.setSessionKey(sessionKey);
+        commitRequest.setSuccessOids(successOids);
+        if (request.getCommitParam() != null) {
+            commitRequest.setFunctions(request.getCommitParam().getFunctions());
+            commitRequest.setOptionInfos(request.getCommitParam().getOptionInfos());
+        }
+
+        try {
+            vpcUpload(uploadAddr, file, request.getData(), isFile);
+        }catch (Exception e){
+            commitImageUpload(commitRequest);
+            throw e;
+        }
+
+        successOids.add(uploadAddr.getOid());
+        // commit upload
+        commitRequest.setSuccessOids(successOids);
+        return commitImageUpload(commitRequest);
+    }
+
+    private void vpcUpload(ApplyVpcUploadInfoResResult uploadAddr, File file, byte[] data, boolean isFile) throws Exception {
+        if (uploadAddr.getUploadMode().equals("direct")) {
+            vpcPut(uploadAddr, file, data, isFile);
+        } else if (uploadAddr.getUploadMode().equals("part")) {
+            vpcPartUpload(uploadAddr.getPartUploadInfo(), file, data, isFile);
+        } else{
+            throw new Exception("unexpected mode "+ uploadAddr.getUploadMode());
+        }
+    }
+
+    private void vpcPartUpload(ApplyVpcUploadInfoResResultPartUploadInfo partUploadInfo, File file, byte[] data, boolean isFile) throws Exception {
+        if (partUploadInfo == null || partUploadInfo.getPartSize() == 0) {
+            throw new Exception("part upload info is null");
+        }
+        long size = 0;
+        if (isFile) {
+            size = file.length();
+        } else {
+            size = data.length;
+        }
+        long chunkSize = partUploadInfo.getPartSize();
+        int totalNum = (int) (size / chunkSize);
+        long lastPartSize = size % chunkSize;
+
+        if ((lastPartSize == 0 && partUploadInfo.getPartPutURLs().size() != totalNum) ||
+                (lastPartSize != 0 && partUploadInfo.getPartPutURLs().size()!= totalNum + 1)) {
+            throw new Exception("part upload info is invalid");
+        }
+
+        List<String> etagList = new ArrayList<>();
+        long offset = 0;
+        for (int i = 0; i < partUploadInfo.getPartPutURLs().size(); i++) {
+            String putUrl = partUploadInfo.getPartPutURLs().get(i);
+            long uploadPartSize = chunkSize;
+            if (i == partUploadInfo.getPartPutURLs().size() - 1 && lastPartSize != 0) {
+                uploadPartSize = lastPartSize;
+            }
+            String etag = vpcPartPut(putUrl, file, data, isFile, offset, uploadPartSize);
+            etagList.add(etag);
+            offset += uploadPartSize;
+        }
+
+        vpcPost(partUploadInfo, etagList);
+    }
+
+    private void vpcPost(ApplyVpcUploadInfoResResultPartUploadInfo partUploadInfo, List<String> etagList) throws Exception {
+        String partsInfo = IntStream.range(0, etagList.size()).mapToObj(i -> String.format("{\"PartNumber\":%d,\"Etag\":%s}", i + 1, etagList.get(i))).collect(Collectors.joining(",", "", ""));
+        String body = String.format("{\"Parts\": [%s]}", partsInfo);
+
+        String postUrl = partUploadInfo.getCompletePartURL();
+        Map<String, String> headers = new HashMap<>();
+        if (partUploadInfo.getCompletePartURLHeaders() != null){
+            partUploadInfo.getCompletePartURLHeaders().forEach(item -> headers.put(item.getKey(), item.getValue()));
+        }
+        HttpResponse httpResponse = postDataWithResponse(postUrl, body.getBytes(), headers);
+
+        if (httpResponse == null){
+            throw new Exception("http null resp");
+        }
+
+        if (httpResponse.getStatusLine().getStatusCode() != 200){
+            Header logIdHeader = httpResponse.getFirstHeader("x-tos-request-id");
+            String logId = "";
+            if (logIdHeader != null){
+                logId = logIdHeader.getValue();
+            }
+            throw new Exception("post error: code "+ httpResponse.getStatusLine().getStatusCode() + " logId " + logId);
+        }
+    }
+
+    private String vpcPartPut(String putUrl, File file, byte[] data, boolean isFile, long offset, long chunkSize) throws Exception {
+        HttpResponse httpResponse = null;
+        if (isFile){
+            try (InputStream fileInputStream = new FileInputStream(file)) {
+                fileInputStream.skip(offset);
+                try (InputStream inputStream = com.volcengine.helper.Utils.newRepeatableInputStream(new PartInputStream(fileInputStream, chunkSize))) {
+                    httpResponse = putDataWithResponse(putUrl, inputStream, null);
+                } catch (Exception e) {
+                    throw e;
+                }
+            }
+        } else {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(data);
+            byteArrayInputStream.skip(offset);
+            try (InputStream inputStream = com.volcengine.helper.Utils.newRepeatableInputStream(new PartInputStream(byteArrayInputStream, chunkSize))) {
+                httpResponse = putDataWithResponse(putUrl, inputStream, null);
+            }catch (Exception e) {
+                throw e;
+            }
+        }
+
+        if (httpResponse == null){
+            throw new Exception("http null resp");
+        }
+
+        if (httpResponse.getStatusLine().getStatusCode() != 200){
+            Header logIdHeader = httpResponse.getFirstHeader("x-tos-request-id");
+            String logId = "";
+            if (logIdHeader != null){
+                logId = logIdHeader.getValue();
+            }
+            throw new Exception("put error: code "+ httpResponse.getStatusLine().getStatusCode() + " logId " + logId);
+        }
+        String etag = "";
+        Header etagHeader = httpResponse.getFirstHeader("ETag");
+        if (etagHeader != null){
+            etag = etagHeader.getValue();
+        }
+
+        return etag;
+    }
+
+    private void vpcPut(ApplyVpcUploadInfoResResult uploadAddr, File file, byte[] data, boolean isFile) throws Exception {
+        String putUrl = uploadAddr.getPutURL();
+        Map<String, String> headers = new HashMap<>();
+        if (uploadAddr.getPutURLHeaders() != null){
+            uploadAddr.getPutURLHeaders().forEach(item -> headers.put(item.getKey(), item.getValue()));
+        }
+        HttpResponse httpResponse = null;
+        if (isFile) {
+            try (InputStream inputStream = com.volcengine.helper.Utils.newRepeatableInputStream(new java.io.FileInputStream(file))) {
+                inputStream.mark(0);
+                httpResponse = putDataWithResponse(putUrl, inputStream, headers);
+            }
+        } else {
+            httpResponse = putDataWithResponse(putUrl, data, headers);
+        }
+
+        if (httpResponse == null){
+            throw new Exception("http null resp");
+        }
+
+        if (httpResponse.getStatusLine().getStatusCode() != 200){
+            Header logIdHeader = httpResponse.getFirstHeader("x-tos-request-id");
+            String logId = "";
+            if (logIdHeader != null){
+                logId = logIdHeader.getValue();
+            }
+            throw new Exception("put error: code "+ httpResponse.getStatusLine().getStatusCode() + " logId " + logId);
+        }
     }
 
     private void applyRespGuard(ApplyImageUploadResponse applyResp, int expectSize) {

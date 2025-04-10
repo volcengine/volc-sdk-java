@@ -430,7 +430,9 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         long size = file.length();
         long chunkSize = partUploadInfo.getPartSize();
         long totalNum = size / chunkSize;
-
+        if (size % chunkSize == 0) {
+            totalNum--;
+        }
         if (partUploadInfo.getPartPutUrlsList().size() != totalNum + 1) {
             throw new UploadException(-1, -1, "mismatch part upload");
         }

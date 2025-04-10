@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * @Author: chenhui
  * @Date: 2022/11/18
@@ -23,6 +25,8 @@ public class NumberListRequest {
     private String queryAccountId;
 
     private String number;
+
+    private List<String> numberList;
 
     private Integer numberStatusCode;
 

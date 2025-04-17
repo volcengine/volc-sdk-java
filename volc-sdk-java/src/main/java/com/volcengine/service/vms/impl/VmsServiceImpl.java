@@ -227,6 +227,15 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
     }
 
     @Override
+    public RouteAAuthResponse routeAAuth(RouteAAuthRequest request) throws Exception {
+        RawResponse response = formPostWithRetry("RouteAAuth", Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), RouteAAuthResponse.class);
+    }
+
+    @Override
     public NumberPoolListResponse queryNumberPoolList(NumberPoolListRequest request) throws Exception {
         RawResponse response = formPostWithRetry("NumberPoolList", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

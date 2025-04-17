@@ -37,5 +37,5 @@ public class Number {
 
     private String qualificationNo;
 
-    private String currentBindCount;
+    private Integer currentBindCount;
 }

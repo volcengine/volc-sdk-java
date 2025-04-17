@@ -50,6 +50,8 @@ public interface VmsService extends IBaseService {
 
     OperationResponse updateAXYB(UpdateAXYBRequest request) throws Exception;
 
+    RouteAAuthResponse routeAAuth(RouteAAuthRequest request) throws Exception;
+
     /**
      * 查询号码池列表
      *

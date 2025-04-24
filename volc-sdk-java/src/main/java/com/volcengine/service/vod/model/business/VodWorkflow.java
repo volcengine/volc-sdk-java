@@ -605,160 +605,163 @@ public final class VodWorkflow {
       "olcengine.Vod.Models.Business.SpriteSnap" +
       "shotParams\022R\n\024SampleSnapshotParams\030\007 \001(\013" +
       "24.Volcengine.Vod.Models.Business.Sample" +
-      "SnapshotParams\"}\n\024PosterSnapshotParams\022\016" +
-      "\n\006Format\030\001 \001(\t\022\020\n\010ResAdapt\030\002 \001(\010\022\020\n\010ResL" +
-      "imit\030\003 \001(\005\022\r\n\005Width\030\004 \001(\005\022\016\n\006Height\030\005 \001(" +
-      "\005\022\022\n\nOffsetTime\030\006 \001(\005\"\263\001\n\025DynpostSnapsho" +
-      "tParams\022\016\n\006Format\030\001 \001(\t\022\020\n\010ResAdapt\030\002 \001(" +
-      "\010\022\020\n\010ResLimit\030\003 \001(\005\022\r\n\005Width\030\004 \001(\005\022\016\n\006He" +
-      "ight\030\005 \001(\005\022\022\n\nOffsetTime\030\006 \001(\005\022\020\n\010Durati" +
-      "on\030\007 \001(\005\022\022\n\nCaptureFps\030\010 \001(\002\022\r\n\005Speed\030\t " +
-      "\001(\002\"\255\001\n\034AnimatedPosterSnapshotParams\022\016\n\006" +
-      "Format\030\001 \001(\t\022\020\n\010ResAdapt\030\002 \001(\010\022\020\n\010ResLim" +
-      "it\030\003 \001(\005\022\r\n\005Width\030\004 \001(\005\022\016\n\006Height\030\005 \001(\005\022" +
-      "\022\n\nOffsetTime\030\006 \001(\005\022\022\n\nCaptureFps\030\007 \001(\002\022" +
-      "\022\n\nCaptureNum\030\010 \001(\005\"\251\001\n\024SpriteSnapshotPa" +
-      "rams\022\016\n\006Format\030\001 \001(\t\022\021\n\tCellWidth\030\002 \001(\005\022" +
-      "\022\n\nCellHeight\030\003 \001(\005\022\017\n\007ImgXLen\030\004 \001(\005\022\017\n\007" +
-      "ImgYLen\030\005 \001(\005\022\020\n\010Interval\030\006 \001(\005\022\022\n\nOffse" +
-      "tTime\030\007 \001(\005\022\022\n\nCaptureNum\030\010 \001(\005\"\330\001\n\024Samp" +
-      "leSnapshotParams\022\016\n\006Format\030\001 \001(\t\022\020\n\010ResA" +
-      "dapt\030\002 \001(\010\022\020\n\010ResLimit\030\003 \001(\005\022\r\n\005Width\030\004 " +
-      "\001(\005\022\016\n\006Height\030\005 \001(\005\022\022\n\nCaptureNum\030\006 \001(\005\022" +
-      "\023\n\013CaptureMode\030\007 \001(\005\022\020\n\010Interval\030\010 \001(\001\022\017" +
-      "\n\007OutMode\030\t \001(\t\022\020\n\010FillType\030\n \001(\t\022\017\n\007Off" +
-      "sets\030\013 \003(\002\"[\n\025VodTaskTemplateResult\022B\n\014T" +
-      "askTemplate\030\002 \001(\0132,.Volcengine.Vod.Model" +
-      "s.Business.TaskTemplate\"\205\001\n\031VodListTaskT" +
-      "emplateResult\022\r\n\005Limit\030\001 \001(\005\022\016\n\006Offset\030\002" +
-      " \001(\005\022\r\n\005Total\030\003 \001(\003\022:\n\004Data\030\004 \003(\0132,.Volc" +
-      "engine.Vod.Models.Business.TaskTemplate\"" +
-      "\230\002\n\020WorkflowTemplate\022\022\n\nTemplateId\030\001 \001(\t" +
-      "\022\021\n\tSpaceName\030\002 \001(\t\022\014\n\004Name\030\003 \001(\t\022\023\n\013Des" +
-      "cription\030\004 \001(\t\022\014\n\004Type\030\006 \001(\t\022-\n\tCreatedA" +
-      "t\030\014 \001(\0132\032.google.protobuf.Timestamp\022-\n\tU" +
-      "pdatedAt\030\r \001(\0132\032.google.protobuf.Timesta" +
-      "mp\022\020\n\010CommitId\030\016 \001(\t\022<\n\nActivities\030\023 \003(\013" +
-      "2(.Volcengine.Vod.Models.Business.Activi" +
-      "ty\"\253\002\n\010Activity\022\022\n\nActivityId\030\001 \001(\t\022\014\n\004N" +
-      "ame\030\002 \001(\t\022\023\n\013Description\030\003 \001(\t\022\014\n\004Type\030\004" +
-      " \001(\t\022J\n\020SnapshotActivity\030\014 \001(\01320.Volceng" +
-      "ine.Vod.Models.Business.SnapshotActivity" +
-      "\022@\n\013EndActivity\030\023 \001(\0132+.Volcengine.Vod.M" +
-      "odels.Business.EndActivity\022L\n\021TranscodeA" +
-      "ctivity\030\027 \001(\01321.Volcengine.Vod.Models.Bu" +
-      "siness.TranscodeActivity\"\345\003\n\021TranscodeAc" +
-      "tivity\022\022\n\nTemplateId\030\001 \001(\t\022P\n\007Enhance\030\002 " +
-      "\001(\0132?.Volcengine.Vod.Models.Business.Tra" +
-      "nscodeActivity.EnhanceParams\022J\n\004Logo\030\003 \001" +
-      "(\0132<.Volcengine.Vod.Models.Business.Tran" +
-      "scodeActivity.LogoParams\022\020\n\010FileName\030\005 \001" +
-      "(\t\022@\n\010Parallel\030\006 \001(\0132..Volcengine.Vod.Mo" +
-      "dels.Business.ParallelParams\022<\n\tConditio" +
-      "n\030\007 \001(\0132).Volcengine.Vod.Models.Business" +
-      ".Condition\0324\n\rEnhanceParams\022\022\n\nTemplateI" +
-      "d\030\001 \001(\t\022\017\n\007Version\030\002 \001(\t\032 \n\nLogoParams\022\022" +
-      "\n\nTemplateId\030\001 \001(\t\0324\n\016SubtitleParams\022\020\n\010" +
-      "Language\030\001 \001(\t\022\020\n\010FontType\030\002 \001(\t\"v\n\020Snap" +
-      "shotActivity\022\022\n\nTemplateId\030\001 \001(\t\022\020\n\010File" +
-      "Name\030\002 \001(\t\022<\n\tCondition\030\003 \001(\0132).Volcengi" +
-      "ne.Vod.Models.Business.Condition\"%\n\013EndA" +
-      "ctivity\022\026\n\016TranscodeEvent\030\001 \001(\t\"g\n\031VodWo" +
-      "rkflowTemplateResult\022J\n\020WorkflowTemplate" +
-      "\030\002 \001(\01320.Volcengine.Vod.Models.Business." +
-      "WorkflowTemplate\"\215\001\n\035VodListWorkflowTemp" +
-      "lateResult\022\r\n\005Limit\030\001 \001(\005\022\016\n\006Offset\030\002 \001(" +
-      "\005\022\r\n\005Total\030\003 \001(\003\022>\n\004Data\030\004 \003(\01320.Volceng" +
-      "ine.Vod.Models.Business.WorkflowTemplate" +
-      "\"\251\003\n\014LogoTemplate\022\022\n\nTemplateId\030\001 \001(\t\022\021\n" +
-      "\tSpaceName\030\002 \001(\t\022\014\n\004Name\030\003 \001(\t\022\023\n\013Descri" +
-      "ption\030\004 \001(\t\022\014\n\004Type\030\006 \001(\t\022-\n\tCreatedAt\030\t" +
-      " \001(\0132\032.google.protobuf.Timestamp\022-\n\tUpda" +
-      "tedAt\030\n \001(\0132\032.google.protobuf.Timestamp\022" +
-      "\014\n\004Hash\030\013 \001(\t\022\020\n\010LogoType\030\014 \001(\t\0228\n\005Logos" +
-      "\030\r \003(\0132).Volcengine.Vod.Models.Business." +
-      "AdaptLogo\022<\n\007Concats\030\016 \003(\0132+.Volcengine." +
-      "Vod.Models.Business.AdaptConcat\022K\n\017Hidde" +
-      "nWatermark\030\017 \001(\01322.Volcengine.Vod.Models" +
-      ".Business.HiddenWatermarkAdd\"\212\001\n\tAdaptLo" +
-      "go\022>\n\nAnchorSize\030\001 \001(\0132*.Volcengine.Vod." +
-      "Models.Business.AnchorSize\022=\n\005Logos\030\002 \003(" +
-      "\0132..Volcengine.Vod.Models.Business.LogoD" +
-      "efinition\"+\n\nAnchorSize\022\r\n\005Width\030\001 \001(\005\022\016" +
-      "\n\006Height\030\002 \001(\005\"\233\002\n\023ImageLogoDefinition\022\013" +
-      "\n\003Mid\030\001 \001(\t\022\021\n\tStartTime\030\002 \001(\005\022\017\n\007EndTim" +
-      "e\030\003 \001(\005\022\016\n\006Locate\030\004 \001(\t\022\014\n\004PosX\030\005 \001(\005\022\014\n" +
-      "\004PosY\030\006 \001(\005\022\r\n\005SizeX\030\007 \001(\005\022\r\n\005SizeY\030\010 \001(" +
-      "\005\022\021\n\tLoopTimes\030\t \001(\005\022\022\n\nRepeatLast\030\n \001(\010" +
-      "\022\024\n\014Transparency\030\013 \001(\005\022\021\n\tPosRatioX\030\014 \001(" +
-      "\001\022\021\n\tPosRatioY\030\r \001(\001\022\022\n\nSizeRatioX\030\016 \001(\001" +
-      "\022\022\n\nSizeRatioY\030\017 \001(\001\"\233\002\n\023VideoLogoDefini" +
-      "tion\022\013\n\003Mid\030\001 \001(\t\022\021\n\tStartTime\030\002 \001(\005\022\017\n\007" +
-      "EndTime\030\003 \001(\005\022\021\n\tLoopTimes\030\004 \001(\005\022\022\n\nRepe" +
-      "atLast\030\005 \001(\010\022\016\n\006Locate\030\006 \001(\t\022\014\n\004PosX\030\007 \001" +
-      "(\005\022\014\n\004PosY\030\010 \001(\005\022\r\n\005SizeX\030\t \001(\005\022\r\n\005SizeY" +
-      "\030\n \001(\005\022\024\n\014Transparency\030\013 \001(\005\022\021\n\tPosRatio" +
-      "X\030\014 \001(\001\022\021\n\tPosRatioY\030\r \001(\001\022\022\n\nSizeRatioX" +
-      "\030\016 \001(\001\022\022\n\nSizeRatioY\030\017 \001(\001\"\230\002\n\022TextLogoD" +
-      "efinition\022\017\n\007Content\030\001 \001(\t\022\020\n\010FontType\030\002" +
-      " \001(\t\022\020\n\010FontSize\030\003 \001(\005\022\021\n\tFontColor\030\004 \001(" +
-      "\t\022\021\n\tStartTime\030\005 \001(\005\022\017\n\007EndTime\030\006 \001(\005\022\016\n" +
-      "\006Locate\030\007 \001(\t\022\014\n\004PosX\030\010 \001(\005\022\014\n\004PosY\030\t \001(" +
-      "\005\022\r\n\005SizeX\030\n \001(\005\022\r\n\005SizeY\030\013 \001(\005\022\021\n\tPosRa" +
-      "tioX\030\014 \001(\001\022\021\n\tPosRatioY\030\r \001(\001\022\022\n\nSizeRat" +
-      "ioX\030\016 \001(\001\022\022\n\nSizeRatioY\030\017 \001(\001\"\222\002\n\016LogoDe" +
-      "finition\022\014\n\004Type\030\001 \001(\t\022P\n\023ImageLogoDefin" +
-      "ition\030\002 \001(\01323.Volcengine.Vod.Models.Busi" +
-      "ness.ImageLogoDefinition\022P\n\023VideoLogoDef" +
-      "inition\030\003 \001(\01323.Volcengine.Vod.Models.Bu" +
-      "siness.VideoLogoDefinition\022N\n\022TextLogoDe" +
-      "finition\030\004 \001(\01322.Volcengine.Vod.Models.B" +
-      "usiness.TextLogoDefinition\"=\n\nFontShadow" +
-      "\022\r\n\005Color\030\001 \001(\t\022\017\n\007OffsetX\030\002 \001(\005\022\017\n\007Offs" +
-      "etY\030\003 \001(\005\"\220\001\n\013AdaptConcat\022>\n\nAnchorSize\030" +
-      "\001 \001(\0132*.Volcengine.Vod.Models.Business.A" +
-      "nchorSize\022A\n\007Concats\030\002 \003(\01320.Volcengine." +
-      "Vod.Models.Business.ConcatDefinition\"?\n\020" +
-      "ConcatDefinition\022\014\n\004Type\030\001 \001(\t\022\013\n\003Mid\030\002 " +
-      "\001(\t\022\020\n\010Position\030\004 \001(\t\"3\n\022HiddenWatermark" +
-      "Add\022\017\n\007Content\030\001 \001(\t\022\014\n\004Type\030\003 \001(\t\"\212\001\n\036V" +
-      "odListWatermarkResponseResult\022\r\n\005Limit\030\001" +
-      " \001(\005\022\016\n\006Offset\030\002 \001(\005\022\r\n\005Total\030\003 \001(\003\022:\n\004D" +
-      "ata\030\004 \003(\0132,.Volcengine.Vod.Models.Busine" +
-      "ss.LogoTemplate\"\311\002\n\005Video\022\013\n\003Res\030\001 \001(\t\022\021" +
-      "\n\tScaleType\030\004 \001(\005\022\021\n\tScaleMode\030\026 \001(\005\022\022\n\n" +
-      "ScaleWidth\030\005 \001(\005\022\023\n\013ScaleHeight\030\006 \001(\005\022\022\n" +
-      "\nScaleShort\030\007 \001(\005\022\021\n\tScaleLong\030\010 \001(\005\022\r\n\005" +
-      "Codec\030\t \001(\t\022\027\n\017RateControlMode\030\n \001(\t\022\022\n\n" +
-      "MaxBitrate\030\013 \001(\005\022\017\n\007Bitrate\030\014 \001(\005\022\013\n\003Crf" +
-      "\030\r \001(\002\022\016\n\006MaxFps\030\017 \001(\005\022\r\n\005Vsync\030\020 \001(\t\022\013\n" +
-      "\003Fps\030\021 \001(\002\022\017\n\007HDRMode\030\025 \001(\005\022\017\n\007GopSize\030\030" +
-      " \001(\005\022\025\n\rDisableBFrame\030\031 \001(\010\"\231\001\n\005Audio\022\r\n" +
-      "\005Codec\030\001 \001(\t\022\022\n\nSampleRate\030\002 \001(\005\022\027\n\017Rate" +
-      "ControlMode\030\003 \001(\t\022\017\n\007Bitrate\030\004 \001(\005\022\017\n\007Mi" +
-      "nRate\030\005 \001(\005\022\017\n\007MaxRate\030\006 \001(\005\022\020\n\010Channels" +
-      "\030\007 \001(\005\022\017\n\007Profile\030\010 \001(\t\"9\n\007Segment\022\016\n\006Fo" +
-      "rmat\030\001 \001(\t\022\014\n\004Type\030\002 \001(\t\022\020\n\010Duration\030\003 \001" +
-      "(\005\"\204\002\n\tCondition\022\020\n\010ResRange\030\001 \001(\t\022\024\n\014Lo" +
-      "ngResRange\030\002 \001(\t\022\025\n\rDurationRange\030\003 \001(\t\022" +
-      "\020\n\010FpsRange\030\004 \001(\t\022\024\n\014BitrateRange\030\005 \001(\t\022" +
-      "\031\n\021AudioBitrateRange\030\006 \001(\t\022\020\n\010FileType\030\007" +
-      " \001(\t\022\024\n\014VQScoreRange\030\010 \001(\t\022\032\n\022VideoDurat" +
-      "ionRange\030\t \001(\t\022\032\n\022AudioDurationRange\030\n \001" +
-      "(\t\022\025\n\rUserCondition\030\013 \001(\t\"!\n\016ParallelPar" +
-      "ams\022\017\n\007Enabled\030\001 \001(\010\"\034\n\nEncryption\022\016\n\006Ve" +
-      "ndor\030\001 \001(\t\"j\n\006Volume\022\016\n\006Method\030\001 \001(\t\022\032\n\022" +
-      "IntegratedLoudness\030\002 \001(\001\022\020\n\010TruePeak\030\003 \001" +
-      "(\001\022\016\n\006Volume\030\004 \001(\001\022\022\n\nVolumeTime\030\005 \001(\001*z" +
-      "\n\013StageStatus\022\013\n\007Unknown\020\000\022\r\n\tScheduled\020" +
-      "\001\022\013\n\007Running\020\002\022\014\n\010Canceled\020\003\022\014\n\010TimedOut" +
-      "\020\004\022\013\n\007Skipped\020\005\022\r\n\tCompleted\020\006\022\n\n\006Failed" +
-      "\020\007B\314\001\n)com.volcengine.service.vod.model." +
-      "businessB\013VodWorkflowP\001ZAgithub.com/volc" +
-      "engine/volc-sdk-golang/service/vod/model" +
-      "s/business\240\001\001\330\001\001\312\002 Volc\\Service\\Vod\\Mode" +
-      "ls\\Business\342\002#Volc\\Service\\Vod\\Models\\GP" +
-      "BMetadatab\006proto3"
+      "SnapshotParams\"\217\001\n\024PosterSnapshotParams\022" +
+      "\016\n\006Format\030\001 \001(\t\022\020\n\010ResAdapt\030\002 \001(\010\022\020\n\010Res" +
+      "Limit\030\003 \001(\005\022\r\n\005Width\030\004 \001(\005\022\016\n\006Height\030\005 \001" +
+      "(\005\022\022\n\nOffsetTime\030\006 \001(\005\022\020\n\010FillType\030\007 \001(\t" +
+      "\"\305\001\n\025DynpostSnapshotParams\022\016\n\006Format\030\001 \001" +
+      "(\t\022\020\n\010ResAdapt\030\002 \001(\010\022\020\n\010ResLimit\030\003 \001(\005\022\r" +
+      "\n\005Width\030\004 \001(\005\022\016\n\006Height\030\005 \001(\005\022\022\n\nOffsetT" +
+      "ime\030\006 \001(\005\022\020\n\010Duration\030\007 \001(\005\022\022\n\nCaptureFp" +
+      "s\030\010 \001(\002\022\r\n\005Speed\030\t \001(\002\022\020\n\010FillType\030\n \001(\t" +
+      "\"\277\001\n\034AnimatedPosterSnapshotParams\022\016\n\006For" +
+      "mat\030\001 \001(\t\022\020\n\010ResAdapt\030\002 \001(\010\022\020\n\010ResLimit\030" +
+      "\003 \001(\005\022\r\n\005Width\030\004 \001(\005\022\016\n\006Height\030\005 \001(\005\022\022\n\n" +
+      "OffsetTime\030\006 \001(\005\022\022\n\nCaptureFps\030\007 \001(\002\022\022\n\n" +
+      "CaptureNum\030\010 \001(\005\022\020\n\010FillType\030\t \001(\t\"\337\001\n\024S" +
+      "priteSnapshotParams\022\016\n\006Format\030\001 \001(\t\022\021\n\tC" +
+      "ellWidth\030\002 \001(\005\022\022\n\nCellHeight\030\003 \001(\005\022\017\n\007Im" +
+      "gXLen\030\004 \001(\005\022\017\n\007ImgYLen\030\005 \001(\005\022\020\n\010Interval" +
+      "\030\006 \001(\005\022\022\n\nOffsetTime\030\007 \001(\005\022\022\n\nCaptureNum" +
+      "\030\010 \001(\005\022\020\n\010ResAdapt\030\t \001(\010\022\020\n\010ResLimit\030\n \001" +
+      "(\005\022\020\n\010FillType\030\013 \001(\t\"\330\001\n\024SampleSnapshotP" +
+      "arams\022\016\n\006Format\030\001 \001(\t\022\020\n\010ResAdapt\030\002 \001(\010\022" +
+      "\020\n\010ResLimit\030\003 \001(\005\022\r\n\005Width\030\004 \001(\005\022\016\n\006Heig" +
+      "ht\030\005 \001(\005\022\022\n\nCaptureNum\030\006 \001(\005\022\023\n\013CaptureM" +
+      "ode\030\007 \001(\005\022\020\n\010Interval\030\010 \001(\001\022\017\n\007OutMode\030\t" +
+      " \001(\t\022\020\n\010FillType\030\n \001(\t\022\017\n\007Offsets\030\013 \003(\002\"" +
+      "[\n\025VodTaskTemplateResult\022B\n\014TaskTemplate" +
+      "\030\002 \001(\0132,.Volcengine.Vod.Models.Business." +
+      "TaskTemplate\"\205\001\n\031VodListTaskTemplateResu" +
+      "lt\022\r\n\005Limit\030\001 \001(\005\022\016\n\006Offset\030\002 \001(\005\022\r\n\005Tot" +
+      "al\030\003 \001(\003\022:\n\004Data\030\004 \003(\0132,.Volcengine.Vod." +
+      "Models.Business.TaskTemplate\"\230\002\n\020Workflo" +
+      "wTemplate\022\022\n\nTemplateId\030\001 \001(\t\022\021\n\tSpaceNa" +
+      "me\030\002 \001(\t\022\014\n\004Name\030\003 \001(\t\022\023\n\013Description\030\004 " +
+      "\001(\t\022\014\n\004Type\030\006 \001(\t\022-\n\tCreatedAt\030\014 \001(\0132\032.g" +
+      "oogle.protobuf.Timestamp\022-\n\tUpdatedAt\030\r " +
+      "\001(\0132\032.google.protobuf.Timestamp\022\020\n\010Commi" +
+      "tId\030\016 \001(\t\022<\n\nActivities\030\023 \003(\0132(.Volcengi" +
+      "ne.Vod.Models.Business.Activity\"\253\002\n\010Acti" +
+      "vity\022\022\n\nActivityId\030\001 \001(\t\022\014\n\004Name\030\002 \001(\t\022\023" +
+      "\n\013Description\030\003 \001(\t\022\014\n\004Type\030\004 \001(\t\022J\n\020Sna" +
+      "pshotActivity\030\014 \001(\01320.Volcengine.Vod.Mod" +
+      "els.Business.SnapshotActivity\022@\n\013EndActi" +
+      "vity\030\023 \001(\0132+.Volcengine.Vod.Models.Busin" +
+      "ess.EndActivity\022L\n\021TranscodeActivity\030\027 \001" +
+      "(\01321.Volcengine.Vod.Models.Business.Tran" +
+      "scodeActivity\"\345\003\n\021TranscodeActivity\022\022\n\nT" +
+      "emplateId\030\001 \001(\t\022P\n\007Enhance\030\002 \001(\0132?.Volce" +
+      "ngine.Vod.Models.Business.TranscodeActiv" +
+      "ity.EnhanceParams\022J\n\004Logo\030\003 \001(\0132<.Volcen" +
+      "gine.Vod.Models.Business.TranscodeActivi" +
+      "ty.LogoParams\022\020\n\010FileName\030\005 \001(\t\022@\n\010Paral" +
+      "lel\030\006 \001(\0132..Volcengine.Vod.Models.Busine" +
+      "ss.ParallelParams\022<\n\tCondition\030\007 \001(\0132).V" +
+      "olcengine.Vod.Models.Business.Condition\032" +
+      "4\n\rEnhanceParams\022\022\n\nTemplateId\030\001 \001(\t\022\017\n\007" +
+      "Version\030\002 \001(\t\032 \n\nLogoParams\022\022\n\nTemplateI" +
+      "d\030\001 \001(\t\0324\n\016SubtitleParams\022\020\n\010Language\030\001 " +
+      "\001(\t\022\020\n\010FontType\030\002 \001(\t\"v\n\020SnapshotActivit" +
+      "y\022\022\n\nTemplateId\030\001 \001(\t\022\020\n\010FileName\030\002 \001(\t\022" +
+      "<\n\tCondition\030\003 \001(\0132).Volcengine.Vod.Mode" +
+      "ls.Business.Condition\"%\n\013EndActivity\022\026\n\016" +
+      "TranscodeEvent\030\001 \001(\t\"g\n\031VodWorkflowTempl" +
+      "ateResult\022J\n\020WorkflowTemplate\030\002 \001(\01320.Vo" +
+      "lcengine.Vod.Models.Business.WorkflowTem" +
+      "plate\"\215\001\n\035VodListWorkflowTemplateResult\022" +
+      "\r\n\005Limit\030\001 \001(\005\022\016\n\006Offset\030\002 \001(\005\022\r\n\005Total\030" +
+      "\003 \001(\003\022>\n\004Data\030\004 \003(\01320.Volcengine.Vod.Mod" +
+      "els.Business.WorkflowTemplate\"\251\003\n\014LogoTe" +
+      "mplate\022\022\n\nTemplateId\030\001 \001(\t\022\021\n\tSpaceName\030" +
+      "\002 \001(\t\022\014\n\004Name\030\003 \001(\t\022\023\n\013Description\030\004 \001(\t" +
+      "\022\014\n\004Type\030\006 \001(\t\022-\n\tCreatedAt\030\t \001(\0132\032.goog" +
+      "le.protobuf.Timestamp\022-\n\tUpdatedAt\030\n \001(\013" +
+      "2\032.google.protobuf.Timestamp\022\014\n\004Hash\030\013 \001" +
+      "(\t\022\020\n\010LogoType\030\014 \001(\t\0228\n\005Logos\030\r \003(\0132).Vo" +
+      "lcengine.Vod.Models.Business.AdaptLogo\022<" +
+      "\n\007Concats\030\016 \003(\0132+.Volcengine.Vod.Models." +
+      "Business.AdaptConcat\022K\n\017HiddenWatermark\030" +
+      "\017 \001(\01322.Volcengine.Vod.Models.Business.H" +
+      "iddenWatermarkAdd\"\212\001\n\tAdaptLogo\022>\n\nAncho" +
+      "rSize\030\001 \001(\0132*.Volcengine.Vod.Models.Busi" +
+      "ness.AnchorSize\022=\n\005Logos\030\002 \003(\0132..Volceng" +
+      "ine.Vod.Models.Business.LogoDefinition\"+" +
+      "\n\nAnchorSize\022\r\n\005Width\030\001 \001(\005\022\016\n\006Height\030\002 " +
+      "\001(\005\"\233\002\n\023ImageLogoDefinition\022\013\n\003Mid\030\001 \001(\t" +
+      "\022\021\n\tStartTime\030\002 \001(\005\022\017\n\007EndTime\030\003 \001(\005\022\016\n\006" +
+      "Locate\030\004 \001(\t\022\014\n\004PosX\030\005 \001(\005\022\014\n\004PosY\030\006 \001(\005" +
+      "\022\r\n\005SizeX\030\007 \001(\005\022\r\n\005SizeY\030\010 \001(\005\022\021\n\tLoopTi" +
+      "mes\030\t \001(\005\022\022\n\nRepeatLast\030\n \001(\010\022\024\n\014Transpa" +
+      "rency\030\013 \001(\005\022\021\n\tPosRatioX\030\014 \001(\001\022\021\n\tPosRat" +
+      "ioY\030\r \001(\001\022\022\n\nSizeRatioX\030\016 \001(\001\022\022\n\nSizeRat" +
+      "ioY\030\017 \001(\001\"\233\002\n\023VideoLogoDefinition\022\013\n\003Mid" +
+      "\030\001 \001(\t\022\021\n\tStartTime\030\002 \001(\005\022\017\n\007EndTime\030\003 \001" +
+      "(\005\022\021\n\tLoopTimes\030\004 \001(\005\022\022\n\nRepeatLast\030\005 \001(" +
+      "\010\022\016\n\006Locate\030\006 \001(\t\022\014\n\004PosX\030\007 \001(\005\022\014\n\004PosY\030" +
+      "\010 \001(\005\022\r\n\005SizeX\030\t \001(\005\022\r\n\005SizeY\030\n \001(\005\022\024\n\014T" +
+      "ransparency\030\013 \001(\005\022\021\n\tPosRatioX\030\014 \001(\001\022\021\n\t" +
+      "PosRatioY\030\r \001(\001\022\022\n\nSizeRatioX\030\016 \001(\001\022\022\n\nS" +
+      "izeRatioY\030\017 \001(\001\"\230\002\n\022TextLogoDefinition\022\017" +
+      "\n\007Content\030\001 \001(\t\022\020\n\010FontType\030\002 \001(\t\022\020\n\010Fon" +
+      "tSize\030\003 \001(\005\022\021\n\tFontColor\030\004 \001(\t\022\021\n\tStartT" +
+      "ime\030\005 \001(\005\022\017\n\007EndTime\030\006 \001(\005\022\016\n\006Locate\030\007 \001" +
+      "(\t\022\014\n\004PosX\030\010 \001(\005\022\014\n\004PosY\030\t \001(\005\022\r\n\005SizeX\030" +
+      "\n \001(\005\022\r\n\005SizeY\030\013 \001(\005\022\021\n\tPosRatioX\030\014 \001(\001\022" +
+      "\021\n\tPosRatioY\030\r \001(\001\022\022\n\nSizeRatioX\030\016 \001(\001\022\022" +
+      "\n\nSizeRatioY\030\017 \001(\001\"\222\002\n\016LogoDefinition\022\014\n" +
+      "\004Type\030\001 \001(\t\022P\n\023ImageLogoDefinition\030\002 \001(\013" +
+      "23.Volcengine.Vod.Models.Business.ImageL" +
+      "ogoDefinition\022P\n\023VideoLogoDefinition\030\003 \001" +
+      "(\01323.Volcengine.Vod.Models.Business.Vide" +
+      "oLogoDefinition\022N\n\022TextLogoDefinition\030\004 " +
+      "\001(\01322.Volcengine.Vod.Models.Business.Tex" +
+      "tLogoDefinition\"=\n\nFontShadow\022\r\n\005Color\030\001" +
+      " \001(\t\022\017\n\007OffsetX\030\002 \001(\005\022\017\n\007OffsetY\030\003 \001(\005\"\220" +
+      "\001\n\013AdaptConcat\022>\n\nAnchorSize\030\001 \001(\0132*.Vol" +
+      "cengine.Vod.Models.Business.AnchorSize\022A" +
+      "\n\007Concats\030\002 \003(\01320.Volcengine.Vod.Models." +
+      "Business.ConcatDefinition\"?\n\020ConcatDefin" +
+      "ition\022\014\n\004Type\030\001 \001(\t\022\013\n\003Mid\030\002 \001(\t\022\020\n\010Posi" +
+      "tion\030\004 \001(\t\"3\n\022HiddenWatermarkAdd\022\017\n\007Cont" +
+      "ent\030\001 \001(\t\022\014\n\004Type\030\003 \001(\t\"\212\001\n\036VodListWater" +
+      "markResponseResult\022\r\n\005Limit\030\001 \001(\005\022\016\n\006Off" +
+      "set\030\002 \001(\005\022\r\n\005Total\030\003 \001(\003\022:\n\004Data\030\004 \003(\0132," +
+      ".Volcengine.Vod.Models.Business.LogoTemp" +
+      "late\"\311\002\n\005Video\022\013\n\003Res\030\001 \001(\t\022\021\n\tScaleType" +
+      "\030\004 \001(\005\022\021\n\tScaleMode\030\026 \001(\005\022\022\n\nScaleWidth\030" +
+      "\005 \001(\005\022\023\n\013ScaleHeight\030\006 \001(\005\022\022\n\nScaleShort" +
+      "\030\007 \001(\005\022\021\n\tScaleLong\030\010 \001(\005\022\r\n\005Codec\030\t \001(\t" +
+      "\022\027\n\017RateControlMode\030\n \001(\t\022\022\n\nMaxBitrate\030" +
+      "\013 \001(\005\022\017\n\007Bitrate\030\014 \001(\005\022\013\n\003Crf\030\r \001(\002\022\016\n\006M" +
+      "axFps\030\017 \001(\005\022\r\n\005Vsync\030\020 \001(\t\022\013\n\003Fps\030\021 \001(\002\022" +
+      "\017\n\007HDRMode\030\025 \001(\005\022\017\n\007GopSize\030\030 \001(\005\022\025\n\rDis" +
+      "ableBFrame\030\031 \001(\010\"\231\001\n\005Audio\022\r\n\005Codec\030\001 \001(" +
+      "\t\022\022\n\nSampleRate\030\002 \001(\005\022\027\n\017RateControlMode" +
+      "\030\003 \001(\t\022\017\n\007Bitrate\030\004 \001(\005\022\017\n\007MinRate\030\005 \001(\005" +
+      "\022\017\n\007MaxRate\030\006 \001(\005\022\020\n\010Channels\030\007 \001(\005\022\017\n\007P" +
+      "rofile\030\010 \001(\t\"9\n\007Segment\022\016\n\006Format\030\001 \001(\t\022" +
+      "\014\n\004Type\030\002 \001(\t\022\020\n\010Duration\030\003 \001(\005\"\204\002\n\tCond" +
+      "ition\022\020\n\010ResRange\030\001 \001(\t\022\024\n\014LongResRange\030" +
+      "\002 \001(\t\022\025\n\rDurationRange\030\003 \001(\t\022\020\n\010FpsRange" +
+      "\030\004 \001(\t\022\024\n\014BitrateRange\030\005 \001(\t\022\031\n\021AudioBit" +
+      "rateRange\030\006 \001(\t\022\020\n\010FileType\030\007 \001(\t\022\024\n\014VQS" +
+      "coreRange\030\010 \001(\t\022\032\n\022VideoDurationRange\030\t " +
+      "\001(\t\022\032\n\022AudioDurationRange\030\n \001(\t\022\025\n\rUserC" +
+      "ondition\030\013 \001(\t\"!\n\016ParallelParams\022\017\n\007Enab" +
+      "led\030\001 \001(\010\"\034\n\nEncryption\022\016\n\006Vendor\030\001 \001(\t\"" +
+      "j\n\006Volume\022\016\n\006Method\030\001 \001(\t\022\032\n\022IntegratedL" +
+      "oudness\030\002 \001(\001\022\020\n\010TruePeak\030\003 \001(\001\022\016\n\006Volum" +
+      "e\030\004 \001(\001\022\022\n\nVolumeTime\030\005 \001(\001*z\n\013StageStat" +
+      "us\022\013\n\007Unknown\020\000\022\r\n\tScheduled\020\001\022\013\n\007Runnin" +
+      "g\020\002\022\014\n\010Canceled\020\003\022\014\n\010TimedOut\020\004\022\013\n\007Skipp" +
+      "ed\020\005\022\r\n\tCompleted\020\006\022\n\n\006Failed\020\007B\314\001\n)com." +
+      "volcengine.service.vod.model.businessB\013V" +
+      "odWorkflowP\001ZAgithub.com/volcengine/volc" +
+      "-sdk-golang/service/vod/models/business\240" +
+      "\001\001\330\001\001\312\002 Volc\\Service\\Vod\\Models\\Business" +
+      "\342\002#Volc\\Service\\Vod\\Models\\GPBMetadatab\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1005,25 +1008,25 @@ public final class VodWorkflow {
     internal_static_Volcengine_Vod_Models_Business_PosterSnapshotParams_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_PosterSnapshotParams_descriptor,
-        new java.lang.String[] { "Format", "ResAdapt", "ResLimit", "Width", "Height", "OffsetTime", });
+        new java.lang.String[] { "Format", "ResAdapt", "ResLimit", "Width", "Height", "OffsetTime", "FillType", });
     internal_static_Volcengine_Vod_Models_Business_DynpostSnapshotParams_descriptor =
       getDescriptor().getMessageTypes().get(37);
     internal_static_Volcengine_Vod_Models_Business_DynpostSnapshotParams_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_DynpostSnapshotParams_descriptor,
-        new java.lang.String[] { "Format", "ResAdapt", "ResLimit", "Width", "Height", "OffsetTime", "Duration", "CaptureFps", "Speed", });
+        new java.lang.String[] { "Format", "ResAdapt", "ResLimit", "Width", "Height", "OffsetTime", "Duration", "CaptureFps", "Speed", "FillType", });
     internal_static_Volcengine_Vod_Models_Business_AnimatedPosterSnapshotParams_descriptor =
       getDescriptor().getMessageTypes().get(38);
     internal_static_Volcengine_Vod_Models_Business_AnimatedPosterSnapshotParams_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_AnimatedPosterSnapshotParams_descriptor,
-        new java.lang.String[] { "Format", "ResAdapt", "ResLimit", "Width", "Height", "OffsetTime", "CaptureFps", "CaptureNum", });
+        new java.lang.String[] { "Format", "ResAdapt", "ResLimit", "Width", "Height", "OffsetTime", "CaptureFps", "CaptureNum", "FillType", });
     internal_static_Volcengine_Vod_Models_Business_SpriteSnapshotParams_descriptor =
       getDescriptor().getMessageTypes().get(39);
     internal_static_Volcengine_Vod_Models_Business_SpriteSnapshotParams_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_SpriteSnapshotParams_descriptor,
-        new java.lang.String[] { "Format", "CellWidth", "CellHeight", "ImgXLen", "ImgYLen", "Interval", "OffsetTime", "CaptureNum", });
+        new java.lang.String[] { "Format", "CellWidth", "CellHeight", "ImgXLen", "ImgYLen", "Interval", "OffsetTime", "CaptureNum", "ResAdapt", "ResLimit", "FillType", });
     internal_static_Volcengine_Vod_Models_Business_SampleSnapshotParams_descriptor =
       getDescriptor().getMessageTypes().get(40);
     internal_static_Volcengine_Vod_Models_Business_SampleSnapshotParams_fieldAccessorTable = new

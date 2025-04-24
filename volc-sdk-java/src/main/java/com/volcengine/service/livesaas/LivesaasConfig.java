@@ -4056,6 +4056,34 @@ public class LivesaasConfig {
                     }
                 }
             ));
+            put(Const.GetInteractionScriptRecordConfig, new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "GET");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", Const.GetInteractionScriptRecordConfig));
+                                add(new BasicNameValuePair("Version", "2023-08-01"));
+                            }
+                        });
+                    }
+                }
+            ));
+            put(Const.UpdateInteractionScriptRecordConfig, new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", Const.UpdateInteractionScriptRecordConfig));
+                                add(new BasicNameValuePair("Version", "2023-08-01"));
+                            }
+                        });
+                    }
+                }
+            ));
         }
     };
 }

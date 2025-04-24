@@ -60,4 +60,36 @@ public interface SpriteSnapshotParamsOrBuilder extends
    * @return The captureNum.
    */
   int getCaptureNum();
+
+  /**
+   * <code>bool ResAdapt = 9;</code>
+   * @return The resAdapt.
+   */
+  boolean getResAdapt();
+
+  /**
+   * <code>int32 ResLimit = 10;</code>
+   * @return The resLimit.
+   */
+  int getResLimit();
+
+  /**
+   * <pre>
+   * 填充类型 
+   * </pre>
+   *
+   * <code>string FillType = 11;</code>
+   * @return The fillType.
+   */
+  java.lang.String getFillType();
+  /**
+   * <pre>
+   * 填充类型 
+   * </pre>
+   *
+   * <code>string FillType = 11;</code>
+   * @return The bytes for fillType.
+   */
+  com.google.protobuf.ByteString
+      getFillTypeBytes();
 }

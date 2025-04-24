@@ -52,6 +52,8 @@ public interface VmsService extends IBaseService {
 
     RouteAAuthResponse routeAAuth(RouteAAuthRequest request) throws Exception;
 
+    AuthQueryResponse queryAuth(AuthQueryRequest request) throws Exception;
+
     /**
      * 查询号码池列表
      *

@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private SpriteSnapshotParams() {
     format_ = "";
+    fillType_ = "";
   }
 
   @java.lang.Override
@@ -88,6 +89,22 @@ private static final long serialVersionUID = 0L;
           case 64: {
 
             captureNum_ = input.readInt32();
+            break;
+          }
+          case 72: {
+
+            resAdapt_ = input.readBool();
+            break;
+          }
+          case 80: {
+
+            resLimit_ = input.readInt32();
+            break;
+          }
+          case 90: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            fillType_ = s;
             break;
           }
           default: {
@@ -237,6 +254,74 @@ private static final long serialVersionUID = 0L;
     return captureNum_;
   }
 
+  public static final int RESADAPT_FIELD_NUMBER = 9;
+  private boolean resAdapt_;
+  /**
+   * <code>bool ResAdapt = 9;</code>
+   * @return The resAdapt.
+   */
+  @java.lang.Override
+  public boolean getResAdapt() {
+    return resAdapt_;
+  }
+
+  public static final int RESLIMIT_FIELD_NUMBER = 10;
+  private int resLimit_;
+  /**
+   * <code>int32 ResLimit = 10;</code>
+   * @return The resLimit.
+   */
+  @java.lang.Override
+  public int getResLimit() {
+    return resLimit_;
+  }
+
+  public static final int FILLTYPE_FIELD_NUMBER = 11;
+  private volatile java.lang.Object fillType_;
+  /**
+   * <pre>
+   * 填充类型 
+   * </pre>
+   *
+   * <code>string FillType = 11;</code>
+   * @return The fillType.
+   */
+  @java.lang.Override
+  public java.lang.String getFillType() {
+    java.lang.Object ref = fillType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      fillType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 填充类型 
+   * </pre>
+   *
+   * <code>string FillType = 11;</code>
+   * @return The bytes for fillType.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getFillTypeBytes() {
+    java.lang.Object ref = fillType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      fillType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -274,6 +359,15 @@ private static final long serialVersionUID = 0L;
     }
     if (captureNum_ != 0) {
       output.writeInt32(8, captureNum_);
+    }
+    if (resAdapt_ != false) {
+      output.writeBool(9, resAdapt_);
+    }
+    if (resLimit_ != 0) {
+      output.writeInt32(10, resLimit_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fillType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, fillType_);
     }
     unknownFields.writeTo(output);
   }
@@ -315,6 +409,17 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(8, captureNum_);
     }
+    if (resAdapt_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(9, resAdapt_);
+    }
+    if (resLimit_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(10, resLimit_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fillType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, fillType_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -346,6 +451,12 @@ private static final long serialVersionUID = 0L;
         != other.getOffsetTime()) return false;
     if (getCaptureNum()
         != other.getCaptureNum()) return false;
+    if (getResAdapt()
+        != other.getResAdapt()) return false;
+    if (getResLimit()
+        != other.getResLimit()) return false;
+    if (!getFillType()
+        .equals(other.getFillType())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -373,6 +484,13 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getOffsetTime();
     hash = (37 * hash) + CAPTURENUM_FIELD_NUMBER;
     hash = (53 * hash) + getCaptureNum();
+    hash = (37 * hash) + RESADAPT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getResAdapt());
+    hash = (37 * hash) + RESLIMIT_FIELD_NUMBER;
+    hash = (53 * hash) + getResLimit();
+    hash = (37 * hash) + FILLTYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getFillType().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -522,6 +640,12 @@ private static final long serialVersionUID = 0L;
 
       captureNum_ = 0;
 
+      resAdapt_ = false;
+
+      resLimit_ = 0;
+
+      fillType_ = "";
+
       return this;
     }
 
@@ -556,6 +680,9 @@ private static final long serialVersionUID = 0L;
       result.interval_ = interval_;
       result.offsetTime_ = offsetTime_;
       result.captureNum_ = captureNum_;
+      result.resAdapt_ = resAdapt_;
+      result.resLimit_ = resLimit_;
+      result.fillType_ = fillType_;
       onBuilt();
       return result;
     }
@@ -628,6 +755,16 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getCaptureNum() != 0) {
         setCaptureNum(other.getCaptureNum());
+      }
+      if (other.getResAdapt() != false) {
+        setResAdapt(other.getResAdapt());
+      }
+      if (other.getResLimit() != 0) {
+        setResLimit(other.getResLimit());
+      }
+      if (!other.getFillType().isEmpty()) {
+        fillType_ = other.fillType_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -947,6 +1084,164 @@ private static final long serialVersionUID = 0L;
     public Builder clearCaptureNum() {
       
       captureNum_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private boolean resAdapt_ ;
+    /**
+     * <code>bool ResAdapt = 9;</code>
+     * @return The resAdapt.
+     */
+    @java.lang.Override
+    public boolean getResAdapt() {
+      return resAdapt_;
+    }
+    /**
+     * <code>bool ResAdapt = 9;</code>
+     * @param value The resAdapt to set.
+     * @return This builder for chaining.
+     */
+    public Builder setResAdapt(boolean value) {
+      
+      resAdapt_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool ResAdapt = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearResAdapt() {
+      
+      resAdapt_ = false;
+      onChanged();
+      return this;
+    }
+
+    private int resLimit_ ;
+    /**
+     * <code>int32 ResLimit = 10;</code>
+     * @return The resLimit.
+     */
+    @java.lang.Override
+    public int getResLimit() {
+      return resLimit_;
+    }
+    /**
+     * <code>int32 ResLimit = 10;</code>
+     * @param value The resLimit to set.
+     * @return This builder for chaining.
+     */
+    public Builder setResLimit(int value) {
+      
+      resLimit_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 ResLimit = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearResLimit() {
+      
+      resLimit_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object fillType_ = "";
+    /**
+     * <pre>
+     * 填充类型 
+     * </pre>
+     *
+     * <code>string FillType = 11;</code>
+     * @return The fillType.
+     */
+    public java.lang.String getFillType() {
+      java.lang.Object ref = fillType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fillType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 填充类型 
+     * </pre>
+     *
+     * <code>string FillType = 11;</code>
+     * @return The bytes for fillType.
+     */
+    public com.google.protobuf.ByteString
+        getFillTypeBytes() {
+      java.lang.Object ref = fillType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fillType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 填充类型 
+     * </pre>
+     *
+     * <code>string FillType = 11;</code>
+     * @param value The fillType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFillType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      fillType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 填充类型 
+     * </pre>
+     *
+     * <code>string FillType = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFillType() {
+      
+      fillType_ = getDefaultInstance().getFillType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 填充类型 
+     * </pre>
+     *
+     * <code>string FillType = 11;</code>
+     * @param value The bytes for fillType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFillTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      fillType_ = value;
       onChanged();
       return this;
     }

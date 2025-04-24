@@ -351,6 +351,20 @@ public class VmsConfig {
                         }
                     }
             ));
+            put("QueryAuth", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, Const.POST);
+                        put(Const.Path, DEFAULT_PATH);
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair(ACTION, "QueryAuth"));
+                                add(new BasicNameValuePair(VERSION, DEFAULT_VERSION));
+                            }
+                        });
+                    }
+                }
+            ));
             put("NumberPoolList", new ApiInfo(new HashMap<String, Object>() {
                 {
                     put(Const.Method, Const.POST);

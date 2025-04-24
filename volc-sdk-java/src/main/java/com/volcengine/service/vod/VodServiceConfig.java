@@ -1059,6 +1059,34 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.DescribeUploadSpaceConfig, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeUploadSpaceConfig));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateUploadSpaceConfig, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "POST");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateUploadSpaceConfig));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             // **********************************************************************
             // 分发加速管理
             // **********************************************************************

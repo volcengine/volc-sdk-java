@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private AnimatedPosterSnapshotParams() {
     format_ = "";
+    fillType_ = "";
   }
 
   @java.lang.Override
@@ -88,6 +89,12 @@ private static final long serialVersionUID = 0L;
           case 64: {
 
             captureNum_ = input.readInt32();
+            break;
+          }
+          case 74: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            fillType_ = s;
             break;
           }
           default: {
@@ -237,6 +244,52 @@ private static final long serialVersionUID = 0L;
     return captureNum_;
   }
 
+  public static final int FILLTYPE_FIELD_NUMBER = 9;
+  private volatile java.lang.Object fillType_;
+  /**
+   * <pre>
+   * 填充类型 
+   * </pre>
+   *
+   * <code>string FillType = 9;</code>
+   * @return The fillType.
+   */
+  @java.lang.Override
+  public java.lang.String getFillType() {
+    java.lang.Object ref = fillType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      fillType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 填充类型 
+   * </pre>
+   *
+   * <code>string FillType = 9;</code>
+   * @return The bytes for fillType.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getFillTypeBytes() {
+    java.lang.Object ref = fillType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      fillType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -274,6 +327,9 @@ private static final long serialVersionUID = 0L;
     }
     if (captureNum_ != 0) {
       output.writeInt32(8, captureNum_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fillType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, fillType_);
     }
     unknownFields.writeTo(output);
   }
@@ -315,6 +371,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(8, captureNum_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fillType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, fillType_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -347,6 +406,8 @@ private static final long serialVersionUID = 0L;
             other.getCaptureFps())) return false;
     if (getCaptureNum()
         != other.getCaptureNum()) return false;
+    if (!getFillType()
+        .equals(other.getFillType())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -376,6 +437,8 @@ private static final long serialVersionUID = 0L;
         getCaptureFps());
     hash = (37 * hash) + CAPTURENUM_FIELD_NUMBER;
     hash = (53 * hash) + getCaptureNum();
+    hash = (37 * hash) + FILLTYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getFillType().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -525,6 +588,8 @@ private static final long serialVersionUID = 0L;
 
       captureNum_ = 0;
 
+      fillType_ = "";
+
       return this;
     }
 
@@ -559,6 +624,7 @@ private static final long serialVersionUID = 0L;
       result.offsetTime_ = offsetTime_;
       result.captureFps_ = captureFps_;
       result.captureNum_ = captureNum_;
+      result.fillType_ = fillType_;
       onBuilt();
       return result;
     }
@@ -631,6 +697,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getCaptureNum() != 0) {
         setCaptureNum(other.getCaptureNum());
+      }
+      if (!other.getFillType().isEmpty()) {
+        fillType_ = other.fillType_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -950,6 +1020,102 @@ private static final long serialVersionUID = 0L;
     public Builder clearCaptureNum() {
       
       captureNum_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object fillType_ = "";
+    /**
+     * <pre>
+     * 填充类型 
+     * </pre>
+     *
+     * <code>string FillType = 9;</code>
+     * @return The fillType.
+     */
+    public java.lang.String getFillType() {
+      java.lang.Object ref = fillType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fillType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 填充类型 
+     * </pre>
+     *
+     * <code>string FillType = 9;</code>
+     * @return The bytes for fillType.
+     */
+    public com.google.protobuf.ByteString
+        getFillTypeBytes() {
+      java.lang.Object ref = fillType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fillType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 填充类型 
+     * </pre>
+     *
+     * <code>string FillType = 9;</code>
+     * @param value The fillType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFillType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      fillType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 填充类型 
+     * </pre>
+     *
+     * <code>string FillType = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFillType() {
+      
+      fillType_ = getDefaultInstance().getFillType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 填充类型 
+     * </pre>
+     *
+     * <code>string FillType = 9;</code>
+     * @param value The bytes for fillType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFillTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      fillType_ = value;
       onChanged();
       return this;
     }

@@ -25,6 +25,7 @@ public class UploadImageByStream {
         request.setServiceId("service id");
         // 服务 ID
 //        request.setStoreKeys(new ArrayList<>());
+        // request.setUploadHost("upload host");
 
         try {
             // 读取文件

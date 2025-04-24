@@ -23,6 +23,7 @@ public class VodSubmitBlockTasksDemo {
             com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest.Builder reqBuilder = com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest.newBuilder();
 			reqBuilder.setFileUrls("your FileUrls");
 			reqBuilder.setOperation("your Operation");
+			reqBuilder.setSpaceName("your SpaceName");
 			
             com.volcengine.service.vod.model.response.VodSubmitBlockTasksResponse resp = vodService.submitBlockTasks(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

@@ -66,4 +66,24 @@ public interface DynpostSnapshotParamsOrBuilder extends
    * @return The speed.
    */
   float getSpeed();
+
+  /**
+   * <pre>
+   * 填充类型 
+   * </pre>
+   *
+   * <code>string FillType = 10;</code>
+   * @return The fillType.
+   */
+  java.lang.String getFillType();
+  /**
+   * <pre>
+   * 填充类型 
+   * </pre>
+   *
+   * <code>string FillType = 10;</code>
+   * @return The bytes for fillType.
+   */
+  com.google.protobuf.ByteString
+      getFillTypeBytes();
 }

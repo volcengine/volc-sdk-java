@@ -41,6 +41,8 @@ public class VodGetPlayInfoDemo {
 			reqBuilder.setNeedOriginal("your NeedOriginal");
 			reqBuilder.setForceExpire("your ForceExpire");
 			reqBuilder.setGetAll(false);
+			reqBuilder.setDigitalWatermarkType("your DigitalWatermarkType");
+			reqBuilder.setUserToken("your UserToken");
 			
             com.volcengine.service.vod.model.response.VodGetPlayInfoResponse resp = vodService.getPlayInfo(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

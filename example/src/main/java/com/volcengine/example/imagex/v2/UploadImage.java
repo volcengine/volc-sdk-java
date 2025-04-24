@@ -21,6 +21,7 @@ public class UploadImage {
 
         ApplyImageUploadRequest request = new ApplyImageUploadRequest();
         request.setServiceId("service id"); // 服务 ID
+        // request.setUploadHost("upload host");
         // request.setOverwrite("False");
         try {
             // 读取文件

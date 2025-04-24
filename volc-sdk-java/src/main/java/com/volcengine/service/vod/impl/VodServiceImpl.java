@@ -2344,6 +2344,44 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 	
 	
 	/**
+     * describeUploadSpaceConfig.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDescribeUploadSpaceConfigRequest
+     * @return com.volcengine.service.vod.model.response.VodDescribeUploadSpaceConfigResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodDescribeUploadSpaceConfigResponse describeUploadSpaceConfig(com.volcengine.service.vod.model.request.VodDescribeUploadSpaceConfigRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.DescribeUploadSpaceConfig, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodDescribeUploadSpaceConfigResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodDescribeUploadSpaceConfigResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * updateUploadSpaceConfig.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodUpdateUploadSpaceConfigRequest
+     * @return com.volcengine.service.vod.model.response.VodUpdateUploadSpaceConfigResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodUpdateUploadSpaceConfigResponse updateUploadSpaceConfig(com.volcengine.service.vod.model.request.VodUpdateUploadSpaceConfigRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = json(com.volcengine.service.vod.Const.UpdateUploadSpaceConfig, new ArrayList<>(), JsonFormat.printer().print(input));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodUpdateUploadSpaceConfigResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodUpdateUploadSpaceConfigResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
      * addDomainToScheduler.
      *
      * @param input com.volcengine.service.vod.model.request.VodAddDomainToSchedulerRequest

@@ -2509,4 +2509,21 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     DeleteVipOrBlackListUserInfoResponse deleteVipOrBlackListUserInfo(DeleteVipOrBlackListUserInfoRequest deleteVipOrBlackListUserInfoRequest) throws Exception;
+    /**
+     * GetInteractionScriptRecordConfig
+     *
+     * @param getInteractionScriptRecordConfigRequest GetInteractionScriptRecordConfigRequest
+     * @return GetInteractionScriptRecordConfigResponse
+     * @throws Exception the exception
+     */
+    GetInteractionScriptRecordConfigResponse getInteractionScriptRecordConfig(GetInteractionScriptRecordConfigRequest getInteractionScriptRecordConfigRequest) throws Exception;
+
+    /**
+     * UpdateInteractionScriptRecordConfig
+     *
+     * @param updateInteractionScriptRecordConfigRequest UpdateInteractionScriptRecordConfigRequest
+     * @return UpdateInteractionScriptRecordConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateInteractionScriptRecordConfigResponse updateInteractionScriptRecordConfig(UpdateInteractionScriptRecordConfigRequest updateInteractionScriptRecordConfigRequest) throws Exception;
 }

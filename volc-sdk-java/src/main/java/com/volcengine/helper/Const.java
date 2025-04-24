@@ -649,6 +649,8 @@ public class Const {
     public static final String AddInteractionScriptComments = "AddInteractionScriptComments";
     public static final String EditInteractionScriptComment = "EditInteractionScriptComment";
     public static final String DeleteInteractionScriptComment = "DeleteInteractionScriptComment";
+    public static final String GetInteractionScriptRecordConfig = "GetInteractionScriptRecordConfig";
+    public static final String UpdateInteractionScriptRecordConfig = "UpdateInteractionScriptRecordConfig";
     public static final String UpdateActivityMediaInfo = "UpdateActivityMediaInfo";
     public static final String ListActivityRobotCommentRepository = "ListActivityRobotCommentRepository";
     public static final String AddActivityRobotCommentRepository = "AddActivityRobotCommentRepository";

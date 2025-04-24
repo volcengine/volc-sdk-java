@@ -781,6 +781,24 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodUpdateSpaceUploadConfigResponse updateSpaceUploadConfig(com.volcengine.service.vod.model.request.VodUpdateSpaceUploadConfigRequest input) throws Exception;
 	
 	/**
+     * describeUploadSpaceConfig.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDescribeUploadSpaceConfigRequest
+     * @return com.volcengine.service.vod.model.response.VodDescribeUploadSpaceConfigResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodDescribeUploadSpaceConfigResponse describeUploadSpaceConfig(com.volcengine.service.vod.model.request.VodDescribeUploadSpaceConfigRequest input) throws Exception;
+	
+	/**
+     * updateUploadSpaceConfig.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodUpdateUploadSpaceConfigRequest
+     * @return com.volcengine.service.vod.model.response.VodUpdateUploadSpaceConfigResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodUpdateUploadSpaceConfigResponse updateUploadSpaceConfig(com.volcengine.service.vod.model.request.VodUpdateUploadSpaceConfigRequest input) throws Exception;
+	
+	/**
      * addDomainToScheduler.
      *
      * @param input com.volcengine.service.vod.model.request.VodAddDomainToSchedulerRequest

@@ -22,13 +22,13 @@ public class VodGetCallbackRecordDemo {
         try {
             com.volcengine.service.vod.model.request.GetCallbackRecordRequest.Builder reqBuilder = com.volcengine.service.vod.model.request.GetCallbackRecordRequest.newBuilder();
 			reqBuilder.setSpaceName("your SpaceName");
-			reqBuilder.setVID("your VID");
+			reqBuilder.setVid("your Vid");
 			reqBuilder.setStatus("your Status");
 			reqBuilder.setStartTime(0);
 			reqBuilder.setEndTime(0);
 			reqBuilder.setLimit(0);
-			reqBuilder.setOffset(0);
 			reqBuilder.setEventType("your EventType");
+			reqBuilder.setContinuationToken("your ContinuationToken");
 			
             com.volcengine.service.vod.model.response.GetCallbackRecordResponse resp = vodService.getCallbackRecord(reqBuilder.build());
             if (resp.getResponseMetadata().hasError()) {

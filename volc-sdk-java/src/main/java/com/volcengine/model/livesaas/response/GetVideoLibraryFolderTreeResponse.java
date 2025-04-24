@@ -28,5 +28,7 @@ public class GetVideoLibraryFolderTreeResponse {
         String FolderName;
         @JSONField(name = "Children")
         List<FolderNodeAPI> Children;
+        @JSONField(name = "FolderTypeForSubAccount")
+        Integer FolderTypeForSubAccount;
     }
 }

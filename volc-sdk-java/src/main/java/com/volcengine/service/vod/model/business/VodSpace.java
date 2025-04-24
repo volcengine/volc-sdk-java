@@ -29,6 +29,21 @@ public final class VodSpace {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodDescribeVodSpaceStorageDataResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodUploadSpaceConfig_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodUploadSpaceConfig_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_CustomPosterConfig_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_CustomPosterConfig_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_TranscodeConfig_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_TranscodeConfig_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -53,7 +68,23 @@ public final class VodSpace {
       "e\030\005 \001(\t\022\022\n\nRegionList\030\006 \003(\t\022\031\n\021LatestSto" +
       "rageData\030\007 \001(\003\022G\n\017StorageDataList\030\010 \003(\0132" +
       "..Volcengine.Vod.Models.Business.VodStor" +
-      "ageData*\243\001\n\027VodSpaceUploadConfigKey\022$\n U" +
+      "ageData\"\346\003\n\024VodUploadSpaceConfig\022\022\n\nAuto" +
+      "Poster\030\001 \001(\t\022N\n\022CustomPosterConfig\030\002 \001(\013" +
+      "22.Volcengine.Vod.Models.Business.Custom" +
+      "PosterConfig\022\025\n\rGetPosterMode\030\003 \001(\t\022\033\n\023A" +
+      "utoPosterCandidate\030\004 \001(\t\022\025\n\rAutoTranscod" +
+      "e\030\005 \001(\t\022H\n\017TranscodeConfig\030\006 \001(\0132/.Volce" +
+      "ngine.Vod.Models.Business.TranscodeConfi" +
+      "g\022\032\n\022AutoSetVideoStatus\030\007 \001(\t\022\027\n\017UploadO" +
+      "verwrite\030\010 \001(\t\022\035\n\025CallbackReturnPlayUrl\030" +
+      "\t \001(\t\022\033\n\023CallbackReturnRunId\030\n \001(\t\022\023\n\013Ge" +
+      "tMetaMode\030\013 \001(\t\022\037\n\027AutoGetArchiveVideoMe" +
+      "ta\030\014 \001(\t\022\032\n\022AutoGetIAVideoMeta\030\r \001(\t\022\022\n\n" +
+      "MetaGetMd5\030\016 \001(\t\"H\n\022CustomPosterConfig\022\034" +
+      "\n\024CustomTemplateStatus\030\001 \001(\t\022\024\n\014PathTemp" +
+      "late\030\002 \001(\t\"K\n\017TranscodeConfig\022\035\n\025Default" +
+      "TemplateStatus\030\001 \001(\t\022\031\n\021DefaultTemplateI" +
+      "d\030\002 \001(\t*\243\001\n\027VodSpaceUploadConfigKey\022$\n U" +
       "ndefinedVodSpaceUploadConfigKey\020\000\022/\n+Cus" +
       "tomUploadFilePathVodSpaceUploadConfigKey" +
       "\020\001\0221\n-AutoPublishAfterUploadVodSpaceUplo" +
@@ -86,6 +117,24 @@ public final class VodSpace {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDescribeVodSpaceStorageDataResult_descriptor,
         new java.lang.String[] { "SpaceList", "StartTime", "EndTime", "Aggregation", "Type", "RegionList", "LatestStorageData", "StorageDataList", });
+    internal_static_Volcengine_Vod_Models_Business_VodUploadSpaceConfig_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_Volcengine_Vod_Models_Business_VodUploadSpaceConfig_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodUploadSpaceConfig_descriptor,
+        new java.lang.String[] { "AutoPoster", "CustomPosterConfig", "GetPosterMode", "AutoPosterCandidate", "AutoTranscode", "TranscodeConfig", "AutoSetVideoStatus", "UploadOverwrite", "CallbackReturnPlayUrl", "CallbackReturnRunId", "GetMetaMode", "AutoGetArchiveVideoMeta", "AutoGetIAVideoMeta", "MetaGetMd5", });
+    internal_static_Volcengine_Vod_Models_Business_CustomPosterConfig_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_Volcengine_Vod_Models_Business_CustomPosterConfig_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_CustomPosterConfig_descriptor,
+        new java.lang.String[] { "CustomTemplateStatus", "PathTemplate", });
+    internal_static_Volcengine_Vod_Models_Business_TranscodeConfig_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_Volcengine_Vod_Models_Business_TranscodeConfig_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_TranscodeConfig_descriptor,
+        new java.lang.String[] { "DefaultTemplateStatus", "DefaultTemplateId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

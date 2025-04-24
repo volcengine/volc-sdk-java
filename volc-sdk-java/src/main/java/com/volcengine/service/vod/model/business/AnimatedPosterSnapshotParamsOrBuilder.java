@@ -60,4 +60,24 @@ public interface AnimatedPosterSnapshotParamsOrBuilder extends
    * @return The captureNum.
    */
   int getCaptureNum();
+
+  /**
+   * <pre>
+   * 填充类型 
+   * </pre>
+   *
+   * <code>string FillType = 9;</code>
+   * @return The fillType.
+   */
+  java.lang.String getFillType();
+  /**
+   * <pre>
+   * 填充类型 
+   * </pre>
+   *
+   * <code>string FillType = 9;</code>
+   * @return The bytes for fillType.
+   */
+  com.google.protobuf.ByteString
+      getFillTypeBytes();
 }

@@ -122,24 +122,30 @@ public class ImagexService extends ImagexTrait {
         return res;
     }
 
-    private void doUpload(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, InputStream imageData) throws Exception {
+    private void doUpload(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, InputStream imageData,Map<String, String> uploadParams) throws Exception {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         int nRead;
         byte[] data = new byte[16384];
         while ((nRead = imageData.read(data, 0, data.length)) != -1) {
             buffer.write(data, 0, nRead);
         }
-        doUpload(host, storeInfo, buffer.toByteArray());
+        doUpload(host, storeInfo, buffer.toByteArray(), uploadParams);
     }
 
 
-    private void doUpload(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, byte[] imageData) throws Exception {
+    private void doUpload(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, byte[] imageData, Map<String, String> uploadParams) throws Exception {
         long crc32 = Utils.crc32(imageData);
         String checkSum = String.format("%08x", crc32);
         String url = String.format("https://%s/%s", host, URLEncoder.encode(storeInfo.getStoreUri(), "UTF-8").replace("%2F", "/").replace("+", "%20"));
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-CRC32", checkSum);
         headers.put("Authorization", storeInfo.getAuth());
+        if (uploadParams != null && uploadParams.get("ContentType") != null && !uploadParams.get("ContentType").isEmpty()) {
+            headers.put("Specified-Content-Type", uploadParams.get("ContentType"));
+        }
+        if (uploadParams != null && uploadParams.get("StorageClass") != null && !uploadParams.get("StorageClass").isEmpty()) {
+            headers.put("X-VeImageX-Storage-Class", uploadParams.get("StorageClass"));
+        }
 
         long startTime = System.currentTimeMillis();
         uploadRetryer.call(() -> putData(url, imageData, headers));
@@ -149,8 +155,8 @@ public class ImagexService extends ImagexTrait {
         System.out.printf("upload image cost {%d} ms, avgSpeed: {%f} KB/s%n", cost, avgSpeed);
     }
 
-    private void chunkUpload(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, InputStream content, Long size, boolean isLargeFile) throws Exception {
-        String uploadID = initUploadPart(host, storeInfo, isLargeFile);
+    private void chunkUpload(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, InputStream content, Long size, boolean isLargeFile, Map<String, String> uploadParams) throws Exception {
+        String uploadID = initUploadPart(host, storeInfo, isLargeFile, uploadParams);
         byte[] data = new byte[MIN_CHUNK_SIZE];
         List<String> parts = new ArrayList<>();
         long num = size / MIN_CHUNK_SIZE;
@@ -175,15 +181,21 @@ public class ImagexService extends ImagexTrait {
             partNumber = isLargeFile ? lastNum + 1 : lastNum;
             parts.add(uploadPart(host, storeInfo, uploadID, partNumber, lastPart, isLargeFile));
         }
-        uploadMergePart(host, storeInfo, uploadID, parts.toArray(new String[0]), isLargeFile);
+        uploadMergePart(host, storeInfo, uploadID, parts.toArray(new String[0]), isLargeFile, uploadParams);
     }
 
-    private String initUploadPart(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, boolean isLargeFile) throws Exception {
+    private String initUploadPart(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, boolean isLargeFile, Map<String, String> uploadParams) throws Exception {
         String url = new URI("https", null, host, -1, "/" + URLEncoder.encode(storeInfo.getStoreUri(), "UTF-8").replace("%2F", "/").replace("+", "%20"), "uploads", null).toASCIIString();
         Map<String, String> headers = new HashMap<>();
         headers.put("Authorization", storeInfo.getAuth());
         if (isLargeFile) {
             headers.put("X-Storage-Mode", "gateway");
+        }
+        if (uploadParams!= null && uploadParams.get("ContentType") != null && !uploadParams.get("ContentType").isEmpty()) {
+            headers.put("Specified-Content-Type", uploadParams.get("ContentType"));
+        }
+        if (uploadParams!= null && uploadParams.get("StorageClass") != null && !uploadParams.get("StorageClass").isEmpty()) {
+            headers.put("X-VeImageX-Storage-Class", uploadParams.get("StorageClass"));
         }
         HttpResponse httpResponse = httpRetryer.call(() -> putDataWithResponse(url, new byte[]{}, headers));
         if (httpResponse == null) {
@@ -213,7 +225,7 @@ public class ImagexService extends ImagexTrait {
         return checkSum;
     }
 
-    private void uploadMergePart(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, String uploadID, String[] checkSum, boolean isLargeFile) throws Exception {
+    private void uploadMergePart(String host, ApplyImageUploadResponse.StoreInfosBean storeInfo, String uploadID, String[] checkSum, boolean isLargeFile, Map<String, String> uploadParams) throws Exception {
         String query = String.format("uploadID=%s", uploadID);
         String url = new URI("https", null, host, -1, "/" + URLEncoder.encode(storeInfo.getStoreUri(), "UTF-8").replace("%2F", "/").replace("+", "%20"), query, null).toASCIIString();
         String body = IntStream.range(0, checkSum.length).mapToObj(i -> String.format("%d:%s", i, checkSum[i])).collect(Collectors.joining(",", "", ""));
@@ -221,6 +233,12 @@ public class ImagexService extends ImagexTrait {
         headers.put("Authorization", storeInfo.getAuth());
         if (isLargeFile) {
             headers.put("X-Storage-Mode", "gateway");
+        }
+        if (uploadParams!= null && uploadParams.get("ContentType") != null && !uploadParams.get("ContentType").isEmpty()) {
+            headers.put("Specified-Content-Type", uploadParams.get("ContentType"));
+        }
+        if (uploadParams!= null && uploadParams.get("StorageClass") != null && !uploadParams.get("StorageClass").isEmpty()) {
+            headers.put("X-VeImageX-Storage-Class", uploadParams.get("StorageClass"));
         }
         uploadRetryer.call(() -> putData(url, body.getBytes(), headers));
     }
@@ -266,8 +284,18 @@ public class ImagexService extends ImagexTrait {
         List<String> successOids = new ArrayList<String>();
         for (int i = 0; i < imageDatas.size(); i++) {
             try {
+                Map<String, String> uploadParams = new HashMap<>();
+                if (request.getContentTypes()!= null && request.getContentTypes().size() > i) {
+                    uploadParams.put("ContentType", request.getContentTypes().get(i));
+                }
+                if (request.getStorageClasses()!= null && request.getStorageClasses().size() > i) {
+                    uploadParams.put("StorageClass", request.getStorageClasses().get(i));
+                }
+                if (request.getUploadHost() != null && !request.getUploadHost().isEmpty()) {
+                    uploadHost = request.getUploadHost();
+                }
                 ApplyImageUploadResponse.StoreInfosBean storeInfo = storeInfos.get(i);
-                doUpload(uploadHost, storeInfo, imageDatas.get(i));
+                doUpload(uploadHost, storeInfo, imageDatas.get(i),uploadParams);
                 successOids.add(storeInfo.getStoreUri());
             } catch (Exception e) {
                 LOG.log(Level.WARNING, e, e::getMessage);
@@ -320,12 +348,23 @@ public class ImagexService extends ImagexTrait {
             long fileSize = size.get(i);
             InputStream fileContent = content.get(i);
             ApplyImageUploadResponse.StoreInfosBean storeInfo = storeInfos.get(i);
+
+            Map<String, String> uploadParams = new HashMap<>();
+            if (request.getContentTypes() != null && request.getContentTypes().size() > i) {
+                uploadParams.put("ContentType", request.getContentTypes().get(i));
+            }
+            if (request.getStorageClasses() != null && request.getStorageClasses().size() > i) {
+                uploadParams.put("StorageClass", request.getStorageClasses().get(i));
+            }
+            if (request.getUploadHost() != null && !request.getUploadHost().isEmpty()) {
+                uploadHost = request.getUploadHost();
+            }
             try {
                 if (fileSize <= MIN_CHUNK_SIZE) {
-                    doUpload(uploadHost, storeInfo, fileContent);
+                    doUpload(uploadHost, storeInfo, fileContent,uploadParams);
                 } else {
-                    boolean isLargeFile = fileSize > LARGE_FILE_SIZE;
-                    chunkUpload(uploadHost, storeInfo, fileContent, fileSize, isLargeFile);
+                    boolean isLargeFile = fileSize > LARGE_FILE_SIZE || (request.getUploadHost() != null && !request.getUploadHost().isEmpty());
+                    chunkUpload(uploadHost, storeInfo, fileContent, fileSize, isLargeFile, uploadParams);
                 }
                 successOids.add(storeInfo.getStoreUri());
             } catch (Exception e) {

@@ -116,6 +116,8 @@ public class Const {
     public static final String UpdateSpace = "UpdateSpace";
     public static final String UpdateSpaceUploadConfig = "UpdateSpaceUploadConfig";
     public static final String DescribeVodSpaceStorageData = "DescribeVodSpaceStorageData";
+    public static final String DescribeUploadSpaceConfig = "DescribeUploadSpaceConfig";
+    public static final String UpdateUploadSpaceConfig = "UpdateUploadSpaceConfig";
     //vod-cdn
     public static final String ListDomain = "ListDomain";
     public static final String CreateCdnRefreshTask = "CreateCDNRefreshTask";

@@ -21,6 +21,12 @@ public class ApplyImageUploadRequest {
     String prefix;
     @JSONField(name = "Overwrite")
     String overwrite;
+    @JSONField(name = "ContentTypes")
+    List<String> contentTypes;
+    @JSONField(name = "StorageClasses")
+    List<String> storageClasses;
+    @JSONField(name = "UploadHost")
+    String uploadHost;
 
     @JSONField(serialize = false)
     Boolean skipCommit;

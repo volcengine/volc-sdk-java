@@ -4414,4 +4414,38 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public GetInteractionScriptRecordConfigResponse getInteractionScriptRecordConfig(GetInteractionScriptRecordConfigRequest getInteractionScriptRecordConfigRequest) throws Exception {
+        RawResponse response = query(Const.GetInteractionScriptRecordConfig,
+                Utils.paramsToPair(getInteractionScriptRecordConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetInteractionScriptRecordConfigResponse res = JSON.parseObject(response.getData(),
+                GetInteractionScriptRecordConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateInteractionScriptRecordConfigResponse updateInteractionScriptRecordConfig(UpdateInteractionScriptRecordConfigRequest updateInteractionScriptRecordConfigRequest) throws Exception {
+        RawResponse response = json(Const.UpdateInteractionScriptRecordConfig, new ArrayList<>(),
+                JSON.toJSONString(updateInteractionScriptRecordConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateInteractionScriptRecordConfigResponse res = JSON.parseObject(response.getData(),
+                UpdateInteractionScriptRecordConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

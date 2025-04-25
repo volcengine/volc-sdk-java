@@ -2,6 +2,7 @@ package com.volcengine.model.live.v20230101;
 
 
 import com.alibaba.fastjson.JSON;
+import java.util.Map;
 
 /**
  * UpdateAuthKeyRes
@@ -19,7 +20,7 @@ public final class UpdateAuthKeyRes  {
      * <p>TODO</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Result")
-    private UpdateAuthKeyResResult result;
+    private Map<String, Object> result;
 
     @Override
     public String toString() {

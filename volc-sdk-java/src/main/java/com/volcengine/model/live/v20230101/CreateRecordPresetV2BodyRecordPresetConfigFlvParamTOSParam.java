@@ -40,29 +40,55 @@ public final class CreateRecordPresetV2BodyRecordPresetConfigFlvParamTOSParam  {
     private String storageDir;
 
     /**
-     * <p>录制文件的存储规则，最大长度为 200 个字符，支持以</p>
-     *
-     * <p>`record/{PubDomain}/{App}/{Stream}/{StartTime}_{EndTime}` 样式设置存储规则，支持输入字母（A - Z、a - z）、数字（0 - 9）、短横线（-）、叹号（!）、下划线（_）、句点（.）、星号（*）及占位符。</p>
+     * <p>录制文件存储到 TOS 时的存储路径和文件名规则。支持输入字母（A - Z、a - z）、数字（0 - 9）、短横线（-）、叹号（!）、下划线（_）、句点（.）、星号（*）及占位符。最大长度为 200 个字符，</p>
      *
      *
      *
-     * <p>存储规则设置注意事项如下。</p>
+     * <p>支持以下字段作为占位符：</p>
      *
      *
      *
-     * <p>- 目录层级至少包含2级及以上，如 `live/{App}/{Stream}`。</p>
+     * <p>- `record`：自定义字段，可遵照支持字符进行自定义。</p>
      *
-     * <p>- record 为自定义字段；</p>
+     * <p>- `{PubDomain}`：当前配置中的 vhost 值。</p>
      *
-     * <p>- {PubDomain} 取值为当前配置的 `vhost` 值；</p>
+     * <p>- `{App}`：当前配置中的 AppName 值。</p>
      *
-     * <p>- {App} 取值为当前配置的 `AppName` 值；</p>
+     * <p>- `{Stream}`：当前配置中的 StreamName 值。</p>
      *
-     * <p>- {Stream} 取值为当前配置的 `StreamName` 值；</p>
+     * <p>- `{StartTime}`：录制开始的 Unix 时间戳，精度为 s。</p>
      *
-     * <p>- {StartTime} 取值为录制的开始时间戳；</p>
+     * <p>- `{EndTime}`：录制结束的 Unix 时间戳，精度为 s。</p>
      *
-     * <p>- {EndTime} 取值为录制的结束时间戳。</p>
+     *
+     *
+     * <p>存储路径必须至少包含两级目录。例如：`live/{App}/{Stream}`</p>
+     *
+     *
+     *
+     * <p>**合法示例：**</p>
+     *
+     * <p>```plaintext</p>
+     *
+     * <p>record/{PubDomain}/{App}/{Stream}/{StartTime}-{EndTime} </p>
+     *
+     * <p>{App}/archive/{Stream}/recording_{StartTime} </p>
+     *
+     * <p>vod/{Stream}/!highlight_{EndTime}</p>
+     *
+     * <p>a/b/custom_record  </p>
+     *
+     * <p>```</p>
+     *
+     * <p>**错误示例：**</p>
+     *
+     * <p>```plaintext</p>
+     *
+     * <p>single_level              # 错误：路径层级不足两级  </p>
+     *
+     * <p>invalid_/{S@ream}/file    # 错误：含非法字符@  </p>
+     *
+     * <p>```</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ExactObject")
     private String exactObject;

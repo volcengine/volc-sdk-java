@@ -21,18 +21,6 @@ public final class CreatePullToPushGroupBodyTagsItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Value")
     private String value;
 
-    /**
-     * <p>标签类型，支持以下取值。</p>
-     *
-     *
-     *
-     * <p>- `System`：系统内置标签；</p>
-     *
-     * <p>- `Custom`：自定义标签。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "Category")
-    private String category;
-
     @Override
     public String toString() {
         return JSON.toJSONString(this);

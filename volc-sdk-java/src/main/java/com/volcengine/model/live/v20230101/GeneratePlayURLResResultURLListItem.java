@@ -2,6 +2,7 @@ package com.volcengine.model.live.v20230101;
 
 
 import com.alibaba.fastjson.JSON;
+import java.util.List;
 
 /**
  * GeneratePlayURLResResultURLListItem
@@ -42,6 +43,12 @@ public final class GeneratePlayURLResResultURLListItem  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Type")
     private String type;
+
+    /**
+     * <p>子流地址。仅当 `StreamType` 为 `abr` 时返回。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "SubStreamURL")
+    private List<GeneratePlayURLResResultURLListItemSubStreamURLItem> subStreamURL;
 
     @Override
     public String toString() {

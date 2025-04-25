@@ -19,13 +19,13 @@ public final class CreateRecordPresetV2BodyRecordPresetConfig  {
      *
      * <p>- `1`：录制全部转码流；</p>
      *
-     * <p>- `2`：录制指定转码流，即通过转码后缀列表 `TranscodeSuffixList` 匹配转码流进行录制，如果转码流后缀列表为空仍表示录制全部转码流。</p>
+     * <p>- `2`：录制指定转码流，根据转码后缀列表 `TranscodeSuffixList` 决定录制哪些转码流。如果这个列表为空，则效果和设置为 `1` 一样，即录制所有转码流。</p>
      *
      *
      *
      * <p>:::tip</p>
      *
-     * <p>转码流和源流需至少选一个进行录制，即是否录制转码流（`TranscodeRecord`）和是否录制源流（`OriginRecord`）的取值至少一个不为 0。</p>
+     * <p>转码流和源流需至少选一个进行录制，即 `TranscodeRecord` 和 `OriginRecord` 的取值不能同时为 `0`。</p>
      *
      * <p>:::</p>
      */
@@ -33,13 +33,13 @@ public final class CreateRecordPresetV2BodyRecordPresetConfig  {
     private Integer transcodeRecord;
 
     /**
-     * <p>转码流后缀列表，转码流录制配置为根据转码流列表匹配（`TranscodeRecord` 取值为 `2`）时生效，`TranscodeSuffixList` 默认配置为空，效果等同于录制全部转码流。</p>
+     * <p>转码流后缀列表，用来指定需要录制哪些转码流。在 `TranscodeRecord` 取值为 `2` 时生效。如果该参数为空，那么录制的行为等同于 `TranscodeRecord = 1`，即录制所有转码流。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TranscodeSuffixList")
     private List<String> transcodeSuffixList;
 
     /**
-     * <p>是否源流录制，默认值为 `0`，支持的取值及含义如下所示。</p>
+     * <p>是否录制源流，默认值为 `0`，支持的取值及含义如下所示。</p>
      *
      *
      *
@@ -51,7 +51,7 @@ public final class CreateRecordPresetV2BodyRecordPresetConfig  {
      *
      * <p>:::tip</p>
      *
-     * <p>转码流和源流需至少选一个进行录制，即是否录制转码流（`TranscodeRecord`）和是否录制源流（`OriginRecord`）的取值至少一个不为 0。</p>
+     * <p>转码流和源流需至少选一个进行录制，即 `TranscodeRecord` 和 `OriginRecord` 的取值不能同时为 `0`。</p>
      *
      * <p>:::</p>
      */

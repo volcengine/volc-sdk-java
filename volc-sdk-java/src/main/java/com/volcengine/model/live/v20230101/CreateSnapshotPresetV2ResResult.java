@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class CreateSnapshotPresetV2ResResult  {
 
     /**
-     * <p>TODO</p>
+     * <p>截图配置名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PresetName")
     private String presetName;

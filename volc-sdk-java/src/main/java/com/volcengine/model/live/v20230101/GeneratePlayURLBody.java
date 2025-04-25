@@ -44,7 +44,7 @@ public final class GeneratePlayURLBody  {
     private String type;
 
     /**
-     * <p>拉流地址的有效时长，单位为秒，超过有效时长后需要重新生成。缺省值为 `604800` 表示 7 天，取值范围为正整数。</p>
+     * <p>拉流地址的有效时长，单位为秒，超过有效时长后需要重新生成。取值范围为正整数，缺省值为 `604800`，即 7 天。</p>
      *
      * <p>:::tip</p>
      *
@@ -66,6 +66,18 @@ public final class GeneratePlayURLBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ExpiredTime")
     private String expiredTime;
+
+    /**
+     * <p>生成地址类型，取值如下：</p>
+     *
+     * <p>- `source`：生成源流地址。</p>
+     *
+     * <p>- `transcode`: 生成转码流地址。</p>
+     *
+     * <p>- `abr`: 生成 ABR 地址。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StreamType")
+    private String streamType;
 
     @Override
     public String toString() {

@@ -59,7 +59,7 @@ public final class DescribeLiveStreamCountDataResResult  {
     private List<String> streamType;
 
     /**
-     * <p>当前查询条件时流数最大值。</p>
+     * <p>当前查询条件下流数的最大值，表示在指定的时间范围内推流、回源流或转码流的最高并发数。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PeakCount")
     private Integer peakCount;

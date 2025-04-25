@@ -4,16 +4,16 @@ package com.volcengine.model.live.v20230101;
 import com.alibaba.fastjson.JSON;
 
 /**
- * UpdateAuthKeyResResult
+ * ListCarouselTaskResResponseMetadata
  */
 @lombok.Data
-public final class UpdateAuthKeyResResult  {
+public final class ListCarouselTaskResResponseMetadata  {
 
     /**
-     * <p>版本号</p>
+     * <p>TODO</p>
      */
-    @com.alibaba.fastjson.annotation.JSONField(name = "VersionID")
-    private Integer versionID;
+    @com.alibaba.fastjson.annotation.JSONField(name = "RequestID")
+    private String requestID;
 
     @Override
     public String toString() {

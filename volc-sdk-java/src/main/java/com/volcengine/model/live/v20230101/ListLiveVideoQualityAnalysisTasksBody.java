@@ -15,7 +15,7 @@ public final class ListLiveVideoQualityAnalysisTasksBody  {
      *
      * <p>:::tip</p>
      *
-     * <p>Name 和 ID 不可同时传入。</p>
+     * <p>`Names` 和 `IDs` 不可同时传入。</p>
      *
      * <p>:::</p>
      */
@@ -29,7 +29,7 @@ public final class ListLiveVideoQualityAnalysisTasksBody  {
     private Integer pageNum;
 
     /**
-     * <p>每页显示的数据条数，最大是为 1000。</p>
+     * <p>每页显示的数据条数，最大值为 1000。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PageSize")
     private Integer pageSize;
@@ -39,12 +39,12 @@ public final class ListLiveVideoQualityAnalysisTasksBody  {
      *
      * <p>:::tip</p>
      *
-     * <p>Name 和 ID 不可同时传入。</p>
+     * <p>`Names` 和 `IDs` 不可同时传入。</p>
      *
      * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "IDs")
-    private List<String> iDs;
+    private List<Long> iDs;
 
     @Override
     public String toString() {

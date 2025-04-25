@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class GetPullRecordTaskResResultTaskDetail  {
 
     /**
-     * <p>任务ID。</p>
+     * <p>任务 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TaskId")
     private String taskId;

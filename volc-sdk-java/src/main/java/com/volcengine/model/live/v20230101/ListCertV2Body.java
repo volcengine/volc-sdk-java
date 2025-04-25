@@ -47,6 +47,24 @@ public final class ListCertV2Body  {
     @com.alibaba.fastjson.annotation.JSONField(name = "CertName")
     private String certName;
 
+    /**
+     * <p>分页查询时的页码，不填默认返回所有数据。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "PageNum")
+    private Integer pageNum;
+
+    /**
+     * <p>分页大小，用于指定每页返回的证书数量。不填默认返回所有数据。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "PageSize")
+    private Integer pageSize;
+
+    /**
+     * <p>项目名称，用于筛选指定项目下的证书。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ProjectName")
+    private String projectName;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

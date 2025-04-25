@@ -100,12 +100,6 @@ public final class UpdateRecordPresetV2BodyRecordPresetConfig  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Mp4Param")
     private UpdateRecordPresetV2BodyRecordPresetConfigMp4Param mp4Param;
 
-    /**
-     * <p>TODO</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "RecordClusterType")
-    private String recordClusterType;
-
     @Override
     public String toString() {
         return JSON.toJSONString(this);

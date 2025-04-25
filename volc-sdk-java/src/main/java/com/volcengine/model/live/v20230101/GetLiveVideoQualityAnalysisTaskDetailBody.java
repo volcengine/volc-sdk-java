@@ -14,7 +14,7 @@ public final class GetLiveVideoQualityAnalysisTaskDetailBody  {
      *
      * <p>:::tip</p>
      *
-     * <p>Name 和 ID 二选一必填。</p>
+     * <p>`Name` 和 `ID` 二选一必填。</p>
      *
      * <p>:::</p>
      */
@@ -26,12 +26,12 @@ public final class GetLiveVideoQualityAnalysisTaskDetailBody  {
      *
      * <p>:::tip</p>
      *
-     * <p>Name 和 ID 二选一必填。</p>
+     * <p>`Name` 和 `ID` 二选一必填。</p>
      *
      * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ID")
-    private String iD;
+    private Long iD;
 
     @Override
     public String toString() {

@@ -37,7 +37,7 @@ public final class ListLiveVideoQualityAnalysisTasksResResultTasksItem  {
      * <p>任务 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ID")
-    private String iD;
+    private Long iD;
 
     @Override
     public String toString() {

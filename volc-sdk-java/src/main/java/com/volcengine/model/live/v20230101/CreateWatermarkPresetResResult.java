@@ -10,13 +10,13 @@ import com.alibaba.fastjson.JSON;
 public final class CreateWatermarkPresetResResult  {
 
     /**
-     * <p>id</p>
+     * <p>水印模版 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ID")
     private Integer iD;
 
     /**
-     * <p>模板名称</p>
+     * <p>模板名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PresetName")
     private String presetName;

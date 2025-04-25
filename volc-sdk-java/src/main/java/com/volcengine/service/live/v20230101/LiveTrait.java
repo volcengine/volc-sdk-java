@@ -322,7 +322,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>createLiveStreamRecordIndexFiles</p>
      * <p>创建录制索引文件</p>
      *
-     * <p>调用 `CreateLiveStreamRecordIndexFiles` 接口，通过已存在的录制文件重新生成指定开始时间和结束时间的 M3U8 格式录制文件，并将新生成的录制文件存储在指定的 TOS Bucket 中。</p>
+     * <p>调用 `CreateLiveStreamRecordIndexFiles` 接口，将已有的录制文件，重新生成一个指定开始时间和结束时间的 M3U8 格式的录制文件，并将新生成的录制文件存储到指定的 TOS Bucket 中。</p>
      *
      * @param body body payload
      * @return response data
@@ -427,7 +427,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>listPullRecordTask</p>
      * <p>查询直播录制任务</p>
      *
-     * <p>调用 `ListPullRecordTask` 接口，查询当前账号下，已经创建的直播录制任务列表。</p>
+     * <p>本接口用于查询当前账号下创建的直播录制任务列表，支持按分页、域名、应用名称、流名称等条件进行组合查询。通过该接口，您可以获取任务的具体信息，如录制时段、任务状态等，帮助您跟踪录制进度、监控任务状态，并支持后续资源管理工作。</p>
      *
      * @param body body payload
      * @return response data
@@ -2498,6 +2498,111 @@ public class LiveTrait extends BaseServiceImpl {
     public DescribeLivePadPresetDetailRes describeLivePadPresetDetail(DescribeLivePadPresetDetailBody body) throws Exception {
         RawResponse rawResponse = json("DescribeLivePadPresetDetail", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, DescribeLivePadPresetDetailRes.class);
+    }
+
+    /**
+     * <p>createCarouselTask</p>
+     * <p>创建轮播任务</p>
+     *
+     * <p>调用 `CreateCarouselTask` 接口创建一个轮播任务，在直播过程中，视频直播服务端将根据任务配置按设定顺序循环播放指定视频内容。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateCarouselTaskRes createCarouselTask(CreateCarouselTaskBody body) throws Exception {
+        RawResponse rawResponse = json("CreateCarouselTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateCarouselTaskRes.class);
+    }
+
+    /**
+     * <p>deleteCarouselTask</p>
+     * <p>删除轮播任务</p>
+     *
+     * <p>调用 `DeleteCarouselTask` 接口删除指定的轮播任务，任务删除后，系统将停止播放该任务的所有轮播内容并释放相关资源。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteCarouselTaskRes deleteCarouselTask(DeleteCarouselTaskBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteCarouselTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteCarouselTaskRes.class);
+    }
+
+    /**
+     * <p>updateCarouselTask</p>
+     * <p>更新轮播任务</p>
+     *
+     * <p>调用 `UpdateCarouselTask` 接口修改指定的轮播任务配置，调整播放内容、播放规则或时间范围，更新后系统将按新配置执行轮播任务。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateCarouselTaskRes updateCarouselTask(UpdateCarouselTaskBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateCarouselTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateCarouselTaskRes.class);
+    }
+
+    /**
+     * <p>getCarouselDetail</p>
+     * <p>查询轮播任务</p>
+     *
+     * <p>调用 `GetCarouselDetail` 接口查询指定轮播任务的详细信息，包括播放状态、视频列表及当前播放进度，便于管理和监控任务执行情况。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetCarouselDetailRes getCarouselDetail(GetCarouselDetailBody body) throws Exception {
+        RawResponse rawResponse = json("GetCarouselDetail", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetCarouselDetailRes.class);
+    }
+
+    /**
+     * <p>listCarouselTask</p>
+     * <p>遍历轮播任务</p>
+     *
+     * <p>调用 `ListCarouselTask` 接口获取当前所有轮播任务的列表，包括任务 ID、状态及创建时间，可用于任务管理及批量查询。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public ListCarouselTaskRes listCarouselTask(ListCarouselTaskBody body) throws Exception {
+        RawResponse rawResponse = json("ListCarouselTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, ListCarouselTaskRes.class);
+    }
+
+    /**
+     * <p>createHighLightTask</p>
+     * <p>创建高光剪辑任务</p>
+     *
+     * <p>调用 `CreateHighLightTask` 接口，创建高光剪辑任务，对公网可访问的点播视频或直播流进行高光片段提取和混剪，并上传至指定空间，适用于足球赛事和文娱短剧场景。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateHighLightTaskRes createHighLightTask(CreateHighLightTaskBody body) throws Exception {
+        RawResponse rawResponse = json("CreateHighLightTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateHighLightTaskRes.class);
+    }
+
+    /**
+     * <p>deleteTaskByAccountID</p>
+     * <p>删除高光剪辑任务</p>
+     *
+     * <p>调用 `DeleteTaskByAccountID` 接口，立即删除高光剪辑任务。如果任务正在执行，已经保存的高光剪辑素材会被保留，而尚未生成或返回的素材将不再生成或返回。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteTaskByAccountIDRes deleteTaskByAccountID(DeleteTaskByAccountIDBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteTaskByAccountID", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteTaskByAccountIDRes.class);
     }
 
 }

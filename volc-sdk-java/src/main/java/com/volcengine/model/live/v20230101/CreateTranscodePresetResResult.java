@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class CreateTranscodePresetResResult  {
 
     /**
-     * <p>模板名称</p>
+     * <p>转码模板名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PresetName")
     private String presetName;

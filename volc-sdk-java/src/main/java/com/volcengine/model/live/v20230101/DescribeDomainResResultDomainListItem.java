@@ -34,7 +34,9 @@ public final class DescribeDomainResResultDomainListItem  {
      *
      * <p>- `4`：审核被驳回，审核不通过，需要重新创建并审核；</p>
      *
-     * <p>- `5`：欠费关停。</p>
+     * <p>- `5`：欠费关停；</p>
+     *
+     * <p>- `6`：域名未备案被封禁。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Status")
     private Integer status;

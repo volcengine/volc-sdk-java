@@ -76,6 +76,12 @@ public final class ListCertV2ResResultCertListItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "ProjectName")
     private String projectName;
 
+    /**
+     * <p>证书的创建时间，RFC3339 格式的 UTC 时间，精度为秒。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "CreateTime")
+    private String createTime;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

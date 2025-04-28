@@ -15,4 +15,8 @@ public class GetAccountUserTrackDataRequest {
     Long UserId;
     @JSONField(name = "ActivityId")
     Long ActivityId;
+    @JSONField(name = "WatchType")
+    String WatchType;
+    @JSONField(name = "ExternalId")
+    String ExternalId;
 }

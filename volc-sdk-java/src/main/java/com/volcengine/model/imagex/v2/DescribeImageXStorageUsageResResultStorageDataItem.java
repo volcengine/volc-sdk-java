@@ -5,10 +5,10 @@ import com.alibaba.fastjson.JSON;
 import java.util.List;
 
 /**
- * DescribeImageXBucketRetrievalUsageResResultStorageDataItem
+ * DescribeImageXStorageUsageResResultStorageDataItem
  */
 @lombok.Data
-public final class DescribeImageXBucketRetrievalUsageResResultStorageDataItem  {
+public final class DescribeImageXStorageUsageResResultStorageDataItem  {
 
     /**
      * <p>服务 ID，`GroupBy`包含`ServiceId`时有返回值。</p>
@@ -60,7 +60,7 @@ public final class DescribeImageXBucketRetrievalUsageResResultStorageDataItem  {
      * <p>具体数据</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Data")
-    private List<DescribeImageXBucketRetrievalUsageResResultStorageDataItemDataItem> data;
+    private List<DescribeImageXStorageUsageResResultStorageDataItemDataItem> data;
 
     @Override
     public String toString() {

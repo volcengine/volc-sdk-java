@@ -35,7 +35,7 @@ public final class CreateImageAITaskBody  {
     private String dataType;
 
     /**
-     * <p>待进行 AI 处理的图片 URI 或 URL 列表，其中 URI 不需要带 `tos-cn-i-***` 前缀。</p>
+     * <p>待进行 AI 处理的图片 URI 或 URL 列表，其中 URI 不需要带 `tos-cn-i-***` 前缀。传入图片的短边不小于 256 px，长边不大于 2048 px，大小不超过 10 MB。</p>
      *
      *
      *
@@ -49,7 +49,7 @@ public final class CreateImageAITaskBody  {
     private List<String> dataList;
 
     /**
-     * <p>任务回调配置，缺省情况下默认使用队列回调配置。</p>
+     * <p>任务回调配置。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CallbackConf")
     private CreateImageAITaskBodyCallbackConf callbackConf;

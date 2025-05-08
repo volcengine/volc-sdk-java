@@ -33,6 +33,24 @@ public final class GetImageEraseResultBodyBBoxItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Y2")
     private Double y2;
 
+    /**
+     * <p>是否模糊匹配，开启文字匹配后必选</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "OCRMode")
+    private Integer oCRMode;
+
+    /**
+     * <p>匹配的文本</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Text")
+    private String text;
+
+    /**
+     * <p>是否开启文字匹配</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "UseOCR")
+    private Integer useOCR;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

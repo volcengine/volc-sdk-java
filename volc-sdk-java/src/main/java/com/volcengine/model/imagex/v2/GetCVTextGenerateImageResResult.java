@@ -16,7 +16,7 @@ public final class GetCVTextGenerateImageResResult  {
      *
      *
      *
-     * <p>例如，使用[通用 2.0S-文生图异步](https://www.volcengine.com/docs/6791/1347773)，则 RespJson 接收到的相应信息为：</p>
+     * <p>例如，使用[通用 2.0L-文生图](https://www.volcengine.com/docs/6791/1339374)，则 RespJson 接收到的响应信息示例为：</p>
      *
      * <p>```json</p>
      *
@@ -52,7 +52,7 @@ public final class GetCVTextGenerateImageResResult  {
     private List<String> imageUrls;
 
     /**
-     * <p>存储URI。</p>
+     * <p>最终上传至 veImageX 服务的结果图存储 URI，数量为 1。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StoreUris")
     private List<String> storeUris;

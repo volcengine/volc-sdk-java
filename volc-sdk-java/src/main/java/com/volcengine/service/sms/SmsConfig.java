@@ -259,6 +259,20 @@ public class SmsConfig {
                         }
                     }
             ));
+            put("ApplySmsSignatureV2", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ApplySmsSignatureV2"));
+                                    add(new BasicNameValuePair("Version", "2021-01-11"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put("DeleteSignature", new ApiInfo(
                     new HashMap<String, Object>() {
                         {

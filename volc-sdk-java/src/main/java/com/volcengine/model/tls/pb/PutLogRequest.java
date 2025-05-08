@@ -96,7 +96,8 @@ public final class PutLogRequest {
               break;
             }
             case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
+//              java.lang.String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readString();
 
               value_ = s;
               break;

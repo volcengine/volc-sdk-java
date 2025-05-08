@@ -873,6 +873,21 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>describeImageXStorageUsage</p>
+     * <p>查询存储监控用量</p>
+     *
+     * <p>本接口支持通过自定义查询时间段，查询该时间段的存储监控用量。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeImageXStorageUsageRes describeImageXStorageUsage(DescribeImageXStorageUsageQuery query) throws Exception {
+        RawResponse rawResponse = json("DescribeImageXStorageUsage", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, DescribeImageXStorageUsageRes.class);
+    }
+
+    /**
      * <p>describeImageXBucketRetrievalUsage</p>
      * <p>查询资源占用量</p>
      *
@@ -2675,6 +2690,21 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>getImageEraseResult</p>
+     * <p>使用图像修复获取结果图</p>
+     *
+     * <p>本接口支持通过指定服务 ID 、待擦除的图片地址以及擦除模型，得到擦除后的图片 URI。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageEraseResultRes getImageEraseResult(GetImageEraseResultBody body) throws Exception {
+        RawResponse rawResponse = json("GetImageEraseResult", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetImageEraseResultRes.class);
+    }
+
+    /**
      * <p>getImageService</p>
      * <p>获取单个服务信息</p>
      *
@@ -3086,21 +3116,6 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>getImageEraseResult</p>
-     * <p>使用图像修复获取结果图</p>
-     *
-     * <p>本接口支持通过指定服务 ID 、待擦除的图片地址以及擦除模型，得到擦除后的图片 URI。</p>
-     *
-     * @param body body payload
-     * @return response data
-     * @throws Exception error during request
-     */
-    public GetImageEraseResultRes getImageEraseResult(GetImageEraseResultBody body) throws Exception {
-        RawResponse rawResponse = json("GetImageEraseResult", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, GetImageEraseResultRes.class);
-    }
-
-    /**
      * <p>getImageSuperResolutionResult</p>
      * <p>使用图像超分辨率获取结果图</p>
      *
@@ -3424,7 +3439,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>getCVTextGenerateImage</p>
      * <p>文生图</p>
      *
-     * <p>该接口支持调用豆包大模型中的智能生图 API 能力，并根据豆包模型请求信息生成相应的一张图片。同时您可指定 veIamgeX 的图片处理模板，对智能生成的图片进行进一步的个性化图片处理，并同步输出结果图 URI。</p>
+     * <p>该接口支持调用豆包大模型中的智能生图 API 能力，并根据豆包模型请求信息生成相应的一张图片。同时您可指定 veImageX 的图片处理模板，对智能生成的图片进行进一步的个性化图片处理，并同步输出结果图。</p>
      *
      * @param query query arguments
      * @param body body payload

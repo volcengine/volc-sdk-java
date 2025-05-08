@@ -736,6 +736,20 @@ public class ImagexConfig {
                     }
                 }     
             ));
+            put("DescribeImageXStorageUsage", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "GET");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "DescribeImageXStorageUsage"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
             put("DescribeImageXBucketRetrievalUsage", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -2150,6 +2164,20 @@ public class ImagexConfig {
                     }
                 }     
             ));
+            put("GetImageEraseResult", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "GetImageEraseResult"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
             put("GetImageService", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -2466,20 +2494,6 @@ public class ImagexConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "GetImagePSDetection"));
-                                add(new BasicNameValuePair("Version", "2023-05-01"));
-                            }
-                        });
-                    }
-                }     
-            ));
-            put("GetImageEraseResult", new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", "GetImageEraseResult"));
                                 add(new BasicNameValuePair("Version", "2023-05-01"));
                             }
                         });

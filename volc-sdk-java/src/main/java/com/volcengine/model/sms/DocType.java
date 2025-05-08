@@ -10,15 +10,18 @@ public enum DocType {
     SocialCreditCodeCertificate(4, "社会信用代码证书"),
     PowerOfAttorney(5, "授权委托书"),
     Others(6, "其他/更多"),
-    InstitutionLegalPersonCertificate(7,"事业单位法人证书"),
-    RepresentativeIDCardFront(8,"经办人身份证人像面"),
-    RepresentativeIDCardBack(9,"经办人身份证国徽面"),
-    ResponsiblePersonIDCardFront(10,"责任人身份证人像面"),
-    ResponsiblePersonIDCardBack(11,"责任人身份证国徽面"),
-    PassportCard(12,"护照照片"),
-    HKMPassportCard(13,"港澳居民来往内地通行证照片"),
-    TWPassportCard(14,"台湾居民来往大陆通行证照片"),
-    HMTResidenceCard(15,"港澳台居民居住证照片");
+    InstitutionLegalPersonCertificate(7, "事业单位法人证书"),
+    RepresentativeIDCardFront(8, "经办人身份证人像面"),
+    RepresentativeIDCardBack(9, "经办人身份证国徽面"),
+    ResponsiblePersonIDCardFront(10, "责任人身份证人像面"),
+    ResponsiblePersonIDCardBack(11, "责任人身份证国徽面"),
+    PassportCard(12, "护照照片"),
+    HKMPassportCard(13, "港澳居民来往内地通行证照片"),
+    TWPassportCard(14, "台湾居民来往大陆通行证照片"),
+    HMTResidenceCard(15, "港澳台居民居住证照片"),
+
+    AppIcpCertificate(16, "AppIcp信息"),
+    TrademarkCertificate(17, "商标信息");
 
     private int code;
 

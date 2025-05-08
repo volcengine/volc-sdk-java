@@ -25,7 +25,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
 
     //用户多账户时使用
-    private static final ConcurrentHashMap<String,SmsService> instanceMap = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<String, SmsService> instanceMap = new ConcurrentHashMap<>();
 
     public static final String SourceTypeText = "text/string";
 
@@ -51,6 +51,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
 
     /**
      * 此方法不是单例，使用的时候需要注意
+     *
      * @return
      */
 
@@ -116,7 +117,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     @Override
     public SmsSendResponse sendV2(SmsSendRequest smsSendRequest) throws Exception {
         RawResponse response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
-        if(response.getCode() == SdkError.EHTTP.getNumber()){
+        if (response.getCode() == SdkError.EHTTP.getNumber()) {
             response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
         }
         return getSmsSendResponseV2(response);
@@ -125,7 +126,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     @Override
     public SmsSendResponse sendStandard(SmsSendRequest smsSendRequest) throws Exception {
         RawResponse response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
-        if(response.getCode() == SdkError.EHTTP.getNumber()){
+        if (response.getCode() == SdkError.EHTTP.getNumber()) {
             response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
         }
         return getSmsSendResponseStandard(response);
@@ -135,7 +136,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     @Override
     public SmsSendResponse sendVms(SmsSendRequest smsSendRequest) throws Exception {
         RawResponse response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
-        if(response.getCode() == SdkError.EHTTP.getNumber()){
+        if (response.getCode() == SdkError.EHTTP.getNumber()) {
             response = json("SendSms", new ArrayList<>(), JSON.toJSONString(smsSendRequest));
         }
         return getSmsSendResponseV2(response);
@@ -154,15 +155,16 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     @Override
     public SmsSendResponse batchSendV2(SmsBatchSendRequest smsBatchSendRequest) throws Exception {
         RawResponse response = json("SendBatchSms", new ArrayList<>(), JSON.toJSONString(smsBatchSendRequest));
-        if(response.getCode() == SdkError.EHTTP.getNumber()){
+        if (response.getCode() == SdkError.EHTTP.getNumber()) {
             response = json("SendBatchSms", new ArrayList<>(), JSON.toJSONString(smsBatchSendRequest));
         }
         return getSmsSendResponseV2(response);
     }
+
     @Override
     public SmsSendResponse sendVerifyCode(SmsSendVerifyCodeRequest smsSendVerifyCodeRequest) throws Exception {
         RawResponse response =
-            json("SendSmsVerifyCode", new ArrayList<>(), JSON.toJSONString(smsSendVerifyCodeRequest));
+                json("SendSmsVerifyCode", new ArrayList<>(), JSON.toJSONString(smsSendVerifyCodeRequest));
         return getSmsSendResponse(response);
     }
 
@@ -174,9 +176,9 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
 
     @Override
     public SmsCheckVerifyCodeResponse checkVerifyCode(SmsCheckVerifyCodeRequest smsCheckVerifyCodeRequest)
-        throws Exception {
+            throws Exception {
         RawResponse response =
-            json("CheckSmsVerifyCode", new ArrayList<>(), JSON.toJSONString(smsCheckVerifyCodeRequest));
+                json("CheckSmsVerifyCode", new ArrayList<>(), JSON.toJSONString(smsCheckVerifyCodeRequest));
         return getSmsCheckResponse(response);
     }
 
@@ -188,7 +190,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
 
     @Override
     public GetSubAccountListResponse getSubAccountList(GetSubAccountListRequest getSubAccountListRequest)
-        throws Exception {
+            throws Exception {
         List<NameValuePair> urlParams = ConvertUtils.convertToPair(getSubAccountListRequest);
         RawResponse response = json("GetSubAccountList", urlParams, "");
         return getSubAccountListResponse(response);
@@ -222,7 +224,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
 
     @Override
     public GetSmsTemplateAndOrderListResponse getSmsTemplateAndOrderList(
-        GetSmsTemplateAndOrderListRequest getSmsTemplateAndOrderListRequest) throws Exception {
+            GetSmsTemplateAndOrderListRequest getSmsTemplateAndOrderListRequest) throws Exception {
         List<NameValuePair> urlParams = ConvertUtils.convertToPair(getSmsTemplateAndOrderListRequest);
         RawResponse response = json("GetSmsTemplateAndOrderList", urlParams, "");
         return getSmsTemplateAndOrderListResponse(response);
@@ -261,7 +263,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     }
 
     @Override
-    public GetVmsTemplateResponse GetVmsTemplateStatus(GetVmsTemplateStatusRequest req) throws Exception{
+    public GetVmsTemplateResponse GetVmsTemplateStatus(GetVmsTemplateStatusRequest req) throws Exception {
         RawResponse response = json("GetVmsTemplateStatus", new ArrayList<>(), JSON.toJSONString(req));
         return getVmsTemplateResponse(response);
     }
@@ -269,15 +271,15 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
 
     @Override
     public DeleteSmsTemplateResponse deleteSmsTemplate(DeleteSmsTemplateRequest deleteSmsTemplateRequest)
-        throws Exception {
+            throws Exception {
         RawResponse response =
-            json("DeleteSmsTemplate", new ArrayList<>(), JSON.toJSONString(deleteSmsTemplateRequest));
+                json("DeleteSmsTemplate", new ArrayList<>(), JSON.toJSONString(deleteSmsTemplateRequest));
         return deleteSmsTemplateResponse(response);
     }
 
     @Override
     public GetSignatureAndOrderListResponse getSmsSignatureAndOrderList(
-        GetSignatureAndOrderListRequest getSignatureAndOrderListRequest) throws Exception {
+            GetSignatureAndOrderListRequest getSignatureAndOrderListRequest) throws Exception {
         List<NameValuePair> urlParams = ConvertUtils.convertToPair(getSignatureAndOrderListRequest);
         RawResponse response = json("GetSignatureAndOrderList", urlParams, "");
         return getSignatureAndOrderListResponse(response);
@@ -285,9 +287,17 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
 
     @Override
     public ApplySmsSignatureResponse applySmsSignature(ApplySmsSignatureRequest applySmsSignatureRequest)
-        throws Exception {
+            throws Exception {
         RawResponse response =
-            json("ApplySmsSignature", new ArrayList<>(), JSON.toJSONString(applySmsSignatureRequest));
+                json("ApplySmsSignature", new ArrayList<>(), JSON.toJSONString(applySmsSignatureRequest));
+        return applySmsSignatureResponse(response);
+    }
+
+    @Override
+    public ApplySmsSignatureResponse applySmsSignatureV2(ApplySmsSignatureV2Request applySmsSignatureV2Request)
+            throws Exception {
+        RawResponse response =
+                json("ApplySmsSignatureV2", new ArrayList<>(), JSON.toJSONString(applySmsSignatureV2Request));
         return applySmsSignatureResponse(response);
     }
 
@@ -311,7 +321,6 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     }
 
 
-
     private SmsSendResponse getSmsSendResponse(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -327,7 +336,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
 
     private SmsSendResponse getSmsSendResponseV2(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
-            if (response.getException()!=null){
+            if (response.getException() != null) {
                 return new SmsSendResponse(String.valueOf(response.getCode()), response.getException().getMessage());
             }
             return new SmsSendResponse(String.valueOf(response.getCode()), Arrays.toString(response.getData()));
@@ -344,7 +353,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     private GetSendStatResponse getGetSendStatResponse(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             if (response.getException() != null) {
-                return new GetSendStatResponse(DefaultErrorCode,response.getException().getMessage());
+                return new GetSendStatResponse(DefaultErrorCode, response.getException().getMessage());
             }
             return new GetSendStatResponse(String.valueOf(response.getCode()), Arrays.toString(response.getData()));
         }
@@ -357,11 +366,10 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     }
 
 
-
     private SmsSendResponse getSmsSendResponseStandard(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             if (response.getException() != null) {
-                return new SmsSendResponse(DefaultErrorCode,response.getException().getMessage());
+                return new SmsSendResponse(DefaultErrorCode, response.getException().getMessage());
             }
             return new SmsSendResponse(String.valueOf(response.getCode()), Arrays.toString(response.getData()));
         }
@@ -435,12 +443,12 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     }
 
     private GetSmsTemplateAndOrderListResponse getSmsTemplateAndOrderListResponse(RawResponse response)
-        throws Exception {
+            throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         GetSmsTemplateAndOrderListResponse res =
-            JSON.parseObject(response.getData(), GetSmsTemplateAndOrderListResponse.class);
+                JSON.parseObject(response.getData(), GetSmsTemplateAndOrderListResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
@@ -506,7 +514,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
             throw response.getException();
         }
         GetSignatureAndOrderListResponse res =
-            JSON.parseObject(response.getData(), GetSignatureAndOrderListResponse.class);
+                JSON.parseObject(response.getData(), GetSignatureAndOrderListResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
@@ -595,7 +603,6 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     }
 
 
-
     @Override
     public ApplySignatureIdentResponse applySignatureIdent(ApplySignatureIdentRequest applySignatureIdentRequest) throws Exception {
         RawResponse response =
@@ -603,7 +610,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         return applySignatureIdentResponse(response);
     }
 
-    public ApplySignatureIdentResponse applySignatureIdentResponse(RawResponse response) throws Exception{
+    public ApplySignatureIdentResponse applySignatureIdentResponse(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -615,6 +622,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         res.getResponseMetadata().setService("volcSMS");
         return res;
     }
+
     @Override
     public GetSignatureIdentListResponse getSignatureIdentList(GetSignatureIdentListRequest getSignatureIdentListRequest) throws Exception {
         RawResponse response =
@@ -622,7 +630,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         return getSignatureIdentListResponse(response);
     }
 
-    public GetSignatureIdentListResponse getSignatureIdentListResponse(RawResponse response)throws Exception{
+    public GetSignatureIdentListResponse getSignatureIdentListResponse(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -642,7 +650,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         return batchBindSignatureIdentResponse(response);
     }
 
-    public BatchBindSignatureIdentResponse batchBindSignatureIdentResponse(RawResponse response)throws Exception{
+    public BatchBindSignatureIdentResponse batchBindSignatureIdentResponse(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }

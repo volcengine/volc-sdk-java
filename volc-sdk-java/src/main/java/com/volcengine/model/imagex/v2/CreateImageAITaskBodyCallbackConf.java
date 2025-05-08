@@ -28,7 +28,7 @@ public final class CreateImageAITaskBodyCallbackConf  {
     private String dataFormat;
 
     /**
-     * <p>业务自定义回调参数，将在回调消息的 `callback_args` 中透传。具体回调参数请参考[回调内容](https://www.volcengine.com/docs/508/1104726#%E5%9B%9E%E8%B0%83%E5%86%85%E5%AE%B9)。</p>
+     * <p>业务自定义回调参数，将在回调消息的 `callback_args` 中透传。具体回调参数请参考 [AI 图像处理回调](https://www.volcengine.com/docs/508/1526662)。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Args")
     private String args;

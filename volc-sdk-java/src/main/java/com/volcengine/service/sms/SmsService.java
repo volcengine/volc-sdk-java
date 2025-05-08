@@ -15,6 +15,7 @@ public interface SmsService extends IBaseService {
     SmsSendResponse send(SmsSendRequest smsSendRequest) throws Exception;
 
     SmsSendResponse sendV2(SmsSendRequest smsSendRequest) throws Exception;
+
     SmsSendResponse sendStandard(SmsSendRequest smsSendRequest) throws Exception;
 
     SmsSendResponse sendVms(SmsSendRequest smsSendRequest) throws Exception;
@@ -114,7 +115,7 @@ public interface SmsService extends IBaseService {
      * @throws Exception
      */
     GetSmsTemplateAndOrderListResponse getSmsTemplateAndOrderList(
-        GetSmsTemplateAndOrderListRequest getSmsTemplateAndOrderListRequest) throws Exception;
+            GetSmsTemplateAndOrderListRequest getSmsTemplateAndOrderListRequest) throws Exception;
 
     /**
      * ApplySmsTemplate
@@ -148,7 +149,7 @@ public interface SmsService extends IBaseService {
      * @throws Exception
      */
     GetSignatureAndOrderListResponse getSmsSignatureAndOrderList(
-        GetSignatureAndOrderListRequest getSignatureAndOrderListRequest) throws Exception;
+            GetSignatureAndOrderListRequest getSignatureAndOrderListRequest) throws Exception;
 
     /**
      * ApplySmsSignature
@@ -158,6 +159,8 @@ public interface SmsService extends IBaseService {
      * @throws Exception
      */
     ApplySmsSignatureResponse applySmsSignature(ApplySmsSignatureRequest applySmsSignatureRequest) throws Exception;
+
+    ApplySmsSignatureResponse applySmsSignatureV2(ApplySmsSignatureV2Request applySmsSignatureV2Request) throws Exception;
 
     /**
      * DeleteSmsSignature

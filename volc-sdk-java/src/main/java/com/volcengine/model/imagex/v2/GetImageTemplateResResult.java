@@ -84,7 +84,7 @@ public final class GetImageTemplateResResult  {
      * <p>是否同步处理，仅对 heic 图有效。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Sync")
-    private String sync;
+    private Boolean sync;
 
     /**
      * <p>对图片的编辑操作。</p>

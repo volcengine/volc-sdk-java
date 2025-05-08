@@ -4,10 +4,10 @@ package com.volcengine.model.imagex.v2;
 import com.alibaba.fastjson.JSON;
 
 /**
- * DescribeImageXBucketRetrievalUsageQuery
+ * DescribeImageXStorageUsageQuery
  */
 @lombok.Data
-public final class DescribeImageXBucketRetrievalUsageQuery  {
+public final class DescribeImageXStorageUsageQuery  {
 
     /**
      * <p>服务 ID。为空时表示不筛选，支持查询多个服务，使用逗号分隔不同的服务。</p>
@@ -60,6 +60,20 @@ public final class DescribeImageXBucketRetrievalUsageQuery  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
+
+    /**
+     * <p>查询数据的时间粒度。单位为秒，缺省时查询`StartTime`和`EndTime`时间段全部数据，此时单次查询最大时间跨度为 93 天。支持以下取值：</p>
+     *
+     *
+     *
+     * <p>- `300`：单次查询最大时间跨度为 31 天</p>
+     *
+     * <p>- `3600`：单次查询最大时间跨度为 93 天</p>
+     *
+     * <p>- `86400`：单次查询最大时间跨度为 93 天</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Interval")
+    private String interval;
 
     /**
      * <p>是否查询数据取回量。</p>

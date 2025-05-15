@@ -463,4 +463,52 @@ public interface VodPlayInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getBackupUrlExpireBytes();
+
+  /**
+   * <pre>
+   *Drm加密类型
+   *- "private_encrypt":表示存量加密方式 不会使用传入的DrmKEK
+   *- "private_encrypt_upgrade":代表私有加密 使用请求参数中的DrmKEK进行加密
+   *需要使用客户端保存的DEK进行解密
+   *- "standard_encrypt":表示标准加密方式 不会使用传入的DrmKEK
+   * </pre>
+   *
+   * <code>string DrmType = 26;</code>
+   * @return The drmType.
+   */
+  java.lang.String getDrmType();
+  /**
+   * <pre>
+   *Drm加密类型
+   *- "private_encrypt":表示存量加密方式 不会使用传入的DrmKEK
+   *- "private_encrypt_upgrade":代表私有加密 使用请求参数中的DrmKEK进行加密
+   *需要使用客户端保存的DEK进行解密
+   *- "standard_encrypt":表示标准加密方式 不会使用传入的DrmKEK
+   * </pre>
+   *
+   * <code>string DrmType = 26;</code>
+   * @return The bytes for drmType.
+   */
+  com.google.protobuf.ByteString
+      getDrmTypeBytes();
+
+  /**
+   * <pre>
+   *播放场景
+   * </pre>
+   *
+   * <code>string PlayScene = 27;</code>
+   * @return The playScene.
+   */
+  java.lang.String getPlayScene();
+  /**
+   * <pre>
+   *播放场景
+   * </pre>
+   *
+   * <code>string PlayScene = 27;</code>
+   * @return The bytes for playScene.
+   */
+  com.google.protobuf.ByteString
+      getPlaySceneBytes();
 }

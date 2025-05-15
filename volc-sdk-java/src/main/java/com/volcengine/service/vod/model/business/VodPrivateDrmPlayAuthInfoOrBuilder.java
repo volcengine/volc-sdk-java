@@ -46,4 +46,24 @@ public interface VodPrivateDrmPlayAuthInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getPlayAuthContentBytes();
+
+  /**
+   * <pre>
+   *播放许可内容格式 有些密钥经过Rsa加密过后为不可读的字符串
+   * </pre>
+   *
+   * <code>string PlayAuthContentFormat = 3;</code>
+   * @return The playAuthContentFormat.
+   */
+  java.lang.String getPlayAuthContentFormat();
+  /**
+   * <pre>
+   *播放许可内容格式 有些密钥经过Rsa加密过后为不可读的字符串
+   * </pre>
+   *
+   * <code>string PlayAuthContentFormat = 3;</code>
+   * @return The bytes for playAuthContentFormat.
+   */
+  com.google.protobuf.ByteString
+      getPlayAuthContentFormatBytes();
 }

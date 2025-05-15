@@ -3,6 +3,8 @@ package com.volcengine.service.vikingDB.common;
 import com.volcengine.service.vikingDB.VikingDBException;
 import lombok.Data;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -97,5 +99,47 @@ public class SearchWithMultiModalParam {
             return this;
         }
     }
+
+    public HashMap<String, Object> toMap() {
+      HashMap<String, Object> search = new HashMap<>();
+      HashMap<String, Object> orderByRaw = new HashMap<>();
+
+      if (this.getText() != null) {
+          orderByRaw.put("text", this.getText());
+      }
+      if (this.getImage() != null) {
+          orderByRaw.put("image", this.getImage());
+      }
+      search.put("order_by_raw", orderByRaw);
+
+      search.put("limit", this.getLimit());
+      search.put("partition", this.getPartition());
+
+      if (this.getOutputFields() != null) {
+          search.put("output_fields", this.getOutputFields());
+      }
+      if (this.getFilter() != null) {
+          search.put("filter", this.getFilter());
+      }
+      if (this.getDenseWeight() != null) {
+          search.put("dense_weight", this.getDenseWeight());
+      }
+      if (this.getNeedInstruction() != null) {
+          search.put("need_instruction", this.getNeedInstruction());
+      }
+      if (this.getPrimaryKeyIn() != null) {
+          search.put("primary_key_in", this.getPrimaryKeyIn());
+      }
+      if (this.getPrimaryKeyNotIn() != null) {
+          search.put("primary_key_not_in", this.getPrimaryKeyNotIn());
+      }
+      if (this.getPostProcessInputLimit() != null) {
+          search.put("post_process_input_limit", this.getPostProcessInputLimit());
+      }
+      if (this.getPostProcessOps() != null) {
+          search.put("post_process_ops", this.getPostProcessOps());
+      }
+      return search;
+  }
 }
 

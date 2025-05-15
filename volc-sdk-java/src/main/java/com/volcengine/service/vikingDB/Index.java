@@ -6,6 +6,7 @@ import com.volcengine.service.vikingDB.common.DataObject;
 import com.volcengine.service.vikingDB.common.FetchDataParam;
 import com.volcengine.service.vikingDB.common.IndexSortParam;
 import com.volcengine.service.vikingDB.common.IndexSortResult;
+import com.volcengine.service.vikingDB.common.PageDataObject;
 import com.volcengine.service.vikingDB.common.SearchAggParam;
 import com.volcengine.service.vikingDB.common.SearchAggResult;
 import com.volcengine.service.vikingDB.common.SearchByIdParam;
@@ -169,38 +170,107 @@ public class Index {
         return res;
     }
 
+    // 聚合接口
+    public PageDataObject searchPagination(SearchParam searchParam) throws Exception {
+      if (searchParam.getIsBuild() == 0) {
+          VikingDBException vikingDBException = new VikingDBException(1000031, null, "Param dose not build");
+          throw vikingDBException.getErrorCodeException(1000031, null, "Param dose not build");
+      }
+      HashMap<String, Object> searchBody = new HashMap<>();
+      if (searchParam.getVectorOrder() != null) {
+          if (searchParam.getVectorOrder().getVector() != null) {
+              SearchByVectorParam searchByVectorParam = new SearchByVectorParam()
+                      .setFilter(searchParam.getFilter())
+                      .setLimit(searchParam.getLimit())
+                      .setOutputFields(searchParam.getOutputFields())
+                      .setPartition(searchParam.getPartition())
+                      .setVector(searchParam.getVectorOrder().getVector())
+                      .setDenseWeight(searchParam.getDenseWeight())
+                      .setSparseVectors(searchParam.getVectorOrder().getSparseVectors())
+                      .setPrimaryKeyIn(searchParam.getPrimaryKeyIn())
+                      .setPrimaryKeyNotIn(searchParam.getPrimaryKeyNotIn())
+                      .setPostProcessInputLimit(searchParam.getPostProcessInputLimit())
+                      .setPostProcessOps(searchParam.getPostProcessOps())
+                      .build();
+              searchBody = searchByVectorParam.toMap();
+          } else if (searchParam.getVectorOrder().getId() != null) {
+              SearchByIdParam searchByIdParam = new SearchByIdParam()
+                      .setFilter(searchParam.getFilter())
+                      .setLimit(searchParam.getLimit())
+                      .setOutputFields(searchParam.getOutputFields())
+                      .setPartition(searchParam.getPartition())
+                      .setId(searchParam.getVectorOrder().getId())
+                      .setDenseWeight(searchParam.getDenseWeight())
+                      .setPrimaryKeyIn(searchParam.getPrimaryKeyIn())
+                      .setPrimaryKeyNotIn(searchParam.getPrimaryKeyNotIn())
+                      .setPostProcessInputLimit(searchParam.getPostProcessInputLimit())
+                      .setPostProcessOps(searchParam.getPostProcessOps())
+                      .build();
+                searchBody = searchByIdParam.toMap();
+          } else {
+            throw new VikingDBException(1000000, null, "Invalid SearchParam: VectorOrder is specified but neither vector nor ID is provided.");
+          }
+      } else if (searchParam.getRawOrder() != null) {
+            SearchWithMultiModalParam multiModalParam = new SearchWithMultiModalParam()
+            .setText(searchParam.getRawOrder().getText()) // 从 SearchParam.RawOrder 获取
+            .setImage(searchParam.getRawOrder().getImage()) // 从 SearchParam.RawOrder 获取
+            .setFilter(searchParam.getFilter())
+            .setLimit(searchParam.getLimit())
+            .setOutputFields(searchParam.getOutputFields())
+            .setPartition(searchParam.getPartition())
+            .setDenseWeight(searchParam.getDenseWeight())
+            .setNeedInstruction(searchParam.getRawOrder().getNeedInstruction()) // 假设 RawOrder 中有此字段
+            .setPrimaryKeyIn(searchParam.getPrimaryKeyIn())
+            .setPrimaryKeyNotIn(searchParam.getPrimaryKeyNotIn())
+            .setPostProcessInputLimit(searchParam.getPostProcessInputLimit())
+            .setPostProcessOps(searchParam.getPostProcessOps())
+            .build();
+            searchBody = multiModalParam.toMap();
+      } else if (searchParam.getScalarOrder() != null) {
+          HashMap<String, Object> orderByScalar = new HashMap<>();
+          orderByScalar.put("order", searchParam.getScalarOrder().getOrder());
+          orderByScalar.put("field_name", searchParam.getScalarOrder().getFieldName());
+          searchBody.put("order_by_scalar", orderByScalar);
+          searchBody.put("limit", searchParam.getLimit());
+          searchBody.put("partition", searchParam.getPartition());
+          maybeSetPostProcessOps(searchParam, searchBody);
+          maybeSetPrimaryKeyFilter(searchParam, searchBody);
+          if (searchParam.getOutputFields() != null)
+          searchBody.put("output_fields", searchParam.getOutputFields());
+          if (searchParam.getFilter() != null)
+              searchBody.put("filter", searchParam.getFilter());
+      } else {
+        searchBody.put("limit", searchParam.getLimit());
+        searchBody.put("partition", searchParam.getPartition());
+          if (searchParam.getOutputFields() != null)
+              searchBody.put("output_fields", searchParam.getOutputFields());
+          if (searchParam.getFilter() != null)
+              searchBody.put("filter", searchParam.getFilter());
+          maybeSetPostProcessOps(searchParam, searchBody);
+          maybeSetPrimaryKeyFilter(searchParam, searchBody);
+      }
+      Integer remainingRetries = searchParam.getRetry() ? Constant.MAX_RETRIES : 0;
+      HashMap<String, Object> params = new HashMap<>();
+      if (searchParam.getOffset() > 0)
+          searchBody.put("offset", searchParam.getOffset());
+      searchBody.put("need_search_count", true);
+      params.put("collection_name", collectionName);
+      params.put("index_name", indexName);
+      params.put("search", searchBody);
+      LinkedTreeMap<String, Object> resData = vikingDBService.retryRequest("SearchIndex", null, params, remainingRetries);
+      if (resData == null) {
+          throw new Exception(Constant.NO_RESPONSE_DATA);
+      }
+      PageDataObject res = getPageData(resData, searchParam.getOutputFields());
+      return res;
+  }
 
     public List<DataObject> searchById(SearchByIdParam searchByIdParam) throws Exception {
         if (searchByIdParam.getIsBuild() == 0) {
             VikingDBException vikingDBException = new VikingDBException(1000031, null, "Param dose not build");
             throw vikingDBException.getErrorCodeException(1000031, null, "Param dose not build");
         }
-        List<Object> idList = new ArrayList<>();
-        idList.add(searchByIdParam.getId());
-        HashMap<String, Object> orderById = new HashMap<>();
-        orderById.put("primary_keys", idList);
-        HashMap<String, Object> search = new HashMap<>();
-        search.put("order_by_vector", orderById);
-        search.put("limit", searchByIdParam.getLimit());
-        search.put("partition", searchByIdParam.getPartition());
-        if (searchByIdParam.getOutputFields() != null)
-            search.put("output_fields", searchByIdParam.getOutputFields());
-        if (searchByIdParam.getFilter() != null)
-            search.put("filter", searchByIdParam.getFilter());
-        if (searchByIdParam.getDenseWeight() != null)
-            search.put("dense_weight", searchByIdParam.getDenseWeight());
-        if (searchByIdParam.getPrimaryKeyIn() != null) {
-            search.put("primary_key_in", searchByIdParam.getPrimaryKeyIn());
-        }
-        if (searchByIdParam.getPrimaryKeyNotIn() != null) {
-            search.put("primary_key_not_in", searchByIdParam.getPrimaryKeyNotIn());
-        }
-        if (searchByIdParam.getPostProcessInputLimit() != null) {
-            search.put("post_process_input_limit", searchByIdParam.getPostProcessInputLimit());
-        }
-        if (searchByIdParam.getPostProcessOps() != null) {
-            search.put("post_process_ops", searchByIdParam.getPostProcessOps());
-        }
+        HashMap<String, Object> search = searchByIdParam.toMap();
         HashMap<String, Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);
@@ -220,37 +290,7 @@ public class Index {
             throw vikingDBException.getErrorCodeException(1000031, null, "Param dose not build");
         }
 
-        List<Object> vectorList = new ArrayList<>();
-        vectorList.add(searchByVectorParam.getVector());
-        HashMap<String, Object> orderByVector = new HashMap<>();
-        orderByVector.put("vectors", vectorList);
-        if (searchByVectorParam.getSparseVectors() != null) {
-            List<Object> sparseVectorList = new ArrayList<>();
-            sparseVectorList.add(searchByVectorParam.getSparseVectors());
-            orderByVector.put("sparse_vectors", sparseVectorList);
-        }
-        HashMap<String, Object> search = new HashMap<>();
-        search.put("order_by_vector", orderByVector);
-        search.put("limit", searchByVectorParam.getLimit());
-        search.put("partition", searchByVectorParam.getPartition());
-        if (searchByVectorParam.getPrimaryKeyIn() != null) {
-            search.put("primary_key_in", searchByVectorParam.getPrimaryKeyIn());
-        }
-        if (searchByVectorParam.getPrimaryKeyNotIn() != null) {
-            search.put("primary_key_not_in", searchByVectorParam.getPrimaryKeyNotIn());
-        }
-        if (searchByVectorParam.getPostProcessInputLimit() != null) {
-            search.put("post_process_input_limit", searchByVectorParam.getPostProcessInputLimit());
-        }
-        if (searchByVectorParam.getPostProcessOps() != null) {
-            search.put("post_process_ops", searchByVectorParam.getPostProcessOps());
-        }
-        if (searchByVectorParam.getOutputFields() != null)
-            search.put("output_fields", searchByVectorParam.getOutputFields());
-        if (searchByVectorParam.getFilter() != null)
-            search.put("filter", searchByVectorParam.getFilter());
-        if (searchByVectorParam.getDenseWeight() != null)
-            search.put("dense_weight", searchByVectorParam.getDenseWeight());
+        HashMap<String, Object> search = searchByVectorParam.toMap();
         HashMap<String, Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);
@@ -269,37 +309,7 @@ public class Index {
             throw vikingDBException.getErrorCodeException(1000031, null, "Param dose not build");
         }
 
-        HashMap<String, Object> orderByRaw = new HashMap<>();
-        if (searchWithMultiModalParam.getText() != null) {
-            orderByRaw.put("text", searchWithMultiModalParam.getText());
-        }
-        if (searchWithMultiModalParam.getImage() != null) {
-            orderByRaw.put("image", searchWithMultiModalParam.getImage());
-        }
-        HashMap<String, Object> search = new HashMap<>();
-        search.put("order_by_raw", orderByRaw);
-        search.put("limit", searchWithMultiModalParam.getLimit());
-        search.put("partition", searchWithMultiModalParam.getPartition());
-        if (searchWithMultiModalParam.getOutputFields() != null)
-            search.put("output_fields", searchWithMultiModalParam.getOutputFields());
-        if (searchWithMultiModalParam.getFilter() != null)
-            search.put("filter", searchWithMultiModalParam.getFilter());
-        if (searchWithMultiModalParam.getDenseWeight() != null)
-            search.put("dense_weight", searchWithMultiModalParam.getDenseWeight());
-        if (searchWithMultiModalParam.getNeedInstruction() != null)
-            search.put("need_instruction", searchWithMultiModalParam.getNeedInstruction());
-        if (searchWithMultiModalParam.getPrimaryKeyIn() != null) {
-            search.put("primary_key_in", searchWithMultiModalParam.getPrimaryKeyIn());
-        }
-        if (searchWithMultiModalParam.getPrimaryKeyNotIn() != null) {
-            search.put("primary_key_not_in", searchWithMultiModalParam.getPrimaryKeyNotIn());
-        }
-        if (searchWithMultiModalParam.getPostProcessInputLimit() != null) {
-            search.put("post_process_input_limit", searchWithMultiModalParam.getPostProcessInputLimit());
-        }
-        if (searchWithMultiModalParam.getPostProcessOps() != null) {
-            search.put("post_process_ops", searchWithMultiModalParam.getPostProcessOps());
-        }
+        HashMap<String, Object> search = searchWithMultiModalParam.toMap();
         HashMap<String, Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);
@@ -322,32 +332,7 @@ public class Index {
             throw vikingDBException.getErrorCodeException(1000031, null, "Param dose not build");
         }
 
-        HashMap<String, Object> orderByRaw = new HashMap<>();
-        orderByRaw.put("text", searchByTextParam.getText().getText());
-        HashMap<String, Object> search = new HashMap<>();
-        search.put("order_by_raw", orderByRaw);
-        search.put("limit", searchByTextParam.getLimit());
-        search.put("partition", searchByTextParam.getPartition());
-        if (searchByTextParam.getOutputFields() != null)
-            search.put("output_fields", searchByTextParam.getOutputFields());
-        if (searchByTextParam.getFilter() != null)
-            search.put("filter", searchByTextParam.getFilter());
-        if (searchByTextParam.getDenseWeight() != null)
-            search.put("dense_weight", searchByTextParam.getDenseWeight());
-        if (searchByTextParam.getNeedInstruction() != null)
-            search.put("need_instruction", searchByTextParam.getNeedInstruction());
-        if (searchByTextParam.getPrimaryKeyIn() != null) {
-            search.put("primary_key_in", searchByTextParam.getPrimaryKeyIn());
-        }
-        if (searchByTextParam.getPrimaryKeyNotIn() != null) {
-            search.put("primary_key_not_in", searchByTextParam.getPrimaryKeyNotIn());
-        }
-        if (searchByTextParam.getPostProcessInputLimit() != null) {
-            search.put("post_process_input_limit", searchByTextParam.getPostProcessInputLimit());
-        }
-        if (searchByTextParam.getPostProcessOps() != null) {
-            search.put("post_process_ops", searchByTextParam.getPostProcessOps());
-        }
+        HashMap<String, Object> search = searchByTextParam.toMap();
         HashMap<String, Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);
@@ -549,6 +534,19 @@ public class Index {
     }
 
 
+    public PageDataObject getPageData(LinkedTreeMap<String, Object> resData, List<String> outputFields) throws Exception {
+      List<DataObject> items = getDatas(resData, outputFields);
+      PageDataObject pageData = new PageDataObject();
+      pageData.setItems(items);
+      @SuppressWarnings("unchecked")
+      LinkedTreeMap<String, Object> extendInfo = (LinkedTreeMap<String, Object>) resData.get("extend");
+      if (extendInfo == null) {
+        return pageData;
+      }
+      pageData.setPagination(vikingDBService.convertLinkedTreeMapToHashMap(extendInfo));
+      return pageData;
+    }
+  
     public List<DataObject> getDatas(LinkedTreeMap<String, Object> resData, List<String> outputFields) throws Exception {
         @SuppressWarnings("unchecked")
         ArrayList<ArrayList<LinkedTreeMap<String, Object>>> res = (ArrayList<ArrayList<LinkedTreeMap<String, Object>>>) resData.get("data");

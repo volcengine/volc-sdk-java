@@ -40,6 +40,8 @@ public class ImageRiskDetectionResponse {
         private List<ImageContentFrameDetail> ocrDetails;
         @JSONField(name = "QrcodeDetails")
         private  List<QrcodeData> qrcodeDetails;
+        @JSONField(name = "PassThrough")
+        private String passThrough;
     }
 
     @Data

@@ -214,6 +214,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodGetHlsDecryptionKeyResponse getHlsDecryptionKey(com.volcengine.service.vod.model.request.VodGetHlsDecryptionKeyRequest input) throws Exception;
 	
 	/**
+     * createHlsDecryptionKey.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodCreateHlsDecryptionKeyRequest
+     * @return com.volcengine.service.vod.model.response.VodCreateHlsDecryptionKeyResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodCreateHlsDecryptionKeyResponse createHlsDecryptionKey(com.volcengine.service.vod.model.request.VodCreateHlsDecryptionKeyRequest input) throws Exception;
+	
+	/**
      * getPlayInfoWithLiveTimeShiftScene.
      *
      * @param input com.volcengine.service.vod.model.request.VodGetPlayInfoWithLiveTimeShiftSceneRequest

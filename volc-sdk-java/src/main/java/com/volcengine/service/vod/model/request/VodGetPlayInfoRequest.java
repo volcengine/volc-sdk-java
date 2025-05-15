@@ -37,6 +37,8 @@ private static final long serialVersionUID = 0L;
     forceExpire_ = "";
     digitalWatermarkType_ = "";
     userToken_ = "";
+    drmKEK_ = "";
+    jSPlayer_ = "";
   }
 
   @java.lang.Override
@@ -198,6 +200,18 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             userToken_ = s;
+            break;
+          }
+          case 186: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            drmKEK_ = s;
+            break;
+          }
+          case 194: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            jSPlayer_ = s;
             break;
           }
           default: {
@@ -838,7 +852,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object playScene_;
   /**
    * <pre>
-   * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看 
+   *播放场景，指定获取对应场景的音视频流。 当前支持：
+   *1. preview-试看下发场景
+   *2. 按硬压字幕语言下发场景
    * </pre>
    *
    * <code>string PlayScene = 14;</code>
@@ -859,7 +875,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看 
+   *播放场景，指定获取对应场景的音视频流。 当前支持：
+   *1. preview-试看下发场景
+   *2. 按硬压字幕语言下发场景
    * </pre>
    *
    * <code>string PlayScene = 14;</code>
@@ -1221,6 +1239,98 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int DRMKEK_FIELD_NUMBER = 23;
+  private volatile java.lang.Object drmKEK_;
+  /**
+   * <pre>
+   *客户端生成 私有Drm加密 用于加密密钥明文,unionInfo,DrmExpireTImestamp
+   * </pre>
+   *
+   * <code>string DrmKEK = 23;</code>
+   * @return The drmKEK.
+   */
+  @java.lang.Override
+  public java.lang.String getDrmKEK() {
+    java.lang.Object ref = drmKEK_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      drmKEK_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *客户端生成 私有Drm加密 用于加密密钥明文,unionInfo,DrmExpireTImestamp
+   * </pre>
+   *
+   * <code>string DrmKEK = 23;</code>
+   * @return The bytes for drmKEK.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDrmKEKBytes() {
+    java.lang.Object ref = drmKEK_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      drmKEK_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int JSPLAYER_FIELD_NUMBER = 24;
+  private volatile java.lang.Object jSPlayer_;
+  /**
+   * <pre>
+   *用于标识请求来自于web播放器 "1"表示web播放器
+   * </pre>
+   *
+   * <code>string JSPlayer = 24;</code>
+   * @return The jSPlayer.
+   */
+  @java.lang.Override
+  public java.lang.String getJSPlayer() {
+    java.lang.Object ref = jSPlayer_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      jSPlayer_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *用于标识请求来自于web播放器 "1"表示web播放器
+   * </pre>
+   *
+   * <code>string JSPlayer = 24;</code>
+   * @return The bytes for jSPlayer.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getJSPlayerBytes() {
+    java.lang.Object ref = jSPlayer_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      jSPlayer_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1301,6 +1411,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userToken_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 22, userToken_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(drmKEK_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 23, drmKEK_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(jSPlayer_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 24, jSPlayer_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -1377,6 +1493,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userToken_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(22, userToken_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(drmKEK_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(23, drmKEK_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(jSPlayer_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(24, jSPlayer_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1436,6 +1558,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDigitalWatermarkType())) return false;
     if (!getUserToken()
         .equals(other.getUserToken())) return false;
+    if (!getDrmKEK()
+        .equals(other.getDrmKEK())) return false;
+    if (!getJSPlayer()
+        .equals(other.getJSPlayer())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1492,6 +1618,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getDigitalWatermarkType().hashCode();
     hash = (37 * hash) + USERTOKEN_FIELD_NUMBER;
     hash = (53 * hash) + getUserToken().hashCode();
+    hash = (37 * hash) + DRMKEK_FIELD_NUMBER;
+    hash = (53 * hash) + getDrmKEK().hashCode();
+    hash = (37 * hash) + JSPLAYER_FIELD_NUMBER;
+    hash = (53 * hash) + getJSPlayer().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1669,6 +1799,10 @@ private static final long serialVersionUID = 0L;
 
       userToken_ = "";
 
+      drmKEK_ = "";
+
+      jSPlayer_ = "";
+
       return this;
     }
 
@@ -1717,6 +1851,8 @@ private static final long serialVersionUID = 0L;
       result.getAll_ = getAll_;
       result.digitalWatermarkType_ = digitalWatermarkType_;
       result.userToken_ = userToken_;
+      result.drmKEK_ = drmKEK_;
+      result.jSPlayer_ = jSPlayer_;
       onBuilt();
       return result;
     }
@@ -1850,6 +1986,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getUserToken().isEmpty()) {
         userToken_ = other.userToken_;
+        onChanged();
+      }
+      if (!other.getDrmKEK().isEmpty()) {
+        drmKEK_ = other.drmKEK_;
+        onChanged();
+      }
+      if (!other.getJSPlayer().isEmpty()) {
+        jSPlayer_ = other.jSPlayer_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -3142,7 +3286,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object playScene_ = "";
     /**
      * <pre>
-     * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看 
+     *播放场景，指定获取对应场景的音视频流。 当前支持：
+     *1. preview-试看下发场景
+     *2. 按硬压字幕语言下发场景
      * </pre>
      *
      * <code>string PlayScene = 14;</code>
@@ -3162,7 +3308,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看 
+     *播放场景，指定获取对应场景的音视频流。 当前支持：
+     *1. preview-试看下发场景
+     *2. 按硬压字幕语言下发场景
      * </pre>
      *
      * <code>string PlayScene = 14;</code>
@@ -3183,7 +3331,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看 
+     *播放场景，指定获取对应场景的音视频流。 当前支持：
+     *1. preview-试看下发场景
+     *2. 按硬压字幕语言下发场景
      * </pre>
      *
      * <code>string PlayScene = 14;</code>
@@ -3202,7 +3352,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看 
+     *播放场景，指定获取对应场景的音视频流。 当前支持：
+     *1. preview-试看下发场景
+     *2. 按硬压字幕语言下发场景
      * </pre>
      *
      * <code>string PlayScene = 14;</code>
@@ -3216,7 +3368,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看 
+     *播放场景，指定获取对应场景的音视频流。 当前支持：
+     *1. preview-试看下发场景
+     *2. 按硬压字幕语言下发场景
      * </pre>
      *
      * <code>string PlayScene = 14;</code>
@@ -3956,6 +4110,198 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       userToken_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object drmKEK_ = "";
+    /**
+     * <pre>
+     *客户端生成 私有Drm加密 用于加密密钥明文,unionInfo,DrmExpireTImestamp
+     * </pre>
+     *
+     * <code>string DrmKEK = 23;</code>
+     * @return The drmKEK.
+     */
+    public java.lang.String getDrmKEK() {
+      java.lang.Object ref = drmKEK_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        drmKEK_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *客户端生成 私有Drm加密 用于加密密钥明文,unionInfo,DrmExpireTImestamp
+     * </pre>
+     *
+     * <code>string DrmKEK = 23;</code>
+     * @return The bytes for drmKEK.
+     */
+    public com.google.protobuf.ByteString
+        getDrmKEKBytes() {
+      java.lang.Object ref = drmKEK_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        drmKEK_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *客户端生成 私有Drm加密 用于加密密钥明文,unionInfo,DrmExpireTImestamp
+     * </pre>
+     *
+     * <code>string DrmKEK = 23;</code>
+     * @param value The drmKEK to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDrmKEK(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      drmKEK_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *客户端生成 私有Drm加密 用于加密密钥明文,unionInfo,DrmExpireTImestamp
+     * </pre>
+     *
+     * <code>string DrmKEK = 23;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDrmKEK() {
+      
+      drmKEK_ = getDefaultInstance().getDrmKEK();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *客户端生成 私有Drm加密 用于加密密钥明文,unionInfo,DrmExpireTImestamp
+     * </pre>
+     *
+     * <code>string DrmKEK = 23;</code>
+     * @param value The bytes for drmKEK to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDrmKEKBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      drmKEK_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object jSPlayer_ = "";
+    /**
+     * <pre>
+     *用于标识请求来自于web播放器 "1"表示web播放器
+     * </pre>
+     *
+     * <code>string JSPlayer = 24;</code>
+     * @return The jSPlayer.
+     */
+    public java.lang.String getJSPlayer() {
+      java.lang.Object ref = jSPlayer_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        jSPlayer_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *用于标识请求来自于web播放器 "1"表示web播放器
+     * </pre>
+     *
+     * <code>string JSPlayer = 24;</code>
+     * @return The bytes for jSPlayer.
+     */
+    public com.google.protobuf.ByteString
+        getJSPlayerBytes() {
+      java.lang.Object ref = jSPlayer_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        jSPlayer_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *用于标识请求来自于web播放器 "1"表示web播放器
+     * </pre>
+     *
+     * <code>string JSPlayer = 24;</code>
+     * @param value The jSPlayer to set.
+     * @return This builder for chaining.
+     */
+    public Builder setJSPlayer(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      jSPlayer_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *用于标识请求来自于web播放器 "1"表示web播放器
+     * </pre>
+     *
+     * <code>string JSPlayer = 24;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearJSPlayer() {
+      
+      jSPlayer_ = getDefaultInstance().getJSPlayer();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *用于标识请求来自于web播放器 "1"表示web播放器
+     * </pre>
+     *
+     * <code>string JSPlayer = 24;</code>
+     * @param value The bytes for jSPlayer to set.
+     * @return This builder for chaining.
+     */
+    public Builder setJSPlayerBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      jSPlayer_ = value;
       onChanged();
       return this;
     }

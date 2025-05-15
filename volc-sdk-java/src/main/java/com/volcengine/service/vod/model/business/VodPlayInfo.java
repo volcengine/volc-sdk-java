@@ -35,6 +35,8 @@ private static final long serialVersionUID = 0L;
     keyFrameAlignment_ = "";
     mainUrlExpire_ = "";
     backupUrlExpire_ = "";
+    drmType_ = "";
+    playScene_ = "";
   }
 
   @java.lang.Override
@@ -217,6 +219,18 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             backupUrlExpire_ = s;
+            break;
+          }
+          case 210: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            drmType_ = s;
+            break;
+          }
+          case 218: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            playScene_ = s;
             break;
           }
           default: {
@@ -1238,6 +1252,106 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int DRMTYPE_FIELD_NUMBER = 26;
+  private volatile java.lang.Object drmType_;
+  /**
+   * <pre>
+   *Drm加密类型
+   *- "private_encrypt":表示存量加密方式 不会使用传入的DrmKEK
+   *- "private_encrypt_upgrade":代表私有加密 使用请求参数中的DrmKEK进行加密
+   *需要使用客户端保存的DEK进行解密
+   *- "standard_encrypt":表示标准加密方式 不会使用传入的DrmKEK
+   * </pre>
+   *
+   * <code>string DrmType = 26;</code>
+   * @return The drmType.
+   */
+  @java.lang.Override
+  public java.lang.String getDrmType() {
+    java.lang.Object ref = drmType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      drmType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *Drm加密类型
+   *- "private_encrypt":表示存量加密方式 不会使用传入的DrmKEK
+   *- "private_encrypt_upgrade":代表私有加密 使用请求参数中的DrmKEK进行加密
+   *需要使用客户端保存的DEK进行解密
+   *- "standard_encrypt":表示标准加密方式 不会使用传入的DrmKEK
+   * </pre>
+   *
+   * <code>string DrmType = 26;</code>
+   * @return The bytes for drmType.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDrmTypeBytes() {
+    java.lang.Object ref = drmType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      drmType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PLAYSCENE_FIELD_NUMBER = 27;
+  private volatile java.lang.Object playScene_;
+  /**
+   * <pre>
+   *播放场景
+   * </pre>
+   *
+   * <code>string PlayScene = 27;</code>
+   * @return The playScene.
+   */
+  @java.lang.Override
+  public java.lang.String getPlayScene() {
+    java.lang.Object ref = playScene_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      playScene_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *播放场景
+   * </pre>
+   *
+   * <code>string PlayScene = 27;</code>
+   * @return The bytes for playScene.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPlaySceneBytes() {
+    java.lang.Object ref = playScene_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      playScene_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1326,6 +1440,12 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(backupUrlExpire_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 25, backupUrlExpire_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(drmType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 26, drmType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playScene_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 27, playScene_);
     }
     unknownFields.writeTo(output);
   }
@@ -1417,6 +1537,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(backupUrlExpire_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(25, backupUrlExpire_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(drmType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(26, drmType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playScene_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(27, playScene_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1487,6 +1613,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getMainUrlExpire())) return false;
     if (!getBackupUrlExpire()
         .equals(other.getBackupUrlExpire())) return false;
+    if (!getDrmType()
+        .equals(other.getDrmType())) return false;
+    if (!getPlayScene()
+        .equals(other.getPlayScene())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1552,6 +1682,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getMainUrlExpire().hashCode();
     hash = (37 * hash) + BACKUPURLEXPIRE_FIELD_NUMBER;
     hash = (53 * hash) + getBackupUrlExpire().hashCode();
+    hash = (37 * hash) + DRMTYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getDrmType().hashCode();
+    hash = (37 * hash) + PLAYSCENE_FIELD_NUMBER;
+    hash = (53 * hash) + getPlayScene().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1739,6 +1873,10 @@ private static final long serialVersionUID = 0L;
 
       backupUrlExpire_ = "";
 
+      drmType_ = "";
+
+      playScene_ = "";
+
       return this;
     }
 
@@ -1794,6 +1932,8 @@ private static final long serialVersionUID = 0L;
       }
       result.mainUrlExpire_ = mainUrlExpire_;
       result.backupUrlExpire_ = backupUrlExpire_;
+      result.drmType_ = drmType_;
+      result.playScene_ = playScene_;
       onBuilt();
       return result;
     }
@@ -1934,6 +2074,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getBackupUrlExpire().isEmpty()) {
         backupUrlExpire_ = other.backupUrlExpire_;
+        onChanged();
+      }
+      if (!other.getDrmType().isEmpty()) {
+        drmType_ = other.drmType_;
+        onChanged();
+      }
+      if (!other.getPlayScene().isEmpty()) {
+        playScene_ = other.playScene_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -4155,6 +4303,218 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       backupUrlExpire_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object drmType_ = "";
+    /**
+     * <pre>
+     *Drm加密类型
+     *- "private_encrypt":表示存量加密方式 不会使用传入的DrmKEK
+     *- "private_encrypt_upgrade":代表私有加密 使用请求参数中的DrmKEK进行加密
+     *需要使用客户端保存的DEK进行解密
+     *- "standard_encrypt":表示标准加密方式 不会使用传入的DrmKEK
+     * </pre>
+     *
+     * <code>string DrmType = 26;</code>
+     * @return The drmType.
+     */
+    public java.lang.String getDrmType() {
+      java.lang.Object ref = drmType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        drmType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *Drm加密类型
+     *- "private_encrypt":表示存量加密方式 不会使用传入的DrmKEK
+     *- "private_encrypt_upgrade":代表私有加密 使用请求参数中的DrmKEK进行加密
+     *需要使用客户端保存的DEK进行解密
+     *- "standard_encrypt":表示标准加密方式 不会使用传入的DrmKEK
+     * </pre>
+     *
+     * <code>string DrmType = 26;</code>
+     * @return The bytes for drmType.
+     */
+    public com.google.protobuf.ByteString
+        getDrmTypeBytes() {
+      java.lang.Object ref = drmType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        drmType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *Drm加密类型
+     *- "private_encrypt":表示存量加密方式 不会使用传入的DrmKEK
+     *- "private_encrypt_upgrade":代表私有加密 使用请求参数中的DrmKEK进行加密
+     *需要使用客户端保存的DEK进行解密
+     *- "standard_encrypt":表示标准加密方式 不会使用传入的DrmKEK
+     * </pre>
+     *
+     * <code>string DrmType = 26;</code>
+     * @param value The drmType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDrmType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      drmType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *Drm加密类型
+     *- "private_encrypt":表示存量加密方式 不会使用传入的DrmKEK
+     *- "private_encrypt_upgrade":代表私有加密 使用请求参数中的DrmKEK进行加密
+     *需要使用客户端保存的DEK进行解密
+     *- "standard_encrypt":表示标准加密方式 不会使用传入的DrmKEK
+     * </pre>
+     *
+     * <code>string DrmType = 26;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDrmType() {
+      
+      drmType_ = getDefaultInstance().getDrmType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *Drm加密类型
+     *- "private_encrypt":表示存量加密方式 不会使用传入的DrmKEK
+     *- "private_encrypt_upgrade":代表私有加密 使用请求参数中的DrmKEK进行加密
+     *需要使用客户端保存的DEK进行解密
+     *- "standard_encrypt":表示标准加密方式 不会使用传入的DrmKEK
+     * </pre>
+     *
+     * <code>string DrmType = 26;</code>
+     * @param value The bytes for drmType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDrmTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      drmType_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object playScene_ = "";
+    /**
+     * <pre>
+     *播放场景
+     * </pre>
+     *
+     * <code>string PlayScene = 27;</code>
+     * @return The playScene.
+     */
+    public java.lang.String getPlayScene() {
+      java.lang.Object ref = playScene_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        playScene_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *播放场景
+     * </pre>
+     *
+     * <code>string PlayScene = 27;</code>
+     * @return The bytes for playScene.
+     */
+    public com.google.protobuf.ByteString
+        getPlaySceneBytes() {
+      java.lang.Object ref = playScene_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        playScene_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *播放场景
+     * </pre>
+     *
+     * <code>string PlayScene = 27;</code>
+     * @param value The playScene to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPlayScene(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      playScene_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *播放场景
+     * </pre>
+     *
+     * <code>string PlayScene = 27;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPlayScene() {
+      
+      playScene_ = getDefaultInstance().getPlayScene();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *播放场景
+     * </pre>
+     *
+     * <code>string PlayScene = 27;</code>
+     * @param value The bytes for playScene to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPlaySceneBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      playScene_ = value;
       onChanged();
       return this;
     }

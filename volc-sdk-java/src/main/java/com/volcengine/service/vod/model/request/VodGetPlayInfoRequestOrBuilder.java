@@ -273,7 +273,9 @@ public interface VodGetPlayInfoRequestOrBuilder extends
 
   /**
    * <pre>
-   * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看 
+   *播放场景，指定获取对应场景的音视频流。 当前支持：
+   *1. preview-试看下发场景
+   *2. 按硬压字幕语言下发场景
    * </pre>
    *
    * <code>string PlayScene = 14;</code>
@@ -282,7 +284,9 @@ public interface VodGetPlayInfoRequestOrBuilder extends
   java.lang.String getPlayScene();
   /**
    * <pre>
-   * 播放场景，指定获取对应场景的音视频流。当前支持：preview-试看 
+   *播放场景，指定获取对应场景的音视频流。 当前支持：
+   *1. preview-试看下发场景
+   *2. 按硬压字幕语言下发场景
    * </pre>
    *
    * <code>string PlayScene = 14;</code>
@@ -444,4 +448,44 @@ public interface VodGetPlayInfoRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getUserTokenBytes();
+
+  /**
+   * <pre>
+   *客户端生成 私有Drm加密 用于加密密钥明文,unionInfo,DrmExpireTImestamp
+   * </pre>
+   *
+   * <code>string DrmKEK = 23;</code>
+   * @return The drmKEK.
+   */
+  java.lang.String getDrmKEK();
+  /**
+   * <pre>
+   *客户端生成 私有Drm加密 用于加密密钥明文,unionInfo,DrmExpireTImestamp
+   * </pre>
+   *
+   * <code>string DrmKEK = 23;</code>
+   * @return The bytes for drmKEK.
+   */
+  com.google.protobuf.ByteString
+      getDrmKEKBytes();
+
+  /**
+   * <pre>
+   *用于标识请求来自于web播放器 "1"表示web播放器
+   * </pre>
+   *
+   * <code>string JSPlayer = 24;</code>
+   * @return The jSPlayer.
+   */
+  java.lang.String getJSPlayer();
+  /**
+   * <pre>
+   *用于标识请求来自于web播放器 "1"表示web播放器
+   * </pre>
+   *
+   * <code>string JSPlayer = 24;</code>
+   * @return The bytes for jSPlayer.
+   */
+  com.google.protobuf.ByteString
+      getJSPlayerBytes();
 }

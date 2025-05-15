@@ -4,28 +4,28 @@
 package com.volcengine.service.vod.model.business;
 
 /**
- * Protobuf type {@code Volcengine.Vod.Models.Business.VodPrivateDrmPlayAuthInfo}
+ * Protobuf type {@code Volcengine.Vod.Models.Business.VodCreateHlsDecryptionKeyResult}
  */
-public final class VodPrivateDrmPlayAuthInfo extends
+public final class VodCreateHlsDecryptionKeyResult extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Business.VodPrivateDrmPlayAuthInfo)
-    VodPrivateDrmPlayAuthInfoOrBuilder {
+    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Business.VodCreateHlsDecryptionKeyResult)
+    VodCreateHlsDecryptionKeyResultOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use VodPrivateDrmPlayAuthInfo.newBuilder() to construct.
-  private VodPrivateDrmPlayAuthInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use VodCreateHlsDecryptionKeyResult.newBuilder() to construct.
+  private VodCreateHlsDecryptionKeyResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private VodPrivateDrmPlayAuthInfo() {
-    playAuthId_ = "";
-    playAuthContent_ = "";
-    playAuthContentFormat_ = "";
+  private VodCreateHlsDecryptionKeyResult() {
+    secretKey_ = "";
+    ak_ = "";
+    keyFormat_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new VodPrivateDrmPlayAuthInfo();
+    return new VodCreateHlsDecryptionKeyResult();
   }
 
   @java.lang.Override
@@ -33,7 +33,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VodPrivateDrmPlayAuthInfo(
+  private VodCreateHlsDecryptionKeyResult(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -54,19 +54,24 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            playAuthId_ = s;
+            secretKey_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            playAuthContent_ = s;
+            ak_ = s;
             break;
           }
-          case 26: {
+          case 24: {
+
+            isBase64_ = input.readBool();
+            break;
+          }
+          case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            playAuthContentFormat_ = s;
+            keyFormat_ = s;
             break;
           }
           default: {
@@ -90,149 +95,148 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.volcengine.service.vod.model.business.VodPlay.internal_static_Volcengine_Vod_Models_Business_VodPrivateDrmPlayAuthInfo_descriptor;
+    return com.volcengine.service.vod.model.business.VodPlay.internal_static_Volcengine_Vod_Models_Business_VodCreateHlsDecryptionKeyResult_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.volcengine.service.vod.model.business.VodPlay.internal_static_Volcengine_Vod_Models_Business_VodPrivateDrmPlayAuthInfo_fieldAccessorTable
+    return com.volcengine.service.vod.model.business.VodPlay.internal_static_Volcengine_Vod_Models_Business_VodCreateHlsDecryptionKeyResult_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo.class, com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo.Builder.class);
+            com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult.class, com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult.Builder.class);
   }
 
-  public static final int PLAYAUTHID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object playAuthId_;
+  public static final int SECRETKEY_FIELD_NUMBER = 1;
+  private volatile java.lang.Object secretKey_;
   /**
-   * <pre>
-   * 播放许可id
-   * </pre>
-   *
-   * <code>string PlayAuthId = 1;</code>
-   * @return The playAuthId.
+   * <code>string SecretKey = 1;</code>
+   * @return The secretKey.
    */
   @java.lang.Override
-  public java.lang.String getPlayAuthId() {
-    java.lang.Object ref = playAuthId_;
+  public java.lang.String getSecretKey() {
+    java.lang.Object ref = secretKey_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      playAuthId_ = s;
+      secretKey_ = s;
       return s;
     }
   }
   /**
-   * <pre>
-   * 播放许可id
-   * </pre>
-   *
-   * <code>string PlayAuthId = 1;</code>
-   * @return The bytes for playAuthId.
+   * <code>string SecretKey = 1;</code>
+   * @return The bytes for secretKey.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getPlayAuthIdBytes() {
-    java.lang.Object ref = playAuthId_;
+      getSecretKeyBytes() {
+    java.lang.Object ref = secretKey_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      playAuthId_ = b;
+      secretKey_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int PLAYAUTHCONTENT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object playAuthContent_;
+  public static final int AK_FIELD_NUMBER = 2;
+  private volatile java.lang.Object ak_;
   /**
-   * <pre>
-   * 播放许可内容
-   * </pre>
-   *
-   * <code>string PlayAuthContent = 2;</code>
-   * @return The playAuthContent.
+   * <code>string Ak = 2;</code>
+   * @return The ak.
    */
   @java.lang.Override
-  public java.lang.String getPlayAuthContent() {
-    java.lang.Object ref = playAuthContent_;
+  public java.lang.String getAk() {
+    java.lang.Object ref = ak_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      playAuthContent_ = s;
+      ak_ = s;
       return s;
     }
   }
   /**
-   * <pre>
-   * 播放许可内容
-   * </pre>
-   *
-   * <code>string PlayAuthContent = 2;</code>
-   * @return The bytes for playAuthContent.
+   * <code>string Ak = 2;</code>
+   * @return The bytes for ak.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getPlayAuthContentBytes() {
-    java.lang.Object ref = playAuthContent_;
+      getAkBytes() {
+    java.lang.Object ref = ak_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      playAuthContent_ = b;
+      ak_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int PLAYAUTHCONTENTFORMAT_FIELD_NUMBER = 3;
-  private volatile java.lang.Object playAuthContentFormat_;
+  public static final int ISBASE64_FIELD_NUMBER = 3;
+  private boolean isBase64_;
   /**
    * <pre>
-   *播放许可内容格式 有些密钥经过Rsa加密过后为不可读的字符串
+   * SecretKey是否是已经base64过后的SecretKey
    * </pre>
    *
-   * <code>string PlayAuthContentFormat = 3;</code>
-   * @return The playAuthContentFormat.
+   * <code>bool IsBase64 = 3;</code>
+   * @return The isBase64.
    */
   @java.lang.Override
-  public java.lang.String getPlayAuthContentFormat() {
-    java.lang.Object ref = playAuthContentFormat_;
+  public boolean getIsBase64() {
+    return isBase64_;
+  }
+
+  public static final int KEYFORMAT_FIELD_NUMBER = 4;
+  private volatile java.lang.Object keyFormat_;
+  /**
+   * <pre>
+   *真实的密钥格式 二进制密钥则是binary 缺省就是string
+   * </pre>
+   *
+   * <code>string KeyFormat = 4;</code>
+   * @return The keyFormat.
+   */
+  @java.lang.Override
+  public java.lang.String getKeyFormat() {
+    java.lang.Object ref = keyFormat_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      playAuthContentFormat_ = s;
+      keyFormat_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   *播放许可内容格式 有些密钥经过Rsa加密过后为不可读的字符串
+   *真实的密钥格式 二进制密钥则是binary 缺省就是string
    * </pre>
    *
-   * <code>string PlayAuthContentFormat = 3;</code>
-   * @return The bytes for playAuthContentFormat.
+   * <code>string KeyFormat = 4;</code>
+   * @return The bytes for keyFormat.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getPlayAuthContentFormatBytes() {
-    java.lang.Object ref = playAuthContentFormat_;
+      getKeyFormatBytes() {
+    java.lang.Object ref = keyFormat_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      playAuthContentFormat_ = b;
+      keyFormat_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -253,14 +257,17 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playAuthId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, playAuthId_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(secretKey_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, secretKey_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playAuthContent_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, playAuthContent_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(ak_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, ak_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playAuthContentFormat_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, playAuthContentFormat_);
+    if (isBase64_ != false) {
+      output.writeBool(3, isBase64_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyFormat_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, keyFormat_);
     }
     unknownFields.writeTo(output);
   }
@@ -271,14 +278,18 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playAuthId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, playAuthId_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(secretKey_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, secretKey_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playAuthContent_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, playAuthContent_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(ak_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, ak_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(playAuthContentFormat_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, playAuthContentFormat_);
+    if (isBase64_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(3, isBase64_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyFormat_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, keyFormat_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -290,17 +301,19 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo)) {
+    if (!(obj instanceof com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult)) {
       return super.equals(obj);
     }
-    com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo other = (com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo) obj;
+    com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult other = (com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult) obj;
 
-    if (!getPlayAuthId()
-        .equals(other.getPlayAuthId())) return false;
-    if (!getPlayAuthContent()
-        .equals(other.getPlayAuthContent())) return false;
-    if (!getPlayAuthContentFormat()
-        .equals(other.getPlayAuthContentFormat())) return false;
+    if (!getSecretKey()
+        .equals(other.getSecretKey())) return false;
+    if (!getAk()
+        .equals(other.getAk())) return false;
+    if (getIsBase64()
+        != other.getIsBase64()) return false;
+    if (!getKeyFormat()
+        .equals(other.getKeyFormat())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -312,80 +325,83 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + PLAYAUTHID_FIELD_NUMBER;
-    hash = (53 * hash) + getPlayAuthId().hashCode();
-    hash = (37 * hash) + PLAYAUTHCONTENT_FIELD_NUMBER;
-    hash = (53 * hash) + getPlayAuthContent().hashCode();
-    hash = (37 * hash) + PLAYAUTHCONTENTFORMAT_FIELD_NUMBER;
-    hash = (53 * hash) + getPlayAuthContentFormat().hashCode();
+    hash = (37 * hash) + SECRETKEY_FIELD_NUMBER;
+    hash = (53 * hash) + getSecretKey().hashCode();
+    hash = (37 * hash) + AK_FIELD_NUMBER;
+    hash = (53 * hash) + getAk().hashCode();
+    hash = (37 * hash) + ISBASE64_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsBase64());
+    hash = (37 * hash) + KEYFORMAT_FIELD_NUMBER;
+    hash = (53 * hash) + getKeyFormat().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo parseFrom(
+  public static com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo parseFrom(
+  public static com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo parseFrom(
+  public static com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo parseFrom(
+  public static com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo parseFrom(byte[] data)
+  public static com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo parseFrom(
+  public static com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo parseFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo parseFrom(
+  public static com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo parseDelimitedFrom(
+  public static com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo parseFrom(
+  public static com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo parseFrom(
+  public static com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -398,7 +414,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo prototype) {
+  public static Builder newBuilder(com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -414,26 +430,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code Volcengine.Vod.Models.Business.VodPrivateDrmPlayAuthInfo}
+   * Protobuf type {@code Volcengine.Vod.Models.Business.VodCreateHlsDecryptionKeyResult}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Business.VodPrivateDrmPlayAuthInfo)
-      com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfoOrBuilder {
+      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Business.VodCreateHlsDecryptionKeyResult)
+      com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResultOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.volcengine.service.vod.model.business.VodPlay.internal_static_Volcengine_Vod_Models_Business_VodPrivateDrmPlayAuthInfo_descriptor;
+      return com.volcengine.service.vod.model.business.VodPlay.internal_static_Volcengine_Vod_Models_Business_VodCreateHlsDecryptionKeyResult_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.volcengine.service.vod.model.business.VodPlay.internal_static_Volcengine_Vod_Models_Business_VodPrivateDrmPlayAuthInfo_fieldAccessorTable
+      return com.volcengine.service.vod.model.business.VodPlay.internal_static_Volcengine_Vod_Models_Business_VodCreateHlsDecryptionKeyResult_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo.class, com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo.Builder.class);
+              com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult.class, com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult.Builder.class);
     }
 
-    // Construct using com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo.newBuilder()
+    // Construct using com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -451,11 +467,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      playAuthId_ = "";
+      secretKey_ = "";
 
-      playAuthContent_ = "";
+      ak_ = "";
 
-      playAuthContentFormat_ = "";
+      isBase64_ = false;
+
+      keyFormat_ = "";
 
       return this;
     }
@@ -463,17 +481,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.volcengine.service.vod.model.business.VodPlay.internal_static_Volcengine_Vod_Models_Business_VodPrivateDrmPlayAuthInfo_descriptor;
+      return com.volcengine.service.vod.model.business.VodPlay.internal_static_Volcengine_Vod_Models_Business_VodCreateHlsDecryptionKeyResult_descriptor;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo getDefaultInstanceForType() {
-      return com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo.getDefaultInstance();
+    public com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult getDefaultInstanceForType() {
+      return com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo build() {
-      com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo result = buildPartial();
+    public com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult build() {
+      com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -481,11 +499,12 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo buildPartial() {
-      com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo result = new com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo(this);
-      result.playAuthId_ = playAuthId_;
-      result.playAuthContent_ = playAuthContent_;
-      result.playAuthContentFormat_ = playAuthContentFormat_;
+    public com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult buildPartial() {
+      com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult result = new com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult(this);
+      result.secretKey_ = secretKey_;
+      result.ak_ = ak_;
+      result.isBase64_ = isBase64_;
+      result.keyFormat_ = keyFormat_;
       onBuilt();
       return result;
     }
@@ -524,26 +543,29 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo) {
-        return mergeFrom((com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo)other);
+      if (other instanceof com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult) {
+        return mergeFrom((com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo other) {
-      if (other == com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo.getDefaultInstance()) return this;
-      if (!other.getPlayAuthId().isEmpty()) {
-        playAuthId_ = other.playAuthId_;
+    public Builder mergeFrom(com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult other) {
+      if (other == com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult.getDefaultInstance()) return this;
+      if (!other.getSecretKey().isEmpty()) {
+        secretKey_ = other.secretKey_;
         onChanged();
       }
-      if (!other.getPlayAuthContent().isEmpty()) {
-        playAuthContent_ = other.playAuthContent_;
+      if (!other.getAk().isEmpty()) {
+        ak_ = other.ak_;
         onChanged();
       }
-      if (!other.getPlayAuthContentFormat().isEmpty()) {
-        playAuthContentFormat_ = other.playAuthContentFormat_;
+      if (other.getIsBase64() != false) {
+        setIsBase64(other.getIsBase64());
+      }
+      if (!other.getKeyFormat().isEmpty()) {
+        keyFormat_ = other.keyFormat_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -561,11 +583,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo parsedMessage = null;
+      com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -575,214 +597,217 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object playAuthId_ = "";
+    private java.lang.Object secretKey_ = "";
     /**
-     * <pre>
-     * 播放许可id
-     * </pre>
-     *
-     * <code>string PlayAuthId = 1;</code>
-     * @return The playAuthId.
+     * <code>string SecretKey = 1;</code>
+     * @return The secretKey.
      */
-    public java.lang.String getPlayAuthId() {
-      java.lang.Object ref = playAuthId_;
+    public java.lang.String getSecretKey() {
+      java.lang.Object ref = secretKey_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        playAuthId_ = s;
+        secretKey_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <pre>
-     * 播放许可id
-     * </pre>
-     *
-     * <code>string PlayAuthId = 1;</code>
-     * @return The bytes for playAuthId.
+     * <code>string SecretKey = 1;</code>
+     * @return The bytes for secretKey.
      */
     public com.google.protobuf.ByteString
-        getPlayAuthIdBytes() {
-      java.lang.Object ref = playAuthId_;
+        getSecretKeyBytes() {
+      java.lang.Object ref = secretKey_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        playAuthId_ = b;
+        secretKey_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <pre>
-     * 播放许可id
-     * </pre>
-     *
-     * <code>string PlayAuthId = 1;</code>
-     * @param value The playAuthId to set.
+     * <code>string SecretKey = 1;</code>
+     * @param value The secretKey to set.
      * @return This builder for chaining.
      */
-    public Builder setPlayAuthId(
+    public Builder setSecretKey(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      playAuthId_ = value;
+      secretKey_ = value;
       onChanged();
       return this;
     }
     /**
-     * <pre>
-     * 播放许可id
-     * </pre>
-     *
-     * <code>string PlayAuthId = 1;</code>
+     * <code>string SecretKey = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearPlayAuthId() {
+    public Builder clearSecretKey() {
       
-      playAuthId_ = getDefaultInstance().getPlayAuthId();
+      secretKey_ = getDefaultInstance().getSecretKey();
       onChanged();
       return this;
     }
     /**
-     * <pre>
-     * 播放许可id
-     * </pre>
-     *
-     * <code>string PlayAuthId = 1;</code>
-     * @param value The bytes for playAuthId to set.
+     * <code>string SecretKey = 1;</code>
+     * @param value The bytes for secretKey to set.
      * @return This builder for chaining.
      */
-    public Builder setPlayAuthIdBytes(
+    public Builder setSecretKeyBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      playAuthId_ = value;
+      secretKey_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object playAuthContent_ = "";
+    private java.lang.Object ak_ = "";
     /**
-     * <pre>
-     * 播放许可内容
-     * </pre>
-     *
-     * <code>string PlayAuthContent = 2;</code>
-     * @return The playAuthContent.
+     * <code>string Ak = 2;</code>
+     * @return The ak.
      */
-    public java.lang.String getPlayAuthContent() {
-      java.lang.Object ref = playAuthContent_;
+    public java.lang.String getAk() {
+      java.lang.Object ref = ak_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        playAuthContent_ = s;
+        ak_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <pre>
-     * 播放许可内容
-     * </pre>
-     *
-     * <code>string PlayAuthContent = 2;</code>
-     * @return The bytes for playAuthContent.
+     * <code>string Ak = 2;</code>
+     * @return The bytes for ak.
      */
     public com.google.protobuf.ByteString
-        getPlayAuthContentBytes() {
-      java.lang.Object ref = playAuthContent_;
+        getAkBytes() {
+      java.lang.Object ref = ak_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        playAuthContent_ = b;
+        ak_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <pre>
-     * 播放许可内容
-     * </pre>
-     *
-     * <code>string PlayAuthContent = 2;</code>
-     * @param value The playAuthContent to set.
+     * <code>string Ak = 2;</code>
+     * @param value The ak to set.
      * @return This builder for chaining.
      */
-    public Builder setPlayAuthContent(
+    public Builder setAk(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      playAuthContent_ = value;
+      ak_ = value;
       onChanged();
       return this;
     }
     /**
-     * <pre>
-     * 播放许可内容
-     * </pre>
-     *
-     * <code>string PlayAuthContent = 2;</code>
+     * <code>string Ak = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearPlayAuthContent() {
+    public Builder clearAk() {
       
-      playAuthContent_ = getDefaultInstance().getPlayAuthContent();
+      ak_ = getDefaultInstance().getAk();
       onChanged();
       return this;
     }
     /**
-     * <pre>
-     * 播放许可内容
-     * </pre>
-     *
-     * <code>string PlayAuthContent = 2;</code>
-     * @param value The bytes for playAuthContent to set.
+     * <code>string Ak = 2;</code>
+     * @param value The bytes for ak to set.
      * @return This builder for chaining.
      */
-    public Builder setPlayAuthContentBytes(
+    public Builder setAkBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      playAuthContent_ = value;
+      ak_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object playAuthContentFormat_ = "";
+    private boolean isBase64_ ;
     /**
      * <pre>
-     *播放许可内容格式 有些密钥经过Rsa加密过后为不可读的字符串
+     * SecretKey是否是已经base64过后的SecretKey
      * </pre>
      *
-     * <code>string PlayAuthContentFormat = 3;</code>
-     * @return The playAuthContentFormat.
+     * <code>bool IsBase64 = 3;</code>
+     * @return The isBase64.
      */
-    public java.lang.String getPlayAuthContentFormat() {
-      java.lang.Object ref = playAuthContentFormat_;
+    @java.lang.Override
+    public boolean getIsBase64() {
+      return isBase64_;
+    }
+    /**
+     * <pre>
+     * SecretKey是否是已经base64过后的SecretKey
+     * </pre>
+     *
+     * <code>bool IsBase64 = 3;</code>
+     * @param value The isBase64 to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsBase64(boolean value) {
+      
+      isBase64_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * SecretKey是否是已经base64过后的SecretKey
+     * </pre>
+     *
+     * <code>bool IsBase64 = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsBase64() {
+      
+      isBase64_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object keyFormat_ = "";
+    /**
+     * <pre>
+     *真实的密钥格式 二进制密钥则是binary 缺省就是string
+     * </pre>
+     *
+     * <code>string KeyFormat = 4;</code>
+     * @return The keyFormat.
+     */
+    public java.lang.String getKeyFormat() {
+      java.lang.Object ref = keyFormat_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        playAuthContentFormat_ = s;
+        keyFormat_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -790,20 +815,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放许可内容格式 有些密钥经过Rsa加密过后为不可读的字符串
+     *真实的密钥格式 二进制密钥则是binary 缺省就是string
      * </pre>
      *
-     * <code>string PlayAuthContentFormat = 3;</code>
-     * @return The bytes for playAuthContentFormat.
+     * <code>string KeyFormat = 4;</code>
+     * @return The bytes for keyFormat.
      */
     public com.google.protobuf.ByteString
-        getPlayAuthContentFormatBytes() {
-      java.lang.Object ref = playAuthContentFormat_;
+        getKeyFormatBytes() {
+      java.lang.Object ref = keyFormat_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        playAuthContentFormat_ = b;
+        keyFormat_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -811,54 +836,54 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *播放许可内容格式 有些密钥经过Rsa加密过后为不可读的字符串
+     *真实的密钥格式 二进制密钥则是binary 缺省就是string
      * </pre>
      *
-     * <code>string PlayAuthContentFormat = 3;</code>
-     * @param value The playAuthContentFormat to set.
+     * <code>string KeyFormat = 4;</code>
+     * @param value The keyFormat to set.
      * @return This builder for chaining.
      */
-    public Builder setPlayAuthContentFormat(
+    public Builder setKeyFormat(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      playAuthContentFormat_ = value;
+      keyFormat_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *播放许可内容格式 有些密钥经过Rsa加密过后为不可读的字符串
+     *真实的密钥格式 二进制密钥则是binary 缺省就是string
      * </pre>
      *
-     * <code>string PlayAuthContentFormat = 3;</code>
+     * <code>string KeyFormat = 4;</code>
      * @return This builder for chaining.
      */
-    public Builder clearPlayAuthContentFormat() {
+    public Builder clearKeyFormat() {
       
-      playAuthContentFormat_ = getDefaultInstance().getPlayAuthContentFormat();
+      keyFormat_ = getDefaultInstance().getKeyFormat();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *播放许可内容格式 有些密钥经过Rsa加密过后为不可读的字符串
+     *真实的密钥格式 二进制密钥则是binary 缺省就是string
      * </pre>
      *
-     * <code>string PlayAuthContentFormat = 3;</code>
-     * @param value The bytes for playAuthContentFormat to set.
+     * <code>string KeyFormat = 4;</code>
+     * @param value The bytes for keyFormat to set.
      * @return This builder for chaining.
      */
-    public Builder setPlayAuthContentFormatBytes(
+    public Builder setKeyFormatBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      playAuthContentFormat_ = value;
+      keyFormat_ = value;
       onChanged();
       return this;
     }
@@ -875,41 +900,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Business.VodPrivateDrmPlayAuthInfo)
+    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Business.VodCreateHlsDecryptionKeyResult)
   }
 
-  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Business.VodPrivateDrmPlayAuthInfo)
-  private static final com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Business.VodCreateHlsDecryptionKeyResult)
+  private static final com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo();
+    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult();
   }
 
-  public static com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo getDefaultInstance() {
+  public static com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<VodPrivateDrmPlayAuthInfo>
-      PARSER = new com.google.protobuf.AbstractParser<VodPrivateDrmPlayAuthInfo>() {
+  private static final com.google.protobuf.Parser<VodCreateHlsDecryptionKeyResult>
+      PARSER = new com.google.protobuf.AbstractParser<VodCreateHlsDecryptionKeyResult>() {
     @java.lang.Override
-    public VodPrivateDrmPlayAuthInfo parsePartialFrom(
+    public VodCreateHlsDecryptionKeyResult parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VodPrivateDrmPlayAuthInfo(input, extensionRegistry);
+      return new VodCreateHlsDecryptionKeyResult(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<VodPrivateDrmPlayAuthInfo> parser() {
+  public static com.google.protobuf.Parser<VodCreateHlsDecryptionKeyResult> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<VodPrivateDrmPlayAuthInfo> getParserForType() {
+  public com.google.protobuf.Parser<VodCreateHlsDecryptionKeyResult> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.volcengine.service.vod.model.business.VodPrivateDrmPlayAuthInfo getDefaultInstanceForType() {
+  public com.volcengine.service.vod.model.business.VodCreateHlsDecryptionKeyResult getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

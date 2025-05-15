@@ -3,6 +3,8 @@ package com.volcengine.service.vikingDB.common;
 import com.volcengine.service.vikingDB.VikingDBException;
 import lombok.Data;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -90,5 +92,27 @@ public class SearchByVectorParam {
             this.isBuild = 1;
             return this;
         }
+    }
+
+    public HashMap<String, Object> toMap() {
+        HashMap<String, Object> map = new HashMap<>();
+        HashMap<String, Object> orderByVector = new HashMap<>();
+        orderByVector.put("vectors", Collections.singletonList(this.vector));
+        if (this.sparseVectors != null) {
+            orderByVector.put("sparse_vectors", Collections.singletonList(this.sparseVectors));
+        }
+        map.put("order_by_vector", orderByVector);
+        // 通用字段处理
+        map.put("limit", limit);
+        map.put("partition", partition);
+        if (primaryKeyIn != null) map.put("primary_key_in", primaryKeyIn);
+        if (primaryKeyNotIn != null) map.put("primary_key_not_in", primaryKeyNotIn);
+        if (postProcessInputLimit != null) map.put("post_process_input_limit", postProcessInputLimit);
+        if (postProcessOps != null) map.put("post_process_ops", postProcessOps);
+        if (outputFields != null) map.put("output_fields", outputFields);
+        if (filter != null) map.put("filter", filter);
+        if (denseWeight != null) map.put("dense_weight", denseWeight);
+
+        return map;
     }
 }

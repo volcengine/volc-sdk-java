@@ -46,6 +46,7 @@ public class Const {
     public static final String GetPlayInfo = "GetPlayInfo";
     public static final String GetAllPlayInfo = "GetAllPlayInfo";
     public static final String GetPrivateDrmPlayAuth = "GetPrivateDrmPlayAuth";
+    public static final String CreateHlsDecryptionKey = "CreateHlsDecryptionKey";
     public static final String GetHlsDecryptionKey = "GetHlsDecryptionKey";
     public static final String DescribeDrmDataKey = "DescribeDrmDataKey";
     public static final String GetPlayInfoWithLiveTimeShiftScene = "GetPlayInfoWithLiveTimeShiftScene";

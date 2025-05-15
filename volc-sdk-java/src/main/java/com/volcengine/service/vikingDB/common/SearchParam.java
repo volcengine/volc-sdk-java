@@ -21,6 +21,8 @@ public class SearchParam {
     private Integer postProcessInputLimit = null;
     private List<Map<String, Object>> postProcessOps = null;
     private Boolean retry = false;
+    private Integer offset = -1;
+    private RawOrderParam rawOrder = null;
 
     public SearchParam setVectorOrder(VectorOrder vectorOrder) {
         this.vectorOrder = vectorOrder;
@@ -39,6 +41,11 @@ public class SearchParam {
 
     public SearchParam setLimit(Integer limit) {
         this.limit = limit;
+        return this;
+    }
+
+    public SearchParam setOffset(Integer offset) {
+        this.offset = offset;
         return this;
     }
 

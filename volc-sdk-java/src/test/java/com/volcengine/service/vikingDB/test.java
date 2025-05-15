@@ -26,15 +26,6 @@ public class test {
     
     public static void main(String[] args) throws Exception {
         VikingDBService vikingDBService = new VikingDBService("", "", "", "","");
-        Index index = vikingDBService.getIndex("test44", "test_index21");
-        SearchParam searchParam = new SearchParam()
-                                    .setVectorOrder(new VectorOrder().setVector(genRandomVector(1024)).build())
-                                    .setLimit(100)
-                                    .setOffset(1000)
-                                    .setNeedSearchCount(true)
-                                    .build();
-        PageDataObject res = index.searchPagination(searchParam);
-        System.out.println(res);
         // index.search(null)
         // index.search(new SearchParam().setVectorOrder(null).setOffset(1)
         //               .setLimit(100).build());

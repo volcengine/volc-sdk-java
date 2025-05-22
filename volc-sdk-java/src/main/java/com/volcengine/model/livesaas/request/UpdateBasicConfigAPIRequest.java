@@ -154,7 +154,8 @@ public class UpdateBasicConfigAPIRequest {
     Long EndTime;
     @JSONField(name = "IsAutoEndEnable")
     Integer IsAutoEndEnable;
-
+    @JSONField(name = "IsAvatarShowEnable")
+    Integer IsAvatarShowEnable;
     @Data
     public static class RiskWarningSetting {
         @JSONField(name = "IsRiskWarningEnable")

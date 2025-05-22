@@ -23,21 +23,22 @@ import java.util.List;
 
 @Data
 public class Index {
-    private String collectionName = null;
-    private String indexName = null;
+    protected String collectionName = null;
+    protected String indexName = null;
     private String description = "";
     private VectorIndexParams vectorIndex = null;
     private List<String> scalarIndex = null;
     private String stat = null;
-    private VikingDBService vikingDBService = null;
+    protected VikingDBService vikingDBService = null;
     private Integer cpuQuota = 2;
     private Object partitionBy = null;
-    private String primaryKey = null;
+    protected String primaryKey = null;
     private String createTime = null;
     private String updateTime = null;
     private String updatePerson = null;
     private Integer shardCount = null;
     private String shardPolicy = null;
+    protected Boolean isClient = false;
     private HashMap<String, Object> indexCost = null;
 
     public Index() {
@@ -136,6 +137,9 @@ public class Index {
                 search.put("output_fields", searchParam.getOutputFields());
             if (searchParam.getFilter() != null)
                 search.put("filter", searchParam.getFilter());
+            if (getIsClient()) {
+              search.put("replace_primay", true);
+            }
             HashMap<String, Object> params = new HashMap<>();
             params.put("collection_name", collectionName);
             params.put("index_name", indexName);
@@ -154,6 +158,9 @@ public class Index {
                 search.put("output_fields", searchParam.getOutputFields());
             if (searchParam.getFilter() != null)
                 search.put("filter", searchParam.getFilter());
+            if (getIsClient()) {
+              search.put("replace_primay", true);
+            }
             maybeSetPostProcessOps(searchParam, search);
             maybeSetPrimaryKeyFilter(searchParam, search);
             HashMap<String, Object> params = new HashMap<>();
@@ -253,6 +260,9 @@ public class Index {
       HashMap<String, Object> params = new HashMap<>();
       if (searchParam.getOffset() > 0)
           searchBody.put("offset", searchParam.getOffset());
+      if (getIsClient()) {
+          searchBody.put("replace_primay", true);
+      }
       searchBody.put("need_search_count", true);
       params.put("collection_name", collectionName);
       params.put("index_name", indexName);
@@ -271,6 +281,9 @@ public class Index {
             throw vikingDBException.getErrorCodeException(1000031, null, "Param dose not build");
         }
         HashMap<String, Object> search = searchByIdParam.toMap();
+        if (getIsClient()) {
+          search.put("replace_primay", true);
+        }
         HashMap<String, Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);
@@ -291,6 +304,9 @@ public class Index {
         }
 
         HashMap<String, Object> search = searchByVectorParam.toMap();
+        if (getIsClient()) {
+          search.put("replace_primay", true);
+        }
         HashMap<String, Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);
@@ -310,6 +326,9 @@ public class Index {
         }
 
         HashMap<String, Object> search = searchWithMultiModalParam.toMap();
+        if (getIsClient()) {
+          search.put("replace_primay", true);
+        }
         HashMap<String, Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);
@@ -333,6 +352,9 @@ public class Index {
         }
 
         HashMap<String, Object> search = searchByTextParam.toMap();
+        if (getIsClient()) {
+          search.put("replace_primay", true);
+        }
         HashMap<String, Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);
@@ -473,7 +495,9 @@ public class Index {
         params.put("partition", fetchDataParam.getPartition());
         if (fetchDataParam.getOutputFields() != null)
             params.put("output_fields", fetchDataParam.getOutputFields());
-
+        if (getIsClient()) {
+          params.put("replace_primay", true);
+        }
 
         LinkedTreeMap<String, Object> resData = vikingDBService.retryRequest("FetchIndexData", null, params, Constant.MAX_RETRIES);
         if (resData == null) {
@@ -506,7 +530,9 @@ public class Index {
         params.put("partition", fetchDataParam.getPartition());
         if (fetchDataParam.getOutputFields() != null)
             params.put("output_fields", fetchDataParam.getOutputFields());
-
+        if (getIsClient()) {
+          params.put("replace_primay", true);
+        }
         LinkedTreeMap<String, Object> resData = vikingDBService.retryRequest("FetchIndexData", null, params, Constant.MAX_RETRIES);
         if (resData == null) {
             throw new Exception(Constant.NO_RESPONSE_DATA);

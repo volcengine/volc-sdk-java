@@ -316,6 +316,20 @@ public class ImagexConfig {
                     }
                 }     
             ));
+            put("VerifyDomainOwner", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "VerifyDomainOwner"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
             put("GetResponseHeaderValidateKeys", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -339,6 +353,20 @@ public class ImagexConfig {
                             {
                                 add(new BasicNameValuePair("Action", "GetDomainConfig"));
                                 add(new BasicNameValuePair("Version", "2018-08-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("GetDomainOwnerVerifyContent", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "GET");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "GetDomainOwnerVerifyContent"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
                             }
                         });
                     }
@@ -2696,6 +2724,20 @@ public class ImagexConfig {
                     }
                 }     
             ));
+            put("CreateHmExtractTask", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "CreateHmExtractTask"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
             put("UpdateImageExifData", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -2873,6 +2915,20 @@ public class ImagexConfig {
                             {
                                 add(new BasicNameValuePair("Action", "GetDedupTaskStatus"));
                                 add(new BasicNameValuePair("Version", "2018-08-01"));
+                            }
+                        });
+                    }
+                }     
+            ));
+            put("GetImageHmExtractTaskInfo", new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", "GetImageHmExtractTaskInfo"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
                             }
                         });
                     }

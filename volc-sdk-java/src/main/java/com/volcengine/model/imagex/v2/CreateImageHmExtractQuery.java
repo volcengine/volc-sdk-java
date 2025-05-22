@@ -50,11 +50,13 @@ public final class CreateImageHmExtractQuery  {
      *
      * <p>- `tracev2`：前景图层水印模型（彩色背景通用）</p>
      *
+     * <p>- `tracev2-app`：前景图层水印模型（移动端）</p>
+     *
      *
      *
      * <p>:::warning</p>
      *
-     * <p>指定 `tracev1` 或 `tracev2` 模型时，请传入已添加对应模型水印的背景网页的**截图**。若模型错误，则无法提取水印。</p>
+     * <p>指定 `tracev1`、`tracev2`、`tracev2-app` 模型时，请传入已添加对应模型水印的背景网页的**截图**。若图片错误，则无法提取水印。</p>
      *
      * <p>:::</p>
      */

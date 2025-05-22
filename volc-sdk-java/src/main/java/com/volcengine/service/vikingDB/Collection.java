@@ -13,10 +13,10 @@ import java.util.List;
 
 @Data
 public class Collection {
-    private String collectionName;
+    protected String collectionName;
     private List<Field> fields;
-    private VikingDBService vikingDBService;
-    private String primaryKey;
+    protected VikingDBService vikingDBService;
+    protected String primaryKey;
     private List<String> indexes = null;
     private String description = "";
     private List<VectorizeTuple> vectorize = null;
@@ -24,6 +24,7 @@ public class Collection {
     private String createTime = null;
     private String updateTime = null;
     private String updatePerson = null;
+    protected Boolean isClient = false;
 
     public Collection(String collectionName, List<Field> fields, VikingDBService vikingDBService, String primaryKey) {
         this.collectionName = collectionName;
@@ -150,6 +151,9 @@ public class Collection {
         HashMap<String, Object> params = new HashMap<String, Object>();
         params.put("collection_name", collectionName);
         params.put("primary_keys", id);
+        if (getIsClient()) {
+          params.put("replace_primay", true);
+      }
         LinkedTreeMap<String, Object> resData = vikingDBService.retryRequest("FetchData", null, params, Constant.MAX_RETRIES);
         if (resData == null) {
             throw new Exception(Constant.NO_RESPONSE_DATA);
@@ -168,6 +172,9 @@ public class Collection {
         HashMap<String, Object> params = new HashMap<String, Object>();
         params.put("collection_name", collectionName);
         params.put("primary_keys", ids);
+        if (getIsClient()) {
+            params.put("replace_primay", true);
+        }
         LinkedTreeMap<String, Object> resData = vikingDBService.retryRequest("FetchData", null, params, Constant.MAX_RETRIES);
         if (resData == null) {
             throw new Exception(Constant.NO_RESPONSE_DATA);

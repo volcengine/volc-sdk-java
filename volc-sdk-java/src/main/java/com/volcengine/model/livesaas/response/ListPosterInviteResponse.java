@@ -36,5 +36,7 @@ public class ListPosterInviteResponse {
         Long UserId;
         @JSONField(name = "UserTel")
         String UserTel;
+        @JSONField(name = "InviterAvatar")
+        String InviterAvatar;
     }
 }

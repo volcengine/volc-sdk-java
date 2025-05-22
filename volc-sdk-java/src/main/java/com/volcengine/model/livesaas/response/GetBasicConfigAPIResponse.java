@@ -156,7 +156,7 @@ public class GetBasicConfigAPIResponse {
         String MobileLoginBackgroundImageUrl;
         @JSONField(name = "PcLoginBackgroundImageUrl")
         String PcLoginBackgroundImageUrl;
-         @JSONField(name = "ThumbUpEffectUrls")
+        @JSONField(name = "ThumbUpEffectUrls")
         List<String> ThumbUpEffectUrls;
         @JSONField(name = "UseDefaultThumbUpEffect")
         Integer UseDefaultThumbUpEffect;
@@ -166,6 +166,8 @@ public class GetBasicConfigAPIResponse {
         Integer IsAutoEndEnable;
         @JSONField(name = "LiveLayout")
         Integer LiveLayout;
+        @JSONField(name = "IsAvatarShowEnable")
+        Integer IsAvatarShowEnable;
     }
 
     @Data

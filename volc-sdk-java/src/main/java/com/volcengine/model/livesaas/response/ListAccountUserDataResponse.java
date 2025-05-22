@@ -96,6 +96,8 @@ public class ListAccountUserDataResponse {
         String WatchType;
         @JSONField(name = "BanStatus")
         Integer BanStatus;
+        @JSONField(name = "AvatarUrl")
+        String AvatarUrl;
     }
 
     @Data

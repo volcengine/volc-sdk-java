@@ -26,6 +26,24 @@ public class test {
     
     public static void main(String[] args) throws Exception {
         VikingDBService vikingDBService = new VikingDBService("", "", "", "","");
+        // IndexClient indexClient = new IndexClient("", "", "", "", "", "","");
+        // SearchByVectorParam searchByVectorParam = new SearchByVectorParam()
+        //       .setVector(genRandomVector(1024))
+        //       .setLimit(5)
+        //       .setRetry(true)
+        //       .build();
+        // List<DataObject> datas = indexClient.searchByVector(searchByVectorParam); // 向量检索
+        // System.out.println(datas);
+//        SearchByVectorParam searchByVectorParam = new SearchByVectorParam()
+//                .setVector(genRandomVector(12))
+//                .setSparseVectors(sparse)
+// //                .setOutputFields(outputField)
+//                .setLimit(5)
+//                .setRetry(true)
+//                .build();
+//        Index index = vikingDBService.getIndex("sparse_go", "sparse_go_test5");
+
+//        List<DataObject> datas = index.searchByVector(searchByVectorParam); // 向量检索
         // index.search(null)
         // index.search(new SearchParam().setVectorOrder(null).setOffset(1)
         //               .setLimit(100).build());

@@ -85,5 +85,9 @@ public class GetUserBehaviorListResponseAPIV2 {
         Long Cookie;
         @JSONField(name = "ViewDuration")
         Long ViewDuration;
+        @JSONField(name = "AvatarUrl")
+        String AvatarUrl;
+        @JSONField(name = "InviterAvatar")
+        String InviterAvatar;
     }
 }

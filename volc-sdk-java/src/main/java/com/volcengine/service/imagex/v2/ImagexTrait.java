@@ -372,6 +372,21 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>verifyDomainOwner</p>
+     * <p>校验域名归属权</p>
+     *
+     * <p>校验域名归属权。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public VerifyDomainOwnerRes verifyDomainOwner(VerifyDomainOwnerBody body) throws Exception {
+        RawResponse rawResponse = json("VerifyDomainOwner", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, VerifyDomainOwnerRes.class);
+    }
+
+    /**
      * <p>getResponseHeaderValidateKeys</p>
      * <p>获取响应头允许的key列表</p>
      *
@@ -398,6 +413,21 @@ public class ImagexTrait extends BaseServiceImpl {
     public GetDomainConfigRes getDomainConfig(GetDomainConfigQuery query) throws Exception {
         RawResponse rawResponse = json("GetDomainConfig", Utils.paramsToPair(query), "");
         return parseRawResponse(rawResponse, GetDomainConfigRes.class);
+    }
+
+    /**
+     * <p>getDomainOwnerVerifyContent</p>
+     * <p>获取归属权校验内容</p>
+     *
+     * <p>获取归属权校验内容</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetDomainOwnerVerifyContentRes getDomainOwnerVerifyContent(GetDomainOwnerVerifyContentQuery query) throws Exception {
+        RawResponse rawResponse = json("GetDomainOwnerVerifyContent", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetDomainOwnerVerifyContentRes.class);
     }
 
     /**
@@ -3359,6 +3389,22 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>createHmExtractTask</p>
+     * <p>创建盲水印异步提取任务</p>
+     *
+     * <p>本接口支持指定服务以及提取源图片，获取该图片中的盲水印信息。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateHmExtractTaskRes createHmExtractTask(CreateHmExtractTaskQuery query, CreateHmExtractTaskBody body) throws Exception {
+        RawResponse rawResponse = json("CreateHmExtractTask", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateHmExtractTaskRes.class);
+    }
+
+    /**
      * <p>updateImageExifData</p>
      * <p>图片EXIF数据修改</p>
      *
@@ -3594,6 +3640,22 @@ public class ImagexTrait extends BaseServiceImpl {
     public GetDedupTaskStatusRes getDedupTaskStatus(GetDedupTaskStatusQuery query) throws Exception {
         RawResponse rawResponse = json("GetDedupTaskStatus", Utils.paramsToPair(query), "");
         return parseRawResponse(rawResponse, GetDedupTaskStatusRes.class);
+    }
+
+    /**
+     * <p>getImageHmExtractTaskInfo</p>
+     * <p>获取异步提取任务的信息</p>
+     *
+     * <p>指定任务 ID，获取提交盲水印异步提取任务的执行信息。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageHmExtractTaskInfoRes getImageHmExtractTaskInfo(GetImageHmExtractTaskInfoQuery query, GetImageHmExtractTaskInfoBody body) throws Exception {
+        RawResponse rawResponse = json("GetImageHmExtractTaskInfo", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetImageHmExtractTaskInfoRes.class);
     }
 
     /**

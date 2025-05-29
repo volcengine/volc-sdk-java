@@ -37,6 +37,10 @@ public class GetAudioLiveRiskResponse {
         private String audioText;
         @JSONField(name = "PassThrough")
         private String passThrough;
+        @JSONField(name = "FinalLabel")
+        private String finalLabel;
+        @JSONField(name = "DecisionLabel")
+        private String decisionLabel;
     }
 
     @Data
@@ -65,6 +69,10 @@ public class GetAudioLiveRiskResponse {
         private String Decision;
         @JSONField(name = "LiveFirstGetStreamTime")
         private long LiveFirstGetStreamTime;
+        @JSONField(name = "FinalSubLabel")
+        private String finalSubLabel;
+        @JSONField(name = "DecisionSubLabel")
+        private String decisionSubLabel;
     }
 
     @Data

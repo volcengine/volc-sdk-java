@@ -46,4 +46,45 @@ public interface ValuePairOrBuilder extends
    */
   com.google.protobuf.ByteString
       getSourceUrlBytes();
+
+  /**
+   * <pre>
+   * 图集url 
+   * </pre>
+   *
+   * <code>repeated string ImageUrls = 3;</code>
+   * @return A list containing the imageUrls.
+   */
+  java.util.List<java.lang.String>
+      getImageUrlsList();
+  /**
+   * <pre>
+   * 图集url 
+   * </pre>
+   *
+   * <code>repeated string ImageUrls = 3;</code>
+   * @return The count of imageUrls.
+   */
+  int getImageUrlsCount();
+  /**
+   * <pre>
+   * 图集url 
+   * </pre>
+   *
+   * <code>repeated string ImageUrls = 3;</code>
+   * @param index The index of the element to return.
+   * @return The imageUrls at the given index.
+   */
+  java.lang.String getImageUrls(int index);
+  /**
+   * <pre>
+   * 图集url 
+   * </pre>
+   *
+   * <code>repeated string ImageUrls = 3;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the imageUrls at the given index.
+   */
+  com.google.protobuf.ByteString
+      getImageUrlsBytes(int index);
 }

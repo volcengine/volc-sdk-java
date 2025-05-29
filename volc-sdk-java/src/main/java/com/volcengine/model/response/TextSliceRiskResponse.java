@@ -34,6 +34,8 @@ public class TextSliceRiskResponse {
         private String decisionDetail;
         @JSONField(name = "FinalLabel")
         private String finalLabel;
+        @JSONField(name = "DecisionLabel")
+        private String decisionLabel;
         @JSONField(name = "Results")
         private List<TextResult> result;
     }
@@ -48,6 +50,10 @@ public class TextSliceRiskResponse {
         private int rtEndPos;
         @JSONField(name = "Labels")
         private List<Label> labels;
+        @JSONField(name = "FinalSubLabel")
+        private String finalSubLabel;
+        @JSONField(name = "DecisionSubLabel")
+        private String decisionSubLabel;
     }
 
     @Data
@@ -70,6 +76,8 @@ public class TextSliceRiskResponse {
         private String libName;
         @JSONField(name = "Positions")
         private List<Position> positions;
+        @JSONField(name = "Description")
+        private String description;
     }
 
     @Data

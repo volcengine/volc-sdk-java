@@ -28,6 +28,9 @@ private static final long serialVersionUID = 0L;
     fileExtension_ = "";
     urlEncryptionAlgorithm_ = "";
     templates_ = java.util.Collections.emptyList();
+    fileType_ = "";
+    imageSet_ = java.util.Collections.emptyList();
+    executions_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -164,6 +167,30 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(com.volcengine.service.vod.model.business.VodUploadTemplate.parser(), extensionRegistry));
             break;
           }
+          case 138: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            fileType_ = s;
+            break;
+          }
+          case 146: {
+            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+              imageSet_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodImageFile>();
+              mutable_bitField0_ |= 0x00000004;
+            }
+            imageSet_.add(
+                input.readMessage(com.volcengine.service.vod.model.business.VodImageFile.parser(), extensionRegistry));
+            break;
+          }
+          case 154: {
+            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+              executions_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodExecution>();
+              mutable_bitField0_ |= 0x00000008;
+            }
+            executions_.add(
+                input.readMessage(com.volcengine.service.vod.model.business.VodExecution.parser(), extensionRegistry));
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -181,6 +208,12 @@ private static final long serialVersionUID = 0L;
     } finally {
       if (((mutable_bitField0_ & 0x00000002) != 0)) {
         templates_ = java.util.Collections.unmodifiableList(templates_);
+      }
+      if (((mutable_bitField0_ & 0x00000004) != 0)) {
+        imageSet_ = java.util.Collections.unmodifiableList(imageSet_);
+      }
+      if (((mutable_bitField0_ & 0x00000008) != 0)) {
+        executions_ = java.util.Collections.unmodifiableList(executions_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -919,6 +952,172 @@ private static final long serialVersionUID = 0L;
     return templates_.get(index);
   }
 
+  public static final int FILETYPE_FIELD_NUMBER = 17;
+  private volatile java.lang.Object fileType_;
+  /**
+   * <pre>
+   * 文件类型 
+   * </pre>
+   *
+   * <code>string FileType = 17;</code>
+   * @return The fileType.
+   */
+  @java.lang.Override
+  public java.lang.String getFileType() {
+    java.lang.Object ref = fileType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      fileType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 文件类型 
+   * </pre>
+   *
+   * <code>string FileType = 17;</code>
+   * @return The bytes for fileType.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getFileTypeBytes() {
+    java.lang.Object ref = fileType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      fileType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int IMAGESET_FIELD_NUMBER = 18;
+  private java.util.List<com.volcengine.service.vod.model.business.VodImageFile> imageSet_;
+  /**
+   * <pre>
+   * 图集信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.volcengine.service.vod.model.business.VodImageFile> getImageSetList() {
+    return imageSet_;
+  }
+  /**
+   * <pre>
+   * 图集信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.volcengine.service.vod.model.business.VodImageFileOrBuilder> 
+      getImageSetOrBuilderList() {
+    return imageSet_;
+  }
+  /**
+   * <pre>
+   * 图集信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+   */
+  @java.lang.Override
+  public int getImageSetCount() {
+    return imageSet_.size();
+  }
+  /**
+   * <pre>
+   * 图集信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodImageFile getImageSet(int index) {
+    return imageSet_.get(index);
+  }
+  /**
+   * <pre>
+   * 图集信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodImageFileOrBuilder getImageSetOrBuilder(
+      int index) {
+    return imageSet_.get(index);
+  }
+
+  public static final int EXECUTIONS_FIELD_NUMBER = 19;
+  private java.util.List<com.volcengine.service.vod.model.business.VodExecution> executions_;
+  /**
+   * <pre>
+   * 处理任务信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.volcengine.service.vod.model.business.VodExecution> getExecutionsList() {
+    return executions_;
+  }
+  /**
+   * <pre>
+   * 处理任务信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.volcengine.service.vod.model.business.VodExecutionOrBuilder> 
+      getExecutionsOrBuilderList() {
+    return executions_;
+  }
+  /**
+   * <pre>
+   * 处理任务信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+   */
+  @java.lang.Override
+  public int getExecutionsCount() {
+    return executions_.size();
+  }
+  /**
+   * <pre>
+   * 处理任务信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodExecution getExecutions(int index) {
+    return executions_.get(index);
+  }
+  /**
+   * <pre>
+   * 处理任务信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodExecutionOrBuilder getExecutionsOrBuilder(
+      int index) {
+    return executions_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -983,6 +1182,15 @@ private static final long serialVersionUID = 0L;
         15);
     for (int i = 0; i < templates_.size(); i++) {
       output.writeMessage(16, templates_.get(i));
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 17, fileType_);
+    }
+    for (int i = 0; i < imageSet_.size(); i++) {
+      output.writeMessage(18, imageSet_.get(i));
+    }
+    for (int i = 0; i < executions_.size(); i++) {
+      output.writeMessage(19, executions_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -1052,6 +1260,17 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(16, templates_.get(i));
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, fileType_);
+    }
+    for (int i = 0; i < imageSet_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(18, imageSet_.get(i));
+    }
+    for (int i = 0; i < executions_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(19, executions_.get(i));
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1099,6 +1318,12 @@ private static final long serialVersionUID = 0L;
         other.internalGetCustomURLHeaders())) return false;
     if (!getTemplatesList()
         .equals(other.getTemplatesList())) return false;
+    if (!getFileType()
+        .equals(other.getFileType())) return false;
+    if (!getImageSetList()
+        .equals(other.getImageSetList())) return false;
+    if (!getExecutionsList()
+        .equals(other.getExecutionsList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1147,6 +1372,16 @@ private static final long serialVersionUID = 0L;
     if (getTemplatesCount() > 0) {
       hash = (37 * hash) + TEMPLATES_FIELD_NUMBER;
       hash = (53 * hash) + getTemplatesList().hashCode();
+    }
+    hash = (37 * hash) + FILETYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getFileType().hashCode();
+    if (getImageSetCount() > 0) {
+      hash = (37 * hash) + IMAGESET_FIELD_NUMBER;
+      hash = (53 * hash) + getImageSetList().hashCode();
+    }
+    if (getExecutionsCount() > 0) {
+      hash = (37 * hash) + EXECUTIONS_FIELD_NUMBER;
+      hash = (53 * hash) + getExecutionsList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -1299,6 +1534,8 @@ private static final long serialVersionUID = 0L;
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
         getTemplatesFieldBuilder();
+        getImageSetFieldBuilder();
+        getExecutionsFieldBuilder();
       }
     }
     @java.lang.Override
@@ -1338,6 +1575,20 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
       } else {
         templatesBuilder_.clear();
+      }
+      fileType_ = "";
+
+      if (imageSetBuilder_ == null) {
+        imageSet_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      } else {
+        imageSetBuilder_.clear();
+      }
+      if (executionsBuilder_ == null) {
+        executions_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      } else {
+        executionsBuilder_.clear();
       }
       return this;
     }
@@ -1390,6 +1641,25 @@ private static final long serialVersionUID = 0L;
         result.templates_ = templates_;
       } else {
         result.templates_ = templatesBuilder_.build();
+      }
+      result.fileType_ = fileType_;
+      if (imageSetBuilder_ == null) {
+        if (((bitField0_ & 0x00000004) != 0)) {
+          imageSet_ = java.util.Collections.unmodifiableList(imageSet_);
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.imageSet_ = imageSet_;
+      } else {
+        result.imageSet_ = imageSetBuilder_.build();
+      }
+      if (executionsBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0)) {
+          executions_ = java.util.Collections.unmodifiableList(executions_);
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.executions_ = executions_;
+      } else {
+        result.executions_ = executionsBuilder_.build();
       }
       onBuilt();
       return result;
@@ -1517,6 +1787,62 @@ private static final long serialVersionUID = 0L;
                  getTemplatesFieldBuilder() : null;
           } else {
             templatesBuilder_.addAllMessages(other.templates_);
+          }
+        }
+      }
+      if (!other.getFileType().isEmpty()) {
+        fileType_ = other.fileType_;
+        onChanged();
+      }
+      if (imageSetBuilder_ == null) {
+        if (!other.imageSet_.isEmpty()) {
+          if (imageSet_.isEmpty()) {
+            imageSet_ = other.imageSet_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureImageSetIsMutable();
+            imageSet_.addAll(other.imageSet_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.imageSet_.isEmpty()) {
+          if (imageSetBuilder_.isEmpty()) {
+            imageSetBuilder_.dispose();
+            imageSetBuilder_ = null;
+            imageSet_ = other.imageSet_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+            imageSetBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getImageSetFieldBuilder() : null;
+          } else {
+            imageSetBuilder_.addAllMessages(other.imageSet_);
+          }
+        }
+      }
+      if (executionsBuilder_ == null) {
+        if (!other.executions_.isEmpty()) {
+          if (executions_.isEmpty()) {
+            executions_ = other.executions_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureExecutionsIsMutable();
+            executions_.addAll(other.executions_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.executions_.isEmpty()) {
+          if (executionsBuilder_.isEmpty()) {
+            executionsBuilder_.dispose();
+            executionsBuilder_ = null;
+            executions_ = other.executions_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+            executionsBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getExecutionsFieldBuilder() : null;
+          } else {
+            executionsBuilder_.addAllMessages(other.executions_);
           }
         }
       }
@@ -3204,6 +3530,726 @@ private static final long serialVersionUID = 0L;
         templates_ = null;
       }
       return templatesBuilder_;
+    }
+
+    private java.lang.Object fileType_ = "";
+    /**
+     * <pre>
+     * 文件类型 
+     * </pre>
+     *
+     * <code>string FileType = 17;</code>
+     * @return The fileType.
+     */
+    public java.lang.String getFileType() {
+      java.lang.Object ref = fileType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fileType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 文件类型 
+     * </pre>
+     *
+     * <code>string FileType = 17;</code>
+     * @return The bytes for fileType.
+     */
+    public com.google.protobuf.ByteString
+        getFileTypeBytes() {
+      java.lang.Object ref = fileType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 文件类型 
+     * </pre>
+     *
+     * <code>string FileType = 17;</code>
+     * @param value The fileType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFileType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      fileType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 文件类型 
+     * </pre>
+     *
+     * <code>string FileType = 17;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFileType() {
+      
+      fileType_ = getDefaultInstance().getFileType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 文件类型 
+     * </pre>
+     *
+     * <code>string FileType = 17;</code>
+     * @param value The bytes for fileType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFileTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      fileType_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.util.List<com.volcengine.service.vod.model.business.VodImageFile> imageSet_ =
+      java.util.Collections.emptyList();
+    private void ensureImageSetIsMutable() {
+      if (!((bitField0_ & 0x00000004) != 0)) {
+        imageSet_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodImageFile>(imageSet_);
+        bitField0_ |= 0x00000004;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodImageFile, com.volcengine.service.vod.model.business.VodImageFile.Builder, com.volcengine.service.vod.model.business.VodImageFileOrBuilder> imageSetBuilder_;
+
+    /**
+     * <pre>
+     * 图集信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.VodImageFile> getImageSetList() {
+      if (imageSetBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(imageSet_);
+      } else {
+        return imageSetBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * 图集信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+     */
+    public int getImageSetCount() {
+      if (imageSetBuilder_ == null) {
+        return imageSet_.size();
+      } else {
+        return imageSetBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * 图集信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodImageFile getImageSet(int index) {
+      if (imageSetBuilder_ == null) {
+        return imageSet_.get(index);
+      } else {
+        return imageSetBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * 图集信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+     */
+    public Builder setImageSet(
+        int index, com.volcengine.service.vod.model.business.VodImageFile value) {
+      if (imageSetBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureImageSetIsMutable();
+        imageSet_.set(index, value);
+        onChanged();
+      } else {
+        imageSetBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 图集信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+     */
+    public Builder setImageSet(
+        int index, com.volcengine.service.vod.model.business.VodImageFile.Builder builderForValue) {
+      if (imageSetBuilder_ == null) {
+        ensureImageSetIsMutable();
+        imageSet_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        imageSetBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 图集信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+     */
+    public Builder addImageSet(com.volcengine.service.vod.model.business.VodImageFile value) {
+      if (imageSetBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureImageSetIsMutable();
+        imageSet_.add(value);
+        onChanged();
+      } else {
+        imageSetBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 图集信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+     */
+    public Builder addImageSet(
+        int index, com.volcengine.service.vod.model.business.VodImageFile value) {
+      if (imageSetBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureImageSetIsMutable();
+        imageSet_.add(index, value);
+        onChanged();
+      } else {
+        imageSetBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 图集信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+     */
+    public Builder addImageSet(
+        com.volcengine.service.vod.model.business.VodImageFile.Builder builderForValue) {
+      if (imageSetBuilder_ == null) {
+        ensureImageSetIsMutable();
+        imageSet_.add(builderForValue.build());
+        onChanged();
+      } else {
+        imageSetBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 图集信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+     */
+    public Builder addImageSet(
+        int index, com.volcengine.service.vod.model.business.VodImageFile.Builder builderForValue) {
+      if (imageSetBuilder_ == null) {
+        ensureImageSetIsMutable();
+        imageSet_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        imageSetBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 图集信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+     */
+    public Builder addAllImageSet(
+        java.lang.Iterable<? extends com.volcengine.service.vod.model.business.VodImageFile> values) {
+      if (imageSetBuilder_ == null) {
+        ensureImageSetIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, imageSet_);
+        onChanged();
+      } else {
+        imageSetBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 图集信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+     */
+    public Builder clearImageSet() {
+      if (imageSetBuilder_ == null) {
+        imageSet_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+      } else {
+        imageSetBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 图集信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+     */
+    public Builder removeImageSet(int index) {
+      if (imageSetBuilder_ == null) {
+        ensureImageSetIsMutable();
+        imageSet_.remove(index);
+        onChanged();
+      } else {
+        imageSetBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 图集信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodImageFile.Builder getImageSetBuilder(
+        int index) {
+      return getImageSetFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * 图集信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodImageFileOrBuilder getImageSetOrBuilder(
+        int index) {
+      if (imageSetBuilder_ == null) {
+        return imageSet_.get(index);  } else {
+        return imageSetBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * 图集信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+     */
+    public java.util.List<? extends com.volcengine.service.vod.model.business.VodImageFileOrBuilder> 
+         getImageSetOrBuilderList() {
+      if (imageSetBuilder_ != null) {
+        return imageSetBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(imageSet_);
+      }
+    }
+    /**
+     * <pre>
+     * 图集信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodImageFile.Builder addImageSetBuilder() {
+      return getImageSetFieldBuilder().addBuilder(
+          com.volcengine.service.vod.model.business.VodImageFile.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * 图集信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodImageFile.Builder addImageSetBuilder(
+        int index) {
+      return getImageSetFieldBuilder().addBuilder(
+          index, com.volcengine.service.vod.model.business.VodImageFile.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * 图集信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.VodImageFile.Builder> 
+         getImageSetBuilderList() {
+      return getImageSetFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodImageFile, com.volcengine.service.vod.model.business.VodImageFile.Builder, com.volcengine.service.vod.model.business.VodImageFileOrBuilder> 
+        getImageSetFieldBuilder() {
+      if (imageSetBuilder_ == null) {
+        imageSetBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.service.vod.model.business.VodImageFile, com.volcengine.service.vod.model.business.VodImageFile.Builder, com.volcengine.service.vod.model.business.VodImageFileOrBuilder>(
+                imageSet_,
+                ((bitField0_ & 0x00000004) != 0),
+                getParentForChildren(),
+                isClean());
+        imageSet_ = null;
+      }
+      return imageSetBuilder_;
+    }
+
+    private java.util.List<com.volcengine.service.vod.model.business.VodExecution> executions_ =
+      java.util.Collections.emptyList();
+    private void ensureExecutionsIsMutable() {
+      if (!((bitField0_ & 0x00000008) != 0)) {
+        executions_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodExecution>(executions_);
+        bitField0_ |= 0x00000008;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodExecution, com.volcengine.service.vod.model.business.VodExecution.Builder, com.volcengine.service.vod.model.business.VodExecutionOrBuilder> executionsBuilder_;
+
+    /**
+     * <pre>
+     * 处理任务信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.VodExecution> getExecutionsList() {
+      if (executionsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(executions_);
+      } else {
+        return executionsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * 处理任务信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+     */
+    public int getExecutionsCount() {
+      if (executionsBuilder_ == null) {
+        return executions_.size();
+      } else {
+        return executionsBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * 处理任务信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodExecution getExecutions(int index) {
+      if (executionsBuilder_ == null) {
+        return executions_.get(index);
+      } else {
+        return executionsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * 处理任务信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+     */
+    public Builder setExecutions(
+        int index, com.volcengine.service.vod.model.business.VodExecution value) {
+      if (executionsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureExecutionsIsMutable();
+        executions_.set(index, value);
+        onChanged();
+      } else {
+        executionsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 处理任务信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+     */
+    public Builder setExecutions(
+        int index, com.volcengine.service.vod.model.business.VodExecution.Builder builderForValue) {
+      if (executionsBuilder_ == null) {
+        ensureExecutionsIsMutable();
+        executions_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        executionsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 处理任务信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+     */
+    public Builder addExecutions(com.volcengine.service.vod.model.business.VodExecution value) {
+      if (executionsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureExecutionsIsMutable();
+        executions_.add(value);
+        onChanged();
+      } else {
+        executionsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 处理任务信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+     */
+    public Builder addExecutions(
+        int index, com.volcengine.service.vod.model.business.VodExecution value) {
+      if (executionsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureExecutionsIsMutable();
+        executions_.add(index, value);
+        onChanged();
+      } else {
+        executionsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 处理任务信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+     */
+    public Builder addExecutions(
+        com.volcengine.service.vod.model.business.VodExecution.Builder builderForValue) {
+      if (executionsBuilder_ == null) {
+        ensureExecutionsIsMutable();
+        executions_.add(builderForValue.build());
+        onChanged();
+      } else {
+        executionsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 处理任务信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+     */
+    public Builder addExecutions(
+        int index, com.volcengine.service.vod.model.business.VodExecution.Builder builderForValue) {
+      if (executionsBuilder_ == null) {
+        ensureExecutionsIsMutable();
+        executions_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        executionsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 处理任务信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+     */
+    public Builder addAllExecutions(
+        java.lang.Iterable<? extends com.volcengine.service.vod.model.business.VodExecution> values) {
+      if (executionsBuilder_ == null) {
+        ensureExecutionsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, executions_);
+        onChanged();
+      } else {
+        executionsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 处理任务信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+     */
+    public Builder clearExecutions() {
+      if (executionsBuilder_ == null) {
+        executions_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+      } else {
+        executionsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 处理任务信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+     */
+    public Builder removeExecutions(int index) {
+      if (executionsBuilder_ == null) {
+        ensureExecutionsIsMutable();
+        executions_.remove(index);
+        onChanged();
+      } else {
+        executionsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 处理任务信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodExecution.Builder getExecutionsBuilder(
+        int index) {
+      return getExecutionsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * 处理任务信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodExecutionOrBuilder getExecutionsOrBuilder(
+        int index) {
+      if (executionsBuilder_ == null) {
+        return executions_.get(index);  } else {
+        return executionsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * 处理任务信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+     */
+    public java.util.List<? extends com.volcengine.service.vod.model.business.VodExecutionOrBuilder> 
+         getExecutionsOrBuilderList() {
+      if (executionsBuilder_ != null) {
+        return executionsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(executions_);
+      }
+    }
+    /**
+     * <pre>
+     * 处理任务信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodExecution.Builder addExecutionsBuilder() {
+      return getExecutionsFieldBuilder().addBuilder(
+          com.volcengine.service.vod.model.business.VodExecution.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * 处理任务信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodExecution.Builder addExecutionsBuilder(
+        int index) {
+      return getExecutionsFieldBuilder().addBuilder(
+          index, com.volcengine.service.vod.model.business.VodExecution.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * 处理任务信息 
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.VodExecution.Builder> 
+         getExecutionsBuilderList() {
+      return getExecutionsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodExecution, com.volcengine.service.vod.model.business.VodExecution.Builder, com.volcengine.service.vod.model.business.VodExecutionOrBuilder> 
+        getExecutionsFieldBuilder() {
+      if (executionsBuilder_ == null) {
+        executionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.service.vod.model.business.VodExecution, com.volcengine.service.vod.model.business.VodExecution.Builder, com.volcengine.service.vod.model.business.VodExecutionOrBuilder>(
+                executions_,
+                ((bitField0_ & 0x00000008) != 0),
+                getParentForChildren(),
+                isClean());
+        executions_ = null;
+      }
+      return executionsBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

@@ -18,6 +18,7 @@ private static final long serialVersionUID = 0L;
   private ValuePair() {
     jobId_ = "";
     sourceUrl_ = "";
+    imageUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -40,6 +41,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -62,6 +64,15 @@ private static final long serialVersionUID = 0L;
             sourceUrl_ = s;
             break;
           }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              imageUrls_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            imageUrls_.add(s);
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -77,6 +88,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        imageUrls_ = imageUrls_.getUnmodifiableView();
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -186,6 +200,57 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int IMAGEURLS_FIELD_NUMBER = 3;
+  private com.google.protobuf.LazyStringList imageUrls_;
+  /**
+   * <pre>
+   * 图集url 
+   * </pre>
+   *
+   * <code>repeated string ImageUrls = 3;</code>
+   * @return A list containing the imageUrls.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getImageUrlsList() {
+    return imageUrls_;
+  }
+  /**
+   * <pre>
+   * 图集url 
+   * </pre>
+   *
+   * <code>repeated string ImageUrls = 3;</code>
+   * @return The count of imageUrls.
+   */
+  public int getImageUrlsCount() {
+    return imageUrls_.size();
+  }
+  /**
+   * <pre>
+   * 图集url 
+   * </pre>
+   *
+   * <code>repeated string ImageUrls = 3;</code>
+   * @param index The index of the element to return.
+   * @return The imageUrls at the given index.
+   */
+  public java.lang.String getImageUrls(int index) {
+    return imageUrls_.get(index);
+  }
+  /**
+   * <pre>
+   * 图集url 
+   * </pre>
+   *
+   * <code>repeated string ImageUrls = 3;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the imageUrls at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getImageUrlsBytes(int index) {
+    return imageUrls_.getByteString(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -206,6 +271,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, sourceUrl_);
     }
+    for (int i = 0; i < imageUrls_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, imageUrls_.getRaw(i));
+    }
     unknownFields.writeTo(output);
   }
 
@@ -220,6 +288,14 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, sourceUrl_);
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < imageUrls_.size(); i++) {
+        dataSize += computeStringSizeNoTag(imageUrls_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getImageUrlsList().size();
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -240,6 +316,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getJobId())) return false;
     if (!getSourceUrl()
         .equals(other.getSourceUrl())) return false;
+    if (!getImageUrlsList()
+        .equals(other.getImageUrlsList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -255,6 +333,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getJobId().hashCode();
     hash = (37 * hash) + SOURCEURL_FIELD_NUMBER;
     hash = (53 * hash) + getSourceUrl().hashCode();
+    if (getImageUrlsCount() > 0) {
+      hash = (37 * hash) + IMAGEURLS_FIELD_NUMBER;
+      hash = (53 * hash) + getImageUrlsList().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -392,6 +474,8 @@ private static final long serialVersionUID = 0L;
 
       sourceUrl_ = "";
 
+      imageUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -418,8 +502,14 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.volcengine.service.vod.model.business.ValuePair buildPartial() {
       com.volcengine.service.vod.model.business.ValuePair result = new com.volcengine.service.vod.model.business.ValuePair(this);
+      int from_bitField0_ = bitField0_;
       result.jobId_ = jobId_;
       result.sourceUrl_ = sourceUrl_;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        imageUrls_ = imageUrls_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      }
+      result.imageUrls_ = imageUrls_;
       onBuilt();
       return result;
     }
@@ -476,6 +566,16 @@ private static final long serialVersionUID = 0L;
         sourceUrl_ = other.sourceUrl_;
         onChanged();
       }
+      if (!other.imageUrls_.isEmpty()) {
+        if (imageUrls_.isEmpty()) {
+          imageUrls_ = other.imageUrls_;
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          ensureImageUrlsIsMutable();
+          imageUrls_.addAll(other.imageUrls_);
+        }
+        onChanged();
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -504,6 +604,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object jobId_ = "";
     /**
@@ -693,6 +794,152 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       sourceUrl_ = value;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.LazyStringList imageUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureImageUrlsIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        imageUrls_ = new com.google.protobuf.LazyStringArrayList(imageUrls_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+    /**
+     * <pre>
+     * 图集url 
+     * </pre>
+     *
+     * <code>repeated string ImageUrls = 3;</code>
+     * @return A list containing the imageUrls.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getImageUrlsList() {
+      return imageUrls_.getUnmodifiableView();
+    }
+    /**
+     * <pre>
+     * 图集url 
+     * </pre>
+     *
+     * <code>repeated string ImageUrls = 3;</code>
+     * @return The count of imageUrls.
+     */
+    public int getImageUrlsCount() {
+      return imageUrls_.size();
+    }
+    /**
+     * <pre>
+     * 图集url 
+     * </pre>
+     *
+     * <code>repeated string ImageUrls = 3;</code>
+     * @param index The index of the element to return.
+     * @return The imageUrls at the given index.
+     */
+    public java.lang.String getImageUrls(int index) {
+      return imageUrls_.get(index);
+    }
+    /**
+     * <pre>
+     * 图集url 
+     * </pre>
+     *
+     * <code>repeated string ImageUrls = 3;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the imageUrls at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getImageUrlsBytes(int index) {
+      return imageUrls_.getByteString(index);
+    }
+    /**
+     * <pre>
+     * 图集url 
+     * </pre>
+     *
+     * <code>repeated string ImageUrls = 3;</code>
+     * @param index The index to set the value at.
+     * @param value The imageUrls to set.
+     * @return This builder for chaining.
+     */
+    public Builder setImageUrls(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureImageUrlsIsMutable();
+      imageUrls_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 图集url 
+     * </pre>
+     *
+     * <code>repeated string ImageUrls = 3;</code>
+     * @param value The imageUrls to add.
+     * @return This builder for chaining.
+     */
+    public Builder addImageUrls(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureImageUrlsIsMutable();
+      imageUrls_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 图集url 
+     * </pre>
+     *
+     * <code>repeated string ImageUrls = 3;</code>
+     * @param values The imageUrls to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllImageUrls(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureImageUrlsIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, imageUrls_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 图集url 
+     * </pre>
+     *
+     * <code>repeated string ImageUrls = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearImageUrls() {
+      imageUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 图集url 
+     * </pre>
+     *
+     * <code>repeated string ImageUrls = 3;</code>
+     * @param value The bytes of the imageUrls to add.
+     * @return This builder for chaining.
+     */
+    public Builder addImageUrlsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureImageUrlsIsMutable();
+      imageUrls_.add(value);
       onChanged();
       return this;
     }

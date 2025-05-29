@@ -354,4 +354,112 @@ public interface VodUrlUploadURLSetOrBuilder extends
    */
   com.volcengine.service.vod.model.business.VodUploadTemplateOrBuilder getTemplatesOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * 文件类型 
+   * </pre>
+   *
+   * <code>string FileType = 17;</code>
+   * @return The fileType.
+   */
+  java.lang.String getFileType();
+  /**
+   * <pre>
+   * 文件类型 
+   * </pre>
+   *
+   * <code>string FileType = 17;</code>
+   * @return The bytes for fileType.
+   */
+  com.google.protobuf.ByteString
+      getFileTypeBytes();
+
+  /**
+   * <pre>
+   * 图集信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+   */
+  java.util.List<com.volcengine.service.vod.model.business.VodImageFile> 
+      getImageSetList();
+  /**
+   * <pre>
+   * 图集信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+   */
+  com.volcengine.service.vod.model.business.VodImageFile getImageSet(int index);
+  /**
+   * <pre>
+   * 图集信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+   */
+  int getImageSetCount();
+  /**
+   * <pre>
+   * 图集信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+   */
+  java.util.List<? extends com.volcengine.service.vod.model.business.VodImageFileOrBuilder> 
+      getImageSetOrBuilderList();
+  /**
+   * <pre>
+   * 图集信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodImageFile ImageSet = 18;</code>
+   */
+  com.volcengine.service.vod.model.business.VodImageFileOrBuilder getImageSetOrBuilder(
+      int index);
+
+  /**
+   * <pre>
+   * 处理任务信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+   */
+  java.util.List<com.volcengine.service.vod.model.business.VodExecution> 
+      getExecutionsList();
+  /**
+   * <pre>
+   * 处理任务信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+   */
+  com.volcengine.service.vod.model.business.VodExecution getExecutions(int index);
+  /**
+   * <pre>
+   * 处理任务信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+   */
+  int getExecutionsCount();
+  /**
+   * <pre>
+   * 处理任务信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+   */
+  java.util.List<? extends com.volcengine.service.vod.model.business.VodExecutionOrBuilder> 
+      getExecutionsOrBuilderList();
+  /**
+   * <pre>
+   * 处理任务信息 
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.VodExecution Executions = 19;</code>
+   */
+  com.volcengine.service.vod.model.business.VodExecutionOrBuilder getExecutionsOrBuilder(
+      int index);
 }

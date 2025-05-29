@@ -30,11 +30,15 @@ public class GetVideoLiveRiskResultResponse {
         @JSONField(name = "VideoResults")
         private VideoLiveResults videoResults;
         @JSONField(name = "AudioResults")
-        private GetAudioLiveRiskResponse.AudioLiveResult audioResults;
+        private AudioLiveResult audioResults;
         @JSONField(name = "DataId")
         private String dataId;
         @JSONField(name = "PassThrough")
         private String passThrough;
+        @JSONField(name = "FinalLabel")
+        private String finalLabel;
+        @JSONField(name = "DecisionLabel")
+        private String decisionLabel;
     }
 
     @Data
@@ -63,6 +67,10 @@ public class GetVideoLiveRiskResultResponse {
         private String Text;
         @JSONField(name = "Results")
         private List<FrameResult> results;
+        @JSONField(name = "FinalSubLabel")
+        private String FinalSubLabel;
+        @JSONField(name = "DecisionSubLabel")
+        private String DecisionSubLabel;
     }
 
     @Data
@@ -75,5 +83,19 @@ public class GetVideoLiveRiskResultResponse {
         private String subLabel;
         @JSONField(name = "Detail")
         private Object detail;
+    }
+
+    @Data
+    public static class AudioLiveResult {
+        @JSONField(name = "Decision")
+        private String decision;
+        @JSONField(name = "Details")
+        private List<GetAudioLiveRiskResponse.AudioLiveDetail> details;
+        @JSONField(name = "DataId")
+        private String dataId;
+        @JSONField(name = "AudioText")
+        private String audioText;
+        @JSONField(name = "PassThrough")
+        private String passThrough;
     }
 }

@@ -42,6 +42,10 @@ public class ImageRiskDetectionResponse {
         private  List<QrcodeData> qrcodeDetails;
         @JSONField(name = "PassThrough")
         private String passThrough;
+        @JSONField(name = "FinalLabel")
+        private String finalLabel;
+        @JSONField(name = "DecisionLabel")
+        private String decisionLabel;
     }
 
     @Data

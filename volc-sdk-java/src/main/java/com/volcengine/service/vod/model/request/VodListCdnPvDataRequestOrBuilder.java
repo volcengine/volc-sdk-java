@@ -92,4 +92,24 @@ public interface VodListCdnPvDataRequestOrBuilder extends
    * @return The needDetail.
    */
   boolean getNeedDetail();
+
+  /**
+   * <pre>
+   * http, https, quic 等协议
+   * </pre>
+   *
+   * <code>string Protocol = 7;</code>
+   * @return The protocol.
+   */
+  java.lang.String getProtocol();
+  /**
+   * <pre>
+   * http, https, quic 等协议
+   * </pre>
+   *
+   * <code>string Protocol = 7;</code>
+   * @return The bytes for protocol.
+   */
+  com.google.protobuf.ByteString
+      getProtocolBytes();
 }

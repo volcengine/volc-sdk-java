@@ -36,6 +36,14 @@ public enum VodDomainSourceStationAddressType
    * <code>IPVodDomainSourceStationAddressType = 2;</code>
    */
   IPVodDomainSourceStationAddressType(2),
+  /**
+   * <pre>
+   * TOS类型
+   * </pre>
+   *
+   * <code>TOSVodDomainSourceStationAddressType = 3;</code>
+   */
+  TOSVodDomainSourceStationAddressType(3),
   UNRECOGNIZED(-1),
   ;
 
@@ -63,6 +71,14 @@ public enum VodDomainSourceStationAddressType
    * <code>IPVodDomainSourceStationAddressType = 2;</code>
    */
   public static final int IPVodDomainSourceStationAddressType_VALUE = 2;
+  /**
+   * <pre>
+   * TOS类型
+   * </pre>
+   *
+   * <code>TOSVodDomainSourceStationAddressType = 3;</code>
+   */
+  public static final int TOSVodDomainSourceStationAddressType_VALUE = 3;
 
 
   public final int getNumber() {
@@ -92,6 +108,7 @@ public enum VodDomainSourceStationAddressType
       case 0: return UndefinedVodDomainSourceStationAddressType;
       case 1: return DomainVodDomainSourceStationAddressType;
       case 2: return IPVodDomainSourceStationAddressType;
+      case 3: return TOSVodDomainSourceStationAddressType;
       default: return null;
     }
   }

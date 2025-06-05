@@ -33,4 +33,31 @@ public interface VodDomainConfigOrBuilder extends
    * <code>.Volcengine.Vod.Models.Business.VodResponseHeaderControl ResponseHeaderControl = 1;</code>
    */
   com.volcengine.service.vod.model.business.VodResponseHeaderControlOrBuilder getResponseHeaderControlOrBuilder();
+
+  /**
+   * <pre>
+   * 源站配置
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodOriginalControl OriginalControl = 2;</code>
+   * @return Whether the originalControl field is set.
+   */
+  boolean hasOriginalControl();
+  /**
+   * <pre>
+   * 源站配置
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodOriginalControl OriginalControl = 2;</code>
+   * @return The originalControl.
+   */
+  com.volcengine.service.vod.model.business.VodOriginalControl getOriginalControl();
+  /**
+   * <pre>
+   * 源站配置
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodOriginalControl OriginalControl = 2;</code>
+   */
+  com.volcengine.service.vod.model.business.VodOriginalControlOrBuilder getOriginalControlOrBuilder();
 }

@@ -1385,7 +1385,7 @@ public class VodServiceConfig {
             put(Const.CreateDomain, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
-                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Method, "POST");
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {

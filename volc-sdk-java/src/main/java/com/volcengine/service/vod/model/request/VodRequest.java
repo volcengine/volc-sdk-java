@@ -1145,172 +1145,176 @@ public final class VodRequest {
       "\016StartTimestamp\030\003 \001(\003\022\024\n\014EndTimestamp\030\004 " +
       "\001(\003\022\020\n\010DataType\030\005 \001(\t\022\016\n\006Metric\030\006 \001(\t\022\022\n" +
       "\nNeedDetail\030\007 \001(\010\"\'\n\030VodDescribeIPInfoRe" +
-      "quest\022\013\n\003Ips\030\001 \001(\t\"\220\001\n\027VodListCdnPvDataR" +
+      "quest\022\013\n\003Ips\030\001 \001(\t\"\242\001\n\027VodListCdnPvDataR" +
       "equest\022\017\n\007Domains\030\001 \001(\t\022\020\n\010Interval\030\002 \001(" +
       "\t\022\026\n\016StartTimestamp\030\003 \001(\003\022\024\n\014EndTimestam" +
       "p\030\004 \001(\003\022\020\n\010DataType\030\005 \001(\t\022\022\n\nNeedDetail\030" +
-      "\006 \001(\010\"\223\001\n\034VodListCdnHitrateDataRequest\022\017" +
-      "\n\007Domains\030\001 \001(\t\022\020\n\010Interval\030\002 \001(\t\022\026\n\016Sta" +
-      "rtTimestamp\030\003 \001(\003\022\024\n\014EndTimestamp\030\004 \001(\003\022" +
-      "\016\n\006Metric\030\005 \001(\t\022\022\n\nNeedDetail\030\006 \001(\010\"\307\001\n&" +
-      "VodDescribeVodDomainTrafficDataRequest\022\022" +
-      "\n\nDomainList\030\001 \001(\t\022\031\n\021DomainInSpaceList\030" +
-      "\002 \001(\t\022\021\n\tStartTime\030\003 \001(\t\022\017\n\007EndTime\030\004 \001(" +
-      "\t\022\023\n\013Aggregation\030\005 \001(\005\022\023\n\013TrafficType\030\006 " +
-      "\001(\t\022\014\n\004Area\030\007 \001(\t\022\022\n\nRegionList\030\010 \001(\t\"T\n" +
-      "\032VodSubmitBlockTasksRequest\022\020\n\010FileUrls\030" +
-      "\001 \001(\t\022\021\n\tOperation\030\002 \001(\t\022\021\n\tSpaceName\030\003 " +
-      "\001(\t\"\266\001\n\036VodGetContentBlockTasksRequest\022\013" +
-      "\n\003Url\030\001 \001(\t\022\016\n\006Domain\030\002 \001(\t\022\016\n\006TaskID\030\003 " +
-      "\001(\t\022\020\n\010TaskType\030\004 \001(\t\022\016\n\006Status\030\005 \001(\t\022\021\n" +
-      "\tStartTime\030\006 \001(\003\022\017\n\007EndTime\030\007 \001(\003\022\017\n\007Pag" +
-      "eNum\030\010 \001(\003\022\020\n\010PageSize\030\t \001(\003\"\301\001\n\030VodCrea" +
-      "teDomainV2Request\022\021\n\tSpaceName\030\001 \001(\t\022\022\n\n" +
-      "DomainType\030\002 \001(\t\022\016\n\006Domain\030\003 \001(\t\022\031\n\021Sour" +
-      "ceStationType\030\005 \001(\005\022 \n\030SourceStationAddr" +
-      "essType\030\006 \001(\005\022\017\n\007Origins\030\007 \001(\t\022\014\n\004Area\030\010" +
-      " \001(\t\022\022\n\nBucketName\030\t \001(\t\"\201\002\n\030VodCreateDo" +
-      "mainV3Request\022\021\n\tSpaceName\030\001 \001(\t\022\022\n\nDoma" +
-      "inType\030\002 \001(\t\022\016\n\006Domain\030\003 \001(\t\022\031\n\021SourceSt" +
-      "ationType\030\005 \001(\005\022\014\n\004Area\030\010 \001(\t\022\022\n\nBucketN" +
-      "ame\030\t \001(\t\0222\n\004IPv6\030\n \001(\0132$.Volcengine.Vod" +
-      ".Models.Business.IPv6\022=\n\006Origin\030\013 \003(\0132-." +
-      "Volcengine.Vod.Models.Business.CdnOrigin" +
-      "Rule\"g\n\036VodUpdateDomainExpireV2Request\022\021" +
-      "\n\tSpaceName\030\001 \001(\t\022\022\n\nDomainType\030\002 \001(\t\022\016\n" +
-      "\006Domain\030\003 \001(\t\022\016\n\006Expire\030\004 \001(\005\"\217\001\n\"VodUpd" +
-      "ateDomainAuthConfigV2Request\022\021\n\tSpaceNam" +
-      "e\030\001 \001(\t\022\022\n\nDomainType\030\002 \001(\t\022\016\n\006Domain\030\003 " +
-      "\001(\t\022\017\n\007MainKey\030\004 \001(\t\022\021\n\tBackupKey\030\005 \001(\t\022" +
-      "\016\n\006Status\030\006 \001(\t\"\222\001\n%VodUpdateDomainUrlAu",
-      "thConfigV2Request\022\021\n\tSpaceName\030\001 \001(\t\022\022\n\n" +
-      "DomainType\030\002 \001(\t\022\016\n\006Domain\030\003 \001(\t\022\017\n\007Main" +
-      "Key\030\004 \001(\t\022\021\n\tBackupKey\030\005 \001(\t\022\016\n\006Status\030\006" +
-      " \001(\t\"A\n\033VodVerifyDomainOwnerRequest\022\016\n\006D" +
-      "omain\030\001 \001(\t\022\022\n\nVerifyType\030\002 \001(\t\"7\n%VodDe" +
-      "scribeDomainVerifyContentRequest\022\016\n\006Doma" +
-      "in\030\001 \001(\t\"L\n\030VodListPCDNDomainRequest\022\021\n\t" +
-      "SpaceName\030\001 \001(\t\022\016\n\006Offset\030\002 \001(\005\022\r\n\005Limit" +
-      "\030\003 \001(\005\"?\n\032VodCreatePCDNDomainRequest\022\021\n\t" +
-      "SpaceName\030\001 \001(\t\022\016\n\006Domain\030\002 \001(\t\">\n\031VodSt" +
-      "artPCDNDomainRequest\022\021\n\tSpaceName\030\001 \001(\t\022" +
-      "\016\n\006Domain\030\002 \001(\t\"=\n\030VodStopPCDNDomainRequ" +
-      "est\022\021\n\tSpaceName\030\001 \001(\t\022\016\n\006Domain\030\002 \001(\t\"?" +
-      "\n\032VodDeletePCDNDomainRequest\022\021\n\tSpaceNam" +
-      "e\030\001 \001(\t\022\016\n\006Domain\030\002 \001(\t\"\226\001\n\034VodUpdateDom" +
-      "ainConfigRequest\022\021\n\tSpaceName\030\001 \001(\t\022\022\n\nD" +
-      "omainType\030\002 \001(\t\022\016\n\006Domain\030\003 \001(\t\022?\n\006Confi" +
-      "g\030\004 \001(\0132/.Volcengine.Vod.Models.Business" +
-      ".VodDomainConfig\"W\n\036VodDescribeDomainCon" +
-      "figRequest\022\021\n\tSpaceName\030\001 \001(\t\022\022\n\nDomainT" +
-      "ype\030\002 \001(\t\022\016\n\006Domain\030\003 \001(\t\"\204\001\n\037AddOrUpdat" +
-      "eCertificateV2Request\022\021\n\tSpaceName\030\001 \001(\t" +
-      "\022\016\n\006Domain\030\002 \001(\t\022\022\n\nDomainType\030\003 \001(\t\022\025\n\r" +
-      "CertificateId\030\004 \001(\t\022\023\n\013HttpsStatus\030\005 \001(\t" +
-      "\"^\n\027UpdateDomainAreaRequest\022\021\n\tSpaceName" +
-      "\030\001 \001(\t\022\016\n\006Domain\030\002 \001(\t\022\022\n\nDomainType\030\003 \001" +
-      "(\t\022\014\n\004Area\030\004 \001(\t\"X\n!VodAddCallbackSubscr" +
-      "iptionRequest\022\021\n\tSpaceName\030\001 \001(\t\022\013\n\003Url\030" +
-      "\002 \001(\t\022\023\n\013ContentType\030\003 \001(\t\"h\n\032VodSetCall" +
-      "backEventRequest\022\021\n\tSpaceName\030\001 \001(\t\022\016\n\006E" +
-      "vents\030\002 \001(\t\022\023\n\013AuthEnabled\030\003 \001(\t\022\022\n\nPriv" +
-      "ateKey\030\004 \001(\t\"\253\001\n\030GetCallbackRecordReques" +
-      "t\022\021\n\tSpaceName\030\001 \001(\t\022\013\n\003Vid\030\002 \001(\t\022\016\n\006Sta" +
-      "tus\030\003 \001(\t\022\021\n\tStartTime\030\004 \001(\003\022\017\n\007EndTime\030" +
-      "\005 \001(\003\022\r\n\005Limit\030\006 \001(\005\022\021\n\tEventType\030\007 \001(\t\022" +
-      "\031\n\021ContinuationToken\030\010 \001(\t\"\364\001\n&VodGetSma" +
-      "rtStrategyLitePlayInfoRequest\022\017\n\007PlayUrl" +
-      "\030\001 \001(\t\022\016\n\006Format\030\002 \001(\t\022\r\n\005Codec\030\003 \001(\t\022\022\n" +
-      "\nDefinition\030\004 \001(\t\022\020\n\010FileType\030\005 \001(\t\022\020\n\010L" +
-      "ogoType\030\006 \001(\t\022\013\n\003Ssl\030\007 \001(\t\022\022\n\nNeedThumbs" +
-      "\030\010 \001(\t\022\027\n\017NeedBarrageMask\030\t \001(\t\022\021\n\tUnion" +
-      "Info\030\n \001(\t\022\025\n\rHDRDefinition\030\013 \001(\t\"%\n\024Vod" +
-      "GetAppInfoRequest\022\r\n\005AppId\030\001 \001(\004\"\344\001\n$Des" +
-      "cribeVodSpaceTranscodeDataRequest\022\021\n\tSpa" +
-      "ceList\030\001 \001(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007EndTi" +
-      "me\030\003 \001(\t\022\025\n\rTranscodeType\030\004 \001(\t\022\025\n\rSpeci" +
-      "fication\030\005 \001(\t\022\025\n\rTaskStageList\030\006 \001(\t\022\023\n" +
-      "\013Aggregation\030\007 \001(\003\022\027\n\017DetailFieldList\030\010 " +
-      "\001(\t\022\022\n\nRegionList\030\t \001(\t\"\312\001\n#DescribeVodS" +
-      "paceAIStatisDataRequest\022\021\n\tSpaceList\030\001 \001" +
-      "(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007EndTime\030\003 \001(\t\022\023" +
-      "\n\013MediaAiType\030\004 \001(\t\022\025\n\rTaskStageList\030\005 \001" +
-      "(\t\022\023\n\013Aggregation\030\006 \001(\003\022\027\n\017DetailFieldLi" +
-      "st\030\007 \001(\t\022\022\n\nRegionList\030\010 \001(\t\"\321\001\n)Describ" +
-      "eVodSpaceSubtitleStatisDataRequest\022\021\n\tSp" +
-      "aceList\030\001 \001(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007EndT" +
-      "ime\030\003 \001(\t\022\024\n\014SubtitleType\030\004 \001(\t\022\025\n\rTaskS" +
-      "tageList\030\005 \001(\t\022\023\n\013Aggregation\030\006 \001(\003\022\027\n\017D" +
-      "etailFieldList\030\007 \001(\t\022\022\n\nRegionList\030\010 \001(\t" +
-      "\"\315\001\n\'DescribeVodSpaceDetectStatisDataReq" +
-      "uest\022\021\n\tSpaceList\030\001 \001(\t\022\021\n\tStartTime\030\002 \001" +
-      "(\t\022\017\n\007EndTime\030\003 \001(\t\022\022\n\nDetectType\030\004 \001(\t\022" +
-      "\025\n\rTaskStageList\030\005 \001(\t\022\023\n\013Aggregation\030\006 " +
-      "\001(\003\022\027\n\017DetailFieldList\030\007 \001(\t\022\022\n\nRegionLi" +
-      "st\030\010 \001(\t\"\306\001\n\036DescribeVodSnapshotDataRequ" +
-      "est\022\021\n\tSpaceList\030\001 \001(\t\022\021\n\tStartTime\030\002 \001(" +
-      "\t\022\017\n\007EndTime\030\003 \001(\t\022\024\n\014SnapshotType\030\004 \001(\t" +
-      "\022\025\n\rTaskStageList\030\005 \001(\t\022\023\n\013Aggregation\030\006" +
-      " \001(\003\022\027\n\017DetailFieldList\030\007 \001(\t\022\022\n\nRegionL" +
-      "ist\030\010 \001(\t\"\221\001\n)DescribeVodSpaceWorkflowDe" +
-      "tailDataRequest\022\016\n\006Region\030\001 \001(\t\022\r\n\005Space" +
-      "\030\002 \001(\t\022\021\n\tStartTime\030\003 \001(\t\022\017\n\007EndTime\030\004 \001" +
-      "(\t\022\020\n\010PageSize\030\005 \001(\003\022\017\n\007PageNum\030\006 \001(\003\"\215\001" +
-      "\n%DescribeVodSpaceEditDetailDataRequest\022" +
-      "\016\n\006Region\030\001 \001(\t\022\r\n\005Space\030\002 \001(\t\022\021\n\tStartT" +
-      "ime\030\003 \001(\t\022\017\n\007EndTime\030\004 \001(\t\022\020\n\010PageSize\030\005" +
-      " \001(\003\022\017\n\007PageNum\030\006 \001(\003\"_\n%DescribeVodPlay" +
-      "FileLogByDomainRequest\022\021\n\tStartTime\030\001 \001(" +
-      "\t\022\017\n\007EndTime\030\002 \001(\t\022\022\n\nDomainList\030\003 \001(\t\"\261" +
-      "\001\n\"DescribeVodEnhanceImageDataRequest\022\021\n" +
-      "\tSpaceList\030\001 \001(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007E" +
-      "ndTime\030\003 \001(\t\022\024\n\014TaskTypeList\030\004 \001(\t\022\025\n\rTa" +
-      "skStageList\030\005 \001(\t\022\023\n\013Aggregation\030\006 \001(\003\022\022" +
-      "\n\nRegionList\030\007 \001(\t\"\267\001\n%DescribeVodSpaceE" +
-      "ditStatisDataRequest\022\021\n\tSpaceList\030\001 \001(\t\022" +
-      "\021\n\tStartTime\030\002 \001(\t\022\017\n\007EndTime\030\003 \001(\t\022\025\n\rS" +
-      "pecification\030\004 \001(\t\022\023\n\013Aggregation\030\005 \001(\003\022" +
-      "\027\n\017DetailFieldList\030\006 \001(\t\022\022\n\nRegionList\030\007" +
-      " \001(\t\"{\n\"DescribeVodPlayedStatisDataReque" +
-      "st\022\r\n\005Space\030\001 \001(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007" +
-      "EndTime\030\003 \001(\t\022\017\n\007VidList\030\004 \001(\t\022\021\n\tOrderT" +
-      "ype\030\005 \001(\t\"|\n&DescribeVodMostPlayedStatis" +
-      "DataRequest\022\r\n\005Space\030\001 \001(\t\022\021\n\tStartTime\030" +
-      "\002 \001(\t\022\017\n\007EndTime\030\003 \001(\t\022\021\n\tOrderType\030\004 \001(" +
-      "\t\022\014\n\004TopN\030\005 \001(\003\"\237\001\n#DescribeVodRealtimeM" +
-      "ediaDataRequest\022\021\n\tSpaceList\030\001 \001(\t\022\021\n\tSt" +
-      "artTime\030\002 \001(\t\022\017\n\007EndTime\030\003 \001(\t\022\023\n\013Proces" +
-      "sType\030\004 \001(\t\022\023\n\013Aggregation\030\005 \001(\003\022\027\n\017Deta" +
-      "ilFieldList\030\006 \001(\t\"\221\001\n)DescribeVodRealtim" +
-      "eMediaDetailDataRequest\022\016\n\006Region\030\001 \001(\t\022" +
-      "\r\n\005Space\030\002 \001(\t\022\021\n\tStartTime\030\003 \001(\t\022\017\n\007End" +
-      "Time\030\004 \001(\t\022\020\n\010PageSize\030\005 \001(\003\022\017\n\007PageNum\030" +
-      "\006 \001(\003\"\\\n#DescribeVodVidTrafficFileLogReq" +
-      "uest\022\021\n\tSpaceList\030\001 \001(\t\022\021\n\tStartTime\030\002 \001" +
-      "(\t\022\017\n\007EndTime\030\003 \001(\t\"A\n\036VodSubmitBlockMed" +
-      "iaTaskRequest\022\021\n\tSpaceName\030\001 \001(\t\022\014\n\004Vids" +
-      "\030\002 \001(\t\"C\n VodSubmitUnblockMediaTaskReque" +
-      "st\022\021\n\tSpaceName\030\001 \001(\t\022\014\n\004Vids\030\002 \001(\t\"B\n\037V" +
-      "odQueryMediaBlockStatusRequest\022\021\n\tSpaceN" +
-      "ame\030\001 \001(\t\022\014\n\004Vids\030\002 \001(\t\"\030\n\026VodListProjec" +
-      "tsRequest\"!\n\037VodGetTradeConfigurationReq" +
-      "uest\"4\n\025VodReportEventRequest\022\n\n\002Id\030\001 \001(" +
-      "\t\022\017\n\007Reports\030\002 \001(\014\"\256\001\n\034VodSetCloudMigrat" +
-      "eJobRequest\022\r\n\005JobId\030\001 \001(\003\022S\n\rJobSourceI" +
-      "nfo\030\002 \001(\0132<.Volcengine.Vod.Models.Busine" +
-      "ss.VodCloudMigrateJobSourceInfo\022\027\n\017Callb" +
-      "ackAddress\030\003 \001(\t\022\021\n\tSpaceName\030\004 \001(\t\"\221\001\n\037" +
-      "VodSubmitCloudMigrateJobRequest\022\r\n\005JobId" +
-      "\030\001 \001(\003\022\020\n\010SubAppId\030\002 \001(\t\022\021\n\tSourceVid\030\003 " +
-      "\001(\t\022\021\n\tTargetVid\030\004 \001(\t\022\024\n\014CallbackArgs\030\005" +
-      " \001(\t\022\021\n\tSpaceName\030\006 \001(\t\"@\n\034VodGetCloudMi" +
-      "grateJobRequest\022\r\n\005JobId\030\001 \001(\003\022\021\n\tSpaceN" +
-      "ame\030\002 \001(\tB\310\001\n(com.volcengine.service.vod" +
-      ".model.requestB\nVodRequestP\001Z@github.com" +
-      "/volcengine/volc-sdk-golang/service/vod/" +
-      "models/request\240\001\001\330\001\001\312\002\037Volc\\Service\\Vod\\" +
-      "Models\\Request\342\002#Volc\\Service\\Vod\\Models" +
-      "\\GPBMetadatab\006proto3"
+      "\006 \001(\010\022\020\n\010Protocol\030\007 \001(\t\"\223\001\n\034VodListCdnHi" +
+      "trateDataRequest\022\017\n\007Domains\030\001 \001(\t\022\020\n\010Int" +
+      "erval\030\002 \001(\t\022\026\n\016StartTimestamp\030\003 \001(\003\022\024\n\014E" +
+      "ndTimestamp\030\004 \001(\003\022\016\n\006Metric\030\005 \001(\t\022\022\n\nNee" +
+      "dDetail\030\006 \001(\010\"\307\001\n&VodDescribeVodDomainTr" +
+      "afficDataRequest\022\022\n\nDomainList\030\001 \001(\t\022\031\n\021" +
+      "DomainInSpaceList\030\002 \001(\t\022\021\n\tStartTime\030\003 \001" +
+      "(\t\022\017\n\007EndTime\030\004 \001(\t\022\023\n\013Aggregation\030\005 \001(\005" +
+      "\022\023\n\013TrafficType\030\006 \001(\t\022\014\n\004Area\030\007 \001(\t\022\022\n\nR" +
+      "egionList\030\010 \001(\t\"T\n\032VodSubmitBlockTasksRe" +
+      "quest\022\020\n\010FileUrls\030\001 \001(\t\022\021\n\tOperation\030\002 \001" +
+      "(\t\022\021\n\tSpaceName\030\003 \001(\t\"\266\001\n\036VodGetContentB" +
+      "lockTasksRequest\022\013\n\003Url\030\001 \001(\t\022\016\n\006Domain\030" +
+      "\002 \001(\t\022\016\n\006TaskID\030\003 \001(\t\022\020\n\010TaskType\030\004 \001(\t\022" +
+      "\016\n\006Status\030\005 \001(\t\022\021\n\tStartTime\030\006 \001(\003\022\017\n\007En" +
+      "dTime\030\007 \001(\003\022\017\n\007PageNum\030\010 \001(\003\022\020\n\010PageSize" +
+      "\030\t \001(\003\"\315\002\n\030VodCreateDomainV2Request\022\021\n\tS" +
+      "paceName\030\001 \001(\t\022\022\n\nDomainType\030\002 \001(\t\022\016\n\006Do" +
+      "main\030\003 \001(\t\022\031\n\021SourceStationType\030\005 \001(\005\022 \n" +
+      "\030SourceStationAddressType\030\006 \001(\005\022\017\n\007Origi" +
+      "ns\030\007 \001(\t\022\014\n\004Area\030\010 \001(\t\022\022\n\nBucketName\030\t \001" +
+      "(\t\022\014\n\004Host\030\n \001(\t\022\033\n\023PrivateBucketAccess\030" +
+      "\013 \001(\010\022O\n\021PrivateBucketAuth\030\014 \001(\01324.Volce" +
+      "ngine.Vod.Models.Business.VodPrivateBuck" +
+      "etAuth\022\016\n\006Region\030\r \001(\t\"\201\002\n\030VodCreateDoma" +
+      "inV3Request\022\021\n\tSpaceName\030\001 \001(\t\022\022\n\nDomain" +
+      "Type\030\002 \001(\t\022\016\n\006Domain\030\003 \001(\t\022\031\n\021SourceStat" +
+      "ionType\030\005 \001(\005\022\014\n\004Area\030\010 \001(\t\022\022\n\nBucketNam" +
+      "e\030\t \001(\t\0222\n\004IPv6\030\n \001(\0132$.Volcengine.Vod.M" +
+      "odels.Business.IPv6\022=\n\006Origin\030\013 \003(\0132-.Vo" +
+      "lcengine.Vod.Models.Business.CdnOriginRu" +
+      "le\"g\n\036VodUpdateDomainExpireV2Request\022\021\n\t" +
+      "SpaceName\030\001 \001(\t\022\022\n\nDomainType\030\002 \001(\t\022\016\n\006D" +
+      "omain\030\003 \001(\t\022\016\n\006Expire\030\004 \001(\005\"\217\001\n\"VodUpdat",
+      "eDomainAuthConfigV2Request\022\021\n\tSpaceName\030" +
+      "\001 \001(\t\022\022\n\nDomainType\030\002 \001(\t\022\016\n\006Domain\030\003 \001(" +
+      "\t\022\017\n\007MainKey\030\004 \001(\t\022\021\n\tBackupKey\030\005 \001(\t\022\016\n" +
+      "\006Status\030\006 \001(\t\"\222\001\n%VodUpdateDomainUrlAuth" +
+      "ConfigV2Request\022\021\n\tSpaceName\030\001 \001(\t\022\022\n\nDo" +
+      "mainType\030\002 \001(\t\022\016\n\006Domain\030\003 \001(\t\022\017\n\007MainKe" +
+      "y\030\004 \001(\t\022\021\n\tBackupKey\030\005 \001(\t\022\016\n\006Status\030\006 \001" +
+      "(\t\"A\n\033VodVerifyDomainOwnerRequest\022\016\n\006Dom" +
+      "ain\030\001 \001(\t\022\022\n\nVerifyType\030\002 \001(\t\"7\n%VodDesc" +
+      "ribeDomainVerifyContentRequest\022\016\n\006Domain" +
+      "\030\001 \001(\t\"L\n\030VodListPCDNDomainRequest\022\021\n\tSp" +
+      "aceName\030\001 \001(\t\022\016\n\006Offset\030\002 \001(\005\022\r\n\005Limit\030\003" +
+      " \001(\005\"?\n\032VodCreatePCDNDomainRequest\022\021\n\tSp" +
+      "aceName\030\001 \001(\t\022\016\n\006Domain\030\002 \001(\t\">\n\031VodStar" +
+      "tPCDNDomainRequest\022\021\n\tSpaceName\030\001 \001(\t\022\016\n" +
+      "\006Domain\030\002 \001(\t\"=\n\030VodStopPCDNDomainReques" +
+      "t\022\021\n\tSpaceName\030\001 \001(\t\022\016\n\006Domain\030\002 \001(\t\"?\n\032" +
+      "VodDeletePCDNDomainRequest\022\021\n\tSpaceName\030" +
+      "\001 \001(\t\022\016\n\006Domain\030\002 \001(\t\"\226\001\n\034VodUpdateDomai" +
+      "nConfigRequest\022\021\n\tSpaceName\030\001 \001(\t\022\022\n\nDom" +
+      "ainType\030\002 \001(\t\022\016\n\006Domain\030\003 \001(\t\022?\n\006Config\030" +
+      "\004 \001(\0132/.Volcengine.Vod.Models.Business.V" +
+      "odDomainConfig\"W\n\036VodDescribeDomainConfi" +
+      "gRequest\022\021\n\tSpaceName\030\001 \001(\t\022\022\n\nDomainTyp" +
+      "e\030\002 \001(\t\022\016\n\006Domain\030\003 \001(\t\"\204\001\n\037AddOrUpdateC" +
+      "ertificateV2Request\022\021\n\tSpaceName\030\001 \001(\t\022\016" +
+      "\n\006Domain\030\002 \001(\t\022\022\n\nDomainType\030\003 \001(\t\022\025\n\rCe" +
+      "rtificateId\030\004 \001(\t\022\023\n\013HttpsStatus\030\005 \001(\t\"^" +
+      "\n\027UpdateDomainAreaRequest\022\021\n\tSpaceName\030\001" +
+      " \001(\t\022\016\n\006Domain\030\002 \001(\t\022\022\n\nDomainType\030\003 \001(\t" +
+      "\022\014\n\004Area\030\004 \001(\t\"X\n!VodAddCallbackSubscrip" +
+      "tionRequest\022\021\n\tSpaceName\030\001 \001(\t\022\013\n\003Url\030\002 " +
+      "\001(\t\022\023\n\013ContentType\030\003 \001(\t\"h\n\032VodSetCallba" +
+      "ckEventRequest\022\021\n\tSpaceName\030\001 \001(\t\022\016\n\006Eve" +
+      "nts\030\002 \001(\t\022\023\n\013AuthEnabled\030\003 \001(\t\022\022\n\nPrivat" +
+      "eKey\030\004 \001(\t\"\253\001\n\030GetCallbackRecordRequest\022" +
+      "\021\n\tSpaceName\030\001 \001(\t\022\013\n\003Vid\030\002 \001(\t\022\016\n\006Statu" +
+      "s\030\003 \001(\t\022\021\n\tStartTime\030\004 \001(\003\022\017\n\007EndTime\030\005 " +
+      "\001(\003\022\r\n\005Limit\030\006 \001(\005\022\021\n\tEventType\030\007 \001(\t\022\031\n" +
+      "\021ContinuationToken\030\010 \001(\t\"\364\001\n&VodGetSmart" +
+      "StrategyLitePlayInfoRequest\022\017\n\007PlayUrl\030\001" +
+      " \001(\t\022\016\n\006Format\030\002 \001(\t\022\r\n\005Codec\030\003 \001(\t\022\022\n\nD" +
+      "efinition\030\004 \001(\t\022\020\n\010FileType\030\005 \001(\t\022\020\n\010Log" +
+      "oType\030\006 \001(\t\022\013\n\003Ssl\030\007 \001(\t\022\022\n\nNeedThumbs\030\010" +
+      " \001(\t\022\027\n\017NeedBarrageMask\030\t \001(\t\022\021\n\tUnionIn" +
+      "fo\030\n \001(\t\022\025\n\rHDRDefinition\030\013 \001(\t\"%\n\024VodGe" +
+      "tAppInfoRequest\022\r\n\005AppId\030\001 \001(\004\"\344\001\n$Descr" +
+      "ibeVodSpaceTranscodeDataRequest\022\021\n\tSpace" +
+      "List\030\001 \001(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007EndTime" +
+      "\030\003 \001(\t\022\025\n\rTranscodeType\030\004 \001(\t\022\025\n\rSpecifi" +
+      "cation\030\005 \001(\t\022\025\n\rTaskStageList\030\006 \001(\t\022\023\n\013A" +
+      "ggregation\030\007 \001(\003\022\027\n\017DetailFieldList\030\010 \001(" +
+      "\t\022\022\n\nRegionList\030\t \001(\t\"\312\001\n#DescribeVodSpa" +
+      "ceAIStatisDataRequest\022\021\n\tSpaceList\030\001 \001(\t" +
+      "\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007EndTime\030\003 \001(\t\022\023\n\013" +
+      "MediaAiType\030\004 \001(\t\022\025\n\rTaskStageList\030\005 \001(\t" +
+      "\022\023\n\013Aggregation\030\006 \001(\003\022\027\n\017DetailFieldList" +
+      "\030\007 \001(\t\022\022\n\nRegionList\030\010 \001(\t\"\321\001\n)DescribeV" +
+      "odSpaceSubtitleStatisDataRequest\022\021\n\tSpac" +
+      "eList\030\001 \001(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007EndTim" +
+      "e\030\003 \001(\t\022\024\n\014SubtitleType\030\004 \001(\t\022\025\n\rTaskSta" +
+      "geList\030\005 \001(\t\022\023\n\013Aggregation\030\006 \001(\003\022\027\n\017Det" +
+      "ailFieldList\030\007 \001(\t\022\022\n\nRegionList\030\010 \001(\t\"\315" +
+      "\001\n\'DescribeVodSpaceDetectStatisDataReque" +
+      "st\022\021\n\tSpaceList\030\001 \001(\t\022\021\n\tStartTime\030\002 \001(\t" +
+      "\022\017\n\007EndTime\030\003 \001(\t\022\022\n\nDetectType\030\004 \001(\t\022\025\n" +
+      "\rTaskStageList\030\005 \001(\t\022\023\n\013Aggregation\030\006 \001(" +
+      "\003\022\027\n\017DetailFieldList\030\007 \001(\t\022\022\n\nRegionList" +
+      "\030\010 \001(\t\"\306\001\n\036DescribeVodSnapshotDataReques" +
+      "t\022\021\n\tSpaceList\030\001 \001(\t\022\021\n\tStartTime\030\002 \001(\t\022" +
+      "\017\n\007EndTime\030\003 \001(\t\022\024\n\014SnapshotType\030\004 \001(\t\022\025" +
+      "\n\rTaskStageList\030\005 \001(\t\022\023\n\013Aggregation\030\006 \001" +
+      "(\003\022\027\n\017DetailFieldList\030\007 \001(\t\022\022\n\nRegionLis" +
+      "t\030\010 \001(\t\"\221\001\n)DescribeVodSpaceWorkflowDeta" +
+      "ilDataRequest\022\016\n\006Region\030\001 \001(\t\022\r\n\005Space\030\002" +
+      " \001(\t\022\021\n\tStartTime\030\003 \001(\t\022\017\n\007EndTime\030\004 \001(\t" +
+      "\022\020\n\010PageSize\030\005 \001(\003\022\017\n\007PageNum\030\006 \001(\003\"\215\001\n%" +
+      "DescribeVodSpaceEditDetailDataRequest\022\016\n" +
+      "\006Region\030\001 \001(\t\022\r\n\005Space\030\002 \001(\t\022\021\n\tStartTim" +
+      "e\030\003 \001(\t\022\017\n\007EndTime\030\004 \001(\t\022\020\n\010PageSize\030\005 \001" +
+      "(\003\022\017\n\007PageNum\030\006 \001(\003\"_\n%DescribeVodPlayFi" +
+      "leLogByDomainRequest\022\021\n\tStartTime\030\001 \001(\t\022" +
+      "\017\n\007EndTime\030\002 \001(\t\022\022\n\nDomainList\030\003 \001(\t\"\261\001\n" +
+      "\"DescribeVodEnhanceImageDataRequest\022\021\n\tS" +
+      "paceList\030\001 \001(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007End" +
+      "Time\030\003 \001(\t\022\024\n\014TaskTypeList\030\004 \001(\t\022\025\n\rTask" +
+      "StageList\030\005 \001(\t\022\023\n\013Aggregation\030\006 \001(\003\022\022\n\n" +
+      "RegionList\030\007 \001(\t\"\267\001\n%DescribeVodSpaceEdi" +
+      "tStatisDataRequest\022\021\n\tSpaceList\030\001 \001(\t\022\021\n" +
+      "\tStartTime\030\002 \001(\t\022\017\n\007EndTime\030\003 \001(\t\022\025\n\rSpe" +
+      "cification\030\004 \001(\t\022\023\n\013Aggregation\030\005 \001(\003\022\027\n" +
+      "\017DetailFieldList\030\006 \001(\t\022\022\n\nRegionList\030\007 \001" +
+      "(\t\"{\n\"DescribeVodPlayedStatisDataRequest" +
+      "\022\r\n\005Space\030\001 \001(\t\022\021\n\tStartTime\030\002 \001(\t\022\017\n\007En" +
+      "dTime\030\003 \001(\t\022\017\n\007VidList\030\004 \001(\t\022\021\n\tOrderTyp" +
+      "e\030\005 \001(\t\"|\n&DescribeVodMostPlayedStatisDa" +
+      "taRequest\022\r\n\005Space\030\001 \001(\t\022\021\n\tStartTime\030\002 " +
+      "\001(\t\022\017\n\007EndTime\030\003 \001(\t\022\021\n\tOrderType\030\004 \001(\t\022" +
+      "\014\n\004TopN\030\005 \001(\003\"\237\001\n#DescribeVodRealtimeMed" +
+      "iaDataRequest\022\021\n\tSpaceList\030\001 \001(\t\022\021\n\tStar" +
+      "tTime\030\002 \001(\t\022\017\n\007EndTime\030\003 \001(\t\022\023\n\013ProcessT" +
+      "ype\030\004 \001(\t\022\023\n\013Aggregation\030\005 \001(\003\022\027\n\017Detail" +
+      "FieldList\030\006 \001(\t\"\221\001\n)DescribeVodRealtimeM" +
+      "ediaDetailDataRequest\022\016\n\006Region\030\001 \001(\t\022\r\n" +
+      "\005Space\030\002 \001(\t\022\021\n\tStartTime\030\003 \001(\t\022\017\n\007EndTi" +
+      "me\030\004 \001(\t\022\020\n\010PageSize\030\005 \001(\003\022\017\n\007PageNum\030\006 " +
+      "\001(\003\"\\\n#DescribeVodVidTrafficFileLogReque" +
+      "st\022\021\n\tSpaceList\030\001 \001(\t\022\021\n\tStartTime\030\002 \001(\t" +
+      "\022\017\n\007EndTime\030\003 \001(\t\"A\n\036VodSubmitBlockMedia" +
+      "TaskRequest\022\021\n\tSpaceName\030\001 \001(\t\022\014\n\004Vids\030\002" +
+      " \001(\t\"C\n VodSubmitUnblockMediaTaskRequest" +
+      "\022\021\n\tSpaceName\030\001 \001(\t\022\014\n\004Vids\030\002 \001(\t\"B\n\037Vod" +
+      "QueryMediaBlockStatusRequest\022\021\n\tSpaceNam" +
+      "e\030\001 \001(\t\022\014\n\004Vids\030\002 \001(\t\"\030\n\026VodListProjects" +
+      "Request\"!\n\037VodGetTradeConfigurationReque" +
+      "st\"4\n\025VodReportEventRequest\022\n\n\002Id\030\001 \001(\t\022" +
+      "\017\n\007Reports\030\002 \001(\014\"\256\001\n\034VodSetCloudMigrateJ" +
+      "obRequest\022\r\n\005JobId\030\001 \001(\003\022S\n\rJobSourceInf" +
+      "o\030\002 \001(\0132<.Volcengine.Vod.Models.Business" +
+      ".VodCloudMigrateJobSourceInfo\022\027\n\017Callbac" +
+      "kAddress\030\003 \001(\t\022\021\n\tSpaceName\030\004 \001(\t\"\221\001\n\037Vo" +
+      "dSubmitCloudMigrateJobRequest\022\r\n\005JobId\030\001" +
+      " \001(\003\022\020\n\010SubAppId\030\002 \001(\t\022\021\n\tSourceVid\030\003 \001(" +
+      "\t\022\021\n\tTargetVid\030\004 \001(\t\022\024\n\014CallbackArgs\030\005 \001" +
+      "(\t\022\021\n\tSpaceName\030\006 \001(\t\"@\n\034VodGetCloudMigr" +
+      "ateJobRequest\022\r\n\005JobId\030\001 \001(\003\022\021\n\tSpaceNam" +
+      "e\030\002 \001(\tB\310\001\n(com.volcengine.service.vod.m" +
+      "odel.requestB\nVodRequestP\001Z@github.com/v" +
+      "olcengine/volc-sdk-golang/service/vod/mo" +
+      "dels/request\240\001\001\330\001\001\312\002\037Volc\\Service\\Vod\\Mo" +
+      "dels\\Request\342\002#Volc\\Service\\Vod\\Models\\G" +
+      "PBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1940,7 +1944,7 @@ public final class VodRequest {
     internal_static_Volcengine_Vod_Models_Request_VodListCdnPvDataRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Request_VodListCdnPvDataRequest_descriptor,
-        new java.lang.String[] { "Domains", "Interval", "StartTimestamp", "EndTimestamp", "DataType", "NeedDetail", });
+        new java.lang.String[] { "Domains", "Interval", "StartTimestamp", "EndTimestamp", "DataType", "NeedDetail", "Protocol", });
     internal_static_Volcengine_Vod_Models_Request_VodListCdnHitrateDataRequest_descriptor =
       getDescriptor().getMessageTypes().get(103);
     internal_static_Volcengine_Vod_Models_Request_VodListCdnHitrateDataRequest_fieldAccessorTable = new
@@ -1970,7 +1974,7 @@ public final class VodRequest {
     internal_static_Volcengine_Vod_Models_Request_VodCreateDomainV2Request_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Request_VodCreateDomainV2Request_descriptor,
-        new java.lang.String[] { "SpaceName", "DomainType", "Domain", "SourceStationType", "SourceStationAddressType", "Origins", "Area", "BucketName", });
+        new java.lang.String[] { "SpaceName", "DomainType", "Domain", "SourceStationType", "SourceStationAddressType", "Origins", "Area", "BucketName", "Host", "PrivateBucketAccess", "PrivateBucketAuth", "Region", });
     internal_static_Volcengine_Vod_Models_Request_VodCreateDomainV3Request_descriptor =
       getDescriptor().getMessageTypes().get(108);
     internal_static_Volcengine_Vod_Models_Request_VodCreateDomainV3Request_fieldAccessorTable = new

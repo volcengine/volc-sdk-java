@@ -126,4 +126,81 @@ public interface VodCreateDomainV2RequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getBucketNameBytes();
+
+  /**
+   * <pre>
+   * 回源Host
+   * </pre>
+   *
+   * <code>string Host = 10;</code>
+   * @return The host.
+   */
+  java.lang.String getHost();
+  /**
+   * <pre>
+   * 回源Host
+   * </pre>
+   *
+   * <code>string Host = 10;</code>
+   * @return The bytes for host.
+   */
+  com.google.protobuf.ByteString
+      getHostBytes();
+
+  /**
+   * <pre>
+   * 是否开启私有桶访问
+   * </pre>
+   *
+   * <code>bool PrivateBucketAccess = 11;</code>
+   * @return The privateBucketAccess.
+   */
+  boolean getPrivateBucketAccess();
+
+  /**
+   * <pre>
+   * 私有桶访问授权信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodPrivateBucketAuth PrivateBucketAuth = 12;</code>
+   * @return Whether the privateBucketAuth field is set.
+   */
+  boolean hasPrivateBucketAuth();
+  /**
+   * <pre>
+   * 私有桶访问授权信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodPrivateBucketAuth PrivateBucketAuth = 12;</code>
+   * @return The privateBucketAuth.
+   */
+  com.volcengine.service.vod.model.business.VodPrivateBucketAuth getPrivateBucketAuth();
+  /**
+   * <pre>
+   * 私有桶访问授权信息
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodPrivateBucketAuth PrivateBucketAuth = 12;</code>
+   */
+  com.volcengine.service.vod.model.business.VodPrivateBucketAuthOrBuilder getPrivateBucketAuthOrBuilder();
+
+  /**
+   * <pre>
+   * 回源桶地址
+   * </pre>
+   *
+   * <code>string Region = 13;</code>
+   * @return The region.
+   */
+  java.lang.String getRegion();
+  /**
+   * <pre>
+   * 回源桶地址
+   * </pre>
+   *
+   * <code>string Region = 13;</code>
+   * @return The bytes for region.
+   */
+  com.google.protobuf.ByteString
+      getRegionBytes();
 }

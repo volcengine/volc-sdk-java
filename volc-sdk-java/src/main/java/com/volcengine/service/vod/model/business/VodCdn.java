@@ -195,6 +195,26 @@ public final class VodCdn {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderControl_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodTosAuthInformation_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodTosAuthInformation_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodPrivateBucketAuth_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodPrivateBucketAuth_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodOriginalConfig_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodOriginalConfig_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodOriginalControl_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodOriginalControl_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Vod_Models_Business_VodDomainConfig_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -376,52 +396,70 @@ public final class VodCdn {
       "engine.Vod.Models.Business.VodResponseHe" +
       "aderAction\"i\n\030VodResponseHeaderControl\022M" +
       "\n\016ResponseHeader\030\001 \003(\01325.Volcengine.Vod." +
-      "Models.Business.VodResponseHeaderRule\"j\n" +
-      "\017VodDomainConfig\022W\n\025ResponseHeaderContro" +
-      "l\030\001 \001(\01328.Volcengine.Vod.Models.Business" +
-      ".VodResponseHeaderControl\"q\n\022VodDomainBa" +
-      "sicInfo\022\016\n\006Domain\030\001 \001(\t\022\r\n\005Cname\030\002 \001(\t\022\024" +
-      "\n\014ConfigStatus\030\003 \001(\t\022\022\n\nCreateTime\030\004 \001(\t" +
-      "\022\022\n\nLockStatus\030\005 \001(\t\"\267\001\n\035VodDescribeDoma" +
-      "inConfigResult\022\021\n\tSpaceName\030\001 \001(\t\022B\n\006Dom" +
-      "ain\030\002 \001(\01322.Volcengine.Vod.Models.Busine" +
-      "ss.VodDomainBasicInfo\022?\n\006Config\030\003 \001(\0132/." +
-      "Volcengine.Vod.Models.Business.VodDomain" +
-      "Config\"\241\001\n\027VodPCDNDomainConfigInfo\022\021\n\tSp" +
-      "aceName\030\001 \001(\t\022T\n\020PCDNInstanceInfo\030\002 \001(\0132" +
-      ":.Volcengine.Vod.Models.Business.VodPCDN" +
-      "DomainInstanceInfos\022\r\n\005Total\030\003 \001(\003\022\016\n\006Of" +
-      "fset\030\004 \001(\003\"`\n\032VodPCDNDomainInstanceInfos" +
-      "\022B\n\007Domains\030\001 \003(\01321.Volcengine.Vod.Model" +
-      "s.Business.VodPCDNDomainInfo\"[\n\021VodPCDND" +
-      "omainInfo\022\016\n\006Domain\030\001 \001(\t\022\016\n\006Status\030\002 \001(" +
-      "\t\022\022\n\nCreateTime\030\003 \001(\t\022\022\n\nUpdateTime\030\004 \001(" +
-      "\t\"H\n\032VodVerifyDomainOwnerResult\022\024\n\014Verif" +
-      "yResult\030\001 \001(\010\022\024\n\014ErrorMessage\030\002 \001(\t\"O\n\026V" +
-      "odDomainDNSVerifyInfo\022\014\n\004Host\030\001 \001(\t\022\022\n\nR" +
-      "ecordType\030\002 \001(\t\022\023\n\013RecordValue\030\003 \001(\t\"c\n\027" +
-      "VodDomainFileVerifyInfo\022\025\n\rVerifyDomains" +
-      "\030\001 \003(\t\022\026\n\016VerifyFileName\030\002 \001(\t\022\031\n\021Verify" +
-      "FileContent\030\003 \001(\t\"\332\001\n$VodDescribeDomainV" +
-      "erifyContentResult\022\022\n\nNeedVerify\030\001 \001(\010\022M" +
-      "\n\rDNSVerifyInfo\030\002 \001(\01326.Volcengine.Vod.M" +
-      "odels.Business.VodDomainDNSVerifyInfo\022O\n" +
-      "\016FileVerifyInfo\030\003 \001(\01327.Volcengine.Vod.M" +
-      "odels.Business.VodDomainFileVerifyInfo*\222" +
-      "\001\n\032VodDomainSourceStationType\022\'\n#Undefin" +
-      "edVodDomainSourceStationType\020\000\022!\n\035VodVod" +
-      "DomainSourceStationType\020\001\022(\n$ThirdPartyV" +
-      "odDomainSourceStationType\020\002*\251\001\n!VodDomai" +
-      "nSourceStationAddressType\022.\n*UndefinedVo" +
-      "dDomainSourceStationAddressType\020\000\022+\n\'Dom" +
-      "ainVodDomainSourceStationAddressType\020\001\022\'" +
-      "\n#IPVodDomainSourceStationAddressType\020\002B" +
-      "\312\001\n)com.volcengine.service.vod.model.bus" +
-      "inessB\006VodCdnP\001ZAgithub.com/volcengine/v" +
-      "olc-sdk-golang/service/vod/models/busine" +
-      "ss\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Models\\Bu" +
-      "siness\342\002#Volc\\Service\\Vod\\Models\\GPBMeta" +
-      "datab\006proto3"
+      "Models.Business.VodResponseHeaderRule\"E\n" +
+      "\025VodTosAuthInformation\022\023\n\013AccessKeyId\030\001 " +
+      "\001(\t\022\027\n\017AccessKeySecret\030\002 \001(\t\"\213\001\n\024VodPriv" +
+      "ateBucketAuth\022\016\n\006Switch\030\001 \001(\010\022\020\n\010AuthTyp" +
+      "e\030\002 \001(\t\022Q\n\022TosAuthInformation\030\003 \001(\01325.Vo" +
+      "lcengine.Vod.Models.Business.VodTosAuthI" +
+      "nformation\"\251\002\n\021VodOriginalConfig\022\017\n\007Orig" +
+      "ins\030\001 \001(\t\022\022\n\nOriginType\030\002 \001(\t\022c\n\030SourceS" +
+      "tationAddressType\030\003 \001(\0162A.Volcengine.Vod" +
+      ".Models.Business.VodDomainSourceStationA" +
+      "ddressType\022\014\n\004Host\030\004 \001(\t\022\033\n\023PrivateBucke" +
+      "tAccess\030\005 \001(\010\022O\n\021PrivateBucketAuth\030\006 \001(\013" +
+      "24.Volcengine.Vod.Models.Business.VodPri" +
+      "vateBucketAuth\022\016\n\006Region\030\007 \001(\t\"f\n\022VodOri" +
+      "ginalControl\022B\n\007Origins\030\001 \003(\01321.Volcengi" +
+      "ne.Vod.Models.Business.VodOriginalConfig" +
+      "\022\014\n\004Host\030\002 \001(\t\"\267\001\n\017VodDomainConfig\022W\n\025Re" +
+      "sponseHeaderControl\030\001 \001(\01328.Volcengine.V" +
+      "od.Models.Business.VodResponseHeaderCont" +
+      "rol\022K\n\017OriginalControl\030\002 \001(\01322.Volcengin" +
+      "e.Vod.Models.Business.VodOriginalControl" +
+      "\"q\n\022VodDomainBasicInfo\022\016\n\006Domain\030\001 \001(\t\022\r" +
+      "\n\005Cname\030\002 \001(\t\022\024\n\014ConfigStatus\030\003 \001(\t\022\022\n\nC" +
+      "reateTime\030\004 \001(\t\022\022\n\nLockStatus\030\005 \001(\t\"\267\001\n\035" +
+      "VodDescribeDomainConfigResult\022\021\n\tSpaceNa" +
+      "me\030\001 \001(\t\022B\n\006Domain\030\002 \001(\01322.Volcengine.Vo" +
+      "d.Models.Business.VodDomainBasicInfo\022?\n\006" +
+      "Config\030\003 \001(\0132/.Volcengine.Vod.Models.Bus" +
+      "iness.VodDomainConfig\"\241\001\n\027VodPCDNDomainC" +
+      "onfigInfo\022\021\n\tSpaceName\030\001 \001(\t\022T\n\020PCDNInst" +
+      "anceInfo\030\002 \001(\0132:.Volcengine.Vod.Models.B" +
+      "usiness.VodPCDNDomainInstanceInfos\022\r\n\005To" +
+      "tal\030\003 \001(\003\022\016\n\006Offset\030\004 \001(\003\"`\n\032VodPCDNDoma" +
+      "inInstanceInfos\022B\n\007Domains\030\001 \003(\01321.Volce" +
+      "ngine.Vod.Models.Business.VodPCDNDomainI" +
+      "nfo\"[\n\021VodPCDNDomainInfo\022\016\n\006Domain\030\001 \001(\t" +
+      "\022\016\n\006Status\030\002 \001(\t\022\022\n\nCreateTime\030\003 \001(\t\022\022\n\n" +
+      "UpdateTime\030\004 \001(\t\"H\n\032VodVerifyDomainOwner" +
+      "Result\022\024\n\014VerifyResult\030\001 \001(\010\022\024\n\014ErrorMes" +
+      "sage\030\002 \001(\t\"O\n\026VodDomainDNSVerifyInfo\022\014\n\004" +
+      "Host\030\001 \001(\t\022\022\n\nRecordType\030\002 \001(\t\022\023\n\013Record" +
+      "Value\030\003 \001(\t\"c\n\027VodDomainFileVerifyInfo\022\025" +
+      "\n\rVerifyDomains\030\001 \003(\t\022\026\n\016VerifyFileName\030" +
+      "\002 \001(\t\022\031\n\021VerifyFileContent\030\003 \001(\t\"\332\001\n$Vod" +
+      "DescribeDomainVerifyContentResult\022\022\n\nNee" +
+      "dVerify\030\001 \001(\010\022M\n\rDNSVerifyInfo\030\002 \001(\01326.V" +
+      "olcengine.Vod.Models.Business.VodDomainD" +
+      "NSVerifyInfo\022O\n\016FileVerifyInfo\030\003 \001(\01327.V" +
+      "olcengine.Vod.Models.Business.VodDomainF" +
+      "ileVerifyInfo*\222\001\n\032VodDomainSourceStation" +
+      "Type\022\'\n#UndefinedVodDomainSourceStationT" +
+      "ype\020\000\022!\n\035VodVodDomainSourceStationType\020\001" +
+      "\022(\n$ThirdPartyVodDomainSourceStationType" +
+      "\020\002*\323\001\n!VodDomainSourceStationAddressType" +
+      "\022.\n*UndefinedVodDomainSourceStationAddre" +
+      "ssType\020\000\022+\n\'DomainVodDomainSourceStation" +
+      "AddressType\020\001\022\'\n#IPVodDomainSourceStatio" +
+      "nAddressType\020\002\022(\n$TOSVodDomainSourceStat" +
+      "ionAddressType\020\003B\312\001\n)com.volcengine.serv" +
+      "ice.vod.model.businessB\006VodCdnP\001ZAgithub" +
+      ".com/volcengine/volc-sdk-golang/service/" +
+      "vod/models/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Serv" +
+      "ice\\Vod\\Models\\Business\342\002#Volc\\Service\\V" +
+      "od\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -644,62 +682,86 @@ public final class VodCdn {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodResponseHeaderControl_descriptor,
         new java.lang.String[] { "ResponseHeader", });
-    internal_static_Volcengine_Vod_Models_Business_VodDomainConfig_descriptor =
+    internal_static_Volcengine_Vod_Models_Business_VodTosAuthInformation_descriptor =
       getDescriptor().getMessageTypes().get(36);
+    internal_static_Volcengine_Vod_Models_Business_VodTosAuthInformation_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodTosAuthInformation_descriptor,
+        new java.lang.String[] { "AccessKeyId", "AccessKeySecret", });
+    internal_static_Volcengine_Vod_Models_Business_VodPrivateBucketAuth_descriptor =
+      getDescriptor().getMessageTypes().get(37);
+    internal_static_Volcengine_Vod_Models_Business_VodPrivateBucketAuth_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodPrivateBucketAuth_descriptor,
+        new java.lang.String[] { "Switch", "AuthType", "TosAuthInformation", });
+    internal_static_Volcengine_Vod_Models_Business_VodOriginalConfig_descriptor =
+      getDescriptor().getMessageTypes().get(38);
+    internal_static_Volcengine_Vod_Models_Business_VodOriginalConfig_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodOriginalConfig_descriptor,
+        new java.lang.String[] { "Origins", "OriginType", "SourceStationAddressType", "Host", "PrivateBucketAccess", "PrivateBucketAuth", "Region", });
+    internal_static_Volcengine_Vod_Models_Business_VodOriginalControl_descriptor =
+      getDescriptor().getMessageTypes().get(39);
+    internal_static_Volcengine_Vod_Models_Business_VodOriginalControl_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodOriginalControl_descriptor,
+        new java.lang.String[] { "Origins", "Host", });
+    internal_static_Volcengine_Vod_Models_Business_VodDomainConfig_descriptor =
+      getDescriptor().getMessageTypes().get(40);
     internal_static_Volcengine_Vod_Models_Business_VodDomainConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainConfig_descriptor,
-        new java.lang.String[] { "ResponseHeaderControl", });
+        new java.lang.String[] { "ResponseHeaderControl", "OriginalControl", });
     internal_static_Volcengine_Vod_Models_Business_VodDomainBasicInfo_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_Volcengine_Vod_Models_Business_VodDomainBasicInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainBasicInfo_descriptor,
         new java.lang.String[] { "Domain", "Cname", "ConfigStatus", "CreateTime", "LockStatus", });
     internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainConfigResult_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(42);
     internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainConfigResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainConfigResult_descriptor,
         new java.lang.String[] { "SpaceName", "Domain", "Config", });
     internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainConfigInfo_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(43);
     internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainConfigInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainConfigInfo_descriptor,
         new java.lang.String[] { "SpaceName", "PCDNInstanceInfo", "Total", "Offset", });
     internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainInstanceInfos_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(44);
     internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainInstanceInfos_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainInstanceInfos_descriptor,
         new java.lang.String[] { "Domains", });
     internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainInfo_descriptor =
-      getDescriptor().getMessageTypes().get(41);
+      getDescriptor().getMessageTypes().get(45);
     internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodPCDNDomainInfo_descriptor,
         new java.lang.String[] { "Domain", "Status", "CreateTime", "UpdateTime", });
     internal_static_Volcengine_Vod_Models_Business_VodVerifyDomainOwnerResult_descriptor =
-      getDescriptor().getMessageTypes().get(42);
+      getDescriptor().getMessageTypes().get(46);
     internal_static_Volcengine_Vod_Models_Business_VodVerifyDomainOwnerResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodVerifyDomainOwnerResult_descriptor,
         new java.lang.String[] { "VerifyResult", "ErrorMessage", });
     internal_static_Volcengine_Vod_Models_Business_VodDomainDNSVerifyInfo_descriptor =
-      getDescriptor().getMessageTypes().get(43);
+      getDescriptor().getMessageTypes().get(47);
     internal_static_Volcengine_Vod_Models_Business_VodDomainDNSVerifyInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainDNSVerifyInfo_descriptor,
         new java.lang.String[] { "Host", "RecordType", "RecordValue", });
     internal_static_Volcengine_Vod_Models_Business_VodDomainFileVerifyInfo_descriptor =
-      getDescriptor().getMessageTypes().get(44);
+      getDescriptor().getMessageTypes().get(48);
     internal_static_Volcengine_Vod_Models_Business_VodDomainFileVerifyInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainFileVerifyInfo_descriptor,
         new java.lang.String[] { "VerifyDomains", "VerifyFileName", "VerifyFileContent", });
     internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainVerifyContentResult_descriptor =
-      getDescriptor().getMessageTypes().get(45);
+      getDescriptor().getMessageTypes().get(49);
     internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainVerifyContentResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainVerifyContentResult_descriptor,

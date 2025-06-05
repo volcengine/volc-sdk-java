@@ -61,6 +61,19 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 18: {
+            com.volcengine.service.vod.model.business.VodOriginalControl.Builder subBuilder = null;
+            if (originalControl_ != null) {
+              subBuilder = originalControl_.toBuilder();
+            }
+            originalControl_ = input.readMessage(com.volcengine.service.vod.model.business.VodOriginalControl.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(originalControl_);
+              originalControl_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -131,6 +144,44 @@ private static final long serialVersionUID = 0L;
     return getResponseHeaderControl();
   }
 
+  public static final int ORIGINALCONTROL_FIELD_NUMBER = 2;
+  private com.volcengine.service.vod.model.business.VodOriginalControl originalControl_;
+  /**
+   * <pre>
+   * 源站配置
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodOriginalControl OriginalControl = 2;</code>
+   * @return Whether the originalControl field is set.
+   */
+  @java.lang.Override
+  public boolean hasOriginalControl() {
+    return originalControl_ != null;
+  }
+  /**
+   * <pre>
+   * 源站配置
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodOriginalControl OriginalControl = 2;</code>
+   * @return The originalControl.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodOriginalControl getOriginalControl() {
+    return originalControl_ == null ? com.volcengine.service.vod.model.business.VodOriginalControl.getDefaultInstance() : originalControl_;
+  }
+  /**
+   * <pre>
+   * 源站配置
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodOriginalControl OriginalControl = 2;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodOriginalControlOrBuilder getOriginalControlOrBuilder() {
+    return getOriginalControl();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -148,6 +199,9 @@ private static final long serialVersionUID = 0L;
     if (responseHeaderControl_ != null) {
       output.writeMessage(1, getResponseHeaderControl());
     }
+    if (originalControl_ != null) {
+      output.writeMessage(2, getOriginalControl());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -160,6 +214,10 @@ private static final long serialVersionUID = 0L;
     if (responseHeaderControl_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getResponseHeaderControl());
+    }
+    if (originalControl_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, getOriginalControl());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -181,6 +239,11 @@ private static final long serialVersionUID = 0L;
       if (!getResponseHeaderControl()
           .equals(other.getResponseHeaderControl())) return false;
     }
+    if (hasOriginalControl() != other.hasOriginalControl()) return false;
+    if (hasOriginalControl()) {
+      if (!getOriginalControl()
+          .equals(other.getOriginalControl())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -195,6 +258,10 @@ private static final long serialVersionUID = 0L;
     if (hasResponseHeaderControl()) {
       hash = (37 * hash) + RESPONSEHEADERCONTROL_FIELD_NUMBER;
       hash = (53 * hash) + getResponseHeaderControl().hashCode();
+    }
+    if (hasOriginalControl()) {
+      hash = (37 * hash) + ORIGINALCONTROL_FIELD_NUMBER;
+      hash = (53 * hash) + getOriginalControl().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -335,6 +402,12 @@ private static final long serialVersionUID = 0L;
         responseHeaderControl_ = null;
         responseHeaderControlBuilder_ = null;
       }
+      if (originalControlBuilder_ == null) {
+        originalControl_ = null;
+      } else {
+        originalControl_ = null;
+        originalControlBuilder_ = null;
+      }
       return this;
     }
 
@@ -365,6 +438,11 @@ private static final long serialVersionUID = 0L;
         result.responseHeaderControl_ = responseHeaderControl_;
       } else {
         result.responseHeaderControl_ = responseHeaderControlBuilder_.build();
+      }
+      if (originalControlBuilder_ == null) {
+        result.originalControl_ = originalControl_;
+      } else {
+        result.originalControl_ = originalControlBuilder_.build();
       }
       onBuilt();
       return result;
@@ -416,6 +494,9 @@ private static final long serialVersionUID = 0L;
       if (other == com.volcengine.service.vod.model.business.VodDomainConfig.getDefaultInstance()) return this;
       if (other.hasResponseHeaderControl()) {
         mergeResponseHeaderControl(other.getResponseHeaderControl());
+      }
+      if (other.hasOriginalControl()) {
+        mergeOriginalControl(other.getOriginalControl());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -599,6 +680,161 @@ private static final long serialVersionUID = 0L;
         responseHeaderControl_ = null;
       }
       return responseHeaderControlBuilder_;
+    }
+
+    private com.volcengine.service.vod.model.business.VodOriginalControl originalControl_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodOriginalControl, com.volcengine.service.vod.model.business.VodOriginalControl.Builder, com.volcengine.service.vod.model.business.VodOriginalControlOrBuilder> originalControlBuilder_;
+    /**
+     * <pre>
+     * 源站配置
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodOriginalControl OriginalControl = 2;</code>
+     * @return Whether the originalControl field is set.
+     */
+    public boolean hasOriginalControl() {
+      return originalControlBuilder_ != null || originalControl_ != null;
+    }
+    /**
+     * <pre>
+     * 源站配置
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodOriginalControl OriginalControl = 2;</code>
+     * @return The originalControl.
+     */
+    public com.volcengine.service.vod.model.business.VodOriginalControl getOriginalControl() {
+      if (originalControlBuilder_ == null) {
+        return originalControl_ == null ? com.volcengine.service.vod.model.business.VodOriginalControl.getDefaultInstance() : originalControl_;
+      } else {
+        return originalControlBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * 源站配置
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodOriginalControl OriginalControl = 2;</code>
+     */
+    public Builder setOriginalControl(com.volcengine.service.vod.model.business.VodOriginalControl value) {
+      if (originalControlBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        originalControl_ = value;
+        onChanged();
+      } else {
+        originalControlBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站配置
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodOriginalControl OriginalControl = 2;</code>
+     */
+    public Builder setOriginalControl(
+        com.volcengine.service.vod.model.business.VodOriginalControl.Builder builderForValue) {
+      if (originalControlBuilder_ == null) {
+        originalControl_ = builderForValue.build();
+        onChanged();
+      } else {
+        originalControlBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站配置
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodOriginalControl OriginalControl = 2;</code>
+     */
+    public Builder mergeOriginalControl(com.volcengine.service.vod.model.business.VodOriginalControl value) {
+      if (originalControlBuilder_ == null) {
+        if (originalControl_ != null) {
+          originalControl_ =
+            com.volcengine.service.vod.model.business.VodOriginalControl.newBuilder(originalControl_).mergeFrom(value).buildPartial();
+        } else {
+          originalControl_ = value;
+        }
+        onChanged();
+      } else {
+        originalControlBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站配置
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodOriginalControl OriginalControl = 2;</code>
+     */
+    public Builder clearOriginalControl() {
+      if (originalControlBuilder_ == null) {
+        originalControl_ = null;
+        onChanged();
+      } else {
+        originalControl_ = null;
+        originalControlBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站配置
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodOriginalControl OriginalControl = 2;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodOriginalControl.Builder getOriginalControlBuilder() {
+      
+      onChanged();
+      return getOriginalControlFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * 源站配置
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodOriginalControl OriginalControl = 2;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodOriginalControlOrBuilder getOriginalControlOrBuilder() {
+      if (originalControlBuilder_ != null) {
+        return originalControlBuilder_.getMessageOrBuilder();
+      } else {
+        return originalControl_ == null ?
+            com.volcengine.service.vod.model.business.VodOriginalControl.getDefaultInstance() : originalControl_;
+      }
+    }
+    /**
+     * <pre>
+     * 源站配置
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodOriginalControl OriginalControl = 2;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodOriginalControl, com.volcengine.service.vod.model.business.VodOriginalControl.Builder, com.volcengine.service.vod.model.business.VodOriginalControlOrBuilder> 
+        getOriginalControlFieldBuilder() {
+      if (originalControlBuilder_ == null) {
+        originalControlBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.VodOriginalControl, com.volcengine.service.vod.model.business.VodOriginalControl.Builder, com.volcengine.service.vod.model.business.VodOriginalControlOrBuilder>(
+                getOriginalControl(),
+                getParentForChildren(),
+                isClean());
+        originalControl_ = null;
+      }
+      return originalControlBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

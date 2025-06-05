@@ -11,6 +11,6 @@ public class ShortUrlConfig {
     @JSONField(name = "IsNeedClickDetails")
     String isNeedClickDetails;
 
-    @JSONField(name = "RawUrl")
-    String rawUrl;
+    @JSONField(name = "UaCheckStrategy")
+    Integer uaCheckStrategy;
 }

@@ -2759,25 +2759,25 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}
-	
-	
-	/**
+
+
+    /**
      * createDomain.
      *
      * @param input com.volcengine.service.vod.model.request.VodCreateDomainV2Request
      * @return com.volcengine.service.vod.model.response.VodCreateDomainV2Response
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodCreateDomainV2Response createDomain(com.volcengine.service.vod.model.request.VodCreateDomainV2Request input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.CreateDomain, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodCreateDomainV2Response createDomain(com.volcengine.service.vod.model.request.VodCreateDomainV2Request input) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.vod.Const.CreateDomain, new ArrayList<>(), JsonFormat.printer().print(input));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodCreateDomainV2Response.Builder responseBuilder = com.volcengine.service.vod.model.response.VodCreateDomainV2Response.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
+    }
 	
 	
 	/**
@@ -2892,25 +2892,25 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}
-	
-	
-	/**
+
+
+    /**
      * updateDomainConfig.
      *
      * @param input com.volcengine.service.vod.model.request.VodUpdateDomainConfigRequest
      * @return com.volcengine.service.vod.model.response.VodUpdateDomainConfigResponse
      * @throws Exception the exception
      */
-	@Override
-	public com.volcengine.service.vod.model.response.VodUpdateDomainConfigResponse updateDomainConfig(com.volcengine.service.vod.model.request.VodUpdateDomainConfigRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.UpdateDomainConfig, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+    @Override
+    public com.volcengine.service.vod.model.response.VodUpdateDomainConfigResponse updateDomainConfig(com.volcengine.service.vod.model.request.VodUpdateDomainConfigRequest input) throws Exception {
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.vod.Const.UpdateDomainConfig, new ArrayList<>(), JsonFormat.printer().print(input));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodUpdateDomainConfigResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodUpdateDomainConfigResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
-	}
+    }
 	
 	
 	/**

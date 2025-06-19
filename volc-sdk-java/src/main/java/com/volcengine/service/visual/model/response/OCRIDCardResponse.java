@@ -3,6 +3,7 @@ package com.volcengine.service.visual.model.response;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -27,7 +28,7 @@ public class OCRIDCardResponse extends VisualBaseResponse {
         String qualityCode;
 
         @JSONField(name = "quality_codes")
-        ArrayList<Integer> quality_codes;
+        ArrayList<Integer> qualityCodes;
     }
 
     @Data

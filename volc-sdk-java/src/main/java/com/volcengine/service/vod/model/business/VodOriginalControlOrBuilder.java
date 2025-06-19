@@ -70,4 +70,24 @@ public interface VodOriginalControlOrBuilder extends
    */
   com.google.protobuf.ByteString
       getHostBytes();
+
+  /**
+   * <pre>
+   * 回源协议，支持http、https、followclient，http
+   * </pre>
+   *
+   * <code>string OriginProtocol = 3;</code>
+   * @return The originProtocol.
+   */
+  java.lang.String getOriginProtocol();
+  /**
+   * <pre>
+   * 回源协议，支持http、https、followclient，http
+   * </pre>
+   *
+   * <code>string OriginProtocol = 3;</code>
+   * @return The bytes for originProtocol.
+   */
+  com.google.protobuf.ByteString
+      getOriginProtocolBytes();
 }

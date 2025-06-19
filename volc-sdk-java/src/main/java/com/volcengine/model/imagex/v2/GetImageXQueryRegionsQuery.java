@@ -24,7 +24,7 @@ public final class GetImageXQueryRegionsQuery  {
     private String source;
 
     /**
-     * <p>应用 ID。默认为空，匹配账号下所有的 AppID。</p>
+     * <p>应用 ID。传入多个用英文逗号分割。默认为空，匹配账号下所有的 AppID。</p>
      *
      * <p>:::tip</p>
      *

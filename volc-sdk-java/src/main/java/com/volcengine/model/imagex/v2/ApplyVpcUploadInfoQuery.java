@@ -50,7 +50,7 @@ public final class ApplyVpcUploadInfoQuery  {
     private String prefix;
 
     /**
-     * <p>文件扩展名，最大长度限制为 8 个字节。</p>
+     * <p>文件扩展名，最大长度限制为 20 个字节。</p>
      *
      *
      *

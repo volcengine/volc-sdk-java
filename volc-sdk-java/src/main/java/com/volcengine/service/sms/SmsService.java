@@ -162,6 +162,8 @@ public interface SmsService extends IBaseService {
 
     ApplySmsSignatureResponse applySmsSignatureV2(ApplySmsSignatureV2Request applySmsSignatureV2Request) throws Exception;
 
+    UpdateSmsSignatureResponse updateSmsSignature(UpdateSmsSignatureRequest updateSmsSignatureRequest) throws Exception;
+
     /**
      * DeleteSmsSignature
      *

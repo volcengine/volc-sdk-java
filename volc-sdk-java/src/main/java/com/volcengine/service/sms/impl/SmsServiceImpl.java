@@ -302,6 +302,13 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     }
 
     @Override
+    public UpdateSmsSignatureResponse updateSmsSignature(UpdateSmsSignatureRequest updateSmsSignatureRequest) throws Exception {
+        RawResponse response =
+                json("UpdateSmsSignature", new ArrayList<>(), JSON.toJSONString(updateSmsSignatureRequest));
+        return updateSmsSignatureResponse(response);
+    }
+
+    @Override
     public DeleteSignatureResponse deleteSmsSignature(DeleteSignatureRequest deleteSignatureRequest) throws Exception {
         RawResponse response = json("DeleteSignature", new ArrayList<>(), JSON.toJSONString(deleteSignatureRequest));
         return deleteSignatureResponse(response);
@@ -528,6 +535,19 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
             throw response.getException();
         }
         ApplySmsSignatureResponse res = JSON.parseObject(response.getData(), ApplySmsSignatureResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    private UpdateSmsSignatureResponse updateSmsSignatureResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateSmsSignatureResponse res = JSON.parseObject(response.getData(), UpdateSmsSignatureResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());

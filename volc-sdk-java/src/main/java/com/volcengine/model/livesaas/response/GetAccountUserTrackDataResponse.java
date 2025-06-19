@@ -52,6 +52,8 @@ public class GetAccountUserTrackDataResponse {
         Long JoinTime;
         @JSONField(name = "WatchDurationLive")
         Integer WatchDurationLive;
+        @JSONField(name = "CheckInCount")
+        Long CheckInCount;
     }
 
     @Data
@@ -88,6 +90,8 @@ public class GetAccountUserTrackDataResponse {
         Long CouponPickupCount;
         @JSONField(name = "ThumbUpNumber")
         Long ThumbUpNumber;
+        @JSONField(name = "CheckInCount")
+        Long CheckInCount;
     }
 
     @Data

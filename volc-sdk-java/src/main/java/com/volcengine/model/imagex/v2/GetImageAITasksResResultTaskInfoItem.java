@@ -83,6 +83,30 @@ public final class GetImageAITasksResResultTaskInfoItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "SubmitAt")
     private String submitAt;
 
+    /**
+     * <p>数据类型，取值如下所示：</p>
+     *
+     *
+     *
+     * <p>- `uri`：指定 ServiceId 下存储 URI。</p>
+     *
+     * <p>- `url`：公网可访问的 URL。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "DataType")
+    private String dataType;
+
+    /**
+     * <p>AI 图像处理模板参数，参看 [AI 图像处理模板](https://www.volcengine.com/docs/508/1515840)页面获取参数信息。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "WorkflowParameter")
+    private String workflowParameter;
+
+    /**
+     * <p>使用的 AI 图像处理模板 ID，参看 [AI 图像处理模板](https://www.volcengine.com/docs/508/1515840)页面获取模板 ID 对应的模板信息。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "WorkflowTemplateId")
+    private String workflowTemplateId;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

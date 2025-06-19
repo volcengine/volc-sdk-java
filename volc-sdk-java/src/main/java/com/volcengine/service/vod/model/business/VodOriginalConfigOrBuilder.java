@@ -142,4 +142,40 @@ public interface VodOriginalConfigOrBuilder extends
    */
   com.google.protobuf.ByteString
       getRegionBytes();
+
+  /**
+   * <code>string HttpPort = 8;</code>
+   * @return The httpPort.
+   */
+  java.lang.String getHttpPort();
+  /**
+   * <code>string HttpPort = 8;</code>
+   * @return The bytes for httpPort.
+   */
+  com.google.protobuf.ByteString
+      getHttpPortBytes();
+
+  /**
+   * <code>string HttpsPort = 9;</code>
+   * @return The httpsPort.
+   */
+  java.lang.String getHttpsPort();
+  /**
+   * <code>string HttpsPort = 9;</code>
+   * @return The bytes for httpsPort.
+   */
+  com.google.protobuf.ByteString
+      getHttpsPortBytes();
+
+  /**
+   * <code>string Weight = 10;</code>
+   * @return The weight.
+   */
+  java.lang.String getWeight();
+  /**
+   * <code>string Weight = 10;</code>
+   * @return The bytes for weight.
+   */
+  com.google.protobuf.ByteString
+      getWeightBytes();
 }

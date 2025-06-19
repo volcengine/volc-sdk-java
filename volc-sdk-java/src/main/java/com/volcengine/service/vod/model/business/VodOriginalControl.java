@@ -18,6 +18,7 @@ private static final long serialVersionUID = 0L;
   private VodOriginalControl() {
     origins_ = java.util.Collections.emptyList();
     host_ = "";
+    originProtocol_ = "";
   }
 
   @java.lang.Override
@@ -64,6 +65,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             host_ = s;
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            originProtocol_ = s;
             break;
           }
           default: {
@@ -207,6 +214,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int ORIGINPROTOCOL_FIELD_NUMBER = 3;
+  private volatile java.lang.Object originProtocol_;
+  /**
+   * <pre>
+   * 回源协议，支持http、https、followclient，http
+   * </pre>
+   *
+   * <code>string OriginProtocol = 3;</code>
+   * @return The originProtocol.
+   */
+  @java.lang.Override
+  public java.lang.String getOriginProtocol() {
+    java.lang.Object ref = originProtocol_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      originProtocol_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 回源协议，支持http、https、followclient，http
+   * </pre>
+   *
+   * <code>string OriginProtocol = 3;</code>
+   * @return The bytes for originProtocol.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getOriginProtocolBytes() {
+    java.lang.Object ref = originProtocol_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      originProtocol_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -227,6 +280,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(host_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, host_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(originProtocol_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, originProtocol_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -242,6 +298,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(host_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, host_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(originProtocol_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, originProtocol_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -262,6 +321,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getOriginsList())) return false;
     if (!getHost()
         .equals(other.getHost())) return false;
+    if (!getOriginProtocol()
+        .equals(other.getOriginProtocol())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -279,6 +340,8 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + HOST_FIELD_NUMBER;
     hash = (53 * hash) + getHost().hashCode();
+    hash = (37 * hash) + ORIGINPROTOCOL_FIELD_NUMBER;
+    hash = (53 * hash) + getOriginProtocol().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -421,6 +484,8 @@ private static final long serialVersionUID = 0L;
       }
       host_ = "";
 
+      originProtocol_ = "";
+
       return this;
     }
 
@@ -458,6 +523,7 @@ private static final long serialVersionUID = 0L;
         result.origins_ = originsBuilder_.build();
       }
       result.host_ = host_;
+      result.originProtocol_ = originProtocol_;
       onBuilt();
       return result;
     }
@@ -534,6 +600,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getHost().isEmpty()) {
         host_ = other.host_;
+        onChanged();
+      }
+      if (!other.getOriginProtocol().isEmpty()) {
+        originProtocol_ = other.originProtocol_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -970,6 +1040,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       host_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object originProtocol_ = "";
+    /**
+     * <pre>
+     * 回源协议，支持http、https、followclient，http
+     * </pre>
+     *
+     * <code>string OriginProtocol = 3;</code>
+     * @return The originProtocol.
+     */
+    public java.lang.String getOriginProtocol() {
+      java.lang.Object ref = originProtocol_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        originProtocol_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 回源协议，支持http、https、followclient，http
+     * </pre>
+     *
+     * <code>string OriginProtocol = 3;</code>
+     * @return The bytes for originProtocol.
+     */
+    public com.google.protobuf.ByteString
+        getOriginProtocolBytes() {
+      java.lang.Object ref = originProtocol_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        originProtocol_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 回源协议，支持http、https、followclient，http
+     * </pre>
+     *
+     * <code>string OriginProtocol = 3;</code>
+     * @param value The originProtocol to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOriginProtocol(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      originProtocol_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 回源协议，支持http、https、followclient，http
+     * </pre>
+     *
+     * <code>string OriginProtocol = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOriginProtocol() {
+      
+      originProtocol_ = getDefaultInstance().getOriginProtocol();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 回源协议，支持http、https、followclient，http
+     * </pre>
+     *
+     * <code>string OriginProtocol = 3;</code>
+     * @param value The bytes for originProtocol to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOriginProtocolBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      originProtocol_ = value;
       onChanged();
       return this;
     }

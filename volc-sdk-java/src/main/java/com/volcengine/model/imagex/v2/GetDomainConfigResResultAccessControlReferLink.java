@@ -11,52 +11,72 @@ import java.util.List;
 public final class GetDomainConfigResResultAccessControlReferLink  {
 
     /**
-     * <p>是否开启 Referer 访问限制，取值如下所示：</p>
+     * <p>是否开启 Referer 防盗链，取值如下所示：</p>
      *
-     * <p>* `true`：开启 Referer 访问限制</p>
      *
-     * <p>* `false`：关闭 Referer 访问限制</p>
+     *
+     * <p>- `true`：开启</p>
+     *
+     * <p>- `false`：关闭</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "enabled")
     private Boolean enabled;
 
     /**
-     * <p>是否是 Referer 白名单模式，取值如下所示：</p>
+     * <p>是否选择白名单，取值如下所示：</p>
      *
-     * <p>* `true`：白名单模式</p>
      *
-     * <p>* `false`：黑名单模式</p>
      *
-     * <p>:::tip</p>
+     * <p>- `true`：选择白名单</p>
      *
-     * <p>当`is_white_mode`为`false`时，即选用黑名单时，需确保`allow_empty_refer`为`true`。</p>
-     *
-     * <p>:::</p>
+     * <p>- `false`：不选择白名单</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "is_white_mode")
     private Boolean isWhiteMode;
 
     /**
-     * <p>是否允许空 Referer，取值如下所示：</p>
-     *
-     * <p>* `true`：允许空 Referer</p>
-     *
-     * <p>* `false`：禁止空 Referer</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "allow_empty_refer")
-    private Boolean allowEmptyRefer;
-
-    /**
-     * <p>Referer 列表</p>
+     * <p>根据是否为白名单，为对应的白/黑名单的值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "values")
     private List<String> values;
 
     /**
-     * <p>正则规则列表</p>
+     * <p>Referers 列表在匹配时是否是大小写敏感的。取值如下所示： </p>
+     *
+     * <p>- `true`: 表示大小写不敏感。 </p>
+     *
+     * <p>- `false`: 表示大小写敏感。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ignore_case")
+    private Boolean ignoreCase;
+
+    /**
+     * <p>Referers 列表的 Referer 头部值是否必须以 HTTP 或者 HTTPS 开头。取值如下所示： </p>
+     *
+     * <p>- `true`: 表示不以 HTTP 或者 HTTPS 开头的 Referer 头部值是合法的。</p>
+     *
+     * <p>- `false`: 表示不以 HTTP 或者 HTTPS 开头 Referer 头部值是非法的。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ignore_scheme")
+    private Boolean ignoreScheme;
+
+    /**
+     * <p>正则表达式规则列表</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "regex_values")
     private List<String> regexValues;
+
+    /**
+     * <p>是否允许空 Refer，取值如下所示：</p>
+     *
+     *
+     *
+     * <p>- `true`：允许空 Refer</p>
+     *
+     * <p>- `false`：不允许空 Refer</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "allow_empty_refer")
+    private Boolean allowEmptyRefer;
 
     @Override
     public String toString() {

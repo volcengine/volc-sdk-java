@@ -30,11 +30,11 @@ public final class GetImageXQueryDimsQuery  {
     private String source;
 
     /**
-     * <p>应用 ID。默认为空，匹配账号下所有的 AppID。</p>
+     * <p>应用 ID。传入多个用英文逗号分割。默认为空，匹配账号下所有的 AppID。</p>
      *
      * <p>:::tip</p>
      *
-     * <p>您可以通过调用[获取应用列表](https://www.volcengine.com/docs/508/1213042)的方式获取所需的 AppID。</p>
+     * <p>您可以通过调用[获取应用列表](https://www.volcengine.com/docs/508/1213042)的方式获取所需的应用 ID。</p>
      *
      * <p>:::</p>
      */

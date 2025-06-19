@@ -402,64 +402,66 @@ public final class VodCdn {
       "ateBucketAuth\022\016\n\006Switch\030\001 \001(\010\022\020\n\010AuthTyp" +
       "e\030\002 \001(\t\022Q\n\022TosAuthInformation\030\003 \001(\01325.Vo" +
       "lcengine.Vod.Models.Business.VodTosAuthI" +
-      "nformation\"\251\002\n\021VodOriginalConfig\022\017\n\007Orig" +
+      "nformation\"\336\002\n\021VodOriginalConfig\022\017\n\007Orig" +
       "ins\030\001 \001(\t\022\022\n\nOriginType\030\002 \001(\t\022c\n\030SourceS" +
       "tationAddressType\030\003 \001(\0162A.Volcengine.Vod" +
       ".Models.Business.VodDomainSourceStationA" +
       "ddressType\022\014\n\004Host\030\004 \001(\t\022\033\n\023PrivateBucke" +
       "tAccess\030\005 \001(\010\022O\n\021PrivateBucketAuth\030\006 \001(\013" +
       "24.Volcengine.Vod.Models.Business.VodPri" +
-      "vateBucketAuth\022\016\n\006Region\030\007 \001(\t\"f\n\022VodOri" +
-      "ginalControl\022B\n\007Origins\030\001 \003(\01321.Volcengi" +
-      "ne.Vod.Models.Business.VodOriginalConfig" +
-      "\022\014\n\004Host\030\002 \001(\t\"\267\001\n\017VodDomainConfig\022W\n\025Re" +
-      "sponseHeaderControl\030\001 \001(\01328.Volcengine.V" +
-      "od.Models.Business.VodResponseHeaderCont" +
-      "rol\022K\n\017OriginalControl\030\002 \001(\01322.Volcengin" +
-      "e.Vod.Models.Business.VodOriginalControl" +
-      "\"q\n\022VodDomainBasicInfo\022\016\n\006Domain\030\001 \001(\t\022\r" +
-      "\n\005Cname\030\002 \001(\t\022\024\n\014ConfigStatus\030\003 \001(\t\022\022\n\nC" +
-      "reateTime\030\004 \001(\t\022\022\n\nLockStatus\030\005 \001(\t\"\267\001\n\035" +
-      "VodDescribeDomainConfigResult\022\021\n\tSpaceNa" +
-      "me\030\001 \001(\t\022B\n\006Domain\030\002 \001(\01322.Volcengine.Vo" +
-      "d.Models.Business.VodDomainBasicInfo\022?\n\006" +
-      "Config\030\003 \001(\0132/.Volcengine.Vod.Models.Bus" +
-      "iness.VodDomainConfig\"\241\001\n\027VodPCDNDomainC" +
-      "onfigInfo\022\021\n\tSpaceName\030\001 \001(\t\022T\n\020PCDNInst" +
-      "anceInfo\030\002 \001(\0132:.Volcengine.Vod.Models.B" +
-      "usiness.VodPCDNDomainInstanceInfos\022\r\n\005To" +
-      "tal\030\003 \001(\003\022\016\n\006Offset\030\004 \001(\003\"`\n\032VodPCDNDoma" +
-      "inInstanceInfos\022B\n\007Domains\030\001 \003(\01321.Volce" +
-      "ngine.Vod.Models.Business.VodPCDNDomainI" +
-      "nfo\"[\n\021VodPCDNDomainInfo\022\016\n\006Domain\030\001 \001(\t" +
-      "\022\016\n\006Status\030\002 \001(\t\022\022\n\nCreateTime\030\003 \001(\t\022\022\n\n" +
-      "UpdateTime\030\004 \001(\t\"H\n\032VodVerifyDomainOwner" +
-      "Result\022\024\n\014VerifyResult\030\001 \001(\010\022\024\n\014ErrorMes" +
-      "sage\030\002 \001(\t\"O\n\026VodDomainDNSVerifyInfo\022\014\n\004" +
-      "Host\030\001 \001(\t\022\022\n\nRecordType\030\002 \001(\t\022\023\n\013Record" +
-      "Value\030\003 \001(\t\"c\n\027VodDomainFileVerifyInfo\022\025" +
-      "\n\rVerifyDomains\030\001 \003(\t\022\026\n\016VerifyFileName\030" +
-      "\002 \001(\t\022\031\n\021VerifyFileContent\030\003 \001(\t\"\332\001\n$Vod" +
-      "DescribeDomainVerifyContentResult\022\022\n\nNee" +
-      "dVerify\030\001 \001(\010\022M\n\rDNSVerifyInfo\030\002 \001(\01326.V" +
-      "olcengine.Vod.Models.Business.VodDomainD" +
-      "NSVerifyInfo\022O\n\016FileVerifyInfo\030\003 \001(\01327.V" +
-      "olcengine.Vod.Models.Business.VodDomainF" +
-      "ileVerifyInfo*\222\001\n\032VodDomainSourceStation" +
-      "Type\022\'\n#UndefinedVodDomainSourceStationT" +
-      "ype\020\000\022!\n\035VodVodDomainSourceStationType\020\001" +
-      "\022(\n$ThirdPartyVodDomainSourceStationType" +
-      "\020\002*\323\001\n!VodDomainSourceStationAddressType" +
-      "\022.\n*UndefinedVodDomainSourceStationAddre" +
-      "ssType\020\000\022+\n\'DomainVodDomainSourceStation" +
-      "AddressType\020\001\022\'\n#IPVodDomainSourceStatio" +
-      "nAddressType\020\002\022(\n$TOSVodDomainSourceStat" +
-      "ionAddressType\020\003B\312\001\n)com.volcengine.serv" +
-      "ice.vod.model.businessB\006VodCdnP\001ZAgithub" +
-      ".com/volcengine/volc-sdk-golang/service/" +
-      "vod/models/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Serv" +
-      "ice\\Vod\\Models\\Business\342\002#Volc\\Service\\V" +
-      "od\\Models\\GPBMetadatab\006proto3"
+      "vateBucketAuth\022\016\n\006Region\030\007 \001(\t\022\020\n\010HttpPo" +
+      "rt\030\010 \001(\t\022\021\n\tHttpsPort\030\t \001(\t\022\016\n\006Weight\030\n " +
+      "\001(\t\"~\n\022VodOriginalControl\022B\n\007Origins\030\001 \003" +
+      "(\01321.Volcengine.Vod.Models.Business.VodO" +
+      "riginalConfig\022\014\n\004Host\030\002 \001(\t\022\026\n\016OriginPro" +
+      "tocol\030\003 \001(\t\"\267\001\n\017VodDomainConfig\022W\n\025Respo" +
+      "nseHeaderControl\030\001 \001(\01328.Volcengine.Vod." +
+      "Models.Business.VodResponseHeaderControl" +
+      "\022K\n\017OriginalControl\030\002 \001(\01322.Volcengine.V" +
+      "od.Models.Business.VodOriginalControl\"q\n" +
+      "\022VodDomainBasicInfo\022\016\n\006Domain\030\001 \001(\t\022\r\n\005C" +
+      "name\030\002 \001(\t\022\024\n\014ConfigStatus\030\003 \001(\t\022\022\n\nCrea" +
+      "teTime\030\004 \001(\t\022\022\n\nLockStatus\030\005 \001(\t\"\267\001\n\035Vod" +
+      "DescribeDomainConfigResult\022\021\n\tSpaceName\030" +
+      "\001 \001(\t\022B\n\006Domain\030\002 \001(\01322.Volcengine.Vod.M" +
+      "odels.Business.VodDomainBasicInfo\022?\n\006Con" +
+      "fig\030\003 \001(\0132/.Volcengine.Vod.Models.Busine" +
+      "ss.VodDomainConfig\"\241\001\n\027VodPCDNDomainConf" +
+      "igInfo\022\021\n\tSpaceName\030\001 \001(\t\022T\n\020PCDNInstanc" +
+      "eInfo\030\002 \001(\0132:.Volcengine.Vod.Models.Busi" +
+      "ness.VodPCDNDomainInstanceInfos\022\r\n\005Total" +
+      "\030\003 \001(\003\022\016\n\006Offset\030\004 \001(\003\"`\n\032VodPCDNDomainI" +
+      "nstanceInfos\022B\n\007Domains\030\001 \003(\01321.Volcengi" +
+      "ne.Vod.Models.Business.VodPCDNDomainInfo" +
+      "\"[\n\021VodPCDNDomainInfo\022\016\n\006Domain\030\001 \001(\t\022\016\n" +
+      "\006Status\030\002 \001(\t\022\022\n\nCreateTime\030\003 \001(\t\022\022\n\nUpd" +
+      "ateTime\030\004 \001(\t\"H\n\032VodVerifyDomainOwnerRes" +
+      "ult\022\024\n\014VerifyResult\030\001 \001(\010\022\024\n\014ErrorMessag" +
+      "e\030\002 \001(\t\"O\n\026VodDomainDNSVerifyInfo\022\014\n\004Hos" +
+      "t\030\001 \001(\t\022\022\n\nRecordType\030\002 \001(\t\022\023\n\013RecordVal" +
+      "ue\030\003 \001(\t\"c\n\027VodDomainFileVerifyInfo\022\025\n\rV" +
+      "erifyDomains\030\001 \003(\t\022\026\n\016VerifyFileName\030\002 \001" +
+      "(\t\022\031\n\021VerifyFileContent\030\003 \001(\t\"\332\001\n$VodDes" +
+      "cribeDomainVerifyContentResult\022\022\n\nNeedVe" +
+      "rify\030\001 \001(\010\022M\n\rDNSVerifyInfo\030\002 \001(\01326.Volc" +
+      "engine.Vod.Models.Business.VodDomainDNSV" +
+      "erifyInfo\022O\n\016FileVerifyInfo\030\003 \001(\01327.Volc" +
+      "engine.Vod.Models.Business.VodDomainFile" +
+      "VerifyInfo*\222\001\n\032VodDomainSourceStationTyp" +
+      "e\022\'\n#UndefinedVodDomainSourceStationType" +
+      "\020\000\022!\n\035VodVodDomainSourceStationType\020\001\022(\n" +
+      "$ThirdPartyVodDomainSourceStationType\020\002*" +
+      "\323\001\n!VodDomainSourceStationAddressType\022.\n" +
+      "*UndefinedVodDomainSourceStationAddressT" +
+      "ype\020\000\022+\n\'DomainVodDomainSourceStationAdd" +
+      "ressType\020\001\022\'\n#IPVodDomainSourceStationAd" +
+      "dressType\020\002\022(\n$TOSVodDomainSourceStation" +
+      "AddressType\020\003B\312\001\n)com.volcengine.service" +
+      ".vod.model.businessB\006VodCdnP\001ZAgithub.co" +
+      "m/volcengine/volc-sdk-golang/service/vod" +
+      "/models/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service" +
+      "\\Vod\\Models\\Business\342\002#Volc\\Service\\Vod\\" +
+      "Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -699,13 +701,13 @@ public final class VodCdn {
     internal_static_Volcengine_Vod_Models_Business_VodOriginalConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodOriginalConfig_descriptor,
-        new java.lang.String[] { "Origins", "OriginType", "SourceStationAddressType", "Host", "PrivateBucketAccess", "PrivateBucketAuth", "Region", });
+        new java.lang.String[] { "Origins", "OriginType", "SourceStationAddressType", "Host", "PrivateBucketAccess", "PrivateBucketAuth", "Region", "HttpPort", "HttpsPort", "Weight", });
     internal_static_Volcengine_Vod_Models_Business_VodOriginalControl_descriptor =
       getDescriptor().getMessageTypes().get(39);
     internal_static_Volcengine_Vod_Models_Business_VodOriginalControl_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodOriginalControl_descriptor,
-        new java.lang.String[] { "Origins", "Host", });
+        new java.lang.String[] { "Origins", "Host", "OriginProtocol", });
     internal_static_Volcengine_Vod_Models_Business_VodDomainConfig_descriptor =
       getDescriptor().getMessageTypes().get(40);
     internal_static_Volcengine_Vod_Models_Business_VodDomainConfig_fieldAccessorTable = new

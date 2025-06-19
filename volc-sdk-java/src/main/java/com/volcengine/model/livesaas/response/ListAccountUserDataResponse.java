@@ -126,6 +126,8 @@ public class ListAccountUserDataResponse {
         Long CouponPickupCount;
         @JSONField(name = "ThumbUpNumber")
         Long ThumbUpNumber;
+        @JSONField(name = "CheckInCount")
+        Long CheckInCount;
     }
 
     @Data

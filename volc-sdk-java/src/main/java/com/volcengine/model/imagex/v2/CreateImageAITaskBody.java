@@ -35,7 +35,7 @@ public final class CreateImageAITaskBody  {
     private String dataType;
 
     /**
-     * <p>待进行 AI 处理的图片 URI 或 URL 列表，其中 URI 不需要带 `tos-cn-i-***` 前缀。传入图片的短边不小于 256 px，长边不大于 2048 px，大小不超过 10 MB。</p>
+     * <p>待进行 AI 处理的图片 URI 或 URL 列表，其中 URI 不需要带 `tos-cn-i-***` 前缀。传入图片的宽高、大小等要求请参看对应的[附加组件使用限制](https://www.volcengine.com/docs/508/1270839)。</p>
      *
      *
      *

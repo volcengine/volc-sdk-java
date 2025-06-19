@@ -21,6 +21,9 @@ private static final long serialVersionUID = 0L;
     sourceStationAddressType_ = 0;
     host_ = "";
     region_ = "";
+    httpPort_ = "";
+    httpsPort_ = "";
+    weight_ = "";
   }
 
   @java.lang.Override
@@ -99,6 +102,24 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             region_ = s;
+            break;
+          }
+          case 66: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            httpPort_ = s;
+            break;
+          }
+          case 74: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            httpsPort_ = s;
+            break;
+          }
+          case 82: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            weight_ = s;
             break;
           }
           default: {
@@ -397,6 +418,120 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int HTTPPORT_FIELD_NUMBER = 8;
+  private volatile java.lang.Object httpPort_;
+  /**
+   * <code>string HttpPort = 8;</code>
+   * @return The httpPort.
+   */
+  @java.lang.Override
+  public java.lang.String getHttpPort() {
+    java.lang.Object ref = httpPort_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      httpPort_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string HttpPort = 8;</code>
+   * @return The bytes for httpPort.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getHttpPortBytes() {
+    java.lang.Object ref = httpPort_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      httpPort_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int HTTPSPORT_FIELD_NUMBER = 9;
+  private volatile java.lang.Object httpsPort_;
+  /**
+   * <code>string HttpsPort = 9;</code>
+   * @return The httpsPort.
+   */
+  @java.lang.Override
+  public java.lang.String getHttpsPort() {
+    java.lang.Object ref = httpsPort_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      httpsPort_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string HttpsPort = 9;</code>
+   * @return The bytes for httpsPort.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getHttpsPortBytes() {
+    java.lang.Object ref = httpsPort_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      httpsPort_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int WEIGHT_FIELD_NUMBER = 10;
+  private volatile java.lang.Object weight_;
+  /**
+   * <code>string Weight = 10;</code>
+   * @return The weight.
+   */
+  @java.lang.Override
+  public java.lang.String getWeight() {
+    java.lang.Object ref = weight_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      weight_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string Weight = 10;</code>
+   * @return The bytes for weight.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getWeightBytes() {
+    java.lang.Object ref = weight_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      weight_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -432,6 +567,15 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(region_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, region_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(httpPort_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, httpPort_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(httpsPort_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, httpsPort_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(weight_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, weight_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -465,6 +609,15 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(region_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, region_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(httpPort_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, httpPort_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(httpsPort_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, httpsPort_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(weight_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, weight_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -496,6 +649,12 @@ private static final long serialVersionUID = 0L;
     }
     if (!getRegion()
         .equals(other.getRegion())) return false;
+    if (!getHttpPort()
+        .equals(other.getHttpPort())) return false;
+    if (!getHttpsPort()
+        .equals(other.getHttpsPort())) return false;
+    if (!getWeight()
+        .equals(other.getWeight())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -524,6 +683,12 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + REGION_FIELD_NUMBER;
     hash = (53 * hash) + getRegion().hashCode();
+    hash = (37 * hash) + HTTPPORT_FIELD_NUMBER;
+    hash = (53 * hash) + getHttpPort().hashCode();
+    hash = (37 * hash) + HTTPSPORT_FIELD_NUMBER;
+    hash = (53 * hash) + getHttpsPort().hashCode();
+    hash = (37 * hash) + WEIGHT_FIELD_NUMBER;
+    hash = (53 * hash) + getWeight().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -675,6 +840,12 @@ private static final long serialVersionUID = 0L;
       }
       region_ = "";
 
+      httpPort_ = "";
+
+      httpsPort_ = "";
+
+      weight_ = "";
+
       return this;
     }
 
@@ -712,6 +883,9 @@ private static final long serialVersionUID = 0L;
         result.privateBucketAuth_ = privateBucketAuthBuilder_.build();
       }
       result.region_ = region_;
+      result.httpPort_ = httpPort_;
+      result.httpsPort_ = httpsPort_;
+      result.weight_ = weight_;
       onBuilt();
       return result;
     }
@@ -783,6 +957,18 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRegion().isEmpty()) {
         region_ = other.region_;
+        onChanged();
+      }
+      if (!other.getHttpPort().isEmpty()) {
+        httpPort_ = other.httpPort_;
+        onChanged();
+      }
+      if (!other.getHttpsPort().isEmpty()) {
+        httpsPort_ = other.httpsPort_;
+        onChanged();
+      }
+      if (!other.getWeight().isEmpty()) {
+        weight_ = other.weight_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1466,6 +1652,234 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       region_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object httpPort_ = "";
+    /**
+     * <code>string HttpPort = 8;</code>
+     * @return The httpPort.
+     */
+    public java.lang.String getHttpPort() {
+      java.lang.Object ref = httpPort_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        httpPort_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string HttpPort = 8;</code>
+     * @return The bytes for httpPort.
+     */
+    public com.google.protobuf.ByteString
+        getHttpPortBytes() {
+      java.lang.Object ref = httpPort_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        httpPort_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string HttpPort = 8;</code>
+     * @param value The httpPort to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHttpPort(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      httpPort_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string HttpPort = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHttpPort() {
+      
+      httpPort_ = getDefaultInstance().getHttpPort();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string HttpPort = 8;</code>
+     * @param value The bytes for httpPort to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHttpPortBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      httpPort_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object httpsPort_ = "";
+    /**
+     * <code>string HttpsPort = 9;</code>
+     * @return The httpsPort.
+     */
+    public java.lang.String getHttpsPort() {
+      java.lang.Object ref = httpsPort_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        httpsPort_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string HttpsPort = 9;</code>
+     * @return The bytes for httpsPort.
+     */
+    public com.google.protobuf.ByteString
+        getHttpsPortBytes() {
+      java.lang.Object ref = httpsPort_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        httpsPort_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string HttpsPort = 9;</code>
+     * @param value The httpsPort to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHttpsPort(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      httpsPort_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string HttpsPort = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHttpsPort() {
+      
+      httpsPort_ = getDefaultInstance().getHttpsPort();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string HttpsPort = 9;</code>
+     * @param value The bytes for httpsPort to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHttpsPortBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      httpsPort_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object weight_ = "";
+    /**
+     * <code>string Weight = 10;</code>
+     * @return The weight.
+     */
+    public java.lang.String getWeight() {
+      java.lang.Object ref = weight_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        weight_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string Weight = 10;</code>
+     * @return The bytes for weight.
+     */
+    public com.google.protobuf.ByteString
+        getWeightBytes() {
+      java.lang.Object ref = weight_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        weight_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string Weight = 10;</code>
+     * @param value The weight to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWeight(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      weight_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string Weight = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearWeight() {
+      
+      weight_ = getDefaultInstance().getWeight();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string Weight = 10;</code>
+     * @param value The bytes for weight to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWeightBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      weight_ = value;
       onChanged();
       return this;
     }

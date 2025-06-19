@@ -27,6 +27,12 @@ public final class GetImageXQueryAppsQuery  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Source")
     private String source;
 
+    /**
+     * <p>项目名。仅子用户使用。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Project")
+    private String project;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

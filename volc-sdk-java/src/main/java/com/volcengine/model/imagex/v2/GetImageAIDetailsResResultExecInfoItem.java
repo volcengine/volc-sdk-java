@@ -61,6 +61,12 @@ public final class GetImageAIDetailsResResultExecInfoItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "ExecOutput")
     private GetImageAIDetailsResResultExecInfoItemExecOutput execOutput;
 
+    /**
+     * <p>使用的 AI 图像处理模板 ID，参看 [AI 图像处理模板](https://www.volcengine.com/docs/508/1515840)页面获取模板 ID 对应的模板信息。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "WorkflowTemplateId")
+    private String workflowTemplateId;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

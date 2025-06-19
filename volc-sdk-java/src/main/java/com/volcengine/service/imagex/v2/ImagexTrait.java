@@ -2454,6 +2454,12 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      * <p>查询指定队列下提交的各个 AI 图像处理任务的执行信息。</p>
      *
+     *
+     *
+     *
+     *
+     * <p>解析返回参数时，需要根据 `workflow_template_id` 的值来解析，以免解析失败。</p>
+     *
      * @param query query arguments
      * @return response data
      * @throws Exception error during request
@@ -2473,7 +2479,9 @@ public class ImagexTrait extends BaseServiceImpl {
      *
      *
      *
-     * <p>仅支持查询结束时间在近 7 天的处理任务。</p>
+     * <p>- 仅支持查询结束时间在近 7 天的处理任务。</p>
+     *
+     * <p>- 解析返回参数时，需要根据 `workflow_template_id` 的值来解析，以免解析失败。</p>
      *
      * @param query query arguments
      * @return response data
@@ -3471,6 +3479,8 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>- 对同一张图片，请确保在提取水印时指定的模型，与添加水印时指定的模型为同一种，以免无法正常提取水印。</p>
      *
      * <p>- 在诸如电子邮件附件、社交媒体平台（如 Facebook、Instagram）、实时通讯应用（如微信）等传输媒介中传输图片时往往会自动压缩图片的分辨率，此时，图片水印也可能无法正常提取。</p>
+     *
+     * <p>- 相比同步提取，异步提取盲水印的成功率更高，优先推荐您使用[异步提取功能](https://www.volcengine.com/docs/508/1554729)。</p>
      *
      * @param query query arguments
      * @return response data

@@ -203,4 +203,60 @@ public interface VodCreateDomainV2RequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getRegionBytes();
+
+  /**
+   * <pre>
+   * 回源协议，支持http、https、followclient，http
+   * </pre>
+   *
+   * <code>string OriginProtocol = 14;</code>
+   * @return The originProtocol.
+   */
+  java.lang.String getOriginProtocol();
+  /**
+   * <pre>
+   * 回源协议，支持http、https、followclient，http
+   * </pre>
+   *
+   * <code>string OriginProtocol = 14;</code>
+   * @return The bytes for originProtocol.
+   */
+  com.google.protobuf.ByteString
+      getOriginProtocolBytes();
+
+  /**
+   * <code>string HttpPort = 15;</code>
+   * @return The httpPort.
+   */
+  java.lang.String getHttpPort();
+  /**
+   * <code>string HttpPort = 15;</code>
+   * @return The bytes for httpPort.
+   */
+  com.google.protobuf.ByteString
+      getHttpPortBytes();
+
+  /**
+   * <code>string HttpsPort = 16;</code>
+   * @return The httpsPort.
+   */
+  java.lang.String getHttpsPort();
+  /**
+   * <code>string HttpsPort = 16;</code>
+   * @return The bytes for httpsPort.
+   */
+  com.google.protobuf.ByteString
+      getHttpsPortBytes();
+
+  /**
+   * <code>string Weight = 17;</code>
+   * @return The weight.
+   */
+  java.lang.String getWeight();
+  /**
+   * <code>string Weight = 17;</code>
+   * @return The bytes for weight.
+   */
+  com.google.protobuf.ByteString
+      getWeightBytes();
 }

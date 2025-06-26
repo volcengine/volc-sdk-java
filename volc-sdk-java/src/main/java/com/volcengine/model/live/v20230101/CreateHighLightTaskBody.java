@@ -27,11 +27,13 @@ public final class CreateHighLightTaskBody  {
     private Integer type;
 
     /**
-     * <p>算法模型类型。缺省情况下，取值为 `0`。</p>
+     * <p>算法模型类型，缺省情况下取值为 `0`。</p>
      *
-     * <p>- `0`：体育足球。</p>
+     * <p>- `0`：体育足球；</p>
      *
-     * <p>- `1`：文娱短剧，仅适用于视频源类型为点播视频的场景，即 `"Type":1`。</p>
+     * <p>- `1`：文娱短剧，仅适用于视频源类型为点播视频的场景，即 `"Type":1`；</p>
+     *
+     * <p>- `2`：电商，仅适用于视频源类型为点播视频的场景，即 `"Type":1`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Model")
     private Integer model;
@@ -81,10 +83,34 @@ public final class CreateHighLightTaskBody  {
     private CreateHighLightTaskBodyVodParam vodParam;
 
     /**
-     * <p>回调通知参数。</p>
+     * <p>回调通知参数配置。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CallbackParam")
     private CreateHighLightTaskBodyCallbackParam callbackParam;
+
+    /**
+     * <p>电商场景下使用的卖点效果配置。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "SellPointParam")
+    private CreateHighLightTaskBodySellPointParam sellPointParam;
+
+    /**
+     * <p>算法模型的子类型，根据任务类型和场景进行选择，具体取值如下所示。</p>
+     *
+     * <p>- 体育足球：`0` 表示默认类型剪辑；</p>
+     *
+     * <p>- 文娱短剧：`0` 表示默认类型剪辑；</p>
+     *
+     * <p>- 电商：`0` 表示默认类型剪辑，`1` 表示电商视频提取分镜转场素材。默认值为 `0`。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "SubModel")
+    private Integer subModel;
+
+    /**
+     * <p>音频生成字幕的相关配置，包括字幕的位置、描边和字体样式。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "SubtitleParam")
+    private CreateHighLightTaskBodySubtitleParam subtitleParam;
 
     @Override
     public String toString() {

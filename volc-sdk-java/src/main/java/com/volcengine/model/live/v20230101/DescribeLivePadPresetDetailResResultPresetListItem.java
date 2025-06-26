@@ -10,19 +10,19 @@ import com.alibaba.fastjson.JSON;
 public final class DescribeLivePadPresetDetailResResultPresetListItem  {
 
     /**
-     * <p>域名空间</p>
+     * <p>域名空间。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;
 
     /**
-     * <p>应用名称</p>
+     * <p>应用名称，用于标识特定的应用。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "App")
     private String app;
 
     /**
-     * <p>流名称。</p>
+     * <p>流名称，用于标识特定的直播流。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
     private String stream;

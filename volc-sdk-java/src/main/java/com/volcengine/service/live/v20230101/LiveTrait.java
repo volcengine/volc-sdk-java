@@ -979,18 +979,18 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
-     * <p>restartPullToPushTask</p>
+     * <p>continuePullToPushTask</p>
      * <p>启用拉流转推任务</p>
      *
-     * <p>调用 `RestartPullToPushTask` 接口，启用任务状态为已停用的拉流转推任务。</p>
+     * <p>调用 `ContinuePullToPushTask` 接口，启用任务状态为已停用的拉流转推任务。</p>
      *
      * @param body body payload
      * @return response data
      * @throws Exception error during request
      */
-    public RestartPullToPushTaskRes restartPullToPushTask(RestartPullToPushTaskBody body) throws Exception {
-        RawResponse rawResponse = json("RestartPullToPushTask", null, JSON.toJSONString(body));
-        return parseRawResponse(rawResponse, RestartPullToPushTaskRes.class);
+    public ContinuePullToPushTaskRes continuePullToPushTask(ContinuePullToPushTaskBody body) throws Exception {
+        RawResponse rawResponse = json("ContinuePullToPushTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, ContinuePullToPushTaskRes.class);
     }
 
     /**
@@ -1066,6 +1066,21 @@ public class LiveTrait extends BaseServiceImpl {
     public ListPullToPushTaskV2Res listPullToPushTaskV2(ListPullToPushTaskV2Body body) throws Exception {
         RawResponse rawResponse = json("ListPullToPushTaskV2", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, ListPullToPushTaskV2Res.class);
+    }
+
+    /**
+     * <p>relaunchPullToPushTask</p>
+     * <p>重启拉流转推任务</p>
+     *
+     * <p>调用 `RelaunchPullToPushTask` 接口，使拉流转推任务从头开始进行转推。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public RelaunchPullToPushTaskRes relaunchPullToPushTask(RelaunchPullToPushTaskBody body) throws Exception {
+        RawResponse rawResponse = json("RelaunchPullToPushTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, RelaunchPullToPushTaskRes.class);
     }
 
     /**
@@ -1488,6 +1503,21 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>describeLiveCallbackData</p>
+     * <p>查询回调记录</p>
+     *
+     * <p>该接口用于查询直播推流相关的回调记录，包括回调事件类型、状态、请求与响应信息等。可用于定位直播中回调请求异常、验证回调是否成功发送等场景。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeLiveCallbackDataRes describeLiveCallbackData(DescribeLiveCallbackDataBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeLiveCallbackData", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeLiveCallbackDataRes.class);
+    }
+
+    /**
      * <p>describeLiveBatchStreamSessionData</p>
      * <p>查询域名下所有直播流的拉流数据</p>
      *
@@ -1555,9 +1585,11 @@ public class LiveTrait extends BaseServiceImpl {
      *
      *
      *
-     *
+     * <p>:::tip</p>
      *
      * <p>该接口属于历史版本 API，我们计划于 2025 年 02 月 18 日停止对其进行维护，并于 2025 年 05 月 18 日下线文档，您可以使用 [DescribeLiveBatchSourceStreamMetrics](https://www.volcengine.com/docs/6469/1126918) 接口，查询多路推流监控数据的平均值或最大值。</p>
+     *
+     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1589,9 +1621,11 @@ public class LiveTrait extends BaseServiceImpl {
      *
      * <p>调用 `DescribeLiveBatchPushStreamAvgMetrics` 接口，查询指定时间范围内指定推流域名下所有直推流或指定直推流的音视频帧率、码率等监控数据的平均值，用于判断直播流的健康程度。</p>
      *
-     *
+     * <p>:::tip</p>
      *
      * <p>该接口属于历史版本 API，我们计划于 2024 年 11 月 28 日停止对其进行维护，并于 2025 年 02 月 28 日下线文档，建议您使用新版 [DescribeLiveBatchPushStreamMetrics](https://www.volcengine.com/docs/6469/1126916) 接口。新接口支持查询多路推流监控数据的平均值或最大值，具有更低的数据延迟，并且能够获取更多的推流监控数据。</p>
+     *
+     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1600,6 +1634,21 @@ public class LiveTrait extends BaseServiceImpl {
     public DescribeLiveBatchPushStreamAvgMetricsRes describeLiveBatchPushStreamAvgMetrics(DescribeLiveBatchPushStreamAvgMetricsBody body) throws Exception {
         RawResponse rawResponse = json("DescribeLiveBatchPushStreamAvgMetrics", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, DescribeLiveBatchPushStreamAvgMetricsRes.class);
+    }
+
+    /**
+     * <p>describeLiveBatchStreamTranscodeData</p>
+     * <p>查询多路流的转码数据</p>
+     *
+     * <p>调用 `DescribeLiveBatchStreamTranscodeData` 接口，查询指定时间范围内域名下所有转码流的转码时长、分辨率档位、编码方式等转码数据。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeLiveBatchStreamTranscodeDataRes describeLiveBatchStreamTranscodeData(DescribeLiveBatchStreamTranscodeDataBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeLiveBatchStreamTranscodeData", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeLiveBatchStreamTranscodeDataRes.class);
     }
 
     /**
@@ -1623,9 +1672,11 @@ public class LiveTrait extends BaseServiceImpl {
      *
      * <p>调用 `DescribeLivePushStreamCountData` 接口，查询指定时间范围内推流域名下推流数量的峰值。</p>
      *
-     *
+     * <p>:::tip</p>
      *
      * <p>该接口属于历史版本 API，我们计划于 2025 年 02 月 18 日停止对其进行维护，并于 2025 年 05 月 18 日下线文档，建议您使用 [DescribeLiveStreamCountData](https://www.volcengine.com/docs/6469/1134317) 接口，查询推流、回源流或转码流的峰值流数。</p>
+     *
+     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1672,9 +1723,11 @@ public class LiveTrait extends BaseServiceImpl {
      *
      * <p>调用 `DescribeLiveSourceBandwidthData` 接口，查询指定时间范围内拉流域名或回源流产生的回源带宽监控数据。</p>
      *
-     *
+     * <p>:::tip</p>
      *
      * <p>该接口属于历史版本 API，我们计划于 2025 年 02 月 18 日停止对其进行维护，并于 2025 年 05 月 18 日下线文档，建议您使用 [DescribeLiveSourceTrafficData](https://www.volcengine.com/docs/6469/1126923) 接口，查询直播流或域名的回源流量和带宽监控数据。</p>
+     *
+     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1706,9 +1759,11 @@ public class LiveTrait extends BaseServiceImpl {
      *
      * <p>调用 `DescribeLiveMetricBandwidthData` 接口，查询指定时间范围内直播域名或直播流的带宽监控数据。</p>
      *
-     *
+     * <p>:::tip</p>
      *
      * <p>该接口属于历史版本 API，我们计划于 2025 年 02 月 18 日停止对其进行维护，并于 2025 年 05 月 18 日下线文档，建议您使用新版 [DescribeLiveEdgeStatData](https://www.volcengine.com/docs/6469/1399004) 接口，查询直播流的上下行流量、上下行峰值带宽和请求数。</p>
+     *
+     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -1725,9 +1780,11 @@ public class LiveTrait extends BaseServiceImpl {
      *
      * <p>调用 `DescribeLiveMetricTrafficData` 接口，查询指定时间范围内直播域名或直播流的流量监控数据。</p>
      *
-     *
+     * <p>:::tip</p>
      *
      * <p>该接口属于历史版本 API，我们计划于 2025 年 02 月 18 日停止对其进行维护，并于 2025 年 05 月 18 日下线文档，建议您使用新版 [DescribeLiveEdgeStatData](https://www.volcengine.com/docs/6469/1399004) 接口，查询直播流的上下行流量、上下行峰值带宽和请求数。</p>
+     *
+     * <p>:::</p>
      *
      * @param body body payload
      * @return response data
@@ -2414,7 +2471,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>createLivePadPreset</p>
      * <p>创建直播垫片配置</p>
      *
-     * <p>调用 `CreateLivePadPreset` 接口创建一个直播垫片配置，当直播流断开（包括主动断开直播流的情况）时，直播画面能够自动切换至已配置的素材或者直播的最后一帧画面。而当直播恢复后，会将垫片替换掉，恢复正常直播画面。</p>
+     * <p>调用 `CreateLivePadPreset` 接口可创建直播垫片配置。当直播流断开（包括主动断开）时，系统将自动切换至指定素材或最后一帧画面。直播恢复后，画面将自动切回直播内容。</p>
      *
      * @param body body payload
      * @return response data
@@ -2429,7 +2486,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>deleteLivePadPreset</p>
      * <p>删除直播垫片配置</p>
      *
-     *
+     * <p>调用 `DeleteLivePadPreset` 接口可删除指定域名空间的直播垫片预设配置。通过提供 `PresetName` 和 `Vhost` 参数，精确移除不再需要的垫片设置，适用于直播流管理、配置清理等场景。该操作将直接影响直播流的垫片播放行为，需谨慎操作。</p>
      *
      * @param body body payload
      * @return response data
@@ -2444,7 +2501,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>stopLivePadStream</p>
      * <p>断开正在播放垫片的直播流</p>
      *
-     *
+     * <p>调用 `StopLivePadStream` 接口强制终止指定直播流的垫片播放状态，使直播流恢复正常播放或进入结束状态。适用于直播流异常恢复、内容切换等场景，帮助管理员快速干预异常直播状态。</p>
      *
      * @param body body payload
      * @return response data
@@ -2459,7 +2516,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>updateLivePadPreset</p>
      * <p>更新直播垫片配置</p>
      *
-     *
+     * <p>调用 `UpdateLivePadPreset` 接口更新直播垫片配置模板，支持配置垫片类型、断流等待时间、垫片时长以及垫片素材地址或图像数据。通过该接口，您可以灵活设置直播中断时的替代内容，提升观众体验。</p>
      *
      * @param body body payload
      * @return response data
@@ -2474,7 +2531,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLivePadStreamList</p>
      * <p>查询正在播放垫片的直播流</p>
      *
-     *
+     * <p>调用 `DescribeLivePadStreamList` 接口查询当前正在播放垫片的直播流列表，适用于监控直播流状态、排查异常情况等场景，帮助您快速定位和处理垫片播放问题。</p>
      *
      * @param body body payload
      * @return response data
@@ -2489,7 +2546,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLivePadPresetDetail</p>
      * <p>查询直播垫片配置列表</p>
      *
-     *
+     * <p>调用 `DescribeLivePadPresetDetail` 接口查询指定直播流的垫片模板列表，返回包含垫片类型（图片/视频/最后一帧）、持续时间、素材 URL 等详细配置。通过此接口可快速获取当前流的备用内容方案，用于直播中断时的无缝衔接播放。</p>
      *
      * @param body body payload
      * @return response data
@@ -2579,7 +2636,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>createHighLightTask</p>
      * <p>创建高光剪辑任务</p>
      *
-     * <p>调用 `CreateHighLightTask` 接口，创建高光剪辑任务，对公网可访问的点播视频或直播流进行高光片段提取和混剪，并上传至指定空间，适用于足球赛事和文娱短剧场景。</p>
+     * <p>调用 `CreateHighLightTask` 接口，创建高光剪辑任务，对公网可访问的点播视频或直播流进行高光片段提取和混剪，并上传至指定空间，可根据不同的算法模型（如足球体育、文娱短剧、电商）自动生成高光片段或高光混剪视频。接口提供丰富的配置选项，包括输出格式、冗余时间、字幕设置等，适用于体育赛事、文娱内容、电商直播等场景的内容智能剪辑需求。</p>
      *
      * @param body body payload
      * @return response data
@@ -2603,6 +2660,36 @@ public class LiveTrait extends BaseServiceImpl {
     public DeleteTaskByAccountIDRes deleteTaskByAccountID(DeleteTaskByAccountIDBody body) throws Exception {
         RawResponse rawResponse = json("DeleteTaskByAccountID", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, DeleteTaskByAccountIDRes.class);
+    }
+
+    /**
+     * <p>describeHighLightTaskByAccountID</p>
+     * <p>查询高光剪辑任务详情</p>
+     *
+     * <p>调用 `DescribeHighLightTaskByAccountID` 接口，查询高光智剪任务的详细信息，获取任务的生产结果，适用于任务管理和结果获取场景。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeHighLightTaskByAccountIDRes describeHighLightTaskByAccountID(DescribeHighLightTaskByAccountIDBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeHighLightTaskByAccountID", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeHighLightTaskByAccountIDRes.class);
+    }
+
+    /**
+     * <p>listHighLightTask</p>
+     * <p>遍历高光剪辑任务</p>
+     *
+     * <p>调用 `ListHighLightTask` 接口，查询和管理高光智能剪辑任务的基本信息和状态。您可以通过任务 ID、状态、创建时间、停止时间等条件筛选任务，并获取任务的名称、状态、创建时间、停止时间等详细信息。该接口支持分页查询，适用于任务监控、状态跟踪和故障排查等场景。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public ListHighLightTaskRes listHighLightTask(ListHighLightTaskBody body) throws Exception {
+        RawResponse rawResponse = json("ListHighLightTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, ListHighLightTaskRes.class);
     }
 
 }

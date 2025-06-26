@@ -4084,6 +4084,90 @@ public class LivesaasConfig {
                     }
                 }
             ));
+            put(Const.GetMergedReport, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetMergedReport));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListTasks, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListTasks));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.CreateTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CreateTask));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetReport, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetReport));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListScenarios, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListScenarios));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListProjects, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListProjects));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

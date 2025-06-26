@@ -11,7 +11,13 @@ import java.util.List;
 public final class DescribeLivePadStreamListResResult  {
 
     /**
-     * <p>流列表。</p>
+     * <p>流列表，包含每个流的详细信息。每个流对象包含以下属性：</p>
+     *
+     * <p>- `Vhost`：虚拟主机名称；</p>
+     *
+     * <p>- `App`：应用程序的名称；</p>
+     *
+     * <p>- `Stream`：流名称。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StreamList")
     private List<DescribeLivePadStreamListResResultStreamListItem> streamList;

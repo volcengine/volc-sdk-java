@@ -53,7 +53,7 @@ public final class CreateHighLightTaskBodyHLMixParam  {
     private Integer durationMin;
 
     /**
-     * <p>累计生成高光混剪数量上限，默认值为 `1`，取值范围为 [1,100]。</p>
+     * <p>累计生成高光混剪数量上限，默认值为 `1`，取值范围为 `[1,100]`。</p>
      *
      * <p>:::tip</p>
      *
@@ -75,6 +75,48 @@ public final class CreateHighLightTaskBodyHLMixParam  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CreateTimestamps")
     private List<Integer> createTimestamps;
+
+    /**
+     * <p>高光混剪的编码格式，默认值为 `0`。</p>
+     *
+     * <p>- `0`：H264；</p>
+     *
+     * <p>- `1`：H265。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "EncCodec")
+    private Integer encCodec;
+
+    /**
+     * <p>是否开启卖点贴纸功能，默认值为 `false`。</p>
+     *
+     * <p>- `true`：开启。</p>
+     *
+     * <p>- `false`：关闭。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "SellPointSticker")
+    private Boolean sellPointSticker;
+
+    /**
+     * <p>是否开启声音生成字幕，默认值为 `false`。</p>
+     *
+     * <p>- `true`：开启；</p>
+     *
+     * <p>- `false`：关闭。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Subtitle")
+    private Boolean subtitle;
+
+    /**
+     * <p>高光混剪的视频封装格式，默认值为 `0`。取值如下所示：</p>
+     *
+     * <p>- `0`：MP4 格式；</p>
+     *
+     * <p>- `1`：HLS 流媒体格式（包含 M3U8 索引文件和 TS 分片文件）；</p>
+     *
+     * <p>- `2`：FLV 流媒体格式。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "VideoFormat")
+    private Integer videoFormat;
 
     @Override
     public String toString() {

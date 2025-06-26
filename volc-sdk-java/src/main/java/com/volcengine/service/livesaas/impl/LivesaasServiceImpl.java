@@ -4448,4 +4448,94 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public GetReportResponse getReport(GetReportRequest getReportRequest) throws Exception {
+        RawResponse response = query(Const.GetReport, Utils.paramsToPair(getReportRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetReportResponse res = JSON.parseObject(response.getData(), GetReportResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListProjectsResponse listProjects(ListProjectsRequest listProjectsRequest) throws Exception {
+        RawResponse response = query(Const.ListProjects, Utils.paramsToPair(listProjectsRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListProjectsResponse res = JSON.parseObject(response.getData(), ListProjectsResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListScenariosResponse listScenarios(ListScenariosRequest listScenariosRequest) throws Exception {
+        RawResponse response = query(Const.ListScenarios, Utils.paramsToPair(listScenariosRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListScenariosResponse res = JSON.parseObject(response.getData(), ListScenariosResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public CreateTaskResponse createTask(CreateTaskRequest createTaskRequest) throws Exception {
+        RawResponse response = json(Const.CreateTask, new ArrayList<>(), JSON.toJSONString(createTaskRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CreateTaskResponse res = JSON.parseObject(response.getData(), CreateTaskResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListTasksResponse listTasks(ListTasksRequest listTasksRequest) throws Exception {
+        RawResponse response = json(Const.ListTasks, new ArrayList<>(), JSON.toJSONString(listTasksRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListTasksResponse res = JSON.parseObject(response.getData(), ListTasksResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetMergedReportResponse getMergedReport(GetMergedReportRequest getMergedReportRequest) throws Exception {
+        RawResponse response = json(Const.GetMergedReport, new ArrayList<>(), JSON.toJSONString(getMergedReportRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetMergedReportResponse res = JSON.parseObject(response.getData(), GetMergedReportResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

@@ -665,6 +665,12 @@ public class Const {
     public static final String CreateVipOrBlackListUserInfo = "CreateVipOrBlackListUserInfo";
     public static final String GetVipOrBlackListUserInfo = "GetVipOrBlackListUserInfo";
     public static final String DeleteVipOrBlackListUserInfo = "DeleteVipOrBlackListUserInfo";
+    public static final String GetMergedReport = "GetMergedReport";
+    public static final String GetReport = "GetReport";
+    public static final String ListScenarios = "ListScenarios";
+    public static final String ListTasks = "ListTasks";
+    public static final String CreateTask = "CreateTask";
+    public static final String ListProjects = "ListProjects";
 
     // translate
     public static final String LangDetect = "LangDetect";

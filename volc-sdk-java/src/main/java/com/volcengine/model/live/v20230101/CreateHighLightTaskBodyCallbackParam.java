@@ -10,13 +10,13 @@ import com.alibaba.fastjson.JSON;
 public final class CreateHighLightTaskBodyCallbackParam  {
 
     /**
-     * <p>回调类型。当前仅支持 `1`，表示 HTTP 回调。</p>
+     * <p>回调类型。当前仅支持 `0`，表示 HTTP 回调。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "CallbackType")
     private Integer callbackType;
 
     /**
-     * <p>HTTP 回调参数。</p>
+     * <p>HTTP 回调相关参数配置，包含回调地址 `CallbackAdr`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "HttpParams")
     private CreateHighLightTaskBodyCallbackParamHttpParams httpParams;

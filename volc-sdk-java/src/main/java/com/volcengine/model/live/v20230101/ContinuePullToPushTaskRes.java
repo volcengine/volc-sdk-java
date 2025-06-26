@@ -4,16 +4,16 @@ package com.volcengine.model.live.v20230101;
 import com.alibaba.fastjson.JSON;
 
 /**
- * RestartPullToPushTaskRes
+ * ContinuePullToPushTaskRes
  */
 @lombok.Data
-public final class RestartPullToPushTaskRes  {
+public final class ContinuePullToPushTaskRes  {
 
     /**
      * <p>TODO</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ResponseMetadata")
-    private RestartPullToPushTaskResResponseMetadata responseMetadata;
+    private ContinuePullToPushTaskResResponseMetadata responseMetadata;
 
     @Override
     public String toString() {

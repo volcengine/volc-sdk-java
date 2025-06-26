@@ -4,10 +4,10 @@ package com.volcengine.model.live.v20230101;
 import com.alibaba.fastjson.JSON;
 
 /**
- * RestartPullToPushTaskResResponseMetadataError
+ * RelaunchPullToPushTaskResResponseMetadataError
  */
 @lombok.Data
-public final class RestartPullToPushTaskResResponseMetadataError  {
+public final class RelaunchPullToPushTaskResResponseMetadataError  {
 
     /**
      * <p>错误码</p>

@@ -2526,4 +2526,52 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     UpdateInteractionScriptRecordConfigResponse updateInteractionScriptRecordConfig(UpdateInteractionScriptRecordConfigRequest updateInteractionScriptRecordConfigRequest) throws Exception;
+
+    /**
+     * getReport
+     * @param getReportRequest GetReportRequest
+     * @return GetReportResponse
+     * @throws Exception the exception
+     */
+    GetReportResponse getReport(GetReportRequest getReportRequest) throws Exception;
+
+    /**
+     * listProjects
+     * @param listProjectsRequest ListProjectsRequest
+     * @return ListProjectsResponse
+     * @throws Exception the exception
+     */
+    ListProjectsResponse listProjects(ListProjectsRequest listProjectsRequest) throws Exception;
+
+    /**
+     * listScenarios
+     * @param listScenariosRequest ListScenariosRequest
+     * @return ListScenariosResponse
+     * @throws Exception the exception
+     */
+    ListScenariosResponse listScenarios(ListScenariosRequest listScenariosRequest) throws Exception;
+
+    /**
+     * createTask
+     * @param createTaskRequest CreateTaskRequest
+     * @return CreateTaskResponse
+     * @throws Exception the exception
+     */
+    CreateTaskResponse createTask(CreateTaskRequest createTaskRequest) throws Exception;
+
+    /**
+     * listTasks
+     * @param listTasksRequest ListTasksRequest
+     * @return ListTasksResponse
+     * @throws Exception the exception
+     */
+    ListTasksResponse listTasks(ListTasksRequest listTasksRequest) throws Exception;
+
+    /**
+     * getMergedReport
+     * @param getMergedReportRequest GetMergedReportRequest
+     * @return GetMergedReportResponse
+     * @throws Exception the exception
+     */
+    GetMergedReportResponse getMergedReport(GetMergedReportRequest getMergedReportRequest) throws Exception;
 }

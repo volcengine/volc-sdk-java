@@ -28,7 +28,7 @@ public final class CommitImageUploadResResultPluginResultItem  {
     private Integer imageHeight;
 
     /**
-     * <p>图片的 MD5</p>
+     * <p>图片的 `MD5` 哈希值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ImageMd5")
     private String imageMd5;
@@ -40,22 +40,34 @@ public final class CommitImageUploadResResultPluginResultItem  {
     private Integer imageWidth;
 
     /**
-     * <p>图片格式</p>
+     * <p>图片格式。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ImageFormat")
     private String imageFormat;
 
     /**
-     * <p>图片大小</p>
+     * <p>图片的大小。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ImageSize")
     private Integer imageSize;
 
     /**
-     * <p>图片帧数量</p>
+     * <p>图片的帧数量。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "FrameCnt")
     private Integer frameCnt;
+
+    /**
+     * <p>图片时长，单位为 ms。仅当图片为动图时有值</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Duration")
+    private Integer duration;
+
+    /**
+     * <p>源文件 URI</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "SourceUri")
+    private String sourceUri;
 
     @Override
     public String toString() {

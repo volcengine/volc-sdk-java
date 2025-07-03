@@ -23,4 +23,6 @@ public class UpdateNumberPoolRequest {
     private Integer serviceType;
 
     private Integer subServiceType;
+
+    private Integer scene;
 }

@@ -17,7 +17,7 @@ public final class CommitImageUploadResResult  {
     private List<CommitImageUploadResResultResultsItem> results;
 
     /**
-     * <p>JSON 序列化之后的图片信息，结构体请参考 [ImageInfo](#imageinfo) 的 Array。</p>
+     * <p>JSON 序列化之后的图片信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PluginResult")
     private List<CommitImageUploadResResultPluginResultItem> pluginResult;

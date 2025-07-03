@@ -415,6 +415,20 @@ public class LivesaasConfig {
                         }
                     }
             ));
+            put(Const.GetAccountCustomLinkConfig, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetAccountCustomLinkConfig));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.ListAnActivityStartAndEndTimeAPI, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -424,6 +438,20 @@ public class LivesaasConfig {
                                 {
                                     add(new BasicNameValuePair("Action", Const.ListAnActivityStartAndEndTimeAPI));
                                     add(new BasicNameValuePair("Version", "2020-06-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("UpdateAccountCustomLinkConfig", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateAccountCustomLinkConfig));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
@@ -4083,6 +4111,20 @@ public class LivesaasConfig {
                         });
                     }
                 }
+            ));
+            put(Const.EnableActivityMultiProductExplain, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.EnableActivityMultiProductExplain));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
             ));
             put(Const.GetMergedReport, new ApiInfo(
                     new HashMap<String, Object>() {

@@ -500,6 +500,15 @@ public interface LivesaasService extends IBaseService {
     CommonStatusResponse enableProductAPI(EnableProductRequest enableProductRequest) throws Exception;
 
     /**
+     * GetAccountCustomLinkConfig
+     *
+     * @param getAccountCustomLinkConfigRequest GetAccountCustomLinkConfigRequest
+     * @return GetAccountCustomLinkConfigResponse
+     * @throws Exception the exception
+     */
+    GetAccountCustomLinkConfigResponse getAccountCustomLinkConfig(GetAccountCustomLinkConfigRequest getAccountCustomLinkConfigRequest) throws Exception;
+
+    /**
      * ExplainProductAPI
      *
      * @param explainProductRequest ExplainProductRequest
@@ -606,6 +615,15 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     QueryUploadMediaByURLResponse queryUploadMediaByURL(QueryUploadMediaByURLRequest queryUploadMediaByURLRequest) throws Exception;
+
+    /**
+     * UpdateAccountCustomLinkConfig
+     *
+     * @param updateAccountCustomLinkConfigRequest UpdateAccountCustomLinkConfigRequest
+     * @return UpdateAccountCustomLinkConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateAccountCustomLinkConfigResponse updateAccountCustomLinkConfig(UpdateAccountCustomLinkConfigRequest updateAccountCustomLinkConfigRequest) throws Exception;
 
     /**
      * TempToMediaActivityMediaAPI
@@ -2526,6 +2544,15 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     UpdateInteractionScriptRecordConfigResponse updateInteractionScriptRecordConfig(UpdateInteractionScriptRecordConfigRequest updateInteractionScriptRecordConfigRequest) throws Exception;
+
+    /**
+     * EnableActivityMultiProductExplain
+     *
+     * @param enableActivityMultiProductExplainRequest EnableActivityMultiProductExplainRequest
+     * @return EnableActivityMultiProductExplainResponse
+     * @throws Exception the exception
+     */
+    EnableActivityMultiProductExplainResponse enableActivityMultiProductExplain(EnableActivityMultiProductExplainRequest enableActivityMultiProductExplainRequest) throws Exception;
 
     /**
      * getReport

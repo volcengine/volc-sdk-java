@@ -11,6 +11,8 @@ public class UpdateActivityUserBanStatusRequest {
     Long ActivityId;
     @JSONField(name = "BanStatus")
     Integer BanStatus;
+    @JSONField(name = "BanType")
+    Integer BanType;
     @JSONField(name = "UserIds")
     List<Long> UserIds;
     @JSONField(name = "Cookies")

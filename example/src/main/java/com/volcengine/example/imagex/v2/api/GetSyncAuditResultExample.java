@@ -10,10 +10,11 @@ public class GetSyncAuditResultExample {
         service.setAccessKey("ak");
         service.setSecretKey("sk");
 
+        GetSyncAuditResultQuery query = new GetSyncAuditResultQuery();
         GetSyncAuditResultBody body = new GetSyncAuditResultBody();
-
+        
         try {
-            GetSyncAuditResultRes resp = service.getSyncAuditResult(body);
+            GetSyncAuditResultRes resp = service.getSyncAuditResult(query, body);
             System.out.println(resp);
         } catch (Exception e) {
             e.printStackTrace();

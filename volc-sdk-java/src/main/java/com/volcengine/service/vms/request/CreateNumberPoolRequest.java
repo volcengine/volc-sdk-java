@@ -21,4 +21,6 @@ public class CreateNumberPoolRequest {
     private Integer serviceType;
 
     private Integer subServiceType;
+
+    private Integer scene;
 }

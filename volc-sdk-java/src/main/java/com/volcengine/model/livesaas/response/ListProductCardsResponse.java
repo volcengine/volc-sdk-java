@@ -19,6 +19,8 @@ public class ListProductCardsResponse {
         List<ProductCard> ProductConfigs;
         @JSONField(name = "VerticalIconUrl")
         String VerticalIconUrl;
+        @JSONField(name = "IsMultiProductExplainEnable")
+        Integer IsMultiProductExplainEnable;
     }
 
     @Data
@@ -119,5 +121,7 @@ public class ListProductCardsResponse {
         Integer PromotionTagType;
         @JSONField(name = "IsOrderMsgEnable")
         Integer IsOrderMsgEnable;
+        @JSONField(name = "FloatingTime")
+        Long FloatingTime;
     }
 }

@@ -30,9 +30,9 @@ public class ImageRiskDetectionResponse {
         private String dataId;
         @JSONField(name = "Decision")
         private String decision;
-        @JSONField(name = "DecisionDetail")
-        private String ocrText;
         @JSONField(name = "OcrText")
+        private String ocrText;
+        @JSONField(name = "DecisionDetail")
         private String decisionDetail;
         @JSONField(name = "Results")
         private List<ImageLabelResult> results;

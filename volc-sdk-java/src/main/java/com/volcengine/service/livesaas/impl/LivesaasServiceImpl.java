@@ -70,6 +70,36 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public GetAccountCustomLinkConfigResponse getAccountCustomLinkConfig(GetAccountCustomLinkConfigRequest getAccountCustomLinkConfigRequest) throws Exception {
+        RawResponse response = query(Const.GetAccountCustomLinkConfig, Utils.paramsToPair(getAccountCustomLinkConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetAccountCustomLinkConfigResponse res = JSON.parseObject(response.getData(), GetAccountCustomLinkConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateAccountCustomLinkConfigResponse updateAccountCustomLinkConfig(UpdateAccountCustomLinkConfigRequest updateAccountCustomLinkConfigRequest) throws Exception {
+        RawResponse response = json(Const.UpdateAccountCustomLinkConfig, new ArrayList<>(), JSON.toJSONString(updateAccountCustomLinkConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateAccountCustomLinkConfigResponse res = JSON.parseObject(response.getData(), UpdateAccountCustomLinkConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public CommonStatusResponse updateSiteTagAPIV2(UpdateSiteTagAPIV2Request updateSiteTagAPIV2Request) throws Exception {
         RawResponse response = json(Const.UpdateSiteTagAPIV2, new ArrayList<>(), JSON.toJSONString(updateSiteTagAPIV2Request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -4441,6 +4471,23 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         }
         UpdateInteractionScriptRecordConfigResponse res = JSON.parseObject(response.getData(),
                 UpdateInteractionScriptRecordConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public EnableActivityMultiProductExplainResponse enableActivityMultiProductExplain(EnableActivityMultiProductExplainRequest enableActivityMultiProductExplainRequest) throws Exception {
+        RawResponse response = json(Const.EnableActivityMultiProductExplain, new ArrayList<>(),
+                JSON.toJSONString(enableActivityMultiProductExplainRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        EnableActivityMultiProductExplainResponse res = JSON.parseObject(response.getData(),
+                EnableActivityMultiProductExplainResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());

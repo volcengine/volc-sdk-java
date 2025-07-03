@@ -36,6 +36,8 @@ public class TextSliceRiskResponse {
         private String finalLabel;
         @JSONField(name = "DecisionLabel")
         private String decisionLabel;
+        @JSONField(name = "PassThrough")
+        private String passThrough;
         @JSONField(name = "Results")
         private List<TextResult> result;
     }

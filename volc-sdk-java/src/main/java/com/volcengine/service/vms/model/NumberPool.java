@@ -23,4 +23,6 @@ public class NumberPool {
     private String subServiceTypeName;
 
     private Integer numberCount;
+
+    private Integer scene;
 }

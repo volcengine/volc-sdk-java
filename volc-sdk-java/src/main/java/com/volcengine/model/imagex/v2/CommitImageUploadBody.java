@@ -11,13 +11,7 @@ import java.util.List;
 public final class CommitImageUploadBody  {
 
     /**
-     * <p>一次上传会话 Key。</p>
-     *
-     * <p>:::tip</p>
-     *
-     * <p>请参考[获取文件上传地址](https://www.volcengine.com/docs/508/9397)获取。</p>
-     *
-     * <p>:::</p>
+     * <p>一次上传会话 Key。您可参考[获取文件上传地址](https://www.volcengine.com/docs/508/9397)获取。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SessionKey")
     private String sessionKey;

@@ -17,6 +17,10 @@ public class SecurityControlCommonConfig {
     Integer IsTipOffCommentEnable;
     @JSONField(name = "IsPlayPageTickerEnable")
     Integer IsPlayPageTickerEnable;
+    @JSONField(name = "KickTip")
+    String KickTip;
+    @JSONField(name = "BanTip")
+    String BanTip;
     @JSONField(name = "WatermarkConfig")
     WatermarkConfig WatermarkConfig;
     @JSONField(name = "TickerConfig")

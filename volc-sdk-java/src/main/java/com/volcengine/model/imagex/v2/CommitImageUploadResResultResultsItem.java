@@ -16,17 +16,11 @@ public final class CommitImageUploadResResultResultsItem  {
     private String uri;
 
     /**
-     * <p>图片上传结果。</p>
+     * <p>上传结果。</p>
      *
-     * <p>* 返回值为 2000，表示上传成功；</p>
+     * <p>- 传入 SuccessOids 时，无论上传图片/非图片，成功返回 2000，失败返回 2001；</p>
      *
-     * <p>* 返回值为 2001，表示上传失败。</p>
-     *
-     * <p>:::tip</p>
-     *
-     * <p>需要传 SuccessOids 才会返回值。</p>
-     *
-     * <p>:::</p>
+     * <p>- 未传入 SuccessOids 时，对于非图片返回 0；对于图片，成功返回 2000，失败返回 2001。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "UriStatus")
     private Integer uriStatus;

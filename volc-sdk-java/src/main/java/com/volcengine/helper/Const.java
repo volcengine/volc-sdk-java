@@ -672,6 +672,8 @@ public class Const {
     public static final String CreateTask = "CreateTask";
     public static final String ListProjects = "ListProjects";
 
+    public static final String EnableActivityMultiProductExplain = "EnableActivityMultiProductExplain";
+
     // translate
     public static final String LangDetect = "LangDetect";
     public static final String TranslateText = "TranslateText";
@@ -1144,4 +1146,7 @@ public class Const {
     public static final String UpdateProductReminderInfo = "UpdateProductReminderInfo";
 
     public static final String SendProductOrderMessage = "SendProductOrderMessage";
+
+    public static final String UpdateAccountCustomLinkConfig = "UpdateAccountCustomLinkConfig";
+    public static final String GetAccountCustomLinkConfig = "GetAccountCustomLinkConfig";
 }

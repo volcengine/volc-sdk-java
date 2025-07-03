@@ -9,4 +9,8 @@ import java.util.List;
 public class GetActivityBanUsersRequest {
     @JSONField(name = "ActivityId")
     Long ActivityId;
+    @JSONField(name = "PageNo")
+    Integer PageNo;
+    @JSONField(name = "PageItemCount")
+    Integer PageItemCount;
 }

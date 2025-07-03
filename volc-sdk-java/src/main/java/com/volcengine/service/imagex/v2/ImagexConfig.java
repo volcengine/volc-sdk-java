@@ -3600,7 +3600,7 @@ public class ImagexConfig {
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
                                 add(new BasicNameValuePair("Action", "GetSyncAuditResult"));
-                                add(new BasicNameValuePair("Version", "2018-08-01"));
+                                add(new BasicNameValuePair("Version", "2023-05-01"));
                             }
                         });
                     }

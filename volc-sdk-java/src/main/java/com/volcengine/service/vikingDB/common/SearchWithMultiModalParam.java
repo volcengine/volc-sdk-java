@@ -24,6 +24,7 @@ public class SearchWithMultiModalParam {
     private List<Map<String, Object>> postProcessOps = null;
     private Integer isBuild = 0;
     private Boolean retry = false;
+    private Boolean needReturnVector = false;
 
     public SearchWithMultiModalParam setText(String text) {
         this.text = text;
@@ -87,6 +88,11 @@ public class SearchWithMultiModalParam {
 
     public SearchWithMultiModalParam setRetry(Boolean retry) {
         this.retry = retry;
+        return this;
+    }
+
+    public SearchWithMultiModalParam setNeedReturnVector(Boolean needReturnVector) {
+        this.needReturnVector = needReturnVector;
         return this;
     }
 

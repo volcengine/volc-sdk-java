@@ -23,6 +23,7 @@ public class SearchParam {
     private Boolean retry = false;
     private Integer offset = -1;
     private RawOrderParam rawOrder = null;
+    private Boolean needReturnVector = false;
 
     public SearchParam setVectorOrder(VectorOrder vectorOrder) {
         this.vectorOrder = vectorOrder;
@@ -86,6 +87,11 @@ public class SearchParam {
 
     public SearchParam setRetry(Boolean retry) {
         this.retry = retry;
+        return this;
+    }
+
+    public SearchParam setNeedReturnVector(Boolean needReturnVector) {
+        this.needReturnVector = needReturnVector;
         return this;
     }
 

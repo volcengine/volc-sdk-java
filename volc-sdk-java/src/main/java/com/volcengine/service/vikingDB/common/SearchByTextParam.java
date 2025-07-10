@@ -22,6 +22,7 @@ public class SearchByTextParam {
     private List<Map<String, Object>> postProcessOps = null;
     private Integer isBuild = 0;
     private Boolean retry = false;
+    private Boolean needReturnVector = false;
 
     public SearchByTextParam setText(Text text) {
         this.text = text;
@@ -80,6 +81,11 @@ public class SearchByTextParam {
 
     public SearchByTextParam setRetry(Boolean retry) {
         this.retry = retry;
+        return this;
+    }
+
+    public SearchByTextParam setNeedReturnVector(Boolean needReturnVector) {
+        this.needReturnVector = needReturnVector;
         return this;
     }
 

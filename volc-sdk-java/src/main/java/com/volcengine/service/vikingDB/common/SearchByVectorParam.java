@@ -23,6 +23,7 @@ public class SearchByVectorParam {
     private List<Map<String, Object>> postProcessOps = null;
     private Integer isBuild = 0;
     private Boolean retry = false;
+    private Boolean needReturnVector = false;
 
     public SearchByVectorParam setVector(List<Double> vector) {
         this.vector = vector;
@@ -81,6 +82,11 @@ public class SearchByVectorParam {
 
     public SearchByVectorParam setRetry(Boolean retry) {
         this.retry = retry;
+        return this;
+    }
+
+    public SearchByVectorParam setNeedReturnVector(Boolean needReturnVector) {
+        this.needReturnVector = needReturnVector;
         return this;
     }
 

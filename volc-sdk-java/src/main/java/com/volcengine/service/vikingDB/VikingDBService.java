@@ -43,6 +43,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -335,6 +336,7 @@ public class VikingDBService extends BaseServiceImpl {
         HashMap<String, Object> params = new HashMap<>();
         params.put("collection_name", createCollectionParam.getCollectionName());
         params.put("description", createCollectionParam.getDescription());
+        params.put("project", createCollectionParam.getProject());
         String primaryKey = null;
         List<Map<String, Object>> fields = new ArrayList<>();
         for (Field field : createCollectionParam.getFields()) {
@@ -443,7 +445,16 @@ public class VikingDBService extends BaseServiceImpl {
     }
 
     public List<Collection> listCollections() throws Exception {
-        LinkedTreeMap<String, Object> resData = doRequest("ListCollections", null, null);
+        return listCollections("");
+    }
+
+    public List<Collection> listCollections(String project) throws Exception {
+        HashMap<String, Object> params = null;
+        if (!Objects.equals(project, "")) {
+            params = new HashMap<>();
+            params.put("project", project);
+        }
+        LinkedTreeMap<String, Object> resData = doRequest("ListCollections", null, params);
         @SuppressWarnings("unchecked")
         List<LinkedTreeMap<String, Object>> res = (List<LinkedTreeMap<String, Object>>) resData.get("data");
         List<Collection> collections = new ArrayList<>();

@@ -140,6 +140,9 @@ public class Index {
             if (getIsClient()) {
               search.put("replace_primay", true);
             }
+            if (searchParam.getNeedReturnVector()) {
+                search.put("need_return_vector", true);
+            }
             HashMap<String, Object> params = new HashMap<>();
             params.put("collection_name", collectionName);
             params.put("index_name", indexName);
@@ -160,6 +163,9 @@ public class Index {
                 search.put("filter", searchParam.getFilter());
             if (getIsClient()) {
               search.put("replace_primay", true);
+            }
+            if (searchParam.getNeedReturnVector()) {
+                search.put("need_return_vector", true);
             }
             maybeSetPostProcessOps(searchParam, search);
             maybeSetPrimaryKeyFilter(searchParam, search);
@@ -263,6 +269,9 @@ public class Index {
       if (getIsClient()) {
           searchBody.put("replace_primay", true);
       }
+      if (searchParam.getNeedReturnVector()) {
+          searchBody.put("need_return_vector", true);
+      }
       searchBody.put("need_search_count", true);
       params.put("collection_name", collectionName);
       params.put("index_name", indexName);
@@ -283,6 +292,9 @@ public class Index {
         HashMap<String, Object> search = searchByIdParam.toMap();
         if (getIsClient()) {
           search.put("replace_primay", true);
+        }
+        if (searchByIdParam.getNeedReturnVector()) {
+            search.put("need_return_vector", true);
         }
         HashMap<String, Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
@@ -307,6 +319,9 @@ public class Index {
         if (getIsClient()) {
           search.put("replace_primay", true);
         }
+        if (searchByVectorParam.getNeedReturnVector()) {
+            search.put("need_return_vector", true);
+        }
         HashMap<String, Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
         params.put("index_name", indexName);
@@ -328,6 +343,9 @@ public class Index {
         HashMap<String, Object> search = searchWithMultiModalParam.toMap();
         if (getIsClient()) {
           search.put("replace_primay", true);
+        }
+        if (searchWithMultiModalParam.getNeedReturnVector()) {
+            search.put("need_return_vector", true);
         }
         HashMap<String, Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
@@ -354,6 +372,9 @@ public class Index {
         HashMap<String, Object> search = searchByTextParam.toMap();
         if (getIsClient()) {
           search.put("replace_primay", true);
+        }
+        if (searchByTextParam.getNeedReturnVector()) {
+            search.put("need_return_vector", true);
         }
         HashMap<String, Object> params = new HashMap<>();
         params.put("collection_name", collectionName);
@@ -586,7 +607,7 @@ public class Index {
                     id = (Long) item.get(requestPrimaryKey());
                 }
                 HashMap<String, Object> fields = new HashMap<>();
-                if (outputFields == null || outputFields.size() != 0) {
+                if (outputFields == null || outputFields.size() != 0 || item.get("fields") != null) {
                     @SuppressWarnings("unchecked")
                     LinkedTreeMap<String, Object> map = (LinkedTreeMap<String, Object>) item.get("fields");
                     fields = vikingDBService.convertLinkedTreeMapToHashMap(map);

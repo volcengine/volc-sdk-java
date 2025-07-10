@@ -11,6 +11,7 @@ public class CreateCollectionParam {
     private List<Field> fields = null;
     private String description = "";
     private List<VectorizeTuple> vectorize = null;
+    private String project = "default";
     private Integer isBuild = 0;
 
     public CreateCollectionParam() {
@@ -28,6 +29,11 @@ public class CreateCollectionParam {
 
     public CreateCollectionParam setDescription(String description) {
         this.description = description;
+        return this;
+    }
+
+    public CreateCollectionParam SetProject(String project) {
+        this.project = project;
         return this;
     }
 

@@ -23,6 +23,7 @@ public class SearchByIdParam {
     private List<Map<String, Object>> postProcessOps = null;
     private Integer isBuild = 0;
     private Boolean retry = false;
+    private Boolean needReturnVector = false;
 
     public SearchByIdParam setId(Object id) {
         this.id = id;
@@ -77,6 +78,11 @@ public class SearchByIdParam {
 
     public SearchByIdParam setRetry(Boolean retry) {
         this.retry = retry;
+        return this;
+    }
+
+    public SearchByIdParam setNeedReturnVector(Boolean needReturnVector) {
+        this.needReturnVector = needReturnVector;
         return this;
     }
 

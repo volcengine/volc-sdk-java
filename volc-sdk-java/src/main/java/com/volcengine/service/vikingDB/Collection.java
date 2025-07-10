@@ -152,8 +152,8 @@ public class Collection {
         params.put("collection_name", collectionName);
         params.put("primary_keys", id);
         if (getIsClient()) {
-          params.put("replace_primay", true);
-      }
+            params.put("replace_primay", true);
+        }
         LinkedTreeMap<String, Object> resData = vikingDBService.retryRequest("FetchData", null, params, Constant.MAX_RETRIES);
         if (resData == null) {
             throw new Exception(Constant.NO_RESPONSE_DATA);

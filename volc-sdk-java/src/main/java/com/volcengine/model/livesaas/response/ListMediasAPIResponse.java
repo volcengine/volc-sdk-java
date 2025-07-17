@@ -44,5 +44,9 @@ public class ListMediasAPIResponse {
         String Name;
         @JSONField(name = "SourceType")
         Integer SourceType;
+        @JSONField(name = "StartTime")
+        Long StartTime;
+        @JSONField(name = "EndTime")
+        Long EndTime;
     }
 }

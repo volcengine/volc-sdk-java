@@ -107,6 +107,38 @@ public class TLSLogClientImpl implements TLSLogClient {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
 
+        int logCnt = 0;
+        long maxLogTime = Long.MIN_VALUE;
+        long minLogTime = Long.MAX_VALUE;
+
+        for (PutLogRequest.LogGroup logGroup : request.getLogGroupList().getLogGroupsList()) {
+            List<PutLogRequest.Log> logs = logGroup.getLogsList();
+            for (int i = 0; i < logs.size(); i++) {
+                PutLogRequest.Log log = logs.get(i);
+                long time = log.getTime();
+                long normalizedTime;
+                if (time <= 0) {
+                    time = System.currentTimeMillis();
+                    PutLogRequest.Log newLog = log.toBuilder().setTime(time).build();
+                    logs.set(i, newLog);
+                    normalizedTime = time;
+                } else if (time < 1e10) { // s
+                    normalizedTime = time * 1000;
+                } else if (time < 1e15) { // ms
+                    normalizedTime = time;
+                } else { // ns
+                    normalizedTime = time / 1_000_000;
+                }
+                maxLogTime = Math.max(maxLogTime, normalizedTime);
+                minLogTime = Math.min(minLogTime, normalizedTime);
+                logCnt++;
+            }
+        }
+
+        if (logCnt == 0) {
+            throw new LogException("InvalidArgument", "Invalid log num, Please check it", null);
+        }
+
         // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
@@ -119,6 +151,11 @@ public class TLSLogClientImpl implements TLSLogClient {
             headers.put(X_TLS_COMPRESS_TYPE, compressType);
             headers.put(X_TLS_BODY_RAW_SIZE, String.valueOf(request.getLogGroupList().toByteArray().length));
         }
+
+        headers.put(Log_Count_Header, String.valueOf(logCnt));
+        headers.put(Earliest_Log_Time_Header, String.valueOf(minLogTime));
+        headers.put(Latest_Log_Time_Header, String.valueOf(maxLogTime));
+
         // 2、check sum and sendRequest
         RawResponse rawResponse = doProtoRetryRequest(PUT_LOGS, params, headers, request.getLogGroupList().toByteArray(), compressType);
         // 3、parse response
@@ -131,23 +168,21 @@ public class TLSLogClientImpl implements TLSLogClient {
         if (request == null || StringUtils.isEmpty(request.getTopicId()) || request.getLogs() == null || request.getLogs().isEmpty()) {
             throw new LogException("InvalidArgument", "Request is:" + request, null);
         }
-        // 2、prepare request
-        ArrayList<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
-        HashMap<String, String> headers = new HashMap<>();
-        if (request.getHashKey() != null) {
-            headers.put(X_TLS_HASHKEY, request.getHashKey());
-        }
-        PutLogRequest.LogGroupList logGroupList = AdaptorUtil.logItems2PbGroupList(request.getPath(), request.getSource(), request.getLogs());
-        String compressType = request.getCompressType();
-        if (compressType != null) {
-            headers.put(X_TLS_COMPRESS_TYPE, compressType);
-            headers.put(X_TLS_BODY_RAW_SIZE, String.valueOf(logGroupList.toByteArray().length));
-        }
-        // 3、check sum and sendRequest
-        RawResponse rawResponse = doProtoRetryRequest(PUT_LOGS, params, headers, logGroupList.toByteArray(), compressType);
-        // 4、parse response
-        return new PutLogsResponse(rawResponse.getHeaders());
+
+        PutLogsRequest putlogsRequest = new PutLogsRequest();
+        putlogsRequest.setTopicId(request.getTopicId());
+        putlogsRequest.setHashKey(request.getHashKey());
+        putlogsRequest.setCompressType(request.getCompressType());
+
+        PutLogRequest.LogGroupList logGroupList = AdaptorUtil.logItems2PbGroupList(
+            request.getPath(),
+            request.getSource(),
+            request.getLogs()
+        );
+
+        putlogsRequest.setLogGroupList(logGroupList);
+
+        return putLogs(putlogsRequest);
     }
 
     @Override

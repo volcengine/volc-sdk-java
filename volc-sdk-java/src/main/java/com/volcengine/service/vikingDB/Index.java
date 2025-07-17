@@ -204,6 +204,7 @@ public class Index {
                       .setPrimaryKeyNotIn(searchParam.getPrimaryKeyNotIn())
                       .setPostProcessInputLimit(searchParam.getPostProcessInputLimit())
                       .setPostProcessOps(searchParam.getPostProcessOps())
+                      .setScaleK(searchParam.getScaleK())
                       .build();
               searchBody = searchByVectorParam.toMap();
           } else if (searchParam.getVectorOrder().getId() != null) {
@@ -218,6 +219,7 @@ public class Index {
                       .setPrimaryKeyNotIn(searchParam.getPrimaryKeyNotIn())
                       .setPostProcessInputLimit(searchParam.getPostProcessInputLimit())
                       .setPostProcessOps(searchParam.getPostProcessOps())
+                      .setScaleK(searchParam.getScaleK())
                       .build();
                 searchBody = searchByIdParam.toMap();
           } else {
@@ -237,6 +239,7 @@ public class Index {
             .setPrimaryKeyNotIn(searchParam.getPrimaryKeyNotIn())
             .setPostProcessInputLimit(searchParam.getPostProcessInputLimit())
             .setPostProcessOps(searchParam.getPostProcessOps())
+            .setScaleK(searchParam.getScaleK())
             .build();
             searchBody = multiModalParam.toMap();
       } else if (searchParam.getScalarOrder() != null) {
@@ -259,6 +262,8 @@ public class Index {
               searchBody.put("output_fields", searchParam.getOutputFields());
           if (searchParam.getFilter() != null)
               searchBody.put("filter", searchParam.getFilter());
+          if (searchParam.getScaleK() != null)
+              searchBody.put("scale_k", searchParam.getScaleK());
           maybeSetPostProcessOps(searchParam, searchBody);
           maybeSetPrimaryKeyFilter(searchParam, searchBody);
       }

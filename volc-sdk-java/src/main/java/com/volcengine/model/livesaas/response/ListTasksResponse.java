@@ -1,7 +1,7 @@
 package com.volcengine.model.livesaas.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.volcengine.model.beans.livesaas.TaskDetail;
+import com.volcengine.model.beans.livesaas.Tag;
 import com.volcengine.model.response.ResponseMetadata;
 import lombok.Data;
 
@@ -54,5 +54,7 @@ public class ListTasksResponse {
         String Extra;
         @JSONField(name = "ActivityId")
         Long ActivityId;
+        @JSONField(name = "Tags")
+        List<Tag> Tags;
     }
 }

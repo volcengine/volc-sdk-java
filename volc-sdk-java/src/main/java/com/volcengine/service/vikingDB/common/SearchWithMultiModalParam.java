@@ -25,6 +25,12 @@ public class SearchWithMultiModalParam {
     private Integer isBuild = 0;
     private Boolean retry = false;
     private Boolean needReturnVector = false;
+    private Float scaleK = null;
+
+    public SearchWithMultiModalParam setScaleK(Float scaleK) {
+        this.scaleK = scaleK;
+        return this;
+    }
 
     public SearchWithMultiModalParam setText(String text) {
         this.text = text;
@@ -144,6 +150,9 @@ public class SearchWithMultiModalParam {
       }
       if (this.getPostProcessOps() != null) {
           search.put("post_process_ops", this.getPostProcessOps());
+      }
+      if (this.getScaleK() != null) {
+          search.put("scale_k", this.getScaleK());
       }
       return search;
   }

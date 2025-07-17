@@ -24,6 +24,12 @@ public class SearchByIdParam {
     private Integer isBuild = 0;
     private Boolean retry = false;
     private Boolean needReturnVector = false;
+    private Float scaleK = null;
+
+    public SearchByIdParam setScaleK(Float scaleK) {
+        this.scaleK = scaleK;
+        return this;
+    }
 
     public SearchByIdParam setId(Object id) {
         this.id = id;
@@ -114,6 +120,7 @@ public class SearchByIdParam {
         if (outputFields != null) map.put("output_fields", outputFields);
         if (filter != null) map.put("filter", filter);
         if (denseWeight != null) map.put("dense_weight", denseWeight);
+        if (scaleK != null) map.put("scale_k", scaleK);
 
         return map;
     }

@@ -23,6 +23,7 @@ public class SearchByTextParam {
     private Integer isBuild = 0;
     private Boolean retry = false;
     private Boolean needReturnVector = false;
+    private Float scaleK = null;
 
     public SearchByTextParam setText(Text text) {
         this.text = text;
@@ -137,6 +138,9 @@ public class SearchByTextParam {
         }
         if (this.getPostProcessOps() != null) {
             search.put("post_process_ops", this.getPostProcessOps());
+        }
+        if (this.getScaleK() != null) {
+            search.put("scale_k", this.getScaleK());
         }
         return search;
     }

@@ -267,6 +267,9 @@ public class Const {
     public static final String X_TLS_HASHKEY = "x-tls-hashkey";
     public static final String X_TLS_COMPRESS_TYPE = "x-tls-compresstype";
     public static final String X_TLS_BODY_RAW_SIZE = "x-tls-bodyrawsize";
+    public static final String Log_Count_Header = "log-count";
+    public static final String Earliest_Log_Time_Header = "earliest-log-time";
+    public static final String Latest_Log_Time_Header = "latest-log-time";
     public static final String WEBHOOK = "Webhook";
     public static final String CONSUME_TOPIC = "ConsumeTopic";
     public static final String INTERVAL = "Interval";

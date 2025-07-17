@@ -24,6 +24,12 @@ public class SearchByVectorParam {
     private Integer isBuild = 0;
     private Boolean retry = false;
     private Boolean needReturnVector = false;
+    private Float scaleK = null;
+
+    public SearchByVectorParam setScaleK(Float scaleK) {
+        this.scaleK = scaleK;
+        return this;
+    }
 
     public SearchByVectorParam setVector(List<Double> vector) {
         this.vector = vector;
@@ -118,6 +124,7 @@ public class SearchByVectorParam {
         if (outputFields != null) map.put("output_fields", outputFields);
         if (filter != null) map.put("filter", filter);
         if (denseWeight != null) map.put("dense_weight", denseWeight);
+        if (scaleK != null) map.put("scale_k", scaleK);
 
         return map;
     }

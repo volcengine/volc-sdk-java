@@ -2,10 +2,14 @@ package com.volcengine.service.tls.impl;
 
 import com.volcengine.model.tls.Const;
 import com.volcengine.model.tls.FullTextInfo;
+import com.volcengine.model.tls.LogItem;
+import com.volcengine.model.tls.LogContent;
 import com.volcengine.model.tls.exception.LogException;
 import com.volcengine.model.tls.pb.PutLogRequest;
 import com.volcengine.model.tls.request.*;
 import com.volcengine.model.tls.response.*;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.math.BigInteger;
@@ -13,38 +17,60 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static com.volcengine.model.tls.Const.LZ4;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 public class LogsTest extends BaseTest {
 
+    public static String projectId;
+    public static String projectName;
+    public static String topicId;
+    public static long currentTimeMillis;
+
+    @BeforeClass
+    public static void setupBeforeClass() throws LogException {
+        String prefix = "test-java-sdk";
+        String separator = "-";
+        SimpleDateFormat sdf = new SimpleDateFormat(Const.DATE_FORMAT);
+        Date date = new Date();
+        currentTimeMillis = date.getTime();
+        String formatDate = sdf.format(date);
+        //create project
+        String projectName = prefix + separator + formatDate + separator + currentTimeMillis;
+        String region = clientConfig.getRegion();
+        String description = "test project";
+        CreateProjectRequest project = new CreateProjectRequest(projectName, region, description);
+        CreateProjectResponse createProjectResponse = client.createProject(project);
+        System.out.println("create project success,response:" + createProjectResponse);
+        projectId = createProjectResponse.getProjectId();
+        //create topic
+        String topicName = prefix + separator + formatDate + separator + currentTimeMillis;
+        CreateTopicRequest createTopicRequest = new CreateTopicRequest();
+        createTopicRequest.setTopicName(topicName);
+        createTopicRequest.setProjectId(projectId);
+        createTopicRequest.setShardCount(1);
+        createTopicRequest.setTtl(500);
+        CreateTopicResponse createTopicResponse = client.createTopic(createTopicRequest);
+        System.out.println("create topic success,response:" + createTopicResponse);
+        topicId = createTopicResponse.getTopicId();
+    }
+
+    @AfterClass
+    public static void tearDownAfterClass() throws LogException {
+        //delete topic
+        DeleteTopicResponse deleteTopicResponse = client.deleteTopic(new DeleteTopicRequest(topicId));
+        System.out.println("delete topic success,response:" + deleteTopicResponse);
+        assertNotNull(deleteTopicResponse.getRequestId());
+
+        // delete project
+        DeleteProjectResponse deleteProjectResponse = client.deleteProject(new DeleteProjectRequest(projectId));
+        System.out.println("delete project success,response:" + deleteProjectResponse);
+        assertNotNull(deleteProjectResponse.getRequestId());
+    }
+
     @Test
     public void testLog() {
-        SimpleDateFormat sdf = new SimpleDateFormat(Const.DATE_FORMAT);
-        String prefix = "test-zsq";
-        String separator = "-";
-        Date date = new Date();
-        long currentTimeMillis = date.getTime();
-        String formatDate = sdf.format(date);
         try {
-            //create project
-            String projectName = prefix + separator + formatDate + separator + currentTimeMillis;
-            String region = clientConfig.getRegion();
-            String description = "test project";
-            CreateProjectRequest project = new CreateProjectRequest(projectName, region, description);
-            CreateProjectResponse createProjectResponse = client.createProject(project);
-            System.out.println("create project success,response:" + createProjectResponse);
-            String projectId = createProjectResponse.getProjectId();
-            //create topic
-            String topicName = prefix + separator + formatDate + separator + currentTimeMillis;
-            CreateTopicRequest createTopicRequest = new CreateTopicRequest();
-            createTopicRequest.setTopicName(topicName);
-            createTopicRequest.setProjectId(projectId);
-            createTopicRequest.setTtl(500);
-            CreateTopicResponse createTopicResponse = client.createTopic(createTopicRequest);
-            String topicId = createTopicResponse.getTopicId();
-            System.out.println("create topic success,response:" + createTopicResponse);
-
             // describeHistogram before creating index
             {
                 Exception exception = assertThrows(LogException.class, () -> {
@@ -76,7 +102,7 @@ public class LogsTest extends BaseTest {
              }
 
             //create index
-            CreateIndexRequest createIndexRequest = new CreateIndexRequest(createTopicResponse.getTopicId(),
+            CreateIndexRequest createIndexRequest = new CreateIndexRequest(topicId,
                     new FullTextInfo(false, ",-;", false), null);
             CreateIndexResponse createIndexResponse = client.createIndex(createIndexRequest);
             System.out.println("create index success,response:" + createIndexResponse);
@@ -94,7 +120,7 @@ public class LogsTest extends BaseTest {
             putLogsRequest.setCompressType(LZ4);
 //            putLogsRequest.setCompressType(null);
             PutLogsResponse putLogsResponse = client.putLogs(putLogsRequest);
-            assertTrue(putLogsResponse.getRequestId().length() > 0);
+            assertFalse(putLogsResponse.getRequestId().isEmpty());
 
             Exception exception = assertThrows(LogException.class, () -> {
                 putLogsRequest.setTopicId("zsq_123");
@@ -108,7 +134,7 @@ public class LogsTest extends BaseTest {
             DescribeCursorRequest describeCursorRequest =
                     new DescribeCursorRequest(topicId, 0, "1656604800");
             DescribeCursorResponse describeCursorResponse = client.describeCursor(describeCursorRequest);
-            assertTrue(describeCursorResponse.getCursor().length() > 0);
+            assertFalse(describeCursorResponse.getCursor().isEmpty());
 
             exception = assertThrows(LogException.class, () -> {
                 describeCursorRequest.setTopicId("124_356");
@@ -134,9 +160,9 @@ public class LogsTest extends BaseTest {
             assertTrue(actualMessage.contains(expectedMessage));
             System.out.println("describe shards success,response:" + describeShardsResponse);
 
-            // wait 30s,index to be queried
+            // wait 60s,index to be queried
 
-            Thread.sleep(30000);
+            Thread.sleep(60000);
             ConsumeLogsRequest consumeLogsRequest = new ConsumeLogsRequest();
             consumeLogsRequest.setTopicId(topicId);
             consumeLogsRequest.setShardId(0);
@@ -152,24 +178,25 @@ public class LogsTest extends BaseTest {
             actualMessage = exception.getMessage();
             assertTrue(actualMessage.contains(expectedMessage));
 
-            System.out.println(String.format("consume logs success requestId:%s,cursor:%s,cursorCnt:%d.",
+            System.out.printf("consume logs success requestId:%s,cursor:%s,cursorCnt:%d.%n",
                     consumeLogsResponse.getRequestId(), consumeLogsResponse.getXTlsCursor(),
-                    consumeLogsResponse.getXTlsCount()));
-            consumeLogsRequest.setTopicId(createTopicResponse.getTopicId());
+                    consumeLogsResponse.getXTlsCount());
+            consumeLogsRequest.setTopicId(topicId);
             consumeLogsRequest.setCompression(LZ4);
             consumeLogsResponse = client.consumeLogs(consumeLogsRequest);
-            System.out.println(String.format("consume logs success requestId:%s,cursor:%s,cursorCnt:%d.",
+            System.out.printf("consume logs success requestId:%s,cursor:%s,cursorCnt:%d.%n",
                     consumeLogsResponse.getRequestId(), consumeLogsResponse.getXTlsCursor(),
-                    consumeLogsResponse.getXTlsCount()));
+                    consumeLogsResponse.getXTlsCount());
             // search logs
             SearchLogsRequest searchLogsRequest = new SearchLogsRequest();
             searchLogsRequest.setTopicId(topicId);
             searchLogsRequest.setQuery("test");
             //开始时间20220701
+            Thread.sleep(30000);
             searchLogsRequest.setStartTime(1656604800000L);
             searchLogsRequest.setEndTime(System.currentTimeMillis());
             SearchLogsResponse searchLogsResponse = client.searchLogs(searchLogsRequest);
-            assertTrue(searchLogsResponse.getLogs().size() > 0);
+            assertFalse(searchLogsResponse.getLogs().isEmpty());
 
             exception = assertThrows(LogException.class, () -> {
                 searchLogsRequest.setTopicId("124_356");
@@ -264,4 +291,62 @@ public class LogsTest extends BaseTest {
         }
     }
 
+    @Test
+    public void testPutLogsV2() throws LogException {
+        int num = 100;
+        long timeStart = System.currentTimeMillis() / 1000;
+        List<LogItem> logs = new ArrayList<>();
+
+        for (int i = 0; i < num; i++) {
+            LogItem log = new LogItem();
+            log.setTime(timeStart + i);
+            log.addContent(new LogContent("key"+i, "test-message"+i));
+            logs.add(log);
+        }
+
+        LogItem lastLog = new LogItem();
+        lastLog.setTime(0);
+        lastLog.addContent(new LogContent("key"+num, "test-message"+num));
+        logs.add(lastLog);
+
+        PutLogsRequestV2 putLogsRequest = new PutLogsRequestV2();
+        putLogsRequest.setTopicId(topicId);
+        putLogsRequest.setSource("java-sdk-local");
+        putLogsRequest.setPath("test.log");
+        putLogsRequest.setLogs(logs);
+
+        PutLogsResponse putLogsResponse = client.putLogsV2(putLogsRequest);
+        assertNotNull(putLogsResponse.getRequestId());
+
+        DescribeCursorRequest describeCursorRequest = new DescribeCursorRequest();
+        describeCursorRequest.setTopicId(topicId);
+        describeCursorRequest.setShardId(0);
+        describeCursorRequest.setFrom("begin");
+        DescribeCursorResponse describeCursorResponse = client.describeCursor(describeCursorRequest);
+        assertNotNull(describeCursorResponse.getCursor());
+
+        ConsumeLogsRequest consumeLogsRequest = new ConsumeLogsRequest();
+        consumeLogsRequest.setTopicId(topicId);
+        consumeLogsRequest.setShardId(0);
+        consumeLogsRequest.setCursor(describeCursorResponse.getCursor());
+        ConsumeLogsResponse consumeLogsResponse = client.consumeLogs(consumeLogsRequest);
+        assertEquals(1, consumeLogsResponse.getXTlsCount());
+        PutLogRequest.LogGroupList logGroupList = consumeLogsResponse.getLogGroupList();
+        int count = 0;
+        for (int i = 0; i < logGroupList.getLogGroupsCount(); i++) {
+            PutLogRequest.LogGroup logGroup = logGroupList.getLogGroups(i);
+            for (PutLogRequest.Log log : logGroup.getLogsList()) {
+                if (log.getTime() < (long)1e10) {
+                    assertTrue(timeStart <= log.getTime());
+                    assertTrue(timeStart+num-1 >= log.getTime());
+                } else {
+                    assertTrue(timeStart * 1000 <= log.getTime());
+                    assertTrue((timeStart+num-1) * 1000 > log.getTime());
+                }
+
+                count++;
+            }
+        }
+        assertEquals(num+1, count);
+    }
 }

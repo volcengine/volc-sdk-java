@@ -11,4 +11,6 @@ public class GetPageWatchDataAPIV2Request {
     Long ActivityId;
     @JSONField(name = "PlayStatus")
     Integer PlayStatus;
+    @JSONField(name = "LineId")
+    Long LineId;
 }

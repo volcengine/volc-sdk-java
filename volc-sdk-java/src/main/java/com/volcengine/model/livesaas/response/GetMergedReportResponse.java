@@ -1,6 +1,7 @@
 package com.volcengine.model.livesaas.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.beans.livesaas.Tag;
 import com.volcengine.model.response.ResponseMetadata;
 import lombok.Data;
 
@@ -67,8 +68,8 @@ public class GetMergedReportResponse {
         Integer Cost;
         @JSONField(name = "ManualEndTime")
         Long ManualEndTime;
-        @JSONField(name = "ASRResult")
-        List<ASRResult> ASRResult;
+        @JSONField(name = "ASRResults")
+        List<ASRResult> ASRResults;
         @JSONField(name = "RecordURLs")
         List<String> RecordURLs;
         @JSONField(name = "StatisticalData")
@@ -203,5 +204,9 @@ public class GetMergedReportResponse {
         String CallbackURL;
         @JSONField(name = "Extra")
         String Extra;
+        @JSONField(name = "Tags")
+        List<Tag> Tags;
+        @JSONField(name = "ActivityId")
+        Long ActivityId;
     }
 }

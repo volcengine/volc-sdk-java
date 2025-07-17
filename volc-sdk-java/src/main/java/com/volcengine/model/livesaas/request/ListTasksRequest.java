@@ -35,4 +35,6 @@ public class ListTasksRequest {
     List<Integer> manualStatus;
     @JSONField(name = "ActivityId")
     Long ActivityId;
+    @JSONField(name = "TagIds")
+    List<Long> TagIds;
 }

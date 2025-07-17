@@ -1,6 +1,7 @@
 package com.volcengine.model.livesaas.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.beans.livesaas.Tag;
 import com.volcengine.model.response.ResponseMetadata;
 import lombok.Data;
 
@@ -109,6 +110,46 @@ public class GetReportResponse {
         List<CustomSensitiveResult> CustomSensitiveResults;
         @JSONField(name = "SystemSensitiveResults")
         List<SystemSensitiveResult> SystemSensitiveResults;
+//        @JSONField(name = "OCRTextRecognitionResults")
+//        List<OCRTextRecognitionResult> OCRTextRecognitionResults;
+//        @JSONField(name = "OCRBottomSubtitleResults")
+//        List<SystemSensitiveResult> OCRBottomSubtitleResults;
+//        @JSONField(name = "PresetScriptResult")
+//        PresetScriptResult PresetScriptResult;
+    }
+
+    @Data
+    public static class OCRTextRecognitionResult {
+        @JSONField(name = "ImageURLs")
+        List<String> ImageURLs;
+        @JSONField(name = "AbsoluteStartTime")
+        Long AbsoluteStartTime;
+        @JSONField(name = "AbsoluteEndTime")
+        Long AbsoluteEndTime;
+        @JSONField(name = "Description")
+        String Description;
+    }
+
+    @Data
+    public static class OCRBottomSubtitleResult {
+        @JSONField(name = "ImageURLs")
+        List<String> ImageURLs;
+        @JSONField(name = "AbsoluteStartTime")
+        Long AbsoluteStartTime;
+        @JSONField(name = "AbsoluteEndTime")
+        Long AbsoluteEndTime;
+        @JSONField(name = "Description")
+        String Description;
+    }
+
+    @Data
+    public static class PresetScriptResult {
+        @JSONField(name = "ASRText")
+        String ASRText;
+        @JSONField(name = "ScriptSimilarity")
+        Integer ScriptSimilarity;
+        @JSONField(name = "PresetScriptText")
+        Integer PresetScriptText;
     }
 
     @Data
@@ -203,5 +244,9 @@ public class GetReportResponse {
         String CallbackURL;
         @JSONField(name = "Extra")
         String Extra;
+        @JSONField(name = "ActivityId")
+        Long ActivityId;
+        @JSONField(name = "Tags")
+        List<Tag> Tags;
     }
 }

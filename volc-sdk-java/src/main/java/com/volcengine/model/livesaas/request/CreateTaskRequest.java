@@ -21,4 +21,10 @@ public class CreateTaskRequest {
     String CallbackURL;
     @JSONField(name = "Extra")
     String Extra;
+    @JSONField(name = "ActivityId")
+    Long ActivityId;
+    @JSONField(name = "TaskStartTime")
+    Long TaskStartTime;
+    @JSONField(name = "TagIds")
+    List<Long> TagIds;
 }

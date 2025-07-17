@@ -24,6 +24,12 @@ public class SearchParam {
     private Integer offset = -1;
     private RawOrderParam rawOrder = null;
     private Boolean needReturnVector = false;
+    private Float scaleK = null;
+
+    public SearchParam setScaleK(Float scaleK) {
+        this.scaleK = scaleK;
+        return this;
+    }
 
     public SearchParam setVectorOrder(VectorOrder vectorOrder) {
         this.vectorOrder = vectorOrder;
@@ -92,6 +98,11 @@ public class SearchParam {
 
     public SearchParam setNeedReturnVector(Boolean needReturnVector) {
         this.needReturnVector = needReturnVector;
+        return this;
+    }
+
+    public SearchParam setRawOrder(RawOrderParam rawOrder) {
+        this.rawOrder = rawOrder;
         return this;
     }
 

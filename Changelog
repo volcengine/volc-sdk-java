@@ -1,5 +1,8 @@
 Change log
 
+2025-07-18 Bumped to version v1.0.230
+- Updated apis for contentSecurity
+
 2025-07-17 Bumped to version v1.0.229
 - Updated apis for tls/vikingDB
 

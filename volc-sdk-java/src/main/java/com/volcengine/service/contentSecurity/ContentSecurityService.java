@@ -8,6 +8,8 @@ import com.volcengine.service.IBaseService;
  * The interface business security service.
  */
 public interface ContentSecurityService extends IBaseService {
+    void setImgPath();
+
     /**
      * Image Risk Detection.
      *

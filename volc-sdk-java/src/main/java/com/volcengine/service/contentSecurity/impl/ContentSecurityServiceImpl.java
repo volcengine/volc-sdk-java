@@ -25,6 +25,22 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
         return contentSecurityInstance;
     }
 
+    public void setImgPath() {
+        contentSecurityInstance.getApiInfoList().put(Const.ImageContentRiskV2, new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/open/api/v4/image_content_risk");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", Const.ImageContentRisk));
+                                add(new BasicNameValuePair("Version", "2021-11-29"));
+                            }
+                        });
+                    }
+                }
+        ));
+    }
     @Override
     public ImageRiskDetectionResponse ImageRiskDetection(RiskDetectionRequest riskDetectionRequest) throws Exception {
         RawResponse response = json(Const.ImageContentRisk, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));

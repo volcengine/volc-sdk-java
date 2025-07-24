@@ -4585,4 +4585,19 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public ResendActivityCouponResponse resendActivityCoupon(ResendActivityCouponRequest resendActivityCouponRequest) throws Exception {
+        RawResponse response = json(Const.ResendActivityCoupon, new ArrayList<>(), JSON.toJSONString(resendActivityCouponRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ResendActivityCouponResponse res = JSON.parseObject(response.getData(), ResendActivityCouponResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

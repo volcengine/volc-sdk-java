@@ -15,4 +15,6 @@ public class CreateCouponModel {
     String Pic;
     @JSONField(name = "OwnerSubAccountName")
     String OwnerSubAccountName;
+    @JSONField(name = "IsRepeatPickupEnable")
+    Integer IsRepeatPickupEnable;
 }

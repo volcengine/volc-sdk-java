@@ -21,4 +21,6 @@ public class UpdateActivityCouponRequest {
     Integer Duration;
     @JSONField(name = "CutOffTime")
     Long CutOffTime;
+    @JSONField(name = "IsWatchLiveLimit")
+    Integer IsWatchLiveLimit;
 }

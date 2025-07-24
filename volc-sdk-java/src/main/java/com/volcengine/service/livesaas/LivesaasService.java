@@ -2601,4 +2601,13 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetMergedReportResponse getMergedReport(GetMergedReportRequest getMergedReportRequest) throws Exception;
+
+    /**
+     * resendActivityCoupon
+     *
+     * @param resendActivityCouponRequest ResendActivityCouponRequest
+     * @return ResendActivityCouponResponse
+     * @throws Exception the exception
+     */
+    ResendActivityCouponResponse resendActivityCoupon(ResendActivityCouponRequest resendActivityCouponRequest) throws Exception;
 }

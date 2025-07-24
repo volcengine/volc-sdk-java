@@ -18,4 +18,6 @@ public class UpdateCouponRequest {
     String ThirdPartyId;
     @JSONField(name = "Pic")
     String Pic;
+    @JSONField(name = "IsRepeatPickupEnable")
+    Integer IsRepeatPickupEnable;
 }

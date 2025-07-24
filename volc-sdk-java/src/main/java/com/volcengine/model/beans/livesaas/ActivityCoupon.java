@@ -31,4 +31,6 @@ public class ActivityCoupon {
     Long EndTime;
     @JSONField(name = "Coupon")
     Coupon Coupon;
+    @JSONField(name = "IsWatchLiveLimit")
+    Integer IsWatchLiveLimit;
 }

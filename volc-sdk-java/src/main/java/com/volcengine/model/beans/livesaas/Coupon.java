@@ -15,4 +15,6 @@ public class Coupon {
     String Pic;
     @JSONField(name = "Id")
     Long Id;
+    @JSONField(name = "IsRepeatPickupEnable")
+    Integer IsRepeatPickupEnable;
 }

@@ -1147,6 +1147,8 @@ public class Const {
 
     public static final String SendProductOrderMessage = "SendProductOrderMessage";
 
+    public static final String ResendActivityCoupon = "ResendActivityCoupon";
+
     public static final String UpdateAccountCustomLinkConfig = "UpdateAccountCustomLinkConfig";
     public static final String GetAccountCustomLinkConfig = "GetAccountCustomLinkConfig";
 }

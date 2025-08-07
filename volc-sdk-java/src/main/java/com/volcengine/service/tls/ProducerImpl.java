@@ -173,6 +173,7 @@ public class ProducerImpl implements Producer {
         if (feedbackException != null) {
             throw feedbackException;
         }
+        dispatcher.getClient().close();
         LOG.info(String.format("producer %s closed", name));
     }
 

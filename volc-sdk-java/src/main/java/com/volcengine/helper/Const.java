@@ -406,6 +406,22 @@ public class Const {
 
     public static final String UpdateActivityViewPermissionAPI = "UpdateActivityViewPermissionAPI";
 
+    public static final String ListCallbackEvents = "ListCallbackEvents";
+
+    public static final String ListCallbackConfigs = "ListCallbackConfigs";
+
+    public static final String AddCallbackConfig = "AddCallbackConfig";
+
+    public static final String UpdateCallbackConfig = "UpdateCallbackConfig";
+
+    public static final String DeleteCallbackConfig = "DeleteCallbackConfig";
+
+    public static final String AddWebSDKDomain = "AddWebSDKDomain";
+
+    public static final String DeleteWebSDKDomain = "DeleteWebSDKDomain";
+
+    public static final String ListWebSDKDomainConfigs = "ListWebSDKDomainConfigs";
+
     public static final String DeleteMediaLibraryVideoAPI = "DeleteMediaLibraryVideoAPI";
 
     public static final String MediasMergeAPI = "MediasMergeAPI";

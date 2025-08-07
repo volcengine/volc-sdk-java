@@ -34,11 +34,13 @@ public final class DescribeImageXAIRequestCntUsageQuery  {
     private Boolean enableBillingRate;
 
     /**
-     * <p>维度拆分的维度值。不传表示不拆分维度，只能传入单个参数。支持取值如下：</p>
+     * <p>维度拆分的维度值。不传表示不拆分维度，传入多个时用英文逗号“,”分割。支持取值如下：</p>
      *
      * <p>- `ServiceId`：服务</p>
      *
      * <p>- `AdvFeat`：组件</p>
+     *
+     * <p>- `Model`：模型</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "GroupBy")
     private String groupBy;

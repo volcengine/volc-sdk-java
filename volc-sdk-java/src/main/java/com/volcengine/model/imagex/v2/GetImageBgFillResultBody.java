@@ -28,9 +28,11 @@ public final class GetImageBgFillResultBody  {
     /**
      * <p>填充模型，取值如下所示：</p>
      *
-     * <p>* 0：国漫风格模型；</p>
+     * <p>* 0：国漫风格模型</p>
      *
-     * <p>* 1：通用模型。</p>
+     * <p>* 1：通用模型</p>
+     *
+     * <p>* </p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Model")
     private Integer model;

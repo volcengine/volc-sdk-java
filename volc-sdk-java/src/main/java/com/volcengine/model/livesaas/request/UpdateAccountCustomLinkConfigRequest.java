@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class UpdateAccountCustomLinkConfigRequest {
     @JSONField(name = "BackgroundMusicUrl")
-    private String BackgroundMusicUrl;
+    String BackgroundMusicUrl;
     @JSONField(name = "BackgroundImageUrl")
-    private String BackgroundImageUrl;
+    String BackgroundImageUrl;
 }

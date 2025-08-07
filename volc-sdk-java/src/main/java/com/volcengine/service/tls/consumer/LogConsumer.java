@@ -207,9 +207,10 @@ public class LogConsumer {
         req.setShardId(this.shard.getShardID());
         req.setCursor(this.nextCheckpoint);
         req.setLogGroupCount(this.consumerConfig.getMaxFetchLogGroupCount());
-        req.setCompression(LZ4);
+        req.setCompression(this.consumerConfig.getCompressType());
         req.setConsumerGroupName(this.consumerConfig.getConsumerGroupName());
         req.setConsumerName(this.consumerConfig.getConsumerName());
+        req.setOrigin(this.consumerConfig.isOrigin());
         ConsumeLogsResponse resp = this.tlsClient.consumeLogs(req);
 
         this.currLogGroupList = resp.getLogGroupList();

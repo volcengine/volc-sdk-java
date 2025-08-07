@@ -38,6 +38,8 @@ public class ConsumerConfig {
     private int maxFetchLogGroupCount;
     private boolean orderedConsume;
     private int stopTimeout;
+    private boolean origin;
+    private String compressType;
 
     public ConsumerConfig(String endpoint, String region, String accessKeyId, String accessKeySecret) {
         this(endpoint, region, accessKeyId, accessKeySecret, null);
@@ -52,6 +54,8 @@ public class ConsumerConfig {
         this.maxFetchLogGroupCount = DEFAULT_MAX_FETCH_LOG_GROUP_COUNT;
         this.orderedConsume = false;
         this.stopTimeout = DEFAULT_STOP_TIMEOUT;
+        this.origin = true;
+        this.compressType = LZ4;
     }
 
     public void validateConsumerConfig() throws LogException {
@@ -143,6 +147,14 @@ public class ConsumerConfig {
 
     public void setStopTimeout(int stopTimeout) {
         this.stopTimeout = stopTimeout;
+    }
+
+    public void setOrigin(boolean origin) {
+        this.origin = origin;
+    }
+
+    public void setCompressType(String compressType) {
+        this.compressType = compressType;
     }
 
     private void checkEmptyString(String str, String field) throws LogException {

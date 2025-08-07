@@ -25,6 +25,8 @@ public class ConsumeLogsRequest {
     String consumerGroupName;
     @JSONField(serialize = false)
     String consumerName;
+    @JSONField(serialize = false)
+    Boolean origin;
 
 
     /**
@@ -137,6 +139,14 @@ public class ConsumeLogsRequest {
      */
     public void setConsumerName(String consumerName) {
         this.consumerName = consumerName;
+    }
+
+    public Boolean isOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(Boolean origin) {
+        this.origin = origin;
     }
 
     /**

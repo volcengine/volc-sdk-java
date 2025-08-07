@@ -500,6 +500,78 @@ public interface LivesaasService extends IBaseService {
     CommonStatusResponse enableProductAPI(EnableProductRequest enableProductRequest) throws Exception;
 
     /**
+     * ListCallbackEvents
+     *
+     * @param listCallbackEventsRequest ListCallbackEventsRequest
+     * @return ListCallbackEventsResponse
+     * @throws Exception the exception
+     */
+    ListCallbackEventsResponse listCallbackEvents(ListCallbackEventsRequest listCallbackEventsRequest) throws Exception;
+
+    /**
+     * ListCallbackConfigs
+     *
+     * @param listCallbackConfigsRequest ListCallbackConfigsRequest
+     * @return ListCallbackConfigsResponse
+     * @throws Exception the exception
+     */
+    ListCallbackConfigsResponse listCallbackConfigs(ListCallbackConfigsRequest listCallbackConfigsRequest) throws Exception;
+
+    /**
+     * AddCallbackConfig
+     *
+     * @param addCallbackConfigRequest AddCallbackConfigRequest
+     * @return AddCallbackConfigResponse
+     * @throws Exception the exception
+     */
+    AddCallbackConfigResponse addCallbackConfig(AddCallbackConfigRequest addCallbackConfigRequest) throws Exception;
+
+    /**
+     * UpdateCallbackConfig
+     *
+     * @param updateCallbackConfigRequest UpdateCallbackConfigRequest
+     * @return UpdateCallbackConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateCallbackConfigResponse updateCallbackConfig(UpdateCallbackConfigRequest updateCallbackConfigRequest) throws Exception;
+
+    /**
+     * DeleteCallbackConfig
+     *
+     * @param deleteCallbackConfigRequest DeleteCallbackConfigRequest
+     * @return DeleteCallbackConfigResponse
+     * @throws Exception the exception
+     */
+    DeleteCallbackConfigResponse deleteCallbackConfig(DeleteCallbackConfigRequest deleteCallbackConfigRequest) throws Exception;
+
+    /**
+     * DeleteWebSDKDomain
+     *
+     * @param deleteWebSDKDomainRequest DeleteWebSDKDomainRequest
+     * @return DeleteWebSDKDomainResponse
+     * @throws Exception the exception
+     */
+    DeleteWebSDKDomainResponse deleteWebSDKDomain(DeleteWebSDKDomainRequest deleteWebSDKDomainRequest) throws Exception;
+
+    /**
+     * AddWebSDKDomain
+     *
+     * @param addWebSDKDomainRequest AddWebSDKDomainRequest
+     * @return AddWebSDKDomainResponse
+     * @throws Exception the exception
+     */
+    AddWebSDKDomainResponse addWebSDKDomain(AddWebSDKDomainRequest addWebSDKDomainRequest) throws Exception;
+
+    /**
+     * ListWebSDKDomainConfigs
+     *
+     * @param listWebSDKDomainConfigsRequest ListWebSDKDomainConfigsRequest
+     * @return ListWebSDKDomainConfigsResponse
+     * @throws Exception the exception
+     */
+    ListWebSDKDomainConfigsResponse listWebSDKDomainConfigs(ListWebSDKDomainConfigsRequest listWebSDKDomainConfigsRequest) throws Exception;
+
+    /**
      * GetAccountCustomLinkConfig
      *
      * @param getAccountCustomLinkConfigRequest GetAccountCustomLinkConfigRequest

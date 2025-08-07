@@ -100,12 +100,57 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public AddWebSDKDomainResponse addWebSDKDomain(AddWebSDKDomainRequest addWebSDKDomainRequest) throws Exception {
+        RawResponse response = json(Const.AddWebSDKDomain, new ArrayList<>(), JSON.toJSONString(addWebSDKDomainRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        AddWebSDKDomainResponse res = JSON.parseObject(response.getData(), AddWebSDKDomainResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteWebSDKDomainResponse deleteWebSDKDomain(DeleteWebSDKDomainRequest deleteWebSDKDomainRequest) throws Exception {
+        RawResponse response = json(Const.DeleteWebSDKDomain, new ArrayList<>(), JSON.toJSONString(deleteWebSDKDomainRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteWebSDKDomainResponse res = JSON.parseObject(response.getData(), DeleteWebSDKDomainResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public CommonStatusResponse updateSiteTagAPIV2(UpdateSiteTagAPIV2Request updateSiteTagAPIV2Request) throws Exception {
         RawResponse response = json(Const.UpdateSiteTagAPIV2, new ArrayList<>(), JSON.toJSONString(updateSiteTagAPIV2Request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         CommonStatusResponse res = JSON.parseObject(response.getData(), CommonStatusResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListWebSDKDomainConfigsResponse listWebSDKDomainConfigs(ListWebSDKDomainConfigsRequest listWebSDKDomainConfigsRequest) throws Exception {
+        RawResponse response = query(Const.ListWebSDKDomainConfigs, Utils.paramsToPair(listWebSDKDomainConfigsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListWebSDKDomainConfigsResponse res = JSON.parseObject(response.getData(), ListWebSDKDomainConfigsResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
@@ -887,6 +932,81 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
             throw response.getException();
         }
         CommonStatusResponse res = JSON.parseObject(response.getData(), CommonStatusResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListCallbackEventsResponse listCallbackEvents(ListCallbackEventsRequest listCallbackEventsRequest) throws Exception {
+        RawResponse response = query(Const.ListCallbackEvents, Utils.paramsToPair(listCallbackEventsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListCallbackEventsResponse res = JSON.parseObject(response.getData(), ListCallbackEventsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListCallbackConfigsResponse listCallbackConfigs(ListCallbackConfigsRequest listCallbackConfigsRequest) throws Exception {
+        RawResponse response = query(Const.ListCallbackConfigs, Utils.paramsToPair(listCallbackConfigsRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListCallbackConfigsResponse res = JSON.parseObject(response.getData(), ListCallbackConfigsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public AddCallbackConfigResponse addCallbackConfig(AddCallbackConfigRequest addCallbackConfigRequest) throws Exception {
+        RawResponse response = json(Const.AddCallbackConfig, new ArrayList<>(), JSON.toJSONString(addCallbackConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        AddCallbackConfigResponse res = JSON.parseObject(response.getData(), AddCallbackConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateCallbackConfigResponse updateCallbackConfig(UpdateCallbackConfigRequest updateCallbackConfigRequest) throws Exception {
+        RawResponse response = json(Const.UpdateCallbackConfig, new ArrayList<>(), JSON.toJSONString(updateCallbackConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateCallbackConfigResponse res = JSON.parseObject(response.getData(), UpdateCallbackConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteCallbackConfigResponse deleteCallbackConfig(DeleteCallbackConfigRequest deleteCallbackConfigRequest) throws Exception {
+        RawResponse response = json(Const.DeleteCallbackConfig, new ArrayList<>(), JSON.toJSONString(deleteCallbackConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteCallbackConfigResponse res = JSON.parseObject(response.getData(), DeleteCallbackConfigResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());

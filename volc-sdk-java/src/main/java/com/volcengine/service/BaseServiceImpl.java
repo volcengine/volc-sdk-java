@@ -604,10 +604,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         if (header != null && header.size() > 0) {
             header.forEach(request::setHeader);
         }
-        byte[] compressedData = body.clone();
-        if (compressType != null && compressType.equalsIgnoreCase(LZ4)) {
-            compressedData = EncodeUtil.lz4Compress(body);
-        }
+        byte[] compressedData = EncodeUtil.compressLog(body, compressType);
         if (compressedData != null && compressedData.length > 0) {
             request.setEntity(new ByteArrayEntity(compressedData));
         }

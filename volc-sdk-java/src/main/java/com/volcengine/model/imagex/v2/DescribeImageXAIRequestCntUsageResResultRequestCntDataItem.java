@@ -28,6 +28,12 @@ public final class DescribeImageXAIRequestCntUsageResResultRequestCntDataItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Data")
     private List<DescribeImageXAIRequestCntUsageResResultRequestCntDataItemDataItem> data;
 
+    /**
+     * <p>附加组件模型，`GroupBy`包含`Model`时有返回值。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Model")
+    private String model;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

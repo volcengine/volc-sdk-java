@@ -5,12 +5,17 @@ import com.volcengine.model.tls.DescribeRulesRequest;
 import com.volcengine.model.tls.exception.LogException;
 import com.volcengine.model.tls.request.*;
 import com.volcengine.model.tls.response.*;
+import org.apache.http.client.HttpClient;
 
 public interface TLSLogClient {
     /**
      * client配置，key和超时
      */
     void configClient(ClientConfig config);
+
+    void close();
+
+    void setHttpClient(HttpClient httpClient);
 
     void resetAccessKeyToken(String accessKeyID, String accessKeySecret, String securityToken);
 

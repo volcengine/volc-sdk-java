@@ -73,6 +73,12 @@ public final class GetImageAITasksQuery  {
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private Long endTime;
 
+    /**
+     * <p>搜索url、uri</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "SearchPtn")
+    private String searchPtn;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

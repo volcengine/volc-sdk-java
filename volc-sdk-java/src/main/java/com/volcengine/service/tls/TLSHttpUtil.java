@@ -1,13 +1,20 @@
 package com.volcengine.service.tls;
 
+import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.model.ApiInfo;
 import com.volcengine.model.ServiceInfo;
+import com.volcengine.model.response.RawResponse;
 import com.volcengine.service.BaseServiceImpl;
+import com.volcengine.service.SignableRequest;
+import org.apache.http.Header;
 import org.apache.http.NameValuePair;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.message.BasicHeader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -17,6 +24,21 @@ public class TLSHttpUtil extends BaseServiceImpl {
     }
 
     public static ServiceInfo serviceInfo;
+
+    public RawResponse json(String api, List<NameValuePair> params, String body, Map<String, String> headers) {
+        ApiInfo apiInfo = apiInfoList.get(api);
+        if (apiInfo == null) {
+            return new RawResponse(null, SdkError.ENOAPI.getNumber(), new Exception(SdkError.getErrorDesc(SdkError.ENOAPI)));
+        }
+
+        SignableRequest request = prepareRequest(api, params);
+        if (headers != null && !headers.isEmpty()) {
+            headers.forEach(request::setHeader);
+        }
+        request.setHeader("Content-Type", "application/json");
+        request.setEntity(new StringEntity(body, "utf-8"));
+        return makeRequest(api, request);
+    }
 
 
     public final static Map<String, ApiInfo> API_INFO_LIST = new HashMap<String, ApiInfo>() {
@@ -433,6 +455,16 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         {
                             put(Const.Method, Const.GET);
                             put(Const.Path, com.volcengine.model.tls.Const.CONSUME_LOGS);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.CONSUME_ORIGIN_LOGS, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.GET);
+                            put(Const.Path, com.volcengine.model.tls.Const.CONSUME_ORIGIN_LOGS);
                             put(Const.Query, new ArrayList<NameValuePair>() {
                             });
                         }

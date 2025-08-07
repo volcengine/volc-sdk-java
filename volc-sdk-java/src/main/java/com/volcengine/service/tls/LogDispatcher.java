@@ -10,6 +10,7 @@ import com.volcengine.model.tls.producer.CallBack;
 import com.volcengine.model.tls.producer.ProducerConfig;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.http.impl.client.HttpClients;
 
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -50,6 +51,9 @@ public class LogDispatcher {
         this.batchCount = batchCount;
         this.retryManager = retryManager;
         this.client = ClientBuilder.newClient(producerConfig.getClientConfig());
+        this.client.setHttpClient(HttpClients.custom()
+                .setConnectionManager(TLSUtil.createHttpClientConnectionManager())
+                .disableContentCompression().build());
     }
 
     public TLSLogClient getClient() {

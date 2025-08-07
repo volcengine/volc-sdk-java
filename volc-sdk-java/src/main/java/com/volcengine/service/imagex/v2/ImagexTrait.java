@@ -947,6 +947,21 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>describeImageXAddOnQPSUsage</p>
+     * <p>查询附加组件QPS</p>
+     *
+     * <p>本接口支持通过自定义查询时间段，查询该时间段的附加组件QPS。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeImageXAddOnQPSUsageRes describeImageXAddOnQPSUsage(DescribeImageXAddOnQPSUsageQuery query) throws Exception {
+        RawResponse rawResponse = json("DescribeImageXAddOnQPSUsage", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, DescribeImageXAddOnQPSUsageRes.class);
+    }
+
+    /**
      * <p>describeImageXAIRequestCntUsage</p>
      * <p>查询附加组件智能处理请求次</p>
      *
@@ -2542,6 +2557,117 @@ public class ImagexTrait extends BaseServiceImpl {
     public CreateImageAITaskRes createImageAITask(CreateImageAITaskBody body) throws Exception {
         RawResponse rawResponse = json("CreateImageAITask", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, CreateImageAITaskRes.class);
+    }
+
+    /**
+     * <p>createImageAIProcessQueue</p>
+     * <p>创建队列</p>
+     *
+     * <p>调用 `CreateImageAIProcessQueue` 接口，创建批量处理任务队列，并自定义任务队列配置，例如名称、描述、回调配置等。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateImageAIProcessQueueRes createImageAIProcessQueue(CreateImageAIProcessQueueBody body) throws Exception {
+        RawResponse rawResponse = json("CreateImageAIProcessQueue", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateImageAIProcessQueueRes.class);
+    }
+
+    /**
+     * <p>deleteImageAIProcessQueue</p>
+     * <p>删除接口</p>
+     *
+     * <p>调用 `DeleteImageAIProcessQueue` 接口，删除指定批量处理任务队列。</p>
+     *
+     * <p>:::warning</p>
+     *
+     * <p>每个账号内置的一个默认任务队列不允许被删除。</p>
+     *
+     * <p>:::</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteImageAIProcessQueueRes deleteImageAIProcessQueue(DeleteImageAIProcessQueueBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteImageAIProcessQueue", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteImageAIProcessQueueRes.class);
+    }
+
+    /**
+     * <p>createImageAIProcessCallback</p>
+     * <p>手动触发回调</p>
+     *
+     * <p>调用 `CreateImageAIProcessCallback` 接口，手动对指定 URL/URI 处理条目发送回调内容。回调内容详见[回调内容](https://www.volcengine.com/docs/508/1749069#%E6%AD%A5%E9%AA%A4%E4%BA%94%EF%BC%9A%E8%8E%B7%E5%8F%96%E5%A4%84%E7%90%86%E7%BB%93%E6%9E%9C%E8%AF%A6%E6%83%85)。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateImageAIProcessCallbackRes createImageAIProcessCallback(CreateImageAIProcessCallbackBody body) throws Exception {
+        RawResponse rawResponse = json("CreateImageAIProcessCallback", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateImageAIProcessCallbackRes.class);
+    }
+
+    /**
+     * <p>updateImageAIProcessQueue</p>
+     * <p>更新队列信息</p>
+     *
+     * <p>调用 `UpdateImageAIProcessQueue` 接口，更新指定批量处理任务队列的配置，例如名称、描述、回调配置等。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageAIProcessQueueRes updateImageAIProcessQueue(UpdateImageAIProcessQueueBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageAIProcessQueue", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageAIProcessQueueRes.class);
+    }
+
+    /**
+     * <p>updateImageAIProcessQueueStatus</p>
+     * <p>更新队列状态</p>
+     *
+     * <p>调用 `UpdateImageAIProcessQueueStatus` 接口，更新指定批量处理任务队列的状态。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateImageAIProcessQueueStatusRes updateImageAIProcessQueueStatus(UpdateImageAIProcessQueueStatusBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateImageAIProcessQueueStatus", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateImageAIProcessQueueStatusRes.class);
+    }
+
+    /**
+     * <p>deleteImageAIProcessDetail</p>
+     * <p>条目删除接口</p>
+     *
+     * <p>调用 `DeleteImageAIProcessDetail` 接口，删除一个或多个批量处理条目。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteImageAIProcessDetailRes deleteImageAIProcessDetail(DeleteImageAIProcessDetailBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteImageAIProcessDetail", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteImageAIProcessDetailRes.class);
+    }
+
+    /**
+     * <p>getImageAIProcessQueues</p>
+     * <p>查询队列信息</p>
+     *
+     * <p>调用 `GetImageAIProcessQueues` 接口，获取当前账号下已创建的批量处理任务队列详情。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageAIProcessQueuesRes getImageAIProcessQueues(GetImageAIProcessQueuesQuery query) throws Exception {
+        RawResponse rawResponse = json("GetImageAIProcessQueues", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetImageAIProcessQueuesRes.class);
     }
 
     /**

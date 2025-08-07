@@ -1,0 +1,19 @@
+syntax = "proto3";
+package com.volcengine.model.tls;
+option java_package = "com.volcengine.model.tls.pb";
+option java_outer_classname="RawLog";
+
+message RawLogGroupList
+{
+  int32 OriginLen = 1;
+  int64 LogArriveTime = 2;
+  string CompressType = 3;
+  string Cursor = 4;
+  bytes Data = 5;
+  int32 LogCount = 6;
+}
+
+message RawLogGroupListList
+{
+  repeated RawLogGroupList RawLogGroupLists = 1;
+}

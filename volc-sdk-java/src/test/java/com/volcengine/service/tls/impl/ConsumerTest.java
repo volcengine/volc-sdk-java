@@ -7,14 +7,8 @@ import com.volcengine.model.tls.exception.LogException;
 import com.volcengine.model.tls.pb.PutLogRequest;
 import com.volcengine.model.tls.producer.CallBack;
 import com.volcengine.model.tls.producer.ProducerConfig;
-import com.volcengine.model.tls.request.CreateProjectRequest;
-import com.volcengine.model.tls.request.CreateTopicRequest;
-import com.volcengine.model.tls.request.DeleteProjectRequest;
-import com.volcengine.model.tls.request.DeleteTopicRequest;
-import com.volcengine.model.tls.response.CreateProjectResponse;
-import com.volcengine.model.tls.response.CreateTopicResponse;
-import com.volcengine.model.tls.response.DeleteProjectResponse;
-import com.volcengine.model.tls.response.DeleteTopicResponse;
+import com.volcengine.model.tls.request.*;
+import com.volcengine.model.tls.response.*;
 import com.volcengine.service.tls.Producer;
 import com.volcengine.service.tls.ProducerImpl;
 import com.volcengine.service.tls.consumer.Consumer;
@@ -29,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class ConsumerTest extends BaseTest {
@@ -37,6 +32,8 @@ public class ConsumerTest extends BaseTest {
     public static String projectName;
     public static String topicId;
     public static long timestamp = System.currentTimeMillis() / 1000 - 1;
+
+    public static int count = 17;
 
     @BeforeClass
     public static void setupBeforeClass() throws LogException, InterruptedException {
@@ -84,7 +81,7 @@ public class ConsumerTest extends BaseTest {
 
         // 调用Producer的sendLogsV2接口，一次提交多条日志
         List<LogItem> items = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < count; i++) {
             LogItem item = new LogItem();
             item.setTime(System.currentTimeMillis());
             item.addContent("Key", "key-" + i);
@@ -99,6 +96,14 @@ public class ConsumerTest extends BaseTest {
 
     @AfterClass
     public static void tearDownAfterClass() throws LogException {
+        // delete consumerGroup
+        DeleteConsumerGroupRequest deleteConsumerGroupRequest = new DeleteConsumerGroupRequest();
+        deleteConsumerGroupRequest.setProjectID(projectId);
+        deleteConsumerGroupRequest.setConsumerGroupName("java-consumer-group");
+        DeleteConsumerGroupResponse deleteConsumerGroupResponse = client.deleteConsumerGroup(deleteConsumerGroupRequest);
+        System.out.println("delete consumerGroup success,response:" + deleteConsumerGroupResponse);
+        assertNotNull(deleteConsumerGroupResponse.getRequestId());
+
         //delete topic
         DeleteTopicResponse deleteTopicResponse = client.deleteTopic(new DeleteTopicRequest(topicId));
         System.out.println("delete topic success,response:" + deleteTopicResponse);
@@ -130,11 +135,17 @@ public class ConsumerTest extends BaseTest {
         config.setConsumerName("java-consumer");
 
         // 实例化ConsumerImpl，调用consumer.start()开始持续消费
-        Consumer consumer = new ConsumerImpl(config, new ConsumerLogProcessor());
+        ConsumerLogProcessor processor = new ConsumerLogProcessor();
+        Consumer consumer = new ConsumerImpl(config, processor);
         consumer.start();
 
         // 可通过调用consumer.stop()来结束消费组消费
-        Thread.sleep(300 * 1000);
+        Thread.sleep(60 * 1000);
+        if (processor.count == count) {
+            System.out.println("consumer success");
+        }
+        assertEquals(processor.count, count);
+        consumer.stop();
         consumer.stop();
     }
 
@@ -163,19 +174,20 @@ public class ConsumerTest extends BaseTest {
         consumer.start();
 
         // 可通过调用consumer.stop()来结束消费组消费
-        Thread.sleep(300 * 1000);
+        Thread.sleep(60 * 1000);
+        consumer.stop();
         consumer.stop();
     }
 }
 
 class ConsumerLogProcessor implements LogProcessor {
 
+    public int count;
+
     @Override
     public void process(String topicID, int shardID, PutLogRequest.LogGroupList logGroupList) {
         System.out.println(topicID + " --- " + shardID);
         System.out.println(logGroupList.getLogGroupsCount());
-
-        int count = 0;
 
         List<PutLogRequest.LogGroup> logGroups = logGroupList.getLogGroupsList();
         for (PutLogRequest.LogGroup logGroup: logGroups) {

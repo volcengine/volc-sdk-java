@@ -35,7 +35,7 @@ public final class CreateImageAITaskBody  {
     private String dataType;
 
     /**
-     * <p>待进行 AI 处理的图片 URI 或 URL 列表，其中 URI 不需要带 `tos-cn-i-***` 前缀。传入图片的宽高、大小等要求请参看对应的[附加组件使用限制](https://www.volcengine.com/docs/508/1270839)。</p>
+     * <p>待进行 AI 处理的图片 URI 或 URL 列表，其中 URI 不需要带 `tos-cn-i-***` 前缀，最多传入 10,000 张图片。传入图片的宽高、大小等要求请参看对应的[附加组件使用限制](https://www.volcengine.com/docs/508/1270839)。</p>
      *
      *
      *
@@ -65,6 +65,12 @@ public final class CreateImageAITaskBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "WorkflowTemplateId")
     private String workflowTemplateId;
+
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "QueueId")
+    private String queueId;
 
     @Override
     public String toString() {

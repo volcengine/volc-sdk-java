@@ -40,7 +40,7 @@ public final class GetImageAIDetailsQuery  {
      *
      * <p>- `Pending`：排队中</p>
      *
-     * <p>- `Running`：执行中</p>
+     * <p>- `Dispatched`：执行中</p>
      *
      * <p>- `Success`：执行成功</p>
      *

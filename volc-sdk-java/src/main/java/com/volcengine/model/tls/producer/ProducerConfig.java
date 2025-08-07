@@ -14,7 +14,7 @@ public class ProducerConfig {
     public static final int DEFAULT_TOTAL_SIZE_IN_BYTES = 100 * 1024 * 1024;
     public static final int DEFAULT_MAX_THREAD_COUNT = 50;
     public static final int DEFAULT_MAX_BATCH_SIZE = 512 * 1024;
-    public static final int MAX_BATCH_SIZE = 10 * 1024 * 1024;
+    public static final int MAX_BATCH_SIZE = 8 * 1024 * 1024;
     public static final int DEFAULT_MAX_BATCH_COUNT = 4096;
     public static final int MAX_BATCH_COUNT = 32768;
     public static final int MAX_LOG_GROUP_COUNT = 10000;

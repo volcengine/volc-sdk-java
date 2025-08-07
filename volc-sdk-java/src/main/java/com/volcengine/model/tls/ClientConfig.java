@@ -57,8 +57,6 @@ public class ClientConfig {
                             {
                                 add(new BasicHeader(com.volcengine.helper.Const.ACCEPT,
                                         com.volcengine.helper.Const.ACCEPT_ALL));
-                                add(new BasicHeader(com.volcengine.helper.Const.ACCEPT_ENCODING,
-                                        com.volcengine.helper.Const.GZIP_DEFLATE_BR));
                                 add(new BasicHeader(com.volcengine.model.tls.Const.REGION, config.getRegion()));
                             }
                         });

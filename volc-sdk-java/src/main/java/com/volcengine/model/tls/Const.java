@@ -53,6 +53,8 @@ public class Const {
     public static final String PUT_LOGS = "/PutLogs";
     public static final String DESCRIBE_CURSOR = "/DescribeCursor";
     public static final String CONSUME_LOGS = "/ConsumeLogs";
+    public static final String CONSUME_ORIGIN_LOGS = "/ConsumeOriginalLogs";
+    public static final String TLS_ORIGINAL_HEADER = "x-tls-original";
     public static final String SEARCH_LOGS = "/SearchLogs";
     //alarm and group
     public static final String CREATE_ALARM = "/CreateAlarm";
@@ -298,6 +300,7 @@ public class Const {
     public static final String SCHEMA = "Schema";
     public static final String DATA = "Data";
     public static final String LZ4 = "lz4";
+    public static final String ZLIB = "zlib";
     public static final String MD5 = "MD5";
     public static final String HEADER_CONTENT_MD5 = "Content-MD5";
     public static final String SOURCE = "Source";

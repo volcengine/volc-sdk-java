@@ -14,6 +14,6 @@ public class UpdateAccountCustomLinkConfigResponse {
     @Data
     public static class UpdateAccountCustomLinkConfigResponseBody {
         @JSONField(name = "Status")
-        private Integer Status;
+        Integer Status;
     }
 }

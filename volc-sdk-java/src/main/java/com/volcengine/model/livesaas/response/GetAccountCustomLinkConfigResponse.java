@@ -15,6 +15,6 @@ public class GetAccountCustomLinkConfigResponse {
     @Data
     public static class GetAccountCustomLinkConfigResponseBody {
         @JSONField(name = "CustomLinkConfig")
-        private CustomLinkConfig CustomLinkConfig;
+        CustomLinkConfig CustomLinkConfig;
     }
 }

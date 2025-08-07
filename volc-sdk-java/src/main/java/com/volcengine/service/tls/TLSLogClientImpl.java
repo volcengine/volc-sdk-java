@@ -8,7 +8,6 @@ import com.volcengine.model.ApiInfo;
 import com.volcengine.model.response.RawResponse;
 import com.volcengine.model.tls.ClientConfig;
 import com.volcengine.model.tls.Const;
-import com.volcengine.model.tls.ConsumerGroup;
 import com.volcengine.model.tls.DescribeRulesRequest;
 import com.volcengine.model.tls.exception.LogException;
 import com.volcengine.model.tls.pb.PutLogRequest;
@@ -20,10 +19,14 @@ import com.volcengine.model.tls.util.TimeUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Header;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.volcengine.model.tls.Const.*;
@@ -81,6 +84,17 @@ public class TLSLogClientImpl implements TLSLogClient {
     public void configClient(ClientConfig config) {
         this.config = config;
         httpRequest.setServiceInfo(ClientConfig.initServiceInfo(config));
+    }
+
+    @Override
+    public void setHttpClient(HttpClient httpClient) {
+        httpRequest.setHttpClient(httpClient);
+    }
+
+    @Override
+    public void close() {
+        httpRequest.destroy();
+        httpRequest.getHttpClient().getConnectionManager().shutdown();
     }
 
     @Override
@@ -222,11 +236,20 @@ public class TLSLogClientImpl implements TLSLogClient {
             headers.put(CONSUMER_NAME, request.getConsumerName());
         }
 
+        if (request.isOrigin() == null) {
+            request.setOrigin(Boolean.TRUE);
+        }
+
         // 2、check sum and sendRequest
-        RawResponse rawResponse = sendJsonRequest(CONSUME_LOGS, params, requestBody, headers);
+        String path = CONSUME_LOGS;
+        if (request.isOrigin()) {
+            path = CONSUME_ORIGIN_LOGS;
+        }
+
+        RawResponse rawResponse = sendJsonRequest(path, params, requestBody, headers);
 
         // 3、parse response
-        return new ConsumeLogsResponse(rawResponse.getHeaders(), request.getCompression()).deSerialize(rawResponse.getData(), ConsumeLogsResponse.class);
+        return new ConsumeLogsResponse(rawResponse.getHeaders(), request.getCompression(), request.isOrigin()).deSerialize(rawResponse.getData(), ConsumeLogsResponse.class);
     }
 
     @Override
@@ -397,9 +420,15 @@ public class TLSLogClientImpl implements TLSLogClient {
     private RawResponse sendJsonRequest(String path, ArrayList<NameValuePair> query, String requestBody, Map<String, String> headers) throws LogException {
         checkMd5(path, requestBody.getBytes(), headers);
 
-        mergeHeaders(path, headers);
+        if (headers == null) {
+            headers = new HashMap<>();
+        }
+        // 默认api版本0.3.0，如果用户有header使用用户自定义的
+        if (!headers.containsKey(HEADER_API_VERSION)) {
+            headers.put(HEADER_API_VERSION, this.config.getApiVersion());
+        }
 
-        RawResponse rawResponse = doRetryRequest(path, query, requestBody);
+        RawResponse rawResponse = doRetryRequest(path, query, requestBody, headers);
         if (rawResponse.getCode() != SdkError.SUCCESS.getNumber()) {
             String[] error = getError(rawResponse);
             throw new LogException(rawResponse.getHttpCode(), error[0], error[1], rawResponse.getFirstHeader(X_TLS_REQUESTID));
@@ -424,13 +453,13 @@ public class TLSLogClientImpl implements TLSLogClient {
         apiInfo.setHeader(apiHeader);
     }
 
-    private RawResponse doRetryRequest(String path, ArrayList<NameValuePair> params, String requestBody) throws LogException {
+    private RawResponse doRetryRequest(String path, ArrayList<NameValuePair> params, String requestBody, Map<String, String> headers) throws LogException {
         RawResponse rawResponse = null;
         long expectedQuitTimestamp = System.currentTimeMillis() + DEFAULT_REQUEST_TIMEOUT_MS;
         int tryCount = 0;
         // retry
         while (true) {
-            rawResponse = httpRequest.json(path, params, requestBody);
+            rawResponse = httpRequest.json(path, params, requestBody, headers);
             tryCount += 1;
             // return if request succeed or tryCount >= 5
             if (tryCount >= 5 || rawResponse.getCode() == SdkError.SUCCESS.getNumber() || !needRetryStatus(rawResponse.getHttpCode())) {

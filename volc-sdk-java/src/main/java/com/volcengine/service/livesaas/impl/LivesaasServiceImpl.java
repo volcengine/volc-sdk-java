@@ -4705,7 +4705,6 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
-<<<<<<< HEAD
     @Override
     public UpdateViewerLevelConfigResponse updateViewerLevelConfig(UpdateViewerLevelConfigRequest updateViewerLevelConfigRequest) throws Exception {
         RawResponse response = json(Const.UpdateViewerLevelConfig, new ArrayList<>(), JSON.toJSONString(updateViewerLevelConfigRequest));

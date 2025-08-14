@@ -2674,8 +2674,6 @@ public interface LivesaasService extends IBaseService {
      */
     GetMergedReportResponse getMergedReport(GetMergedReportRequest getMergedReportRequest) throws Exception;
 
-<<<<<<< HEAD
-
     /**
      * updateViewerLevelConfig
      * @param updateViewerLevelConfigRequest UpdateViewerLevelConfigRequest

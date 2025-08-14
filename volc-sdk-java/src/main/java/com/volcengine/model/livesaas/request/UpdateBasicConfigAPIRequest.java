@@ -156,6 +156,8 @@ public class UpdateBasicConfigAPIRequest {
     Integer IsAutoEndEnable;
     @JSONField(name = "IsAvatarShowEnable")
     Integer IsAvatarShowEnable;
+    @JSONField(name = "IsViewerLevelShowEnable")
+    Integer IsViewerLevelShowEnable;
     @Data
     public static class RiskWarningSetting {
         @JSONField(name = "IsRiskWarningEnable")

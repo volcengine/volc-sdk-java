@@ -687,6 +687,12 @@ public class Const {
     public static final String ListTasks = "ListTasks";
     public static final String CreateTask = "CreateTask";
     public static final String ListProjects = "ListProjects";
+    public static final String CreateViewerLevelConfig = "CreateViewerLevelConfig";
+    public static final String UpdateViewerLevelConfig = "UpdateViewerLevelConfig";
+    public static final String ReorderViewerLevelConfig = "ReorderViewerLevelConfig";
+    public static final String DeleteViewerLevelConfig = "DeleteViewerLevelConfig";
+    public static final String GetViewerLevelConfig = "GetViewerLevelConfig";
+
 
     public static final String EnableActivityMultiProductExplain = "EnableActivityMultiProductExplain";
 

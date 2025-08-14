@@ -53,4 +53,6 @@ public class AwardConfigStatistic {
     Long AwardSendTime;
     @JSONField(name = "DeadLineSecond")
     Long DeadLineSecond;
+    @JSONField(name = "AwardFloatingIcon")
+    String AwardFloatingIcon;
 }

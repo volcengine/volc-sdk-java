@@ -89,5 +89,9 @@ public class GetUserBehaviorListResponseAPIV2 {
         String AvatarUrl;
         @JSONField(name = "InviterAvatar")
         String InviterAvatar;
+        @JSONField(name = "ViewerLevelOrder")
+        Long ViewerLevelOrder;
+        @JSONField(name = "LevelName")
+        String LevelName;
     }
 }

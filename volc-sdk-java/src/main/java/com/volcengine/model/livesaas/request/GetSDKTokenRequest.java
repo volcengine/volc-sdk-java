@@ -22,4 +22,6 @@ public class GetSDKTokenRequest {
     Long ActivityId;
     @JSONField(name = "CustomComment")
     String CustomComment;
+    @JSONField(name = "LevelId")
+    Long LevelId;
 }

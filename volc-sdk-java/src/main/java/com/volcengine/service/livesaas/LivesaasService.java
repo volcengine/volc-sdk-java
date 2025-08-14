@@ -2674,6 +2674,48 @@ public interface LivesaasService extends IBaseService {
      */
     GetMergedReportResponse getMergedReport(GetMergedReportRequest getMergedReportRequest) throws Exception;
 
+<<<<<<< HEAD
+
+    /**
+     * updateViewerLevelConfig
+     * @param updateViewerLevelConfigRequest UpdateViewerLevelConfigRequest
+     * @return UpdateViewerLevelConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateViewerLevelConfigResponse updateViewerLevelConfig(UpdateViewerLevelConfigRequest updateViewerLevelConfigRequest) throws Exception;
+
+    /**
+     * reorderViewerLevelConfig
+     * @param reorderViewerLevelConfigRequest ReorderViewerLevelConfigRequest
+     * @return ReorderViewerLevelConfigRequest
+     * @throws Exception the exception
+     */
+    ReorderViewerLevelConfigResponse reorderViewerLevelConfig(ReorderViewerLevelConfigRequest reorderViewerLevelConfigRequest) throws Exception;
+
+    /**
+     * createViewerLevelConfig
+     * @param createViewerLevelConfigRequest CreateViewerLevelConfigRequest
+     * @return CreateViewerLevelConfigResponse
+     * @throws Exception the exception
+     */
+    CreateViewerLevelConfigResponse createViewerLevelConfig(CreateViewerLevelConfigRequest createViewerLevelConfigRequest) throws Exception;
+
+    /**
+     * deleteViewerLevelConfig
+     * @param deleteViewerLevelConfigRequest DeleteViewerLevelConfigRequest
+     * @return DeleteViewerLevelConfigResponse
+     * @throws Exception the exception
+     */
+    DeleteViewerLevelConfigResponse deleteViewerLevelConfig(DeleteViewerLevelConfigRequest deleteViewerLevelConfigRequest) throws Exception;
+
+    /**
+     * getViewerLevelConfig
+     * @param getViewerLevelConfigRequest GetViewerLevelConfigRequest
+     * @return GetViewerLevelConfigResponse
+     * @throws Exception the exception
+     */
+    GetViewerLevelConfigResponse getViewerLevelConfig(GetViewerLevelConfigRequest getViewerLevelConfigRequest) throws Exception;
+
     /**
      * resendActivityCoupon
      *

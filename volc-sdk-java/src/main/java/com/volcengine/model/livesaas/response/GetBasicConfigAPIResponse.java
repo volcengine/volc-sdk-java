@@ -168,6 +168,8 @@ public class GetBasicConfigAPIResponse {
         Integer LiveLayout;
         @JSONField(name = "IsAvatarShowEnable")
         Integer IsAvatarShowEnable;
+        @JSONField(name = "IsViewerLevelShowEnable")
+        Integer IsViewerLevelShowEnable;
     }
 
     @Data

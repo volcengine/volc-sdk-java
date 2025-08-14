@@ -25,4 +25,6 @@ public class SmsSendVerifyCodeRequest {
     int tryCount;
     @JSONField(name="EncryptName")
     String encryptName;
+    @JSONField(name="Tag")
+    String tag;
 }

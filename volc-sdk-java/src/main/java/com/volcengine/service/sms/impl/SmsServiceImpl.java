@@ -7,6 +7,7 @@ import com.volcengine.helper.Const;
 import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
+import com.volcengine.model.tls.ClientBuilder;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.sms.SmsConfig;
 import com.volcengine.service.sms.SmsService;
@@ -14,6 +15,9 @@ import com.volcengine.service.sms.SmsServiceInfo;
 import com.volcengine.service.sms.SmsServiceInfoConfig;
 import com.volcengine.util.ConvertUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.http.Header;
 import org.apache.http.HttpHost;
 import org.apache.http.NameValuePair;
 
@@ -31,6 +35,8 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
 
     public static final String DefaultErrorCode = "-1";
     public static final String DefaultErrorMsg = "未知错误";
+
+    private final static Log log = LogFactory.getLog(SmsServiceImpl.class);
 
 
     private SmsServiceImpl() {
@@ -344,6 +350,13 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     private SmsSendResponse getSmsSendResponseV2(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             if (response.getException() != null) {
+                for (Header header : response.getHeaders()) {
+                    if (header != null) {
+                        log.info("Header name is" + header.getName() + ",value is " + header.getValue());
+                    }
+                }
+                log.error("Http code is " + response.getHttpCode());
+                log.error("exception is ", response.getException());
                 return new SmsSendResponse(String.valueOf(response.getCode()), response.getException().getMessage());
             }
             return new SmsSendResponse(String.valueOf(response.getCode()), Arrays.toString(response.getData()));

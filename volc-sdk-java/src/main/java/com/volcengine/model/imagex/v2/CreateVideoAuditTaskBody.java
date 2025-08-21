@@ -5,13 +5,13 @@ import com.alibaba.fastjson.JSON;
 import java.util.List;
 
 /**
- * CreateImageAuditTaskBody
+ * CreateVideoAuditTaskBody
  */
 @lombok.Data
-public final class CreateImageAuditTaskBody  {
+public final class CreateVideoAuditTaskBody  {
 
     /**
-     * <p>任务类型。当前接口仅支持取值为 `audit`。</p>
+     * <p>任务类型，当前仅支持取值为 `audit`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TaskType")
     private String taskType;
@@ -21,21 +21,19 @@ public final class CreateImageAuditTaskBody  {
      *
      * <p>- `UrlFile`：存量文件处理，针对已有存储内的文件请求获取审核结果。传入方式是 `ResUri` 方式，即在 TXT 文件（审核文件）内填写了待审核文件 URL，并将该 TXT 文件上传至指定服务后获取并传入该文件的 StoreUri。</p>
      *
-     * <p>- `Url`：URL 直传场景。传入方式为 `ImageInfos` 方式，即可直接传入待审核文件的 URL 及区分标识。</p>
-     *
      * <p>- `Upload`：上传场景，针对上传文件到指定服务下的场景。可通过 `EnableAuditRange` 参数指定审核的范围，例如对指定上传到某目录下的文件进行审核。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Type")
     private String type;
 
     /**
-     * <p>指定审核任务所属的服务 ID。</p>
+     * <p>服务 ID。</p>
      *
      *
      *
-     * <p>- 可在 veImageX 控制台 [服务管理](https://console.volcengine.com/imagex/service_manage/) 页面获取；</p>
+     * <p>- 您可以在 veImageX 控制台 [服务管理](https://console.volcengine.com/imagex/service_manage/)页面，在创建好的图片服务中获取服务 ID。</p>
      *
-     * <p>- 也可通过 [获取所有服务信息](https://www.volcengine.com/docs/508/9360) OpenAPI 获取。</p>
+     * <p>- 您也可以通过 OpenAPI 的方式获取服务 ID，具体请参考[获取所有服务信息](https://www.volcengine.com/docs/508/9360)。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ServiceId")
     private String serviceId;
@@ -55,47 +53,33 @@ public final class CreateImageAuditTaskBody  {
      *
      *
      *
-     * <p>- 基础安全审核，仅当 `AuditAbility` 取值为 `0` 时，配置生效。</p>
-     *
-     *
-     *
-     * <p>	- `govern`：涉政</p>
-     *
-     * <p>	- `porn` ：涉黄	</p>
-     *
-     * <p>	- `illegal`：违法违规	</p>
-     *
-     * <p>	- `terror`：涉暴</p>
-     *
-     *
-     *
      * <p>- 智能安全审核，仅当 `AuditAbility` 取值为 `1` 时，配置生效。</p>
      *
      *
      *
      * <p>	- 图像风险识别</p>
      *
-     * <p>		- `porn` ：涉黄，主要适用于通用色情、色情动作、性行为、性暗示、性分泌物、色情动漫、色情裸露等涉黄场景的风险识别</p>
+     * <p>		- `video_porn` ：涉黄，主要适用于通用色情、色情动作、性行为、性暗示、性分泌物、色情动漫、色情裸露等涉黄场景的风险识别</p>
      *
-     * <p>		- `sensitive1` ：涉敏1，具体指涉及暴恐风险	</p>
+     * <p>		- `video_sensitive1` ：涉敏1，具体指涉及暴恐风险	</p>
      *
-     * <p>		- `sensitive2`：涉敏2，具体值涉及政治内容风险</p>
+     * <p>		- `video_sensitive2`：涉敏2，具体值涉及政治内容风险</p>
      *
-     * <p>		- `forbidden`：违禁，主要适用于打架斗殴、爆炸、劣迹艺人等场景的风险识别</p>
+     * <p>		- `video_forbidden`：违禁，主要适用于打架斗殴、爆炸、劣迹艺人等场景的风险识别</p>
      *
-     * <p>		- `uncomfortable`：引人不适，主要适用于恶心、恐怖、尸体、血腥等引人不适场景的风险识别</p>
+     * <p>		- `video_uncomfortable`：引人不适，主要适用于恶心、恐怖、尸体、血腥等引人不适场景的风险识别</p>
      *
-     * <p>		- `qrcode`：二维码，主要适用于识别常见二维码（QQ、微信、其他二维码等）</p>
+     * <p>		- `video_qrcode`：二维码，主要适用于识别常见二维码（QQ、微信、其他二维码等）</p>
      *
-     * <p>		- `badpicture`：不良画面，主要适用于自我伤害、丧葬、不当车播、吸烟/纹身/竖中指等不良社会风气的风险识别	</p>
+     * <p>		- `video_badpicture`：不良画面，主要适用于自我伤害、丧葬、不当车播、吸烟/纹身/竖中指等不良社会风气的风险识别	</p>
      *
-     * <p>		- `sexy`：性感低俗，主要适用于舌吻、穿衣性行为、擦边裸露等多种性感低俗场景的风险识别</p>
+     * <p>		- `video_sexy`：性感低俗，主要适用于舌吻、穿衣性行为、擦边裸露等多种性感低俗场景的风险识别</p>
      *
-     * <p>		- `age`：年龄，主要适用于图中人物对应的年龄段识别</p>
+     * <p>		- `video_age`：年龄，主要适用于图中人物对应的年龄段识别</p>
      *
-     * <p>		- `underage`：未成年相关，主要适用于儿童色情、儿童邪典等风险识别</p>
+     * <p>		- `video_underage`：未成年相关，主要适用于儿童色情、儿童邪典等风险识别</p>
      *
-     * <p>		- `quality`：图片质量，主要适用于图片模糊、纯色边框、纯色屏等风险识别</p>
+     * <p>		- `video_quality`：图片质量，主要适用于图片模糊、纯色边框、纯色屏等风险识别</p>
      *
      * <p>	- 图文风险识别，您可在 `AuditTextDimensions` 配置文字审核的维度。</p>
      *
@@ -129,28 +113,6 @@ public final class CreateImageAuditTaskBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AuditTextDimensions")
     private List<String> auditTextDimensions;
-
-    /**
-     * <p>是否开启大图审核功能。默认值为 `false`。支持的取值如下所示。</p>
-     *
-     * <p>- `true`：开启大图审核，系统会对 5MB~32MB 的图片进行压缩后再审核；</p>
-     *
-     * <p>- `false`：不开启大图审核。</p>
-     *
-     *
-     *
-     * <p>:::tip</p>
-     *
-     * <p>- 未开启时若图片大小 ≥ 5 MB，可能导致系统超时报错；</p>
-     *
-     * <p>- 已开启时若图片大小 ≥ 32 MB，可能导致系统超时报错；</p>
-     *
-     * <p>- 开启后将对压缩能力按照[基础图片处理](https://www.volcengine.com/docs/508/65935#%E5%9F%BA%E7%A1%80%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E6%9C%8D%E5%8A%A1)进行计费（每月有 20TB 免费额度）。</p>
-     *
-     * <p>:::</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "EnableLargeImageDetect")
-    private Boolean enableLargeImageDetect;
 
     /**
      * <p>是否开启审核范围配置，仅当 `Type` 取值为 `Upload` 时生效。默认值为 `0`。支持的取值如下所示。</p>
@@ -231,12 +193,6 @@ public final class CreateImageAuditTaskBody  {
     private List<String> resUri;
 
     /**
-     * <p>当 `Type` 为 `Url` 时，用于批量提交待审核文件的 URL 列表。每个元素包含文件 URL 和自定义标识。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "ImageInfos")
-    private List<CreateImageAuditTaskBodyImageInfosItem> imageInfos;
-
-    /**
      * <p>是否开启审核结果回调功能，默认值为 `false`。支持的取值如下所示。</p>
      *
      * <p>- `true`：开启回调；</p>
@@ -295,28 +251,22 @@ public final class CreateImageAuditTaskBody  {
     private String region;
 
     /**
-     * <p>指定需要审核的文件通配符列表，仅当 `EnableAuditRange` 取值为 `1` 时生效。当前支持的通配符为 `*` 和 `?`，不同通配符请用英文逗号隔开。</p>
+     * <p>指定通配符匹配的审核范围，支持使用 `*` 进行多字符匹配和 `?` 进行单字符匹配。不同通配符需用逗号隔开。例如 `/a/*b/c` 匹配 `/a/testb/c`，`/a/b/c/test12?/*` 匹配 `/a/b/c/test123/file.mp4`。</p>
      */
-    @com.alibaba.fastjson.annotation.JSONField(name = "AuditWildCard")
-    private List<String> auditWildCard;
+    @com.alibaba.fastjson.annotation.JSONField(name = "Auditwildcard")
+    private List<String> auditwildcard;
 
     /**
-     * <p>指定审核任务关联的存储桶名称，用于标识审核任务对应的存储位置。</p>
+     * <p>指定通配符匹配的不审核范围，支持使用 `*` 进行多字符匹配和 `?` 进行单字符匹配。不同通配符需用逗号隔开。例如 `/a/*b/c` 匹配 `/a/testb/c`，`/a/b/c/test12?/*` 匹配 `/a/b/c/test123/file.mp4`。</p>
      */
-    @com.alibaba.fastjson.annotation.JSONField(name = "BktName")
-    private String bktName;
+    @com.alibaba.fastjson.annotation.JSONField(name = "NoAuditwildcard")
+    private List<String> noAuditwildcard;
 
     /**
-     * <p>底层存储类型，用于标识审核任务关联的存储桶的底层存储服务类型。支持的取值为 `volc_tos`（火山 TOS）</p>
+     * <p>视频截帧频率，单位为秒，默认值为 `2`。表示每隔指定秒数对视频进行一次截帧处理。</p>
      */
-    @com.alibaba.fastjson.annotation.JSONField(name = "BktType")
-    private String bktType;
-
-    /**
-     * <p>指定不进行审核的文件通配符列表，仅当 `EnableAuditRange` 取值为 `1` 时生效。当前支持的通配符为 `*` 和 `?`，不同通配符请用英文逗号隔开。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "NoAuditWildCard")
-    private List<String> noAuditWildCard;
+    @com.alibaba.fastjson.annotation.JSONField(name = "Interval")
+    private Integer interval;
 
     @Override
     public String toString() {

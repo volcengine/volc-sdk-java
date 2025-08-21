@@ -5,22 +5,22 @@ import com.alibaba.fastjson.JSON;
 import java.util.List;
 
 /**
- * GetSyncAuditResultResResult
+ * BatchImageAuditResResultOutputsItem
  */
 @lombok.Data
-public final class GetSyncAuditResultResResult  {
-
-    /**
-     * <p>图片的 URI 地址，用于标识审核的图片资源。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "ImageUri")
-    private String imageUri;
+public final class BatchImageAuditResResultOutputsItem  {
 
     /**
      * <p>建议您根据实际业务情况，将该参数作为可区分审核图片 `ImageUri` 的自定义标识。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DataId")
     private String dataId;
+
+    /**
+     * <p>图片的公网可访问 URL，用于指定需要审核的图片资源地址。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "ImageUri")
+    private String imageUri;
 
     /**
      * <p>图片审核的建议结果，表示系统对图片内容的审核意见。支持的取值如下所示。</p>

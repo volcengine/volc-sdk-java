@@ -4,13 +4,13 @@ package com.volcengine.model.imagex.v2;
 import com.alibaba.fastjson.JSON;
 
 /**
- * CreateImageAuditTaskResResult
+ * CreateVideoAuditTaskResResult
  */
 @lombok.Data
-public final class CreateImageAuditTaskResResult  {
+public final class CreateVideoAuditTaskResResult  {
 
     /**
-     * <p>审核任务的唯一标识符，用于后续查询或管理该任务。</p>
+     * <p>任务 ID</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TaskId")
     private String taskId;

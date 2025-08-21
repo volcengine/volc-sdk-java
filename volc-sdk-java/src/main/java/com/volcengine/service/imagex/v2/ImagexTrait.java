@@ -4658,9 +4658,9 @@ public class ImagexTrait extends BaseServiceImpl {
 
     /**
      * <p>createImageAuditTask</p>
-     * <p>创建审核任务</p>
+     * <p>创建图片审核任务</p>
      *
-     * <p>本接口支持在指定服务下创建审核任务。</p>
+     * <p>本接口用于在指定服务下创建图片审核任务，支持多种审核维度（如涉黄、涉政、违禁等），并可配置冻结策略和回调通知。审核任务完成后，可根据审核结果执行冻结操作或通过回调通知用户。该接口适用于内容安全审核、违规资源处理等场景。</p>
      *
      * @param body body payload
      * @return response data
@@ -4669,6 +4669,36 @@ public class ImagexTrait extends BaseServiceImpl {
     public CreateImageAuditTaskRes createImageAuditTask(CreateImageAuditTaskBody body) throws Exception {
         RawResponse rawResponse = json("CreateImageAuditTask", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, CreateImageAuditTaskRes.class);
+    }
+
+    /**
+     * <p>createVideoAuditTask</p>
+     * <p>创建视频审核任务</p>
+     *
+     * <p>本接口用于创建视频内容审核任务，支持对视频内容进行多维度安全检测，包括但不限于涉黄、涉政、涉恐等违规内容识别。可配置审核维度、冻结策略等参数，实现对违规内容的自动化处理。支持回调通知功能，便于业务系统实时获取审核结果。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateVideoAuditTaskRes createVideoAuditTask(CreateVideoAuditTaskBody body) throws Exception {
+        RawResponse rawResponse = json("CreateVideoAuditTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateVideoAuditTaskRes.class);
+    }
+
+    /**
+     * <p>createAudioAuditTask</p>
+     * <p>创建音频审核任务</p>
+     *
+     * <p>本接口用于创建音频审核任务，支持对音频内容进行多维度安全审核，包括涉黄、涉政、涉恐等违规内容的检测。您可以通过配置审核维度和冻结策略，实现对音频内容的精细化管控。接口返回任务 ID，用于后续查询审核结果。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateAudioAuditTaskRes createAudioAuditTask(CreateAudioAuditTaskBody body) throws Exception {
+        RawResponse rawResponse = json("CreateAudioAuditTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateAudioAuditTaskRes.class);
     }
 
     /**
@@ -4690,7 +4720,7 @@ public class ImagexTrait extends BaseServiceImpl {
      * <p>getSyncAuditResult</p>
      * <p>同步单条审核</p>
      *
-     * <p>同步审核单条</p>
+     * <p>该接口用于获取同步审核任务结果。</p>
      *
      * @param query query arguments
      * @param body body payload
@@ -4700,6 +4730,38 @@ public class ImagexTrait extends BaseServiceImpl {
     public GetSyncAuditResultRes getSyncAuditResult(GetSyncAuditResultQuery query, GetSyncAuditResultBody body) throws Exception {
         RawResponse rawResponse = json("GetSyncAuditResult", Utils.paramsToPair(query), JSON.toJSONString(body));
         return parseRawResponse(rawResponse, GetSyncAuditResultRes.class);
+    }
+
+    /**
+     * <p>singleImageAudit</p>
+     * <p>图片单次审核</p>
+     *
+     * <p>本接口用于对单张图片进行内容审核，支持同步和异步两种审核方式。您可以指定审核能力类型（`AuditAbility`）和审核维度（`AuditDimensions`），接口会返回审核建议（`Advice`）和违规标签（`Label`、`SubLabel`）。该接口适用于内容安全审核、违规图片过滤等场景。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public SingleImageAuditRes singleImageAudit(SingleImageAuditQuery query, SingleImageAuditBody body) throws Exception {
+        RawResponse rawResponse = json("SingleImageAudit", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, SingleImageAuditRes.class);
+    }
+
+    /**
+     * <p>batchImageAudit</p>
+     * <p>图片批量审核</p>
+     *
+     * <p>本接口提供图片内容批量审核能力，支持同步和异步两种审核模式。可自定义审核维度（如图片内容）和文本审核维度（如OCR识别文本），适用于内容安全、合规审查等场景。审核结果包含审核建议、一级标签、二级标签和图片类型判断。</p>
+     *
+     * @param query query arguments
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public BatchImageAuditRes batchImageAudit(BatchImageAuditQuery query, BatchImageAuditBody body) throws Exception {
+        RawResponse rawResponse = json("BatchImageAudit", Utils.paramsToPair(query), JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, BatchImageAuditRes.class);
     }
 
     /**
@@ -4754,6 +4816,36 @@ public class ImagexTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>updateVideoAuditTask</p>
+     * <p>更新视频审核任务配置</p>
+     *
+     * <p>本接口用于更新视频审核任务的配置，包括审核维度、冻结策略、回调设置等。通过该接口，您可以灵活调整审核任务的各项参数，以适应不同的业务需求和安全策略。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateVideoAuditTaskRes updateVideoAuditTask(UpdateVideoAuditTaskBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateVideoAuditTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateVideoAuditTaskRes.class);
+    }
+
+    /**
+     * <p>updateAudioAuditTask</p>
+     * <p>更新音频审核任务配置</p>
+     *
+     * <p>本接口用于更新音频审核任务的配置，包括审核维度、审核范围、审核前缀、冻结策略等。通过该接口，您可以灵活调整审核规则，以适应不同的业务需求和安全策略。接口支持实时生效，确保审核任务按照最新配置执行。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateAudioAuditTaskRes updateAudioAuditTask(UpdateAudioAuditTaskBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateAudioAuditTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateAudioAuditTaskRes.class);
+    }
+
+    /**
      * <p>getImageAuditTasks</p>
      * <p>查询所有审核任务</p>
      *
@@ -4766,6 +4858,21 @@ public class ImagexTrait extends BaseServiceImpl {
     public GetImageAuditTasksRes getImageAuditTasks(GetImageAuditTasksQuery query) throws Exception {
         RawResponse rawResponse = json("GetImageAuditTasks", Utils.paramsToPair(query), "");
         return parseRawResponse(rawResponse, GetImageAuditTasksRes.class);
+    }
+
+    /**
+     * <p>getImageAuditTaskResult</p>
+     * <p>获取图片审核任务结果</p>
+     *
+     * <p>本接口支持对单个图片进行同步审核任务，并获取审核结果。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetImageAuditTaskResultRes getImageAuditTaskResult(GetImageAuditTaskResultQuery query) throws Exception {
+        RawResponse rawResponse = json("GetImageAuditTaskResult", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetImageAuditTaskResultRes.class);
     }
 
     /**
@@ -4796,6 +4903,36 @@ public class ImagexTrait extends BaseServiceImpl {
     public GetAuditEntrysCountRes getAuditEntrysCount(GetAuditEntrysCountQuery query) throws Exception {
         RawResponse rawResponse = json("GetAuditEntrysCount", Utils.paramsToPair(query), "");
         return parseRawResponse(rawResponse, GetAuditEntrysCountRes.class);
+    }
+
+    /**
+     * <p>getVideoAuditResult</p>
+     * <p>获取视频审核任务结果</p>
+     *
+     * <p>本接口用于查询指定视频审核任务的结果，支持通过多种筛选条件（如审核建议、问题类型等）获取特定类型的审核结果。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetVideoAuditResultRes getVideoAuditResult(GetVideoAuditResultQuery query) throws Exception {
+        RawResponse rawResponse = json("GetVideoAuditResult", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetVideoAuditResultRes.class);
+    }
+
+    /**
+     * <p>getAudioAuditResult</p>
+     * <p>获取音频审核任务结果</p>
+     *
+     * <p>本接口用于查询指定音频审核任务的结果，支持通过多种筛选条件（如审核建议、问题类型等）获取特定类型的审核结果。</p>
+     *
+     * @param query query arguments
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetAudioAuditResultRes getAudioAuditResult(GetAudioAuditResultQuery query) throws Exception {
+        RawResponse rawResponse = json("GetAudioAuditResult", Utils.paramsToPair(query), "");
+        return parseRawResponse(rawResponse, GetAudioAuditResultRes.class);
     }
 
     /**

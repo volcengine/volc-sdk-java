@@ -7,7 +7,7 @@ import com.volcengine.service.imp.model.business.*;
 import com.volcengine.service.imp.model.response.*;
 
 
-public class ImpSubmitJobDemo {
+public class ImpSubmitJobByJobDemo {
     // single job SubmitJob, TranscodeVideo as example
     public static void main(String[] args) throws Exception {
 

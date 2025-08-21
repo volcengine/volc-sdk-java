@@ -5,10 +5,10 @@ import com.alibaba.fastjson.JSON;
 import java.util.List;
 
 /**
- * UpdateImageAuditTaskBody
+ * UpdateVideoAuditTaskBody
  */
 @lombok.Data
-public final class UpdateImageAuditTaskBody  {
+public final class UpdateVideoAuditTaskBody  {
 
     /**
      * <p>指定待更新审核任务所在的服务 ID，您可通过调用 [查询所有审核任务](https://www.volcengine.com/docs/508/1158717) 获取待更新任务对应的服务 ID。</p>
@@ -21,47 +21,33 @@ public final class UpdateImageAuditTaskBody  {
      *
      *
      *
-     * <p>- 基础安全审核，仅当 `AuditAbility` 取值为 `0` 时，配置生效。</p>
-     *
-     *
-     *
-     * <p>	- `govern`：涉政</p>
-     *
-     * <p>	- `porn` ：涉黄	</p>
-     *
-     * <p>	- `illegal`：违法违规	</p>
-     *
-     * <p>	- `terror`：涉暴</p>
-     *
-     *
-     *
      * <p>- 智能安全审核，仅当 `AuditAbility` 取值为 `1` 时，配置生效。</p>
      *
      *
      *
      * <p>	- 图像风险识别</p>
      *
-     * <p>		- `porn` ：涉黄，主要适用于通用色情、色情动作、性行为、性暗示、性分泌物、色情动漫、色情裸露等涉黄场景的风险识别</p>
+     * <p>		- `video_porn` ：涉黄，主要适用于通用色情、色情动作、性行为、性暗示、性分泌物、色情动漫、色情裸露等涉黄场景的风险识别</p>
      *
-     * <p>		- `sensitive1` ：涉敏1，具体指涉及暴恐风险	</p>
+     * <p>		- `video_sensitive1` ：涉敏1，具体指涉及暴恐风险	</p>
      *
-     * <p>		- `sensitive2`：涉敏2，具体值涉及政治内容风险</p>
+     * <p>		- `video_sensitive2`：涉敏2，具体值涉及政治内容风险</p>
      *
-     * <p>		- `forbidden`：违禁，主要适用于打架斗殴、爆炸、劣迹艺人等场景的风险识别</p>
+     * <p>		- `video_forbidden`：违禁，主要适用于打架斗殴、爆炸、劣迹艺人等场景的风险识别</p>
      *
-     * <p>		- `uncomfortable`：引人不适，主要适用于恶心、恐怖、尸体、血腥等引人不适场景的风险识别</p>
+     * <p>		- `video_uncomfortable`：引人不适，主要适用于恶心、恐怖、尸体、血腥等引人不适场景的风险识别</p>
      *
-     * <p>		- `qrcode`：二维码，主要适用于识别常见二维码（QQ、微信、其他二维码等）</p>
+     * <p>		- `video_qrcode`：二维码，主要适用于识别常见二维码（QQ、微信、其他二维码等）</p>
      *
-     * <p>		- `badpicture`：不良画面，主要适用于自我伤害、丧葬、不当车播、吸烟/纹身/竖中指等不良社会风气的风险识别	</p>
+     * <p>		- `video_badpicture`：不良画面，主要适用于自我伤害、丧葬、不当车播、吸烟/纹身/竖中指等不良社会风气的风险识别	</p>
      *
-     * <p>		- `sexy`：性感低俗，主要适用于舌吻、穿衣性行为、擦边裸露等多种性感低俗场景的风险识别</p>
+     * <p>		- `video_sexy`：性感低俗，主要适用于舌吻、穿衣性行为、擦边裸露等多种性感低俗场景的风险识别</p>
      *
-     * <p>		- `age`：年龄，主要适用于图中人物对应的年龄段识别</p>
+     * <p>		- `video_age`：年龄，主要适用于图中人物对应的年龄段识别</p>
      *
-     * <p>		- `underage`：未成年相关，主要适用于儿童色情、儿童邪典等风险识别</p>
+     * <p>		- `video_underage`：未成年相关，主要适用于儿童色情、儿童邪典等风险识别</p>
      *
-     * <p>		- `quality`：图片质量，主要适用于图片模糊、纯色边框、纯色屏等风险识别</p>
+     * <p>		- `video_quality`：图片质量，主要适用于图片模糊、纯色边框、纯色屏等风险识别</p>
      *
      * <p>	- 图文风险识别，您可在 `AuditTextDimensions` 配置文字审核的维度。</p>
      *
@@ -77,11 +63,13 @@ public final class UpdateImageAuditTaskBody  {
     private List<String> auditDimensions;
 
     /**
-     * <p>是否开启审核范围配置，仅当 `Type` 取值为 `Upload` 时生效。支持的取值如下所示。</p>
+     * <p>是否开启审核范围配置，仅当 `Type` 取值为 `Upload` 时生效。默认值为 `0`。支持的取值如下所示。</p>
      *
-     * <p>- `0`：不限范围（默认）；</p>
+     * <p>- `0`：不限范围；</p>
      *
-     * <p>- `1`：指定范围（需配合 `AuditPrefix` 或 `NoAuditPrefix` 使用）。</p>
+     * <p>- `1`：指定前缀匹配（需配合 `AuditPrefix` 或 `NoAuditPrefix` 使用）；</p>
+     *
+     * <p>- `2`：指定通配符匹配（需配合 `AuditPrefix` 或 `NoAuditPrefix` 使用）。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EnableAuditRange")
     private Integer enableAuditRange;
@@ -141,13 +129,13 @@ public final class UpdateImageAuditTaskBody  {
     private List<String> freezeDimensions;
 
     /**
-     * <p>冻结策略，当前仅支持取值为 `0`，表示禁用图片。</p>
+     * <p>冻结策略，当前仅支持取值为 `0`，表示禁用文件。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "FreezeStrategy")
     private Integer freezeStrategy;
 
     /**
-     * <p>审核文件的 StoreUri，仅当 `Type` 为 `UrlFile` 时生效。该文件为 .txt 格式，需上传至指定服务对应存储中，文件内容为待审核图片的 URL 列表，每行一个 URL，最多支持 10000 行。</p>
+     * <p>审核文件的 StoreUri，仅当 `Type` 为 `UrlFile` 时生效。该文件为 .txt 格式，需上传至指定服务对应存储中，文件内容为待审核文件的 URL 列表，每行一个 URL，最多支持 10000 行。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ResUri")
     private List<String> resUri;
@@ -205,7 +193,7 @@ public final class UpdateImageAuditTaskBody  {
     private String callbackUrl;
 
     /**
-     * <p>指定审核任务所属的地区。当前仅支持国内地区，取值为 `cn`。</p>
+     * <p>任务地区。当前仅支持取值 `cn`，表示国内。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "Region")
     private String region;
@@ -217,35 +205,13 @@ public final class UpdateImageAuditTaskBody  {
     private String taskId;
 
     /**
-     * <p>是否开启大图审核功能。默认值为 `false`。支持的取值如下所示。</p>
-     *
-     * <p>- `true`：开启大图审核，系统会对 5MB~32MB 的图片进行压缩后再审核；</p>
-     *
-     * <p>- `false`：不开启大图审核。</p>
-     *
-     *
-     *
-     * <p>:::tip</p>
-     *
-     * <p>- 未开启时若图片大小 ≥ 5 MB，可能导致系统超时报错；</p>
-     *
-     * <p>- 已开启时若图片大小 ≥ 32 MB，可能导致系统超时报错；</p>
-     *
-     * <p>- 开启后将对压缩能力按照[基础图片处理](https://www.volcengine.com/docs/508/65935#%E5%9F%BA%E7%A1%80%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E6%9C%8D%E5%8A%A1)进行计费（每月有 20TB 免费额度）。</p>
-     *
-     * <p>:::</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "EnableLargeImageDetect")
-    private Boolean enableLargeImageDetect;
-
-    /**
      * <p>智能安全审核类型下图文风险审核的具体维度，仅当 `AuditAbility` 取值为 `1` 时生效。支持的取值如下所示。</p>
      *
      * <p>- `ad`：广告，综合图像及文字内容智能识别广告；</p>
      *
      * <p>- `defraud`：诈骗，综合图像及文字内容智能识别诈骗；</p>
      *
-     * <p>- `charillegal`：文字违规，图片上存在涉黄、涉敏、违禁等违规文字。</p>
+     * <p>- `charillegal`：文字违规，存在涉黄、涉敏、违禁等违规文字。</p>
      *
      *
      *
@@ -259,16 +225,16 @@ public final class UpdateImageAuditTaskBody  {
     private List<String> auditTextDimensions;
 
     /**
-     * <p>指定需要审核的文件通配符列表，仅当 `EnableAuditRange` 取值为 `1` 时生效。当前支持的通配符为 `*` 和 `?`，不同通配符请用英文逗号隔开。</p>
+     * <p>指定通配符匹配的审核范围，支持使用 `*` 进行多字符匹配和 `?` 进行单字符匹配。不同通配符需用逗号隔开。例如 `/a/*b/c` 匹配 `/a/testb/c`，`/a/b/c/test12?/*` 匹配 `/a/b/c/test123/file.mp4`。</p>
      */
-    @com.alibaba.fastjson.annotation.JSONField(name = "AuditWildCard")
-    private List<String> auditWildCard;
+    @com.alibaba.fastjson.annotation.JSONField(name = "Auditwildcard")
+    private List<String> auditwildcard;
 
     /**
-     * <p>指定不进行审核的文件通配符列表，仅当 `EnableAuditRange` 取值为 `1` 时生效。当前支持的通配符为 `*` 和 `?`，不同通配符请用英文逗号隔开。</p>
+     * <p>指定通配符匹配的不审核范围，支持使用 `*` 进行多字符匹配和 `?` 进行单字符匹配。不同通配符需用逗号隔开。例如 `/a/*b/c` 匹配 `/a/testb/c`，`/a/b/c/test12?/*` 匹配 `/a/b/c/test123/file.mp4`。</p>
      */
-    @com.alibaba.fastjson.annotation.JSONField(name = "NoAuditWildCard")
-    private List<String> noAuditWildCard;
+    @com.alibaba.fastjson.annotation.JSONField(name = "NoAuditwildcard")
+    private List<String> noAuditwildcard;
 
     /**
      * <p>审核能力类型，用于指定审核任务的审核能力类型。支持的取值如下所示。</p>

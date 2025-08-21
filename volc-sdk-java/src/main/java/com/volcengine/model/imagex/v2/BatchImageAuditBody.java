@@ -5,19 +5,17 @@ import com.alibaba.fastjson.JSON;
 import java.util.List;
 
 /**
- * GetSyncAuditResultBody
+ * BatchImageAuditBody
  */
 @lombok.Data
-public final class GetSyncAuditResultBody  {
+public final class BatchImageAuditBody  {
 
     /**
-     * <p>审核能力，缺省情况下查询全部审核类型的任务。取值如下所示：</p>
+     * <p>审核能力类型，用于指定审核任务所使用的审核模型。支持的取值如下所示。</p>
      *
+     * <p>- `0`：基础审核能力；</p>
      *
-     *
-     * <p>- `0`：基础审核能力</p>
-     *
-     * <p>- `1`：智能审核能力</p>
+     * <p>- `1`：智能审核能力。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AuditAbility")
     private Integer auditAbility;
@@ -49,9 +47,9 @@ public final class GetSyncAuditResultBody  {
      *
      * <p>		- `porn` ：涉黄，主要适用于通用色情、色情动作、性行为、性暗示、性分泌物、色情动漫、色情裸露等涉黄场景的风险识别</p>
      *
-     * <p>		- `sensitive1` ：涉敏1，具体指涉及暴恐风险	</p>
+     * <p>		- `sensitive1`：涉敏 1，具体指涉及暴恐风险	</p>
      *
-     * <p>		- `sensitive2`：涉敏2，具体值涉及政治内容风险</p>
+     * <p>		- `sensitive2`：涉敏 2，具体值涉及政治内容风险</p>
      *
      * <p>		- `forbidden`：违禁，主要适用于打架斗殴、爆炸、劣迹艺人等场景的风险识别</p>
      *
@@ -69,60 +67,60 @@ public final class GetSyncAuditResultBody  {
      *
      * <p>		- `quality`：图片质量，主要适用于图片模糊、纯色边框、纯色屏等风险识别</p>
      *
-     * <p>	- 图文风险识别，您可在 `AuditTextDimensions` 配置文字审核的维度。</p>
-     *
-     *
-     *
-     * <p>	:::tip</p>
-     *
-     * <p>	您可将智能安全审核的图像风险识别和图文风险识别搭配使用。</p>
-     *
-     * <p>	:::</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "AuditDimensions")
-    private List<String> auditDimensions;
-
-    /**
-     * <p>是否开启大图审核，取值如下所示：  </p>
-     *
-     * <p>- `true`：开启 </p>
-     *
-     * <p>- `false`：不开启</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "EnableLargeImageDetect")
-    private Boolean enableLargeImageDetect;
-
-    /**
-     * <p>待审核图片的 URI 地址，用于指定需要审核的图片资源。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "ImageUri")
-    private String imageUri;
-
-    /**
-     * <p>建议您根据实际业务情况，将该参数作为可区分审核图片 `ImageUri` 的自定义标识。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "DataId")
-    private String dataId;
-
-    /**
-     * <p>智能安全审核类型下图文风险审核的具体维度，取值如下所示：</p>
-     *
-     * <p>- `ad`：广告，综合图像及文字内容智能识别广告</p>
-     *
-     * <p>- `defraud`：诈骗，综合图像及文字内容智能识别诈骗</p>
-     *
-     * <p>- `charillegal`：文字违规，图片上存在涉黄、涉敏、违禁等违规文字</p>
+     * <p>	- 图文风险识别，您可在 [`AuditTextDimensions`](#audittextdimensions) 配置文字审核的维度。</p>
      *
      *
      *
      * <p>:::tip</p>
      *
-     * <p>仅当 `AuditDimensions` 取值为智能安全审核模型时，您可将 `AuditTextDimensions` 与 `AuditDimensions` 搭配使用。</p>
+     * <p>您可将智能安全审核的图像风险识别和图文风险识别搭配使用。</p>
+     *
+     * <p>:::</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "AuditDimensions")
+    private List<String> auditDimensions;
+
+    /**
+     * <p>智能安全审核类型下图文风险审核的具体维度，仅当 `AuditAbility` 取值为 `1` 时生效。支持的取值如下所示。</p>
+     *
+     * <p>- `ad`：广告，综合图像及文字内容智能识别广告；</p>
+     *
+     * <p>- `defraud`：诈骗，综合图像及文字内容智能识别诈骗；</p>
+     *
+     * <p>- `charillegal`：文字违规，存在涉黄、涉敏、违禁等违规文字。</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>您可将 `AuditTextDimensions` 与 `AuditDimensions` 搭配使用，实现图像和图文内容的综合审核。</p>
      *
      * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AuditTextDimensions")
     private List<String> auditTextDimensions;
+
+    /**
+     * <p>是否异步进行审核，默认值为 `0`。支持的取值如下所示。</p>
+     *
+     * <p>- `0`：同步返回结果；</p>
+     *
+     * <p>- `1`：异步进行审核。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Async")
+    private Integer async;
+
+    /**
+     * <p>审核结果（Detail 版本）以回调形式发送至您的回调地址，仅当 `Async` 取值为 `1` 时生效。支持以 `http://` 或者 `https://` 开头的地址。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "CallbackUrl")
+    private String callbackUrl;
+
+    /**
+     * <p>待审核的图片信息列表，包含每张图片的 URI、唯一标识及是否启用大图检测的开关。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Inputs")
+    private List<BatchImageAuditBodyInputsItem> inputs;
 
     @Override
     public String toString() {

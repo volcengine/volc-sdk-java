@@ -5,13 +5,13 @@ import com.alibaba.fastjson.JSON;
 import java.util.List;
 
 /**
- * GetSyncAuditResultResResult
+ * SingleImageAuditResResult
  */
 @lombok.Data
-public final class GetSyncAuditResultResResult  {
+public final class SingleImageAuditResResult  {
 
     /**
-     * <p>图片的 URI 地址，用于标识审核的图片资源。</p>
+     * <p>图片的公网可访问 URL，用于指定需要审核的图片资源地址。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ImageUri")
     private String imageUri;

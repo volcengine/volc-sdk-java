@@ -148,6 +148,12 @@ public class Const {
     public static final String ActivationRiskDetectRisk = "ActivationRiskDetectRisk";
     public static final String ActivationRiskAsyncDetectRisk = "ActivationRiskAsyncDetectRisk";
     public static final String ActivationRiskCancelAsyncDetectRisk = "ActivationRiskCancelAsyncDetectRisk";
+
+    public static final String ActivationRiskListBasePackagePart = "ActivationRiskListBasePackagePart";
+    public static final String ActivationRiskListSampleDataPart = "ListSampleDataPart";
+    public static final String ActivationRiskAbortUploadSampleData = "AbortUploadSampleData";
+    public static final String ActivationRiskAbortUploadBasePackage = "AbortUploadBasePackage";
+
     // content security
     public static final String ImageContentRisk = "ImageContentRisk";
     public static final String ImageContentRiskV2 = "ImageContentRiskV2";
@@ -251,6 +257,8 @@ public class Const {
     public static final String ListQuestionnaireDataAPI = "ListQuestionnaireDataAPI";
 
     public static final String GetRealTimeOnlineNumberAPI = "GetRealTimeOnlineNumberAPI";
+
+    public static final String GetAccountRealTimeOnlineNumber = "GetAccountRealTimeOnlineNumber";
 
     public static final String ListAnActivityStartAndEndTimeAPI = "ListAnActivityStartAndEndTimeAPI";
 

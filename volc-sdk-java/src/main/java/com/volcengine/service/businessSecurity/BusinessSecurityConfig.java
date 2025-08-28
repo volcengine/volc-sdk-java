@@ -364,21 +364,63 @@ public class BusinessSecurityConfig {
                     }
                 }
             ));
-
-            put(Const.ElementVerifyEncrypted, new ApiInfo(
+            put(Const.ActivationRiskListBasePackagePart,new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ActivationRiskListBasePackagePart"));
+                                    add(new BasicNameValuePair("Version", "2025-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ActivationRiskListSampleDataPart,new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ListSampleDataPart"));
+                                    add(new BasicNameValuePair("Version", "2025-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ActivationRiskAbortUploadSampleData,new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action", "ElementVerifyEncrypted"));
-                                    add(new BasicNameValuePair("Version", "2022-11-24"));
+                                    add(new BasicNameValuePair("Action", "AbortUploadSampleData"));
+                                    add(new BasicNameValuePair("Version", "2025-01-01"));
                                 }
                             });
                         }
                     }
             ));
+            put(Const.ActivationRiskAbortUploadBasePackage,new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "AbortUploadBasePackage"));
+                                    add(new BasicNameValuePair("Version", "2025-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
             put(Const.SimpleRiskStat, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

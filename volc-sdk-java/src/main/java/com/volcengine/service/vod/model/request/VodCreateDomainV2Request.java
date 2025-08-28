@@ -7,10 +7,10 @@ package com.volcengine.service.vod.model.request;
  * Protobuf type {@code Volcengine.Vod.Models.Request.VodCreateDomainV2Request}
  */
 public final class VodCreateDomainV2Request extends
-    com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Request.VodCreateDomainV2Request)
-    VodCreateDomainV2RequestOrBuilder {
-private static final long serialVersionUID = 0L;
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Request.VodCreateDomainV2Request)
+        VodCreateDomainV2RequestOrBuilder {
+  private static final long serialVersionUID = 0L;
   // Use VodCreateDomainV2Request.newBuilder() to construct.
   private VodCreateDomainV2Request(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
@@ -28,12 +28,13 @@ private static final long serialVersionUID = 0L;
     httpPort_ = "";
     httpsPort_ = "";
     weight_ = "";
+    origin_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
-      UnusedPrivateParameter unused) {
+          UnusedPrivateParameter unused) {
     return new VodCreateDomainV2Request();
   }
 
@@ -43,15 +44,16 @@ private static final long serialVersionUID = 0L;
     return this.unknownFields;
   }
   private VodCreateDomainV2Request(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
+            com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
       boolean done = false;
       while (!done) {
@@ -160,9 +162,18 @@ private static final long serialVersionUID = 0L;
             weight_ = s;
             break;
           }
+          case 146: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              origin_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.CdnOriginRule>();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            origin_.add(
+                    input.readMessage(com.volcengine.service.vod.model.business.CdnOriginRule.parser(), extensionRegistry));
+            break;
+          }
           default: {
             if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
+                    input, unknownFields, extensionRegistry, tag)) {
               done = true;
             }
             break;
@@ -173,23 +184,26 @@ private static final long serialVersionUID = 0L;
       throw e.setUnfinishedMessage(this);
     } catch (java.io.IOException e) {
       throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
+              e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        origin_ = java.util.Collections.unmodifiableList(origin_);
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
+  getDescriptor() {
     return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodCreateDomainV2Request_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
+  internalGetFieldAccessorTable() {
     return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodCreateDomainV2Request_fieldAccessorTable
-        .ensureFieldAccessorsInitialized(
-            com.volcengine.service.vod.model.request.VodCreateDomainV2Request.class, com.volcengine.service.vod.model.request.VodCreateDomainV2Request.Builder.class);
+            .ensureFieldAccessorsInitialized(
+                    com.volcengine.service.vod.model.request.VodCreateDomainV2Request.class, com.volcengine.service.vod.model.request.VodCreateDomainV2Request.Builder.class);
   }
 
   public static final int SPACENAME_FIELD_NUMBER = 1;
@@ -204,8 +218,8 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
+      com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       spaceName_ = s;
       return s;
@@ -217,12 +231,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getSpaceNameBytes() {
+  getSpaceNameBytes() {
     java.lang.Object ref = spaceName_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+      com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
       spaceName_ = b;
       return b;
     } else {
@@ -242,8 +256,8 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
+      com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       domainType_ = s;
       return s;
@@ -255,12 +269,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getDomainTypeBytes() {
+  getDomainTypeBytes() {
     java.lang.Object ref = domainType_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+      com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
       domainType_ = b;
       return b;
     } else {
@@ -284,8 +298,8 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
+      com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       domain_ = s;
       return s;
@@ -301,12 +315,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getDomainBytes() {
+  getDomainBytes() {
     java.lang.Object ref = domain_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+      com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
       domain_ = b;
       return b;
     } else {
@@ -356,8 +370,8 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
+      com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       origins_ = s;
       return s;
@@ -373,12 +387,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getOriginsBytes() {
+  getOriginsBytes() {
     java.lang.Object ref = origins_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+      com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
       origins_ = b;
       return b;
     } else {
@@ -402,8 +416,8 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
+      com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       area_ = s;
       return s;
@@ -419,12 +433,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getAreaBytes() {
+  getAreaBytes() {
     java.lang.Object ref = area_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+      com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
       area_ = b;
       return b;
     } else {
@@ -448,8 +462,8 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
+      com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       bucketName_ = s;
       return s;
@@ -465,12 +479,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getBucketNameBytes() {
+  getBucketNameBytes() {
     java.lang.Object ref = bucketName_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+      com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
       bucketName_ = b;
       return b;
     } else {
@@ -494,8 +508,8 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
+      com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       host_ = s;
       return s;
@@ -511,12 +525,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getHostBytes() {
+  getHostBytes() {
     java.lang.Object ref = host_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+      com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
       host_ = b;
       return b;
     } else {
@@ -593,8 +607,8 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
+      com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       region_ = s;
       return s;
@@ -610,12 +624,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getRegionBytes() {
+  getRegionBytes() {
     java.lang.Object ref = region_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+      com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
       region_ = b;
       return b;
     } else {
@@ -639,8 +653,8 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
+      com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       originProtocol_ = s;
       return s;
@@ -656,12 +670,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getOriginProtocolBytes() {
+  getOriginProtocolBytes() {
     java.lang.Object ref = originProtocol_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+      com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
       originProtocol_ = b;
       return b;
     } else {
@@ -681,8 +695,8 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
+      com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       httpPort_ = s;
       return s;
@@ -694,12 +708,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getHttpPortBytes() {
+  getHttpPortBytes() {
     java.lang.Object ref = httpPort_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+      com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
       httpPort_ = b;
       return b;
     } else {
@@ -719,8 +733,8 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
+      com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       httpsPort_ = s;
       return s;
@@ -732,12 +746,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getHttpsPortBytes() {
+  getHttpsPortBytes() {
     java.lang.Object ref = httpsPort_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+      com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
       httpsPort_ = b;
       return b;
     } else {
@@ -757,8 +771,8 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
+      com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       weight_ = s;
       return s;
@@ -770,17 +784,77 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getWeightBytes() {
+  getWeightBytes() {
     java.lang.Object ref = weight_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+      com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
       weight_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int ORIGIN_FIELD_NUMBER = 18;
+  private java.util.List<com.volcengine.service.vod.model.business.CdnOriginRule> origin_;
+  /**
+   * <pre>
+   * 源站列表。
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.volcengine.service.vod.model.business.CdnOriginRule> getOriginList() {
+    return origin_;
+  }
+  /**
+   * <pre>
+   * 源站列表。
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.volcengine.service.vod.model.business.CdnOriginRuleOrBuilder>
+  getOriginOrBuilderList() {
+    return origin_;
+  }
+  /**
+   * <pre>
+   * 源站列表。
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+   */
+  @java.lang.Override
+  public int getOriginCount() {
+    return origin_.size();
+  }
+  /**
+   * <pre>
+   * 源站列表。
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.CdnOriginRule getOrigin(int index) {
+    return origin_.get(index);
+  }
+  /**
+   * <pre>
+   * 源站列表。
+   * </pre>
+   *
+   * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.CdnOriginRuleOrBuilder getOriginOrBuilder(
+          int index) {
+    return origin_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -796,7 +870,7 @@ private static final long serialVersionUID = 0L;
 
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
+          throws java.io.IOException {
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(spaceName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, spaceName_);
     }
@@ -845,6 +919,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(weight_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 17, weight_);
     }
+    for (int i = 0; i < origin_.size(); i++) {
+      output.writeMessage(18, origin_.get(i));
+    }
     unknownFields.writeTo(output);
   }
 
@@ -865,11 +942,11 @@ private static final long serialVersionUID = 0L;
     }
     if (sourceStationType_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(5, sourceStationType_);
+              .computeInt32Size(5, sourceStationType_);
     }
     if (sourceStationAddressType_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(6, sourceStationAddressType_);
+              .computeInt32Size(6, sourceStationAddressType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(origins_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, origins_);
@@ -885,11 +962,11 @@ private static final long serialVersionUID = 0L;
     }
     if (privateBucketAccess_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(11, privateBucketAccess_);
+              .computeBoolSize(11, privateBucketAccess_);
     }
     if (privateBucketAuth_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(12, getPrivateBucketAuth());
+              .computeMessageSize(12, getPrivateBucketAuth());
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(region_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, region_);
@@ -906,6 +983,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(weight_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, weight_);
     }
+    for (int i = 0; i < origin_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+              .computeMessageSize(18, origin_.get(i));
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -914,7 +995,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
-     return true;
+      return true;
     }
     if (!(obj instanceof com.volcengine.service.vod.model.request.VodCreateDomainV2Request)) {
       return super.equals(obj);
@@ -922,40 +1003,42 @@ private static final long serialVersionUID = 0L;
     com.volcengine.service.vod.model.request.VodCreateDomainV2Request other = (com.volcengine.service.vod.model.request.VodCreateDomainV2Request) obj;
 
     if (!getSpaceName()
-        .equals(other.getSpaceName())) return false;
+            .equals(other.getSpaceName())) return false;
     if (!getDomainType()
-        .equals(other.getDomainType())) return false;
+            .equals(other.getDomainType())) return false;
     if (!getDomain()
-        .equals(other.getDomain())) return false;
+            .equals(other.getDomain())) return false;
     if (getSourceStationType()
-        != other.getSourceStationType()) return false;
+            != other.getSourceStationType()) return false;
     if (getSourceStationAddressType()
-        != other.getSourceStationAddressType()) return false;
+            != other.getSourceStationAddressType()) return false;
     if (!getOrigins()
-        .equals(other.getOrigins())) return false;
+            .equals(other.getOrigins())) return false;
     if (!getArea()
-        .equals(other.getArea())) return false;
+            .equals(other.getArea())) return false;
     if (!getBucketName()
-        .equals(other.getBucketName())) return false;
+            .equals(other.getBucketName())) return false;
     if (!getHost()
-        .equals(other.getHost())) return false;
+            .equals(other.getHost())) return false;
     if (getPrivateBucketAccess()
-        != other.getPrivateBucketAccess()) return false;
+            != other.getPrivateBucketAccess()) return false;
     if (hasPrivateBucketAuth() != other.hasPrivateBucketAuth()) return false;
     if (hasPrivateBucketAuth()) {
       if (!getPrivateBucketAuth()
-          .equals(other.getPrivateBucketAuth())) return false;
+              .equals(other.getPrivateBucketAuth())) return false;
     }
     if (!getRegion()
-        .equals(other.getRegion())) return false;
+            .equals(other.getRegion())) return false;
     if (!getOriginProtocol()
-        .equals(other.getOriginProtocol())) return false;
+            .equals(other.getOriginProtocol())) return false;
     if (!getHttpPort()
-        .equals(other.getHttpPort())) return false;
+            .equals(other.getHttpPort())) return false;
     if (!getHttpsPort()
-        .equals(other.getHttpsPort())) return false;
+            .equals(other.getHttpsPort())) return false;
     if (!getWeight()
-        .equals(other.getWeight())) return false;
+            .equals(other.getWeight())) return false;
+    if (!getOriginList()
+            .equals(other.getOriginList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -987,7 +1070,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getHost().hashCode();
     hash = (37 * hash) + PRIVATEBUCKETACCESS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getPrivateBucketAccess());
+            getPrivateBucketAccess());
     if (hasPrivateBucketAuth()) {
       hash = (37 * hash) + PRIVATEBUCKETAUTH_FIELD_NUMBER;
       hash = (53 * hash) + getPrivateBucketAuth().hashCode();
@@ -1002,79 +1085,83 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getHttpsPort().hashCode();
     hash = (37 * hash) + WEIGHT_FIELD_NUMBER;
     hash = (53 * hash) + getWeight().hashCode();
+    if (getOriginCount() > 0) {
+      hash = (37 * hash) + ORIGIN_FIELD_NUMBER;
+      hash = (53 * hash) + getOriginList().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
   public static com.volcengine.service.vod.model.request.VodCreateDomainV2Request parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
   public static com.volcengine.service.vod.model.request.VodCreateDomainV2Request parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
   public static com.volcengine.service.vod.model.request.VodCreateDomainV2Request parseFrom(
-      com.google.protobuf.ByteString data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
   public static com.volcengine.service.vod.model.request.VodCreateDomainV2Request parseFrom(
-      com.google.protobuf.ByteString data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
   public static com.volcengine.service.vod.model.request.VodCreateDomainV2Request parseFrom(byte[] data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
+          throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
   public static com.volcengine.service.vod.model.request.VodCreateDomainV2Request parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
   public static com.volcengine.service.vod.model.request.VodCreateDomainV2Request parseFrom(java.io.InputStream input)
-      throws java.io.IOException {
+          throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input);
+            .parseWithIOException(PARSER, input);
   }
   public static com.volcengine.service.vod.model.request.VodCreateDomainV2Request parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input, extensionRegistry);
+            .parseWithIOException(PARSER, input, extensionRegistry);
   }
   public static com.volcengine.service.vod.model.request.VodCreateDomainV2Request parseDelimitedFrom(java.io.InputStream input)
-      throws java.io.IOException {
+          throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
-        .parseDelimitedWithIOException(PARSER, input);
+            .parseDelimitedWithIOException(PARSER, input);
   }
   public static com.volcengine.service.vod.model.request.VodCreateDomainV2Request parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
-        .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
   public static com.volcengine.service.vod.model.request.VodCreateDomainV2Request parseFrom(
-      com.google.protobuf.CodedInputStream input)
-      throws java.io.IOException {
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input);
+            .parseWithIOException(PARSER, input);
   }
   public static com.volcengine.service.vod.model.request.VodCreateDomainV2Request parseFrom(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input, extensionRegistry);
+            .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
   @java.lang.Override
@@ -1088,12 +1175,12 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+            ? new Builder() : new Builder().mergeFrom(this);
   }
 
   @java.lang.Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -1101,20 +1188,20 @@ private static final long serialVersionUID = 0L;
    * Protobuf type {@code Volcengine.Vod.Models.Request.VodCreateDomainV2Request}
    */
   public static final class Builder extends
-      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Request.VodCreateDomainV2Request)
-      com.volcengine.service.vod.model.request.VodCreateDomainV2RequestOrBuilder {
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Request.VodCreateDomainV2Request)
+          com.volcengine.service.vod.model.request.VodCreateDomainV2RequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
+    getDescriptor() {
       return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodCreateDomainV2Request_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
+    internalGetFieldAccessorTable() {
       return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodCreateDomainV2Request_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.volcengine.service.vod.model.request.VodCreateDomainV2Request.class, com.volcengine.service.vod.model.request.VodCreateDomainV2Request.Builder.class);
+              .ensureFieldAccessorsInitialized(
+                      com.volcengine.service.vod.model.request.VodCreateDomainV2Request.class, com.volcengine.service.vod.model.request.VodCreateDomainV2Request.Builder.class);
     }
 
     // Construct using com.volcengine.service.vod.model.request.VodCreateDomainV2Request.newBuilder()
@@ -1123,13 +1210,14 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getOriginFieldBuilder();
       }
     }
     @java.lang.Override
@@ -1171,12 +1259,18 @@ private static final long serialVersionUID = 0L;
 
       weight_ = "";
 
+      if (originBuilder_ == null) {
+        origin_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      } else {
+        originBuilder_.clear();
+      }
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
-        getDescriptorForType() {
+    getDescriptorForType() {
       return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodCreateDomainV2Request_descriptor;
     }
 
@@ -1197,6 +1291,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.volcengine.service.vod.model.request.VodCreateDomainV2Request buildPartial() {
       com.volcengine.service.vod.model.request.VodCreateDomainV2Request result = new com.volcengine.service.vod.model.request.VodCreateDomainV2Request(this);
+      int from_bitField0_ = bitField0_;
       result.spaceName_ = spaceName_;
       result.domainType_ = domainType_;
       result.domain_ = domain_;
@@ -1217,6 +1312,15 @@ private static final long serialVersionUID = 0L;
       result.httpPort_ = httpPort_;
       result.httpsPort_ = httpsPort_;
       result.weight_ = weight_;
+      if (originBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          origin_ = java.util.Collections.unmodifiableList(origin_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.origin_ = origin_;
+      } else {
+        result.origin_ = originBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -1227,30 +1331,30 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder setField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
       return super.setField(field, value);
     }
     @java.lang.Override
     public Builder clearField(
-        com.google.protobuf.Descriptors.FieldDescriptor field) {
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
     @java.lang.Override
     public Builder clearOneof(
-        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
     @java.lang.Override
     public Builder setRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
       return super.setRepeatedField(field, index, value);
     }
     @java.lang.Override
     public Builder addRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
       return super.addRepeatedField(field, value);
     }
     @java.lang.Override
@@ -1325,6 +1429,32 @@ private static final long serialVersionUID = 0L;
         weight_ = other.weight_;
         onChanged();
       }
+      if (originBuilder_ == null) {
+        if (!other.origin_.isEmpty()) {
+          if (origin_.isEmpty()) {
+            origin_ = other.origin_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureOriginIsMutable();
+            origin_.addAll(other.origin_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.origin_.isEmpty()) {
+          if (originBuilder_.isEmpty()) {
+            originBuilder_.dispose();
+            originBuilder_ = null;
+            origin_ = other.origin_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            originBuilder_ =
+                    com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                            getOriginFieldBuilder() : null;
+          } else {
+            originBuilder_.addAllMessages(other.origin_);
+          }
+        }
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -1337,9 +1467,9 @@ private static final long serialVersionUID = 0L;
 
     @java.lang.Override
     public Builder mergeFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
       com.volcengine.service.vod.model.request.VodCreateDomainV2Request parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
@@ -1353,6 +1483,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object spaceName_ = "";
     /**
@@ -1363,7 +1494,7 @@ private static final long serialVersionUID = 0L;
       java.lang.Object ref = spaceName_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
+                (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         spaceName_ = s;
         return s;
@@ -1376,12 +1507,12 @@ private static final long serialVersionUID = 0L;
      * @return The bytes for spaceName.
      */
     public com.google.protobuf.ByteString
-        getSpaceNameBytes() {
+    getSpaceNameBytes() {
       java.lang.Object ref = spaceName_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+                com.google.protobuf.ByteString.copyFromUtf8(
+                        (java.lang.String) ref);
         spaceName_ = b;
         return b;
       } else {
@@ -1394,11 +1525,11 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSpaceName(
-        java.lang.String value) {
+            java.lang.String value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        throw new NullPointerException();
+      }
+
       spaceName_ = value;
       onChanged();
       return this;
@@ -1408,7 +1539,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSpaceName() {
-      
+
       spaceName_ = getDefaultInstance().getSpaceName();
       onChanged();
       return this;
@@ -1419,12 +1550,12 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSpaceNameBytes(
-        com.google.protobuf.ByteString value) {
+            com.google.protobuf.ByteString value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+        throw new NullPointerException();
+      }
+      checkByteStringIsUtf8(value);
+
       spaceName_ = value;
       onChanged();
       return this;
@@ -1439,7 +1570,7 @@ private static final long serialVersionUID = 0L;
       java.lang.Object ref = domainType_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
+                (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         domainType_ = s;
         return s;
@@ -1452,12 +1583,12 @@ private static final long serialVersionUID = 0L;
      * @return The bytes for domainType.
      */
     public com.google.protobuf.ByteString
-        getDomainTypeBytes() {
+    getDomainTypeBytes() {
       java.lang.Object ref = domainType_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+                com.google.protobuf.ByteString.copyFromUtf8(
+                        (java.lang.String) ref);
         domainType_ = b;
         return b;
       } else {
@@ -1470,11 +1601,11 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDomainType(
-        java.lang.String value) {
+            java.lang.String value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        throw new NullPointerException();
+      }
+
       domainType_ = value;
       onChanged();
       return this;
@@ -1484,7 +1615,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDomainType() {
-      
+
       domainType_ = getDefaultInstance().getDomainType();
       onChanged();
       return this;
@@ -1495,12 +1626,12 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDomainTypeBytes(
-        com.google.protobuf.ByteString value) {
+            com.google.protobuf.ByteString value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+        throw new NullPointerException();
+      }
+      checkByteStringIsUtf8(value);
+
       domainType_ = value;
       onChanged();
       return this;
@@ -1519,7 +1650,7 @@ private static final long serialVersionUID = 0L;
       java.lang.Object ref = domain_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
+                (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         domain_ = s;
         return s;
@@ -1536,12 +1667,12 @@ private static final long serialVersionUID = 0L;
      * @return The bytes for domain.
      */
     public com.google.protobuf.ByteString
-        getDomainBytes() {
+    getDomainBytes() {
       java.lang.Object ref = domain_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+                com.google.protobuf.ByteString.copyFromUtf8(
+                        (java.lang.String) ref);
         domain_ = b;
         return b;
       } else {
@@ -1558,11 +1689,11 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDomain(
-        java.lang.String value) {
+            java.lang.String value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        throw new NullPointerException();
+      }
+
       domain_ = value;
       onChanged();
       return this;
@@ -1576,7 +1707,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDomain() {
-      
+
       domain_ = getDefaultInstance().getDomain();
       onChanged();
       return this;
@@ -1591,12 +1722,12 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDomainBytes(
-        com.google.protobuf.ByteString value) {
+            com.google.protobuf.ByteString value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+        throw new NullPointerException();
+      }
+      checkByteStringIsUtf8(value);
+
       domain_ = value;
       onChanged();
       return this;
@@ -1617,7 +1748,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSourceStationType(int value) {
-      
+
       sourceStationType_ = value;
       onChanged();
       return this;
@@ -1627,7 +1758,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceStationType() {
-      
+
       sourceStationType_ = 0;
       onChanged();
       return this;
@@ -1656,7 +1787,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSourceStationAddressType(int value) {
-      
+
       sourceStationAddressType_ = value;
       onChanged();
       return this;
@@ -1670,7 +1801,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceStationAddressType() {
-      
+
       sourceStationAddressType_ = 0;
       onChanged();
       return this;
@@ -1689,7 +1820,7 @@ private static final long serialVersionUID = 0L;
       java.lang.Object ref = origins_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
+                (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         origins_ = s;
         return s;
@@ -1706,12 +1837,12 @@ private static final long serialVersionUID = 0L;
      * @return The bytes for origins.
      */
     public com.google.protobuf.ByteString
-        getOriginsBytes() {
+    getOriginsBytes() {
       java.lang.Object ref = origins_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+                com.google.protobuf.ByteString.copyFromUtf8(
+                        (java.lang.String) ref);
         origins_ = b;
         return b;
       } else {
@@ -1728,11 +1859,11 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOrigins(
-        java.lang.String value) {
+            java.lang.String value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        throw new NullPointerException();
+      }
+
       origins_ = value;
       onChanged();
       return this;
@@ -1746,7 +1877,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOrigins() {
-      
+
       origins_ = getDefaultInstance().getOrigins();
       onChanged();
       return this;
@@ -1761,12 +1892,12 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOriginsBytes(
-        com.google.protobuf.ByteString value) {
+            com.google.protobuf.ByteString value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+        throw new NullPointerException();
+      }
+      checkByteStringIsUtf8(value);
+
       origins_ = value;
       onChanged();
       return this;
@@ -1785,7 +1916,7 @@ private static final long serialVersionUID = 0L;
       java.lang.Object ref = area_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
+                (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         area_ = s;
         return s;
@@ -1802,12 +1933,12 @@ private static final long serialVersionUID = 0L;
      * @return The bytes for area.
      */
     public com.google.protobuf.ByteString
-        getAreaBytes() {
+    getAreaBytes() {
       java.lang.Object ref = area_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+                com.google.protobuf.ByteString.copyFromUtf8(
+                        (java.lang.String) ref);
         area_ = b;
         return b;
       } else {
@@ -1824,11 +1955,11 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setArea(
-        java.lang.String value) {
+            java.lang.String value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        throw new NullPointerException();
+      }
+
       area_ = value;
       onChanged();
       return this;
@@ -1842,7 +1973,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearArea() {
-      
+
       area_ = getDefaultInstance().getArea();
       onChanged();
       return this;
@@ -1857,12 +1988,12 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAreaBytes(
-        com.google.protobuf.ByteString value) {
+            com.google.protobuf.ByteString value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+        throw new NullPointerException();
+      }
+      checkByteStringIsUtf8(value);
+
       area_ = value;
       onChanged();
       return this;
@@ -1881,7 +2012,7 @@ private static final long serialVersionUID = 0L;
       java.lang.Object ref = bucketName_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
+                (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         bucketName_ = s;
         return s;
@@ -1898,12 +2029,12 @@ private static final long serialVersionUID = 0L;
      * @return The bytes for bucketName.
      */
     public com.google.protobuf.ByteString
-        getBucketNameBytes() {
+    getBucketNameBytes() {
       java.lang.Object ref = bucketName_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+                com.google.protobuf.ByteString.copyFromUtf8(
+                        (java.lang.String) ref);
         bucketName_ = b;
         return b;
       } else {
@@ -1920,11 +2051,11 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBucketName(
-        java.lang.String value) {
+            java.lang.String value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        throw new NullPointerException();
+      }
+
       bucketName_ = value;
       onChanged();
       return this;
@@ -1938,7 +2069,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBucketName() {
-      
+
       bucketName_ = getDefaultInstance().getBucketName();
       onChanged();
       return this;
@@ -1953,12 +2084,12 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBucketNameBytes(
-        com.google.protobuf.ByteString value) {
+            com.google.protobuf.ByteString value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+        throw new NullPointerException();
+      }
+      checkByteStringIsUtf8(value);
+
       bucketName_ = value;
       onChanged();
       return this;
@@ -1977,7 +2108,7 @@ private static final long serialVersionUID = 0L;
       java.lang.Object ref = host_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
+                (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         host_ = s;
         return s;
@@ -1994,12 +2125,12 @@ private static final long serialVersionUID = 0L;
      * @return The bytes for host.
      */
     public com.google.protobuf.ByteString
-        getHostBytes() {
+    getHostBytes() {
       java.lang.Object ref = host_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+                com.google.protobuf.ByteString.copyFromUtf8(
+                        (java.lang.String) ref);
         host_ = b;
         return b;
       } else {
@@ -2016,11 +2147,11 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHost(
-        java.lang.String value) {
+            java.lang.String value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        throw new NullPointerException();
+      }
+
       host_ = value;
       onChanged();
       return this;
@@ -2034,7 +2165,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHost() {
-      
+
       host_ = getDefaultInstance().getHost();
       onChanged();
       return this;
@@ -2049,12 +2180,12 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHostBytes(
-        com.google.protobuf.ByteString value) {
+            com.google.protobuf.ByteString value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+        throw new NullPointerException();
+      }
+      checkByteStringIsUtf8(value);
+
       host_ = value;
       onChanged();
       return this;
@@ -2083,7 +2214,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPrivateBucketAccess(boolean value) {
-      
+
       privateBucketAccess_ = value;
       onChanged();
       return this;
@@ -2097,7 +2228,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrivateBucketAccess() {
-      
+
       privateBucketAccess_ = false;
       onChanged();
       return this;
@@ -2105,7 +2236,7 @@ private static final long serialVersionUID = 0L;
 
     private com.volcengine.service.vod.model.business.VodPrivateBucketAuth privateBucketAuth_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.volcengine.service.vod.model.business.VodPrivateBucketAuth, com.volcengine.service.vod.model.business.VodPrivateBucketAuth.Builder, com.volcengine.service.vod.model.business.VodPrivateBucketAuthOrBuilder> privateBucketAuthBuilder_;
+            com.volcengine.service.vod.model.business.VodPrivateBucketAuth, com.volcengine.service.vod.model.business.VodPrivateBucketAuth.Builder, com.volcengine.service.vod.model.business.VodPrivateBucketAuthOrBuilder> privateBucketAuthBuilder_;
     /**
      * <pre>
      * 私有桶访问授权信息
@@ -2160,7 +2291,7 @@ private static final long serialVersionUID = 0L;
      * <code>.Volcengine.Vod.Models.Business.VodPrivateBucketAuth PrivateBucketAuth = 12;</code>
      */
     public Builder setPrivateBucketAuth(
-        com.volcengine.service.vod.model.business.VodPrivateBucketAuth.Builder builderForValue) {
+            com.volcengine.service.vod.model.business.VodPrivateBucketAuth.Builder builderForValue) {
       if (privateBucketAuthBuilder_ == null) {
         privateBucketAuth_ = builderForValue.build();
         onChanged();
@@ -2181,7 +2312,7 @@ private static final long serialVersionUID = 0L;
       if (privateBucketAuthBuilder_ == null) {
         if (privateBucketAuth_ != null) {
           privateBucketAuth_ =
-            com.volcengine.service.vod.model.business.VodPrivateBucketAuth.newBuilder(privateBucketAuth_).mergeFrom(value).buildPartial();
+                  com.volcengine.service.vod.model.business.VodPrivateBucketAuth.newBuilder(privateBucketAuth_).mergeFrom(value).buildPartial();
         } else {
           privateBucketAuth_ = value;
         }
@@ -2218,7 +2349,7 @@ private static final long serialVersionUID = 0L;
      * <code>.Volcengine.Vod.Models.Business.VodPrivateBucketAuth PrivateBucketAuth = 12;</code>
      */
     public com.volcengine.service.vod.model.business.VodPrivateBucketAuth.Builder getPrivateBucketAuthBuilder() {
-      
+
       onChanged();
       return getPrivateBucketAuthFieldBuilder().getBuilder();
     }
@@ -2234,7 +2365,7 @@ private static final long serialVersionUID = 0L;
         return privateBucketAuthBuilder_.getMessageOrBuilder();
       } else {
         return privateBucketAuth_ == null ?
-            com.volcengine.service.vod.model.business.VodPrivateBucketAuth.getDefaultInstance() : privateBucketAuth_;
+                com.volcengine.service.vod.model.business.VodPrivateBucketAuth.getDefaultInstance() : privateBucketAuth_;
       }
     }
     /**
@@ -2245,11 +2376,11 @@ private static final long serialVersionUID = 0L;
      * <code>.Volcengine.Vod.Models.Business.VodPrivateBucketAuth PrivateBucketAuth = 12;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.volcengine.service.vod.model.business.VodPrivateBucketAuth, com.volcengine.service.vod.model.business.VodPrivateBucketAuth.Builder, com.volcengine.service.vod.model.business.VodPrivateBucketAuthOrBuilder> 
-        getPrivateBucketAuthFieldBuilder() {
+            com.volcengine.service.vod.model.business.VodPrivateBucketAuth, com.volcengine.service.vod.model.business.VodPrivateBucketAuth.Builder, com.volcengine.service.vod.model.business.VodPrivateBucketAuthOrBuilder>
+    getPrivateBucketAuthFieldBuilder() {
       if (privateBucketAuthBuilder_ == null) {
         privateBucketAuthBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.volcengine.service.vod.model.business.VodPrivateBucketAuth, com.volcengine.service.vod.model.business.VodPrivateBucketAuth.Builder, com.volcengine.service.vod.model.business.VodPrivateBucketAuthOrBuilder>(
+                com.volcengine.service.vod.model.business.VodPrivateBucketAuth, com.volcengine.service.vod.model.business.VodPrivateBucketAuth.Builder, com.volcengine.service.vod.model.business.VodPrivateBucketAuthOrBuilder>(
                 getPrivateBucketAuth(),
                 getParentForChildren(),
                 isClean());
@@ -2271,7 +2402,7 @@ private static final long serialVersionUID = 0L;
       java.lang.Object ref = region_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
+                (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         region_ = s;
         return s;
@@ -2288,12 +2419,12 @@ private static final long serialVersionUID = 0L;
      * @return The bytes for region.
      */
     public com.google.protobuf.ByteString
-        getRegionBytes() {
+    getRegionBytes() {
       java.lang.Object ref = region_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+                com.google.protobuf.ByteString.copyFromUtf8(
+                        (java.lang.String) ref);
         region_ = b;
         return b;
       } else {
@@ -2310,11 +2441,11 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRegion(
-        java.lang.String value) {
+            java.lang.String value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        throw new NullPointerException();
+      }
+
       region_ = value;
       onChanged();
       return this;
@@ -2328,7 +2459,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRegion() {
-      
+
       region_ = getDefaultInstance().getRegion();
       onChanged();
       return this;
@@ -2343,12 +2474,12 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRegionBytes(
-        com.google.protobuf.ByteString value) {
+            com.google.protobuf.ByteString value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+        throw new NullPointerException();
+      }
+      checkByteStringIsUtf8(value);
+
       region_ = value;
       onChanged();
       return this;
@@ -2367,7 +2498,7 @@ private static final long serialVersionUID = 0L;
       java.lang.Object ref = originProtocol_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
+                (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         originProtocol_ = s;
         return s;
@@ -2384,12 +2515,12 @@ private static final long serialVersionUID = 0L;
      * @return The bytes for originProtocol.
      */
     public com.google.protobuf.ByteString
-        getOriginProtocolBytes() {
+    getOriginProtocolBytes() {
       java.lang.Object ref = originProtocol_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+                com.google.protobuf.ByteString.copyFromUtf8(
+                        (java.lang.String) ref);
         originProtocol_ = b;
         return b;
       } else {
@@ -2406,11 +2537,11 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOriginProtocol(
-        java.lang.String value) {
+            java.lang.String value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        throw new NullPointerException();
+      }
+
       originProtocol_ = value;
       onChanged();
       return this;
@@ -2424,7 +2555,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOriginProtocol() {
-      
+
       originProtocol_ = getDefaultInstance().getOriginProtocol();
       onChanged();
       return this;
@@ -2439,12 +2570,12 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOriginProtocolBytes(
-        com.google.protobuf.ByteString value) {
+            com.google.protobuf.ByteString value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+        throw new NullPointerException();
+      }
+      checkByteStringIsUtf8(value);
+
       originProtocol_ = value;
       onChanged();
       return this;
@@ -2459,7 +2590,7 @@ private static final long serialVersionUID = 0L;
       java.lang.Object ref = httpPort_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
+                (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         httpPort_ = s;
         return s;
@@ -2472,12 +2603,12 @@ private static final long serialVersionUID = 0L;
      * @return The bytes for httpPort.
      */
     public com.google.protobuf.ByteString
-        getHttpPortBytes() {
+    getHttpPortBytes() {
       java.lang.Object ref = httpPort_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+                com.google.protobuf.ByteString.copyFromUtf8(
+                        (java.lang.String) ref);
         httpPort_ = b;
         return b;
       } else {
@@ -2490,11 +2621,11 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHttpPort(
-        java.lang.String value) {
+            java.lang.String value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        throw new NullPointerException();
+      }
+
       httpPort_ = value;
       onChanged();
       return this;
@@ -2504,7 +2635,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHttpPort() {
-      
+
       httpPort_ = getDefaultInstance().getHttpPort();
       onChanged();
       return this;
@@ -2515,12 +2646,12 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHttpPortBytes(
-        com.google.protobuf.ByteString value) {
+            com.google.protobuf.ByteString value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+        throw new NullPointerException();
+      }
+      checkByteStringIsUtf8(value);
+
       httpPort_ = value;
       onChanged();
       return this;
@@ -2535,7 +2666,7 @@ private static final long serialVersionUID = 0L;
       java.lang.Object ref = httpsPort_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
+                (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         httpsPort_ = s;
         return s;
@@ -2548,12 +2679,12 @@ private static final long serialVersionUID = 0L;
      * @return The bytes for httpsPort.
      */
     public com.google.protobuf.ByteString
-        getHttpsPortBytes() {
+    getHttpsPortBytes() {
       java.lang.Object ref = httpsPort_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+                com.google.protobuf.ByteString.copyFromUtf8(
+                        (java.lang.String) ref);
         httpsPort_ = b;
         return b;
       } else {
@@ -2566,11 +2697,11 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHttpsPort(
-        java.lang.String value) {
+            java.lang.String value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        throw new NullPointerException();
+      }
+
       httpsPort_ = value;
       onChanged();
       return this;
@@ -2580,7 +2711,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHttpsPort() {
-      
+
       httpsPort_ = getDefaultInstance().getHttpsPort();
       onChanged();
       return this;
@@ -2591,12 +2722,12 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHttpsPortBytes(
-        com.google.protobuf.ByteString value) {
+            com.google.protobuf.ByteString value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+        throw new NullPointerException();
+      }
+      checkByteStringIsUtf8(value);
+
       httpsPort_ = value;
       onChanged();
       return this;
@@ -2611,7 +2742,7 @@ private static final long serialVersionUID = 0L;
       java.lang.Object ref = weight_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
+                (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         weight_ = s;
         return s;
@@ -2624,12 +2755,12 @@ private static final long serialVersionUID = 0L;
      * @return The bytes for weight.
      */
     public com.google.protobuf.ByteString
-        getWeightBytes() {
+    getWeightBytes() {
       java.lang.Object ref = weight_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+                com.google.protobuf.ByteString.copyFromUtf8(
+                        (java.lang.String) ref);
         weight_ = b;
         return b;
       } else {
@@ -2642,11 +2773,11 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setWeight(
-        java.lang.String value) {
+            java.lang.String value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        throw new NullPointerException();
+      }
+
       weight_ = value;
       onChanged();
       return this;
@@ -2656,7 +2787,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWeight() {
-      
+
       weight_ = getDefaultInstance().getWeight();
       onChanged();
       return this;
@@ -2667,25 +2798,337 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setWeightBytes(
-        com.google.protobuf.ByteString value) {
+            com.google.protobuf.ByteString value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+        throw new NullPointerException();
+      }
+      checkByteStringIsUtf8(value);
+
       weight_ = value;
       onChanged();
       return this;
     }
+
+    private java.util.List<com.volcengine.service.vod.model.business.CdnOriginRule> origin_ =
+            java.util.Collections.emptyList();
+    private void ensureOriginIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        origin_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.CdnOriginRule>(origin_);
+        bitField0_ |= 0x00000001;
+      }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.service.vod.model.business.CdnOriginRule, com.volcengine.service.vod.model.business.CdnOriginRule.Builder, com.volcengine.service.vod.model.business.CdnOriginRuleOrBuilder> originBuilder_;
+
+    /**
+     * <pre>
+     * 源站列表。
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.CdnOriginRule> getOriginList() {
+      if (originBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(origin_);
+      } else {
+        return originBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * 源站列表。
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+     */
+    public int getOriginCount() {
+      if (originBuilder_ == null) {
+        return origin_.size();
+      } else {
+        return originBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * 源站列表。
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+     */
+    public com.volcengine.service.vod.model.business.CdnOriginRule getOrigin(int index) {
+      if (originBuilder_ == null) {
+        return origin_.get(index);
+      } else {
+        return originBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * 源站列表。
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+     */
+    public Builder setOrigin(
+            int index, com.volcengine.service.vod.model.business.CdnOriginRule value) {
+      if (originBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOriginIsMutable();
+        origin_.set(index, value);
+        onChanged();
+      } else {
+        originBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站列表。
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+     */
+    public Builder setOrigin(
+            int index, com.volcengine.service.vod.model.business.CdnOriginRule.Builder builderForValue) {
+      if (originBuilder_ == null) {
+        ensureOriginIsMutable();
+        origin_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        originBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站列表。
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+     */
+    public Builder addOrigin(com.volcengine.service.vod.model.business.CdnOriginRule value) {
+      if (originBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOriginIsMutable();
+        origin_.add(value);
+        onChanged();
+      } else {
+        originBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站列表。
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+     */
+    public Builder addOrigin(
+            int index, com.volcengine.service.vod.model.business.CdnOriginRule value) {
+      if (originBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOriginIsMutable();
+        origin_.add(index, value);
+        onChanged();
+      } else {
+        originBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站列表。
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+     */
+    public Builder addOrigin(
+            com.volcengine.service.vod.model.business.CdnOriginRule.Builder builderForValue) {
+      if (originBuilder_ == null) {
+        ensureOriginIsMutable();
+        origin_.add(builderForValue.build());
+        onChanged();
+      } else {
+        originBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站列表。
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+     */
+    public Builder addOrigin(
+            int index, com.volcengine.service.vod.model.business.CdnOriginRule.Builder builderForValue) {
+      if (originBuilder_ == null) {
+        ensureOriginIsMutable();
+        origin_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        originBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站列表。
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+     */
+    public Builder addAllOrigin(
+            java.lang.Iterable<? extends com.volcengine.service.vod.model.business.CdnOriginRule> values) {
+      if (originBuilder_ == null) {
+        ensureOriginIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                values, origin_);
+        onChanged();
+      } else {
+        originBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站列表。
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+     */
+    public Builder clearOrigin() {
+      if (originBuilder_ == null) {
+        origin_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+      } else {
+        originBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站列表。
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+     */
+    public Builder removeOrigin(int index) {
+      if (originBuilder_ == null) {
+        ensureOriginIsMutable();
+        origin_.remove(index);
+        onChanged();
+      } else {
+        originBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站列表。
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+     */
+    public com.volcengine.service.vod.model.business.CdnOriginRule.Builder getOriginBuilder(
+            int index) {
+      return getOriginFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * 源站列表。
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+     */
+    public com.volcengine.service.vod.model.business.CdnOriginRuleOrBuilder getOriginOrBuilder(
+            int index) {
+      if (originBuilder_ == null) {
+        return origin_.get(index);  } else {
+        return originBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * 源站列表。
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+     */
+    public java.util.List<? extends com.volcengine.service.vod.model.business.CdnOriginRuleOrBuilder>
+    getOriginOrBuilderList() {
+      if (originBuilder_ != null) {
+        return originBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(origin_);
+      }
+    }
+    /**
+     * <pre>
+     * 源站列表。
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+     */
+    public com.volcengine.service.vod.model.business.CdnOriginRule.Builder addOriginBuilder() {
+      return getOriginFieldBuilder().addBuilder(
+              com.volcengine.service.vod.model.business.CdnOriginRule.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * 源站列表。
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+     */
+    public com.volcengine.service.vod.model.business.CdnOriginRule.Builder addOriginBuilder(
+            int index) {
+      return getOriginFieldBuilder().addBuilder(
+              index, com.volcengine.service.vod.model.business.CdnOriginRule.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * 源站列表。
+     * </pre>
+     *
+     * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.CdnOriginRule.Builder>
+    getOriginBuilderList() {
+      return getOriginFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.service.vod.model.business.CdnOriginRule, com.volcengine.service.vod.model.business.CdnOriginRule.Builder, com.volcengine.service.vod.model.business.CdnOriginRuleOrBuilder>
+    getOriginFieldBuilder() {
+      if (originBuilder_ == null) {
+        originBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                com.volcengine.service.vod.model.business.CdnOriginRule, com.volcengine.service.vod.model.business.CdnOriginRule.Builder, com.volcengine.service.vod.model.business.CdnOriginRuleOrBuilder>(
+                origin_,
+                ((bitField0_ & 0x00000001) != 0),
+                getParentForChildren(),
+                isClean());
+        origin_ = null;
+      }
+      return originBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
-        final com.google.protobuf.UnknownFieldSet unknownFields) {
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
     @java.lang.Override
     public final Builder mergeUnknownFields(
-        final com.google.protobuf.UnknownFieldSet unknownFields) {
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
     }
 
@@ -2704,12 +3147,12 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<VodCreateDomainV2Request>
-      PARSER = new com.google.protobuf.AbstractParser<VodCreateDomainV2Request>() {
+          PARSER = new com.google.protobuf.AbstractParser<VodCreateDomainV2Request>() {
     @java.lang.Override
     public VodCreateDomainV2Request parsePartialFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return new VodCreateDomainV2Request(input, extensionRegistry);
     }
   };

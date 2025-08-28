@@ -97,7 +97,7 @@ public class BusinessSecurityServiceTest extends TestCase {
         BusinessSecurityService service = initService();
         ActivateRiskBasePackageRequest request = new ActivateRiskBasePackageRequest();
         request.setPackageId("1");
-        request.setTotalPackageNum(1);
+        request.setTotalPackageNum(2);
         request.setPackageSeq(1);
         request.setDataType("1");
         List<String> list = new ArrayList<>(1);
@@ -141,65 +141,104 @@ public class BusinessSecurityServiceTest extends TestCase {
         System.out.println(response);
     }
 
-    public void testActivationRiskUploadBasePackage()throws Exception{
-        BusinessSecurityService service = initService();
-        ActivationRiskUploadBasePackageRequest request = new ActivationRiskUploadBasePackageRequest();
-        request.setAppId(1);
-        request.setPackageId("A123456789");
-        request.setTotalPackageNum(1);
-        request.setPackageSeq(1);
-        request.setDataType("1");
-        request.setScene(1);
 
-        List<String> list = new ArrayList<>(1);
-        list.add("cfcd208495d565ef66e7dff9f98764da");
-        request.setData(list);
-        ActivationRiskUploadBasePackageResponse response = service.ActivationRiskUploadBasePackage(request);
-        System.out.println(response);
+
+
+
+
+
+    public void testActivationRiskUploadBasePackage()throws Exception{
+        int totalPackageNum = 1;
+        for (int j=1;j<=totalPackageNum;j++) {
+            BusinessSecurityService service = initService();
+            ActivationRiskUploadBasePackageRequest request = new ActivationRiskUploadBasePackageRequest();
+            request.setAppId(1);
+            request.setPackageId("id00004");
+            request.setTotalPackageNum(totalPackageNum);
+            request.setPackageSeq(j);
+            request.setDataType("1");
+            request.setScene(1);
+            List<String> list = new ArrayList<>(1);
+            for (int i = 0; i < 20000; i++) {
+                list.add("cfcd208495d565ef66e7dff9f98764da");
+            }
+            request.setData(list);
+            ActivationRiskUploadBasePackageResponse response = service.ActivationRiskUploadBasePackage(request);
+            System.out.println(response);
+        }
     }
 
-
-
-    public void testActivationRiskUploadSampleData()throws Exception{
+    public void testActivationRiskListBasePackage()throws Exception{
         BusinessSecurityService service = initService();
-        ActivationRiskUploadSampleDataRequest request = new ActivationRiskUploadSampleDataRequest();
-        request.setAppId(123);
-        request.setService("device_id");
-        request.setPackageId("A123456dada1");
-        request.setTotalPackageNum(1);
-        request.setPackageSeq(1);
-        request.setBusinessType("A1");
-        request.setDataType("1");
-        request.setScene(1);
-        List<ActivationRiskUploadSampleDataRequest.SampleData> sampleData = new ArrayList<>();
-        sampleData.add( new ActivationRiskUploadSampleDataRequest.SampleData("6e7dff9f98764da","X","abcde"));
-        request.setData(sampleData);
-        ActivationRiskUploadSampleDataResponse response = service.ActivationRiskUploadSampleData(request);
+        ActivationRiskListBasePackagePartRequest request = new ActivationRiskListBasePackagePartRequest();
+        request.setAppId(1);
+        request.setPackageId("id00002");
+        ActivationRiskListBasePackagePartResponse response = service.ActivationRiskListBasePackagePart(request);
         System.out.println(response);
     }
 
     public void testActivationRiskCompleteBasePackage()throws Exception{
+
         BusinessSecurityService service = initService();
         ActivationRiskCompleteBasePackageRequest request = new ActivationRiskCompleteBasePackageRequest();
         request.setAppId(1);
-        request.setPackageId("A123456dada");
+        request.setPackageId("id00004");
         request.setScene(1);
+        request.setDataSize(20000);
         ActivationRiskCompleteBasePackageResponse response = service.ActivationRiskCompleteBasePackage(request);
         System.out.println(response);
 
+    }
+    public void testActivationRiskAbortUploadBasePackage()throws Exception{
+        BusinessSecurityService service = initService();
+        ActivationRiskAbortUploadBasePackageRequest request = new ActivationRiskAbortUploadBasePackageRequest();
+        request.setAppId(1);
+        request.setPackageId("Test-15");
+        ActivationRiskAbortUploadBasePackageResponse response = service.ActivationRiskAbortUploadBasePackage(request);
+        System.out.println(response);
+    }
+
+    public void testActivationRiskUploadSampleData()throws Exception{
+        BusinessSecurityService service = initService();
+        ActivationRiskUploadSampleDataRequest request = new ActivationRiskUploadSampleDataRequest();
+        int totalPackageNum = 10;
+        for (int j=1;j<=totalPackageNum;j++) {
+            request.setAppId(123);
+            request.setService("device_id");
+            request.setPackageId("id000010");
+            request.setTotalPackageNum(totalPackageNum);
+            request.setPackageSeq(j);
+            request.setBusinessType("A1");
+            request.setDataType("1");
+            request.setScene(2);
+            List<ActivationRiskUploadSampleDataRequest.SampleData> sampleData = new ArrayList<>();
+            for (int i = 0; i < 5000; i++) {
+                sampleData.add(new ActivationRiskUploadSampleDataRequest.SampleData("6e7dff9f98764da", "sms", "abcde"));
+            }
+            request.setData(sampleData);
+            ActivationRiskUploadSampleDataResponse response = service.ActivationRiskUploadSampleData(request);
+            System.out.println(response);
+        }
     }
 
     public void testActivationRiskCompleteSampleData()throws Exception{
         BusinessSecurityService service = initService();
         ActivationRiskCompleteSampleDataRequest request = new ActivationRiskCompleteSampleDataRequest();
         request.setAppId(1);
-        request.setPackageId("A123456dada1");
-        request.setScene(1);
-        request.setDataSize(1);
+        request.setPackageId("id000010");
+        request.setDataSize(50000);
         ActivationRiskCompleteSampleDataResponse response = service.ActivationRiskCompleteSampleData(request);
         System.out.println(response);
     }
 
+    public void testActivationRiskLisSampleData()throws Exception{
+        BusinessSecurityService service = initService();
+        ActivationRiskListSampleDataPartRequest request = new ActivationRiskListSampleDataPartRequest();
+        request.setAppId(1);
+        request.setPackageId("id000010");
+        ActivationRiskListSampleDataPartResponse response = service.ActivationRiskListSampleDataPart(request);
+        System.out.println(response);
+    }
 
     public void testActivationRiskAsyncDetection()throws Exception{
         BusinessSecurityService service = initService();
@@ -210,6 +249,22 @@ public class BusinessSecurityServiceTest extends TestCase {
         request.setActivateCode("d0869705-04f0-4bb2-ba32-926c12a7f4ca");
         ActivationRiskAsyncDetectRiskResponse response = service.ActivationRiskAsyncDetectRisk(request);
         System.out.println(response);
-
     }
+
+
+
+
+
+
+    public void testActivationRiskAbortUploadSampleData()throws Exception{
+        BusinessSecurityService service = initService();
+        ActivationRiskAbortUploadSampleDataRequest request = new ActivationRiskAbortUploadSampleDataRequest();
+        request.setAppId(1);
+        request.setPackageId("Test-15");
+        ActivationRiskAbortUploadSampleDataResponse response = service.ActivationRiskAbortUploadSampleData(request);
+        System.out.println(response);
+    }
+
+    
+
 }

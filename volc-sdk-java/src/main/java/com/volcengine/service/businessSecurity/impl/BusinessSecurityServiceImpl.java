@@ -116,6 +116,42 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
     }
 
     @Override
+    public ActivationRiskListBasePackagePartResponse ActivationRiskListBasePackagePart(ActivationRiskListBasePackagePartRequest request) throws Exception {
+        RawResponse response = json(Const.ActivationRiskListBasePackagePart, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), ActivationRiskListBasePackagePartResponse.class);
+    }
+
+    @Override
+    public ActivationRiskListSampleDataPartResponse ActivationRiskListSampleDataPart(ActivationRiskListSampleDataPartRequest request) throws Exception {
+        RawResponse response = json(Const.ActivationRiskListSampleDataPart, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), ActivationRiskListSampleDataPartResponse.class);
+    }
+
+    @Override
+    public ActivationRiskAbortUploadSampleDataResponse ActivationRiskAbortUploadSampleData(ActivationRiskAbortUploadSampleDataRequest request) throws Exception {
+        RawResponse response = json(Const.ActivationRiskAbortUploadSampleData, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), ActivationRiskAbortUploadSampleDataResponse.class);
+    }
+
+    @Override
+    public ActivationRiskAbortUploadBasePackageResponse ActivationRiskAbortUploadBasePackage(ActivationRiskAbortUploadBasePackageRequest request) throws Exception {
+        RawResponse response = json(Const.ActivationRiskAbortUploadBasePackage, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), ActivationRiskAbortUploadBasePackageResponse.class);
+    }
+
+    @Override
     public RiskDetectionResponse RiskDetection(RiskDetectionRequest riskDetectionRequest) throws Exception {
         RawResponse response = json(Const.RiskDetection, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

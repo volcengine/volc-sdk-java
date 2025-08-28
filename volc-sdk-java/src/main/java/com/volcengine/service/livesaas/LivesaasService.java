@@ -265,6 +265,15 @@ public interface LivesaasService extends IBaseService {
     GetRealTimeOnlineNumberAPIResponse getRealTimeOnlineNumberAPI(CommonRequest commonRequest) throws Exception;
 
     /**
+     * GetAccountRealTimeOnlineNumber
+     *
+     * @param getAccountRealTimeOnlineNumberRequest GetAccountRealTimeOnlineNumberRequest
+     * @return GetAccountRealTimeOnlineNumberResponse
+     * @throws Exception the exception
+     */
+    GetAccountRealTimeOnlineNumberResponse getAccountRealTimeOnlineNumber(GetAccountRealTimeOnlineNumberRequest getAccountRealTimeOnlineNumberRequest) throws Exception;
+
+    /**
      * ListAnActivityStartAndEndTimeAPI
      *
      * @param commonRequest CommonRequest

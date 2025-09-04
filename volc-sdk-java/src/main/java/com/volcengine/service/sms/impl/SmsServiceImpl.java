@@ -350,14 +350,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     private SmsSendResponse getSmsSendResponseV2(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             if (response.getException() != null) {
-                for (Header header : response.getHeaders()) {
-                    if (header != null) {
-                        log.info("Header name is" + header.getName() + ",value is " + header.getValue());
-                    }
-                }
-                log.error("Http code is " + response.getHttpCode());
-                log.error("exception is ", response.getException());
-                return new SmsSendResponse(String.valueOf(response.getCode()), response.getException().getMessage());
+                return new SmsSendResponse(String.valueOf(response.getCode()), response.getVerboseExceptionMessage());
             }
             return new SmsSendResponse(String.valueOf(response.getCode()), Arrays.toString(response.getData()));
         }
